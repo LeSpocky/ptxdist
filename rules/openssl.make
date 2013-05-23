@@ -77,6 +77,8 @@ OPENSSL_CONF_OPT := \
 	--prefix=/usr \
 	--openssldir=/usr/lib/ssl \
 	--install_prefix=$(OPENSSL_PKGDIR)
+OPENSSL_INSTALL_OPT := \
+	install_sw
 
 ifdef PTXCONF_OPENSSL_SHARED
 OPENSSL_CONF_OPT += shared
