@@ -41,29 +41,54 @@ ptxd_init_arch() {
 
 
 #
+# run cross-gcc with flags
+#
+ptxd_cross_cc() {
+    local compiler_prefix extra_cppflags extra_cflags
+    compiler_prefix="$(ptxd_get_ptxconf PTXCONF_COMPILER_PREFIX)"
+    extra_cppflags="$(ptxd_get_ptxconf PTXCONF_TARGET_EXTRA_CPPFLAGS)"
+    extra_cflags="$(ptxd_get_ptxconf PTXCONF_TARGET_EXTRA_CFLAGS)"
+
+    ${compiler_prefix}gcc ${extra_cppflags} ${extra_cflags} "${@}"
+}
+export -f ptxd_cross_cc
+
+#
+# run cross-gcc with flags and -v
+#
+ptxd_cross_cc_v() {
+    echo 'int main(void){return 0;}' | \
+    ptxd_cross_cc -x c -o /dev/null -v - 2>&1
+}
+export -f ptxd_cross_cc_v
+
+#
 # figure out the toolchain's sysroot
 #
 # out:	PTXDIST_SYSROOT_TOOLCHAIN
 #
 ptxd_init_sysroot_toolchain() {
-    local compiler_prefix="$(ptxd_get_ptxconf PTXCONF_COMPILER_PREFIX)"
-
     #
     # no compiler prefix specified means using plain "gcc"
     # which comes from the distribution, so no sysroot here
     #
+    local compiler_prefix="$(ptxd_get_ptxconf PTXCONF_COMPILER_PREFIX)"
     if [ -z "${compiler_prefix}" ]; then
 	PTXDIST_SYSROOT_TOOLCHAIN="/"
     else
 	local sysroot
 
-	sysroot="$(echo 'int main(void){return 0;}' | \
-	${compiler_prefix}gcc -x c -o /dev/null -v - 2>&1 | \
+	sysroot="$(ptxd_cross_cc -print-sysroot 2> /dev/null)" &&
+	    [ -n "${sysroot}" ] ||
+	sysroot="$(ptxd_cross_cc_v | \
 	sed -ne "/.*collect2.*/s,.*--sysroot=\([^[:space:]]*\).*,\1,p" && \
-	check_pipe_status)"
+	    check_pipe_status)" &&
+	    [ -n "${sysroot}" ] ||
+	sysroot="$(ptxd_lib_sysroot \
+	    "$(ptxd_cross_cc -print-file-name=libc.so 2> /dev/null)")"
 
 	if [ $? -ne 0 -o -z "${sysroot}" ]; then
-	    return 1
+	    ptxd_bailout "Could not detect toolchain sysroot! The toolchain is broken or not configured correctly."
 	fi
 
 	PTXDIST_SYSROOT_TOOLCHAIN="$(ptxd_abspath "${sysroot}")" || return
