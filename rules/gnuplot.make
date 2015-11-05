@@ -49,7 +49,7 @@ GNUPLOT_AUTOCONF = \
 	--disable-h3d-quadtree \
 	--disable-h3d-gridbox \
 	--disable-wxwidgets \
-	--enable-backwards-compatibility \
+	--$(call ptx/endis, PTXCONF_GNUPLOT_COMPAT)-backwards-compatibility \
 	--disable-stats \
 	--disable-qt \
 	--without-lispdir \

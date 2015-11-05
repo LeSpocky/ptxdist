@@ -64,4 +64,12 @@ config GNUPLOT_PDF
 	depends on BROKEN
 	help
 	  Include support for output as PDF (Portable Document Format)
+
+config GNUPLOT_COMPAT
+	bool
+	prompt "support deprecated syntax"
+	default y
+	help
+	  Support certain syntax deprecated since Gnuplot version 4.0.
+
 endif
