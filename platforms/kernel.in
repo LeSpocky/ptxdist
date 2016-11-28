@@ -217,6 +217,13 @@ config KERNEL_IMAGE
 config KERNEL_DTC
 	bool
 
+config KERNEL_LOADADDR
+	hex
+	prompt "uImage load address"
+	depends on KERNEL_IMAGE_U
+	help
+	  Newer kernels want this passed if you build an uImage.
+
 config KERNEL_XZ
 	prompt "build xz-utils hosttool"
 	bool

@@ -88,6 +88,11 @@ KERNEL_MAKEVARS += \
 	DEPMOD=$(PTXCONF_SYSROOT_HOST)/sbin/depmod
 endif
 
+ifdef PTXCONF_KERNEL_IMAGE_U
+KERNEL_MAKEVARS += \
+	LOADADDR=$(PTXCONF_KERNEL_LOADADDR)
+endif
+
 #
 # Make the build more predictable if $(KERNEL_DIR) is not a symlink
 #
