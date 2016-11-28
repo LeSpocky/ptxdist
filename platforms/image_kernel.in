@@ -44,4 +44,30 @@ config IMAGE_KERNEL_LZOP_EXTRA_ARGS
 	string
 	prompt "extra arguments passed to the lzop command"
 
+menuconfig IMAGE_KERNEL_APPENDED_DTB_ZIMAGE
+	bool
+	prompt "Generate image with appended DT blob"
+	depends on DTC
+	depends on KERNEL_IMAGE_Z
+	help
+	  Old bootloaders may not be able load a separate device tree binary
+	  blob, so the kernel offers the option CONFIG_ARM_APPENDED_DTB to
+	  append the dtb directly to a zImage and load it from there.
+
+config IMAGE_KERNEL_APPENDED_DTB_FILE
+	string
+	prompt "dtb filename"
+	depends on IMAGE_KERNEL_APPENDED_DTB_ZIMAGE
+	help
+	  You can build several dtb files, but it only makes sense to
+	  concatenate one to the kernel image. Enter the filename here!
+
+config IMAGE_KERNEL_APPENDED_DTB_UIMAGE
+	bool
+	prompt "additional uImage"
+	depends on IMAGE_KERNEL_APPENDED_DTB_ZIMAGE
+	select HOST_U_BOOT_TOOLS
+	help
+	  Make a uImage from the concatenated zImage/dtb file.
+
 endif

@@ -299,6 +299,12 @@ $(STATEDIR)/kernel.targetinstall.post: $(IMAGEDIR)/linuximage
 ifdef PTXCONF_IMAGE_KERNEL_LZOP
 $(STATEDIR)/kernel.targetinstall.post: $(IMAGEDIR)/linuximage.lzo
 endif
+ifdef PTXCONF_IMAGE_KERNEL_APPENDED_DTB_ZIMAGE
+$(STATEDIR)/kernel.targetinstall.post: $(IMAGEDIR)/linux_dtb.zImage
+endif
+ifdef PTXCONF_IMAGE_KERNEL_APPENDED_DTB_UIMAGE
+$(STATEDIR)/kernel.targetinstall.post: $(IMAGEDIR)/linux_dtb.uImage
+endif
 endif
 
 $(STATEDIR)/kernel.targetinstall.post:

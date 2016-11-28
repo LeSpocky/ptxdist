@@ -220,7 +220,7 @@ config KERNEL_DTC
 config KERNEL_LOADADDR
 	hex
 	prompt "uImage load address"
-	depends on KERNEL_IMAGE_U
+	depends on KERNEL_IMAGE_U || IMAGE_KERNEL_APPENDED_DTB_UIMAGE
 	help
 	  Newer kernels want this passed if you build an uImage.
 
