@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_FLEX) += flex
 #
 # Paths and names
 #
-FLEX_VERSION	:= 2.5.39
-FLEX_MD5	:= 477679c37ff8b28248a9b05f1da29a82
+FLEX_VERSION	:= 2.6.4
+FLEX_MD5	:= 2882e3179748cc9f9c23ec593d6adc8d
 FLEX		:= flex-$(FLEX_VERSION)
-FLEX_SUFFIX	:= tar.xz
-FLEX_URL	:= $(call ptx/mirror, SF, flex/$(FLEX).$(FLEX_SUFFIX))
+FLEX_SUFFIX	:= tar.gz
+FLEX_URL	:= https://github.com/westes/flex/releases/download/v$(FLEX_VERSION)/$(FLEX).$(FLEX_SUFFIX)
 FLEX_SOURCE	:= $(SRCDIR)/$(FLEX).$(FLEX_SUFFIX)
 FLEX_DIR	:= $(BUILDDIR)/$(FLEX)
 FLEX_LICENSE	:= BSD-2-Clause
@@ -34,7 +34,10 @@ FLEX_CONF_TOOL	:= autoconf
 FLEX_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-nls \
-	--disable-rpath
+	--disable-rpath \
+	--disable-warnings \
+	--enable-libfl \
+	--disable-bootstrap
 
 # ----------------------------------------------------------------------------
 # Target-Install
