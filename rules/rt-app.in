@@ -1,0 +1,10 @@
+## SECTION=test_suites
+
+config RT_APP
+	tristate
+	prompt "rt-app"
+	select JSON_C
+	help
+	  Simulate real-time system use cases.
+
+# vim: ft=kconfig noet tw=72
