@@ -3,6 +3,7 @@
 menuconfig COLLECTD
 	tristate
 	select LIBCAP
+	select LIBMNL			if COLLECTD_NETLINK
 	select LIBOPING			if COLLECTD_PING
 	select RRDTOOL			if COLLECTD_RRDTOOL || COLLECTD_RRDCACHED
 	select RRDTOOL_RRDCACHED	if COLLECTD_RRDCACHED
@@ -59,6 +60,14 @@ config COLLECTD_MEMORY
 	prompt "memory"
 	help
 	  The Memory plugin collects physical memory utilization.
+
+config COLLECTD_NETLINK
+	bool
+	prompt "netlink"
+	help
+	  The Netlink plugin will open a netlink socket to the Linux kernel
+	  and use it to get statistics for interfaces, qdiscs, classes, and,
+	  if you can make use of it, filters.
 
 config COLLECTD_PING
 	bool
