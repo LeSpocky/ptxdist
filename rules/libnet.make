@@ -15,13 +15,15 @@ PACKAGES-$(PTXCONF_LIBNET) += libnet
 #
 # Paths and names
 #
-LIBNET_VERSION	:= 1.1.6
-LIBNET_MD5	:= 710296fe424a49344e5fcc0d09e53317
-LIBNET		:= libnet-$(LIBNET_VERSION)
-LIBNET_SUFFIX	:= tar.gz
-LIBNET_URL	:= $(call ptx/mirror, SF, libnet-dev/$(LIBNET).$(LIBNET_SUFFIX))
-LIBNET_SOURCE	:= $(SRCDIR)/$(LIBNET).$(LIBNET_SUFFIX)
-LIBNET_DIR	:= $(BUILDDIR)/$(LIBNET)
+LIBNET_VERSION	        := 1.1.6
+LIBNET_MD5	        := 710296fe424a49344e5fcc0d09e53317
+LIBNET		        := libnet-$(LIBNET_VERSION)
+LIBNET_SUFFIX           := tar.gz
+LIBNET_URL              := $(call ptx/mirror, SF, libnet-dev/$(LIBNET).$(LIBNET_SUFFIX))
+LIBNET_SOURCE           := $(SRCDIR)/$(LIBNET).$(LIBNET_SUFFIX)
+LIBNET_DIR              := $(BUILDDIR)/$(LIBNET)
+LIBNET_LICENSE          := multiple # BSD-2, BSD-3, BSD-4, maybe others
+LIBNET_LICENSE_FILES    := file://doc/COPYING;md5=fb43d5727b2d3d1238545f75ce456ec3
 
 # ----------------------------------------------------------------------------
 # Prepare
