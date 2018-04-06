@@ -24,7 +24,6 @@ config NFTABLES_DEBUG
 	default y
 	prompt "enable debug"
 
-
 config NFTABLES_MGMP
 	bool
 	prompt "use mini-GMP"
@@ -43,3 +42,5 @@ config NFTABLES_SYSTEMD_UNIT
 	prompt "install systemd unit file for nftables"
 
 endif
+
+# vim: ft=kconfig noet tw=72

@@ -78,4 +78,4 @@ endif
 
 	@$(call touch)
 
-# vim: syntax=make
+# vim: ft=make noet ts=8 sw=8
