@@ -23,7 +23,13 @@ FIGLET_SUFFIX		:= tar.gz
 FIGLET_URL		:= ftp://ftp.figlet.org/pub/figlet/program/unix/$(FIGLET).$(FIGLET_SUFFIX)
 FIGLET_SOURCE		:= $(SRCDIR)/$(FIGLET).$(FIGLET_SUFFIX)
 FIGLET_DIR		:= $(BUILDDIR)/$(FIGLET)
-FIGLET_LICENSE		:= figlet
+FIGLET_LICENSE		:= BSD-3-Clause AND MIT-CMU AND ISC AND Unicode-DFS-2016 AND WTFPL
+FIGLET_LICENSE_FILES	:= \
+	file://LICENSE;md5=1688bcd97b27704f1afcac7336409857 \
+	file://inflate.c;startline=7;endline=27;md5=74ed6158b8244dbc4d91afaf8a39bec2 \
+	file://utf8.c;startline=2;endline=16;md5=eb9cc57cf60ac24044670bf8dc475579 \
+	file://fonts/8859-2.flc;startline=9;endline=23;md5=1cecb984063248f29ffe5c46f5c04f34 \
+	file://tests/emboss.tlf;startline=3;endline=10;md5=8e317e9236ffade21fedc39e3496eac2
 
 # ----------------------------------------------------------------------------
 # Compile
