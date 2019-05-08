@@ -22,6 +22,8 @@ LIBNET_SUFFIX	:= tar.gz
 LIBNET_URL	:= $(call ptx/mirror, SF, libnet-dev/$(LIBNET).$(LIBNET_SUFFIX))
 LIBNET_SOURCE	:= $(SRCDIR)/$(LIBNET).$(LIBNET_SUFFIX)
 LIBNET_DIR	:= $(BUILDDIR)/$(LIBNET)
+LIBNET_LICENSE	:= BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause AND MIT-CMU
+LIBNET_LICENSE_FILES := file://doc/COPYING;md5=fb43d5727b2d3d1238545f75ce456ec3
 
 # ----------------------------------------------------------------------------
 # Prepare
