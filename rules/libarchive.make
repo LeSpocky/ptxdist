@@ -22,6 +22,7 @@ LIBARCHIVE_URL		:= http://www.libarchive.org/downloads/$(LIBARCHIVE).$(LIBARCHIV
 LIBARCHIVE_SOURCE	:= $(SRCDIR)/$(LIBARCHIVE).$(LIBARCHIVE_SUFFIX)
 LIBARCHIVE_DIR		:= $(BUILDDIR)/$(LIBARCHIVE)
 LIBARCHIVE_LICENSE	:= BSD-2-Clause AND BSD-3-Clause
+LIBARCHIVE_LICENSE_FILES := file://COPYING;md5=ed99aca006bc346974bb745a35336425
 
 # ----------------------------------------------------------------------------
 # Prepare
