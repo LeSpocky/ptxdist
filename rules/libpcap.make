@@ -21,7 +21,8 @@ LIBPCAP_SUFFIX	:= tar.gz
 LIBPCAP_URL	:= http://www.tcpdump.org/release/$(LIBPCAP).$(LIBPCAP_SUFFIX)
 LIBPCAP_SOURCE	:= $(SRCDIR)/$(LIBPCAP).$(LIBPCAP_SUFFIX)
 LIBPCAP_DIR	:= $(BUILDDIR)/$(LIBPCAP)
-LIBPCAP_LICENSE	:= BSD-3-Clause
+LIBPCAP_LICENSE	:= BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause AND BSD-4-Clause-UC
+LIBPCAP_LICENSE_FILES := file://LICENSE;md5=5eb289217c160e2920d2e35bddc36453
 
 # ----------------------------------------------------------------------------
 # Prepare
