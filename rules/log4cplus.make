@@ -22,7 +22,8 @@ LOG4CPLUS_SUFFIX	:= tar.xz
 LOG4CPLUS_URL		:= $(call ptx/mirror, SF, log4cplus/$(LOG4CPLUS).$(LOG4CPLUS_SUFFIX))
 LOG4CPLUS_SOURCE	:= $(SRCDIR)/$(LOG4CPLUS).$(LOG4CPLUS_SUFFIX)
 LOG4CPLUS_DIR		:= $(BUILDDIR)/$(LOG4CPLUS)
-LOG4CPLUS_LICENSE	:= Apache-2.0
+LOG4CPLUS_LICENSE	:= Apache-2.0 AND BSD-2-Clause
+LOG4CPLUS_LICENSE_FILES	:= file://LICENSE;md5=65053a46f707ee2b93f09ad22f692170
 
 # ----------------------------------------------------------------------------
 # Prepare
