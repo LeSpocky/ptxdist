@@ -2,6 +2,7 @@
 
 menuconfig PULSEAUDIO
 	tristate
+	select HOST_MESON
 	select HOST_ORC
 	select LIBC_M
 	select LIBC_RT

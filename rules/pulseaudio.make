@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PULSEAUDIO) += pulseaudio
 #
 # Paths and names
 #
-PULSEAUDIO_VERSION	:= 12.2
-PULSEAUDIO_MD5		:= c42f1f1465e8df9859d023dc184734bf
+PULSEAUDIO_VERSION	:= 13.0
+PULSEAUDIO_MD5		:= e41d606f90254ed45c90520faf83d95c
 PULSEAUDIO		:= pulseaudio-$(PULSEAUDIO_VERSION)
 PULSEAUDIO_SUFFIX	:= tar.xz
 PULSEAUDIO_URL		:= http://freedesktop.org/software/pulseaudio/releases/$(PULSEAUDIO).$(PULSEAUDIO_SUFFIX)
@@ -34,81 +34,57 @@ PULSEAUDIO_LICENSE_FILES	:= \
 # ----------------------------------------------------------------------------
 
 PULSEAUDIO_CONF_ENV	:= \
-	$(CROSS_ENV) \
+	$(CROSS_MESON_ENV) \
 	ORCC=orcc
 
 #
 # autoconf
 #
-PULSEAUDIO_CONF_TOOL	:= autoconf
+PULSEAUDIO_CONF_TOOL	:= meson
 PULSEAUDIO_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-nls \
-	--disable-rpath \
-	--enable-atomic-arm-linux-helpers \
-	--enable-atomic-arm-memory-barrier \
-	--$(call ptx/endis, PTXCONF_ARCH_ARM_NEON)-neon-opt \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--enable-memfd \
-	--disable-x11 \
-	--disable-tests \
-	--disable-samplerate \
-	--disable-oss-output \
-	--disable-oss-wrapper \
-	--disable-coreaudio-output \
-	--enable-alsa \
-	--disable-esound \
-	--disable-solaris \
-	--disable-waveout \
-	--disable-glib2 \
-	--disable-gtk3 \
-	--disable-gsettings \
-	--disable-gconf \
-	--disable-schemas-compile \
-	--disable-avahi \
-	--disable-jack \
-	--disable-asyncns \
-	--disable-tcpwrap \
-	--disable-lirc \
-	--$(call ptx/endis, PTXCONF_PULSEAUDIO_BLUETOOTH)-dbus \
-	--disable-bluez4 \
-	--$(call ptx/endis, PTXCONF_PULSEAUDIO_BLUETOOTH)-bluez5 \
-	--disable-bluez5-ofono-headset \
-	--disable-bluez5-native-headset \
-	--enable-udev \
-	--disable-hal-compat \
-	$(GLOBAL_IPV6_OPTION) \
-	--disable-openssl \
-	--disable-gcov \
-	--enable-orc \
-	--$(call ptx/endis, PTXCONF_PULSEAUDIO_SYSTEMD)-systemd-daemon \
-	--disable-systemd-login \
-	--$(call ptx/endis, PTXCONF_PULSEAUDIO_SYSTEMD)-systemd-journal \
-	--disable-manpages \
-	--disable-per-user-esound-socket \
-	--disable-mac-universal \
-	--disable-webrtc-aec \
-	--enable-adrian-aec \
-	--disable-default-build-tests \
-	--disable-legacy-database-entry-format \
-	--disable-static-bins \
-	--disable-force-preopen \
-	--with-caps \
-	--with-database=simple \
-	--with-pulsedsp-location= \
-	--without-fftw \
-	--$(call ptx/wwo, PTXCONF_PULSEAUDIO_SPEEX)-speex \
-	--without-soxr \
-	--with-systemduserunitdir=/usr/lib/systemd/user \
-	--with-system-user= \
-	--with-system-group= \
-	--with-access-group=pulse-access \
-	--with-mac-version-min= \
-	--with-mac-sysroot= \
-	--with-preopen-mods=all \
-	--with-module-dir=/usr/lib/pulse-$(PULSEAUDIO_VERSION)/modules \
-	--with-udev-rules-dir=lib/udev/rules.d \
-	--with-zsh-completion-dir=
+	$(CROSS_MESON_USR) \
+	-Daccess_group=pulse-access \
+	-Dadrian-aec=true \
+	-Dalsa=enabled \
+	-Dasyncns=disabled \
+	-Datomic-arm-linux-helpers=true \
+	-Datomic-arm-memory-barrier=true \
+	-Davahi=disabled \
+	-Dbluez5=$(call ptx/truefalse, PTXCONF_PULSEAUDIO_BLUETOOTH) \
+	-Dbluez5-native-headset=false \
+	-Dbluez5-ofono-headset=false \
+	-Ddatabase=simple \
+	-Ddbus=$(call ptx/endis, PTXCONF_PULSEAUDIO_BLUETOOTH)d \
+	-Dfftw=disabled \
+	-Dgcov=false \
+	-Dglib=disabled \
+	-Dgsettings=disabled \
+	-Dgtk=disabled \
+	-Dhal-compat=false \
+	-Dipv6=$(call ptx/truefalse, PTXCONF_GLOBAL_IPV6) \
+	-Djack=disabled \
+	-Dlegacy-database-entry-format=false \
+	-Dlirc=disabled \
+	-Dman=false \
+	-Dmodlibexecdir=/usr/lib/pulse-$(PULSEAUDIO_VERSION)/modules \
+	-Dopenssl=disabled \
+	-Dorc=enabled \
+	-Dpadsplibdir= \
+	-Dpulsedsp-location= \
+	-Drunning-from-build-tree=false \
+	-Dsamplerate=disabled \
+	-Dsoxr=disabled \
+	-Dspeex=$(call ptx/endis, PTXCONF_PULSEAUDIO_SPEEX)d \
+	-Dsystem_group= \
+	-Dsystem_user= \
+	-Dsystemd=$(call ptx/endis, PTXCONF_PULSEAUDIO_SYSTEMD)d \
+	-Dsystemduserunitdir=/usr/lib/systemd/user \
+	-Dtests=false \
+	-Dudev=enabled \
+	-Dudevrulesdir=/lib/udev/rules.d \
+	-Dwebrtc-aec=disabled \
+	-Dx11=disabled \
+	-Dzshcompletiondir=
 
 PULSEAUDIO_LDFLAGS	:= -Wl,-rpath,/usr/lib/pulseaudio:/usr/lib/pulse-$(PULSEAUDIO_VERSION)/modules
 
