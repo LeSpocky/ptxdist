@@ -1,4 +1,6 @@
-## SECTION=communication
+## SECTION=staging
+## old section:
+### SECTION=communication
 
 menuconfig CANUTILS
 	tristate
@@ -7,6 +9,10 @@ menuconfig CANUTILS
 	help
 	  The canutils package contains tools to configure
 	  and test the Socket CAN framework.
+
+	  STAGING: remove in ptxdist-2020.10.0
+	  Outdated version that is no longer maintained, and has been superseded
+	  by berlios-can-utils.
 
 if CANUTILS
 
