@@ -19,8 +19,7 @@ MESALIB_MD5	:= cd1345c9b0d5121b860a0bdb20abc347
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
-	ftp://ftp.freedesktop.org/pub/mesa/$(MESALIB_VERSION)/$(MESALIB).$(MESALIB_SUFFIX) \
-	ftp://ftp.freedesktop.org/pub/mesa/$(MESALIB).$(MESALIB_SUFFIX)
+	https://mesa.freedesktop.org/archive/$(MESALIB).$(MESALIB_SUFFIX)
 MESALIB_SOURCE	:= $(SRCDIR)/$(MESALIB).$(MESALIB_SUFFIX)
 MESALIB_DIR	:= $(BUILDDIR)/Mesa-$(MESALIB_VERSION)
 MESALIB_LICENSE	:= MIT
