@@ -8,7 +8,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/meson.build b/meson.build
-index 31fa173d042e..ca8527950d8d 100644
+index 2b492faeaf17..0f933f125040 100644
 --- a/meson.build
 +++ b/meson.build
 @@ -405,7 +405,7 @@ python3 = import('python').find_installation()
