@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XORG_SERVER) += xorg-server
 #
 # Paths and names
 #
-XORG_SERVER_VERSION	:= 1.17.2
-XORG_SERVER_MD5		:= 397e405566651150490ff493e463f1ad
+XORG_SERVER_VERSION	:= 1.20.5
+XORG_SERVER_MD5		:= c9fc7e21e11286dbedd22c00df652130
 XORG_SERVER		:= xorg-server-$(XORG_SERVER_VERSION)
 XORG_SERVER_SUFFIX	:= tar.bz2
 XORG_SERVER_URL		:= $(call ptx/mirror, XORG, individual/xserver/$(XORG_SERVER).$(XORG_SERVER_SUFFIX))
@@ -31,7 +31,9 @@ XORG_SERVER_LICENSE	:= MIT
 XORG_SERVER_WRAPPER_BLACKLIST := \
         TARGET_HARDEN_BINDNOW
 
-XORG_SERVER_ENV 	:= $(CROSS_ENV) \
+XORG_SERVER_ENV		:= \
+	$(CROSS_ENV) \
+	ac_cv_lib_bsd_arc4random_buf=no \
 	ac_cv_sys_linker_h=yes \
 	ac_cv_file__usr_share_sgml_X11_defs_ent=no
 
@@ -53,6 +55,7 @@ XORG_SERVER_CONF_TOOL	:= autoconf
 # use "=" here
 XORG_SERVER_CONF_OPT	= \
 	$(CROSS_AUTOCONF_USR) \
+	--datadir=$(XORG_DATADIR) \
 	--disable-strict-compilation \
 	--disable-docs \
 	--disable-devel-docs \
@@ -60,10 +63,10 @@ XORG_SERVER_CONF_OPT	= \
 	--disable-static \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-debug \
+	--disable-listen-tcp \
+	--enable-listen-unix \
+	--enable-listen-local \
 	--disable-sparkle \
-	--disable-install-libxf86config \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_OPT_AIGLX)-aiglx \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_OPT_GLX_TLS)-glx-tls \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_COMPOSITE)-composite \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_SHM)-mitshm \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XRES)-xres \
@@ -84,7 +87,6 @@ XORG_SERVER_CONF_OPT	= \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XACE)-xace \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XSELINUX)-xselinux \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XCSECURITY)-xcsecurity \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_TSLIB)-tslib \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_DBE)-dbe \
 	--$(call ptx/endis, PTXCONF_XORG_LIB_X11_XF86BIGFONT)-xf86bigfont \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_DPMS)-dpms \
@@ -102,9 +104,6 @@ XORG_SERVER_CONF_OPT	= \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_XORG)-pciaccess \
 	--enable-linux-acpi \
 	--enable-linux-apm \
-	--disable-listen-tcp \
-	--enable-listen-unix \
-	--enable-listen-local \
 	--disable-systemd-logind \
 	--disable-suid-wrapper \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_XORG)-xorg \
@@ -112,22 +111,19 @@ XORG_SERVER_CONF_OPT	= \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_XVFB)-xvfb \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_XNEST)-xnest \
 	--disable-xquartz \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_DRI3)-xshmfence \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_XWAYLAND)-xwayland \
+	--disable-xwayland-eglstream \
 	--disable-standalone-xpbproxy \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_XWIN)-xwin \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_GLAMOR)-glamor \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_KDRIVE)-kdrive \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_XEPHYR)-xephyr \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_XFAKE)-xfake \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_XFBDEV)-xfbdev \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_KDRIVE_KBD)-kdrive-kbd \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_KDRIVE_MOUSE)-kdrive-mouse \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_KDRIVE_EVDEV)-kdrive-evdev \
 	--disable-libunwind \
+	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_DRI3)-xshmfence \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_OPT_INSTALL_SETUID)-install-setuid \
 	$(XORG_OPTIONS_TRANS) \
 	--$(call ptx/endis, PTXCONF_XORG_SERVER_OPT_SECURE_RPC)-secure-rpc \
+	--enable-input-thread \
 	--enable-xtrans-send-fds \
 	--without-doxygen \
 	$(XORG_OPTIONS_DOCS) \
@@ -140,15 +136,6 @@ XORG_SERVER_CONF_OPT	= \
 	--with-xkb-output=/tmp \
 	--without-systemd-daemon \
 	--with-sha1=libcrypto
-
-#
-# FIXME rsc: what's the reason for this hack?
-#
-
-# if no value is given ignore the "--datadir" switch
-ifneq ($(call remove_quotes,$(XORG_DATADIR)),)
-	XORG_SERVER_CONF_OPT += --datadir=$(XORG_DATADIR)
-endif
 
 #
 # FIXME mol: what is this int10 stuff for?
@@ -189,13 +176,6 @@ ifdef PTXCONF_PRELINK
 		/etc/prelink.conf.d/xorg)
 endif
 
-ifdef PTXCONF_XORG_SERVER_XORG
-ifdef PTXCONF_XORG_SERVER_UDEV
-	@$(call install_copy, xorg-server, 0, 0, 0644, -, \
-		$(XORG_DATADIR)/X11/xorg.conf.d/10-evdev.conf)
-endif
-endif
-
 ifdef PTXCONF_XORG_SERVER_XVFB
 	@$(call install_copy, xorg-server, 0, 0, 0755, -, \
 		$(XORG_PREFIX)/bin/Xvfb)
@@ -216,11 +196,6 @@ ifdef PTXCONF_XORG_SERVER_XWIN
 	@$(call install_copy, xorg-server, 0, 0, 0755, -, \
 		$(XORG_PREFIX)/bin/Xwin)
 endif
-ifdef PTXCONF_XORG_SERVER_XFBDEV
-	@$(call install_copy, xorg-server, 0, 0, 0755, -, \
-		$(XORG_PREFIX)/bin/Xfbdev)
-endif
-
 ifdef PTXCONF_XORG_SERVER_XORG
 	@$(call install_copy, xorg-server, 0, 0, 0755, -, \
 		$(XORG_PREFIX)/bin/Xorg)
@@ -266,4 +241,3 @@ endif # PTXCONF_XORG_SERVER_XORG
 	@$(call touch)
 
 # vim: syntax=make
-

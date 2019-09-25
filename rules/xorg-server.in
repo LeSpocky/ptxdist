@@ -8,6 +8,7 @@ menuconfig XORG_SERVER
 	select HOST_XORG_UTIL_MACROS
 	select HOST_XORG_LIB_XTRANS	# needed for autoreconf
 	select HOST_XORG_FONT_UTIL	# needed for autoreconf
+
 	#
 	# required dependencies, according to REQUIRED_MODULES
 	# and REQUIRED_LIBS in conrigure.ac:
@@ -31,10 +32,6 @@ menuconfig XORG_SERVER
 	select XORG_LIB_XKBFILE
 
 	select LIBDRM			if XORG_SERVER_LIBDRM
-
-	# input hotplug with udev
-	select UDEV			if XORG_SERVER_UDEV
-	select UDEV_LIBUDEV		if XORG_SERVER_UDEV
 
 	# glx triggered
 	select XORG_LIB_X11		if XORG_SERVER_EXT_GLX
@@ -84,7 +81,7 @@ menuconfig XORG_SERVER
 	select XORG_LIB_XRES		if XORG_SERVER_EXT_XRES
 
 	# for kdrive
-	select TSLIB			if XORG_SERVER_TSLIB
+	select TSLIB
 
 	# FIXME: unclear dependencies
 	#select XORG_LIB_XXF86VM	if XORG_SERVER_EXT_XV
@@ -196,20 +193,6 @@ config XORG_SERVER_XEPHYR
 	  Xnest this kind of server supports all new features (extensions). It
 	  doesn't depend on the features of the underlying X server.
 
-config XORG_SERVER_XFAKE
-	bool
-	depends on BROKEN
-	prompt "fake server"
-	help
-	  FIXME
-
-config XORG_SERVER_XFBDEV
-	bool
-	select XORG_SERVER_KDRIVE
-	prompt "xfbdev server"
-	help
-	  FIXME
-
 endmenu
 
 # ----------------------------------------------------------------------------
@@ -231,22 +214,11 @@ endmenu
 
 menu "xorg options                  "
 
-config XORG_SERVER_OPT_AIGLX
-	bool
-	depends on BROKEN
-	prompt "aiglx"
-
 config XORG_SERVER_OPT_INSTALL_SETUID
 	bool
 	prompt "install server suid root"
 	help
 	  --enable-install-setuid
-
-config XORG_SERVER_OPT_SECURE_RPC
-	bool
-	prompt "secure rpc"
-	help
-	  Use secure RPC authentication (SUN-DES-1)
 
 config XORG_SERVER_UDEV
 	bool
@@ -255,39 +227,13 @@ config XORG_SERVER_UDEV
 	help
 	  FIXME
 
-endmenu
-
-if XORG_SERVER_KDRIVE
-
-menu "kdrive options                "
-
-config XORG_SERVER_TSLIB
+config XORG_SERVER_OPT_SECURE_RPC
 	bool
-	prompt "tslib support"
+	prompt "secure rpc"
 	help
-	  Build kdrive tslib touchscreen support
-
-config XORG_SERVER_KDRIVE_KBD
-	bool
-	prompt "kbd driver"
-	help
-	  Build kbd driver for kdrive
-
-config XORG_SERVER_KDRIVE_MOUSE
-	bool
-	prompt "mouse driver"
-	help
-	  Build mouse driver for kdrive
-
-config XORG_SERVER_KDRIVE_EVDEV
-	bool
-	prompt "evdev driver"
-	help
-	  Build evdev driver for kdrive
+	  Use secure RPC authentication (SUN-DES-1)
 
 endmenu
-
-endif
 
 # ----------------------------------------------------------------------------
 
@@ -382,11 +328,6 @@ config XORG_SERVER_EXT_GLX
 	prompt "glx extension"
 	help
 	  --enable-glx
-
-config XORG_SERVER_OPT_GLX_TLS
-	bool
-	depends on XORG_SERVER_EXT_GLX
-	prompt "tls support for glx"
 
 config XORG_SERVER_EXT_DRI
 	bool
@@ -485,4 +426,3 @@ endmenu
 # ----------------------------------------------------------------------------
 
 endif
-
