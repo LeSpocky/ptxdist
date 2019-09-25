@@ -27,7 +27,7 @@ HOST_XORG_LIB_X11_CONF_OPT	:= \
 	--disable-specs \
 	--disable-loadable-i18n \
 	--disable-loadable-xcursor \
-	--disable-xthreads \
+	--enable-xthreads \
 	--disable-xcms \
 	--enable-xlocale \
 	--enable-xlocaledir \
