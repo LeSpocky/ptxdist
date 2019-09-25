@@ -5,6 +5,8 @@ config LIBX11_LOCALE
 	# for autogen.sh
 	select HOST_XORG_UTIL_MACROS
 	select HOST_XORG_LIB_XTRANS
+	select LIBXCB
+	select XORG_LIB_XTRANS
 	prompt "libx11 locale data"
 	help
 	  X11 locale data files.
