@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_XORG_LIB_XDMCP) += xorg-lib-xdmcp
 #
 # Paths and names
 #
-XORG_LIB_XDMCP_VERSION	:= 1.1.1
-XORG_LIB_XDMCP_MD5	:= b94af6cef211cf3ee256f7e81f70fcd9
+XORG_LIB_XDMCP_VERSION	:= 1.1.3
+XORG_LIB_XDMCP_MD5	:= 115c5c12ecce0e749cd91d999a5fd160
 XORG_LIB_XDMCP		:= libXdmcp-$(XORG_LIB_XDMCP_VERSION)
 XORG_LIB_XDMCP_SUFFIX	:= tar.bz2
 XORG_LIB_XDMCP_URL	:= $(call ptx/mirror, XORG, individual/lib/$(XORG_LIB_XDMCP).$(XORG_LIB_XDMCP_SUFFIX))
@@ -27,6 +27,10 @@ XORG_LIB_XDMCP_LICENSE	:= MIT
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
+
+XORG_LIB_XDMCP_CONF_ENV		:= \
+	$(CROSS_ENV) \
+	ac_cv_lib_bsd_arc4random_buf=no
 
 #
 # autoconf
