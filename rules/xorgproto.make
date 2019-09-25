@@ -36,7 +36,7 @@ XORGPROTO_CONF_OPT	:= \
 	--disable-selective-werror \
 	--disable-strict-compilation \
 	--enable-specs \
-	--disable-legacy \
+	--enable-legacy \
 	--without-xmlto \
 	--without-fop \
 	--without-xsltproc
