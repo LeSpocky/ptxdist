@@ -11,10 +11,10 @@ Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
  1 file changed, 7 insertions(+), 3 deletions(-)
 
 diff --git a/src/fbdev.c b/src/fbdev.c
-index f5a7378..20078bc 100644
+index f25ef72204f0..35a3c60f7835 100644
 --- a/src/fbdev.c
 +++ b/src/fbdev.c
-@@ -124,6 +124,7 @@ typedef enum {
+@@ -125,6 +125,7 @@ typedef enum {
  	OPTION_SHADOW_FB,
  	OPTION_ROTATE,
  	OPTION_FBDEV,
@@ -22,7 +22,7 @@ index f5a7378..20078bc 100644
  	OPTION_DEBUG
  } FBDevOpts;
  
-@@ -131,6 +132,7 @@ static const OptionInfoRec FBDevOptions[] = {
+@@ -132,6 +133,7 @@ static const OptionInfoRec FBDevOptions[] = {
  	{ OPTION_SHADOW_FB,	"ShadowFB",	OPTV_BOOLEAN,	{0},	FALSE },
  	{ OPTION_ROTATE,	"Rotate",	OPTV_STRING,	{0},	FALSE },
  	{ OPTION_FBDEV,		"fbdev",	OPTV_STRING,	{0},	FALSE },
@@ -30,7 +30,7 @@ index f5a7378..20078bc 100644
  	{ OPTION_DEBUG,		"debug",	OPTV_BOOLEAN,	{0},	FALSE },
  	{ -1,			NULL,		OPTV_NONE,	{0},	FALSE }
  };
-@@ -518,9 +520,11 @@ FBDevPreInit(ScrnInfoPtr pScrn, int flags)
+@@ -589,9 +591,11 @@ FBDevPreInit(ScrnInfoPtr pScrn, int flags)
  	}
  
  	/* select video modes */
