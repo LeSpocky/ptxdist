@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XORG_APP_XDM) += xorg-app-xdm
 #
 # Paths and names
 #
-XORG_APP_XDM_VERSION	:= 1.1.11
-XORG_APP_XDM_MD5	:= 64a1af1f7eb69feae12e75d4cc3aaf19
+XORG_APP_XDM_VERSION	:= 1.1.12
+XORG_APP_XDM_MD5	:= 47c4c3bf8d59b64b64d134df8b5e5ec5
 XORG_APP_XDM		:= xdm-$(XORG_APP_XDM_VERSION)
 XORG_APP_XDM_SUFFIX	:= tar.bz2
 XORG_APP_XDM_URL	:= $(call ptx/mirror, XORG, individual/app/$(XORG_APP_XDM).$(XORG_APP_XDM_SUFFIX))
