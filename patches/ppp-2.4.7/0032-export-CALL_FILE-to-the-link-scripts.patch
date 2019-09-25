@@ -1,0 +1,38 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sat, 28 Sep 2019 08:11:50 +0200
+Subject: [PATCH] export $CALL_FILE to the link scripts
+
+Imported from ppp_2.4.7-2+4.1.debian.tar.xz
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ pppd/options.c | 1 +
+ pppd/pppd.8    | 3 +++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/pppd/options.c b/pppd/options.c
+index a8f3aa4590a3..340797386dd6 100644
+--- a/pppd/options.c
++++ b/pppd/options.c
+@@ -1482,6 +1482,7 @@ callfile(argv)
+     if ((fname = (char *) malloc(l)) == NULL)
+ 	novm("call file name");
+     slprintf(fname, l, "%s%s", _PATH_PEERFILES, arg);
++    script_setenv("CALL_FILE", arg, 0);
+ 
+     ok = options_from_file(fname, 1, 1, 1);
+ 
+diff --git a/pppd/pppd.8 b/pppd/pppd.8
+index 481aa8be672b..848ca8a16b77 100644
+--- a/pppd/pppd.8
++++ b/pppd/pppd.8
+@@ -1662,6 +1662,9 @@ the connection.
+ .B LINKNAME
+ The logical name of the link, set with the \fIlinkname\fR option.
+ .TP
++.B CALL_FILE
++The value of the \fIcall\fR option.
++.TP
+ .B DNS1
+ If the peer supplies DNS server addresses, this variable is set to the
+ first DNS server address supplied (whether or not the usepeerdns

@@ -32,13 +32,13 @@ index 6a55e0f08be4..3886564fa495 100755
    Linux)
      makext="linux";
 diff --git a/pppd/plugins/Makefile.linux b/pppd/plugins/Makefile.linux
-index 732cc8b411d2..193d884b898b 100644
+index bc29968d44c9..e010ad215981 100644
 --- a/pppd/plugins/Makefile.linux
 +++ b/pppd/plugins/Makefile.linux
-@@ -44,5 +44,5 @@ clean:
- 	for d in $(SUBDIRS); do $(MAKE) $(MFLAGS) -C $$d clean; done
+@@ -47,5 +47,5 @@ clean:
+ 	for d in $(SUBDIRS); do $(MAKE) $(MFLAGS) -C $$d clean || exit $$?; done
  
  depend:
 -	$(CPP) -M $(CFLAGS) *.c >.depend
 +	$(CC) -M $(CFLAGS) *.c >.depend
- 	for d in $(SUBDIRS); do $(MAKE) $(MFLAGS) -C $$d depend; done
+ 	for d in $(SUBDIRS); do $(MAKE) $(MFLAGS) -C $$d depend || exit $$?; done

@@ -9,7 +9,7 @@ menuconfig PPP
 	select LIBC_CRYPT
 	select LIBC_RESOLV	if PPP_PLUGINS
 	select LIBPCAP		if PPP_FILTER
-	select OPENSSL		if PPP_SRP || PPP_PLUGINS || PPP_MS_CHAP
+	select OPENSSL
 	help
 	  Point-to-Point Protocol (PPP) - daemon
 

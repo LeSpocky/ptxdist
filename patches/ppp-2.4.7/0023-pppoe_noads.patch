@@ -1,0 +1,25 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sat, 28 Sep 2019 08:11:49 +0200
+Subject: [PATCH] pppoe_noads
+
+Imported from ppp_2.4.7-2+4.1.debian.tar.xz
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ pppd/plugins/rp-pppoe/plugin.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/pppd/plugins/rp-pppoe/plugin.c b/pppd/plugins/rp-pppoe/plugin.c
+index c89be94250bc..7804b184f0cb 100644
+--- a/pppd/plugins/rp-pppoe/plugin.c
++++ b/pppd/plugins/rp-pppoe/plugin.c
+@@ -377,9 +377,6 @@ plugin_init(void)
+     }
+ 
+     add_options(Options);
+-
+-    info("RP-PPPoE plugin version %s compiled against pppd %s",
+-	 RP_VERSION, VERSION);
+ }
+ 
+ void pppoe_check_options(void)

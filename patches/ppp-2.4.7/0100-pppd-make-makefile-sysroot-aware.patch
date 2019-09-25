@@ -6,42 +6,52 @@ The pppd Makefile is not SYSROOT aware. This patch replaces all
 occurrences of absolute paths by their corresponding SYSROOT relative
 ones.
 Skip the 'wildcard' check completely. Libcrypt is always needed anyways.
+Drop search paths in /usr/local and /usr/kerberos. Those are not needed and
+don't exist anyways.
 
 Signed-off-by: Marc Kleine-Budde <m.kleine-budde@pengutronix.de>
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- pppd/Makefile.linux | 8 +++-----
- 1 file changed, 3 insertions(+), 5 deletions(-)
+ pppd/Makefile.linux | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/pppd/Makefile.linux b/pppd/Makefile.linux
-index 4d536f84c7ba..30eb12f9d11d 100644
+index cb9d4f9dcf22..ea0a7f02766b 100644
 --- a/pppd/Makefile.linux
 +++ b/pppd/Makefile.linux
-@@ -100,8 +100,8 @@ endif
+@@ -103,8 +103,8 @@ endif
  
  # EAP SRP-SHA1
  ifdef USE_SRP
 -CFLAGS	+= -DUSE_SRP -DOPENSSL -I/usr/local/ssl/include
--LIBS	+= -lsrp -L/usr/local/ssl/lib -lcrypto
-+CFLAGS	+= -DUSE_SRP -DOPENSSL -I$(SYSROOT)/usr/local/ssl/include
-+LIBS	+= -lsrp -L$(SYSROOT)/usr/local/ssl/lib -lcrypto
+-LIBS	+= -lsrp -L/usr/local/ssl/lib
++CFLAGS	+= -DUSE_SRP -DOPENSSL
++LIBS	+= -lsrp
  TARGETS	+= srp-entry
  EXTRAINSTALL = $(INSTALL) -c -m 555 srp-entry $(BINDIR)/srp-entry
  MANPAGES += srp-entry.8
-@@ -124,11 +124,9 @@ endif
- ifdef NO_CRYPT_HACK
- CFLAGS += -DNO_CRYPT_HACK
- else
+@@ -114,7 +114,7 @@ endif
+ 
+ # EAP-TLS
+ ifdef USE_EAPTLS
+-CFLAGS += -DUSE_EAPTLS=1 -I/usr/kerberos/include
++CFLAGS += -DUSE_EAPTLS=1
+ LIBS += -lssl
+ PPPDSRC += eap-tls.c
+ HEADERS += eap-tls.h
+@@ -126,10 +126,8 @@ CFLAGS   += -DHAS_SHADOW
+ #LIBS     += -lshadow $(LIBS)
+ endif
+ 
 -ifneq ($(wildcard /usr/include/crypt.h),)
  CFLAGS  += -DHAVE_CRYPT_H=1
  LIBS	+= -lcrypt
- endif
 -endif
  
  ifdef USE_LIBUTIL
  CFLAGS	+= -DHAVE_LOGWTMP=1
-@@ -137,7 +135,7 @@ endif
+@@ -138,7 +136,7 @@ endif
  
  ifdef NEEDDES
  ifndef USE_CRYPT
