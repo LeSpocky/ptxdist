@@ -23,7 +23,7 @@ menuconfig XORG_SERVER
 	select XORG_LIB_XTRANS
 
 	# libs
-	select XORG_LIB_XFONT
+	select XORG_LIB_XFONT2
 	select XORG_LIB_XAU
 	select XORG_LIB_FONTENC
 	select XORG_LIB_XEXT
@@ -109,7 +109,7 @@ menuconfig XORG_SERVER
 
 	# FIXME: xorg fails in dix subdirectory if no connection to font servers
 	# are enabled.
-	select XORG_LIB_XFONT_FONTSERVER
+	select XORG_LIB_XFONT2_FONTSERVER
 
 
 if XORG_SERVER

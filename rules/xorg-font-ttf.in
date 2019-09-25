@@ -2,9 +2,8 @@
 
 menuconfig XORG_FONT_TTF
 	depends on MENU_XORG_FONTS
-	select XORG_LIB_XFONT_FREETYPE if XORG_LIB_XFONT
+	select XORG_LIB_XFONT2_FREETYPE if XORG_LIB_XFONT2
 	bool
 	prompt "xorg true/open type fonts     "
 
 source "generated/multimedia_xorg_font_ttf.in"
-
