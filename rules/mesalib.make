@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 19.1.7
-MESALIB_MD5	:= cd1345c9b0d5121b860a0bdb20abc347
+MESALIB_VERSION	:= 19.2.0
+MESALIB_MD5	:= 4346581ded5d554cc873e2efbb8ce9c3
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -24,7 +24,7 @@ MESALIB_SOURCE	:= $(SRCDIR)/$(MESALIB).$(MESALIB_SUFFIX)
 MESALIB_DIR	:= $(BUILDDIR)/Mesa-$(MESALIB_VERSION)
 MESALIB_LICENSE	:= MIT
 MESALIB_LICENSE_FILES := \
-	file://docs/license.html;md5=725f991a1cc322aa7a0cd3a2016621c4
+	file://docs/license.html;md5=3a4999caf82cc503ac8b9e37c235782e
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -81,7 +81,6 @@ MESALIB_CONF_TOOL	:= meson
 MESALIB_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-DI-love-half-baked-turnips=false \
-	-Dasm=false \
 	-Dbuild-tests=false \
 	-Dd3d-drivers-path=/usr/lib/d3d \
 	-Ddri-drivers=$(subst $(space),$(comma),$(MESALIB_DRI_DRIVERS-y)) \

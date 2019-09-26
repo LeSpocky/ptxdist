@@ -19,7 +19,6 @@ HOST_MESALIB_CONF_TOOL	:= meson
 HOST_MESALIB_CONF_OPT	:= \
 	$(HOST_MESON_OPT) \
 	-DI-love-half-baked-turnips=false \
-	-Dasm=false \
 	-Dbuild-tests=false \
 	-Dd3d-drivers-path=/usr/lib/d3d \
 	-Ddri-drivers= \
