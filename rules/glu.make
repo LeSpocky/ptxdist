@@ -14,10 +14,10 @@ PACKAGES-$(PTXCONF_GLU) += glu
 #
 # Paths and names
 #
-GLU_VERSION	:= 9.0.0
-GLU_MD5		:= be9249132ff49275461cf92039083030
+GLU_VERSION	:= 9.0.1
+GLU_MD5		:= 151aef599b8259efe9acd599c96ea2a3
 GLU		:= glu-$(GLU_VERSION)
-GLU_SUFFIX	:= tar.bz2
+GLU_SUFFIX	:= tar.xz
 GLU_URL		:= ftp://ftp.freedesktop.org/pub/mesa/glu/$(GLU).$(GLU_SUFFIX)
 GLU_SOURCE	:= $(SRCDIR)/$(GLU).$(GLU_SUFFIX)
 GLU_DIR		:= $(BUILDDIR)/$(GLU)
