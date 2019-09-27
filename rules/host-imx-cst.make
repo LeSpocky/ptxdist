@@ -54,8 +54,15 @@ HOST_IMX_CST_CONF := NO
 # Compile
 # ----------------------------------------------------------------------------
 
+HOST_IMX_CST_ARCH := \
+	linux$(call ptx/ifeq, GNU_BUILD, x86_64-%, 64, 32)
+
 $(STATEDIR)/host-imx-cst.compile:
 	@$(call targetinfo)
+	cd $(HOST_IMX_CST_DIR)/code/back_end/src && \
+		$(HOSTCC) \
+		-Wall -O2 -g3 -o ../../../$(HOST_IMX_CST_ARCH)/bin/cst \
+		-I ../hdr -L ../../../$(HOST_IMX_CST_ARCH)/lib *.c -lfrontend -lcrypto
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
@@ -69,9 +76,6 @@ HOST_IMX_CST_PROGS := \
 
 HOST_IMX_CST_LIBS := \
 	libfrontend.a
-
-HOST_IMX_CST_ARCH := \
-	linux$(call ptx/ifeq, GNU_BUILD, x86_64-%, 64, 32)
 
 $(STATEDIR)/host-imx-cst.install:
 	@$(call targetinfo)
