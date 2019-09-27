@@ -22,6 +22,7 @@ LIBEVDEV_URL		:= http://www.freedesktop.org/software/libevdev/$(LIBEVDEV).$(LIBE
 LIBEVDEV_SOURCE		:= $(SRCDIR)/$(LIBEVDEV).$(LIBEVDEV_SUFFIX)
 LIBEVDEV_DIR		:= $(BUILDDIR)/$(LIBEVDEV)
 LIBEVDEV_LICENSE	:= MIT
+LIBEVDEV_LICENSE_FILES	:= file://COPYING;md5=75aae0d38feea6fda97ca381cb9132eb
 
 # ----------------------------------------------------------------------------
 # Prepare
