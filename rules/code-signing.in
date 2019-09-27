@@ -1,0 +1,23 @@
+## SECTION=code_signing
+
+menuconfig CODE_SIGNING
+	bool
+	select VIRTUAL
+	select HOST_LIBP11
+	prompt "Code signing                  "
+	help
+	  This option enables the ptxdist signing infrastructure.
+
+if CODE_SIGNING
+
+config CODE_SIGNING_PROVIDER
+	string
+
+choice
+	prompt "Code signing provider"
+
+source "generated/code_signing_provider.in"
+
+endchoice
+
+endif
