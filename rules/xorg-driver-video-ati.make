@@ -10,8 +10,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_ARCH_X86)-$(PTXCONF_XORG_DRIVER_VIDEO_ATI) += xorg-driver-video-ati
-PACKAGES-$(PTXCONF_ARCH_PPC)-$(PTXCONF_XORG_DRIVER_VIDEO_ATI) += xorg-driver-video-ati
+PACKAGES-$(PTXCONF_XORG_DRIVER_VIDEO_ATI) += xorg-driver-video-ati
 
 #
 # Paths and names
