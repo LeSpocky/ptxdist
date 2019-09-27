@@ -160,12 +160,14 @@ ifneq ($(strip $(BAREBOX_PROGS_TARGET_y)),)
 endif
 
 	@rm -f $(IMAGEDIR)/barebox-image
-	@find $(BAREBOX_BUILD_DIR)/images/ -name "barebox-*.img" | sort | while read image; do \
-		install -D -m644 $$image $(IMAGEDIR)/`basename $$image`; \
-		if [ ! -e $(IMAGEDIR)/barebox-image ]; then \
-			ln -sf `basename $$image` $(IMAGEDIR)/barebox-image; \
-		fi; \
-	done
+	@if [ -d $(BAREBOX_BUILD_DIR)/images ]; then \
+		find $(BAREBOX_BUILD_DIR)/images/ -name "barebox-*.img" | sort | while read image; do \
+			install -D -m644 $$image $(IMAGEDIR)/`basename $$image`; \
+			if [ ! -e $(IMAGEDIR)/barebox-image ]; then \
+				ln -sf `basename $$image` $(IMAGEDIR)/barebox-image; \
+			fi; \
+		done; \
+	fi
 	@if [ -e $(IMAGEDIR)/barebox-image ]; then \
 		:; \
 	elif [ -e $(BAREBOX_BUILD_DIR)/barebox-flash-image ]; then \
