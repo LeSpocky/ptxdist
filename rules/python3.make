@@ -125,8 +125,6 @@ $(STATEDIR)/python3.install.post:
 	@echo 'export PYTHONHASHSEED'					>> "$(CROSS_PYTHON3)"
 	@echo 'exec $(HOSTPYTHON3) "$${@}"'				>> "$(CROSS_PYTHON3)"
 	@chmod a+x "$(CROSS_PYTHON3)"
-	@ln -sf "python$(PYTHON3_MAJORMINOR)" \
-		"$(PTXDIST_SYSROOT_CROSS)/bin/python3"
 	@sed -e 's;prefix_real=.*;prefix_real=$(SYSROOT)/usr;' \
 		"$(PTXDIST_SYSROOT_TARGET)/usr/bin/python$(PYTHON3_MAJORMINOR)-config" \
 		> "$(PTXDIST_SYSROOT_CROSS)/bin/python$(PYTHON3_MAJORMINOR)-config"
