@@ -414,8 +414,10 @@ ptxd_make_world_init() {
 	    pkg_install_opt="-v ${pkg_install_opt}"
 	fi
 	# pass jobserver via MAKEFLAGS to ninja
-	pkg_env="${pkg_env} MAKEFLAGS='${PTXDIST_JOBSERVER_FLAGS}'"
-	PTXDIST_PARALLELMFLAGS_INTERN=""
+	if [ -n "${PTXDIST_JOBSERVER_FLAGS}" ]; then
+	    pkg_env="${pkg_env} MAKEFLAGS='${PTXDIST_JOBSERVER_FLAGS}'"
+	    PTXDIST_PARALLELMFLAGS_INTERN=""
+	fi
     fi
 
     # DESTDIR
