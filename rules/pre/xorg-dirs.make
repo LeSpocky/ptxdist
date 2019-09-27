@@ -7,20 +7,11 @@ XORG_DATADIR := $(XORG_PREFIX)/share
 XORG_FONTDIR := $(XORG_PREFIX)/share/fonts/X11
 XORG_BINDIR  := /usr/bin
 
-XORG_OPTIONS_TRANS	= --disable-local-transport
-ifdef PTXCONF_XORG_OPTIONS_TRANS_UNIX
-XORG_OPTIONS_TRANS	+= --enable-unix-transport
-else
-XORG_OPTIONS_TRANS	+= --disable-unix-transport
-endif
-
-ifdef PTXCONF_XORG_OPTIONS_TRANS_TCP
-XORG_OPTIONS_TRANS	+= --enable-tcp-transport
-else
-XORG_OPTIONS_TRANS	+= --disable-tcp-transport
-endif
-
-XORG_OPTIONS_TRANS	+= $(GLOBAL_IPV6_OPTION)
+XORG_OPTIONS_TRANS	:= \
+	--$(call ptx/endis,PTXCONF_XORG_OPTIONS_TRANS_UNIX)-unix-transport \
+	--$(call ptx/endis,PTXCONF_XORG_OPTIONS_TRANS_TCP)-tcp-transport \
+	$(GLOBAL_IPV6_OPTION) \
+	--disable-local-transport
 
 XORG_OPTIONS_DOCS	:= \
 	--without-xmlto \
