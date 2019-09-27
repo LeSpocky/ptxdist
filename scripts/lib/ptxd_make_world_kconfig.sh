@@ -90,6 +90,7 @@ export -f ptxd_make_kconfig
 
 ptxd_make_world_kconfig() {
     ptxd_make_world_init &&
+    mkdir -p "${pkg_build_dir}" &&
     cd "${pkg_build_dir}" &&
     ptxd_make_kconfig "${ptx_config_target}"
 }
