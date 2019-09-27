@@ -98,8 +98,8 @@ $(STATEDIR)/barebox.compile:
 	@$(call targetinfo)
 
 ifdef PTXCONF_BAREBOX_EXTRA_ENV
-	@if test $$(grep -c -e "^CONFIG_DEFAULT_ENVIRONMENT_PATH=.*\.ptxdist-defaultenv" $(BAREBOX_BUILD_DIR)/.config) -eq 0; then \
-		sed -i -e "s,^\(CONFIG_DEFAULT_ENVIRONMENT_PATH=.*\)\"$$,\1 .ptxdist-defaultenv\"," \
+	@if test $$(grep -c -e "^CONFIG_DEFAULT_ENVIRONMENT_PATH=.*\$(BAREBOX_BUILD_DIR)/.ptxdist-defaultenv" $(BAREBOX_BUILD_DIR)/.config) -eq 0; then \
+		sed -i -e "s,^\(CONFIG_DEFAULT_ENVIRONMENT_PATH=.*\)\"$$,\1 $(BAREBOX_BUILD_DIR)/.ptxdist-defaultenv\"," \
 			$(BAREBOX_BUILD_DIR)/.config; \
 	fi
 endif
