@@ -12,7 +12,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/scripts/fakeroot.in b/scripts/fakeroot.in
-index 88ff313cc12a..4fc5eddf2262 100755
+index eaf3f56f05aa..8ff3125a3d5b 100755
 --- a/scripts/fakeroot.in
 +++ b/scripts/fakeroot.in
 @@ -30,12 +30,12 @@ fatal ()

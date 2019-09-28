@@ -2,9 +2,8 @@
 #tag:base --start-number 1
 #tag:debian --start-number 1
 0001-eglibc-fts-without-LFS.patch
-0002-glibc-xattr-types.patch
-0003-hide-dlsym-error.patch
+0002-hide-dlsym-error.patch
 #tag:ptxdist --start-number 100
 0100-make-fakeroot-relocatable.patch
 0101-fakeroot-disable-build-of-doc-and-test.patch
-# 10e086ed26479131ecd760e5b7bb7cc2  - git-ptx-patches magic
+# 2755cb93836d1c1bfe9ac6e2a82e4ad6  - git-ptx-patches magic

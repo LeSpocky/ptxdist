@@ -11,13 +11,13 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile.am b/Makefile.am
-index 6d6f07f46ac8..9ab5d078e396 100644
+index 76210b5a6886..4ed7463a6561 100644
 --- a/Makefile.am
 +++ b/Makefile.am
 @@ -1,6 +1,6 @@
  AUTOMAKE_OPTIONS=foreign
  ACLOCAL_AMFLAGS = -I build-aux
--SUBDIRS=scripts doc test
+-SUBDIRS=doc scripts test
 +SUBDIRS=scripts
  
  noinst_LTLIBRARIES = libcommunicate.la libmacosx.la
