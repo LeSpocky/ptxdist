@@ -2,6 +2,8 @@
 
 config LIBGPG_ERROR
 	tristate
+	# needed for autogen.sh
+	select HOST_GETTEXT
 	prompt "libgpg-error"
 	help
 	  library for common error values and messages in GnuPG components
