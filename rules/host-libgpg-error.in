@@ -2,4 +2,6 @@
 
 config HOST_LIBGPG_ERROR
 	tristate
+	# needed for autogen.sh
+	select HOST_GETTEXT
 	default y if ALLYES
