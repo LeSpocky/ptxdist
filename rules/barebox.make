@@ -94,6 +94,12 @@ endif
 # Compile
 # ----------------------------------------------------------------------------
 
+ifdef PTXCONF_CODE_SIGNING
+BAREBOX_MAKE_ENV = \
+	$(CODE_SIGNING_ENV) \
+	IMAGE_KERNEL_FIT_KEY="$(shell cs_get_uri image-kernel-fit)"
+endif
+
 $(STATEDIR)/barebox.compile:
 	@$(call targetinfo)
 

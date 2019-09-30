@@ -14,6 +14,7 @@ menuconfig BAREBOX
 	select HOST_OPENSSL if BAREBOX_NEEDS_HOST_OPENSSL
 	select HOST_IMX_CST if BAREBOX_NEEDS_HOST_IMX_CST
 	select HOST_LZOP if BAREBOX_NEEDS_HOST_LZOP
+	select CODE_SIGNING if BAREBOX_NEEDS_KEYS
 	prompt "barebox                       "
 	bool
 	help
@@ -105,6 +106,21 @@ config BAREBOX_NEEDS_HOST_IMX_CST
 	  correct dependencies so that the proprieraty "cst" program
 	  is installed before barebox is compiled. THe signing is done
 	  in barebox and needs special configuration for your board.
+
+config BAREBOX_NEEDS_KEYS
+	prompt "barebox needs signing keys"
+	bool
+	help
+	  Select this if barebox needs signing keys. This is true when keys for
+	  verifying FIT images are compiled in or if barebox itself shall be
+	  signed.
+
+	  This version of the barebox build script supports compiling in a FIT
+	  image key. To let barebox compile in the FIT key provided by ptxdist
+	  set this in your barebox config:
+
+	  CONFIG_CRYPTO_RSA_KEY="__ENV__IMAGE_KERNEL_FIT_KEY"
+	  CONFIG_CRYPTO_RSA_KEY_NAME_HINT="image-kernel-fit"
 
 config BAREBOX_NEEDS_HOST_LZOP
 	prompt "barebox needs lzop"
