@@ -1,4 +1,4 @@
-## SECTION=imx-hab
+## SECTION=hosttools_noprompt
 
 config HOST_IMX_CST
 	tristate
