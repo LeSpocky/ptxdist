@@ -24,8 +24,6 @@ menuconfig UDEV_LEGACY
 	select LIBKMOD
 	select LIBBLKID
 	select HOST_GPERF	if UDEV_LEGACY_KEYMAPS
-	select PCIUTILS		if UDEV_LEGACY_PERSISTENT_PCI
-	select USBUTILS		if UDEV_LEGACY_PERSISTENT_USB
 	depends on SYSTEMD = n
 	help
 	  udev provides a dynamic device directory containing only the files for
@@ -134,14 +132,6 @@ config UDEV_LEGACY_PERSISTENT_GENERATOR
 	  This will generate udev-based persistent naming rules for
 	  your CD/DVD media and network devices
 	  Warning: this needs write access to /etc/udev/rules.d/
-
-config UDEV_LEGACY_PERSISTENT_PCI
-	bool
-	prompt "pci"
-
-config UDEV_LEGACY_PERSISTENT_USB
-	bool
-	prompt "usb"
 
 config UDEV_LEGACY_PERSISTENT_SCSI
 	bool
