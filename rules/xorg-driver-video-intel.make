@@ -15,11 +15,11 @@ PACKAGES-$(PTXCONF_ARCH_X86)-$(PTXCONF_XORG_DRIVER_VIDEO_INTEL) += xorg-driver-v
 #
 # Paths and names
 #
-XORG_DRIVER_VIDEO_INTEL_VERSION	:= 2.21.15
-XORG_DRIVER_VIDEO_INTEL_MD5	:= 8b646d257ace8197d6ab4e5ddeb8efb2
+XORG_DRIVER_VIDEO_INTEL_VERSION	:= 2.99.917-892-gc6cb1b199598
+XORG_DRIVER_VIDEO_INTEL_MD5	:= 671973850a065968455910e904704fec
 XORG_DRIVER_VIDEO_INTEL		:= xf86-video-intel-$(XORG_DRIVER_VIDEO_INTEL_VERSION)
 XORG_DRIVER_VIDEO_INTEL_SUFFIX	:= tar.bz2
-XORG_DRIVER_VIDEO_INTEL_URL	:= $(call ptx/mirror, XORG, individual/driver/$(XORG_DRIVER_VIDEO_INTEL).$(XORG_DRIVER_VIDEO_INTEL_SUFFIX))
+XORG_DRIVER_VIDEO_INTEL_URL	:= https://gitlab.freedesktop.org/xorg/driver/xf86-video-intel/-/archive/$(XORG_DRIVER_VIDEO_INTEL_VERSION)/$(XORG_DRIVER_VIDEO_INTEL).$(XORG_DRIVER_VIDEO_INTEL_SUFFIX)
 XORG_DRIVER_VIDEO_INTEL_SOURCE	:= $(SRCDIR)/$(XORG_DRIVER_VIDEO_INTEL).$(XORG_DRIVER_VIDEO_INTEL_SUFFIX)
 XORG_DRIVER_VIDEO_INTEL_DIR	:= $(BUILDDIR)/$(XORG_DRIVER_VIDEO_INTEL)
 
@@ -34,21 +34,27 @@ XORG_DRIVER_VIDEO_INTEL_CONF_TOOL	:= autoconf
 XORG_DRIVER_VIDEO_INTEL_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-backlight \
+	--disable-backlight-helper \
 	--disable-gen4asm \
 	--enable-udev \
+	--disable-tools \
 	--$(call ptx/endis, PTXCONF_XORG_DRIVER_VIDEO_INTEL_DRI)-dri \
+	--$(call ptx/endis, PTXCONF_XORG_DRIVER_VIDEO_INTEL_DRI)-dri1 \
+	--$(call ptx/endis, PTXCONF_XORG_DRIVER_VIDEO_INTEL_DRI)-dri2 \
+	--$(call ptx/endis, PTXCONF_XORG_DRIVER_VIDEO_INTEL_DRI)-dri3 \
 	--$(call ptx/endis, PTXCONF_XORG_DRIVER_VIDEO_INTEL_XVMC)-xvmc \
+	--enable-kms \
+	--disable-ums \
 	--enable-kms-only \
 	--disable-ums-only \
 	--disable-sna \
 	--enable-uxa \
-	--disable-glamor \
 	--disable-xaa \
 	--disable-dga \
+	--disable-tear-free \
 	--disable-create2 \
-	--disable-userptr \
 	--disable-async-swap \
-	--disable-wt \
 	--disable-debug \
 	--disable-valgrind
 
