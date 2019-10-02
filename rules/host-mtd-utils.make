@@ -25,9 +25,13 @@ HOST_MTD_UTILS_CONF_OPT		:= \
 	--disable-unit-tests \
 	--disable-tests \
 	--disable-install-tests \
+	--disable-lsmtd \
 	--without-jffs \
 	--with-ubifs \
 	--with-xattr \
-	--with-lzo
+	--with-lzo \
+	--without-zstd \
+	--without-selinux \
+	--without-crypto
 
 # vim: syntax=make

@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_MTD_UTILS) += mtd-utils
 #
 # Paths and names
 #
-MTD_UTILS_VERSION	:= 2.0.2
-MTD_UTILS_MD5		:= 3f05981551e73f1c6de28b2ea4edec7c
+MTD_UTILS_VERSION	:= 2.1.1
+MTD_UTILS_MD5		:= 94bbd31b217a5169ae26ab8c0442f691
 MTD_UTILS		:= mtd-utils-$(MTD_UTILS_VERSION)
 MTD_UTILS_SUFFIX	:= tar.bz2
 MTD_UTILS_URL		:= ftp://ftp.infradead.org/pub/mtd-utils/$(MTD_UTILS).$(MTD_UTILS_SUFFIX)
@@ -36,10 +36,14 @@ MTD_UTILS_CONF_OPT	:= \
 	--disable-unit-tests \
 	--disable-tests \
 	--disable-install-tests \
+	--disable-lsmtd \
 	--$(call ptx/wwo, PTXCONF_MTD_UTILS_JFFS)-jffs \
 	--$(call ptx/wwo, PTXCONF_MTD_UTILS_UBIFS)-ubifs \
 	--without-xattr \
-	--$(call ptx/wwo, PTXCONF_MTD_UTILS_USE_LIBLZO)-lzo
+	--$(call ptx/wwo, PTXCONF_MTD_UTILS_USE_LIBLZO)-lzo \
+	--without-zstd \
+	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
+	--without-crypto
 
 # ----------------------------------------------------------------------------
 # Target-Install
