@@ -3,6 +3,7 @@
 config LIBSOUP
 	tristate
 	select HOST_MESON
+	select HOST_GLIB
 	select GLIB
 	select SQLITE
 	select LIBPSL
