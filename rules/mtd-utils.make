@@ -36,7 +36,7 @@ MTD_UTILS_CONF_OPT	:= \
 	--disable-unit-tests \
 	--disable-tests \
 	--disable-install-tests \
-	--disable-lsmtd \
+	--$(call ptx/endis, PTXCONF_MTD_UTILS_LSMTD)-lsmtd \
 	--$(call ptx/wwo, PTXCONF_MTD_UTILS_JFFS)-jffs \
 	--$(call ptx/wwo, PTXCONF_MTD_UTILS_UBIFS)-ubifs \
 	--without-xattr \
@@ -109,6 +109,10 @@ endif
 ifdef PTXCONF_MTD_UTILS_FTL_FORMAT
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/ftl_format)
+endif
+ifdef PTXCONF_MTD_UTILS_LSMTD
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/sbin/lsmtd)
 endif
 ifdef PTXCONF_MTD_UTILS_JFFS2_DUMP
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \

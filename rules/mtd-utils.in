@@ -119,6 +119,14 @@ config MTD_UTILS_FTL_FORMAT
 	  Utility to create an FTL (Flash Translation Layer) partition
 	  in a memory region
 
+config MTD_UTILS_LSMTD
+	bool
+	prompt "lsmtd"
+	help
+	  Pretty prints a list with hierarchical information about all
+	  available or the specified MTD and UBI devices. Tries to
+	  imitate the lsblk program from util-linux.
+
 config MTD_UTILS_JFFS2_DUMP
 	bool
 	prompt "jffs2dump"
