@@ -31,6 +31,9 @@ menuconfig XORG_SERVER
 	select OPENSSL
 	select XORG_LIB_XKBFILE
 
+	select UDEV			if XORG_SERVER_UDEV
+	select UDEV_LIBUDEV		if XORG_SERVER_UDEV
+
 	select LIBDRM			if XORG_SERVER_LIBDRM
 
 	# glx triggered

@@ -4,6 +4,8 @@ menuconfig GLMARK2
 	tristate
 	prompt "glmark2                       "
 	select MESALIB
+	select UDEV			if GLMARK2_FLAVOR_DRM_GL || GLMARK2_FLAVOR_DRM_GLES2
+	select UDEV_LIBUDEV		if GLMARK2_FLAVOR_DRM_GL || GLMARK2_FLAVOR_DRM_GLES2
 	select HOST_SYSTEM_PYTHON3
 	select LIBPNG
 	select LIBJPEG
