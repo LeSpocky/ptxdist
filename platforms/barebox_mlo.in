@@ -2,6 +2,7 @@
 
 menuconfig BAREBOX_MLO
 	prompt "barebox mlo                   "
+	select HOST_LZOP if BAREBOX_MLO_NEEDS_HOST_LZOP
 	bool
 	help
 	  Build mlo from barebox sources.
@@ -32,5 +33,13 @@ config BAREBOX_MLO_CONFIG
 	default "barebox_mlo.config"
 	help
 	  This entry specifies the .config file used to compile mlo.
+
+config BAREBOX_MLO_NEEDS_HOST_LZOP
+	prompt "barebox needs lzop"
+	bool
+	help
+	  The barebox executable can be compressed. Select this if
+	  lzop is used in order to compile lzop for your development
+	  host.
 
 endif
