@@ -12,21 +12,22 @@
 #
 HOST_PACKAGES-$(PTXCONF_HOST_MTD_UTILS) += host-mtd-utils
 
-#
-# Paths and names
-#
-HOST_MTD_UTILS_DIR	= $(HOST_BUILDDIR)/$(MTD_UTILS)
-
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-# don't use := here
-HOST_MTD_UTILS_MAKEVARS	= \
-	PREFIX=/ \
-	BUILDDIR=$(HOST_MTD_UTILS_DIR) \
-	DESTDIR=$(HOST_MTD_UTILS_PKGDIR)
-
-HOST_MTD_UTILS_CFLAGS	:= -fgnu89-inline
+#
+# autoconf
+#
+HOST_MTD_UTILS_CONF_TOOL	:= autoconf
+HOST_MTD_UTILS_CONF_OPT		:= \
+	$(HOST_AUTOCONF) \
+	--disable-unit-tests \
+	--disable-tests \
+	--disable-install-tests \
+	--without-jffs \
+	--with-ubifs \
+	--with-xattr \
+	--with-lzo
 
 # vim: syntax=make
