@@ -15,21 +15,16 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBEPOXY) += host-libepoxy
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_LIBEPOXY_CONF_ENV	:= \
-	$(HOST_ENV) \
-	ac_cv_prog_PYTHON=$(SYSTEMPYTHON3)
-
 #
 # autoconf
 #
-HOST_LIBEPOXY_CONF_TOOL	:= autoconf
+HOST_LIBEPOXY_CONF_TOOL	:= meson
 HOST_LIBEPOXY_CONF_OPT	:= \
-	$(HOST_AUTOCONF) \
-	--disable-selective-werror \
-	--disable-strict-compilation \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--disable-x11 \
-	--disable-glx \
-	--disable-egl
+	$(HOST_MESON_OPT) \
+	-Ddocs=false \
+	-Degl=no \
+	-Dglx=no \
+	-Dtests=false \
+	-Dx11=false
 
 # vim: syntax=make

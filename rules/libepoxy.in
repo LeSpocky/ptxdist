@@ -2,8 +2,8 @@
 
 config LIBEPOXY
 	tristate
+	select HOST_MESON
 	select MESALIB
-	select XORG_LIB_X11	if LIBEPOXY_GLX
 	prompt "libepoxy"
 	help
 	  FIXME
