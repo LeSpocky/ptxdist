@@ -2,7 +2,6 @@
 
 config LIBGCRYPT
 	tristate
-	select LIBCAP
 	select LIBGPG_ERROR
 	prompt "libgcrypt"
 	help
