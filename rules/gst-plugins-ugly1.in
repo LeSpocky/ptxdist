@@ -7,7 +7,7 @@ menuconfig GST_PLUGINS_UGLY1
 	select GLIB
 	select GSTREAMER1
 	select GST_PLUGINS_BASE1
-	select ORC
+	select ORC			if GST_PLUGINS_UGLY1_A52DEC
 	select LIBMPEG2			if GST_PLUGINS_UGLY1_MPEG2DEC
 	prompt "gst-plugins-ugly              "
 	help
