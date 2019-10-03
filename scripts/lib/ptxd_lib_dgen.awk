@@ -554,6 +554,7 @@ END {
 	print "include " PTXDIST_TEMPDIR "/pkghash.make"							> DGEN_DEPS_POST;
 
 	# for all pkgs
+	all_pkg = ""
 	for (this_PKG in PKG_to_pkg) {
 		this_pkg = PKG_to_pkg[this_PKG];
 		this_pkg_prefix = gensub(/^(host-|cross-|image-|).*/, "\\1", 1, this_pkg)
@@ -565,7 +566,9 @@ END {
 			write_deps_pkg_all(this_PKG, this_pkg)
 			write_vars_pkg_all(this_PKG, this_pkg, this_pkg_prefix)
 		}
+		all_pkg = all_pkg " " this_pkg
 	}
+	print "PTX_PACKAGES_ALL := " all_pkg									> DGEN_DEPS_PRE;
 
 	# for active pkgs
 	for (this_PKG in active_PKG_to_pkg) {
