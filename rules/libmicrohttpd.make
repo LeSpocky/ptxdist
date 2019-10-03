@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBMICROHTTPD) += libmicrohttpd
 #
 # Paths and names
 #
-LIBMICROHTTPD_VERSION	:= 0.9.59
-LIBMICROHTTPD_MD5	:= 8ab5123535549195aff19e91b4e49f48
+LIBMICROHTTPD_VERSION	:= 0.9.66
+LIBMICROHTTPD_MD5	:= ce4050e75cc40d68506e2b403e1a76f9
 LIBMICROHTTPD		:= libmicrohttpd-$(LIBMICROHTTPD_VERSION)
 LIBMICROHTTPD_SUFFIX	:= tar.gz
 LIBMICROHTTPD_URL	:= $(call ptx/mirror, GNU, libmicrohttpd/$(LIBMICROHTTPD).$(LIBMICROHTTPD_SUFFIX))
@@ -38,7 +38,7 @@ LIBMICROHTTPD_CONF_OPT	:= \
 	--disable-curl \
 	--$(call ptx/endis, PTXCONF_LIBMICROHTTPD_MESSAGES)-messages \
 	--$(call ptx/endis, PTXCONF_LIBMICROHTTPD_HTTPS)-https \
-	--disable-bauth \
+	--enable-bauth \
 	--disable-dauth \
 	--disable-coverage
 

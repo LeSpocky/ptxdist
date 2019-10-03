@@ -2,9 +2,8 @@
 
 menuconfig LIBMICROHTTPD
 	tristate
-	select LIBC_PTHREAD if RUNTIME
-	select GNUTLS if LIBMICROHTTPD_HTTPS
-	select LIBGCRYPT if LIBMICROHTTPD_HTTPS
+	select LIBC_PTHREAD	if RUNTIME
+	select GNUTLS		if LIBMICROHTTPD_HTTPS
 	prompt "libmicrohttpd                 "
 	help
 	  Library embedding HTTP server functionality
