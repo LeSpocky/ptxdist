@@ -479,10 +479,9 @@ ptxd_make_world_patchin_init()
 	    "is no longer supported. Move patches to" \
 	    "$(ptxd_print_path "$(dirname "${ptxd_reply}")")"
     fi
-    if ! ptxd_in_path PTXDIST_PATH_PATCHES ${pkg_pkg} ; then
+    if [ -z "${pkg_patch_dir}" ]; then
 	return
     fi
-    pkg_patch_dir="${ptxd_reply}"
 }
 export -f ptxd_make_world_patchin_init
 

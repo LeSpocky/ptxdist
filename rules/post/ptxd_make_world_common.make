@@ -78,6 +78,7 @@ world/env/impl = \
 	pkg_ref_config="$(call ptx/escape,$($(1)_REF_CONFIG))"			\
 	pkg_path="$(call ptx/escape,$($(1)_PATH))"				\
 	pkg_patch_series="$(call ptx/escape,$(call remove_quotes, $(PTXCONF_$(strip $(1))_SERIES)))"\
+	pkg_patch_dir="$(call ptx/escape,$($(1)_PATCH_DIR))"			\
 	pkg_src="$(call ptx/escape,$($(1)_SOURCE))"				\
 	pkg_srcs="$(call ptx/escape,$($(1)_SOURCES))"				\
 	pkg_md5s="$(call ptx/escape,$(foreach s,$($(1)_SOURCES),$($($(s))_MD5):))"\
