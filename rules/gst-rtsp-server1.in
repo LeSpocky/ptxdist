@@ -5,7 +5,6 @@ config GST_RTSP_SERVER1
 	select HOST_MESON
 	select GSTREAMER1
 	select GST_PLUGINS_BASE1
-	select GST_PLUGINS_BAD1
 	prompt "gst-rtsp-server"
 	help
 	  RTSP server plugin for GStreamer
