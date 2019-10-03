@@ -224,6 +224,15 @@ Misc Actions
   with the given name. If none exists, it will run make on all selected package
   rules, determine if a variable with the given name is known to make, and if
   so, print it.
+  For make variables, <var> can contain '%'. In this case, all variables
+  that match the pattern are printed.
+  If the <var> is undefined, then an error will be generated unless '-k' is
+  used. In that case an empty value is returned.
+
+``printnext <var>``
+  assume that the contents of <var> is another variable and print the
+  contents of this variable. Shell variables are currently not checked here.
+  All other rules for ``print`` apply.
 
 ``list-packages``
   print a list of all selected packages. This list does not include the

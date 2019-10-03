@@ -136,9 +136,53 @@ include $(PTX_DGEN_DEPS_POST)
 # just the "print" target
 # ----------------------------------------------------------------------------
 
+#
+# expand variable names
+# - if $(1) contains '%' then return all matching variables
+#   otherwise if $(1) is a defined variable, then return it
+# - if no match is found generate an error or return $(1) if make is
+#   called with '-k'
+#
+define ptx/check-expand
+$(or $(filter $(1),$(.VARIABLES)),$(if $(filter k,$(MAKEFLAGS)),$(1),$(error ##$(1)##)))
+endef
+
+#
+# print the given variable
+# if PTXDIST_VERBOSE=1 then prefix it with '<name>='
+#
+define ptx/print-var
+$(info $(if $(filter 1,$(PTXDIST_VERBOSE)),$(1)=)$(call add_quote,$($(1))))
+endef
+
+#
+# expand $(1) to one or more variables and print each one
+#
+define ptx/print-vars
+$(foreach v,$(call ptx/check-expand,$(1)),$(call ptx/print-var,$(v)))
+endef
+
+#
+# Pattern target to allow printing variable
+# $(filter ..) is used to match against all existing variables so patterns
+# containing '%' can be uses to print multiple variables.
+# In verbose mode, '<name>=<value>' is printed.
+# Trying to print undefined variables results in an error unless '-k' is
+# used. In this case an empty value is printed.
+#
 /print-%: FORCE
-	@:$(foreach v,$(or $(filter $(*),$(.VARIABLES)),$(if $(filter k,$(MAKEFLAGS)),$(*),$(error $(*) undefined))),\
-		$(info $(if $(filter 1,$(PTXDIST_VERBOSE)),$(v)=)$(call add_quote,$($(v)))))
+	@:$(call ptx/print-vars,$(*))
+
+#
+# As above but tread the variable value as another variable and prints
+# the value of this variable.
+# Patterns are expanded as above on both levels.
+# Printing stops at the first error.
+#
+/printnext-%: FORCE
+	@:$(foreach v,$(call ptx/check-expand,$(*)),\
+		$(foreach vv,$($(v)),\
+			$(call ptx/print-vars,$(vv))))
 
 # for backwards compatibility
 print-%: /print-%

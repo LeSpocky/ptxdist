@@ -1011,6 +1011,8 @@ Misc:
   package-info <package>	print some basic information about the package
   print <var>			print the contents of a variable, in the way
 				it is known by "make"
+  printnext <var>		assumes that the contents of <var> is another
+				variable and print the contents of this variable
   list-packages			print a list of all selected packages
   local-src <pkg> [<directory>]	overwrite a package source with a locally provided
 				directory containing the sourcecode.
@@ -2089,10 +2091,16 @@ EOF
 			ptxd_make_log "${pkgs[@]/%/.${cmd}}"
 			exit
 			;;
+		printnext)
+			make_vars=( "${@}" )
+			set --
+			;&
 		print)
-			if [ ${#} -eq 0 ]; then
+			local tmpfd
+			if [ ${#} -eq 0 -a ${#make_vars[*]} -eq 0 ]; then
 				exit 1
 			fi
+			exec {tmpfd}>&1
 			while [ ${#} -gt 0 ]; do
 				if [[ ! ( "${1}" =~ "/" ) ]]  && ([ -n "${!1}" ]) 2>/dev/null; then
 					if [ "${PTXDIST_VERBOSE}" = "1" ]; then
@@ -2100,19 +2108,23 @@ EOF
 					fi
 					echo "${!1}"
 				else
-					local check
-					if [ -z "${check}" ]; then
-						check_config &&
-						check_deps || exit 1
-						check=1
-					fi
-					ptxd_make_log "/print-${1}" 2>/dev/null || {
-						echo "${1} undefined" >&2
-						exit 1
-					}
+					make_vars[${#make_vars[*]}]="${1}"
 				fi
 				shift
 			done
+			if [ ${#make_vars[*]} -gt 0 ]; then
+				local prefix
+				check_config &&
+				check_deps || exit 1
+				if [ "${cmd}" = "print" ]; then
+					prefix="/print-"
+				else
+					prefix="/printnext-"
+				fi
+				ptxd_make_log "${make_vars[@]/#/${prefix}}" 2>&1 1>&${tmpfd} | \
+					sed 's/^.*##\(.*\)##.*$/\1 undefined/' >&2
+				check_pipe_status || exit 1
+			fi
 			exit
 			;;
 		test)
