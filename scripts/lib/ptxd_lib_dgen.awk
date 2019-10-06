@@ -366,18 +366,15 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	print "ifeq ($(" this_PKG "_PATCH_DIR),)"								> DGEN_DEPS_POST;
 	print "undefine " this_PKG "_PATCH_DIR"									> DGEN_DEPS_POST;
 	print "else"												> DGEN_DEPS_POST;
-	print "ifeq ($(wildcard " PTXDIST_TEMPDIR "/pkghash-" this_PKG "_EXTRACT.done),)"			> DGEN_DEPS_POST;
-	print "$(call ptx/force-sh, find '$(" this_PKG "_PATCH_DIR)' -type f ! -name '.*' | sort | xargs cat | tee " \
-		PTXDIST_TEMPDIR "/pkghash-" this_PKG "_EXTRACT >> " PTXDIST_TEMPDIR "/pkghash-" this_PKG \
-		" && touch " PTXDIST_TEMPDIR "/pkghash-" this_PKG "_EXTRACT.done )"				> DGEN_DEPS_POST;
+	print "ifeq ($(PTXDIST_PKGHASH_MAKE),)"									> DGEN_DEPS_POST;
+	print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,PATCHES: " this_PKG " $(" this_PKG "_PATCH_DIR))"	> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
+	print "ifeq ($(PTXDIST_PKGHASH_MAKE),)"									> DGEN_DEPS_POST;
 	print "ifneq ($(filter /%,$(" this_PKG "_CONFIG)),)"							> DGEN_DEPS_POST;
 	print "ifneq ($(wildcard $(" this_PKG "_CONFIG)),)"							> DGEN_DEPS_POST;
-	print "ifeq ($(wildcard " PTXDIST_TEMPDIR "/pkghash-" this_PKG ".done),)"				> DGEN_DEPS_POST;
-	print "$(call ptx/force-sh, cat '$(" this_PKG "_CONFIG)' >> " PTXDIST_TEMPDIR "/pkghash-" this_PKG \
-		" && touch " PTXDIST_TEMPDIR "/pkghash-" this_PKG ".done )"					> DGEN_DEPS_POST;
+	print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,CONFIG: " this_PKG " $(" this_PKG "_CONFIG))"		> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
@@ -550,9 +547,14 @@ function write_deps_pkg_active_image(this_PKG, this_pkg, prefix) {
 }
 
 END {
+	print "PTXDIST_PKGHASH_MAKE := $(wildcard " PTXDIST_TEMPDIR "/pkghash.make)"				> DGEN_DEPS_POST;
 	# extend pkghash files fist
 	for (this_PKG in active_PKG_to_pkg)
 		write_deps_pkg_active_cfghash(this_PKG, this_pkg)
+
+	print "ifeq ($(PTXDIST_PKGHASH_MAKE),)"									> DGEN_DEPS_POST;
+	print "$(call ptx/force-sh, $(PTXDIST_LIB_DIR)/ptxd_make_pkghash.awk " PTXDIST_TEMPDIR "/pkghash.list)"	> DGEN_DEPS_POST;
+	print "endif"												> DGEN_DEPS_POST;
 
 	print "$(call ptx/force-sh, md5sum " PTXDIST_TEMPDIR "/pkghash-* | " \
 		"sed 's;^\\([a-z0-9]*\\).*pkghash-\\(.*\\)$$;\\2_CFGHASH := \\1;' > " \
