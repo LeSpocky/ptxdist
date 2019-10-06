@@ -296,7 +296,7 @@ HOST_ENV_PROGS := \
 	$(HOST_ENV_CXX)
 
 HOST_ENV_PYTHONPATH	:= \
-	PYTHONPATH="$(shell python -c 'import distutils.sysconfig as sysconfig; \
+	PYTHONPATH="$(call ptx/sh, python -c 'import distutils.sysconfig as sysconfig; \
 		print "%s" % sysconfig.get_python_lib(prefix="'"$(PTXDIST_SYSROOT_HOST)"'")')"
 
 HOST_ENV	:= \
