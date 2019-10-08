@@ -205,6 +205,16 @@ Package Definition
   For local URLs (``file://`` or ``lndir://``) ``<PKG>_SOURCE`` must not be
   set.
 
+``<PKG>_PATCHES``
+  The name of the patch directory, relative to any of the paths listed in
+  ``PTXDIST_PATH_PATCHES`` (i.e., according to the search order described in
+  :ref:`patching_packages`).
+  If not specified, the default patch directory name is set to the value of the
+  ``<PKG>`` variable.
+
+  This variable can be set for multiple packages that should share the same
+  patch stack (e.g. kernel packages).
+
 ``<PKG>_DIR``
   This is the directory where the source archive is extracted. In most
   cases this is set to ``$(BUILDDIR)/$(<PKG>)``. However, if two packages
