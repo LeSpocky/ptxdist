@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_IW) += iw
 #
 # Paths and names
 #
-IW_VERSION	:= 3.14
-IW_MD5		:= 66e41053f6fc0781b683b5b688442de6
+IW_VERSION	:= 5.3
+IW_MD5		:= b65bb6dc3b9474c55f6107a25469d8cf
 IW		:= iw-$(IW_VERSION)
 IW_SUFFIX	:= tar.xz
-IW_URL		:= http://www.kernel.org/pub/software/network/iw/$(IW).$(IW_SUFFIX)
+IW_URL		:= https://www.kernel.org/pub/software/network/iw/$(IW).$(IW_SUFFIX)
 IW_SOURCE	:= $(SRCDIR)/$(IW).$(IW_SUFFIX)
 IW_DIR		:= $(BUILDDIR)/$(IW)
 IW_LICENSE	:= ISC

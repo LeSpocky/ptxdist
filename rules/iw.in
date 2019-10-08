@@ -2,7 +2,7 @@
 
 config IW
 	tristate
-	select LIBNL
+	select LIBNL3
 	prompt "iw (wireless tools replacement)"
 	help
 	  iw is a new nl80211 based CLI configuration utility for wireless devices.
