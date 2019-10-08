@@ -1265,9 +1265,9 @@ integrated into your BSP or into PTXdist.
 
 PTXdist handles patching automatically.
 After extracting the archive of a package, PTXdist checks for the existence of
-a patch directory named like its `<PKG>` variable.
-Take an exemplary package `foo` with version `1.1.0`:
-The variable `FOO` will have the value ``foo-1.1.0``, so PTXdist will look for
+a patch directory named like its ``<PKG>`` variable.
+Take an exemplary package ``foo`` with version ``1.1.0``:
+The variable ``FOO`` will have the value ``foo-1.1.0``, so PTXdist will look for
 a patch directory named ``foo-1.1.0`` in the following locations:
 
 #. the current layer:
