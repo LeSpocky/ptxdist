@@ -41,7 +41,7 @@ IFS="${orig_IFS}"
 for ((i = 1; i <= ${#}; i++)); do
     case "${!i}" in
 	--variable*)
-	    found_var=true
+	    found_var=${!i#"--variable="}
 	    break
 	    ;;
 	*)
@@ -61,8 +61,8 @@ args=( \
     "-e" "s~/lib/pkgconfig/\.\./\.\.~~g" \
     )
 
-if [ -n "${PTXDIST_PKG_CONFIG_VAR_NO_SYSROOT}" -a \
-    -n "${found_var}" ]; then
+if [ -n "${found_var}" -a \
+    "${PTXDIST_PKG_CONFIG_VAR_NO_SYSROOT#*${found_var}}" != "${PTXDIST_PKG_CONFIG_VAR_NO_SYSROOT}" ]; then
     #
     # remove sysroot for variables that return a path
     #
