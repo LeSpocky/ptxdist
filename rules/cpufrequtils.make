@@ -21,6 +21,10 @@ CPUFREQUTILS_SUFFIX	:= tar.xz
 CPUFREQUTILS_URL	:= $(call ptx/mirror, KERNEL, utils/kernel/cpufreq/$(CPUFREQUTILS).$(CPUFREQUTILS_SUFFIX))
 CPUFREQUTILS_SOURCE	:= $(SRCDIR)/$(CPUFREQUTILS).$(CPUFREQUTILS_SUFFIX)
 CPUFREQUTILS_DIR	:= $(BUILDDIR)/$(CPUFREQUTILS)
+CPUFREQUTILS_LICENSE	:= GPL-2.0-only
+CPUFREQUTILS_LICENSE_FILES := \
+	file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f \
+	file://utils/info.c;startline=1;endline=5;md5=a3504f2818a74b2fffdc8e61bf3ef0f8
 
 # ----------------------------------------------------------------------------
 # Prepare
