@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_BLUEZ) += bluez
 #
 # Paths and names
 #
-BLUEZ_VERSION	:= 5.50
-BLUEZ_MD5	:= 860349d2afebf130f772c0f2943b5a27
+BLUEZ_VERSION	:= 5.51
+BLUEZ_MD5	:= ce74914edba5ddfb49a8e6d85d600d22
 BLUEZ		:= bluez-$(BLUEZ_VERSION)
 BLUEZ_SUFFIX	:= tar.gz
 BLUEZ_URL	:= $(call ptx/mirror, KERNEL, bluetooth/$(BLUEZ).$(BLUEZ_SUFFIX))
@@ -56,10 +56,11 @@ BLUEZ_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-monitor \
 	--enable-udev \
 	--disable-cups \
-	--disable-mesh \
 	--disable-midi \
 	--enable-obex \
+	--disable-mesh \
 	--disable-btpclient \
+	--disable-external-ell \
 	--$(call ptx/endis, PTXCONF_BLUEZ_CLIENT)-client \
 	--enable-systemd \
 	--enable-datafiles \
@@ -120,14 +121,13 @@ ifdef PTXCONF_BLUEZ_INSTALL_TESTSCRIPTS
 		$(call install_copy, bluez, 0, 0, 0644, -, \
 			/usr/lib/bluez/test/$(testdata))$(ptx/nl))
 
-	@$(foreach testprog, bluezutils.py dbusdef.py example-advertisement \
-			example-gatt-client example-gatt-server ftp-client \
-			list-devices map-client monitor-bluetooth opp-client \
-			pbap-client sap_client.py simple-agent simple-endpoint \
-			simple-player test-adapter test-device test-discovery \
-			test-gatt-profile test-health test-health-sink test-hfp \
-			test-manager test-nap test-network test-profile \
-			test-sap-server, \
+	@$(foreach testprog, agent.py example-advertisement example-gatt-client \
+			example-gatt-server ftp-client list-devices map-client \
+			monitor-bluetooth opp-client pbap-client simple-agent \
+			simple-endpoint simple-player test-adapter test-device \
+			test-discovery test-gatt-profile test-health \
+			test-health-sink test-hfp test-manager test-mesh \
+			test-nap test-network test-profile test-sap-server, \
 		$(call install_copy, bluez, 0, 0, 0755, -, \
 			/usr/lib/bluez/test/$(testprog))$(ptx/nl))
 	@$(foreach testprog, bluezutils.py dbusdef.py sap_client.py, \
