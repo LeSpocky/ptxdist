@@ -1,0 +1,83 @@
+From: =?UTF-8?q?Bj=C3=B6rn=20Esser?= <b.esser@pengutronix.de>
+Date: Tue, 8 Oct 2019 16:07:18 +0200
+Subject: [PATCH] CMake: Allow PG_DIRS to be set on CLI.
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Björn Esser <b.esser@pengutronix.de>
+---
+ CMakeLists.txt | 60 +++++++++++++++++++++++++++++++++++-----------------------
+ 1 file changed, 36 insertions(+), 24 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1cf987e25087..440ca400d27a 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -173,30 +173,42 @@ if ((${PG_VERSION} VERSION_LESS "9.6")
+ endif ()
+ 
+ # Get PostgreSQL configuration from pg_config
+-execute_process(
+-  COMMAND ${PG_CONFIG} --includedir
+-  OUTPUT_VARIABLE PG_INCLUDEDIR
+-  OUTPUT_STRIP_TRAILING_WHITESPACE)
+-execute_process(
+-  COMMAND ${PG_CONFIG} --includedir-server
+-  OUTPUT_VARIABLE PG_INCLUDEDIR_SERVER
+-  OUTPUT_STRIP_TRAILING_WHITESPACE)
+-execute_process(
+-  COMMAND ${PG_CONFIG} --libdir
+-  OUTPUT_VARIABLE PG_LIBDIR
+-  OUTPUT_STRIP_TRAILING_WHITESPACE)
+-execute_process(
+-  COMMAND ${PG_CONFIG} --pkglibdir
+-  OUTPUT_VARIABLE PG_PKGLIBDIR
+-  OUTPUT_STRIP_TRAILING_WHITESPACE)
+-execute_process(
+-  COMMAND ${PG_CONFIG} --sharedir
+-  OUTPUT_VARIABLE PG_SHAREDIR
+-  OUTPUT_STRIP_TRAILING_WHITESPACE)
+-execute_process(
+-  COMMAND ${PG_CONFIG} --bindir
+-  OUTPUT_VARIABLE PG_BINDIR
+-  OUTPUT_STRIP_TRAILING_WHITESPACE)
++if (NOT PG_INCLUDEDIR)
++  execute_process(
++    COMMAND ${PG_CONFIG} --includedir
++    OUTPUT_VARIABLE PG_INCLUDEDIR
++    OUTPUT_STRIP_TRAILING_WHITESPACE)
++endif ()
++if (NOT PG_INCLUDEDIR_SERVER)
++  execute_process(
++    COMMAND ${PG_CONFIG} --includedir-server
++    OUTPUT_VARIABLE PG_INCLUDEDIR_SERVER
++    OUTPUT_STRIP_TRAILING_WHITESPACE)
++endif ()
++if (NOT PG_LIBDIR)
++  execute_process(
++    COMMAND ${PG_CONFIG} --libdir
++    OUTPUT_VARIABLE PG_LIBDIR
++    OUTPUT_STRIP_TRAILING_WHITESPACE)
++endif ()
++if (NOT PG_PKGLIBDIR)
++  execute_process(
++    COMMAND ${PG_CONFIG} --pkglibdir
++    OUTPUT_VARIABLE PG_PKGLIBDIR
++    OUTPUT_STRIP_TRAILING_WHITESPACE)
++endif ()
++if (NOT PG_SHAREDIR)
++  execute_process(
++    COMMAND ${PG_CONFIG} --sharedir
++    OUTPUT_VARIABLE PG_SHAREDIR
++    OUTPUT_STRIP_TRAILING_WHITESPACE)
++endif ()
++if (NOT PG_BINDIR)
++  execute_process(
++    COMMAND ${PG_CONFIG} --bindir
++    OUTPUT_VARIABLE PG_BINDIR
++    OUTPUT_STRIP_TRAILING_WHITESPACE)
++endif ()
+ execute_process(
+   COMMAND ${PG_CONFIG} --cppflags
+   OUTPUT_VARIABLE PG_CPPFLAGS

@@ -1,0 +1,15 @@
+## SECTION=system_libraries
+
+config TIMESCALEDB
+	tristate
+	select HOST_CMAKE
+	select HOST_POSTGRESQL
+	select POSTGRESQL
+	prompt "timescaledb"
+	help
+	  TimescaleDB is an open-source database designed to make SQL scalable
+	  for time-series data.  It is engineered up from PostgreSQL, providing
+	  automatic partitioning across time and space (partitioning key), as
+	  well as full SQL support.
+
+	  This package builds the Apache licensed PostgreSQL extension, only.
