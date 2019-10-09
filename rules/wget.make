@@ -21,6 +21,10 @@ WGET_SUFFIX	:= tar.gz
 WGET_URL	:= $(call ptx/mirror, GNU, wget/$(WGET).$(WGET_SUFFIX))
 WGET_SOURCE	:= $(SRCDIR)/$(WGET).$(WGET_SUFFIX)
 WGET_DIR	:= $(BUILDDIR)/$(WGET)
+WGET_LICENSE	:= GPL-3.0-or-later
+WGET_LICENSE_FILES := \
+	file://COPYING;md5=c678957b0c8e964aa6c70fd77641a71e \
+	file://src/main.c;startline=1;endline=28;md5=7b27873e910933ba54fa16589c4b8eed
 
 # ----------------------------------------------------------------------------
 # Prepare
