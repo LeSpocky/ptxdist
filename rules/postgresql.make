@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_POSTGRESQL) += postgresql
 #
 # Paths and names
 #
-POSTGRESQL_VERSION	:= 9.4.1
-POSTGRESQL_MD5		:= 2cf30f50099ff1109d0aa517408f8eff
+POSTGRESQL_VERSION	:= 11.5
+POSTGRESQL_MD5		:= 580da94f6d85046ff2a228785ab2cc89
 POSTGRESQL		:= postgresql-$(POSTGRESQL_VERSION)
 POSTGRESQL_SUFFIX	:= tar.bz2
 POSTGRESQL_URL		:= https://ftp.postgresql.org/pub/source/v$(POSTGRESQL_VERSION)/$(POSTGRESQL).$(POSTGRESQL_SUFFIX)
@@ -27,46 +27,65 @@ POSTGRESQL_LICENSE	:= PostgreSQL
 # Prepare
 # ----------------------------------------------------------------------------
 
-POSTGRESQL_CONF_ENV	:= $(CROSS_ENV)
+POSTGRESQL_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_file__dev_urandom=yes
 
 #
 # autoconf
 #
 POSTGRESQL_CONF_TOOL	:= autoconf
-POSTGRESQL_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
+POSTGRESQL_CONF_OPT	:= \
+	$(CROSS_AUTOCONF_USR) \
 	--enable-integer-datetimes \
 	--disable-nls \
+	--disable-rpath \
+	--enable-spinlocks \
+	--enable-atomics \
+	--enable-strong-random \
 	--disable-debug \
 	--disable-profiling \
 	--disable-coverage \
 	--disable-dtrace \
 	--disable-tap-tests \
+	--disable-depend \
 	--disable-cassert \
+	--enable-thread-safety \
 	--enable-largefile \
 	--disable-float4-byval \
 	--disable-float8-byval \
+	--without-llvm \
+	--without-icu \
 	--without-tcl \
 	--without-perl \
 	--without-python \
 	--without-gssapi \
 	--without-pam \
+	--without-bsd-auth \
 	--without-ldap \
 	--without-bonjour \
 	--without-openssl \
 	--without-selinux \
+	--$(call ptx/wwo,POSTGRESQL_SYSTEMD)-systemd \
 	--without-readline \
 	--without-libedit-preferred \
+	--without-ossp-uuid \
 	--without-libxml \
 	--without-libxslt \
-	--without-zlib \
-	--with-system-tzdata=/usr/share/zoneinfo
+	--with-system-tzdata=/usr/share/zoneinfo \
+	--without-zlib
 
-#  --disable-spinlocks     do not use spinlocks
 #  --enable-tap-tests      enable TAP tests (requires Perl and IPC::Run)
 #  --enable-depend         turn on automatic dependency tracking
-#  --disable-thread-safety disable thread-safety in client libraries
 #  --with-uuid=LIB         build contrib/uuid-ossp using LIB (bsd,e2fs,ossp)
 #  --with-ossp-uuid        obsolete spelling of --with-uuid=ossp
+
+# ----------------------------------------------------------------------------
+# Compile
+# ----------------------------------------------------------------------------
+
+POSTGRESQL_MAKE_ENV	:= \
+	MAKELEVEL=0
 
 # ----------------------------------------------------------------------------
 # Target-Install

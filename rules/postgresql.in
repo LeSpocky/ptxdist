@@ -2,6 +2,21 @@
 
 config POSTGRESQL
 	tristate
+	select HOST_LIBXML2
+	select HOST_LIBXSLT
+	select LIBC_CRYPT
+	select LIBC_DL
+	select LIBC_PTHREAD
+	select LIBC_RT
+	select SYSTEMD		if POSTGRESQL_SYSTEMD
 	prompt "postgresql"
 	help
 	  A database.
+
+if POSTGRESQL
+
+config POSTGRESQL_SYSTEMD
+	bool
+	default y		if INITMETHOD_SYSTEMD
+
+endif
