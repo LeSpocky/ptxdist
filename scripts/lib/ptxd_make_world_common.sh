@@ -199,6 +199,9 @@ ptxd_make_world_init() {
     IFS="${orig_IFS}"
     export PTXDIST_LAYERS
 
+    # make sure any make calls appear to be the toplevel make
+    unset MAKELEVEL
+
     #
     # type
     #
