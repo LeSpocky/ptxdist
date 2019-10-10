@@ -563,8 +563,11 @@ check_compiler_icecc() {
 			cd "${icecc_dir}/host"
 			"${PTXDIST_ICECC_CREATE_ENV}" --gcc \
 				"${wrapper_dir}/real/gcc" \
-				"${wrapper_dir}/real/g++" > /dev/null 2>&1 || \
-			ptxd_bailout "Failed!"
+				"${wrapper_dir}/real/g++" > "${PTXDIST_TEMPDIR}/icecc.log" 2>&1 || \
+			{
+				cat "${PTXDIST_TEMPDIR}/icecc.log"
+				ptxd_bailout "Failed to create icecc host environment!"
+			}
 			ln -s "$(readlink -f "${wrapper_dir}/real/gcc")" "${icecc_dir}/gcc"
 
 			if [ -n "${compiler_prefix}" ]; then
@@ -577,8 +580,11 @@ check_compiler_icecc() {
 				fi
 				"${PTXDIST_ICECC_CREATE_ENV}" "${args[@]}" --gcc \
 					"${wrapper_dir}/real/${compiler_prefix}gcc" \
-					"${wrapper_dir}/real/${compiler_prefix}g++" > /dev/null 2>&1 || \
-				ptxd_bailout "Failed!"
+					"${wrapper_dir}/real/${compiler_prefix}g++" > "${PTXDIST_TEMPDIR}/icecc.log" 2>&1 || \
+			{
+				cat "${PTXDIST_TEMPDIR}/icecc.log"
+				ptxd_bailout "Failed to create icecc target environment!"
+			}
 				if [ ${#args[*]} -gt 0 ]; then
 					tar --strip-components=2 -xf *.tar.gz usr/bin/as &&
 					./as --verbose --version > env.log 2>&1 &&
@@ -588,8 +594,11 @@ check_compiler_icecc() {
 						rm *.tar.gz
 						"${PTXDIST_ICECC_CREATE_ENV}" --gcc \
 							"${wrapper_dir}/real/${compiler_prefix}gcc" \
-							"${wrapper_dir}/real/${compiler_prefix}g++" > /dev/null || \
-						ptxd_bailout "Failed!"
+							"${wrapper_dir}/real/${compiler_prefix}g++" > "${PTXDIST_TEMPDIR}/icecc.log" 2>&1 || \
+						{
+							cat "${PTXDIST_TEMPDIR}/icecc.log"
+							ptxd_bailout "Failed to create icecc target environment!"
+						}
 					fi
 					rm as env.log real.log
 				fi
