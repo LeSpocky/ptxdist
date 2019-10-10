@@ -1,0 +1,34 @@
+From: David Mitchell <davem@iabyn.com>
+Date: Fri, 11 May 2018 08:03:42 +0100
+Subject: [PATCH] fix build failure with recent glibc
+
+RT #133184
+
+pp_crypt() directly manipulates a field inside 'struct crypt_data' to work
+around a bug in an ancient glibc version from circa 2002. New glibc
+releases don't have this field so perl fails to compile. Make the hack
+conditional on glibc version.
+
+Stolen from a patch to the Fedora 28 distribution.
+---
+ pp.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/pp.c b/pp.c
+index 430cf857a628..d099af043995 100644
+--- a/pp.c
++++ b/pp.c
+@@ -3412,8 +3412,12 @@ PP(pp_crypt)
+ #if defined(__GLIBC__) || defined(__EMX__)
+ 	if (PL_reentrant_buffer->_crypt_struct_buffer) {
+ 	    PL_reentrant_buffer->_crypt_struct_buffer->initialized = 0;
+-	    /* work around glibc-2.2.5 bug */
++#if (defined(__GLIBC__) && __GLIBC__ == 2) && \
++    (defined(__GLIBC_MINOR__) && __GLIBC_MINOR__ >= 2 && __GLIBC_MINOR__ < 4)
++	    /* work around glibc-2.2.5 bug, has been fixed at some
++	     * time in glibc-2.3.X */
+ 	    PL_reentrant_buffer->_crypt_struct_buffer->current_saltbits = 0;
++#endif
+ 	}
+ #endif
+     }

@@ -9,7 +9,7 @@ with -Dusethreads
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/cnf/configure_libs.sh b/cnf/configure_libs.sh
-index f45d31c..cca73e5 100644
+index f45d31cfc413..cca73e5004fb 100644
 --- a/cnf/configure_libs.sh
 +++ b/cnf/configure_libs.sh
 @@ -53,7 +53,7 @@ if not hinted 'perllibs'; then
