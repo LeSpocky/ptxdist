@@ -405,9 +405,12 @@ function write_deps_pkg_active(this_PKG, this_pkg, prefix) {
 	print "$(STATEDIR)/" this_pkg ".extract: "                    "$(STATEDIR)/" this_pkg ".get"		> DGEN_DEPS_POST;
 	print "$(STATEDIR)/" this_pkg ".extract.post: "               "$(STATEDIR)/" this_pkg ".extract"	> DGEN_DEPS_POST;
 	print "$(STATEDIR)/" this_pkg ".prepare: "                    "$(STATEDIR)/" this_pkg ".extract.post"	> DGEN_DEPS_POST;
-	if (DIRTY != "true")
+	if (DIRTY != "true") {
 		print "$(STATEDIR)/" this_pkg ".prepare: " \
 						"$(STATEDIR)/" this_pkg ".$(" this_PKG "_CFGHASH).cfghash"	> DGEN_DEPS_POST;
+		print "$(STATEDIR)/" this_pkg ".report: " \
+						"$(STATEDIR)/" this_pkg ".$(" this_PKG "_CFGHASH).cfghash"	> DGEN_DEPS_POST;
+	}
 	print "$(STATEDIR)/" this_pkg ".tags: "                       "$(STATEDIR)/" this_pkg ".prepare"	> DGEN_DEPS_POST;
 	print "$(STATEDIR)/" this_pkg ".compile: "                    "$(STATEDIR)/" this_pkg ".prepare"	> DGEN_DEPS_POST;
 	print "$(STATEDIR)/" this_pkg ".install: "                    "$(STATEDIR)/" this_pkg ".compile"	> DGEN_DEPS_POST;
