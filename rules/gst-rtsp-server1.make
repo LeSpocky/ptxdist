@@ -37,18 +37,6 @@ GST_RTSP_SERVER1_CONF_OPT	= \
 	-Dintrospection=$(call ptx/endis,PTXCONF_GSTREAMER1_INTROSPECTION)d \
 	-Drtspclientsink=auto
 
-foo = \
-	\
-	--disable-valgrind \
-	--disable-gcov \
-	--disable-examples \
-	--disable-tests \
-	--$(call ptx/endis, PTXCONF_GSTREAMER1_INTROSPECTION)-introspection \
-	--disable-docbook \
-	\
-	--enable-Bsymbolic \
-	--with-package-origin="PTXdist"
-
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
