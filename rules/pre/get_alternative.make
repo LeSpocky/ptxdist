@@ -44,4 +44,15 @@ $(call ptx/in-path,PTXDIST_PATH_PLATFORMCONFIGDIR,$(1)),
 $(PTXDIST_PLATFORMCONFIGDIR)/$(strip $(1)))
 endef
 
+define ptx/get-kconfig2
+$(call ptx/force-sh,
+unset $(2) &&
+. "$(1)" &&
+test -n "$${$(2)}" &&
+echo "$${$(2)}"
+)
+endef
+define ptx/get-kconfig
+$(call ptx/get-kconfig2,$(strip $(1)),$(strip $(2)))
+endef
 # vim: syntax=make
