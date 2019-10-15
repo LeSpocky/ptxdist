@@ -371,14 +371,15 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
-	print this_PKG "_CONFIG := $(" this_PKG "_CONFIG)"							> DGEN_DEPS_POST;
 	print "ifeq ($(PTXDIST_PKGHASH_MAKE),)"									> DGEN_DEPS_POST;
+	print this_PKG "_CONFIG := $(" this_PKG "_CONFIG)"							> DGEN_DEPS_POST;
+	print "ifeq ($(" this_PKG "_CONFIG),)"									> DGEN_DEPS_POST;
+	print "undefine " this_PKG "_CONFIG"									> DGEN_DEPS_POST;
+	print "endif"												> DGEN_DEPS_POST;
 	print "ifneq ($(filter /%,$(" this_PKG "_CONFIG)),)"							> DGEN_DEPS_POST;
 	print "ifneq ($(wildcard $(" this_PKG "_CONFIG)),)"							> DGEN_DEPS_POST;
 	print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,CONFIG: " this_PKG " $(" this_PKG "_CONFIG))"		> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
-	print "else"												> DGEN_DEPS_POST;
-	print "undefine " this_PKG "_CONFIG"									> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 }
