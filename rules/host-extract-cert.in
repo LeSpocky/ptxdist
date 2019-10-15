@@ -1,0 +1,10 @@
+## SECTION=hosttools_noprompt
+
+config HOST_EXTRACT_CERT
+	tristate
+	select HOST_MESON
+	select HOST_OPENSSL
+	default y if ALLYES
+	help
+	  Extract X.509 certificate in DER form from PKCS#11 or PEM.
+
