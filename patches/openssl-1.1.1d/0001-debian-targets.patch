@@ -2,11 +2,11 @@ From: Debian OpenSSL Team <pkg-openssl-devel@lists.alioth.debian.org>
 Date: Sun, 5 Nov 2017 15:09:09 +0100
 Subject: [PATCH] debian-targets
 
-Imported from openssl_1.1.1d-1.debian.tar.xz
+Imported from openssl_1.1.1d-2.debian.tar.xz
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- Configurations/20-debian.conf | 192 ++++++++++++++++++++++++++++++++++
+ Configurations/20-debian.conf | 192 ++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 192 insertions(+)
  create mode 100644 Configurations/20-debian.conf
 
