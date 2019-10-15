@@ -141,23 +141,6 @@ GST_PLUGINS_GOOD1_CONF_OPT	= \
 	-Dximagesrc-xfixes=$(call ptx/endis,PTXCONF_GST_PLUGINS_GOOD1_XIMAGESRC)d \
 	-Dximagesrc-xshm=$(call ptx/endis,PTXCONF_GST_PLUGINS_GOOD1_XIMAGESRC)d \
 
-foo = \
-	--enable-external \
-	--enable-experimental \
-	\
-	--enable-orc \
-	--disable-directsound \
-	--disable-waveform \
-	\
-	--disable-osx_audio \
-	--disable-osx_video \
-	--disable-aalibtest \
-	--$(call ptx/endis,PTXCONF_GST_PLUGINS_GOOD1_ZLIB)-zlib \
-	--$(call ptx/endis,PTXCONF_GST_PLUGINS_GOOD1_BZ2)-bz2 \
-	--$(call ptx/wwo,PTXCONF_GST_PLUGINS_GOOD1_V4L2)-gudev \
-	--without-jpeg-mmx \
-	--$(call ptx/wwo,PTXCONF_GST_PLUGINS_GOOD1_V4L2_LIBV4L2)-libv4l2
-
 ifneq ($(call remove_quotes,$(GST_PLUGINS_GOOD1_ENABLEC-y)),)
 GST_PLUGINS_GOOD1_CONF_OPT +=  $(addsuffix =enabled, $(addprefix -D, $(GST_PLUGINS_GOOD1_ENABLEC-y)))
 endif
