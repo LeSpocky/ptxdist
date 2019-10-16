@@ -1,0 +1,35 @@
+## SECTION=image
+
+menuconfig KERNEL_FIT
+	tristate
+	select KERNEL
+	select HOST_DTC
+	select HOST_U_BOOT_TOOLS
+	select DTC
+	select CODE_SIGNING	if KERNEL_FIT_SIGNED
+	select IMAGE_ROOT_CPIO	if KERNEL_FIT_INITRAMFS
+	prompt "Generate images/linuximage.fit"
+	help
+	  Generate a FIT image from the kernel image. This will contain
+	  the Kernel image and all device trees in PTXCONF_DTC_OFTREE_DTS.
+	  Configurations are provided for each device tree together witt
+	  the Kernel image.
+
+if KERNEL_FIT
+
+config KERNEL_FIT_SIGNED
+	bool
+	prompt "sign FIT image"
+	help
+	  If enabled a signed FIT image will be generated.
+
+config KERNEL_FIT_INITRAMFS
+	bool
+	depends on !KERNEL_FIT_INSTALL
+	prompt "include root filesystem as initramfs"
+
+config KERNEL_FIT_INSTALL
+	bool
+	prompt "install kernel into /boot"
+
+endif

@@ -3,7 +3,7 @@
 menuconfig BLSPEC_ENTRY
 	tristate
 	select KERNEL
-	select KERNEL_INSTALL
+	select KERNEL_INSTALL if !KERNEL_FIT
 	select DTC_INSTALL_OFTREE if DTC
 	prompt "default bootloader spec entry "
 
@@ -11,7 +11,7 @@ if BLSPEC_ENTRY
 
 config BLSPEC_ENTRY_DEVICETREE
 	bool
-	default DTC
+	default DTC && !KERNEL_FIT
 
 config BLSPEC_ENTRY_CMDLINE
 	string

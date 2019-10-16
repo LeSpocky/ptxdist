@@ -1,0 +1,132 @@
+#!/bin/bash
+#
+# Copyright (C) 2019 Sascha Hauer <s.hauer@pengutronix.de>
+#
+# For further information about the PTXdist project and license conditions
+# see the README file.
+#
+
+ptxd_make_image_fit_its() {
+    local model compatible
+
+    cat << EOF
+/dts-v1/;
+/ {
+	description = "Kernel Image";
+	#address-cells = <1>;
+
+	images {
+		kernel {
+			description = "kernel";
+			data = /incbin/("${image_kernel}");
+			type = "kernel";
+			compression = "none";
+			hash-1 {
+				algo = "sha256";
+			};
+		};
+EOF
+    if [ -n "${image_initramfs}" ]; then
+    cat << EOF
+		initramfs {
+			description = "initramfs";
+			data = /incbin/("${image_initramfs}");
+			type = "ramdisk";
+			compression = "none";
+			hash-1 {
+				algo = "sha256";
+			};
+		};
+EOF
+    fi
+    for i in ${image_dtb}; do
+	model=$(fdtget "${i}" / model)
+	compatible=$(set -- $(fdtget "${i}" / compatible); echo ${1})
+	cat << EOF
+		fdt-${compatible} {
+			data = /incbin/("${i}");
+			compression = "none";
+			type = "flat_dt";
+			hash-1 {
+				algo = "sha256";
+			};
+		};
+EOF
+    done
+    cat << EOF
+	};
+	configurations {
+EOF
+    for i in ${image_dtb}; do
+	model=$(fdtget "${i}" / model)
+	compatible=$(set -- $(fdtget "${i}" / compatible); echo ${1})
+	cat << EOF
+		conf-${compatible} {
+			compatible = "${compatible}";
+			kernel = "kernel";
+EOF
+	if [ -n "${image_initramfs}" ]; then
+	cat << EOF
+			ramdisk = "initramfs";
+EOF
+	fi
+	cat << EOF
+			fdt = "fdt-${compatible}";
+EOF
+	if [ -n "${image_sign_role}" ]; then
+	    cat << EOF
+			signature-1 {
+				algo = "sha256,rsa4096";
+				key-name-hint = "${image_key_name_hint}";
+				sign-images = "fdt", "kernel";
+			};
+EOF
+	fi
+	cat << EOF
+		};
+EOF
+    done
+    cat << EOF
+	};
+};
+EOF
+}
+export -f ptxd_make_image_fit_its
+
+ptxd_make_image_fit() {
+    local pkcs11_uri
+    local its=$(mktemp ${PTXDIST_TEMPDIR}/fitimage.XXXXXXXX)
+    local -a sign_args
+
+    ptxd_make_image_init || return
+
+    if [ -n "${image_sign_role}" ]; then
+	pkcs11_uri=$(cs_get_uri "${image_sign_role}")
+
+	#
+	# It would have been too simple for mkimage to just take a
+	# PKCS#11 URI. We must drop the "pkcs11:" prefix which U-Boot
+	# then adds again. Also mkimage adds "object=<key_name_hint>"
+	# to the URI which our URI already has. Well having it twice
+	# doesn't seem to hurt at least SoftHSM.
+	#
+	pkcs11_uri=$(echo "${pkcs11_uri}" | sed "s/pkcs11://")
+	sign_args=( -k "${pkcs11_uri}" )
+    fi
+
+    if [ -z "${image_image}" ]; then
+	ptxd_bailout "ptxd_make_image_fit: image_image not given"
+    fi
+
+    if [ -z "${image_kernel}" ]; then
+	ptxd_bailout "ptxd_make_image_fit: image_kernel not given"
+    fi
+
+    ptxd_make_image_fit_its > "${its}" &&
+    if [ "${PTXDIST_VERBOSE}" == "1" ]; then
+	echo "Generated device-tree for the fit image:"
+	cat "${its}"
+    fi &&
+    mkimage -N pkcs11 -f "${its}" "${image_image}" -r "${sign_args[@]}"
+}
+export -f ptxd_make_image_fit

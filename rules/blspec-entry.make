@@ -29,6 +29,12 @@ blspec/devicetree	=
 endif
 BLSPEC_ENTRY_LICENSE	= ignore
 
+ifdef PTXCONF_KERNEL_FIT
+BLSPEC_KERNEL_IMAGE	= /boot/linux.fit
+else
+BLSPEC_KERNEL_IMAGE	= $(KERNEL_IMAGE)
+endif
+
 $(STATEDIR)/blspec-entry.targetinstall:
 	@$(call targetinfo)
 
@@ -48,7 +54,7 @@ $(STATEDIR)/blspec-entry.targetinstall:
 		$(call install_replace, blspec-entry, /loader/entries/$(name).conf, \
 			@CMDLINE@,$(PTXCONF_BLSPEC_ENTRY_CMDLINE))$(ptx/nl) \
 		$(call install_replace, blspec-entry, /loader/entries/$(name).conf, \
-			@KERNEL@,'/boot/$(KERNEL_IMAGE)')$(ptx/nl) \
+			@KERNEL@,'/boot/$(BLSPEC_KERNEL_IMAGE)')$(ptx/nl) \
 		$(call install_replace, blspec-entry, /loader/entries/$(name).conf, \
 			@DEVICETREE@,'$(call blspec/devicetree,$(name))')$(ptx/nl))
 
