@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBINPUT) += libinput
 #
 # Paths and names
 #
-LIBINPUT_VERSION	:= 1.14.0
-LIBINPUT_MD5		:= 1c33d49fc7985926eab877e3de9c17eb
+LIBINPUT_VERSION	:= 1.14.2
+LIBINPUT_MD5		:= c282990973140e3fa2dd274c69ab3a57
 LIBINPUT		:= libinput-$(LIBINPUT_VERSION)
 LIBINPUT_SUFFIX		:= tar.xz
 LIBINPUT_URL		:= http://www.freedesktop.org/software/libinput/$(LIBINPUT).$(LIBINPUT_SUFFIX)
@@ -30,14 +30,15 @@ LIBINPUT_LICENSE	:= MIT
 LIBINPUT_CONF_TOOL	:= meson
 LIBINPUT_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dudev-dir=/usr/lib/udev \
-	-Dlibwacom=false \
 	-Dcoverity=false \
 	-Ddebug-gui=false \
-	-Dtests=false \
 	-Ddocumentation=false \
 	-Depoll-dir= \
-	-Dinstall-tests=false
+	-Dinstall-tests=false \
+	-Dlibwacom=false \
+	-Dtests=false \
+	-Dudev-dir=/usr/lib/udev \
+	-Dzshcompletiondir=no
 
 # ----------------------------------------------------------------------------
 # Target-Install
