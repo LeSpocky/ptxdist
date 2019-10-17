@@ -8,6 +8,7 @@ menuconfig POLKIT
 	select HOST_GTK_DOC
 	select EXPAT
 	select GLIB
+	select HOST_GLIB
 	select SYSTEMD		if POLKIT_SYSTEMD
 	select SYSTEMD_LOGIND	if POLKIT_SYSTEMD
 	select ROOTFS_VAR_LIB	if RUNTIME
