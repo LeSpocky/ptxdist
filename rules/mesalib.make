@@ -63,7 +63,7 @@ MESALIB_DRI_LIBS-y = \
 	$(subst nouveau,nouveau_vieux,$(MESALIB_DRI_DRIVERS-y))
 
 MESALIB_DRI_GALLIUM_LIBS-y = \
-	$(subst kmsro,imx-drm pl111 hx8357d,$(subst freedreno,kgsl,$(MESALIB_GALLIUM_DRIVERS-y)))
+	$(subst kmsro,imx-drm pl111 hx8357d stm,$(subst freedreno,kgsl,$(MESALIB_GALLIUM_DRIVERS-y)))
 
 MESALIB_LIBS-y				:= libglapi
 MESALIB_LIBS-$(PTXCONF_MESALIB_GLX)	+= libGL
