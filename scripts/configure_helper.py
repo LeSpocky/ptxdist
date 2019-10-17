@@ -152,7 +152,7 @@ def abort(message):
 
 def ask_ptxdist(pkg):
 	ptxdist = os.environ.get("PTXDIST", os.environ.get("ptxdist", "ptxdist"))
-	p = subprocess.Popen([ ptxdist, "-k", "make",
+	cmdline = [ ptxdist, "-k", "make",
 		"/print-%s_DIR" % pkg,
 		"/print-%s_SUBDIR" % pkg,
 		"/print-%s_CONF_OPT" % pkg,
@@ -160,9 +160,14 @@ def ask_ptxdist(pkg):
 		"/print-%s_CONF_TOOL" %pkg,
 		"/print-CROSS_MESON_USR",
 		"/print-CROSS_AUTOCONF_USR",
-		"/print-PTXDIST_SYSROOT_HOST"],
-		stdout=subprocess.PIPE,
-		universal_newlines=True)
+		"/print-PTXDIST_SYSROOT_HOST" ]
+	try:
+		p = subprocess.Popen(cmdline,
+			stdout=subprocess.PIPE,
+			universal_newlines=True)
+	except OSError as e:
+		print("Unable to execute ptxdist: ", cmdline)
+		raise
 
 	d = p.stdout.readline().strip()
 	subdir = p.stdout.readline().strip()
