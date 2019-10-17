@@ -227,7 +227,7 @@ def parse_meson_args(args, blacklist):
 			name = last
 			value = arg
 			# Most --* args show up as generic arguments at the end
-			if name != "cross-file":
+			if name != "cross-file" and name != "wrap-mode":
 				last_args.append("-D%s=%s" % (name, value))
 			last = None
 		else:
