@@ -98,7 +98,7 @@ endif
 # when compiling the rootfs into the kernel, we just include an empty
 # file for now. the rootfs isn't build yet.
 #
-KERNEL_INITRAMFS_SOURCE_$(PTXCONF_IMAGE_KERNEL_INITRAMFS) += $(STATEDIR)-build/empty.cpio
+KERNEL_INITRAMFS_SOURCE_$(PTXCONF_IMAGE_KERNEL_INITRAMFS) += $(STATEDIR)/empty.cpio
 
 $(STATEDIR)/kernel.prepare:
 	@$(call targetinfo)
