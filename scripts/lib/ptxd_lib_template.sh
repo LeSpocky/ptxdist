@@ -398,6 +398,13 @@ export -f ptxd_template_new_barebox
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="barebox"
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create package for an extra barebox"
 
+ptxd_template_new_barebox_imx_habv4() {
+    ptxd_template_new_barebox
+}
+export -f ptxd_template_new_barebox_imx_habv4
+ptxd_template_help_list[${#ptxd_template_help_list[@]}]="barebox-imx-habv4"
+ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create package for an extra barebox with i.MX HABv4 enabled"
+
 ptxd_template_new_image_tgz() {
     export class="image-"
     ptxd_template_read_name &&

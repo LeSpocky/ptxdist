@@ -1,0 +1,20 @@
+## SECTION=bootloader
+
+config BAREBOX_@PACKAGE@
+	tristate
+	select CODE_SIGNING
+	select HOST_EXTRACT_CERT
+	select HOST_IMX_CST
+	prompt "Barebox (@package@)"
+	help
+	  This builds a i.MX HABv4 enabled barebox. In your barebox config
+	  enable the following to compile with HAB support:
+	  CONFIG_HAB=y
+	  CONFIG_HABV4=y
+	  CONFIG_HABV4_TABLE_BIN="imx-srk-table.bin"
+	  CONFIG_HABV4_CSF_CRT_PEM="__ENV__CSF"
+	  CONFIG_HABV4_IMG_CRT_PEM="__ENV__IMG"
+
+	  Enable this to add the public keys for the FIT image:
+	  CONFIG_CRYPTO_RSA_KEY="__ENV__FIT_KEY"
+	  CONFIG_CRYPTO_RSA_KEY_NAME_HINT="image-kernel-fit"
