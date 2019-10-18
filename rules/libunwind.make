@@ -33,6 +33,7 @@ LIBUNWIND_LICENSE	:= MIT
 LIBUNWIND_CONF_TOOL	:= autoconf
 LIBUNWIND_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--includedir=/usr/include/libunwind \
 	--$(call ptx/disen, PTXCONF_ARCH_PPC)-coredump \
 	--enable-ptrace \
 	--enable-setjmp \
