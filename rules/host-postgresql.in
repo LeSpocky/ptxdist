@@ -2,6 +2,3 @@
 
 config HOST_POSTGRESQL
 	tristate
-	prompt "postgresql"
-	help
-	  FIXME
