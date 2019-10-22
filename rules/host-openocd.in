@@ -1,6 +1,6 @@
 ## SECTION=hosttools
 
-menuconfig HOST_OPENOCD
+config HOST_OPENOCD
 	tristate
 	prompt "openocd"
 	select HOST_LIBUSB
