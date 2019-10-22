@@ -1,7 +1,7 @@
 ## SECTION=multimedia_libs
 
 menuconfig MESA_DEMOS
-	bool
+	tristate
 	select MESALIB
 	select GLEW
 	select GLU
