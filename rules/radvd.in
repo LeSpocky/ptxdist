@@ -1,7 +1,7 @@
 ## SECTION=networking
 
 menuconfig RADVD
-	bool
+	tristate
 	prompt "radvd                         "
 	help
 	  Router Advertisement Daemon
