@@ -1,6 +1,6 @@
 ## SECTION=multimedia_wayland
 
-config WLROOTS
+menuconfig WLROOTS
 	tristate
 	select HOST_MESON
 	select WAYLAND
@@ -16,7 +16,7 @@ config WLROOTS
 	select XCB_UTIL
 	select UDEV_LIBUDEV
 	select PIXMAN
-	prompt "wlroots"
+	prompt "wlroots                       "
 	help
 	  wlroots provides pluggable, composable, unopinionated modules for
 	  building a Wayland compositor.
