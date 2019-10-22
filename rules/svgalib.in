@@ -1,8 +1,8 @@
 ## SECTION=multimedia_libs
 
-config SVGALIB
+menuconfig SVGALIB
 	tristate
-	prompt "svgalib"
+	prompt "svgalib                       "
 	help
 	  SVGAlib is a library that provides simple access to VGA hardware.
 
