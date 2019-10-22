@@ -17,7 +17,7 @@ menuconfig IGT_GPU_TOOLS
 	select UDEV_LIBUDEV
 	select ZLIB
 	select JSON_C		if IGT_GPU_TOOLS_TEST_RUNNER
-	prompt "igt-gpu-tools"
+	prompt "igt-gpu-tools                 "
 	help
 	  igt-gpu-tools is a package of tools for debugging the Intel
 	  graphics driver, including a GPU hang dumping program,
