@@ -1,7 +1,7 @@
 ## SECTION=networking
 
 menuconfig STRONGSWAN
-	bool
+	tristate
 	prompt "strongswan                    "
 	select LIBGMP
 	select LIBCURL if STRONGSWAN_LIBCURL
