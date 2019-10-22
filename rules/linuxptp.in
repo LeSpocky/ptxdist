@@ -1,8 +1,8 @@
 ## SECTION=networking
 
-config LINUXPTP
+menuconfig LINUXPTP
 	tristate
-	prompt "linuxptp"
+	prompt "linuxptp                      "
 	help
 	  The Linux PTP project implements the Precision Time protocol (PTP),
 	  standardized as IEEE1588.
