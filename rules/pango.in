@@ -1,8 +1,8 @@
 ## SECTION=multimedia_gtk
 
-menuconfig PANGO
+config PANGO
 	tristate
-	prompt "pango                         "
+	prompt "pango"
 	select HOST_MESON
 	select LIBC_M
 	select CAIRO
