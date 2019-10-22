@@ -15,6 +15,10 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBARCHIVE) += host-libarchive
 # Prepare
 # ----------------------------------------------------------------------------
 
+HOST_LIBARCHIVE_CONF_ENV	:= \
+	$(HOST_ENV) \
+	ac_cv_have_decl_EXT2_IOC_GETFLAGS=no
+
 #
 # autoconf
 #
