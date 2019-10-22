@@ -8,7 +8,7 @@ menuconfig KRB5
 	select E2FSPROGS_LIBSS		if KRB5_ADMIN_TOOLS
 	select KEYUTILS			if KRB5_CLIENT_TOOLS
 	select OPENSSL
-	prompt "Kerberos"
+	prompt "Kerberos                      "
 	help
 	  This is the MIT implementation of the Kerberos network authentication
 	  protocol.
