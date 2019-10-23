@@ -63,7 +63,7 @@ SUDO_AUTOCONF = \
 	--disable-gcrypt \
 	--enable-hardening \
 	--enable-pie \
-	--enable-asan \
+	--disable-asan \
 	--enable-poll \
 	--disable-admin-flag \
 	--disable-nls \
