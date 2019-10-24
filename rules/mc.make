@@ -71,6 +71,8 @@ $(STATEDIR)/mc.targetinstall:
 	@$(call install_fixup, mc,DESCRIPTION,missing)
 
 	@$(call install_copy, mc, 0, 0, 0755, -, /usr/bin/mc)
+	@$(call install_alternative_tree, mc, 0, 0, /etc/mc)
+	@$(call install_tree, mc, 0, 0, -, /usr/share/mc/skins)
 
 	@$(call install_finish, mc)
 
