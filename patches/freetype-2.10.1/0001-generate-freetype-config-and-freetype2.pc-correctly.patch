@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  4 files changed, 16 insertions(+), 24 deletions(-)
 
 diff --git a/builds/unix/configure.ac b/builds/unix/configure.ac
-index b306821f42ff..5498e5b4462a 100644
+index d374088aae9e..e40558adb105 100644
 --- a/builds/unix/configure.ac
 +++ b/builds/unix/configure.ac
-@@ -1083,7 +1083,9 @@ AC_CONFIG_HEADERS([ftconfig.h:ftconfig.in],
+@@ -1114,7 +1114,9 @@ AC_CONFIG_HEADERS([ftconfig.h:ftconfig.in],
  # and `builds/unix/unix-cc.mk' that will be used by the build system
  #
  AC_CONFIG_FILES([unix-cc.mk:unix-cc.in
@@ -26,7 +26,7 @@ index b306821f42ff..5498e5b4462a 100644
  # re-generate the Jamfile to use libtool now
  #
 diff --git a/builds/unix/freetype-config.in b/builds/unix/freetype-config.in
-index 2d5b90dc29d6..9f866c454e93 100644
+index 9e8d3c2bb82f..8f1c0af3c254 100644
 --- a/builds/unix/freetype-config.in
 +++ b/builds/unix/freetype-config.in
 @@ -16,13 +16,6 @@ export LC_ALL
@@ -94,10 +94,10 @@ index 2d759ecf8bfd..f44f14cabf9a 100644
 +Libs.private: @LIBS_PRIVATE@
  Cflags: -I${includedir}/freetype2
 diff --git a/builds/unix/unix-def.in b/builds/unix/unix-def.in
-index 6957053abe2a..44f329ef0ded 100644
+index e74844d29dcd..c117b5ef0d5c 100644
 --- a/builds/unix/unix-def.in
 +++ b/builds/unix/unix-def.in
-@@ -148,7 +148,4 @@ $(OBJ_BUILD)/freetype2.pc: $(TOP_DIR)/builds/unix/freetype2.in
+@@ -154,7 +154,4 @@ $(OBJ_BUILD)/freetype2.pc: $(TOP_DIR)/builds/unix/freetype2.in
  # defines whether we should install `freetype-config' or not
  INSTALL_FT2_CONFIG = @INSTALL_FT2_CONFIG@
  
