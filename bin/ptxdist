@@ -248,11 +248,9 @@ _get_config_ptx() {
 		return 1
 	fi
 
-	if [ -n "${PTXDIST_FORCE}" ]; then
-		return
-	fi
 
-	configfile_version="$(ptxd_get_ptxconf PTXCONF_CONFIGFILE_VERSION)" || {
+	configfile_version="$(ptxd_get_ptxconf PTXCONF_CONFIGFILE_VERSION)"
+	if [ $? -ne 0 -a -n "${PTXDIST_FORCE}" ]; then
 		ptxd_dialog_msgbox \
 			"error:	the config file '${PTXDIST_PTXCONFIG#${PTXDIST_WORKSPACE}/}'\n" \
 			"	is missing the symbol 'PTXCONF_CONFIGFILE_VERSION',\n" \
@@ -260,7 +258,7 @@ _get_config_ptx() {
 			"\n" \
 			"	Try 'ptxdist select <ptxconfig>'\n"
 		return 1
-	}
+	fi
 }
 
 #
