@@ -2573,7 +2573,7 @@ setup_auto_version()
 
 	_get_config_ptx
 	PTXDIST_PTXCONFIG="${saved_ptxconfig}"
-	if check_version "${configfile_version}"; then
+	if PTXDIST_FORCE= check_version "${configfile_version}"; then
 		# this is already the correct version
 		return
 	fi
