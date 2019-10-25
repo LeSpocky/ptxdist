@@ -3,7 +3,6 @@
 menuconfig HARFBUZZ
 	tristate
 	prompt "harfbuzz                      "
-	select FONTCONFIG
 	select FREETYPE
 	select GLIB
 	select GRAPHITE2	if HARFBUZZ_GRAPHITE

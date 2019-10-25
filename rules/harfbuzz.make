@@ -14,10 +14,10 @@ PACKAGES-$(PTXCONF_HARFBUZZ) += harfbuzz
 #
 # Paths and names
 #
-HARFBUZZ_VERSION	:= 1.8.1
-HARFBUZZ_MD5		:= 97cb89c6e2a914c05c8b7e858703885f
+HARFBUZZ_VERSION	:= 2.6.2
+HARFBUZZ_MD5		:= 1551bb7ebe970d3466787cd26cfa7f76
 HARFBUZZ		:= harfbuzz-$(HARFBUZZ_VERSION)
-HARFBUZZ_SUFFIX		:= tar.bz2
+HARFBUZZ_SUFFIX		:= tar.xz
 HARFBUZZ_URL		:= https://www.freedesktop.org/software/harfbuzz/release/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)
 HARFBUZZ_SOURCE		:= $(SRCDIR)/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)
 HARFBUZZ_DIR		:= $(BUILDDIR)/$(HARFBUZZ)
@@ -30,6 +30,7 @@ HARFBUZZ_LICENSE	:= MIT
 HARFBUZZ_CONF_TOOL	:= autoconf
 HARFBUZZ_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-code-coverage \
 	--disable-static \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-gtk-doc \
@@ -39,12 +40,12 @@ HARFBUZZ_CONF_OPT	:= \
 	--with-glib \
 	--without-gobject \
 	--without-cairo \
-	--with-fontconfig \
+	--without-fontconfig \
 	--$(call ptx/wwo, PTXCONF_HARFBUZZ_ICU)-icu \
-	--without-ucdn \
 	--$(call ptx/wwo, PTXCONF_HARFBUZZ_GRAPHITE)-graphite2 \
 	--with-freetype \
 	--without-uniscribe \
+	--without-gdi \
 	--without-directwrite \
 	--without-coretext
 
