@@ -291,6 +291,7 @@ _check_config_ptx() {
 # check the platformconfig file
 #
 _check_config_platform() {
+	local configfile_version
 	#
 	# don't check platform if e.g. toolchain defines 'PTXCONF_NO_PLATFORM'
 	#
