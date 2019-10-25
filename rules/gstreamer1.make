@@ -67,6 +67,17 @@ GSTREAMER1_CONF_OPT	:= \
 	-Dtracer_hooks=$(call ptx/truefalse,PTXCONF_GSTREAMER1_DEBUG)
 
 # ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/gstreamer1.install.post:
+	@$(call targetinfo)
+	@sed -i "s;'/usr;'$(SYSROOT)/usr;" \
+		$(GSTREAMER1_PKGDIR)/usr/share/gdb/auto-load/usr/lib/libgstreamer-1.0.so.*-gdb.py
+	@$(call world/install.post, GSTREAMER1)
+	@$(call touch)
+
+# ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
 
