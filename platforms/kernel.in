@@ -218,9 +218,6 @@ config KERNEL_IMAGE
 	default "Image"   if KERNEL_IMAGE_RAW
 	default "simpleImage.${PTXCONF_KERNEL_IMAGE_SIMPLE_TARGET}.elf" if KERNEL_IMAGE_SIMPLE
 
-config KERNEL_DTC
-	bool
-
 config KERNEL_XZ
 	prompt "build xz-utils hosttool"
 	bool

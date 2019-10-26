@@ -2,8 +2,7 @@
 
 menuconfig DTC
 	bool
-	select HOST_DTC		if !DTC_KERNEL
-	select KERNEL_DTC	if DTC_KERNEL
+	select HOST_DTC
 	select KERNEL
 	prompt "Build device tree             "
 	help
@@ -34,11 +33,6 @@ config DTC_OFTREE_DTS
 	  blob generation. For relative file names DTC_OFTREE_DTS_PATH
 	  is used as a search path for the device tree files specified
 	  here. Multiple dts files can be specified, separated by spaces.
-
-config DTC_KERNEL
-	bool
-	default y
-	prompt "use kernel dtc"
 
 config DTC_EXTRA_ARGS
 	string "extra options passed to dtc"

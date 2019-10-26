@@ -213,10 +213,6 @@ $(STATEDIR)/kernel.install:
 ifdef PTXCONF_KERNEL_MODULES_INSTALL
 	@$(call world/install, KERNEL)
 endif
-ifdef PTXCONF_KERNEL_DTC
-	@install -m 755 "$(KERNEL_BUILD_DIR)/scripts/dtc/dtc" "$(PTXDIST_SYSROOT_HOST)/bin/dtc"
-endif
-
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
