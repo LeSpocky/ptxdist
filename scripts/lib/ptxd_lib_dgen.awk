@@ -225,7 +225,7 @@ $1 ~ /^PTXCONF_/ {
 		CHECK_LICENSES = 1;
 
 	do {
-		if (this_PKG in PKG_to_pkg) {
+		if (this_PKG in PKG_to_pkg || this_PKG in virtual_pkg) {
 			next_PKG_HASHFILE = PTXDIST_TEMPDIR "/pkghash-" this_PKG;
 			if (next_PKG_HASHFILE != PKG_HASHFILE) {
 				close(PKG_HASHFILE);
@@ -282,8 +282,10 @@ function write_maps(this_PKG, dep_type) {
 	for (i = 1; i <= n; i++) {
 		if (last ==  this_DEP_array[i])
 			continue
-		if (this_DEP_array[i] in virtual_pkg)
+		if (this_DEP_array[i] in virtual_pkg) {
+			dump_file(PTXDIST_TEMPDIR "/pkghash-" this_DEP_array[i], PTXDIST_TEMPDIR "/pkghash-" this_PKG);
 			continue
+		}
 		if (!(this_DEP_array[i] in PKG_to_pkg))
 			continue
 		this_PKG_DEP = this_PKG_DEP " " this_DEP_array[i];
