@@ -12,12 +12,12 @@ if HOST_DTC
 
 config HOST_DTC_VERSION
 	string "Device tree compiler version"
-	default "1.4.1"
+	default "1.5.1"
 	help
 	  Specify the DTC version number to be used
 
 config HOST_DTC_MD5
 	string "dtc source md5sum"
-	default "e3543e76153c553cfce531ce147b9bfd"
+	default "c5f139328b54ed8d9a3385e7fe38b137"
 
 endif
