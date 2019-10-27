@@ -759,6 +759,16 @@ ptxd_eval() {
 export -f ptxd_eval
 
 #
+# execute the arguments
+#
+ptxd_exec() {
+	ptxd_verbose "executing:" "${@}
+"
+	"${@}"
+}
+export -f ptxd_exec
+
+#
 # check if a previously executed pipe returned an error
 #
 check_pipe_status() {
