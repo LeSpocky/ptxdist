@@ -78,6 +78,13 @@ ptxd_make_world_clean() {
 	ls "${ptx_pkg_dir}/"${pkgs}
 	rm "${ptx_pkg_dir}/"${pkgs}
     fi
+    if [ -n "${image_image}" -a -e "${image_image}" -a \
+	    "$(dirname "${image_image}")" = "${ptx_image_dir}" ]; then
+	echo "Deleting image:"
+	echo "${image_image}"
+	rm "${image_image}"
+	echo
+    fi
 }
 export -f ptxd_make_world_clean
 

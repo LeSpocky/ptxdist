@@ -17,7 +17,7 @@ $(STATEDIR)/%.clean: FORCE
 # clean
 #
 world/clean = \
-	$(call world/env, $(1)) \
+	$(call world/image/env, $(1)) \
 	ptxd_make_world_clean
 
 #
