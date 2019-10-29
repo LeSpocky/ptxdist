@@ -16,14 +16,15 @@ PACKAGES-$(PTXCONF_KERNEL_@PACKAGE@) += kernel-@package@
 #
 KERNEL_@PACKAGE@_VERSION	:= @VERSION@
 KERNEL_@PACKAGE@_MD5		:=
-KERNEL_@PACKAGE@		:= linux-$(KERNEL_@PACKAGE@_VERSION)
+KERNEL_@PACKAGE@		:= linux-@package@-$(KERNEL_@PACKAGE@_VERSION)
 KERNEL_@PACKAGE@_SUFFIX		:= tar.xz
-KERNEL_@PACKAGE@_DIR		:= $(BUILDDIR)/linux-@package@-$(KERNEL_@PACKAGE@_VERSION)
+KERNEL_@PACKAGE@_URL		:= $(call kernel-url, KERNEL_@PACKAGE@)
+KERNEL_@PACKAGE@_PATCHES	:= linux-$(KERNEL_@PACKAGE@_VERSION)
+KERNEL_@PACKAGE@_SOURCE		:= $(SRCDIR)/$(KERNEL_@PACKAGE@_PATCHES).$(KERNEL_@PACKAGE@_SUFFIX)
+KERNEL_@PACKAGE@_DIR		:= $(BUILDDIR)/$(KERNEL_@PACKAGE@)
 KERNEL_@PACKAGE@_BUILD_DIR	:= $(KERNEL_@PACKAGE@_DIR)-build
 KERNEL_@PACKAGE@_CONFIG		:= $(call ptx/in-platformconfigdir, kernelconfig-@package@)
-KERNEL_@PACKAGE@_LICENSE	:= GPL-2.0
-KERNEL_@PACKAGE@_URL		:= $(call kernel-url, KERNEL_@PACKAGE@)
-KERNEL_@PACKAGE@_SOURCE		:= $(SRCDIR)/$(KERNEL_@PACKAGE@).$(KERNEL_@PACKAGE@_SUFFIX)
+KERNEL_@PACKAGE@_LICENSE	:= GPL-2.0-only
 KERNEL_@PACKAGE@_BUILD_OOT	:= KEEP
 
 # ----------------------------------------------------------------------------
@@ -54,8 +55,6 @@ $(KERNEL_@PACKAGE@_CONFIG):
 	@echo
 	@exit 1
 endif
-
-$(STATEDIR)/kernel-@package@.prepare:
 
 # ----------------------------------------------------------------------------
 # Compile
