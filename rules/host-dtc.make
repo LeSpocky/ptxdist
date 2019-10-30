@@ -34,8 +34,10 @@ HOST_DTC_MAKE_OPT := \
 	NO_VALGRIND=1 \
 	NO_YAML=1 \
 	$(HOST_ENV_CC)
+
 HOST_DTC_INSTALL_OPT := \
 	$(HOST_DTC_MAKE_OPT) \
-	install
+	install-bin \
+	install-lib
 
 # vim: syntax=make
