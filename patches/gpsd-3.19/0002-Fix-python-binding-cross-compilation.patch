@@ -1,0 +1,96 @@
+From: Ladislav Michl <ladis@linux-mips.org>
+Date: Wed, 30 Oct 2019 11:47:28 +0100
+Subject: [PATCH] Fix python binding cross-compilation
+
+---
+ SConstruct | 48 +++++++++++++++++++++---------------------------
+ 1 file changed, 21 insertions(+), 27 deletions(-)
+
+diff --git a/SConstruct b/SConstruct
+index 7bd5b08f2a46..4895b659ba49 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -440,6 +440,10 @@ def announce(msg):
+     if not env.GetOption("silent"):
+         print(msg)
+ 
++if env['sysroot']:
++    sysroot = env['sysroot']
++else:
++    sysroot = ''
+ 
+ # DESTDIR environment variable means user prefix the installation root.
+ DESTDIR = os.environ.get('DESTDIR', '')
+@@ -454,12 +458,6 @@ def installdir(dir, add_destdir=True):
+     wrapped.replace("/usr/lib/systemd", "/lib/systemd")
+     return wrapped
+ 
+-
+-# Honor the specified installation prefix in link paths.
+-if env["sysroot"]:
+-    env.Prepend(LIBPATH=[env["sysroot"] + installdir('libdir',
+-                add_destdir=False)])
+-
+ # Give deheader a way to set compiler flags
+ if 'MORECFLAGS' in os.environ:
+     env.Append(CFLAGS=Split(os.environ['MORECFLAGS']))
+@@ -513,11 +511,6 @@ if env['target']:
+     for (name, toolname) in devenv:
+         env[name] = env['target'] + '-' + toolname
+ 
+-if env['sysroot']:
+-    env.MergeFlags({"CFLAGS": ["--sysroot=%s" % env['sysroot']]})
+-    env.MergeFlags({"LINKFLAGS": ["--sysroot=%s" % env['sysroot']]})
+-
+-
+ # Build help
+ def cmp(a, b):
+     return (a > b) - (a < b)
+@@ -1156,22 +1149,23 @@ if helping:
+ 
+ else:
+ 
+-    if config.env['python'] and config.env['target_python']:
+-        try:
+-            config.CheckProg
+-        except AttributeError:  # Older scons versions don't have CheckProg
+-            target_python_path = config.env['target_python']
+-        else:
+-            target_python_path = config.CheckProg(config.env['target_python'])
+-        if not target_python_path:
+-            announce("Target Python doesn't exist - disabling Python.")
+-            config.env['python'] = False
+     if config.env['python']:
+-        # Maximize consistency by using the reported sys.executable
+-        target_python_path = config.GetPythonValue('exe path',
+-                                                   'import sys',
+-                                                   'sys.executable',
+-                                                   brief=cleaning)
++        if config.env['target_python']:
++            try:
++                config.CheckProg
++            except AttributeError:  # Older scons versions don't have CheckProg
++                target_python_path = config.env['target_python']
++            else:
++                target_python_path = config.CheckProg(config.env['target_python'])
++            if not target_python_path:
++                announce("Target Python doesn't exist - disabling Python.")
++                config.env['python'] = False
++        else:
++            # Maximize consistency by using the reported sys.executable
++            target_python_path = config.GetPythonValue('exe path',
++                                                       'import sys',
++                                                       'sys.executable',
++                                                       brief=cleaning)
+         if config.env['python_libdir']:
+             python_libdir = config.env['python_libdir']
+         else:
+@@ -1674,7 +1668,7 @@ else:
+                        LINK=ldshared,
+                        SHLIBPREFIX="",
+                        SHLIBSUFFIX=python_config['SO'],
+-                       CPPPATH=[python_config['INCLUDEPY']],
++                       CPPPATH=sysroot + python_config['INCLUDEPY'],
+                        CPPFLAGS=python_config['OPT'],
+                        CFLAGS=python_config['BASECFLAGS'],
+                        CXXFLAGS=python_config['BASECFLAGS'])

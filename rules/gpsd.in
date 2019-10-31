@@ -1,15 +1,18 @@
 ## SECTION=system_libraries
 menuconfig GPSD
 	tristate
+	select HOST_PYTHON_SCONS
 	select LIBC_M
 	select LIBC_NSL
 	select LIBC_PTHREAD
 	select GCCLIBS_CXX
 	select GCCLIBS_GCC_S
-	select NCURSES		if GPSD_CGPS
-	select NCURSES		if GPSD_GPSMON
-	select DBUS_GLIB	if GPSD_DBUS
-	select PYTHON		if GPSD_PYTHON
+	select BLUEZ			if GPSD_BLUEZ
+	select BLUEZ_LIBBLUETOOTH	if GPSD_BLUEZ
+	select LIBUSB			if GPSD_USB
+	select NCURSES			if GPSD_NCURSES
+	select DBUS_GLIB		if GPSD_DBUS
+	select PYTHON3			if GPSD_PYTHON
 	prompt "gpsd                          "
 	help
 	  gpsd is a daemon that listens to a GPS or Loran receiver
@@ -21,6 +24,71 @@ menuconfig GPSD
 
 if GPSD
 
+config GPSD_NCURSES
+	bool
+
+comment "time service     ---"
+
+config GPSD_NTP
+	bool
+	prompt "NTP time hinting support"
+
+config GPSD_NTPSHM
+	bool
+	depends on GPSD_NTP
+	prompt "NTP time hinting via shared memory"
+
+config GPSD_OSCILLATOR
+	bool
+	prompt "Disciplined oscillator support"
+
+config GPSD_PPS
+	bool
+	prompt "PPS time syncing support"
+
+comment "export methods   ---"
+
+config GPSD_DBUS
+	bool
+	prompt "enable DBUS export support"
+
+config GPSD_SHM
+	bool
+	prompt "export via shared memory"
+
+config GPSD_SOCKET
+	bool
+	prompt "data export over sockets"
+
+comment "communication    ---"
+
+config GPSD_BLUEZ
+	bool
+	prompt "BlueZ support for Bluetooth devices"
+
+config GPSD_USB
+	bool
+	prompt "libusb support for USB devices"
+
+comment "Other options    ---"
+
+config GPSD_SYSTEMD
+	bool
+	depends on SYSTEMD
+	prompt "systemd"
+
+config GPSD_RECONFIGURE
+	bool
+	prompt "enable reconfigure"
+	help
+	  allow gpsd to change device settings
+
+config GPSD_CONTROLSEND
+	bool
+	prompt "enable controlsend"
+	help
+	  allow gpsctl/gpsmon to change device settings
+
 config GPSD_PYTHON
 	bool
 	prompt "python bindings"
@@ -31,21 +99,14 @@ config GPSD_PROFILING
 	bool
 	prompt "enable profiling"
 
-config GPSD_NTPSHM
-	bool
-	prompt "ntpshm"
-
-config GPSD_PPS
-	bool
-	prompt "pps"
-
-config GPSD_PPS_ON_CTS
-	bool
-	prompt "pps_on_cts"
+config GPSD_GROUP
+	string
+	prompt "gpsd group"
+	help
+	  This group is used for privilege separation.
 
 config GPSD_USER
 	string
-	default "root"
 	prompt "gpsd user"
 	help
 	  This user is used for privilege separation.
@@ -54,9 +115,9 @@ config GPSD_FIXED_PORT_SPEED
 	string
 	prompt "fixed port speed"
 
-config GPSD_DBUS
-	bool
-	prompt "dbus bindings"
+config GPSD_FIXED_PORT_BITS
+	string
+	prompt "fixed port bits"
 
 config GPSD_MAX_CLIENTS
 	string
@@ -67,6 +128,42 @@ config GPSD_MAX_DEVICES
 	prompt "max devices"
 
 menu "drivers"
+
+	config GPSD_DRIVER_AIVDM
+		bool
+		prompt "aivdm"
+
+	config GPSD_DRIVER_ASHTECH
+		bool
+		prompt "ashtech"
+
+	config GPSD_DRIVER_FURY
+		bool
+		prompt "fury"
+
+	config GPSD_DRIVER_FV18
+		bool
+		prompt "fv18"
+
+	config GPSD_DRIVER_GEOSTAR
+		bool
+		prompt "geostar"
+
+	config GPSD_DRIVER_GREIS
+		bool
+		prompt "greis"
+
+	config GPSD_DRIVER_ISYNC
+		bool
+		prompt "isync"
+
+	config GPSD_DRIVER_ONCORE
+		bool
+		prompt "oncore"
+
+	config GPSD_DRIVER_SKYTRAQ
+		bool
+		prompt "skytraq"
 
 	config GPSD_DRIVER_NMEA
 		bool
@@ -80,10 +177,6 @@ menu "drivers"
 		bool
 		prompt "tsip"
 
-	config GPSD_DRIVER_FV18
-		bool
-		prompt "fv18"
-
 	config GPSD_DRIVER_TRIPMATE
 		bool
 		prompt "tripmate"
@@ -95,10 +188,6 @@ menu "drivers"
 	config GPSD_DRIVER_ITRAX
 		bool
 		prompt "itrax"
-
-	config GPSD_DRIVER_ASHTECH
-		bool
-		prompt "ashtech"
 
 	config GPSD_DRIVER_NAVCOM
 		bool
@@ -118,6 +207,7 @@ menu "drivers"
 
 	config GPSD_DRIVER_UBX
 		bool
+		select GPSD_NTPSHM
 		select GPSD_DRIVER_NMEA
 		prompt "ubx"
 
@@ -137,9 +227,9 @@ menu "drivers"
 		bool
 		prompt "oceanserver"
 
-	config GPSD_DRIVER_MKT3301
+	config GPSD_DRIVER_MTK3301
 		bool
-		prompt "mkt3301"
+		prompt "mtk3301"
 
 	config GPSD_DRIVER_RTCM104V2
 		bool
@@ -188,6 +278,14 @@ menu "install options"
 		  queries with a format that is substantially easier to
 		  parse than the NMEA 0183 emitted by most GPS receivers.
 
+	config GPSD_GPS2UDP
+		bool
+		prompt "gps2udp"
+		help
+		  gps2udp is a tool to connect to gpsd and output the
+		  received sentences to one or many UDP host:port
+		  destinations.
+
 	config GPSD_GPSCTL
 		bool
 		prompt "gpsctl"
@@ -197,6 +295,16 @@ menu "install options"
 		  vendor-binary modes. It can also be used to set the
 		  device baudrate. Note: Not all devices have these
 		  capabilities.
+
+	config GPSD_GPSDECODE
+		bool
+		prompt "gpsdecode"
+		depends on GPSD_DRIVER_RTCM104V2
+		help
+		  The gpsdecode packet decoder.
+		  This tool is a batch-mode decoder for NMEA and various
+		  binary packet formats associated with GPS, AIS, and
+		  differential-correction services.
 
 	config GPSD_GPSPIPE
 		bool
@@ -208,13 +316,9 @@ menu "install options"
 		  received sentences to stdout. This makes the program
 		  useful as a pipe from gpsd to another program or file.
 
-	config GPSD_GPSFLASH
+	config GPSD_GPSRINEX
 		bool
-		prompt "gpsflash"
-		help
-		  This program is a firmware loader for GPS receivers
-		  connected via serial or USB port. Presently it supports
-		  only SiRF GPSes.
+		prompt "gpsrinex"
 
 	config GPSD_GPXLOGGER
 		bool
@@ -224,8 +328,13 @@ menu "install options"
 		  (org.gpsd.fix) and logs each fix to standard output as
 		  they arrive in an XML format.
 
+	config GPSD_LCDGPS
+		bool
+		prompt "lcdgps"
+
 	config GPSD_CGPS
 		bool
+		select GPSD_NCURSES
 		prompt "cgps"
 		help
 		  cgps is a client resembling xgps, but without the
@@ -234,8 +343,8 @@ menu "install options"
 
 	config GPSD_GPSMON
 		bool
+		select GPSD_NCURSES
 		prompt "gpsmon"
-		select NCURSES
 		help
 		  The gpsmon real-time packet monitor and diagnostic tool.
 		  (This replaces the sirfmon tool in older versions.)
@@ -245,19 +354,37 @@ menu "install options"
 		  in various ways; some are device-independent, some vary
 		  with the GPS chipset type.
 
-	config GPSD_GPSDECODE
+	config GPSD_NTPSHMMON
 		bool
-		depends on GPSD_DRIVER_RTCM104V2
-		prompt "gpsdecode"
+		select GPSD_NTP
+		select GPSD_PPS
+		select GPSD_SHM
+		prompt "ntpshmmon"
 		help
-		  The gpsdecode packet decoder.
-		  This tool is a batch-mode decoder for NMEA and various
-		  binary packet formats associated with GPS, AIS, and
-		  differential-correction services.
+		  Capture samples from GPS or other ntpd refclock sources.
+		  This program monitors the shared-memory segments updated by
+		  gpsd (and possibly other refclock sources) as a way of
+		  communicating with ntpd, the Network Time Protocol daemon.
+		  It reads these in exactly the way an ntpd instance does.
+		  It can be run concurrently with ntpd without interfering with
+		  ntpd's normal operation.
+
+	config GPSD_PPSCHECK
+		bool
+		prompt "ppscheck"
+		help
+		  ppscheck watches a specified serial port for transitions
+		  that might be PPS.
+
+	config GPSD_GEGPS
+		bool
+		select GPSD_PYTHON
+		prompt "gegps"
 
 	config GPSD_GPSCAT
-		bool "gpscat"
+		bool
 		select GPSD_PYTHON
+		prompt "gpscat"
 		help
 		  The gpscat tool dumps output from a serial device.
 		  Optionally, it can packetize the data.
@@ -267,8 +394,9 @@ menu "install options"
 		  reports to standard output.
 
 	config GPSD_GPSFAKE
-		bool "gpsfake"
+		bool
 		select GPSD_PYTHON
+		prompt "gpsfake"
 		help
 		  The gpsfake test harness simulating a GPS receiver.
 		  gpsfake is a test harness for gpsd and its clients. It
@@ -278,8 +406,9 @@ menu "install options"
 		  through the master side to the GPS.
 
 	config GPSD_GPSPROF
-		bool "gpsprof"
+		bool
 		select GPSD_PYTHON
+		prompt "gpsprof"
 		help
 		  The gpsprof program for plotting spatial scatter of fixes
 		  and fix latency.
@@ -288,6 +417,24 @@ menu "install options"
 		  that draws an illustrative graph. It can also be told to
 		  emit the raw profile data.
 
+	config GPSD_UBXTOOL
+		bool
+		select GPSD_PYTHON
+		prompt "ubxtool"
+		help
+		  ubxtool is a tool for u-blox GPS. ubxtool can decode common
+		  u-blox binary messages, poll the GPS status, enable and
+		  disable GPS features, and send user generated commands to
+		  the GPS.
+
+	config GPSD_ZERK
+		bool
+		select GPSD_PYTHON
+		prompt "zerk"
+		help
+		  zerk is an all purpose GREIS fitting. zerk can decode common
+		  GREIS messages, poll the GPS status, enable and disable GPS
+		  features, and send user generated commands to the GPS.
 endmenu
 
 endif
