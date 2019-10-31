@@ -319,6 +319,11 @@ ptxd_make_world_init() {
 	    pkg_make_env="${pkg_conf_env:-${!env_ptr}}"
 	    pkg_make_opt="${pkg_make_opt:-build}"
 	    ;;
+	scons)
+	    local env_ptr="ptx_conf_env_${pkg_type}"
+	    pkg_make_env="${pkg_conf_env:-${!env_ptr}}"
+	    pkg_make_opt="${pkg_conf_opt}"
+	    ;;
 	meson)
 	    local conf_opt_ptr="ptx_conf_opt_${pkg_conf_tool}_${pkg_type}${conf_opt_ext}"
 	    local conf_env_ptr="ptx_conf_env_${pkg_conf_tool}_${pkg_type}"
@@ -428,7 +433,7 @@ ptxd_make_world_init() {
 	python*)
 	    pkg_install_opt="${pkg_install_opt} --root=${pkg_pkg_dir}"
 	    ;;
-	ninja)
+	ninja|scons)
 	    pkg_env="DESTDIR=\"${pkg_pkg_dir}\" ${pkg_env}"
 	    ;;
 	*)

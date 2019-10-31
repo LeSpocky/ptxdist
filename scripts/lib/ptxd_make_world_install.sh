@@ -98,6 +98,17 @@ ptxd_make_world_install() {
 	    -j1 \
 	)
 	;;
+	scons)
+	cmd=( \
+	    "${pkg_path}" \
+	    "${pkg_env}" \
+	    "${pkg_make_env}" \
+	    scons \
+	    -C "${pkg_build_dir}" \
+            "${pkg_make_opt}" \
+	    "${pkg_install_opt}" \
+	)
+	;;
 	*)
 	cmd=( \
 	    "${pkg_path}" \

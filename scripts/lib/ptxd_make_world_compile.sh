@@ -37,6 +37,14 @@ ptxd_make_world_compile() {
 	    "${pkg_make_opt}" \
 	    "${pkg_make_par}"
 	;;
+	scons)
+	ptxd_eval \
+	    "${pkg_path}" \
+	    "${pkg_env}" \
+	    "${pkg_make_env}" \
+	    scons -C "${pkg_build_dir}" \
+            "${pkg_make_opt}"
+	;;
 	*)
 	ptxd_eval \
 	    "${pkg_path}" \

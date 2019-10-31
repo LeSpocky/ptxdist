@@ -204,13 +204,18 @@ ptxd_make_world_prepare() {
 		ptxd_bailout "'${pkg_label}' uses '${pkg_conf_tool}' but does not select any python"
 	    fi
 	    ;;
+	scons)
+	    if ! [[ "${pkg_build_deps}" =~ "host-python-${pkg_conf_tool}" ]]; then
+		ptxd_bailout "'${pkg_label}' uses '${pkg_conf_tool}' but does not select 'host-python-${pkg_conf_tool}'"
+	    fi
+	    ;;
     esac
 
     case "${pkg_conf_tool}" in
 	autoconf|cmake|qmake|kconfig|perl|meson)
 	    cd -- "${pkg_build_dir}" &&
 	    ptxd_make_world_prepare_"${pkg_conf_tool}" ;;
-	python|python3)
+	python|python3|scons)
 	    : ;; # nothing to do
 	"NO") echo "prepare stage disabled." ;;
 	"")   echo "No prepare tool found. Do nothing." ;;
