@@ -21,6 +21,13 @@ OPENVPN_SUFFIX		:= tar.xz
 OPENVPN_URL		:= http://swupdate.openvpn.org/community/releases/$(OPENVPN).$(OPENVPN_SUFFIX)
 OPENVPN_SOURCE		:= $(SRCDIR)/$(OPENVPN).$(OPENVPN_SUFFIX)
 OPENVPN_DIR		:= $(BUILDDIR)/$(OPENVPN)
+OPENVPN_LICENSE		:= GPL-2.0-only WITH openvpn-openssl-exception AND BSD-2-Clause AND BSD-3-Clause
+OPENVPN_LICENSE_FILES := \
+	file://COPYING;md5=7aee596ed2deefe3e8a861e24292abba \
+	file://COPYRIGHT.GPL;md5=52cadf4008002e3c314a47a54fa7306c \
+	file://src/openvpn/openvpn.c;startline=2;endline=21;md5=0f37ee042b428e513bda42b430344d42 \
+	file://src/openvpn/base64.c;startline=2;endline=31;md5=f4debd767645b13107fc5912faf2ad8f \
+	file://src/compat/compat-lz4.c;startline=13;endline=38;md5=5f66cf078523624965e41518eed881e2
 
 # ----------------------------------------------------------------------------
 # Prepare
