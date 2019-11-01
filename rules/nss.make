@@ -55,7 +55,8 @@ NSS_MAKE_PAR := NO
 NSS_MAKE_OPT := \
 	OS_ARCH=Linux \
 	OS_RELEASE=$(PTXCONF_KERNEL_VERSION) \
-	OS_TEST=$(NSS_ARCH)
+	OS_TEST=$(NSS_ARCH) \
+	NO_NEON=$(call ptx/ifdef, PTXCONF_ARCH_ARM_NEON,,1)
 
 # ----------------------------------------------------------------------------
 # Install
