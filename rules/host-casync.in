@@ -1,0 +1,11 @@
+## SECTION=hosttools_noprompt
+
+config HOST_CASYNC
+	tristate
+	select HOST_ACL
+	select HOST_LIBCURL
+	select HOST_MESON
+	select HOST_OPENSSL
+	select HOST_XZ
+	select HOST_ZLIB
+	default y if ALLYES

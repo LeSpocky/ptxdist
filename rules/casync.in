@@ -1,0 +1,36 @@
+## SECTION=applications
+
+menuconfig CASYNC
+	tristate
+	prompt "Casync Tool                   "
+	select HOST_CASYNC
+	select HOST_MESON
+	select ACL
+	select LIBC_RT
+	select LIBCURL
+	select LIBC_M
+	select FUSE		if CASYNC_FUSE
+	select FUSE_LIB		if CASYNC_FUSE
+	select OPENSSL
+	select UDEV		if CASYNC_UDEV
+	select UDEV_LIBUDEV	if CASYNC_UDEV
+	select XZ		if CASYNC_LZMA
+	select ZLIB		if CASYNC_ZLIB
+	help
+	  casync — Content Addressable Data Synchronizer.
+
+if CASYNC
+
+config CASYNC_FUSE
+	bool "FUSE integration"
+
+config CASYNC_UDEV
+	bool "UDEV integration"
+
+config CASYNC_LZMA
+	bool "support XZ compression"
+
+config CASYNC_ZLIB
+	bool "support ZLIB compression"
+
+endif
