@@ -21,7 +21,6 @@ HOST_PACKAGES-$(PTXCONF_HOST_XZ) += host-xz
 HOST_XZ_CONF_TOOL	:= autoconf
 HOST_XZ_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
-	--libdir=/lib/xz \
 	--disable-debug \
 	--disable-external-sha256 \
 	--enable-assembler \
@@ -33,11 +32,11 @@ HOST_XZ_CONF_OPT	:= \
 	--disable-lzmainfo \
 	--disable-lzma-links \
 	--disable-scripts \
-	--disable-shared \
 	--disable-doc \
 	--enable-symbol-versions \
 	--disable-sandbox \
-	--enable-static \
+	--enable-shared \
+	--disable-static \
 	--disable-nls \
 	--enable-rpath \
 	--enable-unaligned-access=auto \
