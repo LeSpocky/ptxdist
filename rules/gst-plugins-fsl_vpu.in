@@ -1,4 +1,6 @@
-## SECTION=multimedia_gstreamer
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gstreamer
 
 config GST_PLUGINS_FSL_VPU
 	tristate
@@ -7,3 +9,6 @@ config GST_PLUGINS_FSL_VPU
 	select GST_PLUGINS_BASE
 	help
 	  Video Processing Unit on i.MX27.
+
+	  STAGING: remove in ptxdist-2020.11.0
+	  Deprecated for a long time and fails to build with latest glib.
