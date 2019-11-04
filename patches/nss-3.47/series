@@ -3,5 +3,5 @@
 0001-nss-fix-nsinstall-build.patch
 0002-add-nss.pc.in.patch
 0003-HACK-don-t-build-the-commands.patch
-0004-allow-building-without-NEON.patch
-# 519407b92c5bc296cbc80edaabf6253f  - git-ptx-patches magic
+0004-fix-building-on-ARM.patch
+# a74f505fdd783f123199d2e6f1a43c32  - git-ptx-patches magic
