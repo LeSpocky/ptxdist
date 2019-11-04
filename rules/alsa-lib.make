@@ -62,8 +62,12 @@ ALSA_LIB_CONF_OPT	:= \
 	--with-pthread \
 	--with-librt \
 	--with-alsa-devdir=/dev/snd \
-	--with-aload-devdir=/dev \
-	--with-pcm-plugins=all
+	--with-aload-devdir=/dev
+
+ifdef PTXCONF_ALSA_LIB_PCM
+ALSA_LIB_CONF_OPT += \
+	--with-pcm-plugins=$(PTXCONF_ALSA_LIB_PCM_MODULES)
+endif
 
 # ----------------------------------------------------------------------------
 # Target-Install

@@ -47,6 +47,19 @@ config ALSA_LIB_PCM
 	help
 	  Disable the PCM component if you do not need it
 
+config ALSA_LIB_PCM_MODULES
+	depends on ALSA_LIB_PCM
+	string
+	prompt "pcm modules"
+	default "all"
+	help
+	  You can use the keyword 'all' here for all supported PCM modules or a
+	  comma separated list of required module keywords. The list of module
+	  keywords is:
+	    copy linear route mulaw alaw adpcm rate plug multi shm file null
+	    empty share meter hooks lfloat ladspa dmix dshare dsnoop asym
+	    iec958 softvol extplug ioplug mmap_emul
+
 config ALSA_LIB_RAWMIDI
 	bool
 	default y
