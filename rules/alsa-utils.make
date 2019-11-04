@@ -63,19 +63,34 @@ $(STATEDIR)/alsa-utils.targetinstall:
 	@$(call install_fixup, alsa-utils, DESCRIPTION, missing)
 
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/sbin/alsactl)
+ifdef PTXCONF_ALSA_UTILS_RAW_MIDI
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/amidi)
+endif
+ifdef PTXCONF_ALSA_UTILS_AMIXER
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/amixer)
+endif
+ifdef PTXCONF_ALSA_UTILS_APLAYRECORD
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/aplay)
-#	# link arecord aplay
+#	# same utility for recording - only a link is required
 	@$(call install_link, alsa-utils, aplay, /usr/bin/arecord)
-
+endif
+ifdef PTXCONF_ALSA_UTILS_IECSET
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/iecset)
+endif
+ifdef PTXCONF_ALSA_UTILS_ACONNECT
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/aconnect)
+endif
+ifdef PTXCONF_ALSA_UTILS_MIDI
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/aplaymidi)
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/arecordmidi)
+endif
+ifdef PTXCONF_ALSA_UTILS_SEQTOOLS
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/aseqdump)
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/aseqnet)
-
+endif
+ifdef PTXCONF_ALSA_UTILS_USE_CASE_MANAGER
+	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/alsaucm)
+endif
 ifdef PTXCONF_ALSA_UTILS_ALSAMIXER
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/alsamixer)
 endif
