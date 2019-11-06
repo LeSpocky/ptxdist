@@ -10,6 +10,7 @@ menuconfig RAUC
 	select BUSYBOX_FEATURE_TAR_LONG_OPTIONS	if BUSYBOX_TAR
 	select BUSYBOX_FEATURE_TAR_AUTODETECT	if BUSYBOX_TAR
 	select BUSYBOX_FEATURE_SEAMLESS_XZ	if BUSYBOX_TAR
+	select DBUS				if RAUC_SERVICE
 	select LIBCURL				if RAUC_NETWORK
 	select JSON_GLIB			if RAUC_JSON
 	select SQUASHFS_TOOLS			if RUNTIME
@@ -26,7 +27,6 @@ if RAUC
 config RAUC_SERVICE
 	bool
 	prompt "Enable service (D-Bus) support"
-	depends on DBUS
 	default y
 	help
 	  Compiles RAUC to act as a separate daemon and comand line interface
@@ -50,8 +50,8 @@ config RAUC_JSON
 	  Output format can be selected via '--output-format=<json/json-pretty>'
 
 config RAUC_CONFIGURATION
-	prompt "Install RAUC configuration in /etc/rauc"
 	bool
+	prompt "Install RAUC configuration in /etc/rauc"
 	default y
 	help
 	  Installs a RAUC system configuration file and a keyring into /etc/rauc.
@@ -63,8 +63,8 @@ config RAUC_CONFIGURATION
 if RAUC_CONFIGURATION
 
 config RAUC_COMPATIBLE
-	prompt "RAUC Compatible"
 	string
+	prompt "RAUC Compatible"
 	default "${PTXCONF_PROJECT_VENDOR}\ ${PTXCONF_PROJECT}"
 	help
 	  An explicit identification string that RAUC uses to assure an update
@@ -74,8 +74,8 @@ config RAUC_COMPATIBLE
 	  in the Bundle's manifest match exactly, an update will be performed
 
 config RAUC_BUNDLE_VERSION
-	prompt "RAUC Bundle Version"
 	string
+	prompt "RAUC Bundle Version"
 	default "${PTXDIST_BSP_AUTOVERSION}"
 	help
 	  Overwrite the bundle version if needed.
@@ -83,20 +83,23 @@ config RAUC_BUNDLE_VERSION
 endif
 
 config RAUC_BAREBOX
-	bool "barebox support"
+	bool
+	prompt "barebox support"
 	help
 	  To interact with barebox, barebox-state from dt-utils is used.
 	  Auto-select this package for installation on the target.
 
 config RAUC_U_BOOT
-	bool "U-Boot support"
+	bool
+	prompt "U-Boot support"
 	help
 	  To interact with U-Boot, fw_printenv and fw_setenv from
 	  u-boot-tools are used.
 	  Auto-select this package for installation on the target.
 
 config RAUC_GRUB
-	bool "GRUB support"
+	bool
+	prompt "GRUB support"
 	# needs grub2
 	depends on BROKEN
 	help
@@ -104,7 +107,8 @@ config RAUC_GRUB
 	  Auto-select this package for installation on the target.
 
 config RAUC_EFI
-	bool "EFI support"
+	bool
+	prompt "EFI support"
 	help
 	  To interact with EFI, efibootmgr from efibootmgr is used.
 	  Auto-select this package for installation on the target.
