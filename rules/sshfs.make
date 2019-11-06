@@ -21,7 +21,8 @@ SSHFS_SUFFIX	:= tar.xz
 SSHFS_URL	:= https://github.com/libfuse/sshfs/releases/download/$(SSHFS)/$(SSHFS).$(SSHFS_SUFFIX)
 SSHFS_SOURCE	:= $(SRCDIR)/$(SSHFS).$(SSHFS_SUFFIX)
 SSHFS_DIR	:= $(BUILDDIR)/$(SSHFS)
-SSHFS_LICENSE	:= unknown
+SSHFS_LICENSE	:= GPL-2.0-only
+SSHFS_LICENSE_FILES	:= file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
 
 # ----------------------------------------------------------------------------
 # Prepare
