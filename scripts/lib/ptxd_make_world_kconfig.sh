@@ -24,6 +24,13 @@ ptxd_make_kconfig_setup() {
     ptxd_normalize_config &&
     ptxd_kconfig_setup_config "${ptx_config_mode}" "${pkg_build_dir}/.config" \
 	"${relative_file_dotconfig}" "${file_dotconfig}" "${relative_ref_file_dotconfig}"
+    if [ ${?} -ne 0 ]; then
+	if [ ! -e "${file_dotconfig}" ]; then
+	    ptxd_bailout "Config file '$(ptxd_print_path "${file_dotconfig}")' is missing!"
+	else
+	    ptxd_bailout "Failed to initialize '$(ptxd_print_path ${file_dotconfig})'"
+	fi
+    fi
 }
 export -f ptxd_make_kconfig_setup
 
