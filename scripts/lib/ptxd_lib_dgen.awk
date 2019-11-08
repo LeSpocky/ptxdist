@@ -381,6 +381,11 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	print "ifneq ($(filter /%,$(" this_PKG "_CONFIG)),)"							> DGEN_DEPS_POST;
 	print "ifneq ($(wildcard $(" this_PKG "_CONFIG)),)"							> DGEN_DEPS_POST;
 	print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,CONFIG: " this_PKG " $(" this_PKG "_CONFIG))"		> DGEN_DEPS_POST;
+	print "else"												> DGEN_DEPS_POST;
+	if (this_pkg_prefix != "image-")
+		print "$(STATEDIR)/" this_pkg ".prepare: "            "$(" this_PKG "_CONFIG)"			> DGEN_DEPS_POST;
+	else
+		print "$(" this_PKG "_IMAGE): "                       "$(" this_PKG "_CONFIG)"			> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
