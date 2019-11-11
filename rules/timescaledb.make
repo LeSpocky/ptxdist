@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_TIMESCALEDB) += timescaledb
 #
 # Paths and names
 #
-TIMESCALEDB_VERSION	:= 1.4.2
-TIMESCALEDB_MD5		:= d3c1282031bc2c5a314eb217f4a49796
+TIMESCALEDB_VERSION	:= 1.5.0
+TIMESCALEDB_MD5		:= d48403460f6ee4e3a8f9ba51a5a95899
 TIMESCALEDB		:= timescaledb-$(TIMESCALEDB_VERSION)
 TIMESCALEDB_SUFFIX	:= tar.gz
 TIMESCALEDB_URL		:= https://github.com/timescale/timescaledb/archive/$(TIMESCALEDB_VERSION).$(TIMESCALEDB_SUFFIX)
@@ -34,18 +34,24 @@ TIMESCALEDB_CONF_TOOL	:= cmake
 TIMESCALEDB_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
 	-DCMAKE_PROGRAM_PATH="$(PTXDIST_SYSROOT_HOST)" \
+	-DGIT_EXECUTABLE=false \
 	-DPG_BINDIR="/usr/bin" \
 	-DPG_INCLUDEDIR="$(PTXDIST_SYSROOT_TARGET)/usr/include" \
 	-DPG_INCLUDEDIR_SERVER="$(PTXDIST_SYSROOT_TARGET)/usr/include/postgresql/server" \
 	-DPG_LIBDIR="$(PTXDIST_SYSROOT_TARGET)/usr/lib" \
 	-DPG_PKGLIBDIR="/usr/lib/postgresql" \
 	-DPG_SHAREDIR="/usr/share/postgresql" \
-	-DUSE_OPENSSL=0 \
-	-DSEND_TELEMETRY_DEFAULT=0 \
 	-DAPACHE_ONLY=1 \
-	-DGIT_EXECUTABLE=false
+	-DREGRESS_CHECKS=0 \
+	-DSEND_TELEMETRY_DEFAULT=0 \
+	-DUSE_OPENSSL=0
 
-# -DAPACHE_ONLY=1   is needed to build a free/libre version of TimescaleDB.
+# -DAPACHE_ONLY=1             is needed to build a free/libre version
+#                             of TimescaleDB.
+# -DREGRESS_CHECKS=0          disables isolation regress checks,
+#                             which need pg_regress.
+# -DSEND_TELEMETRY_DEFAULT=0  disables calling home.
+# -DUSE_OPENSSL=0             disables OpenSSL.
 
 # ----------------------------------------------------------------------------
 # Target-Install
