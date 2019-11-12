@@ -1217,7 +1217,7 @@ drop() {
 	fi
 
 	echo
-	if [ -e "${STATEDIR}/${statefile}" ]; then
+	if [ -e "${STATEDIR}/${statefile}" -o -n "${PTXDIST_FORCE}" ] ; then
 		rm -f -- "${STATEDIR}/${statefile}"
 		echo "dropping ${statefile}"
 		echo
