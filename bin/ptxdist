@@ -250,7 +250,7 @@ _get_config_ptx() {
 
 
 	configfile_version="$(ptxd_get_ptxconf PTXCONF_CONFIGFILE_VERSION)"
-	if [ $? -ne 0 -a -n "${PTXDIST_FORCE}" ]; then
+	if [ $? -ne 0 -a -z "${PTXDIST_FORCE}" ]; then
 		ptxd_dialog_msgbox \
 			"error:	the config file '${PTXDIST_PTXCONFIG#${PTXDIST_WORKSPACE}/}'\n" \
 			"	is missing the symbol 'PTXCONF_CONFIGFILE_VERSION',\n" \
