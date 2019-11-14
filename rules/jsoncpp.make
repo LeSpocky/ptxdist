@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_JSONCPP) += jsoncpp
 #
 # Paths and names
 #
-JSONCPP_VERSION		:= 1.9.1
-JSONCPP_MD5		:= da9e0427550e1377d88b471265a3bb3e
+JSONCPP_VERSION		:= 1.9.2
+JSONCPP_MD5		:= e31da248a8765597d79e94cf304b70fe
 JSONCPP			:= jsoncpp-$(JSONCPP_VERSION)
 JSONCPP_SUFFIX		:= tar.gz
 JSONCPP_URL		:= https://github.com/open-source-parsers/jsoncpp/archive/$(JSONCPP_VERSION).tar.gz
