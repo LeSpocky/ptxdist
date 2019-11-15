@@ -61,6 +61,20 @@ HOST_E2FSPROGS_CONF_OPT		:= \
 
 HOST_E2FSPROGS_INSTALL_OPT	:= install install-libs
 
+$(STATEDIR)/host-e2fsprogs.install:
+	@$(call targetinfo)
+	@$(call world/install, HOST_E2FSPROGS)
+	@mkdir -vp $(HOST_E2FSPROGS_PKGDIR)/sbin/real
+	@mv -v $(HOST_E2FSPROGS_PKGDIR)/sbin/{mke2fs,mkfs.*} \
+		$(HOST_E2FSPROGS_PKGDIR)/sbin/real/
+	@echo '#!/bin/sh'							>  $(HOST_E2FSPROGS_PKGDIR)/sbin/mke2fs
+	@echo 'export MKE2FS_CONFIG="$$(dirname "$${0}")/../etc/mke2fs.conf"'	>> $(HOST_E2FSPROGS_PKGDIR)/sbin/mke2fs
+	@echo 'exec "$$(dirname "$${0}")/real/$$(basename "$${0}")" "$${@}"'	>> $(HOST_E2FSPROGS_PKGDIR)/sbin/mke2fs
+	@chmod +x $(HOST_E2FSPROGS_PKGDIR)/sbin/mke2fs
+	@$(foreach mkfs,mkfs.ext2 mkfs.ext3 mkfs.ext4, \
+		ln -s mke2fs $(HOST_E2FSPROGS_PKGDIR)/sbin/$(mkfs)$(ptx/nl))
+	@$(call touch)
+
 $(STATEDIR)/host-e2fsprogs.install.post:
 	@$(call targetinfo)
 	@$(call world/install.post, HOST_E2FSPROGS)
