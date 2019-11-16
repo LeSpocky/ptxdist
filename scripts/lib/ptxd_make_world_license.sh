@@ -245,7 +245,7 @@ ptxd_make_world_license_yaml() {
     do_echo "licenses:" "${pkg_license}"
     do_list "license-flags:" "${!pkg_license_flags[*]}"
     if [ ${#pkg_license_texts[@]} -gt 0 -o ${#pkg_license_texts_guessed[@]} -gt 0 ]; then
-        echo "license-files:"
+	echo "license-files:"
     fi
     local guess="false"
     for license in "${pkg_license_texts[@]}" - "${pkg_license_texts_guessed[@]}"; do
@@ -523,7 +523,7 @@ changed: ${md5} -> $(md5sum "${lic}" | sed 's/ .*//')
     done &&
 
     ptxd_make_world_license_write | \
-        sed -e 's/%/\\%/g' > "${pkg_license_dir}/license-report.tex" &&
+	sed -e 's/%/\\%/g' > "${pkg_license_dir}/license-report.tex" &&
     check_pipe_status &&
 
     ptxd_make_world_license_yaml > "${pkg_license_dir}/license-report.yaml" &&

@@ -81,7 +81,7 @@ ptxd_make_world_install() {
 	    setup.py \
 	    "${pkg_install_opt}" \
 	)
-        if [ "${pkg_type}" = target ]; then
+	if [ "${pkg_type}" = target ]; then
 	    cmd[${#cmd[@]}]='&&'
 	    cmd[${#cmd[@]}]=ptxd_make_world_install_python_cleanup
 	fi
@@ -105,7 +105,7 @@ ptxd_make_world_install() {
 	    "${pkg_make_env}" \
 	    scons \
 	    -C "${pkg_build_dir}" \
-            "${pkg_make_opt}" \
+	    "${pkg_make_opt}" \
 	    "${pkg_install_opt}" \
 	)
 	;;
@@ -237,7 +237,7 @@ ptxd_make_world_install_post() {
 	    find "${pkg_pkg_dir}"{,/usr}/{lib,share}/pkgconfig -name *.pc \
 		-printf "%f\n" 2>/dev/null | sed 's/\.pc$//'
 	elif [ "${pkg_type}" != "target" -a -n "${pkg_build_dir}" -a -d "${pkg_build_dir}" ]; then
-            # workaround for packages that install directly to sysroot
+	    # workaround for packages that install directly to sysroot
 	    find "${pkg_build_dir}" -name *.pc \
 		-printf "%f\n" 2>/dev/null | sed 's/\.pc$//'
 	fi

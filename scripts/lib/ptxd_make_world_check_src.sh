@@ -47,7 +47,7 @@ ptxd_make_world_check_src() {
     ptxd_make_world_init &&
 
     if [ -z "${pkg_src}" ]; then
-        return
+	return
     fi
     ptxd_make_check_src_impl "${pkg_src}" "${pkg_md5}" && return
 

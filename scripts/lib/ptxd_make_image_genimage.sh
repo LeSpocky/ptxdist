@@ -35,7 +35,7 @@ ptxd_make_image_genimage_config() {
     includes=( $(sed -n "s/.*\<include(['\"]\(.*\)['\"]).*/\1/p" "${tmp}") ) &&
     sed  -i "s:\(.*\<include(['\"]\)\(.*\)\(['\"]).*\):\1${configdir}/\2\3:" "${tmp}" &&
     for inc in "${includes[@]}"; do
-        ptxd_make_image_genimage_config "${inc}"
+	ptxd_make_image_genimage_config "${inc}"
     done
 }
 export -f ptxd_make_image_genimage_config

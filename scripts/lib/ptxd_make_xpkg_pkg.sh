@@ -598,20 +598,20 @@ install replace figlet:
 
     ptxd_exist "${dirs[@]/%/${dst}}" &&
     ptxd_figlet_helper() {
-        local value="$1"
-        local escapemode="$2"
-        figlet -d "${PTXDIST_SYSROOT_HOST}/share/figlet" -- "${value}" | \
-        case "$escapemode" in
-            # /etc/issue needs each backslash quoted by another backslash. As
-            # the string is interpreted by the shell once more below, another
-            # level of quoting is needed such that every \ in the output of
-            # figlet needs to be replaced by \\\\. As a \ in sed needs to be
-            # quoted, too, this results in eight backslashes in the replacement
-            # string.
-            etcissue)	sed 's,\\,\\\\\\\\,g';;
-            *)		;;
-        esac | \
-        awk '{ if ($0 !~ "^ *$") printf("%s\\n", $0) }'  # newlines for sed
+	local value="$1"
+	local escapemode="$2"
+	figlet -d "${PTXDIST_SYSROOT_HOST}/share/figlet" -- "${value}" | \
+	case "$escapemode" in
+	    # /etc/issue needs each backslash quoted by another backslash. As
+	    # the string is interpreted by the shell once more below, another
+	    # level of quoting is needed such that every \ in the output of
+	    # figlet needs to be replaced by \\\\. As a \ in sed needs to be
+	    # quoted, too, this results in eight backslashes in the replacement
+	    # string.
+	    etcissue)	sed 's,\\,\\\\\\\\,g';;
+	    *)		;;
+	esac | \
+	awk '{ if ($0 !~ "^ *$") printf("%s\\n", $0) }'  # newlines for sed
     } &&
     figlet="$(ptxd_figlet_helper "$value" "$escapemode")" &&
     sed -i -e "s#${placeholder}#${figlet}#g" "${dirs[@]/%/${dst}}" ||
@@ -640,23 +640,23 @@ ptxd_install_generic() {
     local type="${stat[5]}" &&
 
     case "${type}" in
-        "directory")
+	"directory")
 	    ptxd_install_dir "${dst}" "${usr}" "${grp}" "${mod}"
 	    ;;
-        "character special file")
+	"character special file")
 	    ptxd_install_mknod "${dst}" "${usr}" "${grp}" "${mod}" c "${major}" "${minor}"
 	    ;;
-        "block special file")
+	"block special file")
 	    ptxd_install_mknod "${dst}" "${usr}" "${grp}" "${mod}" b "${major}" "${minor}"
 	    ;;
-        "symbolic link")
+	"symbolic link")
 	    local src="$(readlink "${file}")" &&
 	    ptxd_install_ln "${src}" "${dst}" "${usr}" "${grp}"
 	    ;;
-        "regular file"|"regular empty file")
+	"regular file"|"regular empty file")
 	    ptxd_install_file "${file}" "${dst}" "${usr}" "${grp}" "${mod}" "${strip}"
 	    ;;
-        *)
+	*)
 	    echo "Error: File type '${type}' unkown!"
 	    return 1
 	    ;;
