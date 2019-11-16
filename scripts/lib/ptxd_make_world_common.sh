@@ -421,11 +421,6 @@ ptxd_make_world_init() {
 	    pkg_make_opt="-v ${pkg_make_opt}"
 	    pkg_install_opt="-v ${pkg_install_opt}"
 	fi
-	# pass jobserver via MAKEFLAGS to ninja
-	if [ -n "${PTXDIST_JOBSERVER_FLAGS}" ]; then
-	    pkg_env="${pkg_env} MAKEFLAGS='${PTXDIST_JOBSERVER_FLAGS}'"
-	    PTXDIST_PARALLELMFLAGS_INTERN=""
-	fi
     fi
 
     # DESTDIR
@@ -445,9 +440,38 @@ ptxd_make_world_init() {
     # parallelmake
     #
     case "${pkg_make_par}" in
-	"YES"|"") pkg_make_par="${PTXDIST_PARALLELMFLAGS_INTERN} ${PTXDIST_LOADMFLAGS}" ;;
-	"NO")	  pkg_make_par=-j1 ;;
+	YES|"") ;;
+	NO)
+	    unset PTXDIST_PARALLELMFLAGS_INTERN
+	    unset PTXDIST_PARALLEL_FLAGS
+	    unset PTXDIST_JOBSERVER_FLAGS
+	    ;;
 	*)	  ptxd_bailout "<PKG>_MAKE_PAR: please set to YES or NO" ;;
+    esac
+    case "${pkg_build_tool}" in
+	ninja)
+	    # ninja needs explicit -j1 to avoid parallel building
+	    if [ -z "${PTXDIST_PARALLEL_FLAGS}" ]; then
+		PTXDIST_PARALLEL_FLAGS=-j1
+	    fi
+	    # pass jobserver via MAKEFLAGS to ninja
+	    if [ -n "${PTXDIST_JOBSERVER_FLAGS}" ]; then
+		pkg_env="${pkg_env} MAKEFLAGS='${PTXDIST_JOBSERVER_FLAGS}'"
+		# no -jX argument if the jobserver is used
+		unset PTXDIST_PARALLEL_FLAGS
+	    fi
+	    pkg_make_par="${PTXDIST_PARALLEL_FLAGS} ${PTXDIST_LOADMFLAGS}"
+	    ;;
+	python*)
+	    # no consistant support for parallel building
+	    ;;
+	scons)
+	    # only -jX is supported not other options
+	    pkg_make_par="${PTXDIST_PARALLEL_FLAGS}"
+	    ;;
+	*)
+	    pkg_make_par="${PTXDIST_PARALLELMFLAGS_INTERN} ${PTXDIST_LOADMFLAGS}"
+	    ;;
     esac
 
     #
