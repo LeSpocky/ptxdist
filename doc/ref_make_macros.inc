@@ -663,8 +663,8 @@ be installed with some other ``install_*`` command before
 .. _ptx_ifdef:
 .. _ptx_truefalse:
 
-ptx/endis, ptx/disen, ptx/wwo, ptx/truefalse, ptx/ifdef
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ptx/endis, ptx/disen, ptx/wow, ptx/wwo, ptx/yesno, ptx/truefalse, ptx/falsetrue, ptx/onoff, ptx/ifdef
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Usage:
 
@@ -674,7 +674,10 @@ Usage:
  $(call ptx/disen, VARIABLE)
  $(call ptx/wow, VARIABLE)
  $(call ptx/wwo, VARIABLE)
+ $(call ptx/yesno, VARIABLE)
  $(call ptx/truefalse, VARIABLE)
+ $(call ptx/falsetrue, VARIABLE)
+ $(call ptx/onoff, VARIABLE)
  $(call ptx/ifdef, VARIABLE, [expansion-if-true], [expansion-if-false])
 
 Several macros exist to convert the state (set/unset) of a variable into a string.
