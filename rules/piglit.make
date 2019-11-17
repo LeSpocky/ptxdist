@@ -40,6 +40,9 @@ PIGLIT_CONF_OPT		= $(CROSS_CMAKE_USR) \
 	-DPIGLIT_BUILD_CL_TESTS=0 \
 	-DHAVE_LIBCACA:BOOL=NO
 
+PIGLIT_MAKE_ENV		:= \
+	TMPDIR=$(PTXDIST_TEMPDIR)
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
