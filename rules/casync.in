@@ -26,6 +26,7 @@ config CASYNC_FUSE
 	bool "FUSE integration"
 
 config CASYNC_UDEV
+	depends on INITMETHOD_SYSTEMD
 	bool "UDEV integration"
 
 config CASYNC_LZMA
