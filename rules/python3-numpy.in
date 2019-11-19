@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_NUMPY
+	tristate
+	select PYTHON3
+	prompt "python3-numpy"
+	help
+	  NumPy is the fundamental package for scientific computing with
+	  Python.
