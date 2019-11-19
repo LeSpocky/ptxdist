@@ -16,14 +16,16 @@ PACKAGES-$(PTXCONF_U_BOOT) += u-boot
 #
 # Paths and names
 #
-U_BOOT_VERSION	:= $(call remove_quotes,$(PTXCONF_U_BOOT_VERSION))
-U_BOOT_MD5	:= $(call remove_quotes,$(PTXCONF_U_BOOT_MD5))
-U_BOOT		:= u-boot-$(U_BOOT_VERSION)
-U_BOOT_SUFFIX	:= tar.bz2
-U_BOOT_URL	:= https://ftp.denx.de/pub/u-boot/$(U_BOOT).$(U_BOOT_SUFFIX)
-U_BOOT_SOURCE	:= $(SRCDIR)/$(U_BOOT).$(U_BOOT_SUFFIX)
-U_BOOT_DIR	:= $(BUILDDIR)/$(U_BOOT)
-U_BOOT_DEVPKG	:= NO
+U_BOOT_VERSION		:= $(call remove_quotes,$(PTXCONF_U_BOOT_VERSION))
+U_BOOT_MD5		:= $(call remove_quotes,$(PTXCONF_U_BOOT_MD5))
+U_BOOT			:= u-boot-$(U_BOOT_VERSION)
+U_BOOT_SUFFIX		:= tar.bz2
+U_BOOT_URL		:= https://ftp.denx.de/pub/u-boot/$(U_BOOT).$(U_BOOT_SUFFIX)
+U_BOOT_SOURCE		:= $(SRCDIR)/$(U_BOOT).$(U_BOOT_SUFFIX)
+U_BOOT_DIR		:= $(BUILDDIR)/$(U_BOOT)
+U_BOOT_BUILD_DIR	:= $(U_BOOT_DIR)-build
+U_BOOT_DEVPKG		:= NO
+U_BOOT_BUILD_OOT	:= KEEP
 
 ifdef PTXCONF_U_BOOT_CONFIGSYSTEM_KCONFIG
 U_BOOT_CONFIG	:= $(call ptx/in-platformconfigdir, \
@@ -44,10 +46,16 @@ endif
 U_BOOT_WRAPPER_BLACKLIST := \
 	$(PTXDIST_LOWLEVEL_WRAPPER_BLACKLIST)
 
+U_BOOT_CONF_OPT		:= \
+	-C $(U_BOOT_DIR) \
+	O=$(U_BOOT_BUILD_DIR) \
+	V=$(PTXDIST_VERBOSE)
+
 U_BOOT_MAKE_ENV		:= \
 	CROSS_COMPILE=$(BOOTLOADER_CROSS_COMPILE) \
 	HOSTCC=$(HOSTCC)
-U_BOOT_MAKE_OPT		:= V=$(PTXDIST_VERBOSE)
+U_BOOT_MAKE_OPT		:= $(U_BOOT_CONF_OPT)
+
 U_BOOT_TAGS_OPT		:= ctags cscope etags
 
 ifdef PTXCONF_U_BOOT_CONFIGSYSTEM_KCONFIG
@@ -57,9 +65,7 @@ endif
 
 ifdef PTXCONF_U_BOOT_CONFIGSYSTEM_LEGACY
 U_BOOT_CONF_ENV		:= PATH=$(CROSS_PATH) $(U_BOOT_MAKE_ENV)
-U_BOOT_CONF_OPT		:= \
-	$(U_BOOT_MAKE_OPT) \
-	$(call remove_quotes, $(PTXCONF_U_BOOT_CONFIG))
+U_BOOT_CONF_OPT		+= $(call remove_quotes, $(PTXCONF_U_BOOT_CONFIG))
 U_BOOT_MAKE_PAR		:= NO
 endif
 
@@ -79,7 +85,7 @@ endif
 ifdef PTXCONF_U_BOOT_CONFIGSYSTEM_LEGACY
 $(STATEDIR)/u-boot.prepare:
 	@$(call targetinfo)
-	$(U_BOOT_CONF_ENV) $(MAKE) -C $(U_BOOT_DIR) $(U_BOOT_CONF_OPT)
+	$(U_BOOT_CONF_ENV) $(MAKE) $(U_BOOT_CONF_OPT)
 	@$(call touch)
 endif
 
@@ -91,9 +97,9 @@ $(STATEDIR)/u-boot.compile:
 	@$(call targetinfo)
 	@$(call world/compile, U_BOOT)
 ifdef PTXCONF_U_BOOT_BOOT_SCRIPT
-	@$(U_BOOT_DIR)/tools/mkimage -T script -C none \
+	@$(U_BOOT_BUILD_DIR)/tools/mkimage -T script -C none \
 		-d $(U_BOOT_BOOT_SCRIPT_TXT) \
-		$(U_BOOT_DIR)/boot.scr.uimg
+		$(U_BOOT_BUILD_DIR)/boot.scr.uimg
 endif
 	@$(call touch)
 
@@ -111,34 +117,34 @@ $(STATEDIR)/u-boot.install:
 
 $(STATEDIR)/u-boot.targetinstall:
 	@$(call targetinfo)
-	@install -v -D -m644 $(U_BOOT_DIR)/u-boot.bin $(IMAGEDIR)/u-boot.bin
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot.bin $(IMAGEDIR)/u-boot.bin
 ifdef PTXCONF_U_BOOT_INSTALL_SREC
-	@install -v -D -m644 $(U_BOOT_DIR)/u-boot.srec $(IMAGEDIR)/u-boot.srec
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot.srec $(IMAGEDIR)/u-boot.srec
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_ELF
-	@install -v -D -m644 $(U_BOOT_DIR)/u-boot $(IMAGEDIR)/u-boot.elf
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot $(IMAGEDIR)/u-boot.elf
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_SPL
-	@install -v -D -m644 $(U_BOOT_DIR)/SPL $(IMAGEDIR)/SPL
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/SPL $(IMAGEDIR)/SPL
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_MLO
-	@install -v -D -m644 $(U_BOOT_DIR)/MLO $(IMAGEDIR)/MLO
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/MLO $(IMAGEDIR)/MLO
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_IMG
-	@install -v -D -m644 $(U_BOOT_DIR)/u-boot.img $(IMAGEDIR)/u-boot.img
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot.img $(IMAGEDIR)/u-boot.img
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_IMX
-	@install -v -D -m644 $(U_BOOT_DIR)/u-boot.imx $(IMAGEDIR)/u-boot.imx
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot.imx $(IMAGEDIR)/u-boot.imx
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_DTB_IMX
-	@install -v -D -m644 $(U_BOOT_DIR)/u-boot-dtb.imx $(IMAGEDIR)/u-boot-dtb.imx
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-dtb.imx $(IMAGEDIR)/u-boot-dtb.imx
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_DTB
-	@install -v -D -m644 $(U_BOOT_DIR)/u-boot-dtb.bin \
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-dtb.bin \
 		$(IMAGEDIR)/u-boot-dtb.bin
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_WITH_SPL_PBL
-	@install -v -D -m644 $(U_BOOT_DIR)/u-boot-with-spl-pbl.bin \
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-with-spl-pbl.bin \
 		$(IMAGEDIR)/u-boot-with-spl-pbl.bin
 endif
 
@@ -150,7 +156,7 @@ ifdef PTXCONF_U_BOOT_BOOT_SCRIPT
 	@$(call install_fixup, u-boot, DESCRIPTION, "U-Boot boot script")
 
 	@$(call install_copy, u-boot, 0, 0, 0644, \
-		$(U_BOOT_DIR)/boot.scr.uimg, $(U_BOOT_BOOT_SCRIPT_BIN))
+		$(U_BOOT_BUILD_DIR)/boot.scr.uimg, $(U_BOOT_BOOT_SCRIPT_BIN))
 
 	@$(call install_finish, u-boot)
 endif
