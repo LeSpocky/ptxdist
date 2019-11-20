@@ -9,6 +9,8 @@ menuconfig NET_SNMP
 	select LM_SENSORS	if NET_SNMP_MIB_MODULES_LM_SENSORS
 	select OPENSSL		if NET_SNMP_SHA_AES
 	select NET_SNMP_PRIVACY	if NET_SNMP_SHA_AES || NET_SNMP_DES
+	select PCIUTILS		if NET_SNMP_PCI
+	select PCIUTILS_LIBPCI	if NET_SNMP_PCI
 
 if NET_SNMP
 
@@ -194,6 +196,10 @@ config NET_SNMP_SCRIPTS
 config NET_SNMP_MIB_LOADING
 	bool
 	prompt "include code that parses and manipulates mib files"
+
+config NET_SNMP_PCI
+	bool
+	prompt "Compile with PCI support"
 
 config NET_SNMP_SNMPV1
 	bool
