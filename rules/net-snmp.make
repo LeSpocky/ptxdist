@@ -16,15 +16,15 @@ PACKAGES-$(PTXCONF_NET_SNMP) += net-snmp
 #
 # Paths and names
 #
-NET_SNMP_VERSION	:= 5.7.3
-NET_SNMP_MD5		:= d4a3459e1577d0efa8d96ca70a885e53
+NET_SNMP_VERSION	:= 5.8
+NET_SNMP_MD5		:= 63bfc65fbb86cdb616598df1aff6458a
 NET_SNMP		:= net-snmp-$(NET_SNMP_VERSION)
 NET_SNMP_SUFFIX		:= tar.gz
 NET_SNMP_URL		:= $(call ptx/mirror, SF, net-snmp/$(NET_SNMP).$(NET_SNMP_SUFFIX))
 NET_SNMP_SOURCE		:= $(SRCDIR)/$(NET_SNMP).$(NET_SNMP_SUFFIX)
 NET_SNMP_DIR		:= $(BUILDDIR)/$(NET_SNMP)
-NET_SNMP_LICENSE	:= MIT-CMU AND BSD-3-Clause
-NET_SNMP_LICENSE_FILES	:= file://COPYING;md5=5dedd290b5ffbe69d9625ddeb350a044
+NET_SNMP_LICENSE	:= MIT-CMU AND BSD-3-Clause AND MIT
+NET_SNMP_LICENSE_FILES	:= file://COPYING;md5=9d100a395a38584f2ec18a8275261687
 
 # ----------------------------------------------------------------------------
 # Prepare
