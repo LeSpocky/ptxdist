@@ -1,0 +1,10 @@
+## SECTION=python3
+
+config PYTHON3_PYCPARSER
+	tristate
+	select PYTHON3
+	prompt "python3-pycparser"
+	help
+	 pycparser is a complete parser of the C language, written in pure
+	 Python using the PLY parsing library. It parses C code into an AST
+	 and can serve as a front-end for C compilers or analysis tools.
