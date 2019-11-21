@@ -1,0 +1,7 @@
+## SECTION=hosttools_noprompt
+
+config HOST_PYTHON3_CFFI
+       tristate
+       select HOST_PYTHON3
+       help
+         Foreign Function Interface for Python calling C code.
