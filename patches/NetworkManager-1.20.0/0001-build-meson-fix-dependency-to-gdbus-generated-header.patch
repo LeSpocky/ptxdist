@@ -1,0 +1,53 @@
+From: Beniamino Galvani <bgalvani@redhat.com>
+Date: Tue, 19 Nov 2019 18:17:59 +0100
+Subject: [PATCH] build: meson: fix dependency to gdbus generated headers
+
+libnm has a dependency on 'libnmdbus_dep', which contains 'link_with:
+libnmdbus'. This however only enforces that libnm is linked after the
+libnmdbus static library is built; it doesn't give any guarantees
+about the compilation phase.
+
+We need to make libnm compilation depend on the generated header
+files. The output of 'gnome.gdbus_codegen' is an array with the header
+file in the second position; use it to add a proper
+dependency. Unfortunately this works only with meson >= 0.46.
+
+In the future libnm will no longer use gdbus generated code and this
+dependency will not be needed anymore.
+
+https://gitlab.freedesktop.org/NetworkManager/NetworkManager/issues/286
+---
+ introspection/meson.build | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/introspection/meson.build b/introspection/meson.build
+index 631432a7a229..ad9a6db0e2bc 100644
+--- a/introspection/meson.build
++++ b/introspection/meson.build
+@@ -56,6 +56,7 @@ ifaces = [
+ ifaces_xmls = []
+ sources = []
+ introspection_files = []
++headers = []
+ 
+ # FIXME?: DBUS_INTERFACE_DOCS/docbook files are generated in
+ # "meson.current_build_dir()" instead of "meson.source_root()/docs/api"
+@@ -85,6 +86,7 @@ foreach iface: ifaces
+   # older versions
+   if meson.version().version_compare('>= 0.46.0')
+     introspection_files += [ [res[2], dbus_iface_xml_path] ]
++    headers += res[1]
+   endif
+ 
+ endforeach
+@@ -102,9 +104,7 @@ libnmdbus = static_library(
+ )
+ 
+ libnmdbus_dep = declare_dependency(
+-  # FIXME: only headers should be added here to resolve dependencies on
+-  #        libNetworkManagerBase and libNetworkManager
+-  #sources: sources,
++  sources: headers,
+   include_directories: include_directories('.'),
+   link_with: libnmdbus,
+ )
