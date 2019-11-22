@@ -25,3 +25,11 @@ s/^\(\(# \)\?PTXCONF\)_IMAGE_UBIFS_MAX_LEB_COUNT\(.*$\)/\1_IMAGE_UBIFS_ROOT_MAX_
 # reason : use same symbol for ipkg and opkb build
 #
 s/^\(\(# \)\?PTXCONF\)_IMAGE_IPKG_EXTRA_ARGS\(.*$\)/\1_IMAGE_XPKG_EXTRA_ARGS\3/
+
+#
+# from   : ptxdist-2019.11.0
+# to     : ptxdist-2019.12.0
+# symbol : PTXCONF_KERNEL_ARCH_STRING -> GENERIC_KERNEL_ARCH in the search path
+# reason : PTXCONF_KERNEL_ARCH_STRING was removed
+#
+/^PTXCONF_DTC_OFTREE_DTS/s/PTXCONF_KERNEL_ARCH_STRING/GENERIC_KERNEL_ARCH/g

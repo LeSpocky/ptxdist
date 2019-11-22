@@ -16,6 +16,14 @@ PACKAGES-$(PTXCONF_DTC) += dtc
 DTC_VERSION := 1.0.0
 DTC_LICENSE := ignore
 
+ifeq ($(PTXCONF_KERNEL_ARCH_STRING),)
+ifneq ($(subst PTXCONF_KERNEL_ARCH_STRING,,$(value PTXCONF_DTC_OFTREE_DTS_PATH)),$(value PTXCONF_DTC_OFTREE_DTS_PATH))
+$(warning *** invalid value for PTXCONF_DTC_OFTREE_DTS_PATH:)
+$(warning *** PTXCONF_KERNEL_ARCH_STRING is no longer defined.)
+$(warning *** Use GENERIC_KERNEL_ARCH instead)
+$(error )
+endif
+endif
 DTC_OFTREE_DTS_PATH := $(call remove_quotes,$(PTXCONF_DTC_OFTREE_DTS_PATH))
 
 # ----------------------------------------------------------------------------
