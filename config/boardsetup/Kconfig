@@ -39,6 +39,23 @@ config BOARDSETUP_NFSROOT_PATH
 	  above given path is exported by nfs server. This field will be ignored
 	  if you don't use nfsroot.
 
+config BOARDSETUP_NFSROOT_CLIENT_SPECIFICATIONS
+	string
+	prompt "nfsroot client specifications"
+	default "(rw,no_root_squash)"
+	help
+	  Specify the list of client specifications for the nfsroot export.
+	  Example: "1.2.3.4(rw) 192.168.2.0/24(ro,all_squash)"
+
+	  Clients can be specified using either a hostname, an IP address, or an IP
+	  network. Networks can be given by specifying the number of leading 1 bits
+	  in the netmask or by giving the full netmask. If the hostname is empty, the
+	  directory is exported to everyone.
+
+	  Options can follow a client specification and have to be enclosed in
+	  parenthesis, with the opening paren directly following the client name or
+	  address. If no options are given, ro and root_squash are enabled by default.
+
 config BOARDSETUP_TFTP_PATH
 	string
 	prompt "tftp path"

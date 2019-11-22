@@ -8,6 +8,7 @@
 
 ptxd_make_nfsd_exec() {
     local port
+    local client_specficiations
     local root="/$(basename "${ptx_nfsroot}")"
     local base="$(dirname "${ptx_nfsroot}")"
 
@@ -15,11 +16,15 @@ ptxd_make_nfsd_exec() {
 	port=2049
     fi
 
+    if ! client_specficiations="$(ptxd_get_kconfig "${PTXDIST_BOARDSETUP}" "PTXCONF_BOARDSETUP_NFSROOT_CLIENT_SPECIFICATIONS")"; then
+	client_specficiations="(rw,no_root_squash)"
+    fi
+
     echo
     echo "Mount rootfs with nfsroot=${root},v3,tcp,port=${port},mountport=${port}"
     echo
 
-    echo "/ (rw,no_root_squash)" > "${PTXDIST_TEMPDIR}/exports" &&
+    echo "/ ${client_specficiations}" > "${PTXDIST_TEMPDIR}/exports" &&
     UNFS_BASE="${base}" unfsd -e "${PTXDIST_TEMPDIR}/exports" -n ${port} -m ${port} -p -d
 }
 export -f ptxd_make_nfsd_exec
