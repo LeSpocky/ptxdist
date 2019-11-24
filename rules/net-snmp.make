@@ -38,8 +38,14 @@ NET_SNMP_MIB_MODULES-$(PTXCONF_NET_SNMP_MIB_MODULES_AGENTX) += agentx
 NET_SNMP_MIB_MODULES-$(PTXCONF_NET_SNMP_MIB_MODULES_UCD_SNMP) += ucd_snmp
 NET_SNMP_MIB_MODULES-$(PTXCONF_NET_SNMP_MIB_MODULES_LM_SENSORS) += ucd-snmp/lmsensorsMib
 
+
+NET_SNMP_ENV := \
+	$(CROSS_ENV) \
+	ac_cv_header_pcre_h=no
+
 ifndef PTXCONF_NET_SNMP_PCI
-NET_SNMP_ENV := $(CROSS_ENV) netsnmp_cv_func_pci_lookup_name_LMIBLIBS=no
+NET_SNMP_ENV += \
+	netsnmp_cv_func_pci_lookup_name_LMIBLIBS=no
 endif
 
 #
@@ -47,50 +53,68 @@ endif
 #
 NET_SNMP_AUTOCONF := \
 	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_IPV6_OPTION) \
-	--with-defaults \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_AGENT)-agent \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_APPLICATIONS)-applications \
 	--disable-manuals \
-	--$(call ptx/wwo, PTXCONF_NET_SNMP_SHA_AES)-openssl \
-	--with-mib-modules="$(NET_SNMP_MIB_MODULES-y)" \
-	--with-out-mib-modules="$(NET_SNMP_MIB_MODULES-)" \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_SCRIPTS)-scripts \
 	--with-mibs=$(PTXCONF_NET_SNMP_DEFAULT_MIBS) \
+	--enable-mib-config-checking \
+	--disable-mib-config-debug \
+	--disable-new-features \
+	--disable-old-features \
+	--disable-ucd-snmp-compatibility \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_MIB_LOADING)-mib-loading \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_DES)-des \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_PRIVACY)-privacy \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_MD5)-md5 \
+	--disable-internal-md5 \
+	--disable-blumenthal-aes \
+	$(GLOBAL_IPV6_OPTION) \
+	--disable-usmUser-uses-default-auth-priv \
+	--disable-daemons-syslog-as-default \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_SNMPV1)-snmpv1 \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_SNMPV2C)-snmpv2c \
+	$(call ptx/ifdef, PTXCONF_NET_SNMP_FORCE_DEBUGGING, --enable-debugging) \
+	$(call ptx/ifdef, PTXCONF_NET_SNMP_STRIP_DEBUGGING, --disable-debugging) \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_DEVELOPER)-developer \
+	--disable-testing-code \
+	--disable-reentrant \
+	--enable-deprecated \
+	--enable-set-support \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_LOCAL_SMUX)-local-smux \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_DOM_SOCK_ONLY)-agentx-dom-sock-only \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_SNMPTRAPD)-snmptrapd-subagent \
+	--disable-minimalist \
+	--disable-notify-only \
+	--disable-no-listen \
+	--disable-read-only \
+	--$(call ptx/endis, PTXCONF_NET_SNMP_MINI_AGENT)-mini-agent \
+	--enable-mfd-rewrites \
+	--disable-embedded-perl \
+	--disable-perl-cc-checks \
+	--enable-shared \
+	--disable-static \
+	--with-endianness=$(call ptx/ifdef, PTXCONF_ENDIAN_LITTLE, little, big) \
+	--without-dmalloc \
+	--without-efence \
+	--$(call ptx/wwo, PTXCONF_NET_SNMP_SHA_AES)-openssl \
+	--without-pkcs \
+	--without-krb5 \
+	--without-rpm \
+	--without-pcre \
+	--with-defaults \
 	--with-logfile=$(call remove_quotes,$(PTXCONF_NET_SNMP_LOGFILE)) \
 	--with-persistent-directory=$(call remove_quotes,$(PTXCONF_NET_SNMP_PERSISTENT_DIR)) \
 	--with-default-snmp-version=$(call remove_quotes,$(PTXCONF_NET_SNMP_DEFAULT_VERSION)) \
-	--enable-shared \
-	--disable-embedded-perl \
+	--with-systemd \
+	--with-mib-modules="$(subst $(space),$(comma),$(NET_SNMP_MIB_MODULES-y))" \
+	--with-out-mib-modules="$(subst $(space),$(comma),$(NET_SNMP_MIB_MODULES-))" \
 	--without-perl-modules \
-	--disable-static \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_PRIVACY)-privacy \
-	--disable-internal-md5 \
-	--with-endianness=$(call ptx/ifdef, PTXCONF_ENDIAN_LITTLE, little, big) \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_DOM_SOCK_ONLY)-agentx-dom-sock-only \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_MINI_AGENT)-mini-agent \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_AGENT)-agent \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_APPLICATIONS)-applications \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_SCRIPTS)-scripts \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_MIBS)-mibs \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_MIB_LOADING)-mib-loading \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_SNMPV1)-snmpv1 \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_SNMPV2C)-snmpv2c \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_DES)-des \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_MD5)-md5 \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_SNMPTRAPD)-snmptrapd-subagent \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_LOCAL_SMUX)-local-smux \
-	--$(call ptx/endis, PTXCONF_NET_SNMP_DEVELOPER)-developer \
-	--enable-mib-config-checking \
-	--enable-mfd-rewrites \
-	--disable-testing-code \
-	--disable-reentrant \
-	--disable-ucd-snmp-compatibility
-
-ifdef PTXCONF_NET_SNMP_FORCE_DEBUGGING
-NET_SNMP_AUTOCONF += --enable-debugging
-endif
-
-ifdef PTXCONF_NET_SNMP_STRIP_DEBUGGING
-NET_SNMP_AUTOCONF += --disable-debugging
-endif
+	--$(call ptx/wwo, PTXCONF_NET_SNMP_LIBNL)-nl \
+	--without-libwrap \
+	--without-zlib \
+	--without-bzip2 \
+	--without-mysql
 
 NET_SNMP_MAKE_PAR := NO
 
