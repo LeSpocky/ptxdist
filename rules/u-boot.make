@@ -43,6 +43,12 @@ U_BOOT_BOOT_SCRIPT_BIN := $(call remove_quotes, \
 $(STATEDIR)/u-boot.compile: $(U_BOOT_BOOT_SCRIPT_TXT)
 endif
 
+ifdef PTXCONF_U_BOOT_ENV_IMAGE_CUSTOM
+U_BOOT_ENV_IMAGE_CUSTOM_SRC := $(call ptx/in-platformconfigdir, \
+	$(call remove_quotes, $(PTXCONF_U_BOOT_ENV_IMAGE_CUSTOM_SOURCE)))
+$(STATEDIR)/u-boot.compile: $(U_BOOT_ENV_IMAGE_CUSTOM_SRC)
+endif
+
 U_BOOT_WRAPPER_BLACKLIST := \
 	$(PTXDIST_LOWLEVEL_WRAPPER_BLACKLIST)
 
@@ -101,6 +107,20 @@ ifdef PTXCONF_U_BOOT_BOOT_SCRIPT
 		-d $(U_BOOT_BOOT_SCRIPT_TXT) \
 		$(U_BOOT_BUILD_DIR)/boot.scr.uimg
 endif
+ifdef PTXCONF_U_BOOT_ENV_IMAGE_DEFAULT
+	$(U_BOOT_MAKE_ENV) $(U_BOOT_DIR)/scripts/get_default_envs.sh $(U_BOOT_BUILD_DIR) | \
+		$(U_BOOT_BUILD_DIR)/tools/mkenvimage \
+		$(call ptx/ifdef,PTXCONF_U_BOOT_ENV_IMAGE_REDUNDANT,-r,) \
+		-s $(PTXCONF_U_BOOT_ENV_IMAGE_SIZE) \
+		-o $(U_BOOT_BUILD_DIR)/u-boot-env.img -
+endif
+ifdef PTXCONF_U_BOOT_ENV_IMAGE_CUSTOM
+	$(U_BOOT_BUILD_DIR)/tools/mkenvimage \
+		$(call ptx/ifdef,PTXCONF_U_BOOT_ENV_IMAGE_REDUNDANT,-r,) \
+		-s $(PTXCONF_U_BOOT_ENV_IMAGE_SIZE) \
+		-o $(U_BOOT_BUILD_DIR)/u-boot-env.img \
+		$(U_BOOT_ENV_IMAGE_CUSTOM_SRC)
+endif
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
@@ -147,6 +167,10 @@ ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_WITH_SPL_PBL
 	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-with-spl-pbl.bin \
 		$(IMAGEDIR)/u-boot-with-spl-pbl.bin
 endif
+ifndef PTXCONF_U_BOOT_ENV_IMAGE_NONE
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-env.img \
+		$(IMAGEDIR)/u-boot-env.img
+endif
 
 ifdef PTXCONF_U_BOOT_BOOT_SCRIPT
 	@$(call install_init, u-boot)
@@ -172,6 +196,7 @@ $(STATEDIR)/u-boot.clean:
 	@rm -vf $(IMAGEDIR)/u-boot.bin $(IMAGEDIR)/u-boot.srec $(IMAGEDIR)/u-boot.elf
 	@rm -vf $(IMAGEDIR)/u-boot.img $(IMAGEDIR)/SPL $(IMAGEDIR)/MLO
 	@rm -vf $(IMAGEDIR)/u-boot.imx
+	@rm -vf $(IMAGEDIR)/u-boot-env.img
 	@rm -vf	$(IMAGEDIR)/u-boot-dtb.bin $(IMAGEDIR)/u-boot-with-spl-pbl.bin
 
 # ----------------------------------------------------------------------------

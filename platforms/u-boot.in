@@ -71,6 +71,67 @@ config U_BOOT_CONFIG
 
 endif
 
+choice
+	prompt "Generate environment image"
+	default U_BOOT_ENV_IMAGE_NONE
+	help
+	  U-Boot from version 2018.03 supports out-of-tree environment
+	  image generation.
+
+config U_BOOT_ENV_IMAGE_NONE
+	prompt "none"
+	bool
+	help
+	  Don't generate an U-Boot environment image.
+
+config U_BOOT_ENV_IMAGE_DEFAULT
+	prompt "default"
+	bool
+	help
+	  Use U-Boot's mkenvimage to compile a default U-Boot environment
+	  image for use in e.g. device manufacturing or development.
+
+config U_BOOT_ENV_IMAGE_CUSTOM
+	prompt "custom"
+	bool
+	help
+	  Use U-Boot's mkenvimage to compile a custom U-Boot environment
+	  image based on the text file in U_BOOT_ENV_IMAGE_CUSTOM_SOURCE
+	  for use in e.g. device manufacturing or development.
+
+endchoice
+
+config U_BOOT_ENV_IMAGE_CUSTOM_SOURCE
+	prompt "Custom environment source"
+	string
+	default "custom_env.config"
+	depends on U_BOOT_ENV_IMAGE_CUSTOM
+	help
+	  Text file in platform config directory describing the custom
+	  environment.
+	  The file should have lines in the form var=value, one per line.
+	  Blank lines and lines starting with a # are ignored.
+
+if !U_BOOT_ENV_IMAGE_NONE
+
+config U_BOOT_ENV_IMAGE_SIZE
+	prompt "Environment image size"
+	hex
+	default 0x2000
+	help
+	  Enter the U-Boot environment size in hexadecimal for generation
+	  of image. A wrong size will typically cause crc error when used.
+	  Must match size defined in target config and "/etc/fw_env.config".
+
+config U_BOOT_ENV_IMAGE_REDUNDANT
+	prompt "Environment image with redundant copy"
+	bool
+	help
+	  Use to generate a redundant environment in the image.
+	  Must match target config and "/etc/fw_env.config".
+
+endif
+
 config U_BOOT_BOOT_SCRIPT
 	prompt "Compile U-Boot boot script"
 	bool
