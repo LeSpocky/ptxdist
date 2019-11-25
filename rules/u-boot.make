@@ -195,7 +195,7 @@ $(STATEDIR)/u-boot.clean:
 	@$(call clean_pkg, U_BOOT)
 	@rm -vf $(IMAGEDIR)/u-boot.bin $(IMAGEDIR)/u-boot.srec $(IMAGEDIR)/u-boot.elf
 	@rm -vf $(IMAGEDIR)/u-boot.img $(IMAGEDIR)/SPL $(IMAGEDIR)/MLO
-	@rm -vf $(IMAGEDIR)/u-boot.imx
+	@rm -vf $(IMAGEDIR)/u-boot.imx $(IMAGEDIR)/u-boot-dtb.imx
 	@rm -vf $(IMAGEDIR)/u-boot-env.img
 	@rm -vf	$(IMAGEDIR)/u-boot-dtb.bin $(IMAGEDIR)/u-boot-with-spl-pbl.bin
 
