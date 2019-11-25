@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_CFFI
+	tristate
+	select PYTHON3
+	prompt "python3-cffi"
+	help
+	  Foreign Function Interface for Python calling C code.
