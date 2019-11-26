@@ -1,0 +1,10 @@
+## SECTION=python3
+
+config PYTHON3_SETUPTOOLS
+	tristate
+	prompt "python3-setuptools"
+	select PYTHON3
+	help
+	  Setuptools is a package development process library designed to
+	  facilitate packaging Python projects by enhancing the Python
+	  standard library distutils.
