@@ -15,19 +15,20 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION	:= 243-51-gfab6f010ac6c
-SYSTEMD_MD5	:= 8e580a0f59fac37248ac5b2d16a06890
-SYSTEMD		:= systemd-$(SYSTEMD_VERSION)
-SYSTEMD_SUFFIX	:= tar.gz
-ifeq ($(subst -g,,$(SYSTEMD_VERSION)),$(SYSTEMD_VERSION))
-SYSTEMD_URL	:= https://github.com/systemd/systemd/archive/v$(SYSTEMD_VERSION).$(SYSTEMD_SUFFIX)
+SYSTEMD_VERSION		:= 243.4
+SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
+SYSTEMD_MD5		:= f1b7dbfbf1434d12860e337c50cdbe88
+SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
+SYSTEMD_SUFFIX		:= tar.gz
+ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
+SYSTEMD_URL		:= https://github.com/systemd/systemd/archive/v$(SYSTEMD_VERSION).$(SYSTEMD_SUFFIX)
 else
-SYSTEMD_URL	:= https://github.com/systemd/systemd-stable/archive/v$(SYSTEMD_VERSION).$(SYSTEMD_SUFFIX)
+SYSTEMD_URL		:= https://github.com/systemd/systemd-stable/archive/v$(SYSTEMD_VERSION).$(SYSTEMD_SUFFIX)
 endif
-SYSTEMD_SOURCE	:= $(SRCDIR)/$(SYSTEMD).$(SYSTEMD_SUFFIX)
-SYSTEMD_DIR	:= $(BUILDDIR)/$(SYSTEMD)
-SYSTEMD_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-only
-SYSTEMD_LICENSE_FILES := \
+SYSTEMD_SOURCE		:= $(SRCDIR)/$(SYSTEMD).$(SYSTEMD_SUFFIX)
+SYSTEMD_DIR		:= $(BUILDDIR)/$(SYSTEMD)
+SYSTEMD_LICENSE		:= GPL-2.0-or-later AND LGPL-2.1-only
+SYSTEMD_LICENSE_FILES	:= \
 	file://LICENSE.GPL2;md5=751419260aa954499f7abaabaa882bbe \
 	file://LICENSE.LGPL2.1;md5=4fbd65380cdd255951079008b364516c
 
@@ -298,7 +299,7 @@ $(STATEDIR)/systemd.targetinstall:
 	@$(call install_fixup, systemd,DESCRIPTION,missing)
 
 	@$(call install_lib, systemd, 0, 0, 0644, libsystemd)
-	@$(call install_lib, systemd, 0, 0, 0644, systemd/libsystemd-shared-$(firstword $(subst -, ,$(SYSTEMD_VERSION))))
+	@$(call install_lib, systemd, 0, 0, 0644, systemd/libsystemd-shared-$(SYSTEMD_VERSION_MAJOR))
 
 	@$(call install_lib, systemd, 0, 0, 0644, libnss_myhostname)
 	@$(call install_lib, systemd, 0, 0, 0644, libnss_systemd)

@@ -138,8 +138,8 @@ $(STATEDIR)/host-systemd.install:
 	@rm -rf $(HOST_SYSTEMD_PKGDIR)
 	@install -vD -m755 $(HOST_SYSTEMD_DIR)-build/systemd-hwdb \
 		$(HOST_SYSTEMD_PKGDIR)/bin/systemd-hwdb
-	@install -vD -m755 $(HOST_SYSTEMD_DIR)-build/src/shared/libsystemd-shared-$(firstword $(subst -, ,$(SYSTEMD_VERSION))).so \
-		$(HOST_SYSTEMD_PKGDIR)/lib/libsystemd-shared-$(firstword $(subst -, ,$(SYSTEMD_VERSION))).so
+	@install -vD -m755 $(HOST_SYSTEMD_DIR)-build/src/shared/libsystemd-shared-$(SYSTEMD_VERSION_MAJOR).so \
+		$(HOST_SYSTEMD_PKGDIR)/lib/libsystemd-shared-$(SYSTEMD_VERSION_MAJOR).so
 	@$(call touch)
 
 # vim: syntax=make
