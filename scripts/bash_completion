@@ -5,7 +5,7 @@
 # part of PTXdist, so same licence.
 #
 
-if have ptxdist; then
+if _have ptxdist; then
 
 declare -a _ptxdist_completion_opts
 declare -a _ptxdist_completion_cmds
