@@ -22,18 +22,18 @@ index 8016d802e7a8..a9c6b6ee5eeb 100644
 +                    ngx_feature_run_force_result_int=0
 +                fi
                  cat << END >> $NGX_AUTO_CONFIG_H
-
+ 
  #ifndef $ngx_feature_name
 -#define $ngx_feature_name  $ngx_feature_run_force_result
 +#define $ngx_feature_name  $ngx_feature_run_force_result_int
  #endif
-
+ 
  END
 diff --git a/auto/unix b/auto/unix
-index ed821b5a5aaa..e7ad3b5c0be5 100644
+index a67ee3e2939c..1c3c1cf5996f 100644
 --- a/auto/unix
 +++ b/auto/unix
-@@ -412,7 +412,8 @@ ngx_feature_test="setsockopt(0, IPPROTO_IP, IP_PKTINFO, NULL, 0)"
+@@ -440,7 +440,8 @@ ngx_feature_test="struct in_pktinfo  pkt;
  
  ngx_feature="IPV6_RECVPKTINFO"
  ngx_feature_name="NGX_HAVE_IPV6_RECVPKTINFO"
@@ -43,7 +43,7 @@ index ed821b5a5aaa..e7ad3b5c0be5 100644
  ngx_feature_incs="#include <sys/socket.h>
                    #include <netinet/in.h>"
  ngx_feature_path=
-@@ -640,7 +641,8 @@ ngx_param=NGX_MAX_TIME_T_VALUE; ngx_value=$ngx_max_value; . auto/types/value
+@@ -668,7 +669,8 @@ ngx_param=NGX_MAX_TIME_T_VALUE; ngx_value=$ngx_max_value; . auto/types/value
  
  ngx_feature="AF_INET6"
  ngx_feature_name="NGX_HAVE_INET6"

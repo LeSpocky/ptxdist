@@ -11,5 +11,5 @@
 0008-src-os-unix-ngx_linux_config.h-only-include-dlfcn.h-.patch
 #tag:ptxdist --start-number 100
 0100-auto-endianness-add-mechanism-allowing-to-force-resu.patch
-0101-auto-unix-allow-overriding-the-IPv6-build-test.patch
-# 296747e524339625bd4ef3856eac1d8b  - git-ptx-patches magic
+0101-auto-unix-allow-overriding-the-IPv6-build-tests.patch
+# 2d82d97a87698e491d40c417a32a8a6b  - git-ptx-patches magic

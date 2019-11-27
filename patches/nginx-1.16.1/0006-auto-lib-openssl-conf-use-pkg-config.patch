@@ -24,4 +24,4 @@ index 4fb52df7fe17..32ab2a045209 100644
 +        ngx_feature_libs="$(${PKG_CONFIG:=pkg-config} --libs openssl) $NGX_LIBDL $NGX_LIBPTHREAD"
          ngx_feature_test="SSL_CTX_set_options(NULL, 0)"
          . auto/feature
-
+ 

@@ -105,10 +105,10 @@ index 000000000000..8970f5f6ec73
 +
 +echo " $ngx_sys_nerr"
 diff --git a/auto/unix b/auto/unix
-index 7d47fe3faaf5..ed821b5a5aaa 100644
+index 3da005375cf5..a67ee3e2939c 100644
 --- a/auto/unix
 +++ b/auto/unix
-@@ -708,6 +708,10 @@ ngx_feature_incs='#include <errno.h>
+@@ -736,6 +736,10 @@ ngx_feature_incs='#include <errno.h>
                    #include <stdio.h>'
  ngx_feature_path=
  ngx_feature_libs=
@@ -119,7 +119,7 @@ index 7d47fe3faaf5..ed821b5a5aaa 100644
  ngx_feature_test='printf("%d", sys_nerr);'
  . auto/feature
  
-@@ -756,6 +760,12 @@ if [ $ngx_found = no ]; then
+@@ -784,6 +788,12 @@ if [ $ngx_found = no ]; then
      . auto/feature
  fi
  

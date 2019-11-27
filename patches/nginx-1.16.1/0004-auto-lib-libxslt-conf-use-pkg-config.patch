@@ -7,11 +7,11 @@ dependencies.
 
 Signed-off-by: Martin Bark <martin@barkynet.com>
 ---
- auto/lib/libxslt/conf | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ auto/lib/libxslt/conf | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/auto/lib/libxslt/conf b/auto/lib/libxslt/conf
-index 3a0f37b..3c2a60e 100644
+index 3063ac7ce0c0..3209e3642fdc 100644
 --- a/auto/lib/libxslt/conf
 +++ b/auto/lib/libxslt/conf
 @@ -12,8 +12,9 @@
@@ -25,4 +25,4 @@ index 3a0f37b..3c2a60e 100644
 +    ngx_feature_libs="$(${PKG_CONFIG:=pkg-config} --libs libxslt)"
      ngx_feature_test="xmlParserCtxtPtr    ctxt = NULL;
                        xsltStylesheetPtr   sheet = NULL;
-                       xmlDocPtr           doc;
+                       xmlDocPtr           doc = NULL;
