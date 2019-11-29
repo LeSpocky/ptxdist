@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_TPM2_ABRMD) += tpm2-abrmd
 #
 # Paths and names
 #
-TPM2_ABRMD_VERSION		:= 2.1.1
-TPM2_ABRMD_MD5			:= 47f9ee5be9cedec3a8f1a03f60ead4d5
+TPM2_ABRMD_VERSION		:= 2.3.0
+TPM2_ABRMD_MD5			:= 1326e92638d4f55cc4553260e5c24b6c
 TPM2_ABRMD			:= tpm2-abrmd-$(TPM2_ABRMD_VERSION)
 TPM2_ABRMD_SUFFIX		:= tar.gz
 TPM2_ABRMD_URL			:= https://github.com/tpm2-software/tpm2-abrmd/releases/download/$(TPM2_ABRMD_VERSION)/$(TPM2_ABRMD).$(TPM2_ABRMD_SUFFIX)
@@ -34,6 +34,7 @@ TPM2_ABRMD_LICENSE_FILES	:= file://LICENSE;md5=500b2e742befc3da00684d8a1d5fd9da
 TPM2_ABRMD_CONF_TOOL	:= autoconf
 TPM2_ABRMD_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--enable-debug=info \
 	--disable-unit \
 	--disable-code-coverage \
 	--disable-valgrind \
@@ -44,6 +45,7 @@ TPM2_ABRMD_CONF_OPT	:= \
 	--disable-dlclose \
 	--disable-test-hwtpm \
 	--disable-integration \
+	--disable-defaultflags \
 	--without-gcov \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
 	--with-dbuspolicydir=/usr/share/dbus-1/system.d
