@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_TPM2_TSS) += tpm2-tss
 #
 # Paths and names
 #
-TPM2_TSS_VERSION	:= 2.2.2
-TPM2_TSS_MD5		:= db341b66daab34cbb4d6a4e5a8745001
+TPM2_TSS_VERSION	:= 2.3.1
+TPM2_TSS_MD5		:= 5744b10e3cef56df5d65b50f51fb3fe9
 TPM2_TSS		:= tpm2-tss-$(TPM2_TSS_VERSION)
 TPM2_TSS_SUFFIX		:= tar.gz
 TPM2_TSS_URL		:= https://github.com/tpm2-software/tpm2-tss/releases/download/$(TPM2_TSS_VERSION)/$(TPM2_TSS).$(TPM2_TSS_SUFFIX)
@@ -34,15 +34,23 @@ TPM2_TSS_LICENSE_FILES	:= file://LICENSE;md5=500b2e742befc3da00684d8a1d5fd9da
 TPM2_TSS_CONF_TOOL	:= autoconf
 TPM2_TSS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--enable-debug=info \
 	--disable-unit \
 	--enable-esapi \
 	--disable-tcti-device-async \
 	--disable-tcti-partial-reads \
 	--enable-tcti-device \
 	--enable-tcti-mssim \
+	--disable-tcti-fuzzing \
+	--disable-nodl \
 	--disable-integration \
-	--disable-debug \
+	--disable-valgrind \
+	--disable-valgrind-memcheck \
+	--disable-valgrind-helgrind \
+	--disable-valgrind-drd \
+	--disable-valgrind-sgcheck \
 	--disable-defaultflags \
+	--disable-weakcrypto \
 	--disable-doxygen-doc \
 	--disable-doxygen-dot \
 	--disable-doxygen-man \
@@ -56,6 +64,7 @@ TPM2_TSS_CONF_OPT	:= \
 	--disable-code-coverage \
 	--with-crypto=ossl \
 	--with-udevrulesdir=/usr/lib/udev/rules.d \
+	--with-fuzzing=none \
 	--without-gcov
 
 # ----------------------------------------------------------------------------
@@ -76,6 +85,8 @@ $(STATEDIR)/tpm2-tss.targetinstall:
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-sys)
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-tcti-device)
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-tcti-mssim)
+	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-tctildr)
+	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-rc)
 
 	@$(call install_alternative, tpm2-tss, 0, 0, 0644, \
 		/usr/lib/udev/rules.d/70-tpm-udev.rules)
