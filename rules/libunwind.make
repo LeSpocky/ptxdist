@@ -40,7 +40,7 @@ LIBUNWIND_CONF_OPT	:= \
 	--disable-documentation \
 	--disable-tests \
 	--disable-debug \
-	--enable-cxx-exceptions \
+	--disable-cxx-exceptions \
 	--enable-debug-frame \
 	--enable-block-signals \
 	--enable-conservative-checks \
