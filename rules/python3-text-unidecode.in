@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_TEXT_UNIDECODE
+	tristate
+	prompt "python3-text-unidecode"
+	select PYTHON3
+	help
+	  text-unidecode is the most basic port of the Text::Unidecode Perl library
