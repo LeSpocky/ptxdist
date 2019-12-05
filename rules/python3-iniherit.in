@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_INIHERIT
+	tristate
+	prompt "python3-iniherit"
+	select PYTHON3
+	help
+	  Adds INI-file inheritance to ConfigParser
