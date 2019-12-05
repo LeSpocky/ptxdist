@@ -1,4 +1,6 @@
-## SECTION=selinux
+## SECTION=staging
+## old section:
+### SECTION=selinux
 
 menuconfig LIBSELINUX
 	tristate
@@ -12,6 +14,9 @@ menuconfig LIBSELINUX
 	  process and file security contexts and to obtain security policy
 	  decisions. Required for any applications that use the SELinux
 	  API.
+
+	  STAGING: remove in ptxdist-2020.12.0
+	  Old version that need to be updated. Fails to build with gcc >= 9.x.
 
 if LIBSELINUX
 

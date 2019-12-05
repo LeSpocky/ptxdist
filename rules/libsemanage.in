@@ -1,4 +1,6 @@
-## SECTION=selinux
+## SECTION=staging
+## old section:
+### SECTION=selinux
 
 menuconfig LIBSEMANAGE
 	tristate
@@ -14,6 +16,9 @@ menuconfig LIBSEMANAGE
 	  This package provides the shared libraries for SELinux policy management.
 	  It uses libsepol for binary policy manipulation and libselinux for
 	  interacting with the SELinux system.
+
+	  STAGING: remove in ptxdist-2020.12.0
+	  Old version that need to be updated. Moved to staging with libselinux.
 
 if LIBSEMANAGE
 

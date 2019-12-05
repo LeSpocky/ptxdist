@@ -1,4 +1,6 @@
-## SECTION=selinux
+## SECTION=staging
+## old section:
+### SECTION=selinux
 
 config CHECKPOLICY
 	tristate
@@ -29,3 +31,6 @@ config CHECKPOLICY
 	  the static libsepol since it deals with low level details of
 	  the policy that have not been encapsulated/abstracted by a
 	  proper shared library interface.
+
+	  STAGING: remove in ptxdist-2020.12.0
+	  Old version that need to be updated. Moved to staging with libselinux.

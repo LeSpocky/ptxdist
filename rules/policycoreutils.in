@@ -1,4 +1,6 @@
-## SECTION=selinux
+## SECTION=staging
+## old section:
+### SECTION=selinux
 
 menuconfig POLICYCOREUTILS
 	tristate
@@ -20,6 +22,9 @@ menuconfig POLICYCOREUTILS
 	  load_policy to load policies, setfiles to label filesystems, newrole
 	  to switch roles, and run_init to run /etc/init.d scripts in the proper
 	  context.
+
+	  STAGING: remove in ptxdist-2020.12.0
+	  Old version that need to be updated. Moved to staging with libselinux.
 
 if POLICYCOREUTILS
 
