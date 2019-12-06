@@ -35,6 +35,16 @@ PYTHON3_NUMPY_LICENSE_FILES := \
 PYTHON3_NUMPY_CONF_TOOL	:= python3
 
 # ----------------------------------------------------------------------------
+# Prepare
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/python3-numpy.prepare:
+	@$(call targetinfo)
+	@$(call world/prepare, PYTHON3_NUMPY)
+	@echo -e '[DEFAULT]\nlibrary_dirs =\ninclude_dirs =' > $(PYTHON3_NUMPY_DIR)/site.cfg
+	@$(call touch)
+
+# ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
 
