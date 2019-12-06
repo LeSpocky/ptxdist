@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_USB_MODESWITCH) += usb-modeswitch
 #
 # Paths and names
 #
-USB_MODESWITCH_VERSION	:= 2.5.2
-USB_MODESWITCH_MD5	:= 16b9a8efa1bf8fbd7d5612757eae4f26
+USB_MODESWITCH_VERSION	:= 2.6.0
+USB_MODESWITCH_MD5	:= be73dcc84025794081a1d4d4e5a75e4c
 USB_MODESWITCH		:= usb-modeswitch-$(USB_MODESWITCH_VERSION)
 USB_MODESWITCH_SUFFIX	:= tar.bz2
 USB_MODESWITCH_URL	:= http://www.draisberghof.de/usb_modeswitch/$(USB_MODESWITCH).$(USB_MODESWITCH_SUFFIX)
@@ -27,19 +27,11 @@ USB_MODESWITCH_LICENSE	:= GPL-2.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
 USB_MODESWITCH_CONF_TOOL	:= NO
-USB_MODESWITCH_MAKE_ENV		:= \
-	$(CROSS_ENV) \
-	HOST_TCL=$(PTXDIST_SYSROOT_HOST)/bin/jimsh
 USB_MODESWITCH_MAKE_OPT		:= \
 	$(CROSS_ENV_PROGS) \
-	$(call ptx/ifdef,PTXCONF_USB_MODESWITCH_JIM,shared,script)
-USB_MODESWITCH_INSTALL_OPT	:= \
-	UDEVDIR=$(USB_MODESWITCH_PKGDIR)/usr/lib/udev \
-	$(call ptx/ifdef,PTXCONF_USB_MODESWITCH_JIM,install-shared,install-script)
+	$(call ptx/ifdef, PTXCONF_USB_MODESWITCH_JIM, \
+		all-with-dynlink-dispatcher, all-with-script-dispatcher)
 
 # ----------------------------------------------------------------------------
 # Install
@@ -47,7 +39,14 @@ USB_MODESWITCH_INSTALL_OPT	:= \
 
 $(STATEDIR)/usb-modeswitch.install:
 	@$(call targetinfo)
-	@$(call world/install, USB_MODESWITCH)
+	@install -vD -m 755 $(USB_MODESWITCH_DIR)/usb_modeswitch \
+		$(USB_MODESWITCH_PKGDIR)/usr/sbin/usb_modeswitch
+	@install -vD -m 755 $(USB_MODESWITCH_DIR)/usb_modeswitch.sh \
+		$(USB_MODESWITCH_PKGDIR)/usr/lib/udev/usb_modeswitch
+	@install -vD -m 644 $(USB_MODESWITCH_DIR)/usb_modeswitch.conf \
+		$(USB_MODESWITCH_PKGDIR)/etc/usb_modeswitch.conf
+	@install -vD -m 755 $(USB_MODESWITCH_DIR)/usb_modeswitch_dispatcher \
+		$(USB_MODESWITCH_PKGDIR)/usr/sbin/usb_modeswitch_dispatcher
 	@install -vD -m 0644 $(USB_MODESWITCH_DIR)/usb_modeswitch@.service \
 		$(USB_MODESWITCH_PKGDIR)/usr/lib/systemd/system/usb_modeswitch@.service
 	@$(call touch)
