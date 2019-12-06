@@ -440,7 +440,8 @@ ptxd_make_world_init() {
     # parallelmake
     #
     case "${pkg_make_par}" in
-	YES|"") ;;
+	YES) python_pkg_make_par="${PTXDIST_PARALLEL_FLAGS}" ;;
+	"") python_pkg_make_par= ;;
 	NO)
 	    unset PTXDIST_PARALLELMFLAGS_INTERN
 	    unset PTXDIST_PARALLEL_FLAGS
@@ -464,6 +465,7 @@ ptxd_make_world_init() {
 	    ;;
 	python*)
 	    # no consistant support for parallel building
+	    pkg_make_par="${python_pkg_make_par}"
 	    ;;
 	scons)
 	    # only -jX is supported not other options

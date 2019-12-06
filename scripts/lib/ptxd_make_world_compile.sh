@@ -25,7 +25,8 @@ ptxd_make_world_compile() {
 	    "${pkg_make_env}" \
 	    "${ptx_build_python}" \
 	    setup.py \
-	    "${pkg_make_opt}"
+	    "${pkg_make_opt}" \
+	    "${pkg_make_par}"
 	)
 	;;
 	ninja)
