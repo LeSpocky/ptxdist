@@ -14,16 +14,18 @@ PACKAGES-$(PTXCONF_HAVEGED) += haveged
 #
 # Paths and names
 #
-HAVEGED_VERSION	:= 1.9.2
-HAVEGED_MD5	:= fb1d8b3dcbb9d06b30eccd8aa500fd31
+HAVEGED_VERSION	:= 1.9.8
+HAVEGED_MD5	:= fba3c88e416ad99ed69849b61fdcaad0
 HAVEGED		:= haveged-$(HAVEGED_VERSION)
 HAVEGED_SUFFIX	:= tar.gz
 HAVEGED_URL	:= \
-	http://www.issihosts.com/haveged/$(HAVEGED).$(HAVEGED_SUFFIX) \
-	http://www.issihosts.com/haveged/archive/$(HAVEGED).$(HAVEGED_SUFFIX)
+	https://github.com/jirka-h/haveged/archive/v$(HAVEGED_VERSION).tar.gz
 HAVEGED_SOURCE	:= $(SRCDIR)/$(HAVEGED).$(HAVEGED_SUFFIX)
 HAVEGED_DIR	:= $(BUILDDIR)/$(HAVEGED)
-HAVEGED_LICENSE	:= GPL-3.0-only
+HAVEGED_LICENSE	:= GPL-3.0-or-later
+HAVEGED_LICENSE_FILES   := \
+	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
+	file://src/haveged.c;startline=1;endline=19;md5=772ad7f0aa1fd2230cffdf7be784b15f
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -42,7 +44,7 @@ HAVEGED_CONF_OPT	:= \
 	--enable-initdir=/usr/lib/systemd/system \
 	--disable-nistest \
 	--disable-olt \
-	--disable-threads \
+	--enable-threads \
 	--enable-tune
 
 # ----------------------------------------------------------------------------
