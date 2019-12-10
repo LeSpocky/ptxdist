@@ -3,3 +3,4 @@
 0001-configure.ac-fix-FTBFS-with-new-glibc.patch
 0002-mtd-probe-fix-compilation.patch
 # 78be5e697ec01d52a38071705c42d96a  - git-ptx-patches magic
+0003-include-sysmacros-for-new-glibc.patch

@@ -1,0 +1,17 @@
+Fix build with recent glibc releases where <sys/sysmacros.h> is no
+longer included as part of <sys/types.h>.
+
+Ref.: https://wiki.gentoo.org/wiki/Glibc_2.26_porting_notes/sysmacros.h
+
+Index: udev-182/src/libudev.h
+===================================================================
+--- udev-182.orig/src/libudev.h	2019-12-10 19:33:16.205447059 +0100
++++ udev-182/src/libudev.h	2019-12-10 19:33:27.965446957 +0100
+@@ -14,6 +14,7 @@
+ 
+ #include <stdarg.h>
+ #include <sys/types.h>
++#include <sys/sysmacros.h>
+ #include <sys/stat.h>
+ 
+ #ifdef __cplusplus
