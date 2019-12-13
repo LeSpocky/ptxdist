@@ -220,5 +220,13 @@ config U_BOOT_INSTALL_U_BOOT_WITH_SPL_PBL
 	  Installing the U-Boot binary which contains as well the SPL and PBL.
 	  Say yes if you are building for Layerscape SoCs
 
+config U_BOOT_INSTALL_U_BOOT_STM32
+	prompt "install u-boot.stm32"
+	bool
+	help
+	  Installing the U-Boot image with stm32 header (u-boot.stm32) into
+	  platform image directory. Say yes if you are building for STM32MP1
+	  SOCs.
+
 endif
 

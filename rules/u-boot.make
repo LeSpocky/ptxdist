@@ -167,6 +167,9 @@ ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_WITH_SPL_PBL
 	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-with-spl-pbl.bin \
 		$(IMAGEDIR)/u-boot-with-spl-pbl.bin
 endif
+ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_STM32
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot.stm32 $(IMAGEDIR)/u-boot.stm32
+endif
 ifndef PTXCONF_U_BOOT_ENV_IMAGE_NONE
 	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-env.img \
 		$(IMAGEDIR)/u-boot-env.img
@@ -198,6 +201,7 @@ $(STATEDIR)/u-boot.clean:
 	@rm -vf $(IMAGEDIR)/u-boot.imx $(IMAGEDIR)/u-boot-dtb.imx
 	@rm -vf $(IMAGEDIR)/u-boot-env.img
 	@rm -vf	$(IMAGEDIR)/u-boot-dtb.bin $(IMAGEDIR)/u-boot-with-spl-pbl.bin
+	@rm -vf $(IMAGEDIR)/u-boot.stm32
 
 # ----------------------------------------------------------------------------
 # oldconfig / menuconfig
