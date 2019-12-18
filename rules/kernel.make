@@ -173,7 +173,8 @@ KERNEL_TOOL_PERF_OPTS	:= \
 	NO_LZMA=1 \
 	NO_AUXTRACE= \
 	NO_LIBBPF=1 \
-	NO_SDT=1
+	NO_SDT=1 \
+	NO_LIBCAP=1
 
 # manual make to handle CPPFLAGS and broken parallel building for some
 # kernel versions
