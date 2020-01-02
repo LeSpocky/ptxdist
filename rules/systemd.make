@@ -432,6 +432,8 @@ ifdef PTXCONF_SYSTEMD_TIMEDATE
 		/var/lib/systemd/timesync)
 	@$(call install_link, systemd, ../systemd-timesyncd.service,  \
 		/usr/lib/systemd/system/sysinit.target.wants/systemd-timesyncd.service)
+	@$(call install_alternative, systemd, 0, 0, 0664, \
+		/usr/lib/systemd/ntp-units.d/80-systemd-timesync.list)
 endif
 
 ifdef PTXCONF_SYSTEMD_VCONSOLE
