@@ -6,14 +6,14 @@ this fixes cross-compiling
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- makefile |    5 +++--
- 1 files changed, 3 insertions(+), 2 deletions(-)
+ makefile | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/makefile b/makefile
-index 176bc4e..ba5e3ba 100644
+index 9efe2622d9fc..69bb6131c986 100644
 --- a/makefile
 +++ b/makefile
-@@ -920,6 +920,7 @@ CC= cc
+@@ -927,6 +927,7 @@ CC= cc
  CC2= cc
  MAKE= make
  SHELL=/bin/sh
@@ -21,7 +21,7 @@ index 176bc4e..ba5e3ba 100644
  
  ###########################################################################
  # (Ancient) UNIX V7-specific variables.
-@@ -1414,9 +1415,9 @@ ckclib.$(EXT): ckclib.c ckclib.h ckcdeb.h ckcasc.h ckcsym.h
+@@ -1421,9 +1422,9 @@ ckclib.$(EXT): ckclib.c ckclib.h ckcdeb.h ckcasc.h ckcsym.h
  
  ckcpro.$(EXT): ckcpro.c ckcker.h ckcdeb.h ckcsym.h ckcasc.h ckclib.h
  
