@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBDRM) += libdrm
 #
 # Paths and names
 #
-LIBDRM_VERSION	:= 2.4.99
-LIBDRM_MD5	:= 72539626815b35159a63d45bc4c14ee6
+LIBDRM_VERSION	:= 2.4.100
+LIBDRM_MD5	:= f47bc87e28198ba527e6b44ffdd62f65
 LIBDRM		:= libdrm-$(LIBDRM_VERSION)
 LIBDRM_SUFFIX	:= tar.bz2
 LIBDRM_URL	:= http://dri.freedesktop.org/libdrm/$(LIBDRM).$(LIBDRM_SUFFIX)
@@ -101,6 +101,9 @@ ifdef PTXCONF_LIBDRM_ETNAVIV
 	@$(call install_copy, libdrm, 0, 0, 0755, -, /usr/bin/etnaviv_cmd_stream_test)
 	@$(call install_copy, libdrm, 0, 0, 0755, -, /usr/bin/etnaviv_bo_cache_test)
 endif
+endif
+ifdef PTXCONF_LIBDRM_AMDGPU
+	@$(call install_copy, libdrm, 0, 0, 0644, -, /usr/share/libdrm/amdgpu.ids)
 endif
 	@$(call install_finish, libdrm)
 
