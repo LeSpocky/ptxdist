@@ -4,3 +4,4 @@
 # not installed.
 [PTXdist dummy quirk]
 MatchName=PTXdist inexistent device
+AttrSizeHint=1x1
