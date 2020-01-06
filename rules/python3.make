@@ -75,7 +75,7 @@ PYTHON3_CONF_OPT	:= \
 	--without-valgrind \
 	--without-dtrace \
 	--with-computed-gotos \
-	--without-ensurepip \
+	--$(call ptx/wwo, PTXCONF_PYTHON3_ENSUREPIP)-ensurepip \
 	--with-openssl=$(SYSROOT)/usr
 
 # Keep dictionary order in .pyc files stable
@@ -162,11 +162,13 @@ $(STATEDIR)/python3.targetinstall:
 	@$(call install_fixup, python3,DESCRIPTION,missing)
 
 	@$(call install_glob, python3, 0, 0, -, /usr/lib/python$(PYTHON3_MAJORMINOR), \
-		*.so *.pyc, */test */tests */__pycache__ $(PYTHON3_SKIP-y))
+		*.so *.pyc *.whl, */test */tests */__pycache__ $(PYTHON3_SKIP-y))
 
 	@$(call install_copy, python3, 0, 0, 755, -, /usr/bin/python$(PYTHON3_MAJORMINOR))
 	@$(call install_link, python3, python$(PYTHON3_MAJORMINOR), /usr/bin/python3)
 	@$(call install_lib, python3, 0, 0, 644, libpython$(PYTHON3_MAJORMINOR)m)
+
+	@$(call install_copy, python3, 0, 0, 644, -, /usr/lib/python$(PYTHON3_MAJORMINOR)/venv/scripts/common/activate)
 
 ifdef PTXCONF_PYTHON3_SYMLINK
 	@$(call install_link, python3, python$(PYTHON3_MAJORMINOR), /usr/bin/python)
