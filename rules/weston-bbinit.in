@@ -1,0 +1,8 @@
+## SECTION=initmethod_bbinit
+
+config WESTON_BBINIT_LINK
+	string
+	depends on WESTON_STARTSCRIPT
+	prompt "weston-init"
+	default "S92weston-init"
+

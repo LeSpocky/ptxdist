@@ -75,6 +75,11 @@ config WESTON_LAUNCH
 	  weston-launch is a setuid-root program which does privileged
 	  operations on Weston's behalf
 
+config WESTON_STARTSCRIPT
+	bool
+	default INITMETHOD_BBINIT
+	prompt "install /etc/init.d/weston-init"
+
 config WESTON_SYSTEMD
 	bool
 	default INITMETHOD_SYSTEMD

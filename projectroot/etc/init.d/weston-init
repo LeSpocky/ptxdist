@@ -1,0 +1,29 @@
+#!/bin/sh
+
+start() {
+	OPENVT_ARGS="-c 1 -s"
+	WESTON_ARGS="--log=/var/log/weston.log"
+
+	test -f /etc/default/weston-init && . /etc/default/weston-init
+
+	if [ -z "$XDG_RUNTIME_DIR" ]; then
+		export XDG_RUNTIME_DIR=/run/xdg
+		mkdir -p "$XDG_RUNTIME_DIR"
+		chmod 0700 "$XDG_RUNTIME_DIR"
+	fi
+
+	echo "Starting Weston"
+	exec openvt $OPENVT_ARGS -- weston $WESTON_ARGS
+}
+
+stop() {
+	echo "Stopping Weston"
+	killall -q weston
+}
+
+case $1 in
+	start|stop) $1 ;;
+	restart) stop ; sleep 1 ; start ;;
+
+	*) echo "Usage: $0 {start|stop|restart}"; exit 1 ;;
+esac

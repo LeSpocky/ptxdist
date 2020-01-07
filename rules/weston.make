@@ -171,6 +171,17 @@ ifdef PTXCONF_WESTON_SYSTEMD
 	@$(call install_lib, weston, 0, 0, 0644, weston/systemd-notify)
 endif
 
+ifdef PTXCONF_INITMETHOD_BBINIT
+ifdef PTXCONF_WESTON_STARTSCRIPT
+	@$(call install_alternative, weston, 0, 0, 0755, /etc/init.d/weston-init)
+ifneq ($(call remove_quotes,$(PTXCONF_WESTON_BBINIT_LINK)),)
+	@$(call install_link, weston, \
+		../init.d/weston-init, \
+		/etc/rc.d/$(PTXCONF_WESTON_BBINIT_LINK))
+endif
+endif
+endif
+
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/libexec/weston-simple-im)
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/libexec/weston-desktop-shell)
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/libexec/weston-keyboard)
