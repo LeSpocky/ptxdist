@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_FILE) += file
 #
 # Paths and names
 #
-FILE_VERSION	:= 5.35
-FILE_MD5	:= 5f10fb45bdaffd729a572e563783b78e
+FILE_VERSION	:= 5.36
+FILE_MD5	:= 9af0eb3f5db4ae00fffc37f7b861575c
 FILE		:= file-$(FILE_VERSION)
 FILE_SUFFIX	:= tar.gz
-FILE_URL	:= ftp://ftp.astron.com/pub/file/$(FILE).$(FILE_SUFFIX)
+FILE_URL	:= http://ftp.astron.com/pub/file/$(FILE).$(FILE_SUFFIX)
 FILE_SOURCE	:= $(SRCDIR)/$(FILE).$(FILE_SUFFIX)
 FILE_DIR	:= $(BUILDDIR)/$(FILE)
-FILE_LICENSE	:= BSD AND 2-term BSD
+FILE_LICENSE	:= BSD-2-Clause
+FILE_LICENSE_FILES	:= \
+	file://COPYING;md5=8bafafc441e2e0b9660848c98760b5f3 \
+	file://src/file.c;startline=1;endline=27;md5=c23a8098a761ce3193087925877307b9
 
 # ----------------------------------------------------------------------------
 # Prepare
