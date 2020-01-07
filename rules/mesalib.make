@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 19.2.6
-MESALIB_MD5	:= 696fd473c8956c81da1c04928ec08aa9
+MESALIB_VERSION	:= 19.3.2
+MESALIB_MD5	:= 9de2503cce0b864b99ff15d74e5059e9
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -111,6 +111,7 @@ MESALIB_CONF_OPT	:= \
 	-Dllvm=false \
 	-Dlmsensors=$(call ptx/truefalse, PTXCONF_MESALIB_LMSENSORS) \
 	-Domx-libs-path=/usr/lib/dri \
+	-Dopencl-spirv=false \
 	-Dopengl=$(call ptx/truefalse, PTXCONF_MESALIB_OPENGL) \
 	-Dosmesa=none \
 	-Dosmesa-bits=8 \

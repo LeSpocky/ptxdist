@@ -49,6 +49,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dllvm=false \
 	-Dlmsensors=false \
 	-Domx-libs-path=/usr/lib/dri \
+	-Dopencl-spirv=false \
 	-Dopengl=true \
 	-Dosmesa=none \
 	-Dosmesa-bits=8 \
