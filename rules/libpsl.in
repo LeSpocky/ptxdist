@@ -2,6 +2,7 @@
 
 config LIBPSL
 	tristate
+	select HOST_SYSTEM_PYTHON3
 	prompt "libpsl"
 	help
 	  Library for Public Suffix List (shared libraries)
