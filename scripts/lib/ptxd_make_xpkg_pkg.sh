@@ -218,6 +218,7 @@ ptxd_install_setup_src() {
 "
     echo -e "${list[*]}\n"
     IFS="${orig_IFS}"
+    return 1
 }
 export -f ptxd_install_setup_src
 
