@@ -330,52 +330,6 @@ AC_SUBST(SPHINX)
 AC_PATH_PROGS(RST2MAN, rst2man,, $PATH)
 AC_SUBST(RST2MAN)
 
-dnl
-dnl Checks for Python, needed for ipkg-utils
-dnl
-AC_ARG_WITH(python, AS_HELP_STRING([--with-python],[name of the Python executable to use]),
-    [
-	PYTHON="$withval"
-	AC_SUBST(PYTHON)
-	AC_MSG_NOTICE([Using Python executable $PYTHON])
-    ],[
-	AC_PATH_PROGS(PYTHON, python2 python2.7 python2.6 python)
-	AC_SUBST(PYTHON)
-    ])
-
-dnl
-dnl Check for Python 2.x
-dnl
-AC_MSG_CHECKING([Python version])
-PYTHON_VERSION=`$PYTHON --version 2>&1 | $SED -ne "1 s/Python \([[0-9\+\.]]\+\).*/\1/p"`
-case "$PYTHON_VERSION" in
-2.*) ;;
-*)   AC_MSG_ERROR([we need Python version 2.x but found $PYTHON_VERSION]) ;;
-esac
-AC_MSG_RESULT([$PYTHON_VERSION])
-
-dnl
-dnl We need the Python distutils
-dnl
-AC_MSG_CHECKING(whether $PYTHON finds distutils)
-if test "`$PYTHON -c "import distutils" 2> /dev/null && echo yes`" = "yes"; then
-	AC_MSG_RESULT(yes)
-else
-	AC_MSG_RESULT(no)
-	AC_MSG_ERROR(Please install the Python distutils package)
-fi
-
-AC_MSG_CHECKING(whether Python development files are present)
-PYTHON_MAKEFILE=`$PYTHON -c "import distutils.sysconfig; print distutils.sysconfig.get_makefile_filename()" 2> /dev/null`
-if test -e "$PYTHON_MAKEFILE"; then
-	AC_MSG_RESULT(yes)
-else
-	AC_MSG_RESULT(no)
-	AC_MSG_ERROR([some Python development files could not be found, you are
-		      likely using suse or redhat system as host. In this case
-		      please install the python-devel packages])
-fi
-
 dnl Check for patch
 AC_ARG_WITH(patch, AS_HELP_STRING([--with-patch],[name of the patch executable to use]),
     [

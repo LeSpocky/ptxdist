@@ -295,15 +295,10 @@ HOST_ENV_PROGS := \
 	$(HOST_ENV_CC) \
 	$(HOST_ENV_CXX)
 
-HOST_ENV_PYTHONPATH	:= \
-	PYTHONPATH="$(call ptx/sh, python -c 'import distutils.sysconfig as sysconfig; \
-		print "%s" % sysconfig.get_python_lib(prefix="'"$(PTXDIST_SYSROOT_HOST)"'")')"
-
 HOST_ENV	:= \
 	$(HOST_ENV_AC) \
 	$(HOST_ENV_PROGS) \
-	$(HOST_ENV_PKG_CONFIG) \
-	$(HOST_ENV_PYTHONPATH)
+	$(HOST_ENV_PKG_CONFIG)
 
 
 HOST_AUTOCONF  := --prefix=
