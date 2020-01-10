@@ -33,7 +33,7 @@ ptxd_get_ipkg_files() {
 	ipkg_files="${image_ipkg_repo_dirs[@]/%//${1}_*.ipk}"
 
 	# take first hit
-	if ptxd_get_path "${ipkg_files[@]}"; then
+	if ptxd_get_path ${ipkg_files[*]}; then
 	    ptxd_reply_ipkg_files[${#ptxd_reply_ipkg_files[@]}]="${ptxd_reply}"
 	    if [ -z "$(ptxd_get_ptxconf PTXCONF_IMAGE_INSTALL_FROM_IPKG_REPOSITORY)" ]; then
 		ptxd_reply_perm_files[${#ptxd_reply_perm_files[@]}]="${ptxd_reply%/*/*}/state/${1}.perms"
