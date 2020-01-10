@@ -4,6 +4,7 @@ menuconfig SAMBA
 	tristate
 	prompt "samba                         "
 	select HOST_SYSTEM_PERL
+	select HOST_SYSTEM_PYTHON
 	select LIBC_CRYPT
 	select LIBC_DL
 	select LIBC_NSL
