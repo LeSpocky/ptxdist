@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FREEGLUT) += freeglut
 #
 # Paths and names
 #
-FREEGLUT_VERSION	:= 2.8.1
-FREEGLUT_MD5		:= 918ffbddcffbac83c218bc52355b6d5a
+FREEGLUT_VERSION	:= 3.2.1
+FREEGLUT_MD5		:= cd5c670c1086358598a6d4a9d166949d
 FREEGLUT		:= freeglut-$(FREEGLUT_VERSION)
 FREEGLUT_SUFFIX		:= tar.gz
 FREEGLUT_URL		:= $(call ptx/mirror, SF, freeglut/$(FREEGLUT).$(FREEGLUT_SUFFIX))
@@ -28,9 +28,19 @@ FREEGLUT_LICENSE	:= unknown
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# cmake
 #
-FREEGLUT_CONF_TOOL	:= autoconf
+FREEGLUT_CONF_TOOL	:= cmake
+FREEGLUT_CONF_OPT	:= \
+	$(CROSS_CMAKE_USR) \
+	-DFREEGLUT_BUILD_DEMOS=OFF \
+	-DFREEGLUT_BUILD_SHARED_LIBS=ON \
+	-DFREEGLUT_BUILD_STATIC_LIBS=OFF \
+	-DFREEGLUT_GLES=OFF \
+	-DFREEGLUT_PRINT_ERRORS=ON \
+	-DFREEGLUT_PRINT_WARNINGS=ON \
+	-DFREEGLUT_REPLACE_GLUT=ON \
+	-DFREEGLUT_WAYLAND=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install

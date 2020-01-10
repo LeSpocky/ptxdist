@@ -2,6 +2,7 @@
 
 config FREEGLUT
 	tristate
+	select HOST_CMAKE
 	select MESALIB
 	select GLU
 	select XORG_LIB_XI
