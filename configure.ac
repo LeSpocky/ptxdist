@@ -296,8 +296,9 @@ if test -z "$MAKE"; then
 	AC_MSG_ERROR([make could not be found, please install])
 fi
 MAKE_VERSION=`$MAKE --version 2>/dev/null | $SED -ne "s/^GNU Make \([[0-9]]\+\.[[0-9.]]\+\).*$/\1/p"`
+MAJOR_MAKE_VERSION="${MAKE_VERSION%%.*}"
 MINOR_MAKE_VERSION="${MAKE_VERSION#*.}"
-MAJOR_MAKE_VERSION="${MAKE_VERSION%.*}"
+MINOR_MAKE_VERSION="${MINOR_MAKE_VERSION%%.*}"
 if test -z "${MAJOR_MAKE_VERSION}"  -o -z "${MINOR_MAKE_VERSION}" ; then
 	AC_MSG_ERROR([could not parse make version. GNU make >= 3.81 required])
 fi
