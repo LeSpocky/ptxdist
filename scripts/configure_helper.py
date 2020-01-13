@@ -163,7 +163,7 @@ def abort(message):
 	print("\nSee '%s --help' for more details." % cmd)
 	exit(1)
 
-def ask_ptxdist(pkg):
+def ask_ptxdist(pkg, force):
 	ptxdist = os.environ.get("PTXDIST", os.environ.get("ptxdist", "ptxdist"))
 	cmdline = [ ptxdist, "-k", "make",
 		"/print-%s_DIR" % pkg,
@@ -174,6 +174,9 @@ def ask_ptxdist(pkg):
 		"/print-CROSS_MESON_USR",
 		"/print-CROSS_AUTOCONF_USR",
 		"/print-PTXDIST_SYSROOT_HOST" ]
+	if force:
+		cmdline.insert(1, "--force")
+
 	try:
 		p = subprocess.Popen(cmdline,
 			stdout=subprocess.PIPE,
@@ -485,6 +488,8 @@ parser.add_argument("-s", "--only-src", help="the only source directory",
 	dest="only")
 parser.add_argument("--sort", help="sort the options before comparing",
 	dest="sort", action="store_true")
+parser.add_argument("-f", "--force", help="pass --force when calling ptxdist",
+	dest="force", action="store_true")
 
 args = parser.parse_args()
 
@@ -512,7 +517,7 @@ ptx_pkg_conf_opt = []
 pkg_subdir = ""
 tool = None
 if args.pkg:
-	(tool, d, pkg_subdir, pkg_conf_opt, sysroot_host) = ask_ptxdist(ptx_PKG)
+	(tool, d, pkg_subdir, pkg_conf_opt, sysroot_host) = ask_ptxdist(ptx_PKG, args.force)
 	ptx_pkg_label = "rules/%s.make" % ptx_pkg
 	if tool == "autoconf":
 		parsed_pkg_conf_opt = parse_configure_args(pkg_conf_opt, [])

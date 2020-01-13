@@ -130,6 +130,9 @@ needed. This tool contains a blacklist to filter out these options.
 ``--sort``
     Sort the options before comparing
 
+``-f, --force``
+    Call PTXdist with ``--force``
+
 There are several different ways to configure arguments:
 
 .. code-block:: sh
