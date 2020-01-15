@@ -44,7 +44,7 @@ CHRONY_CONF_OPT		:= \
 	--disable-refclock \
 	--disable-phc \
 	--disable-pps \
-	$(call ptx/ifdef PTXCONF_GLOBAL_IPV6,,--disable-ipv6) \
+	$(call ptx/ifdef, PTXCONF_GLOBAL_IPV6,,--disable-ipv6) \
 	--without-seccomp
 
 # ----------------------------------------------------------------------------
