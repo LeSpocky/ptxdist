@@ -55,7 +55,7 @@ POCO_CONF_OPT	:= \
 	--no-tests \
 	--no-samples \
 	--omit=$(subst $(ptx/def/space),$(ptx/def/comma),$(POCO_LIBS-)) \
-	$(call ptx/ifdef/PTXCONF_POCO_POQUITO,--poquito) \
+	$(call ptx/ifdef, PTXCONF_POCO_POQUITO,--poquito) \
 	--unbundled \
 	--shared
 
