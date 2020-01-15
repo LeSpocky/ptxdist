@@ -109,7 +109,7 @@ $(STATEDIR)/postgresql.targetinstall:
 #	# Binaries
 	@$(call install_copy, postgresql, 0, 0, 0755, -, /usr/bin/postgres)
 	@$(call install_copy, postgresql, 0, 0, 0755, -, /usr/bin/pg_receivewal)
-	@$(call install_lin, postgresql, postgres, /usr/bin/postmaster)
+	@$(call install_link, postgresql, postgres, /usr/bin/postmaster)
 	@$(call install_copy, postgresql, 0, 0, 0755, -, /usr/bin/reindexdb)
 	@$(call install_copy, postgresql, 0, 0, 0755, -, /usr/bin/pg_isready)
 	@$(call install_copy, postgresql, 0, 0, 0755, -, /usr/bin/pg_dump)
