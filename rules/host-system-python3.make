@@ -28,7 +28,7 @@ ifdef PTXCONF_HOST_SYSTEM_PYTHON3_DEV
 	@echo "Checking for Python development files ..."
 	@$(SYSTEMPYTHON3)-config --includes &>/dev/null || \
 		ptxd_bailout "Python development files module not found! \
-	Please install python-dev (debian)";
+	Please install python3-dev (debian)";
 endif
 ifdef PTXCONF_HOST_SYSTEM_PYTHON3_MAKO
 	@echo "Checking for Python Mako ..."
