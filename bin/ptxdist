@@ -692,6 +692,17 @@ check_compiler() {
 		}
 	done
 
+	ptxd_replace_copy_from_path PTXDIST_PATH "scripts/wrapper/python-wrapper" \
+		"${wrapper_dir}/python-wrapper" &&
+	for python in python2 python2-config python3 python3-config; do
+		if type -P "${python}" > /dev/null; then
+			ptxd_replace_link "python-wrapper" "${wrapper_dir}/${python}" || \
+				ptxd_bailout "Unable to create ${python} wrapper link"
+			ptxd_replace_link "python-wrapper" "${wrapper_dir}/${python/[23]}" || \
+				ptxd_bailout "Unable to create ${python/[23]} wrapper link"
+		fi
+	done &&
+
 	for tool in ar as nm objcopy objdump ranlib readelf size strip ; do
 		tool_abs="$(which "${tool}" 2>/dev/null)"
 		ptxd_replace_link "${tool_abs}" "${wrapper_dir}/${tool}" || \

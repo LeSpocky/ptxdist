@@ -1,0 +1,45 @@
+#!/bin/bash
+
+name=$(basename "${0}")
+if [ "${name#*-}" != "${name}" ]; then
+	suffix="-${name#*-}"
+	name="${name%-*}"
+fi
+
+case "${name}" in
+python) dep="host-system-python / host-system-python3" ;;
+python2) dep=host-system-python ;;
+python3) dep=host-system-python3 ;;
+esac
+
+case " ${pkg_build_deps} " in
+*" ${dep} "*) ;;
+*" host-system-python "*) name=python2 ;;
+*" host-system-python3 "*) name=python3 ;;
+*)
+	case " ${pkg_build_deps_all} " in
+	*" ${dep} "*) ;;
+	*" host-system-python "*) name=python2 ;;
+	*" host-system-python3 "*) name=python3 ;;
+	*)
+		if [ -n "${pkg_stamp}" ]; then
+			echo -e "\n'${pkg_stamp%.*}' must depend on '${dep}' for '${name}'!\n" >&2
+			exit 1
+		fi
+		;;
+	esac
+	;;
+esac
+
+name="${name}${suffix}"
+skip="$(dirname "${0}")/${name}"
+
+for path in $(type -a -P ${name}); do
+	if [ "${path}" = "${skip}" ]; then
+		continue
+	fi
+	exec "${path}" "${@}"
+done
+
+echo "'${name}' not found!" >&2
+exit 1
