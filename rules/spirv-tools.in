@@ -1,0 +1,19 @@
+## SECTION=multimedia_libs
+
+menuconfig SPIRV_TOOLS
+	tristate
+	prompt "spirv-tools"
+	select HOST_CMAKE
+	select HOST_SYSTEM_PYTHON3
+	help
+	  SPIR-V Tools
+
+if SPIRV_TOOLS
+
+config SPIRV_TOOLS_LIB
+	bool
+	prompt "install shared library"
+	help
+	  Install libSPIRV-Tools-shared library
+
+endif
