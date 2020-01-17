@@ -1,0 +1,23 @@
+## SECTION=multimedia_libs
+
+menuconfig VULKAN_LOADER
+	tristate
+	prompt "vulkan-loader                 "
+	select HOST_CMAKE
+	select HOST_QEMU
+	select LIBXCB		if VULKAN_LOADER_XCB
+	select WAYLAND		if VULKAN_LOADER_WAYLAND
+	help
+	  Vulkan ICD Loader
+
+if VULKAN_LOADER
+
+config VULKAN_LOADER_XCB
+	bool
+	prompt "XCB"
+
+config VULKAN_LOADER_WAYLAND
+	bool
+	prompt "Wayland"
+
+endif
