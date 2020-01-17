@@ -178,5 +178,17 @@ config MESALIB_LMSENSORS
 	depends on MESALIB_EXTENDED_HUD
 	bool
 
+comment "Vulkan drivers"
+
+config MESALIB_VULKAN_AMD
+	bool
+	# needs LLVM
+	depends on BROKEN
+	prompt "AMD (Radv)"
+
+config MESALIB_VULKAN_INTEL
+	bool
+	prompt "Intel (Anvil)"
+
 endif
 

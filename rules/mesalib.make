@@ -66,6 +66,13 @@ MESALIB_DRI_LIBS-y = \
 MESALIB_DRI_GALLIUM_LIBS-y = \
 	$(subst kmsro,imx-drm pl111 hx8357d stm,$(subst freedreno,kgsl,$(MESALIB_GALLIUM_DRIVERS-y)))
 
+ifdef PTXCONF_ARCH_X86
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_AMD)		+= amd
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_INTEL)		+= intel
+endif
+
+MESALIB_VULKAN_LIBS-y = $(subst amd,radeon,$(MESALIB_VULKAN_DRIVERS-y))
+
 MESALIB_LIBS-y				:= libglapi
 MESALIB_LIBS-$(PTXCONF_MESALIB_GLX)	+= libGL
 MESALIB_LIBS-$(PTXCONF_MESALIB_GLES1)	+= libGLESv1_CM
@@ -120,7 +127,7 @@ MESALIB_CONF_OPT	:= \
 	-Dplatforms=$(subst $(space),$(comma),$(MESALIBS_EGL_PLATFORMS-y)) \
 	-Dpower8=false \
 	-Dselinux=false \
-	-Dshader-cache=false \
+	-Dshader-cache=$(call ptx/truefalse, PTXCONF_MESALIB_VULKAN_AMD) \
 	-Dshared-glapi=true \
 	-Dshared-llvm=false \
 	-Dswr-arches=[] \
@@ -128,7 +135,7 @@ MESALIB_CONF_OPT	:= \
 	-Dva-libs-path=/usr/lib/dri \
 	-Dvalgrind=false \
 	-Dvdpau-libs-path=/usr/lib/vdpau \
-	-Dvulkan-drivers=[] \
+	-Dvulkan-drivers=$(subst $(space),$(comma),$(MESALIB_VULKAN_DRIVERS-y)) \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-overlay-layer=false \
 	-Dxlib-lease=false \
@@ -169,6 +176,14 @@ ifneq ($(strip $(MESALIB_DRI_GALLIUM_LIBS-y)),)
 	@$(foreach lib, $(MESALIB_DRI_GALLIUM_LIBS-y), \
 		$(call install_link, mesalib, gallium_dri.so, \
 		/usr/lib/dri/$(lib)_dri.so)$(ptx/nl))
+endif
+
+ifneq ($(strip $(MESALIB_VULKAN_LIBS-y)),)
+	@$(foreach lib, $(MESALIB_VULKAN_LIBS-y), \
+		$(call install_copy, mesalib, 0, 0, 0644, -, \
+		/usr/lib/libvulkan_$(lib).so)$(ptx/nl) \
+		$(call install_copy, mesalib, 0, 0, 0644, -, \
+		/etc/vulkan/icd.d/$(lib)_icd.$(subst _,-,$(PTXCONF_ARCH_STRING)).json)$(ptx/nl))
 endif
 
 	@$(foreach lib, $(MESALIB_LIBS-y), \
