@@ -12,11 +12,11 @@ PACKAGES-$(PTXCONF_FCGI) += fcgi
 #
 # Paths and names
 #
-FCGI_VERSION    	:= 2.4.0
-FCGI_MD5		:= d15060a813b91383a9f3c66faf84867e
+FCGI_VERSION    	:= 2.4.2
+FCGI_MD5		:= 146376d5c5c059b9184755db76505fab
 FCGI			:= fcgi-$(FCGI_VERSION)
 FCGI_SUFFIX		:= tar.gz
-FCGI_URL		:= https://sourceforge.net/projects/slackbuildsdirectlinks/files/fcgi/$(FCGI).$(FCGI_SUFFIX)
+FCGI_URL		:= https://github.com/FastCGI-Archives/fcgi2/archive/$(FCGI_VERSION).$(FCGI_SUFFIX)
 FCGI_SOURCE		:= $(SRCDIR)/$(FCGI).$(FCGI_SUFFIX)
 FCGI_DIR		:= $(BUILDDIR)/$(FCGI)
 FCGI_LICENSE		:= OML
