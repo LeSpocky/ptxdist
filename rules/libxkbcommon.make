@@ -22,6 +22,7 @@ LIBXKBCOMMON_URL	:= http://xkbcommon.org/download/$(LIBXKBCOMMON).$(LIBXKBCOMMON
 LIBXKBCOMMON_SOURCE	:= $(SRCDIR)/$(LIBXKBCOMMON).$(LIBXKBCOMMON_SUFFIX)
 LIBXKBCOMMON_DIR	:= $(BUILDDIR)/$(LIBXKBCOMMON)
 LIBXKBCOMMON_LICENSE	:= MIT AND X11 AND HPND
+LIBXKBCOMMON_LICENSE_FILES := file://LICENSE;md5=e525ed9809e1f8a07cf4bce8b09e8b87
 
 # ----------------------------------------------------------------------------
 # Prepare
