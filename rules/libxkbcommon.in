@@ -3,6 +3,7 @@
 menuconfig LIBXKBCOMMON
 	tristate
 	prompt "libxkbcommon                  "
+	select HOST_MESON
 	select XKEYBOARD_CONFIG	if RUNTIME
 	select LIBXCB		if LIBXKBCOMMON_X11
 	select HOST_XORG_UTIL_MACROS
