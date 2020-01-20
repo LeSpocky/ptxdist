@@ -75,10 +75,10 @@ endif
 endif
 
 ifdef PTXCONF_HAVEGED_SYSTEMD_UNIT
-	@$(call install_copy, haveged, 0, 0, 0644, -, \
+	@$(call install_alternative, haveged, 0, 0, 0644, \
 		/usr/lib/systemd/system/haveged.service)
 	@$(call install_link, haveged, ../haveged.service, \
-		/usr/lib/systemd/system/multi-user.target.wants/haveged.service)
+		/usr/lib/systemd/system/sysinit.target.wants/haveged.service)
 endif
 
 	@$(call install_finish, haveged)
