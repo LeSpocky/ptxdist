@@ -306,6 +306,38 @@ function write_maps(this_PKG, dep_type) {
 	print "PTX_MAP_" dep_type "_dep_" this_PKG "=" this_PKG_dep	> MAP_ALL_MAKE;
 }
 
+function pkg_all_deps(this_PKG, dep_type, n, this_PKG_dep, this_DEP_array) {
+	if (this_PKG in PKG_to_dep_all)
+		return PKG_to_dep_all[this_PKG];
+
+	this_PKG_dep = ""
+	n = split(pkg_dep(this_PKG, dep_type), this_DEP_array, " ");
+	for (i = 1; i <= n; i++)
+		this_PKG_dep = this_PKG_dep " " PKG_to_pkg[this_DEP_array[i]] " " pkg_all_deps(this_DEP_array[i], dep_type)
+	n = split(this_PKG_dep, this_DEP_array, " ");
+	asort(this_DEP_array, this_DEP_array);
+	this_PKG_dep = ""
+	last = ""
+	for (i = 1; i <= n; i++) {
+		if (last == this_DEP_array[i])
+			continue
+		this_PKG_dep = this_PKG_dep " " this_DEP_array[i];
+		last = this_DEP_array[i]
+	}
+	PKG_to_dep_all[this_PKG] = this_PKG_dep;
+	return this_PKG_dep;
+}
+
+function write_all_deps(dep_type, PKG_to_dep_all) {
+	for (this_PKG in PKG_to_pkg) {
+		this_PKG_dep = pkg_all_deps(this_PKG, dep_type);
+		if (this_PKG_dep == "")
+			continue;
+		print "PTX_MAP_" dep_type "_dep_all_" this_PKG "=" this_PKG_dep	> MAP_DEPS;
+		print "PTX_MAP_" dep_type "_dep_all_" this_PKG "=" this_PKG_dep	> MAP_ALL_MAKE;
+	}
+}
+
 function write_vars_pkg_all(this_PKG, this_pkg, prefix) {
 	#
 	# post install hooks
@@ -582,6 +614,8 @@ END {
 		}
 		all_pkg = all_pkg " " this_pkg
 	}
+	write_all_deps("R")
+	write_all_deps("B")
 	print "PTX_PACKAGES_ALL := " all_pkg									> DGEN_DEPS_PRE;
 
 	# for active pkgs
