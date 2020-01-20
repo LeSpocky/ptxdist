@@ -255,22 +255,22 @@ function write_vars_all(this_PKG) {
 	}
 }
 
-function write_maps(this_PKG, dep_type) {
+function pkg_dep(this_PKG, dep_type) {
 	if (dep_type == "R")
-		this_PKG_DEP = PKG_to_R_DEP[this_PKG];
+		return PKG_to_R_DEP[this_PKG];
 	else
-		this_PKG_DEP = PKG_to_B_DEP[this_PKG];
+		return PKG_to_B_DEP[this_PKG];
+}
 
+function write_maps(this_PKG, dep_type) {
+	this_PKG_DEP = pkg_dep(this_PKG, dep_type);
 	if (this_PKG_DEP == "")
 		return;
 
 	n = split(this_PKG_DEP, this_DEP_array, " ");
 	for (i = 1; i <= n; i++) {
 		if (this_DEP_array[i] in virtual_pkg) {
-			if (dep_type == "R")
-				virtual_PKG_DEP = PKG_to_R_DEP[this_DEP_array[i]];
-			else
-				virtual_PKG_DEP = PKG_to_B_DEP[this_DEP_array[i]];
+			virtual_PKG_DEP = pkg_dep(this_DEP_array[i], dep_type);
 			this_PKG_DEP = this_PKG_DEP " " virtual_PKG_DEP
 		}
 	}
