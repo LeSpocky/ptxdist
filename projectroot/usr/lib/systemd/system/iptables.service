@@ -3,6 +3,8 @@ Description=Packet Filtering Framework
 DefaultDependencies=no
 After=systemd-sysctl.service
 Before=sysinit.target
+# ensure, we are running before IPv6
+Before=ip6tables.service
 ConditionFileNotEmpty=/etc/iptables/rules.v4
 [Service]
 Type=oneshot
