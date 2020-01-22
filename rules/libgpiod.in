@@ -3,6 +3,7 @@
 menuconfig LIBGPIOD
 	tristate
 	prompt "libgpiod                      "
+	select HOST_SYSTEM_PYTHON3
 	select GCCLIBS_CXX	if LIBGPIOD_CXX
 	select PYTHON3		if LIBGPIOD_PYTHON3
 	help
