@@ -3,6 +3,7 @@
 config SQLITECPP
 	tristate
 	prompt "sqlitecpp"
+	select HOST_SYSTEM_PYTHON3
 	select HOST_CMAKE
 	select SQLITE
 	select SQLITE_LOAD_EXTENSION
