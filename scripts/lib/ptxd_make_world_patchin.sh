@@ -182,7 +182,7 @@ export -f ptxd_make_world_patchin_apply_git
 #
 ptxd_make_world_patchin_apply_quilt()
 {
-    QUILT_PATCHES="${pkg_patchin_dir}/.ptxdist/patches" quilt push -a
+    QUILT_PATCHES="${pkg_patchin_dir}/.ptxdist/patches" quilt --quiltrc - push -a
 }
 export -f ptxd_make_world_patchin_apply_quilt
 
