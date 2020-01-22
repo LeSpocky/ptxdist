@@ -3,7 +3,9 @@
 menuconfig QT5
 	tristate
 	select HOST_SYSTEM_PERL
-	select HOST_SYSTEM_PYTHON	if QT5_MODULE_QTDECLARATIVE
+	# python2 or python3 works for QtDeclarative but QtWebengine need python2
+	select HOST_SYSTEM_PYTHON3	if QT5_MODULE_QTDECLARATIVE && !QT5_MODULE_QTWEBENGINE
+	select HOST_SYSTEM_PYTHON	if QT5_MODULE_QTWEBENGINE
 	select LIBC_PTHREAD
 	select LIBC_DL
 	select LIBC_RT
