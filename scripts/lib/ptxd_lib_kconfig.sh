@@ -516,7 +516,7 @@ ptxd_kconfig_sync_config() {
 		    all=""
 		fi
 		ptxd_bailout "Outdated config for '$(ptxd_print_path "${PTXDIST_LAYERS[0]}")'" \
-		    "'oldconfig' changes the file. Run 'oldconfig${p:+ }${p}' to update${all}."
+		    "'oldconfig' changes the file. Run 'oldconfig${p:+ }${p}' to update${all}." \
 		    "Use --force to continue anyways."
 	    else
 		ptxd_warning "Outdated config for '$(ptxd_print_path "${PTXDIST_LAYERS[0]}")'" \
