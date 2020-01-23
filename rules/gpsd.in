@@ -1,7 +1,7 @@
 ## SECTION=system_libraries
 menuconfig GPSD
 	tristate
-	select HOST_PYTHON_SCONS
+	select HOST_PYTHON3_SCONS
 	select LIBC_M
 	select LIBC_NSL
 	select LIBC_PTHREAD

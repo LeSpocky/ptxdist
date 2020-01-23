@@ -205,7 +205,7 @@ ptxd_make_world_prepare() {
 	    fi
 	    ;;
 	scons)
-	    if ! [[ "${pkg_build_deps}" =~ "host-python-${pkg_conf_tool}" ]]; then
+	    if ! [[ "${pkg_build_deps}" =~ "host-python3-${pkg_conf_tool}" ]]; then
 		ptxd_bailout "'${pkg_label}' uses '${pkg_conf_tool}' but does not select 'host-python-${pkg_conf_tool}'"
 	    fi
 	    ;;
