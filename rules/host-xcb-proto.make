@@ -16,10 +16,16 @@ HOST_PACKAGES-$(PTXCONF_HOST_XCB_PROTO) += host-xcb-proto
 # Prepare
 # ----------------------------------------------------------------------------
 
+HOST_XCB_PROTO_CONF_ENV		:= \
+	$(HOST_ENV) \
+	ac_cv_path_PYTHON=python3
+
 #
 # autoconf
 #
+HOST_XCB_PROTO_CONF_TOOL	:= autoconf
 # without this special prefix the xcb-proto.pc is broken
-HOST_XCB_PROTO_AUTOCONF	:= --prefix=/.
+HOST_XCB_PROTO_CONF_OPT		:= \
+	--prefix=/.
 
 # vim: syntax=make
