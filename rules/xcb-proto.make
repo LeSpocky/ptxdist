@@ -28,6 +28,10 @@ XCB_PROTO_LICENSE	:= MIT
 # Prepare
 # ----------------------------------------------------------------------------
 
+XCB_PROTO_CONF_ENV := \
+	$(CROSS_ENV) \
+	ac_cv_path_PYTHON=python3
+
 #
 # autoconf
 #
