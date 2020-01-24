@@ -16,7 +16,7 @@ HOST_SYSTEM_PYTHON3_LICENSE := ignore
 # Prepare
 # ----------------------------------------------------------------------------
 
-SYSTEMPYTHON3 := $(shell PATH=$(HOST_PATH) type -P python3 || echo python3)
+# $(SYSTEMPYTHON3) is defined in rules/pre/python.make
 
 $(STATEDIR)/host-system-python3.prepare:
 	@$(call targetinfo)
