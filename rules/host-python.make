@@ -66,7 +66,9 @@ $(STATEDIR)/host-python.install:
 #
 	@rm -v \
 		"$(HOST_PYTHON_PKGDIR)/bin/python" \
-		"$(HOST_PYTHON_PKGDIR)/bin/python-config"
+		"$(HOST_PYTHON_PKGDIR)/bin/python-config" \
+		"$(HOST_PYTHON_PKGDIR)/bin/python2" \
+		"$(HOST_PYTHON_PKGDIR)/bin/python2-config"
 	@$(call touch)
 
 # vim: syntax=make
