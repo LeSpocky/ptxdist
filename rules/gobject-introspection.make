@@ -31,7 +31,7 @@ GOBJECT_INTROSPECTION_LICENSE	:= LGPL-2.1-or-later AND GPL-2.0-or-later
 # autoconf
 #
 GOBJECT_INTROSPECTION_CONF_TOOL	:= autoconf
-GOBJECT_INTROSPECTION_CONF_OPT	= \
+GOBJECT_INTROSPECTION_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-gtk-doc \
 	--disable-gtk-doc-html \
