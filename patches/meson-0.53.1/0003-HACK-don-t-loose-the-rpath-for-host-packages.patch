@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  2 files changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/mesonbuild/backend/backends.py b/mesonbuild/backend/backends.py
-index 085589074d52..30b180c07457 100644
+index 2a07058a62f8..60708cafeacc 100644
 --- a/mesonbuild/backend/backends.py
 +++ b/mesonbuild/backend/backends.py
-@@ -1077,9 +1077,13 @@ class Backend:
+@@ -1088,9 +1088,13 @@ class Backend:
                  # Done separately because of strip/aliases/rpath
                  if outdirs[0] is not False:
                      mappings = t.get_link_deps_mapping(d.prefix, self.environment)
@@ -27,13 +27,13 @@ index 085589074d52..30b180c07457 100644
 -                                          t.install_rpath, install_mode)
 +                                          install_rpath, install_mode)
                      d.targets.append(i)
-                     # On toolchains/platforms that use an import library for
-                     # linking (separate from the shared library with all the
+ 
+                     if isinstance(t, (build.SharedLibrary, build.SharedModule, build.Executable)):
 diff --git a/mesonbuild/minstall.py b/mesonbuild/minstall.py
-index ed82c3791a72..e3d5c96eb215 100644
+index b1a55e5a78f0..541068b49f51 100644
 --- a/mesonbuild/minstall.py
 +++ b/mesonbuild/minstall.py
-@@ -486,7 +486,7 @@ class Installer:
+@@ -487,7 +487,7 @@ class Installer:
                          print("Symlink creation does not work on this platform. "
                                "Skipping all symlinking.")
                          printed_symlink_error = True
