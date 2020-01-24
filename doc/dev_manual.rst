@@ -1339,6 +1339,9 @@ create new patches, add files to respective patches, modify these files
 and refresh the patches to save our changes.
 See the *quilt* documentation (``man 1 quilt``) for more information.
 
+.. note:: For patches that are intended for PTXdist upstream use the git
+  workflow described below to get proper patch headers.
+
 .. _quilt: http://savannah.nongnu.org/projects/quilt
 
 Using Git
