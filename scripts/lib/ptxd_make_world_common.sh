@@ -313,6 +313,8 @@ ptxd_make_world_init() {
 
 	    if [[ " ${pkg_build_deps} " =~ " host-system-python " && "${pkg_conf_tool}" = python ]]; then
 		ptx_build_python=python
+	    elif [[ " ${pkg_build_deps} " =~ " host-system-python3 " && "${pkg_conf_tool}" = python3 ]]; then
+		ptx_build_python=python
 	    else
 		ptx_build_python="${!build_python_ptr}"
 	    fi
