@@ -2,6 +2,7 @@
 
 menuconfig LIBVA
 	tristate
+	select HOST_MESON
 	select LIBDRM
 	select XORG_LIB_X11		if LIBVA_X11 || LIBVA_GLX
 	select XORG_LIB_XEXT		if LIBVA_X11

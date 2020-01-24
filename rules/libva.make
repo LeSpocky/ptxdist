@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBVA) += libva
 #
 # Paths and names
 #
-LIBVA_VERSION	:= 2.5.0
-LIBVA_MD5	:= 3688212fb7a87947070f3729e91ff7cf
+LIBVA_VERSION	:= 2.6.1
+LIBVA_MD5	:= aef13eb48e01a47d1416d97462a22a11
 LIBVA		:= libva-$(LIBVA_VERSION)
 LIBVA_SUFFIX	:= tar.bz2
 LIBVA_URL	:= https://github.com/intel/libva/releases/download/$(LIBVA_VERSION)/$(LIBVA).$(LIBVA_SUFFIX)
@@ -32,17 +32,16 @@ LIBVA_ENABLE-$(PTXCONF_LIBVA_X11)	+= x11
 LIBVA_ENABLE-$(PTXCONF_LIBVA_GLX)	+= glx
 LIBVA_ENABLE-$(PTXCONF_LIBVA_WAYLAND)	+= wayland
 
-#
-# autoconf
-#
-LIBVA_CONF_TOOL	:= autoconf
+LIBVA_CONF_TOOL	:= meson
 LIBVA_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-docs \
-	$(addprefix --enable-,$(LIBVA_ENABLE-y)) \
-	$(addprefix --disable-,$(LIBVA_ENABLE-)) \
-	--enable-va-messaging \
-	$(GLOBAL_LARGE_FILE_OPTION)
+	$(CROSS_MESON_USR) \
+	-Ddisable_drm=false \
+	-Ddriverdir='' \
+	-Denable_docs=false \
+	-Denable_va_messaging=true \
+	-Dwith_glx=$(call ptx/yesno, PTXCONF_LIBVA_GLX) \
+	-Dwith_wayland=$(call ptx/yesno, PTXCONF_LIBVA_WAYLAND) \
+	-Dwith_x11=$(call ptx/yesno, PTXCONF_LIBVA_X11)
 
 # ----------------------------------------------------------------------------
 # Target-Install
