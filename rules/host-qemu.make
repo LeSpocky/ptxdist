@@ -57,8 +57,7 @@ HOST_QEMU_USR_TARGETS	:= $(patsubst %,%-linux-user,$(HOST_QEMU_TARGETS))
 HOST_QEMU_CONF_TOOL	:= autoconf
 # Note: not realy autoconf:
 # e.g. there is --enable-debug but not --disable-debug
-# Note: use '=' for $(SYSTEMPYTHON3)
-HOST_QEMU_CONF_OPT	= \
+HOST_QEMU_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--target-list=" \
 		$(call ptx/ifdef, PTXCONF_HOST_QEMU_SYS,$(HOST_QEMU_SYS_TARGETS),) \
