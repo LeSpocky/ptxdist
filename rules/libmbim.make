@@ -27,8 +27,7 @@ LIBMBIM_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
 # Prepare
 # ----------------------------------------------------------------------------
 
-# Note: use '=' for $(SYSTEMPYTHON3)
-LIBMBIM_CONF_ENV	= \
+LIBMBIM_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	ac_cv_path_PYTHON=$(SYSTEMPYTHON3)
 #
