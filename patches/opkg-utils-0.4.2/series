@@ -5,4 +5,5 @@
 0100-opkg-build-use-CROSS_COMPILE-ar.patch
 0101-Update-Installed-Size-properly.patch
 0102-opkg-build-in-ptxdist-the-maxium-UID-for-system-user.patch
-# 043753b8f8c5b034e920d9e2fd664c03  - git-ptx-patches magic
+0103-Revert-opkg-build-clamp-mtimes-to-SOURCE_DATE_EPOCH.patch
+# 2333c6244effee692a2e0e3b33925c70  - git-ptx-patches magic
