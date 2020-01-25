@@ -27,10 +27,6 @@ LIBPSL_LICENSE	:= MIT
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBPSL_CONF_ENV		:= \
-	$(CROSS_ENV) \
-	am_cv_pathless_PYTHON=python3
-
 #
 # autoconf
 #
