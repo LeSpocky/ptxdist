@@ -171,6 +171,21 @@ $(STATEDIR)/gpsd.targetinstall:
 ifdef PTXCONF_GPSD_GPSD
 	@$(call install_copy, gpsd, 0, 0, 0755, -, /usr/sbin/gpsd)
 endif
+ifdef PTXCONF_GPSD_SYSTEMD_UNIT
+	@$(call install_alternative, gpsd, 0, 0, 644, \
+		/usr/lib/systemd/system/gpsd.service)
+	@$(call install_replace, gpsd, \
+		/usr/lib/systemd/system/gpsd.service, \
+		@ARGS@, $(PTXCONF_GPSD_GPSD_ARGS))
+	@$(call install_link, gpsd, ../gpsd.service, \
+		/usr/lib/systemd/system/multi-user.target.wants/gpsd.service)
+	@$(call install_alternative, gpsd, 0, 0, 644, \
+		/usr/lib/systemd/system/gpsd.socket)
+ifdef PTXCONF_GPSD_GPSCTL
+	@$(call install_alternative, gpsd, 0, 0, 644, \
+		/usr/lib/systemd/system/gpsdctl@.service)
+endif
+endif
 ifdef PTXCONF_GPSD_PYTHON
 	@$(call install_glob, gpsd, 0, 0, -, \
 		/usr/lib/python$(PYTHON3_MAJORMINOR), *.so *.py)

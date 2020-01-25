@@ -278,6 +278,17 @@ menu "install options"
 		  queries with a format that is substantially easier to
 		  parse than the NMEA 0183 emitted by most GPS receivers.
 
+	config GPSD_SYSTEMD_UNIT
+		bool
+		default y
+		depends on INITMETHOD_SYSTEMD && GPSD_GPSD
+		prompt "systemd unit files for gpsd"
+
+	config GPSD_GPSD_ARGS
+		string
+		depends on GPSD_SYSTEMD_UNIT
+		prompt "gpsd arguments"
+
 	config GPSD_GPS2UDP
 		bool
 		prompt "gps2udp"
