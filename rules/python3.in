@@ -3,6 +3,7 @@
 menuconfig PYTHON3
 	tristate "python3                       "
 	select HOST_PYTHON3
+	select HOST_PYTHON3_ZLIB	if PYTHON3_ENSUREPIP
 	select HOST_PYTHON3_SETUPTOOLS
 	select LIBC_DL
 	select LIBC_CRYPT

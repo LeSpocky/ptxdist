@@ -35,8 +35,11 @@ HOST_PYTHON3_ENV	:= \
 # autoconf
 #
 HOST_PYTHON3_CONF_TOOL	:= autoconf
+# The include path is added to _sysconfigdata_*.py by parsing Makefile
+# Needed for setup.py to find things in sysroot-host
 HOST_PYTHON3_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
+	--includedir=$(PTXDIST_SYSROOT_HOST)/include \
 	--enable-shared \
 	--disable-profiling \
 	--disable-optimizations \
@@ -59,6 +62,11 @@ HOST_PYTHON3_CONF_OPT	:= \
 # ----------------------------------------------------------------------------
 # Install
 # ----------------------------------------------------------------------------
+
+# reset INCLUDEDIR for the installation
+HOST_PYTHON3_INSTALL_OPT := \
+	INCLUDEDIR=/include \
+	install
 
 $(STATEDIR)/host-python3.install:
 	@$(call targetinfo)
