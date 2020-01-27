@@ -271,6 +271,12 @@ else
 GLOBAL_LARGE_FILE_OPTION := --disable-largefile
 endif
 
+ifdef PTXCONF_GLOBAL_PAM
+GLOBAL_PAM_OPTION := --enable-pam
+else
+GLOBAL_PAM_OPTION := --disable-pam
+endif
+
 ifdef PTXCONF_GLOBAL_SELINUX
 GLOBAL_SELINUX_OPTION := --enable-selinux
 else

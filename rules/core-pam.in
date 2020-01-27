@@ -1,0 +1,8 @@
+## SECTION=core
+
+config GLOBAL_PAM
+	bool
+	prompt "PAM support"
+	help
+	  This will enable PAM for all packages with optional
+	  PAM support.
