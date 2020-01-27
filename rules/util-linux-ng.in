@@ -7,6 +7,7 @@ menuconfig UTIL_LINUX_NG
 	select UTIL_LINUX_NG_LIBBLKID
 	select UTIL_LINUX_NG_LIBUUID		if UTIL_LINUX_NG_MKSWAP_UUID
 	select NCURSES				if UTIL_LINUX_NG_USES_NCURSES
+	select PAM				if UTIL_LINUX_NG_USES_PAM
 
 if UTIL_LINUX_NG
 
@@ -30,6 +31,9 @@ config UTIL_LINUX_NG_FDISKS
 	bool
 
 config UTIL_LINUX_NG_USES_NCURSES
+	bool
+
+config UTIL_LINUX_NG_USES_PAM
 	bool
 
 config UTIL_LINUX_NG_PARTX_TOOLS
@@ -440,5 +444,20 @@ config UTIL_LINUX_NG_LSCPU
 	prompt "lscpu"
 	help
 	  lscpu shows information about the CPU architecture
+
+config UTIL_LINUX_NG_LOGIN
+	bool
+	select UTIL_LINUX_NG_USES_PAM
+	depends on GLOBAL_PAM && ((!BUSYBOX_LOGIN && !SHADOW) || ALLYES)
+	prompt "login"
+	help
+	  The login program is used to establish a new session with
+	  the system.
+
+comment "BusyBox' login is selected!"
+	depends on BUSYBOX_LOGIN
+
+comment "Shadow package is selected!"
+	depends on SHADOW
 
 endif

@@ -115,7 +115,7 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--disable-chfn-chsh-password \
 	--disable-chfn-chsh \
 	--disable-chsh-only-listed \
-	--disable-login \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_LOGIN)-login \
 	--disable-login-chown-vcs \
 	--disable-login-stat-mail \
 	--disable-nologin \
@@ -311,6 +311,9 @@ ifdef PTXCONF_UTIL_LINUX_NG_MKFS
 endif
 ifdef PTXCONF_UTIL_LINUX_NG_LSCPU
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/lscpu)
+endif
+ifdef PTXCONF_UTIL_LINUX_NG_LOGIN
+	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/login)
 endif
 
 	@$(call install_finish, util-linux-ng)
