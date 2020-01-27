@@ -1,0 +1,26 @@
+## SECTION=shell_and_console
+comment "BusyBox' loginutils selected!"
+        depends on BUSYBOX_ADDUSER || BUSYBOX_ADDGROUP || BUSYBOX_LOGIN || BUSYBOX_PASSWD || BUSYBOX_SU
+
+menuconfig SHADOW
+	tristate
+	depends on (!BUSYBOX_ADDUSER && !BUSYBOX_ADDGROUP && !BUSYBOX_LOGIN && !BUSYBOX_PASSWD && !BUSYBOX_SU) || ALLYES
+	select LIBC_CRYPT
+	select LIBSELINUX	if GLOBAL_SELINUX
+	select PAM		if GLOBAL_PAM
+	prompt "shadow                        "
+	help
+	  Password and account management tool suite with support
+	  for shadow files and PAM.
+
+if SHADOW
+
+config SHADOW_ADMIN
+	bool
+	prompt "install account administration commands"
+	help
+	  Enable this option if you want to install commands
+	  which manipulate user accout (administer /etc/passwd,
+	  /etc/shadow and /etc/group, /etc/gshadow ...)
+
+endif
