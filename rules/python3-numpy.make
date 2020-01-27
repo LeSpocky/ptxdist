@@ -27,7 +27,6 @@ PYTHON3_NUMPY_LICENSE_FILES := \
 	file://tools/npy_tempita/license.txt;md5=c66b85ddcd09296abff87601467724fd \
 	file://numpy/core/src/multiarray/dragon4.c;startline=2;endline=20;md5=7f70862b43e17922c5adf18ec84fb720
 
-PYTHON3_NUMPY_MAKE_PAR	:= YES
 
 # ----------------------------------------------------------------------------
 # Prepare
