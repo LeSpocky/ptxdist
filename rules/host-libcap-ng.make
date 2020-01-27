@@ -21,6 +21,9 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBCAP_NG) += host-libcap-ng
 HOST_LIBCAP_NG_CONF_TOOL := autoconf
 HOST_LIBCAP_NG_CONF_OPT := \
 	$(HOST_AUTOCONF) \
-	--without-python
+	--without-debug \
+	--without-warn \
+	--without-python \
+	--without-python3
 
 # vim: syntax=make
