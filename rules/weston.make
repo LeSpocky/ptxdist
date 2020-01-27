@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_WESTON) += weston
 #
 # Paths and names
 #
-WESTON_VERSION	:= 7.0.0
-LIBWESTON_MAJOR := 7
-WESTON_MD5	:= cbfda483bc2501d0831af3f33c707850
+WESTON_VERSION	:= 8.0.0
+LIBWESTON_MAJOR := 8
+WESTON_MD5	:= 53e4810d852df0601d01fd986a5b22b3
 WESTON		:= weston-$(WESTON_VERSION)
 WESTON_SUFFIX	:= tar.xz
 WESTON_URL	:= http://wayland.freedesktop.org/releases/$(WESTON).$(WESTON_SUFFIX)
@@ -28,12 +28,6 @@ WESTON_LICENSE	:= MIT
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
-
-ifdef PTXCONF_ARCH_X86
-WESTON_SIMPLE_DMABUF_DRM-$(PTXCONF_WESTON_SIMPLE_DMABUF_DRM_INTEL) += intel
-endif
-WESTON_SIMPLE_DMABUF_DRM-$(PTXCONF_WESTON_SIMPLE_DMABUF_DRM_FREEDRENO) += freedreno
-WESTON_SIMPLE_DMABUF_DRM-$(PTXCONF_WESTON_SIMPLE_DMABUF_DRM_ETNAVIV) += etnaviv
 
 WESTON_SIMPLE_CLIENTS-y := damage im shm touch
 WESTON_SIMPLE_CLIENTS-$(PTXCONF_WESTON_GL) += egl dmabuf-egl
@@ -66,7 +60,6 @@ WESTON_CONF_OPT		:= \
 	-Dshell-fullscreen=true \
 	-Dshell-ivi=$(call ptx/truefalse,PTXCONF_WESTON_IVISHELL) \
 	-Dsimple-clients=$(subst $(space),$(comma),$(WESTON_SIMPLE_CLIENTS-y)) \
-	-Dsimple-dmabuf-drm=$(subst $(space),$(comma),$(WESTON_SIMPLE_DMABUF_DRM-y)) \
 	-Dsystemd=$(call ptx/truefalse,PTXCONF_WESTON_SYSTEMD) \
 	-Dtest-junit-xml=false \
 	-Dtools=calibrator,debug,info,terminal,touch-calibrator \
@@ -121,7 +114,6 @@ endif
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-screenshooter)
 ifdef PTXCONF_WESTON_SIMPLE_CLIENTS
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-damage)
-	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-dmabuf-drm)
 ifdef PTXCONF_WESTON_GL
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-egl)
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-dmabuf-egl)
@@ -170,6 +162,7 @@ endif
 ifdef PTXCONF_WESTON_SYSTEMD
 	@$(call install_lib, weston, 0, 0, 0644, weston/systemd-notify)
 endif
+	@$(call install_lib, weston, 0, 0, 0644, weston/libexec_weston)
 
 ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_WESTON_STARTSCRIPT

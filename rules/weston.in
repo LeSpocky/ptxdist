@@ -131,18 +131,6 @@ config WESTON_SIMPLE_CLIENTS
 	help
 	  Install the weston-simple-* test clients.
 
-config WESTON_SIMPLE_DMABUF_DRM_INTEL
-        bool
-        default LIBDRM_INTEL
-
-config WESTON_SIMPLE_DMABUF_DRM_FREEDRENO
-        bool
-        default LIBDRM_FREEDRENO
-
-config WESTON_SIMPLE_DMABUF_DRM_ETNAVIV
-        bool
-        default LIBDRM_ETNAVIV
-
 config WESTON_TOUCH_CALIBRATOR
 	bool
 	prompt "touch calibrator"
