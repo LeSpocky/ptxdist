@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_ALSA_LIB) += alsa-lib
 #
 # Paths and names
 #
-ALSA_LIB_VERSION	:= 1.1.9
-ALSA_LIB_MD5		:= e6d429dbdcfaa0f034d907fa6dc3735e
+ALSA_LIB_VERSION	:= 1.2.1.2
+ALSA_LIB_MD5		:= 82ddd3698469beec147e4f4a67134ea0
 ALSA_LIB		:= alsa-lib-$(ALSA_LIB_VERSION)
 ALSA_LIB_SUFFIX		:= tar.bz2
 ALSA_LIB_URL		:= \
@@ -36,10 +36,8 @@ ALSA_LIB_LICENSE	:= LGPL-2.1-or-later
 ALSA_LIB_CONF_TOOL	:= autoconf
 ALSA_LIB_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-shared \
-	--enable-fast-install \
-	--enable-libtool-lock \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-symbolic-functions \
 	--with-debug=no \
 	--$(call ptx/endis, PTXCONF_ALSA_LIB_RESMGR)-resmgr \
@@ -53,7 +51,10 @@ ALSA_LIB_CONF_OPT	:= \
 	--disable-topology \
 	--$(call ptx/endis, PTXCONF_ALSA_LIB_ALISP)-alisp \
 	--disable-old-symbols \
+	--disable-mixer-modules \
+	--disable-mixer-pymods \
 	--disable-python \
+	--disable-python2 \
 	--enable-thread-safety \
 	--with-versioned \
 	--with-tmpdir=/tmp \
@@ -61,6 +62,7 @@ ALSA_LIB_CONF_OPT	:= \
 	--with-libdl \
 	--with-pthread \
 	--with-librt \
+	--without-wordexp \
 	--with-alsa-devdir=/dev/snd \
 	--with-aload-devdir=/dev
 

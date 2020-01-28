@@ -8,7 +8,7 @@ Signed-off-by: Lucas Stach <l.stach@pengutronix.de>
  1 file changed, 5 insertions(+)
 
 diff --git a/configure.ac b/configure.ac
-index 26e5d125c884..8a70b7ba1f6e 100644
+index 119ef6005103..e9b4ebe32c03 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -38,6 +38,9 @@ AM_PROG_LIBTOOL
@@ -21,7 +21,7 @@ index 26e5d125c884..8a70b7ba1f6e 100644
  dnl Checks for header files.
  AC_HEADER_STDC
  AC_CONFIG_HEADERS(include/config.h)
-@@ -663,6 +666,8 @@ if test ! -L "$srcdir"/include/alsa ; then
+@@ -706,6 +709,8 @@ if test ! -L "$srcdir"/include/alsa ; then
    ln -sf . "$srcdir"/include/alsa
  fi
  
