@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=multimedia_libs
+## SECTION=multimedia_libs
 
 menuconfig OPENCV
 	tristate
@@ -21,9 +19,6 @@ menuconfig OPENCV
 	help
 	  Open Source Computer Vision Library
 
-	  STAGING: remove in ptxdist-2020.06.0
-	  Old version that need to be updated. Fails to build with gcc >= 7.x.
-
 if OPENCV
 
 config OPENCV_CALIB3D
@@ -32,17 +27,6 @@ config OPENCV_CALIB3D
 	select OPENCV_FEATURES2D
 	help
 	  Camera Calibration and 3D Reconstruction
-
-config OPENCV_CONTRIB
-	bool
-	prompt "contrib"
-	select OPENCV_CALIB3D
-	select OPENCV_IMGPROC
-	select OPENCV_ML
-	select OPENCV_OBJDETECT
-	select OPENCV_VIDEO
-	help
-	  Contributed/Experimental Stuff
 
 config OPENCV_FEATURES2D
 	bool
@@ -58,16 +42,6 @@ config OPENCV_FLANN
 	help
 	  Clustering and Search in Multi-Dimensional Spaces
 
-config OPENCV_GPU
-	bool
-	prompt "gpu"
-	select OPENCV_LEGACY
-	select OPENCV_PHOTO
-	select OPENCV_OBJDETECT
-	select OPENCV_HIGHGUI
-	help
-	  GPU-accelerated Computer Vision
-
 config OPENCV_HIGHGUI
 	bool
 	prompt "highgui"
@@ -81,29 +55,17 @@ config OPENCV_IMGPROC
 	help
 	  Image Processing
 
-config OPENCV_LEGACY
+config OPENCV_IMGCODECS
 	bool
-	prompt "legacy"
-	select OPENCV_CALIB3D
-	select OPENCV_ML
-	select OPENCV_VIDEO
+	prompt "imgcodecs"
 	help
-	  Deprecated stuff
+	  Image Codecs
 
 config OPENCV_ML
 	bool
 	prompt "ml"
 	help
 	  Machine Learning
-
-config OPENCV_NONFREE
-	bool
-	prompt "nonfree"
-	select OPENCV_CALIB3D
-	select OPENCV_IMGPROC
-	select OPENCV_FEATURES2D
-	help
-	  Non-free functionality
 
 config OPENCV_OBJDETECT
 	bool
@@ -128,14 +90,6 @@ config OPENCV_STITCHING
 	help
 	  Images stitching
 
-config OPENCV_SUPERRES
-	bool
-	prompt "superres"
-	select OPENCV_IMGPROC
-	select OPENCV_VIDEO
-	help
-	  Super Resolution
-
 config OPENCV_VIDEO
 	bool
 	prompt "video"
@@ -143,17 +97,11 @@ config OPENCV_VIDEO
 	help
 	  Video Analysis
 
-config OPENCV_VIDEOSTAB
+config OPENCV_VIDEOIO
 	bool
-	prompt "videostab"
-	select OPENCV_CALIB3D
-	select OPENCV_FEATURES2D
-	select OPENCV_HIGHGUI
-	select OPENCV_OBJDETECT
-	select OPENCV_PHOTO
-	select OPENCV_VIDEO
+	prompt "videoio"
 	help
-	  Video Stabilization
+	  Video I/O
 
 config OPENCV_GSTREAMER
 	bool
