@@ -39,7 +39,7 @@ OPENCV_CONF_OPT		:= \
 	-DANT_EXECUTABLE:FILEPATH= \
 	-DPYTHON_EXECUTABLE= \
 	-DBUILD_DOCS:BOOL=OFF \
-	-DBUILD_EXAMPLES:BOOL=OFF \
+	-DBUILD_EXAMPLES:BOOL=$(call ptx/onoff, PTXCONF_OPENCV_EXAMPLES) \
 	-DBUILD_PACKAGE:BOOL=OFF \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DBUILD_SHARED_LIBS:BOOL=ON \
@@ -122,6 +122,14 @@ OPENCV_CONF_OPT		:= \
 	-DWITH_OPENGL:BOOL=OFF \
 	-DWITH_QT:BOOL=$(call ptx/ifdef,PTXCONF_OPENCV_QT,4,OFF)
 
+
+OPENCV_BUILD_DIR := $(OPENCV_DIR)-build
+
+$(STATEDIR)/opencv.install:
+	@$(call targetinfo)
+	@$(call world/install, OPENCV)
+	@$(call touch)
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
@@ -153,9 +161,8 @@ $(STATEDIR)/opencv.targetinstall:
 
 	@$(foreach lib, $(OPENCV_LIBS-y), \
 		$(call install_lib, opencv, 0, 0, 0644, $(lib));)
-
+	@$(call install_tree, opencv, 0, 0, $(OPENCV_BUILD_DIR)/bin, /bin)
 	@$(call install_finish, opencv)
-
 	@$(call touch)
 
 # vim: syntax=make
