@@ -102,6 +102,12 @@ config OPENCV_VIDEOIO
 	help
 	  Video I/O
 
+config OPENCV_DNN
+	bool
+	prompt "DNN"
+	help
+	  Deep Neural Network Library
+
 config OPENCV_GSTREAMER
 	bool
 	prompt "gstreamer"

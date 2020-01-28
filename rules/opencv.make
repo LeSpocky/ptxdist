@@ -62,7 +62,7 @@ OPENCV_CONF_OPT		:= \
 	-DBUILD_opencv_apps:BOOL=OFF \
 	-DBUILD_opencv_calib3d:BOOL=$(call ptx/ifdef,PTXCONF_OPENCV_CALIB3D,ON,OFF) \
 	-DBUILD_opencv_core:BOOL=ON \
-	-DBUILD_opencv_dnn=OFF \
+	-DBUILD_opencv_dnn=$(call ptx/ifdef,PTXCONF_OPENCV_DNN,ON,OFF) \
 	-DBUILD_opencv_features2d:BOOL=$(call ptx/ifdef,PTXCONF_OPENCV_FEATURES2D,ON,OFF) \
 	-DBUILD_opencv_flann:BOOL=$(call ptx/ifdef,PTXCONF_OPENCV_FLANN,ON,OFF) \
 	-DBUILD_opencv_highgui:BOOL=$(call ptx/ifdef,PTXCONF_OPENCV_HIGHGUI,ON,OFF)  \
@@ -195,6 +195,7 @@ $(STATEDIR)/opencv.install:
 
 OPENCV_LIBS-$(PTXCONF_OPENCV)			:= libopencv_core
 OPENCV_LIBS-$(PTXCONF_OPENCV_CALIB3D)		+= libopencv_calib3d
+OPENCV_LIBS-$(PTXCONF_OPENCV_DNN)		+= libopencv_dnn
 OPENCV_LIBS-$(PTXCONF_OPENCV_FEATURES2D)	+= libopencv_features2d
 OPENCV_LIBS-$(PTXCONF_OPENCV_FLANN)		+= libopencv_flann
 OPENCV_LIBS-$(PTXCONF_OPENCV_HIGHGUI)		+= libopencv_highgui
