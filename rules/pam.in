@@ -1,0 +1,10 @@
+## SECTION=security
+
+config PAM
+	tristate
+	prompt "PAM"
+	select LIBC_CRYPT
+	help
+	  Linux-PAM (Pluggable Authentication Modules for Linux) is a suite
+	  of shared libraries that enable the local system administrator to
+	  choose how applications authenticate users.
