@@ -99,6 +99,7 @@ config OPENCV_VIDEO
 config OPENCV_VIDEOIO
 	bool
 	prompt "videoio"
+	select OPENCV_IMGCODECS
 	help
 	  Video I/O
 
