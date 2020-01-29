@@ -15,7 +15,7 @@ if DTC
 config DTC_INSTALL_OFTREE
 	bool "install oftree to /boot"
 	help
-	  Creates an package to install the 'oftree' file to /boot
+	  Creates a package to install the 'oftree' file to /boot
 	  of your target system.
 
 config DTC_OFTREE_DTS_PATH
