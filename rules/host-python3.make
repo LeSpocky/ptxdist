@@ -29,7 +29,7 @@ HOST_PYTHON3_ENV	:= \
 	ac_sys_system=Linux \
 	ac_sys_release=2 \
 	MACHDEP=linux2 \
-	LDFLAGS="-L $(PTXDIST_SYSROOT_HOST)/lib"
+	LDFLAGS="-L$(PTXDIST_SYSROOT_HOST)/lib"
 
 #
 # autoconf
