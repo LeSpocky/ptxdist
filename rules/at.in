@@ -4,6 +4,7 @@ menuconfig AT
 	tristate
 	prompt "at                            "
 	select FLEX
+	select PAM						if GLOBAL_PAM
 	select ROOTFS_VAR_SPOOL
 	select ROOTFS_VAR_SPOOL_CRON
 	select BUSYBOX_START_STOP_DAEMON			if AT_STARTSCRIPT

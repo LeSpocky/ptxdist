@@ -31,8 +31,9 @@ AT_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-AT_PATH	:= PATH=$(CROSS_PATH)
-AT_ENV 	:= $(CROSS_ENV)
+AT_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_header_security_pam_appl_h=$(call ptx/yesno, PTXCONF_GLOBAL_PAM)
 
 ifdef PTXCONF_AT_MAIL
 AT_SENDMAIL := $(PTXCONF_AT_SENDMAIL)
@@ -43,7 +44,9 @@ endif
 #
 # autoconf
 #
-AT_AUTOCONF := $(CROSS_AUTOCONF_USR) \
+AT_CONF_TOOL	:= autoconf
+AT_CONF_OPT	:= \
+	$(CROSS_AUTOCONF_USR) \
 	--with-loadavg_mx=1.5 \
 	--with-jobdir=/var/spool/cron/atjobs \
 	--with-atspool=/var/spool/cron/atspool \
