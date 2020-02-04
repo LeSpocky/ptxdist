@@ -1,0 +1,25 @@
+## SECTION=multimedia_libs
+
+menuconfig GLSLANG
+	tristate
+	prompt "glslang"
+	select HOST_CMAKE
+	help
+	  Khronos-reference SPIR-V generator
+
+if GLSLANG
+
+config GLSLANG_TOOLS
+	bool
+	prompt "install tools"
+	help
+	  Install glslangValidator and spirv-remap tools.
+
+config GLSLANG_LIBS
+	bool
+	prompt "install shared libraries"
+	help
+	  Install libglslang, libHLSL, libSPIRV, and libSPVRemapper shared
+	  libraries.
+
+endif

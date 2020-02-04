@@ -1,0 +1,6 @@
+## SECTION=hosttools_noprompt
+
+config HOST_GLSLANG
+	tristate
+	default y if ALLYES
+	select HOST_CMAKE
