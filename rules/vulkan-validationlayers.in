@@ -1,0 +1,22 @@
+## SECTION=multimedia_libs
+
+config VULKAN_VALIDATIONLAYERS
+	tristate
+	prompt "vulkan-validationlayers"
+	select HOST_CMAKE
+	select HOST_GLSLANG
+	select VULKAN_LOADER
+	select GLSLANG		if BUILDTIME
+	select SPIRV_TOOLS	if BUILDTIME
+	select LIBXCB		if VULKAN_VALIDATIONLAYERS_XCB
+	select WAYLAND		if VULKAN_VALIDATIONLAYERS_WAYLAND
+	help
+	  Vulkan Validation Layers
+
+config VULKAN_VALIDATIONLAYERS_XCB
+	bool
+	default y if VULKAN_LOADER_XCB
+
+config VULKAN_VALIDATIONLAYERS_WAYLAND
+	bool
+	default y if VULKAN_LOADER_WAYLAND
