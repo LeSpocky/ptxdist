@@ -27,6 +27,7 @@ menuconfig MESALIB
 	select XORG_LIB_XXF86VM		if MESALIB_GLX
 	select XORG_LIB_XDAMAGE		if MESALIB_GLX
 	select XORG_LIB_XFIXES		if MESALIB_GLX
+	select XORG_LIB_XSHMFENCE	if MESALIB_DRI3
 	select EXPAT
 	select ZLIB
 	help
@@ -37,6 +38,9 @@ menuconfig MESALIB
 		http://www.mesa3d.org/
 
 if MESALIB
+
+config MESALIB_DRI3
+	bool
 
 comment "Drivers"
 
@@ -139,6 +143,7 @@ config MESALIB_GLES2
 config MESALIB_GLX
 	select MESALIB_EGL_X11
 	select MESALIB_OPENGL
+	select MESALIB_DRI3
 	prompt "GLX"
 	bool
 
@@ -154,6 +159,7 @@ comment "Platforms"
 
 config MESALIB_EGL_X11
 	bool
+	select MESALIB_DRI3
 	prompt "X11"
 
 config MESALIB_EGL_DRM
