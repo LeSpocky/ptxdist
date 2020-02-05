@@ -182,8 +182,8 @@ ifneq ($(strip $(MESALIB_VULKAN_LIBS-y)),)
 	@$(foreach lib, $(MESALIB_VULKAN_LIBS-y), \
 		$(call install_copy, mesalib, 0, 0, 0644, -, \
 		/usr/lib/libvulkan_$(lib).so)$(ptx/nl) \
-		$(call install_copy, mesalib, 0, 0, 0644, -, \
-		/etc/vulkan/icd.d/$(lib)_icd.$(subst _,-,$(PTXCONF_ARCH_STRING)).json)$(ptx/nl))
+		$(call install_glob, mesalib, 0, 0, -, \
+		/etc/vulkan/icd.d, */$(lib)_icd.*.json)$(ptx/nl))
 endif
 
 	@$(foreach lib, $(MESALIB_LIBS-y), \
