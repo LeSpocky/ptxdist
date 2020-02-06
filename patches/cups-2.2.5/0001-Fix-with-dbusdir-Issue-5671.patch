@@ -1,0 +1,31 @@
+From: Michael R Sweet <michael.r.sweet@gmail.com>
+Date: Mon, 21 Oct 2019 10:55:57 -0400
+Subject: [PATCH] Fix --with-dbusdir (Issue #5671)
+
+---
+ config-scripts/cups-common.m4 | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/config-scripts/cups-common.m4 b/config-scripts/cups-common.m4
+index a1185bccce0b..2da6abe6f6ad 100644
+--- a/config-scripts/cups-common.m4
++++ b/config-scripts/cups-common.m4
+@@ -306,14 +306,14 @@ fi
+ LIBS="$SAVELIBS"
+ 
+ dnl Check for DBUS support
+-AC_ARG_ENABLE(dbus, [  --disable-dbus          build without DBUS support])
+-AC_ARG_WITH(dbusdir, [  --with-dbusdir          set DBUS configuration directory ],
+-	DBUSDIR="$withval")
+-
+ DBUSDIR=""
+ DBUS_NOTIFIER=""
+ DBUS_NOTIFIERLIBS=""
+ 
++AC_ARG_ENABLE(dbus, [  --disable-dbus          build without DBUS support])
++AC_ARG_WITH(dbusdir, [  --with-dbusdir          set DBUS configuration directory ],
++	DBUSDIR="$withval")
++
+ if test "x$enable_dbus" != xno -a "x$PKGCONFIG" != x -a "x$host_os_name" != xdarwin; then
+ 	AC_MSG_CHECKING(for DBUS)
+ 	if $PKGCONFIG --exists dbus-1; then

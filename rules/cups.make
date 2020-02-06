@@ -86,6 +86,7 @@ CUPS_CONF_OPT	+= \
 	--disable-default-shared \
 	--disable-raw-printing \
 	--$(call ptx/endis,PTXCONF_CUPS_WEBINTERFACE)-webif \
+	--with-dbusdir=/usr/share/dbus-1 \
 	--with-components=all \
 	--with-cachedir=/var/cache \
 	--with-logdir=/var/log \
@@ -153,7 +154,8 @@ ifdef PTXCONF_CUPS_SSL
 endif
 
 ifdef PTXCONF_CUPS_DBUS
-	@$(call install_alternative, cups, root, root, 0644, /etc/dbus-1/system.d/cups.conf)
+	@$(call install_alternative, cups, root, root, 0644, \
+		/usr/share/dbus-1/system.d/cups.conf)
 endif
 
 # ----- libraries

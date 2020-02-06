@@ -1,0 +1,57 @@
+From: Michael R Sweet <michael.r.sweet@gmail.com>
+Date: Mon, 21 Oct 2019 11:12:11 -0400
+Subject: [PATCH] Another fix for DBUSDIR (Issue #5671)
+
+---
+ config-scripts/cups-common.m4 |  2 +-
+ configure                     | 10 +++++-----
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/config-scripts/cups-common.m4 b/config-scripts/cups-common.m4
+index 2da6abe6f6ad..996cc5844bf0 100644
+--- a/config-scripts/cups-common.m4
++++ b/config-scripts/cups-common.m4
+@@ -330,7 +330,7 @@ if test "x$enable_dbus" != xno -a "x$PKGCONFIG" != x -a "x$host_os_name" != xdar
+ 		AC_CHECK_FUNC(dbus_threads_init,
+ 			      AC_DEFINE(HAVE_DBUS_THREADS_INIT))
+ 		LIBS="$SAVELIBS"
+-		if test -d /etc/dbus-1; then
++		if test -d /etc/dbus-1 -a "x$DBUSDIR" = x; then
+ 			DBUSDIR="/etc/dbus-1"
+ 		fi
+ 	else
+diff --git a/configure b/configure
+index 0328227a26c1..e8fd33698720 100755
+--- a/configure
++++ b/configure
+@@ -5815,6 +5815,10 @@ fi
+ fi
+ LIBS="$SAVELIBS"
+ 
++DBUSDIR=""
++DBUS_NOTIFIER=""
++DBUS_NOTIFIERLIBS=""
++
+ # Check whether --enable-dbus was given.
+ if test "${enable_dbus+set}" = set; then :
+   enableval=$enable_dbus;
+@@ -5827,10 +5831,6 @@ if test "${with_dbusdir+set}" = set; then :
+ fi
+ 
+ 
+-DBUSDIR=""
+-DBUS_NOTIFIER=""
+-DBUS_NOTIFIERLIBS=""
+-
+ if test "x$enable_dbus" != xno -a "x$PKGCONFIG" != x -a "x$host_os_name" != xdarwin; then
+ 	{ $as_echo "$as_me:${as_lineno-$LINENO}: checking for DBUS" >&5
+ $as_echo_n "checking for DBUS... " >&6; }
+@@ -5858,7 +5858,7 @@ if test "x$ac_cv_func_dbus_threads_init" = xyes; then :
+ fi
+ 
+ 		LIBS="$SAVELIBS"
+-		if test -d /etc/dbus-1; then
++		if test -d /etc/dbus-1 -a "x$DBUSDIR" = x; then
+ 			DBUSDIR="/etc/dbus-1"
+ 		fi
+ 	else
