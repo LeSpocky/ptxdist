@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_BLUEZ) += bluez
 #
 # Paths and names
 #
-BLUEZ_VERSION	:= 5.51
-BLUEZ_MD5	:= ce74914edba5ddfb49a8e6d85d600d22
+BLUEZ_VERSION	:= 5.52
+BLUEZ_MD5	:= de811d17903bc3e174a90ea227fac7ca
 BLUEZ		:= bluez-$(BLUEZ_VERSION)
 BLUEZ_SUFFIX	:= tar.gz
 BLUEZ_URL	:= $(call ptx/mirror, KERNEL, bluetooth/$(BLUEZ).$(BLUEZ_SUFFIX))
@@ -56,20 +56,21 @@ BLUEZ_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-monitor \
 	--enable-udev \
 	--disable-cups \
+	--disable-mesh \
 	--disable-midi \
 	--enable-obex \
-	--disable-mesh \
 	--disable-btpclient \
 	--disable-external-ell \
 	--$(call ptx/endis, PTXCONF_BLUEZ_CLIENT)-client \
 	--enable-systemd \
 	--enable-datafiles \
 	--disable-manpages \
+	--disable-testing \
 	--disable-experimental \
 	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS_DEPRECATED)-deprecated \
 	--disable-sixaxis \
-	--disable-android \
 	--disable-logger \
+	--disable-android \
 	--with-dbusconfdir=/usr/share \
 	--with-dbussystembusdir=/usr/share/dbus-1/system-services \
 	--with-dbussessionbusdir=/usr/share/dbus-1/services \
