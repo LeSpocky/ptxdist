@@ -59,6 +59,14 @@ HOST_PYTHON3_CONF_OPT	:= \
 	--without-ensurepip \
 	--with-openssl=$(PTXDIST_SYSROOT_HOST)
 
+$(STATEDIR)/host-python3.prepare:
+	@$(call targetinfo)
+	@$(call world/prepare, HOST_PYTHON3)
+#	# make sure SOABI for host and target never match
+	@sed -i 's;\(\(EXT_SUFFIX\|SOABI\)=.*\)linux-gnu\>;\1host-gnu;' \
+		$(HOST_PYTHON3_DIR)/Makefile
+	@$(call touch)
+
 # ----------------------------------------------------------------------------
 # Install
 # ----------------------------------------------------------------------------
