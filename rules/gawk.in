@@ -13,11 +13,11 @@ menuconfig GAWK
 
 if GAWK
 
-config GAWK_PGAWK
-	bool "Install pgawk"
-
 config GAWK_AWKLIB
 	bool "Install awklib"
+
+config GAWK_EXTENSIONS
+	bool "Install extensions"
 
 endif
 
