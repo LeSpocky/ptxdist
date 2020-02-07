@@ -28,7 +28,7 @@ HOST_PYTHON3_ENV	:= \
 	$(HOST_ENV) \
 	ac_sys_system=Linux \
 	ac_sys_release=2 \
-	MACHDEP=linux2 \
+	MACHDEP=linux \
 	LDFLAGS="-L$(PTXDIST_SYSROOT_HOST)/lib"
 
 #

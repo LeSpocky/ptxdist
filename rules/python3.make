@@ -40,7 +40,7 @@ PYTHON3_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	ac_sys_system=Linux \
 	ac_sys_release=2 \
-	MACHDEP=linux2 \
+	MACHDEP=linux \
 	ac_cv_have_chflags=no \
 	ac_cv_have_lchflags=no \
 	ac_cv_broken_sem_getvalue=no \
@@ -111,13 +111,13 @@ $(STATEDIR)/python3.install.post:
 	@rm -f "$(CROSS_PYTHON3)"
 	@echo '#!/bin/sh'						>> "$(CROSS_PYTHON3)"
 	@echo '_PYTHON_PROJECT_BASE=$(PYTHON3_DIR)'			>> "$(CROSS_PYTHON3)"
-	@echo '_PYTHON_HOST_PLATFORM=linux2-$(PYTHON3_PLATFORM)'	>> "$(CROSS_PYTHON3)"
+	@echo '_PYTHON_HOST_PLATFORM=linux-$(PYTHON3_PLATFORM)'	>> "$(CROSS_PYTHON3)"
 	@m=`sed -n 's/^MULTIARCH=[\t ]*\(.*\)/\1/p' $(PYTHON3_DIR)/Makefile` && \
 	 d=`cat $(PYTHON3_DIR)/pybuilddir.txt` && \
 	 cross_dir="$(PTXDIST_SYSROOT_CROSS)/lib/python$(PYTHON3_MAJORMINOR)" && \
 	 mkdir -p "$${cross_dir}" && \
-	 cp "$(PYTHON3_DIR)/$$d/_sysconfigdata_m_linux2_$${m}.py" "$${cross_dir}" && \
-	 echo "_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_m_linux2_$$m"	>> "$(CROSS_PYTHON3)" && \
+	 cp "$(PYTHON3_DIR)/$$d/_sysconfigdata_m_linux_$${m}.py" "$${cross_dir}" && \
+	 echo "_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_m_linux_$$m"	>> "$(CROSS_PYTHON3)" && \
 	 echo "PYTHONPATH=$${cross_dir}"				>> "$(CROSS_PYTHON3)"
 	@echo 'PYTHONHASHSEED=0'					>> "$(CROSS_PYTHON3)"
 	@echo 'export _PYTHON_PROJECT_BASE _PYTHON_HOST_PLATFORM'	>> "$(CROSS_PYTHON3)"
@@ -189,6 +189,6 @@ $(STATEDIR)/python3.clean:
 		"$(CROSS_PYTHON3)" \
 		"$(PTXDIST_SYSROOT_CROSS)/bin/python3" \
 		"$(PTXDIST_SYSROOT_CROSS)/bin/python$(PYTHON3_MAJORMINOR)-config" \
-		"$(PTXDIST_SYSROOT_CROSS)/lib/python$(PYTHON3_MAJORMINOR)/"_sysconfigdata_m_linux2_*.py
+		"$(PTXDIST_SYSROOT_CROSS)/lib/python$(PYTHON3_MAJORMINOR)/"_sysconfigdata_m_linux_*.py
 
 # vim: syntax=make
