@@ -82,7 +82,7 @@ $(STATEDIR)/nss.install:
 	@$(call world/install, NSS)
 
 	@$(foreach lib,$(NSS_LIBS), \
-		install -v -m644 -D $(NSS_DIR)/dist/*/lib/$(lib).so \
+		install -v -m644 -D $(NSS_DIR)/dist/Linux$(PTXCONF_KERNEL_VERSION)_$(NSS_ARCH)_*/lib/$(lib).so \
 			$(NSS_PKGDIR)/usr/lib/$(lib).so$(ptx/nl))
 
 	install -d $(NSS_PKGDIR)/usr/lib/pkgconfig/
