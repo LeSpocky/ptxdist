@@ -35,6 +35,9 @@ NSS_ARCH := $(call remove_quotes,$(PTXCONF_ARCH_STRING))
 ifdef PTXCONF_ARCH_ARM64
 NSS_ARCH := aarch64
 endif
+ifeq ($(NSS_ARCH),i386)
+NSS_ARCH := x86
+endif
 
 NSS_MAKE_ENV := \
 	$(CROSS_ENV) \
