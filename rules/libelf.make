@@ -76,6 +76,8 @@ ifdef PTXCONF_LIBELF_LIBDW
 	@$(call install_lib, libelf, 0, 0, 0644, libdw-$(LIBELF_VERSION))
 	@$(call install_lib, libelf, 0, 0, 0644, \
 		elfutils/libebl_$(LIBELF_ARCH)-$(LIBELF_VERSION))
+	@$(call install_link, libelf, libebl_$(LIBELF_ARCH)-$(LIBELF_VERSION).so, \
+		/usr/lib/elfutils/libebl_$(LIBELF_ARCH).so)
 endif
 
 ifdef PTXCONF_LIBELF_LIBASM
