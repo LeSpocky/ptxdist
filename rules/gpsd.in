@@ -13,6 +13,7 @@ menuconfig GPSD
 	select NCURSES			if GPSD_NCURSES
 	select DBUS_GLIB		if GPSD_DBUS
 	select PYTHON3			if GPSD_PYTHON
+	select PYSERIAL3		if GPSD_PYSERIAL
 	prompt "gpsd                          "
 	help
 	  gpsd is a daemon that listens to a GPS or Loran receiver
@@ -27,24 +28,14 @@ if GPSD
 config GPSD_NCURSES
 	bool
 
+config GPSD_PYSERIAL
+	bool
+
 comment "time service     ---"
-
-config GPSD_NTP
-	bool
-	prompt "NTP time hinting support"
-
-config GPSD_NTPSHM
-	bool
-	depends on GPSD_NTP
-	prompt "NTP time hinting via shared memory"
 
 config GPSD_OSCILLATOR
 	bool
 	prompt "Disciplined oscillator support"
-
-config GPSD_PPS
-	bool
-	prompt "PPS time syncing support"
 
 comment "export methods   ---"
 
@@ -110,14 +101,6 @@ config GPSD_USER
 	prompt "gpsd user"
 	help
 	  This user is used for privilege separation.
-
-config GPSD_FIXED_PORT_SPEED
-	string
-	prompt "fixed port speed"
-
-config GPSD_FIXED_PORT_BITS
-	string
-	prompt "fixed port bits"
 
 config GPSD_MAX_CLIENTS
 	string
@@ -207,7 +190,6 @@ menu "drivers"
 
 	config GPSD_DRIVER_UBX
 		bool
-		select GPSD_NTPSHM
 		select GPSD_DRIVER_NMEA
 		prompt "ubx"
 
@@ -367,8 +349,6 @@ menu "install options"
 
 	config GPSD_NTPSHMMON
 		bool
-		select GPSD_NTP
-		select GPSD_PPS
 		select GPSD_SHM
 		prompt "ntpshmmon"
 		help
@@ -431,6 +411,7 @@ menu "install options"
 	config GPSD_UBXTOOL
 		bool
 		select GPSD_PYTHON
+		select GPSD_PYSERIAL
 		prompt "ubxtool"
 		help
 		  ubxtool is a tool for u-blox GPS. ubxtool can decode common
@@ -441,6 +422,7 @@ menu "install options"
 	config GPSD_ZERK
 		bool
 		select GPSD_PYTHON
+		select GPSD_PYSERIAL
 		prompt "zerk"
 		help
 		  zerk is an all purpose GREIS fitting. zerk can decode common

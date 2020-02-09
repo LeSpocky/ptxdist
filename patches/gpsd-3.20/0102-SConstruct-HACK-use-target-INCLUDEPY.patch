@@ -1,0 +1,25 @@
+From: Ladislav Michl <ladis@linux-mips.org>
+Date: Fri, 7 Feb 2020 10:53:19 +0100
+Subject: [PATCH] SConstruct: HACK: use target INCLUDEPY
+
+Once PTXdist's cross-python starts returning proper INCLUDEPY
+path, this hack will wanish.
+
+Signed-off-by: Ladislav Michl <ladis@linux-mips.org>
+---
+ SConstruct | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/SConstruct b/SConstruct
+index 841eb06b7793..3d885a17a5b9 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -1748,7 +1748,7 @@ else:
+                        LINK=ldshared,
+                        SHLIBPREFIX="",
+                        SHLIBSUFFIX=python_config['SO'],
+-                       CPPPATH=[python_config['INCLUDEPY']],
++                       CPPPATH=[os.getenv('SYSROOT') + python_config['INCLUDEPY']],
+                        CPPFLAGS=[],
+                        CFLAGS=[],
+                        CXXFLAGS=[])

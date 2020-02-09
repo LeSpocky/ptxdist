@@ -1,0 +1,36 @@
+From: Ladislav Michl <ladis@linux-mips.org>
+Date: Sun, 2 Feb 2020 00:42:42 +0100
+Subject: [PATCH] SConstruct: Use target_python when constructing extension
+ name
+
+---
+ SConstruct | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/SConstruct b/SConstruct
+index a4f8cdc763cd..cd30bb86f4ac 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -1234,6 +1234,12 @@ elif config.env['python']:
+         else:
+             config.env['aiogps'] = True
+ 
++        # get version part of python extension name
++        ext_python_ver = config.GetPythonValue('ext version string',
++                                               'import sys',
++                                               '"_".join(map(str, '
++                                               'sys.version_info))')
++
+         # check for pyserial
+         if not config.GetPythonValue('module serial (pyserial)',
+                                      'import serial', '"found"'):
+@@ -1756,8 +1762,7 @@ else:
+             python_objects[ext].append(
+                 python_env.NoCache(
+                     python_env.SharedObject(
+-                        src.split(".")[0] + '-py_' +
+-                        '_'.join(['%s' % (x) for x in sys.version_info]) +
++                        src.split(".")[0] + '-py_' + ext_python_ver +
+                         python_config['SO'], src
+                     )
+                 )

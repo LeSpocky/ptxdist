@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_GPSD) += gpsd
 #
 # Paths and names
 #
-GPSD_VERSION	:= 3.19
-GPSD_MD5	:= b3bf88706794eb8e5f2c2543bf7ba87b
+GPSD_VERSION	:= 3.20
+GPSD_MD5	:= cf7fdec7ce7221d20bee1a7246362b05
 GPSD		:= gpsd-$(GPSD_VERSION)
 GPSD_SUFFIX	:= tar.gz
 GPSD_URL	:= http://download.savannah.gnu.org/releases/gpsd/$(GPSD).$(GPSD_SUFFIX)
@@ -52,6 +52,8 @@ GPSD_PROGS-$(PTXCONF_GPSD_UBXTOOL)	+= ubxtool
 GPSD_PROGS-$(PTXCONF_GPSD_ZERK)		+= zerk
 
 GPSD_CONF_TOOL	:= scons
+GPSD_CONF_ENV	:= \
+	$(CROSS_ENV_PKG_CONFIG)
 GPSD_CONF_OPT	:= \
 	aivdm=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_AIVDM) \
 	ashtech=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_ASHTECH) \
@@ -75,10 +77,8 @@ GPSD_CONF_OPT	:= \
 	gpsdclients=$(GPSD_BUILD_CLIENTS) \
 	greis=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_GREIS) \
 	implicit_link=yes \
-	ipv6=$(call ptx/yesno, PTXCONF_GLOBAL_IPV6) \
 	isync=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_ISYNC) \
 	itrax=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_ITRAX) \
-	leapfetch=yes \
 	libdir=/usr/$(CROSS_LIB_DIR) \
 	libgpsmm=no \
 	magic_hat=no \
@@ -90,16 +90,12 @@ GPSD_CONF_OPT	:= \
 	netfeed=yes \
 	nmea0183=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_NMEA) \
 	nmea2000=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_NMEA) \
-	nofloats=no \
 	nostrip=yes \
-	ntp=$(call ptx/yesno, PTXCONF_GPSD_NTP) \
-	ntpshm=$(call ptx/yesno, PTXCONF_GPSD_SHM) \
 	ntrip=$(call ptx/yesno, GPSD_DRIVER_NTRIP) \
 	oceanserver=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_OCEANSERVER) \
 	oncore=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_ONCORE) \
 	oscillator=$(call ptx/yesno, PTXCONF_GPSD_OSCILLATOR) \
 	passthrough=no \
-	pps=$(call ptx/yesno, PTXCONF_GPSD_PPS) \
 	prefix=/usr \
 	profiling=$(call ptx/yesno, PTXCONF_GPSD_PROFILING) \
 	python=$(call ptx/yesno, PTXCONF_GPSD_PYTHON) \
@@ -116,12 +112,10 @@ GPSD_CONF_OPT	:= \
 	squelch=yes \
 	superstar2=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_SUPERSTAR2) \
 	sysconfdir=/etc \
-	sysroot=$(SYSROOT) \
 	systemd=$(call ptx/yesno, PTXCONF_GPSD_SYSTEMD) \
 	target=$(PTXCONF_GNU_TARGET) \
 	target_python=$(CROSS_PYTHON3) \
 	timeservice=no \
-	timing=no \
 	tnt=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_TNT) \
 	tripmate=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_TRIPMATE) \
 	tsip=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_TSIP) \
@@ -129,13 +123,6 @@ GPSD_CONF_OPT	:= \
 	udevdir=/usr/lib/udev \
 	usb=$(call ptx/yesno, PTXCONF_GPSD_USB) \
 	xgps=no
-
-ifneq ($(call remove_quotes,$(PTXCONF_GPSD_FIXED_PORT_SPEED)),)
-GPSD_CONF_OPT += fixed_port_speed=$(PTXCONF_GPSD_FIXED_PORT_SPEED)
-endif
-ifneq ($(call remove_quotes,$(PTXCONF_GPSD_FIXED_PORT_BITS)),)
-GPSD_CONF_OPT += fixed_port_bits=$(PTXCONF_GPSD_FIXED_PORT_BITS)
-endif
 
 ifneq ($(call remove_quotes,$(PTXCONF_GPSD_GROUP)),)
 GPSD_CONF_OPT += gpsd_group=$(PTXCONF_GPSD_GROUP)

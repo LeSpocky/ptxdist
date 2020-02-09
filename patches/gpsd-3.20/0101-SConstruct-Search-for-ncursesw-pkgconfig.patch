@@ -1,8 +1,8 @@
 From: Ladislav Michl <ladis@linux-mips.org>
 Date: Fri, 25 Oct 2019 14:18:30 +0200
-Subject: [PATCH] Search for ncursesw pkgconfig
+Subject: [PATCH] SConstruct: Search for ncursesw pkgconfig
 
-PTXDist can be configured to build wide char verson of ncurses
+PTXDist can be configured to build wide char version of ncurses
 which SConstruct is unaware of.
 
 Signed-off-by: Ladislav Michl <ladis@linux-mips.org>
@@ -11,10 +11,10 @@ Signed-off-by: Ladislav Michl <ladis@linux-mips.org>
  1 file changed, 2 insertions(+)
 
 diff --git a/SConstruct b/SConstruct
-index 5160481a7a7b..7bd5b08f2a46 100644
+index cd30bb86f4ac..841eb06b7793 100644
 --- a/SConstruct
 +++ b/SConstruct
-@@ -826,6 +826,8 @@ else:
+@@ -807,6 +807,8 @@ else:
              ncurseslibs = pkg_config('ncurses', rpath_hack=True)
              if config.CheckPKG('tinfo'):
                  ncurseslibs += pkg_config('tinfo', rpath_hack=True)

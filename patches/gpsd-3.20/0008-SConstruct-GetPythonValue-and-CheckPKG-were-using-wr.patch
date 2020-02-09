@@ -1,0 +1,44 @@
+From: "Gary E. Miller" <gem@rellim.com>
+Date: Wed, 8 Jan 2020 15:46:03 -0800
+Subject: [PATCH] SConstruct: GetPythonValue() and CheckPKG were using wrong
+ env.
+
+---
+ SConstruct | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/SConstruct b/SConstruct
+index ea87d9204e60..fc5ab39bfad6 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -524,7 +524,7 @@ values can be listed with 'scons -h'.
+ def CheckPKG(context, name):
+     context.Message('Checking pkg-config for %s... ' % name)
+     ret = context.TryAction('%s --exists \'%s\''
+-                            % (env['PKG_CONFIG'], name))[0]
++                            % (context.env['PKG_CONFIG'], name))[0]
+     context.Result(ret)
+     return ret
+ 
+@@ -599,8 +599,11 @@ def CheckC11(context):
+ 
+ def GetPythonValue(context, name, imp, expr, brief=False):
+     context.Message('Obtaining Python %s... ' % name)
++
++    # what is this about?
+     context.sconf.cached = 0  # Avoid bogus "(cached)"
+-    if not env['target_python']:
++
++    if not context.env['target_python']:
+         status, value = 0, str(eval(expr))
+     else:
+         command = [target_python_path, '-c', '%s; print(%s)' % (imp, expr)]
+@@ -615,7 +618,7 @@ def GetPythonValue(context, name, imp, expr, brief=False):
+             announce('Python command "%s" failed - disabling Python.\n'
+                      'Python components will NOT be installed' %
+                      command[2])
+-            env['python'] = False
++            context.env['python'] = False
+     context.Result('failed' if status else 'ok' if brief else value)
+     return value
+ 

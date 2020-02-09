@@ -1,0 +1,34 @@
+From: "Gary E. Miller" <gem@rellim.com>
+Date: Fri, 10 Jan 2020 18:43:17 -0800
+Subject: [PATCH] SConstruct: fix polystr() for python2
+
+---
+ SConstruct | 15 ++++++++++-----
+ 1 file changed, 10 insertions(+), 5 deletions(-)
+
+diff --git a/SConstruct b/SConstruct
+index f45efe4e19f0..a4f8cdc763cd 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -1152,11 +1152,16 @@ PYTHON_CONFIG_CALL = ('sysconfig.get_config_vars(%s)'
+ # ugly hack from http://www.catb.org/esr/faqs/practical-python-porting/
+ # handle python2/3 strings
+ def polystr(o):
+-    if isinstance(o, str):
+-        return o
+-    if isinstance(o, bytes):
+-        return str(o, encoding='latin-1')
+-    raise ValueError
++    if bytes is str:  # Python 2
++        return str(o)
++    else:             # python 3.
++        if isinstance(o, str):
++            return o
++        if isinstance(o, bytes) or isinstance(o, bytearray):
++            return str(o, encoding='latin1')
++        if isinstance(o, int):
++            return str(o)
++        raise ValueError
+ 
+ 
+ # flag that we have xgps* dependencies, so xgps* should run OK

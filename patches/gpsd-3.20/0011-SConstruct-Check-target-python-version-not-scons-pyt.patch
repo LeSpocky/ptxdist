@@ -1,0 +1,32 @@
+From: "Gary E. Miller" <gem@rellim.com>
+Date: Wed, 8 Jan 2020 18:38:11 -0800
+Subject: [PATCH] SConstruct: Check target python version, not scons python
+ version.
+
+---
+ SConstruct | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/SConstruct b/SConstruct
+index 9f88fa347b9a..a02a2a897d32 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -1209,11 +1209,14 @@ elif config.env['python']:
+                                                brief=True)
+ 
+         # aiogps is only available on Python >= 3.6
+-        # FIXME check target_python, not current python
+-        if sys.version_info < (3, 6):
++        sysver = config.GetPythonValue('version',
++                                       'import sys',
++                                       '"%d.%d" % sys.version_info[0:2]')
++        if 3 > int(sysver[0]) or 6 > int(sysver[2]):
+             config.env['aiogps'] = False
+-            announce("WARNING: Python too old: "
+-                     "gps/aiogps.py will not be installed\n")
++            announce("WARNING: Python%s too old (need 3.6): "
++                     "gps/aiogps.py will not be installed\n" %
++                     (sysver), end=True)
+         else:
+             config.env['aiogps'] = True
+ 
