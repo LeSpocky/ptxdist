@@ -63,6 +63,18 @@ config UTIL_LINUX_NG_LINE
 	help
 	  The line utility.
 
+config UTIL_LINUX_NG_GETOPT
+	bool
+	prompt "getopt"
+	depends on !BUSYBOX_GETOPT || ALLYES
+	help
+	  The getopt is used to break up (parse) options in command
+	  lines for easy parsing by shell procedures, and to check
+	  for valid options.
+
+comment "BusyBox' getopt is selected!"
+	depends on BUSYBOX_GETOPT
+
 config UTIL_LINUX_NG_ADDPART
 	bool
 	select UTIL_LINUX_NG_PARTX_TOOLS

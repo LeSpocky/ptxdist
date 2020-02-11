@@ -200,6 +200,9 @@ endif
 ifdef PTXCONF_UTIL_LINUX_NG_LINE
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/line)
 endif
+ifdef PTXCONF_UTIL_LINUX_NG_GETOPT
+	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/getopt)
+endif
 ifdef PTXCONF_UTIL_LINUX_NG_DMESG
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/dmesg)
 endif
