@@ -224,6 +224,17 @@ config UTIL_LINUX_NG_UMOUNT
 comment "BusyBox' umount is selected!"
 	depends on BUSYBOX_UMOUNT
 
+config UTIL_LINUX_NG_FLOCK
+	bool
+	prompt "flock"
+	depends on !BUSYBOX_FLOCK || ALLYES
+	help
+	  The flock utility manages flock(2) locks from within
+	  shell scripts or from the command line.
+
+comment "BusyBox' flock is selected!"
+	depends on BUSYBOX_FLOCK
+
 config UTIL_LINUX_NG_FSCK
 	bool
 	prompt "fsck"

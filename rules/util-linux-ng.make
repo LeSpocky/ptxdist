@@ -240,6 +240,9 @@ endif
 ifdef PTXCONF_UTIL_LINUX_NG_UMOUNT
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/umount)
 endif
+ifdef PTXCONF_UTIL_LINUX_NG_FLOCK
+	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/flock)
+endif
 ifdef PTXCONF_UTIL_LINUX_NG_FSCK
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/sbin/fsck)
 endif
