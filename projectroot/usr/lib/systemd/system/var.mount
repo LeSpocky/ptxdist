@@ -8,4 +8,3 @@ Where=/var
 # note: this is a dummy filesystem only to trigger the corresponding mount helper
 What=varoverlayfs
 Type=varoverlayfs
-Options=metacopy=on
