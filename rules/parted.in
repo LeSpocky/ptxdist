@@ -1,18 +1,18 @@
-## SECTION=staging
-## old section:
-### SECTION=shell_and_console
+## SECTION=shell_and_console
 config PARTED
 	tristate
 	prompt "parted"
-	select GETTEXT
+	select HOST_GETTEXT
 	select READLINE
+	select LIBUUID
 	select E2FSPROGS
 	select NCURSES
+	depends on !BUSYBOX_PARTPROBE || ALLYES
 	help
 	  The GNU Parted program allows you to create, destroy, resize, move,
 	  and copy hard disk partitions. Parted can be used for creating space
 	  for new operating systems, reorganizing disk usage, and copying data
 	  to new hard disks.
 
-	  STAGING: remove in ptxdist-2020.06.0
-	  Old version that need to be updated. Fails to build with glibc-2.28.
+comment "busybox' partprobe is selected!"
+	depends on BUSYBOX_PARTPROBE

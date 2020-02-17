@@ -14,10 +14,10 @@ PACKAGES-$(PTXCONF_PARTED) += parted
 #
 # Paths and names
 #
-PARTED_VERSION	:= 2.3
-PARTED_MD5	:= 30ceb6df7e8681891e865e2fe5a7903d
+PARTED_VERSION	:= 3.3
+PARTED_MD5	:= 090655d05f3c471aa8e15a27536889ec
 PARTED		:= parted-$(PARTED_VERSION)
-PARTED_SUFFIX	:= tar.gz
+PARTED_SUFFIX	:= tar.xz
 PARTED_URL	:= $(call ptx/mirror, GNU, parted/$(PARTED).$(PARTED_SUFFIX))
 PARTED_SOURCE	:= $(SRCDIR)/$(PARTED).$(PARTED_SUFFIX)
 PARTED_DIR	:= $(BUILDDIR)/$(PARTED)
@@ -29,8 +29,8 @@ PARTED_LICENSE	:= GPL-3.0-only
 PARTED_CONF_TOOL := autoconf
 PARTED_CONF_OPT  := \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-device-mapper \
-	--disable-Werror
+	--without-readline \
+	--disable-device-mapper
 
 # ----------------------------------------------------------------------------
 # Target-Install
