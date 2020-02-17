@@ -183,7 +183,7 @@ STRONGSWAN_CONF_OPT	:= \
 	--disable-test-vectors \
 	--enable-updown \
 	--disable-aikgen \
-	--$(call ptx/disen, PTXCONF_STRONGSWAN_SWANCTL)-charon \
+	--$(call ptx/disen, PTXCONF_STRONGSWAN_SYSTEMD_UNIT)-charon \
 	--disable-cmd \
 	--disable-conftest \
 	--disable-fast \
