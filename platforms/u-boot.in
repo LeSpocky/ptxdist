@@ -71,6 +71,13 @@ config U_BOOT_CONFIG
 
 endif
 
+config U_BOOT_CUSTOM_MAKE_OPTS
+	prompt "Custom make options"
+	string
+	help
+	  List of custom make options passed at build time. Can be
+	  used for example to pass a DEVICE_TREE= value.
+
 choice
 	prompt "Generate environment image"
 	default U_BOOT_ENV_IMAGE_NONE
