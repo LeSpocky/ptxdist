@@ -1,0 +1,81 @@
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Date: Tue, 18 Feb 2020 15:23:52 +0100
+Subject: [PATCH] attr: make use of O_PATH to set attributes of symlinks and
+ devices
+
+This fixes setting atime/mtime for symlinks which before this patch changed
+the timestamps for the symlink's target (and resulted in an error if the
+symlink is dangling).
+---
+ attr.c | 24 ++++++++++++++++++++++--
+ 1 file changed, 22 insertions(+), 2 deletions(-)
+
+diff --git a/attr.c b/attr.c
+index 08c9d24cb446..ae2a759e9c86 100644
+--- a/attr.c
++++ b/attr.c
+@@ -304,6 +304,7 @@ static nfsstat3 set_time(int fd, sattr3 new)
+     return NFS3_OK;
+ }
+ 
++#ifndef O_PATH
+ /*
+  * setting of time, races with local filesystem
+  *
+@@ -399,6 +400,7 @@ static nfsstat3 set_attr_unsafe(const char *path, nfs_fh3 nfh, sattr3 new)
+ 
+     return set_time_path(path, buf, new);
+ }
++#endif /* #ifndef O_PATH */
+ 
+ /*
+  * set attributes of an object
+@@ -410,13 +412,29 @@ nfsstat3 set_attr(const char *path, nfs_fh3 nfh, sattr3 new)
+     uid_t new_uid;
+     gid_t new_gid;
+     backend_statstruct buf;
++#ifdef O_PATH
++    int flags = O_PATH | O_NOFOLLOW;
++#endif
+ 
+     res = backend_lstat(path, &buf);
+     if (res != 0)
+ 	return NFS3ERR_STALE;
+ 
++#ifdef O_PATH
++
++    if (new.size.set_it == TRUE) {
++	if (!S_ISREG(buf.st_mode))
++	    return NFS3ERR_NOTSUPP;
++	flags = O_WRONLY | O_NONBLOCK;
++    }
++
++    fd = backend_open(path, flags);
++    if (fd < 0)
++	return NFS3ERR_STALE;
++
++#else
+     /* 
+-     * don't open(2) device nodes, it could trigger
++     * don't open(2) device nodes without O_PATH, it could trigger
+      * module loading on the server
+      */
+     if (S_ISBLK(buf.st_mode) || S_ISCHR(buf.st_mode))
+@@ -424,7 +442,7 @@ nfsstat3 set_attr(const char *path, nfs_fh3 nfh, sattr3 new)
+ 
+ #ifdef S_ISLNK
+     /* 
+-     * opening a symlink would open the underlying file,
++     * opening a symlink without O_PATH would open the underlying file,
+      * don't try to do that
+      */
+     if (S_ISLNK(buf.st_mode))
+@@ -441,6 +459,8 @@ nfsstat3 set_attr(const char *path, nfs_fh3 nfh, sattr3 new)
+     if (fd == -1)
+ 	return set_attr_unsafe(path, nfh, new);
+ 
++#endif /* #ifdef O_PATH / else */
++
+     res = backend_fstat(fd, &buf);
+     if (res == -1) {
+ 	backend_close(fd);

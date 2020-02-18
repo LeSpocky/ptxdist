@@ -4,4 +4,6 @@
 0002-fix-unfs3-build-with-recent-versions-of-flex.patch
 0003-64-bit-fixes-don-t-assume-that-long-is-the-same-size.patch
 0004-use-libtirpc-if-found.patch
-# b3936a9a6ca0c9fd1c164603ca1d2064  - git-ptx-patches magic
+0005-attr-use-futimens-instead-of-utime.patch
+0006-attr-make-use-of-O_PATH-to-set-attributes-of-symlink.patch
+# 0534e0228eabedcabb5e164a284ad3f5  - git-ptx-patches magic
