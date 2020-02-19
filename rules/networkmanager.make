@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_NETWORKMANAGER) += networkmanager
 #
 # Paths and names
 #
-NETWORKMANAGER_VERSION	:= 1.20.8
-NETWORKMANAGER_MD5	:= c0ceb5ab14bfdfeee07536d94cc5c548
+NETWORKMANAGER_VERSION	:= 1.22.10
+NETWORKMANAGER_MD5	:= b7b8875c3ef1db0989f78351ba3e8ad8
 NETWORKMANAGER		:= NetworkManager-$(NETWORKMANAGER_VERSION)
 NETWORKMANAGER_SUFFIX	:= tar.xz
-NETWORKMANAGER_URL	:= https://ftp.gnome.org/pub/GNOME/sources/NetworkManager/1.20/$(NETWORKMANAGER).$(NETWORKMANAGER_SUFFIX)
+NETWORKMANAGER_URL	:= https://ftp.gnome.org/pub/GNOME/sources/NetworkManager/$(basename $(NETWORKMANAGER_VERSION))/$(NETWORKMANAGER).$(NETWORKMANAGER_SUFFIX)
 NETWORKMANAGER_SOURCE	:= $(SRCDIR)/$(NETWORKMANAGER).$(NETWORKMANAGER_SUFFIX)
 NETWORKMANAGER_DIR	:= $(BUILDDIR)/$(NETWORKMANAGER)
 NETWORKMANAGER_LICENSE	:= GPL-2.0-or-later AND LGPL-2.0-or-later
-NETWORKMANAGER_LICENSE_FILES := file://COPYING;md5=cbbffd568227ada506640fe950a4823b
+NETWORKMANAGER_LICENSE_FILES := file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -37,6 +37,7 @@ NETWORKMANAGER_CONF_OPT = \
 	$(CROSS_MESON_USR) \
 	-Dbluez5_dun=false \
 	-Dconcheck=$(call ptx/truefalse,PTXCONF_NETWORKMANAGER_CONCHECK) \
+	-Dconfig_auth_polkit_default=default \
 	-Dconfig_dhcp_default=internal \
 	-Dconfig_dns_rc_manager_default=file \
 	-Dconfig_logging_backend_default=default \
@@ -65,6 +66,7 @@ NETWORKMANAGER_CONF_OPT = \
 	-Dmore_asserts=no \
 	-Dmore_logging=false \
 	-Dnetconfig=false \
+	-Dnm_cloud_setup=false \
 	-Dnmcli=$(call ptx/truefalse,PTXCONF_NETWORKMANAGER_NMCLI) \
 	-Dnmtui=$(call ptx/truefalse,PTXCONF_NETWORKMANAGER_NMTUI) \
 	-Dofono=false \
