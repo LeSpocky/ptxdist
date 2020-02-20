@@ -1,0 +1,37 @@
+## SECTION=shell_and_console
+
+menuconfig ZSTD
+	tristate
+	prompt "zstd                          "
+	select HOST_CMAKE
+	help
+	  zstd is a fast lossless compression algorithm and data
+	  compression tool, with command line syntax similar to
+	  gzip and xz. It is based on the LZ77 family, with further
+	  FSE & huff0 entropy stages. zstd offers highly configurable
+	  compression speed, with fast modes at > 200 MB/s per code,
+	  and strong modes nearing lzma compression ratios. It also
+	  features a very fast decoder, with speeds > 500 MB/s per core.
+
+if ZSTD
+
+config ZSTD_LIBZSTD
+	bool
+	prompt "install zstd library"
+
+config ZSTD_ZSTD
+	bool
+	select ZSTD_LIBZSTD
+	prompt "install zstd tool"
+
+config ZSTD_ZSTDGREP
+	bool
+	select ZSTD_LIBZSTD
+	prompt "install zstdgrep"
+
+config ZSTD_ZSTDLESS
+	bool
+	select ZSTD_LIBZSTD
+	prompt "install zstdless"
+
+endif
