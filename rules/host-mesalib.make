@@ -56,10 +56,12 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dplatform-sdk-version=25 \
 	-Dplatforms= \
 	-Dpower8=false \
+	-Dprefer-iris=true \
 	-Dselinux=false \
 	-Dshader-cache=false \
 	-Dshared-glapi=true \
 	-Dshared-llvm=false \
+	-Dshared-swr=true \
 	-Dswr-arches=[] \
 	-Dtools=glsl \
 	-Dva-libs-path=/usr/lib/dri \
@@ -69,7 +71,8 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-overlay-layer=false \
 	-Dxlib-lease=false \
-	-Dxvmc-libs-path=/usr/lib
+	-Dxvmc-libs-path=/usr/lib \
+	-Dzstd=false
 
 HOST_MESALIB_MAKE_OPT	:= \
 	src/compiler/glsl/glsl_compiler

@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 19.3.3
-MESALIB_MD5	:= 00010e0bb8f6641276ff6cb3e9386114
+MESALIB_VERSION	:= 20.0.0
+MESALIB_MD5	:= 681229d992bbd6250a5be4f308708795
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -24,7 +24,7 @@ MESALIB_SOURCE	:= $(SRCDIR)/$(MESALIB).$(MESALIB_SUFFIX)
 MESALIB_DIR	:= $(BUILDDIR)/Mesa-$(MESALIB_VERSION)
 MESALIB_LICENSE	:= MIT
 MESALIB_LICENSE_FILES := \
-	file://docs/license.html;md5=3a4999caf82cc503ac8b9e37c235782e
+	file://docs/license.html;md5=c1843d93c460bbf778d6037ce324f9f7
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -126,10 +126,12 @@ MESALIB_CONF_OPT	:= \
 	-Dplatform-sdk-version=25 \
 	-Dplatforms=$(subst $(space),$(comma),$(MESALIBS_EGL_PLATFORMS-y)) \
 	-Dpower8=false \
+	-Dprefer-iris=true \
 	-Dselinux=false \
 	-Dshader-cache=$(call ptx/truefalse, PTXCONF_MESALIB_VULKAN_AMD) \
 	-Dshared-glapi=true \
 	-Dshared-llvm=false \
+	-Dshared-swr=true \
 	-Dswr-arches=[] \
 	-Dtools=[] \
 	-Dva-libs-path=/usr/lib/dri \
@@ -139,7 +141,8 @@ MESALIB_CONF_OPT	:= \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-overlay-layer=false \
 	-Dxlib-lease=false \
-	-Dxvmc-libs-path=/usr/lib
+	-Dxvmc-libs-path=/usr/lib \
+	-Dzstd=false
 
 # ----------------------------------------------------------------------------
 # Compile
