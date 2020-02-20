@@ -30,6 +30,8 @@ menuconfig MESALIB
 	select XORG_LIB_XSHMFENCE	if MESALIB_DRI3
 	select EXPAT
 	select ZLIB
+	select ZSTD			if MESALIB_ZSTD
+	select ZSTD_LIBZSTD		if MESALIB_ZSTD
 	help
 	  Mesa is a 3-D graphics library with an API which is very
 	  similar to that of OpenGL. See the project homepage for
@@ -195,6 +197,10 @@ config MESALIB_VULKAN_AMD
 config MESALIB_VULKAN_INTEL
 	bool
 	prompt "Intel (Anvil)"
+
+config MESALIB_ZSTD
+	bool
+	prompt "use Zstandard for shader cache compression"
 
 endif
 

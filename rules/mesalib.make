@@ -142,7 +142,7 @@ MESALIB_CONF_OPT	:= \
 	-Dvulkan-overlay-layer=false \
 	-Dxlib-lease=false \
 	-Dxvmc-libs-path=/usr/lib \
-	-Dzstd=false
+	-Dzstd=$(call ptx/truefalse, PTXCONF_MESALIB_ZSTD)
 
 # ----------------------------------------------------------------------------
 # Compile
