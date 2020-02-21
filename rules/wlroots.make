@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WLROOTS) += wlroots
 #
 # Paths and names
 #
-WLROOTS_VERSION	:= 0.5.0
-WLROOTS_MD5	:= d186d57cd7aeca3d8af10e2d88575875
+WLROOTS_VERSION	:= 0.10.0
+WLROOTS_MD5	:= 758fa2f41ea888572db8052897b4482f
 WLROOTS		:= wlroots-$(WLROOTS_VERSION)
 WLROOTS_SUFFIX	:= tar.gz
 WLROOTS_URL	:= https://github.com/swaywm/wlroots/archive/$(WLROOTS_VERSION).$(WLROOTS_SUFFIX)
@@ -30,22 +30,15 @@ WLROOTS_LICENSE	:= MIT
 WLROOTS_CONF_TOOL := meson
 WLROOTS_CONF_OPT := \
 	$(CROSS_MESON_USR) \
-	-Denable-enable-examples=false \
-	-Denable-enable-rootston=$(call ptx/truefalse,PTXCONF_WLROOTS_ROOTSTON) \
-	-Denable-x11_backend=false \
-	-Denable-xwayland=false \
+	-Dlibcap=$(call ptx/endis, PTXCONF_WLROOTS_LIBCAP)d \
+	-Dlogind=$(call ptx/endis, PTXCONF_WLROOTS_SYSTEMD_LOGIND)d \
+	-Dlogind-provider=systemd \
+	-Dxcb-errors=disabled \
+	-Dxcb-icccm=disabled \
+	-Dxwayland=disabled \
+	-Dx11-backend=disabled \
+	-Dexamples=false \
 	-Dwerror=false
-
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/wlroots.install:
-	@$(call targetinfo)
-	@$(call world/install, WLROOTS)
-	@install -vD -m 755 $(WLROOTS_DIR)-build/rootston/rootston \
-		$(WLROOTS_PKGDIR)/usr/bin/rootston
-	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -61,10 +54,6 @@ $(STATEDIR)/wlroots.targetinstall:
 	@$(call install_fixup, wlroots,DESCRIPTION,missing)
 
 	@$(call install_lib, wlroots, 0, 0, 0644, libwlroots)
-
-ifdef PTXCONF_WLROOTS_ROOTSTON
-	@$(call install_copy, wlroots, 0, 0, 0755, -, /usr/bin/rootston)
-endif
 
 	@$(call install_finish, wlroots)
 

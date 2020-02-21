@@ -13,9 +13,11 @@ menuconfig WLROOTS
 	select LIBINPUT
 	select LIBXKBCOMMON
 	select UDEV
-	select XCB_UTIL
 	select UDEV_LIBUDEV
 	select PIXMAN
+	select LIBCAP			if WLROOTS_LIBCAP
+	select SYSTEMD			if WLROOTS_SYSTEMD
+	select SYSTEMD_LOGIND		if WLROOTS_SYSTEMD_LOGIND
 	prompt "wlroots                       "
 	help
 	  wlroots provides pluggable, composable, unopinionated modules for
@@ -23,8 +25,17 @@ menuconfig WLROOTS
 
 if WLROOTS
 
-config WLROOTS_ROOTSTON
+config WLROOTS_LIBCAP
 	bool
-	prompt "install Rootston example compositor"
+	prompt "support rootless session via libcap"
+
+config WLROOTS_SYSTEMD
+	bool
+	default INITMETHOD_SYSTEMD
+
+config WLROOTS_SYSTEMD_LOGIND
+	bool
+	depends on WESTON_SYSTEMD
+	prompt "support rootless session via logind"
 
 endif
