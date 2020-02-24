@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_PIGLIT) += piglit
 #
 # Paths and names
 #
-PIGLIT_VERSION	:= 1f66016c1bb4
-PIGLIT_MD5	:= be7a8ec7bca96e95d17e8cfb7332f4b4
+PIGLIT_VERSION	:= 2020-02-22-g6c0de1646ec0
+PIGLIT_MD5	:= 7ff7552117bd1e5fc05ed7ab2077b77c
 PIGLIT		:= piglit-$(PIGLIT_VERSION)
-PIGLIT_SUFFIX	:= tar.xz
-PIGLIT_URL	:= http://anongit.freedesktop.org/git/piglit.git;tag=$(PIGLIT_VERSION)
+PIGLIT_SUFFIX	:= tar.gz
+PIGLIT_URL	:= https://gitlab.freedesktop.org/mesa/piglit/-/archive/$(PIGLIT_VERSION)/$(PIGLIT).$(PIGLIT_SUFFIX)
 PIGLIT_SOURCE	:= $(SRCDIR)/$(PIGLIT).$(PIGLIT_SUFFIX)
 PIGLIT_DIR	:= $(BUILDDIR)/$(PIGLIT)
 PIGLIT_LICENSE	:= MIT AND GPLv2+ AND GPLv3 AND LGPLv2
