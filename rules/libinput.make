@@ -62,6 +62,11 @@ else
 		/usr/share/libinput/99-ptxdist-dummy.quirks)
 endif
 
+ifdef PTXCONF_LIBINPUT_TOOL
+	@$(call install_copy, libinput, 0, 0, 0755, -, /usr/bin/libinput)
+	@$(call install_tree, libinput, 0, 0, -, /usr/libexec/libinput)
+endif
+
 	@$(call install_finish, libinput)
 
 	@$(call touch)
