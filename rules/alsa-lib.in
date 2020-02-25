@@ -8,6 +8,7 @@ menuconfig ALSA_LIB
 	select LIBC_PTHREAD
 	select LIBC_RT
 	select GCCLIBS_GCC_S
+	select ALSA_LIB_MIXER		if ALSA_LIB_UCM
 	help
 	  This is the userspace library to the kernel's "Advanced Linux Sound Architecture" feature
 
