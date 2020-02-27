@@ -1,0 +1,116 @@
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Date: Thu, 27 Feb 2020 14:04:18 +0100
+Subject: [PATCH] attr: handle symlinks correctly
+
+Make sure to change the properties of the symlink and not the symlink
+target. So use utimensat(), fchownat() and fchmodat() with
+AT_SYMLINK_NOFOLLOW to set the relevant attributes.
+
+This change breaks compilation on Windows.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ attr.c | 57 ++++++++++++++++++++++++++++++---------------------------
+ 1 file changed, 30 insertions(+), 27 deletions(-)
+
+diff --git a/attr.c b/attr.c
+index 2653ed0a16bb..2a13441179a0 100644
+--- a/attr.c
++++ b/attr.c
+@@ -267,38 +267,41 @@ post_op_attr get_post_cached(struct svc_req * req)
+ 
+ /*
+  * setting of time, races with local filesystem
+- *
+- * there is no futimes() function in POSIX or Linux
+  */
+-static nfsstat3 set_time(const char *path, backend_statstruct buf, sattr3 new)
++static nfsstat3 set_time(const char *path, sattr3 new)
+ {
+-    time_t new_atime, new_mtime;
+-    struct utimbuf utim;
+-    int res;
+-
+     /* set atime and mtime */
+     if (new.atime.set_it != DONT_CHANGE || new.mtime.set_it != DONT_CHANGE) {
+ 
++	/* atime in t[0], mtime in t[1] */
++	struct timespec t[2];
++	int res;
++
+ 	/* compute atime to set */
+-	if (new.atime.set_it == SET_TO_SERVER_TIME)
+-	    new_atime = time(NULL);
+-	else if (new.atime.set_it == SET_TO_CLIENT_TIME)
+-	    new_atime = new.atime.set_atime_u.atime.seconds;
+-	else			       /* DONT_CHANGE */
+-	    new_atime = buf.st_atime;
++	if (new.atime.set_it == SET_TO_SERVER_TIME) {
++	    t[0].tv_sec = UTIME_NOW;
++	    t[0].tv_nsec = UTIME_NOW;
++	} else if (new.atime.set_it == SET_TO_CLIENT_TIME) {
++	    t[0].tv_sec = new.atime.set_atime_u.atime.seconds;
++	    t[0].tv_nsec = new.atime.set_atime_u.atime.nseconds;
++	} else {
++	    t[0].tv_sec = UTIME_OMIT;
++	    t[0].tv_nsec = UTIME_OMIT;
++	}
+ 
+ 	/* compute mtime to set */
+-	if (new.mtime.set_it == SET_TO_SERVER_TIME)
+-	    new_mtime = time(NULL);
+-	else if (new.mtime.set_it == SET_TO_CLIENT_TIME)
+-	    new_mtime = new.mtime.set_mtime_u.mtime.seconds;
+-	else			       /* DONT_CHANGE */
+-	    new_mtime = buf.st_mtime;
+-
+-	utim.actime = new_atime;
+-	utim.modtime = new_mtime;
++	if (new.mtime.set_it == SET_TO_SERVER_TIME) {
++	    t[1].tv_sec = UTIME_NOW;
++	    t[1].tv_nsec = UTIME_NOW;
++	} else if (new.mtime.set_it == SET_TO_CLIENT_TIME) {
++	    t[1].tv_sec = new.mtime.set_mtime_u.mtime.seconds;
++	    t[1].tv_nsec = new.mtime.set_mtime_u.mtime.nseconds;
++	} else {
++	    t[1].tv_sec = UTIME_OMIT;
++	    t[1].tv_nsec = UTIME_OMIT;
++	}
+ 
+-	res = backend_utime(path, &utim);
++	res = utimensat(AT_FDCWD, path, t, AT_SYMLINK_NOFOLLOW);
+ 	if (res == -1)
+ 	    return setattr_err();
+     }
+@@ -346,19 +349,19 @@ static nfsstat3 set_attr_unsafe(const char *path, nfs_fh3 nfh, sattr3 new)
+ 	else
+ 	    new_gid = -1;
+ 
+-	res = backend_lchown(path, new_uid, new_gid);
++	res = fchownat(AT_FDCWD, path, new_uid, new_gid, AT_SYMLINK_NOFOLLOW);
+ 	if (res == -1)
+ 	    return setattr_err();
+     }
+ 
+     /* set mode */
+     if (new.mode.set_it == TRUE) {
+-	res = backend_chmod(path, new.mode.set_mode3_u.mode);
++	res = fchmodat(AT_FDCWD, path, new.mode.set_mode3_u.mode, 0);
+ 	if (res == -1)
+ 	    return setattr_err();
+     }
+ 
+-    return set_time(path, buf, new);
++    return set_time(path, new);
+ }
+ 
+ /*
+@@ -461,7 +464,7 @@ nfsstat3 set_attr(const char *path, nfs_fh3 nfh, sattr3 new)
+     }
+ 
+     /* finally, set times */
+-    return set_time(path, buf, new);
++    return set_time(path, new);
+ }
+ 
+ /*
