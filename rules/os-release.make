@@ -56,7 +56,7 @@ $(STATEDIR)/os-release.targetinstall:
 		@PTXDIST_VERSION@, $(PTXDIST_VERSION_FULL))
 
 	@$(call install_replace, os-release, /usr/lib/os-release, \
-		@DATE@, $(shell date +%FT%T%z))
+		@DATE@, $(shell date --utc --date @$(SOURCE_DATE_EPOCH) '+%FT%T%z'))
 
 	@$(call install_link, os-release, ../usr/lib/os-release, \
 		/etc/os-release)
