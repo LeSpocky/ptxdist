@@ -53,6 +53,17 @@ OPKG_CONF_OPT	:= \
 # Target-Install
 # ----------------------------------------------------------------------------
 
+ifdef PTXCONF_OPKG_OPKG_CONF
+OPKG_STAMP := $(call remove_quotes, \
+	$(PTXCONF_OPKG_OPKG_CONF_URL) \
+	$(PTXDIST_IPKG_ARCH_STRING) \
+	$(PTXCONF_OPKG_OPKG_CONF_CHECKSIG))
+
+ifneq ($(strip $(OPKG_STAMP)),$(strip $(call ptx/force-sh cat $(STATEDIR)/opkg.stamp 2>/dev/null)))
+PHONY += $(STATEDIR)/opkg.targetinstall
+endif
+endif
+
 $(STATEDIR)/opkg.targetinstall:
 	@$(call targetinfo)
 
@@ -104,6 +115,9 @@ endif
 
 	@$(call install_finish, opkg)
 
+ifdef PTXCONF_OPKG_OPKG_CONF
+	@echo "$(OPKG_STAMP)" > $(STATEDIR)/opkg.stamp
+endif
 	@$(call touch)
 
 # vim: syntax=make
