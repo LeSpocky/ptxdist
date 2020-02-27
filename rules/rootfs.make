@@ -208,7 +208,7 @@ ifdef PTXCONF_ROOTFS_ISSUE
 	@$(call install_replace, rootfs, /etc/issue, \
 		@EXTRAVERSION@, $(PTXDIST_VERSION_SCM))
 	@$(call install_replace, rootfs, /etc/issue, \
-		@DATE@, $(shell date +%FT%T%z))
+		@DATE@, $(shell date --utc --date @$(SOURCE_DATE_EPOCH) '+%FT%T%z'))
 	@$(call install_replace, rootfs, /etc/issue, \
 		@VENDOR@, $(PTXCONF_PROJECT_VENDOR))
 	@$(call install_replace, rootfs, /etc/issue, \
