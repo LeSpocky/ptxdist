@@ -95,11 +95,19 @@ config TARGET_EXTRA_CPPFLAGS
 	help
 	  Extra options for the C preprocessor.
 
+	  Note: if conflicting preprocessor options are passed, the options
+	  specified by the package's build system take precedence over those
+	  specified here.
+
 config TARGET_EXTRA_CFLAGS
 	string
 	prompt "Extra CFLAGS (c)"
 	help
 	  Extra options for the C compiler.
+
+	  Note: if conflicting compiler options are passed, the options
+	  specified by the package's build system take precedence over those
+	  specified here.
 
 config TARGET_EXTRA_CXXFLAGS
 	string
@@ -107,10 +115,18 @@ config TARGET_EXTRA_CXXFLAGS
 	help
 	  Extra options for the C++ compiler.
 
+	  Note: if conflicting compiler options are passed, the options
+	  specified by the package's build system take precedence over those
+	  specified here.
+
 config TARGET_EXTRA_LDFLAGS
 	string
 	prompt "Extra LDFLAGS (ld)"
 	help
 	  Extra options for the linker.
+
+	  Note: if conflicting linker options are passed, the options
+	  specified by the package's build system take precedence over those
+	  specified here.
 
 endmenu
