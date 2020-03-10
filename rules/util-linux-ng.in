@@ -483,4 +483,15 @@ comment "BusyBox' login is selected!"
 comment "Shadow package is selected!"
 	depends on SHADOW
 
+config UTIL_LINUX_NG_SULOGIN
+	bool
+	depends on !BUSYBOX_SULOGIN || ALLYES
+	prompt "sulogin"
+	help
+	  sulogin is invoked by init when the system goes into
+	  single-user mode.
+
+comment "BusyBox' sulogin is selected!"
+	depends on BUSYBOX_SULOGIN
+
 endif

@@ -119,7 +119,7 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--disable-login-chown-vcs \
 	--disable-login-stat-mail \
 	--disable-nologin \
-	--disable-sulogin \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_SULOGIN)-sulogin \
 	--disable-su \
 	--disable-runuser \
 	--disable-ul \
@@ -320,6 +320,9 @@ ifdef PTXCONF_UTIL_LINUX_NG_LSCPU
 endif
 ifdef PTXCONF_UTIL_LINUX_NG_LOGIN
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/login)
+endif
+ifdef PTXCONF_UTIL_LINUX_NG_SULOGIN
+	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/sbin/sulogin)
 endif
 
 	@$(call install_finish, util-linux-ng)
