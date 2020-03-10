@@ -391,7 +391,7 @@ project.
 
 ``|ptxdistPlatformDir|/build-host``
     Contains all packages sources compiled to run on the host and handle
-    architecture independend things.
+    architecture independent things.
 
 ``|ptxdistPlatformDir|/build-target``
     Contains all package sources compiled for the target architecture.

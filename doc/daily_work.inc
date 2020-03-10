@@ -391,7 +391,7 @@ command line parameters.
     limit the system load to the given value.
 
 .. Important:: using ``-ji`` and ``-je`` can overload the system
-  immediatley. These settings are very hard.
+  immediately. These settings are very hard.
 
 A much softer setup is to just use the ``-j<number>`` parameter. This will run
 up to ``<number>`` tasks at the same time which will be spread over everything
@@ -982,7 +982,7 @@ to define what is to build, to install and to distribute.
     in a sane way. Never add libraries to the \*_LDFLAGS variable. Always add
     them to the \*_LIBADD variable (for a library) or \*_LDADD (for an executable)
     instead. This is important because the autotools forward all these variable
-    based parameters in a specifc order to the tools (compiler and linker).
+    based parameters in a specific order to the tools (compiler and linker).
 
 **EXTRA_DIST**
     Include here all files which must be part of the distribution and are not
@@ -1300,7 +1300,7 @@ non-interactive user, e.g. a different application.
 
 .. _external_dependencies_variants:
 
-Controling Package Dependencies in more Detail
+Controlling Package Dependencies in more Detail
 ----------------------------------------------
 
 In section :ref:`external_dependencies` a simple method is shown how to define
@@ -1370,7 +1370,7 @@ macro (refer :ref:`install_tree,reference`) uses the file permissions it finds
 in the build machine's filesystem also for the target filesystem image. With
 a different ``umask`` than ``0022`` at build-time this may fail badly at
 run-time with strange erroneous behaviour (for example some daemons with
-regular user permissions cannot acces their own configuration files).
+regular user permissions cannot access their own configuration files).
 
 Read Only Filesystem
 --------------------

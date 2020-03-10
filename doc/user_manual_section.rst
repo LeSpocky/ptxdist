@@ -3,7 +3,7 @@ PTXdist User’s Manual
 
 This chapter should give any newbie the information he/she needs to be
 able to handle any embedded Linux projects based on PTXdist. Also the
-advanced user may find new valueable information.
+advanced user may find new valuable information.
 
 .. include:: user_manual.inc
 .. include:: user_images.inc

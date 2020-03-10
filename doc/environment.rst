@@ -177,7 +177,7 @@ One of the most important tasks for the ``configure`` script is to find
 out whether all the programs PTXdist depends on are already present on the
 development host. The script will stop with an error message in case
 something is missing. If this happens, the missing tools have to be
-installed from the distribution befor re-running the ``configure``
+installed from the distribution before re-running the ``configure``
 script.
 
 When the ``configure`` script is finished successfully, we can now run
@@ -562,7 +562,7 @@ This step is only relevant for older toolchain version including
 OSELAS.Toolchain-2018.12.0. For later versions, see the next section.
 
 All toolchain components are built with regular user permissions. In
-order to avoid accidential changes in the toolchain, the files should be
+order to avoid accidental changes in the toolchain, the files should be
 set to read-only permissions after the installation has finished
 successfully. It is also possible to set the file ownership to root.
 This is an important step for reliability, so it is highly recommended.

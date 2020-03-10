@@ -1069,7 +1069,7 @@ enabled. To add these dependencies on demand, the menu file looks like:
 
     endif
 
-.. important:: Do not add these ``select`` statements to the correspondig menu entry.
+.. important:: Do not add these ``select`` statements to the corresponding menu entry.
   They must belong to the main menu entry of the package to ensure that
   the calculation of the dependencies between the packages is done in a
   correct manner.
@@ -1255,7 +1255,7 @@ There can be various reasons why a package must be patched:
 
 -  or anything else (this case is the most common one)
 
-Ideally, those problems should be adressed in the original project,
+Ideally, those problems should be addressed in the original project,
 so any patches you add to your BSP or to PTXdist should also be submitted upstream.
 The upstream project can often provide better feedback, they can integrate your
 patch into a new release, and also maintain your changes as part of the project.

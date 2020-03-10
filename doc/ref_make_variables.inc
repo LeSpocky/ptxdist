@@ -118,7 +118,7 @@ Other useful variables:
   In analogy to ``PACKAGES``, target packages that are added to these lists will
   be built normally during the build run.
   In contrast however, they are not installed into a root filesystem by default
-  when building images, and image rules must request them explicitely.
+  when building images, and image rules must request them explicitly.
   This is useful for specialized packages that are only needed for specific
   images, see :ref:`multi_image_individual_root_filesystems`.
 

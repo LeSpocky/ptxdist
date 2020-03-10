@@ -110,7 +110,7 @@ and the directory to unpack to is taken from the ``<PKG>_DIR`` variable.
 This macro doesn't do anything if ``<PKG>_URL`` points to a local directory
 instead of an archive or online URL.
 
-The target directory is not removed, so ``extract`` can be used multipe
+The target directory is not removed, so ``extract`` can be used multiple
 times in a row to extract several archives. Usually :ref:`clean` is
 called before the first ``extract``.
 
@@ -139,11 +139,11 @@ Usage:
  $(call world/execute, <PKG>, <command with arguments>)
 
 These macros make it possible to execute arbitrary commands during the
-build stages. This is usefull because the environment is identical to the
+build stages. This is useful because the environment is identical to the
 default build commands ``world/*``.
 
 ``world/execute`` also handles the generic setup handled in the current
-build stage. For ``prepare`` this means that, for out ot tree builds, the
+build stage. For ``prepare`` this means that, for out of tree builds, the
 build directory is deleted prior to executing the specified command.
 For ``install`` the package directory is deleted.
 

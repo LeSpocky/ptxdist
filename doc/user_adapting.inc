@@ -49,7 +49,7 @@ highlight it and horizontally to select the *Help* entry. Then we can
 press *Enter* to see the help.
 
 To search for specific keywords, we press the */* key and enter a word.
-Kconfig then lists all occurences of this word in all menus.
+Kconfig then lists all occurrences of this word in all menus.
 
 Meaning of visual feedbacks in Kconfig
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

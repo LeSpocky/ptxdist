@@ -28,7 +28,7 @@ PTXdist feature, run inside the BSP at your development host:
     [...]
     Mount rootfs with nfsroot=/root,v3,tcp,port=2049,mountport=2049
 
-At the target side a slighly different configuration must be used to work with
+At the target side a slightly different configuration must be used to work with
 the userspace NFS server PTXdist provides instead of a regular kernel space
 NFS server the Linux kernel provides. When starting PTXdist's ``nfsroot`` feature
 it outputs the special command line we need to instruct the Linux kernel to

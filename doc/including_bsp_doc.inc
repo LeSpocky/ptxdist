@@ -9,7 +9,7 @@ Requirements to build the Documentation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 PTXdist can build its own user manual and supports HTML or PDF as the
-output formats. PTXdist uses the *Sphinx* documentaion maker to build both
+output formats. PTXdist uses the *Sphinx* documentation maker to build both
 output formats. The host system itself must provide some tools and data:
 
 Fonts:
@@ -98,7 +98,7 @@ content. These variables are filled with values extracted from the current PTXdi
 project prior building the final documentation. Since PTXdist projects are bound
 to a defined PTXdist version and toolchain version, this kind of information is
 extracted from the current settings and substituted in the documentation. This
-behaviour ensures the documentaiton includes the project's exact definition to
+behaviour ensures the documentation includes the project's exact definition to
 external dependencies.
 
 Refer the PTXdist file ``doc/conf.py`` for more information on variable
