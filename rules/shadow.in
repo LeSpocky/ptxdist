@@ -20,7 +20,7 @@ config SHADOW_ADMIN
 	prompt "install account administration commands"
 	help
 	  Enable this option if you want to install commands
-	  which manipulate user accout (administer /etc/passwd,
+	  which manipulate user accounts (administer /etc/passwd,
 	  /etc/shadow and /etc/group, /etc/gshadow ...)
 
 endif
