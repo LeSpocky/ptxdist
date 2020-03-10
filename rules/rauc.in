@@ -29,7 +29,7 @@ config RAUC_SERVICE
 	prompt "Enable service (D-Bus) support"
 	default y
 	help
-	  Compiles RAUC to act as a separate daemon and comand line interface
+	  Compiles RAUC to act as a separate daemon and command line interface
 	  that communicate with each other via D-Bus interface.
 	  Only deactivate this if you have a system that does not provide D-Bus!
 
