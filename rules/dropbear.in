@@ -284,6 +284,7 @@ comment "Hostkey/public key algorithms, at least one required --- SSH2 RFC Draft
 config DROPBEAR_RSA
 	bool
 	prompt "rsa"
+	default y
 	help
 	  RSA was announced in 1978. The security of the RSA system
 	  is based upon the RSA Problem (RSAP). This problem is
@@ -293,7 +294,6 @@ config DROPBEAR_RSA
 config DROPBEAR_DSS
 	bool
 	prompt "dss"
-	default y
 	help
 	  DSS stands for Digital Signature Standard.
 	  DSS employs the ElGamal and Schnorr PK systems to produce
@@ -349,7 +349,6 @@ config DROPBEAR_DROPBEAR
 	default y
 	select DROPBEAR_DROPBEAR_KEY
 	select DROPBEAR_RSA
-	select DROPBEAR_DSS
 	select BUSYBOX_START_STOP_DAEMON if BUSYBOX
 	help
 	  Installs the dropbar server in /usr/sbin/dropbear on the target
