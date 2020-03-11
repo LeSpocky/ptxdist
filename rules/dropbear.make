@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_DROPBEAR) += dropbear
 #
 # Paths and names
 #
-DROPBEAR_VERSION	:= 2017.75
-DROPBEAR_MD5		:= e57e9b9d25705dcb073ba15c416424fd
+DROPBEAR_VERSION	:= 2019.78
+DROPBEAR_MD5		:= a972c85ed678ad0fdcb7844e1294fb54
 DROPBEAR		:= dropbear-$(DROPBEAR_VERSION)
 DROPBEAR_SUFFIX		:= tar.bz2
 DROPBEAR_URL		:= http://matt.ucc.asn.au/dropbear/releases/$(DROPBEAR).$(DROPBEAR_SUFFIX)
@@ -38,12 +38,14 @@ DROPBEAR_LICENSE_FILES	:= \
 DROPBEAR_CONF_TOOL	:= autoconf
 DROPBEAR_CONF_OPT 	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--enable-harden \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--$(call ptx/endis, PTXCONF_DROPBEAR_ZLIB)-zlib \
 	--disable-pam \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_OPENPTY)-openpty \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_SYSLOG)-syslog \
 	--enable-shadow \
+	--disable-fuzz \
 	--enable-bundled-libtom \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_LASTLOG)-lastlog \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_UTMP)-utmp \
@@ -54,206 +56,213 @@ DROPBEAR_CONF_OPT 	:= \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_PUTUTLINE)-pututline \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_PUTUTXLINE)-pututxline
 
+DROPBEAR_LOCALOPTIONS	:= $(DROPBEAR_DIR)/localoptions.h
+
 $(STATEDIR)/dropbear.prepare:
 	@$(call targetinfo)
 	@$(call world/prepare, DROPBEAR)
 
+	@echo "/* localoptions.h created by ptxdist */" > $(DROPBEAR_LOCALOPTIONS)
+
 ifdef PTXCONF_DROPBEAR_DIS_X11
 	@echo "ptxdist: disabling x11 forwarding"
-	$(call disable_c, $(DROPBEAR_DIR)/options.h,ENABLE_X11FWD)
+	@echo "#define DROPBEAR_X11FWD 0" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: enabling x11 forwarding"
-	$(call enable_c, $(DROPBEAR_DIR)/options.h,ENABLE_X11FWD)
+	@echo "#define DROPBEAR_X11FWD 1" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_DIS_TCP
 	@echo "ptxdist: disabling tcp"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,ENABLE_CLI_LOCALTCPFWD)
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,ENABLE_CLI_REMOTETCPFWD)
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,ENABLE_SVR_LOCALTCPFWD)
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,ENABLE_SVR_REMOTETCPFWD)
+	@echo "#define DROPBEAR_CLI_LOCALTCPFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_CLI_REMOTETCPFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_SVR_LOCALTCPFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_SVR_REMOTETCPFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: enabling tcp"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,ENABLE_CLI_LOCALTCPFWD)
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,ENABLE_CLI_REMOTETCPFWD)
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,ENABLE_SVR_LOCALTCPFWD)
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,ENABLE_SVR_REMOTETCPFWD)
+	@echo "#define DROPBEAR_CLI_LOCALTCPFWD 1" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_CLI_REMOTETCPFWD 1" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_SVR_LOCALTCPFWD 1" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_SVR_REMOTETCPFWD 1" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_DIS_AGENT
 	@echo "ptxdist: disabling agent"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,ENABLE_SVR_AGENTFWD)
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,ENABLE_CLI_AGENTFWD)
+	@echo "#define DROPBEAR_SVR_AGENTFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_CLI_AGENTFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: enabling agent"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,ENABLE_SVR_AGENTFWD)
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,ENABLE_CLI_AGENTFWD)
+	@echo "#define DROPBEAR_SVR_AGENTFWD 1" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_CLI_AGENTFWD 1" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 
 ifdef PTXCONF_DROPBEAR_AES128
 	@echo "ptxdist: enabling aes128"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_AES128)
+	@echo "#define DROPBEAR_AES128 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling aes128"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_AES128)
+	@echo "#define DROPBEAR_AES128 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_3DES
 	@echo "ptxdist: enabling 3des"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_3DES)
+	@echo "#define DROPBEAR_3DES 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling 3des"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_3DES)
+	@echo "#define DROPBEAR_3DES 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_AES256
 	@echo "ptxdist: enabling aes256"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_AES256)
+	@echo "#define DROPBEAR_AES256 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling aes256"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_AES256)
+	@echo "#define DROPBEAR_AES256 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_BLOWFISH
 	@echo "ptxdist: enabling blowfish"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_BLOWFISH)
+	@echo "#define DROPBEAR_BLOWFISH 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling blowfish"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_BLOWFISH)
+	@echo "#define DROPBEAR_BLOWFISH 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_TWOFISH256
 	@echo "ptxdist: enabling twofish256"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_TWOFISH256)
+	@echo "#define DROPBEAR_TWOFISH256 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling twofish256"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_TWOFISH256)
+	@echo "#define DROPBEAR_TWOFISH256 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_TWOFISH128
 	@echo "ptxdist: enabling twofish128"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_TWOFISH128)
+	@echo "#define DROPBEAR_TWOFISH128 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling twofish128"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_TWOFISH128)
+	@echo "#define DROPBEAR_TWOFISH128 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_CBC_CIPHERS
 	@echo "ptxdist: enabling cbc ciphers"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_ENABLE_CBC_MODE)
+	@echo "#define DROPBEAR_ENABLE_CBC_MODE 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling cbc ciphers"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_ENABLE_CBC_MODE)
+	@echo "#define DROPBEAR_ENABLE_CBC_MODE 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
+
 
 ifdef PTXCONF_DROPBEAR_CTR_CIPHERS
 	@echo "ptxdist: enabling ctr ciphers"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_ENABLE_CTR_MODE)
+	@echo "#define DROPBEAR_ENABLE_CTR_MODE 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling ctr ciphers"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_ENABLE_CTR_MODE)
+	@echo "#define DROPBEAR_ENABLE_CTR_MODE 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_SHA1
 	@echo "ptxdist: enabling sha1"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_SHA1_HMAC)
+	@echo "#define DROPBEAR_SHA1_HMAC 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling sha1"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_SHA1_HMAC)
+	@echo "#define DROPBEAR_SHA1_HMAC 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_SHA1_96
 	@echo "ptxdist: enabling sha1-96"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_SHA1_96_HMAC)
+	@echo "#define DROPBEAR_SHA1_96_HMAC 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling sha1-96"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_SHA1_96_HMAC)
+	@echo "#define DROPBEAR_SHA1_96_HMAC 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_SHA256
 	@echo "ptxdist: enabling sha256"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_SHA2_256_HMAC)
+	@echo "#define DROPBEAR_SHA2_256_HMAC 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling sha256"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_SHA2_256_HMAC)
+	@echo "#define DROPBEAR_SHA2_256_HMAC 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_SHA512
 	@echo "ptxdist: enabling sha512"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_SHA2_512_HMAC)
+	@echo "#define DROPBEAR_SHA2_512_HMAC 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling sha512"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_SHA2_512_HMAC)
+	@echo "#define DROPBEAR_SHA2_512_HMAC 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_MD5
 	@echo "ptxdist: enabling md5"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_MD5_HMAC)
+	@echo "WARNING: md5 is considered broken and is deactivated in upstream dropbear by default!"
+	@echo "#define DROPBEAR_MD5_HMAC 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling md5"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_MD5_HMAC)
+	@echo "#define DROPBEAR_MD5_HMAC 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 
 ifdef PTXCONF_DROPBEAR_RSA
 	@echo "ptxdist: enabling rsa"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_RSA)
+	@echo "#define DROPBEAR_RSA 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling rsa"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_RSA)
+	@echo "#define DROPBEAR_RSA 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_DSS
 	@echo "ptxdist: enabling dss"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_DSS)
+	@echo "#define DROPBEAR_DSS 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling dss"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_DSS)
+	@echo "#define DROPBEAR_DSS 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_ECDSA
 	@echo "ptxdist: enabling ecdsa"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_ECDSA)
+	@echo "#define DROPBEAR_ECDSA 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling ecdsa"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_ECDSA)
+	@echo "#define DROPBEAR_ECDSA 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_ECDH
 	@echo "ptxdist: enabling ecdh"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_ECDH)
+	@echo "#define DROPBEAR_ECDH 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling ecdh"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_ECDH)
+	@echo "#define DROPBEAR_ECDH 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_CURVE25519
 	@echo "ptxdist: enabling curve25519"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_CURVE25519)
+	@echo "#define DROPBEAR_CURVE25519 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling curve25519"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,DROPBEAR_CURVE25519)
+	@echo "#define DROPBEAR_CURVE25519 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
+
 
 ifdef PTXCONF_DROPBEAR_PASSWD
 	@echo "ptxdist: enabling passwd"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,ENABLE_SVR_PASSWORD_AUTH)
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,ENABLE_CLI_PASSWORD_AUTH)
+	@echo "#define DROPBEAR_SVR_PASSWORD_AUTH 1" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_CLI_PASSWORD_AUTH 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling passwd"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,ENABLE_SVR_PASSWORD_AUTH)
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,ENABLE_CLI_PASSWORD_AUTH)
+	@echo "#define DROPBEAR_SVR_PASSWORD_AUTH 0" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_CLI_PASSWORD_AUTH 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_PUBKEY
 	@echo "ptxdist: enabling pubkey"
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,ENABLE_SVR_PUBKEY_AUTH)
-	@$(call enable_c, $(DROPBEAR_DIR)/options.h,ENABLE_CLI_PUBKEY_AUTH)
+	@echo "#define DROPBEAR_SVR_PUBKEY_AUTH 1" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_CLI_PUBKEY_AUTH 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling pubkey"
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,ENABLE_SVR_PUBKEY_AUTH)
-	@$(call disable_c, $(DROPBEAR_DIR)/options.h,ENABLE_CLI_PUBKEY_AUTH)
+	@echo "#define DROPBEAR_SVR_PUBKEY_AUTH 0" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_CLI_PUBKEY_AUTH 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 	@$(call touch)
