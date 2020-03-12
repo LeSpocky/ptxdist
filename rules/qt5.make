@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QT5) += qt5
 #
 # Paths and names
 #
-QT5_VERSION	:= 5.12.6
-QT5_MD5		:= 287d71e71ebd97f77220873e7b131b1a
+QT5_VERSION	:= 5.14.1
+QT5_MD5		:= 781c3179410aff7ef84607214e1e91b4
 QT5		:= qt-everywhere-src-$(QT5_VERSION)
 QT5_SUFFIX	:= tar.xz
 QT5_URL		:= \
@@ -120,11 +120,13 @@ QT5_CONF_OPT	:= \
 	--disable-gc-binaries \
 	--enable-shared \
 	-xplatform linux-ptx-g++ \
+	--disable-qtlibinfix-plugins \
 	--disable-trace \
 	--disable-rpath \
 	-reduce-exports \
 	--disable-pch \
 	--$(call ptx/endis, PTXCONF_ARCH_X86)-ltcg \
+	-linker bfd \
 	$(if $(filter 0,$(PTXDIST_VERBOSE)),-silent) \
 	\
 	-pkg-config \
@@ -132,7 +134,6 @@ QT5_CONF_OPT	:= \
 	$(call ptx/qt5-module, QT3D, qt3d) \
 	-skip qtactiveqt \
 	-skip qtandroidextras \
-	$(call ptx/qt5-module, QTCANVAS3D, qtcanvas3d) \
 	$(call ptx/qt5-module, QTCHARTS, qtcharts) \
 	$(call ptx/qt5-module, QTCONNECTIVITY, qtconnectivity) \
 	$(call ptx/qt5-module, QTDATAVIS3D, qtdatavis3d) \
@@ -142,10 +143,12 @@ QT5_CONF_OPT	:= \
 	$(call ptx/qt5-module, QTGRAPHICALEFFECTS, qtgraphicaleffects) \
 	$(call ptx/qt5-module, QTIMAGEFORMATS, qtimageformats) \
 	$(call ptx/qt5-module, QTLOCATION, qtlocation) \
+	$(call ptx/qt5-module, QTLOTTIE, qtlottie) \
 	-skip qtmacextras \
 	$(call ptx/qt5-module, QTMULTIMEDIA, qtmultimedia) \
 	$(call ptx/qt5-module, QTNETWORKAUTH, qtnetworkauth) \
 	$(call ptx/qt5-module, QTPURCHASING, qtpurchasing) \
+	$(call ptx/qt5-module, QTQUICK3D, qtquick3d) \
 	$(call ptx/qt5-module, QTQUICKCONTROLS, qtquickcontrols) \
 	$(call ptx/qt5-module, QTQUICKCONTROLS2, qtquickcontrols2) \
 	$(call ptx/qt5-module, QTREMOTEOBJECTS, qtremoteobjects) \
@@ -207,7 +210,6 @@ QT5_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QT5_PLATFORM_EGLFS_KMS)-gbm \
 	--$(call ptx/endis, PTXCONF_QT5_PLATFORM_BACKEND_KMS)-kms \
 	--$(call ptx/endis, PTXCONF_QT5_PLATFORM_LINUXFB)-linuxfb \
-	--disable-mirclient \
 	$(call ptx/qt5-system, QT5_PLATFORM_XCB)-xcb \
 	\
 	--$(call ptx/endis, PTXCONF_QT5_LIBUDEV)-libudev \
@@ -233,6 +235,10 @@ QT5_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTBASE_SQL_SQLITE)-sql-sqlite \
 	$(call ptx/qt5-system, PTXCONF_QT5_MODULE_QTBASE_SQL_SQLITE)-sqlite
 
+ifdef PTXCONF_QT5_MODULE_QT3D_QUICK
+QT5_CONF_OPT	+= \
+	-qt-assimp
+endif
 ifdef PTXCONF_QT5_MODULE_QTQUICKCONTROLS2
 QT5_CONF_OPT	+= \
 	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTQUICKCONTROLS2_STYLE_FUSION)-style-fusion \
@@ -247,6 +253,16 @@ QT5_CONF_OPT	+= \
 	--enable-alsa \
 	$(call ptx/ifdef, PTXCONF_QT5_MODULE_QTMULTIMEDIA_GST,-gstreamer 1.0,-no-gstreamer)
 endif
+ifdef PTXCONF_QT5_MODULE_QTQUICK3D
+QT5_CONF_OPT	+= \
+	-qt-assimp
+endif
+ifdef PTXCONF_QT5_MODULE_QTSPEECH
+QT5_CONF_OPT	+= \
+	--disable-flite \
+	--disable-flite-alsa \
+	--disable-speechd
+endif
 ifdef PTXCONF_QT5_MODULE_QTWEBENGINE
 QT5_CONF_OPT	+= \
 	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTWEBENGINE_MEDIA)-webengine-alsa \
@@ -259,7 +275,8 @@ QT5_CONF_OPT	+= \
 	--disable-webengine-printing-and-pdf \
 	--disable-webengine-proprietary-codecs \
 	--disable-webengine-spellchecker \
-	--disable-webengine-webrtc
+	--disable-webengine-webrtc \
+	--$(call ptx/endis, PTXCONF_QT5_WIDGETS)-webengine-widgets
 endif
 
 ifdef PTXCONF_QT5_GUI
@@ -270,7 +287,9 @@ endif
 
 # Note: these options are not listed in '--help' but they exist
 QT5_CONF_OPT += \
-	--disable-sm
+	--disable-sm \
+	--disable-vulkan \
+	-no-feature-wayland-vulkan-server-buffer
 
 ifdef PTXCONF_QT5_MODULE_QTDECLARATIVE
 QT5_CONF_OPT += \
@@ -326,24 +345,26 @@ $(STATEDIR)/qt5.install:
 		xargs sed -i 's;$(PTXDIST_WORKSPACE);@WORKSPACE@;g'
 	@$(call touch)
 
-QT5_QT_CONF := $(PTXDIST_SYSROOT_CROSS)/bin/qt5/qt.conf
+QT5_QT_CONF := $(PTXDIST_SYSROOT_TARGET)/usr/bin/qt5/qt.conf
 
 $(STATEDIR)/qt5.install.post:
 	@$(call targetinfo)
 	@find $(QT5_PKGDIR) -name '*.pri' -o -name '*.cmake' | \
 		xargs sed -i 's;@WORKSPACE@;$(PTXDIST_WORKSPACE);g'
 	@$(call world/install.post, QT5)
-	@rm -rf $(PTXDIST_SYSROOT_CROSS)/bin/qt5
-	@cp -a $(SYSROOT)/usr/bin/qt5 $(PTXDIST_SYSROOT_CROSS)/bin/qt5
 	@echo "[Paths]"						>  $(QT5_QT_CONF)
 	@echo "HostPrefix=$(SYSROOT)/usr"			>> $(QT5_QT_CONF)
 	@echo "HostData=$(SYSROOT)/usr/lib/qt5"			>> $(QT5_QT_CONF)
 	@echo "HostBinaries=$(PTXDIST_SYSROOT_CROSS)/bin/qt5"	>> $(QT5_QT_CONF)
-	@echo "Prefix=$(SYSROOT)/usr"				>> $(QT5_QT_CONF)
+	@echo "Prefix=/usr"					>> $(QT5_QT_CONF)
 	@echo "Headers=$(SYSROOT)/usr/include/qt5"		>> $(QT5_QT_CONF)
+	@echo "Libraries=$(SYSROOT)/usr/lib"			>> $(QT5_QT_CONF)
 	@echo "Imports=/usr/lib/qt5/imports"			>> $(QT5_QT_CONF)
 	@echo "Qml2Imports=/usr/lib/qt5/qml"			>> $(QT5_QT_CONF)
 	@echo ""						>> $(QT5_QT_CONF)
+#	# qmake is found in sysroot-cross (via PATH) and sysroot target (via cmake)
+	@rm -rf $(PTXDIST_SYSROOT_CROSS)/bin/qt5
+	@cp -a $(SYSROOT)/usr/bin/qt5 $(PTXDIST_SYSROOT_CROSS)/bin/qt5
 	@$(call touch)
 
 
@@ -360,6 +381,7 @@ QT5_LIBS-$(PTXCONF_QT5_MODULE_QT3D_QUICK)			+= Qt53DQuick Qt53DQuickAnimation Qt
 QT5_QML-$(PTXCONF_QT5_MODULE_QT3D_QUICK)			+= Qt3D
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D)				+= geometryloaders/libdefaultgeometryloader
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D)				+= geometryloaders/libgltfgeometryloader
+QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D)				+= sceneparsers/libassimpsceneimport
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D)				+= sceneparsers/libgltfsceneexport
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D)				+= sceneparsers/libgltfsceneimport
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D_QUICK)			+= renderplugins/libscene2d
@@ -410,9 +432,6 @@ QT5_PLUGINS-$(PTXCONF_QT5_PLATFORM_XCB)				+= xcbglintegrations/libqxcb-egl-inte
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTBASE_SQL_MYSQL)		+= sqldrivers/libqsqlmysql
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTBASE_SQL_SQLITE)		+= sqldrivers/libqsqlite
 
-### QtCanvas3d ###
-QT5_QML-$(PTXCONF_QT5_MODULE_QTCANVAS3D_QUICK)			+= QtCanvas3D
-
 ### QtCharts ###
 QT5_LIBS-$(PTXCONF_QT5_MODULE_QTCHARTS)				+= Qt5Charts
 QT5_QML-$(PTXCONF_QT5_MODULE_QTCHARTS_QUICK)			+= QtCharts
@@ -429,6 +448,8 @@ QT5_QML-$(PTXCONF_QT5_MODULE_QTDATAVIS3D_QUICK)			+= QtDataVisualization
 
 ### QtDeclarative ###
 QT5_LIBS-$(PTXCONF_QT5_MODULE_QTDECLARATIVE)			+= Qt5Qml
+QT5_LIBS-$(PTXCONF_QT5_MODULE_QTDECLARATIVE_QUICK)		+= Qt5QmlModels
+QT5_LIBS-$(PTXCONF_QT5_MODULE_QTDECLARATIVE_QUICK)		+= Qt5QmlWorkerScript
 QT5_LIBS-$(PTXCONF_QT5_MODULE_QTDECLARATIVE_QUICK)		+= Qt5Quick
 QT5_LIBS-$(PTXCONF_QT5_MODULE_QTDECLARATIVE_QUICK)		+= Qt5QuickShapes
 QT5_LIBS-$(PTXCONF_QT5_MODULE_QTDECLARATIVE_QUICK_WIDGETS)	+= Qt5QuickWidgets
@@ -481,6 +502,9 @@ QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTLOCATION_QUICK)		+= geoservices/libqtgeoservi
 QT5_QML-$(PTXCONF_QT5_MODULE_QTLOCATION_QUICK)			+= QtLocation
 QT5_QML-$(PTXCONF_QT5_MODULE_QTLOCATION_QUICK)			+= QtPositioning
 
+### QtLottie ###
+QT5_LIBS-$(PTXCONF_QT5_MODULE_QTLOTTIE)				+= Qt5Bodymovin
+
 ### QtMultimedia ###
 QT5_LIBS-$(PTXCONF_QT5_MODULE_QTMULTIMEDIA)			+= Qt5Multimedia
 QT5_LIBS-$(PTXCONF_QT5_MODULE_QTMULTIMEDIA_QUICK)		+= Qt5MultimediaQuick
@@ -507,6 +531,14 @@ QT5_LIBS-$(PTXCONF_QT5_MODULE_QTNETWORKAUTH)			+= Qt5NetworkAuth
 QT5_LIBS-$(PTXCONF_QT5_MODULE_QTPURCHASING)			+= Qt5Purchasing
 QT5_QML-$(PTXCONF_QT5_MODULE_QTPURCHASING)			+= QtPurchasing
 
+### QtQuick3D ###
+QT5_LIBS-$(PTXCONF_QT5_MODULE_QTQUICK3D)			+= Qt5Quick3D
+QT5_LIBS-$(PTXCONF_QT5_MODULE_QTQUICK3D)			+= Qt5Quick3DAssetImport
+QT5_LIBS-$(PTXCONF_QT5_MODULE_QTQUICK3D)			+= Qt5Quick3DRender
+QT5_LIBS-$(PTXCONF_QT5_MODULE_QTQUICK3D)			+= Qt5Quick3DRuntimeRender
+QT5_LIBS-$(PTXCONF_QT5_MODULE_QTQUICK3D)			+= Qt5Quick3DUtils
+QT5_QML-$(PTXCONF_QT5_MODULE_QTQUICK3D)				+= QtQuick3D
+
 ### QtQuickControls ###
 # all in QT5_QML- added by QtDeclarative
 
@@ -528,6 +560,7 @@ QT5_QML-$(PTXCONF_QT5_MODULE_QTSCXML_QUICK)			+= QtScxml
 
 ### QtSensors ###
 QT5_LIBS-$(PTXCONF_QT5_MODULE_QTSENSORS)			+= Qt5Sensors
+QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTSENSORS)			+= sensorgestures/libqtsensorgestures_counterplugin
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTSENSORS)			+= sensorgestures/libqtsensorgestures_plugin
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTSENSORS)			+= sensorgestures/libqtsensorgestures_shakeplugin
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTSENSORS)			+= sensors/libqtsensors_generic

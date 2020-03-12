@@ -15,10 +15,10 @@ Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
  1 file changed, 9 insertions(+)
 
 diff --git a/qtwebengine/src/3rdparty/gn/tools/gn/ninja_action_target_writer.cc b/qtwebengine/src/3rdparty/gn/tools/gn/ninja_action_target_writer.cc
-index 7e945c0de0ed..cd98df3c5657 100644
+index 5f4fbaad8827..d579072e3d27 100644
 --- a/qtwebengine/src/3rdparty/gn/tools/gn/ninja_action_target_writer.cc
 +++ b/qtwebengine/src/3rdparty/gn/tools/gn/ninja_action_target_writer.cc
-@@ -118,9 +118,18 @@ std::string NinjaActionTargetWriter::WriteRuleDefinition() {
+@@ -119,9 +119,18 @@ std::string NinjaActionTargetWriter::WriteRuleDefinition() {
      // strictly necessary for regular one-shot actions, but it's easier to
      // just always define unique_name.
      std::string rspfile = custom_rule_name;

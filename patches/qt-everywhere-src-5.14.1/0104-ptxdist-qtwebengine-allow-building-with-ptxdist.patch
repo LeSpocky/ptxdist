@@ -3,14 +3,16 @@ Date: Tue, 12 May 2015 11:38:35 +0200
 Subject: [PATCH] ptxdist: qtwebengine: allow building with ptxdist
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+[m.felsch@pengutronix.de: port to 5.14.1]
+Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
 ---
- qtwebengine/src/core/config/functions.pri | 3 ++-
+ qtwebengine/src/buildtools/config/functions.pri | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/qtwebengine/src/core/config/functions.pri b/qtwebengine/src/core/config/functions.pri
+diff --git a/qtwebengine/src/buildtools/config/functions.pri b/qtwebengine/src/buildtools/config/functions.pri
 index 8c11faa16ad2..876da9bcfb9e 100644
---- a/qtwebengine/src/core/config/functions.pri
-+++ b/qtwebengine/src/core/config/functions.pri
+--- a/qtwebengine/src/buildtools/config/functions.pri
++++ b/qtwebengine/src/buildtools/config/functions.pri
 @@ -1,5 +1,6 @@
  defineReplace(qtwebengine_extractCFlag) {
 -    CFLAGS = $$QMAKE_CC $$QMAKE_CFLAGS

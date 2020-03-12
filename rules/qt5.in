@@ -377,16 +377,6 @@ endif
 
 endif
 
-config QT5_MODULE_QTCANVAS3D
-	bool
-	select QT5_MODULE_QTDECLARATIVE
-	prompt "QtCanvas3D"
-
-config QT5_MODULE_QTCANVAS3D_QUICK
-	bool
-	depends on QT5_MODULE_QTCANVAS3D
-	default QT5_MODULE_QTDECLARATIVE
-
 config QT5_MODULE_QTCHARTS
 	bool
 	prompt "QtCharts"
@@ -477,6 +467,10 @@ config QT5_MODULE_QTLOCATION
 	bool
 	prompt "QtLocation"
 
+config QT5_MODULE_QTLOTTIE
+	bool
+	prompt "QtLottie"
+
 config QT5_MODULE_QTLOCATION_QUICK
 	bool
 	depends on QT5_MODULE_QTLOCATION
@@ -512,6 +506,11 @@ config QT5_MODULE_QTPURCHASING
 	bool
 	select QT5_MODULE_QTDECLARATIVE
 	prompt "QtPurchasing"
+
+config QT5_MODULE_QTQUICK3D
+	bool
+	select QT5_MODULE_QTDECLARATIVE
+	prompt "QtQuick3D"
 
 config QT5_MODULE_QTQUICKCONTROLS
 	bool

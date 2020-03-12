@@ -45,6 +45,7 @@ HOST_QT5_CONF_OPT	:= \
 	--enable-shared \
 	--disable-trace \
 	--disable-rpath \
+	-reduce-exports \
 	--disable-pch \
 	--disable-ltcg \
 	$(if $(filter 0,$(PTXDIST_VERBOSE)),-silent) \
@@ -54,7 +55,6 @@ HOST_QT5_CONF_OPT	:= \
 	-skip qt3d \
 	-skip qtactiveqt \
 	-skip qtandroidextras \
-	-skip qtcanvas3d \
 	-skip qtcharts \
 	-skip qtconnectivity \
 	-skip qtdatavis3d \
@@ -64,10 +64,12 @@ HOST_QT5_CONF_OPT	:= \
 	-skip qtgraphicaleffects \
 	-skip qtimageformats \
 	-skip qtlocation \
+	-skip qtlottie \
 	-skip qtmacextras \
 	-skip qtmultimedia \
 	-skip qtnetworkauth \
 	-skip qtpurchasing \
+	-skip qtquick3d \
 	-skip qtquickcontrols \
 	-skip qtquickcontrols2 \
 	-skip qtremoteobjects \
@@ -92,6 +94,7 @@ HOST_QT5_CONF_OPT	:= \
 	-skip qtxmlpatterns \
 	-make libs \
 	-make tools \
+	-nomake examples \
 	--disable-compile-examples \
 	--disable-gui \
 	--disable-widgets \
@@ -118,6 +121,8 @@ HOST_QT5_CONF_OPT	:= \
 	-qt-harfbuzz \
 	--disable-gtk \
 	--opengl=no \
+	--disable-opengles3 \
+	--disable-egl \
 	--disable-xcb-xlib \
 	\
 	--disable-directfb \
@@ -125,7 +130,6 @@ HOST_QT5_CONF_OPT	:= \
 	--disable-gbm \
 	--disable-kms \
 	--disable-linuxfb \
-	--disable-mirclient \
 	--disable-xcb \
 	\
 	--disable-libudev \
@@ -153,8 +157,7 @@ HOST_QT5_CONF_OPT	:= \
 
 # Note: these options are not listed in '--help' but they exist
 HOST_QT5_CONF_OPT += \
-	--disable-sm \
-	--disable-egl
+	--disable-sm
 
 HOST_QT5_QT_CONF := $(PTXDIST_SYSROOT_HOST)/bin/qt5/qt.conf
 
