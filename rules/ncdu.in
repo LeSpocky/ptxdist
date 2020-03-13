@@ -1,0 +1,14 @@
+## SECTION=disk_and_file
+
+config NCDU
+	tristate
+	prompt "ncdu"
+	select NCURSES
+	help
+	  Disk usage analyzer with ncurses interface.
+
+config NCDU_WIDE_CHAR
+	bool
+	default NCURSES_WIDE_CHAR
+
+# vim: ft=kconfig noet tw=72 ts=8 sw=8
