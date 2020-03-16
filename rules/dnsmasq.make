@@ -33,40 +33,22 @@ DNSMASQ_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-DNSMASQ_PATH := PATH=$(CROSS_PATH)
-DNSMASQ_MAKE_ENV := $(CROSS_ENV)
+DNSMASQ_CONF_TOOL	:= NO
 
-DNSMASQ_COPT :=
+DNSMASQ_COPT	:=
+DNSMASQ_COPT	+= $(call ptx/ifdef,PTXCONF_DNSMASQ_TFTP,,-DNO_TFTP)
+DNSMASQ_COPT	+= $(call ptx/ifdef,PTXCONF_GLOBAL_IPV6,,-DNO_IPV6)
+DNSMASQ_COPT	+= $(call ptx/ifdef,PTXCONF_DNSMASQ_DNSSEC,-DHAVE_DNSSEC,)
+DNSMASQ_COPT	+= $(call ptx/ifdef,PTXCONF_DNSMASQ_SCRIPT,,-DNO_SCRIPT)
+DNSMASQ_COPT	+= $(call ptx/ifdef,PTXCONF_DNSMASQ_SCRIPT_LUA,-DHAVE_LUASCRIPT,)
+DNSMASQ_COPT	+= $(call ptx/ifdef,PTXCONF_DNSMASQ_DHCP,,-DNO_DHCP)
 
-ifndef PTXCONF_DNSMASQ_TFTP
-DNSMASQ_COPT += -DNO_TFTP
-endif
-
-ifndef PTXCONF_GLOBAL_IPV6
-DNSMASQ_COPT += -DNO_IPV6
-endif
-
-ifndef PTXCONF_DNSMASQ_DHCP
-DNSMASQ_COPT += -DNO_DHCP
-else
-ifndef PTXCONF_DNSMASQ_SCRIPT
-DNSMASQ_COPT += -DNO_SCRIPT
-else
-ifdef PTXCONF_DNSMASQ_SCRIPT_LUA
-DNSMASQ_COPT += -DHAVE_LUASCRIPT
-endif
-endif
-endif
-
-ifdef DNSMASQ_DNSSEC
-DNSMASQ_COPT += -DHAVE_DNSSEC
-endif
-
-DNSMASQ_MAKEVARS := PREFIX=/usr AWK=awk COPTS='$(DNSMASQ_COPT)' "CFLAGS+=-Wall -Wextra -ggdb3 -O2"
-
-$(STATEDIR)/dnsmasq.prepare:
-	@$(call targetinfo)
-	@$(call touch)
+DNSMASQ_MAKE_OPT	:= \
+	$(CROSS_ENV_CC) \
+	PREFIX=/usr \
+	AWK=awk \
+	COPTS='$(DNSMASQ_COPT)' \
+	"CFLAGS+=-Wall -Wextra -ggdb3 -O2"
 
 # ----------------------------------------------------------------------------
 # Target-Install
