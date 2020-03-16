@@ -33,12 +33,12 @@ comment "build options   ---"
 
 config DNSMASQ_DBUS
 	bool
-	prompt "include DBUS support [BROKEN]"
-	depends on BROKEN
+	prompt "include DBUS support"
 	help
-	  This enables DBUS support in dnsmasq. This is not only a build
-	  option. You also have to enable it at runtime. FIXME: Show how,
-	  see DBUS document in dnsmasq packet
+	  This enables DBUS support in dnsmasq. To enable it at runtime
+	  /etc/dnsmasq.conf needs to contain the line
+
+	  enable-dbus
 
 config DNSMASQ_TFTP
 	bool
