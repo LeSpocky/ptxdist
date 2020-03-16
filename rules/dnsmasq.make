@@ -51,6 +51,21 @@ DNSMASQ_MAKE_OPT	:= \
 	"CFLAGS+=-Wall -Wextra -ggdb3 -O2"
 
 # ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+
+DNSMASQ_INSTALL_OPT	:= \
+	$(DNSMASQ_MAKE_OPT) \
+	install
+
+$(STATEDIR)/dnsmasq.install:
+	@$(call targetinfo)
+	@$(call world/install, DNSMASQ)
+	@install -vD -m 644 "$(DNSMASQ_DIR)/dnsmasq.conf.example" \
+		"$(DNSMASQ_PKGDIR)/etc/dnsmasq.conf"
+	@$(call touch)
+
+# ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
 
