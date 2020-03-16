@@ -7,6 +7,7 @@ menuconfig DNSMASQ
 	prompt "dnsmasq                       "
 	select DBUS		if DNSMASQ_DBUS
 	select LUA		if DNSMASQ_SCRIPT_LUA
+	select NETTLE		if DNSMASQ_DNSSEC
 	select ROOTFS_VAR_LIB	if DNSMASQ_DHCP && RUNTIME
 	help
 	  A small caching DNS proxy and DHCP server.
@@ -72,7 +73,6 @@ config DNSMASQ_DNSSEC
 	bool
 	default n
 	prompt "include DNSSEC support"
-	select NETTLE
 	help
 	  Without this option it is not possible to call scripts when a lease changes
 
