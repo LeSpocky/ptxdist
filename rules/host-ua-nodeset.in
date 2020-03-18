@@ -1,0 +1,11 @@
+## SECTION=hosttools_noprompt
+
+config HOST_UA_NODESET
+	tristate
+	default y if ALLYES
+	help
+	  The OPC Foundation's UA NodeSets and other normative files which are
+	  released with an OPC UA specification (for details see [1]). Needed to
+	  build open62541.
+
+	  [1] https://github.com/OPCFoundation/UA-Nodeset/#opc-ua-nodesets-and-other-supporting-files
