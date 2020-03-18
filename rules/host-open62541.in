@@ -1,0 +1,7 @@
+## SECTION=hosttools_noprompt
+
+config HOST_OPEN62541
+        tristate
+	select HOST_CMAKE
+	select HOST_UA_NODESET
+	select HOST_SYSTEM_PYTHON3

@@ -1,0 +1,13 @@
+## SECTION=communication
+
+config OPEN62541
+	tristate
+	prompt "open62541"
+	select HOST_CMAKE
+	select HOST_OPEN62541
+	select HOST_UA_NODESET
+	select LIBC_PTHREAD
+	select MBEDTLS
+	help
+          The open62541 project is an open source implementation of the OPC UA
+          communication infrastructure which is used in industrial control.
