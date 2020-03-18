@@ -1,0 +1,73 @@
+## SECTION=bytecode_engines
+
+menuconfig NODEJS_PACKAGES
+	tristate
+	select HOST_YARN
+	select NODEJS
+	prompt "Node.js packages (target)     "
+	help
+	  Reproducibly install Node.js packages that will be available
+	  system-wide on the target.
+
+	  You MUST specify at least one Node.js package in the submenu that is
+	  shown after enabling this option.
+
+
+if NODEJS_PACKAGES
+
+config NODEJS_PACKAGES_LIST
+	string
+	prompt "Node.js packages to install"
+	help
+	  A white-space separated list of Node.js packages including their
+	  versions (e.g. express@4.17.x or socket.io@'>=2.1.0 <=2.3.0'). NPM
+	  semvers are fully supported, see [1].
+
+	  The packages are managed with Yarn and are guaranteed to be
+	  reproducible and immutable as long as the download location stays
+	  accessible or the offline cache is not altered.
+
+	  If the list of Node.js packages to be installed has been populated for
+	  the first time or if it has been modified later on one needs to
+	  (re-)build this package to download the desired Node.js packages and
+	  update the offline cache. Afterwards it is highly recommended to
+	  commit the path '${PTXDIST_WORKSPACE}/local_src/nodejs_packages/' into
+	  the version control system and to lock the package cache.
+
+	  As a prerequisite the path '${PTXDIST_WORKSPACE}/local_src/nodejs_
+	  packages/' must exist in the BSP *before* building this package.
+
+	  [1] https://legacy.yarnpkg.com/en/docs/dependency-versions/
+
+config NODEJS_PACKAGES_LICENSE
+	string
+	prompt "Licenses of to be installed Node.js packages"
+	default "unknown"
+	help
+	  Manually compiled list of licenses that the to be installed Node.js
+	  packages are distributed under, see description of the variable
+	  *_LICENSE in [1].
+
+	  ATTENTION: be aware of the fact that Node.js packages usually depend
+	  on additional Node.js packages that Yarn installs as well and that
+	  this propagates recursively resulting in an unknown number of Node.js
+	  packages on the target with an unknown set of licenses that they may
+	  be utilized under. Hence you carefully need to examine all of them
+	  individually to create a reliable list of licenses.
+
+	  [1] https://www.ptxdist.org/doc/dev_manual.html#some-notes-about-licenses
+
+config NODEJS_PACKAGES_OFFLINE
+	bool
+	prompt "Lock offline cache for offline/production use"
+	help
+	  This option locks the offline cache for installing the Node.js
+	  packages and allows their installation during the build of the BSP
+	  without any need for internet connectivity.
+
+	  Enabling this option is highly recommended for production use.
+
+	  Do NOT forget to commit the path '${PTXDIST_WORKSPACE}/local_src/
+	  nodejs_packages/' into the BSP's version control system!
+
+endif
