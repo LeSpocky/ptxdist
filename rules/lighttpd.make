@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIGHTTPD) += lighttpd
 #
 # Paths and names
 #
-LIGHTTPD_VERSION	:= 1.4.53
-LIGHTTPD_MD5		:= f93436d8d400b2b0e26ee4bcc60b9ac7
+LIGHTTPD_VERSION	:= 1.4.55
+LIGHTTPD_MD5		:= be4bda2c28bcbdac6eb941528f6edf03
 LIGHTTPD		:= lighttpd-$(LIGHTTPD_VERSION)
 LIGHTTPD_SUFFIX		:= tar.xz
 LIGHTTPD_URL		:= http://download.lighttpd.net/lighttpd/releases-1.4.x/$(LIGHTTPD).$(LIGHTTPD_SUFFIX)
@@ -67,6 +67,7 @@ LIGHTTPD_CONF_OPT	:= \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_WEBDAV_LOCKS)-uuid \
 	--without-gdbm \
 	--without-geoip \
+	--without-maxminddb \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_MEMCACHED)-memcached \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_LUA)-lua
 
