@@ -22,7 +22,11 @@ LIBXML2		:= libxml2-$(LIBXML2_VERSION)
 LIBXML2_SUFFIX	:= tar.gz
 LIBXML2_SOURCE	:= $(SRCDIR)/$(LIBXML2).$(LIBXML2_SUFFIX)
 LIBXML2_DIR	:= $(BUILDDIR)/$(LIBXML2)
-LIBXML2_LICENSE	:= MIT
+LIBXML2_LICENSE	:= MIT AND ISC
+# The file 'COPYING' is just a symlink on the file 'Copyright'
+LIBXML2_LICENSE_FILES := \
+	file://Copyright;md5=2044417e2e5006b65a8b9067b683fcf1 \
+	file://hash.c;startline=6;endline=15;md5=96f7296605eae807670fb08947829969
 
 LIBXML2_URL := \
 	ftp://xmlsoft.org/libxml2/$(LIBXML2).$(LIBXML2_SUFFIX) \
