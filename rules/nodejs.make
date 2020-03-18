@@ -1,6 +1,7 @@
 # -*-makefile-*-
 #
 # Copyright (C) 2015 by Michael Grzeschik <mgr@pengutronix.de>
+# Copyright (C) 2019 by Björn Esser <bes@pengutronix.de>
 #
 # For further information about the PTXdist project and license conditions
 # see the README file.
@@ -16,19 +17,24 @@ endif
 #
 # Paths and names
 #
-NODEJS_VERSION	:= v6.9.5
-NODEJS_MD5	:= a2a820b797fb69ffb259b479c7f5df32
-NODEJS		:= node-$(NODEJS_VERSION)
-NODEJS_SUFFIX	:= tar.gz
-NODEJS_URL	:= http://nodejs.org/dist/$(NODEJS_VERSION)/$(NODEJS).$(NODEJS_SUFFIX)
-NODEJS_SOURCE	:= $(SRCDIR)/$(NODEJS).$(NODEJS_SUFFIX)
-NODEJS_DIR	:= $(BUILDDIR)/$(NODEJS)
-NODEJS_LICENSE	:= unknown
+NODEJS_VERSION		:= v12.14.1
+NODEJS_MD5		:= 1c78a75f5c95321f533ecccca695e814
+NODEJS			:= node-$(NODEJS_VERSION)
+NODEJS_SUFFIX		:= tar.xz
+NODEJS_URL		:= http://nodejs.org/dist/$(NODEJS_VERSION)/$(NODEJS).$(NODEJS_SUFFIX)
+NODEJS_SOURCE		:= $(SRCDIR)/$(NODEJS).$(NODEJS_SUFFIX)
+NODEJS_DIR		:= $(BUILDDIR)/$(NODEJS)
+NODEJS_LICENSE		:= MIT
+NODEJS_LICENSE_FILES	:= \
+        file://LICENSE;md5=be4d5107c64dc3d7c57e3797e1a0674b
 
-NODEJS_SRCDIR		:= $(PTXDIST_WORKSPACE)/local_src
-NODEJS_MODULE_LIST	:= $(call remove_quotes, $(PTXCONF_NODEJS_MODULE_LIST))
-NODEJS_NPMBOXES		:= $(foreach module,$(NODEJS_MODULE_LIST), \
-	$(addprefix $(NODEJS_SRCDIR)/,$(addsuffix .npmbox,$(module))))
+NODEJS_HOST_TOOLS	:= \
+	bytecode_builtins_list_generator \
+	gen-regexp-special-case \
+	mkcodecache \
+	mksnapshot \
+	node_mksnapshot \
+	torque
 
 node/env = \
 	$(CROSS_ENV) \
@@ -38,47 +44,6 @@ node/env = \
 	npm_config_tmp=$(PTXDIST_TEMPDIR)/nodejs \
 	npm_config_nodedir=$(NODEJS_DIR) \
 	$(1)
-
-# remove version number from package string
-define rmversion
-$(shell echo $(1) | sed 's-\<\([^ @]*\)@[^ @]*\>-\1-g')
-endef
-
-# ----------------------------------------------------------------------------
-# Get
-# ----------------------------------------------------------------------------
-
-nodejs-get: $(NODEJS_NPMBOXES)
-PHONY += nodejs-get
-
-$(NODEJS_SRCDIR)/%.npmbox:| $(STATEDIR)/host-nodejs.install.post
-	@$(call targetinfo)
-	mkdir -p $(NODEJS_SRCDIR)
-	cd $(NODEJS_SRCDIR) && \
-		$(call node/env, npmbox $(*) --verbose)
-
-# Map package sources and md5sums for world/check_src
-NODEJS_MODULE_MD5	:= $(call remove_quotes, $(PTXCONF_NODEJS_MODULE_MD5))
-define def_mod
-$(call rmversion,$(1))_SOURCE	:= $(addprefix $(NODEJS_SRCDIR)/,$(addsuffix .npmbox,$(1)))
-$(call rmversion,$(1))_MD5	:= $(firstword $(NODEJS_MODULE_MD5))
-NODEJS_MODULE_MD5 := $(filter-out $(firstword $(NODEJS_MODULE_MD5)),$(NODEJS_MODULE_MD5))
-endef
-$(foreach module,$(NODEJS_MODULE_LIST),$(eval $(call def_mod,$(module))))
-
-$(STATEDIR)/nodejs.get:
-	@$(call targetinfo)
-	@$(call world/get, NODEJS)
-	@$(call world/check_src, NODEJS)
-	@$(foreach npmbox,$(NODEJS_NPMBOXES), \
-		if [ ! -e $(npmbox) ]; then \
-			echo "NodeJS modules must be downloaded with 'ptxdist make nodejs-get'"; \
-			echo ; \
-			exit 1; \
-		fi;)
-	@$(foreach module,$(NODEJS_MODULE_LIST), \
-		$(call world/check_src, $(call rmversion,$(module)))$(ptx/nl))
-	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -99,33 +64,37 @@ NODEJS_ARM_FLOAT_ABI = $(shell ptxd_cross_cc_v | sed -n "s/COLLECT_GCC_OPTIONS=.
 NODEJS_ARM_FPU = $(shell ptxd_cross_cc_v | sed -n "s/COLLECT_GCC_OPTIONS=.*'-mfpu=\([^']*\)'.*/\1/p" | tail -n1)
 endif
 
-NODEJS_CONF_TOOL := autoconf
-# Use '=' to delay $(shell ...) calls until this is needed
-NODEJS_CONF_OPT = \
+NODEJS_CONF_OPT := \
 	--prefix=/usr \
 	--dest-cpu=$(NODEJS_ARCH) \
+	--no-cross-compiling \
 	--dest-os=linux \
 	$(call ptx/ifdef,PTXCONF_ARCH_ARM,--with-arm-float-abi=$(NODEJS_ARM_FLOAT_ABI)) \
 	$(call ptx/ifdef,PTXCONF_ARCH_ARM,--with-arm-fpu=$(NODEJS_ARM_FPU)) \
 	--without-dtrace \
-	$(call ptx/ifdef,PTXCONF_NODEJS_NPM,,--without-npm) \
+	--without-etw \
+	--without-npm \
+	--shared \
+	--shared-libuv \
 	--shared-openssl \
 	--shared-zlib \
+	--shared-cares \
 	--with-intl=none \
 	--without-snapshot
 
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/nodejs.install:
+$(STATEDIR)/nodejs.prepare:
 	@$(call targetinfo)
-	@$(call install, NODEJS)
-	@$(foreach npmbox, $(NODEJS_NPMBOXES), \
-		cd $(NODEJS_PKGDIR)/usr/lib/ && \
-		$(call node/env, npmunbox -build-from-source $(npmbox))$(ptx/nl))
-	@$(call touch)
 
+#	# Using a patch here isn't enough, as we need absolute paths
+#	# to the pre-built host tool binaries, which are different for
+#	# each individual checkout of a BSP.  -_-
+	$(foreach f,$(NODEJS_HOST_TOOLS), \
+		sed -i -e "s#<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)$(f)<(EXECUTABLE_SUFFIX)#$(PTXDIST_SYSROOT_HOST)/bin/$(f)#" \
+			$(NODEJS_DIR)/node.gyp $(NODEJS_DIR)/tools/v8_gypfiles/v8.gyp $(ptx/nl))
+
+	@$(call world/prepare, NODEJS)
+
+	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -141,23 +110,11 @@ $(STATEDIR)/nodejs.targetinstall:
 	@$(call install_fixup, nodejs,DESCRIPTION,missing)
 
 	@$(call install_copy, nodejs, 0, 0, 0755, -, /usr/bin/node)
+	@$(call install_lib, nodejs, 0, 0, 0644, libnode)
 
 #	# the place node searches for packages
 	@$(call install_link, nodejs, node_modules, /usr/lib/node)
 
-ifdef PTXCONF_NODEJS_NPM
-	@$(call install_link, nodejs, ../lib/node_modules/npm/bin/npm-cli.js, /usr/bin/npm)
-	@$(call install_tree, nodejs, 0, 0, -, /usr/lib/node_modules/npm/lib/)
-	@$(call install_tree, nodejs, 0, 0, -, /usr/lib/node_modules/npm/bin)
-	@$(call install_tree, nodejs, 0, 0, -, /usr/lib/node_modules/npm/scripts)
-	@$(call install_tree, nodejs, 0, 0, -, /usr/lib/node_modules/npm/node_modules)
-	@$(call install_copy, nodejs, 0, 0, 0644, -, /usr/lib/node_modules/npm/package.json)
-endif
-
-ifneq ($(NODEJS_MODULE_LIST),)
-	@$(foreach module, $(call rmversion, $(NODEJS_MODULE_LIST)), \
-		$(call install_tree, nodejs, 0, 0, -, /usr/lib/node_modules/$(module))$(ptx/nl))
-endif
 	@$(call install_finish, nodejs)
 
 	@$(call touch)

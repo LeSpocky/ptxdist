@@ -3,4 +3,6 @@
 config HOST_NODEJS
 	tristate
 	default y if ALLYES
+	select HOST_C_ARES
 	select HOST_OPENSSL
+	select HOST_ZLIB
