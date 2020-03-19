@@ -90,15 +90,8 @@ ptxd_install_resolve_usr_grp() {
 }
 export -f ptxd_install_resolve_usr_grp
 
-ptxd_install_setup() {
-    local image
+ptxd_install_setup_global() {
     local -a nfsroot_dirs
-
-    case "${dst}" in
-	/bin/*|/sbin/*|/lib/*) dst="/usr${dst}" ;;
-	/*|"") ;;
-	*) ptxd_bailout "${FUNCNAME[${#FUNCNAME[@]}-5]}: 'dst' must be an absolute path!" ;;
-    esac
 
     nfsroot_dirs=("${ptx_nfsroot}" ${pkg_nfsroot_dirs})
 
@@ -124,6 +117,15 @@ ptxd_install_setup() {
 	    ddirs[${#ddirs[@]}]="${pkg_xpkg_dbg_tmp}"
 	fi
     fi
+}
+export -f ptxd_install_setup_global
+
+ptxd_install_setup() {
+    case "${dst}" in
+	/bin/*|/sbin/*|/lib/*) dst="/usr${dst}" ;;
+	/*|"") ;;
+	*) ptxd_bailout "${FUNCNAME[${#FUNCNAME[@]}-5]}: 'dst' must be an absolute path!" ;;
+    esac
 
     mod_nfs="$(printf "0%o" $(( 0${mod} & ~06000 )))" &&
     mod_rw="$(printf "0%o" $(( 0${mod} | 0200 )))" &&
@@ -228,7 +230,6 @@ ptxd_install_dir() {
     local usr="$2"
     local grp="$3"
     local mod="$4"
-    local -a dirs ndirs pdirs sdirs ddirs
     local mod_nfs mod_rw
 
     ptxd_install_setup &&
@@ -347,7 +348,6 @@ ptxd_install_file_impl() {
     local grp="$4"
     local mod="$5"
     local strip="$6"
-    local -a dirs ndirs pdirs sdirs ddirs
     local mod_nfs mod_rw
     local gdb_src
 
@@ -434,7 +434,6 @@ ptxd_install_ln() {
     local dst="$2"
     local usr="${3:-0}"
     local grp="${4:-0}"
-    local -a dirs ndirs pdirs sdirs ddirs
     local mod_nfs mod_rw rel
 
     ptxd_install_setup &&
@@ -475,7 +474,6 @@ ptxd_install_mknod() {
     local type="$5"
     local major="$6"
     local minor="$7"
-    local -a dirs ndirs pdirs sdirs ddirs
     local mod_nfs mod_rw
 
     ptxd_install_setup &&
@@ -547,7 +545,6 @@ ptxd_install_replace() {
     local dst="$1"
     local placeholder="$2"
     local value="$3"
-    local -a dirs ndirs pdirs sdirs ddirs
     local mod_nfs mod_rw
 
     ptxd_install_setup &&
@@ -587,7 +584,6 @@ ptxd_install_replace_figlet() {
     local placeholder="$2"
     local value="$3"
     local escapemode="$4"
-    local -a dirs ndirs pdirs sdirs ddirs
     local mod_nfs mod_rw
 
     ptxd_install_setup &&
@@ -672,7 +668,6 @@ ptxd_install_find() {
     local usr="${3#-}"
     local grp="${4#-}"
     local strip="${5}"
-    local -a dirs ndirs pdirs sdirs ddirs
     local mod_nfs mod_rw
     local gdb_src
     if [ -z "${glob}" ]; then
@@ -928,7 +923,6 @@ export -f ptxd_install_lib
 ptxd_install_run() {
     local script="${pkg_xpkg_control_dir}/${1}"
     local dir
-    local -a dirs ndirs pdirs sdirs ddirs
     local mod_nfs mod_rw
 
     if [ -e "${script}" ]; then
@@ -960,6 +954,9 @@ ptxd_make_xpkg_pkg() {
     local pkg_xpkg_dbg_tmp="$2"
     local pkg_xpkg_cmds="$3"
     local pkg_xpkg_perms="$4"
+    local -a dirs ndirs pdirs sdirs ddirs
+
+    ptxd_install_setup_global &&
 
     . "${pkg_xpkg_cmds}" &&
 
