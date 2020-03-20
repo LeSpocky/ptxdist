@@ -17,20 +17,18 @@ PTXDIST_CONFIGS_VERSION	:= $(PTXDIST_VERSION_FULL)
 # Target-Install
 # ----------------------------------------------------------------------------
 
-$(STATEDIR)/ptxdist-configs.targetinstall: \
-	$(PTXDIST_PTXCONFIG) \
-	$(PTXDIST_PLATFORMCONFIG)
+$(call ptx/cfghash-file, PTXDIST_CONFIGS, $(PTXDIST_PTXCONFIG))
+$(call ptx/cfghash-file, PTXDIST_CONFIGS, $(PTXDIST_PLATFORMCONFIG))
 
 ifneq ($(wildcard $(PTXDIST_COLLECTIONCONFIG)),)
-$(STATEDIR)/ptxdist-configs.targetinstall: \
-	$(PTXDIST_COLLECTIONCONFIG)
+$(call ptx/cfghash-file, PTXDIST_CONFIGS, $(PTXDIST_COLLECTIONCONFIG))
 endif
 
 ifdef PTXCONF_KERNEL
-$(STATEDIR)/ptxdist-configs.targetinstall: $(STATEDIR)/kernel.prepare
+$(call ptx/cfghash-file, PTXDIST_CONFIGS, $(KERNEL_CONFIG))
 endif
 ifdef PTXCONF_BAREBOX
-$(STATEDIR)/ptxdist-configs.targetinstall: $(STATEDIR)/barebox.prepare
+$(call ptx/cfghash-file, PTXDIST_CONFIGS, $(BAREBOX_CONFIG))
 endif
 
 $(STATEDIR)/ptxdist-configs.targetinstall:
