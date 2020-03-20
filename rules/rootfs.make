@@ -34,9 +34,7 @@ ROOTFS_STAMP := $(call remove_quotes, \
 	)
 
 # install new /etc/issue if versions change
-ifneq ($(strip $(ROOTFS_STAMP)),$(strip $(call ptx/force-sh, cat $(STATEDIR)/rootfs.stamp 2>/dev/null)))
-PHONY += $(STATEDIR)/rootfs.targetinstall
-endif
+$(call ptx/cfghash, ROOTFS, $(ROOTFS_STAMP))
 
 $(STATEDIR)/rootfs.targetinstall:
 	@$(call targetinfo)
