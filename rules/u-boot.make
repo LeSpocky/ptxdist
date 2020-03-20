@@ -40,13 +40,13 @@ ifdef PTXCONF_U_BOOT_BOOT_SCRIPT
 U_BOOT_BOOT_SCRIPT_TXT := $(call ptx/in-platformconfigdir, uboot.scr)
 U_BOOT_BOOT_SCRIPT_BIN := $(call remove_quotes, \
 	$(PTXCONF_U_BOOT_BOOT_SCRIPT_ROOTFS_PATH))
-$(STATEDIR)/u-boot.compile: $(U_BOOT_BOOT_SCRIPT_TXT)
+$(call ptx/cfghash-file, OS_RELEU_BOOT, $(U_BOOT_BOOT_SCRIPT_TXT))
 endif
 
 ifdef PTXCONF_U_BOOT_ENV_IMAGE_CUSTOM
 U_BOOT_ENV_IMAGE_CUSTOM_SRC := $(call ptx/in-platformconfigdir, \
 	$(call remove_quotes, $(PTXCONF_U_BOOT_ENV_IMAGE_CUSTOM_SOURCE)))
-$(STATEDIR)/u-boot.compile: $(U_BOOT_ENV_IMAGE_CUSTOM_SRC)
+$(call ptx/cfghash-file, OS_RELEU_BOOT, $(U_BOOT_ENV_IMAGE_CUSTOM_SRC))
 endif
 
 U_BOOT_WRAPPER_BLACKLIST := \
