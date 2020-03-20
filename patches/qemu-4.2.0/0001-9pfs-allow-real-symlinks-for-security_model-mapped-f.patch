@@ -1,0 +1,89 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Tue, 25 Oct 2016 12:39:03 +0200
+Subject: [PATCH] 9pfs: allow real symlinks for security_model=mapped-file
+
+And create real symlinks if possible. This makes it possible to use the
+same filesystem with security_model=mapped-file and security_model=none.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ hw/9pfs/9p-local.c | 44 +++++++++++++++++++++++++++++---------------
+ 1 file changed, 29 insertions(+), 15 deletions(-)
+
+diff --git a/hw/9pfs/9p-local.c b/hw/9pfs/9p-local.c
+index 4708c0bd896f..23909e91d5f1 100644
+--- a/hw/9pfs/9p-local.c
++++ b/hw/9pfs/9p-local.c
+@@ -455,8 +455,7 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
+ {
+     ssize_t tsize = -1;
+ 
+-    if ((fs_ctx->export_flags & V9FS_SM_MAPPED) ||
+-        (fs_ctx->export_flags & V9FS_SM_MAPPED_FILE)) {
++    if (fs_ctx->export_flags & V9FS_SM_MAPPED) {
+         int fd;
+ 
+         fd = local_open_nofollow(fs_ctx, fs_path->data, O_RDONLY, 0);
+@@ -468,6 +467,7 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
+         } while (tsize == -1 && errno == EINTR);
+         close_preserve_errno(fd);
+     } else if ((fs_ctx->export_flags & V9FS_SM_PASSTHROUGH) ||
++               (fs_ctx->export_flags & V9FS_SM_MAPPED_FILE) ||
+                (fs_ctx->export_flags & V9FS_SM_NONE)) {
+         char *dirpath = g_path_get_dirname(fs_path->data);
+         char *name = g_path_get_basename(fs_path->data);
+@@ -479,6 +479,17 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
+         }
+ 
+         tsize = readlinkat(dirfd, name, buf, bufsz);
++
++        if (tsize == -1 && (fs_ctx->export_flags & V9FS_SM_MAPPED_FILE)) {
++            int fd = openat_file(dirfd, name, O_RDONLY, 0);
++            if (fd == -1) {
++                goto out;
++            }
++            do {
++                tsize = read(fd, (void *)buf, bufsz);
++            } while (tsize == -1 && errno == EINTR);
++            close_preserve_errno(fd);
++        }
+         close_preserve_errno(dirfd);
+     out:
+         g_free(name);
+@@ -881,20 +892,23 @@ static int local_symlink(FsContext *fs_ctx, const char *oldpath,
+         int fd;
+         ssize_t oldpath_size, write_size;
+ 
+-        fd = openat_file(dirfd, name, O_CREAT | O_EXCL | O_RDWR,
+-                         fs_ctx->fmode);
+-        if (fd == -1) {
+-            goto out;
+-        }
+-        /* Write the oldpath (target) to the file. */
+-        oldpath_size = strlen(oldpath);
+-        do {
+-            write_size = write(fd, (void *)oldpath, oldpath_size);
+-        } while (write_size == -1 && errno == EINTR);
+-        close_preserve_errno(fd);
++        if (fs_ctx->export_flags & V9FS_SM_MAPPED ||
++            (symlinkat(oldpath, dirfd, name) != 0)) {
++            fd = openat_file(dirfd, name, O_CREAT | O_EXCL | O_RDWR,
++                             fs_ctx->fmode);
++            if (fd == -1) {
++                goto out;
++            }
++            /* Write the oldpath (target) to the file. */
++            oldpath_size = strlen(oldpath);
++            do {
++                write_size = write(fd, (void *)oldpath, oldpath_size);
++            } while (write_size == -1 && errno == EINTR);
++            close_preserve_errno(fd);
+ 
+-        if (write_size != oldpath_size) {
+-            goto err_end;
++            if (write_size != oldpath_size) {
++                goto err_end;
++            }
+         }
+         /* Set cleint credentials in symlink's xattr */
+         credp->fc_mode = credp->fc_mode | S_IFLNK;
