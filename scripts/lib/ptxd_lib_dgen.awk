@@ -81,20 +81,6 @@ $0 ~ /^include[[:space:]]+\/.*\.make$/ {
 }
 
 
-function dump_file(src, dst, tmp) {
-	if (!src)
-		return
-
-	old_RS = RS
-	RS = "^$"
-	getline tmp < src
-	print tmp >> dst
-	RS = old_RS
-	close(src)
-	close(dst)
-}
-
-
 #
 # warn user if an image, host, or cross package contains a targetinstall rule
 # which will not be executed
@@ -226,13 +212,9 @@ $1 ~ /^PTXCONF_/ {
 
 	do {
 		if (this_PKG in PKG_to_pkg || this_PKG in virtual_pkg) {
-			next_PKG_HASHFILE = PTXDIST_TEMPDIR "/pkghash-" this_PKG;
-			if (next_PKG_HASHFILE != PKG_HASHFILE) {
-				close(PKG_HASHFILE);
-				PKG_HASHFILE = next_PKG_HASHFILE;
-			}
+			PKG_HASHFILE = PTXDIST_TEMPDIR "/pkghash-" this_PKG;
 			if (!($0 in allsym))
-				print $0 >> PKG_HASHFILE;
+				print "$(file >>" PKG_HASHFILE "," $1 "=$(" $1 "))"	> DGEN_DEPS_POST;
 			break;
 		}
 	} while (sub(/_+[^_]+$/, "", this_PKG));
@@ -283,7 +265,7 @@ function write_maps(this_PKG, dep_type) {
 		if (last ==  this_DEP_array[i])
 			continue
 		if (this_DEP_array[i] in virtual_pkg) {
-			dump_file(PTXDIST_TEMPDIR "/pkghash-" this_DEP_array[i], PTXDIST_TEMPDIR "/pkghash-" this_PKG);
+			print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,RULES: " this_PKG " " PTXDIST_TEMPDIR "/pkghash-" this_DEP_array[i] ")"	> DGEN_DEPS_POST;
 			continue
 		}
 		if (!(this_DEP_array[i] in PKG_to_pkg))
@@ -391,6 +373,11 @@ function write_deps_pkg_all(this_PKG, this_pkg) {
 }
 
 function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
+	if (this_PKG in PKG_to_infile)
+		print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,RULES: " this_PKG " " PKG_to_infile[this_PKG] ")"	> DGEN_DEPS_POST;
+	if (this_PKG in PKG_to_makefile)
+		print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,RULES: " this_PKG " " PKG_to_makefile[this_PKG] ")"	> DGEN_DEPS_POST;
+
 	print "ifneq ($(" this_PKG "),)"									> DGEN_DEPS_POST;
 	print "ifneq ($(" this_PKG "_PATCHES),)"								> DGEN_DEPS_POST;
 	print this_PKG "_PATCH_DIR := $(call ptx/in-path,PTXDIST_PATH_PATCHES,$(" this_PKG "_PATCHES))"		> DGEN_DEPS_POST;
@@ -586,6 +573,12 @@ function write_deps_pkg_active_image(this_PKG, this_pkg, prefix) {
 
 END {
 	print "PTXDIST_PKGHASH_MAKE := $(wildcard " PTXDIST_TEMPDIR "/pkghash.make)"				> DGEN_DEPS_POST;
+	# writing maps first as this affect the pkghash via virtual packages
+	for (this_PKG in PKG_to_pkg) {
+		this_pkg = PKG_to_pkg[this_PKG];
+		write_maps(this_PKG, "R")
+		write_maps(this_PKG, "B")
+	}
 	# extend pkghash files fist
 	for (this_PKG in active_PKG_to_pkg)
 		write_deps_pkg_active_cfghash(this_PKG, this_pkg)
@@ -606,8 +599,6 @@ END {
 		this_pkg_prefix = gensub(/^(host-|cross-|image-|).*/, "\\1", 1, this_pkg)
 
 		write_vars_all(this_PKG)
-		write_maps(this_PKG, "R")
-		write_maps(this_PKG, "B")
 		if (this_pkg_prefix != "image-") {
 			write_deps_pkg_all(this_PKG, this_pkg)
 			write_vars_pkg_all(this_PKG, this_pkg, this_pkg_prefix)
@@ -629,14 +620,8 @@ END {
 		}
 		else
 			write_deps_pkg_active_image(this_PKG, this_pkg, this_pkg_prefix)
-
-		if (this_PKG in PKG_to_infile)
-			dump_file(PKG_to_infile[this_PKG], PTXDIST_TEMPDIR "/pkghash-" this_PKG);
-		if (this_PKG in PKG_to_makefile)
-			dump_file(PKG_to_makefile[this_PKG], PTXDIST_TEMPDIR "/pkghash-" this_PKG);
 	}
 
-	close(PKG_HASHFILE);
 	close(MAP_ALL);
 	close(MAP_ALL_MAKE);
 	close(MAP_DEPS);

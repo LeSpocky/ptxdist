@@ -24,6 +24,12 @@ $1 == "CONFIG:" {
 	configs[pkg] = configs[pkg] " " config
 }
 
+$1 == "RULES:" {
+	pkg = $2
+	rule = $3
+	rules[pkg] = rules[pkg] " " rule
+}
+
 function dump_file(src, dst, tmp) {
 	if (!src)
 		return
@@ -38,6 +44,14 @@ function dump_file(src, dst, tmp) {
 }
 
 END {
+	for (pkg in rules) {
+		f1 = PTXDIST_TEMPDIR "/pkghash-" pkg
+		split(rules[pkg], cfgs)
+		for (rule in cfgs) {
+			dump_file(cfgs[rule], f1)
+			printf "\n" >> f1
+		}
+	}
 	for (pkg in configs) {
 		config = configs[pkg]
 		f1 = PTXDIST_TEMPDIR "/pkghash-" pkg
