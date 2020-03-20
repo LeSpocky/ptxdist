@@ -25,11 +25,11 @@ OS_RELEASE_STAMP := $(call remove_quotes, \
 	$(PTXCONF_PLATFORM) \
 	$(PTXCONF_PLATFORM_VERSION))
 
-ifneq ($(strip $(OS_RELEASE_STAMP)),$(strip $(call ptx/force-sh, cat $(STATEDIR)/os-release.stamp 2>/dev/null)))
-PHONY += $(STATEDIR)/os-release.targetinstall
-endif
+$(call ptx/cfghash, OS_RELEASE, $(OS_RELEASE_STAMP))
+$(call ptx/cfghash-file, OS_RELEASE, $(PTXDIST_PTXCONFIG))
+$(call ptx/cfghash-file, OS_RELEASE, $(PTXDIST_PLATFORMCONFIG))
 
-$(STATEDIR)/os-release.targetinstall: $(PTXDIST_PTXCONFIG) $(PTXDIST_PLATFORMCONFIG)
+$(STATEDIR)/os-release.targetinstall:
 	@$(call targetinfo)
 
 	@$(call install_init, os-release)
