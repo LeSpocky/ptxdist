@@ -1,0 +1,685 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Wed, 30 Jan 2019 08:26:07 +0100
+Subject: [PATCH] initial virtfs support
+
+This adds support for the 'mapped-file' security model as implemented by
+the qemu 9p backend. This works like this:
+
+For every file or directory 'foo' there is a extra file
+'.virtfs_metadata/foo' with contents like this:
+--------------------->8------------------------
+virtfs.uid=0
+virtfs.gid=0
+virtfs.mode=16877
+--------------------->8------------------------
+These values replace 'st_uid', 'st_gid' and 'st_mode' from 'struct stat'.
+All special files (device nodes, sockets, etc. are replaced by empty files.
+In this case there is a special key 'virtfs.rdev' for 'st_rdev'.
+
+Missing features:
+
+Multi user setup:
+Currently all new files are owned by the user that runs unfsd.
+Without virtfs, unfsd switches to the user that makes the request.
+With virtfs, the idea is to switch to the owner of the directory so that
+each user can own their own subtree.
+
+Permission checks:
+unfsd relies on the underlying filesystem to perform any permission checks.
+With virtfs, all files belong to the same user, so this does not work.
+So right now all users can do everything.
+Note: A unfsd running as a non-root user has basically the same problem.
+The only difference is, that it ignores any atempts to change ownership
+of files.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ Makefile.in |   6 +-
+ attr.c      |  11 ++++
+ daemon.c    |   7 ++-
+ daemon.h    |   1 +
+ fh.c        |   7 ++-
+ fh_cache.c  |   3 +
+ locate.c    |   2 +
+ nfs.c       |  27 ++++++++-
+ readdir.c   |   9 +--
+ user.c      |   8 ++-
+ user.h      |   1 +
+ virtfs.c    | 191 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ virtfs.h    |  26 +++++++++
+ 13 files changed, 288 insertions(+), 11 deletions(-)
+ create mode 100644 virtfs.c
+ create mode 100644 virtfs.h
+
+diff --git a/Makefile.in b/Makefile.in
+index 551aa2232024..84318d038c7b 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -7,9 +7,9 @@ RM = rm -f
+ MAKE = make
+ 
+ SOURCES = attr.c daemon.c error.c fd_cache.c fh.c fh_cache.c locate.c \
+-          md5.c mount.c nfs.c password.c readdir.c user.c xdr.c winsupport.c
++          md5.c mount.c nfs.c password.c readdir.c user.c xdr.c winsupport.c virtfs.c
+ OBJS = attr.o daemon.o error.o fd_cache.o fh.o fh_cache.o locate.o \
+-       md5.o mount.o nfs.o password.o readdir.o user.o xdr.o winsupport.o
++       md5.o mount.o nfs.o password.o readdir.o user.o xdr.o winsupport.o virtfs.o
+ CONFOBJ = Config/lib.a
+ EXTRAOBJ = @EXTRAOBJ@
+ LDFLAGS = @LDFLAGS@ @LIBS@ @LEXLIB@
+@@ -152,6 +152,8 @@ unfs3-$(VERSION).tar.gz:
+ 	 unfs3-$(VERSION)/configure.ac \
+ 	 unfs3-$(VERSION)/mount.h \
+ 	 unfs3-$(VERSION)/readdir.c \
++	 unfs3-$(VERSION)/virtfs.c \
++	 unfs3-$(VERSION)/virtfs.h \
+ 	 unfs3-$(VERSION)/user.h)
+ 	rm -rf /tmp/unfs3-make-dist-dir
+ 
+diff --git a/attr.c b/attr.c
+index 2a13441179a0..4ae09e1f9955 100644
+--- a/attr.c
++++ b/attr.c
+@@ -26,6 +26,7 @@
+ #include "fh_cache.h"
+ #include "daemon.h"
+ #include "user.h"
++#include "virtfs.h"
+ #include "Config/exports.h"
+ 
+ /*
+@@ -230,6 +231,8 @@ static post_op_attr get_post_ll(const char *path, uint32 dev, uint64 ino,
+     if (dev != buf.st_dev || ino != buf.st_ino)
+ 	return error_attr;
+ 
++    virtfs_fixup(path, &buf);
++
+     return get_post_buf(buf, req);
+ }
+ 
+@@ -328,6 +331,10 @@ static nfsstat3 set_attr_unsafe(const char *path, nfs_fh3 nfh, sattr3 new)
+     if (buf.st_dev != fh->dev || buf.st_ino != fh->ino)
+ 	return NFS3ERR_STALE;
+ 
++    res = virtfs_update(path, buf, &new);
++    if (res == -1)
++	return setattr_err();
++
+     /* set file size */
+     if (new.size.set_it == TRUE) {
+ 	res = backend_truncate(path, new.size.set_size3_u.size);
+@@ -418,6 +425,10 @@ nfsstat3 set_attr(const char *path, nfs_fh3 nfh, sattr3 new)
+ 	return NFS3ERR_STALE;
+     }
+ 
++    res = virtfs_update(path, buf, &new);
++    if (res == -1)
++	return setattr_err();
++
+     /* set file size */
+     if (new.size.set_it == TRUE) {
+ 	res = backend_ftruncate(fd, new.size.set_size3_u.size);
+diff --git a/daemon.c b/daemon.c
+index fbd901f5e19d..5172b9cca2fa 100644
+--- a/daemon.c
++++ b/daemon.c
+@@ -72,6 +72,7 @@ unsigned int opt_mount_port = NFS_PORT;
+ int opt_singleuser = FALSE;
+ int opt_brute_force = FALSE;
+ int opt_testconfig = FALSE;
++int opt_virtfs = FALSE;
+ struct in_addr opt_bind_addr;
+ int opt_readable_executables = FALSE;
+ char *opt_pid_file = NULL;
+@@ -202,7 +203,7 @@ static void remove_pid_file(void)
+ static void parse_options(int argc, char **argv)
+ {
+     int opt = 0;
+-    char *optstring = "bcC:de:hl:m:n:prstTuwi:";
++    char *optstring = "bcC:de:hl:m:n:prstTuVwi:";
+ 
+     while (opt != -1) {
+ 	opt = getopt(argc, argv, optstring);
+@@ -257,6 +258,7 @@ static void parse_options(int argc, char **argv)
+ 		printf
+ 		    ("\t-r          report unreadable executables as readable\n");
+ 		printf("\t-T          test exports file and exit\n");
++		printf("\t-V          use virtfs owner/group/mode mappings\n");
+ 		exit(0);
+ 		break;
+ 	    case 'l':
+@@ -307,6 +309,9 @@ static void parse_options(int argc, char **argv)
+ 		opt_nfs_port = 0;
+ 		opt_mount_port = 0;
+ 		break;
++	    case 'V':
++		opt_virtfs = TRUE;
++		break;
+ 	    case 'i':
+ 		opt_pid_file = optarg;
+ 		break;
+diff --git a/daemon.h b/daemon.h
+index 13b20afd36d3..4bbe2488d53a 100644
+--- a/daemon.h
++++ b/daemon.h
+@@ -45,5 +45,6 @@ extern char	*opt_cluster_path;
+ extern int	opt_singleuser;
+ extern int	opt_brute_force;
+ extern int	opt_readable_executables;
++extern int	opt_virtfs;
+ 
+ #endif
+diff --git a/fh.c b/fh.c
+index 46c66cdb0ce5..f76d2d0c70ed 100644
+--- a/fh.c
++++ b/fh.c
+@@ -36,6 +36,7 @@
+ #include "daemon.h"
+ #include "fh.h"
+ #include "backend.h"
++#include "virtfs.h"
+ #include "Config/exports.h"
+ 
+ /*
+@@ -334,6 +335,7 @@ post_op_fh3 fh_extend_type(nfs_fh3 fh, const char *path, unsigned int type)
+ 	return result;
+     }
+ 
++    virtfs_fixup(path, &buf);
+     st_cache_valid = TRUE;
+     st_cache = buf;
+ 
+@@ -390,7 +392,7 @@ static int fh_rec(const unfs3_fh_t * fh, int pos, const char *lead,
+     if (!search)
+ 	return FALSE;
+ 
+-    entry = backend_readdir(search);
++    entry = virtfs_readdir(search);
+ 
+     while (entry) {
+ 	if (strlen(lead) + strlen(entry->d_name) + 1 < NFS_MAXPATHLEN) {
+@@ -407,6 +409,7 @@ static int fh_rec(const unfs3_fh_t * fh, int pos, const char *lead,
+ 		/* found the object */
+ 		sprintf(result, "%s/%s", lead + 1, entry->d_name);
+ 		/* update stat cache */
++		virtfs_fixup(obj, &buf);
+ 		st_cache_valid = TRUE;
+ 		st_cache = buf;
+ 		matches++;
+@@ -430,7 +433,7 @@ static int fh_rec(const unfs3_fh_t * fh, int pos, const char *lead,
+ 		}
+ 	    }
+ 	}
+-	entry = backend_readdir(search);
++	entry = virtfs_readdir(search);
+     }
+ 
+     backend_closedir(search);
+diff --git a/fh_cache.c b/fh_cache.c
+index b41146971d26..148c09f9c788 100644
+--- a/fh_cache.c
++++ b/fh_cache.c
+@@ -26,6 +26,7 @@
+ #include "Config/exports.h"
+ #include "readdir.h"
+ #include "backend.h"
++#include "virtfs.h"
+ 
+ /* number of entries in fh cache */
+ #define CACHE_ENTRIES	4096
+@@ -180,6 +181,7 @@ static char *fh_cache_lookup(uint32 dev, uint64 ino)
+ 	    /* cache hit, update time on cache entry */
+ 	    fh_cache[i].use = fh_cache_next();
+ 
++	    virtfs_fixup(fh_cache[i].path, &buf);
+ 	    /* update stat cache */
+ 	    st_cache_valid = TRUE;
+ 	    st_cache = buf;
+@@ -246,6 +248,7 @@ char *fh_decomp(nfs_fh3 fh)
+ 		    st_cache.st_blksize = 512;
+ 		if (st_cache.st_blocks == 0)
+ 		    st_cache.st_blocks = 8;
++		virtfs_fixup(result, &st_cache);
+ 	    }
+ 
+ 	    st_cache.st_dev = obj->dev;
+diff --git a/locate.c b/locate.c
+index c5ed21937fa5..2f8c719ca7a2 100644
+--- a/locate.c
++++ b/locate.c
+@@ -27,6 +27,7 @@
+ #include "nfs.h"
+ #include "fh.h"
+ #include "daemon.h"
++#include "virtfs.h"
+ 
+ /*
+  * these are the brute-force file searching routines that are used
+@@ -69,6 +70,7 @@ static int locate_pfx(const char *pfx, uint32 dev, uint64 ino, char *result)
+ 	/* check for matching object */
+ 	if (buf.st_dev == dev && buf.st_ino == ino) {
+ 	    strcpy(result, path);
++	    virtfs_fixup(path, &buf);
+ 	    st_cache = buf;
+ 	    st_cache_valid = TRUE;
+ 	    closedir(search);
+diff --git a/nfs.c b/nfs.c
+index 5d99bf86c373..708dc3e9ed3b 100644
+--- a/nfs.c
++++ b/nfs.c
+@@ -46,6 +46,7 @@
+ #include "fd_cache.h"
+ #include "daemon.h"
+ #include "backend.h"
++#include "virtfs.h"
+ #include "Config/exports.h"
+ #include "Extras/cluster.h"
+ 
+@@ -203,6 +204,7 @@ LOOKUP3res *nfsproc3_lookup_3_svc(LOOKUP3args * argp, struct svc_req * rqstp)
+ 	if (res == -1)
+ 	    result.status = lookup_err();
+ 	else {
++	    virtfs_fixup(obj, &buf);
+ 	    if (strcmp(argp->what.name, ".") == 0 ||
+ 		strcmp(argp->what.name, "..") == 0) {
+ 		fh = fh_comp_ptr(obj, rqstp, 0);
+@@ -512,6 +514,7 @@ CREATE3res *nfsproc3_create_3_svc(CREATE3args * argp, struct svc_req * rqstp)
+     }
+ 
+     if (fd != -1) {
++	virtfs_create(obj, rqstp, S_IFREG | create_mode(new_attr), 0);
+ 	/* Successful open */
+ 	res = backend_fstat(fd, &buf);
+ 	if (res != -1) {
+@@ -605,6 +608,7 @@ MKDIR3res *nfsproc3_mkdir_3_svc(MKDIR3args * argp, struct svc_req * rqstp)
+ 	if (res == -1)
+ 	    result.status = mkdir_err();
+ 	else {
++	    virtfs_create(obj, rqstp, S_IFDIR | create_mode(argp->attributes), 0);
+ 	    result.MKDIR3res_u.resok.obj =
+ 		fh_extend_type(argp->where.dir, obj, S_IFDIR);
+ 	    result.MKDIR3res_u.resok.obj_attributes = get_post_cached(rqstp);
+@@ -655,6 +659,7 @@ SYMLINK3res *nfsproc3_symlink_3_svc(SYMLINK3args * argp,
+ 	if (res == -1)
+ 	    result.status = symlink_err();
+ 	else {
++	    virtfs_create(obj, rqstp, S_IFLNK | new_mode, 0);
+ 	    result.SYMLINK3res_u.resok.obj =
+ 		fh_extend_type(argp->where.dir, obj, S_IFLNK);
+ 	    result.SYMLINK3res_u.resok.obj_attributes =
+@@ -764,7 +769,20 @@ MKNOD3res *nfsproc3_mknod_3_svc(MKNOD3args * argp, struct svc_req * rqstp)
+     cluster_create(obj, rqstp, &result.status);
+ 
+     if (result.status == NFS3_OK) {
+-	if (argp->what.type == NF3CHR || argp->what.type == NF3BLK)
++	if (opt_virtfs) {
++	    int flags = O_RDWR | O_CREAT | O_TRUNC | O_NONBLOCK | O_EXCL;
++	    if (argp->what.type == NF3CHR)
++		virtfs_create(obj, rqstp, S_IFCHR | new_mode, dev);
++	    else if (argp->what.type == NF3BLK)
++		virtfs_create(obj, rqstp, S_IFBLK | new_mode, dev);
++	    else if (argp->what.type == NF3FIFO)
++		virtfs_create(obj, rqstp, S_IFIFO | new_mode, 0);
++	    else
++		virtfs_create(obj, rqstp, S_IFSOCK | new_mode, 0);
++	    res = backend_open_create(obj, flags, 0666);
++	    if (res >= 0)
++		close(res);
++	} else if (argp->what.type == NF3CHR || argp->what.type == NF3BLK)
+ 	    res = backend_mknod(obj, new_mode, dev);	/* device */
+ 	else if (argp->what.type == NF3FIFO)
+ 	    res = backend_mkfifo(obj, new_mode);	/* FIFO */
+@@ -808,6 +826,8 @@ REMOVE3res *nfsproc3_remove_3_svc(REMOVE3args * argp, struct svc_req * rqstp)
+ 	res = backend_remove(obj);
+ 	if (res == -1)
+ 	    result.status = remove_err();
++	else
++	    virtfs_remove(obj);
+     }
+ 
+     /* overlaps with resfail */
+@@ -835,6 +855,8 @@ RMDIR3res *nfsproc3_rmdir_3_svc(RMDIR3args * argp, struct svc_req * rqstp)
+ 	res = backend_rmdir(obj);
+ 	if (res == -1)
+ 	    result.status = rmdir_err();
++	else
++	    virtfs_remove(obj);
+     }
+ 
+     /* overlaps with resfail */
+@@ -876,6 +898,8 @@ RENAME3res *nfsproc3_rename_3_svc(RENAME3args * argp, struct svc_req * rqstp)
+ 	    res = backend_rename(from_obj, to_obj);
+ 	    if (res == -1)
+ 		result.status = rename_err();
++	    else
++		virtfs_rename(from_obj, to_obj);
+ 	}
+     }
+ 
+@@ -911,6 +935,7 @@ LINK3res *nfsproc3_link_3_svc(LINK3args * argp, struct svc_req * rqstp)
+ 	result.status = exports_compat(old, rqstp);
+ 
+ 	if (result.status == NFS3_OK) {
++	    virtfs_link(old, obj);
+ 	    res = backend_link(old, obj);
+ 	    if (res == -1)
+ 		result.status = link_err();
+diff --git a/readdir.c b/readdir.c
+index 53b0bfc9e7dd..1ec923dbbf0c 100644
+--- a/readdir.c
++++ b/readdir.c
+@@ -25,6 +25,7 @@
+ #include "Config/exports.h"
+ #include "daemon.h"
+ #include "error.h"
++#include "virtfs.h"
+ 
+ /*
+  * maximum number of entries in readdir results
+@@ -66,7 +67,7 @@ uint32 directory_hash(const char *path)
+ 	return 0;
+     }
+ 
+-    while ((this = backend_readdir(search)) != NULL) {
++    while ((this = virtfs_readdir(search)) != NULL) {
+ 	hval = fnv1a_32(this->d_name, hval);
+     }
+ 
+@@ -137,12 +138,12 @@ READDIR3res read_dir(const char *path, cookie3 cookie, cookieverf3 verf,
+ 	}
+     }
+ 
+-    this = backend_readdir(search);
++    this = virtfs_readdir(search);
+     /* We cannot use telldir()/seekdir(), since the value from telldir() is
+        not valid after closedir(). */
+     for (i = 0; i < cookie; i++)
+ 	if (this)
+-	    this = backend_readdir(search);
++	    this = virtfs_readdir(search);
+ 
+     i = 0;
+     entry[0].name = NULL;
+@@ -184,7 +185,7 @@ READDIR3res read_dir(const char *path, cookie3 cookie, cookieverf3 verf,
+ 		entry[i - 1].nextentry = NULL;
+ 	    else {
+ 		/* advance to next entry */
+-		this = backend_readdir(search);
++		this = virtfs_readdir(search);
+ 	    }
+ 
+ 	    i++;
+diff --git a/user.c b/user.c
+index 241da1ed3160..e412332875e7 100644
+--- a/user.c
++++ b/user.c
+@@ -112,7 +112,7 @@ int get_uid(struct svc_req *req)
+ /*
+  * return group id of a request
+  */
+-static int get_gid(struct svc_req *req)
++int get_gid(struct svc_req *req)
+ {
+     struct authunix_parms *auth = (void *) req->rq_clntcred;
+     int squash = squash_gid;
+@@ -163,6 +163,9 @@ void switch_to_root()
+     if (!can_switch)
+ 	return;
+ 
++    if (opt_virtfs /* FIXME */)
++	return;
++
+     backend_setegid(0);
+     backend_seteuid(0);
+ }
+@@ -194,6 +197,9 @@ void switch_user(struct svc_req *req)
+     if (!can_switch)
+ 	return;
+ 
++    if (opt_virtfs /* FIXME */)
++	return;
++
+     if (opt_singleuser || (backend_getuid() != 0)) {
+ 	/* 
+ 	 * have uid/gid functions behave correctly by squashing
+diff --git a/user.h b/user.h
+index 0109d255eadc..cef5f8370129 100644
+--- a/user.h
++++ b/user.h
+@@ -10,6 +10,7 @@
+ #include "backend.h"
+ 
+ int get_uid(struct svc_req *req);
++int get_gid(struct svc_req *req);
+ 
+ int mangle_uid(int id);
+ int mangle_gid(int id);
+diff --git a/virtfs.c b/virtfs.c
+new file mode 100644
+index 000000000000..85d1b2c8a815
+--- /dev/null
++++ b/virtfs.c
+@@ -0,0 +1,191 @@
++/*
++ * UNFS3 low-level filehandle routines
++ * (C) 2020, Pengutronix, Michael Olbrich <m.olbrich@pengutronix.de>
++ * see file LICENSE for license details
++ */
++
++#include "config.h"
++
++#include <dirent.h>
++#include <errno.h>
++#include <fcntl.h>
++#include <libgen.h>
++#include <unistd.h>
++#include <rpc/rpc.h>
++#include <sys/stat.h>
++
++#include "nfs.h"
++#include "backend.h"
++#include "attr.h"
++#include "daemon.h"
++#include "user.h"
++
++struct dirent *virtfs_readdir(DIR *dirp)
++{
++    struct dirent *d = readdir(dirp);
++    if (!opt_virtfs)
++	return d;
++
++    if (d && (strcmp(d->d_name, ".virtfs_metadata") == 0))
++	d = readdir(dirp);
++    return d;
++}
++
++static void virtfs_meta(const char *path, char *dir, char *meta)
++{
++    char n[PATH_MAX];
++    char *p;
++
++    strncpy(dir, path, PATH_MAX);
++    p = dirname(dir);
++    strcat(p, "/.virtfs_metadata/");
++    strncpy(meta, dir, PATH_MAX);
++    strncpy(n, path, PATH_MAX);
++    strcat(meta, basename(n));
++}
++
++void virtfs_fixup(const char *path, backend_statstruct *buf)
++{
++    char dir[PATH_MAX], meta[PATH_MAX], data[200];
++    char *tmp, *tok, *p;
++    ssize_t size;
++    int fd;
++
++    if (!opt_virtfs)
++	return;
++
++    virtfs_meta(path, dir, meta);
++    fd = backend_open(meta, O_RDONLY);
++    if (fd < 0)
++	return;
++    size = read(fd, data, 100);
++    close(fd);
++    if (size == 200)
++	return;
++
++    data[size] = '\0';
++    tok = strtok_r(data, "\n", &tmp);
++    while (tok) {
++	char *tmp2, *key, *value;
++	unsigned long long ivalue;
++	key = strtok_r(tok, "=", &tmp2);
++	value = strtok_r(NULL, "=", &tmp2);
++	if (!value) {
++	    fprintf(stderr, "invalid syntax for '%s'\n", key);
++	    continue;
++	}
++	ivalue = strtoull(value, NULL, 0);
++	if (!strcmp(key, "virtfs.uid"))
++	    buf->st_uid = ivalue;
++	else if (!strcmp(key, "virtfs.gid"))
++	    buf->st_gid = ivalue;
++	else if (!strcmp(key, "virtfs.mode"))
++	    buf->st_mode = ivalue;
++	else if (!strcmp(key, "virtfs.rdev"))
++	    buf->st_rdev = ivalue;
++	else
++	    fprintf(stderr, "unkown virtfs key '%s'\n", key);
++	tok = strtok_r(NULL, "\n", &tmp);
++    }
++}
++
++static int virtfs_write(const char *path, uid_t uid, gid_t gid, mode_t mode, unsigned long long rdev)
++{
++    char dir[PATH_MAX], meta[PATH_MAX];
++    int fd;
++
++    virtfs_meta(path, dir, meta);
++    backend_mkdir(dir, 0755);
++    fd = backend_open(meta, O_WRONLY|O_CREAT|O_TRUNC, 0644);
++    if (fd < 0)
++	return -1;
++    dprintf(fd, "virtfs.uid=%u\nvirtfs.gid=%u\nvirtfs.mode=%u\n",
++	    (unsigned)uid, (unsigned)gid, (unsigned)mode);
++    if (rdev)
++	dprintf(fd, "virtfs.rdev=%llu\n", rdev);
++    close(fd);
++
++    return 0;
++}
++
++int virtfs_update(const char *path, backend_statstruct buf, sattr3 *new)
++{
++    uid_t uid, user;
++    gid_t gid;
++    mode_t mode;
++    int ret;
++
++    if (!opt_virtfs)
++	return 0;
++
++    virtfs_fixup(path, &buf);
++
++    if (new->uid.set_it == TRUE)
++	uid = new->uid.set_uid3_u.uid;
++    else
++	uid = buf.st_uid;
++
++    if (new->gid.set_it == TRUE)
++	gid = new->gid.set_gid3_u.gid;
++    else
++	gid = buf.st_gid;
++
++    mode = buf.st_mode;
++    if (new->mode.set_it == TRUE)
++	mode = mode & ~0777 | new->mode.set_mode3_u.mode;
++
++    new->uid.set_it = FALSE;
++    new->gid.set_it = FALSE;
++    new->mode.set_it = FALSE;
++    return virtfs_write(path, uid, gid, mode, buf.st_rdev);
++}
++
++int virtfs_create(const char *path, struct svc_req *req, mode_t mode, unsigned long long rdev)
++{
++    struct authunix_parms *auth = (void *) req->rq_clntcred;
++
++    if (!opt_virtfs)
++	return 0;
++
++    return virtfs_write(path, auth->aup_uid, auth->aup_gid, mode, rdev);
++}
++
++void virtfs_remove(const char *path)
++{
++    char dir[PATH_MAX], meta[PATH_MAX];
++
++    if (!opt_virtfs)
++	return;
++
++    virtfs_meta(path, dir, meta);
++    backend_remove(meta);
++    backend_remove(dir);
++}
++
++void virtfs_link(const char *src, const char *dst)
++{
++    char dir[PATH_MAX], src_meta[PATH_MAX], dst_meta[PATH_MAX];
++
++    if (!opt_virtfs)
++	return;
++
++    virtfs_meta(src, dir, src_meta);
++    virtfs_meta(dst, dir, dst_meta);
++    backend_mkdir(dir, 0755);
++    backend_link(src_meta, dst_meta);
++}
++
++void virtfs_rename(const char *src, const char *dst)
++{
++    char dir[PATH_MAX], src_meta[PATH_MAX], dst_meta[PATH_MAX];
++
++    if (!opt_virtfs)
++	return;
++
++    virtfs_meta(dst, dir, dst_meta);
++    backend_mkdir(dir, 0755);
++    virtfs_meta(src, dir, src_meta);
++    backend_rename(src_meta, dst_meta);
++    backend_remove(dir);
++}
++
+diff --git a/virtfs.h b/virtfs.h
+new file mode 100644
+index 000000000000..5747a3a474a9
+--- /dev/null
++++ b/virtfs.h
+@@ -0,0 +1,26 @@
++/*
++ * UNFS3 low-level filehandle routines
++ * (C) 2020, Pengutronix, Michael Olbrich <m.olbrich@pengutronix.de>
++ * see file LICENSE for license details
++ */
++
++#ifndef UNFS3_VIRTFS_H
++#define UNFS3_VIRTFS_H
++
++#include <dirent.h>
++#include <rpc/rpc.h>
++
++#include "backend.h"
++
++struct dirent *virtfs_readdir(DIR *dirp);
++
++void virtfs_fixup(const char *path, backend_statstruct *buf);
++
++int virtfs_create(const char *path, struct svc_req *req, mode_t mode, unsigned long long rdev);
++int virtfs_update(const char *path, backend_statstruct buf, sattr3 *attr);
++
++void virtfs_link(const char *src, const char *dst);
++void virtfs_rename(const char *src, const char *dst);
++void virtfs_remove(const char *path);
++
++#endif

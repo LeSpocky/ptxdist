@@ -5,4 +5,5 @@
 0003-64-bit-fixes-don-t-assume-that-long-is-the-same-size.patch
 0004-use-libtirpc-if-found.patch
 0005-attr-handle-symlinks-correctly.patch
-# b2dd04f9dcebab8f3f969f165662a798  - git-ptx-patches magic
+0006-initial-virtfs-support.patch
+# a8ac7f2ac55ce5a54417780b74564a66  - git-ptx-patches magic
