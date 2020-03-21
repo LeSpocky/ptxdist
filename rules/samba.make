@@ -67,7 +67,7 @@ SAMBA_CONF_OPT	:= \
 	--disable-glusterfs \
 	--disable-cephfs \
 	--disable-spotlight \
-	--with-systemd \
+	--$(call ptx/wwo, PTXCONF_SAMBA_SYSTEMD_UNIT)-systemd \
 	--without-lttng \
 	--accel-aes=$(call ptx/ifdef,PTXCONF_ARCH_X86_64,intelaesni,none) \
 	--enable-pthreadpool \
@@ -86,7 +86,7 @@ SAMBA_CONF_OPT	:= \
 	--enable-fhs \
 	--with-piddir=/run/samba \
 	--with-lockdir=/var/lib/samba/lock \
-	--systemd-install-services \
+	$(call ptx/ifdef,PTXCONF_SAMBA_SYSTEMD_UNIT,--systemd-install-services,) \
 	--with-systemddir=/usr/lib/systemd/system
 
 $(STATEDIR)/samba.prepare:
