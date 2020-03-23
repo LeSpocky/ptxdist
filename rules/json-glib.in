@@ -4,6 +4,7 @@ config JSON_GLIB
 	tristate
 	prompt "json-glib"
 	select GLIB
+	select HOST_GLIB # for glib-mkenums
 	select GOBJECT_INTROSPECTION	if JSON_GLIB_INTROSPECTION
 	help
 	  A library providing (de)serialization support for the JSON format.
