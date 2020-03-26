@@ -1,0 +1,13 @@
+## SECTION=hosttools
+
+config HOST_MFGTOOLS
+	tristate
+	default y if ALLYES
+	prompt "uuu (Universal Update Utility), mfgtools 3.0"
+	select HOST_CMAKE
+	select HOST_LIBUSB
+	select HOST_ZLIB
+	select HOST_BZIP2
+	select HOST_LIBZIP
+	help
+	  Freescale/NXP I.MX Chip image deploy tools.
