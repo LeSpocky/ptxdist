@@ -1,0 +1,8 @@
+## SECTION=hosttools_noprompt
+
+config HOST_LIBZIP
+	tristate
+	select HOST_CMAKE
+	select HOST_ZLIB
+	select HOST_BZIP2
+	default y if ALLYES
