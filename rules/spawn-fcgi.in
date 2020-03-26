@@ -1,0 +1,11 @@
+## SECTION=networking
+
+config SPAWN_FCGI
+	tristate
+	prompt "spawn-fcgi"
+	help
+	  spawn-fcgi is used to spawn FastCGI applications
+	  
+	  https://redmine.lighttpd.net/projects/spawn-fcgi
+
+# vim: ft=kconfig noet tw=72 ts=8 sw=8
