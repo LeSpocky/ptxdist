@@ -1,0 +1,117 @@
+From: Denis Osterland-Heim <Denis.Osterland@diehl.com>
+Date: Thu, 12 Mar 2020 17:36:22 +0100
+Subject: [PATCH] sh does not support array syntax
+
+Remove NFS support, because it uses additional arrays and it is not
+tested.
+
+Signed-off-by: Denis Osterland-Heim <Denis.Osterland@diehl.com>
+---
+ linuxrc | 72 ++++++-----------------------------------------------------------
+ 1 file changed, 6 insertions(+), 66 deletions(-)
+
+diff --git a/linuxrc b/linuxrc
+index 54bb8a2cbbd8..1f15e3cbdff3 100755
+--- a/linuxrc
++++ b/linuxrc
+@@ -16,20 +16,8 @@ last=0;
+ 
+ UDC_DIR=/sys/class/udc
+ 
+-function launch_dhcpd() {
+-
+-	touch -f /var/lib/misc/udhcpd.leases
+-	echo start	168.1.1.50 > /conf
+-	echo end	168.1.1.253 >> /conf
+-	echo interface usb$1 	>>/conf
+-
+-	ifconfig usb$1 168.1.1.1
+-	udhcpd /conf
+-
+-}
+-
+ function contains() {
+-	for i in "${files[@]}"
++	for i in $files
+ 	do
+ 		if [ "$i" == "$1" ]; then
+ 			return 1;
+@@ -45,7 +33,8 @@ function launch_uuc() {
+ 	echo 0x066F > idVendor
+ 
+ 	if [[ ${cmdline} == *nfsroot* ]]; then
+-		echo 0x9CFF > idProduct
++		echo "unsupported"
++		exit 1
+ 	else
+ 		echo 0x9BFF > idProduct
+ 	fi
+@@ -69,57 +58,8 @@ function launch_uuc() {
+ 	echo 0x40 > os_desc/b_vendor_code
+ 
+ 	if [[ ${cmdline} == *nfsroot* ]]; then
+-		mkdir functions/ncm.1
+-		ln -s functions/ncm.1 configs/c.1/
+-#		mkdir functions/acm.1
+-#		ln -s functions/acm.1 configs/c.1/
+-		echo $1 > UDC
+-
+-		echo "Start config network"
+-
+-                ifconfig usb$2 up
+-                while [ ! -e /find_one ]
+-                do
+-                        if [[ `ifconfig usb$2` == *inet6* ]]; then
+-				break;
+-			fi
+-			sleep 1
+-                done
+-
+-		if [ -e /find_one ]; then
+-			exit 0
+-		fi
+-
+-		touch /find_one
+-
+-		launch_dhcpd $2
+-
+-		remote=""
+-		while [[ "$remote" == "" ]];
+-		do
+-			sleep 2
+-			echo retry get remote ipaddress
+-			ping6 -c2 -I usb$2 ff02::1
+-
+-			remote=`ip -6 neighbor show dev usb$2`
+-			remote=(${remote})
+-			remote=${remote[0]}
+-		done
+-
+-                nfs=${cmdline#*nfsroot=}
+-                nfs=($nfs)
+-                nfs=${nfs[0]}
+-
+-		nfs=${nfs##*:}
+-
+-                echo ${remote} ${nfs}
+-
+-		mount -t nfs [${remote}%usb$2]:${nfsroot}/${nfs} /mnt/
+-
+-                cd /
+-
+-		touch /exit_scan
+-
++		echo "unsuppored"
++		exit 1
+ 	else
+ 		mkdir functions/ffs.utp$2
+ 		mkdir /dev/usb-utp$2
+@@ -161,7 +101,7 @@ if test "$(ls -A "$UDC_DIR")"; then
+ 	for entry in *
+ 	do
+ 		if contains $entry; then
+-			files[$last]=$entry;
++			files="$files $entry";
+ 			id=$last;
+ 			last=`expr $last + 1`;
+ 			echo "Found New UDC: $entry";
