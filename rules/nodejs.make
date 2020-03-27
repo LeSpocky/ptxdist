@@ -24,9 +24,9 @@ NODEJS_SUFFIX		:= tar.xz
 NODEJS_URL		:= http://nodejs.org/dist/$(NODEJS_VERSION)/$(NODEJS).$(NODEJS_SUFFIX)
 NODEJS_SOURCE		:= $(SRCDIR)/$(NODEJS).$(NODEJS_SUFFIX)
 NODEJS_DIR		:= $(BUILDDIR)/$(NODEJS)
-NODEJS_LICENSE		:= MIT
+NODEJS_LICENSE		:= MIT AND ISC AND BSD-3-Clause
 NODEJS_LICENSE_FILES	:= \
-        file://LICENSE;md5=be4d5107c64dc3d7c57e3797e1a0674b
+        file://LICENSE;md5=126890df35936bbffe9fa00c90ad4870
 
 NODEJS_HOST_TOOLS	:= \
 	bytecode_builtins_list_generator \
