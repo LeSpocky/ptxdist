@@ -17,8 +17,8 @@ endif
 #
 # Paths and names
 #
-NODEJS_VERSION		:= v12.14.1
-NODEJS_MD5		:= 1c78a75f5c95321f533ecccca695e814
+NODEJS_VERSION		:= v12.16.1
+NODEJS_MD5		:= 549582c075072c689c245ba12ecac54a
 NODEJS			:= node-$(NODEJS_VERSION)
 NODEJS_SUFFIX		:= tar.xz
 NODEJS_URL		:= http://nodejs.org/dist/$(NODEJS_VERSION)/$(NODEJS).$(NODEJS_SUFFIX)

@@ -12,10 +12,10 @@ Signed-off-by: Elliott Sales de Andrade <quantum.analyst@gmail.com>
  2 files changed, 21 insertions(+), 17 deletions(-)
 
 diff --git a/configure.py b/configure.py
-index 20cce214dbb1..e2d78a2a51ef 100755
+index 14f5665e0299..36a8a413713a 100755
 --- a/configure.py
 +++ b/configure.py
-@@ -559,6 +559,12 @@ parser.add_option('--shared',
+@@ -572,6 +572,12 @@ parser.add_option('--shared',
      help='compile shared library for embedding node in another project. ' +
           '(This mode is not officially supported for regular applications)')
  
@@ -28,14 +28,14 @@ index 20cce214dbb1..e2d78a2a51ef 100755
  parser.add_option('--without-v8-platform',
      action='store_true',
      dest='without_v8_platform',
-@@ -1103,6 +1109,7 @@ def configure_node(o):
-   if o['variables']['want_separate_host_toolset'] == 0:
-     o['variables']['node_code_cache'] = 'yes' # For testing
+@@ -1121,6 +1127,7 @@ def configure_node(o):
+   o['variables']['node_no_browser_globals'] = b(options.no_browser_globals)
+ 
    o['variables']['node_shared'] = b(options.shared)
 +  o['variables']['libdir'] = options.libdir
    node_module_version = getmoduleversion.get_version()
  
-   if sys.platform == 'darwin':
+   if options.dest_os == 'android':
 diff --git a/tools/install.py b/tools/install.py
 index 655802980a6e..fe4723bf1501 100755
 --- a/tools/install.py

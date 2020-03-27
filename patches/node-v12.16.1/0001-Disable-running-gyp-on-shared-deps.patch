@@ -7,7 +7,7 @@ Subject: [PATCH] Disable running gyp on shared deps
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 56f53582d1f4..f289f258df6f 100644
+index 05eaa73abbe0..965e4f8560e6 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -141,7 +141,7 @@ test-code-cache: with-code-cache
