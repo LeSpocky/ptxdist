@@ -224,8 +224,73 @@ ptxd_install_setup_src() {
 }
 export -f ptxd_install_setup_src
 
-ptxd_install_dir() {
+ptxd_install_virtfs() {
+    local mod_virtfs="$(( 0${mod} | ${mod_type} ))"
+    local d dir
+
+    if [ "${PTXCONF_SETUP_NFS_VIRTFS}" != "y" ]; then
+	return
+    fi
+
+    for d in "${ndirs[@]/%/${dst}}"; do
+	dir="$(dirname "${d}")/.virtfs_metadata" &&
+	mkdir -p "${dir}" &&
+	cat <<- EOF > "${dir}/$(basename "${d}")"
+	virtfs.uid=${usr}
+	virtfs.gid=${grp}
+	virtfs.mode=${mod_virtfs}
+	EOF
+	if [ -n "${major}" -a -n "${minor}" ]; then
+	    local rdev=$[ ${major} << 8 | ${minor} ] &&
+	    echo "virtfs.rdev=${rdev}" >> "${dir}/$(basename "${d}")"
+	fi || break
+    done
+}
+export -f ptxd_install_virtfs
+
+ptxd_install_dir_impl() {
     local sep="$(echo -e "\x1F")"
+    local mod_type=0040000
+
+    if [ "${dst}" != "/" ]; then
+	ptxd_ensure_dir "$(dirname "${dst}")"
+    fi &&
+
+    install -m "${mod_nfs}" -d "${ndirs[@]/%/${dst}}" &&
+    install -m "${mod}" -o "${usr}" -g "${grp}" -d "${pdirs[@]/%/${dst}}" &&
+
+    ptxd_install_virtfs &&
+
+    echo "f${sep}${dst}${sep}${usr}${sep}${grp}${sep}${mod}" >> "${pkg_xpkg_perms}"
+}
+export -f ptxd_install_dir_impl
+
+ptxd_ensure_dir() {
+    local dst="$1"
+    local usr="0"
+    local grp="0"
+    local mod="0755"
+    local mod_nfs mod_rw
+    local dir
+    local no_skip
+
+    ptxd_install_setup &&
+    for dir in "${ndirs[@]/%/${dst}}"; do
+	if [ ! -d "${dir}" -o ! -e "$(dirname "${dir}")/.virtfs_metadata/$(basename "${dir}")" ]; then
+	    no_skip=1
+	    break
+	fi
+    done
+    if [ "${no_skip}" != 1 ]; then
+	# just create the rest and continue if virtfs data already exists
+	install -d "${dirs[@]/%/${dst}}" &&
+	return
+    fi &&
+    ptxd_install_dir_impl
+}
+export -f ptxd_ensure_dir
+
+ptxd_install_dir() {
     local dst="$1"
     local usr="$2"
     local grp="$3"
@@ -241,10 +306,7 @@ install directory:
   permissions=${mod}
 " &&
 
-    install -m "${mod_nfs}" -d "${ndirs[@]/%/${dst}}" &&
-    install -m "${mod}" -o "${usr}" -g "${grp}" -d "${pdirs[@]/%/${dst}}" &&
-
-    echo "f${sep}${dst}${sep}${usr}${sep}${grp}${sep}${mod}" >> "${pkg_xpkg_perms}" ||
+    ptxd_install_dir_impl ||
     ptxd_install_error "install_dir failed!"
 }
 export -f ptxd_install_dir
@@ -348,6 +410,7 @@ ptxd_install_file_impl() {
     local grp="$4"
     local mod="$5"
     local strip="$6"
+    local mod_type=0100000
     local mod_nfs mod_rw
     local gdb_src
 
@@ -383,6 +446,8 @@ install ${cmd}:
 	    strip="y"
 	fi
     fi &&
+
+    ptxd_ensure_dir "$(dirname "${dst}")" &&
 
     case "${strip}" in
 	0|n|no|N|NO)
@@ -425,6 +490,8 @@ Usually, just remove the 6th parameter and everything works fine.
     # now change to requested user and group
     chown "${usr}:${grp}" "${pdirs[@]/%/${dst}}" &&
 
+    ptxd_install_virtfs &&
+
     echo "f${sep}${dst}${sep}${usr}${sep}${grp}${sep}${mod}" >> "${pkg_xpkg_perms}"
 }
 export -f ptxd_install_file_impl
@@ -434,6 +501,8 @@ ptxd_install_ln() {
     local dst="$2"
     local usr="${3:-0}"
     local grp="${4:-0}"
+    local mod="0777"
+    local mod_type=0120000
     local mod_nfs mod_rw rel
 
     ptxd_install_setup &&
@@ -453,13 +522,15 @@ install link:
     esac &&
 
     rm -f "${dirs[@]/%/${dst}}" &&
-    install -d "${dirs[@]/%/$(dirname "${dst}")}" &&
+    ptxd_ensure_dir "$(dirname "${dst}")" &&
     for d in "${ndirs[@]/%/${dst}}"; do
 	ln -s "${rel}${src}" "${d}" || return
     done &&
     for d in "${pdirs[@]/%/${dst}}"; do
 	ln -s "${src}" "${d}" || return
     done &&
+
+    ptxd_install_virtfs
 
     chown --no-dereference "${usr}:${grp}" "${dirs[@]/%/${dst}}"
 }
@@ -474,7 +545,13 @@ ptxd_install_mknod() {
     local type="$5"
     local major="$6"
     local minor="$7"
-    local mod_nfs mod_rw
+    local mod_nfs mod_rw mod_type
+
+    case "${type}" in
+	c) mod_type=0020000 ;;
+	b) mod_type=0060000 ;;
+	p) mod_type=0010000 ;;
+    esac &&
 
     ptxd_install_setup &&
     echo "\
@@ -489,11 +566,14 @@ install device node:
 " &&
 
     rm -f "${pdirs[@]/%/${dst}}" &&
-    install -d "${dirs[@]/%/$(dirname "${dst}")}" &&
+    ptxd_ensure_dir "$(dirname "${dst}")" &&
     for d in "${pdirs[@]/%/${dst}}"; do
 	mknod -m "${mod}" "${d}" "${type}" ${major} ${minor} || return
     done &&
+    touch "${ndirs[@]/%/${dst}}" &&
     chown "${usr}:${grp}" "${pdirs[@]/%/${dst}}" &&
+
+    ptxd_install_virtfs &&
 
     echo "n${sep}${dst}${sep}${usr}${sep}${grp}${sep}${mod}${sep}${type}${sep}${major}${sep}${minor}" >> "${pkg_xpkg_perms}"
 }

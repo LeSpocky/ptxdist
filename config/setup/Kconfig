@@ -343,6 +343,17 @@ config SETUP_NFS_REL_SYMLINK
 	  for broken links.
 	  The link installed into the image remains absolute.
 
+config SETUP_NFS_VIRTFS
+	bool "provide ownership/permission metadata in the nfsroot"
+	help
+	  With this option enabled, ptxdist will store the ownership,
+	  permission and special file information in files in
+	  .virtfs_metadata/ subdirectories.
+	  This can be used by qemu with the 9p filesystem and
+	  'security_model=mapped-file' to provide the correct permissions
+	  etc. for the guest system.
+	  The NFS server run by 'ptxdist nfsroot' will also use this data.
+
 config SETUP_DIRECT_CLEAN
 	bool "ptxdist clean without check"
 	help
