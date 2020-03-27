@@ -3,4 +3,5 @@
 0001-Disable-running-gyp-on-shared-deps.patch
 0002-Install-both-binaries-and-use-libdir.patch
 0003-tools-do-not-explicitely-set-an-rpath-in-make-genera.patch
-# b4f94a5ae9905853dec0da236e8ee053  - git-ptx-patches magic
+0004-HACK-don-t-add-LD_LIBRARY_PATH-for-external-tools.patch
+# 54ccf86e2c772cc50a5febf46b50b9c9  - git-ptx-patches magic

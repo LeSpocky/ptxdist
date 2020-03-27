@@ -1,0 +1,44 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 27 Mar 2020 11:32:01 +0100
+Subject: [PATCH] HACK: don't add LD_LIBRARY_PATH for external tools
+
+When host and target architecture match, then the target path in
+LD_LIBRARY_PATH confuses the linker and the wrong libraries are used.
+As a result executing the tool fails.
+Always removing the target path from LD_LIBRARY_PATH is not an options
+because in this case building host-nodejs fails with a missing library.
+
+In PTXdist we overwrite the path to the tool to point to sysroot-host when
+building the target nodejs. We can use that to set the LD_LIBRARY_PATH only
+for host-nodejs.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ tools/gyp/pylib/gyp/generator/make.py | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
+
+diff --git a/tools/gyp/pylib/gyp/generator/make.py b/tools/gyp/pylib/gyp/generator/make.py
+index c109b2b488ec..995f6df0f441 100644
+--- a/tools/gyp/pylib/gyp/generator/make.py
++++ b/tools/gyp/pylib/gyp/generator/make.py
+@@ -923,11 +923,15 @@ $(obj).$(TOOLSET)/$(TARGET)/%%.o: $(obj)/%%%s FORCE_DO_CMD
+       # libraries, but until everything is made cross-compile safe, also use
+       # target libraries.
+       # TODO(piman): when everything is cross-compile safe, remove lib.target
+-      self.WriteLn('cmd_%s = LD_LIBRARY_PATH=$(builddir)/lib.host:'
+-                   '$(builddir)/lib.target:$$LD_LIBRARY_PATH; '
+-                   'export LD_LIBRARY_PATH; '
+-                   '%s%s'
+-                   % (name, cd_action, command))
++      if action['action'][0].startswith('$(builddir)'):
++          self.WriteLn('cmd_%s = LD_LIBRARY_PATH=$(builddir)/lib.host:'
++                       '$(builddir)/lib.target:$$LD_LIBRARY_PATH; '
++                       'export LD_LIBRARY_PATH; '
++                       '%s%s'
++                       % (name, cd_action, command))
++      else:
++          self.WriteLn('cmd_%s = %s%s'
++                       % (name, cd_action, command))
+       self.WriteLn()
+       outputs = [self.Absolutify(o) for o in outputs]
+       # The makefile rules are all relative to the top dir, but the gyp actions
