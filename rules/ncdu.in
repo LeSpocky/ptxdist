@@ -7,8 +7,12 @@ config NCDU
 	help
 	  Disk usage analyzer with ncurses interface.
 
+if NCDU
+
 config NCDU_WIDE_CHAR
 	bool
 	default NCURSES_WIDE_CHAR
+
+endif
 
 # vim: ft=kconfig noet tw=72 ts=8 sw=8
