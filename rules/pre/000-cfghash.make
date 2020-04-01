@@ -10,6 +10,7 @@
 # add an arbitrary string to the <PKG>_CFGHASH source
 # If the string changes, then the package will be rebuilt
 #
+ifdef PTXDIST_SETUP_ONCE
 define ptx/cfghash
 $(file >>$(PTXDIST_TEMPDIR)/pkghash-$(strip $(1)),$(strip $(2)))
 endef
@@ -17,5 +18,9 @@ endef
 define ptx/cfghash-file
 $(file >>$(PTXDIST_TEMPDIR)/pkghash.list,CONFIG: $(strip $(1)) $(strip $(2)))
 endef
+else
+ptx/cfghash :=
+ptx/cfghash-file :=
+endif
 
 # vim: syntax=make

@@ -213,8 +213,11 @@ $1 ~ /^PTXCONF_/ {
 	do {
 		if (this_PKG in PKG_to_pkg || this_PKG in virtual_pkg) {
 			PKG_HASHFILE = PTXDIST_TEMPDIR "/pkghash-" this_PKG;
-			if (!($0 in allsym))
+			if (!($0 in allsym)) {
+				print "ifdef PTXDIST_SETUP_ONCE"			> DGEN_DEPS_POST;
 				print "$(file >>" PKG_HASHFILE "," $1 "=$(" $1 "))"	> DGEN_DEPS_POST;
+				print "endif"						> DGEN_DEPS_POST;
+			}
 			break;
 		}
 	} while (sub(/_+[^_]+$/, "", this_PKG));
@@ -387,12 +390,12 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	print "ifeq ($(" this_PKG "_PATCH_DIR),)"								> DGEN_DEPS_POST;
 	print "undefine " this_PKG "_PATCH_DIR"									> DGEN_DEPS_POST;
 	print "else"												> DGEN_DEPS_POST;
-	print "ifeq ($(PTXDIST_PKGHASH_MAKE),)"									> DGEN_DEPS_POST;
+	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
 	print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,PATCHES: " this_PKG " $(" this_PKG "_PATCH_DIR))"	> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
-	print "ifeq ($(PTXDIST_PKGHASH_MAKE),)"									> DGEN_DEPS_POST;
+	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
 	print this_PKG "_CONFIG := $(" this_PKG "_CONFIG)"							> DGEN_DEPS_POST;
 	print "ifeq ($(" this_PKG "_CONFIG),)"									> DGEN_DEPS_POST;
 	print "undefine " this_PKG "_CONFIG"									> DGEN_DEPS_POST;
@@ -572,7 +575,6 @@ function write_deps_pkg_active_image(this_PKG, this_pkg, prefix) {
 }
 
 END {
-	print "PTXDIST_PKGHASH_MAKE := $(wildcard " PTXDIST_TEMPDIR "/pkghash.make)"				> DGEN_DEPS_POST;
 	# writing maps first as this affect the pkghash via virtual packages
 	for (this_PKG in PKG_to_pkg) {
 		this_pkg = PKG_to_pkg[this_PKG];
@@ -583,7 +585,7 @@ END {
 	for (this_PKG in active_PKG_to_pkg)
 		write_deps_pkg_active_cfghash(this_PKG, this_pkg)
 
-	print "ifeq ($(PTXDIST_PKGHASH_MAKE),)"									> DGEN_DEPS_POST;
+	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
 	print "$(call ptx/force-sh, $(PTXDIST_LIB_DIR)/ptxd_make_pkghash.awk " PTXDIST_TEMPDIR "/pkghash.list)"	> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 

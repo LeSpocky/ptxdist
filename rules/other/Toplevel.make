@@ -3,6 +3,12 @@
 # Copyright (C) 2002-2009 by The PTXdist Team
 #
 
+# allow skiping thing for the second make all with --progress
+ifeq ($(wildcard $(PTXDIST_TEMPDIR)/setup-once),)
+PTXDIST_SETUP_ONCE := 1
+$(file >>$(PTXDIST_TEMPDIR)/setup-once)
+endif
+
 ifneq ($(findstring n,$(filter-out --%,$(MAKEFLAGS))),)
 # make sure recursive calls do nothing for --dry-run
 MAKE=true
