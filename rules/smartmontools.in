@@ -48,7 +48,7 @@ config SMARTMONTOOLS_SMARTD_INITD
 config SMARTMONTOOLS_SYSTEMD_UNIT
 	bool
 	default y
-	depends on SYSTEMD
+	depends on SMARTMONTOOLS_SMARTD && SYSTEMD
 	prompt "install systemd unit file for smartd"
 
 endif
