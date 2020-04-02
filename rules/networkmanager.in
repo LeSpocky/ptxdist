@@ -86,7 +86,11 @@ config NETWORKMANAGER_WWAN
 
 config NETWORKMANAGER_PPP
 	bool
+	depends on GLOBAL_IPV6
 	prompt "enable ppp support"
+
+comment "ppp support requires GLOBAL_IPV6!"
+	depends on !GLOBAL_IPV6
 
 config NETWORKMANAGER_CONCHECK
 	bool
