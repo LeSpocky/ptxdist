@@ -3,8 +3,6 @@
 # Copyright (C) 2018 by Robert Schwebel <r.schwebel@pengutronix.de>
 # Copyright (C) 2019 by Bjoern Esser <b.esser@pengutronix.de>
 #
-# See CREDITS for details about who has contributed to this project.
-#
 # For further information about the PTXdist project and license conditions
 # see the README file.
 #
