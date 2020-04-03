@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 config LIBCGIC
 	tristate
@@ -6,3 +8,6 @@ config LIBCGIC
 	help
 	  Cgic is an ANSI-C library for the creation of CGI-based
 	  World Wide Web applications.
+
+	  STAGING: remove in ptxdist-2021.04.0
+	  Old, upstream seems to be gone and broken download.
