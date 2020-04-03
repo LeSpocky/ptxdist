@@ -1,0 +1,60 @@
+#!/bin/bash
+
+find_tags() {
+	local rev taglistfd commitish
+	rev="$(git rev-parse "${1}")"
+	exec {taglistfd}< <(git show-ref --tags)
+	while read commitish tag <&${taglistfd}; do
+		tag="${tag#refs/tags/}"
+		if [[ "${tag}" =~ -ptx-old$ ]]; then
+			continue
+		fi
+		if [ "${commitish}" = "${rev}" ]; then
+			tags="${tags} ${tag}"
+		fi
+	done
+}
+
+push_tags() {
+	local tag
+	for tag in ${tags}; do
+		echo "exec git tag -f ${tag}-ptx-old $(git rev-parse "${tag}")" >> "${tmpfile}"
+		echo "exec git tag -f ${tag}" >> "${tmpfile}"
+	done
+	tags=
+}
+
+filter_rebase() {
+	file="${1}"
+	tmpfile="$(tempfile -d "$(dirname "${file}")" -p "$(basename ${file}).")"
+	tags=
+	cat "${file}" | while read cmd commitish subject; do
+		case "${cmd}" in
+		"#"|"")
+			;;
+		pick|p|reword|r|edit|e)
+			push_tags
+			find_tags "${commitish}"
+			;;
+		squash|s|fixup|f)
+			find_tags "${commitish}"
+			;;
+		*)
+			push_tags
+			;;
+		esac
+		echo "${cmd}${commitish:+ }${commitish}${subject:+ }${subject}" >> "${tmpfile}"
+	done
+	push_tags
+
+	mv "${tmpfile}" "${file}"
+}
+
+# only do something when rebasing
+if [ "${GIT_REFLOG_ACTION}" = "rebase" ]; then
+	filter_rebase "${1}"
+fi
+
+# find the editor outside the local repository
+editor="$(cd / && git var GIT_EDITOR)"
+exec ${editor} "${@}"
