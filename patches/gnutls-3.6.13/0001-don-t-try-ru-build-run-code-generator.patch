@@ -1,0 +1,31 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 3 Apr 2020 13:07:30 +0200
+Subject: [PATCH] don't try ru build / run code generator
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ lib/nettle/Makefile.am | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/lib/nettle/Makefile.am b/lib/nettle/Makefile.am
+index 84bb90a2474a..f7cf0bbae89d 100644
+--- a/lib/nettle/Makefile.am
++++ b/lib/nettle/Makefile.am
+@@ -106,6 +106,8 @@ curve448_generated_headers = \
+ BUILT_SOURCES = $(curve448_generated_headers)
+ EXTRA_DIST = $(curve448_generated_headers) curve448/eccdata.stamp
+ 
++if !CROSS_COMPILING
++
+ noinst_PROGRAMS = curve448/eccdata$(EXEEXT)
+ 
+ curve448_eccdata_SOURCES = curve448/eccdata.c
+@@ -121,6 +123,8 @@ curve448/ecc-curve448-32.h: curve448/eccdata.stamp
+ curve448/ecc-curve448-64.h: curve448/eccdata.stamp
+ 	$(AM_V_GEN)curve448/eccdata$(EXEEXT) curve448 38 6 64 > $@T && mv $@T $@
+ 
++endif
++
+ libcrypto_la_SOURCES += \
+ 	curve448/nettle-write.h curve448/gmp-glue.h curve448/gmp-glue.c
+ 

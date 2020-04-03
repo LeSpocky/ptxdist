@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GNUTLS) += gnutls
 #
 # Paths and names
 #
-GNUTLS_VERSION	:= 3.6.10
-GNUTLS_MD5	:= 254e756d882a38ce9ad6f47589330d87
+GNUTLS_VERSION	:= 3.6.13
+GNUTLS_MD5	:= bb1fe696a11543433785b4fc70ca225f
 GNUTLS		:= gnutls-$(GNUTLS_VERSION)
 GNUTLS_SUFFIX	:= tar.xz
 GNUTLS_URL	:= https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/$(GNUTLS).$(GNUTLS_SUFFIX)
@@ -44,6 +44,7 @@ GNUTLS_CONF_OPT		:= \
 	--enable-hardware-acceleration \
 	--enable-tls13-interop \
 	--enable-padlock \
+	--enable-strict-der-time \
 	--enable-sha1-support \
 	--disable-ssl3-support \
 	--enable-ssl2-support \
@@ -67,8 +68,10 @@ GNUTLS_CONF_OPT		:= \
 	--disable-nls \
 	--disable-rpath \
 	--disable-seccomp-tests \
+	--enable-cross-guesses=conservative \
 	--disable-valgrind-tests \
 	--disable-full-test-suite \
+	--disable-oldgnutls-interop \
 	--disable-gcc-warnings \
 	--disable-static \
 	--enable-shared \
