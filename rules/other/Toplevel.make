@@ -3,12 +3,6 @@
 # Copyright (C) 2002-2009 by The PTXdist Team
 #
 
-# allow skiping thing for the second make all with --progress
-ifeq ($(wildcard $(PTXDIST_TEMPDIR)/setup-once),)
-PTXDIST_SETUP_ONCE := 1
-$(file >>$(PTXDIST_TEMPDIR)/setup-once)
-endif
-
 ifneq ($(findstring n,$(filter-out --%,$(MAKEFLAGS))),)
 # make sure recursive calls do nothing for --dry-run
 MAKE=true
@@ -35,6 +29,22 @@ $(call ptx/force-sh,$(1))
 endef
 endif
 export SHELL
+
+ifdef PTXDIST_OLD_MAKE
+define ptx/file
+$(call ptx/force-sh,echo '$(2)' $(1))
+endef
+else
+define ptx/file
+$(file $(1),$(2))
+endef
+endif
+
+# allow skiping thing for the second make all with --progress
+ifeq ($(wildcard $(PTXDIST_TEMPDIR)/setup-once),)
+PTXDIST_SETUP_ONCE := 1
+$(call ptx/file,>>$(PTXDIST_TEMPDIR)/setup-once)
+endif
 
 unexport MAKEFLAGS
 

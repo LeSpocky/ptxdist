@@ -17,7 +17,7 @@ endef
 # mark the collection for verification and save the package list
 define _ptx_collection_write
 $(eval ACTIVE_COLLECTIONS += $(1))
-$(file >$(2),_pkg := $(3))
+$(call ptx/file,>$(2),_pkg := $(3))
 $(3)
 endef
 # load the package list if available, otherwise generate it

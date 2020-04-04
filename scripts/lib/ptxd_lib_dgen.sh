@@ -102,6 +102,10 @@ ptxd_dgen() {
 	"${STATEDIR}" \
 	"${PTXDIST_DGEN_DIR}" || return
 
+    if "${PTXCONF_SETUP_HOST_MAKE}" --version | grep -q "GNU Make 3"; then
+	export PTXDIST_OLD_MAKE=1
+    fi
+
     ptxd_dgen_configdeps &&
     ptxd_dgen_rulesfiles &&
     ptxd_dgen_map_all

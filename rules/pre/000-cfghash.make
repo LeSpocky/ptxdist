@@ -12,11 +12,11 @@
 #
 ifdef PTXDIST_SETUP_ONCE
 define ptx/cfghash
-$(file >>$(PTXDIST_TEMPDIR)/pkghash-$(strip $(1)),$(strip $(2)))
+$(call ptx/file,>>$(PTXDIST_TEMPDIR)/pkghash-$(strip $(1)),$(strip $(2)))
 endef
 
 define ptx/cfghash-file
-$(file >>$(PTXDIST_TEMPDIR)/pkghash.list,CONFIG: $(strip $(1)) $(strip $(2)))
+$(call ptx/file,>>$(PTXDIST_TEMPDIR)/pkghash.list,CONFIG: $(strip $(1)) $(strip $(2)))
 endef
 else
 ptx/cfghash :=
