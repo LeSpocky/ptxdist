@@ -52,7 +52,8 @@ NSS_MAKE_ENV := \
 	NSS_ENABLE_ECC=1 \
 	NSS_DISABLE_GTESTS=1 \
 	NSPR_INCLUDE_DIR=$(SYSROOT)/usr/include/nspr \
-	USE_64=$(call ptx/ifdef, PTXCONF_ARCH_LP64,1)
+	USE_64=$(call ptx/ifdef, PTXCONF_ARCH_LP64,1) \
+	USE_NEON=$(call ptx/ifdef, PTXCONF_ARCH_ARM_NEON,1)
 
 NSS_MAKE_PAR := NO
 NSS_MAKE_OPT := \
