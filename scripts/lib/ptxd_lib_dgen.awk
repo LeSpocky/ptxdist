@@ -204,6 +204,9 @@ $1 ~ /^PTX_MAP_._SOURCE/ {
 # record yes and module packages
 #
 $1 ~ /^PTXCONF_/ {
+	if (old_filename ~ /.+\/rules\/.+\.make/)
+		next;
+
 	this_PKG = gensub(/^PTXCONF_/, "", "g", $1);
 
 	if ($2 ~ /^[ym]$/ && this_PKG in PKG_to_pkg)
