@@ -21,6 +21,7 @@ BEGIN {
 	PARALLEL		= ENVIRON["PTXDIST_PARALLELMFLAGS_EXTERN"]
 	DIRTY			= ENVIRON["PTXDIST_DIRTY"];
 	DEP			= DIRTY == "true" ? "|" : ""
+	PTXDIST_HASHLIST	= PTXDIST_TEMPDIR "/pkghash.list"
 	CHECK_LICENSES		= 0
 }
 
@@ -268,7 +269,7 @@ function write_maps(this_PKG, dep_type) {
 		if (last ==  this_DEP_array[i])
 			continue
 		if (this_DEP_array[i] in virtual_pkg) {
-			print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,RULES: " this_PKG " " PTXDIST_TEMPDIR "/pkghash-" this_DEP_array[i] ")"	> DGEN_DEPS_POST;
+			print "$(file >>" PTXDIST_HASHLIST ",RULES: " this_PKG " " PTXDIST_TEMPDIR "/pkghash-" this_DEP_array[i] ")"	> DGEN_DEPS_POST;
 			continue
 		}
 		if (!(this_DEP_array[i] in PKG_to_pkg))
@@ -377,9 +378,9 @@ function write_deps_pkg_all(this_PKG, this_pkg) {
 
 function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	if (this_PKG in PKG_to_infile)
-		print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,RULES: " this_PKG " " PKG_to_infile[this_PKG] ")"	> DGEN_DEPS_POST;
+		print "$(file >>" PTXDIST_HASHLIST ",RULES: " this_PKG " " PKG_to_infile[this_PKG] ")"		> DGEN_DEPS_POST;
 	if (this_PKG in PKG_to_makefile)
-		print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,RULES: " this_PKG " " PKG_to_makefile[this_PKG] ")"	> DGEN_DEPS_POST;
+		print "$(file >>" PTXDIST_HASHLIST ",RULES: " this_PKG " " PKG_to_makefile[this_PKG] ")"	> DGEN_DEPS_POST;
 
 	print "ifneq ($(" this_PKG "),)"									> DGEN_DEPS_POST;
 	print "ifneq ($(" this_PKG "_PATCHES),)"								> DGEN_DEPS_POST;
@@ -391,7 +392,7 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	print "undefine " this_PKG "_PATCH_DIR"									> DGEN_DEPS_POST;
 	print "else"												> DGEN_DEPS_POST;
 	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
-	print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,PATCHES: " this_PKG " $(" this_PKG "_PATCH_DIR))"	> DGEN_DEPS_POST;
+	print "$(file >>" PTXDIST_HASHLIST ",PATCHES: " this_PKG " $(" this_PKG "_PATCH_DIR))"			> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
@@ -402,7 +403,7 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	print "endif"												> DGEN_DEPS_POST;
 	print "ifneq ($(filter /%,$(" this_PKG "_CONFIG)),)"							> DGEN_DEPS_POST;
 	print "ifneq ($(wildcard $(" this_PKG "_CONFIG)),)"							> DGEN_DEPS_POST;
-	print "$(file >>" PTXDIST_TEMPDIR "/pkghash.list,CONFIG: " this_PKG " $(" this_PKG "_CONFIG))"		> DGEN_DEPS_POST;
+	print "$(file >>" PTXDIST_HASHLIST ",CONFIG: " this_PKG " $(" this_PKG "_CONFIG))"			> DGEN_DEPS_POST;
 	print "else"												> DGEN_DEPS_POST;
 	if (this_pkg_prefix != "image-")
 		print "$(STATEDIR)/" this_pkg ".prepare: "            "$(" this_PKG "_CONFIG)"			> DGEN_DEPS_POST;
@@ -586,7 +587,7 @@ END {
 		write_deps_pkg_active_cfghash(this_PKG, this_pkg)
 
 	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
-	print "$(call ptx/force-sh, $(PTXDIST_LIB_DIR)/ptxd_make_pkghash.awk " PTXDIST_TEMPDIR "/pkghash.list)"	> DGEN_DEPS_POST;
+	print "$(call ptx/force-sh, $(PTXDIST_LIB_DIR)/ptxd_make_pkghash.awk " PTXDIST_HASHLIST ")"		> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 
 	print "$(call ptx/force-sh, md5sum " PTXDIST_TEMPDIR "/pkghash-* | " \
