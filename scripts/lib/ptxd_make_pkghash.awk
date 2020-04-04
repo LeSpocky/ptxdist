@@ -46,8 +46,8 @@ function dump_file(src, dst, tmp) {
 END {
 	for (pkg in rules) {
 		f1 = PTXDIST_TEMPDIR "/pkghash-" pkg
-		split(rules[pkg], cfgs)
-		for (rule in cfgs) {
+		n = split(rules[pkg], cfgs)
+		for (rule = 1; rule <= n; rule++) {
 			dump_file(cfgs[rule], f1)
 			printf "\n" >> f1
 		}
@@ -55,25 +55,35 @@ END {
 	for (pkg in configs) {
 		config = configs[pkg]
 		f1 = PTXDIST_TEMPDIR "/pkghash-" pkg
-		split(configs[pkg], cfgs)
-		asort(cfgs, cfgs)
-		for (config in cfgs)
+		n = split(configs[pkg], cfgs)
+		for (config = 1; config <= n; config++)
 			dump_file(cfgs[config], f1)
 	}
-	command = "find " dirs " -type f ! -name '.*' -printf '%H %P\\n'"
+	if (dirs == "")
+		exit;
+	n = split(dirs, dir_array, " ");
+	asort(dir_array, dir_array);
+	dirs = ""
+	last = ""
+	for (i = 1; i <= n; i++) {
+		if (dir_array[i] != last)
+			dirs = dirs " " dir_array[i]
+		last = dir_array[i]
+	}
+	command = "find -L " dirs " -type f ! -name '.*' -printf '%H %P\\n'"
 	while (command | getline)
 		files[$1] = files[$1] " " $2
 	close(command)
 	for (dir in pkgs) {
 		split(pkgs[dir], list, " ")
-		split(files[dir], file_list, " ")
+		n = split(files[dir], file_list, " ")
 		asort(file_list, file_list)
 		for (pkg in list) {
 			pkg = list[pkg]
 			f1 = PTXDIST_TEMPDIR "/pkghash-" pkg
 			f2 = PTXDIST_TEMPDIR "/pkghash-" pkg "_EXTRACT"
-			for (file in file_list) {
-				file = dir "/" file_list[file]
+			for (i = 1; i <= n; i++) {
+				file = dir "/" file_list[i]
 				dump_file(file, f1)
 				dump_file(file, f2)
 			}
