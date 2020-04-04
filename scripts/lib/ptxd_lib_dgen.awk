@@ -269,7 +269,7 @@ function write_maps(this_PKG, dep_type) {
 		if (last ==  this_DEP_array[i])
 			continue
 		if (this_DEP_array[i] in virtual_pkg) {
-			print "$(file >>" PTXDIST_HASHLIST ",RULES: " this_PKG " " PTXDIST_TEMPDIR "/pkghash-" this_DEP_array[i] ")"	> DGEN_DEPS_POST;
+			print "RULES: " this_PKG " " PTXDIST_TEMPDIR "/pkghash-" this_DEP_array[i] > PTXDIST_HASHLIST
 			continue
 		}
 		if (!(this_DEP_array[i] in PKG_to_pkg))
@@ -378,9 +378,9 @@ function write_deps_pkg_all(this_PKG, this_pkg) {
 
 function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	if (this_PKG in PKG_to_infile)
-		print "$(file >>" PTXDIST_HASHLIST ",RULES: " this_PKG " " PKG_to_infile[this_PKG] ")"		> DGEN_DEPS_POST;
+		print "RULES: " this_PKG " " PKG_to_infile[this_PKG]						> PTXDIST_HASHLIST;
 	if (this_PKG in PKG_to_makefile)
-		print "$(file >>" PTXDIST_HASHLIST ",RULES: " this_PKG " " PKG_to_makefile[this_PKG] ")"	> DGEN_DEPS_POST;
+		print "RULES: " this_PKG " " PKG_to_makefile[this_PKG]						> PTXDIST_HASHLIST;
 
 	print "ifneq ($(" this_PKG "),)"									> DGEN_DEPS_POST;
 	print "ifneq ($(" this_PKG "_PATCHES),)"								> DGEN_DEPS_POST;
