@@ -25,7 +25,7 @@ KERNEL_HEADER_URL		:= https://git.kernel.org/torvalds/t/$(KERNEL_HEADER).$(KERNE
 endif
 KERNEL_HEADER_SOURCE		:= $(SRCDIR)/linux-$(KERNEL_HEADER_VERSION).$(KERNEL_HEADER_SUFFIX)
 KERNEL_HEADER_DIR		:= $(BUILDDIR)/kernel-header-$(KERNEL_HEADER_VERSION)
-KERNEL_HEADER_BUILD_DIR	:= $(KERNEL_HEADER_DIR)-build
+KERNEL_HEADER_BUILD_DIR		:= $(KERNEL_HEADER_DIR)-build
 KERNEL_HEADER_PKGDIR		:= $(PKGDIR)/kernel-header-$(KERNEL_HEADER_VERSION)
 KERNEL_HEADER_LICENSE		:= GPL-2.0-only
 KERNEL_HEADER_BUILD_OOT	:= KEEP
@@ -37,12 +37,6 @@ KERNEL_HEADER_BUILD_OOT	:= KEEP
 KERNEL_HEADER_CONF_ENV		:= $(CROSS_ENV)
 KERNEL_HEADER_PATH		:= PATH=$(CROSS_PATH)
 KERNEL_HEADER_CONF_TOOL		:= NO
-KERNEL_HEADER_MAKE_OPT		:= \
-	V=$(PTXDIST_VERBOSE) \
-	O=$(KERNEL_HEADER_BUILD_DIR) \
-	HOSTCC=$(HOSTCC) \
-	ARCH=$(GENERIC_KERNEL_ARCH) \
-	CROSS_COMPILE=$(PTXCONF_COMPILER_PREFIX)
 
 # ----------------------------------------------------------------------------
 # Compile
@@ -56,12 +50,14 @@ $(STATEDIR)/kernel-header.compile:
 # Install
 # ----------------------------------------------------------------------------
 
-$(STATEDIR)/kernel-header.install:
-	@$(call targetinfo)
-	@cd $(KERNEL_HEADER_DIR) && \
-	$(KERNEL_HEADER_PATH) $(KERNEL_HEADER_ENV) \
-		$(MAKE) $(KERNEL_HEADER_MAKE_OPT) headers_install \
-			INSTALL_HDR_PATH=$(KERNEL_HEADER_PKGDIR)/kernel-headers
-	@$(call touch)
+KERNEL_HEADER_INSTALL_OPT	:= \
+	-C $(KERNEL_HEADER_DIR) \
+	V=$(PTXDIST_VERBOSE) \
+	O=$(KERNEL_HEADER_BUILD_DIR) \
+	HOSTCC=$(HOSTCC) \
+	ARCH=$(GENERIC_KERNEL_ARCH) \
+	CROSS_COMPILE=$(PTXCONF_COMPILER_PREFIX) \
+	INSTALL_HDR_PATH=$(KERNEL_HEADER_PKGDIR)/kernel-headers \
+	headers_install
 
 # vim: syntax=make
