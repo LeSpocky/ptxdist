@@ -18,7 +18,7 @@ to build everything and
 
 to install it. When you start using PTXdist, make sure your $PATH
 environment variable points to <installpath>/bin, because that's where
-the ptxdist frontend program is being installed to.
+the PTXdist frontend program is being installed to.
 
 For developers who want to work with git versions of PTXdist it is only
 necessary to run "./autogen.sh && ./configure && make" and set the PATH
@@ -39,7 +39,7 @@ and you'll find a root tree in ./platform-<name>/root/, and disk images
 in ./platform-<name>/images/. Voilà.
 
 All magic necessary to do these things in a cross enviroment are written
-into "recipies", living in rules/*.make, and config menues in
+into "recipes", living in rules/*.make, and config menues in
 rules/*.in.
 
 Documentation
