@@ -4,7 +4,7 @@ Welcome to the Embedded World
 First Steps in the Embedded World
 ---------------------------------
 
-Once upon in time, programming embedded systems was easy: all a
+Once upon a time, programming embedded systems was easy: all a
 developer needed when he wanted to start a new product was a good
 toolchain, consisting of
 
@@ -24,7 +24,7 @@ number of GPIO pins, UARTs and memory resources.
 
 Things have changed. Hardware manufacturers have weakened the border
 between deeply embedded microcontrollers – headless devices with just a
-few pins and very limited computing power – and full blown
+few pins and very limited computing power – and full-blown
 microprocessors. System structures became much more complicated: where
 our good old controllers have had just some interrupts with some small
 interrupt service routines, we today need complicated generic interrupt
@@ -32,7 +32,7 @@ infrastructures, suitable for generic software frameworks. Where we’ve
 had some linearly mapped flash ROM and some data RAM we today have
 multi-stage-pipeline architectures, memory management units, virtual
 address spaces, on-chip-memory, caches and other complicated units,
-which is not exactly what the embedded system developer wants program
+which is not exactly what the embedded system developer wants to program
 every other day.
 
 Entering embedded operating systems. Although there are still some
@@ -41,22 +41,22 @@ programmed the good old non-operating-system way with reasonable effort,
 it in fact is becoming more and more difficult. On the other hand,
 legacy I/O interfaces like RS232 are increasingly often replaced by
 modern plug-and-play aware communication channels: USB, FireWire
-(IEEE1394), Ethernet & friends are more and more directly being
+(IEEE1394), Ethernet & friends are more and more directly
 integrated into today’s microcontroller hardware. Whereas some of these
 interfaces can “somehow” be handled the old controller-style way of
 writing software, the developer following this way will not be able to
 address the security and performance issues which come up with the
 modern network accessible devices.
 
-During the last years, more and more of the small-scale companies which
+During the last few years, more and more of the small-scale companies which
 developed little embedded operating systems have been pushed out of the
-market. Nearly no small company is able to support all the different
+market. Nearly no small company is able to support all different
 interfaces, communication stacks, development tools and security issues
 out there. New interfaces and -variants (like USB On-the-Go) are
 developed faster than operating system developers can supply the
 software for them. The result is a consolidation of the market: today we
 see that, besides niche products, probably only the largest commercial
-embedded operating system suppliers will survive that development.
+embedded operating system suppliers will survive this development.
 
 Only the largest commercial...? There is one exception: when the same
 situation came up in the “mainstream” computer market at the beginning
@@ -83,11 +83,11 @@ Studies have shown that more than 70% of the embedded developers are not
 satisfied with a black-box operating system: they want to adapt it to
 their needs, to their special hardware situation (which most times is
 Just Different than anything available). Embedded projects are even more
-variegated than desktop- or server projects, due to the fact that there
-exist so many different embedded processors with lots of peripherals out
+variegated than desktop- or server projects, due to the fact that so many 
+different embedded processors with lots of peripherals exist out
 there.
 
-Linux has evolved from an i386 only operating system to a kernel running
+Linux has evolved from an i386-only operating system to a kernel running
 on nearly every modern 32 bit processor available today: x86, PowerPC,
 ARM, MIPS, m68k, cris, Super-H etc. The kernel supplies a hardware
 abstraction layer which lets our brave embedded developer once again
@@ -97,7 +97,7 @@ like memory management.
 But Linux is only half of the story. Besides the kernel, a Linux based
 embedded system consists of a “userland”: a filesystem, containing all
 the small tools which form a small Unix system. Only the combination of
-the kernel and a Userland let’s the developer run “normal” processes on
+the kernel and a Userland lets the developer run “normal” processes on
 his x86 development machine as well as on his embedded target.
 
 Linux = Embedded Linux
@@ -107,16 +107,16 @@ Whereas the mainstream developers were always able to use normal Linux
 distributions like SuSE, RedHat, Mandrake or Debian as a base for their
 applications, things are different for embedded systems.
 
-Due to the restricted resources these systems normally have,
+Due to the restricted resources of these systems,
 distributions have to be small and should only contain those things that
 are needed for the application. Today’s mainstream distributions cannot
 be installed in less than 100 MiB without major loss of functionality.
-Even Debian, probably today the most customizable mainstream
+Even Debian, probably today's most customizable mainstream
 distribution, cannot be shrunk below this mark without for example
 losing the packet management, which is an essential feature of using a
 distribution at all.
 
-- Additionally, source code for industrial systems has to be
+Additionally, source code for industrial systems has to be
 
 - auditable and
 
