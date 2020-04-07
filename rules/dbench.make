@@ -21,7 +21,10 @@ DBENCH_SUFFIX	:= tar.gz
 DBENCH_URL	:= http://samba.org/ftp/tridge/dbench/$(DBENCH).$(DBENCH_SUFFIX)
 DBENCH_SOURCE	:= $(SRCDIR)/$(DBENCH).$(DBENCH_SUFFIX)
 DBENCH_DIR	:= $(BUILDDIR)/$(DBENCH)
-
+DBENCH_LICENSE	:= GPL-2.0-or-later
+DBENCH_LICENSE_FILES	:= \
+	file://README;md5=1f2760eb861e670010072b1f0a62c8f5;startline=266;endline=270 \
+	file://COPYING;md5=8ca43cbc842c2336e835926c2166c28b
 
 # ----------------------------------------------------------------------------
 # Prepare
