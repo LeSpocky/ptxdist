@@ -22,6 +22,10 @@ CHRONY_SUFFIX	:= tar.gz
 CHRONY_URL	:= http://download.tuxfamily.org/chrony/$(CHRONY).$(CHRONY_SUFFIX)
 CHRONY_SOURCE	:= $(SRCDIR)/$(CHRONY).$(CHRONY_SUFFIX)
 CHRONY_DIR	:= $(BUILDDIR)/$(CHRONY)
+CHRONY_LICENSE	:= GPL-2.0-only AND RSA-MD
+CHRONY_LICENSE_FILES	:= \
+	file://COPYING;md5=751419260aa954499f7abaabaa882bbe \
+	file://md5.c;startline=20;endline=36;md5=66d5a6df5fcc43891661c560cf5b74b1
 
 # ----------------------------------------------------------------------------
 # Prepare
