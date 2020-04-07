@@ -22,6 +22,10 @@ DASH_SUFFIX	:= tar.gz
 DASH_URL	:= http://gondor.apana.org.au/~herbert/dash/files/$(DASH).$(DASH_SUFFIX)
 DASH_SOURCE	:= $(SRCDIR)/$(DASH).$(DASH_SUFFIX)
 DASH_DIR	:= $(BUILDDIR)/$(DASH)
+DASH_LICENSE	:= BSD-3-Clause AND GPL-2.0-or-later
+DASH_LICENSE_FILES	:= \
+	file://COPYING;md5=b5262b4a1a1bff72b48e935531976d2e \
+	file://src/mksignames.c;md5=dd8284728a2e2bfce248e44901a05467;startline=4;endline=20
 
 # ----------------------------------------------------------------------------
 # Prepare
