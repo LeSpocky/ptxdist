@@ -25,6 +25,10 @@ CANFESTIVAL_SUFFIX	:= tar.gz
 CANFESTIVAL_URL		:= https://hg.beremiz.org/CanFestival-3/archive/8bfe0ac00cdb.$(CANFESTIVAL_SUFFIX)
 CANFESTIVAL_SOURCE	:= $(SRCDIR)/$(CANFESTIVAL).$(CANFESTIVAL_SUFFIX)
 CANFESTIVAL_DIR		:= $(BUILDDIR)/$(CANFESTIVAL)
+CANFESTIVAL_LICENSE	:= LGPL-2.1-or-later
+CANFESTIVAL_LICENSE_FILES	:= \
+	file://LICENCE;md5=085e7fb76fb3fa8ba9e9ed0ce95a43f9 \
+	file://COPYING;startline=17;endline=25;md5=2964e968dd34832b27b656f9a0ca2dbf
 
 # ----------------------------------------------------------------------------
 # Prepare
