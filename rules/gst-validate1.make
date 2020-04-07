@@ -108,11 +108,9 @@ ifdef PTXCONF_GST_VALIDATE1_LAUNCHER
 	@$(call install_copy, gst-validate1, 0, 0, 0755, -, \
 		/usr/bin/gst-validate-launcher)
 
-	@cd $(GST_VALIDATE1_PKGDIR)/usr/lib/gst-validate-launcher/python && \
-		for file in `find launcher/ -name "*.pyc"`; do \
-			$(call install_copy, gst-validate1, 0, 0, 0644, -, \
-				/usr/lib/gst-validate-launcher/python/$${file}); \
-		done
+	# internal magic is broken when .py files are missing
+	$(call install_glob, gst-validate1, 0, 0, -, \
+		/usr/lib/gst-validate-launcher/python,*.py)
 endif
 
 	@$(call install_finish, gst-validate1)
