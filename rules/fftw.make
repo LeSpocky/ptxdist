@@ -24,6 +24,10 @@ FFTW_DIR	:= $(BUILDDIR)/$(FFTW)
 FFTW_URL	:= \
 	http://www.fftw.org/$(FFTW).$(FFTW_SUFFIX) \
 	ftp://ftp.fftw.org/pub/fftw/old/$(FFTW).$(FFTW_SUFFIX)
+FFTW_LICENSE	:= GPL-2.0-or-later
+FFTW_LICENSE_FILES	:= \
+	file://COPYRIGHT;md5=f19d163a5d9bc582a8ba578f591eab80 \
+	file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552
 
 # ----------------------------------------------------------------------------
 # Prepare
