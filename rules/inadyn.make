@@ -23,6 +23,8 @@ INADYN_SUFFIX	:= tar.bz2
 INADYN_URL	:= http://www.pengutronix.de/software/ptxdist/temporary-src/$(INADYN).$(INADYN_SUFFIX)
 INADYN_SOURCE	:= $(SRCDIR)/$(INADYN).$(INADYN_SUFFIX)
 INADYN_DIR	:= $(BUILDDIR)/$(INADYN)
+INADYN_LICENSE	:= GPL-2.0-or-later
+INADYN_LICENSE_FILES	:= file://src/main.c;md5=df050f1603b33ef495e4c8dfc0a6bb6e;startline=2;endline=17
 
 # ----------------------------------------------------------------------------
 # Compile
