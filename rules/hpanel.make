@@ -22,6 +22,8 @@ HPANEL_SUFFIX	:= tar.gz
 HPANEL_URL	:= http://www.phrat.de/$(HPANEL).$(HPANEL_SUFFIX)
 HPANEL_SOURCE	:= $(SRCDIR)/$(HPANEL).$(HPANEL_SUFFIX)
 HPANEL_DIR	:= $(BUILDDIR)/$(HPANEL)
+HPANEL_LICENSE	:= MIT
+HPANEL_LICENSE_FILES	:= file://COPYING;md5=bb987bce816478c28b4d8cd25b96eadd
 
 # ----------------------------------------------------------------------------
 # Prepare
