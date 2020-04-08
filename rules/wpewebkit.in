@@ -1,0 +1,56 @@
+## SECTION=multimedia_libs
+
+menuconfig WPEWEBKIT
+	tristate
+	prompt "wpewebkit                     "
+	select HOST_CMAKE
+	select HOST_NINJA
+	select HOST_SYSTEM_PERL
+	select HOST_SYSTEM_PERL_JSON
+	select GLIB
+	select LIBWPE
+	select CAIRO
+	select CAIRO_FREETYPE
+	select CAIRO_PNG
+	select FONTCONFIG
+	select FREETYPE
+	select ICU
+	select HARFBUZZ
+	select HARFBUZZ_ICU
+	select GLIB_NETWORKING if RUNTIME
+	select GNUTLS
+	select LIBJPEG
+	select LIBPCRE
+	select LIBWEBP
+	select LIBWEBP_DEMUX
+	select SQLITE
+	select ZLIB
+	select LIBPNG
+	select LIBSOUP
+	select LIBXML2
+	select LIBXSLT
+	select LIBXSLT_LIBXSLT
+	select MESALIB
+	select MESALIB_EGL
+	select MESALIB_GLES2
+	select LIBEPOXY
+	select LIBGCRYPT
+	select GSTREAMER1
+	select GST_PLUGINS_BASE1
+	select GST_PLUGINS_BASE1_APP
+	select GST_PLUGINS_BASE1_GL
+	select GST_PLUGINS_GOOD1
+	select GST_PLUGINS_BAD1
+	select WPEBACKEND_FDO
+	select QT5			if WPEWEBKIT_QT
+	select QT5_MODULE_QTDECLARATIVE	if WPEWEBKIT_QT
+	help
+	  WebPlatformForEmbedded port for the WebKit cross-platform web browser engine.
+
+if WPEWEBKIT
+
+config WPEWEBKIT_QT
+	bool
+	prompt "Qt API"
+
+endif
