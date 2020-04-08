@@ -1,0 +1,12 @@
+## SECTION=applications
+
+config COG
+	tristate
+	prompt "cog"
+	select HOST_CMAKE
+	select HOST_NINJA
+	select WAYLAND_PROTOCOLS
+	select WPEWEBKIT
+	select WPEBACKEND_FDO
+	help
+	  Cog launcher and webapp container.
