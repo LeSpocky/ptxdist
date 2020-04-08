@@ -21,6 +21,10 @@ FAILMALLOC_SUFFIX	:= tar.gz
 FAILMALLOC_URL		:= http://download.savannah.nongnu.org/releases/failmalloc/$(FAILMALLOC).$(FAILMALLOC_SUFFIX)
 FAILMALLOC_SOURCE	:= $(SRCDIR)/$(FAILMALLOC).$(FAILMALLOC_SUFFIX)
 FAILMALLOC_DIR		:= $(BUILDDIR)/$(FAILMALLOC)
+FAILMALLOC_LICENSE	:= LGPL-2.1-or-later
+FAILMALLOC_LICENSE_FILES	:= \
+	file://failmalloc.c;md5=9b4aa792b46eded7ca560d0f1a2d96a5;startline=3;endline=18 \
+	file://COPYING;md5=fbc093901857fcd118f065f900982c24
 
 # ----------------------------------------------------------------------------
 # Prepare
