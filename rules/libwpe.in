@@ -1,0 +1,12 @@
+## SECTION=system_libraries
+
+config LIBWPE
+	tristate
+	prompt "libwpe"
+	select HOST_CMAKE
+	select HOST_NINJA
+	select MESALIB
+	select MESALIB_EGL
+	select LIBXKBCOMMON
+	help
+	  General-purpose library for the WebPlatformForEmbedded-flavored port of WebKit.
