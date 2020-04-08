@@ -22,6 +22,8 @@ GNUPLOT_SUFFIX	:= tar.gz
 GNUPLOT_URL	:= $(call ptx/mirror, SF, gnuplot/$(GNUPLOT).$(GNUPLOT_SUFFIX))
 GNUPLOT_SOURCE	:= $(SRCDIR)/$(GNUPLOT).$(GNUPLOT_SUFFIX)
 GNUPLOT_DIR	:= $(BUILDDIR)/$(GNUPLOT)
+GNUPLOT_LICENSE	:= gnuplot
+GNUPLOT_LICENSE_FILES	:= file://Copyright;md5=243a186fc2fd3b992125d60d5b1bab8f
 
 
 # ----------------------------------------------------------------------------
