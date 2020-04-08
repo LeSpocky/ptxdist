@@ -1,0 +1,20 @@
+[Unit]
+Description=System Logger Daemon
+Documentation=man:syslog-ng(8)
+Conflicts=emergency.service emergency.target
+Requires=syslog.socket
+Wants=network.target network-online.target
+After=network.target network-online.target
+
+[Service]
+Type=notify
+ExecStartPre=/bin/mkdir -p /var/lib/syslog-ng
+ExecStart=/usr/sbin/syslog-ng -F --enable-core --cfgfile /etc/syslog-ng.conf --control /var/run/syslog-ng.ctl --persist-file /var/lib/syslog-ng/syslog-ng.persist --pidfile /var/run/syslog-ng.pid
+ExecReload=/bin/kill -HUP $MAINPID
+StandardOutput=journal
+StandardError=journal
+Restart=on-failure
+
+[Install]
+Alias=syslog.service
+WantedBy=multi-user.target

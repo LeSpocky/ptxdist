@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=networking
+## SECTION=networking
 # syslog-ng configuration
 
 menuconfig SYSLOGNG
@@ -9,7 +7,9 @@ menuconfig SYSLOGNG
 	select EVENTLOG
 	select GLIB
 	select OPENSSL
-	select PYTHON		if SYSLOGNG_PYTHON_DESTINATION
+	select LIBCURL		if SYSLOGNG_HTTP
+	select JSON_C		if SYSLOGNG_JSON
+	select PYTHON3		if SYSLOGNG_PYTHON_DESTINATION
 	select LIBC_NSL
 	select LIBC_RT
 	select LIBNET		if SYSLOGNG_SPOOF_SOURCE
@@ -18,10 +18,6 @@ menuconfig SYSLOGNG
 	select SYSTEMD		if SYSLOGNG_SYSTEMD
 	help
 	  The next generation syslog daemon.
-
-	  STAGING: remove in ptxdist-2020.01.0
-	  Fails to build with OpenSSL 1.1.x. Update to a new version is
-	  needed.
 
 if SYSLOGNG
 
@@ -46,28 +42,30 @@ config SYSLOGNG_SPOOF_SOURCE
 	  destinations though the original message can be
 	  received by TCP as well.
 
-config SYSLOGNG_AMQP_DESTINATION
+config SYSLOGNG_HTTP
 	bool
-	prompt "support the AMQP destination"
+	prompt "Enable HTTP support"
 	help
-	  Enables the ability to publish AMQP messages.
+	  Enable support for the http() destination that is based
+	  on libcurl.
 
-config SYSLOGNG_MONGODB_DESTINATION
+config SYSLOGNG_JSON
 	bool
-	prompt "support the MongoDB destination"
+	prompt "Enable JSON support"
 	help
-	  Enables the ability to send messages to a MongoDB database.
+	  JSON support is required for json-parser, and the format-cim
+	  and format-json template functions.
 
 config SYSLOGNG_PYTHON_DESTINATION
 	bool
-	prompt "support the python destination"
+	prompt "Support the python destination"
 	help
 	  Enables the ability to use inline python in the
 	  syslog-ng configuration file.
 
 config SYSLOGNG_STOMP_DESTINATION
 	bool
-	prompt "support the STOMP destination"
+	prompt "Support the STOMP destination"
 	help
 	  Enables the ability to send STOMP messages to message brokers.
 
