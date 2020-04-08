@@ -23,6 +23,8 @@ GPSD_SUFFIX	:= tar.gz
 GPSD_URL	:= http://download.savannah.gnu.org/releases/gpsd/$(GPSD).$(GPSD_SUFFIX)
 GPSD_SOURCE	:= $(SRCDIR)/$(GPSD).$(GPSD_SUFFIX)
 GPSD_DIR	:= $(BUILDDIR)/$(GPSD)
+GPSD_LICENSE	:= BSD-2-Clause
+GPSD_LICENSE_FILES	:= file://COPYING;md5=01764c35ae34d9521944bb6ab312af53
 
 # ----------------------------------------------------------------------------
 # Prepare
