@@ -1,0 +1,16 @@
+## SECTION=multimedia_libs
+
+config WPEBACKEND_FDO
+	tristate
+	prompt "wpebackend-fdo"
+	select HOST_CMAKE
+	select HOST_NINJA
+	select LIBWPE
+	select GLIB
+	select MESALIB
+	select MESALIB_EGL
+	select MESALIB_EGL_WAYLAND
+	select WAYLAND
+	help
+	  WPE backend based on freedesktop.org stack
+
