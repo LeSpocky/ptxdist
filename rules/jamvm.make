@@ -23,6 +23,10 @@ JAMVM_SUFFIX	:= tar.gz
 JAMVM_URL	:= $(call ptx/mirror, SF, jamvm/$(JAMVM).$(JAMVM_SUFFIX))
 JAMVM_SOURCE	:= $(SRCDIR)/$(JAMVM).$(JAMVM_SUFFIX)
 JAMVM_DIR	:= $(BUILDDIR)/$(JAMVM)
+JAMVM_LICENSE	:= GPL-2.0-or-later
+JAMVM_LICENSE_FILES	:= \
+	file://src/jam.c;md5=728ff94e750b0b405946b3f4ef038fac;startline=7;endline=20 \
+	file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3
 
 # ----------------------------------------------------------------------------
 # Prepare
