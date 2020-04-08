@@ -22,6 +22,10 @@ IFPLUGD_SUFFIX	:= tar.gz
 IFPLUGD_URL	:= http://0pointer.de/lennart/projects/ifplugd/$(IFPLUGD).$(IFPLUGD_SUFFIX)
 IFPLUGD_SOURCE	:= $(SRCDIR)/$(IFPLUGD).$(IFPLUGD_SUFFIX)
 IFPLUGD_DIR	:= $(BUILDDIR)/$(IFPLUGD)
+IFPLUGD_LICENSE	:= GPL-2.0-or-later
+IFPLUGD_LICENSE_FILES	:= \
+	file://README;md5=591f54e7283317e5d562c55f10ba90b3;startline=16;endline=30 \
+	file://LICENSE;md5=94d55d512a9ba36caa9b7df079bae19f
 
 # ----------------------------------------------------------------------------
 # Prepare
