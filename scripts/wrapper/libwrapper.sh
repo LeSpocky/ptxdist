@@ -279,6 +279,7 @@ add_icecc_args() {
 	if [ -n "${PTXDIST_ICECC}" ]; then
 		if [ "${1}" != clang ]; then
 			add_late_arg "-fno-diagnostics-show-caret"
+			add_late_arg "-gno-record-gcc-switches"
 		elif [ "${PTXDIST_ICECC_CLANG}" != 1 ]; then
 		    unset PTXDIST_ICECC
 		    return
