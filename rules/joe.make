@@ -22,7 +22,8 @@ JOE_SUFFIX	:= tar.gz
 JOE_URL		:= $(call ptx/mirror, SF, joe-editor/$(JOE).$(JOE_SUFFIX))
 JOE_SOURCE	:= $(SRCDIR)/$(JOE).$(JOE_SUFFIX)
 JOE_DIR		:= $(BUILDDIR)/$(JOE)
-
+JOE_LICENSE	:= GPL-1.0-only
+JOE_LICENSE_FILES	:= file://COPYING;md5=da10ed7cf8038981c580e11c1d3e8fb6
 
 # ----------------------------------------------------------------------------
 # Prepare
