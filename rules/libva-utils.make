@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_LIBVA_UTILS) += libva-utils
 #
 # Paths and names
 #
-LIBVA_UTILS_VERSION	:= 2.1.0
-LIBVA_UTILS_MD5		:= 6649be70390606651cb636320bfd43c6
+LIBVA_UTILS_VERSION	:= 2.7.1
+LIBVA_UTILS_MD5		:= 528080ef0c01d992a4a8170e07cdba9d
 LIBVA_UTILS		:= libva-utils-$(LIBVA_UTILS_VERSION)
 LIBVA_UTILS_SUFFIX	:= tar.bz2
 LIBVA_UTILS_URL		:= https://github.com/intel/libva-utils/releases/download/$(LIBVA_UTILS_VERSION)/$(LIBVA_UTILS).$(LIBVA_UTILS_SUFFIX)
 LIBVA_UTILS_SOURCE	:= $(SRCDIR)/$(LIBVA_UTILS).$(LIBVA_UTILS_SUFFIX)
 LIBVA_UTILS_DIR		:= $(BUILDDIR)/$(LIBVA_UTILS)
-LIBVA_UTILS_LICENSE	:= unknown
+LIBVA_UTILS_LICENSE	:= MIT
+LIBVA_UTILS_LICENSE_FILES := \
+	file://COPYING;md5=b148fc8adf19dc9aec17cf9cd29a9a5e
 
 # ----------------------------------------------------------------------------
 # Prepare
