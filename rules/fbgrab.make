@@ -15,22 +15,29 @@ PACKAGES-$(PTXCONF_FBGRAB) += fbgrab
 #
 # Paths and names
 #
-FBGRAB_VERSION	:= 1.0
-FBGRAB_MD5	:= 7af4d8774684182ed690d5da82d6d234
+FBGRAB_VERSION	:= 1.3.1
+FBGRAB_MD5	:= d2f1f9a096954c252335317216dcd501
 FBGRAB		:= fbgrab-$(FBGRAB_VERSION)
 FBGRAB_SUFFIX	:= tar.gz
-FBGRAB_URL	:= http://fbgrab.monells.se/$(FBGRAB).$(FBGRAB_SUFFIX)
+FBGRAB_URL	:= https://github.com/GunnarMonell/fbgrab/archive/$(FBGRAB_VERSION).$(FBGRAB_SUFFIX)
 FBGRAB_SOURCE	:= $(SRCDIR)/$(FBGRAB).$(FBGRAB_SUFFIX)
 FBGRAB_DIR	:= $(BUILDDIR)/$(FBGRAB)
+FBGRAB_LICENSE	:= GPL-2.0-only
+FBGRAB_LICENSE_FILES	:= \
+	file://COPYING;md5=ea5bed2f60d357618ca161ad539f7c0a \
+	file://fbgrab.c;startline=6;endline=6;md5=03e379b2e488fbda4e42aa556e9cec93
+
+# ----------------------------------------------------------------------------
+# Prepare
+# ----------------------------------------------------------------------------
+
+FBGRAB_CONF_TOOL := NO
 
 # ----------------------------------------------------------------------------
 # Compile
 # ----------------------------------------------------------------------------
-# overwrite some vars in the makefile
 
-FBGRAB_MAKE_OPT	= \
-	$(CROSS_ENV_CC) \
-	LDLIBS='`eval PATH=$(CROSS_PATH) $(CROSS_PKG_CONFIG) --libs libpng`'
+FBGRAB_MAKE_ENV := $(CROSS_ENV_CC)
 
 # ----------------------------------------------------------------------------
 # Target-Install
