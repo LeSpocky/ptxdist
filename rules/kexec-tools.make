@@ -22,6 +22,8 @@ KEXEC_TOOLS_SUFFIX	:= tar.xz
 KEXEC_TOOLS_URL		:= $(call ptx/mirror, KERNEL, utils/kernel/kexec/$(KEXEC_TOOLS).$(KEXEC_TOOLS_SUFFIX))
 KEXEC_TOOLS_SOURCE	:= $(SRCDIR)/$(KEXEC_TOOLS).$(KEXEC_TOOLS_SUFFIX)
 KEXEC_TOOLS_DIR		:= $(BUILDDIR)/$(KEXEC_TOOLS)
+KEXEC_TOOLS_LICENSE	:= GPL-2.0-only
+KEXEC_TOOLS_LICENSE_FILES	:= file://COPYING;md5=ea5bed2f60d357618ca161ad539f7c0a
 
 # ----------------------------------------------------------------------------
 # Prepare
