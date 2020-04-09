@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=multimedia_framebuffer
+## SECTION=multimedia_framebuffer
 
 config FBGRAB
 	select LIBPNG
@@ -11,7 +9,3 @@ config FBGRAB
 	  linux framebuffer and converting it to a png-picture.
 
 	  For details see: https://github.com/GunnarMonell/fbgrab
-
-	  STAGING: remove in ptxdist-2021.04.0
-	  Old version, broken download and obsolete. There is a new version
-	  on gitub that could be used.
