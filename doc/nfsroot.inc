@@ -59,3 +59,47 @@ via network only is very easy. In the Barebox prompt just enter:
 In this case Barebox will mount the defined root filesysem via NFS, loads the
 included bootspec file, read its information and continues to load the matching
 kernel and maybe a matching device tree.
+
+
+File Permissions and Ownership
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+PTXdist runs as a regular user. As a result, the files in the root
+directory are owned by the user. Any SUID bits are removed and all special
+files, such as device nodes, are represented by empty regular files.
+
+The userland NFS server has two mechanisms to provide the correct
+ownership, permissions, etc. to the client.
+
+1. Fakeroot is started and the correct ownership, permissions, etc. are
+   applied. Then the userland NFS server is started.
+
+   Known issues with this approach:
+    - Ownership changes made by then NFS client are lost when the NFS
+      server is stopped.
+    - Fakeroot writes SUID bits to the underlying filesystem. As a result,
+      the file is now SUID for the regular user. This causes problems when
+      the same rootfs is used with a regular NFS server as well.
+    - If the underlying filesystem is changed behind its back then fakeroot
+      can get confused and may provide incorrect data.
+    - While ownership and permissions are presented correctly, they are not
+      fully enforced that way. So this is useful for testing but not secure
+      in any way.
+
+2. In the developer options in `ptxdist setup` there is an option "provide
+   ownership/permission metadata in the nfsroot". If this is enabled, then
+   PTXdist will store the permission data inside the rootfs as additional
+   files. The format is mostly what qemu uses for its
+   security_model=mapped-file option for virtual filesystems. The only
+   difference is that symlinks remain real symlinks.
+   The userland NFS server reads there extra files and provides the correct
+   permissions.
+
+   Known issues with this approach:
+    - The additional files can be a problem when the rootfs is shared with
+      a regular NFS server where these files are visible. For example,
+      programs that search for plugins will find the extra non-binary
+      files.
+    - While ownership and permissions are presented correctly, they are not
+      fully enforced that way. So this is useful for testing but not secure
+      in any way.
