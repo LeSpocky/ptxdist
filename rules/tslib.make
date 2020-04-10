@@ -15,11 +15,11 @@ PACKAGES-$(PTXCONF_TSLIB) += tslib
 #
 # Paths and names
 #
-TSLIB_VERSION	:= 1.1
-TSLIB_MD5	:= 6ee9bf26c18f06cfc0ceb278bb927589
+TSLIB_VERSION	:= 1.21
+TSLIB_MD5	:= 96ada1cf6c69fbd87f3dd1f316c8e140
 TSLIB		:= tslib-$(TSLIB_VERSION)
 TSLIB_SUFFIX	:= tar.bz2
-TSLIB_URL	:= https://github.com/kergoth/tslib/releases/download/1.1/$(TSLIB).$(TSLIB_SUFFIX)
+TSLIB_URL	:= https://github.com/libts/tslib/releases/download/$(TSLIB_VERSION)/$(TSLIB).$(TSLIB_SUFFIX)
 TSLIB_SOURCE	:= $(SRCDIR)/$(TSLIB).$(TSLIB_SUFFIX)
 TSLIB_DIR	:= $(BUILDDIR)/$(TSLIB)
 
@@ -30,18 +30,44 @@ TSLIB_DIR	:= $(BUILDDIR)/$(TSLIB)
 #
 # autoconf
 #
-TSLIB_CONF_TOOL	:autoconf
+
+TSLIB_CONF_TOOL	:= autoconf
 TSLIB_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-static \
+	--disable-tools \
+	--enable-arctic2 \
+	--enable-collie \
+	--enable-corgi \
+	--enable-cy8mrln-palmpre \
+	--enable-debounce \
 	--enable-shared \
 	--enable-linear \
 	--enable-dejitter \
+	--enable-dmc \
+	--enable-dmc_dus3000 \
+	--enable-evthres \
+	--enable-galax \
+	--enable-h3600 \
+	--enable-iir \
+	--enable-input \
+	--disable-input-evdev \
+	--enable-invert \
 	--enable-linear-h2200 \
+	--enable-lowpass \
+	--enable-median \
+	--enable-mk712 \
+	--enable-one-wire-ts-input \
 	--enable-variance \
 	--enable-pthres \
+	--enable-skip \
+	--enable-tatung \
+	--enable-touchkit \
+	--enable-ucb1x00 \
+	--enable-waveshare \
+	--with-hidden_visibility=yes \
+	--without-sdl2 \
 	--disable-debug
-
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -59,7 +85,7 @@ $(STATEDIR)/tslib.targetinstall:
 	@$(call install_alternative, tslib, 0, 0, 0644, \
 		/etc/ts.conf)
 
-	@$(call install_lib, tslib, 0, 0, 0644, libts-1.0)
+	@$(call install_lib, tslib, 0, 0, 0644, libts)
 
 ifdef PTXCONF_TSLIB_TS_CALIBRATE
 	@$(call install_copy, tslib, 0, 0, 0755, -, /usr/bin/ts_calibrate)

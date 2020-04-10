@@ -14,10 +14,11 @@ menuconfig TSLIB
 	  embedded devices to provide a common user space interface
 	  to touchscreen functionality.
 
+if TSLIB
+
 config TSLIB_TS_CALIBRATE
 	bool
 	prompt "Install ts_calibrate on target"
-	depends on TSLIB
 	help
 	  ts_calibrate is a graphical tool to calibrate the
 	  touch sensor. The app asks the user to tap a
@@ -27,6 +28,7 @@ config TSLIB_TS_CALIBRATE
 config TSLIB_TS_TEST
 	bool
 	prompt "Install ts_test on target"
-	depends on TSLIB
 	help
 	  Basic test program for touchscreen library.
+
+endif
