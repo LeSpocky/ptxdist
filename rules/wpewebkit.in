@@ -4,13 +4,17 @@ menuconfig WPEWEBKIT
 	tristate
 	prompt "wpewebkit                     "
 	select HOST_CMAKE
+	select HOST_GPERF
 	select HOST_NINJA
 	select HOST_SYSTEM_PERL
 	select HOST_SYSTEM_PERL_JSON
+	select HOST_SYSTEM_RUBY
 	select GLIB
 	select LIBWPE
 	select CAIRO
+	select CAIRO_EGL
 	select CAIRO_FREETYPE
+	select CAIRO_GLES2
 	select CAIRO_PNG
 	select FONTCONFIG
 	select FREETYPE
