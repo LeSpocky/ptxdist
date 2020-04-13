@@ -325,6 +325,7 @@ config XORG_SERVER_EXT_XDM_AUTH_1
 
 config XORG_SERVER_EXT_GLX
 	bool
+	select XORG_SERVER_EXT_XRES
 	# This select doesn't work! But it is workarounded by mesalib only
 	# presenting the DRI driver as it's backend if GLX is active.
 	select MESALIB_GLX
