@@ -1,0 +1,23 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Mon, 13 Apr 2020 07:37:05 +0200
+Subject: [PATCH] HACK: run configure directly with python2
+
+This ensures that the correct Python version is used. Without this,
+'python2.7' is the first try. This is either the cross Python or bypasses
+the host-system-python dependency check.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ configure | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure b/configure
+index 9156e13f7aed..317a768b0fd6 100755
+--- a/configure
++++ b/configure
+@@ -1,4 +1,4 @@
+-#!/bin/sh
++#!/usr/bin/env python2
+ 
+ # Locate python2 interpreter and re-execute the script.  Note that the
+ # mix of single and double quotes is intentional, as is the fact that

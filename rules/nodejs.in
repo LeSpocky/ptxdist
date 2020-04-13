@@ -3,6 +3,7 @@
 config NODEJS
 	tristate
 	prompt "Node.js                       "
+	select HOST_SYSTEM_PYTHON
 	select HOST_NODEJS
 	select C_ARES
 	select LIBUV

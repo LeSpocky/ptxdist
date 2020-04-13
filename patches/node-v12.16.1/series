@@ -4,4 +4,5 @@
 0002-Install-both-binaries-and-use-libdir.patch
 0003-tools-do-not-explicitely-set-an-rpath-in-make-genera.patch
 0004-HACK-don-t-add-LD_LIBRARY_PATH-for-external-tools.patch
-# 54ccf86e2c772cc50a5febf46b50b9c9  - git-ptx-patches magic
+0005-HACK-run-configure-directly-with-python2.patch
+# c39d7fdc79e6b2f672a807f38ade396e  - git-ptx-patches magic
