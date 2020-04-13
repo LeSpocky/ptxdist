@@ -124,7 +124,7 @@ QT5_CONF_OPT	:= \
 	--disable-rpath \
 	-reduce-exports \
 	--disable-pch \
-	--disable-ltcg \
+	--$(call ptx/endis, PTXCONF_ARCH_X86)-ltcg \
 	$(if $(filter 0,$(PTXDIST_VERBOSE)),-silent) \
 	\
 	-pkg-config \
@@ -197,6 +197,8 @@ QT5_CONF_OPT	:= \
 	-qt-harfbuzz \
 	--disable-gtk \
 	-$(call ptx/ifdef, PTXCONF_QT5_OPENGL,opengl $(PTXCONF_QT5_OPENGL_API),no-opengl) \
+	--$(call ptx/endis, PTXCONF_QT5_OPENGL_ES2)-opengles3 \
+	--$(call ptx/endis, PTXCONF_QT5_OPENGL)-egl \
 	$(call ptx/ifdef, PTXCONF_QT5_GUI,-qpa $(PTXCONF_QT5_PLATFORM_DEFAULT)) \
 	--$(call ptx/endis, PTXCONF_QT5_X11)-xcb-xlib \
 	\
@@ -268,8 +270,7 @@ endif
 
 # Note: these options are not listed in '--help' but they exist
 QT5_CONF_OPT += \
-	--disable-sm \
-	--$(call ptx/endis, PTXCONF_QT5_OPENGL)-egl
+	--disable-sm
 
 ifdef PTXCONF_QT5_MODULE_QTDECLARATIVE
 QT5_CONF_OPT += \
