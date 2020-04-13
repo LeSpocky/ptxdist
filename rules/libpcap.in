@@ -5,7 +5,8 @@ menuconfig LIBPCAP
 	prompt "libpcap                       "
 	select GCCLIBS_GCC_S
 	select LIBNL3
-	select BLUEZ	if LIBPCAP_BLUETOOTH
+	select BLUEZ			if LIBPCAP_BLUETOOTH
+	select BLUEZ_LIBBLUETOOTH	if LIBPCAP_BLUETOOTH
 	help
 	  libpcap is a system-independent interface for user-level packet capture.
 	  libpcap provides a portable framework for low-level network monitoring.
