@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_ICU) += icu
 #
 # Paths and names
 #
-ICU_VERSION	:= 60.2
-ICU_MD5		:= 43861b127744b3c0b9d7f386f4b9fa40
+ICU_VERSION	:= 60.3
+ICU_MD5		:= 4f558e73b7bd1fa93caf3d10479de41b
 ICU		:= icu4c-$(subst .,_,$(ICU_VERSION))-src
 ICU_SUFFIX	:= tgz
-ICU_URL		:= http://download.icu-project.org/files/icu4c/$(ICU_VERSION)/$(ICU).$(ICU_SUFFIX)
+ICU_URL		:= https://github.com/unicode-org/icu/releases/download/release-$(subst .,-,$(ICU_VERSION))/$(ICU).$(ICU_SUFFIX)
 ICU_SOURCE	:= $(SRCDIR)/$(ICU).$(ICU_SUFFIX)
 ICU_DIR		:= $(BUILDDIR)/$(ICU)
 ICU_SUBDIR	:= source
