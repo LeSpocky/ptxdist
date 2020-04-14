@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_U_BOOT_TOOLS) += u-boot-tools
 #
 # Paths and names
 #
-U_BOOT_TOOLS_VERSION	:= 2019.01
-U_BOOT_TOOLS_MD5	:= 0adbc6c755768f0b78a2a0decf0b253a
+U_BOOT_TOOLS_VERSION	:= 2020.04
+U_BOOT_TOOLS_MD5	:= 51113d2288c55110e33a895c65ab9f60
 U_BOOT_TOOLS		:= u-boot-$(U_BOOT_TOOLS_VERSION)
 U_BOOT_TOOLS_SUFFIX	:= tar.bz2
 U_BOOT_TOOLS_URL	:= https://ftp.denx.de/pub/u-boot/$(U_BOOT_TOOLS).$(U_BOOT_TOOLS_SUFFIX)
@@ -31,19 +31,12 @@ U_BOOT_TOOLS_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-
-# just pick sandbox as a dummy target config
-U_BOOT_TOOLS_CONFIG	:= sandbox_config
-ifdef PTXCONF_ARCH_PPC
-# the sandbox is not supported by PPC so just some random PPC config
-U_BOOT_TOOLS_CONFIG	:= MPC8308RDB_defconfig
-endif
-
 U_BOOT_TOOLS_CONF_TOOL	:= NO
 U_BOOT_TOOLS_MAKE_OPT	:= \
 	CROSS_COMPILE=$(BOOTLOADER_CROSS_COMPILE) \
-	$(U_BOOT_TOOLS_CONFIG) \
-	tools/env/
+	tools-only_defconfig \
+	envtools \
+	NO_SDL=1
 
 # ----------------------------------------------------------------------------
 # Install
