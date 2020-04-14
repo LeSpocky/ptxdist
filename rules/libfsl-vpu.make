@@ -21,6 +21,8 @@ LIBFSL_VPU_SUFFIX	:= tar.bz2
 LIBFSL_VPU_URL		:= http://www.pengutronix.de/software/ptxdist/temporary-src/$(LIBFSL_VPU).$(LIBFSL_VPU_SUFFIX)
 LIBFSL_VPU_SOURCE	:= $(SRCDIR)/$(LIBFSL_VPU).$(LIBFSL_VPU_SUFFIX)
 LIBFSL_VPU_DIR		:= $(BUILDDIR)/$(LIBFSL_VPU)
+LIBFSL_VPU_LICENSE	:= LGPL-2.1-or-later
+LIBFSL_VPU_LICENSE_FILES	:= file://src/vpu_lib.c;md5=58db5f82e0a28dfe42bf9885eb4733a3;startline=7;endline=14
 
 # ----------------------------------------------------------------------------
 # Prepare
