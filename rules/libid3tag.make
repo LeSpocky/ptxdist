@@ -21,6 +21,10 @@ LIBID3TAG_SUFFIX	:= tar.gz
 LIBID3TAG_URL		:= ftp://ftp.mars.org/pub/mpeg/$(LIBID3TAG).$(LIBID3TAG_SUFFIX)
 LIBID3TAG_SOURCE	:= $(SRCDIR)/$(LIBID3TAG).$(LIBID3TAG_SUFFIX)
 LIBID3TAG_DIR		:= $(BUILDDIR)/$(LIBID3TAG)
+LIBID3TAG_LICENSE	:= GPL-2.0-or-later
+LIBID3TAG_LICENSE_FILES	:= \
+	file://COPYRIGHT;md5=5e6279efb87c26c6e5e7a68317a6a87a \
+	file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f
 
 # ----------------------------------------------------------------------------
 # Prepare
