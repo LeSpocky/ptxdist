@@ -25,7 +25,7 @@ endif
 		--revision $(call remove_quotes,$(PTXDIST_VERSION_FULL)) \
 		--project  $(call remove_quotes,$(PTXCONF_PROJECT)) \
 		--dist     $(call remove_quotes,$(PTXCONF_PROJECT)$(PTXCONF_PROJECT_VERSION)) \
-		--type     opkg
+		--checksum $(call ptx/ifdef,PTXCONF_OPKG_SHA256,sha256,md5)
 	@echo "ipkg-repository updated"
 ifdef PTXCONF_IMAGE_IPKG_SIGN_OPENSSL
 	@echo "signing Packages..."
@@ -51,7 +51,9 @@ $(PKGDIR)/Packages: $(STATEDIR)/host-ipkg-utils.install.post $(STATEDIR)/world.t
 	@echo "Creating ipkg index '$@'..."
 	@rm -f $(PKGDIR)/Packages*
 	@$(HOST_ENV) opkg-make-index \
-		-l "$(PKGDIR)/Packages.filelist" -p "$(@)" "$(PKGDIR)"
+		-l "$(PKGDIR)/Packages.filelist" -p "$(@)" \
+		--checksum $(call ptx/ifdef,PTXCONF_OPKG_SHA256,sha256,md5) \
+		"$(PKGDIR)"
 	@echo "done."
 
 # vim: syntax=make
