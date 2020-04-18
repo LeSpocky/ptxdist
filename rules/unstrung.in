@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 menuconfig UNSTRUNG
 	tristate
@@ -12,6 +14,9 @@ menuconfig UNSTRUNG
 	  protocol that provides connectivity among nodes that can not all
 	  hear each other, but rather have to form a multihop mesh-like
 	  network.
+
+	  STAGING: remove in ptxdist-2021.05.0
+	  Upstream seems to be mostly dead. Fails to build with gcc >= 9.x.
 
 if UNSTRUNG
 
