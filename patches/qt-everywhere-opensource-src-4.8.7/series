@@ -9,4 +9,5 @@
 0007-phonon-fix-colors-for-video-on-qgraphicsview.patch
 0008-don-t-build-webkit-tests.patch
 0009-fix-build-issues-with-gcc6.patch
-# 3810087cb4ae9063abad39054889322f  - git-ptx-patches magic
+0010-configure-handle-gcc-9.x.patch
+# 9134b7178aa4720695840ab37bb30482  - git-ptx-patches magic
