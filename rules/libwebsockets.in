@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 menuconfig LIBWEBSOCKETS
 	tristate
@@ -9,6 +11,9 @@ menuconfig LIBWEBSOCKETS
 	  Libwebsockets is a lightweight pure C library for both websockets
 	  clients and servers built to use minimal CPU and memory resources
 	  and provide fast throughput in both directions.
+
+	  STAGING: remove in ptxdist-2021.05.0
+	  Old version that need to be updated. Fails to build with gcc >= 9.x.
 
 if LIBWEBSOCKETS
 
