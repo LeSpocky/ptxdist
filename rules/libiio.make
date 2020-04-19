@@ -42,7 +42,9 @@ LIBIIO_CONF_OPT		:= \
 	-DWITH_MATLAB_BINDINGS_API=OFF \
 	-DPYTHON_BINDINGS=OFF \
 	-DCSHARP_BINDINGS=OFF \
-	-DWITH_TESTS=$(call ptx/onoff, PTXCONF_LIBIIO_TEST_TOOLS)
+	-DWITH_TESTS=$(call ptx/onoff, PTXCONF_LIBIIO_TEST_TOOLS) \
+	\
+	-DCMAKE_DISABLE_FIND_PACKAGE_LibXml2=ON
 
 # ----------------------------------------------------------------------------
 # Target-Install
