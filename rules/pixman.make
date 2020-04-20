@@ -14,10 +14,10 @@ PACKAGES-$(PTXCONF_PIXMAN) += pixman
 #
 # Paths and names
 #
-PIXMAN_VERSION	:= 0.38.0
-PIXMAN_MD5	:= 04ecad28edcc14e7eb5f7ed6df29c7a0
+PIXMAN_VERSION	:= 0.40.0
+PIXMAN_MD5	:= ee642c14f4f18934246c57a440da9ca2
 PIXMAN		:= pixman-$(PIXMAN_VERSION)
-PIXMAN_SUFFIX	:= tar.bz2
+PIXMAN_SUFFIX	:= tar.xz
 PIXMAN_URL	:= $(call ptx/mirror, XORG, individual/lib/$(PIXMAN).$(PIXMAN_SUFFIX))
 PIXMAN_SOURCE	:= $(SRCDIR)/$(PIXMAN).$(PIXMAN_SUFFIX)
 PIXMAN_DIR	:= $(BUILDDIR)/$(PIXMAN)
@@ -28,29 +28,27 @@ PIXMAN_LICENSE	:= MIT
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-PIXMAN_CONF_TOOL	:= autoconf
+PIXMAN_CONF_TOOL	:= meson
 PIXMAN_CONF_OPT		:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-static \
-	--disable-openmp \
-	--disable-loongson-mmi \
-	--$(call ptx/endis, PTXCONF_ARCH_X86)-mmx \
-	--$(call ptx/endis, PTXCONF_ARCH_X86)-sse2 \
-	--$(call ptx/endis, PTXCONF_ARCH_X86)-ssse3 \
-	--disable-vmx \
-	--$(call ptx/endis, PTXCONF_ARCH_ARM_V6)-arm-simd \
-	--$(call ptx/endis, PTXCONF_ARCH_ARM_NEON)-arm-neon \
-	--disable-arm-iwmmxt \
-	--disable-arm-iwmmxt2 \
-	--disable-mips-dspr2 \
-	--enable-gcc-inline-asm \
-	--disable-static-testprogs \
-	--disable-timers \
-	--disable-gnuplot \
-	--disable-gtk \
-	--disable-libpng
+	$(CROSS_MESON_USR) \
+	-Darm-simd=$(call ptx/endis, PTXCONF_ARCH_ARM_V6)d \
+	-Dgnu-inline-asm=disabled \
+	-Dgnuplot=false \
+	-Dgtk=disabled \
+	-Diwmmxt=disabled \
+	-Diwmmxt2=false \
+	-Dlibpng=disabled \
+	-Dloongson-mmi=disabled \
+	-Dmips-dspr2=disabled \
+	-Dmmx=$(call ptx/endis, PTXCONF_ARCH_X86)d \
+	-Dneon=$(call ptx/endis, PTXCONF_ARCH_ARM_NEON)d \
+	-Dopenmp=disabled \
+	-Dsse2=$(call ptx/endis, PTXCONF_ARCH_X86)d \
+	-Dssse3=$(call ptx/endis, PTXCONF_ARCH_X86)d \
+	-Dtimers=false \
+	-Dvmx=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
