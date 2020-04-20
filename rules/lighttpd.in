@@ -140,6 +140,7 @@ if LIGHTTPD_MOD_FASTCGI
 
 config LIGHTTPD_MOD_FASTCGI_PHP
 	bool
+	depends on STAGING
 	prompt "setup php handling with fastcgi"
 	help
 	  Enables the necessary packages and configuration files

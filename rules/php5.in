@@ -1,4 +1,6 @@
-## SECTION=scripting_languages
+## SECTION=staging
+## old section:
+### SECTION=scripting_languages
 # php5 configuration
 
 menuconfig PHP5
@@ -17,6 +19,10 @@ menuconfig PHP5
 	select SQLITE		if PHP5_EXT_SQLITE3
 	select ZLIB		if PHP5_EXT_ZLIB
 	select OPENSSL		if PHP5_EXT_OPENSSL
+	help
+	  STAGING: remove in ptxdist-2021.05.0
+	  Old version that need to be updated. Fails to build with gcc >= 9.x on
+	  on some architectures (AArch64).
 
 if PHP5
 

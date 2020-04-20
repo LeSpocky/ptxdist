@@ -60,6 +60,7 @@ config CUPS_PERL
 	bool "enable Perl support for web interface"
 
 config CUPS_PHP
+	depends on STAGING
 	bool "enable PHP support for web interface"
 
 if CUPS_PHP
