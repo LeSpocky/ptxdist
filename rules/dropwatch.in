@@ -5,6 +5,7 @@ config DROPWATCH
 	prompt "dropwatch"
 	select BINUTILS
 	select LIBNL3
+	select LIBPCAP
 	select READLINE
 	help
 	  user space utility for use with dropwatch kernel protocol
