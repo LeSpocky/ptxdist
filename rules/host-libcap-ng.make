@@ -26,4 +26,9 @@ HOST_LIBCAP_NG_CONF_OPT := \
 	--without-python \
 	--without-python3
 
+# needed for old glibc versions
+HOST_LIBCAP_NG_CONF_ENV := \
+	$(HOST_ENV) \
+	LDFLAGS="-lpthread"
+
 # vim: syntax=make
