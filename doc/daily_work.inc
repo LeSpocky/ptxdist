@@ -1301,7 +1301,7 @@ non-interactive user, e.g. a different application.
 .. _external_dependencies_variants:
 
 Controlling Package Dependencies in more Detail
-----------------------------------------------
+-----------------------------------------------
 
 In section :ref:`external_dependencies` a simple method is shown how to define
 an external package dependency a particular package can have in order to build
