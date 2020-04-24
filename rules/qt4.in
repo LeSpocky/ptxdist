@@ -864,6 +864,7 @@ config QT4_BUILD_MULTIMEDIA
 
 config QT4_BUILD_PHONON
 	bool
+	depends on STAGING
 	select QT4_BUILD_GUI
 	select QT4_GLIB
 	prompt "Phonon"

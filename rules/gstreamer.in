@@ -1,4 +1,6 @@
-## SECTION=multimedia_gstreamer
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gstreamer
 
 menuconfig GSTREAMER
 	tristate
@@ -19,6 +21,9 @@ menuconfig GSTREAMER
 	  media-related. Its plugin-based architecture means that new
 	  data types or processing capabilities can be added simply by
 	  installing new plug-ins.
+
+	  STAGING: remove in ptxdist-2021.05.0
+	  GStreamer 0.10 has been dead more than 8 years.
 
 if GSTREAMER
 

@@ -1,4 +1,6 @@
-## SECTION=multimedia_gstreamer
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gstreamer
 
 menuconfig GST_PLUGINS_BASE
 	tristate
@@ -39,6 +41,9 @@ menuconfig GST_PLUGINS_BASE
 
 	  This package contains the GStreamer plugins from the "base"
 	  set, an essential exemplary set of elements.
+
+	  STAGING: remove in ptxdist-2021.05.0
+	  GStreamer 0.10 has been dead more than 8 years.
 
 if GST_PLUGINS_BASE
 

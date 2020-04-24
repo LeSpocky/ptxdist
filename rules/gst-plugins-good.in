@@ -1,4 +1,6 @@
-## SECTION=multimedia_gstreamer
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gstreamer
 
 menuconfig GST_PLUGINS_GOOD
 	tristate
@@ -31,6 +33,9 @@ menuconfig GST_PLUGINS_GOOD
 	  functionality, our preferred license (LGPL for the
 	  plug-in code, LGPL or LGPL-compatible for the
 	  supporting library).
+
+	  STAGING: remove in ptxdist-2021.05.0
+	  GStreamer 0.10 has been dead more than 8 years.
 
 if GST_PLUGINS_GOOD
 

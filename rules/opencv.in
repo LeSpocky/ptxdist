@@ -111,6 +111,7 @@ config OPENCV_DNN
 
 config OPENCV_GSTREAMER
 	bool
+	depends on STAGING
 	prompt "gstreamer"
 	help
 	  Gstreamer Support

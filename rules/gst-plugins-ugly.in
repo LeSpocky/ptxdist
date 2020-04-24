@@ -1,4 +1,6 @@
-## SECTION=multimedia_gstreamer
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gstreamer
 
 menuconfig GST_PLUGINS_UGLY
 	tristate
@@ -18,6 +20,9 @@ menuconfig GST_PLUGINS_UGLY
 	  on either the plug-ins or the supporting libraries
 	  might not be how we'd like. The code might be widely
 	  known to present patent problems.
+
+	  STAGING: remove in ptxdist-2021.05.0
+	  GStreamer 0.10 has been dead more than 8 years.
 
 if GST_PLUGINS_UGLY
 

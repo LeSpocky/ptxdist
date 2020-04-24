@@ -1,4 +1,6 @@
-## SECTION=multimedia_gstreamer
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gstreamer
 
 config GST_PLUGINS_GL
 	tristate
@@ -18,4 +20,7 @@ config GST_PLUGINS_GL
 	  libraries, base classes and elements for
 	  integrating with OpenGL and using it to perform
 	  video display and processing.
+
+	  STAGING: remove in ptxdist-2021.05.0
+	  GStreamer 0.10 has been dead more than 8 years.
 
