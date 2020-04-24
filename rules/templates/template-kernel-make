@@ -42,6 +42,10 @@ KERNEL_@PACKAGE@_CONF_OPT	:= \
 	O=$(KERNEL_@PACKAGE@_BUILD_DIR) \
 	$(call kernel-opts, KERNEL_@PACKAGE@)
 
+# no gcc plugins; avoid config changes depending on the host compiler
+KERNEL_@PACKAGE@_CONF_OPT	+= \
+	HOSTCXX=false
+
 KERNEL_@PACKAGE@_IMAGES := @image@
 KERNEL_@PACKAGE@_IMAGES := $(addprefix $(KERNEL_@PACKAGE@_BUILD_DIR)/arch/$(GENERIC_KERNEL_ARCH)/boot/,$(KERNEL_@PACKAGE@_IMAGES))
 
