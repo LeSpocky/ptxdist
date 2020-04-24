@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 menuconfig TCPWRAPPER
 	tristate
@@ -14,6 +16,9 @@ menuconfig TCPWRAPPER
 	  requested service; the wrappers do not exchange information with the
 	  client or server applications, and impose no overhead on the actual
 	  conversation between the client and server applications.
+
+	  STAGING: remove in ptxdist-2021.05.0
+	  Obsolete and dead for a long time.
 
 if TCPWRAPPER
 

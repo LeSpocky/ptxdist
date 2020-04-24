@@ -23,6 +23,7 @@ if SYSLOGNG
 
 config SYSLOGNG_TCP_WRAPPER
 	bool
+	depends on STAGING
 	prompt "tcpwrapper support"
 	help
 	  Support /etc/hosts.deny and /etc/hosts.allow.
