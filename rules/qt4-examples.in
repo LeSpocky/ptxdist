@@ -2412,6 +2412,7 @@ if QT4_EXAMPLES_PHONON
 config QT4_EXAMPLES_PHONON_CAPABILITIES
 	bool
 	prompt "capabilities"
+	depends on QT4_BUILD_PHONON
 	depends on QT4_DBUS_LOAD || QT4_DBUS_LINK
 	depends on QT4_BUILD_XML
 	depends on QT4_BUILD_GUI
@@ -2420,6 +2421,7 @@ config QT4_EXAMPLES_PHONON_CAPABILITIES
 config QT4_EXAMPLES_PHONON_QMUSICPLAYER
 	bool
 	prompt "qmusicplayer"
+	depends on QT4_BUILD_PHONON
 	depends on QT4_DBUS_LOAD || QT4_DBUS_LINK
 	depends on QT4_BUILD_XML
 	depends on QT4_BUILD_GUI
