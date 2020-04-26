@@ -25,7 +25,6 @@ CANFESTIVAL_SUFFIX	:= tar.gz
 CANFESTIVAL_URL		:= https://hg.beremiz.org/CanFestival-3/archive/8bfe0ac00cdb.$(CANFESTIVAL_SUFFIX)
 CANFESTIVAL_SOURCE	:= $(SRCDIR)/$(CANFESTIVAL).$(CANFESTIVAL_SUFFIX)
 CANFESTIVAL_DIR		:= $(BUILDDIR)/$(CANFESTIVAL)
-CANFESTIVAL_BUILD_OOT	:= NO
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -47,6 +46,7 @@ ifdef PTXCONF_KERNEL_HEADER
 CANFESTIVAL_CFLAGS	:= -isystem $(KERNEL_HEADERS_INCLUDE_DIR)
 endif
 
+CANFESTIVAL_MAKE_PAR	:= NO
 CANFESTIVAL_MAKE_OPT	:= canfestival examples
 
 # ----------------------------------------------------------------------------
