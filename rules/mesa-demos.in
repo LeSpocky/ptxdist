@@ -6,7 +6,6 @@ menuconfig MESA_DEMOS
 	select GLEW
 	select GLU
 	select MESALIB_EGL		if MESA_DEMOS_EGL
-	select MESALIB_GLES1		if MESA_DEMOS_GLES1
 	select MESALIB_GLES2		if MESA_DEMOS_GLES2
 	select MESALIB_EGL_WAYLAND	if MESA_DEMOS_WAYLAND
 	select XORG_LIB_X11		if MESA_DEMOS_X11
@@ -14,9 +13,6 @@ menuconfig MESA_DEMOS
 	prompt "mesa tools & demos            "
 
 if MESA_DEMOS
-
-config MESA_DEMOS_GLES1
-	bool
 
 config MESA_DEMOS_EGL
 	bool

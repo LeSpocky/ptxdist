@@ -35,7 +35,7 @@ MESA_DEMOS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-static \
 	--$(call ptx/endis, PTXCONF_MESA_DEMOS_EGL)-egl \
-	--$(call ptx/endis, PTXCONF_MESA_DEMOS_GLES1)-gles1 \
+	--disable-gles1 \
 	--$(call ptx/endis, PTXCONF_MESA_DEMOS_GLES2)-gles2 \
 	--disable-vg \
 	--disable-osmesa \
