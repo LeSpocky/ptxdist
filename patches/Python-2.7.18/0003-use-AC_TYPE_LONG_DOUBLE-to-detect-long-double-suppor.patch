@@ -11,10 +11,10 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  1 file changed, 2 insertions(+), 10 deletions(-)
 
 diff --git a/configure.ac b/configure.ac
-index c9cb9c802882..c89e4a601cf1 100644
+index 04e713acd089..5899a7d819b5 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -1890,16 +1890,8 @@ if test "$ac_cv_type_long_long_int" = "yes" ; then
+@@ -1897,16 +1897,8 @@ if test "$ac_cv_type_long_long_int" = "yes" ; then
    AC_DEFINE(HAVE_LONG_LONG, 1, [Define this if you have the type long long.])
  fi
  

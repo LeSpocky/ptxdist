@@ -35,7 +35,7 @@ index ad307f65398b..f72ae886cad8 100644
  AF_MAX = PF_MAX
  SOL_RAW = 255
 diff --git a/Modules/socketmodule.c b/Modules/socketmodule.c
-index 8d3670529e85..f1c0bab247b0 100644
+index 4d5a8f6f0170..8636a8d6ca5e 100644
 --- a/Modules/socketmodule.c
 +++ b/Modules/socketmodule.c
 @@ -448,6 +448,10 @@ const char *inet_ntop(int af, const void *src, char *dst, socklen_t size);
@@ -116,7 +116,7 @@ index 8d3670529e85..f1c0bab247b0 100644
  #ifdef USE_BLUETOOTH
      case AF_BLUETOOTH:
      {
-@@ -4798,6 +4848,10 @@ init_socket(void)
+@@ -4813,6 +4863,10 @@ init_socket(void)
      PyModule_AddIntConstant(m, "AF_LLC", AF_LLC);
  #endif
  
@@ -127,7 +127,7 @@ index 8d3670529e85..f1c0bab247b0 100644
  #ifdef USE_BLUETOOTH
      PyModule_AddIntConstant(m, "AF_BLUETOOTH", AF_BLUETOOTH);
      PyModule_AddIntConstant(m, "BTPROTO_L2CAP", BTPROTO_L2CAP);
-@@ -5154,6 +5208,41 @@ init_socket(void)
+@@ -5169,6 +5223,41 @@ init_socket(void)
      PyModule_AddIntConstant(m, "IPPROTO_MAX", IPPROTO_MAX);
  #endif
  
@@ -199,10 +199,10 @@ index d98e00e88d27..3b6e22e29d3a 100644
      struct sockaddr_l2 bt_l2;
      struct sockaddr_rc bt_rc;
 diff --git a/configure.ac b/configure.ac
-index 913d5469d06e..675f56835e59 100644
+index efe6922b5de2..14cc590e55d7 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -1746,6 +1746,19 @@ AC_CHECK_HEADERS(linux/netlink.h,,,[
+@@ -1753,6 +1753,19 @@ AC_CHECK_HEADERS(linux/netlink.h,,,[
  #endif
  ])
  

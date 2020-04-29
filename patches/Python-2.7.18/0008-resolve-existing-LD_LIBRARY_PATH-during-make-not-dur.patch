@@ -11,7 +11,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/configure.ac b/configure.ac
-index 863d7929507b..661cd3dcb76c 100644
+index 0dd23a07d73e..2c21a989e012 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -926,7 +926,7 @@ if test $enable_shared = "yes"; then
