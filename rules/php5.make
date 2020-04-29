@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_PHP5) += php5
 #
 # Paths and names
 #
-PHP5_VERSION	:= 5.5.30
-PHP5_MD5	:= ef6d848756ea9d19b7a7e1a9d824d7c1
+PHP5_VERSION	:= 5.6.40
+PHP5_MD5	:= c7dde3afb16ce7b761abf2805125d372
 PHP5		:= php-$(PHP5_VERSION)
 PHP5_SUFFIX	:= tar.xz
 PHP5_SOURCE	:= $(SRCDIR)/$(PHP5).$(PHP5_SUFFIX)
@@ -49,6 +49,7 @@ PHP5_AUTOCONF := \
 	--disable-phar \
 	--with-config-file-path=/etc/php5 \
 	--enable-opcache=no \
+	--disable-fileinfo \
 	--without-xmlrpc \
 	--without-iconv
 
