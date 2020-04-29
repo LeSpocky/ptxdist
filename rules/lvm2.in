@@ -47,7 +47,7 @@ config LVM2_DEVICE_GID
 
 config LVM2_DEVICE_MODE
 	string
-	default 0660
+	default "0660"
 	prompt "device node access mode"
 	help
 	  The effective access mode of the device nodes create by LVM
