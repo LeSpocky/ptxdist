@@ -16,8 +16,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_QEMU) += host-qemu
 #
 # Paths and names
 #
-HOST_QEMU_VERSION	:= 4.2.0
-HOST_QEMU_MD5		:= 278eeb294e4b497e79af7a57e660cb9a
+HOST_QEMU_VERSION	:= 5.0.0
+HOST_QEMU_MD5		:= ede6005d7143fe994dd089d31dc2cf6c
 HOST_QEMU		:= qemu-$(HOST_QEMU_VERSION)
 HOST_QEMU_SUFFIX	:= tar.xz
 HOST_QEMU_URL		:= https://download.qemu.org/$(HOST_QEMU).$(HOST_QEMU_SUFFIX)
@@ -103,14 +103,14 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-brlapi \
 	--disable-curl \
 	--enable-fdt \
-	--disable-bluez \
 	--enable-kvm \
 	--disable-hax \
 	--disable-rdma \
 	--disable-pvrdma \
 	--disable-netmap \
 	--disable-linux-aio \
-	--disable-cap-ng \
+	--disable-linux-io-uring \
+	--enable-cap-ng \
 	--enable-attr \
 	--enable-vhost-net \
 	--enable-vhost-vsock \
@@ -129,6 +129,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-snappy \
 	--disable-bzip2 \
 	--disable-lzfse \
+	--disable-zstd \
 	--disable-seccomp \
 	--enable-coroutine-pool \
 	--disable-glusterfs \
