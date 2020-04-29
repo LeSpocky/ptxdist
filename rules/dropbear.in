@@ -111,7 +111,7 @@ config DROPBEAR_DIS_PUTUTXLINE
 	help
 	  pututxline is needed to write to the utmpx structure.
 
-comment features
+comment "features"
 
 config DROPBEAR_DIS_X11
 	bool
