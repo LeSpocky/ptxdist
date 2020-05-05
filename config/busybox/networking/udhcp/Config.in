@@ -5,7 +5,7 @@
 #
 
 config BUSYBOX_UDHCPD
-	bool "udhcpd"
+	bool "udhcpd (21 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
@@ -45,7 +45,7 @@ config BUSYBOX_DHCPD_LEASES_FILE
 	of the file. Normally it is safe to leave it untouched.
 
 config BUSYBOX_DUMPLEASES
-	bool "dumpleases (6.4 kb)"
+	bool "dumpleases (5.1 kb)"
 	default y
 	help
 	dumpleases displays the leases written out by the udhcpd.
@@ -53,7 +53,7 @@ config BUSYBOX_DUMPLEASES
 	by the absolute time that it expires in seconds from epoch.
 
 config BUSYBOX_DHCPRELAY
-	bool "dhcprelay (5.8 kb)"
+	bool "dhcprelay (5.2 kb)"
 	default y
 	help
 	dhcprelay listens for DHCP requests on one or more interfaces
@@ -61,7 +61,7 @@ config BUSYBOX_DHCPRELAY
 	server.
 
 config BUSYBOX_UDHCPC
-	bool "udhcpc"
+	bool "udhcpc (24 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
@@ -103,8 +103,8 @@ config BUSYBOX_UDHCPC_DEFAULT_SCRIPT
 
 # udhcpc6 config is inserted here:
 config BUSYBOX_UDHCPC6
-	bool "udhcpc6"
-	default n  # not yet ready
+	bool "udhcpc6 (21 kb)"
+	default y
 	depends on BUSYBOX_FEATURE_IPV6
 	help
 	udhcpc6 is a DHCPv6 client
@@ -154,7 +154,7 @@ config BUSYBOX_FEATURE_UDHCP_PORT
 
 config BUSYBOX_UDHCP_DEBUG
 	int "Maximum verbosity level (0..9)"
-	default 9
+	default 2
 	range 0 9
 	depends on BUSYBOX_UDHCPD || BUSYBOX_UDHCPC || BUSYBOX_UDHCPC6 || BUSYBOX_DHCPRELAY
 	help

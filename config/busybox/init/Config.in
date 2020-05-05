@@ -27,7 +27,7 @@ config BUSYBOX_FEATURE_BOOTCHARTD_BLOATED_HEADER
 	help
 	Create extended header file compatible with "big" bootchartd.
 	"Big" bootchartd is a shell script and it dumps some
-	"convenient" info int the header, such as:
+	"convenient" info into the header, such as:
 		title = Boot chart for `hostname` (`date`)
 		system.uname = `uname -srvm`
 		system.release = `cat /etc/DISTRO-release`
@@ -45,19 +45,19 @@ config BUSYBOX_FEATURE_BOOTCHARTD_CONFIG_FILE
 	Enable reading and parsing of $PWD/bootchartd.conf
 	and /etc/bootchartd.conf files.
 config BUSYBOX_HALT
-	bool "halt (3.7 kb)"
+	bool "halt (4 kb)"
 	default y
 	help
 	Stop all processes and halt the system.
 
 config BUSYBOX_POWEROFF
-	bool "poweroff (3.7 kb)"
+	bool "poweroff (4 kb)"
 	default y
 	help
 	Stop all processes and power off the system.
 
 config BUSYBOX_REBOOT
-	bool "reboot (3.7 kb)"
+	bool "reboot (4 kb)"
 	default y
 	help
 	Stop all processes and reboot the system.
@@ -93,7 +93,7 @@ config BUSYBOX_TELINIT_PATH
 	to facilitate proper shutdown, this path is to be used when
 	locating telinit executable.
 config BUSYBOX_INIT
-	bool "init (9.3 kb)"
+	bool "init (10 kb)"
 	default y
 	select BUSYBOX_FEATURE_SYSLOG
 	help

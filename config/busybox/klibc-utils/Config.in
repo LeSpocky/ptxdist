@@ -12,17 +12,17 @@ config BUSYBOX_MINIPS
 	help
 	Alias to "ps".
 config BUSYBOX_NUKE
-	bool "nuke (2.4 kb)"
+	bool "nuke (2.9 kb)"
 	default y
 	help
 	Alias to "rm -rf".
 config BUSYBOX_RESUME
-	bool "resume (3.3 kb)"
+	bool "resume (3.2 kb)"
 	default y
 	help
 	Resume from saved "suspend-to-disk" image
 config BUSYBOX_RUN_INIT
-	bool "run-init (7.5 kb)"
+	bool "run-init (7.7 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help

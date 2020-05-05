@@ -51,6 +51,11 @@ config BUSYBOX_FEATURE_FIND_TYPE
 	Enable searching based on file type (file,
 	directory, socket, device, etc.).
 
+config BUSYBOX_FEATURE_FIND_EXECUTABLE
+	bool "Enable -executable: file is executable"
+	default y
+	depends on BUSYBOX_FIND
+
 config BUSYBOX_FEATURE_FIND_XDEV
 	bool "Enable -xdev: 'stay in filesystem'"
 	default y
@@ -138,6 +143,13 @@ config BUSYBOX_FEATURE_FIND_PRUNE
 	If the file is a directory, don't descend into it. Useful for
 	exclusion .svn and CVS directories.
 
+config BUSYBOX_FEATURE_FIND_QUIT
+	bool "Enable -quit: exit"
+	default y
+	depends on BUSYBOX_FIND
+	help
+	If this action is reached, 'find' exits.
+
 config BUSYBOX_FEATURE_FIND_DELETE
 	bool "Enable -delete: delete files/dirs"
 	default y
@@ -175,19 +187,19 @@ config BUSYBOX_FEATURE_FIND_LINKS
 	help
 	Support the 'find -links' option for matching number of links.
 config BUSYBOX_GREP
-	bool "grep (8.5 kb)"
+	bool "grep (8.6 kb)"
 	default y
 	help
 	grep is used to search files for a specified pattern.
 
 config BUSYBOX_EGREP
-	bool "egrep (7.6 kb)"
+	bool "egrep (7.8 kb)"
 	default y
 	help
 	Alias to "grep -E".
 
 config BUSYBOX_FGREP
-	bool "fgrep (7.6 kb)"
+	bool "fgrep (7.8 kb)"
 	default y
 	help
 	Alias to "grep -F".
@@ -201,7 +213,7 @@ config BUSYBOX_FEATURE_GREP_CONTEXT
 	context surrounding our matching lines.
 	Print the specified number of context lines (-C).
 config BUSYBOX_XARGS
-	bool "xargs (6.7 kb)"
+	bool "xargs (7.2 kb)"
 	default y
 	help
 	xargs is used to execute a specified command for

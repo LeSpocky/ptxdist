@@ -93,18 +93,18 @@ config BUSYBOX_USE_BB_CRYPT_SHA
 	user which has password encrypted with these algorithms.
 
 config BUSYBOX_ADD_SHELL
-	bool "add-shell (2.8 kb)"
+	bool "add-shell (3.1 kb)"
 	default y if BUSYBOX_DESKTOP
 	help
 	Add shells to /etc/shells.
 
 config BUSYBOX_REMOVE_SHELL
-	bool "remove-shell (2.7 kb)"
+	bool "remove-shell (3 kb)"
 	default y if BUSYBOX_DESKTOP
 	help
 	Remove shells from /etc/shells.
 config BUSYBOX_ADDGROUP
-	bool "addgroup (8.2 kb)"
+	bool "addgroup (8.6 kb)"
 	default y
 	select BUSYBOX_LONG_OPTS
 	help
@@ -187,13 +187,13 @@ config BUSYBOX_MKPASSWD
 	using the given salt. Debian has this utility under mkpasswd
 	name. Busybox provides mkpasswd as an alias for cryptpw.
 config BUSYBOX_DELUSER
-	bool "deluser (8.4 kb)"
+	bool "deluser (9.1 kb)"
 	default y
 	help
 	Utility for deleting a user account.
 
 config BUSYBOX_DELGROUP
-	bool "delgroup (5.6 kb)"
+	bool "delgroup (6.4 kb)"
 	default y
 	help
 	Utility for deleting a group account.

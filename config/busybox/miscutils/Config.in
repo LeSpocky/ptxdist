@@ -7,7 +7,7 @@
 menu "Miscellaneous Utilities"
 
 config BUSYBOX_ADJTIMEX
-	bool "adjtimex (4.5 kb)"
+	bool "adjtimex (4.7 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
@@ -33,8 +33,94 @@ config BUSYBOX_FEATURE_COMPRESS_BBCONFIG
 	be noticeable. Also, if you run executables directly from ROM
 	and have very little memory, this might not be a win. Otherwise,
 	you probably want this.
+config BUSYBOX_BC
+	bool "bc (45 kb)"
+	default y
+	select BUSYBOX_FEATURE_DC_BIG
+	help
+	bc is a command-line, arbitrary-precision calculator with a
+	Turing-complete language. See the GNU bc manual
+	(https://www.gnu.org/software/bc/manual/bc.html) and bc spec
+	(http://pubs.opengroup.org/onlinepubs/9699919799/utilities/bc.html).
+
+	This bc has five differences to the GNU bc:
+	  1) The period (.) is a shortcut for "last", as in the BSD bc.
+	  2) Arrays are copied before being passed as arguments to
+	     functions. This behavior is required by the bc spec.
+	  3) Arrays can be passed to the builtin "length" function to get
+	     the number of elements in the array. This prints "1":
+		a[0] = 0; length(a[])
+	  4) The precedence of the boolean "not" operator (!) is equal to
+	     that of the unary minus (-) negation operator. This still
+	     allows POSIX-compliant scripts to work while somewhat
+	     preserving expected behavior (versus C) and making parsing
+	     easier.
+	  5) "read()" accepts expressions, not only numeric literals.
+
+config BUSYBOX_DC
+	bool "dc (36 kb)"
+	default y
+	help
+	dc is a reverse-polish notation command-line calculator which
+	supports unlimited precision arithmetic. See the FreeBSD man page
+	(https://www.unix.com/man-page/FreeBSD/1/dc/) and GNU dc manual
+	(https://www.gnu.org/software/bc/manual/dc-1.05/html_mono/dc.html).
+
+	This dc has a few differences from the two above:
+	  1) When printing a byte stream (command "P"), this dc follows what
+	     the FreeBSD dc does.
+	  2) Implements the GNU extensions for divmod ("~") and
+	     modular exponentiation ("|").
+	  3) Implements all FreeBSD extensions, except for "J" and "M".
+	  4) Like the FreeBSD dc, this dc supports extended registers.
+	     However, they are implemented differently. When it encounters
+	     whitespace where a register should be, it skips the whitespace.
+	     If the character following is not a lowercase letter, an error
+	     is issued. Otherwise, the register name is parsed by the
+	     following regex: [a-z][a-z0-9_]*
+	     This generally means that register names will be surrounded by
+	     whitespace. Examples:
+		l idx s temp L index S temp2 < do_thing
+	     Also note that, like the FreeBSD dc, extended registers are not
+	     allowed unless the "-x" option is given.
+
+if BUSYBOX_BC || BUSYBOX_DC  # for menuconfig indenting
+
+config BUSYBOX_FEATURE_DC_BIG
+	bool "Use bc code base for dc (larger, more features)"
+	default y
+
+config BUSYBOX_FEATURE_DC_LIBM
+	bool "Enable power and exp functions (requires libm)"
+	default y
+	depends on BUSYBOX_DC && !BUSYBOX_BC && !BUSYBOX_FEATURE_DC_BIG
+	help
+	Enable power and exp functions.
+	NOTE: This will require libm to be present for linking.
+
+config BUSYBOX_FEATURE_BC_INTERACTIVE
+	bool "Interactive mode (+4kb)"
+	default y
+	depends on BUSYBOX_BC || (BUSYBOX_DC && BUSYBOX_FEATURE_DC_BIG)
+	help
+	Enable interactive mode: when started on a tty,
+	^C interrupts execution and returns to command line,
+	errors also return to command line instead of exiting,
+	line editing with history is available.
+
+	With this option off, input can still be taken from tty,
+	but all errors are fatal, ^C is fatal,
+	tty is treated exactly the same as any other
+	standard input (IOW: no line editing).
+
+config BUSYBOX_FEATURE_BC_LONG_OPTIONS
+	bool "Enable bc/dc long options"
+	default y
+	depends on BUSYBOX_BC || (BUSYBOX_DC && BUSYBOX_FEATURE_DC_BIG)
+
+endif
 config BUSYBOX_BEEP
-	bool "beep (3 kb)"
+	bool "beep (2.4 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
@@ -56,7 +142,7 @@ config BUSYBOX_FEATURE_BEEP_LENGTH_MS
 	help
 	Length in ms for default beep.
 config BUSYBOX_CHAT
-	bool "chat (6.6 kb)"
+	bool "chat (6.3 kb)"
 	default y
 	help
 	Simple chat utility.
@@ -131,7 +217,7 @@ config BUSYBOX_CONSPY
 	or        conspy -nd NUM  screenshot of console num
 	or        conspy -cs NUM  poor man's GNU screen like
 config BUSYBOX_CROND
-	bool "crond (13 kb)"
+	bool "crond (14 kb)"
 	default y
 	select BUSYBOX_FEATURE_SYSLOG
 	help
@@ -180,27 +266,13 @@ config BUSYBOX_FEATURE_CROND_DIR
 	help
 	Location of crond spool.
 config BUSYBOX_CRONTAB
-	bool "crontab (9.7 kb)"
+	bool "crontab (10 kb)"
 	default y
 	help
 	Crontab manipulates the crontab for a particular user. Only
 	the superuser may specify a different user and/or crontab directory.
 	Note that busybox binary must be setuid root for this applet to
 	work properly.
-config BUSYBOX_DC
-	bool "dc (4.2 kb)"
-	default y
-	help
-	Dc is a reverse-polish desk calculator which supports unlimited
-	precision arithmetic.
-
-config BUSYBOX_FEATURE_DC_LIBM
-	bool "Enable power and exp functions (requires libm)"
-	default y
-	depends on BUSYBOX_DC
-	help
-	Enable power and exp functions.
-	NOTE: This will require libm to be present for linking.
 config BUSYBOX_DEVFSD
 	bool "devfsd (obsolete)"
 	default n
@@ -263,7 +335,7 @@ config BUSYBOX_DEVMEM
 	devmem is a small program that reads and writes from physical
 	memory using /dev/mem.
 config BUSYBOX_FBSPLASH
-	bool "fbsplash (27 kb)"
+	bool "fbsplash (26 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
@@ -284,7 +356,7 @@ config BUSYBOX_FBSPLASH
 	    "NN" (ASCII decimal number) - percentage to show on progress bar
 	    "exit" - well you guessed it
 config BUSYBOX_FLASH_ERASEALL
-	bool "flash_eraseall (5.5 kb)"
+	bool "flash_eraseall (5.9 kb)"
 	default n  # doesn't build on Ubuntu 8.04
 	help
 	The flash_eraseall binary from mtd-utils as of git head c4c6a59eb.
@@ -303,13 +375,13 @@ config BUSYBOX_FLASH_UNLOCK
 	The flash_unlock binary from mtd-utils as of git head 5ec0c10d0. This
 	utility unlocks part or all of the flash device.
 config BUSYBOX_FLASHCP
-	bool "flashcp (5.4 kb)"
+	bool "flashcp (5.3 kb)"
 	default n  # doesn't build on Ubuntu 8.04
 	help
 	The flashcp binary, inspired by mtd-utils as of git head 5eceb74f7.
 	This utility is used to copy images into a MTD device.
 config BUSYBOX_HDPARM
-	bool "hdparm (23 kb)"
+	bool "hdparm (25 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
@@ -366,46 +438,53 @@ config BUSYBOX_FEATURE_HDPARM_HDIO_GETSET_DMA
 	help
 	Enable the 'hdparm -d' option to get/set using_dma flag.
 config BUSYBOX_HEXEDIT
-	bool "hexedit (20 kb)"
+	bool "hexedit (21 kb)"
 	default y
 	help
 	Edit file in hexadecimal.
 config BUSYBOX_I2CGET
-	bool "i2cget (5.6 kb)"
+	bool "i2cget (5.5 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Read from I2C/SMBus chip registers.
 
 config BUSYBOX_I2CSET
-	bool "i2cset (6.9 kb)"
+	bool "i2cset (6.7 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Set I2C registers.
 
 config BUSYBOX_I2CDUMP
-	bool "i2cdump (7.2 kb)"
+	bool "i2cdump (7.1 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Examine I2C registers.
 
 config BUSYBOX_I2CDETECT
-	bool "i2cdetect (7.2 kb)"
+	bool "i2cdetect (7.1 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Detect I2C chips.
 
+config BUSYBOX_I2CTRANSFER
+	bool "i2ctransfer (4.0 kb)"
+	default y
+	select BUSYBOX_PLATFORM_LINUX
+	help
+	Send user-defined I2C messages in one transfer.
+
 config BUSYBOX_INOTIFYD
-	bool "inotifyd (3.5 kb)"
+	bool "inotifyd (3.6 kb)"
 	default n  # doesn't build on Knoppix 5
 	help
 	Simple inotify daemon. Reports filesystem changes. Requires
 	kernel >= 2.6.13
 config BUSYBOX_LESS
-	bool "less (15 kb)"
+	bool "less (16 kb)"
 	default y
 	help
 	'less' is a pager, meaning that it displays text files. It possesses
@@ -501,7 +580,7 @@ config BUSYBOX_FEATURE_LESS_ENV
 	This is essential for less applet to work with tools that use colors
 	and paging, such as git, systemd tools or nmcli.
 config BUSYBOX_LSSCSI
-	bool "lsscsi (2.4 kb)"
+	bool "lsscsi (2.5 kb)"
 	default y
 	#select PLATFORM_LINUX
 	help
@@ -510,7 +589,7 @@ config BUSYBOX_LSSCSI
 
 	This version uses sysfs (/sys/bus/scsi/devices) only.
 config BUSYBOX_MAKEDEVS
-	bool "makedevs (9.3 kb)"
+	bool "makedevs (9.2 kb)"
 	default y
 	help
 	'makedevs' is a utility used to create a batch of devices with
@@ -541,50 +620,50 @@ config BUSYBOX_FEATURE_MAKEDEVS_TABLE
 
 endchoice
 config BUSYBOX_MAN
-	bool "man (27 kb)"
+	bool "man (26 kb)"
 	default y
 	help
 	Format and display manual pages.
 config BUSYBOX_MICROCOM
-	bool "microcom (5.6 kb)"
+	bool "microcom (5.7 kb)"
 	default y
 	help
 	The poor man's minicom utility for chatting with serial port devices.
 config BUSYBOX_MT
-	bool "mt (2.6 kb)"
+	bool "mt (2.5 kb)"
 	default y
 	help
 	mt is used to control tape devices. You can use the mt utility
 	to advance or rewind a tape past a specified number of archive
 	files on the tape.
 config BUSYBOX_NANDWRITE
-	bool "nandwrite (5.9 kb)"
+	bool "nandwrite (4.8 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Write to the specified MTD device, with bad blocks awareness
 
 config BUSYBOX_NANDDUMP
-	bool "nanddump (6.3 kb)"
+	bool "nanddump (5.2 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Dump the content of raw NAND chip
 config BUSYBOX_PARTPROBE
-	bool "partprobe (3.6 kb)"
+	bool "partprobe (3.5 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Ask kernel to rescan partition table.
 config BUSYBOX_RAIDAUTORUN
-	bool "raidautorun (1.4 kb)"
+	bool "raidautorun (1.3 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	raidautorun tells the kernel md driver to
 	search and start RAID arrays.
 config BUSYBOX_READAHEAD
-	bool "readahead (2 kb)"
+	bool "readahead (1.5 kb)"
 	default y
 	depends on BUSYBOX_LFS
 	select BUSYBOX_PLATFORM_LINUX
@@ -601,7 +680,7 @@ config BUSYBOX_READAHEAD
 	As readahead(2) blocks until each file has been read, it is best to
 	run this applet as a background job.
 config BUSYBOX_RFKILL
-	bool "rfkill (5.3 kb)"
+	bool "rfkill (4.4 kb)"
 	default n # doesn't build on Ubuntu 9.04
 	select BUSYBOX_PLATFORM_LINUX
 	help
@@ -613,11 +692,11 @@ config BUSYBOX_RFKILL
 	rfkill block|unblock wlan : block/unblock all wlan(wifi) devices
 
 config BUSYBOX_RUNLEVEL
-	bool "runlevel (518 bytes)"
+	bool "runlevel (559 bytes)"
 	default y
 	depends on BUSYBOX_FEATURE_UTMP
 	help
-	find the current and previous system runlevel.
+	Find the current and previous system runlevel.
 
 	This applet uses utmp but does not rely on busybox supporing
 	utmp on purpose. It is used by e.g. emdebian via /etc/init.d/rc.
@@ -628,31 +707,34 @@ config BUSYBOX_RX
 	help
 	Receive files using the Xmodem protocol.
 config BUSYBOX_SETFATTR
-	bool "setfattr (3.6 kb)"
+	bool "setfattr (3.7 kb)"
 	default y
 	help
 	Set/delete extended attributes on files
 config BUSYBOX_SETSERIAL
-	bool "setserial (6.6 kb)"
+	bool "setserial (6.9 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Retrieve or set Linux serial port.
 config BUSYBOX_STRINGS
-	bool "strings (4.3 kb)"
+	bool "strings (4.6 kb)"
 	default y
 	help
 	strings prints the printable character sequences for each file
 	specified.
 config BUSYBOX_TIME
-	bool "time (7 kb)"
+	bool "time (6.8 kb)"
 	default y
 	help
 	The time command runs the specified program with the given arguments.
 	When the command finishes, time writes a message to standard output
 	giving timing statistics about this program run.
+config BUSYBOX_TS
+	bool "ts (450 bytes)"
+	default y
 config BUSYBOX_TTYSIZE
-	bool "ttysize (372 bytes)"
+	bool "ttysize (432 bytes)"
 	default y
 	help
 	A replacement for "stty size". Unlike stty, can report only width,
@@ -660,59 +742,59 @@ config BUSYBOX_TTYSIZE
 	error, but returns default 80x24.
 	Usage in shell scripts: width=`ttysize w`.
 config BUSYBOX_UBIATTACH
-	bool "ubiattach (4.7 kb)"
+	bool "ubiattach (4.2 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Attach MTD device to an UBI device.
 
 config BUSYBOX_UBIDETACH
-	bool "ubidetach (4.6 kb)"
+	bool "ubidetach (4.1 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Detach MTD device from an UBI device.
 
 config BUSYBOX_UBIMKVOL
-	bool "ubimkvol (5.8 kb)"
+	bool "ubimkvol (5.3 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Create a UBI volume.
 
 config BUSYBOX_UBIRMVOL
-	bool "ubirmvol (5.2 kb)"
+	bool "ubirmvol (4.9 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Delete a UBI volume.
 
 config BUSYBOX_UBIRSVOL
-	bool "ubirsvol (4.6 kb)"
+	bool "ubirsvol (4.2 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Resize a UBI volume.
 
 config BUSYBOX_UBIUPDATEVOL
-	bool "ubiupdatevol (5.6 kb)"
+	bool "ubiupdatevol (5.2 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Update a UBI volume.
 config BUSYBOX_UBIRENAME
-	bool "ubirename (2.2 kb)"
+	bool "ubirename (2.4 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Utility to rename UBI volumes
 config BUSYBOX_VOLNAME
-	bool "volname (1.7 kb)"
+	bool "volname (1.6 kb)"
 	default y
 	help
 	Prints a CD-ROM volume name.
 config BUSYBOX_WATCHDOG
-	bool "watchdog (5.1 kb)"
+	bool "watchdog (5.3 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help

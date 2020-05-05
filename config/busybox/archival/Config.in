@@ -60,7 +60,7 @@ config BUSYBOX_UNCOMPRESS
 	uncompress is used to decompress archives created by compress.
 	Not much used anymore, replaced by gzip/gunzip.
 config BUSYBOX_GUNZIP
-	bool "gunzip (12 kb)"
+	bool "gunzip (11 kb)"
 	default y
 	select BUSYBOX_FEATURE_GZIP_DECOMPRESS
 	help
@@ -69,7 +69,7 @@ config BUSYBOX_GUNZIP
 	an archive, without decompressing it.
 
 config BUSYBOX_ZCAT
-	bool "zcat (25 kb)"
+	bool "zcat (24 kb)"
 	default y
 	select BUSYBOX_FEATURE_GZIP_DECOMPRESS
 	help
@@ -80,7 +80,7 @@ config BUSYBOX_FEATURE_GUNZIP_LONG_OPTIONS
 	default y
 	depends on (BUSYBOX_GUNZIP || BUSYBOX_ZCAT) && BUSYBOX_LONG_OPTS
 config BUSYBOX_BUNZIP2
-	bool "bunzip2 (8.8 kb)"
+	bool "bunzip2 (8.7 kb)"
 	default y
 	select BUSYBOX_FEATURE_BZIP2_DECOMPRESS
 	help
@@ -94,13 +94,13 @@ config BUSYBOX_BUNZIP2
 	should probably say N here.
 
 config BUSYBOX_BZCAT
-	bool "bzcat (8.8 kb)"
+	bool "bzcat (8.7 kb)"
 	default y
 	select BUSYBOX_FEATURE_BZIP2_DECOMPRESS
 	help
 	Alias to "bunzip2 -c".
 config BUSYBOX_UNLZMA
-	bool "unlzma (8.6 kb)"
+	bool "unlzma (7.5 kb)"
 	default y
 	help
 	unlzma is a compression utility using the Lempel-Ziv-Markov chain
@@ -109,7 +109,7 @@ config BUSYBOX_UNLZMA
 	compressors.
 
 config BUSYBOX_LZCAT
-	bool "lzcat (8.5 kb)"
+	bool "lzcat (7.5 kb)"
 	default y
 	help
 	Alias to "unlzma -c".
@@ -139,7 +139,7 @@ config BUSYBOX_XZ
 	Enable this option if you want commands like "xz -d" to work.
 	IOW: you'll get xz applet, but it will always require -d option.
 config BUSYBOX_BZIP2
-	bool "bzip2 (18 kb)"
+	bool "bzip2 (16 kb)"
 	default y
 	help
 	bzip2 is a compression utility using the Burrows-Wheeler block
@@ -177,7 +177,7 @@ config BUSYBOX_FEATURE_BZIP2_DECOMPRESS
 	This will be automatically selected if bunzip2 or bzcat is
 	enabled.
 config BUSYBOX_CPIO
-	bool "cpio (14 kb)"
+	bool "cpio (15 kb)"
 	default y
 	help
 	cpio is an archival utility program used to create, modify, and
@@ -205,7 +205,7 @@ config BUSYBOX_FEATURE_CPIO_P
 	help
 	Passthrough mode. Rarely used.
 config BUSYBOX_DPKG
-	bool "dpkg (44 kb)"
+	bool "dpkg (43 kb)"
 	default y
 	select BUSYBOX_FEATURE_SEAMLESS_GZ
 	help
@@ -215,7 +215,7 @@ config BUSYBOX_DPKG
 	This implementation of dpkg has a number of limitations,
 	you should use the official dpkg if possible.
 config BUSYBOX_DPKG_DEB
-	bool "dpkg_deb"
+	bool "dpkg-deb (30 kb)"
 	default y
 	select BUSYBOX_FEATURE_SEAMLESS_GZ
 	help
@@ -226,7 +226,7 @@ config BUSYBOX_DPKG_DEB
 	Unless you have a specific application which requires dpkg-deb,
 	say N here.
 config BUSYBOX_GZIP
-	bool "gzip (19 kb)"
+	bool "gzip (17 kb)"
 	default y
 	help
 	gzip is used to compress files.
@@ -268,7 +268,7 @@ config BUSYBOX_FEATURE_GZIP_DECOMPRESS
 	This will be automatically selected if gunzip or zcat is
 	enabled.
 config BUSYBOX_LZOP
-	bool "lzop (13 kb)"
+	bool "lzop (12 kb)"
 	default y
 	help
 	Lzop compression/decompresion.
@@ -294,17 +294,17 @@ config BUSYBOX_LZOP_COMPR_HIGH
 	are actually slower than gzip at equivalent compression ratios
 	and take up 3.2K of code.
 config BUSYBOX_RPM
-	bool "rpm (33 kb)"
+	bool "rpm (32 kb)"
 	default y
 	help
 	Mini RPM applet - queries and extracts RPM packages.
 config BUSYBOX_RPM2CPIO
-	bool "rpm2cpio (20 kb)"
+	bool "rpm2cpio (21 kb)"
 	default y
 	help
 	Converts a RPM file into a CPIO archive.
 config BUSYBOX_TAR
-	bool "tar (40 kb)"
+	bool "tar (39 kb)"
 	default y
 	help
 	tar is an archiving program. It's commonly used with gzip to
@@ -392,7 +392,7 @@ config BUSYBOX_FEATURE_TAR_SELINUX
 	With this option busybox supports restoring SELinux labels
 	when extracting files from tar archives.
 config BUSYBOX_UNZIP
-	bool "unzip (24 kb)"
+	bool "unzip (26 kb)"
 	default y
 	help
 	unzip will list or extract files from a ZIP archive,

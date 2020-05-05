@@ -2,7 +2,7 @@
 menu "Mail Utilities"
 
 config BUSYBOX_MAKEMIME
-	bool "makemime (5.9 kb)"
+	bool "makemime (5.4 kb)"
 	default y
 	help
 	Create MIME-formatted messages.

@@ -35,7 +35,7 @@ config BUSYBOX_MODPROBE_SMALL
 	/etc/modules/$module_name files.
 
 config BUSYBOX_DEPMOD
-	bool "depmod (26 kb)"
+	bool "depmod (27 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
@@ -49,7 +49,7 @@ config BUSYBOX_INSMOD
 	help
 	insmod is used to load specified modules in the running kernel.
 config BUSYBOX_LSMOD
-	bool "lsmod (4.3 kb)"
+	bool "lsmod (1.9 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
@@ -64,13 +64,13 @@ config BUSYBOX_FEATURE_LSMOD_PRETTY_2_6_OUTPUT
 	the format of module-init-tools for Linux kernel 2.6.
 	Increases size somewhat.
 config BUSYBOX_MODINFO
-	bool "modinfo (25 kb)"
+	bool "modinfo (24 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
 	Show information about a Linux Kernel module
 config BUSYBOX_MODPROBE
-	bool "modprobe (29 kb)"
+	bool "modprobe (28 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help
@@ -88,7 +88,7 @@ config BUSYBOX_FEATURE_MODPROBE_BLACKLIST
 	hardware autodetection scripts to load modules like evdev, frame
 	buffer drivers etc.
 config BUSYBOX_RMMOD
-	bool "rmmod (3.6 kb)"
+	bool "rmmod (3.3 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX
 	help

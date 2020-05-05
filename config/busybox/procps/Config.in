@@ -7,7 +7,7 @@
 menu "Process Utilities"
 
 config BUSYBOX_FREE
-	bool "free (2.4 kb)"
+	bool "free (3.1 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX #sysinfo()
 	help
@@ -22,12 +22,12 @@ config BUSYBOX_FUSER
 	file open. fuser can also list all PIDs that have a given network
 	(TCP or UDP) port open.
 config BUSYBOX_IOSTAT
-	bool "iostat (7.4 kb)"
+	bool "iostat (7.6 kb)"
 	default y
 	help
 	Report CPU and I/O statistics
 config BUSYBOX_KILL
-	bool "kill (2.6 kb)"
+	bool "kill (3.1 kb)"
 	default y
 	help
 	The command kill sends the specified signal to the specified
@@ -51,34 +51,34 @@ config BUSYBOX_KILLALL5
 	in its own session, so it won't kill the shell that is running
 	the script it was called from.
 config BUSYBOX_LSOF
-	bool "lsof (3.6 kb)"
+	bool "lsof (3.4 kb)"
 	default y
 	help
 	Show open files in the format of:
 	PID <TAB> /path/to/executable <TAB> /path/to/opened/file
 config BUSYBOX_MPSTAT
-	bool "mpstat (10 kb)"
+	bool "mpstat (9.8 kb)"
 	default y
 	help
 	Per-processor statistics
 config BUSYBOX_NMETER
-	bool "nmeter (10 kb)"
+	bool "nmeter (11 kb)"
 	default y
 	help
 	Prints selected system stats continuously, one line per update.
 config BUSYBOX_PGREP
-	bool "pgrep (6.8 kb)"
+	bool "pgrep (6.5 kb)"
 	default y
 	help
 	Look for processes by name.
 
 config BUSYBOX_PKILL
-	bool "pkill (7.6 kb)"
+	bool "pkill (7.5 kb)"
 	default y
 	help
 	Send signals to processes by name.
 config BUSYBOX_PIDOF
-	bool "pidof (6.6 kb)"
+	bool "pidof (6.3 kb)"
 	default y
 	help
 	Pidof finds the process id's (pids) of the named programs. It prints
@@ -105,7 +105,7 @@ config BUSYBOX_PMAP
 	help
 	Display processes' memory mappings.
 config BUSYBOX_POWERTOP
-	bool "powertop (9.1 kb)"
+	bool "powertop (9.6 kb)"
 	default y
 	help
 	Analyze power consumption on Intel-based laptops
@@ -159,12 +159,12 @@ config BUSYBOX_FEATURE_PS_ADDITIONAL_COLUMNS
 	default y
 	depends on (BUSYBOX_PS || BUSYBOX_MINIPS) && BUSYBOX_DESKTOP
 config BUSYBOX_PSTREE
-	bool "pstree (9.4 kb)"
+	bool "pstree (9.3 kb)"
 	default y
 	help
 	Display a tree of processes.
 config BUSYBOX_PWDX
-	bool "pwdx (3.5 kb)"
+	bool "pwdx (3.7 kb)"
 	default y
 	help
 	Report current working directory of a process
@@ -175,12 +175,12 @@ config BUSYBOX_SMEMCAP
 	smemcap is a tool for capturing process data for smem,
 	a memory usage statistic tool.
 config BUSYBOX_BB_SYSCTL
-	bool "sysctl (6.9 kb)"
+	bool "sysctl (7.4 kb)"
 	default y
 	help
 	Configure kernel parameters at runtime.
 config BUSYBOX_TOP
-	bool "top (17 kb)"
+	bool "top (18 kb)"
 	default y
 	help
 	The top program provides a dynamic real-time view of a running
@@ -241,7 +241,7 @@ config BUSYBOX_FEATURE_TOPMEM
 	help
 	Enable 's' in top (gives lots of memory info).
 config BUSYBOX_UPTIME
-	bool "uptime (632 bytes)"
+	bool "uptime (3.7 kb)"
 	default y
 	select BUSYBOX_PLATFORM_LINUX #sysinfo()
 	help
@@ -256,7 +256,7 @@ config BUSYBOX_FEATURE_UPTIME_UTMP_SUPPORT
 	help
 	Display the number of users currently logged on.
 config BUSYBOX_WATCH
-	bool "watch (4.1 kb)"
+	bool "watch (4.4 kb)"
 	default y
 	help
 	watch is used to execute a program periodically, showing
