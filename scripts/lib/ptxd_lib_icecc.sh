@@ -46,8 +46,7 @@ ptxd_lib_setup_host_icecc() {
 	mv "${PTXDIST_TEMPDIR}/host-gcc-version" "${icecc_dir}/"
     fi &&
 
-    ptxd_get_path "${icecc_dir}/host"/*.tar.gz &&
-    export ICECC_VERSION_HOST="${ptxd_reply}" &&
+    export PTXDIST_ICECC_DIR="${icecc_dir}" &&
 
     if "${PTXDIST_ICECC}" --help | grep -q ICECC_REMOTE_CPP; then
 	export PTXDIST_ICECC_REMOTE_CPP=1
@@ -114,8 +113,7 @@ ptxd_lib_setup_target_icecc() {
     fi &&
 
     ptxd_get_path "${icecc_dir}/target"/*.tar.gz &&
-    export ICECC_VERSION_TARGET="${ptxd_reply}"
-    if tar -tf "${ICECC_VERSION_TARGET}" | grep -q clang; then
+    if tar -tf "${ptxd_reply}" | grep -q clang; then
 	export PTXDIST_ICECC_CLANG=1
     fi
 }

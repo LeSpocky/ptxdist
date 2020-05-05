@@ -292,25 +292,25 @@ add_icecc_args() {
 
 cc_add_target_icecc() {
 	add_icecc_args "${@}"
-	export ICECC_VERSION="${ICECC_VERSION_TARGET}"
+	export ICECC_VERSION="$(echo ${PTXDIST_ICECC_DIR}/target/*.tar.gz)"
 	export ICECC_CC="${FULL_CMD}"
 }
 
 cxx_add_target_icecc() {
 	add_icecc_args "${@}"
-	export ICECC_VERSION="${ICECC_VERSION_TARGET}"
+	export ICECC_VERSION="$(echo ${PTXDIST_ICECC_DIR}/target/*.tar.gz)"
 	export ICECC_CXX="${FULL_CMD}"
 }
 
 cc_add_host_icecc() {
 	add_icecc_args "${@}"
-	export ICECC_VERSION="${ICECC_VERSION_HOST}"
+	export ICECC_VERSION="$(echo ${PTXDIST_ICECC_DIR}/host/*.tar.gz)"
 	export ICECC_CC="${FULL_CMD}"
 }
 
 cxx_add_host_icecc() {
 	add_icecc_args "${@}"
-	export ICECC_VERSION="${ICECC_VERSION_HOST}"
+	export ICECC_VERSION="$(echo ${PTXDIST_ICECC_DIR}/host/*.tar.gz)"
 	export ICECC_CXX="${FULL_CMD}"
 }
 
