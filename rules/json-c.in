@@ -3,5 +3,6 @@
 config JSON_C
 	tristate
 	prompt "json-c"
+	select HOST_CMAKE
 	help
 	  json bindings in C

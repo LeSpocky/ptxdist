@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_JSON_C) += json-c
 #
 # Paths and names
 #
-JSON_C_VERSION		:= 0.13.1
-JSON_C_MD5		:= 04969ad59cc37bddd83741a08b98f350
+JSON_C_VERSION		:= 0.14
+JSON_C_MD5		:= 72cbb065b43376d825cd521d115ae1f6
 JSON_C			:= json-c-$(JSON_C_VERSION)
 JSON_C_SUFFIX		:= tar.gz
 JSON_C_URL		:= https://s3.amazonaws.com/json-c_releases/releases/$(JSON_C).$(JSON_C_SUFFIX)
@@ -28,15 +28,16 @@ JSON_C_LICENSE_FILES	:= file://COPYING;md5=de54b60fbbc35123ba193fea8ee216f2
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
-JSON_C_CONF_TOOL	:= autoconf
+JSON_C_CONF_TOOL	:= cmake
 JSON_C_CONF_OPT		:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-threading \
-	--disable-rdrand \
-	--disable-static
+	$(CROSS_CMAKE_USR) \
+	-DBUILD_DOCUMENTATION:BOOL=OFF \
+	-DBUILD_SHARED_LIBS:BOOL=ON \
+	-DBUILD_TESTING:BOOL=OFF \
+	-DDISABLE_BSYMBOLIC:BOOL=ON \
+	-DDISABLE_WERROR:BOOL=ON \
+	-DENABLE_RDRAND:BOOL=OFF \
+	-DENABLE_THREADING:BOOL=OFF
 
 # ----------------------------------------------------------------------------
 # Install

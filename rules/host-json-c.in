@@ -2,4 +2,5 @@
 
 config HOST_JSON_C
 	tristate
+	select HOST_CMAKE
 	default y if ALLYES
