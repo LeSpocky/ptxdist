@@ -187,12 +187,19 @@ export -f ptxd_lib_setup_toolchain
 
 ptxd_lib_setup_target_wrapper() {
     for cc in gcc g++ cpp ld gdb; do
+	if [ ! -e "${toolchain}/${compiler_prefix}${cc}" ]; then
+	    rm -f "${wrapper_dir}/real/${compiler_prefix}${cc}" \
+		"${wrapper_dir}/${compiler_prefix}${cc}"
+	    continue
+	fi
 	ptxd_replace_link "${toolchain}/${compiler_prefix}${cc}" "${wrapper_dir}/real/${compiler_prefix}${cc}" &&
 	ptxd_replace_copy_from_path PTXDIST_PATH "scripts/wrapper/${cc}-wrapper" \
 	    "${wrapper_dir}/${compiler_prefix}${cc}"
     done &&
     for cc in clang clang++; do
 	if [ ! -e "${toolchain}/${cc}" ]; then
+	    rm -f "${wrapper_dir}/real/${compiler_prefix}${cc}" \
+		"${wrapper_dir}/${compiler_prefix}${cc}"
 	    continue
 	fi
 	ptxd_replace_link "${toolchain}/${cc}" "${wrapper_dir}/real/${compiler_prefix}${cc}" &&
