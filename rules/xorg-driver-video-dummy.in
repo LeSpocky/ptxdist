@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_driver_video
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_driver_video
 
 config XORG_DRIVER_VIDEO_DUMMY
 	tristate
@@ -10,3 +12,6 @@ config XORG_DRIVER_VIDEO_DUMMY
 	prompt "Dummy"
 	help
 	  This package contains the X.Org xf86-video-dummy driver.
+
+	  STAGING: remove in ptxdist-2021.06.0
+	  Unclear license and not really needed.
