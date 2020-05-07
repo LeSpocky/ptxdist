@@ -1,0 +1,12 @@
+## SECTION=multimedia_xorg_font
+
+menu "international fonts for X     "
+	depends on MENU_XORG_FONTS
+
+comment "cyrillic fonts"
+source "generated/multimedia_xorg_font_cyrillic.in"
+
+comment "other language fonts          "
+source "generated/multimedia_xorg_font_other.in"
+
+endmenu

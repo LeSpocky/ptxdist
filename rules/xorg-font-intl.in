@@ -1,12 +1,14 @@
-## SECTION=multimedia_xorg_font
-
-menu "international fonts for X     "
-	depends on MENU_XORG_FONTS
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_font
 
 menuconfig XORG_FONT_INTL
 	bool
 	prompt "chinese and other asian fonts"
 	select XORG_FONTS
+	help
+	  STAGING: remove in ptxdist-2021.06.0
+	  Unclear license for some of the fonts and not really needed anymore.
 
 config XORG_FONT_INTL_CHIN
 	bool
@@ -49,12 +51,4 @@ config XORG_FONT_INTL_ASIAN
 	help
 	  This package includes fonts in thai, vietnamese, inian, lao and several
 	  further asian languages.
-
-comment "cyrillic fonts"
-source "generated/multimedia_xorg_font_cyrillic.in"
-
-comment "other language fonts          "
-source "generated/multimedia_xorg_font_other.in"
-
-endmenu
 
