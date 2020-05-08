@@ -21,9 +21,9 @@ HOST_PACKAGES-$(PTXCONF_HOST_CRYPTSETUP) += host-cryptsetup
 HOST_CRYPTSETUP_CONF_TOOL	:= autoconf
 HOST_CRYPTSETUP_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
+	--disable-rpath \
 	--disable-keyring \
 	--disable-nls \
-	--disable-rpath \
 	--disable-fips \
 	--disable-pwquality \
 	--disable-static-cryptsetup \
@@ -40,7 +40,7 @@ HOST_CRYPTSETUP_CONF_OPT	:= \
 	--disable-internal-sse-argon2 \
 	--enable-blkid \
 	--enable-dev-random \
-	--disable-python \
+	--enable-luks-adjust-xts-keysize \
 	--with-crypto_backend=openssl
 
 # vim: syntax=make

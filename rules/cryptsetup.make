@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_CRYPTSETUP) += cryptsetup
 #
 # Paths and names
 #
-CRYPTSETUP_VERSION	:= 2.0.6
-CRYPTSETUP_MD5		:= c01aa63a90acdb25600ed9126fa2b1a1
+CRYPTSETUP_VERSION	:= 2.3.2
+CRYPTSETUP_MD5		:= ced7b4720a6cc2dadeeb46b8e52b080e
 CRYPTSETUP		:= cryptsetup-$(CRYPTSETUP_VERSION)
 CRYPTSETUP_SUFFIX	:= tar.gz
 CRYPTSETUP_URL		:= https://www.kernel.org/pub/linux/utils/cryptsetup/v$(basename $(CRYPTSETUP_VERSION))/$(CRYPTSETUP).$(CRYPTSETUP_SUFFIX)
@@ -33,10 +33,10 @@ CRYPTSETUP_LICENSE	:= GPL-2.0-or-later
 CRYPTSETUP_CONF_TOOL	:= autoconf
 CRYPTSETUP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-rpath \
 	--enable-keyring \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-nls \
-	--disable-rpath \
 	--disable-fips \
 	--disable-pwquality \
 	--disable-static-cryptsetup \
@@ -53,7 +53,7 @@ CRYPTSETUP_CONF_OPT	:= \
 	--disable-internal-sse-argon2 \
 	--enable-blkid \
 	--enable-dev-random \
-	--disable-python \
+	--enable-luks-adjust-xts-keysize \
 	--with-crypto_backend=$(PTXCONF_CRYPTSETUP_CRYPT_BACKEND) \
 	--with-luks2-lock-path=/run/cryptsetup
 
