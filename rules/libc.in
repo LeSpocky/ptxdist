@@ -3,6 +3,7 @@
 menuconfig LIBC
 	tristate
 	prompt "c library                     "
+	select VIRTUAL
 	select GLIBC	if LIBC_GLIBC
 	select UCLIBC	if LIBC_UCLIBC
 	default y
