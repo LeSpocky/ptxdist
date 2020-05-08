@@ -1,0 +1,7 @@
+## SECTION=networking
+
+config MOBILE_BROADBAND_PROVIDER_INFO
+	tristate
+	prompt "mobile-broadband-provider-info"
+	help
+	  database of mobile broadband service providers
