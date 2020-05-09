@@ -323,10 +323,13 @@ ptxd_make_get() {
 	orig_argv=( "${@}" )
 
 	if [ -z "${1}" ]; then
-		echo
-		echo "${PROMPT}error: empty parameter to '${FUNCNAME}'"
-		echo
-		exit 1
+		if [ "${ptxd_make_get_dryrun}" != "y" ]; then
+		    ptxd_bailout "URL missing for '${path}'!"
+		else
+		    echo "URL missing for '${path}', skipping."
+		    echo
+		    return
+		fi
 	fi
 
 	ptxmirror_url="${path/#\/*\//${ptxd_make_get_mirror}/}"
