@@ -40,8 +40,8 @@ PAM_CONF_OPT	:= \
 	--disable-lckpwdf \
 	--disable-cracklib \
 	--disable-audit \
-	--disable-db \
-	--disable-nis \
+	--$(call ptx/endis, PTXCONF_PAM_DB)-db \
+	--$(call ptx/endis, PTXCONF_PAM_NIS)-nis \
 	--disable-selinux \
 	--disable-regenerate-docu \
 	--disable-nls \

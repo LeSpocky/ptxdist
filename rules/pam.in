@@ -1,10 +1,24 @@
 ## SECTION=security
 
-config PAM
+menuconfig PAM
 	tristate
-	prompt "PAM"
+	prompt "PAM                           "
+	select DB		if PAM_DB
 	select LIBC_CRYPT
+	select LIBTIRPC		if PAM_NIS
 	help
 	  Linux-PAM (Pluggable Authentication Modules for Linux) is a suite
 	  of shared libraries that enable the local system administrator to
 	  choose how applications authenticate users.
+
+if PAM
+
+config PAM_DB
+	bool
+	prompt "build pam_userdb (authenticate against a Berkeley DB database)"
+
+config PAM_NIS
+	bool
+	prompt "enable NIS/YP support in pam_unix"
+
+endif
