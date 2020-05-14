@@ -342,6 +342,12 @@ config UTIL_LINUX_NG_HWCLOCK
 comment "BusyBox' hwclock is selected!"
         depends on BUSYBOX_HWCLOCK
 
+config UTIL_LINUX_NG_WDCTL
+	bool
+	prompt "wdctl"
+	help
+	  wdctl - Utility to show hardware watchdog status.
+
 config UTIL_LINUX_NG_IONICE
 	bool
 	prompt "ionice"

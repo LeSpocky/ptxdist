@@ -92,7 +92,7 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--disable-fdformat \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_HWCLOCK)-hwclock \
 	--disable-lslogins \
-	--disable-wdctl \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_WDCTL)-wdctl \
 	--disable-cal \
 	--disable-logger \
 	--disable-switch_root \
@@ -278,6 +278,9 @@ ifdef PTXCONF_UTIL_LINUX_NG_CHRT
 endif
 ifdef PTXCONF_UTIL_LINUX_NG_HWCLOCK
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/sbin/hwclock)
+endif
+ifdef PTXCONF_UTIL_LINUX_NG_WDCTL
+	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/wdctl)
 endif
 ifdef PTXCONF_UTIL_LINUX_NG_IONICE
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/ionice)
