@@ -26,45 +26,19 @@ IMAGE_RAUC_CONFIG	:= rauc.config
 
 ifdef PTXCONF_IMAGE_RAUC
 
-IMAGE_RAUC_KEY := $(call ptx/in-platformconfigdir, config/rauc/rauc.key.pem)
-IMAGE_RAUC_CERT := $(call ptx/in-platformconfigdir, config/rauc/rauc.cert.pem)
-
-IMAGE_RAUC_ENV	:= \
+IMAGE_RAUC_ENV	= \
+	$(CODE_SIGNING_ENV) \
 	RAUC_BUNDLE_COMPATIBLE="$(call remove_quotes,$(PTXCONF_RAUC_COMPATIBLE))" \
 	RAUC_BUNDLE_VERSION="$(call remove_quotes, $(PTXCONF_RAUC_BUNDLE_VERSION))" \
 	RAUC_BUNDLE_BUILD=$(call ptx/sh, date +%FT%T%z) \
 	RAUC_BUNDLE_DESCRIPTION=$(PTXCONF_IMAGE_RAUC_DESCRIPTION) \
-	RAUC_KEY=$(IMAGE_RAUC_KEY) \
-	RAUC_CERT=$(IMAGE_RAUC_CERT)
+	RAUC_KEY="$(shell cs_get_uri update)" \
+	RAUC_CERT="$(shell cs_get_uri update)"
 
-$(IMAGE_RAUC_IMAGE): $(IMAGE_RAUC_KEY) $(IMAGE_RAUC_CERT)
+$(IMAGE_RAUC_IMAGE):
 	@$(call targetinfo)
 	@$(call image/genimage, IMAGE_RAUC)
 	@$(call finish)
-
-$(IMAGE_RAUC_KEY):
-	@echo
-	@echo "****************************************************************************"
-	@echo "******** Please place your signing key in config/rauc/rauc.key.pem. ********"
-	@echo "*                                                                          *"
-	@echo "* Note: For test-purpose you can create one by running rauc-gen-certs.sh   *"
-	@echo "*       from the scripts/ folder of your PTXdist installation              *"
-	@echo "****************************************************************************"
-	@echo
-	@echo
-	@exit 1
-
-$(IMAGE_RAUC_CERT):
-	@echo
-	@echo "****************************************************************************"
-	@echo "**** Please place your signing certificate in config/rauc/rauc.cert.pem. ***"
-	@echo "*                                                                          *"
-	@echo "* Note: For test-purpose you can create one by running rauc-gen-certs.sh   *"
-	@echo "*       from the scripts/ folder of your PTXdist installation              *"
-	@echo "****************************************************************************"
-	@echo
-	@echo
-	@exit 1
 
 endif
 

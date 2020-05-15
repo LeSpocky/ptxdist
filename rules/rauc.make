@@ -46,6 +46,14 @@ RAUC_CONF_OPT	:= \
 	--with-dbuspolicydir=/usr/share/dbus-1/system.d \
 	--with-dbussystemservicedir=/usr/share/dbus-1/system-services
 
+$(STATEDIR)/rauc.prepare:
+	@$(call targetinfo)
+	@test ! -e "$(call ptx/in-platformconfigdir, config/rauc/rauc.key)" || \
+		ptxd_bailout "Please use the key provider infrastructure desribed in:" \
+			"scripts/lib/ptxd_lib_code_signing.sh"
+	@$(call world/prepare, RAUC)
+	@$(call touch)
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
@@ -66,7 +74,8 @@ ifdef PTXCONF_RAUC_CONFIGURATION
 	@$(call install_replace, rauc, /etc/rauc/system.conf, \
 		@RAUC_BUNDLE_COMPATIBLE@, \
 		"$(call remove_quotes,$(PTXCONF_RAUC_COMPATIBLE))")
-	@$(call install_alternative, rauc, 0, 0, 0644, /etc/rauc/ca.cert.pem)
+	@$(call install_copy, rauc, 0, 0, 0644, $(shell cs_get_ca update), \
+		/etc/rauc/ca.cert.pem)
 endif
 
 ifdef PTXCONF_RAUC_SERVICE
