@@ -106,9 +106,7 @@ ptxd_make_image_fit() {
 	#
 	# It would have been too simple for mkimage to just take a
 	# PKCS#11 URI. We must drop the "pkcs11:" prefix which U-Boot
-	# then adds again. Also mkimage adds "object=<key_name_hint>"
-	# to the URI which our URI already has. Well having it twice
-	# doesn't seem to hurt at least SoftHSM.
+	# then adds again.
 	#
 	pkcs11_uri=$(echo "${pkcs11_uri}" | sed "s/pkcs11://")
 	sign_args=( -k "${pkcs11_uri}" )
