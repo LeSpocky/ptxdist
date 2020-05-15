@@ -3,7 +3,6 @@
 config BAREBOX_@PACKAGE@
 	tristate
 	select CODE_SIGNING
-	select HOST_EXTRACT_CERT
 	select HOST_IMX_CST
 	prompt "Barebox (@package@)"
 	help
