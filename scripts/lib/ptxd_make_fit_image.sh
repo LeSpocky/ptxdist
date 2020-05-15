@@ -78,7 +78,7 @@ EOF
 			signature-1 {
 				algo = "sha256,rsa4096";
 				key-name-hint = "${image_key_name_hint}";
-				sign-images = "fdt", "kernel";
+				sign-images = "fdt", "kernel"${image_initramfs:+$(printf %s ', "ramdisk"')};
 			};
 EOF
 	fi
