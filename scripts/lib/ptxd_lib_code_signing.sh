@@ -261,3 +261,68 @@ cs_import_key_from_pem() {
     cs_import_privkey_from_pem "${role}" "${pem}"
 }
 export -f cs_import_key_from_pem
+
+#
+# cs_get_ca <role>
+#
+# Get the path to the CA in pem format from a role
+#
+cs_get_ca() {
+    local role="${1}"
+    cs_init_variables
+
+    echo "${keydir}/${role}/ca.pem"
+}
+export -f cs_get_ca
+
+#
+# cs_append_ca_from_pem <role> <pem>
+#
+# Append PEM to CA for a role
+#
+cs_append_ca_from_pem() {
+    local role="${1}"
+    local pem="${2}"
+    cs_init_variables
+
+    cat "${pem}" >> "${keydir}/${role}/ca.pem"
+    # add new line in case ${pem} does not end with an EOL
+    echo >> "${keydir}/${role}/ca.pem"
+}
+export -f cs_append_ca_from_pem
+
+#
+# cs_append_ca_from_der <role> <der>
+#
+# Append DER to CA for a role
+#
+cs_append_ca_from_der() {
+    local role="${1}"
+    local der="${2}"
+    cs_init_variables
+
+    ptxd_exec openssl x509 -inform der -in "${der}" \
+	-out "${tmpdir}/ca.pem" &&
+    cs_append_ca_from_pem "${role}" "${tmpdir}/ca.pem"
+}
+export -f cs_append_ca_from_der
+
+#
+# cs_append_ca_from_uri <role> [<uri>]
+#
+# Append certificate specified by URI or by already set URI to CA for a role
+#
+cs_append_ca_from_uri() {
+    local role="${1}"
+    local uri="${2}"
+    local tmpdir="$(mktemp -d "${PTXDIST_TEMPDIR}/${role}-ca.XXXXXX")"
+    cs_init_variables
+
+    if [ -z "${uri}" ]; then
+	uri=$(cs_get_uri "${role}")
+    fi
+
+    ptxd_exec extract-cert "${uri}" "${tmpdir}/ca.der" &&
+    cs_append_ca_from_der "${role}" "${tmpdir}/ca.der"
+}
+export -f cs_append_ca_from_uri
