@@ -1,0 +1,4 @@
+## SECTION=hosttools_noprompt_ptx
+
+config CODE_SIGNING
+	bool
