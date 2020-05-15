@@ -33,7 +33,8 @@ IMAGE_RAUC_ENV	= \
 	RAUC_BUNDLE_BUILD=$(call ptx/sh, date +%FT%T%z) \
 	RAUC_BUNDLE_DESCRIPTION=$(PTXCONF_IMAGE_RAUC_DESCRIPTION) \
 	RAUC_KEY="$(shell cs_get_uri update)" \
-	RAUC_CERT="$(shell cs_get_uri update)"
+	RAUC_CERT="$(shell cs_get_uri update)" \
+	RAUC_KEYRING="$(shell cs_get_ca update)"
 
 $(IMAGE_RAUC_IMAGE):
 	@$(call targetinfo)
