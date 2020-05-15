@@ -534,6 +534,8 @@ function write_deps_pkg_active_virtual(this_PKG, this_pkg, prefix) {
 		return;
 	if (this_pkg ~ /^host-chrpath$/)
 		return;
+	if (this_pkg ~ /^host-system-/)
+		return;
 
 	if (prefix != "")
 		virtual = "virtual-host-tools";
