@@ -154,7 +154,11 @@ cs_get_uri() {
 	if [ ${#FUNCNAME[*]} -gt 1 ]; then
 	    ptxd_bailout "No PKCS#11 URI for role ${role}"
 	else
-	    # ignore the error if cs_get_uri is called directly from make
+	    # cs_get_uri was called directly from make prior to cs_set_uri,
+	    # which may not be an error if it is evaluated early *and* later
+	    # again - return a unique error string in case it is not expected
+	    # and a user stumbles upon this
+	    echo "ERROR_URI_NOT_YET_SET"
 	    return
 	fi
     fi
