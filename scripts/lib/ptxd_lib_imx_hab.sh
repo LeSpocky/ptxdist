@@ -43,8 +43,7 @@ ptxd_make_imx_habv4_gen_table_impl() {
 	--table "${table_bin}" \
 	--efuses "${srk_fuse_bin}" \
 	--digest sha256 \
-	--certs ${tmpdir}/srk1.pem,${tmpdir}/srk2.pem,\
-	    ${tmpdir}/srk3.pem,${tmpdir}/srk4.pem
+	--certs ${tmpdir}/srk1.pem,${tmpdir}/srk2.pem,${tmpdir}/srk3.pem,${tmpdir}/srk4.pem
 }
 export -f ptxd_make_imx_habv4_gen_table_impl
 
