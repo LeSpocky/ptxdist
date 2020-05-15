@@ -10,3 +10,6 @@ config HOST_PTX_CODE_SIGNING_DEV
 	bool
 	select HOST_SOFTHSM
 	select HOST_OPENSC
+	select HOST_EXTRACT_CERT
+	select HOST_OPENSSL
+	select HOST_LIBP11
