@@ -127,6 +127,6 @@ ptxd_make_image_fit() {
 	echo "Generated device-tree for the fit image:"
 	cat "${its}"
     fi &&
-    mkimage -N pkcs11 -f "${its}" "${image_image}" -r "${sign_args[@]}"
+    ptxd_exec mkimage -N pkcs11 -f "${its}" "${image_image}" -r "${sign_args[@]}"
 }
 export -f ptxd_make_image_fit
