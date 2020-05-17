@@ -206,7 +206,7 @@ ptxd_make_world_prepare() {
 	    ;;
 	scons)
 	    if ! [[ "${pkg_build_deps}" =~ "host-python3-${pkg_conf_tool}" ]]; then
-		ptxd_bailout "'${pkg_label}' uses '${pkg_conf_tool}' but does not select 'host-python-${pkg_conf_tool}'"
+		ptxd_bailout "'${pkg_label}' uses '${pkg_conf_tool}' but does not select 'host-python3-${pkg_conf_tool}'"
 	    fi
 	    ;;
     esac
