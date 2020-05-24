@@ -1,0 +1,40 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sun, 24 May 2020 11:04:30 +0200
+Subject: [PATCH] fix building with gcc 10
+
+Without this, building with gcc-10 fails with:
+
+/usr/bin/ld: Config/lib.a(y.tab.o):.../Config/exports.h:25: multiple definition of `export_path'; attr.o:.../Config/exports.h:25: first defined here
+/usr/bin/ld: Config/lib.a(lex.yy.o):.../Config/exports.l:17: multiple definition of `yylval'; Config/lib.a(y.tab.o):.../Config/y.tab.c:1507: first defined here
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ Config/exports.h | 2 +-
+ Config/exports.l | 1 -
+ 2 files changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/Config/exports.h b/Config/exports.h
+index 2c5edec5b58c..98acb8695fbb 100644
+--- a/Config/exports.h
++++ b/Config/exports.h
+@@ -22,7 +22,7 @@
+ extern exports	exports_nfslist;
+ /* Options cache */
+ extern int	exports_opts;
+-const char      *export_path; 
++extern const char *export_path; 
+ extern uint32 	export_fsid;
+ extern uint32   export_password_hash;
+ 
+diff --git a/Config/exports.l b/Config/exports.l
+index 8aa2011932a6..ffccd85627ee 100644
+--- a/Config/exports.l
++++ b/Config/exports.l
+@@ -14,7 +14,6 @@
+ 
+ #define YY_NO_UNPUT
+ 
+-YYSTYPE yylval;
+ extern int e_error;
+ 
+ /*
