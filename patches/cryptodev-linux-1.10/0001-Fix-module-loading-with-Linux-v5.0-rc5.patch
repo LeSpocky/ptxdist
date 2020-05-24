@@ -1,10 +1,3 @@
-Upstream-Status: Backport [https://github.com/cryptodev-linux/cryptodev-linux/commit/f971e0c]
-
-Backport patch from upstream to fix module cryptodev loading error.
-
-Signed-off-by: Kai Kang <kai.kang@windriver.com>
-
-From f971e0cd4a0ebe59fb2e8e17240399bf6901b09b Mon Sep 17 00:00:00 2001
 From: "Derald D. Woods" <woods.technical@gmail.com>
 Date: Sun, 10 Feb 2019 13:22:19 -0600
 Subject: [PATCH] Fix module loading with Linux v5.0-rc5
@@ -27,7 +20,7 @@ Signed-off-by: Derald D. Woods <woods.technical@gmail.com>
  1 file changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/cryptlib.c b/cryptlib.c
-index 6e66698..4a87037 100644
+index 6e66698f78ed..4a8703788eb8 100644
 --- a/cryptlib.c
 +++ b/cryptlib.c
 @@ -38,7 +38,9 @@
@@ -54,5 +47,3 @@ index 6e66698..4a87037 100644
  			struct ablkcipher_alg *alg;
  
  			alg = &tfm->__crt_alg->cra_ablkcipher;
--- 
-2.20.0

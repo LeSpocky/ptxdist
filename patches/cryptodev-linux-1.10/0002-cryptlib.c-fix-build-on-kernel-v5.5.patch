@@ -1,0 +1,39 @@
+From: Andrei Botila <andrei.botila@nxp.com>
+Date: Wed, 27 Nov 2019 09:53:37 +0200
+Subject: [PATCH] cryptlib.c: fix build on kernel v5.5+
+
+Starting with kernel v5.5-rc1 ablkcipher and blkcipher are removed and
+symmetric key operations will rely solely on skcipher:
+commit d63007eb954 ("crypto: ablkcipher - remove deprecated and unused ablkcipher support").
+
+When cryptodev will use higher kernel versions > 5.4 will need to use the
+skcipher interface instead.
+
+Signed-off-by: Andrei Botila <andrei.botila@nxp.com>
+---
+ cryptlib.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/cryptlib.c b/cryptlib.c
+index 4a8703788eb8..e2a4198adb75 100644
+--- a/cryptlib.c
++++ b/cryptlib.c
+@@ -159,6 +159,7 @@ int cryptodev_cipher_init(struct cipher_data *out, const char *alg_name,
+ 
+ #if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 8, 0))
+ 		tfm = crypto_skcipher_tfm(out->async.s);
++#if (LINUX_VERSION_CODE <= KERNEL_VERSION(5, 4, 0))
+ 		if ((tfm->__crt_alg->cra_type == &crypto_ablkcipher_type)
+ #if (LINUX_VERSION_CODE < KERNEL_VERSION(5, 0, 0))
+ 		    || (tfm->__crt_alg->cra_type == &crypto_givcipher_type)
+@@ -169,7 +170,9 @@ int cryptodev_cipher_init(struct cipher_data *out, const char *alg_name,
+ 			alg = &tfm->__crt_alg->cra_ablkcipher;
+ 			min_keysize = alg->min_keysize;
+ 			max_keysize = alg->max_keysize;
+-		} else {
++		} else
++#endif
++		{
+ 			struct skcipher_alg *alg;
+ 
+ 			alg = crypto_skcipher_alg(out->async.s);
