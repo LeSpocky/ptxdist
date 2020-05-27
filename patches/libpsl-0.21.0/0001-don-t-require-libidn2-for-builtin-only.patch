@@ -1,0 +1,24 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Wed, 27 May 2020 15:39:35 +0200
+Subject: [PATCH] don't require libidn2 for builtin only
+
+The library is only needed for runtime support.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index cd504b397d3c..83c2d31eefb7 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -187,7 +187,7 @@ if test "$enable_runtime" = "libidn2" -o "$enable_builtin" = "libidn2" -o "$enab
+   ], [
+     AC_SEARCH_LIBS(idn2_lookup_u8, idn2, HAVE_LIBIDN2=yes,
+     [
+-       if test "$enable_runtime" = "libidn2" -o "$enable_builtin" = "libidn2"; then
++       if test "$enable_runtime" = "libidn2"; then
+           AC_MSG_ERROR(You requested libidn2 but it is not installed.)
+        fi
+     ], -lunistring)

@@ -42,6 +42,8 @@ LIBPSL_CONF_OPT		:= \
 	--disable-cfi \
 	--disable-ubsan \
 	--disable-asan \
+	--disable-runtime \
+	--enable-builtin=libidn2 \
 	--disable-valgrind-tests
 
 # ----------------------------------------------------------------------------
