@@ -209,5 +209,18 @@ print-%: /print-%
 
 .PHONY: $(PHONY)
 
+#
+# Redefining $(SHELL) does not work properly when parallel processing happens.
+# So redefine ptx/force-sh and ptx/sh to use regular shell calls.
+#
+define ptx/force-sh
+$(call ptx/force-shell,$(1))
+endef
+ifneq ($(MAKE),true)
+define ptx/sh
+$(shell $(1))
+endef
+endif
+
 # vim600:set foldmethod=marker:
 # vim600:set syntax=make:
