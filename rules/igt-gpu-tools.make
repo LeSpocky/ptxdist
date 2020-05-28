@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_IGT_GPU_TOOLS) += igt-gpu-tools
 #
 # Paths and names
 #
-IGT_GPU_TOOLS_VERSION	:= 1.24
-IGT_GPU_TOOLS_MD5	:= 0e0b4a1a80dc2e09c2705e0c5159e0a1
+IGT_GPU_TOOLS_VERSION	:= 1.25
+IGT_GPU_TOOLS_MD5	:= 4c148d3be97607859168ed70b15e8b2f
 IGT_GPU_TOOLS		:= igt-gpu-tools-$(IGT_GPU_TOOLS_VERSION)
 IGT_GPU_TOOLS_SUFFIX	:= tar.xz
 IGT_GPU_TOOLS_URL	:= $(call ptx/mirror, XORG, individual/app/$(IGT_GPU_TOOLS).$(IGT_GPU_TOOLS_SUFFIX))
@@ -37,17 +37,18 @@ IGT_GPU_TOOLS_LIBDRM-$(PTXCONF_IGT_GPU_TOOLS_NOUVEAU)	+= nouveau
 IGT_GPU_TOOLS_CONF_TOOL	:= meson
 IGT_GPU_TOOLS_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dbuild_chamelium=disabled \
-	-Dbuild_docs=disabled \
-	-Dbuild_man=disabled \
-	-Dbuild_overlay=disabled \
-	-Dbuild_runner=$(call ptx/endis,PTXCONF_IGT_GPU_TOOLS_TEST_RUNNER)d \
-	-Dbuild_tests=$(call ptx/endis,PTXCONF_IGT_GPU_TOOLS_TESTS)d \
+	-Dchamelium=disabled \
+	-Ddocs=disabled \
+	-Dlibdrm_drivers=$(subst $(space),$(comma),$(IGT_GPU_TOOLS_LIBDRM-y)) \
+	-Dlibunwind=enabled \
+	-Dman=disabled \
+	-Doping=disabled \
+	-Doverlay=disabled \
 	-Doverlay_backends=auto \
+	-Drunner=$(call ptx/endis,PTXCONF_IGT_GPU_TOOLS_TEST_RUNNER)d \
+	-Dtests=$(call ptx/endis,PTXCONF_IGT_GPU_TOOLS_TESTS)d \
 	-Duse_rpath=false \
-	-Dwith_libdrm=$(subst $(space),$(comma),$(IGT_GPU_TOOLS_LIBDRM-y)) \
-	-Dwith_libunwind=enabled \
-	-Dwith_valgrind=disabled \
+	-Dvalgrind=disabled
 
 ifdef PTXCONF_KERNEL_HEADER
 IGT_GPU_TOOLS_CPPFLAGS	:= \
