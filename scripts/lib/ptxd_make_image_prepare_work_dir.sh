@@ -52,7 +52,6 @@ ${list[*]}
     {
 	echo "cd '${work_dir}' || exit"
 	ptxd_dopermissions "${ptxd_reply_perm_files[@]}"
-	echo ":"
     } | sh &&
     check_pipe_status &&
 
