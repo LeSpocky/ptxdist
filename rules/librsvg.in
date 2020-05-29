@@ -31,6 +31,7 @@ config LIBRSVG_SVGZ
 
 config LIBRSVG_CROCO
 	bool
+	depends on STAGING
 	prompt "libcroco support"
 	help
 	  Libcroco is a general CSS parsing and manipulation library.

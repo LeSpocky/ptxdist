@@ -1,4 +1,6 @@
-## SECTION=multimedia_gtk
+## SECTION=staging
+### old section:
+### SECTION=multimedia_gtk
 
 menuconfig LIBCROCO
 	tristate
@@ -31,6 +33,11 @@ menuconfig LIBCROCO
 
 	  Note that the xml manipulation toolkit used by the libcroco
 	    selection engine at the moment is libxml2.
+
+	  STAGING: remove in PTXdist 2021.05.0
+
+	  Old version that needs to be updated, and license is unclear
+	  (headers say LGPL-2.1-or-later, COPYING contains LGPL-2.0)
 
 if LIBCROCO
 
