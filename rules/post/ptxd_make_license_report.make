@@ -15,6 +15,10 @@ PTX_PACKAGES_TARGET := \
 	$(PTX_PACKAGES_INSTALL) \
 	$(EXTRA_PACKAGES)
 
+PHONY += license-check
+
+license-check: $(addprefix $(STATEDIR)/,$(addsuffix .report,$(PTX_PACKAGES_SELECTED)))
+
 PHONY += license-report
 
 license-report: \

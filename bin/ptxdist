@@ -752,6 +752,7 @@ Misc:
 				it is known by "make"
   printnext <var>		assumes that the contents of <var> is another
 				variable and print the contents of this variable
+  licensecheck			check md5sums of license files for all packages
   list-packages			print a list of all selected packages
   local-src <pkg> [<directory>]	overwrite a package source with a locally provided
 				directory containing the sourcecode.
@@ -1774,6 +1775,11 @@ EOF
 			check_premake_compiler &&
 			images=( "${@/#/${IMAGEDIR}/}" ) &&
 			ptxd_make_log "${images[@]}"
+			exit
+			;;
+		licensecheck)
+			check_premake_compiler &&
+			ptxd_make_log license-check
 			exit
 			;;
 		list-packages)

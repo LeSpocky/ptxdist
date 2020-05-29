@@ -234,6 +234,9 @@ Misc Actions
   contents of this variable. Shell variables are currently not checked here.
   All other rules for ``print`` apply.
 
+``licensecheck``
+  For all selected packages, check the MD5 sums of license files.
+
 ``list-packages``
   print a list of all selected packages. This list does not include the
   host and cross tools.
