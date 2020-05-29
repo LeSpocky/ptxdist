@@ -285,7 +285,6 @@ ptxd_install_virtfs() {
 export -f ptxd_install_virtfs
 
 ptxd_install_dir_impl() {
-    local sep="$(echo -e "\x1F")"
     local mod_type=0040000
 
     if [ "${dst}" != "/" ]; then
@@ -295,9 +294,7 @@ ptxd_install_dir_impl() {
     install -m "${mod_nfs}" -d "${ndirs[@]/%/${dst}}" &&
     install -m "${mod}" -o "${usr}" -g "${grp}" -d "${pdirs[@]/%/${dst}}" &&
 
-    ptxd_install_virtfs &&
-
-    echo "d${sep}${dst}${sep}${usr}${sep}${grp}${sep}${mod}" >> "${pkg_xpkg_perms}"
+    ptxd_install_virtfs
 }
 export -f ptxd_install_dir_impl
 
@@ -328,6 +325,7 @@ ptxd_ensure_dir() {
 export -f ptxd_ensure_dir
 
 ptxd_install_dir() {
+    local sep="$(echo -e "\x1F")"
     local dst="$1"
     local usr="$2"
     local grp="$3"
@@ -343,7 +341,8 @@ install directory:
   permissions=${mod}
 " &&
 
-    ptxd_install_dir_impl ||
+    ptxd_install_dir_impl &&
+    echo "d${sep}${dst}${sep}${usr}${sep}${grp}${sep}${mod}" >> "${pkg_xpkg_perms}" ||
     ptxd_install_error "install_dir failed!"
     ptxd_install_unlock
 }
