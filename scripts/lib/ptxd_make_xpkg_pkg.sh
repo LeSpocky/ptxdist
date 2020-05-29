@@ -17,8 +17,8 @@ ptxd_exist() {
 export -f ptxd_exist
 
 ptxd_install_error() {
-	echo Error: "$@"
-	exit 1
+    echo Error: "$@"
+    exit 1
 }
 export -f ptxd_install_error
 
