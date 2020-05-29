@@ -74,6 +74,7 @@ $(STATEDIR)/frodo.targetinstall:
 
 	@$(call install_copy, frodo, 0, 0, 0755, -, /usr/bin/Frodo)
 
+	@$(call install_copy, frodo, 0, 0, 2775, /home)
 	@$(call install_copy, frodo, 0, 0, 0644, -, /home/1541 ROM)
 	@$(call install_copy, frodo, 0, 0, 0644, -, /home/Basic ROM)
 	@$(call install_copy, frodo, 0, 0, 0644, -, /home/Char ROM)
