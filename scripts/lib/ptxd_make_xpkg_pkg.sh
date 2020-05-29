@@ -17,6 +17,7 @@ ptxd_exist() {
 export -f ptxd_exist
 
 ptxd_install_error() {
+    ptxd_install_unlock
     echo Error: "$@"
     exit 1
 }
@@ -120,6 +121,36 @@ ptxd_install_setup_global() {
 }
 export -f ptxd_install_setup_global
 
+ptxd_install_lock() {
+    local lockfile
+    mkdir -p "${PTXDIST_TEMPDIR}/locks"
+
+    if [ -n "${dst}" ]; then
+	lockfile="${PTXDIST_TEMPDIR}/locks/${dst//\//-}"
+    else
+	lockfile="${PTXDIST_TEMPDIR}/locks/other"
+    fi
+    if [ -n "${dst_lock}" ]; then
+	ptxd_bailout "dst_lock must not be set when ptxd_install_lock() is called"
+    fi
+    exec {dst_lock}>"${lockfile}" &&
+    flock "${dst_lock}"
+}
+export -f ptxd_install_lock
+
+ptxd_install_unlock() {
+    local ret=$?
+
+    if [ -z "${dst_lock}" ]; then
+	ptxd_bailout "dst_lock must be set when ptxd_install_unlock() is called"
+    fi
+    exec {dst_lock}>&-
+    unset dst_lock
+    # propagate the last error after unlocking
+    return "${ret}"
+}
+export -f ptxd_install_unlock
+
 ptxd_install_setup() {
     case "${dst}" in
 	/bin/*|/sbin/*|/lib/*) dst="/usr${dst}" ;;
@@ -133,7 +164,12 @@ ptxd_install_setup() {
     #
     # mangle user/group
     #
-    ptxd_install_resolve_usr_grp
+    ptxd_install_resolve_usr_grp &&
+
+    #
+    # lock destination to avoid parallel building issues
+    #
+    ptxd_install_lock
 }
 export -f ptxd_install_setup
 
@@ -270,11 +306,10 @@ ptxd_ensure_dir() {
     local usr="0"
     local grp="0"
     local mod="0755"
-    local mod_nfs mod_rw
-    local dir
-    local no_skip
+    local mod_nfs="0755"
+    local mod_rw="0755"
+    local dir no_skip dst_lock
 
-    ptxd_install_setup &&
     for dir in "${ndirs[@]/%/${dst}}"; do
 	if [ ! -d "${dir}" -o ! -e "$(dirname "${dir}")/.virtfs_metadata/$(basename "${dir}")" ]; then
 	    no_skip=1
@@ -286,7 +321,9 @@ ptxd_ensure_dir() {
 	install -d "${dirs[@]/%/${dst}}" &&
 	return
     fi &&
+    ptxd_install_lock &&
     ptxd_install_dir_impl
+    ptxd_install_unlock
 }
 export -f ptxd_ensure_dir
 
@@ -295,7 +332,7 @@ ptxd_install_dir() {
     local usr="$2"
     local grp="$3"
     local mod="$4"
-    local mod_nfs mod_rw
+    local mod_nfs mod_rw dst_lock
 
     ptxd_install_setup &&
     echo "\
@@ -308,6 +345,7 @@ install directory:
 
     ptxd_install_dir_impl ||
     ptxd_install_error "install_dir failed!"
+    ptxd_install_unlock
 }
 export -f ptxd_install_dir
 
@@ -411,7 +449,7 @@ ptxd_install_file_impl() {
     local mod="$5"
     local strip="$6"
     local mod_type=0100000
-    local mod_nfs mod_rw
+    local mod_nfs mod_rw dst_lock
     local gdb_src
 
     ptxd_install_setup_src &&
@@ -493,6 +531,7 @@ Usually, just remove the 6th parameter and everything works fine.
     ptxd_install_virtfs &&
 
     echo "f${sep}${dst}${sep}${usr}${sep}${grp}${sep}${mod}" >> "${pkg_xpkg_perms}"
+    ptxd_install_unlock
 }
 export -f ptxd_install_file_impl
 
@@ -503,7 +542,7 @@ ptxd_install_ln() {
     local grp="${4:-0}"
     local mod="0777"
     local mod_type=0120000
-    local mod_nfs mod_rw rel
+    local mod_nfs mod_rw rel dst_lock
 
     ptxd_install_setup &&
     echo "\
@@ -533,6 +572,7 @@ install link:
     ptxd_install_virtfs
 
     chown --no-dereference "${usr}:${grp}" "${dirs[@]/%/${dst}}"
+    ptxd_install_unlock
 }
 export -f ptxd_install_ln
 
@@ -545,7 +585,7 @@ ptxd_install_mknod() {
     local type="$5"
     local major="$6"
     local minor="$7"
-    local mod_nfs mod_rw mod_type
+    local mod_nfs mod_rw mod_type dst_lock
 
     case "${type}" in
 	c) mod_type=0020000 ;;
@@ -576,6 +616,7 @@ install device node:
     ptxd_install_virtfs &&
 
     echo "n${sep}${dst}${sep}${usr}${sep}${grp}${sep}${mod}${sep}${type}${sep}${major}${sep}${minor}" >> "${pkg_xpkg_perms}"
+    ptxd_install_unlock
 }
 export -f ptxd_install_mknod
 
@@ -625,7 +666,7 @@ ptxd_install_replace() {
     local dst="$1"
     local placeholder="$2"
     local value="$3"
-    local mod_nfs mod_rw
+    local mod_nfs mod_rw dst_lock
 
     ptxd_install_setup &&
     echo "\
@@ -638,6 +679,7 @@ install replace:
     sed -i -e "s,${placeholder//,/\\,},${value//,/\\,},g" "${dirs[@]/%/${dst}}" ||
 
     ptxd_install_error "install_replace failed!"
+    ptxd_install_unlock
 }
 export -f ptxd_install_replace
 
@@ -664,7 +706,7 @@ ptxd_install_replace_figlet() {
     local placeholder="$2"
     local value="$3"
     local escapemode="$4"
-    local mod_nfs mod_rw
+    local mod_nfs mod_rw dst_lock
 
     ptxd_install_setup &&
     echo "\
@@ -694,6 +736,7 @@ install replace figlet:
     sed -i -e "s#${placeholder}#${figlet}#g" "${dirs[@]/%/${dst}}" ||
 
     ptxd_install_error "install_replace failed!"
+    ptxd_install_unlock
 }
 export -f ptxd_install_replace_figlet
 
@@ -748,7 +791,7 @@ ptxd_install_find() {
     local usr="${3#-}"
     local grp="${4#-}"
     local strip="${5}"
-    local mod_nfs mod_rw
+    local mod_nfs mod_rw dst_lock
     local gdb_src
     if [ -z "${glob}" ]; then
 	local -a glob=( "-o" "-print" )
@@ -760,7 +803,8 @@ ptxd_install_find() {
 	echo
 	return
     fi &&
-    test -d "${src}" &&
+    test -d "${src}"
+    ptxd_install_unlock &&
 
     find "${src}" ! -path "${src}" -a \( \
 		-path "*/.svn" -prune -o -path "*/.git" -prune -o \
@@ -1003,7 +1047,7 @@ export -f ptxd_install_lib
 ptxd_install_run() {
     local script="${pkg_xpkg_control_dir}/${1}"
     local dir
-    local mod_nfs mod_rw
+    local mod_nfs mod_rw dst_lock
 
     if [ -e "${script}" ]; then
 	ptxd_install_setup &&
@@ -1013,6 +1057,7 @@ executing '${pkg_label}.${1}'
 	for dir in "${ndirs[@]}"; do
 	    DESTDIR="${dir}" /bin/sh "${script}"
 	done
+	ptxd_install_unlock
     fi ||
     ptxd_install_error "running '${1}' script failed!"
 }
