@@ -707,7 +707,7 @@ ptxd_install_generic() {
     local -a stat
     local orig_IFS="${IFS}"
     local IFS=":"
-    stat=( $(stat -c "%u:%g:%a:0x%t:0x%T:%F" "${file}") ) &&
+    stat=( $(stat -c "%u:%g:0%a:0x%t:0x%T:%F" "${file}") ) &&
     IFS="${orig_IFS}"
     local usr="${usr:-${stat[0]}}" &&
     local grp="${grp:-${stat[1]}}" &&
