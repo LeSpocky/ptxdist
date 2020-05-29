@@ -261,7 +261,7 @@ ptxd_install_dir_impl() {
 
     ptxd_install_virtfs &&
 
-    echo "f${sep}${dst}${sep}${usr}${sep}${grp}${sep}${mod}" >> "${pkg_xpkg_perms}"
+    echo "d${sep}${dst}${sep}${usr}${sep}${grp}${sep}${mod}" >> "${pkg_xpkg_perms}"
 }
 export -f ptxd_install_dir_impl
 

@@ -38,6 +38,17 @@ ptxd_dopermissions() {
 }
 export -f ptxd_dopermissions
 
+#
+# If multiple packages create the same directory with different ownership
+# or permissions, then the result depends on the installation order.
+# Avoid this by verifying that such a mismatch does not happen.
+#
+ptxd_check_dir_permissions() {
+	ptxd_check_obsolete_perm "${@}"
+	ptxd_in_path PTXDIST_PATH_SCRIPTS lib//ptxd_lib_check_dir_permissions.awk &&
+	gawk -f "${ptxd_reply}" "${@}"
+}
+export -f ptxd_check_dir_permissions
 
 #
 # ptxd_do_xpkg_map - do the mapping from package name to xpkg name(s)

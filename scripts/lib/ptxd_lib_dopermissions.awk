@@ -5,7 +5,7 @@ BEGIN {
 	print("set -e")
 }
 
-$1 ~ "f" {
+$1 ~ "[df]" {
 	printf("chmod %s	'.%s'\n" \
 	       "chown %s.%s	'.%s'\n", \
 	       $5, $2, $3, $4, $2);

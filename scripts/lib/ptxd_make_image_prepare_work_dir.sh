@@ -48,12 +48,8 @@ ${list[*]}
 	opkg -f "${xpkg_conf}" -o "${work_dir}" \
 	install "${ptxd_reply_ipkg_files[@]}" &&
 
-    # fix directory permissions
-    {
-	echo "cd '${work_dir}' || exit"
-	ptxd_dopermissions "${ptxd_reply_perm_files[@]}"
-    } | sh &&
-    check_pipe_status &&
+    # validate directory permissions
+    ptxd_check_dir_permissions "${ptxd_reply_perm_files[@]}" &&
 
     ptxd_install_fixup_timestamps "${work_dir}"
 }
