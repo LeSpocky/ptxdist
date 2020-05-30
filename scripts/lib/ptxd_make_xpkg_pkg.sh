@@ -477,7 +477,7 @@ install ${cmd}:
     fi &&
 
     if [ -z "${strip}" ]; then
-	if ! readelf -h "${src}" &> /dev/null; then
+	if ! "${CROSS_READELF}" -h "${src}" &> /dev/null; then
 	    strip="n"
 	else
 	    strip="y"
