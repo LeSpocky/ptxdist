@@ -262,23 +262,24 @@ export -f ptxd_install_setup_src
 
 ptxd_install_virtfs() {
     local mod_virtfs="$(( 0${mod} | ${mod_type} ))"
-    local d dir
+    local d dir file
 
     if [ "${PTXCONF_SETUP_NFS_VIRTFS}" != "y" ]; then
 	return
     fi
 
     for d in "${ndirs[@]/%/${dst}}"; do
-	dir="$(dirname "${d}")/.virtfs_metadata" &&
+	dir="${d%/*}/.virtfs_metadata"
+	file="${dir}/${d##*/}"&&
 	mkdir -p "${dir}" &&
-	cat <<- EOF > "${dir}/$(basename "${d}")"
+	cat <<- EOF > "${file}"
 	virtfs.uid=${usr}
 	virtfs.gid=${grp}
 	virtfs.mode=${mod_virtfs}
 	EOF
 	if [ -n "${major}" -a -n "${minor}" ]; then
 	    local rdev=$[ ${major} << 8 | ${minor} ] &&
-	    echo "virtfs.rdev=${rdev}" >> "${dir}/$(basename "${d}")"
+	    echo "virtfs.rdev=${rdev}" >> "${file}"
 	fi || break
     done
 }
@@ -287,8 +288,8 @@ export -f ptxd_install_virtfs
 ptxd_install_dir_impl() {
     local mod_type=0040000
 
-    if [ "${dst}" != "/" ]; then
-	ptxd_ensure_dir "$(dirname "${dst}")"
+    if [ "${dst}" != "" ]; then
+	ptxd_ensure_dir "${dst%/*}"
     fi &&
 
     install -m "${mod_nfs}" -d "${ndirs[@]/%/${dst}}" &&
@@ -308,7 +309,7 @@ ptxd_ensure_dir() {
     local dir no_skip dst_lock
 
     for dir in "${ndirs[@]/%/${dst}}"; do
-	if [ ! -d "${dir}" -o ! -e "$(dirname "${dir}")/.virtfs_metadata/$(basename "${dir}")" ]; then
+	if [ ! -d "${dir}" -o ! -e "${dir%/*}/.virtfs_metadata/${dir##*/}" ]; then
 	    no_skip=1
 	    break
 	fi
@@ -326,7 +327,7 @@ export -f ptxd_ensure_dir
 
 ptxd_install_dir() {
     local sep="$(echo -e "\x1F")"
-    local dst="$1"
+    local dst="${1%/}"
     local usr="$2"
     local grp="$3"
     local mod="$4"
@@ -367,7 +368,7 @@ ptxd_install_file_extract_debug() {
     fi
 
     if [ -z "${bid}" ]; then
-	dbg="$(dirname "${dst}")/.debug/.$(basename "${dst}").dbg"
+	dbg="${dst%/*}/.debug/.${dst##*/}.dbg"
     else
 	local path_component=${bid::-38}
 	local name_component=${bid:2:38}
@@ -419,7 +420,7 @@ ptxd_install_file_strip() {
     esac
 
     files=( "${sdirs[@]/%/${dst}}" )
-    install -d "$(dirname "${files[0]}")" &&
+    install -d "${files[0]%/*}" &&
     "${strip_cmd[@]}" -o "${files[0]}" "${src}" &&
     for (( i=1 ; ${i} < ${#files[@]} ; i=$[i+1] )); do
 	install -m "${mod_rw}" -D "${files[0]}" "${files[${i}]}" || return
@@ -484,7 +485,7 @@ install ${cmd}:
 	fi
     fi &&
 
-    ptxd_ensure_dir "$(dirname "${dst}")" &&
+    ptxd_ensure_dir "${dst%/*}" &&
 
     case "${strip}" in
 	0|n|no|N|NO)
@@ -509,9 +510,9 @@ Usually, just remove the 6th parameter and everything works fine.
 
     if [ "${#ddirs[*]}" -gt 0 -a -n "${gdb_src}" ]; then
 	local gdb_file
-	local ddir="$(dirname "${dst}")"
+	local ddir="${dst%/*}"
 	for gdb_file in $(ls "${gdb_src}".* 2>/dev/null); do
-	    local gdb_dst="${ddir}/$(basename "${gdb_file}")"
+	    local gdb_dst="${ddir}/${gdb_file##*/}"
 	    echo "  debug file: ${gdb_dst}" &&
 	    for d in "${ddirs[@]/%/${gdb_dst}}"; do
 		install -m 644 -D "${gdb_file}" "${d}" || break
@@ -560,7 +561,7 @@ install link:
     esac &&
 
     rm -f "${dirs[@]/%/${dst}}" &&
-    ptxd_ensure_dir "$(dirname "${dst}")" &&
+    ptxd_ensure_dir "${dst%/*}" &&
     for d in "${ndirs[@]/%/${dst}}"; do
 	ln -s "${rel}${src}" "${d}" || return
     done &&
@@ -605,7 +606,7 @@ install device node:
 " &&
 
     rm -f "${pdirs[@]/%/${dst}}" &&
-    ptxd_ensure_dir "$(dirname "${dst}")" &&
+    ptxd_ensure_dir "${dst%/*}" &&
     for d in "${pdirs[@]/%/${dst}}"; do
 	mknod -m "${mod}" "${d}" "${type}" ${major} ${minor} || return
     done &&
@@ -1000,13 +1001,13 @@ ptxd_install_shared() {
     local grp="$4"
     local mod="$5"
     local strip="${6:-y}"
-    local filename="$(basename "${src}")"
+    local filename="${src##*/}"
 
     ptxd_install_file "${src}" "${dst}/${filename}" "${usr}" "${grp}" "${mod}" "${strip}" &&
 
-    find -H "$(dirname "${src}")" -maxdepth 1 -type l ! -name "*.so" | while read file; do
+    find -H "${src%/*}" -maxdepth 1 -type l ! -name "*.so" | while read file; do
 	if [ "$(basename "$(readlink -f "${file}")")" = "${filename}" ]; then
-	    local link="${dst}/$(basename "${file}")"
+	    local link="${dst}/${file##*/}"
 	    ptxd_install_ln "${filename}" "${link}" "${usr}" "${grp}" || return
 	fi
     done
@@ -1027,9 +1028,12 @@ ptxd_install_lib() {
 	fi
     fi
 
-    local file="$(for dir in "${pkg_pkg_dir}"${root_dir}{/,/usr/}${lib_dir}; do
-	    find "${dir}" -type f -path "${dir}/${lib}.so*" ! -name "*.debug"; done 2>/dev/null \
-	    | while read f; do
+    local file="$(
+	for dir in "${pkg_pkg_dir}"${root_dir}{/,/usr/}${lib_dir}; do
+	    if [ -d "${dir}" ]; then
+		find "${dir}" -type f -path "${dir}/${lib}.so*" ! -name "*.debug"
+	    fi
+	done | while read f; do
 		grep -q '^INPUT(' "${f}" || echo "${f}"
 	    done)"
 
