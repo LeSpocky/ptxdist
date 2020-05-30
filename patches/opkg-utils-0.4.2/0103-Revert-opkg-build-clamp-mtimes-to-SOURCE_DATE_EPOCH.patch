@@ -13,10 +13,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 8 deletions(-)
 
 diff --git a/opkg-build b/opkg-build
-index d4994438dc06..7dd8cb6d5148 100755
+index 6d6f7e92b919..2fb6216104b6 100755
 --- a/opkg-build
 +++ b/opkg-build
-@@ -298,16 +298,9 @@ mkdir $tmp_dir
+@@ -298,18 +298,11 @@ mkdir $tmp_dir
  
  build_date="${SOURCE_DATE_EPOCH:-$(date +%s)}"
  
@@ -27,8 +27,10 @@ index d4994438dc06..7dd8cb6d5148 100755
 -    mtime_args="--mtime=@$build_date --clamp-mtime"
 -fi
 -
- ( cd $pkg_dir/$CONTROL && find . -type f > $tmp_dir/control_list )
- ( cd $pkg_dir && find . -path ./$CONTROL -prune -o -path . -o -print  > $tmp_dir/file_list )
+ export LANG=C
+ export LC_ALL=C
+ ( cd $pkg_dir/$CONTROL && find . -type f | sort > $tmp_dir/control_list )
+ ( cd $pkg_dir && find . -path ./$CONTROL -prune -o -path . -o -print  | sort > $tmp_dir/file_list )
 -( cd $pkg_dir && tar $ogargs $tsortargs --no-recursion $mtime_args -c $tarformat -T $tmp_dir/file_list | $compressor $compressorargs > $tmp_dir/data.tar.$cext )
 +( cd $pkg_dir && tar $ogargs $tsortargs --no-recursion -c $tarformat -T $tmp_dir/file_list | $compressor $compressorargs > $tmp_dir/data.tar.$cext )
  ( cd $pkg_dir/$CONTROL && tar $ogargs $tsortargs --no-recursion --mtime=@$build_date -c $tarformat -T $tmp_dir/control_list | gzip $zipargs > $tmp_dir/control.tar.gz )

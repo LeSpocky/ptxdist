@@ -14,10 +14,10 @@ Signed-off-by: Andreas Bießmann <andreas@biessmann.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/opkg-build b/opkg-build
-index 8b3d7a9f78de..043517db0140 100755
+index 1b564166a7a4..eca1ee2fa42c 100755
 --- a/opkg-build
 +++ b/opkg-build
-@@ -322,7 +322,7 @@ fi
+@@ -324,7 +324,7 @@ fi
  
  rm -f $pkg_file
  if [ "$outer" = "ar" ] ; then

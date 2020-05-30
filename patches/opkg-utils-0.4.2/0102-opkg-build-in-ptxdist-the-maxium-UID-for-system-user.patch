@@ -8,7 +8,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/opkg-build b/opkg-build
-index 043517db0140..d4994438dc06 100755
+index eca1ee2fa42c..6d6f7e92b919 100755
 --- a/opkg-build
 +++ b/opkg-build
 @@ -69,14 +69,14 @@ You probably want to remove them: " >&2
