@@ -27,6 +27,13 @@ LIBPSL_LICENSE	:= MIT
 # Prepare
 # ----------------------------------------------------------------------------
 
+# Pretend that libidn2 is available. It's not actually used but needed for
+# the --enable-builtin=libidn2 configure check.
+LIBPSL_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_search_idn2_lookup_u8= \
+	ac_cv_search_u8_tolower=
+
 #
 # autoconf
 #
