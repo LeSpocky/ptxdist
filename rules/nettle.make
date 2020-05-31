@@ -14,14 +14,13 @@ PACKAGES-$(PTXCONF_NETTLE) += nettle
 #
 # Paths and names
 #
-NETTLE_VERSION	:= 3.4.1
-NETTLE_MD5	:= 9bdebb0e2f638d3b9d91f7fc264b70c1
+NETTLE_VERSION	:= 3.6
+NETTLE_MD5	:= c45ee24ed7361dcda152a035d396fe8a
 NETTLE		:= nettle-$(NETTLE_VERSION)
 NETTLE_SUFFIX	:= tar.gz
 NETTLE_SOURCE	:= $(SRCDIR)/$(NETTLE).$(NETTLE_SUFFIX)
 NETTLE_DIR	:= $(BUILDDIR)/$(NETTLE)
 NETTLE_LICENSE	:= GPL-2.0-or-later
-NETTLE_MAKE_PAR := NO
 
 NETTLE_URL	:= \
 	http://www.lysator.liu.se/~nisse/archive/$(NETTLE).$(NETTLE_SUFFIX) \
