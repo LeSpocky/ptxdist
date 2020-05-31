@@ -1,4 +1,7 @@
-## SECTION=communication
+## SECTION=staging
+## old section:
+### SECTION=communication
+#
 menuconfig MGETTY
 	tristate
 	prompt "mgetty & sendfax              "
@@ -14,6 +17,12 @@ menuconfig MGETTY
 	  of multiple pages) to exactly one fax machine, but it is usable from
 	  within shell scripts. Its input are pages in "g3" format, either
 	  created with ghostscript or with pbm2g3.
+
+	  STAGING: remove in PTXdist 2021.05.0
+
+	  Really old version that needs to be updated, and license is unclear
+	  (README says "this is GPL" but doesn't say which version, and no GPL
+	  text is included)
 
 if MGETTY
 
