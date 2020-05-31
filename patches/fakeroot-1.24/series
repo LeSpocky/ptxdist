@@ -5,5 +5,4 @@
 0002-hide-dlsym-error.patch
 #tag:ptxdist --start-number 100
 0100-make-fakeroot-relocatable.patch
-0101-fakeroot-disable-build-of-doc-and-test.patch
-# 2755cb93836d1c1bfe9ac6e2a82e4ad6  - git-ptx-patches magic
+# 13637ed278d8b6e0949f06ed0e08b488  - git-ptx-patches magic
