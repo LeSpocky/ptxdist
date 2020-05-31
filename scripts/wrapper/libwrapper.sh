@@ -11,6 +11,7 @@ OPTIMIZE=false
 PIE=true
 STDLIB=true
 BUILDID=true
+FULL_DEBUG=false
 
 ARG_LIST=""
 LATE_ARG_LIST=""
@@ -66,6 +67,9 @@ cc_check_args() {
 				;;
 			-O*)
 				OPTIMIZE=true
+				;;
+			-ggdb3)
+				FULL_DEBUG=true
 				;;
 			-I/usr/include | -L/usr/lib | -L/lib)
 				if ! ${HOST}; then
@@ -219,6 +223,11 @@ cc_add_debug() {
 	add_late_opt_arg TARGET_DEBUG_OFF "-g0"
 	add_late_opt_arg TARGET_DEBUG_ENABLE "-g"
 	add_late_opt_arg TARGET_DEBUG_FULL "-ggdb3"
+	if ${FULL_DEBUG} && ! test_opt TARGET_DEBUG_FULL && [ -n "${PTXDIST_ICECC}" ]; then
+		# '-ggdb3' breaks reproducible builds with icecc
+		# downgrade to '-g' unless full debugging is explicitly requested
+		add_late_arg "-ggdb0 -g"
+	fi
 }
 
 cc_add_arch() {
