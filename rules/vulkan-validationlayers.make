@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_VULKAN_VALIDATIONLAYERS) += vulkan-validationlayers
 #
 # Paths and names
 #
-VULKAN_VALIDATIONLAYERS_VERSION	:= 1.2.131.2
-VULKAN_VALIDATIONLAYERS_MD5	:= a396ccd4d3ca4b1420ff0de1fbddc49a
+VULKAN_VALIDATIONLAYERS_VERSION	:= 1.2.135.0
+VULKAN_VALIDATIONLAYERS_MD5	:= 1c2c72f28d694cc14759449e3b5f091e
 VULKAN_VALIDATIONLAYERS		:= vulkan-validationlayers-$(VULKAN_VALIDATIONLAYERS_VERSION)
 VULKAN_VALIDATIONLAYERS_SUFFIX	:= tar.gz
 VULKAN_VALIDATIONLAYERS_URL	:= https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/sdk-$(VULKAN_VALIDATIONLAYERS_VERSION).$(VULKAN_VALIDATIONLAYERS_SUFFIX)
@@ -57,7 +57,6 @@ $(STATEDIR)/vulkan-validationlayers.targetinstall:
 	@$(call install_lib, vulkan-validationlayers, 0, 0, 0644, libVkLayer_khronos_validation)
 
 	@$(call install_copy, vulkan-validationlayers, 0, 0, 0644, -, /usr/share/vulkan/explicit_layer.d/VkLayer_khronos_validation.json)
-	@$(call install_copy, vulkan-validationlayers, 0, 0, 0644, -, /usr/share/vulkan/explicit_layer.d/VkLayer_standard_validation.json)
 
 	@$(call install_finish, vulkan-validationlayers)
 
