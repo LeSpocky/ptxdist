@@ -1,3 +1,14 @@
+.. _ptxdist_parameter_reference:
+
+PTXdist parameter reference
+---------------------------
+
+PTXdist is a command line tool, which is basically called as:
+
+.. code-block:: bash
+
+    $  ptxdist <action [args]> [options]
+
 Setup and Project Actions
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
