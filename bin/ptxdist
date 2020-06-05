@@ -727,6 +727,7 @@ Build Actions:
   drop <package>.<stage>	mark a stage of a package as unbuilt
   tags <package>		try to build tags for the package
   urlcheck <package>		check if the package URL still works
+  licensecheck <package>	check md5sums of the package license files
 
   images			build images for target system
   image <image>			build the specified image
@@ -1784,7 +1785,13 @@ EOF
 			;;
 		licensecheck)
 			check_premake_compiler &&
-			ptxd_make_log license-check
+			if [ ${#} -eq 0 ]; then
+				ptxd_make_log license-check
+			else
+				check_if_selected "${@}" &&
+				pkgs=( "${@/#/${STATEDIR}/}" ) &&
+				ptxd_make_log "${pkgs[@]/%/.report}"
+			fi
 			exit
 			;;
 		list-packages)
