@@ -67,7 +67,7 @@ OPENVPN_CONF_OPT	:= \
 	--enable-port-share \
 	--disable-debug \
 	--$(call ptx/endis, PTXCONF_OPENVPN_SMALL)-small \
-	--disable-iproute2 \
+	--enable-iproute2 \
 	--enable-def-auth \
 	--enable-pf \
 	--disable-plugin-auth-pam \
