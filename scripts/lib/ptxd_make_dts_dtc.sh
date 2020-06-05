@@ -7,7 +7,7 @@
 #
 
 ptxd_make_dts_dtb() {
-    local dts tmp_dts deps tmp_deps dtc_include no_linemarker
+    local dts tmp_dts deb_dts deps tmp_deps dtc_include no_linemarker
 
     case "${dts_dts}" in
 	/*)
@@ -15,14 +15,20 @@ ptxd_make_dts_dtb() {
 		ptxd_bailout "Device-tree '${dts_dts}' not found."
 	    fi
 	    dts="${dts_dts}"
+	    deb_dts=( "${dts_dts}" )
 	    ;;
 	*)
 	    if ! ptxd_in_path dts_path "${dts_dts}"; then
 		ptxd_bailout "Device-tree '${dts_dts}' not found in '${dts_path}'."
 	    fi
 	    dts="${ptxd_reply}"
+	    # create a list of all posible matches
+	    ptxd_in_path dts_path
+	    deb_dts=( "${ptxd_reply[@]/%/\/${dts_dts}}" )
 	    ;;
     esac
+    deb_dts=( "${deb_dts[@]/#/\$(wildcard }" )
+    deb_dts=( "${deb_dts[@]/%/)}" )
 
     if dtc -h 2>&1 | grep -q '^[[:space:]]\+-i\(,.*\)\?$'; then
 	dtc_include="-i $(dirname "${dts}") -i ${dts_kernel_dir}/arch/${dts_kernel_arch}/boot/dts"
@@ -40,6 +46,8 @@ ptxd_make_dts_dtb() {
 
     exec 2>&${PTXDIST_FD_LOGERR}
 
+    echo "${dts_dtb}: \$(firstword ${deb_dts[*]})" > "${deps}" &&
+
     echo "CPP $(ptxd_print_path "${tmp_dts}")" &&
     cpp \
 	-Wp,-MD,${tmp_deps} \
@@ -56,7 +64,7 @@ ptxd_make_dts_dtb() {
 	${dts} &&
 
     sed -e "s;^${tmp_dts}:;${dts_dtb}:;" \
-	-e 's;^ \([^ ]*\); $(wildcard \1);' "${tmp_deps}" > "${deps}" &&
+	-e 's;^ \([^ ]*\); $(wildcard \1);' "${tmp_deps}" >> "${deps}" &&
 
     echo "DTC $(ptxd_print_path "${dts_dtb}")" &&
     dtc \

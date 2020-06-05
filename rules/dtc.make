@@ -24,20 +24,12 @@ $(warning *** Use GENERIC_KERNEL_ARCH instead)
 $(error )
 endif
 endif
-DTC_OFTREE_DTS_PATH := $(call remove_quotes,$(PTXCONF_DTC_OFTREE_DTS_PATH))
 
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
 
 ptx/dtb = $(notdir $(basename $(strip $(1)))).dtb
-ptx/dts = $(call ptx/in-path,DTC_OFTREE_DTS_PATH,$(strip $(1)))
-
-ifdef PTXCONF_DTC_OFTREE_DTS
-# Note: this must match the magic in ptxd_make_dts_dtb
-DTC_OFTREE_DTS := $(foreach dts, $(call remove_quotes,$(PTXCONF_DTC_OFTREE_DTS)), \
-	$(if $(filter /%,$(dts)),$(dts),$(call ptx/dts,$(dts))))
-endif
 
 dts/env = \
 	$(call ptx/env) \
