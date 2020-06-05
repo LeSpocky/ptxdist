@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_LIBMODBUS3) += libmodbus3
 #
 # Paths and names
 #
-LIBMODBUS3_VERSION	:= 3.1.4
-LIBMODBUS3_MD5		:= b1a8fd3a40d2db4de51fb0cbcb201806
-LIBMODBUS3		:= libmodbus-$(LIBMODBUS3_VERSION)
-LIBMODBUS3_SUFFIX	:= tar.gz
-LIBMODBUS3_URL		:= http://libmodbus.org/site_media/build/$(LIBMODBUS3).$(LIBMODBUS3_SUFFIX)
-LIBMODBUS3_SOURCE	:= $(SRCDIR)/$(LIBMODBUS3).$(LIBMODBUS3_SUFFIX)
-LIBMODBUS3_DIR		:= $(BUILDDIR)/$(LIBMODBUS3)
-LIBMODBUS3_LICENSE	:= LGPL-3.0-only
+LIBMODBUS3_VERSION		:= 3.1.4
+LIBMODBUS3_MD5			:= b1a8fd3a40d2db4de51fb0cbcb201806
+LIBMODBUS3			:= libmodbus-$(LIBMODBUS3_VERSION)
+LIBMODBUS3_SUFFIX		:= tar.gz
+LIBMODBUS3_URL			:= http://libmodbus.org/site_media/build/$(LIBMODBUS3).$(LIBMODBUS3_SUFFIX)
+LIBMODBUS3_SOURCE		:= $(SRCDIR)/$(LIBMODBUS3).$(LIBMODBUS3_SUFFIX)
+LIBMODBUS3_DIR			:= $(BUILDDIR)/$(LIBMODBUS3)
+LIBMODBUS3_LICENSE		:= LGPL-2.1-or-later
+LIBMODBUS3_LICENSE_FILES	:= \
+	file://COPYING.LESSER;md5=4fbd65380cdd255951079008b364516c \
+	file://src/modbus.c;startline=4;endline=4;md5=09383b02650315a322dba1dcf8aad811
 
 # ----------------------------------------------------------------------------
 # Prepare
