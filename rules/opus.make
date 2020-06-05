@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_OPUS) += opus
 #
 # Paths and names
 #
-OPUS_VERSION	:= 1.2.1
-OPUS_MD5	:= 54bc867f13066407bc7b95be1fede090
+OPUS_VERSION	:= 1.3.1
+OPUS_MD5	:= d7c07db796d21c9cf1861e0c2b0c0617
 OPUS		:= opus-$(OPUS_VERSION)
 OPUS_SUFFIX	:= tar.gz
 OPUS_URL	:= http://downloads.xiph.org/releases/opus/$(OPUS).$(OPUS_SUFFIX)
@@ -43,13 +43,12 @@ OPUS_CONF_OPT	:= \
 	--enable-rtcd \
 	--enable-intrinsics \
 	--disable-assertions \
+	--enable-hardening \
 	--disable-fuzzing \
 	--disable-check-asm \
-	--disable-ambisonics \
 	--disable-doc \
 	--disable-extra-programs \
-	--disable-update-draft
-
+	--enable-rfc8251
 
 # ----------------------------------------------------------------------------
 # Target-Install
