@@ -137,7 +137,7 @@ HOST_QT5_CONF_OPT	:= \
 	--disable-libinput \
 	--disable-mtdev \
 	--disable-tslib \
-	--disable-xcb-xinput \
+	--no-bundled-xcb-xinput \
 	--disable-xkbcommon \
 	\
 	-no-gif \

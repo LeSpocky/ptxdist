@@ -10,10 +10,10 @@ Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/qtwebengine/src/core/gn_run.pro b/qtwebengine/src/core/gn_run.pro
-index 377d8363ce51..237f4f308b89 100644
+index 8b16d7c59c71..f8c3aaac4b84 100644
 --- a/qtwebengine/src/core/gn_run.pro
 +++ b/qtwebengine/src/core/gn_run.pro
-@@ -50,7 +50,7 @@ build_pass|!debug_and_release {
+@@ -51,7 +51,7 @@ build_pass|!debug_and_release {
      ninjaflags = $$(NINJAFLAGS)
      isEmpty(ninjaflags):!silent: ninjaflags = "-v"
  

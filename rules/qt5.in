@@ -30,6 +30,7 @@ menuconfig QT5
 	select MESALIB_EGL_DRM		if QT5_PLATFORM_EGLFS_KMS
 	select MESALIB_EGL_WAYLAND	if QT5_MODULE_QTWAYLAND_MESA
 	select PLATFORM_OPENGL		if QT5_OPENGL_ES2
+	select VULKAN_LOADER		if QT5_VULKAN
 	select SQLITE			if QT5_MODULE_QTBASE_SQL_SQLITE
 	select MYSQLDB			if QT5_MODULE_QTBASE_SQL_MYSQL
 	select FONTCONFIG		if QT5_GUI || QT5_MODULE_QTWEBENGINE
@@ -47,7 +48,7 @@ menuconfig QT5
 	select XCB_UTIL_KEYSYMS		if QT5_PLATFORM_XCB
 	select XCB_UTIL_RENDERUTIL	if QT5_PLATFORM_XCB
 	select XORG_LIB_X11		if QT5_X11 || QT5_PLATFORM_EGLFS_X11
-	select XORG_LIB_XI		if QT5_XI
+	select XORG_LIB_XI		if QT5_PLATFORM_XCB
 	select XORG_LIB_XV		if QT5_XV
 	select XORG_LIB_XEXT		if QT5_XV
 	select XORG_LIB_XCOMPOSITE	if QT5_MODULE_QTWEBENGINE && QT5_PLATFORM_XCB
@@ -90,10 +91,6 @@ config QT5_LIBXKBCOMMON
 if QT5_PLATFORM_XCB
 
 config QT5_X11
-	bool
-	default y
-
-config QT5_XI
 	bool
 	default y
 
@@ -182,6 +179,10 @@ endif
 config QT5_TEST
 	bool
 	prompt "Testing support"
+
+config QT5_VULKAN
+	bool
+	prompt "Vulkan support"
 
 endmenu
 
@@ -560,6 +561,9 @@ config QT5_MODULE_QTREMOTEOBJECTS_QUICK
 
 config QT5_MODULE_QTSCRIPT
 	bool
+	# QtScript fails to compile with GCC 9.2.1 with an undefined reference
+	# to `cti_vm_throw` in function `ctiVMThrowTrampoline`.
+	depends on BROKEN
 	prompt "QtScript"
 
 config QT5_MODULE_QTSCRIPT_WIDGETS
@@ -645,6 +649,10 @@ config QT5_MODULE_QTWAYLAND_MESA
 config QT5_MODULE_QTWAYLAND_QUICK
 	bool
 	default QT5_MODULE_QTDECLARATIVE
+
+config QT5_MODULE_QTWAYLAND_VULKAN
+	bool
+	default QT5_VULKAN
 
 endif
 

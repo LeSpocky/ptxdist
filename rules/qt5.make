@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QT5) += qt5
 #
 # Paths and names
 #
-QT5_VERSION	:= 5.14.2
-QT5_MD5		:= b3d2b6d00e6ca8a8ede6d1c9bdc74daf
+QT5_VERSION	:= 5.15.0
+QT5_MD5		:= 610a228dba6ef469d14d145b71ab3b88
 QT5		:= qt-everywhere-src-$(QT5_VERSION)
 QT5_SUFFIX	:= tar.xz
 QT5_URL		:= \
@@ -210,15 +210,15 @@ QT5_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QT5_PLATFORM_EGLFS_KMS)-gbm \
 	--$(call ptx/endis, PTXCONF_QT5_PLATFORM_BACKEND_KMS)-kms \
 	--$(call ptx/endis, PTXCONF_QT5_PLATFORM_LINUXFB)-linuxfb \
-	$(call ptx/qt5-system, QT5_PLATFORM_XCB)-xcb \
+	--$(call ptx/endis, PTXCONF_QT5_PLATFORM_XCB)-xcb \
 	\
 	--$(call ptx/endis, PTXCONF_QT5_LIBUDEV)-libudev \
 	--$(call ptx/endis, PTXCONF_QT5_INPUT_EVDEV)-evdev \
 	--$(call ptx/endis, PTXCONF_QT5_INPUT_LIBINPUT)-libinput \
 	--disable-mtdev \
 	--$(call ptx/endis, PTXCONF_QT5_INPUT_TSLIB)-tslib \
-	--$(call ptx/endis, PTXCONF_QT5_XI)-xcb-xinput \
-	--$(call ptx/endis, PTXCONF_QT5_LIBXKBCOMMON)-xkbcommon \
+	--no-bundled-xcb-xinput \
+	-$(call ptx/endis, PTXCONF_QT5_LIBXKBCOMMON)-xkbcommon \
 	\
 	--$(call ptx/endis, PTXCONF_QT5_GIF)-gif \
 	$(call ptx/qt5-system, QT5_LIBPNG)-libpng \
@@ -235,10 +235,18 @@ QT5_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTBASE_SQL_SQLITE)-sql-sqlite \
 	$(call ptx/qt5-system, PTXCONF_QT5_MODULE_QTBASE_SQL_SQLITE)-sqlite
 
-ifdef PTXCONF_QT5_MODULE_QT3D_QUICK
+ifdef PTXCONF_QT5_MODULE_QT3D
 QT5_CONF_OPT	+= \
-	-qt-assimp
+	-qt-assimp \
+	-no-qt3d-profile-jobs \
+	-no-qt3d-profile-gl \
+	-qt3d-render \
+	-qt3d-input \
+	-qt3d-logic \
+	-qt3d-extras \
+	-qt3d-animation
 endif
+
 ifdef PTXCONF_QT5_MODULE_QTQUICKCONTROLS2
 QT5_CONF_OPT	+= \
 	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTQUICKCONTROLS2_STYLE_FUSION)-style-fusion \
@@ -252,10 +260,6 @@ QT5_CONF_OPT	+= \
 	--disable-pulseaudio \
 	--enable-alsa \
 	$(call ptx/ifdef, PTXCONF_QT5_MODULE_QTMULTIMEDIA_GST,-gstreamer 1.0,-no-gstreamer)
-endif
-ifdef PTXCONF_QT5_MODULE_QTQUICK3D
-QT5_CONF_OPT	+= \
-	-qt-assimp
 endif
 ifdef PTXCONF_QT5_MODULE_QTSPEECH
 QT5_CONF_OPT	+= \
@@ -277,6 +281,10 @@ QT5_CONF_OPT	+= \
 	--disable-webengine-spellchecker \
 	--disable-webengine-webrtc \
 	--$(call ptx/endis, PTXCONF_QT5_WIDGETS)-webengine-widgets
+
+# Note: these options are not listed in '--help' but they exist
+QT5_CONF_OPT	+= \
+	--disable-build-qtpdf
 endif
 
 ifdef PTXCONF_QT5_GUI
@@ -288,8 +296,9 @@ endif
 # Note: these options are not listed in '--help' but they exist
 QT5_CONF_OPT += \
 	--disable-sm \
-	--disable-vulkan \
-	-no-feature-wayland-vulkan-server-buffer
+	--disable-feature-gssapi \
+	--$(call ptx/endis, PTXCONF_QT5_VULKAN)-vulkan \
+	-$(call ptx/ifdef, PTXCONF_QT5_MODULE_QTWAYLAND_VULKAN,,no-)feature-wayland-vulkan-server-buffer
 
 ifdef PTXCONF_QT5_MODULE_QTDECLARATIVE
 QT5_CONF_OPT += \
@@ -602,14 +611,19 @@ QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_MESA)		+= platforms/libqwayland-egl
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_MESA)		+= wayland-graphics-integration-client/libqt-plugin-wayland-egl
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_MESA)		+= wayland-graphics-integration-client/libdmabuf-server
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_MESA)		+= wayland-graphics-integration-client/libdrm-egl-server
-QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_MESA)		+= wayland-graphics-integration-server/libqt-plugin-wayland-egl
-QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_MESA)		+= wayland-graphics-integration-server/libdmabuf-server
-QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_MESA)		+= wayland-graphics-integration-server/libdrm-egl-server
+QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_MESA)		+= wayland-graphics-integration-server/libqt-wayland-compositor-wayland-egl
+QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_MESA)		+= wayland-graphics-integration-server/libqt-wayland-compositor-dmabuf-server-buffer
+QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_MESA)		+= wayland-graphics-integration-server/libqt-wayland-compositor-drm-egl-server-buffer
+QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_MESA)		+= wayland-graphics-integration-server/libqt-wayland-compositor-linux-dmabuf-unstable-v1
+QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_VULKAN)		+= wayland-graphics-integration-client/libvulkan-server
+QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND_VULKAN)		+= wayland-graphics-integration-server/libqt-wayland-compositor-vulkan-server
+
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND)			+= wayland-shell-integration/libivi-shell
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND)			+= wayland-shell-integration/libwl-shell
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND)			+= wayland-shell-integration/libxdg-shell-v5
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND)			+= wayland-shell-integration/libxdg-shell-v6
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND)			+= wayland-shell-integration/libxdg-shell
+QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND)			+= wayland-shell-integration/libfullscreen-shell-v1
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTWAYLAND)			+= wayland-decoration-client/libbradient
 
 QT5_QML-$(PTXCONF_QT5_MODULE_QTWAYLAND_QUICK)			+= QtWayland
