@@ -1853,7 +1853,7 @@ EOF
 			fi
 			exec {tmpfd}>&1
 			while [ ${#} -gt 0 ]; do
-				if [[ ! ( "${1}" =~ "/" ) ]]  && ([ -n "${!1}" ]) 2>/dev/null; then
+				if [[ ! ( "${1}" =~ "/" ) ]] && ([ -n "${!1+set}" ]) 2>/dev/null; then
 					if [ "${PTXDIST_VERBOSE}" = "1" ]; then
 						echo -n "${1}="
 					fi
