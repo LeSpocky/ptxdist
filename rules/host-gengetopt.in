@@ -1,0 +1,9 @@
+## SECTION=hosttools
+
+config HOST_GENGETOPT
+	tristate
+	prompt "gengetopt"
+	help
+	  Gengetopt is a tool to write command line option
+	  parsing code for C programs.
+
