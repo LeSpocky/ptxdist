@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QWT5) += qwt5
 #
 # Paths and names
 #
-QWT5_VERSION	:= 6.1.3
-QWT5_MD5	:= 19d1f5fa5e22054d22ee3accc37c54ba
+QWT5_VERSION	:= 6.1.5
+QWT5_MD5	:= d65582f99312796ed42c3be3208ed3db
 QWT5		:= qwt-$(QWT5_VERSION)
 QWT5_SUFFIX	:= tar.bz2
 QWT5_URL	:= $(call ptx/mirror, SF, qwt/$(QWT5).$(QWT5_SUFFIX))

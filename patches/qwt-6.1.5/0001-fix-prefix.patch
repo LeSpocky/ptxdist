@@ -8,7 +8,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/qwtconfig.pri b/qwtconfig.pri
-index 2dc3715523b3..c1645fd935ca 100644
+index 3ac19a4dd1a3..26b6fdc2ad51 100644
 --- a/qwtconfig.pri
 +++ b/qwtconfig.pri
 @@ -19,7 +19,7 @@ QWT_VERSION      = $${QWT_VER_MAJ}.$${QWT_VER_MIN}.$${QWT_VER_PAT}

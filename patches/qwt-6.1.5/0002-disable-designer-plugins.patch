@@ -1,8 +1,6 @@
 From: Michael Olbrich <m.olbrich@pengutronix.de>
-Date: Wed, 3 Aug 2011 15:08:05 +0200
-Subject: [PATCH] disable svg by default
-
-it can be enabled with QWT_CONFIG+=QwtSvg as qmake option.
+Date: Wed, 3 Aug 2011 16:09:42 +0200
+Subject: [PATCH] disable designer plugins
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
@@ -10,15 +8,15 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/qwtconfig.pri b/qwtconfig.pri
-index d2f902cb70c5..e6198186240d 100644
+index 26b6fdc2ad51..4c9a709260db 100644
 --- a/qwtconfig.pri
 +++ b/qwtconfig.pri
-@@ -93,7 +93,7 @@ QWT_CONFIG     += QwtWidgets
- # export a plot to a SVG document
+@@ -118,7 +118,7 @@ QWT_CONFIG     += QwtOpenGL
+ # Otherwise you have to build it from the designer directory.
  ######################################################################
  
--QWT_CONFIG     += QwtSvg
-+# QWT_CONFIG     += QwtSvg
+-QWT_CONFIG     += QwtDesigner
++# QWT_CONFIG     += QwtDesigner
  
  ######################################################################
- # If you want to use a OpenGL plot canvas
+ # Compile all Qwt classes into the designer plugin instead
