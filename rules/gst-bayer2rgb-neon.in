@@ -1,0 +1,11 @@
+## SECTION=multimedia_gstreamer1
+
+config GST_BAYER2RGB_NEON
+	tristate
+	prompt "gst-bayer2rgb-neon"
+	select BAYER2RGB3
+	select GSTREAMER1
+	select GST_PLUGINS_BASE1
+	help
+	  Inofficial Gstreamer-plugin that utilizes
+	  NEON-extension to convert video/x-bayer to RGB.
