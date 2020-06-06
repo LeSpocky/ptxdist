@@ -1,0 +1,18 @@
+## SECTION=multimedia_tools
+
+menuconfig BAYER2RGB3
+	tristate
+	prompt "bayer2rgb3                    "
+	select HOST_GENGETOPT
+	help
+	  bayer2rgb will convert naked (no header) bayer grid data into rgb data.
+
+if BAYER2RGB3
+
+config BAYER2RGB3_COMMAND_TOOL
+	bool
+	prompt "bayer2rgb3 command line tool"
+	help
+	  install additional command line tool along the lib
+
+endif
