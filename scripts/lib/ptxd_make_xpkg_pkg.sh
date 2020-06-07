@@ -17,7 +17,6 @@ ptxd_exist() {
 export -f ptxd_exist
 
 ptxd_install_error() {
-    ptxd_install_unlock
     echo Error: "$@"
     exit 1
 }
