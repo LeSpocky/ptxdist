@@ -569,7 +569,7 @@ install link:
 	ln -s "${src}" "${d}" || return
     done &&
 
-    ptxd_install_virtfs
+    ptxd_install_virtfs &&
 
     chown --no-dereference "${usr}:${grp}" "${dirs[@]/%/${dst}}"
     ptxd_install_unlock
