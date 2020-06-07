@@ -688,6 +688,7 @@ ptxd_install_script_replace() {
     local placeholder="$2"
     local value="$3"
 
+    ptxd_install_setup &&
     echo "\
 install script replace:
   script=${dst}
@@ -698,6 +699,7 @@ install script replace:
     sed -i -e "s,${placeholder},${value},g" "${pkg_xpkg_control_dir}/${dst}" ||
 
     ptxd_install_error "install_script_replace failed!"
+    ptxd_install_unlock
 }
 export -f ptxd_install_script_replace
 
