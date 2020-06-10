@@ -1,0 +1,26 @@
+## SECTION=networking
+
+menuconfig HAPROXY
+	tristate
+	prompt "haproxy                       "
+	select LIBC_CRYPT
+	select LIBC_DL
+	select LIBC_PTHREAD
+	select LIBC_RT
+	select OPENSSL
+	select SYSTEMD		if INITMETHOD_SYSTEMD
+	select ZLIB
+	help
+	  Reliable, High Performance TCP/HTTP Load Balancer
+
+if HAPROXY
+
+config HAPROXY_OPENSSL
+	bool
+	prompt "enable OpenSSL support"
+
+config HAPROXY_SYSTEMD_UNIT
+	bool
+	prompt "install systemd service files"
+
+endif
