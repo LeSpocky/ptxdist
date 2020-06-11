@@ -18,7 +18,6 @@ HOST_PACKAGES-$(PTXCONF_HOST_MESALIB) += host-mesalib
 HOST_MESALIB_CONF_TOOL	:= meson
 HOST_MESALIB_CONF_OPT	:= \
 	$(HOST_MESON_OPT) \
-	-DI-love-half-baked-turnips=false \
 	-Dbuild-tests=false \
 	-Dd3d-drivers-path=/usr/lib/d3d \
 	-Ddri-drivers= \

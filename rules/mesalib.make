@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 20.0.7
-MESALIB_MD5	:= 609cb7664204e031d4c65c602c652a28
+MESALIB_VERSION	:= 20.1.1
+MESALIB_MD5	:= 0e9ad93e9fce869906d95599f44c05d5
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -70,6 +70,9 @@ ifdef PTXCONF_ARCH_X86
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_AMD)		+= amd
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_INTEL)		+= intel
 endif
+ifdef PTXCONF_ARCH_ARM
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_FREEDRENO)	+= freedreno
+endif
 
 MESALIB_VULKAN_LIBS-y = $(subst amd,radeon,$(MESALIB_VULKAN_DRIVERS-y))
 
@@ -88,7 +91,6 @@ MESALIBS_EGL_PLATFORMS-$(PTXCONF_MESALIB_EGL_WAYLAND)	+= wayland
 MESALIB_CONF_TOOL	:= meson
 MESALIB_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-DI-love-half-baked-turnips=false \
 	-Dbuild-tests=false \
 	-Dd3d-drivers-path=/usr/lib/d3d \
 	-Ddri-drivers=$(subst $(space),$(comma),$(MESALIB_DRI_DRIVERS-y)) \
@@ -137,6 +139,7 @@ MESALIB_CONF_OPT	:= \
 	-Dva-libs-path=/usr/lib/dri \
 	-Dvalgrind=false \
 	-Dvdpau-libs-path=/usr/lib/vdpau \
+	-Dvulkan-device-select-layer=false \
 	-Dvulkan-drivers=$(subst $(space),$(comma),$(MESALIB_VULKAN_DRIVERS-y)) \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-overlay-layer=false \
