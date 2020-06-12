@@ -45,7 +45,7 @@ export -f ptxd_dopermissions
 #
 ptxd_check_dir_permissions() {
 	ptxd_check_obsolete_perm "${@}"
-	ptxd_in_path PTXDIST_PATH_SCRIPTS lib//ptxd_lib_check_dir_permissions.awk &&
+	ptxd_in_path PTXDIST_PATH_SCRIPTS lib/ptxd_lib_check_dir_permissions.awk &&
 	gawk -f "${ptxd_reply}" "${@}"
 }
 export -f ptxd_check_dir_permissions
