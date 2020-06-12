@@ -10,6 +10,8 @@ FNR == 1 {
 
 function check(path, perm, implicit) {
 	if ((path in perms) && (perms[path] != perm)) {
+		if (implicit && (pkg == names[path]))
+			return;
 		print("\nIncompatible ownership or permissions for '" path "':")
 		print(names[path] ": " perms[path] (imp[path] ? " (implicit)" : ""))
 		print(pkg ": " perm (implicit ? " (implicit)" : ""))
