@@ -110,7 +110,7 @@ endif
 
 config SETUP_PTXMIRROR
 	string
-	default "http://www.pengutronix.de/software/ptxdist/temporary-src"
+	default "https://www.pengutronix.de/software/ptxdist/temporary-src"
 	prompt "PTXdist Mirror"
 	help
 	  Enter the fallback mirror for all packages here.
