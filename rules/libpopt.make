@@ -19,8 +19,10 @@ LIBPOPT_VERSION	:= 1.16
 LIBPOPT_MD5	:= 3743beefa3dd6247a73f8f7a32c14c33
 LIBPOPT		:= popt-$(LIBPOPT_VERSION)
 LIBPOPT_SUFFIX	:= tar.gz
-LIBPOPT_URL	:= http://rpm5.org/files/popt/$(LIBPOPT).$(LIBPOPT_SUFFIX) \
-		   http://distfiles.gentoo.org/distfiles/$(LIBPOPT).$(LIBPOPT_SUFFIX)
+LIBPOPT_URL	:= \
+	http://ftp.rpm.org/mirror/popt/$(LIBPOPT).$(LIBPOPT_SUFFIX) \
+	http://distfiles.gentoo.org/distfiles/$(LIBPOPT).$(LIBPOPT_SUFFIX) \
+	ftp://anduin.linuxfromscratch.org/BLFS/popt/$(LIBPOPT).$(LIBPOPT_SUFFIX)
 LIBPOPT_SOURCE	:= $(SRCDIR)/$(LIBPOPT).$(LIBPOPT_SUFFIX)
 LIBPOPT_DIR	:= $(BUILDDIR)/$(LIBPOPT)
 LIBPOPT_LICENSE	:= MIT
