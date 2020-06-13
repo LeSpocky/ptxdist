@@ -94,6 +94,7 @@ ptxd_make_get_http() {
 		--location \
 		--head \
 		--request GET \
+		--write-out '\n%{url_effective}\n' \
 		"${url}" &&
 		if grep -i "content-type:" "${temp_header}" | tail -n 1 | grep -q "text/html"; then
 		    ptxd_bailout "Got HTML file"
