@@ -231,12 +231,6 @@ endmenu
 
 menu "Developer Options "
 
-#config SETUP_CHECK_OMIT_CASE
-#	bool "don't check for case sensitive file system"
-
-#config SETUP_CHECK_OMIT_SPACES
-#	bool "don't check for spaces in important directories"
-
 config SETUP_DISABLE_LOCAL_CHECK
 	bool
 	prompt "disable local disk check"
