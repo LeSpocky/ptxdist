@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SPIRV_TOOLS) += spirv-tools
 #
 # Paths and names
 #
-SPIRV_TOOLS_VERSION	:= 2020.2
-SPIRV_TOOLS_MD5		:= 43976cf1820caa2f0a30f30dc861bd18
+SPIRV_TOOLS_VERSION	:= 2020.3
+SPIRV_TOOLS_MD5		:= 1b7d45e6a060d3a2e3dad73531cb0768
 SPIRV_TOOLS		:= spirv-tools-$(SPIRV_TOOLS_VERSION)
 SPIRV_TOOLS_SUFFIX	:= tar.gz
 SPIRV_TOOLS_URL		:= https://github.com/KhronosGroup/SPIRV-Tools/archive/v$(SPIRV_TOOLS_VERSION).$(SPIRV_TOOLS_SUFFIX)
@@ -24,8 +24,8 @@ SPIRV_TOOLS_DIR		:= $(BUILDDIR)/$(SPIRV_TOOLS)
 SPIRV_TOOLS_LICENSE	:= Apache-2.0
 SPIRV_TOOLS_LICENSE_FILES := file://LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57
 
-SPIRV_HEADERS_VERSION	:= 2020-03-17-gf8bf11a0253a
-SPIRV_HEADERS_MD5	:= 43544e8632662bd2b81acf906e8cda7c
+SPIRV_HEADERS_VERSION	:= 2020-05-21-gac638f181542
+SPIRV_HEADERS_MD5	:= 4dde857e9ecfe44025478876286f0915
 SPIRV_HEADERS_SUFFIX	:= tar.gz
 SPIRV_HEADERS_URL	:= https://github.com/KhronosGroup/SPIRV-Headers/archive/$(SPIRV_HEADERS_VERSION).$(SPIRV_HEADERS_SUFFIX)
 SPIRV_HEADERS_SOURCE	:= $(SRCDIR)/spirv-headers-$(SPIRV_HEADERS_VERSION).$(SPIRV_HEADERS_SUFFIX)
@@ -74,6 +74,7 @@ $(STATEDIR)/spirv-tools.install:
 	@install -vD -m 644 $(SPIRV_TOOLS_DIR)-build/source/opt/libSPIRV-Tools-opt.a $(SPIRV_TOOLS_PKGDIR)/usr/lib/libSPIRV-Tools-opt.a
 	@install -vD -m 644 $(SPIRV_TOOLS_DIR)-build/source/libSPIRV-Tools-shared.so $(SPIRV_TOOLS_PKGDIR)/usr/lib/libSPIRV-Tools-shared.so
 	@mkdir -p $(SPIRV_TOOLS_PKGDIR)/usr/include
+	@cp -r $(SPIRV_HEADERS_DIR)/include/spirv $(SPIRV_TOOLS_PKGDIR)/usr/include
 	@cp -r $(SPIRV_TOOLS_DIR)/include/spirv-tools $(SPIRV_TOOLS_PKGDIR)/usr/include
 	$(call touch)
 
