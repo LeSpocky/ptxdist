@@ -30,6 +30,32 @@ ptxd_template_read() {
     export "${2}"
 }
 export -f ptxd_template_read
+#
+# Read a variable from user input, limited to an array of options
+#
+# $1 prompt prefix
+# $2 variable name
+# $3..$n options
+#
+ptxd_template_read_options() {
+    local -a options=("${@:3}")
+    local i=1
+    echo "${PTXDIST_LOG_PROMPT}select option by number:"
+    for option in "${options[@]}"; do
+	echo "${PTXDIST_LOG_PROMPT}[${i}] ${option}"
+	((i++))
+    done
+    while : ; do
+	ptxd_template_read "${1}" chosen
+	[ -n "${chosen}" ] && [ "${chosen}" -gt 0 ] &&
+	[ "${chosen}" -le "${#options[@]}" ] &&
+	break
+
+	echo "${PTXDIST_LOG_PROMPT}invalid option"
+    done
+    export "${2}=${options[$chosen-1]}"
+}
+export -f ptxd_template_read_options
 
 ptxd_template_read_name() {
     ptxd_template_read "enter package name" package_name
