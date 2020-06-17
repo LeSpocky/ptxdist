@@ -1,0 +1,41 @@
+# -*-makefile-*-
+#
+# Copyright (C) @YEAR@ by @AUTHOR@
+#
+# For further information about the PTXdist project and license conditions
+# see the README file.
+#
+
+#
+# We provide this package
+#
+HOST_PACKAGES-$(PTXCONF_HOST_@PACKAGE@_CODE_SIGNING) += host-@package@-code-signing
+
+#
+# Paths and names
+#
+HOST_@PACKAGE@_CODE_SIGNING_VERSION	:= @VERSION@
+HOST_@PACKAGE@_CODE_SIGNING		:= @package@-code-signing-$(HOST_@PACKAGE@_CODE_SIGNING_VERSION)
+HOST_@PACKAGE@_CODE_SIGNING_URL		:= file://local_src/@package@-code-signing
+HOST_@PACKAGE@_CODE_SIGNING_DIR		:= $(HOST_BUILDDIR)/$(HOST_@PACKAGE@_CODE_SIGNING)
+
+HOST_@PACKAGE@_CODE_SIGNING_CONF_TOOL	:= NO
+
+# ----------------------------------------------------------------------------
+# Compile
+# ----------------------------------------------------------------------------
+
+HOST_@PACKAGE@_CODE_SIGNING_MAKE_ENV	:= \
+	$(CODE_SIGNING_ENV)
+
+$(STATEDIR)/host-@package@-code-signing.compile:
+	@$(call targetinfo)
+	@$(call world/execute, HOST_@PACKAGE@_CODE_SIGNING, \
+		./ptxdist-set-keys.sh)
+	@$(call touch)
+
+$(STATEDIR)/host-@package@-code-signing.install:
+	@$(call targetinfo)
+	@$(call touch)
+
+# vim: syntax=make

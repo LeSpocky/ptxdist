@@ -1,0 +1,14 @@
+# -*-makefile-*-
+#
+# Copyright (C) @YEAR@ by @AUTHOR@
+#
+# For further information about the PTXdist project and license conditions
+# see the README file.
+#
+
+ifndef PTXCONF_CODE_SIGNING_PROVIDER_@PACKAGE@
+CODE_SIGNING_ENV += \
+	PKCS11_MODULE_PATH=@MODULE_PATH@
+endif
+
+# vim: syntax=make

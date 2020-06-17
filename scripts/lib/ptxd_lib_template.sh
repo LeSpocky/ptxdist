@@ -489,3 +489,34 @@ ptxd_template_new_blspec_entry() {
 export -f ptxd_template_new_blspec_entry
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="blspec-entry"
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create package for a bootloader spec entry"
+
+ptxd_template_new_code_signing_provider() {
+    export class="host-"
+    ptxd_template_read_basic &&
+    ptxd_template_read_author &&
+    ptxd_template_read_options "provider type" TYPE "SoftHSM" "HSM with OpenSC support" "other HSM"
+    package_filename="${package_filename}-code-signing"
+    local template_file="$(ptxd_template_file "${template}-choice-in")"
+    local filename="${PTXDIST_PLATFORMCONFIGDIR}/platforms/${class}${package_filename}-choice.in"
+    ptxd_template_filter "${template_file}" "${filename}"
+    template_file="$(ptxd_template_file "${template}-pre-make")"
+    filename="${PTXDIST_PLATFORMCONFIGDIR}/rules/pre/020-${package_filename}-hsm.make"
+    if [ "$TYPE" = "SoftHSM" ]; then
+	export EXTRA_DEPENDENCIES="select HOST_SOFTHSM"
+    elif [ "$TYPE" = "HSM with OpenSC support" ]; then
+	export EXTRA_DEPENDENCIES="select HOST_OPENSC
+	select HOST_OPENSC_PCSC"
+	export MODULE_PATH="\${PTXDIST_SYSROOT_HOST}/lib/pkcs11/opensc-pkcs11.so"
+	ptxd_template_filter "${template_file}" "${filename}"
+    elif [ "$TYPE" = "other HSM" ]; then
+	export EXTRA_DEPENDENCIES="select FIXME"
+	export MODULE_PATH="\${PTXDIST_SYSROOT_HOST}/fix/me"
+	ptxd_template_filter "${template_file}" "${filename}"
+    fi
+    ptxd_template_write_platform_rules
+    package="${package}-code-signing"
+    ptxd_template_write_src
+}
+export -f ptxd_template_new_code_signing_provider
+ptxd_template_help_list[${#ptxd_template_help_list[@]}]="code-signing-provider"
+ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create package for a code signing provider"

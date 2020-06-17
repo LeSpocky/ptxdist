@@ -1,0 +1,5 @@
+## SECTION=code_signing_provider
+
+config CODE_SIGNING_PROVIDER_@PACKAGE@
+	bool
+	prompt "@package@"
