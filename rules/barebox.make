@@ -121,7 +121,8 @@ BAREBOX_PROGS_HOST := \
 	kernel-install \
 	bareboxcrc32 \
 	bareboximd \
-	setupmbr/setupmbr
+	setupmbr/setupmbr \
+	imx/imx-usb-loader
 
 BAREBOX_PROGS_TARGET_y :=
 BAREBOX_PROGS_TARGET_$(PTXCONF_BAREBOX_BAREBOXENV) += bareboxenv
