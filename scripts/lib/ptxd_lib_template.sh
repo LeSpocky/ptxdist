@@ -203,7 +203,10 @@ ptxd_template_write_src() {
     template_src="$(ptxd_template_file "${action}")" &&
     mkdir -p "${dst}" &&
     tar -C "${template_src}" -cf - --exclude .svn . | \
-	tar -C "${dst}" -xvf - &&
+	tar -C "${dst}" -xf - &&
+    for file in "${dst}"/*; do
+	echo "generating $(ptxd_template_print_path "$file")"
+    done &&
 
     if [ ! -e "${dst}/wizard.sh" ]; then
 	return
