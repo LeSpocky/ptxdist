@@ -12,13 +12,13 @@ world/install-fonts = \
 	PKGFONTDIR=$${PKGDIR}$($(strip $(1)_FONTDIR)); \
 	FILTER=$(strip $(2)); \
 	rm -rf $($(1)_PKGDIR) && \
-	mkdir -p $${PKGFONTDIR} && \
+	install -m 755 -d $${PKGFONTDIR} && \
 	find $${DIR} -name "$${FILTER}" | \
 		while read file; do \
 			install -m 644 $${file} $${PKGFONTDIR} && \
 			if [ "$(PTXCONF_XORG_FONTS_QT4_LINKS)" = "y" ]; then \
 				name=$$(basename $${file}) && \
-				mkdir -p $${PKGDIR}/usr/lib/fonts && \
+				install -m 755 -d $${PKGDIR}/usr/lib/fonts && \
 				ln -s ../../..$($(strip $(1)_FONTDIR))/$${name} \
 					$${PKGDIR}/usr/lib/fonts/$${name} || break; \
 			fi; \
