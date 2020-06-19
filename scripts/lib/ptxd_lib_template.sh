@@ -230,16 +230,19 @@ ptxd_template_write_src() {
     mkdir -p "${dst}" &&
     tar -C "${template_src}" -cf - --exclude .svn . | \
 	tar -C "${dst}" -xf - &&
+
+    if [ -e "${dst}/wizard.sh" ]; then
+	template_dir=$(dirname "${template_src}") &&
+	(
+	    cd "${dst}" &&
+	    bash wizard.sh "${package}" "${template_dir}" "${VERSION}"
+	) &&
+	rm -f "${dst}/wizard.sh"
+    fi &&
+    echo &&
     for file in "${dst}"/*; do
 	echo "generating $(ptxd_template_print_path "$file")"
-    done &&
-
-    if [ ! -e "${dst}/wizard.sh" ]; then
-	return
-    fi &&
-    template_dir=$(dirname "${template_src}") &&
-    ( cd "${dst}" && bash wizard.sh "${package}" "${template_dir}" "${VERSION}") &&
-    rm -f "${dst}/wizard.sh"
+    done
 }
 export -f ptxd_template_write_src
 
