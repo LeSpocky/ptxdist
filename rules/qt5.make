@@ -235,6 +235,17 @@ QT5_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTBASE_SQL_SQLITE)-sql-sqlite \
 	$(call ptx/qt5-system, PTXCONF_QT5_MODULE_QTBASE_SQL_SQLITE)-sqlite
 
+# Note: these options are not listed in '--help' but they exist
+QT5_CONF_OPT += \
+	--disable-sm \
+	--disable-feature-gssapi \
+	--$(call ptx/endis, PTXCONF_QT5_VULKAN)-vulkan
+
+ifdef PTXCONF_QT5_MODULE_QTBASE_SQL_MYSQL
+QT5_CONF_OPT += \
+	-mysql_config $(SYSROOT)/usr/bin/mysql_config
+endif
+
 ifdef PTXCONF_QT5_MODULE_QT3D
 QT5_CONF_OPT	+= \
 	-qt-assimp \
@@ -247,12 +258,9 @@ QT5_CONF_OPT	+= \
 	-qt3d-animation
 endif
 
-ifdef PTXCONF_QT5_MODULE_QTQUICKCONTROLS2
-QT5_CONF_OPT	+= \
-	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTQUICKCONTROLS2_STYLE_FUSION)-style-fusion \
-	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTQUICKCONTROLS2_STYLE_IMAGINE)-style-imagine \
-	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTQUICKCONTROLS2_STYLE_MATERIAL)-style-material \
-	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTQUICKCONTROLS2_STYLE_UNIVERSAL)-style-universal
+ifdef PTXCONF_QT5_MODULE_QTDECLARATIVE
+QT5_CONF_OPT += \
+	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTDECLARATIVE_DEBUG)-qml-debug
 endif
 
 ifdef PTXCONF_QT5_MODULE_QTMULTIMEDIA
@@ -261,12 +269,28 @@ QT5_CONF_OPT	+= \
 	--enable-alsa \
 	$(call ptx/ifdef, PTXCONF_QT5_MODULE_QTMULTIMEDIA_GST,-gstreamer 1.0,-no-gstreamer)
 endif
+
+ifdef PTXCONF_QT5_MODULE_QTQUICKCONTROLS2
+QT5_CONF_OPT	+= \
+	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTQUICKCONTROLS2_STYLE_FUSION)-style-fusion \
+	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTQUICKCONTROLS2_STYLE_IMAGINE)-style-imagine \
+	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTQUICKCONTROLS2_STYLE_MATERIAL)-style-material \
+	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTQUICKCONTROLS2_STYLE_UNIVERSAL)-style-universal
+endif
+
 ifdef PTXCONF_QT5_MODULE_QTSPEECH
 QT5_CONF_OPT	+= \
 	--disable-flite \
 	--disable-flite-alsa \
 	--disable-speechd
 endif
+
+ifdef PTXCONF_QT5_MODULE_QTWAYLAND
+# Note: these options are not listed in '--help' but they exist
+QT5_CONF_OPT	+= \
+	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTWAYLAND_VULKAN)-feature-wayland-vulkan-server-buffer
+endif
+
 ifdef PTXCONF_QT5_MODULE_QTWEBENGINE
 QT5_CONF_OPT	+= \
 	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTWEBENGINE_MEDIA)-webengine-alsa \
@@ -291,22 +315,6 @@ ifdef PTXCONF_QT5_GUI
 ifndef PTXCONF_QT5_PLATFORM_DEFAULT
 $(error Qt5: select at least one GUI platform!)
 endif
-endif
-
-# Note: these options are not listed in '--help' but they exist
-QT5_CONF_OPT += \
-	--disable-sm \
-	--disable-feature-gssapi \
-	--$(call ptx/endis, PTXCONF_QT5_VULKAN)-vulkan \
-	-$(call ptx/ifdef, PTXCONF_QT5_MODULE_QTWAYLAND_VULKAN,,no-)feature-wayland-vulkan-server-buffer
-
-ifdef PTXCONF_QT5_MODULE_QTDECLARATIVE
-QT5_CONF_OPT += \
-	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTDECLARATIVE_DEBUG)-qml-debug
-endif
-
-ifdef PTXCONF_QT5_MODULE_QTBASE_SQL_MYSQL
-QT5_CONF_OPT += -mysql_config $(SYSROOT)/usr/bin/mysql_config
 endif
 
 # change default C++ standard
