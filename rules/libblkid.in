@@ -3,7 +3,6 @@
 config LIBBLKID
 	tristate
 	select VIRTUAL
-	select LIBUUID
 	select UTIL_LINUX_NG
 	select UTIL_LINUX_NG_LIBBLKID
 	help
