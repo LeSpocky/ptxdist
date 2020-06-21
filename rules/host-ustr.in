@@ -1,5 +1,10 @@
-## SECTION=hosttools_noprompt
+## SECTION=staging
+## old section:
+### SECTION=hosttools_noprompt
 
 config HOST_USTR
 	tristate
 	default y if ALLYES
+	help
+	  STAGING: remove in PTXdist 2021.07.0
+	  No new versions since 2008, and fails to download.
