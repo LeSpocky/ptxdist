@@ -80,7 +80,8 @@ $(STATEDIR)/kernel-@package@.install:
 	@$(call targetinfo)
 	@$(call world/install, KERNEL_@PACKAGE@)
 	@$(foreach image, $(KERNEL_@PACKAGE@_IMAGES), \
-		install -m 644 $(image) $(IMAGEDIR)/$(notdir $(image))-@package@$(ptx/nl)
+		install -m 644 $(image) $(IMAGEDIR)/$(notdir $(image))-@package@$(ptx/nl) \
+	)
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
