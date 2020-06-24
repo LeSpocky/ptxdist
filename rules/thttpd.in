@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 menuconfig THTTPD
 	tristate
 	prompt "thttpd                        "
@@ -12,6 +14,9 @@ menuconfig THTTPD
 	  CGI scripts. It is designed to be as fast as fully
 	  featured web-servers and it performs extremely well
 	  under high load.
+
+	  STAGING: remove in ptxdist-2021.07.0
+	  Really old version. Should be updated.
 
 	comment "runtime options  ---"
 	depends on THTTPD
