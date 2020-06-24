@@ -107,6 +107,32 @@ Switching the code signing provider is now finally possible with
 ``ptxdist platformconfig``, then navigate to *Code signing* → *Code signing
 provider*.
 
+.. _code_signing_ca_keyrings:
+
+Managing Certificate Authority Keyrings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In case a self-signed certificate is used :ref:`cs_append_ca_from_uri` can
+be called to add the certificate from the (Soft)HSM.
+
+To allow rollovers multiple certificates can be added by calling the
+``cs_append_ca_*`` functions multiple times.
+Depending on if the certificate resides on a (Soft)HSM or in a file the
+appropriate functions must be called.
+
+More complex public key infrastructures (PKIs) consist of separated CA and
+*end-entity*.
+The CA certificate is only available as a file, the private key is stored in a
+safe and inaccessible location (from the build system's perspective).
+The signing key as well as the corresponding certificate are stored on an HSM.
+Only the CA certificate should end up in the keyring, so
+:ref:`cs_append_ca_from_der` or :ref:`cs_append_ca_from_pem` must be used to
+append it to the keyring.
+
+Some HSMs do not support storing certificates at all.
+In these cases the certificate is present as a file and must be appended with
+:ref:`cs_append_ca_from_der` or :ref:`cs_append_ca_from_pem`.
+
 .. _code_signing_consumers:
 
 Code Signing Consumers
