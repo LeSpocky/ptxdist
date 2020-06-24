@@ -5,6 +5,7 @@ menuconfig IMAGEMAGICK
 	select ZLIB 	if IMAGEMAGICK_USE_ZLIB
 	select LIBPNG 	if IMAGEMAGICK_USE_LIBPNG
 	select LIBJPEG 	if IMAGEMAGICK_USE_LIBJPEG
+	select LIBWEBP 	if IMAGEMAGICK_USE_LIBWEBP
 	prompt "imagemagick                   "
 	help
 	  ImageMagick® is a software suite to create, edit, compose, or convert
@@ -37,5 +38,12 @@ config IMAGEMAGICK_USE_LIBJPEG
 	prompt "Enable JPEG"
 	help
 	  Enable JPEG support
+
+config IMAGEMAGICK_USE_LIBWEBP
+	bool
+	default y
+	prompt "Enable WEBP"
+	help
+	  Enable WEBP support
 	  
 endif

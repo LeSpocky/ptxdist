@@ -87,7 +87,7 @@ IMAGEMAGICK_AUTOCONF := \
 	--$(call ptx/wwo, PTXCONF_IMAGEMAGICK_USE_LIBPNG)-png \
 	--without-rsvg \
 	--without-tiff \
-	--without-webp \
+	--$(call ptx/wwo, PTXCONF_IMAGEMAGICK_USE_LIBWEBP)-webp \
 	--without-wmf \
 	--without-xml
 
