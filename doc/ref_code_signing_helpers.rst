@@ -7,7 +7,7 @@ PTXdist provides various bash helper functions to be used in :ref:`code signing
 providers <code_signing_providers>` and :ref:`code signing consumers
 <code_signing_consumers>`.
 
-PTXdist stores URIs and CAs using these helpers in
+PTXdist stores URIs and CA keyrings using these helpers in
 ``$(PTXDIST_SYSROOT_HOST)/var/lib/keys/<signing-provider>/<role>/{uri,ca.pem}``.
 
 SoftHSM Provider Functions
@@ -29,6 +29,8 @@ Usage:
 
 Initialize SoftHSM, and set the initial pins.
 
+.. _cs_import_cert_from_der:
+
 cs_import_cert_from_der
 ^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -45,6 +47,8 @@ Preconditions:
 
 - the role must have been defined (see :ref:`cs_define_role`)
 - SoftHSM must have been initialized (see :ref:`cs_init_softhsm`)
+
+.. _cs_import_cert_from_pem:
 
 cs_import_cert_from_pem
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -164,7 +168,9 @@ Usage:
 
     cs_append_ca_from_pem <role> <PEM>
 
-Append certificate from a given PEM file for role.
+Append certificate from a given PEM file to the role's CA keyring.
+If no CA keyring exists yet it is created as an empty file before.
+
 
 Preconditions:
 
@@ -181,7 +187,8 @@ Usage:
 
     cs_append_ca_from_der <role> <DER>
 
-Append certificate from a given DER file for role.
+Append certificate from a given DER file to the role's CA keyring.
+If no CA keyring exists yet it is created as an empty file before.
 
 Preconditions:
 
@@ -198,18 +205,21 @@ Usage:
 
     cs_append_ca_from_uri <role> [<URI>]
 
-Append certificate from a given PKCS#11 URI for role.
+Append certificate from a given PKCS#11 URI to the role's CA keyring.
 If URI is omitted the already set URI for role is used.
+If no CA keyring exists yet it is created as an empty file before.
 
 Preconditions:
 
 - the role must have been defined (see :ref:`cs_define_role`)
+- when used with SoftHSM, certificates must have been imported before
+  (see :ref:`cs_import_cert_from_der`, :ref:`cs_import_cert_from_pem`)
 
 Consumer Functions
 ~~~~~~~~~~~~~~~~~~
 
 Packages that want to sign something or need access to keys/CAs can retrieve
-PKCS#11 URIs and CAs with these helpers.
+PKCS#11 URIs and CA keyrings with these helpers.
 
 .. _cs_get_uri:
 
@@ -239,10 +249,10 @@ Usage:
 
     cs_get_ca <role>
 
-Get path to the CA in PEM format for role.
+Get path to the CA keyring in PEM format for role.
 
 Preconditions:
 
-- a certificate must have been appended to the CA
+- a certificate must have been appended to the CA keyring
   (see :ref:`cs_append_ca_from_pem`, :ref:`cs_append_ca_from_der`,
   :ref:`cs_append_ca_from_uri`)
