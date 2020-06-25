@@ -105,7 +105,7 @@ GST_PLUGINS_BASE1_CONF_OPT	= \
 	$(call GSTREAMER1_GENERIC_CONF_OPT,GStreamer Base Plug-ins) \
 	-Daudioresample_format=auto \
 	-Degl_module_name=libEGL \
-	-Dgl-graphene=disabled \
+	-Dgl-graphene=$(call ptx/endis, PTXCONF_GST_PLUGINS_BASE1_GL)d \
 	-Dgl-jpeg=$(call ptx/endis, PTXCONF_GST_PLUGINS_BASE1_OPENGL)d \
 	-Dgl-png=$(call ptx/endis, PTXCONF_GST_PLUGINS_BASE1_OPENGL)d \
 	-Dgl_api=$(GST_PLUGINS_BASE1_GL_API) \

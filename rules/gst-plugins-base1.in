@@ -32,6 +32,7 @@ menuconfig GST_PLUGINS_BASE1
 	select MESALIB_GLX		if GST_PLUGINS_BASE1_GLX
 	select XORG_LIB_X11		if GST_PLUGINS_BASE1_EGL_X11
 	select LIBGUDEV			if GST_PLUGINS_BASE1_EGL
+	select GRAPHENE			if GST_PLUGINS_BASE1_GL
 
 	# x features need libx11 + Xv
 	select XORG			if GST_PLUGINS_BASE1_X
