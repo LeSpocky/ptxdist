@@ -1,0 +1,18 @@
+## SECTION=multimedia_libs
+
+config GRAPHENE
+	tristate
+	select HOST_MESON
+	select GLIB
+	select GOBJECT_INTROSPECTION	if GRAPHENE_INTROSPECTION
+	prompt "graphene"
+	help
+	  Library of graphic data types
+
+if GRAPHENE
+
+config GRAPHENE_INTROSPECTION
+	bool
+	default GOBJECT_INTROSPECTION_HELPER
+
+endif
