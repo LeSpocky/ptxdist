@@ -31,6 +31,6 @@ for i in \
 	internal.h \
 ; do
 	sed -i -e "s/\@name\@/${NAME}/g" \
-	          "s/\@namenodash\@/${NAME_NODASH}/g" \
-	          "s/\@NAME\@/${NAME_UP}/g" $i
+	       -e "s/\@namenodash\@/${NAME_NODASH}/g" \
+	       -e "s/\@NAME\@/${NAME_UP}/g" $i
 done
