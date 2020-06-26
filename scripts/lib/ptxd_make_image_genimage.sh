@@ -37,6 +37,13 @@ ptxd_make_image_genimage_config() {
     for inc in "${includes[@]}"; do
 	ptxd_make_image_genimage_config "${inc}"
     done
+    if [ "${PTXDIST_VERBOSE}" -ne 0 ]; then
+	echo "'$(ptxd_print_path ${cfg})' after substitutions:"
+	echo "----------------"
+	cat "${tmp}"
+	echo "----------------"
+	echo
+    fi
 }
 export -f ptxd_make_image_genimage_config
 
