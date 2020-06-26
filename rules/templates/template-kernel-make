@@ -44,7 +44,8 @@ KERNEL_@PACKAGE@_CONF_OPT	:= \
 
 # no gcc plugins; avoid config changes depending on the host compiler
 KERNEL_@PACKAGE@_CONF_OPT	+= \
-	HOSTCXX=false
+	HOSTCXX="$(HOSTXX) -DGENERATOR_FILE" \
+	HOSTCC="$(HOSTCC) -DGENERATOR_FILE"
 
 KERNEL_@PACKAGE@_IMAGES := @image@
 KERNEL_@PACKAGE@_IMAGES := $(addprefix $(KERNEL_@PACKAGE@_BUILD_DIR)/arch/$(GENERIC_KERNEL_ARCH)/boot/,$(KERNEL_@PACKAGE@_IMAGES))
