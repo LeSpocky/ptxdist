@@ -464,7 +464,8 @@ ptxd_template_help_list[${#ptxd_template_help_list[@]}]="src-make-prog"
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create a plain makefile binary"
 
 ptxd_template_new_src_stellaris() {
-    ptxd_template_src_base
+    ptxd_template_src_base &&
+    ptxd_template_src_autogen
 }
 export -f ptxd_template_new_src_stellaris
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="src-stellaris"
