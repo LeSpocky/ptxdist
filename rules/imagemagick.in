@@ -2,10 +2,10 @@
 
 menuconfig IMAGEMAGICK
 	tristate
-	select ZLIB 	if IMAGEMAGICK_USE_ZLIB
-	select LIBPNG 	if IMAGEMAGICK_USE_LIBPNG
-	select LIBJPEG 	if IMAGEMAGICK_USE_LIBJPEG
-	select LIBWEBP 	if IMAGEMAGICK_USE_LIBWEBP
+	select ZLIB	if IMAGEMAGICK_USE_ZLIB
+	select LIBPNG	if IMAGEMAGICK_USE_LIBPNG
+	select LIBJPEG	if IMAGEMAGICK_USE_LIBJPEG
+	select LIBWEBP	if IMAGEMAGICK_USE_LIBWEBP
 	prompt "imagemagick                   "
 	help
 	  ImageMagick® is a software suite to create, edit, compose, or convert
@@ -45,5 +45,5 @@ config IMAGEMAGICK_USE_LIBWEBP
 	prompt "Enable WEBP"
 	help
 	  Enable WEBP support
-	  
+
 endif
