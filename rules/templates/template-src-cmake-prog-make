@@ -53,17 +53,13 @@ $(STATEDIR)/@package@.targetinstall:
 	@$(call install_fixup, @package@, AUTHOR, "@AUTHOR@")
 	@$(call install_fixup, @package@, DESCRIPTION, missing)
 
-#	#
-#	# example code:; copy all binaries
-#	#
+#	# This is an example only. Adapt it to your requirements. Read the
+#	# documentation's section "Make it Work" in chapter "Adding new Packages"
+#	# how to prepare this content or/and read chapter
+#	# "Rule File Macro Reference" to get an idea of the available macros
+#	# you can use here and how to use them.
 
-	@for i in $(shell cd $(@PACKAGE@_PKGDIR) && find bin sbin usr/bin usr/sbin -type f); do \
-		$(call install_copy, @package@, 0, 0, 0755, -, /$$i); \
-	done
-
-#	#
-#	# FIXME: add all necessary things here
-#	#
+	@$(call install_copy, @package@, 0, 0, 0755, -, /usr/bin/@package@)
 
 	@$(call install_finish, @package@)
 
