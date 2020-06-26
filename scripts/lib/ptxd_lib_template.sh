@@ -71,6 +71,8 @@ ptxd_template_check_existing() {
 	export ptxd_template_have_existing=1
 	action="${action}-existing-target"
 	template="${template}-existing-target"
+	conf_tool="$(sed -n 's/.*_CONF_TOOL[\t ]*:= \(.*\)/\1/p' "${ptxd_reply}")"
+	export conf_tool
     else
 	unset ptxd_template_have_existing
     fi
@@ -104,6 +106,64 @@ ptxd_template_read_section() {
 }
 export -f ptxd_template_read_section
 
+ptxd_template_read_conf_tool() {
+    if [ -z "${conf_tool}" ]; then
+	if [ "${AUTOCONF_CLASS}" = "HOST_CROSS_" ]; then
+	    export conf_tool="autoconf"
+	else
+		supported=("autoconf" "cmake" "kconfig" "meson" "perl"
+		    "python3" )
+	    if [ -z "${AUTOCONF_CLASS}" ]; then
+		supported[${#supported[*]}]="qmake"
+	    fi
+	    ptxd_template_read_options "conf tool" conf_tool "${supported[@]}"
+	fi
+    fi
+    export CONF_OPT=""
+    export  SELECT=""
+    export CONF_TOOL="$(tr "[a-z-]" "[A-Z_]" <<< "${conf_tool}")"
+    case "${conf_tool}" in
+    autoconf)
+	if [ -z "${AUTOCONF_CLASS}" ]; then
+	    CONF_OPT="\$(CROSS_AUTOCONF_USR)"
+	else
+	    CONF_OPT="\$(${AUTOCONF_CLASS}AUTOCONF)"
+	fi
+	;;
+    cmake|meson)
+	if [ -z "${AUTOCONF_CLASS}" ]; then
+	    CONF_OPT="\$(CROSS_${CONF_TOOL}_USR)"
+	else
+	    CONF_OPT="\$(HOST_${CONF_TOOL}_OPT)"
+	fi
+	SELECT="HOST_${CONF_TOOL}"
+	;;
+    qmake)
+	CONF_OPT="\$(CROSS_QMAKE_OPT)"
+	SELECT="QT5"
+	;;
+    perl)
+	SELECT="PERL"
+	;;
+    python3)
+	if [ -z "${AUTOCONF_CLASS}" ]; then
+	    SELECT="PYTHON3"
+	else
+	    SELECT="HOST_SYSTEM_PYTHON3"
+	fi
+	;;
+    esac
+    if [ -n "${CONF_OPT}" ]; then
+	CONF_OPT=" \\
+#	${CONF_OPT}"
+    fi
+    if [ -n "${SELECT}" ]; then
+	SELECT="	select ${SELECT}
+"
+    fi
+}
+export -f ptxd_template_read_conf_tool
+
 ptxd_template_read_basic() {
     ptxd_template_read_name &&
     ptxd_template_read_version
@@ -124,7 +184,8 @@ ptxd_template_read_remote_existing() {
     ptxd_template_read_version &&
     ptxd_template_read_url &&
     ptxd_template_read_author &&
-    ptxd_template_read_section
+    ptxd_template_read_section &&
+    ptxd_template_read_conf_tool
 }
 export -f ptxd_template_read_remote_existing
 
@@ -313,6 +374,7 @@ ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create package for deve
 
 ptxd_template_new_target() {
     ptxd_template_read_remote &&
+    ptxd_template_read_conf_tool &&
     ptxd_template_write_rules
 }
 export -f ptxd_template_new_target

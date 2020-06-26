@@ -37,17 +37,14 @@
 #@CLASS@@PACKAGE@_CONF_ENV	:= $(@AUTOCONF_CLASS@ENV)
 
 #
-# autoconf
+# @conf_tool@
 #
-@CLASS@@PACKAGE@_CONF_TOOL	:= autoconf
-#@CLASS@@PACKAGE@_CONF_OPT	:= $(@AUTOCONF_CLASS@AUTOCONF)
+@CLASS@@PACKAGE@_CONF_TOOL	:= @conf_tool@
+#@CLASS@@PACKAGE@_CONF_OPT	:= @CONF_OPT@
 
 #$(STATEDIR)/@class@@package@.prepare:
 #	@$(call targetinfo)
-#	@$(call clean, $(@CLASS@@PACKAGE@_DIR)/config.cache)
-#	cd $(@CLASS@@PACKAGE@_DIR) && \
-#		$(@CLASS@@PACKAGE@_PATH) $(@CLASS@@PACKAGE@_ENV) \
-#		./configure $(@CLASS@@PACKAGE@_CONF_OPT)
+#	@$(call world/prepare, @CLASS@@PACKAGE@)
 #	@$(call touch)
 
 # ----------------------------------------------------------------------------

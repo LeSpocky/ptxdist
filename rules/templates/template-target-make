@@ -38,17 +38,14 @@ PACKAGES-$(PTXCONF_@PACKAGE@) += @package@
 #@PACKAGE@_CONF_ENV	:= $(CROSS_ENV)
 
 #
-# autoconf
+# @conf_tool@
 #
-@PACKAGE@_CONF_TOOL	:= autoconf
-#@PACKAGE@_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
+@PACKAGE@_CONF_TOOL	:= @conf_tool@
+#@PACKAGE@_CONF_OPT	:= @CONF_OPT@
 
 #$(STATEDIR)/@package@.prepare:
 #	@$(call targetinfo)
-#	@$(call clean, $(@PACKAGE@_DIR)/config.cache)
-#	cd $(@PACKAGE@_DIR) && \
-#		$(@PACKAGE@_PATH) $(@PACKAGE@_ENV) \
-#		./configure $(@PACKAGE@_CONF_OPT)
+#	@$(call world/prepare, @PACKAGE@)
 #	@$(call touch)
 
 # ----------------------------------------------------------------------------
