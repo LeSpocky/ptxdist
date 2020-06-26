@@ -15,6 +15,13 @@ menuconfig IMAGE_HDIMG
 
 if IMAGE_HDIMG
 
+config IMAGE_HDIMG_GPT
+	bool
+	prompt "GPT partition table"
+	help
+	  If selected then the image will be created with a GPT partition table.
+	  Otherwise a MBR partition table will be created.
+
 choice
 	prompt "bootloader"
 	default IMAGE_HDIMG_GRUB	if ARCH_X86
