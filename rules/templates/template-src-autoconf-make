@@ -22,16 +22,6 @@ PACKAGES-$(PTXCONF_@PACKAGE@) += @package@
 @PACKAGE@_LICENSE	:= unknown
 
 # ----------------------------------------------------------------------------
-# Extract (just create the 'configure' script on demand)
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/@package@.extract.post: $(STATEDIR)/autogen-tools
-	@$(call targetinfo)
-	@cd $(@PACKAGE@_DIR) && [ -f configure ] || sh autogen.sh
-	@$(call world/patchin/post, @PACKAGE@)
-	@$(call touch)
-
-# ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 

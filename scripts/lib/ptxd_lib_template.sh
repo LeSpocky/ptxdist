@@ -314,9 +314,25 @@ ptxd_template_src_base() {
 }
 export -f ptxd_template_src_base
 
+ptxd_template_src_autogen() {
+    local link_target="${PTXDIST_WORKSPACE}/patches/autogen.sh"
+    local patches="${PTXDIST_WORKSPACE}/patches/${package}-${VERSION}"
+    local autogen="${patches}/autogen.sh"
+
+    mkdir -p "${patches}" &&
+    if [ ! -e "${link_target}" ]; then
+	echo "generating $(ptxd_template_print_path "${link_target}")"
+	cp "${PTXDIST_TOPDIR}/patches/autogen.sh" "${link_target}"
+    fi &&
+    echo "generating $(ptxd_template_print_path "${autogen}")" &&
+    ln -s "../autogen.sh" "${autogen}"
+}
+export -f ptxd_template_src_autogen
+
 ptxd_template_autoconf_base() {
     template=template-src-autoconf
-    ptxd_template_src_base
+    ptxd_template_src_base &&
+    ptxd_template_src_autogen
 }
 export -f ptxd_template_autoconf_base
 
