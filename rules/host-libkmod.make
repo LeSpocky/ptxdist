@@ -25,13 +25,14 @@ HOST_LIBKMOD_CONF_OPT	:= \
 	--enable-shared \
 	--enable-tools \
 	--disable-manpages \
+	--disable-test-modules \
 	--disable-logging \
 	--disable-debug \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf \
+	--disable-python \
+	--disable-coverage \
 	--without-xz \
-	--without-zlib
+	--without-zlib \
+	--without-openssl
 
 # ----------------------------------------------------------------------------
 # Install
