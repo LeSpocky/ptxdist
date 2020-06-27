@@ -10,12 +10,15 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/nss/manifest.mn b/nss/manifest.mn
-index 500a5ad64b62..03d8e620ea4b 100644
+index dada8abab094..671aa03fed18 100644
 --- a/nss/manifest.mn
 +++ b/nss/manifest.mn
-@@ -10,4 +10,4 @@ IMPORTS =	nspr20/v4.8 \
+@@ -10,7 +10,7 @@ IMPORTS =	nspr20/v4.8 \
  
  RELEASE = nss
  
 -DIRS = coreconf lib cmd cpputil gtests
 +DIRS = coreconf lib cpputil gtests
+ 
+ lib: coreconf
+ cmd: lib

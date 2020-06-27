@@ -24,7 +24,7 @@ Signed-off-by: Wenzong Fan <wenzong.fan@windriver.com>
  1 file changed, 7 insertions(+)
 
 diff --git a/nss/coreconf/nsinstall/Makefile b/nss/coreconf/nsinstall/Makefile
-index 1850bcb93cf7..1343262cc7c9 100644
+index 08dfbc2fe627..aa385a17453f 100644
 --- a/nss/coreconf/nsinstall/Makefile
 +++ b/nss/coreconf/nsinstall/Makefile
 @@ -18,6 +18,13 @@ INTERNAL_TOOLS  = 1
@@ -40,4 +40,4 @@ index 1850bcb93cf7..1343262cc7c9 100644
 +
  ifeq (,$(filter-out OS2 WIN%,$(OS_TARGET)))
  PROGRAM		=
- else
+ TARGETS		=

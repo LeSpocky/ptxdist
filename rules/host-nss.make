@@ -22,8 +22,6 @@ HOST_NSS_CONF_TOOL	:= NO
 HOST_NSS_MAKE_ENV   := \
 	$(HOST_ENV) \
 	BUILD_OPT=1 \
-	FREEBL_NO_DEPEND=1 \
-	FREEBL_LOWHASH=1 \
 	NS_USE_GCC=1 \
 	NSS_ENABLE_ECC=1 \
 	NSS_DISABLE_GTESTS=1 \
@@ -34,7 +32,8 @@ HOST_NSS_MAKE_ENV   := \
 HOST_NSS_CFLAGS := \
 	-D_XOPEN_SOURCE
 
-HOST_NSS_MAKE_PAR := NO
+HOST_NSS_MAKE_OPT := \
+	all
 
 # ----------------------------------------------------------------------------
 # Install
