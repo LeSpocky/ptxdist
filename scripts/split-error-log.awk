@@ -8,7 +8,7 @@ BEGIN {
 	n = split(stages, l, " ")
 	for (i = 1; i <= n; i++) {
 		switch (l[i]) {
-			case /.*\.(get|extract|prepare|compile|install|targetinstall|urlcheck)(.[a-z]+)?/:
+			case /.*\.(get|extract|prepare|compile|install|targetinstall|urlcheck|srchash|cfghash)(.[a-z]+)?/:
 				break
 			# other stuff, such as archive downloads may not have a explicit end
 			# so stop them when the next target starts
