@@ -46,15 +46,19 @@ function drop(stage) {
 	stage = gensub(/.*\/(state|images)\/(.+\..+)\] Error.*/, "\\2", 1, $0)
 	targetfile = FILENAME "." stage ".txt"
 
-	print targetfile
+	if (!(stage in cache))
+		print "Found error without target for", stage
+	else {
+		print targetfile
 
-	len = length(cache[stage])
-	for (i = 0; i < len; i++) {
-		print cache[stage][i] >> targetfile
+		len = length(cache[stage])
+		for (i = 0; i < len; i++) {
+			print cache[stage][i] >> targetfile
+		}
+		close(targetfile)
+
+		drop(stage)
 	}
-	close(targetfile)
-
-	drop(stage)
 }
 
 /^({{{|}})/ {
