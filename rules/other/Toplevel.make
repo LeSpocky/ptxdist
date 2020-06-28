@@ -144,6 +144,12 @@ PTX_PACKAGES_DISABLED	:= \
 PTX_PACKAGES_INSTALL	:= \
 	$(PACKAGES)
 
+export \
+	PTX_PACKAGES_ALL \
+	PTX_PACKAGES_SELECTED \
+	PTX_PACKAGES_DISABLED \
+	PTX_PACKAGES_INSTALL
+
 # might be non existent
 include $(foreach dir, $(call reverse,$(subst :,$(space),$(PTXDIST_PATH_POSTRULES))), $(sort $(wildcard $(dir)/*.make)))
 # install_alternative and install_copy has some configuration defined

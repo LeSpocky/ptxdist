@@ -10,8 +10,6 @@ IMAGE_REPO_DIST_DIR := $(call ptx/escape,$(PTXCONF_SETUP_IPKG_REPOSITORY)/$(call
 
 image/env = \
 	$(call ptx/env) \
-	ptx_packages_selected="$(PTX_PACKAGES_SELECTED)" \
-	image_pkgs_selected_target="$(call ptx/escape,$(PTX_PACKAGES_INSTALL))" \
 	image_repo_dist_dir="$(IMAGE_REPO_DIST_DIR)"
 
 world/image/env/impl = \

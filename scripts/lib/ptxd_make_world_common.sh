@@ -176,6 +176,13 @@ ptxd_make_world_init_sanity_check() {
 export -f ptxd_make_world_init_sanity_check
 
 
+ptxd_make_world_env_init() {
+    ptx_packages_all="${PTX_PACKAGES_ALL}"
+    ptx_packages_selected="${PTX_PACKAGES_SELECTED}"
+    ptx_packages_disabled="${PTX_PACKAGES_DISABLED}"
+    image_pkgs_selected_target="${PTX_PACKAGES_INSTALL}"
+}
+export -f ptxd_make_world_env_init
 
 #
 # ptxd_make_world_init()

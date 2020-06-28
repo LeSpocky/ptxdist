@@ -58,6 +58,8 @@ export -f ptxd_get_ipkg_files
 # initialize variables needed for image creation
 #
 ptxd_make_image_init() {
+    ptxd_make_world_env_init || return
+
     if [ -z "$(ptxd_get_ptxconf PTXCONF_IMAGE_INSTALL_FROM_IPKG_REPOSITORY)" ]; then
 	image_ipkg_repo_dirs=( "${ptx_pkg_dir}" )
     else
