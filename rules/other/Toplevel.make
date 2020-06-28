@@ -47,6 +47,7 @@ $(call ptx/file,>>$(PTXDIST_TEMPDIR)/setup-once)
 endif
 
 unexport MAKEFLAGS
+export MAKE
 
 PHONY := all FORCE
 all:

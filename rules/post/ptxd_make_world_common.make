@@ -7,11 +7,6 @@
 #
 
 ptx/env = \
-	MAKE="$(call ptx/escape,$(MAKE))"					\
-	PTXDIST_SYSROOT_TARGET="$(call ptx/escape,$(PTXDIST_SYSROOT_TARGET))"	\
-	PTXDIST_SYSROOT_HOST="$(call ptx/escape,$(PTXDIST_SYSROOT_HOST))"	\
-	PTXDIST_SYSROOT_CROSS="$(call ptx/escape,$(PTXDIST_SYSROOT_CROSS))"	\
-										\
 	ptx_nfsroot="$(call ptx/escape,$(ROOTDIR))"				\
 										\
 	ptx_extract_dir_target="$(call ptx/escape,$(BUILDDIR))"			\
