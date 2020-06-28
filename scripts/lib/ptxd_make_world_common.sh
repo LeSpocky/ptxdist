@@ -197,6 +197,7 @@ export -f ptxd_make_world_env_init
 # $pkg_make_par
 #
 ptxd_make_world_init() {
+    ptxd_make_world_env_init &&
     ptxd_make_world_init_sanity_check || return
 
     # PTXDIST_LAYERS gets lost in 'make' so redefine it here
@@ -248,6 +249,15 @@ ptxd_make_world_init() {
     local path_ptr="ptx_path_${pkg_type}"
     pkg_path="${pkg_path:-${!path_ptr:+PATH=${!path_ptr}}}"
     unset path_ptr
+
+    #
+    # ensure that the package is actually selected
+    #
+    if ! [[ " ${ptx_packages_selected} " =~ " ${pkg_label} " ]]; then
+	ptxd_bailout "'${pkg_label}' is not selected." \
+	    "This can happen if the ptxconfig is outdated or" \
+	    "the package is disabled for the current architecture"
+    fi
 
     #
     # check if we shall use a local work-in-progress tree instead
