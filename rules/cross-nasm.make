@@ -10,7 +10,7 @@
 #
 # We provide this package
 #
-CROSS_PACKAGES-$(PTXCONF_ARCH_X86)-$(PTXCONF_CROSS_NASM) += cross-nasm
+CROSS_PACKAGES-$(PTXCONF_CROSS_NASM) += cross-nasm
 
 ifdef PTXCONF_ARCH_X86
 
