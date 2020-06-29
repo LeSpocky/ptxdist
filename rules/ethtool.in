@@ -2,6 +2,7 @@
 config ETHTOOL
 	tristate
 	prompt "ethtool"
+	select LIBMNL
 	help
 	  Ethtool is a GNU/Linux net driver diagnostic and tuning
 	  tool.
