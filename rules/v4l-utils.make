@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_V4L_UTILS) += v4l-utils
 #
 # Paths and names
 #
-V4L_UTILS_VERSION	:= 1.18.0
-V4L_UTILS_MD5		:= 18996bd5e9d83d47055c05de376708cd
+V4L_UTILS_VERSION	:= 1.20.0
+V4L_UTILS_MD5		:= 46f9e2c0b2fdccd009da2f7e1aa87894
 V4L_UTILS		:= v4l-utils-$(V4L_UTILS_VERSION)
 V4L_UTILS_SUFFIX	:= tar.bz2
 V4L_UTILS_URL		:= http://linuxtv.org/downloads/v4l-utils/$(V4L_UTILS).$(V4L_UTILS_SUFFIX)
@@ -50,13 +50,17 @@ V4L_UTILS_CONF_OPT	:= \
 	--enable-dyn-libv4l \
 	--enable-v4l-utils \
 	--enable-v4l2-compliance-libv4l \
+	--disable-v4l2-compliance-32 \
 	--enable-v4l2-ctl-libv4l \
 	--enable-v4l2-ctl-stream-to \
+	--disable-v4l2-ctl-32 \
 	--disable-qv4l2 \
 	--disable-qvidcap \
 	--disable-gconv \
 	--$(call ptx/endis, PTXCONF_V4L_UTILS_IRKEYTABLE)-bpf \
-	--$(call ptx/wwo, PTXCONF_V4L_UTILS_LIBV4LCONVERT)-jpeg
+	--$(call ptx/wwo, PTXCONF_V4L_UTILS_LIBV4LCONVERT)-jpeg \
+	--with-udevdir=/usr/lib/udev \
+	--with-systemdsystemunitdir=/usr/lib/systemd/system
 
 ifdef PTXCONF_KERNEL_HEADER
 V4L_UTILS_CPPFLAGS	:= \
