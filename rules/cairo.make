@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_CAIRO) += cairo
 #
 # Paths and names
 #
-CAIRO_VERSION	:= 1.14.12
-CAIRO_MD5	:= 9f0db9dbfca0966be8acd682e636d165
+CAIRO_VERSION	:= 1.16.0
+CAIRO_MD5	:= f19e0353828269c22bd72e271243a552
 CAIRO		:= cairo-$(CAIRO_VERSION)
 CAIRO_SUFFIX	:= tar.xz
 CAIRO_URL	:= http://cairographics.org/releases/cairo-$(CAIRO_VERSION).$(CAIRO_SUFFIX)
@@ -53,7 +53,6 @@ CAIRO_CONF_OPT	:= \
 	--disable-quartz-image \
 	--disable-win32 \
 	--disable-win32-font \
-	--disable-skia \
 	--disable-os2 \
 	--disable-beos \
 	--disable-drm \
@@ -61,6 +60,7 @@ CAIRO_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_CAIRO_PNG)-png \
 	--$(call ptx/endis, PTXCONF_CAIRO_GL)-gl \
 	--$(call ptx/endis, PTXCONF_CAIRO_GLES2)-glesv2 \
+	--disable-glesv3 \
 	--disable-cogl \
 	--disable-directfb \
 	--disable-vg \

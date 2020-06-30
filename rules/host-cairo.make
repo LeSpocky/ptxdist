@@ -42,7 +42,6 @@ HOST_CAIRO_CONF_OPT	:= \
 	--disable-quartz-image \
 	--disable-win32 \
 	--disable-win32-font \
-	--disable-skia \
 	--disable-os2 \
 	--disable-beos \
 	--disable-drm \
@@ -50,6 +49,7 @@ HOST_CAIRO_CONF_OPT	:= \
 	--disable-png \
 	--disable-gl \
 	--disable-glesv2 \
+	--disable-glesv3 \
 	--disable-cogl \
 	--disable-directfb \
 	--disable-vg \

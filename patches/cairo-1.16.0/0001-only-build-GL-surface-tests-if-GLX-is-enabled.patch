@@ -19,7 +19,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 insertions(+)
 
 diff --git a/test/Makefile.am b/test/Makefile.am
-index b2fcd275d3e9..b7e9c12a355d 100644
+index e3c42ea88032..a50ba376e904 100644
 --- a/test/Makefile.am
 +++ b/test/Makefile.am
 @@ -17,8 +17,10 @@ endif
