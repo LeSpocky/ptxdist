@@ -21,7 +21,8 @@ DROPWATCH_SUFFIX	:= tar.gz
 DROPWATCH_URL		:= https://github.com/nhorman/dropwatch/archive/v$(DROPWATCH_VERSION).${DROPWATCH_SUFFIX}
 DROPWATCH_SOURCE	:= $(SRCDIR)/$(DROPWATCH).$(DROPWATCH_SUFFIX)
 DROPWATCH_DIR		:= $(BUILDDIR)/$(DROPWATCH)
-DROPWATCH_LICENSE	:= GPL-2.0-only
+DROPWATCH_LICENSE	:= GPL-2.0-or-later
+DROPWATCH_LICENSE_FILES	:= file://COPYING;md5=eb723b61539feef013de476e68b5c50a
 
 # ----------------------------------------------------------------------------
 # Prepare
