@@ -214,6 +214,22 @@ config KERNEL_GCC_PLUGINS
 	  kernel config stable.
 	  Enable this option when the kernel gcc plugins are used.
 
+config KERNEL_CONFIG_BASE_VERSION
+	prompt "use base version in the kernelconfig"
+	bool
+	help
+	  When the BSP contains a patch stack for the kernel, then it is
+	  often useful to modify EXTRAVERSION with one of the patches. This
+	  makes it easier to detect which version of the patch stack was
+	  used to build the currently running kernel.
+	  However, this means that the comment at the beginning of the
+	  kernel config changes with each new revision of the patch stack.
+
+	  When this option is enabled, then the version in the kernel
+	  config is overwritten with the version from
+	  PTXCONF_KERNEL_VERSION. The version built into the kernel remains
+	  unchanged.
+
 menu "patching & configuration      "
 
 config KERNEL_SERIES

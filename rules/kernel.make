@@ -83,6 +83,12 @@ endif
 KERNEL_CONF_OPT := \
 	$(KERNEL_SHARED_OPT)
 
+ifdef PTXCONF_KERNEL_CONFIG_BASE_VERSION
+# force using KERNEL_VERSION in the kernelconfig
+KERNEL_CONF_OPT += \
+	KERNELVERSION=$(KERNEL_VERSION)
+endif
+
 #
 # support the different kernel image formats
 #
