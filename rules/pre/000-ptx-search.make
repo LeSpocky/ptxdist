@@ -11,22 +11,24 @@ ptx/get_alternative = $(error ptx/get_alternative has been renamed to ptx/get-al
 
 #
 # This must produce the same results as ptxd_in_path()
-# Fallback to the shell implementation for the complex case
 #
-# Strip whitespaces introduced by the multiline macros
+# resolve all possible paths
 define ptx/in-path3
-$(if $(strip $(1)),$(strip $(call ptx/force-shell,$(2))),$(strip $(3)))
+$(wildcard $(addsuffix /$(strip $(2)),$(1)))
 endef
-# fallback to shell if a relative path is found
+# expand a relative path if found
 define ptx/in-path2
 $(call ptx/in-path3,
-$(filter-out /%,$(3)),
-p='$($(strip $(1)))' ptxd_in_path p $(2) && echo $$ptxd_reply,
-$(firstword $(wildcard $(addsuffix /$(strip $(2)),$(3)))))
+$(foreach path,$(1),$(if $(filter-out /%,$(path)),
+$(call ptx/in-path-all,PTXDIST_PATH_LAYERS,$(path)),$(path))),$(2))
 endef
 # create a path ist from the variable with ':' separated paths
+define ptx/in-path-all
+$(call ptx/in-path2,$(subst :,$(ptx/def/space),$($(strip $(1)))),$(2))
+endef
+# take the first result
 define ptx/in-path
-$(call ptx/in-path2,$(1),$(2),$(subst :,$(ptx/def/space),$($(strip $(1)))))
+$(firstword $(call ptx/in-path-all,$(1),$(2)))
 endef
 
 #
