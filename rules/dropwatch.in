@@ -8,8 +8,8 @@ config DROPWATCH
 	select LIBPCAP
 	select READLINE
 	help
-	  user space utility for use with dropwatch kernel protocol
+	  User space utility for use with dropwatch kernel protocol.
 	  
-	  http://git.infradead.org/users/nhorman/dropwatch.git
+	  https://github.com/nhorman/dropwatch
 
 # vim: ft=kconfig noet tw=72
