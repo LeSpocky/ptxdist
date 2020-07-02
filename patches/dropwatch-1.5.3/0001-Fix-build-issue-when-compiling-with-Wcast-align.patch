@@ -1,0 +1,47 @@
+From: Neil Horman <nhorman@tuxdriver.com>
+Date: Sat, 21 Mar 2020 07:22:29 -0400
+Subject: [PATCH] Fix build issue when compiling with -Wcast-align
+
+Passing a char buffer cast to struct nlmsghdr * violates the rules of
+-Wcast-align on some arches, as described in :
+https://github.com/nhorman/dropwatch/issues/26
+
+Fix it by declaring the buffer as a struct nlmsghdr, and casting to a
+less alligned type
+
+Signed-off-by: Neil Horman <nhorman@tuxdriver.com>
+---
+ src/main.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/main.c b/src/main.c
+index bd87085d7dc8..2253fc4eb8c1 100644
+--- a/src/main.c
++++ b/src/main.c
+@@ -267,7 +267,7 @@ int send_netlink_message(struct netlink_message *msg)
+ 
+ struct netlink_message *recv_netlink_message(int *err)
+ {
+-	static unsigned char *buf;
++	static struct nlmsghdr *buf;
+ 	struct netlink_message *msg;
+ 	struct genlmsghdr *glm;
+ 	struct sockaddr_nl nla;
+@@ -277,7 +277,7 @@ struct netlink_message *recv_netlink_message(int *err)
+ 	*err = 0;
+ 
+ 	do {
+-		rc = nl_recv(nsd, &nla, &buf, NULL);
++		rc = nl_recv(nsd, &nla, (unsigned char **)&buf, NULL);
+ 		if (rc < 0) {
+ 			switch (errno) {
+ 			case EINTR:
+@@ -294,7 +294,7 @@ struct netlink_message *recv_netlink_message(int *err)
+ 		}
+ 	} while (rc == 0);
+ 
+-	msg = wrap_netlink_msg((struct nlmsghdr *)buf);
++	msg = wrap_netlink_msg(buf);
+ 
+ 	type = ((struct nlmsghdr *)msg->msg)->nlmsg_type;
+ 
