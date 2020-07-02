@@ -37,15 +37,22 @@ KERNEL_@PACKAGE@_WRAPPER_BLACKLIST := \
 
 KERNEL_@PACKAGE@_PATH		:= PATH=$(CROSS_PATH)
 KERNEL_@PACKAGE@_ENV		:= KCONFIG_NOTIMESTAMP=1
-KERNEL_@PACKAGE@_CONF_OPT	:= \
+KERNEL_@PACKAGE@_SHARED_OPT	:= \
 	-C $(KERNEL_@PACKAGE@_DIR) \
 	O=$(KERNEL_@PACKAGE@_BUILD_DIR) \
 	$(call kernel-opts, KERNEL_@PACKAGE@)
 
 # no gcc plugins; avoid config changes depending on the host compiler
-KERNEL_@PACKAGE@_CONF_OPT	+= \
+KERNEL_@PACKAGE@_SHARED_OPT	+= \
 	HOSTCXX="$(HOSTXX) -DGENERATOR_FILE" \
 	HOSTCC="$(HOSTCC) -DGENERATOR_FILE"
+
+KERNEL_@PACKAGE@_CONF_OPT	:= \
+	$(KERNEL_@PACKAGE@_SHARED_OPT)
+
+# force using KERNEL_@PACKAGE@_VERSION in the kernelconfig
+#KERNEL_@PACKAGE@_CONF_OPT	+= \
+#	KERNELVERSION=$(KERNEL_@PACKAGE@_VERSION)
 
 KERNEL_@PACKAGE@_IMAGES := @image@
 KERNEL_@PACKAGE@_IMAGES := $(addprefix $(KERNEL_@PACKAGE@_BUILD_DIR)/arch/$(GENERIC_KERNEL_ARCH)/boot/,$(KERNEL_@PACKAGE@_IMAGES))
@@ -66,7 +73,7 @@ endif
 # ----------------------------------------------------------------------------
 
 KERNEL_@PACKAGE@_MAKE_OPT := \
-	$(KERNEL_@PACKAGE@_CONF_OPT) \
+	$(KERNEL_@PACKAGE@_SHARED_OPT) \
 	@image@ modules
 
 # ----------------------------------------------------------------------------
@@ -77,20 +84,16 @@ KERNEL_@PACKAGE@_INSTALL_OPT := \
 	$(call kernel-opts, KERNEL_@PACKAGE@) \
 	modules_install
 
-$(STATEDIR)/kernel-@package@.install:
-	@$(call targetinfo)
-	@$(call world/install, KERNEL_@PACKAGE@)
-	@$(foreach image, $(KERNEL_@PACKAGE@_IMAGES), \
-		install -m 644 $(image) $(IMAGEDIR)/$(notdir $(image))-@package@$(ptx/nl) \
-	)
-	@$(call touch)
-
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
 
 $(STATEDIR)/kernel-@package@.targetinstall:
 	@$(call targetinfo)
+
+	@$(foreach image, $(KERNEL_@PACKAGE@_IMAGES), \
+		install -v -m 644 $(image) \
+			$(IMAGEDIR)/$(notdir $(image))-@package@$(ptx/nl))
 
 	@$(call install_init,  kernel-@package@)
 	@$(call install_fixup, kernel-@package@, PRIORITY,optional)
