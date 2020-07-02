@@ -253,11 +253,16 @@ ptxd_make_world_init() {
     #
     # ensure that the package is actually selected
     #
-    if ! [[ " ${ptx_packages_selected} " =~ " ${pkg_label} " ]]; then
-	ptxd_bailout "'${pkg_label}' is not selected." \
-	    "This can happen if the ptxconfig is outdated or" \
-	    "the package is disabled for the current architecture"
-    fi
+    case "${pkg_stage}" in
+    ${ptx_state_dir}/${pkg_label}.*)
+	# this is only relevant for package stages, not any other targets
+	if ! [[ " ${ptx_packages_selected} " =~ " ${pkg_label} " ]]; then
+	    ptxd_bailout "'${pkg_label}' is not selected." \
+		"This can happen if the ptxconfig is outdated or" \
+		"the package is disabled for the current architecture"
+	fi
+	;;
+    esac
 
     #
     # check if we shall use a local work-in-progress tree instead
