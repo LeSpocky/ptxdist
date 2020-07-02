@@ -40,34 +40,49 @@ KERNEL_BUILD_OOT	:= KEEP
 KERNEL_WRAPPER_BLACKLIST := \
 	$(PTXDIST_LOWLEVEL_WRAPPER_BLACKLIST)
 
-# check for old kernel modules rules
-KERNEL_MAKEVARS = -C KERNEL_MAKEVARS-was-renamed-to-KERNEL_MAKE_OPT
-$(STATEDIR)/kernel.% kernel_%config $(IMAGE_KERNEL_IMAGE) $(KERNEL_SOURCE): KERNEL_MAKEVARS=
-$(STATEDIR)/kernel-header.% $(STATEDIR)/host-kernel-header.%: KERNEL_MAKEVARS=
+define kernel/deprecated
+$(if $(strip \
+$(filter $(STATEDIR)/%, \
+$(filter-out $(STATEDIR)/kernel-header.%, \
+$(filter-out $(STATEDIR)/kernel.%,$@))) \
+),$(error $(notdir $@): \
+	use KERNEL_MODULE_OPT instead of $(1) for kernel module packages))
+endef
 
-KERNEL_MAKE_OPT := \
+# check for old kernel modules rules
+KERNEL_MAKEVARS = $(call kernel/deprecated, KERNEL_MAKEVARS)
+
+# like kernel-opts but with different CROSS_COMPILE=
+KERNEL_BASE_OPT := \
 	V=$(PTXDIST_VERBOSE) \
-	O=$(KERNEL_BUILD_DIR) \
+	HOSTCC=$(HOSTCC) \
 	ARCH=$(GENERIC_KERNEL_ARCH) \
 	CROSS_COMPILE=$(KERNEL_CROSS_COMPILE) \
+	DEPMOD=$(PTXDIST_SYSROOT_HOST)/sbin/depmod \
+	\
 	INSTALL_MOD_PATH=$(KERNEL_PKGDIR) \
 	PTX_KERNEL_DIR=$(KERNEL_DIR) \
 	$(call remove_quotes,$(PTXCONF_KERNEL_EXTRA_MAKEVARS))
 
-ifdef PTXCONF_KERNEL_MODULES_INSTALL
-KERNEL_MAKE_OPT += \
-	DEPMOD=$(PTXDIST_SYSROOT_HOST)/sbin/depmod
-endif
+# Intermediate option. This will be used by kernel module packages.
+KERNEL_MODULE_OPT := \
+	-C $(KERNEL_DIR) \
+	O=$(KERNEL_BUILD_DIR) \
+	$(KERNEL_BASE_OPT)
+
+KERNEL_SHARED_OPT := \
+	$(KERNEL_MODULE_OPT)
 
 ifndef PTXCONF_KERNEL_GCC_PLUGINS
-KERNEL_MAKE_OPT += \
+# no gcc plugins; avoid config changes depending on the host compiler
+KERNEL_SHARED_OPT += \
 	HOSTCXX="$(HOSTXX) -DGENERATOR_FILE" \
 	HOSTCC="$(HOSTCC) -DGENERATOR_FILE"
 endif
 
 KERNEL_CONF_OPT := \
-	-C $(KERNEL_DIR) \
-	$(KERNEL_MAKE_OPT)
+	$(KERNEL_SHARED_OPT)
+
 #
 # support the different kernel image formats
 #
@@ -144,14 +159,16 @@ $(STATEDIR)/kernel.tags:
 # Compile
 # ----------------------------------------------------------------------------
 
-KERNEL_OOT_OPT		:= \
-	-C $(KERNEL_DIR) \
-	$(KERNEL_MAKE_OPT)
+KERNEL_MAKE_OPT		= \
+	$(call kernel/deprecated, KERNEL_MAKE_OPT) \
+	$(KERNEL_SHARED_OPT) \
+	$(KERNEL_IMAGE) \
+	$(call ptx/ifdef, PTXCONF_KERNEL_MODULES,modules)
 
 KERNEL_TOOL_PERF_OPTS	:= \
 	-C $(KERNEL_DIR)/tools/perf \
-	$(KERNEL_MAKE_OPT) \
 	O=$(KERNEL_BUILD_DIR)/tools/perf \
+	$(KERNEL_BASE_OPT) \
 	WERROR=0 \
 	NO_LIBPERL=1 \
 	NO_LIBPYTHON=1 \
@@ -184,8 +201,8 @@ KERNEL_TOOL_IIO_OPTS	:= \
 	PTXDIST_ICECC= \
 	CPPFLAGS="-D__EXPORTED_HEADERS__ -I$(KERNEL_DIR)/include/uapi -I$(KERNEL_DIR)/include" \
 	-C $(KERNEL_DIR)/tools/iio \
-	$(KERNEL_MAKE_OPT) \
 	O=$(KERNEL_BUILD_DIR)/tools/iio \
+	$(KERNEL_BASE_OPT) \
 	$(PARALLELMFLAGS_BROKEN)
 
 $(STATEDIR)/kernel.compile:
@@ -193,7 +210,7 @@ $(STATEDIR)/kernel.compile:
 	@rm -f \
 		$(KERNEL_BUILD_DIR)/usr/initramfs_data.cpio.* \
 		$(KERNEL_BUILD_DIR)/usr/.initramfs_data.cpio.*
-	@$(call compile, KERNEL, $(KERNEL_OOT_OPT) $(KERNEL_IMAGE) $(PTXCONF_KERNEL_MODULES_BUILD))
+	@$(call world/compile, KERNEL)
 ifdef PTXCONF_KERNEL_TOOL_PERF
 	@mkdir -p $(KERNEL_BUILD_DIR)/tools/perf
 	@$(call compile, KERNEL, $(KERNEL_TOOL_PERF_OPTS))
@@ -209,7 +226,9 @@ endif
 # Install
 # ----------------------------------------------------------------------------
 
-KERNEL_INSTALL_OPT := $(KERNEL_OOT_OPT) modules_install
+KERNEL_INSTALL_OPT := \
+	$(KERNEL_BASE_OPT) \
+	modules_install
 
 $(STATEDIR)/kernel.install:
 	@$(call targetinfo)

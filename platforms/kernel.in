@@ -37,11 +37,6 @@ config KERNEL_MODULES_INSTALL
 	prompt "Install modules into /lib/modules"
 	depends on KERNEL_MODULES
 
-config KERNEL_MODULES_BUILD
-	depends on KERNEL_MODULES
-	string
-	default "modules"
-
 config KERNEL_VERSION
 	prompt "kernel version"
 	string

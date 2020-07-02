@@ -37,7 +37,7 @@ endif
 # ----------------------------------------------------------------------------
 
 @PACKAGE@_MAKE_OPT = \
-	$(KERNEL_MAKE_OPT) \
+	$(KERNEL_MODULE_OPT) \
 	-C $(KERNEL_DIR) \
 	M=$(@PACKAGE@_DIR) \
 	modules

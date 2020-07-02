@@ -41,7 +41,7 @@ CRYPTODEV_CONF_TOOL := NO
 # ----------------------------------------------------------------------------
 
 CRYPTODEV_MAKE_OPT = \
-	$(KERNEL_MAKE_OPT) \
+	$(KERNEL_MODULE_OPT) \
 	KERNEL_DIR=$(KERNEL_DIR) \
 	DESTDIR=$(CRYPTODEV_PKGDIR) \
 	prefix=/usr \
