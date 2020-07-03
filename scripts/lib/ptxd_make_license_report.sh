@@ -158,7 +158,8 @@ ptxd_make_license_report() {
 	for config in ptx platform; do
 	    PTXDIST_DEP_TARGET="build" ptxd_kconfig dep ${config} || return
 	done
-    ) | gawk -f "${make_license_report}" &&
+    ) | gawk -f "${make_license_report}"
+    check_pipe_status || return
     echo "done"
 
     echo -n "Generating license dependencies graphs..."
