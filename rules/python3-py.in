@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_PY
+	tristate
+	select PYTHON3
+	prompt "py"
+	help
+	  library with cross-python path, ini-parsing, io, code, log facilities
