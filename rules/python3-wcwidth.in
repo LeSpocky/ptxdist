@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_WCWIDTH
+	tristate
+	select PYTHON3
+	prompt "wcwidth"
+	help
+	  Measures the displayed width of unicode strings in a terminal
