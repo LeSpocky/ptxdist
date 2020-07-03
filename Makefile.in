@@ -76,7 +76,7 @@ environment:
 	@echo " done"
 
 man: man/ptxdist.1.gz
-man/ptxdist.1: doc/ptxdist.man doc/ref_parameter.inc
+man/ptxdist.1: doc/ptxdist.man doc/ref_parameter.rst
 	@mkdir -pv man
 	$(RST2MAN) $< $@
 
