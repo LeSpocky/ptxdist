@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_MORE_ITERTOOLS
+	tristate
+	select PYTHON3
+	prompt "more-itertools"
+	help
+	  More routines for operating on iterables, beyond itertools
