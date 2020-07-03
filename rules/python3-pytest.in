@@ -1,0 +1,15 @@
+## SECTION=python3
+
+config PYTHON3_PYTEST
+	tristate
+	select PYTHON3
+	select PYTHON3_ATTRS			if RUNTIME
+	select PYTHON3_MORE_ITERTOOLS		if RUNTIME
+	select PYTHON3_PACKAGING		if RUNTIME
+	select PYTHON3_PLUGGY			if RUNTIME
+	select PYTHON3_PY			if RUNTIME
+	select PYTHON3_SETUPTOOLS		if RUNTIME # for pkg_resources
+	select PYTHON3_WCWIDTH			if RUNTIME
+	prompt "pytest"
+	help
+	  pytest: simple powerful testing with Python
