@@ -30,11 +30,13 @@ LIBCAP_LICENSE_FILES := file://License;md5=3f84fd6f29d453a56514cb7e4ead25f1
 # ----------------------------------------------------------------------------
 
 LIBCAP_MAKE_OPT	:= \
-	prefix=/usr PAM_CAP=no DYNAMIC=yes \
-	LIBATTR=$(call ptx/yesno, PTXCONF_LIBCAP_SETCAP) \
-	lib=lib \
+	prefix=/usr lib=lib \
 	CC=$(CROSS_CC) \
-	BUILD_CC=$(HOSTCC)
+	BUILD_CC=$(HOSTCC) \
+	DYNAMIC=yes \
+	GOLANG=no \
+	LIBATTR=$(call ptx/yesno, PTXCONF_LIBCAP_SETCAP) \
+	PAM_CAP=$(call ptx/yesno, PTXCONF_GLOBAL_PAM)
 
 LIBCAP_INSTALL_OPT :=  \
 	$(LIBCAP_MAKE_OPT) \
@@ -57,6 +59,10 @@ $(STATEDIR)/libcap.targetinstall:
 	@$(call install_copy, libcap, 0, 0, 0755, -, /usr/sbin/getpcaps)
 	@$(call install_copy, libcap, 0, 0, 0755, -, /usr/sbin/capsh)
 	@$(call install_lib,  libcap, 0, 0, 0644, libcap)
+ifdef PTXCONF_GLOBAL_PAM
+	@$(call install_copy, libcap, 0, 0, 0755, -, \
+		/usr/lib/security/pam_cap.so)
+endif
 ifdef PTXCONF_LIBCAP_SETCAP
 	@$(call install_copy, libcap, 0, 0, 0755, -, /usr/sbin/setcap)
 	@$(call install_copy, libcap, 0, 0, 0755, -, /usr/sbin/getcap)
