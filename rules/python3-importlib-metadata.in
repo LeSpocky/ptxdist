@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_IMPORTLIB_METADATA
+	tristate
+	select PYTHON3
+	select PYTHON3_ZIPP		if RUNTIME
+	prompt "importlib-metadata"
+	help
+	  A library to access the metadata for a Python package.
