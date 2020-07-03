@@ -14,9 +14,9 @@ PACKAGES-$(PTXCONF_WPEBACKEND_FDO) += wpebackend-fdo
 #
 # Paths and names
 #
-WPEBACKEND_FDO_VERSION		:= 1.6.0
+WPEBACKEND_FDO_VERSION		:= 1.6.1
 WPEBACKEND_FDO_LIBRARY_VERSION	:= 1.0
-WPEBACKEND_FDO_MD5		:= 456afeed22f6749f7b2a97c11660835d
+WPEBACKEND_FDO_MD5		:= ea6c2a13e6c2423f2c2b0b31fcf9567b
 WPEBACKEND_FDO			:= wpebackend-fdo-$(WPEBACKEND_FDO_VERSION)
 WPEBACKEND_FDO_SUFFIX		:= tar.xz
 WPEBACKEND_FDO_URL		:= https://wpewebkit.org/releases/$(WPEBACKEND_FDO).$(WPEBACKEND_FDO_SUFFIX)
@@ -56,10 +56,10 @@ $(STATEDIR)/wpebackend-fdo.targetinstall:
 		libWPEBackend-fdo-$(WPEBACKEND_FDO_LIBRARY_VERSION))
 
 	@$(call install_link, wpebackend-fdo, \
-		libWPEBackend-fdo-$(WPEBACKEND_FDO_LIBRARY_VERSION).so.1.6.1, \
+		libWPEBackend-fdo-$(WPEBACKEND_FDO_LIBRARY_VERSION).so.1, \
 		/usr/lib/libWPEBackend-default.so)
 	@$(call install_link, wpebackend-fdo, \
-		libWPEBackend-fdo-$(WPEBACKEND_FDO_LIBRARY_VERSION).so.1.6.1, \
+		libWPEBackend-fdo-$(WPEBACKEND_FDO_LIBRARY_VERSION).so.1, \
 		/usr/lib/libWPEBackend-fdo-$(WPEBACKEND_FDO_LIBRARY_VERSION).so)
 
 
