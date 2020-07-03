@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_PLUGGY
+	tristate
+	select PYTHON3
+	select PYTHON3_IMPORTLIB_METADATA	if RUNTIME
+	prompt "pluggy"
+	help
+	  A minimalist production ready plugin system
