@@ -135,6 +135,8 @@ ptxd_make_license_report() {
     local ptx_license_target_tex pkg_lic pkg
     local -A ptxd_package_license_association
 
+    ptxd_make_world_init || return
+
     # regenerate license info and sort out unused packages
     for pkg in $(cat "${ptx_report_dir}/package.list"); do
 	ptxd_package_license_association[$(basename ${pkg})]=$(dirname ${pkg})
