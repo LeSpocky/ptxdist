@@ -1,0 +1,33 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sat, 4 Jul 2020 12:14:03 +0200
+Subject: [PATCH] HACK: fix parallel building issue
+
+When '.' is in DIRS, then the installation is triggered once when first
+entering the directory and once when iterating over $(DIRS). The resulting
+nsinstall commands race during parallel building.
+
+Avoid this by adding an extra dependency.
+
+For a real fix, the double installation should not happen at all, but it's
+unclear how this can be achieved.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ nss/coreconf/rules.mk | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/nss/coreconf/rules.mk b/nss/coreconf/rules.mk
+index dc72e9cef62f..62fb57655819 100644
+--- a/nss/coreconf/rules.mk
++++ b/nss/coreconf/rules.mk
+@@ -373,8 +373,8 @@ endif
+ define copy_varlist_into_dir_RULE
+ ifdef $(2)
+ ifneq (,$$(strip $$($(2))))
+-$(3)/%: %
+-	$$(INSTALL) -m 444 $$^ $(3)
++$(3)/%: % $(DIRS)
++	$$(INSTALL) -m 444 $$< $(3)
+ 
+ $(1): $$(addprefix $(3)/,$$($(2))) | $(3)/d
+ endif

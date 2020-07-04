@@ -3,4 +3,5 @@
 0001-nss-fix-nsinstall-build.patch
 0002-add-nss.pc.in.patch
 0003-HACK-don-t-build-the-commands.patch
-# 5a106339b1aacb64732e0a72df6e0416  - git-ptx-patches magic
+0004-HACK-fix-parallel-building-issue.patch
+# 01603e5e0bff267126ba2fd8480c0f8c  - git-ptx-patches magic
