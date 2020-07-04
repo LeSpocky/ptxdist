@@ -286,11 +286,14 @@ latex_additional_files = [
 
 latex_engine='xelatex'
 
+def sanitize(s):
+  return re.sub('[^\w@_+=\.-]+', '-', s)
+
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  ('index', "OSELAS.BSP-" + ptxdistHwVendor + "-" + ptxdistHwProduct + '-Quickstart.tex', u'PTXdist Quickstart Manual',
+  ('index', "OSELAS.BSP-" + sanitize(ptxdistHwVendor) + "-" + sanitize(ptxdistHwProduct) + '-Quickstart.tex', u'PTXdist Quickstart Manual',
    u'The PTXdist project', 'manual'),
 ]
 
