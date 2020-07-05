@@ -43,8 +43,7 @@ KERNEL_WRAPPER_BLACKLIST := \
 define kernel/deprecated
 $(if $(strip \
 $(filter $(STATEDIR)/%, \
-$(filter-out $(STATEDIR)/kernel-header.%, \
-$(filter-out $(STATEDIR)/kernel.%,$@))) \
+$(filter-out $(STATEDIR)/kernel.%,$@)) \
 ),$(error $(notdir $@): \
 	use KERNEL_MODULE_OPT instead of $(1) for kernel module packages))
 endef
