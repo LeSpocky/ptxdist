@@ -14,7 +14,7 @@ ptx/get_alternative = $(error ptx/get_alternative has been renamed to ptx/get-al
 #
 # resolve all possible paths
 define ptx/in-path3
-$(wildcard $(addsuffix /$(strip $(2)),$(1)))
+$(wildcard $(addsuffix /$(strip $(2)),$(strip $(1))))
 endef
 # expand a relative path if found
 define ptx/in-path2
