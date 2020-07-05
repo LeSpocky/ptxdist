@@ -57,7 +57,7 @@ world/check_src = \
 $(STATEDIR)/%.urlcheck:
 	@$(call targetinfo)
 	@$(foreach src,$($(PTX_MAP_TO_PACKAGE_$(*))_SOURCES), \
-		$(call world/urlcheck, $($(src)));)
+		$(call world/urlcheck, $(call _ptx_source_to_pkg,$(*),$(src)))$(ptx/nl))
 	@$(call touch)
 
 world/urlcheck = \
