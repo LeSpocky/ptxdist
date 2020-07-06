@@ -63,34 +63,34 @@ ifdef PTXCONF_ROOTFS_HOME_ROOT
 	@$(call install_copy, rootfs, 0, 0, 0700, /root)
 endif
 ifdef PTXCONF_ROOTFS_MEDIA
-ifneq ($(PTXCONF_ROOTFS_MEDIA1),"")
+ifneq ($(call remove_quotes,$(PTXCONF_ROOTFS_MEDIA1)),)
 	@$(call install_copy, rootfs, 0, 0, 0777, /media/$(PTXCONF_ROOTFS_MEDIA1))
 endif
-ifneq ($(PTXCONF_ROOTFS_MEDIA2),"")
+ifneq ($(call remove_quotes,$(PTXCONF_ROOTFS_MEDIA2)),)
 	@$(call install_copy, rootfs, 0, 0, 0777, /media/$(PTXCONF_ROOTFS_MEDIA2))
 endif
-ifneq ($(PTXCONF_ROOTFS_MEDIA3),"")
+ifneq ($(call remove_quotes,$(PTXCONF_ROOTFS_MEDIA3)),)
 	@$(call install_copy, rootfs, 0, 0, 0777, /media/$(PTXCONF_ROOTFS_MEDIA3))
 endif
-ifneq ($(PTXCONF_ROOTFS_MEDIA4),"")
+ifneq ($(call remove_quotes,$(PTXCONF_ROOTFS_MEDIA4)),)
 	@$(call install_copy, rootfs, 0, 0, 0777, /media/$(PTXCONF_ROOTFS_MEDIA4))
 endif
-ifneq ($(PTXCONF_ROOTFS_MEDIA5),"")
+ifneq ($(call remove_quotes,$(PTXCONF_ROOTFS_MEDIA5)),)
 	@$(call install_copy, rootfs, 0, 0, 0777, /media/$(PTXCONF_ROOTFS_MEDIA5))
 endif
-ifneq ($(PTXCONF_ROOTFS_MEDIA6),"")
+ifneq ($(call remove_quotes,$(PTXCONF_ROOTFS_MEDIA6)),)
 	@$(call install_copy, rootfs, 0, 0, 0777, /media/$(PTXCONF_ROOTFS_MEDIA6))
 endif
-ifneq ($(PTXCONF_ROOTFS_MEDIA7),"")
+ifneq ($(call remove_quotes,$(PTXCONF_ROOTFS_MEDIA7)),)
 	@$(call install_copy, rootfs, 0, 0, 0777, /media/$(PTXCONF_ROOTFS_MEDIA7))
 endif
-ifneq ($(PTXCONF_ROOTFS_MEDIA8),"")
+ifneq ($(call remove_quotes,$(PTXCONF_ROOTFS_MEDIA8)),)
 	@$(call install_copy, rootfs, 0, 0, 0777, /media/$(PTXCONF_ROOTFS_MEDIA8))
 endif
-ifneq ($(PTXCONF_ROOTFS_MEDIA9),"")
+ifneq ($(call remove_quotes,$(PTXCONF_ROOTFS_MEDIA9)),)
 	@$(call install_copy, rootfs, 0, 0, 0777, /media/$(PTXCONF_ROOTFS_MEDIA9))
 endif
-ifneq ($(PTXCONF_ROOTFS_MEDIA10),"")
+ifneq ($(call remove_quotes,$(PTXCONF_ROOTFS_MEDIA10)),)
 	@$(call install_copy, rootfs, 0, 0, 0777, /media/$(PTXCONF_ROOTFS_MEDIA10))
 endif
 endif
