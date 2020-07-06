@@ -1,0 +1,32 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Mon, 6 Jul 2020 09:06:18 +0200
+Subject: [PATCH] fix dependency generation
+
+With some make versions and parallel building, it seems that MAKEFLAGS may
+contain 'w' (--print-directory). This overwrites the commandline
+--no-print-directory and SUB_SHLOBJS includes bogus content including a
+':'. As a result, building fails with:
+
+../../coreconf/rules.mk:202: *** multiple target patterns.  Stop.
+
+Fix this by explicitly setting 'MAKEFLAGS = --no-print-directory' to
+provide another default.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ nss/coreconf/rules.mk | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/nss/coreconf/rules.mk b/nss/coreconf/rules.mk
+index 62fb57655819..b318eb41cb7c 100644
+--- a/nss/coreconf/rules.mk
++++ b/nss/coreconf/rules.mk
+@@ -191,6 +191,8 @@ ifeq ($(OS_ARCH),WINNT)
+ $(IMPORT_LIBRARY): $(SHARED_LIBRARY)
+ endif
+ 
++MAKEFLAGS = --no-print-directory
++
+ ifdef SHARED_LIBRARY_LIBS
+ ifdef BUILD_TREE
+ SUB_SHLOBJS = $(foreach dir,$(SHARED_LIBRARY_DIRS),$(shell $(MAKE) -C $(dir) --no-print-directory get_objs))
