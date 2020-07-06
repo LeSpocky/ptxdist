@@ -14,12 +14,11 @@ PACKAGES-$(PTXCONF_GLMARK2) += glmark2
 #
 # Paths and names
 #
-# No tags: use a fake descriptive commit-ish to include the date
-GLMARK2_VERSION	:= 2019-03-27-geaa70888
-GLMARK2_MD5	:= ee3ae64489fbcb942490ae758362e737
+GLMARK2_VERSION	:= 2020.04
+GLMARK2_MD5	:= a90713700a740180fef3576f7ee3c9db
 GLMARK2		:= glmark2-$(GLMARK2_VERSION)
-GLMARK2_SUFFIX	:= tar.xz
-GLMARK2_URL	:= https://github.com/glmark2/glmark2.git;tag=$(GLMARK2_VERSION)
+GLMARK2_SUFFIX	:= tar.gz
+GLMARK2_URL	:= https://github.com/glmark2/glmark2/archive/$(GLMARK2_VERSION).$(GLMARK2_SUFFIX)
 GLMARK2_SOURCE	:= $(SRCDIR)/$(GLMARK2).$(GLMARK2_SUFFIX)
 GLMARK2_DIR	:= $(BUILDDIR)/$(GLMARK2)
 GLMARK2_LICENSE	:= GPL-3.0-only AND SGIv1
