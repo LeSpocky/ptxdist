@@ -31,6 +31,12 @@ PYTHON3_ZIPP_LICENSE_FILES := \
 
 PYTHON3_ZIPP_CONF_TOOL	:= python3
 
+$(STATEDIR)/python3-zipp.extract.post:
+	@$(call targetinfo)
+	@$(call world/patchin/post, PYTHON3_ZIPP)
+	@sed -i '/^name =/aversion = $(PYTHON3_ZIPP_VERSION)' $(PYTHON3_ZIPP_DIR)/setup.cfg
+	@$(call touch)
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
