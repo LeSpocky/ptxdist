@@ -8,7 +8,7 @@ menuconfig DTC
 	help
 	  Select this to build a device tree for your board.
 	  You will find the device tree binary blob under
-	  images/oftree in your workspace.
+	  platform-nnn/images/ in your workspace.
 
 if DTC
 
