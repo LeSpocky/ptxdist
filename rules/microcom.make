@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_MICROCOM) += microcom
 #
 # Paths and names
 #
-MICROCOM_VERSION	:= 2017.03.0
-MICROCOM_MD5		:= 801d99dcb4b2ef7e8b77b51bba193066
+MICROCOM_VERSION	:= 2019.01.0
+MICROCOM_MD5		:= 8e8c58b4d95d4466097dec3c7ed03ccd
 MICROCOM		:= microcom-$(MICROCOM_VERSION)
 MICROCOM_SUFFIX		:= tar.xz
-MICROCOM_URL		:= http://www.pengutronix.de/software/microcom/download/$(MICROCOM).$(MICROCOM_SUFFIX)
+MICROCOM_URL		:= https://github.com/pengutronix/microcom/releases/download/v$(MICROCOM_VERSION)/microcom-$(MICROCOM_VERSION).$(MICROCOM_SUFFIX)
 MICROCOM_SOURCE		:= $(SRCDIR)/$(MICROCOM).$(MICROCOM_SUFFIX)
 MICROCOM_DIR		:= $(BUILDDIR)/$(MICROCOM)
 MICROCOM_LICENSE	:= GPL-2.0-only
