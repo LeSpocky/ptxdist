@@ -170,6 +170,8 @@ ifdef PTXCONF_GPSD_SYSTEMD_UNIT
 		/usr/lib/systemd/system/multi-user.target.wants/gpsd.service)
 	@$(call install_alternative, gpsd, 0, 0, 644, \
 		/usr/lib/systemd/system/gpsd.socket)
+	@$(call install_link, gpsd, ../gpsd.socket, \
+		/usr/lib/systemd/system/sockets.target.wants/gpsd.socket)
 ifdef PTXCONF_GPSD_GPSCTL
 	@$(call install_alternative, gpsd, 0, 0, 644, \
 		/usr/lib/systemd/system/gpsdctl@.service)
