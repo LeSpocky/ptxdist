@@ -10,4 +10,5 @@
 0008-don-t-build-webkit-tests.patch
 0009-fix-build-issues-with-gcc6.patch
 0010-configure-handle-gcc-9.x.patch
-# 9134b7178aa4720695840ab37bb30482  - git-ptx-patches magic
+0011-Redo-the-Q_FOREACH-loop-control-without-GCC-statemen.patch
+# cf4f9c7eb098ba6eecc69bcfa3b924aa  - git-ptx-patches magic
