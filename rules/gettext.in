@@ -20,4 +20,17 @@ config GETTEXT_ENVSUBST
 	help
 	  Substitutes environment variables in shell format strings
 
+config GETTEXT_TOOLS
+	bool
+	prompt "gettext/xgettext cli"
+	select GETTEXT_LIBS
+	help
+	  Command line tools for translations.
+
+config GETTEXT_LIBS
+	bool
+	prompt "gettext libs"
+	help
+	  System libraries for translations.
+
 endif

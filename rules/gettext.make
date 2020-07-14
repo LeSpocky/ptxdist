@@ -76,13 +76,18 @@ ifdef PTXCONF_GETTEXT_ENVSUBST
 	@$(call install_copy, gettext, 0, 0, 0755, -, /usr/bin/envsubst)
 endif
 
+ifdef PTXCONF_GETTEXT_TOOLS
 	@$(call install_copy, gettext, 0, 0, 0755, -, /usr/bin/xgettext)
 	@$(call install_copy, gettext, 0, 0, 0755, -, /usr/bin/gettext)
+endif
 
+ifdef PTXCONF_GETTEXT_LIBS
 	@$(call install_lib, gettext, 0, 0, 0644, libgettextlib-$(GETTEXT_VERSION))
 	@$(call install_lib, gettext, 0, 0, 0644, libasprintf)
 	@$(call install_lib, gettext, 0, 0, 0644, libgettextpo)
-	@$(call install_lib, gettext, 0, 0, 0644,libgettextsrc-$(GETTEXT_VERSION))
+	@$(call install_lib, gettext, 0, 0, 0644, libgettextsrc-$(GETTEXT_VERSION))
+	@$(call install_lib, gettext, 0, 0, 0644, libtextstyle)
+endif
 
 	@$(call install_finish, gettext)
 
