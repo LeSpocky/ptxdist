@@ -4,6 +4,7 @@ config PANGO
 	tristate
 	prompt "pango"
 	select HOST_MESON
+	select HOST_GLIB # for glib-mkenums
 	select LIBC_M
 	select CAIRO
 	select CAIRO_FREETYPE
