@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=system_libraries
+## SECTION=system_libraries
 menuconfig GETTEXT
 	tristate
 	prompt "gettext (gnu)                 "
@@ -12,9 +10,6 @@ menuconfig GETTEXT
 	  The gettext program translates a natural language
 	  message into the user's language, by looking up
 	  the translation in a message catalog.
-
-	  STAGING: remove in ptxdist-2021.04.0
-	  Old unused version. Not really needed on the target in most cases.
 
 
 if GETTEXT
