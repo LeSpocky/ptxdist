@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_GETTEXT) += gettext
 #
 # Paths and names
 #
-GETTEXT_VERSION	:= 0.19.8.1
-GETTEXT_MD5	:= df3f5690eaa30fd228537b00cb7b7590
+GETTEXT_VERSION	:= 0.20.2
+GETTEXT_MD5	:= 0cf5f68338d5d941bbf9ac93b847310f
 GETTEXT		:= gettext-$(GETTEXT_VERSION)
 GETTEXT_SUFFIX	:= tar.xz
 GETTEXT_URL	:= $(call ptx/mirror, GNU, gettext/$(GETTEXT).$(GETTEXT_SUFFIX))
@@ -25,7 +25,7 @@ GETTEXT_SOURCE	:= $(SRCDIR)/$(GETTEXT).$(GETTEXT_SUFFIX)
 GETTEXT_DIR	:= $(BUILDDIR)/$(GETTEXT)
 GETTEXT_LICENSE	:= GPL-3.0-or-later AND LGPL-2.1-or-later
 GETTEXT_LICENSE_FILES := \
-	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
+	file://COPYING;md5=c678957b0c8e964aa6c70fd77641a71e \
 	file://gettext-runtime/intl/COPYING.LIB;md5=a4b192f7208753fc0fc8d88c733e6106 \
 
 # ----------------------------------------------------------------------------
@@ -41,7 +41,7 @@ GETTEXT_ENV 	:= $(CROSS_ENV)
 GETTEXT_AUTOCONF := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-java \
-	--disable-native-java \
+	--enable-namespacing \
 	--disable-csharp \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-threads=posix \
@@ -49,6 +49,7 @@ GETTEXT_AUTOCONF := \
 	--disable-nls \
 	--disable-rpath \
 	--enable-c++ \
+	--enable-cross-guesses=conservative \
 	--disable-relocatable \
 	--enable-libasprintf \
 	--disable-acl \
