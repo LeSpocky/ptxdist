@@ -178,7 +178,7 @@ export -f cs_import_cert_from_pem
 # with SoftHSM.
 #
 cs_import_pubkey_from_pem() {
-    local  -a openssl_keyopt
+    local -a openssl_keyopt
     local role="${1}"
     local pem="${2}"
     cs_init_variables
@@ -202,7 +202,7 @@ export -f cs_import_pubkey_from_pem
 # with SoftHSM.
 #
 cs_import_privkey_from_pem() {
-    local  -a openssl_keyopt
+    local -a openssl_keyopt
     local role="${1}"
     local pem="${2}"
     cs_init_variables
