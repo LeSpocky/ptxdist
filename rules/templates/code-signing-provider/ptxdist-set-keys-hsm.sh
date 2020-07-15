@@ -18,6 +18,8 @@ set_rauc_keys() {
 }
 
 set_imx_habv4_keys() {
+	local r
+
 	# HSM use case, assuming it contains only 1st CSF/IMG key
 	for i in 1 2 3 4; do
 		r="imx-habv4-srk${i}"
