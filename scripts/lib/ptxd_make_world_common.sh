@@ -406,7 +406,7 @@ ptxd_make_world_init() {
 	case "${pkg_build_oot}" in
 	    "YES"|"KEEP") pkg_build_dir="${pkg_dir}-build" ;;
 	    "NO")  pkg_build_dir="${pkg_conf_dir}" ;;
-	    *)     ptxd_bailout "<PKG>_BUILD_OOT: please set to YES or NO" ;;
+	    *)     ptxd_bailout "<PKG>_BUILD_OOT: please set to KEEP, YES or NO" ;;
 	esac
     fi
 
