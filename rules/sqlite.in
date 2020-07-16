@@ -30,6 +30,14 @@ config SQLITE_READLINE
 	help
 	  Enable readline support
 
+config SQLITE_FOREIGN_KEYS
+	bool
+	prompt "enable foreign keys by default"
+	help
+	  Enable foreign keys support by default on database
+	  connections. This ensures database schema constrains
+	  are enforced by default e.g. consistency between tables.
+
 comment "install options"
 
 config SQLITE_TOOL
