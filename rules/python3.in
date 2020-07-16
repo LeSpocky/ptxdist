@@ -65,6 +65,7 @@ config PYTHON3_DISTUTILS
 	prompt "Include distutils packages"
 
 config PYTHON3_ENSUREPIP
+	select PYTHON3_SSL
 	bool
 	prompt "Include bundled pip"
 
