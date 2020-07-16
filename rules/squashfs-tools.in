@@ -6,6 +6,8 @@ menuconfig SQUASHFS_TOOLS
 	select LIBC_PTHREAD
 	select GCCLIBS_GCC_S
 	select ZLIB
+	select ZSTD		if SQUASHFS_TOOLS_ZSTD_SUPPORT
+	select ZSTD_LIBZSTD	if SQUASHFS_TOOLS_ZSTD_SUPPORT
 	prompt "squashfs-tools                "
 	help
 	  Squashfs is a highly compressed read-only filesystem for Linux.
@@ -15,6 +17,14 @@ menuconfig SQUASHFS_TOOLS
 	  of 1Mbytes (default block size 128K).
 
 if SQUASHFS_TOOLS
+
+comment "build options"
+
+config SQUASHFS_TOOLS_ZSTD_SUPPORT
+	bool
+	prompt "Support Zstandard (zstd) compression"
+
+comment "install options"
 
 config SQUASHFS_TOOLS_MKSQUASHFS
 	bool
