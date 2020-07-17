@@ -15,7 +15,6 @@ menuconfig WLROOTS
 	select UDEV
 	select UDEV_LIBUDEV
 	select PIXMAN
-	select LIBCAP			if WLROOTS_LIBCAP
 	select SYSTEMD			if WLROOTS_SYSTEMD
 	select SYSTEMD_LOGIND		if WLROOTS_SYSTEMD_LOGIND
 	prompt "wlroots                       "
@@ -24,10 +23,6 @@ menuconfig WLROOTS
 	  building a Wayland compositor.
 
 if WLROOTS
-
-config WLROOTS_LIBCAP
-	bool
-	prompt "support rootless session via libcap"
 
 config WLROOTS_SYSTEMD
 	bool

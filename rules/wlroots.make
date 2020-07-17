@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WLROOTS) += wlroots
 #
 # Paths and names
 #
-WLROOTS_VERSION	:= 0.10.0
-WLROOTS_MD5	:= 758fa2f41ea888572db8052897b4482f
+WLROOTS_VERSION	:= 0.11.0
+WLROOTS_MD5	:= 3ed69ea05c4d3a05f96a9a859cb5f333
 WLROOTS		:= wlroots-$(WLROOTS_VERSION)
 WLROOTS_SUFFIX	:= tar.gz
 WLROOTS_URL	:= https://github.com/swaywm/wlroots/archive/$(WLROOTS_VERSION).$(WLROOTS_SUFFIX)
@@ -30,7 +30,6 @@ WLROOTS_LICENSE	:= MIT
 WLROOTS_CONF_TOOL := meson
 WLROOTS_CONF_OPT := \
 	$(CROSS_MESON_USR) \
-	-Dlibcap=$(call ptx/endis, PTXCONF_WLROOTS_LIBCAP)d \
 	-Dlogind=$(call ptx/endis, PTXCONF_WLROOTS_SYSTEMD_LOGIND)d \
 	-Dlogind-provider=systemd \
 	-Dxcb-errors=disabled \
