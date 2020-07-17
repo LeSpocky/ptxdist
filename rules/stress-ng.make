@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_STRESS_NG) += stress-ng
 #
 # Paths and names
 #
-STRESS_NG_VERSION	:= 0.09.58
-STRESS_NG_MD5		:= d482a72654c7029a6a890d680efa174c
+STRESS_NG_VERSION	:= 0.11.15
+STRESS_NG_MD5		:= 5f644470500040281201995828459cca
 STRESS_NG		:= stress-ng-$(STRESS_NG_VERSION)
 STRESS_NG_SUFFIX	:= tar.xz
 STRESS_NG_URL		:= http://kernel.ubuntu.com/~cking/tarballs/stress-ng/$(STRESS_NG).$(STRESS_NG_SUFFIX)
