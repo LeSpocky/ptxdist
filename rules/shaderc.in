@@ -1,0 +1,41 @@
+## SECTION=multimedia_libs
+
+menuconfig SHADERC
+	tristate
+	prompt "shaderc"
+	select HOST_CMAKE
+	select HOST_SYSTEM_PYTHON3
+	help
+	  A collection of tools, libraries and tests for shader compilation.
+
+if SHADERC
+
+config SHADERC_GLSLC
+	bool
+	prompt "install glslc"
+	help
+	  Install glslc tool.
+
+config SHADERC_SPVC
+	bool
+	# requires SPIRV-Cross
+	depends on BROKEN
+	prompt "install spvc"
+	help
+	  Install spvc tool.
+
+config SHADERC_LIBSHADERC
+	bool
+	prompt "install libshaderc"
+	help
+	  Install libshaderc shared library.
+
+config SHADERC_LIBSHADERC_SPVC
+	bool
+	# requires SPIRV-Cross
+	depends on BROKEN
+	prompt "install libshaderc_spvc"
+	help
+	  Install libshaderc_spvc shared library.
+
+endif
