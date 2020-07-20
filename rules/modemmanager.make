@@ -50,7 +50,7 @@ MODEMMANAGER_CONF_OPT	:= \
 	--$(call ptx/wwo, PTXCONF_INITMETHOD_SYSTEMD)-systemd-suspend-resume \
 	--$(call ptx/wwo, PTXCONF_INITMETHOD_SYSTEMD)-systemd-journal \
 	--without-polkit \
-	--without-at-command-via-dbus \
+	--$(call ptx/wwo, PTXCONF_MODEMMANAGER_ALLOW_DBUS_AT_CMDS)-at-command-via-dbus \
 	--with-mbim \
 	--with-qmi
 

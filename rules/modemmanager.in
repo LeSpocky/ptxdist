@@ -2,6 +2,7 @@
 
 menuconfig MODEMMANAGER
 	tristate
+	select DBUS		if MODEMMANAGER_ALLOW_DBUS_AT_CMDS && RUNTIME
 	select GLIB
 	select UDEV
 	select LIBGUDEV
@@ -23,5 +24,9 @@ config MODEMMANAGER_SYSTEMD_UNIT
 	default y
 	depends on SYSTEMD
 	prompt "install systemd unit file"
+
+config MODEMMANAGER_ALLOW_DBUS_AT_CMDS
+	bool
+	prompt "allow arbitrary AT commands via DBus"
 
 endif
