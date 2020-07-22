@@ -14,6 +14,7 @@ menuconfig GPSD
 	select DBUS_GLIB		if GPSD_DBUS
 	select PYTHON3			if GPSD_PYTHON
 	select PYSERIAL3		if GPSD_PYSERIAL
+	select SYSTEMD			if GPSD_SYSTEMD
 	prompt "gpsd                          "
 	help
 	  gpsd is a daemon that listens to a GPS or Loran receiver
@@ -30,6 +31,10 @@ config GPSD_NCURSES
 
 config GPSD_PYSERIAL
 	bool
+
+config GPSD_SYSTEMD
+	bool
+	default INITMETHOD_SYSTEMD
 
 comment "time service     ---"
 
@@ -62,11 +67,6 @@ config GPSD_USB
 	prompt "libusb support for USB devices"
 
 comment "Other options    ---"
-
-config GPSD_SYSTEMD
-	bool
-	depends on SYSTEMD
-	prompt "systemd"
 
 config GPSD_RECONFIGURE
 	bool
