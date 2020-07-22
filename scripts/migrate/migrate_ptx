@@ -402,3 +402,11 @@ s/^\(\(# \)\?PTXCONF_GST_PLUGINS_\)BAD1_STEREO\>/\1GOOD1_AUDIOFX/
 # reason : option was renamed
 #
 s/^\(\(# \)\?PTXCONF_SQLITE_LOAD_\)EXTENTION/\1EXTENSION/
+
+#
+# from   : ptxdist-2020.07.0
+# to     : ptxdist-2020.08.0
+# symbol : GPSD_DRIVER_UBX -> GPSD_DRIVER_UBLOX
+# reason : options were renamed / merged
+#
+s/^\(\(# \)\?PTXCONF_GPSD_DRIVER\)_UBX\>/\1_UBLOX/

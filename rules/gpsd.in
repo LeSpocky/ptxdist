@@ -188,10 +188,10 @@ menu "drivers"
 		bool
 		prompt "tnt"
 
-	config GPSD_DRIVER_UBX
+	config GPSD_DRIVER_UBLOX
 		bool
 		select GPSD_DRIVER_NMEA
-		prompt "ubx"
+		prompt "ublox"
 
 	config GPSD_DRIVER_EVERMORE
 		bool
