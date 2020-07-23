@@ -48,6 +48,7 @@ ifeq ($(BUSYBOX_ARCH),i386)
 BUSYBOX_ARCH := x86
 endif
 
+# does not build reproducibly unless we set KCONFIG_NOTIMESTAMP
 BUSYBOX_MAKE_OPT := \
 	KCONFIG_NOTIMESTAMP=1 \
 	V=$(PTXDIST_VERBOSE) \
