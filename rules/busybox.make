@@ -48,6 +48,10 @@ ifeq ($(BUSYBOX_ARCH),i386)
 BUSYBOX_ARCH := x86
 endif
 
+# ----------------------------------------------------------------------------
+# Compile
+# ----------------------------------------------------------------------------
+
 # does not build reproducibly unless we set KCONFIG_NOTIMESTAMP
 BUSYBOX_MAKE_OPT := \
 	KCONFIG_NOTIMESTAMP=1 \
@@ -65,14 +69,14 @@ BUSYBOX_MAKE_ENV := \
 	$(CROSS_ENV) \
 	SKIP_STRIP=y
 
+# ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+
 BUSYBOX_INSTALL_OPT := \
 	$(BUSYBOX_MAKE_OPT) \
 	CONFIG_PREFIX=$(BUSYBOX_PKGDIR)/usr \
 	install
-
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
 
 $(STATEDIR)/busybox.install:
 	@$(call targetinfo)
