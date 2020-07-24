@@ -1,0 +1,6 @@
+## SECTION=hosttools_noprompt
+
+config HOST_ZSTD
+	tristate
+	select HOST_CMAKE
+	default y if ALLYES
