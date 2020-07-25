@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBUSB) += libusb
 #
 # Paths and names
 #
-LIBUSB_VERSION	:= 1.0.22
-LIBUSB_MD5	:= 466267889daead47674df933cea9cacb
+LIBUSB_VERSION	:= 1.0.23
+LIBUSB_MD5	:= be79ed4a4a440169deec8beaac6aae33
 LIBUSB		:= libusb-$(LIBUSB_VERSION)
 LIBUSB_SUFFIX	:= tar.bz2
 LIBUSB_URL	:= $(call ptx/mirror, SF, libusb/$(LIBUSB).$(LIBUSB_SUFFIX))
