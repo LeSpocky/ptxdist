@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_E2FSPROGS) += e2fsprogs
 #
 # Paths and names
 #
-E2FSPROGS_VERSION	:= 1.44.4
-E2FSPROGS_MD5		:= 156e94a6169ca1fa3f0c6749ae5921b9
+E2FSPROGS_VERSION	:= 1.45.6
+E2FSPROGS_MD5		:= cccfb706d162514e4f9dbfbc9e5d65ee
 E2FSPROGS		:= e2fsprogs-$(E2FSPROGS_VERSION)
 E2FSPROGS_SUFFIX	:= tar.gz
 E2FSPROGS_URL		:= $(call ptx/mirror, SF, e2fsprogs/e2fsprogs/v$(E2FSPROGS_VERSION)/$(E2FSPROGS).$(E2FSPROGS_SUFFIX))
@@ -69,6 +69,10 @@ E2FSPROGS_CONF_OPT	:= \
 	--enable-threads=posix \
 	--disable-rpath \
 	--disable-fuse2fs \
+	--enable-lto \
+	--disable-ubsan \
+	--disable-addrsan \
+	--disable-threadsan \
 	--without-included-gettext
 
 E2FSPROGS_MAKE_OPT	:= $(if $(filter 1,$(strip $(PTXDIST_VERBOSE))),V=1)
