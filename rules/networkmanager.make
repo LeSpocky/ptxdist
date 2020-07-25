@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_NETWORKMANAGER) += networkmanager
 #
 # Paths and names
 #
-NETWORKMANAGER_VERSION	:= 1.22.10
-NETWORKMANAGER_MD5	:= b7b8875c3ef1db0989f78351ba3e8ad8
+NETWORKMANAGER_VERSION	:= 1.26.0
+NETWORKMANAGER_MD5	:= c0edbbf98a1ec81eed5a03539610d324
 NETWORKMANAGER		:= NetworkManager-$(NETWORKMANAGER_VERSION)
 NETWORKMANAGER_SUFFIX	:= tar.xz
 NETWORKMANAGER_URL	:= https://ftp.gnome.org/pub/GNOME/sources/NetworkManager/$(basename $(NETWORKMANAGER_VERSION))/$(NETWORKMANAGER).$(NETWORKMANAGER_SUFFIX)
@@ -50,6 +50,7 @@ NETWORKMANAGER_CONF_OPT = \
 	-Ddnssec_trigger=/bin/true \
 	-Ddocs=false \
 	-Debpf=false \
+	-Dfirewalld_zone=false \
 	-Dhostname_persist=default \
 	-Difcfg_rh=false \
 	-Difupdown=true \
