@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GLIB) += glib
 #
 # Paths and names
 #
-GLIB_VERSION	:= 2.62.2
-GLIB_MD5	:= bed3a70397a019965efac0c49f9c8164
+GLIB_VERSION	:= 2.64.4
+GLIB_MD5	:= 0a4f67e9a9d729976e2f797e36fc1a57
 GLIB		:= glib-$(GLIB_VERSION)
 GLIB_SUFFIX	:= tar.xz
 GLIB_SOURCE	:= $(SRCDIR)/$(GLIB).$(GLIB_SUFFIX)
@@ -44,7 +44,7 @@ GLIB_CONF_OPT	:= \
 	-Diconv=libc \
 	-Dinstalled_tests=false \
 	-Dinternal_pcre=false \
-	-Dlibmount=$(call ptx/truefalse, PTXCONF_GLIB_LIBMOUNT) \
+	-Dlibmount=$(call ptx/endis, PTXCONF_GLIB_LIBMOUNT)d \
 	-Dman=false \
 	-Dnls=disabled \
 	-Dselinux=disabled \
