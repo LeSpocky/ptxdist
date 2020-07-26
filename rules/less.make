@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LESS) += less
 #
 # Paths and names
 #
-LESS_VERSION	:= 487
-LESS_MD5	:= dcc8bf183a83b362d37fe9ef8df1fb60
+LESS_VERSION	:= 530
+LESS_MD5	:= 6a39bccf420c946b0fd7ffc64961315b
 LESS		:= less-$(LESS_VERSION)
 LESS_SUFFIX	:= tar.gz
 LESS_URL	:= $(call ptx/mirror, GNU, less/$(LESS).$(LESS_SUFFIX))
