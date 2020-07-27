@@ -14,10 +14,10 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  2 files changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/readline.h b/readline.h
-index 924bbfb0f213..b1a177a577d5 100644
+index da782716af2a..5858147b2e8d 100644
 --- a/readline.h
 +++ b/readline.h
-@@ -385,7 +385,7 @@ extern int rl_reset_line_state PARAMS((void));
+@@ -393,7 +393,7 @@ extern int rl_reset_line_state PARAMS((void));
  extern int rl_crlf PARAMS((void));
  
  #if defined (USE_VARARGS) && defined (PREFER_STDARG)

@@ -14,7 +14,7 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  2 files changed, 2 insertions(+)
 
 diff --git a/history.h b/history.h
-index 8ce7c805d168..8d568a79fa29 100644
+index cc3de29a6423..24cd63ce111c 100644
 --- a/history.h
 +++ b/history.h
 @@ -32,6 +32,7 @@ extern "C" {
@@ -26,7 +26,7 @@ index 8ce7c805d168..8d568a79fa29 100644
  #  include <readline/rltypedefs.h>
  #endif
 diff --git a/readline.h b/readline.h
-index b1a177a577d5..06c2abe61736 100644
+index 5858147b2e8d..7d4ecd2346fa 100644
 --- a/readline.h
 +++ b/readline.h
 @@ -32,6 +32,7 @@ extern "C" {
