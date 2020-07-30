@@ -21,6 +21,7 @@ menuconfig SYSTEMD
 	select MACHINE_ID	if RUNTIME
 	select XZ		if SYSTEMD_XZ
 	select LZ4		if SYSTEMD_LZ4
+	select ZSTD		if SYSTEMD_ZSTD
 	select LIBMICROHTTPD	if SYSTEMD_MICROHTTPD
 	select LIBSECCOMP	if SYSTEMD_SECCOMP
 	select LIBSELINUX	if GLOBAL_SELINUX
@@ -132,6 +133,10 @@ config SYSTEMD_XZ
 config SYSTEMD_LZ4
 	bool
 	prompt "LZ4 compressed journal support"
+
+config SYSTEMD_ZSTD
+	bool
+	prompt "ZSTD compressed journal support"
 
 config SYSTEMD_JOURNAL_REMOTE
 	bool

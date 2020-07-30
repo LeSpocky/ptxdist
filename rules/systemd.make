@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 245.6
+SYSTEMD_VERSION		:= 246
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_MD5		:= 1eb3ca8f77978cc52dea6293467211a8
+SYSTEMD_MD5		:= a3e9efa72d0309dd26513a221cdff31b
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -52,6 +52,7 @@ SYSTEMD_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Dacl=$(call ptx/truefalse,PTXCONF_SYSTEMD_UNITS_USER) \
 	-Dadm-group=true \
+	-Danalyze=true \
 	-Dapparmor=false \
 	-Daudit=false \
 	-Dbacklight=false \
@@ -72,7 +73,9 @@ SYSTEMD_CONF_OPT	:= \
 	-Ddefault-dnssec=no \
 	-Ddefault-hierarchy=unified \
 	-Ddefault-kill-user-processes=true \
+	-Ddefault-llmnr=yes \
 	-Ddefault-locale=C \
+	-Ddefault-mdns=yes \
 	-Ddefault-net-naming-scheme=latest \
 	-Ddev-kvm-mode=0660 \
 	-Ddns-over-tls=false \
@@ -83,7 +86,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dfallback-hostname=$(call ptx/ifdef,PTXCONF_ROOTFS_ETC_HOSTNAME,$(PTXCONF_ROOTFS_ETC_HOSTNAME),ptxdist) \
 	-Dfdisk=false \
 	-Dfirstboot=false \
-	-Dfuzzbuzz=false \
+	-Dfuzz-tests=false \
 	-Dgcrypt=false \
 	-Dglib=false \
 	-Dgnutls=false \
@@ -97,13 +100,16 @@ SYSTEMD_CONF_OPT	:= \
 	-Didn=false \
 	-Dima=false \
 	-Dimportd=false \
+	-Dinitrd=false \
 	-Dinstall-tests=false \
+	-Dkernel-install=false \
 	-Dkexec-path=/usr/sbin/kexec \
 	-Dkmod=true \
 	-Dkmod-path=/usr/bin/kmod \
 	-Dldconfig=false \
 	-Dlibcryptsetup=false \
 	-Dlibcurl=false \
+	-Dlibfido2=false \
 	-Dlibidn=false \
 	-Dlibidn2=false \
 	-Dlibiptc=$(call ptx/truefalse,PTXCONF_SYSTEMD_IPMASQUERADE) \
@@ -159,6 +165,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dsplit-usr=false \
 	-Dstatic-libsystemd=false \
 	-Dstatic-libudev=false \
+	-Dstandalone-binaries=false \
 	-Dstatus-unit-format-default=name \
 	-Dsulogin-path=/sbin/sulogin \
 	-Dsupport-url=https://www.ptxdist.org/ \
@@ -182,10 +189,12 @@ SYSTEMD_CONF_OPT	:= \
 	-Dvalgrind=false \
 	-Dvconsole=$(call ptx/truefalse,PTXCONF_SYSTEMD_VCONSOLE) \
 	-Dversion-tag=$(SYSTEMD_VERSION) \
+	-Dxdg-autostart=false \
 	-Dwheel-group=false \
 	-Dxkbcommon=false \
 	-Dxz=$(call ptx/truefalse,PTXCONF_SYSTEMD_XZ) \
-	-Dzlib=false
+	-Dzlib=false \
+	-Dzstd=$(call ptx/truefalse,PTXCONF_SYSTEMD_ZSTD)
 
 # FIXME kernel from systemd README:
 # - devtmpfs, cgroups are mandatory.
@@ -230,7 +239,6 @@ SYSTEMD_HELPER := \
 	systemd-fsck \
 	systemd-growfs \
 	systemd-hostnamed \
-	systemd-initctl \
 	systemd-journald \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_JOURNAL_REMOTE,systemd-journal-remote) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_LOCALES,systemd-localed) \
@@ -255,8 +263,7 @@ SYSTEMD_HELPER := \
 	systemd-udevd \
 	systemd-update-done \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_UNITS_USER,systemd-user-runtime-dir) \
-	$(call ptx/ifdef, PTXCONF_SYSTEMD_VCONSOLE,systemd-vconsole-setup) \
-	systemd-volatile-root
+	$(call ptx/ifdef, PTXCONF_SYSTEMD_VCONSOLE,systemd-vconsole-setup)
 
 SYSTEMD_UDEV_HELPER-y :=
 
