@@ -1,0 +1,8 @@
+## SECTION=multimedia_sound
+
+config WEBRTC_AUDIO_PROCESSING
+	tristate
+	prompt "webrtc-audio-processing"
+	help
+	  Audio processing library (echo-cancellation, gain control etc)
+	  around the AudioProcessing module from the WebRTC project
