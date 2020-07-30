@@ -20,6 +20,7 @@ menuconfig PULSEAUDIO
 	select BLUEZ			if PULSEAUDIO_BLUETOOTH
 	select SPEEXDSP			if PULSEAUDIO_SPEEX
 	select SPEEXDSP_FLOAT_API	if PULSEAUDIO_SPEEX
+	select WEBRTC_AUDIO_PROCESSING	if PULSEAUDIO_WEBRTC_AEC
 	select UDEV
 	select UDEV_LIBUDEV
 	prompt "pulseaudio                    "
@@ -52,5 +53,12 @@ config PULSEAUDIO_SPEEX
 	  The speex based resamplers provide the best cost/quality
 	  trade-off on most platforms. It's recommended to only disable
 	  this when no resampling is required.
+
+config PULSEAUDIO_WEBRTC_AEC
+	bool
+	prompt "WebRTC-based echo canceller"
+	help
+	  Use the WebRTC audio processing library for echo cancellation. It
+	  provides better quality than the builtin 'Adrian' echo canceller.
 
 endif

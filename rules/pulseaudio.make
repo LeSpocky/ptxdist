@@ -44,7 +44,7 @@ PULSEAUDIO_CONF_TOOL	:= meson
 PULSEAUDIO_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Daccess_group=pulse-access \
-	-Dadrian-aec=true \
+	-Dadrian-aec=$(call ptx/falsetrue, PTXCONF_PULSEAUDIO_WEBRTC_AEC) \
 	-Dalsa=enabled \
 	-Dasyncns=disabled \
 	-Datomic-arm-linux-helpers=true \
@@ -82,7 +82,7 @@ PULSEAUDIO_CONF_OPT	:= \
 	-Dtests=false \
 	-Dudev=enabled \
 	-Dudevrulesdir=/lib/udev/rules.d \
-	-Dwebrtc-aec=disabled \
+	-Dwebrtc-aec=$(call ptx/endis, PTXCONF_PULSEAUDIO_WEBRTC_AEC)d \
 	-Dx11=disabled \
 	-Dzshcompletiondir=
 
