@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBELF) += libelf
 #
 # Paths and names
 #
-LIBELF_VERSION	:= 0.176
-LIBELF_MD5	:= 077e4f49320cad82bf17a997068b1db9
+LIBELF_VERSION	:= 0.180
+LIBELF_MD5	:= 23feddb1b3859b03ffdbaf53ba6bd09b
 LIBELF		:= elfutils-$(LIBELF_VERSION)
 LIBELF_SUFFIX	:= tar.bz2
 LIBELF_URL	:= https://sourceware.org/elfutils/ftp/$(LIBELF_VERSION)/$(LIBELF).$(LIBELF_SUFFIX)
@@ -42,11 +42,13 @@ LIBELF_CONF_OPT	:= \
 	--disable-gcov \
 	--disable-sanitize-undefined \
 	--disable-valgrind \
+	--disable-valgrind-annotations \
 	--disable-tests-rpath \
-	--enable-libebl-subdir=elfutils \
 	--enable-textrelcheck \
 	--enable-symbol-versioning \
 	--disable-nls \
+	--disable-debuginfod \
+	--without-valgrind \
 	--with-zlib \
 	--without-bzlib \
 	--without-lzma \
@@ -74,10 +76,6 @@ $(STATEDIR)/libelf.targetinstall:
 
 ifdef PTXCONF_LIBELF_LIBDW
 	@$(call install_lib, libelf, 0, 0, 0644, libdw-$(LIBELF_VERSION))
-	@$(call install_lib, libelf, 0, 0, 0644, \
-		elfutils/libebl_$(LIBELF_ARCH)-$(LIBELF_VERSION))
-	@$(call install_link, libelf, libebl_$(LIBELF_ARCH)-$(LIBELF_VERSION).so, \
-		/usr/lib/elfutils/libebl_$(LIBELF_ARCH).so)
 endif
 
 ifdef PTXCONF_LIBELF_LIBASM

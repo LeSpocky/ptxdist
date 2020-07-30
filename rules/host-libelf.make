@@ -28,11 +28,13 @@ HOST_LIBELF_CONF_OPT	:= \
 	--disable-gcov \
 	--disable-sanitize-undefined \
 	--disable-valgrind \
+	--disable-valgrind-annotations \
 	--disable-tests-rpath \
-	--enable-libebl-subdir=elfutils \
 	--enable-textrelcheck \
 	--enable-symbol-versioning \
 	--disable-nls \
+	--disable-debuginfod \
+	--without-valgrind \
 	--with-zlib \
 	--without-bzlib \
 	--without-lzma \
