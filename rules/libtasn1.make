@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBTASN1) += libtasn1
 #
 # Paths and names
 #
-LIBTASN1_VERSION	:= 4.13
-LIBTASN1_MD5		:= ce2ba4d3088119b48e7531a703669c52
+LIBTASN1_VERSION	:= 4.16.0
+LIBTASN1_MD5		:= 531208de3729d42e2af0a32890f08736
 LIBTASN1		:= libtasn1-$(LIBTASN1_VERSION)
 LIBTASN1_SUFFIX		:= tar.gz
 LIBTASN1_URL		:= $(call ptx/mirror, GNU, libtasn1/$(LIBTASN1).$(LIBTASN1_SUFFIX))
@@ -31,12 +31,12 @@ LIBTASN1_CONF_TOOL := autoconf
 
 LIBTASN1_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-doc \
 	--disable-gtk-doc \
 	--disable-gtk-doc-html \
 	--disable-gtk-doc-pdf \
 	--disable-valgrind-tests \
+	--disable-code-coverage \
 	--disable-gcc-warnings
 
 # ----------------------------------------------------------------------------

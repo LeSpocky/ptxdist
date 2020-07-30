@@ -26,12 +26,12 @@ HOST_LIBTASN1_DIR	= $(HOST_BUILDDIR)/$(LIBTASN1)
 HOST_LIBTASN1_CONF_TOOL	:= autoconf
 HOST_LIBTASN1_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-doc \
 	--disable-gtk-doc \
 	--disable-gtk-doc-html \
 	--disable-gtk-doc-pdf \
 	--disable-valgrind-tests \
+	--disable-code-coverage \
 	--disable-gcc-warnings
 
 # vim: syntax=make
