@@ -6,6 +6,7 @@ menuconfig CHRONY
 	prompt "chrony                        "
 	select LIBC_M
 	select LIBCAP
+	select LIBSECCOMP	if CHRONY_SECCOMP
 	select NETTLE		if CHRONY_USE_NETTLE
 	help
 	  This will install the Chrony NTPD Daemon (chronyd)
@@ -28,6 +29,13 @@ config CHRONY_USE_NETTLE
 	help
 	  Use nettle crypto library for stronger keys than MD5 in
 	  NTP authentication.
+
+config CHRONY_SECCOMP
+	bool
+	default y
+	prompt "Enable seccomp sandboxing"
+	help
+	  Enables seccomp sandboxing to reduce the attack surface.
 
 config CHRONY_ADVANCED_COMMAND
 	bool

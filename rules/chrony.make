@@ -55,7 +55,8 @@ CHRONY_CONF_OPT		:= \
 	--disable-pps \
 	$(call ptx/ifdef, PTXCONF_GLOBAL_IPV6,,--disable-ipv6) \
 	--with-user=chrony \
-	--without-seccomp
+	$(call ptx/ifdef, PTXCONF_CHRONY_SECCOMP,--enable-scfilter,) \
+	$(call ptx/ifdef, PTXCONF_CHRONY_SECCOMP,,--without-seccomp)
 
 # ----------------------------------------------------------------------------
 # Install
