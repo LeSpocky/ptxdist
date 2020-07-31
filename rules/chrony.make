@@ -53,6 +53,7 @@ CHRONY_CONF_OPT		:= \
 	--disable-phc \
 	--disable-pps \
 	$(call ptx/ifdef, PTXCONF_GLOBAL_IPV6,,--disable-ipv6) \
+	--with-user=chrony \
 	--without-seccomp
 
 # ----------------------------------------------------------------------------
