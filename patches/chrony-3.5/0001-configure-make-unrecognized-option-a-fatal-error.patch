@@ -1,0 +1,25 @@
+From: Bruno Thomsen <bruno.thomsen@gmail.com>
+Date: Fri, 31 Jul 2020 09:07:49 +0000
+Subject: [PATCH] configure: make unrecognized option a fatal error
+
+This helps catch cases where options has been removed
+and are no longer valid. Including additional cross-build
+options that cannot be used.
+
+Signed-off-by: Bruno Thomsen <bruno.thomsen@gmail.com>
+---
+ configure | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/configure b/configure
+index 323f5743cd57..080f7bce746d 100755
+--- a/configure
++++ b/configure
+@@ -388,6 +388,7 @@ do
+     ;;
+     * )
+     echo "Unrecognized option : " $option
++    exit 1
+     esac
+ done
+ 
