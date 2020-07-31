@@ -17,7 +17,7 @@ menuconfig CHRONY
 	  to chronyd for monitoring its performance and configuring
 	  various settings.
 
-	  See http://chrony.sunsite.dk/ for details
+	  See https://chrony.tuxfamily.org/ for details.
 
 if CHRONY
 

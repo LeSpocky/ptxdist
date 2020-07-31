@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_CHRONY) += chrony
 #
 # Paths and names
 #
-CHRONY_VERSION	:= 3.3
-CHRONY_MD5	:= 81ab62cf5d60b4b3fa8cd2c1b267ffd9
+CHRONY_VERSION	:= 3.5
+CHRONY_MD5	:= 5f66338bc940a9b51eede8f391e7bed3
 CHRONY		:= chrony-$(CHRONY_VERSION)
 CHRONY_SUFFIX	:= tar.gz
 CHRONY_URL	:= http://download.tuxfamily.org/chrony/$(CHRONY).$(CHRONY_SUFFIX)
@@ -32,11 +32,16 @@ CHRONY_LICENSE_FILES	:= \
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# Chony is using a handcrafted configure script so normal ptx/endis
+# and ptx/wwo are broken and causes "Unrecognized option".
+# CROSS_AUTOCONF_USR is not used as that adds 3 unrecognized options:
+# --libdir=, --build=, --host=
 #
 CHRONY_CONF_TOOL	:= autoconf
 CHRONY_CONF_OPT		:= \
-	$(CROSS_AUTOCONF_USR) \
+	--localstatedir=/var \
+	--prefix=/usr \
+	--sysconfdir=/etc \
 	--disable-readline \
 	--without-editline \
 	--disable-sechash \
@@ -44,7 +49,6 @@ CHRONY_CONF_OPT		:= \
 	--without-nss \
 	--without-tomcrypt \
 	--disable-cmdmon \
-	--disable-ntp \
 	--disable-refclock \
 	--disable-phc \
 	--disable-pps \
