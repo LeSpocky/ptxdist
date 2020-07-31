@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_UTIL_LINUX_NG) += util-linux-ng
 #
 # Paths and names
 #
-UTIL_LINUX_NG_VERSION	:= 2.35.2
-UTIL_LINUX_NG_MD5	:= 248a4d0810c9193e0e9a4bb3f26b93d8
+UTIL_LINUX_NG_VERSION	:= 2.36
+UTIL_LINUX_NG_MD5	:= fe7c0f7e439f08970e462c9d44599903
 UTIL_LINUX_NG		:= util-linux-$(UTIL_LINUX_NG_VERSION)
 UTIL_LINUX_NG_SUFFIX	:= tar.xz
 UTIL_LINUX_NG_BASENAME	:= v$(call ptx/sh, echo $(UTIL_LINUX_NG_VERSION) | sed -e 's/\([0-9]*\.[0-9]*\)[^0-9].*\?/\1/g')
@@ -50,7 +50,9 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--bindir=/usr/bin \
 	--sbindir=/usr/sbin \
+	--disable-werror \
 	--disable-asan \
+	--disable-ubsan \
 	--enable-shared \
 	--disable-static \
 	--enable-symvers \
@@ -101,6 +103,8 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_CHMEM)-chmem \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_IPCRM)-ipcrm \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_IPCS)-ipcs \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_IRQTOP)-irqtop \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_LSIRQ)-lsirq \
 	--disable-rfkill \
 	--disable-tunelp \
 	--disable-kill \
@@ -151,12 +155,14 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--without-readline \
 	--without-utempter \
 	--without-cap-ng \
+	--without-libmagic \
 	--without-libz \
 	--without-user \
 	--without-btrfs \
 	--without-systemd \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
 	--without-smack \
+	--without-econf \
 	--without-python
 
 # ----------------------------------------------------------------------------
@@ -254,6 +260,12 @@ ifdef PTXCONF_UTIL_LINUX_NG_FSTRIM
 endif
 ifdef PTXCONF_UTIL_LINUX_NG_IPCS
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/ipcs)
+endif
+ifdef PTXCONF_UTIL_LINUX_NG_IRQTOP
+	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/irqtop)
+endif
+ifdef PTXCONF_UTIL_LINUX_NG_LSIRQ
+	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/lsirq)
 endif
 ifdef PTXCONF_UTIL_LINUX_NG_IPCRM
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/bin/ipcrm)

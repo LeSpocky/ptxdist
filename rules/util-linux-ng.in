@@ -279,6 +279,20 @@ config UTIL_LINUX_NG_IPCS
 	  ipcs provides information on the ipc facilities
 	  for which the calling process has read access.
 
+config UTIL_LINUX_NG_IRQTOP
+	bool
+	select UTIL_LINUX_NG_USES_NCURSES
+	prompt "irqtop"
+	help
+	  irqtop is a tool to observe irqs and softirqs in
+          a top like fashion.
+
+config UTIL_LINUX_NG_LSIRQ
+	bool
+	prompt "lsirq"
+	help
+	  lsirq is a tool to list kernel interrupt information.
+
 comment "BusyBox' ipcs is selected!"
 	depends on BUSYBOX_IPCS
 
