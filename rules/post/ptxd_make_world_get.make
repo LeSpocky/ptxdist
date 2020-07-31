@@ -22,13 +22,6 @@ $(call remove_quotes, $(PTXCONF_PROJECT_DEVPKGDIR))/%-dev.tar.gz:
 endif
 
 #
-# dummy rules to detect version changes: .get depends on
-# <pkg>.<tarball-filename>.stamp for all <PKG>_SOURCES
-#
-$(STATEDIR)/%.stamp:
-	@touch $@
-
-#
 # Use the current package for the primary source file.
 # This avoids strange effects when multiple packages share a source file.
 # For anything else $($(src)) is special and must be used.

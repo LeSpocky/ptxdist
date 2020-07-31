@@ -276,7 +276,6 @@ endif
 
 	@$(call install_finish, rootfs)
 
-	@echo "$(ROOTFS_STAMP)" > $(STATEDIR)/rootfs.stamp
 	@$(call touch)
 
 # vim: syntax=make

@@ -447,8 +447,6 @@ function write_deps_pkg_active(this_PKG, this_pkg, prefix) {
 	#
 	# default deps
 	#
-	print "$(foreach src,$(" this_PKG "_SOURCES)," \
-		"$(eval $(STATEDIR)/" this_pkg ".get:"      "$(STATEDIR)/" this_pkg ".$(notdir $(src)).stamp))"	> DGEN_DEPS_POST;
 	if (DIRTY != "true") {
 		print "ifeq ($(" this_PKG "_EXTRACT_CFGHASH),)"							> DGEN_DEPS_POST;
 		print this_PKG "_EXTRACT_CFGHASH := 00000000000000000000000000000000"				> DGEN_DEPS_POST;

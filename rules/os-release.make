@@ -63,7 +63,6 @@ $(STATEDIR)/os-release.targetinstall:
 
 	@$(call install_finish,os-release)
 
-	@echo "$(OS_RELEASE_STAMP)" > $(STATEDIR)/os-release.stamp
 	@$(call touch)
 
 # vim: syntax=make
