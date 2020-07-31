@@ -56,6 +56,17 @@ CHRONY_CONF_OPT		:= \
 	--without-seccomp
 
 # ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/chrony.install:
+	@$(call targetinfo)
+	@$(call world/install, CHRONY)
+	@install -D -m 644 $(CHRONY_DIR)/examples/chronyd.service \
+		$(CHRONY_PKGDIR)/usr/lib/systemd/system/chronyd.service
+	@$(call touch)
+
+# ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
 
@@ -111,6 +122,13 @@ ifneq ($(call remove_quotes, $(PTXCONF_CHRONY_BBINIT_LINK)),)
 endif
 endif
 endif
+
+ifdef PTXCONF_CHRONY_SYSTEMD_UNIT
+	@$(call install_alternative, chrony, 0, 0, 0644, /usr/lib/systemd/system/chronyd.service)
+	@$(call install_link, chrony, ../chronyd.service, \
+		/usr/lib/systemd/system/multi-user.target.wants/chronyd.service)
+endif
+
 	@$(call install_finish, chrony)
 
 	@$(call touch)
