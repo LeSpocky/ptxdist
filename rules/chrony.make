@@ -48,7 +48,8 @@ CHRONY_CONF_OPT		:= \
 	$(call ptx/ifdef, PTXCONF_CHRONY_USE_NETTLE,,--without-nettle) \
 	--without-nss \
 	--without-tomcrypt \
-	--disable-cmdmon \
+	$(call ptx/ifdef, PTXCONF_CHRONY_ADVANCED_COMMAND,,--disable-cmdmon) \
+	$(call ptx/ifdef, PTXCONF_CHRONY_ADVANCED_COMMAND,--enable-debug,) \
 	--disable-refclock \
 	--disable-phc \
 	--disable-pps \

@@ -29,6 +29,13 @@ config CHRONY_USE_NETTLE
 	  Use nettle crypto library for stronger keys than MD5 in
 	  NTP authentication.
 
+config CHRONY_ADVANCED_COMMAND
+	bool
+	prompt "Enable advanced monitoring command"
+	help
+	  This allows getting advanced NTP time synchronization
+	  status monitoring from the service.
+
 comment "install options   ---"
 
 config CHRONY_INSTALL_CHRONY_COMMAND
