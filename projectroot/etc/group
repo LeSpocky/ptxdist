@@ -31,4 +31,5 @@ systemd-journal-remote:x:203:
 systemd-journal-upload:x:208:
 render:x:209:
 pulse:x:210:
+chrony:x:211:
 nogroup:x:65534:
