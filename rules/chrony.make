@@ -44,8 +44,8 @@ CHRONY_CONF_OPT		:= \
 	--sysconfdir=/etc \
 	--disable-readline \
 	--without-editline \
-	--disable-sechash \
-	--without-nettle \
+	$(call ptx/ifdef, PTXCONF_CHRONY_USE_NETTLE,,--disable-sechash) \
+	$(call ptx/ifdef, PTXCONF_CHRONY_USE_NETTLE,,--without-nettle) \
 	--without-nss \
 	--without-tomcrypt \
 	--disable-cmdmon \
