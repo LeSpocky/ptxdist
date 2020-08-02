@@ -34,4 +34,7 @@ HOST_LIBTASN1_CONF_OPT	:= \
 	--disable-code-coverage \
 	--disable-gcc-warnings
 
+# Needed for old compilers that default to c90
+HOST_LIBTASN1_CFLAGS := -std=c99
+
 # vim: syntax=make
