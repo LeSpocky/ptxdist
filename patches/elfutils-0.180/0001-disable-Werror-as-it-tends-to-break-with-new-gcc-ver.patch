@@ -1,10 +1,10 @@
 From: Helmut Grohne <helmut@subdivi.de>
-Date: Thu, 30 Jul 2020 20:37:12 +0200
+Date: Sun, 2 Aug 2020 09:48:45 +0200
 Subject: [PATCH] disable -Werror as it tends to break with new gcc versions
 
-Patch imported from debian 0.180-1.
+Imported from elfutils_0.180-1.debian.tar.xz
 
-Signed-off-by: Robert Schwebel <r.schwebel@pengutronix.de>
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
  config/eu.am | 2 --
  1 file changed, 2 deletions(-)
