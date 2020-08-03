@@ -260,6 +260,14 @@ menu "install options"
 		  queries with a format that is substantially easier to
 		  parse than the NMEA 0183 emitted by most GPS receivers.
 
+	config GPSD_GPSDCTL
+		bool
+		prompt "gpsdctl"
+		help
+		  gpsdctl is a tool for sending commands to an instance of
+		  gpsd over its control socket to add or remove devices from
+		  the daemon's device list.
+
 	config GPSD_SYSTEMD_UNIT
 		bool
 		default y

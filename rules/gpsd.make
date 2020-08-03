@@ -43,7 +43,8 @@ GPSD_PROGS-$(PTXCONF_GPSD_GPSMON)	+= gpsmon
 GPSD_PROGS-$(PTXCONF_GPSD_NTPSHMMON)	+= ntpshmmon
 GPSD_PROGS-$(PTXCONF_GPSD_PPSCHECK)	+= ppscheck
 
-GPSD_BUILD_CLIENTS := $(if $(strip $(GPSD_PROGS-y)),yes,no)
+GPSD_BUILD_CLIENTS := $(call ptx/ifdef, PTXCONF_GPSD_GPSDCTL, yes, \
+			$(if $(strip $(GPSD_PROGS-y)), yes, no))
 
 # Python programs
 GPSD_PROGS-$(PTXCONF_GPSD_GEGPS)	+= gegps
@@ -160,6 +161,9 @@ $(STATEDIR)/gpsd.targetinstall:
 ifdef PTXCONF_GPSD_GPSD
 	@$(call install_copy, gpsd, 0, 0, 0755, -, /usr/sbin/gpsd)
 endif
+ifdef PTXCONF_GPSD_GPSDCTL
+	@$(call install_copy, gpsd, 0, 0, 0755, -, /usr/sbin/gpsdctl)
+endif
 ifdef PTXCONF_GPSD_SYSTEMD_UNIT
 	@$(call install_alternative, gpsd, 0, 0, 644, \
 		/usr/lib/systemd/system/gpsd.service)
@@ -172,7 +176,7 @@ ifdef PTXCONF_GPSD_SYSTEMD_UNIT
 		/usr/lib/systemd/system/gpsd.socket)
 	@$(call install_link, gpsd, ../gpsd.socket, \
 		/usr/lib/systemd/system/sockets.target.wants/gpsd.socket)
-ifdef PTXCONF_GPSD_GPSCTL
+ifdef PTXCONF_GPSD_GPSDCTL
 	@$(call install_alternative, gpsd, 0, 0, 644, \
 		/usr/lib/systemd/system/gpsdctl@.service)
 endif

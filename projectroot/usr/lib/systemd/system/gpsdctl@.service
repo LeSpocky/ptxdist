@@ -8,5 +8,5 @@ After=dev-%i.device
 Type=oneshot
 Environment="GPSD_SOCKET=/var/run/gpsd.sock"
 RemainAfterExit=yes
-ExecStart=/usr/bin/gpsdctl add /dev/%I
-ExecStop=/usr/bin/gpsdctl remove /dev/%I
+ExecStart=/usr/sbin/gpsdctl add /dev/%I
+ExecStop=/usr/sbin/gpsdctl remove /dev/%I
