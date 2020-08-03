@@ -1,0 +1,33 @@
+## SECTION=multimedia_libs
+
+config VULKAN_TOOLS
+	tristate
+	prompt "vulkan-tools"
+	select HOST_CMAKE
+	select HOST_GLSLANG
+	select VULKAN_LOADER
+	select LIBXCB		if VULKAN_TOOLS_XCB
+	select XORG_LIB_X11	if VULKAN_TOOLS_XCB
+	select WAYLAND		if VULKAN_TOOLS_WAYLAND
+	help
+	  Vulkan Utilities and Tools
+
+if VULKAN_TOOLS
+
+config VULKAN_TOOLS_CUBE
+	bool
+	# build system does not allow cross-compilation of the cube examples
+	depends on BROKEN
+	prompt "install vkcube"
+	help
+	  Install vkcube and vkcubepp examples.
+
+config VULKAN_TOOLS_XCB
+        bool
+        default y if VULKAN_LOADER_XCB
+
+config VULKAN_TOOLS_WAYLAND
+        bool
+        default y if VULKAN_LOADER_WAYLAND
+
+endif
