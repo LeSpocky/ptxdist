@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_GLSLANG) += glslang
 #
 # Paths and names
 #
-GLSLANG_VERSION		:= 2020-05-27-ge00d27c6d65b
-GLSLANG_MD5		:= 88f06a4835895a46fa073035084b0f48
+GLSLANG_VERSION		:= 2020-07-23-g3ee5f2f1d331
+GLSLANG_MD5		:= 63686ec05a51d7c8c80fff79277924a7
 GLSLANG			:= glslang-$(GLSLANG_VERSION)
 GLSLANG_SUFFIX		:= tar.gz
 GLSLANG_URL		:= https://github.com/KhronosGroup/glslang/archive/$(GLSLANG_VERSION).$(GLSLANG_SUFFIX)
 GLSLANG_SOURCE		:= $(SRCDIR)/$(GLSLANG).$(GLSLANG_SUFFIX)
 GLSLANG_DIR		:= $(BUILDDIR)/$(GLSLANG)
-GLSLANG_LICENSE		:= BSD-3-clause AND MIT AND Apple-MIT-License
-GLSLANG_LICENSE_FILES := file://LICENSE.txt;md5=918e668376010a04448a312fb37ae69b
+GLSLANG_LICENSE		:= BSD-3-clause AND BSD-2-clause AND MIT AND Apple-MIT-License AND Apache-2.0 AND (GPL-3.0-or-later WITH Bison-exception-2.2)
+GLSLANG_LICENSE_FILES := file://LICENSE.txt;md5=c5ce49c0456e9b413b98a4368c378229
 
 # ----------------------------------------------------------------------------
 # Prepare

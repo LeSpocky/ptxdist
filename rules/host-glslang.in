@@ -4,3 +4,4 @@ config HOST_GLSLANG
 	tristate
 	default y if ALLYES
 	select HOST_CMAKE
+	select HOST_SYSTEM_PYTHON3
