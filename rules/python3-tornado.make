@@ -40,7 +40,7 @@ $(STATEDIR)/python3-tornado.targetinstall:
 	@$(call install_fixup,python3-tornado,DESCRIPTION,missing)
 
 	@$(call install_glob, python3-tornado, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/tornado,, *.py)
+		$(PYTHON3_SITEPACKAGES)/tornado,, *.py)
 
 	@$(call install_finish,python3-tornado)
 

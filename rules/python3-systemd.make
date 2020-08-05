@@ -43,7 +43,7 @@ $(STATEDIR)/python3-systemd.targetinstall:
 	@$(call install_fixup, python3-systemd,DESCRIPTION,missing)
 
 	@$(call install_glob, python3-systemd, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/systemd,, *.py)
+		$(PYTHON3_SITEPACKAGES)/systemd,, *.py)
 
 	@$(call install_finish, python3-systemd)
 

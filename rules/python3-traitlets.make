@@ -42,7 +42,7 @@ $(STATEDIR)/python3-traitlets.targetinstall:
 	@$(call install_fixup, python3-traitlets, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-traitlets, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/traitlets,, *.py)
+		$(PYTHON3_SITEPACKAGES)/traitlets,, *.py)
 
 	@$(call install_finish, python3-traitlets)
 

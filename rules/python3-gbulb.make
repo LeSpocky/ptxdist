@@ -44,7 +44,7 @@ $(STATEDIR)/python3-gbulb.targetinstall:
 		"A Python library that implements a PEP 3156 interface for the GLib main event loop.")
 
 	@$(call install_glob, python3-gbulb, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/gbulb,, *.py)
+		$(PYTHON3_SITEPACKAGES)/gbulb,, *.py)
 
 	@$(call install_finish, python3-gbulb)
 

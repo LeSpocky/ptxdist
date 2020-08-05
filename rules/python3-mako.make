@@ -43,7 +43,7 @@ $(STATEDIR)/python3-mako.targetinstall:
 	@$(call install_fixup, python3-mako,DESCRIPTION,missing)
 
 	@$(call install_glob, python3-mako, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/mako,, *.py)
+		$(PYTHON3_SITEPACKAGES)/mako,, *.py)
 
 	@$(call install_finish, python3-mako)
 

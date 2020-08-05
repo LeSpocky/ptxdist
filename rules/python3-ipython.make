@@ -55,7 +55,7 @@ $(STATEDIR)/python3-ipython.targetinstall:
 
 #	# We have to install the source code to avoid python3 error: "OSError: could not get source code"
 	@$(call install_glob, python3-ipython, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/IPython,, *.pyc)
+		$(PYTHON3_SITEPACKAGES)/IPython,, *.pyc)
 
 	@$(call install_copy, python3-ipython, 0, 0, 0755, -, /usr/bin/ipython3)
 

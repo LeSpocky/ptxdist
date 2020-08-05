@@ -43,7 +43,7 @@ $(STATEDIR)/python3-async-timeout.targetinstall:
 	@$(call install_fixup, python3-async-timeout, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-async-timeout, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/async_timeout,, *.py)
+		$(PYTHON3_SITEPACKAGES)/async_timeout,, *.py)
 
 	@$(call install_finish, python3-async-timeout)
 

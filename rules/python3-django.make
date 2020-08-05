@@ -33,7 +33,7 @@ PYTHON3_DJANGO_CONF_TOOL	:= python3
 # Target-Install
 # ----------------------------------------------------------------------------
 
-PYTHON3_DJANGO_PYTHON_PATH = /usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/django
+PYTHON3_DJANGO_PYTHON_PATH = $(PYTHON3_SITEPACKAGES)/django
 
 $(STATEDIR)/python3-django.targetinstall:
 	@$(call targetinfo)

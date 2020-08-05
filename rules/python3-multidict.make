@@ -43,7 +43,7 @@ $(STATEDIR)/python3-multidict.targetinstall:
 	@$(call install_fixup, python3-multidict, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-multidict, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/multidict,, *.py)
+		$(PYTHON3_SITEPACKAGES)/multidict,, *.py)
 
 	@$(call install_finish, python3-multidict)
 

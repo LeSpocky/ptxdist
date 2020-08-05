@@ -43,7 +43,7 @@ $(STATEDIR)/python3-hbmqtt.targetinstall:
 	@$(call install_fixup, python3-hbmqtt, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-hbmqtt, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/hbmqtt,, *.py)
+		$(PYTHON3_SITEPACKAGES)/hbmqtt,, *.py)
 
 	@$(call install_finish, python3-hbmqtt)
 

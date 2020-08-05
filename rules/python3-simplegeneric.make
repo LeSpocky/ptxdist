@@ -43,7 +43,7 @@ $(STATEDIR)/python3-simplegeneric.targetinstall:
 	@$(call install_fixup, python3-simplegeneric, DESCRIPTION, missing)
 
 	@$(call install_copy, python3-simplegeneric, 0, 0, 0644, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/simplegeneric.pyc)
+		$(PYTHON3_SITEPACKAGES)/simplegeneric.pyc)
 
 	@$(call install_finish, python3-simplegeneric)
 

@@ -43,7 +43,7 @@ $(STATEDIR)/python3-aiofiles.targetinstall:
 	@$(call install_fixup, python3-aiofiles, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-aiofiles, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/aiofiles,, *.py)
+		$(PYTHON3_SITEPACKAGES)/aiofiles,, *.py)
 
 	@$(call install_finish, python3-aiofiles)
 

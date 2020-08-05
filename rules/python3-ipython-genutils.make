@@ -43,7 +43,7 @@ $(STATEDIR)/python3-ipython-genutils.targetinstall:
 	@$(call install_fixup, python3-ipython-genutils, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-ipython-genutils, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/ipython_genutils,, *.py)
+		$(PYTHON3_SITEPACKAGES)/ipython_genutils,, *.py)
 
 	@$(call install_finish, python3-ipython-genutils)
 

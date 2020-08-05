@@ -43,7 +43,7 @@ $(STATEDIR)/python3-aiohttp-json-rpc.targetinstall:
 	@$(call install_fixup, python3-aiohttp-json-rpc, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-aiohttp-json-rpc, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/aiohttp_json_rpc,, *.py)
+		$(PYTHON3_SITEPACKAGES)/aiohttp_json_rpc,, *.py)
 
 	@$(call install_finish, python3-aiohttp-json-rpc)
 

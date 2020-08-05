@@ -43,7 +43,7 @@ $(STATEDIR)/python3-transitions.targetinstall:
 	@$(call install_fixup, python3-transitions, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-transitions, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/transitions,, *.py)
+		$(PYTHON3_SITEPACKAGES)/transitions,, *.py)
 
 	@$(call install_finish, python3-transitions)
 

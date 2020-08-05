@@ -43,7 +43,7 @@ $(STATEDIR)/python3-decorator.targetinstall:
 	@$(call install_fixup, python3-decorator, DESCRIPTION, missing)
 
 	@$(call install_copy, python3-decorator, 0, 0, 0644, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/decorator.pyc)
+		$(PYTHON3_SITEPACKAGES)/decorator.pyc)
 
 	@$(call install_finish, python3-decorator)
 

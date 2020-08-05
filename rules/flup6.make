@@ -48,7 +48,7 @@ $(STATEDIR)/flup6.targetinstall:
 	@$(call install_copy, flup6, 0, 0, 0755, $(PYTHON_SITEPACKAGES)/flup6/server)
 
 	@$(call install_glob, flup6, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/flup,, *.py)
+		$(PYTHON3_SITEPACKAGES)/flup,, *.py)
 
 	@$(call install_finish, flup6)
 

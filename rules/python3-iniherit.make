@@ -45,7 +45,7 @@ $(STATEDIR)/python3-iniherit.targetinstall:
 	@$(call install_fixup, python3-iniherit,DESCRIPTION,missing)
 
 	@$(call install_glob,python3-iniherit, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages,*.pyc,)
+		$(PYTHON3_SITEPACKAGES),*.pyc,)
 
 	@$(call install_finish, python3-iniherit)
 

@@ -40,7 +40,7 @@ $(STATEDIR)/python3-lxml.targetinstall:
 	@$(call install_fixup,python3-lxml,DESCRIPTION,missing)
 
 	@$(call install_glob, python3-lxml, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/lxml,, *.py)
+		$(PYTHON3_SITEPACKAGES)/lxml,, *.py)
 
 	@$(call install_finish,python3-lxml)
 

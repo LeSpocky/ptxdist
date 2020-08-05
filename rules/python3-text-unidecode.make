@@ -45,7 +45,7 @@ $(STATEDIR)/python3-text-unidecode.targetinstall:
 	@$(call install_fixup, python3-text-unidecode,DESCRIPTION,missing)
 
 	@$(call install_glob,python3-text-unidecode, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages,*.pyc *.bin, )
+		$(PYTHON3_SITEPACKAGES),*.pyc *.bin, )
 
 	@$(call install_finish, python3-text-unidecode)
 

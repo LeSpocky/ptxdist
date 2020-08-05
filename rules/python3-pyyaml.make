@@ -43,7 +43,7 @@ $(STATEDIR)/python3-pyyaml.targetinstall:
 	@$(call install_fixup, python3-pyyaml, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-pyyaml, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/yaml,, *.py)
+		$(PYTHON3_SITEPACKAGES)/yaml,, *.py)
 
 	@$(call install_finish, python3-pyyaml)
 

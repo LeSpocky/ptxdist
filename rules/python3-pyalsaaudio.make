@@ -43,7 +43,7 @@ $(STATEDIR)/python3-pyalsaaudio.targetinstall:
 	@$(call install_fixup, python3-pyalsaaudio, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-pyalsaaudio, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages,*/alsaaudio*.so)
+		$(PYTHON3_SITEPACKAGES),*/alsaaudio*.so)
 
 	@$(call install_finish, python3-pyalsaaudio)
 

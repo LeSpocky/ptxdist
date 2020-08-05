@@ -45,7 +45,7 @@ $(STATEDIR)/python3-importlib-metadata.targetinstall:
 	@$(call install_fixup, python3-importlib-metadata, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-importlib-metadata, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages,, *.py)
+		$(PYTHON3_SITEPACKAGES),, *.py)
 
 	@$(call install_finish, python3-importlib-metadata)
 

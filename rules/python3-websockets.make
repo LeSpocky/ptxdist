@@ -43,7 +43,7 @@ $(STATEDIR)/python3-websockets.targetinstall:
 	@$(call install_fixup, python3-websockets, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-websockets, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/websockets,, *.py)
+		$(PYTHON3_SITEPACKAGES)/websockets,, *.py)
 
 	@$(call install_finish, python3-websockets)
 

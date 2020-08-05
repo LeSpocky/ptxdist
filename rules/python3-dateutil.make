@@ -40,7 +40,7 @@ $(STATEDIR)/python3-dateutil.targetinstall:
 	@$(call install_fixup,python3-dateutil,DESCRIPTION,missing)
 
 	@$(call install_glob, python3-dateutil, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/dateutil,, *.py)
+		$(PYTHON3_SITEPACKAGES)/dateutil,, *.py)
 
 	@$(call install_finish,python3-dateutil)
 

@@ -43,7 +43,7 @@ $(STATEDIR)/python3-msgpack.targetinstall:
 	@$(call install_fixup, python3-msgpack, DESCRIPTION, It`s like JSON. But fast and small.)
 
 	@$(call install_glob, python3-msgpack, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/msgpack,, *.py)
+		$(PYTHON3_SITEPACKAGES)/msgpack,, *.py)
 
 	@$(call install_finish, python3-msgpack)
 

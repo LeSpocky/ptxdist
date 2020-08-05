@@ -43,7 +43,7 @@ $(STATEDIR)/python3-aiohttp.targetinstall:
 	@$(call install_fixup, python3-aiohttp,DESCRIPTION,missing)
 
 	@$(call install_glob, python3-aiohttp, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/aiohttp,, *.py)
+		$(PYTHON3_SITEPACKAGES)/aiohttp,, *.py)
 
 	@$(call install_finish, python3-aiohttp)
 

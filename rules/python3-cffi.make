@@ -45,7 +45,7 @@ $(STATEDIR)/python3-cffi.targetinstall:
 	@$(call install_fixup, python3-cffi, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-cffi, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/cffi,, *.py *.h)
+		$(PYTHON3_SITEPACKAGES)/cffi,, *.py *.h)
 
 	@$(call install_lib, python3-cffi, 0, 0, 0644, python$(PYTHON3_MAJORMINOR)/site-packages/_cffi_backend.cpython*)
 

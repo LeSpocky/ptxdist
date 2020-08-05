@@ -56,7 +56,7 @@ $(STATEDIR)/python3-pytest.targetinstall:
 	@$(call install_fixup, python3-pytest, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-pytest, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/,, *.py)
+		$(PYTHON3_SITEPACKAGES)/,, *.py)
 	@$(call install_copy, python3-pytest, 0, 0, 0755, -, /usr/bin/pytest)
 	@$(call install_link, python3-pytest, pytest, /usr/bin/py.test)
 

@@ -61,7 +61,7 @@ $(STATEDIR)/gst-python1.targetinstall:
 	@$(call install_fixup, gst-python1,DESCRIPTION,missing)
 
 	@$(call install_glob, gst-python1, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/gi,, *.py *.la)
+		$(PYTHON3_SITEPACKAGES)/gi,, *.py *.la)
 
 	@$(call install_lib, gst-python1, 0, 0, 0644, gstreamer-1.0/libgstpython*)
 

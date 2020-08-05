@@ -43,7 +43,7 @@ $(STATEDIR)/python3-ptyprocess.targetinstall:
 	@$(call install_fixup, python3-ptyprocess, DESCRIPTION, missing)
 
 	@$(call install_glob, python3-ptyprocess, 0, 0, -, \
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/ptyprocess,, *.py)
+		$(PYTHON3_SITEPACKAGES)/ptyprocess,, *.py)
 
 	@$(call install_finish, python3-ptyprocess)
 

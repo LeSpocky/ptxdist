@@ -33,7 +33,7 @@ PYTHON3_AIOHTTP_WSGI_CONF_TOOL := python3
 # Target-Install
 # ----------------------------------------------------------------------------
 
-PYTHON3_AIOHTTP_WSGI_PYTHON_PATH = /usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/aiohttp_wsgi
+PYTHON3_AIOHTTP_WSGI_PYTHON_PATH = $(PYTHON3_SITEPACKAGES)/aiohttp_wsgi
 
 $(STATEDIR)/python3-aiohttp-wsgi.targetinstall:
 	@$(call targetinfo)

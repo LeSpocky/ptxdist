@@ -51,7 +51,7 @@ $(STATEDIR)/python3-pyside.targetinstall:
 	@$(call install_lib, python3-pyside, 0, 0, 0644, \
 		libpyside.cpython-*)
 	@$(call install_tree, python3-pyside, 0, 0, -,\
-		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/PySide)
+		$(PYTHON3_SITEPACKAGES)/PySide)
 
 	@$(call install_finish, python3-pyside)
 
