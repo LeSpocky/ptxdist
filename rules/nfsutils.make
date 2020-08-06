@@ -78,6 +78,7 @@ $(STATEDIR)/nfsutils.targetinstall:
 
 	@$(call install_copy, nfsutils, 0, 0, 0755, -, /usr/sbin/nfsstat)
 	@$(call install_copy, nfsutils, 0, 0, 0755, -, /usr/sbin/showmount)
+	@$(call install_copy, nfsutils, 0, 0, 0755, -, /usr/sbin/rpcdebug)
 
 	@$(call install_copy, nfsutils, 0, 0, 0755, -, /usr/sbin/rpc.statd)
 	@$(call install_copy, nfsutils, 0, 0, 0755, -, /usr/sbin/start-statd)
