@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/mesonbuild/build.py b/mesonbuild/build.py
-index 0eb930bea0fb..8e50d67ee133 100644
+index d7f3b66c461d..83acf43db508 100644
 --- a/mesonbuild/build.py
 +++ b/mesonbuild/build.py
-@@ -792,7 +792,8 @@ class BuildTarget(Target):
+@@ -819,7 +819,8 @@ class BuildTarget(Target):
      def get_link_dep_subdirs(self):
          result = OrderedSet()
          for i in self.link_targets:

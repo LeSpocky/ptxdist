@@ -1,0 +1,55 @@
+From: Eli Schwartz <eschwartz@archlinux.org>
+Date: Thu, 6 Aug 2020 19:55:58 -0400
+Subject: [PATCH] qt dependency: do not require all the tools automatically
+
+The compilers_detect function is only used in the qt module, which
+checks every time before using a specific compiler, if it is found.
+
+e.g.
+
+  meson.build:10:6: ERROR: MOC sources specified and couldn't find moc-qt5, please check your qt5 installation
+
+In fact, the current check means we never even hit this error to begin
+with, because we previously died on the uninformative error:
+
+  meson.build:10:6: ERROR: Program(s) ['moc'] not found or not executable
+
+which doesn't actually tell the user why this matters, and is all around
+a waste of time.
+
+Fixes #5582
+---
+ mesonbuild/dependencies/ui.py | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/mesonbuild/dependencies/ui.py b/mesonbuild/dependencies/ui.py
+index 95dfe2b93bb4..5dffd3a407ad 100644
+--- a/mesonbuild/dependencies/ui.py
++++ b/mesonbuild/dependencies/ui.py
+@@ -234,13 +234,13 @@ class QtBaseDependency(ExternalDependency):
+         def gen_bins():
+             for b in bins:
+                 if self.bindir:
+-                    yield os.path.join(self.bindir, b), b, False
++                    yield os.path.join(self.bindir, b), b
+                 # prefer the <tool>-qt<version> of the tool to the plain one, as we
+                 # don't know what the unsuffixed one points to without calling it.
+-                yield '{}-{}'.format(b, self.name), b, False
+-                yield b, b, self.required if b != 'lrelease' else False
++                yield '{}-{}'.format(b, self.name), b
++                yield b, b
+ 
+-        for b, name, required in gen_bins():
++        for b, name in gen_bins():
+             if found[name].found():
+                 continue
+ 
+@@ -260,7 +260,7 @@ class QtBaseDependency(ExternalDependency):
+                     care = err
+                 return care.split(' ')[-1].replace(')', '')
+ 
+-            p = interp_obj.find_program_impl([b], required=required,
++            p = interp_obj.find_program_impl([b], required=False,
+                                              version_func=get_version,
+                                              wanted=wanted).held_object
+             if p.found():
