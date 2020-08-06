@@ -77,7 +77,7 @@ KERNEL_SHARED_OPT := \
 ifndef PTXCONF_KERNEL_GCC_PLUGINS
 # no gcc plugins; avoid config changes depending on the host compiler
 KERNEL_SHARED_OPT += \
-	HOSTCXX="$(HOSTXX) -DGENERATOR_FILE" \
+	HOSTCXX="$(HOSTCXX) -DGENERATOR_FILE" \
 	HOSTCC="$(HOSTCC) -DGENERATOR_FILE"
 endif
 

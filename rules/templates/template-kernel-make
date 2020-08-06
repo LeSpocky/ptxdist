@@ -43,7 +43,7 @@ KERNEL_@PACKAGE@_SHARED_OPT	:= \
 
 # no gcc plugins; avoid config changes depending on the host compiler
 KERNEL_@PACKAGE@_SHARED_OPT	+= \
-	HOSTCXX="$(HOSTXX) -DGENERATOR_FILE" \
+	HOSTCXX="$(HOSTCXX) -DGENERATOR_FILE" \
 	HOSTCC="$(HOSTCC) -DGENERATOR_FILE"
 
 KERNEL_@PACKAGE@_CONF_OPT	:= \
