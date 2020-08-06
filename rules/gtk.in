@@ -4,9 +4,7 @@ menuconfig GTK
 	tristate
 	prompt "gtk+                          "
 
-	# for autogen.sh
-	select HOST_GETTEXT
-	select HOST_GOBJECT_INTROSPECTION
+	select HOST_MESON
 
 	# core dependencies
 	select ATK
@@ -22,17 +20,18 @@ menuconfig GTK
 	select PANGO
 
 	# disabling xkb is broken
-	select GTK_XKB			if GTK_X11
 	select XORG_LIB_XI		if GTK_X11
 
-	select XORG_LIB_X11		if GTK_XKB
-	select XORG_LIB_X11_XKB		if GTK_XKB
-	select XORG_LIB_XEXT		if GTK_XKB
+	select XORG_LIB_X11		if GTK_X11
+	select XORG_LIB_X11_XKB		if GTK_X11
+	select XORG_LIB_XEXT		if GTK_X11
+	select XORG_LIB_XRANDR		if GTK_X11
+	select XORG_LIB_XRENDER		if GTK_X11
 	select XORG_LIB_XCOMPOSITE	if GTK_XCOMPOSITE
 	select XORG_LIB_XDAMAGE		if GTK_XDAMAGE
 	select XORG_LIB_XFIXES		if GTK_XFIXES
+	select XORG_LIB_XI		if GTK_XINPUT
 	select XORG_LIB_XINERAMA	if GTK_XINERAMA
-	select XORG_LIB_XRANDR		if GTK_XRANDR
 
 	select LIBXKBCOMMON		if GTK_WAYLAND
 	select WAYLAND			if GTK_WAYLAND
@@ -52,10 +51,6 @@ config GTK_X11
 
 if GTK_X11
 
-config GTK_XKB
-	bool
-	prompt "XKB support"
-
 config GTK_XINERAMA
 	bool
 	prompt "Xinerama support"
@@ -63,10 +58,6 @@ config GTK_XINERAMA
 config GTK_XINPUT
 	bool
 	prompt "XInput support"
-
-config GTK_XRANDR
-	bool
-	prompt "XRandR support"
 
 config GTK_XFIXES
 	bool

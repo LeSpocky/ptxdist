@@ -1,0 +1,72 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Thu, 14 Jun 2018 11:41:00 +0200
+Subject: [PATCH] build: make atk-bridge optional
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ gdk/meson.build             | 3 +++
+ gtk/a11y/gtkaccessibility.c | 4 ++--
+ meson.build                 | 7 ++++---
+ 3 files changed, 9 insertions(+), 5 deletions(-)
+
+diff --git a/gdk/meson.build b/gdk/meson.build
+index 4bb1bf2b6c74..650b2a491bf7 100644
+--- a/gdk/meson.build
++++ b/gdk/meson.build
+@@ -166,6 +166,9 @@ gdkconfig_cdata.set('GDK_WINDOWING_WAYLAND', wayland_enabled)
+ gdkconfig_cdata.set('GDK_WINDOWING_WIN32', win32_enabled)
+ gdkconfig_cdata.set('GDK_WINDOWING_BROADWAY', broadway_enabled)
+ gdkconfig_cdata.set('GDK_WINDOWING_QUARTZ', quartz_enabled)
++if x11_enabled
++  gdkconfig_cdata.set('GDK_WINDOWING_ATK_BRIDGE', atkbridge_dep.found())
++endif
+ 
+ gdkconfig = configure_file(
+   input  : 'gdkconfig.h.meson',
+diff --git a/gtk/a11y/gtkaccessibility.c b/gtk/a11y/gtkaccessibility.c
+index 7f0e5207d915..81b2ed0d55b3 100644
+--- a/gtk/a11y/gtkaccessibility.c
++++ b/gtk/a11y/gtkaccessibility.c
+@@ -37,7 +37,7 @@
+ #include <gtk/gtktogglebutton.h>
+ #include <gtk/gtkaccessible.h>
+ 
+-#ifdef GDK_WINDOWING_X11
++#ifdef GDK_WINDOWING_ATK_BRIDGE
+ #include <atk-bridge.h>
+ #endif
+ 
+@@ -988,7 +988,7 @@ _gtk_accessibility_init (void)
+   _gtk_accessibility_override_atk_util ();
+   do_window_event_initialization ();
+ 
+-#ifdef GDK_WINDOWING_X11
++#ifdef GDK_WINDOWING_ATK_BRIDGE
+   atk_bridge_adaptor_init (NULL, NULL);
+ #endif
+ 
+diff --git a/meson.build b/meson.build
+index 945c5de87ba8..cb421f0b516f 100644
+--- a/meson.build
++++ b/meson.build
+@@ -572,7 +572,7 @@ if x11_enabled
+   xfixes_dep     = dependency('xfixes', required: false)
+   xcomposite_dep = dependency('xcomposite', required: false)
+   fontconfig_dep = dependency('fontconfig', fallback: ['fontconfig', 'fontconfig_dep'])
+-  atkbridge_dep  = dependency('atk-bridge-2.0', version: atk_req)
++  atkbridge_dep  = dependency('atk-bridge-2.0', version: atk_req, required: false)
+ 
+   x11_pkgs = ['fontconfig', 'x11', 'xext', 'xi', 'xrandr']
+ 
+@@ -588,8 +588,9 @@ if x11_enabled
+   if xdamage_dep.found()
+     x11_pkgs += ['xdamage']
+   endif
+-
+-  atk_pkgs += ['atk-bridge-2.0']
++  if atkbridge_dep.found()
++    atk_pkgs += ['atk-bridge-2.0']
++  endif
+ 
+   cdata.set('HAVE_XDAMAGE', xdamage_dep.found() ? 1 : false)
+   cdata.set('HAVE_XCURSOR', xcursor_dep.found() ? 1 : false)
