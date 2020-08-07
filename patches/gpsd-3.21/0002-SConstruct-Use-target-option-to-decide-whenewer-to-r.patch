@@ -1,0 +1,21 @@
+From: Ladislav Michl <ladis@linux-mips.org>
+Date: Sun, 2 Feb 2020 09:45:04 +0100
+Subject: [PATCH] SConstruct: Use 'target' option to decide whenewer to restart systemd
+
+---
+ SConstruct | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/SConstruct b/SConstruct
+index 71643c428f26..434141f3e46b 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -2853,7 +2853,7 @@ udev_install = Utility('udev-install', 'install', [
+ 
+ if env['systemd']:
+     env.Requires(udev_install, systemd_install)
+-    if not env["sysroot"]:
++    if not env['target']:
+         systemctl_daemon_reload = Utility('systemctl-daemon-reload', '',
+                                           ['systemctl daemon-reload || true'])
+         env.AlwaysBuild(systemctl_daemon_reload)

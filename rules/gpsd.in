@@ -68,18 +68,6 @@ config GPSD_USB
 
 comment "Other options    ---"
 
-config GPSD_RECONFIGURE
-	bool
-	prompt "enable reconfigure"
-	help
-	  allow gpsd to change device settings
-
-config GPSD_CONTROLSEND
-	bool
-	prompt "enable controlsend"
-	help
-	  allow gpsctl/gpsmon to change device settings
-
 config GPSD_PYTHON
 	bool
 	prompt "python bindings"

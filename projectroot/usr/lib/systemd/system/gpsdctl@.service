@@ -6,7 +6,7 @@ After=dev-%i.device
 
 [Service]
 Type=oneshot
-Environment="GPSD_SOCKET=/var/run/gpsd.sock"
+Environment="GPSD_SOCKET=/run/gpsd.sock"
 RemainAfterExit=yes
 ExecStart=/usr/sbin/gpsdctl add /dev/%I
 ExecStop=/usr/sbin/gpsdctl remove /dev/%I
