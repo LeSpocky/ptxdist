@@ -111,7 +111,7 @@ $(STATEDIR)/barebox-@package@.clean:
 # oldconfig / menuconfig
 # ----------------------------------------------------------------------------
 
-barebox-@package@_oldconfig barebox-@package@_menuconfig barebox-@package@_nconfig: $(STATEDIR)/barebox-@package@.extract
+barebox-@package@_%config: $(STATEDIR)/barebox-@package@.extract
 	@$(call world/kconfig, BAREBOX_@PACKAGE@, $(subst barebox-@package@_,,$@))
 
 # vim: syntax=make

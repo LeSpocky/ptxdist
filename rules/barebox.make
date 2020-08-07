@@ -206,7 +206,7 @@ $(STATEDIR)/barebox.clean:
 # oldconfig / menuconfig
 # ----------------------------------------------------------------------------
 
-barebox_oldconfig barebox_menuconfig barebox_nconfig: $(STATEDIR)/barebox.extract
+barebox_%config: $(STATEDIR)/barebox.extract
 	@$(call world/kconfig, BAREBOX, $(subst barebox_,,$@))
 
 # vim: syntax=make
