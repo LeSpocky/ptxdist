@@ -40,11 +40,13 @@ KERNEL_BUILD_OOT	:= KEEP
 KERNEL_WRAPPER_BLACKLIST := \
 	$(PTXDIST_LOWLEVEL_WRAPPER_BLACKLIST)
 
+# Note: for some reason, the error is not visible without the dummy '$(shell :)'
+# when running 'ptxdist -j -q go'.
 define kernel/deprecated
 $(if $(strip \
 $(filter $(STATEDIR)/%, \
 $(filter-out $(STATEDIR)/kernel.%,$@)) \
-),$(error $(notdir $@): \
+),$(shell :)$(error $(notdir $@): \
 	use KERNEL_MODULE_OPT instead of $(1) for kernel module packages))
 endef
 
