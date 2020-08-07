@@ -558,6 +558,23 @@ check_compiler() {
 }
 
 
+#
+# checks the umask and modifies it if it is save to do so
+#
+check_umask() {
+	local mask="$(umask)"
+	if [ "${mask}" = "0022" ]; then
+		return
+	fi
+	if [ "$((mask & 0755))" -eq 0 ]; then
+		# setting a stricter umask is ok
+		umask 0022
+	else
+		ptxd_bailout "PTXdist does not work correctly with the current umask (${mask})!" \
+			"A less restrictive umask, e.g. 0022 or 0002, is required."
+	fi
+
+}
 
 #
 # checks if the dependencies are allright (make for the poor)
@@ -633,6 +650,7 @@ check_premake()
 {
 	check_config &&
 	check_dirs &&
+	check_umask &&
 	check_deps
 }
 

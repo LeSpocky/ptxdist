@@ -1372,6 +1372,14 @@ a different ``umask`` than ``0022`` at build-time this may fail badly at
 run-time with strange erroneous behaviour (for example some daemons with
 regular user permissions cannot access their own configuration files).
 
+If the current ``umask`` is more permissive than the required ``umask``,
+then ptxdist will change it as required. For example, a ``umask`` of
+``0002`` is quite common when the primary group of a user has the same name
+as the user.
+
+For security reasons, PTXdist will not set a more permissive ``umask``
+than the current one.
+
 Read Only Filesystem
 --------------------
 
