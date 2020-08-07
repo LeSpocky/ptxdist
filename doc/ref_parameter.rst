@@ -95,12 +95,13 @@ Setup and Project Actions
   functionality as ``menuconfig``. It can be used instead of ``menuconfig``
   for all the component described above.
 
-``oldconfig [<component>]``, ``allmodconfig [<component>]``, ``allyesconfig [<component>]``, ``allnoconfig [<component>]``, ``randconfig [<component>]``
+``oldconfig [<component>]``, ``allmodconfig [<component>]``, ``allyesconfig [<component>]``, ``allnoconfig [<component>]``, ``alldefconfig [<component>]``, ``randconfig [<component>]``
   this action will run the corresponding kconfig action for the specified
   component. ``oldconfig`` will prompt for all new options.
-  ``allmodconfig``, ``allyesconfig`` and ``allnoconfig`` will set all
-  options to 'm', 'y' or 'n' respectively. ``randconfig`` will randomize
-  the options. The ``KCONFIG_ALLCONFIG`` and ``KCONFIG_SEED`` environment
+  ``allmodconfig``, ``allyesconfig``, ``allnoconfig`` or ``alldefconfig``
+  will set all options to 'm', 'y', 'n', or their default values respectively.
+  ``randconfig`` will randomize the options.
+  The ``KCONFIG_ALLCONFIG`` and ``KCONFIG_SEED`` environment
   variables can be used as described in the Linux kernel documentation.
 
 ``migrate``
