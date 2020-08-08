@@ -26,7 +26,7 @@ create_key() {
 
 	file="/etc/ssh/ssh_host_${keytype}_key"
 
-	if echo "$hostkeys" | grep -x "$file" >/dev/null; then
+	if echo "$hostkeys" | grep -x -F "$file" >/dev/null; then
 		echo "Create $prettykeytype key; this may take some time ..."
 		rm -f $file &&
 		ssh-keygen -q -f "$file" -N '' -t "$keytype" "$@" || return
