@@ -18,32 +18,29 @@ host_keys_required() {
 }
 
 create_key() {
-	msg="$1"
+	keytype="$1"
+	prettykeytype="$(echo $_type | tr a-z A-Z)"
 	shift
 	hostkeys="$1"
 	shift
-	file="$1"
-	shift
+
+	file="/etc/ssh/ssh_host_${keytype}_key"
 
 	if echo "$hostkeys" | grep -x "$file" >/dev/null; then
-		echo "$msg; this may take some time ..."
+		echo "Create $prettykeytype key; this may take some time ..."
 		rm -f $file &&
-		ssh-keygen -q -f "$file" -N '' "$@" || return
-		echo "$msg; done."
+		ssh-keygen -q -f "$file" -N '' -t "$keytype" "$@" || return
+		echo "Created $prettykeytype key."
 	fi
 }
 
 create_keys() {
 	hostkeys="$(host_keys_required)"
 
-	create_key "Creating DSA key" \
-		"$hostkeys" /etc/ssh/ssh_host_dsa_key -t dsa &&
-	create_key "Creating ECDSA key" \
-		"$hostkeys" /etc/ssh/ssh_host_ecdsa_key -t ecdsa &&
-	create_key "Creating ED25519 key" \
-		"$hostkeys" /etc/ssh/ssh_host_ed25519_key -t ed25519 &&
-	create_key "Creating RSA key" \
-		"$hostkeys" /etc/ssh/ssh_host_rsa_key -t rsa -b 4096
+	create_key "dsa" "$hostkeys" &&
+	create_key "ecdsa" "$hostkeys" &&
+	create_key "ed25519" "$hostkeys" &&
+	create_key "rsa" "$hostkeys" -b 4096
 }
 
 if ! create_keys; then
