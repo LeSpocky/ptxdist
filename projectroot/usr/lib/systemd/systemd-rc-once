@@ -21,6 +21,8 @@ start() {
 }
 
 umount() {
+	# make sure rc-once generated data makes it to the medium
+	sync
 	if ! mount_root_restore; then
 		# remounting rw/ro during the second boot will flush anything
 		# left in the filesystem journal
