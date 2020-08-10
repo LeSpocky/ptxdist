@@ -22,11 +22,12 @@ SHADERC_URL			:= \
 	https://github.com/google/shaderc/archive/$(SHADERC_VERSION).$(SHADERC_SUFFIX)
 SHADERC_SOURCE			:= $(SRCDIR)/$(SHADERC).$(SHADERC_SUFFIX)
 SHADERC_DIR			:= $(BUILDDIR)/$(SHADERC)
-SHADERC_LICENSE			:= Apache-2.0 AND BSD-3-clause AND MIT AND Apple-MIT-License
-SHADERC_LICENSE_FILES		:= \
+SHADERC_LICENSE			= \
+	Apache-2.0 AND ($(GLSLANG_LICENSE)) AND ($(SPIRV_TOOLS_LICENSE))
+SHADERC_LICENSE_FILES		= \
 	file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327 \
-	file://third_party/glslang/LICENSE.txt;md5=918e668376010a04448a312fb37ae69b \
-	file://third_party/spirv-tools/LICENSE;md5=3b83ef96387f14655fc854ddc3c6bd57
+	$(subst file://,file://third_party/glslang/,$(GLSLANG_LICENSE_FILES)) \
+	$(subst file://,file://third_party/spirv-tools/,$(SPIRV_TOOLS_LICENSE_FILES))
 
 SHADERC_GLSLANG_MD5		= $(GLSLANG_MD5)
 SHADERC_GLSLANG_URL		= $(GLSLANG_URL)
