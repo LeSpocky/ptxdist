@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_KEXEC_TOOLS) += kexec-tools
 #
 # Paths and names
 #
-KEXEC_TOOLS_VERSION	:= 2.0.16
-KEXEC_TOOLS_MD5		:= b6bd3e0cc59ae0206ef0197b76a1f0b9
+KEXEC_TOOLS_VERSION	:= 2.0.20
+KEXEC_TOOLS_MD5		:= 3b3ee68064648b1b9e86ad93b1c50644
 KEXEC_TOOLS		:= kexec-tools-$(KEXEC_TOOLS_VERSION)
 KEXEC_TOOLS_SUFFIX	:= tar.xz
 KEXEC_TOOLS_URL		:= $(call ptx/mirror, KERNEL, utils/kernel/kexec/$(KEXEC_TOOLS).$(KEXEC_TOOLS_SUFFIX))
@@ -39,6 +39,7 @@ endif
 #
 KEXEC_TOOLS_AUTOCONF := \
 	$(CROSS_AUTOCONF_USR) \
+	--without-gamecube \
 	--$(call ptx/wwo, PTXCONF_KEXEC_TOOLS_ZLIB)-zlib \
 	--without-lzma \
 	--$(call ptx/wwo, PTXCONF_KEXEC_TOOLS_XEN)-xen \
@@ -57,13 +58,7 @@ $(STATEDIR)/kexec-tools.targetinstall:
 	@$(call install_fixup, kexec-tools,AUTHOR,"Erwin Rol <erwin@erwinrol.com>")
 	@$(call install_fixup, kexec-tools,DESCRIPTION,missing)
 
-ifdef PTXCONF_KEXEC_TOOLS_KEXEC
 	@$(call install_copy, kexec-tools, 0, 0, 0755, -, /usr/sbin/kexec)
-endif
-
-ifdef PTXCONF_KEXEC_TOOLS_KDUMP
-	@$(call install_copy, kexec-tools, 0, 0, 0755, -, /usr/sbin/kdump)
-endif
 
 	@$(call install_finish, kexec-tools)
 
