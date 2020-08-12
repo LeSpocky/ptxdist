@@ -15,23 +15,16 @@ menuconfig ZSTD
 
 if ZSTD
 
-config ZSTD_LIBZSTD
-	bool
-	prompt "install zstd library"
-
 config ZSTD_ZSTD
 	bool
-	select ZSTD_LIBZSTD
 	prompt "install zstd tool"
 
 config ZSTD_ZSTDGREP
 	bool
-	select ZSTD_LIBZSTD
 	prompt "install zstdgrep"
 
 config ZSTD_ZSTDLESS
 	bool
-	select ZSTD_LIBZSTD
 	prompt "install zstdless"
 
 endif

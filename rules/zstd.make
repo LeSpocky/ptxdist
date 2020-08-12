@@ -39,7 +39,7 @@ ZSTD_CONF_OPT	:= \
 	-DZSTD_BUILD_CONTRIB=OFF \
 	-DZSTD_BUILD_TESTS=OFF \
 	-DZSTD_USE_STATIC_RUNTIME=OFF \
-	-DZSTD_PROGRAMS_LINK_SHARED=OFF \
+	-DZSTD_PROGRAMS_LINK_SHARED=ON \
 	-DZSTD_BUILD_STATIC=ON \
 	-DZSTD_BUILD_SHARED=ON \
 	-DZSTD_ZLIB_SUPPORT=OFF \
@@ -59,9 +59,8 @@ $(STATEDIR)/zstd.targetinstall:
 	@$(call install_fixup, zstd, AUTHOR, "Florian Faber <faber@faberman.de>")
 	@$(call install_fixup, zstd, DESCRIPTION, missing)
 
-ifdef PTXCONF_ZSTD_LIBZSTD
 	@$(call install_lib, zstd, 0, 0, 0644, libzstd)
-endif
+
 ifdef PTXCONF_ZSTD_ZSTD
 	@$(call install_copy, zstd, 0, 0, 0755, -, /usr/bin/zstd)
 	@$(call install_link, zstd, zstd, /usr/bin/zstdcat)

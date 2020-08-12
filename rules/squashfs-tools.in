@@ -7,7 +7,6 @@ menuconfig SQUASHFS_TOOLS
 	select GCCLIBS_GCC_S
 	select ZLIB
 	select ZSTD		if SQUASHFS_TOOLS_ZSTD_SUPPORT
-	select ZSTD_LIBZSTD	if SQUASHFS_TOOLS_ZSTD_SUPPORT
 	prompt "squashfs-tools                "
 	help
 	  Squashfs is a highly compressed read-only filesystem for Linux.
