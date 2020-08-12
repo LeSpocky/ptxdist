@@ -68,7 +68,7 @@ $(STATEDIR)/polkit.targetinstall:
 		/usr/share/dbus-1/system-services/org.freedesktop.PolicyKit1.service)
 
 # config
-	@$(call install_copy, polkit, 0, 0, 700, /etc/polkit-1/localauthority)
+	@$(call install_copy, polkit, 0, 0, 0700, /etc/polkit-1/localauthority)
 	@$(call install_copy, polkit, 0, 0, 0644, -, \
 		/etc/polkit-1/localauthority.conf.d/50-localauthority.conf)
 	@$(call install_copy, polkit, 0, 0, 0644, -, \
