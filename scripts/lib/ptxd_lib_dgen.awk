@@ -397,6 +397,13 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	if (this_PKG in PKG_to_makefile)
 		print "RULES: " this_PKG " " PKG_to_makefile[this_PKG]						> PTXDIST_HASHLIST;
 
+	target_PKG = gensub(/^HOST_|^CROSS_/, "", 1, this_PKG);
+	if (prefix != "" && target_PKG in active_PKG_to_pkg)
+		print "ifneq ($(" this_PKG "_SOURCE),$(" target_PKG "_SOURCE))"					> DGEN_DEPS_POST;
+	print "$(if $(" this_PKG "_SOURCE),$(eval $(" this_PKG "_SOURCE) := " this_PKG "))"			> DGEN_DEPS_POST;
+	if (prefix != "" && target_PKG in active_PKG_to_pkg)
+		print "endif"											> DGEN_DEPS_POST;
+
 	print "ifneq ($(" this_PKG "),)"									> DGEN_DEPS_POST;
 	print "ifneq ($(" this_PKG "_PATCHES),)"								> DGEN_DEPS_POST;
 	print this_PKG "_PATCH_DIR := $(call ptx/in-path,PTXDIST_PATH_PATCHES,$(" this_PKG "_PATCHES))"		> DGEN_DEPS_POST;
@@ -412,7 +419,7 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	print "endif"												> DGEN_DEPS_POST;
 	print "ifneq ($(" this_PKG "_SOURCE),)"									> DGEN_DEPS_POST;
 	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
-	print "_tmp := $(" this_PKG "_MD5) $(notdir $(" this_PKG "_SOURCE))"					> DGEN_DEPS_POST;
+	print "_tmp :=$(foreach source, $(" this_PKG "_SOURCES),$($($(source))_MD5) $(notdir $(source)))"	> DGEN_DEPS_POST;
 	print "$(file >>" PTXDIST_TEMPDIR "/pkghash-" this_PKG ",$(_tmp))"					> DGEN_DEPS_POST;
 	print "$(file >>" PTXDIST_TEMPDIR "/pkghash-" this_PKG "_EXTRACT,$(_tmp))"				> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
@@ -440,12 +447,6 @@ function write_deps_pkg_active(this_PKG, this_pkg, prefix) {
 	#
 	# default deps
 	#
-	target_PKG = gensub(/^HOST_|^CROSS_/, "", 1, this_PKG);
-	if (prefix != "" && target_PKG in active_PKG_to_pkg)
-		print "ifneq ($(" this_PKG "_SOURCE),$(" target_PKG "_SOURCE))"					> DGEN_DEPS_POST;
-	print "$(if $(" this_PKG "_SOURCE),$(eval $(" this_PKG "_SOURCE) := " this_PKG "))"			> DGEN_DEPS_POST;
-	if (prefix != "" && target_PKG in active_PKG_to_pkg)
-		print "endif"											> DGEN_DEPS_POST;
 	print "$(foreach src,$(" this_PKG "_SOURCES)," \
 		"$(eval $(STATEDIR)/" this_pkg ".get:"      "$(STATEDIR)/" this_pkg ".$(notdir $(src)).stamp))"	> DGEN_DEPS_POST;
 	if (DIRTY != "true") {
