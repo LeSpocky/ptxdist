@@ -1,0 +1,10 @@
+## SECTION=multimedia_wayland
+
+config WAYLAND_UTILS
+	tristate
+	select HOST_MESON
+	select WAYLAND
+	select WAYLAND_PROTOCOLS
+	prompt "wayland-utils"
+	help
+	  Wayland utility programs.
