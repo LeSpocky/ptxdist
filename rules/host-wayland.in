@@ -5,3 +5,4 @@ config HOST_WAYLAND
 	default y if ALLYES
 	select HOST_EXPAT
 	select HOST_LIBFFI
+	select HOST_MESON

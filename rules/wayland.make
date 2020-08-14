@@ -27,18 +27,20 @@ WAYLAND_LICENSE	:= MIT
 # Prepare
 # ----------------------------------------------------------------------------
 
+WAYLAND_CONF_ENV	:= \
+	$(HOST_ENV) \
+	PKG_CONFIG_FOR_BUILD=$(PTXDIST_SYSROOT_HOST)/bin/pkg-config
+
 #
-# autoconf
+# meson
 #
-WAYLAND_CONF_TOOL	:= autoconf
+WAYLAND_CONF_TOOL	:= meson
 WAYLAND_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-static \
-	--disable-fatal-warnings \
-	--enable-libraries \
-	--disable-documentation \
-	--disable-dtd-validation \
-	--with-host-scanner
+	$(CROSS_MESON_USR) \
+	-Dlibraries=true \
+	-Ddocumentation=false \
+	-Ddtd_validation=false \
+	-Dicon_directory=
 
 # ----------------------------------------------------------------------------
 # Install

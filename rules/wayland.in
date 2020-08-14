@@ -2,6 +2,7 @@
 
 config WAYLAND
 	tristate
+	select HOST_MESON
 	select HOST_WAYLAND
 	select LIBC_M
 	select LIBC_RT
