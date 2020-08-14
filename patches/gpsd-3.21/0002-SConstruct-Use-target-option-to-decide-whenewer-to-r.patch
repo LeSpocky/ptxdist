@@ -1,6 +1,7 @@
 From: Ladislav Michl <ladis@linux-mips.org>
 Date: Sun, 2 Feb 2020 09:45:04 +0100
-Subject: [PATCH] SConstruct: Use 'target' option to decide whenewer to restart systemd
+Subject: [PATCH] SConstruct: Use 'target' option to decide whenewer to restart
+ systemd
 
 ---
  SConstruct | 2 +-

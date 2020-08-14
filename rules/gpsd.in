@@ -13,6 +13,7 @@ menuconfig GPSD
 	select NCURSES			if GPSD_NCURSES
 	select DBUS_GLIB		if GPSD_DBUS
 	select PYTHON3			if GPSD_PYTHON
+	select PYTHON3_SSL		if GPSD_PYTHON
 	select PYSERIAL3		if GPSD_PYSERIAL
 	select SYSTEMD			if GPSD_SYSTEMD
 	prompt "gpsd                          "

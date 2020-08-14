@@ -57,7 +57,7 @@ GPSD_PROGS-$(PTXCONF_GPSD_ZERK)		+= zerk
 GPSD_CONF_TOOL	:= scons
 GPSD_CONF_ENV	:= \
 	$(CROSS_ENV_PKG_CONFIG)
-GPSD_CONF_OPT	:= \
+GPSD_CONF_OPT	= \
 	aivdm=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_AIVDM) \
 	ashtech=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_ASHTECH) \
 	bluez=$(call ptx/yesno, PTXCONF_GPSD_BLUEZ) \

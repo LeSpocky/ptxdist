@@ -2,4 +2,5 @@
 #tag:base --start-number 1
 0001-Search-for-ncursesw-pkgconfig.patch
 0002-SConstruct-Use-target-option-to-decide-whenewer-to-r.patch
-# 207be982e9eb34d250a9e62946dcd881  - git-ptx-patches magic
+0003-SConstruct-don-t-make-python-files-without-shebang-e.patch
+# ac113373083222a9a340e9ddf30a7fd2  - git-ptx-patches magic
