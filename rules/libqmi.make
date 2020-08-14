@@ -39,6 +39,8 @@ LIBQMI_CONF_OPT		:= \
 	--disable-gtk-doc \
 	--disable-gtk-doc-html \
 	--disable-gtk-doc-pdf \
+	--disable-qmi-username \
+	--$(call ptx/endis, PTXCONF_LIBQMI_MBIM_QMUX)-mbim-qmux \
 	--without-udev \
 	--with-udev-base-dir=/usr/lib/udev
 
