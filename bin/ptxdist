@@ -515,8 +515,8 @@ check_dirs() {
 		echo lower > "${testfile_lower}"
 		echo upper > "${testfile_upper}"
 
-		if [ "$(cat "${testfile_lower}")" != "lower" -o \
-		    "$(cat "${testfile_upper}")" != "upper" ]; then
+		if [ "$(<"${testfile_lower}")" != "lower" -o \
+		    "$(<"${testfile_upper}")" != "upper" ]; then
 			echo
 			echo "error: '${dir}'"
 			echo "	     is not a case sensitive filesystem."

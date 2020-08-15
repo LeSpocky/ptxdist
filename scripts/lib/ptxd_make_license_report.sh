@@ -138,7 +138,7 @@ ptxd_make_license_report() {
     ptxd_make_world_init || return
 
     # regenerate license info and sort out unused packages
-    for pkg in $(cat "${ptx_report_dir}/package.list"); do
+    for pkg in $(<"${ptx_report_dir}/package.list"); do
 	ptxd_package_license_association[$(basename ${pkg})]=$(dirname ${pkg})
     done
 
@@ -270,7 +270,7 @@ ptxd_make_license_compliance_pdf() {
     local -A ptxd_package_license_association
 
     # regenerate license info and sort out unused packages
-    for pkg in $(cat "${ptx_report_dir}/package.list"); do
+    for pkg in $(<"${ptx_report_dir}/package.list"); do
 	ptxd_package_license_association[$(basename ${pkg})]=$(dirname ${pkg})
     done
 
@@ -302,7 +302,7 @@ ptxd_make_license_compliance_yaml() {
     local -A ptxd_package_license_association
 
     # regenerate license info and sort out unused packages
-    for pkg in $(cat "${ptx_report_dir}/package.list"); do
+    for pkg in $(<"${ptx_report_dir}/package.list"); do
 	ptxd_package_license_association[$(basename ${pkg})]=$(dirname ${pkg})
     done
 

@@ -443,7 +443,7 @@ ptxd_kconfig_update_config() {
     local config="${2}"
     local base_config="${3}"
     local stamp="$(stat -c '%y' "${target_config}")"
-    local old_stamp="$(cat "${target_config}.stamp")"
+    local old_stamp="$(<"${target_config}.stamp")"
 
     if [ "${stamp}" == "${old_stamp}" ]; then
 	rm  -f "${target_config}.stamp"
