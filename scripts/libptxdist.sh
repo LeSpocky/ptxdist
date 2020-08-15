@@ -315,6 +315,10 @@ ptxd_dumpstack() {
 ptxd_replace_link() {
 	test -e "${2}" -a ! -L "${2}" && ptxd_bailout "'${2}' is not a link"
 
+	if [ "${1}" -ef "${2}" ]; then
+	    return
+	fi
+
 	ln -sfT "${1}" "${2}.tmp"
 	mv -T "${2}.tmp" "${2}"
 }
