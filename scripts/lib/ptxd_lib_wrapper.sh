@@ -207,13 +207,13 @@ ptxd_lib_setup_target_wrapper() {
 	    "${wrapper_dir}/${compiler_prefix}${cc}"
     done
     for tool in "${toolchain}/${compiler_prefix}"* ; do
-	local toolname="$(basename "${tool}")"
+	local toolname="${tool#${toolchain}/}"
 	if [ ! -e "${wrapper_dir}/${toolname}" -o -h "${wrapper_dir}/${toolname}" ]; then
 	    ptxd_replace_link "${tool}"  "${wrapper_dir}/${toolname}"
 	fi
     done &&
     for tool in "${wrapper_dir}/${compiler_prefix}"* ; do
-	local toolname="$(basename "${tool}")"
+	local toolname="${tool#${wrapper_dir}/}"
 	if [ -e "${tool}" -a ! -e "${toolchain}/${toolname}" ]; then
 	    rm -f "${tool}"
 	fi
