@@ -3,6 +3,8 @@
 menuconfig GDK_PIXBUF
 	tristate
 	prompt "gdk-pixbuf                    "
+	select HOST_GLIB
+	select HOST_MESON
 	select GLIB
 	select XORG_LIB_X11	if GDK_PIXBUF_X11
 	select LIBPNG		if GDK_PIXBUF_LOADER_PNG

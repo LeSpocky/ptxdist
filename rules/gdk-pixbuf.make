@@ -14,14 +14,15 @@ PACKAGES-$(PTXCONF_GDK_PIXBUF) += gdk-pixbuf
 #
 # Paths and names
 #
-GDK_PIXBUF_VERSION	:= 2.36.12
-GDK_PIXBUF_MD5		:= 7305ab43d741270ffa53ad2896d7f530
+GDK_PIXBUF_VERSION	:= 2.40.0
+GDK_PIXBUF_MD5		:= 05eb1ebc258ba905f1c8644ef49de064
 GDK_PIXBUF		:= gdk-pixbuf-$(GDK_PIXBUF_VERSION)
 GDK_PIXBUF_SUFFIX	:= tar.xz
 GDK_PIXBUF_URL		:= http://ftp.gnome.org/pub/GNOME/sources/gdk-pixbuf/$(basename $(GDK_PIXBUF_VERSION))/$(GDK_PIXBUF).$(GDK_PIXBUF_SUFFIX)
 GDK_PIXBUF_SOURCE	:= $(SRCDIR)/$(GDK_PIXBUF).$(GDK_PIXBUF_SUFFIX)
 GDK_PIXBUF_DIR		:= $(BUILDDIR)/$(GDK_PIXBUF)
-GDK_PIXBUF_LICENSE	:= LGPL-2.0-only
+GDK_PIXBUF_LICENSE	:= LGPL-2.0-or-later
+GDK_PIXBUF_LICENSE_FILES := file://COPYING;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -34,43 +35,24 @@ GDK_PIXBUF_LOADER-$(PTXCONF_GDK_PIXBUF_LOADER_PNG)	+= png
 GDK_PIXBUF_LOADER-$(PTXCONF_GDK_PIXBUF_LOADER_JPEG)	+= jpeg
 
 #
-# autoconf
+# meson
 #
-GDK_PIXBUF_CONF_TOOL	:= autoconf
-GDK_PIXBUF_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--disable-debug \
-	--disable-rebuilds \
-	--enable-explicit-deps=no \
-	--disable-nls \
-	--disable-rpath \
-	--disable-glibtest \
-	--disable-modules \
-	--disable-introspection \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf \
-	--disable-man \
-	--enable-Bsymbolic \
-	--disable-installed-tests \
-	--disable-always-build-tests \
-	--disable-coverage \
-	--disable-relocations \
-	--without-libiconv-prefix \
-	--without-libintl-prefix \
-	--$(call ptx/wwo, PTXCONF_GDK_PIXBUF_LOADER_PNG)-libpng \
-	--$(call ptx/wwo, PTXCONF_GDK_PIXBUF_LOADER_JPEG)-libjpeg \
-	--without-libtiff \
-	--without-libjasper \
-	--without-gdiplus \
-	--with-included-loaders=$(subst $(space),$(comma),$(GDK_PIXBUF_LOADER-y)) \
-	--$(call ptx/wwo, PTXCONF_GDK_PIXBUF_X11)-x11
-
-$(STATEDIR)/gdk-pixbuf.compile:
-	@$(call targetinfo)
-	@touch $(GDK_PIXBUF_DIR)/gdk-pixbuf/loaders.cache
-	@$(call world/compile, GDK_PIXBUF)
-	@$(call touch)
+GDK_PIXBUF_CONF_TOOL	:= meson
+GDK_PIXBUF_CONF_OPT	:= \
+	$(CROSS_MESON_USR) \
+	-Dbuiltin_loaders=$(subst $(space),$(comma),$(GDK_PIXBUF_LOADER-y)) \
+	-Ddocs=false \
+	-Dgio_sniffing=false \
+	-Dgir=false \
+	-Dinstalled_tests=false \
+	-Djasper=false \
+	-Djpeg=$(call ptx/truefalse, PTXCONF_GDK_PIXBUF_LOADER_JPEG) \
+	-Dman=false \
+	-Dnative_windows_loaders=false \
+	-Dpng=$(call ptx/truefalse, PTXCONF_GDK_PIXBUF_LOADER_PNG) \
+	-Drelocatable=false \
+	-Dtiff=false \
+	-Dx11=$(call ptx/truefalse, PTXCONF_GDK_PIXBUF_X11)
 
 # ----------------------------------------------------------------------------
 # Target-Install
