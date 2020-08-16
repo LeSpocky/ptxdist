@@ -5,6 +5,7 @@ menuconfig GTK
 	prompt "gtk+                          "
 
 	select HOST_MESON
+	select HOST_GDK_PIXBUF
 
 	# core dependencies
 	select ATK
