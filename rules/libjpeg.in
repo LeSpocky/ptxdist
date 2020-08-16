@@ -2,6 +2,7 @@
 
 menuconfig LIBJPEG
 	tristate
+	select HOST_CMAKE
 	select CROSS_NASM
 	prompt "libjpeg-turbo                 "
 	help

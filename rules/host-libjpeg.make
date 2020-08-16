@@ -16,20 +16,23 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBJPEG) += host-libjpeg
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# cmake
 #
-HOST_LIBJPEG_CONF_TOOL	:= autoconf
+HOST_LIBJPEG_CONF_TOOL	:= cmake
 HOST_LIBJPEG_CONF_OPT := \
-	$(HOST_AUTOCONF) \
-	--with-jpeg7 \
-	--with-jpeg8 \
-	--with-mem-srcdst \
-	--without-arith-enc \
-	--without-arith-dec \
-	--without-12bit \
-	--without-turbojpeg \
-	--without-java \
-	--without-gas-preprocessor \
-	--without-simd
+	$(HOST_CMAKE_OPT) \
+	-DENABLE_SHARED=OFF \
+	-DENABLE_STATIC=ON \
+	-DREQUIRE_SIMD=OFF \
+	-DWITH_12BIT=OFF \
+	-DWITH_ARITH_DEC=ON \
+	-DWITH_ARITH_ENC=ON \
+	-DWITH_JAVA=OFF \
+	-DWITH_JPEG7=ON \
+	-DWITH_JPEG8=ON \
+	-DWITH_MEM_SRCDST=ON \
+	-DWITH_SIMD=OFF \
+	-DWITHOUT_TURBOJPEG=ON \
+	-DFORCE_INLINE=ON
 
 # vim: syntax=make
