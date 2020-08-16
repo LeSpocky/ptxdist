@@ -37,9 +37,9 @@ endif
 #
 # autoconf
 #
+# Note: --without-gamecube is explicitly omitted. The option is broken.
 KEXEC_TOOLS_AUTOCONF := \
 	$(CROSS_AUTOCONF_USR) \
-	--without-gamecube \
 	--$(call ptx/wwo, PTXCONF_KEXEC_TOOLS_ZLIB)-zlib \
 	--without-lzma \
 	--$(call ptx/wwo, PTXCONF_KEXEC_TOOLS_XEN)-xen \
