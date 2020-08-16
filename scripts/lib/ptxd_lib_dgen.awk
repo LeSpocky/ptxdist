@@ -451,7 +451,7 @@ function write_deps_pkg_active(this_PKG, this_pkg, prefix) {
 		print "ifeq ($(" this_PKG "_EXTRACT_CFGHASH),)"							> DGEN_DEPS_POST;
 		print this_PKG "_EXTRACT_CFGHASH := 00000000000000000000000000000000"				> DGEN_DEPS_POST;
 		print "endif"											> DGEN_DEPS_POST;
-		print "$(STATEDIR)/" this_pkg ".extract: " \
+		print "$(STATEDIR)/" this_pkg ".get: " \
 					"$(STATEDIR)/" this_pkg ".$(" this_PKG "_EXTRACT_CFGHASH).srchash"	> DGEN_DEPS_POST;
 	}
 	print "$(STATEDIR)/" this_pkg ".extract: "                    "$(STATEDIR)/" this_pkg ".get"		> DGEN_DEPS_POST;
