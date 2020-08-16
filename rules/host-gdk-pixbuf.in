@@ -1,0 +1,8 @@
+## SECTION=hosttools_noprompt
+
+config HOST_GDK_PIXBUF
+	tristate
+	select HOST_GLIB
+	select HOST_LIBPNG
+	select HOST_MESON
+	default y if ALLYES
