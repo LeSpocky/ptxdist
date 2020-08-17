@@ -19,7 +19,6 @@ host_keys_required() {
 
 create_key() {
 	keytype="$1"
-	prettykeytype="$(echo $_type | tr a-z A-Z)"
 	shift
 	hostkeys="$1"
 	shift
@@ -27,10 +26,10 @@ create_key() {
 	file="/etc/ssh/ssh_host_${keytype}_key"
 
 	if echo "$hostkeys" | grep -x -F "$file" >/dev/null; then
-		echo "Create $prettykeytype key; this may take some time ..."
+		echo "Create $keytype key; this may take some time ..."
 		rm -f $file &&
 		ssh-keygen -q -f "$file" -N '' -t "$keytype" "$@" || return
-		echo "Created $prettykeytype key."
+		echo "Created $keytype key."
 	fi
 }
 
