@@ -4,6 +4,7 @@ menuconfig KERNEL
 	bool
 	default y
 	select HOST_U_BOOT_TOOLS	if KERNEL_IMAGE_U || (KERNEL_IMAGE_SIMPLE && ARCH_MICROBLAZE)
+	select HOST_ZSTD		if KERNEL_ZSTD
 	select HOST_XZ			if KERNEL_XZ
 	select HOST_LZOP		if KERNEL_LZOP
 	select HOST_LZ4			if KERNEL_LZ4
@@ -150,6 +151,17 @@ config KERNEL_IMAGE
 	default "vmlinuz" if KERNEL_IMAGE_VMLINUZ
 	default "Image"   if KERNEL_IMAGE_RAW
 	default "simpleImage.${PTXCONF_KERNEL_IMAGE_SIMPLE_TARGET}.elf" if KERNEL_IMAGE_SIMPLE
+
+config KERNEL_ZSTD
+	prompt "build zstd hosttool"
+	bool
+	help
+	  Select this if you're going to build your kernel compressed
+	  with zstd and your host system is lacking the proper tools
+	  (the "zstd" package).
+
+	  Select this if you're unsure, as it won't hurt. It just
+	  increases the build time.
 
 config KERNEL_XZ
 	prompt "build xz-utils hosttool"
