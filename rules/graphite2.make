@@ -31,6 +31,9 @@ GRAPHITE2_LICENSE	:= LGPL-2.1-or-later OR GPL-2.0-or-later OR MPL-2.0
 # autoconf
 #
 GRAPHITE2_CONF_TOOL	:= cmake
+GRAPHITE2_CONF_OPT	:= \
+	$(CROSS_CMAKE_USR) \
+	-DCMAKE_DISABLE_FIND_PACKAGE_Freetype=ON
 
 
 # ----------------------------------------------------------------------------
