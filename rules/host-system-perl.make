@@ -45,6 +45,12 @@ ifdef PTXCONF_HOST_SYSTEM_PERL_XMLPARSER
 		ptxd_bailout "XML::Parser perl module is required. \
 	Please install libxml-parser-perl (debian)."
 endif
+ifdef PTXCONF_HOST_SYSTEM_PERL_YAPP
+	@echo "Checking for Perl: Parse::Yapp::Driver"
+	@perl -e "require Parse::Yapp::Driver" 2>/dev/null || \
+		ptxd_bailout "Parse::Yapp::Driver perl module is required. \
+	Please install libparse-yapp-perl (debian)."
+endif
 	@echo
 	@$(call touch)
 

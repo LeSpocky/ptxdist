@@ -17,5 +17,8 @@ config HOST_SYSTEM_PERL_LOCALE_PO
 config HOST_SYSTEM_PERL_XMLPARSER
 	bool
 
+config HOST_SYSTEM_PERL_YAPP
+	bool
+
 endif
 
