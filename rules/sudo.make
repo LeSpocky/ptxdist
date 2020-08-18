@@ -133,7 +133,7 @@ $(STATEDIR)/sudo.targetinstall:
 
 ifdef PTXCONF_SUDO_INSTALL_ETC_SUDOERS
 	@$(call install_alternative, sudo, 0, 0, 0440, /etc/sudoers, n)
-	@$(call install_copy, sudo, 0, 0, 755, /etc/sudoers.d)
+	@$(call install_copy, sudo, 0, 0, 0755, /etc/sudoers.d)
 endif
 
 ifdef PTXCONF_SUDO_INSTALL_VISUDO
