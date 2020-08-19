@@ -141,15 +141,15 @@ endif
 
 config KERNEL_IMAGE
 	string
-	default "bzImage" if KERNEL_IMAGE_BZ
-	default "Image.gz"  if KERNEL_IMAGE_Z && ARCH_ARM64
-	default "zImage"  if KERNEL_IMAGE_Z
-	default "xipImage" if KERNEL_IMAGE_XIP
-	default "uImage"  if KERNEL_IMAGE_U
-	default "vmImage" if KERNEL_IMAGE_VM
-	default "vmlinux" if KERNEL_IMAGE_VMLINUX
-	default "vmlinuz" if KERNEL_IMAGE_VMLINUZ
-	default "Image"   if KERNEL_IMAGE_RAW
+	default "bzImage"	if KERNEL_IMAGE_BZ
+	default "Image.gz"	if KERNEL_IMAGE_Z && ARCH_ARM64
+	default "zImage"	if KERNEL_IMAGE_Z
+	default "xipImage"	if KERNEL_IMAGE_XIP
+	default "uImage"	if KERNEL_IMAGE_U
+	default "vmImage"	if KERNEL_IMAGE_VM
+	default "vmlinux"	if KERNEL_IMAGE_VMLINUX
+	default "vmlinuz"	if KERNEL_IMAGE_VMLINUZ
+	default "Image"		if KERNEL_IMAGE_RAW
 	default "simpleImage.${PTXCONF_KERNEL_IMAGE_SIMPLE_TARGET}.elf" if KERNEL_IMAGE_SIMPLE
 
 config KERNEL_ZSTD
