@@ -96,7 +96,7 @@ endif
 #
 KERNEL_IMAGE		:= $(call remove_quotes, $(PTXCONF_KERNEL_IMAGE))
 
-# these are sane default
+# these are sane defaults
 KERNEL_IMAGE_PATH_y	:= $(KERNEL_BUILD_DIR)/arch/$(GENERIC_KERNEL_ARCH)/boot/$(KERNEL_IMAGE)
 
 # vmlinux and vmlinuz are special
@@ -143,7 +143,7 @@ endif
 	@$(call world/prepare, KERNEL)
 
 #
-# Use a existing dummy INITRAMFS_SOURCE for the fist 'make' call. The
+# Use an existing dummy INITRAMFS_SOURCE for the first 'make' call. The
 # kernel image will be rebuilt in the image-kernel package with the real
 # initramfs.
 #
