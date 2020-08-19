@@ -35,20 +35,20 @@ BAREBOX_CONFIG		:= $(call ptx/in-platformconfigdir, \
 # ----------------------------------------------------------------------------
 
 # use host pkg-config for host tools
-BAREBOX_PATH := PATH=$(HOST_PATH)
+BAREBOX_PATH		:= PATH=$(HOST_PATH)
 
 BAREBOX_WRAPPER_BLACKLIST := \
 	$(PTXDIST_LOWLEVEL_WRAPPER_BLACKLIST)
 
-BAREBOX_CONF_TOOL := kconfig
-BAREBOX_CONF_OPT := \
+BAREBOX_CONF_TOOL	:= kconfig
+BAREBOX_CONF_OPT	:= \
 	-C $(BAREBOX_DIR) \
 	O=$(BAREBOX_BUILD_DIR) \
 	$(call barebox-opts, BAREBOX)
 
-BAREBOX_MAKE_OPT := $(BAREBOX_CONF_OPT)
+BAREBOX_MAKE_OPT	:= $(BAREBOX_CONF_OPT)
 
-BAREBOX_TAGS_OPT := TAGS tags cscope
+BAREBOX_TAGS_OPT	:= TAGS tags cscope
 
 ifdef PTXCONF_BAREBOX
 $(BAREBOX_CONFIG):
@@ -62,10 +62,10 @@ $(BAREBOX_CONFIG):
 endif
 
 ifneq ($(call remove_quotes,$(PTXCONF_BAREBOX_EXTRA_ENV_PATH)),)
-BAREBOX_EXTRA_ENV_PATH := $(foreach path, \
+BAREBOX_EXTRA_ENV_PATH	:= $(foreach path, \
 		$(call remove_quotes,$(PTXCONF_BAREBOX_EXTRA_ENV_PATH)), \
 		$(call ptx/in-platformconfigdir,$(path)))
-BAREBOX_EXTRA_ENV_DEPS := \
+BAREBOX_EXTRA_ENV_DEPS	:= \
 	$(BAREBOX_EXTRA_ENV_PATH) \
 	$(call ptx/force-sh, find $(BAREBOX_EXTRA_ENV_PATH) -print 2>/dev/null)
 $(STATEDIR)/barebox.prepare: $(BAREBOX_EXTRA_ENV_DEPS)

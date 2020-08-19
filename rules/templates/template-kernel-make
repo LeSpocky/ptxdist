@@ -72,7 +72,7 @@ endif
 # Compile
 # ----------------------------------------------------------------------------
 
-KERNEL_@PACKAGE@_MAKE_OPT := \
+KERNEL_@PACKAGE@_MAKE_OPT	:= \
 	$(KERNEL_@PACKAGE@_SHARED_OPT) \
 	@image@ modules
 
@@ -80,7 +80,7 @@ KERNEL_@PACKAGE@_MAKE_OPT := \
 # Install
 # ----------------------------------------------------------------------------
 
-KERNEL_@PACKAGE@_INSTALL_OPT := \
+KERNEL_@PACKAGE@_INSTALL_OPT	:= \
 	$(call kernel-opts, KERNEL_@PACKAGE@) \
 	modules_install
 

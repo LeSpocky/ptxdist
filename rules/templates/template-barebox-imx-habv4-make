@@ -32,19 +32,19 @@ BAREBOX_@PACKAGE@_BUILD_OOT	:= KEEP
 # ----------------------------------------------------------------------------
 
 # use host pkg-config for host tools
-BAREBOX_@PACKAGE@_PATH := PATH=$(HOST_PATH)
+BAREBOX_@PACKAGE@_PATH		:= PATH=$(HOST_PATH)
 
 BAREBOX_@PACKAGE@_WRAPPER_BLACKLIST := \
 	$(PTXDIST_LOWLEVEL_WRAPPER_BLACKLIST)
 
-BAREBOX_@PACKAGE@_CONF_TOOL := kconfig
-BAREBOX_@PACKAGE@_CONF_OPT := \
+BAREBOX_@PACKAGE@_CONF_TOOL	:= kconfig
+BAREBOX_@PACKAGE@_CONF_OPT	:= \
 	-C $(BAREBOX_@PACKAGE@_DIR) \
 	O=$(BAREBOX_@PACKAGE@_BUILD_DIR) \
 	$(call barebox-opts, BAREBOX_@PACKAGE@)
 
-BAREBOX_@PACKAGE@_IMAGES := @image@
-BAREBOX_@PACKAGE@_IMAGES := $(addprefix $(BAREBOX_@PACKAGE@_BUILD_DIR)/,$(BAREBOX_@PACKAGE@_IMAGES))
+BAREBOX_@PACKAGE@_IMAGES	:= @image@
+BAREBOX_@PACKAGE@_IMAGES	:= $(addprefix $(BAREBOX_@PACKAGE@_BUILD_DIR)/,$(BAREBOX_@PACKAGE@_IMAGES))
 
 ifdef PTXCONF_BAREBOX_@PACKAGE@
 $(BAREBOX_@PACKAGE@_CONFIG):
@@ -61,13 +61,13 @@ endif
 # Compile
 # ----------------------------------------------------------------------------
 
-BAREBOX_@PACKAGE@_MAKE_ENV = \
+BAREBOX_@PACKAGE@_MAKE_ENV	= \
 	$(CODE_SIGNING_ENV) \
 	CSF="$(shell cs_get_uri imx-habv4-csf1)" \
 	IMG="$(shell cs_get_uri imx-habv4-img1)" \
 	FIT_KEY="$(shell cs_get_uri image-kernel-fit)"
 
-BAREBOX_@PACKAGE@_MAKE_OPT := $(BAREBOX_@PACKAGE@_CONF_OPT)
+BAREBOX_@PACKAGE@_MAKE_OPT	:= $(BAREBOX_@PACKAGE@_CONF_OPT)
 
 $(STATEDIR)/barebox-@package@.compile:
 	@$(call targetinfo)

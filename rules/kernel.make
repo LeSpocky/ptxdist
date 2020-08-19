@@ -54,7 +54,7 @@ endef
 KERNEL_MAKEVARS = $(call kernel/deprecated, KERNEL_MAKEVARS)
 
 # like kernel-opts but with different CROSS_COMPILE=
-KERNEL_BASE_OPT := \
+KERNEL_BASE_OPT		:= \
 	V=$(PTXDIST_VERBOSE) \
 	HOSTCC=$(HOSTCC) \
 	ARCH=$(GENERIC_KERNEL_ARCH) \
@@ -66,38 +66,38 @@ KERNEL_BASE_OPT := \
 	$(call remove_quotes,$(PTXCONF_KERNEL_EXTRA_MAKEVARS))
 
 # Intermediate option. This will be used by kernel module packages.
-KERNEL_MODULE_OPT := \
+KERNEL_MODULE_OPT	:= \
 	-C $(KERNEL_DIR) \
 	O=$(KERNEL_BUILD_DIR) \
 	$(KERNEL_BASE_OPT)
 
-KERNEL_SHARED_OPT := \
+KERNEL_SHARED_OPT	:= \
 	$(KERNEL_MODULE_OPT)
 
 ifndef PTXCONF_KERNEL_GCC_PLUGINS
 # no gcc plugins; avoid config changes depending on the host compiler
-KERNEL_SHARED_OPT += \
+KERNEL_SHARED_OPT	+= \
 	HOSTCXX="$(HOSTCXX) -DGENERATOR_FILE" \
 	HOSTCC="$(HOSTCC) -DGENERATOR_FILE"
 endif
 
-KERNEL_CONF_TOOL := kconfig
-KERNEL_CONF_OPT := \
+KERNEL_CONF_TOOL	:= kconfig
+KERNEL_CONF_OPT		:= \
 	$(KERNEL_SHARED_OPT)
 
 ifdef PTXCONF_KERNEL_CONFIG_BASE_VERSION
 # force using KERNEL_VERSION in the kernelconfig
-KERNEL_CONF_OPT += \
+KERNEL_CONF_OPT		+= \
 	KERNELVERSION=$(KERNEL_VERSION)
 endif
 
 #
 # support the different kernel image formats
 #
-KERNEL_IMAGE := $(call remove_quotes, $(PTXCONF_KERNEL_IMAGE))
+KERNEL_IMAGE		:= $(call remove_quotes, $(PTXCONF_KERNEL_IMAGE))
 
 # these are sane default
-KERNEL_IMAGE_PATH_y := $(KERNEL_BUILD_DIR)/arch/$(GENERIC_KERNEL_ARCH)/boot/$(KERNEL_IMAGE)
+KERNEL_IMAGE_PATH_y	:= $(KERNEL_BUILD_DIR)/arch/$(GENERIC_KERNEL_ARCH)/boot/$(KERNEL_IMAGE)
 
 # vmlinux and vmlinuz are special
 KERNEL_IMAGE_PATH_$(PTXCONF_KERNEL_IMAGE_VMLINUX) := $(KERNEL_BUILD_DIR)/vmlinux
