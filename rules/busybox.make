@@ -112,7 +112,7 @@ ifdef PTXCONF_BUSYBOX_FEATURE_INDIVIDUAL
 	@$(call install_lib, busybox, 0, 0, 0644, libbusybox)
 
 	@cat $(BUSYBOX_PKGDIR)/etc/busybox.links | while read link; do \
-		$(call install_copy, busybox, 0, 0, 755, \
+		$(call install_copy, busybox, 0, 0, 0755, \
 		"$(BUSYBOX_PKGDIR)/usr/lib/busybox/$${link##*/}", "/usr$${link}"); \
 	done
 else
@@ -125,7 +125,7 @@ ifdef PTXCONF_BUSYBOX_FEATURE_SUID_CONFIG
 	@$(call install_alternative, busybox, 0, 0, 0644, /etc/busybox.conf)
 endif
 else
-	@$(call install_copy, busybox, 0, 0, 755, -, /usr/bin/busybox)
+	@$(call install_copy, busybox, 0, 0, 0755, -, /usr/bin/busybox)
 endif
 	@cat $(BUSYBOX_PKGDIR)/etc/busybox.links | while read link; do		\
 		case "$${link}" in						\

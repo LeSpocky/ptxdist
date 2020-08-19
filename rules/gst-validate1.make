@@ -89,7 +89,7 @@ $(STATEDIR)/gst-validate1.targetinstall:
 		/usr/share/gstreamer-1.0/validate/scenarios)
 
 ifdef PTXCONF_GSTREAMER1_INTROSPECTION
-	@$(call install_copy, gst-validate1, 0, 0, 644, -, \
+	@$(call install_copy, gst-validate1, 0, 0, 0644, -, \
 		/usr/lib/girepository-1.0/GstValidate-1.0.typelib)
 endif
 

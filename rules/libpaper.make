@@ -56,10 +56,10 @@ $(STATEDIR)/libpaper.targetinstall:
 	@$(call install_lib, libpaper, 0, 0, 0644, libpaper)
 
 ifdef PTXCONF_LIBPAPER_PAPERCONFIG
-	@$(call install_copy, libpaper, 0, 0, 755, -, /usr/sbin/paperconfig)
+	@$(call install_copy, libpaper, 0, 0, 0755, -, /usr/sbin/paperconfig)
 endif
 ifdef PTXCONF_LIBPAPER_PAPERCONF
-	@$(call install_copy, libpaper, 0, 0, 755, -, /usr/bin/paperconf)
+	@$(call install_copy, libpaper, 0, 0, 0755, -, /usr/bin/paperconf)
 endif
 
 	@$(call install_finish, libpaper)

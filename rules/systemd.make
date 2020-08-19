@@ -344,7 +344,7 @@ $(STATEDIR)/systemd.targetinstall:
 
 	@$(call install_tree, systemd, 0, 0, -, /usr/lib/systemd/system-generators/)
 	@$(foreach helper, $(SYSTEMD_HELPER), \
-		$(call install_copy, systemd, 0, 0, 755, -, \
+		$(call install_copy, systemd, 0, 0, 0755, -, \
 			/usr/lib/systemd/$(helper));)
 
 #	# configuration

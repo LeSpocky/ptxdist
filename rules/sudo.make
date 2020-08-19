@@ -137,7 +137,7 @@ ifdef PTXCONF_SUDO_INSTALL_ETC_SUDOERS
 endif
 
 ifdef PTXCONF_SUDO_INSTALL_VISUDO
-	@$(call install_copy, sudo, 0, 0, 755, -, /usr/sbin/visudo)
+	@$(call install_copy, sudo, 0, 0, 0755, -, /usr/sbin/visudo)
 endif
 
 	@$(call install_finish, sudo)

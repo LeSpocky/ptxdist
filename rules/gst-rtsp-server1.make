@@ -53,7 +53,7 @@ $(STATEDIR)/gst-rtsp-server1.targetinstall:
 	@$(call install_lib, gst-rtsp-server1, 0, 0, 0644, libgstrtspserver-1.0)
 	@$(call install_lib, gst-rtsp-server1, 0, 0, 0644, gstreamer-1.0/libgstrtspclientsink)
 ifdef PTXCONF_GSTREAMER1_INTROSPECTION
-	@$(call install_copy, gst-rtsp-server1, 0, 0, 644, -, \
+	@$(call install_copy, gst-rtsp-server1, 0, 0, 0644, -, \
 		/usr/lib/girepository-1.0/GstRtspServer-1.0.typelib)
 endif
 

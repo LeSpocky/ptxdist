@@ -53,7 +53,7 @@ $(STATEDIR)/libsrtp.targetinstall:
 	@$(call install_fixup, libsrtp,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup, libsrtp,DESCRIPTION,missing)
 
-	@$(call install_lib, libsrtp, 0, 0, 644, libsrtp2)
+	@$(call install_lib, libsrtp, 0, 0, 0644, libsrtp2)
 
 	@$(call install_finish, libsrtp)
 

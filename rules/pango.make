@@ -52,7 +52,7 @@ $(STATEDIR)/pango.targetinstall:
 	@$(call install_lib, pango, 0, 0, 0644, libpangoft2-1.0)
 	@$(call install_lib, pango, 0, 0, 0644, libpangocairo-1.0)
 ifdef PTXCONF_PANGO_INTROSPECTION
-	@$(call install_copy, pango, 0, 0, 644, -, \
+	@$(call install_copy, pango, 0, 0, 0644, -, \
 		/usr/lib/girepository-1.0/Pango-1.0.typelib)
 endif
 

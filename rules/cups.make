@@ -134,7 +134,7 @@ $(STATEDIR)/cups.targetinstall:
 	@$(call install_fixup, cups,DESCRIPTION,missing)
 
 # ----- config files, install as daemon:lp
-	@$(call install_copy, cups, daemon, lp, 750, /etc/cups)
+	@$(call install_copy, cups, daemon, lp, 0750, /etc/cups)
 	@$(call install_alternative, cups, daemon, lp, 0640, /etc/cups/cups-files.conf)
 	@$(call install_alternative, cups, daemon, lp, 0640, /etc/cups/cupsd.conf)
 	@$(call install_alternative, cups, daemon, lp, 0600, /etc/cups/classes.conf)

@@ -49,7 +49,7 @@ $(STATEDIR)/gst-bayer2rgb-neon.targetinstall:
 	@$(call install_fixup, gst-bayer2rgb-neon,AUTHOR,"Marian Cichy <m.cichy@pengutronix.de>")
 	@$(call install_fixup, gst-bayer2rgb-neon,DESCRIPTION,missing)
 
-	@$(call install_lib, gst-bayer2rgb-neon, 0, 0, 644, \
+	@$(call install_lib, gst-bayer2rgb-neon, 0, 0, 0644, \
 		gstreamer-1.0/gstbayer2rgbneon)
 	@$(call install_finish, gst-bayer2rgb-neon)
 

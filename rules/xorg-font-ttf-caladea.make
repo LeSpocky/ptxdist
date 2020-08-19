@@ -56,9 +56,9 @@ $(STATEDIR)/xorg-font-ttf-caladea.targetinstall:
 	@$(call install_fixup, xorg-font-ttf-caladea,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup, xorg-font-ttf-caladea,DESCRIPTION,missing)
 
-	@$(call install_alternative, xorg-font-ttf-caladea, 0, 0, 644, \
+	@$(call install_alternative, xorg-font-ttf-caladea, 0, 0, 0644, \
 		/etc/fonts/conf.d/30-0-google-crosextra-caladea-fontconfig.conf)
-	@$(call install_alternative, xorg-font-ttf-caladea, 0, 0, 644, \
+	@$(call install_alternative, xorg-font-ttf-caladea, 0, 0, 0644, \
 		/etc/fonts/conf.d/62-google-crosextra-caladea-fontconfig.conf)
 
 	@$(call install_tree, xorg-font-ttf-caladea, 0, 0, -, /usr)

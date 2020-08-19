@@ -61,7 +61,7 @@ $(STATEDIR)/graphene.targetinstall:
 
 	@$(call install_lib, graphene, 0, 0, 0644, libgraphene-1.0)
 ifdef PTXCONF_GRAPHENE_INTROSPECTION
-	@$(call install_copy, graphene, 0, 0, 644, -, \
+	@$(call install_copy, graphene, 0, 0, 0644, -, \
 		/usr/lib/girepository-1.0/Graphene-1.0.typelib)
 endif
 

@@ -192,12 +192,12 @@ $(STATEDIR)/python.targetinstall:
 		$(PYTHON_SKIP_LIST) \
 		-a \( -name "*.so" -o -name "*.pyc" \) | \
 		while read file; do \
-		$(call install_copy, python, 0, 0, 644, -, $${file##.}); \
+		$(call install_copy, python, 0, 0, 0644, -, $${file##.}); \
 	done
 
-	@$(call install_copy, python, 0, 0, 755, -, /usr/bin/python$(PYTHON_MAJORMINOR))
+	@$(call install_copy, python, 0, 0, 0755, -, /usr/bin/python$(PYTHON_MAJORMINOR))
 	@$(call install_link, python, python$(PYTHON_MAJORMINOR), /usr/bin/python2)
-	@$(call install_lib, python, 0, 0, 644, libpython$(PYTHON_MAJORMINOR))
+	@$(call install_lib, python, 0, 0, 0644, libpython$(PYTHON_MAJORMINOR))
 
 ifdef PTXCONF_PYTHON_SYMLINK
 	@$(call install_link, python, python$(PYTHON_MAJORMINOR), /usr/bin/python)

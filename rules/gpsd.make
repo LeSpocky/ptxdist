@@ -164,19 +164,19 @@ ifdef PTXCONF_GPSD_GPSDCTL
 	@$(call install_copy, gpsd, 0, 0, 0755, -, /usr/sbin/gpsdctl)
 endif
 ifdef PTXCONF_GPSD_SYSTEMD_UNIT
-	@$(call install_alternative, gpsd, 0, 0, 644, \
+	@$(call install_alternative, gpsd, 0, 0, 0644, \
 		/usr/lib/systemd/system/gpsd.service)
 	@$(call install_replace, gpsd, \
 		/usr/lib/systemd/system/gpsd.service, \
 		@ARGS@, $(PTXCONF_GPSD_GPSD_ARGS))
 	@$(call install_link, gpsd, ../gpsd.service, \
 		/usr/lib/systemd/system/multi-user.target.wants/gpsd.service)
-	@$(call install_alternative, gpsd, 0, 0, 644, \
+	@$(call install_alternative, gpsd, 0, 0, 0644, \
 		/usr/lib/systemd/system/gpsd.socket)
 	@$(call install_link, gpsd, ../gpsd.socket, \
 		/usr/lib/systemd/system/sockets.target.wants/gpsd.socket)
 ifdef PTXCONF_GPSD_GPSDCTL
-	@$(call install_alternative, gpsd, 0, 0, 644, \
+	@$(call install_alternative, gpsd, 0, 0, 0644, \
 		/usr/lib/systemd/system/gpsdctl@.service)
 endif
 endif

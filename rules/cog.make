@@ -61,8 +61,8 @@ $(STATEDIR)/cog.targetinstall:
 	@$(call install_fixup, cog,DESCRIPTION,"WPE launcher and webapp container")
 
 	@$(call install_copy, cog, 0, 0, 0755, -, /usr/bin/cog)
-	@$(call install_lib, cog, 0, 0, 644, libcogplatform-fdo)
-	@$(call install_lib, cog, 0, 0, 644, libcogcore)
+	@$(call install_lib, cog, 0, 0, 0644, libcogplatform-fdo)
+	@$(call install_lib, cog, 0, 0, 0644, libcogcore)
 
 	@$(call install_finish, cog)
 

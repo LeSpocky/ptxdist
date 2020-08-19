@@ -56,9 +56,9 @@ $(STATEDIR)/xorg-font-ttf-carlito.targetinstall:
 	@$(call install_fixup, xorg-font-ttf-carlito,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup, xorg-font-ttf-carlito,DESCRIPTION,missing)
 
-	@$(call install_alternative, xorg-font-ttf-carlito, 0, 0, 644, \
+	@$(call install_alternative, xorg-font-ttf-carlito, 0, 0, 0644, \
 		/etc/fonts/conf.d/30-0-google-crosextra-carlito-fontconfig.conf)
-	@$(call install_alternative, xorg-font-ttf-carlito, 0, 0, 644, \
+	@$(call install_alternative, xorg-font-ttf-carlito, 0, 0, 0644, \
 		/etc/fonts/conf.d/62-google-crosextra-carlito-fontconfig.conf)
 
 	@$(call install_tree, xorg-font-ttf-carlito, 0, 0, -, /usr)

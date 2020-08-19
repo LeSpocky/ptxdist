@@ -67,7 +67,7 @@ $(STATEDIR)/flex.targetinstall:
 	@$(call install_fixup, flex,AUTHOR,"Marc Kleine-Budde <mkl@pengutronix.de>")
 	@$(call install_fixup, flex,DESCRIPTION,missing)
 
-	@$(call install_lib, flex, 0, 0, 644, libfl)
+	@$(call install_lib, flex, 0, 0, 0644, libfl)
 
 	@$(call install_finish, flex)
 

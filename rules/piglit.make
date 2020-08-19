@@ -56,7 +56,7 @@ $(STATEDIR)/piglit.targetinstall:
 	@$(call install_fixup, piglit,AUTHOR,"Lucas Stach <l.stach@pengutronix.de>")
 	@$(call install_fixup, piglit,DESCRIPTION,missing)
 
-	@$(call install_copy, piglit, 0, 0, 755, -, /usr/bin/piglit)
+	@$(call install_copy, piglit, 0, 0, 0755, -, /usr/bin/piglit)
 	@$(call install_tree, piglit, 0, 0, -, /usr/lib/piglit, n)
 
 	@$(call install_finish, piglit)

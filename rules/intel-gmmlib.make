@@ -48,7 +48,7 @@ $(STATEDIR)/intel-gmmlib.targetinstall:
 	@$(call install_fixup, intel-gmmlib,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup, intel-gmmlib,DESCRIPTION,missing)
 
-	@$(call install_lib, intel-gmmlib, 0, 0, 644, libigdgmm)
+	@$(call install_lib, intel-gmmlib, 0, 0, 0644, libigdgmm)
 
 	@$(call install_finish, intel-gmmlib)
 

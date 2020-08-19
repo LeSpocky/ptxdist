@@ -157,11 +157,11 @@ $(STATEDIR)/sdl2-test.targetinstall:
 	@$(call install_fixup, sdl2-test,DESCRIPTION,missing)
 
 	@$(foreach file, $(SDL2_TEST_TOOLS), \
-		$(call install_copy, sdl2-test, 0, 0, 755, -, \
+		$(call install_copy, sdl2-test, 0, 0, 0755, -, \
 				/usr/bin/sdl2tests/$(file))$(ptx/nl))
 
 	@$(foreach file, $(SDL2_TEST_DATA), \
-		$(call install_copy, sdl2-test, 0, 0, 644, -, \
+		$(call install_copy, sdl2-test, 0, 0, 0644, -, \
 				/usr/bin/sdl2tests/$(file))$(ptx/nl))
 
 	@$(call install_finish, sdl2-test)

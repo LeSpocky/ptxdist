@@ -101,7 +101,7 @@ endif
 		/usr/libexec/polkit-agent-helper-1)
 
 # run-time
-	@$(call install_copy, polkit, 0, 0, 700, /var/lib/polkit-1)
+	@$(call install_copy, polkit, 0, 0, 0700, /var/lib/polkit-1)
 
 	@$(call install_finish, polkit)
 
