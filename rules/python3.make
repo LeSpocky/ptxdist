@@ -157,8 +157,7 @@ $(STATEDIR)/python3.targetinstall:
 	@$(call install_init, python3)
 	@$(call install_fixup, python3,PRIORITY,optional)
 	@$(call install_fixup, python3,SECTION,base)
-	@$(call install_fixup, python3,AUTHOR,"Marc Kleine-Budde <mkl@pengutronix.de>")
-	@$(call install_fixup, python3,AUTHOR,"Han Sierkstra <han@protonic.nl>")
+	@$(call install_fixup, python3,AUTHOR,"Marc Kleine-Budde <mkl@pengutronix.de>, Han Sierkstra <han@protonic.nl>")
 	@$(call install_fixup, python3,DESCRIPTION,missing)
 
 	@$(call install_glob, python3, 0, 0, -, /usr/lib/python$(PYTHON3_MAJORMINOR), \
