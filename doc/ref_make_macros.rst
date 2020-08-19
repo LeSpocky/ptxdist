@@ -173,7 +173,7 @@ Some of the parameters have fixed meanings:
 **<GID>**
   Group ID the file should use in the target's root filesystem
 **<permission>**
-  Permission (in an octal value) the file should use in the target's root filesystem
+  Permission (as a four-digit octal value) the file should use in the target's root filesystem
 
 The remaining parameters vary with the use case:
 
@@ -384,7 +384,7 @@ The base parameters and their meanings:
 **<GID>**
   Group ID the file should use in the target's root filesystem
 **<permission>**
-  Permission (in an octal value) the file should use in the target's root filesystem
+  Permission (as a four-digit octal value) the file should use in the target's root filesystem
 
 The parameter <destination> is meant as an absolute path
 and filename in target's root filesystem. PTXdist searches for the source
@@ -581,7 +581,7 @@ The parameters and their meanings:
 **<GID>**
   Group ID the directories and files should use in the target's root filesystem
 **<permission>**
-  Permission (as an octal value) the library should use in the target's root
+  Permission (as a four-digit octal value) the library should use in the target's root
   filesystem (mostly 0644)
 **<libname>**
   Basename of the library without any extension and path
