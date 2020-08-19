@@ -80,8 +80,6 @@ Usage:
 
 Removes the given directory ``<directory path>``
 
-.. _install_copy:
-
 world/get, world/extract, world/prepare, world/compile, world/install
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -150,7 +148,7 @@ For ``install`` the package directory is deleted.
 When ``--verbose`` is used then the full command is logged. With
 ``--quiet`` both stdout and stderr are redirected to the logfile.
 
-.. _install_copy,reference:
+.. _install_copy:
 
 install_copy
 ~~~~~~~~~~~~~
@@ -252,7 +250,7 @@ Copy a file from the package install directory to the root filesystem:
 
  $(call install_copy, foo, 0, 0, 0755, -, /usr/bin/foo)
 
-.. _install_tree,reference:
+.. _install_tree:
 
 install_tree
 ~~~~~~~~~~~~
@@ -284,7 +282,7 @@ Some of the parameters have fixed meanings:
 **<destination dir>**
   The basename of the to-be-installed tree in the root filesystem
 **<strip>**
-  same as for :ref:`install_copy,reference`.
+  same as for :ref:`install_copy`.
 
 Note: This installation macro
 

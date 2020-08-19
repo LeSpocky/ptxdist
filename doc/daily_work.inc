@@ -1366,7 +1366,7 @@ permissions related to file permission masks.
 PTXdist requires a ``umask`` of ``0022`` to be able to create files accessible
 by regular users. This is important at build-time, since it propagates to the
 generated target filesystem images as well. For example the ``install_tree``
-macro (refer :ref:`install_tree,reference`) uses the file permissions it finds
+macro (refer :ref:`install_tree`) uses the file permissions it finds
 in the build machine's filesystem also for the target filesystem image. With
 a different ``umask`` than ``0022`` at build-time this may fail badly at
 run-time with strange erroneous behaviour (for example some daemons with
