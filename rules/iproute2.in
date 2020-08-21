@@ -3,6 +3,7 @@
 menuconfig IPROUTE2
 	tristate
 	prompt "iproute2                      "
+	select HOST_FLEX
 	select DB if IPROUTE2_ARPD
 	select LIBC_DL
 	select LIBC_M
