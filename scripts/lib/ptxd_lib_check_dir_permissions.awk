@@ -35,7 +35,7 @@ function check_parents(base) {
 
 $1 ~ "d" {
 	path = gensub(/\/$/,"",1,$2)
-	perm = $3 "." $4 " " $5
+	perm = $3 "." $4 " " sprintf("%04o", strtonum("0" $5))
 	check(path, perm, "")
 	check_parents(path)
 }
