@@ -17,7 +17,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBARCHIVE) += host-libarchive
 
 HOST_LIBARCHIVE_CONF_ENV	:= \
 	$(HOST_ENV) \
-	ac_cv_have_decl_EXT2_IOC_GETFLAGS=no
+	ac_cv_have_decl_EXT2_IOC_GETFLAGS=no \
+	ac_cv_header_ext2fs_ext2_fs_h=no
 
 #
 # autoconf

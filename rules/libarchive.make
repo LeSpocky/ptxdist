@@ -29,6 +29,7 @@ LIBARCHIVE_LICENSE	:= BSD-2-Clause AND BSD-3-Clause
 
 LIBARCHIVE_CONF_ENV	:= \
 	$(CROSS_ENV) \
+	ac_cv_have_decl_EXT2_IOC_GETFLAGS=no \
 	ac_cv_header_ext2fs_ext2_fs_h=no
 
 #
