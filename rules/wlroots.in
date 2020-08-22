@@ -30,7 +30,7 @@ config WLROOTS_SYSTEMD
 
 config WLROOTS_SYSTEMD_LOGIND
 	bool
-	depends on WESTON_SYSTEMD
+	depends on WLROOTS_SYSTEMD
 	prompt "support rootless session via logind"
 
 endif
