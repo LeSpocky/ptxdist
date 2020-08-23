@@ -1,0 +1,9 @@
+## SECTION=networkmanager_plugins
+
+config NETWORKMANAGER_FORTISSLVPN
+	tristate
+	select GLIB
+	select NETWORKMANAGER
+	select NETWORKMANAGER_PPP
+	select OPENFORTIVPN
+	prompt "fortisslvpn"
