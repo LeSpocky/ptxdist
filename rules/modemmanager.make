@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MODEMMANAGER) += modemmanager
 #
 # Paths and names
 #
-MODEMMANAGER_VERSION	:= 1.12.6
-MODEMMANAGER_MD5	:= 796bf7bfc156c4229cef1a9cb8c79f37
+MODEMMANAGER_VERSION	:= 1.14.2
+MODEMMANAGER_MD5	:= 3a4a94376ca6e8dbfb964394022f7a0e
 MODEMMANAGER		:= ModemManager-$(MODEMMANAGER_VERSION)
 MODEMMANAGER_SUFFIX	:= tar.xz
 MODEMMANAGER_URL	:= https://www.freedesktop.org/software/ModemManager/$(MODEMMANAGER).$(MODEMMANAGER_SUFFIX)
@@ -35,6 +35,8 @@ MODEMMANAGER_LICENSE	:= GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.1-or-la
 MODEMMANAGER_CONF_TOOL	:= autoconf
 MODEMMANAGER_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-compile-warnings \
+	--disable-Werror \
 	--disable-gtk-doc \
 	--disable-gtk-doc-html \
 	--disable-gtk-doc-pdf \
@@ -42,7 +44,7 @@ MODEMMANAGER_CONF_OPT	:= \
 	--disable-rpath \
 	--disable-introspection \
 	--disable-vala \
-	--disable-more-warnings \
+	--enable-all-plugins \
 	--with-gnu-ld \
 	--with-dbus-sys-dir=/usr/share/dbus-1/system.d \
 	--with-udev-base-dir=/usr/lib/udev \
