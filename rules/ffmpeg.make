@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FFMPEG) += ffmpeg
 #
 # Paths and names
 #
-FFMPEG_VERSION	:= 4.2.1
-FFMPEG_MD5	:= 67da904cf9fddeeb10a1308fc0dc39de
+FFMPEG_VERSION	:= 4.3.1
+FFMPEG_MD5	:= 5d1956bb552e91dc3b8287db346d0d58
 FFMPEG		:= ffmpeg-$(FFMPEG_VERSION)
 FFMPEG_SUFFIX	:= tar.xz
 FFMPEG_URL	:= https://www.ffmpeg.org/releases/$(FFMPEG).$(FFMPEG_SUFFIX)
@@ -24,7 +24,7 @@ FFMPEG_DIR	:= $(BUILDDIR)/$(FFMPEG)
 # Note: any GPL only code is disabled below with --disable-gpl
 FFMPEG_LICENSE	:= LGPL-2.1-or-later AND BSD-3-Clause
 FFMPEG_LICENSE_FILES := \
-	file://LICENSE.md;md5=d14d3e3b1e822c8b34b2a233fda0c9d8 \
+	file://LICENSE.md;md5=d62f7dc46e5dd02bf89ab1aac8c51bba \
 	file://COPYING.LGPLv2.1;md5=bd7a443320af8c812e4c18d1b79df004 \
 	file://libavcodec/arm/vp8dsp_armv6.S;startline=4;endline=52;md5=24eb31d8cad17de39e517e8d946cdee0 \
 	file://libavcodec/mips/ac3dsp_mips.c;startline=2;endline=27;md5=5f25aa1db1ecf13c29efc63800bf6ae8 \
@@ -121,6 +121,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-iconv \
 	--disable-jni \
 	--disable-ladspa \
+	--disable-large-tests \
 	--disable-libaom \
 	--disable-libaribb24 \
 	--disable-libass \
@@ -139,6 +140,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libfreetype \
 	--disable-libfribidi \
 	--disable-libgme \
+	--disable-libglslang \
 	--disable-libgsm \
 	--disable-libiec61883 \
 	--disable-libilbc \
@@ -156,6 +158,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libopenmpt \
 	--disable-libopus \
 	--disable-libpulse \
+	--disable-librabbitmq \
 	--disable-librsvg \
 	--disable-librubberband \
 	--disable-librtmp \
@@ -197,6 +200,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-decklink \
 	--disable-mbedtls \
 	--disable-mediacodec \
+	--disable-mediafoundation \
 	--disable-libmysofa \
 	--disable-openal \
 	--disable-opencl \
@@ -231,6 +235,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-vaapi \
 	--disable-vdpau \
 	--disable-videotoolbox \
+	--disable-vulkan \
 	\
 	--arch=$(PTXCONF_ARCH_STRING) \
 	--cpu=$(FFMPEG_CPU) \
