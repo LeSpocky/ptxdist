@@ -283,6 +283,10 @@ cxx_add_host_extra() {
 	add_host_arg ${pkg_cxxflags}
 }
 
+cc_add_host_clang() {
+	FULL_CMD=$(readlink "${0%/*}/real/${CMD}")
+	add_arg -gcc-toolchain /usr
+}
 
 add_icecc_args() {
 	if [ -n "${PTXDIST_ICECC}" ]; then

@@ -205,6 +205,9 @@ ptxd_lib_setup_target_wrapper() {
 	ptxd_replace_link "${toolchain}/${cc}" "${wrapper_dir}/real/${compiler_prefix}${cc}" &&
 	ptxd_replace_copy_from_path PTXDIST_PATH "scripts/wrapper/${cc}-wrapper" \
 	    "${wrapper_dir}/${compiler_prefix}${cc}"
+	ptxd_replace_link "${toolchain}/${cc}" "${wrapper_dir}/real/${cc}" &&
+	ptxd_replace_copy_from_path PTXDIST_PATH "scripts/wrapper/host-${cc}-wrapper" \
+	    "${wrapper_dir}/${cc}"
     done
     for tool in "${toolchain}/${compiler_prefix}"* ; do
 	local toolname="${tool#${toolchain}/}"

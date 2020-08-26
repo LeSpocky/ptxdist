@@ -250,6 +250,7 @@ ptxd_init_host_env() {
     ldflags=( "${prefix[@]/%//${lib_dir}}" )
     ldflags=( \
 	"${ldflags[@]/#/-B}" \
+	"${ldflags[@]/#/-L}" \
 	"${ldflags[@]/#/-Wl,-rpath -Wl,}" \
 	'-Wl,-rpath,$ORIGIN/../lib:/with/some/extra/space'
     )

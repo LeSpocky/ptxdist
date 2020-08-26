@@ -34,7 +34,12 @@ ptxd_lib_setup_host_icecc() {
 		ptxd_bailout "'$(readlink "${wrapper_dir}/real/gcc")' must not be a script if icecc is used!"
 	    fi
 	    cd "${icecc_dir}/host"
-	    "${PTXDIST_ICECC_CREATE_ENV}" --gcc \
+	    local -a args
+	    if [ -e "${wrapper_dir}/real/clang" ]; then
+		args[${#args[@]}]="--clang"
+		args[${#args[@]}]="${wrapper_dir}/real/clang"
+	    fi
+	    "${PTXDIST_ICECC_CREATE_ENV}" "${args[@]}" --gcc \
 		"${wrapper_dir}/real/gcc" \
 		"${wrapper_dir}/real/g++" > "${PTXDIST_TEMPDIR}/icecc.log" 2>&1 || \
 	    {
