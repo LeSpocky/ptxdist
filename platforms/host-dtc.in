@@ -2,6 +2,7 @@
 
 menuconfig HOST_DTC
 	tristate "dtc                           "
+	select HOST_FLEX
 	help
 	  Select this if the HOST_DTC tool is required without
 	  building a device tree. (It is also used for building
