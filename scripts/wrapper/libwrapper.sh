@@ -83,6 +83,10 @@ cc_check_args() {
 					add_late_arg "-Wl,-rpath-link${ARG#-Wl,-rpath}"
 				fi
 				;;
+			-fplugin=*)
+				# The plugins are not available on the icecc node
+				unset PTXDIST_ICECC
+				;;
 			-|-print-search-dirs|--print-search-dirs)
 				COMPILING=true
 				LINKING=true
