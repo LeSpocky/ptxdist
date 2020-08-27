@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_STRACE) += strace
 #
 # Paths and names
 #
-STRACE_VERSION	:= 5.7
-STRACE_MD5	:= 8c35b8ebf187b2ec18209bd7bbd16e7a
+STRACE_VERSION	:= 5.8
+STRACE_MD5	:= 1a808c5917f0d91169e377c90faee6dd
 STRACE		:= strace-$(STRACE_VERSION)
 STRACE_SUFFIX	:= tar.xz
 STRACE_URL	:= https://strace.io/files/$(STRACE_VERSION)/$(STRACE).$(STRACE_SUFFIX)
@@ -32,9 +32,9 @@ STRACE_LICENSE	:= BSD-3-Clause
 STRACE_CONF_TOOL	:= autoconf
 STRACE_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-gcc-Werror \
 	--disable-code-coverage \
 	--disable-arm-oabi \
+	--disable-gcc-Werror \
 	--disable-stacktrace \
 	--disable-mpers \
 	--disable-valgrind \
