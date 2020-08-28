@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_HARFBUZZ) += harfbuzz
 #
 # Paths and names
 #
-HARFBUZZ_VERSION	:= 2.6.2
-HARFBUZZ_MD5		:= 1551bb7ebe970d3466787cd26cfa7f76
+HARFBUZZ_VERSION	:= 2.6.7
+HARFBUZZ_MD5		:= 3b884586a09328c5fae76d8c200b0e1c
 HARFBUZZ		:= harfbuzz-$(HARFBUZZ_VERSION)
 HARFBUZZ_SUFFIX		:= tar.xz
 HARFBUZZ_URL		:= https://www.freedesktop.org/software/harfbuzz/release/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)
