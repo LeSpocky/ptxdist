@@ -1,0 +1,25 @@
+## SECTION=networking
+
+menuconfig OPENFORTIVPN
+	tristate
+	prompt "openfortivpn                  "
+	select LIBC_PTHREAD
+	select LIBC_UTIL
+	select OPENSSL
+	select PPP
+	select SYSTEMD		if OPENFORTIVPN_SYSTEMD
+	help
+	  openfortivpn is a client for PPP+SSL VPN tunnel services.
+	  It spawns a pppd process and operates the communication between
+	  the gateway and this process.
+
+	  It is compatible with Fortinet VPNs.
+
+if OPENFORTIVPN
+
+config OPENFORTIVPN_SYSTEMD
+        bool
+        default INITMETHOD_SYSTEMD
+
+endif
+
