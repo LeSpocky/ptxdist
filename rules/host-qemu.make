@@ -170,6 +170,15 @@ QEMU_CROSS_QEMU_ENV = \
 	QEMU_LD_LIBRARY_PATH="$(QEMU_CROSS_LD_LIBRARY_PATH)" \
 	LINKER="$(shell readlink -f "$$(ptxd_cross_cc -print-file-name=$$(ptxd_get_dl))")"
 
+$(STATEDIR)/host-qemu.install:
+	@$(call targetinfo)
+	@$(call world/install, HOST_QEMU)
+ifdef PTXCONF_HOST_QEMU_SYS
+#	# necessary for qemu to find its ROM files
+	@ln -vsf share/qemu $(HOST_QEMU_PKGDIR)/pc-bios
+endif
+	@$(call touch)
+
 $(STATEDIR)/host-qemu.install.post:
 	@$(call targetinfo)
 	@$(call world/install.post, HOST_QEMU)
