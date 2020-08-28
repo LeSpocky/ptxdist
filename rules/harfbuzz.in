@@ -20,4 +20,8 @@ config HARFBUZZ_ICU
 	bool
 	prompt "ICU support"
 
+config HARFBUZZ_SUBSET
+	bool
+	prompt "install harfbuzz subset library"
+
 endif

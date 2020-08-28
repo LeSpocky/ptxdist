@@ -63,6 +63,9 @@ $(STATEDIR)/harfbuzz.targetinstall:
 	@$(call install_fixup, harfbuzz,DESCRIPTION, "OpenType text shaping engine")
 
 	@$(call install_lib, harfbuzz, 0, 0, 0644, libharfbuzz)
+ifdef PTXCONF_HARFBUZZ_SUBSET
+	@$(call install_lib, harfbuzz, 0, 0, 0644, libharfbuzz-subset)
+endif
 ifdef PTXCONF_HARFBUZZ_ICU
 	@$(call install_lib, harfbuzz, 0, 0, 0644, libharfbuzz-icu)
 endif
