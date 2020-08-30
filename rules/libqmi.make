@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBQMI) += libqmi
 #
 # Paths and names
 #
-LIBQMI_VERSION	:= 1.24.4
-LIBQMI_MD5	:= be6539fde54fec1fc9d852db201c8560
+LIBQMI_VERSION	:= 1.26.2
+LIBQMI_MD5	:= ce7166668c9f1ccd496fc6af882ee00e
 LIBQMI		:= libqmi-$(LIBQMI_VERSION)
 LIBQMI_SUFFIX	:= tar.xz
 LIBQMI_URL	:= http://www.freedesktop.org/software/libqmi/$(LIBQMI).$(LIBQMI_SUFFIX)
@@ -33,7 +33,10 @@ LIBQMI_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
 LIBQMI_CONF_TOOL	:= autoconf
 LIBQMI_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-more-warnings \
+	--disable-compile-warnings \
+	--disable-Werror \
+	--disable-introspection \
+	--enable-collection=full \
 	--disable-firmware-update \
 	--disable-mm-runtime-check \
 	--disable-gtk-doc \
@@ -41,6 +44,7 @@ LIBQMI_CONF_OPT		:= \
 	--disable-gtk-doc-pdf \
 	--disable-qmi-username \
 	--$(call ptx/endis, PTXCONF_LIBQMI_MBIM_QMUX)-mbim-qmux \
+	--disable-qrtr \
 	--without-udev \
 	--with-udev-base-dir=/usr/lib/udev
 
