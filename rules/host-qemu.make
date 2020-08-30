@@ -16,8 +16,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_QEMU) += host-qemu
 #
 # Paths and names
 #
-HOST_QEMU_VERSION	:= 5.0.0
-HOST_QEMU_MD5		:= ede6005d7143fe994dd089d31dc2cf6c
+HOST_QEMU_VERSION	:= 5.1.0
+HOST_QEMU_MD5		:= f3eb729786591f05a9ac5d8ab03b9269
 HOST_QEMU		:= qemu-$(HOST_QEMU_VERSION)
 HOST_QEMU_SUFFIX	:= tar.xz
 HOST_QEMU_URL		:= https://download.qemu.org/$(HOST_QEMU).$(HOST_QEMU_SUFFIX)
@@ -117,6 +117,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--enable-vhost-scsi \
 	--disable-vhost-crypto \
 	--disable-vhost-user \
+	--disable-vhost-vdpa \
 	--disable-spice \
 	--disable-rbd \
 	--disable-libiscsi \
@@ -155,7 +156,12 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-debug-mutex \
 	--disable-libpmem \
 	--disable-xkbcommon \
-	--disable-plugins
+	--disable-plugins \
+	--disable-containers \
+	--disable-fuzzing \
+	--disable-rng-none \
+	--disable-keyring \
+	--disable-libdaxctl
 
 # Use '=' to delay $(shell ...) calls until this is needed
 QEMU_CROSS_QEMU = $(call ptx/get-alternative, config/qemu, qemu-cross)
