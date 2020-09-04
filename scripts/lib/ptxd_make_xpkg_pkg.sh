@@ -209,7 +209,7 @@ ptxd_install_setup_src() {
 
     legacy_src="${src#/usr}"
     if [ \( "${cmd}" = "alternative" -o "${cmd}" = "config" \) -a "${legacy_src}" != "${src}" ]; then
-	ptxd_install_setup_src_list "${legacy_src}"
+	pkg_dir= ptxd_install_setup_src_list "${legacy_src}"
 	if ptxd_get_path "${list[@]}"; then
 	    local tmp
 	    echo -e "\nFound file for '${dst}' in these legacy locations:\n"
