@@ -5,6 +5,7 @@ menuconfig ECRYPTFS_UTILS
 	prompt "ecryptfs-utils                "
 	select KEYUTILS
 	select NSS
+	select HOST_GETTEXT
 	select HOST_INTLTOOL
 	select BASH			if ECRYPTFS_UTILS_TESTS
 	select COREUTILS		if ECRYPTFS_UTILS_TESTS
