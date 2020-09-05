@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_UPOWER) += upower
 #
 # Paths and names
 #
-UPOWER_VERSION	:= 0.99.10
-UPOWER_MD5	:= ac6b6bee31110fd8478a8e881c40fba6
+UPOWER_VERSION	:= 0.99.11
+UPOWER_MD5	:= abe6acb617f11f2e8dbd9846fcf86e24
 UPOWER		:= upower-$(UPOWER_VERSION)
 UPOWER_SUFFIX	:= tar.xz
-UPOWER_URL	:= https://gitlab.freedesktop.org/upower/upower/uploads/c438511024b9bc5a904f8775cfc8e4c4/$(UPOWER).$(UPOWER_SUFFIX)
+UPOWER_URL	:= https://gitlab.freedesktop.org/upower/upower/uploads/93cfe7c8d66ed486001c4f3f55399b7a/$(UPOWER).$(UPOWER_SUFFIX)
 UPOWER_SOURCE	:= $(SRCDIR)/$(UPOWER).$(UPOWER_SUFFIX)
 UPOWER_DIR	:= $(BUILDDIR)/$(UPOWER)
 UPOWER_LICENSE	:= GPL-2.0-or-later
@@ -27,6 +27,12 @@ UPOWER_LICENSE_FILES := file://COPYING;md5=0de8fbf1d97a140d1d93b9f14dcfbf08
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
+
+UPOWER_CONF_ENV := \
+	$(CROSS_ENV) \
+	ac_cv_path_MSGFMT=: \
+	ac_cv_path_GMSGFMT=: \
+	ac_cv_path_XGETTEXT=:
 
 #
 # autoconf
@@ -76,7 +82,7 @@ $(STATEDIR)/upower.targetinstall:
 	@$(call install_alternative, upower, 0, 0, 0644, \
 		/etc/UPower/UPower.conf)
 	@$(call install_alternative, upower, 0, 0, 0644, \
-		/etc/dbus-1/system.d/org.freedesktop.UPower.conf)
+		/usr/share/dbus-1/system.d/org.freedesktop.UPower.conf)
 	@$(call install_alternative, upower, 0, 0, 0644, \
 		/usr/share/dbus-1/system-services/org.freedesktop.UPower.service)
 	@$(call install_tree, upower, 0, 0, -, /usr/lib/udev/rules.d)
