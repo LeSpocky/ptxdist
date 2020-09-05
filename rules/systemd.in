@@ -5,7 +5,6 @@ menuconfig SYSTEMD
 	depends on INITMETHOD_SYSTEMD
 	select HOST_SYSTEM_PYTHON3
 	select HOST_MESON
-	select HOST_GETTEXT
 	select HOST_GPERF
 	select ROOTFS_RUN
 	select LIBC_PTHREAD
