@@ -239,7 +239,8 @@ QT5_CONF_OPT	:= \
 QT5_CONF_OPT += \
 	--disable-sm \
 	--disable-feature-gssapi \
-	--$(call ptx/endis, PTXCONF_QT5_VULKAN)-vulkan
+	--$(call ptx/endis, PTXCONF_QT5_VULKAN)-vulkan \
+	--disable-zstd
 
 ifdef PTXCONF_QT5_MODULE_QTBASE_SQL_MYSQL
 QT5_CONF_OPT += \
