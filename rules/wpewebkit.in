@@ -22,9 +22,7 @@ menuconfig WPEWEBKIT
 	select HARFBUZZ
 	select HARFBUZZ_ICU
 	select GLIB_NETWORKING if RUNTIME
-	select GNUTLS
 	select LIBJPEG
-	select LIBPCRE
 	select LIBWEBP
 	select LIBWEBP_DEMUX
 	select SQLITE
@@ -43,6 +41,7 @@ menuconfig WPEWEBKIT
 	select GST_PLUGINS_BASE1
 	select GST_PLUGINS_BASE1_APP
 	select GST_PLUGINS_BASE1_GL
+	select GST_PLUGINS_BASE1_EGL
 	select GST_PLUGINS_GOOD1
 	select GST_PLUGINS_BAD1
 	select WPEBACKEND_FDO
