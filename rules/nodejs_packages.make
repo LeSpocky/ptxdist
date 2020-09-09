@@ -69,9 +69,9 @@ $(STATEDIR)/nodejs_packages.compile:
 
 $(STATEDIR)/nodejs_packages.install:
 	@$(call targetinfo)
-	@$(call world/execute, HOST_UA_NODESET, \
+	@$(call world/execute, NODEJS_PACKAGES, \
 		install -vdm 0755 $(NODEJS_PACKAGES_PKGDIR)/usr/lib)
-	@$(call execute, HOST_UA_NODESET, \
+	@$(call execute, NODEJS_PACKAGES, \
 		cp -vpr $(NODEJS_PACKAGES_DIR)/node_modules \
 			$(NODEJS_PACKAGES_PKGDIR)/usr/lib)
 	@$(call touch)
