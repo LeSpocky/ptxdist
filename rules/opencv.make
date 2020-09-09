@@ -215,7 +215,7 @@ $(STATEDIR)/opencv.install:
 # Target-Install
 # ----------------------------------------------------------------------------
 
-OPENCV_LIBS-$(PTXCONF_OPENCV)			:= libopencv_core
+OPENCV_LIBS-y					:= libopencv_core
 OPENCV_LIBS-$(PTXCONF_OPENCV_CALIB3D)		+= libopencv_calib3d
 OPENCV_LIBS-$(PTXCONF_OPENCV_DNN)		+= libopencv_dnn
 OPENCV_LIBS-$(PTXCONF_OPENCV_FEATURES2D)	+= libopencv_features2d
@@ -240,7 +240,7 @@ $(STATEDIR)/opencv.targetinstall:
 	@$(call install_fixup, opencv, DESCRIPTION, missing)
 
 	@$(foreach lib, $(OPENCV_LIBS-y), \
-		$(call install_lib, opencv, 0, 0, 0644, $(lib));)
+		$(call install_lib, opencv, 0, 0, 0644, $(lib))$(ptx/nl))
 ifdef PTXCONF_OPENCV_EXAMPLES
 	@$(call install_tree, opencv, 0, 0, $(OPENCV_BUILD_DIR)/bin, /bin)
 endif
