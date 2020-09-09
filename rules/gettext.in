@@ -6,6 +6,8 @@ menuconfig GETTEXT
 	select LIBC_DL
 	select GCCLIBS_CXX
 	select GCCLIBS_GCC_S
+	select LIBXML2
+	select LIBXML2_WRITER
 	help
 	  The gettext program translates a natural language
 	  message into the user's language, by looking up

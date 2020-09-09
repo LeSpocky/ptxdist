@@ -41,7 +41,6 @@ GETTEXT_ENV 	:= $(CROSS_ENV)
 GETTEXT_AUTOCONF := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-java \
-	--enable-namespacing \
 	--disable-csharp \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-threads=posix \
@@ -52,9 +51,13 @@ GETTEXT_AUTOCONF := \
 	--enable-cross-guesses=conservative \
 	--disable-relocatable \
 	--enable-libasprintf \
-	--disable-acl \
-	--disable-openmp \
 	--disable-curses \
+	--enable-namespacing \
+	--disable-openmp \
+	--disable-acl \
+	--with-included-libunistring \
+	--without-included-libxml \
+	--with-included-regex \
 	--without-emacs \
 	--without-bzip2 \
 	--without-xz
