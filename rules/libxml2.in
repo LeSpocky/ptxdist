@@ -151,6 +151,7 @@ config LIBXML2_READER
 	# hard dependencies from configure.in
 	select LIBXML2_PUSH
 	# needed for xmlValidatePopElement
+	select LIBXML2_REGEXPS
 	select LIBXML2_DTD
 	prompt "xmlReader Parsing Interface"
 	help
