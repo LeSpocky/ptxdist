@@ -291,8 +291,13 @@ ptxd_install_dir_impl() {
 	ptxd_ensure_dir "${dst%/*}"
     fi &&
 
-    install -m "${mod_nfs}" -d "${ndirs[@]/%/${dst}}" &&
-    install -m "${mod}" -o "${usr}" -g "${grp}" -d "${pdirs[@]/%/${dst}}" &&
+    if [ "${1}" != "keep" ]; then
+	install -m "${mod_nfs}" -d "${ndirs[@]/%/${dst}}" &&
+	install -m "${mod}" -o "${usr}" -g "${grp}" -d "${pdirs[@]/%/${dst}}"
+    else
+	# don't overwrite existing permissions
+	mkdir -p "${dirs[@]/%/${dst}}"
+    fi &&
 
     ptxd_install_virtfs
 }
@@ -315,11 +320,12 @@ ptxd_ensure_dir() {
     done
     if [ "${no_skip}" != 1 ]; then
 	# just create the rest and continue if virtfs data already exists
-	install -d "${dirs[@]/%/${dst}}" &&
+	#  but don't overwrite existing permissions
+	mkdir -p "${dirs[@]/%/${dst}}" &&
 	return
     fi &&
     ptxd_install_lock &&
-    ptxd_install_dir_impl
+    ptxd_install_dir_impl keep
     ptxd_install_unlock
 }
 export -f ptxd_ensure_dir
