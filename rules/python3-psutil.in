@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_PSUTIL
+	tristate
+	select PYTHON3
+	prompt "psutil"
+	help
+	  Cross-platform lib for process and system monitoring in Python.
