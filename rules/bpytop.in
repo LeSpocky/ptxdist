@@ -1,0 +1,11 @@
+## SECTION=shell_and_console
+
+config BPYTOP
+	tristate
+	select PYTHON3
+	select PYTHON3_DISTUTILS		if RUNTIME
+	select PYTHON3_PSUTIL			if RUNTIME
+	prompt "bpytop"
+	help
+	  Resource monitor that shows usage and stats for processor, memory,
+	  disks, network and processes.
