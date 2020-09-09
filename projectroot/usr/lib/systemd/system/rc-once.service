@@ -10,4 +10,4 @@ Before=system-update.target
 Type=oneshot
 RemainAfterExit=no
 ExecStart=/lib/systemd/systemd-rc-once
-StandardOutput=syslog+console
+StandardOutput=journal+console
