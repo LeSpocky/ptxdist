@@ -6,6 +6,7 @@ config PYTHON3_LXML
 	select LIBXML2
 	select LIBXML2_SCHEMAS
 	select LIBXSLT
+	select LIBXSLT_LIBEXSLT
 	prompt "lxml"
 	help
 	  lxml is a Pythonic, mature binding for the libxml2 and libxslt libraries.
