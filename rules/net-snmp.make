@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_NET_SNMP) += net-snmp
 #
 # Paths and names
 #
-NET_SNMP_VERSION	:= 5.8
-NET_SNMP_MD5		:= 63bfc65fbb86cdb616598df1aff6458a
+NET_SNMP_VERSION	:= 5.9
+NET_SNMP_MD5		:= 382da80138897f294299badf9c62c699
 NET_SNMP		:= net-snmp-$(NET_SNMP_VERSION)
 NET_SNMP_SUFFIX		:= tar.gz
 NET_SNMP_URL		:= $(call ptx/mirror, SF, net-snmp/$(NET_SNMP).$(NET_SNMP_SUFFIX))
@@ -95,8 +95,6 @@ NET_SNMP_AUTOCONF := \
 	--enable-shared \
 	--disable-static \
 	--with-endianness=$(call ptx/ifdef, PTXCONF_ENDIAN_LITTLE, little, big) \
-	--without-dmalloc \
-	--without-efence \
 	--$(call ptx/wwo, PTXCONF_NET_SNMP_SHA_AES)-openssl \
 	--without-pkcs \
 	--without-krb5 \
