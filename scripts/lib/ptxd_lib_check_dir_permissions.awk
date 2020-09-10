@@ -4,10 +4,6 @@ BEGIN {
 	FS = "\x1F";
 }
 
-FNR == 1 {
-	pkg = gensub(/.*\/(.*).perms/, "\\1", 1, FILENAME)
-}
-
 function check(path, perm, implicit) {
 	if ((path in perms) && (perms[path] != perm)) {
 		if (implicit && (pkg == names[path]))
@@ -18,29 +14,43 @@ function check(path, perm, implicit) {
 		print("\nOne of these packages must be fixed!\n")
 		exit 1
 	}
-	names[path] = pkg
-	perms[path] = perm
-	imp[path] = implicit
+	if (!(path in perms)) {
+		names[path] = pkg
+		perms[path] = perm
+		imp[path] = implicit
+	}
 }
 
-function check_parents(base) {
+FNR == 1 {
+	for (path in dirs)
+		check(path, dirs[path], imps[path])
+	pkg = gensub(/.*\/(.*).perms/, "\\1", 1, FILENAME)
+	delete dirs
+	delete imps
+}
+
+function push_parents(base) {
 	path = base
 	while (1) {
 		path = gensub(/\/[^/]*$/,"",1,path)
 		if (path == "")
 			break;
-		check(path, "0.0 0755", base)
+		if (!(path in dirs)) {
+			dirs[path] = "0.0 0755"
+			imps[path] = base
+		}
 	}
 }
 
 $1 ~ "d" {
 	path = gensub(/\/$/,"",1,$2)
 	perm = $3 "." $4 " " sprintf("%04o", strtonum("0" $5))
-	check(path, perm, "")
-	check_parents(path)
+	dirs[path] = perm
+	imps[path] = ""
+	push_parents(path)
 }
 
 $1 ~ "f" {
 	path = $2
-	check_parents(path)
+	push_parents(path)
 }
