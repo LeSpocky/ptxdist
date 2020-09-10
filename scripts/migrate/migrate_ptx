@@ -410,3 +410,11 @@ s/^\(\(# \)\?PTXCONF_SQLITE_LOAD_\)EXTENTION/\1EXTENSION/
 # reason : options were renamed / merged
 #
 s/^\(\(# \)\?PTXCONF_GPSD_DRIVER\)_UBX\>/\1_UBLOX/
+
+#
+# from   : ptxdist-2020.08.0
+# to     : ptxdist-2020.09.0
+# symbol : GST_VALIDATE1 -> GST_DEVTOOLS1
+# reason : gst-validate is part of gst-devtools, not released separately anymore
+#
+s/^\(\(# \)\?PTXCONF_GST_\)VALIDATE1\>/\1DEVTOOLS1/

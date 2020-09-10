@@ -1,14 +1,16 @@
 ## SECTION=multimedia_gstreamer1
 
-menuconfig GST_VALIDATE1
+menuconfig GST_DEVTOOLS1
 	tristate
+	select HOST_MESON
 	select GSTREAMER1
+	select GSTREAMER1_CHECK
 	select GST_PLUGINS_BASE1
 	select JSON_GLIB
-	select CAIRO		if GST_VALIDATE1_VIDEO
-	select CAIRO_PNG	if GST_VALIDATE1_VIDEO
-	select PYTHON3		if GST_VALIDATE1_LAUNCHER
-	select PYTHON3_SSL	if GST_VALIDATE1_LAUNCHER
+	select CAIRO		if GST_DEVTOOLS1_VIDEO
+	select CAIRO_PNG	if GST_DEVTOOLS1_VIDEO
+	select PYTHON3		if GST_DEVTOOLS1_VALIDATE_LAUNCHER
+	select PYTHON3_SSL	if GST_DEVTOOLS1_VALIDATE_LAUNCHER
 	prompt "gst-validate                  "
 	help
 	  GstValidate is a tool that allows GStreamer developers to check
@@ -16,13 +18,13 @@ menuconfig GST_VALIDATE1
 	  It was first started to provide plug-ins developers with a tool to
 	  check that they use the framework the proper way.
 
-if GST_VALIDATE1
+if GST_DEVTOOLS1
 
-config GST_VALIDATE1_VIDEO
+config GST_DEVTOOLS1_VIDEO
 	bool
 	prompt "install video plugins and tools"
 
-config GST_VALIDATE1_LAUNCHER
+config GST_DEVTOOLS1_VALIDATE_LAUNCHER
 	bool
 	prompt "install gst-validate-launcher"
 
