@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GSTREAMER1) += gstreamer1
 #
 # Paths and names
 #
-GSTREAMER1_VERSION	:= 1.16.2
-GSTREAMER1_MD5		:= 0e661ed5bdf1d8996e430228d022628e
+GSTREAMER1_VERSION	:= 1.18.0
+GSTREAMER1_MD5		:= 25d683630ff8b82b2c878aa3edd3c491
 GSTREAMER1		:= gstreamer-$(GSTREAMER1_VERSION)
 GSTREAMER1_SUFFIX	:= tar.xz
 GSTREAMER1_URL		:= http://gstreamer.freedesktop.org/src/gstreamer/$(GSTREAMER1).$(GSTREAMER1_SUFFIX)
@@ -32,6 +32,7 @@ GSTREAMER1_LICENSE	:= LGPL-2.1-or-later
 # meson
 #
 GSTREAMER1_GENERIC_CONF_OPT = \
+	-Ddoc=disabled \
 	-Dexamples=disabled \
 	-Dglib-asserts=disabled \
 	-Dglib-checks=disabled \
@@ -48,8 +49,9 @@ GSTREAMER1_CONF_OPT	:= \
 	-Dbash-completion=disabled \
 	-Dbenchmarks=disabled \
 	-Dcheck=$(call ptx/endis,PTXCONF_GSTREAMER1_CHECK)d \
+	-Dcoretracers=$(call ptx/endis,PTXCONF_GSTREAMER1_DEBUG)d \
 	-Ddbghelp=disabled \
-	-Dextra-checks=false \
+	-Dextra-checks=disabled \
 	-Dgst_debug=$(call ptx/truefalse,PTXCONF_GSTREAMER1_DEBUG) \
 	-Dgst_parse=true \
 	-Dgtk_doc=disabled \
