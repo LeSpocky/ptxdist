@@ -3,6 +3,7 @@
 menuconfig GST_PLUGINS_BAD1
 	tristate
 	select HOST_MESON
+	select HOST_SHADERC		if GST_PLUGINS_BAD1_VULKAN
 
 	select GLIB
 	select GSTREAMER1
@@ -13,6 +14,7 @@ menuconfig GST_PLUGINS_BAD1
 	select BZIP2_LIBBZ2		if GST_PLUGINS_BAD1_BZ2
 	select BLUEZ			if GST_PLUGINS_BAD1_BLUEZ
 	select BLUEZ_LIBBLUETOOTH	if GST_PLUGINS_BAD1_BLUEZ
+	select LCMS			if GST_PLUGINS_BAD1_COLORMANAGEMENT
 	select LIBCURL			if GST_PLUGINS_BAD1_CURL
 	select LIBCURL_LIBSSH2		if GST_PLUGINS_BAD1_CURL_SSH2
 	select LIBXML2			if GST_PLUGINS_BAD1_DASH || GST_PLUGINS_BAD1_SMOOTHSTREAMING || GST_PLUGINS_BAD1_TTML
@@ -29,6 +31,7 @@ menuconfig GST_PLUGINS_BAD1
 	select CAIRO			if GST_PLUGINS_BAD1_TTML || GST_PLUGINS_BAD1_CLOSEDCAPTION
 	select LIBGUDEV			if GST_PLUGINS_BAD1_UVCH264
 	select LIBUSB			if GST_PLUGINS_BAD1_UVCH264
+	select LIBVA			if GST_PLUGINS_BAD1_VA
 	select VO_AACENC		if GST_PLUGINS_BAD1_VOAACENC
 	select VULKAN_LOADER		if GST_PLUGINS_BAD1_VULKAN
 	select WAYLAND			if GST_PLUGINS_BAD1_WAYLAND
@@ -107,6 +110,10 @@ config GST_PLUGINS_BAD1_COLOREFFECTS
 config GST_PLUGINS_BAD1_DEBUGUTILS
 	bool
 	prompt "debugutils"
+
+config GST_PLUGINS_BAD1_DVBSUBENC
+	bool
+	prompt "dvbsubenc"
 
 config GST_PLUGINS_BAD1_DVBSUBOVERLAY
 	bool
@@ -232,6 +239,18 @@ config GST_PLUGINS_BAD1_REMOVESILENCE
 	bool
 	prompt "removesilence"
 
+config GST_PLUGINS_BAD1_RIST
+	bool
+	prompt "rist"
+
+config GST_PLUGINS_BAD1_RTMP2
+	bool
+	prompt "rtmp2"
+
+config GST_PLUGINS_BAD1_RTP
+	bool
+	prompt "rtp"
+
 config GST_PLUGINS_BAD1_SDP
 	bool
 	prompt "sdp"
@@ -256,9 +275,21 @@ config GST_PLUGINS_BAD1_SUBENC
 	bool
 	prompt "subenc"
 
+config GST_PLUGINS_BAD1_SWITCHBIN
+	bool
+	prompt "switchbin"
+
 config GST_PLUGINS_BAD1_TIMECODE
 	bool
 	prompt "timecode"
+
+config GST_PLUGINS_BAD1_V4L2CODECS
+	bool
+	prompt "v4l2codecs"
+
+config GST_PLUGINS_BAD1_VA
+	bool
+	prompt "va"
 
 config GST_PLUGINS_BAD1_VIDEOFILTERS
 	bool
@@ -284,10 +315,6 @@ config GST_PLUGINS_BAD1_Y4M
 	bool
 	prompt "y4m"
 
-config GST_PLUGINS_BAD1_YADIF
-	bool
-	prompt "yadif"
-
 comment "plugins with dependencies"
 
 config GST_PLUGINS_BAD1_AOM
@@ -297,6 +324,14 @@ config GST_PLUGINS_BAD1_AOM
 	prompt "aom"
 	help
 	  AOM AV1 video codec plugin
+
+config GST_PLUGINS_BAD1_AVTP
+	bool
+	# needs avtp
+	depends on BROKEN
+	prompt "avtp"
+	help
+	  AVTP plugin
 
 config GST_PLUGINS_BAD1_ASSRENDER
 	bool
@@ -333,6 +368,12 @@ config GST_PLUGINS_BAD1_CHROMAPRINT
 	prompt "chromaprint"
 	help
 	  Chromaprint fingerprint audio plugin
+
+config GST_PLUGINS_BAD1_COLORMANAGEMENT
+	bool
+	prompt "colormanagement"
+	help
+	  Color management correction plugin
 
 config GST_PLUGINS_BAD1_CLOSEDCAPTION
 	bool
@@ -527,6 +568,14 @@ config GST_PLUGINS_BAD1_LV2
 	help
 	  LV2 audio plugin bridge
 
+config GST_PLUGINS_BAD1_MICRODNS
+	bool
+	# needs libmicrodns
+	depends on BROKEN
+	prompt "microdns"
+	help
+	  libmicrodns-based device provider
+
 config GST_PLUGINS_BAD1_MODPLUG
 	bool
 	# needs libmodplug
@@ -575,21 +624,13 @@ config GST_PLUGINS_BAD1_NEON
 	help
 	  NEON HTTP source plugin
 
-config GST_PLUGINS_BAD1_NVDEC
+config GST_PLUGINS_BAD1_NVCODEC
 	bool
 	# needs nvcuvid & cuda
 	depends on BROKEN
-	prompt "nvdec"
+	prompt "nvcodec"
 	help
-	  NVIDIA GPU decoder plugin
-
-config GST_PLUGINS_BAD1_NVENC
-	bool
-	# needs cuda
-	depends on BROKEN
-	prompt "nvenc"
-	help
-	  NVIDIA GPU encoder plugin
+	  NVIDIA GPU codec plugin
 
 config GST_PLUGINS_BAD1_OFA
 	bool
@@ -753,6 +794,14 @@ config GST_PLUGINS_BAD1_SRTP
 	help
 	  Secure RTP codec plugin
 
+config GST_PLUGINS_BAD1_SVTHEVCENC
+	bool
+	# needs svthevcenc
+	depends on BROKEN
+	prompt "svthevcenc"
+	help
+	  Scalable Video Technology for HEVC encoder plugin
+
 config GST_PLUGINS_BAD1_TELETEXT
 	bool
 	# needs zvbi
@@ -769,6 +818,12 @@ config GST_PLUGINS_BAD1_TINYALSA
 	help
 	  TinyALSA plugin
 
+config GST_PLUGINS_BAD1_TRANSCODE
+	bool
+	prompt "transcode"
+	help
+	  Transcode plugin
+
 config GST_PLUGINS_BAD1_TTML
 	bool
 	prompt "ttml"
@@ -780,13 +835,6 @@ config GST_PLUGINS_BAD1_UVCH264
 	prompt "uvch264"
 	help
 	  UVC compliant H.264 camera source plugin
-
-config GST_PLUGINS_BAD1_VDPAU
-	bool
-	depends on BROKEN
-	prompt "vdpau"
-	help
-	  Nvidia VDPAU plugin
 
 config GST_PLUGINS_BAD1_VOAACENC
 	bool
@@ -864,7 +912,15 @@ config GST_PLUGINS_BAD1_ZBAR
 	depends on BROKEN
 	prompt "zbar"
 	help
-	  Barcode image scanner plugin
+	  Barcode image scanner plugin using zbar library
+
+config GST_PLUGINS_BAD1_ZXING
+	bool
+	# needs zxing-cpp
+	depends on BROKEN
+	prompt "zxing"
+	help
+	  Barcode image scanner plugin using zxing-cpp library
 
 comment "Support options"
 
