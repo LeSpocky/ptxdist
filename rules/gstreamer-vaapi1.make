@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GSTREAMER_VAAPI1) += gstreamer-vaapi1
 #
 # Paths and names
 #
-GSTREAMER_VAAPI1_VERSION	:= 1.16.2
-GSTREAMER_VAAPI1_MD5		:= 13f7cb6a64bde24e67f563377487dcce
+GSTREAMER_VAAPI1_VERSION	:= 1.18.0
+GSTREAMER_VAAPI1_MD5		:= 079a3739857e0cf4904afe92659d8a18
 GSTREAMER_VAAPI1		:= gstreamer-vaapi-$(GSTREAMER_VAAPI1_VERSION)
 GSTREAMER_VAAPI1_SUFFIX		:= tar.xz
 GSTREAMER_VAAPI1_URL		:= http://gstreamer.freedesktop.org/src/gstreamer-vaapi/$(GSTREAMER_VAAPI1).$(GSTREAMER_VAAPI1_SUFFIX)
@@ -33,8 +33,10 @@ GSTREAMER_VAAPI1_LICENSE	:= LGPL-2.0-or-later
 GSTREAMER_VAAPI1_CONF_TOOL	:= meson
 GSTREAMER_VAAPI1_CONF_OPT	= \
 	$(CROSS_MESON_USR) \
+	-Ddoc=disabled \
 	-Dexamples=disabled \
-	-Dgtk_doc=disabled \
+	-Dpackage-origin=PTXdist \
+	-Dtests=disabled \
 	-Dwith_drm=yes \
 	-Dwith_egl=$(call ptx/yesno, PTXCONF_GSTREAMER_VAAPI1_OPENGL) \
 	-Dwith_encoders=yes \
