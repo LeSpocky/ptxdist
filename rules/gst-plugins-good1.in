@@ -3,11 +3,12 @@
 menuconfig GST_PLUGINS_GOOD1
 	tristate
 	select HOST_MESON
+	select CROSS_NASM		if GST_PLUGINS_GOOD1_DEINTERLACE
 
 	select GLIB
 	select GSTREAMER1
 	select GST_PLUGINS_BASE1
-	select ORC
+	select ORC			if GST_PLUGINS_GOOD1_ORC
 	select BZIP2			if GST_PLUGINS_GOOD1_BZ2
 	select BZIP2_LIBBZ2		if GST_PLUGINS_GOOD1_BZ2
 	select CAIRO			if GST_PLUGINS_GOOD1_CAIRO
@@ -59,6 +60,7 @@ config GST_PLUGINS_GOOD1_APETAG
 
 config GST_PLUGINS_GOOD1_AUDIOFX
 	bool
+	select GST_PLUGINS_GOOD1_ORC
 	prompt "audiofx"
 
 config GST_PLUGINS_GOOD1_AUDIOPARSERS
@@ -87,6 +89,7 @@ config GST_PLUGINS_GOOD1_DEBUGUTILS
 
 config GST_PLUGINS_GOOD1_DEINTERLACE
 	bool
+	select GST_PLUGINS_GOOD1_ORC
 	prompt "deinterlace"
 
 config GST_PLUGINS_GOOD1_DTMF
@@ -195,6 +198,7 @@ config GST_PLUGINS_GOOD1_UDP
 
 config GST_PLUGINS_GOOD1_VIDEOBOX
 	bool
+	select GST_PLUGINS_GOOD1_ORC
 	prompt "videobox"
 
 config GST_PLUGINS_GOOD1_VIDEOCROP
@@ -207,6 +211,7 @@ config GST_PLUGINS_GOOD1_VIDEOFILTER
 
 config GST_PLUGINS_GOOD1_VIDEOMIXER
 	bool
+	select GST_PLUGINS_GOOD1_ORC
 	prompt "videomixer"
 
 config GST_PLUGINS_GOOD1_WAVENC
@@ -405,6 +410,9 @@ config GST_PLUGINS_GOOD1_BZ2
 	prompt "bz2"
 	help
 	  libbz2 support in the matroska plugin
+
+config GST_PLUGINS_GOOD1_ORC
+	bool
 
 config GST_PLUGINS_GOOD1_ZLIB
 	bool

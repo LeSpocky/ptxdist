@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GST_PLUGINS_GOOD1) += gst-plugins-good1
 #
 # Paths and names
 #
-GST_PLUGINS_GOOD1_VERSION	:= 1.16.2
-GST_PLUGINS_GOOD1_MD5		:= bd025f8f14974f94b75ac69a9d1b9c93
+GST_PLUGINS_GOOD1_VERSION	:= 1.18.0
+GST_PLUGINS_GOOD1_MD5		:= c437bf42bf830bc0f482c7d088fb37a5
 GST_PLUGINS_GOOD1		:= gst-plugins-good-$(GST_PLUGINS_GOOD1_VERSION)
 GST_PLUGINS_GOOD1_SUFFIX	:= tar.xz
 GST_PLUGINS_GOOD1_URL		:= http://gstreamer.freedesktop.org/src/gst-plugins-good/$(GST_PLUGINS_GOOD1).$(GST_PLUGINS_GOOD1_SUFFIX)
@@ -122,6 +122,12 @@ ifdef PTXCONF_GST_PLUGINS_GOOD1_QT5
 GST_PLUGINS_GOOD1_PATH		:= PATH=$(PTXDIST_SYSROOT_CROSS)/bin/qt5:$(CROSS_PATH)
 endif
 
+ifdef PTXCONF_ARCH_X86
+GST_PLUGINS_GOOD1_ASM := $(call ptx/endis,PTXCONF_GST_PLUGINS_GOOD1_DEINTERLACE)d
+else
+GST_PLUGINS_GOOD1_ASM := disabled
+endif
+
 #
 # meson
 #
@@ -129,9 +135,10 @@ GST_PLUGINS_GOOD1_CONF_TOOL	= meson
 GST_PLUGINS_GOOD1_CONF_OPT	= \
 	$(CROSS_MESON_USR) \
 	$(call GSTREAMER1_GENERIC_CONF_OPT,GStreamer Good Plug-ins) \
+	-Dasm=$(GST_PLUGINS_GOOD1_ASM) \
 	-Dbz2=$(call ptx/endis,PTXCONF_GST_PLUGINS_GOOD1_BZ2)d \
 	-Ddirectsound=disabled \
-	-Dorc=enabled \
+	-Dorc=$(call ptx/endis,PTXCONF_GST_PLUGINS_GOOD1_ORC)d \
 	-Dosxaudio=disabled \
 	-Dosxvideo=disabled \
 	-Dv4l2-gudev=$(call ptx/endis,PTXCONF_GST_PLUGINS_GOOD1_V4L2)d \
