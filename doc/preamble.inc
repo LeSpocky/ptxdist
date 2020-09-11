@@ -82,6 +82,9 @@
 \definecolor{VerbatimColor}{gray}{0.95}
 \definecolor{VerbatimBorderColor}{gray}{0.75}
 
+% override default sphinxcode to display gray-colored box
+\protected\def\sphinxcode#1{\fboxsep0.5mm\fcolorbox{VerbatimBorderColor}{VerbatimColor}{\texttt{#1}}}
+
 \makeatother
 
 % vim:syntax=tex
