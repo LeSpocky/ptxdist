@@ -78,8 +78,15 @@ check_pipe_status() {
 	done
 }
 
-if [ -n "${PKGCONFIG_WHITELIST_SRC}" ]; then
-    pkgs="$(pkg-config.real --print-provides "${@}" 2>/dev/null | awk '{print $1}' && check_pipe_status)" &&
+if [ -n "${PKGCONFIG_WHITELIST_SRC}" -a "${1}" != "--version" -a "${1}" != "--help" ]; then
+    error="$(mktemp "${PTXDIST_TEMPDIR}/pkg-config.XXXXXX")"
+    pkgs="$(pkg-config.real --print-provides "${@}" 2> "${error}" | awk '{print $1}' && check_pipe_status)"
+    if [ $? -ne 0 ]; then
+	cat "${error}" >&2
+	rm "${error}"
+	exit 1
+    fi
+    rm "${error}"
     for pkg in ${pkgs}; do
 	if [[ ! " ${whitelist} " =~ " ${pkg} " && ! "${pkg}" =~ '-uninstalled' ]]; then
 	    echo "$(basename ${0}): warning: blocking '${pkg}': not selected by '${PKGCONFIG_WHITELIST_SRC}'" >&2
