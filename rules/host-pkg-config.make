@@ -43,6 +43,8 @@ HOST_PKG_CONFIG_CONF_OPT	:= \
 PKG_CONFIG_SCRIPT = \
 	$(shell ptxd_get_alternative scripts pkg-config-wrapper && echo $$ptxd_reply)
 
+HOST_PKG_CONFIG_BINCONFIG_GLOB := does-not-exist
+
 $(STATEDIR)/host-pkg-config.install:
 	@$(call targetinfo)
 	@$(call world/install, HOST_PKG_CONFIG)
