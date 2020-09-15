@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_WESTON) += weston
 #
 # Paths and names
 #
-WESTON_VERSION	:= 8.0.0
-LIBWESTON_MAJOR := 8
-WESTON_MD5	:= 53e4810d852df0601d01fd986a5b22b3
+WESTON_VERSION	:= 9.0.0
+LIBWESTON_MAJOR := 9
+WESTON_MD5	:= b406da0fe9139fd39653238fde22a6cf
 WESTON		:= weston-$(WESTON_VERSION)
 WESTON_SUFFIX	:= tar.xz
 WESTON_URL	:= http://wayland.freedesktop.org/releases/$(WESTON).$(WESTON_SUFFIX)
@@ -59,8 +59,10 @@ WESTON_CONF_OPT		:= \
 	-Dshell-desktop=true \
 	-Dshell-fullscreen=true \
 	-Dshell-ivi=$(call ptx/truefalse,PTXCONF_WESTON_IVISHELL) \
+	-Dshell-kiosk=$(call ptx/truefalse,PTXCONF_WESTON_SHELL_KIOSK) \
 	-Dsimple-clients=$(subst $(space),$(comma),$(WESTON_SIMPLE_CLIENTS-y)) \
 	-Dsystemd=$(call ptx/truefalse,PTXCONF_WESTON_SYSTEMD) \
+	-Dtest-gl-renderer=false \
 	-Dtest-junit-xml=false \
 	-Dtools=calibrator,debug,info,terminal,touch-calibrator \
 	-Dwcap-decode=$(call ptx/truefalse,PTXCONF_WESTON_WCAP_TOOLS) \

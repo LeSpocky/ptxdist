@@ -115,6 +115,10 @@ config WESTON_IVISHELL_EXAMPLE
 	  application, a few demo clients and the weston.ini configuration for
 	  the IVI-Shell.
 
+config WESTON_SHELL_KIOSK
+	bool
+	prompt "kiosk shell"
+
 config WESTON_PIPEWIRE
 	bool
 	prompt "pipewire plugin"
