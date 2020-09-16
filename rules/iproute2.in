@@ -4,14 +4,14 @@ menuconfig IPROUTE2
 	tristate
 	prompt "iproute2                      "
 	select HOST_FLEX
-	select DB if IPROUTE2_ARPD
+	select DB		if IPROUTE2_ARPD
+	select GCCLIBS_GCC_S	if IPROUTE2_IP || IPROUTE2_TC
 	select LIBC_DL
 	select LIBC_M
+	select LIBC_PTHREAD	if IPROUTE2_ARPD
 	select LIBC_RESOLV
-	select LIBC_PTHREAD if IPROUTE2_ARPD
-	select GCCLIBS_GCC_S if IPROUTE2_IP || IPROUTE2_TC
-	select LIBSELINUX if GLOBAL_SELINUX
-	select LIBMNL if IPROUTE2_DEVLINK
+	select LIBMNL		if IPROUTE2_DEVLINK
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  Networking and traffic control tools
 
