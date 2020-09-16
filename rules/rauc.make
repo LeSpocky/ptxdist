@@ -49,8 +49,8 @@ RAUC_CONF_OPT	:= \
 $(STATEDIR)/rauc.prepare:
 	@$(call targetinfo)
 	@test ! -e "$(call ptx/in-platformconfigdir, config/rauc/rauc.key)" || \
-		ptxd_bailout "Please use the key provider infrastructure desribed in:" \
-			"scripts/lib/ptxd_lib_code_signing.sh"
+		ptxd_bailout "Please use the signing provider infrastructure desribed in:" \
+			"https://www.ptxdist.org/doc/dev_code_signing.html"
 	@$(call world/prepare, RAUC)
 	@$(call touch)
 
