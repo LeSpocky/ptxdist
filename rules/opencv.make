@@ -35,7 +35,7 @@ OPENCV_BUILD_DIR := $(OPENCV_DIR)-build
 
 OPENCV_CONF_TOOL	:= cmake
 
-# Note: not configure_helper.py does not show some options that are only
+# Note: configure_helper.py does not show some options that are only
 # valid on other architectures. Run is for ARM and x86_64 and mix the results.
 # Variables that are not shown by configure_helper.py are added at the end.
 OPENCV_CONF_OPT		:= \
@@ -78,7 +78,8 @@ OPENCV_CONF_OPT		:= \
 	-DBUILD_opencv_ml=$(call ptx/onoff,PTXCONF_OPENCV_ML) \
 	-DBUILD_opencv_objdetect=$(call ptx/onoff,PTXCONF_OPENCV_OBJDETECT) \
 	-DBUILD_opencv_photo=$(call ptx/onoff,PTXCONF_OPENCV_PHOTO) \
-	-DBUILD_opencv_python_bindings_generator=ON \
+	-DBUILD_opencv_python3=$(call ptx/onoff,PTXCONF_OPENCV_PYTHON) \
+	-DBUILD_opencv_python_bindings_generator=$(call ptx/onoff,PTXCONF_OPENCV_PYTHON) \
 	-DBUILD_opencv_python_tests=ON \
 	-DBUILD_opencv_stitching=$(call ptx/onoff,PTXCONF_OPENCV_STITCHING) \
 	-DBUILD_opencv_ts=OFF \
@@ -130,9 +131,11 @@ OPENCV_CONF_OPT		:= \
 	-DOPENCV_GENERATE_SETUPVARS=ON \
 	-DOPENCV_IPP_GAUSSIAN_BLUR=OFF \
 	-DOPENCV_MATHJAX_RELPATH=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0 \
-	-DOPENCV_PYTHON3_VERSION=OFF \
+	-DOPENCV_PYTHON3_VERSION=$(PYTHON3_MAJORMINOR) \
 	-DOPENCV_WARNINGS_ARE_ERRORS=OFF \
 	-DPROTOBUF_UPDATE_FILES=OFF \
+	-DPYTHON3_EXECUTABLE=$(PTXDIST_SYSROOT_CROSS)/bin/python$(PYTHON3_MAJORMINOR) \
+	-DPYTHON3_NUMPY_INCLUDE_DIRS=$(PTXDIST_SYSROOT_TARGET)$(PYTHON3_SITEPACKAGES)/numpy/core/include/ \
 	-DWITH_1394=OFF \
 	-DWITH_ADE=OFF \
 	-DWITH_ARAVIS=OFF \
@@ -203,7 +206,10 @@ OPENCV_CONF_OPT		:= \
 	\
 	-DCMAKE_SKIP_RPATH=ON \
 	-DBUILD_opencv_python2=OFF \
-	-DBUILD_opencv_python3=OFF
+	-DPYTHON_INCLUDE_DIR=$(PTXDIST_SYSROOT_TARGET)/usr/include/python$(PYTHON3_MAJORMINOR)m \
+	-DPYTHON_LIBRARY=$(PTXDIST_SYSROOT_TARGET)/bin/python$(PYTHON3_MAJORMINOR) \
+	-DOPENCV_PYTHON3_INSTALL_PATH=$(PYTHON3_SITEPACKAGES) \
+	-DOPENCV_SKIP_PYTHON_LOADER=ON
 
 
 $(STATEDIR)/opencv.install:
@@ -243,6 +249,9 @@ $(STATEDIR)/opencv.targetinstall:
 		$(call install_lib, opencv, 0, 0, 0644, $(lib))$(ptx/nl))
 ifdef PTXCONF_OPENCV_EXAMPLES
 	@$(call install_tree, opencv, 0, 0, $(OPENCV_BUILD_DIR)/bin, /bin)
+endif
+ifdef PTXCONF_OPENCV_PYTHON
+	@$(call install_tree, opencv, 0, 0, -, $(PYTHON3_SITEPACKAGES))
 endif
 	@$(call install_finish, opencv)
 	@$(call touch)
