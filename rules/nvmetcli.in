@@ -1,0 +1,29 @@
+## SECTION=shell_and_console
+
+config NVMETCLI
+	tristate
+	select PYTHON3
+	select PYTHON3_SIX
+	select PYTHON3_READLINE
+	select PYTHON3_PYPARSING
+	select PYTHON3_CONFIGSHELL
+	prompt "nvmetcli"
+	help
+	  nvmetcli is a program used for viewing, editing, saving, and starting
+	  a Linux kernel NVMe Target, used for an NVMe-over-Fabrics network
+	  configuration. It allows an administrator to export a storage
+	  resource (such as NVMe devices, files, and volumes) to a local block
+	  device and expose them to remote systems based on the
+	  NVMe-over-Fabrics specification from http://www.nvmexpress.org.
+
+if NVMETCLI
+
+config NVMETCLI_SYSTEMD_SERVICE
+	bool
+	depends on INITMETHOD_SYSTEMD
+	prompt "install nvmet systemd service"
+	help
+	  Install a systemd service to automatically restore the nvmet
+	  configuration on boot.
+
+endif
