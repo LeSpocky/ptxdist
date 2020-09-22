@@ -30,6 +30,9 @@ config BAREBOX_VERSION
 config BAREBOX_MD5
 	prompt "barebox source md5sum"
 	string
+	help
+	  To ensure integrity of the downloaded source tarball, fill in its
+	  MD5 sum here.
 
 config BAREBOX_CONFIG
 	prompt "config file"

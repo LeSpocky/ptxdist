@@ -42,10 +42,16 @@ config KERNEL_VERSION
 	prompt "kernel version"
 	string
 	default "4.15"
+	help
+	  Fill in the kernel version that you want to use. Normally, you should
+	  use the latest stable version, see <https://kernel.org>.
 
 config KERNEL_MD5
 	prompt "kernel source md5sum"
 	string
+	help
+	  To ensure integrity of the downloaded source tarball, fill in its
+	  MD5 sum here.
 
 choice
 	prompt "Image Type          "

@@ -19,6 +19,9 @@ config BAREBOX_MLO_MD5
 	prompt "barebox source md5sum"		if !BAREBOX
 	string
 	default "${PTXCONF_BAREBOX_MD5}"	if BAREBOX
+	help
+	  To ensure integrity of the downloaded source tarball, fill in its
+	  MD5 sum here.
 
 config BAREBOX_MLO_ARCH_STRING
 	string
