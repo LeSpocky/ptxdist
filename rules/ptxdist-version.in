@@ -3,3 +3,8 @@
 config CONFIGFILE_VERSION
 	string
 	default "$(PTXDIST_VERSION_FULL)"
+
+config _ptxconfig_MAGIC__
+	bool
+	option modules
+	default y
