@@ -412,6 +412,22 @@ export -f ptxd_template_new_cross
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="cross"
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create cross development package"
 
+ptxd_template_new_python3() {
+    ptxd_template_read_basic &&
+    ptxd_template_read_author &&
+    ptxd_template_read_url \
+	"\$(call ptx/mirror-pypi, ${package}, \$(PYTHON3_${PACKAGE}).\$(PYTHON3_${PACKAGE}_SUFFIX))" \
+	"tar.gz"
+    # turn URL of basedir into complete URL
+    [[ "$URL" != "\$(call ptx/mirror"* ]] \
+	&& URL="$URL/\$(${PACKAGE}).\$(${PACKAGE}_SUFFIX)"
+    package_filename="python3-${package_filename}"
+    ptxd_template_write_rules
+}
+export -f ptxd_template_new_python3
+ptxd_template_help_list[${#ptxd_template_help_list[@]}]="python3"
+ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create python3 package for embedded target"
+
 ptxd_template_new_src_autoconf_lib() {
     ptxd_template_autoconf_base
 }

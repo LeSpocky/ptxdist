@@ -1,0 +1,52 @@
+# -*-makefile-*-
+#
+# Copyright (C) @YEAR@ by @AUTHOR@
+#
+# For further information about the PTXdist project and license conditions
+# see the README file.
+#
+
+#
+# We provide this package
+#
+PACKAGES-$(PTXCONF_PYTHON3_@PACKAGE@) += python3-@package@
+
+#
+# Paths and names
+#
+PYTHON3_@PACKAGE@_VERSION	:= @VERSION@
+PYTHON3_@PACKAGE@_MD5		:=
+PYTHON3_@PACKAGE@		:= @package@-$(PYTHON3_@PACKAGE@_VERSION)
+PYTHON3_@PACKAGE@_SUFFIX	:= @SUFFIX@
+PYTHON3_@PACKAGE@_URL		:= @URL@
+PYTHON3_@PACKAGE@_SOURCE	:= $(SRCDIR)/$(PYTHON3_@PACKAGE@).$(PYTHON3_@PACKAGE@_SUFFIX)
+PYTHON3_@PACKAGE@_DIR		:= $(BUILDDIR)/$(PYTHON3_@PACKAGE@)
+PYTHON3_@PACKAGE@_LICENSE	:= unknown
+
+# ----------------------------------------------------------------------------
+# Prepare
+# ----------------------------------------------------------------------------
+
+PYTHON3_@PACKAGE@_CONF_TOOL	:= python3
+
+# ----------------------------------------------------------------------------
+# Target-Install
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/python3-@package@.targetinstall:
+	@$(call targetinfo)
+
+	@$(call install_init, python3-@package@)
+	@$(call install_fixup, python3-@package@,PRIORITY,optional)
+	@$(call install_fixup, python3-@package@,SECTION,base)
+	@$(call install_fixup, python3-@package@,AUTHOR,"@AUTHOR@")
+	@$(call install_fixup, python3-@package@,DESCRIPTION,missing)
+
+	@$(call install_glob, python3-@package@, 0, 0, -, \
+		$(PYTHON3_SITEPACKAGES),, *.py)
+
+	@$(call install_finish, python3-@package@)
+
+	@$(call touch)
+
+# vim: syntax=make

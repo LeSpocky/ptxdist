@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_@PACKAGE@
+	tristate
+	select PYTHON3
+	prompt "@package@"
+	help
+	  FIXME
