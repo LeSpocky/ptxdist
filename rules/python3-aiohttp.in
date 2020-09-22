@@ -8,6 +8,7 @@ config PYTHON3_AIOHTTP
 	select PYTHON3_MULTIDICT	if RUNTIME
 	select PYTHON3_YARL		if RUNTIME
 	select PYTHON3_ASYNC_TIMEOUT	if RUNTIME
+	select PYTHON3_ATTRS		if RUNTIME
 	prompt "aiohttp"
 	help
 	  http client/server for asyncio
