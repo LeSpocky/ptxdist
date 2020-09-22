@@ -85,11 +85,16 @@ ptxd_template_read_version() {
     fi
 }
 export -f ptxd_template_read_version
-
+#
+# Read URL of basedir and suffix from user input
+#
+# $1 default URL of basedir (optional)
+# $2 default suffix (optional)
+#
 ptxd_template_read_url() {
     if [ -z "${ptxd_template_have_existing}" ]; then
-	ptxd_template_read "enter URL of basedir" URL
-	ptxd_template_read "enter suffix" SUFFIX
+	ptxd_template_read "enter URL of basedir" URL "${1}"
+	ptxd_template_read "enter suffix" SUFFIX "${2}"
     fi
 }
 export -f ptxd_template_read_url
