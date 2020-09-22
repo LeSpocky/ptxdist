@@ -7,4 +7,4 @@
 0005-ptxdist-qtwebengine-allow-building-with-ptxdist.patch
 0006-ptxdist-qtwebengine-let-ninja-use-the-jobserver.patch
 0007-HACK-qtwebengine-workaround-for-too-long-file-names.patch
-# 85e8487516c840c5070cab838ec88d9f  - git-ptx-patches magic
+# 4b456a724e88b1f3c6125e3941898e96  - git-ptx-patches magic
