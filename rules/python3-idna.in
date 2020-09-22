@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_IDNA
+	tristate
+	select PYTHON3
+	prompt "python3-idna"
+	help
+	  Support for the Internationalised Domain Names in Applications (IDNA) protocol
