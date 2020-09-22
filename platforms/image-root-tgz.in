@@ -4,7 +4,7 @@ menuconfig IMAGE_ROOT_TGZ
 	tristate
 	prompt "Generate images/root.tgz      "
 	help
-	  FIXME
+	  Build a tar.gz archive containing the root file system.
 
 if IMAGE_ROOT_TGZ
 
