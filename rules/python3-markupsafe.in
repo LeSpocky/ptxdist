@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_MARKUPSAFE
+	tristate
+	select PYTHON3
+	prompt "markupsafe"
+	help
+	  Safely add untrusted strings to HTML/XML markup.
