@@ -1,4 +1,3 @@
-From 09acc56fe52e53042c8d2dcb458b017de55a626d Mon Sep 17 00:00:00 2001
 From: Artur Wiebe <artur@4wiebe.de>
 Date: Tue, 11 Sep 2018 10:07:27 +0200
 Subject: [PATCH] use system timezone data
@@ -9,10 +8,10 @@ Subject: [PATCH] use system timezone data
  2 files changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/pytz/__init__.py b/pytz/__init__.py
-index 120fab4..006db4d 100644
+index 0c065e46b021..7e8bc8e65337 100644
 --- a/pytz/__init__.py
 +++ b/pytz/__init__.py
-@@ -91,7 +91,7 @@ def open_resource(name):
+@@ -92,7 +92,7 @@ def open_resource(name):
      if zoneinfo_dir is not None:
          filename = os.path.join(zoneinfo_dir, *name_parts)
      else:
@@ -22,7 +21,7 @@ index 120fab4..006db4d 100644
          if not os.path.exists(filename):
              # http://bugs.launchpad.net/bugs/383171 - we avoid using this
 diff --git a/pytz/tzfile.py b/pytz/tzfile.py
-index 25117f3..e06ce77 100644
+index 25117f325257..e06ce774e84d 100644
 --- a/pytz/tzfile.py
 +++ b/pytz/tzfile.py
 @@ -126,7 +126,8 @@ def build_tzinfo(zone, fp):
@@ -35,6 +34,3 @@ index 25117f3..e06ce77 100644
      tz = build_tzinfo('Australia/Melbourne',
                        open(os.path.join(base, 'Australia', 'Melbourne'), 'rb'))
      tz = build_tzinfo('US/Eastern',
--- 
-2.18.0
-
