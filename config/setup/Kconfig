@@ -172,6 +172,13 @@ config SETUP_KERNELMIRROR
 	help
 	  For all kernel.org related packages enter an available mirror here.
 
+config SETUP_PYPIMIRROR
+	string
+	default "https://files.pythonhosted.org/packages/source"
+	prompt "Python pypi source mirror"
+	help
+	  For all packages available on pypi, enter an available mirror here.
+
 choice
 	prompt "archive check"
 	default SETUP_CHECK_ALWAYS
