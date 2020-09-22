@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_JINJA2
+	tristate
+	select PYTHON3
+	select PYTHON3_MARKUPSAFE	if RUNTIME
+	prompt "jinja2"
+	help
+	  Fast, expressive, extensible templating engine
