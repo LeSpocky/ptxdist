@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MPG123) += mpg123
 #
 # Paths and names
 #
-MPG123_VERSION	:= 1.25.10
-MPG123_MD5	:= ea32caa61d41d8be797f0b04a1b43ad9
+MPG123_VERSION	:= 1.26.3
+MPG123_MD5	:= 2cd73024aafe4873f691ae8c889c7692
 MPG123		:= mpg123-$(MPG123_VERSION)
 MPG123_SUFFIX	:= tar.bz2
 MPG123_URL	:= http://www.mpg123.org/download/$(MPG123).$(MPG123_SUFFIX)
@@ -90,6 +90,7 @@ $(STATEDIR)/mpg123.targetinstall:
 	@$(call install_copy, mpg123, 0, 0, 0755, -, /usr/bin/mpg123)
 	@$(call install_lib, mpg123, 0, 0, 0644, libmpg123)
 	@$(call install_lib, mpg123, 0, 0, 0644, libout123)
+	@$(call install_lib, mpg123, 0, 0, 0644, libsyn123)
 
 	@$(call install_finish, mpg123)
 
