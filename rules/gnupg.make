@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GNUPG) += gnupg
 #
 # Paths and names
 #
-GNUPG_VERSION	:= 2.2.9
-GNUPG_MD5	:= 52c895a81f514a65e08923736c38654a
+GNUPG_VERSION	:= 2.2.23
+GNUPG_MD5	:= a094ff856a53a9a9fd5465657d998079
 GNUPG		:= gnupg-$(GNUPG_VERSION)
 GNUPG_SUFFIX	:= tar.bz2
 GNUPG_URL	:= ftp://ftp.gnupg.org/gcrypt/gnupg/$(GNUPG).$(GNUPG_SUFFIX)
@@ -80,7 +80,6 @@ GNUPG_CONF_OPT := $(CROSS_AUTOCONF_USR) \
 	--disable-rpath \
 	--disable-nls \
 	--enable-endian-check \
-	--disable-regex \
 	--enable-optimization \
 	--disable-werror \
 	--disable-all-tests \
