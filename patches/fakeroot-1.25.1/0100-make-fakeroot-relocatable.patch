@@ -12,7 +12,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/scripts/fakeroot.in b/scripts/fakeroot.in
-index eaf3f56f05aa..8ff3125a3d5b 100755
+index 0f6bf66088a5..bedf9aeb39c2 100755
 --- a/scripts/fakeroot.in
 +++ b/scripts/fakeroot.in
 @@ -30,12 +30,12 @@ fatal ()
@@ -25,7 +25,7 @@ index eaf3f56f05aa..8ff3125a3d5b 100755
 +FAKEROOT_PREFIX="`dirname "$FAKEROOT_BINDIR"`"
  
  USEABSLIBPATH=@LDPRELOADABS@
- LIB=lib@fakeroot_transformed@@DLSUFFIX@
+ FAKEROOT_LIB=lib@fakeroot_transformed@@DLSUFFIX@
 -PATHS=@libdir@:${FAKEROOT_PREFIX}/lib64/libfakeroot:${FAKEROOT_PREFIX}/lib32/libfakeroot
 +PATHS="${FAKEROOT_PREFIX}@libdir@":${FAKEROOT_PREFIX}/lib64/libfakeroot:${FAKEROOT_PREFIX}/lib32/libfakeroot
  FAKED=${FAKEROOT_BINDIR}/@faked_transformed@
