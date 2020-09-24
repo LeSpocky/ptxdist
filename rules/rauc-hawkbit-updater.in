@@ -1,0 +1,26 @@
+## SECTION=applications
+
+menuconfig RAUC_HAWKBIT_UPDATER
+	tristate
+	prompt "rauc-hawkbit-updater          "
+	select HOST_CMAKE
+	select DBUS
+	select JSON_GLIB
+	select LIBCURL
+	select LIBCURL_HTTP
+	select LIBCURL_SSL
+	select RAUC
+	select RAUC_SERVICE
+	select SYSTEMD		if RAUC_HAWKBIT_UPDATER_SYSTEMD_UNIT
+	help
+	  Daemon operating as an interface between the RAUC D-Bus API and the hawkBit DDI API.
+
+if RAUC_HAWKBIT_UPDATER
+
+config RAUC_HAWKBIT_UPDATER_SYSTEMD_UNIT
+	bool
+	default y
+	depends on INITMETHOD_SYSTEMD
+	prompt "install and enable systemd service file"
+
+endif
