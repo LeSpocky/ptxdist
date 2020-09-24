@@ -1,0 +1,7 @@
+## SECTION=test_suites
+
+config FIO
+	tristate
+	prompt "fio"
+	help
+	  Flexible I/O tester
