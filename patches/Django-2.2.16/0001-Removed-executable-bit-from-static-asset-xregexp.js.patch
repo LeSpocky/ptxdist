@@ -1,0 +1,12 @@
+From: Jon Dufresne <jon.dufresne@gmail.com>
+Date: Mon, 4 Mar 2019 07:35:08 -0800
+Subject: [PATCH] Removed executable bit from static asset xregexp.js.
+
+---
+ django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.js | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ mode change 100755 => 100644 django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.js
+
+diff --git a/django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.js b/django/contrib/admin/static/admin/js/vendor/xregexp/xregexp.js
+old mode 100755
+new mode 100644
