@@ -313,12 +313,6 @@ if test -z "$FILE"; then
 fi
 AC_SUBST([PTXDIST_FILE], [$FILE])
 
-dnl Check for msgfmt
-AC_PATH_PROGS(MSGFMT, msgfmt,, $PATH)
-if test -z "$MSGFMT"; then
-	AC_MSG_ERROR([gettext could not be found, please install])
-fi
-
 AC_PATH_PROG(SPHINX, sphinx-build,, $PATH)
 if test -z "$SPHINX"; then
 	AC_MSG_NOTICE([sphinx not found, required to build the documentation])
