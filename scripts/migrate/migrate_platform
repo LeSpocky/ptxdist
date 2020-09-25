@@ -33,3 +33,11 @@ s/^\(\(# \)\?PTXCONF\)_IMAGE_IPKG_EXTRA_ARGS\(.*$\)/\1_IMAGE_XPKG_EXTRA_ARGS\3/
 # reason : PTXCONF_KERNEL_ARCH_STRING was removed
 #
 /^PTXCONF_DTC_OFTREE_DTS/s/PTXCONF_KERNEL_ARCH_STRING/GENERIC_KERNEL_ARCH/g
+
+#
+# from   : ptxdist-2020.09.0
+# to     : ptxdist-2020.10.0
+# symbol : PTXCONF_TF_A_PLATFORM -> PTXCONF_TF_A_PLATFORMS
+# reason : tf-a can be built for multiple platforms now
+#
+s/^\(\(# \)\?PTXCONF_TF_A_PLATFORM\)\(.*$\)/\1S\3/

@@ -34,7 +34,7 @@ TF_A_LICENSE	:= BSD-3-Clause AND BSD-2-Clause \
 # Prepare
 # ----------------------------------------------------------------------------
 
-TF_A_PLATFORM		:= $(call remove_quotes, $(PTXCONF_TF_A_PLATFORM))
+TF_A_PLATFORMS		:= $(call remove_quotes, $(PTXCONF_TF_A_PLATFORMS))
 TF_A_ARTIFACTS		:= $(call remove_quotes, $(PTXCONF_TF_A_ARTIFACTS))
 
 TF_A_WRAPPER_BLACKLIST	:= \
@@ -45,7 +45,6 @@ TF_A_MAKE_OPT	:= \
 	-C $(TF_A_DIR) \
 	CROSS_COMPILE=$(BOOTLOADER_CROSS_COMPILE) \
 	HOSTCC=$(HOSTCC) \
-	PLAT=$(TF_A_PLATFORM) \
 	DEBUG=0 \
 	ARCH=$(PTXCONF_TF_A_ARCH_STRING) \
 	ARM_ARCH_MAJOR=$(PTXCONF_TF_A_ARM_ARCH_MAJOR) \
@@ -77,18 +76,29 @@ TF_A_CONF_TOOL	:= NO
 
 TF_A_MAKE_ENV	:= $(CROSS_ENV)
 
+$(STATEDIR)/tf-a.compile:
+	@$(call targetinfo)
+
+	@$(foreach plat, $(TF_A_PLATFORMS), \
+		$(call compile, TF_A, \
+		$(TF_A_MAKE_OPT) PLAT=$(plat))$(ptx/nl))
+
+	@$(call touch)
+
 # ----------------------------------------------------------------------------
 # Install
 # ----------------------------------------------------------------------------
 
-TF_A_BUILD_OUTPUT_DIR	:= $(TF_A_BUILDDIR)/$(TF_A_PLATFORM)/release
-TF_A_ARTIFACTS_SRC	 = $(wildcard $(addprefix $(TF_A_BUILD_OUTPUT_DIR)/,$(TF_A_ARTIFACTS)))
+tf-a/inst_plat = $(foreach artifact, \
+	$(wildcard $(TF_A_BUILDDIR)/$(1)/release/$(TF_A_ARTIFACTS)), \
+	install -v -D -m 644 $(artifact) \
+		$(2)/$(1)-$(notdir $(artifact))$(ptx/nl))
+
+tf-a/inst_bins = $(foreach plat, $(TF_A_PLATFORMS), $(call tf-a/inst_plat,$(plat),$(1)))
 
 $(STATEDIR)/tf-a.install:
 	@$(call targetinfo)
-	@$(foreach artifact, $(TF_A_ARTIFACTS_SRC), \
-		install -v -D -m 644 $(artifact) \
-		$(TF_A_PKGDIR)/usr/lib/firmware/$(notdir $(artifact))$(ptx/nl))
+	@$(call tf-a/inst_bins,$(TF_A_PKGDIR)/usr/lib/firmware)
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
@@ -97,9 +107,7 @@ $(STATEDIR)/tf-a.install:
 
 $(STATEDIR)/tf-a.targetinstall:
 	@$(call targetinfo)
-	@$(foreach artifact, $(TF_A_ARTIFACTS_SRC), \
-		install -v -D -m 644 $(artifact) \
-		$(IMAGEDIR)/$(notdir $(artifact))$(ptx/nl))
+	@$(call tf-a/inst_bins,$(IMAGEDIR))
 	@$(call touch)
 
 # ----------------------------------------------------------------------------

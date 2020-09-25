@@ -58,11 +58,11 @@ config TF_A_ARM_ARCH_MAJOR
         default 8 if TF_A_ARM_ARCH_MAJOR_8
 
 
-config TF_A_PLATFORM
+config TF_A_PLATFORMS
 	string
-	prompt "TF-A target platform"
+	prompt "TF-A target platforms"
 	help
-	  The TF-A target platform.
+	  A space separated list of TF-A target platforms.
 
 config TF_A_ARM_ARCH_MINOR
 	depends on TF_A_ARM_ARCH_MAJOR_8 || TF_A_ARM_ARCH_MAJOR_8_32_BIT
