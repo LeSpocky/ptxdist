@@ -258,9 +258,10 @@ config KERNEL_SERIES
 config KERNEL_CONFIG
 	prompt "kernel config file"
 	string
-	default "kernelconfig-${PTXCONF_KERNEL_VERSION}"
+	default "kernelconfig"
 	help
 	  This entry specifies the .config file used to compile your kernel.
+	  Specify the path relative to the platformconfig directory.
 
 endmenu
 
