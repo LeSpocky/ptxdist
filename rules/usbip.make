@@ -14,9 +14,9 @@ PACKAGES-$(PTXCONF_USBIP) += usbip
 #
 # Paths and names
 #
-USBIP_VERSION	:= 5.6
+USBIP_VERSION	:= 5.8
 USBIP		:= usbip-$(USBIP_VERSION)
-USBIP_MD5	:= 7b9199ec5fa563ece9ed585ffb17798f
+USBIP_MD5	:= 0e5c4c15266218ef26c50fac0016095b
 USBIP_SUFFIX	:= tar.xz
 USBIP_URL	:= https://www.kernel.org/pub/linux/kernel/v5.x/linux-$(USBIP_VERSION).$(USBIP_SUFFIX)
 USBIP_SOURCE	:= $(SRCDIR)/linux-$(USBIP_VERSION).$(USBIP_SUFFIX)
