@@ -25,6 +25,7 @@ KERNEL_@PACKAGE@_DIR		:= $(BUILDDIR)/$(KERNEL_@PACKAGE@)
 KERNEL_@PACKAGE@_BUILD_DIR	:= $(KERNEL_@PACKAGE@_DIR)-build
 KERNEL_@PACKAGE@_CONFIG		:= $(call ptx/in-platformconfigdir, kernelconfig-@package@)
 KERNEL_@PACKAGE@_LICENSE	:= GPL-2.0-only
+KERNEL_@PACKAGE@_LICENSE_FILES	:=
 KERNEL_@PACKAGE@_BUILD_OOT	:= KEEP
 
 # ----------------------------------------------------------------------------

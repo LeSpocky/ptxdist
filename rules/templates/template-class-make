@@ -21,6 +21,8 @@
 @CLASS@@PACKAGE@_URL	:= @URL@/$(@CLASS@@PACKAGE@).$(@CLASS@@PACKAGE@_SUFFIX)
 @CLASS@@PACKAGE@_SOURCE	:= $(SRCDIR)/$(@CLASS@@PACKAGE@).$(@CLASS@@PACKAGE@_SUFFIX)
 @CLASS@@PACKAGE@_DIR	:= $(@CLASS@BUILDDIR)/$(@CLASS@@PACKAGE@)
+@CLASS@@PACKAGE@_LICENSE	:= unknown
+@CLASS@@PACKAGE@_LICENSE_FILES	:=
 
 # ----------------------------------------------------------------------------
 # Get

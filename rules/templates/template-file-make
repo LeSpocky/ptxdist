@@ -12,6 +12,7 @@
 PACKAGES-$(PTXCONF_@PACKAGE@) += @package@
 
 @PACKAGE@_VERSION	:= @VERSION@
+@PACKAGE@_LICENSE	:= unknown
 
 # ----------------------------------------------------------------------------
 # Get

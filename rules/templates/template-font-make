@@ -22,6 +22,7 @@ PACKAGES-$(PTXCONF_@PACKAGE@) += @package@
 @PACKAGE@_SOURCE	:= $(SRCDIR)/$(@PACKAGE@).$(@PACKAGE@_SUFFIX)
 @PACKAGE@_DIR		:= $(BUILDDIR)/$(@PACKAGE@)
 @PACKAGE@_LICENSE	:= unknown
+@PACKAGE@_LICENSE_FILES	:=
 
 ifdef PTXCONF_@PACKAGE@
 $(STATEDIR)/xorg-fonts.targetinstall.post: $(STATEDIR)/@package@.targetinstall

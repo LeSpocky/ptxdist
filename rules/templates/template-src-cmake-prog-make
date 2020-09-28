@@ -19,6 +19,7 @@ PACKAGES-$(PTXCONF_@PACKAGE@) += @package@
 @PACKAGE@_URL		:= file://local_src/@package@
 @PACKAGE@_DIR		:= $(BUILDDIR)/$(@PACKAGE@)
 @PACKAGE@_LICENSE	:= unknown
+@PACKAGE@_LICENSE_FILES	:=
 
 # ----------------------------------------------------------------------------
 # Get

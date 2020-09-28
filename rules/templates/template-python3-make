@@ -22,6 +22,7 @@ PYTHON3_@PACKAGE@_URL		:= @URL@
 PYTHON3_@PACKAGE@_SOURCE	:= $(SRCDIR)/$(PYTHON3_@PACKAGE@).$(PYTHON3_@PACKAGE@_SUFFIX)
 PYTHON3_@PACKAGE@_DIR		:= $(BUILDDIR)/$(PYTHON3_@PACKAGE@)
 PYTHON3_@PACKAGE@_LICENSE	:= unknown
+PYTHON3_@PACKAGE@_LICENSE_FILES	:=
 
 # ----------------------------------------------------------------------------
 # Prepare
