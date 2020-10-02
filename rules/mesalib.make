@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 20.1.9
-MESALIB_MD5	:= a29ff0d65a067ffaf08e4c48fd6d2d03
+MESALIB_VERSION	:= 20.2.0
+MESALIB_MD5	:= 83c023d4fd73d69767cf40c5f5ff43de
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -24,7 +24,7 @@ MESALIB_SOURCE	:= $(SRCDIR)/$(MESALIB).$(MESALIB_SUFFIX)
 MESALIB_DIR	:= $(BUILDDIR)/Mesa-$(MESALIB_VERSION)
 MESALIB_LICENSE	:= MIT
 MESALIB_LICENSE_FILES := \
-	file://docs/license.html;md5=c1843d93c460bbf778d6037ce324f9f7
+	file://docs/license.rst;md5=9aa1bc48c9826ad9fdb16661f6930496
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -83,43 +83,43 @@ MESALIB_LIBS-$(PTXCONF_MESALIB_GLES2)	+= libGLESv2
 MESALIB_LIBS-$(PTXCONF_MESALIB_EGL)	+= libEGL
 MESALIB_LIBS-$(PTXCONF_MESALIB_GBM)	+= libgbm
 
-MESALIBS_EGL_PLATFORMS-y				:= surfaceless
 MESALIBS_EGL_PLATFORMS-$(PTXCONF_MESALIB_EGL_X11)	+= x11
-MESALIBS_EGL_PLATFORMS-$(PTXCONF_MESALIB_EGL_DRM)	+= drm
 MESALIBS_EGL_PLATFORMS-$(PTXCONF_MESALIB_EGL_WAYLAND)	+= wayland
 
 MESALIB_CONF_TOOL	:= meson
 MESALIB_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
+	-Dandroid-stub=false \
+	-Dbuild-aco-tests=false \
 	-Dbuild-tests=false \
 	-Dd3d-drivers-path=/usr/lib/d3d \
 	-Ddri-drivers=$(subst $(space),$(comma),$(MESALIB_DRI_DRIVERS-y)) \
 	-Ddri-drivers-path=/usr/lib/dri \
 	-Ddri-search-path=/usr/lib/dri \
-	-Ddri3=$(call ptx/truefalse, PTXCONF_MESALIB_DRI3) \
-	-Degl=$(call ptx/truefalse, PTXCONF_MESALIB_EGL) \
+	-Ddri3=$(call ptx/endis, PTXCONF_MESALIB_DRI3)d \
+	-Degl=$(call ptx/endis, PTXCONF_MESALIB_EGL)d \
 	-Degl-lib-suffix= \
 	-Dgallium-drivers=$(subst $(space),$(comma),$(MESALIB_GALLIUM_DRIVERS-y)) \
 	-Dgallium-extra-hud=$(call ptx/truefalse, PTXCONF_MESALIB_EXTENDED_HUD) \
 	-Dgallium-nine=false \
 	-Dgallium-omx=disabled \
 	-Dgallium-opencl=disabled \
-	-Dgallium-va=false \
-	-Dgallium-vdpau=false \
-	-Dgallium-xa=false \
-	-Dgallium-xvmc=false \
-	-Dgbm=$(call ptx/truefalse, PTXCONF_MESALIB_GBM) \
+	-Dgallium-va=disabled \
+	-Dgallium-vdpau=disabled \
+	-Dgallium-xa=disabled \
+	-Dgallium-xvmc=disabled \
+	-Dgbm=$(call ptx/endis, PTXCONF_MESALIB_GBM)d \
 	-Dgles-lib-suffix= \
-	-Dgles1=$(call ptx/truefalse, PTXCONF_MESALIB_GLES1) \
-	-Dgles2=$(call ptx/truefalse, PTXCONF_MESALIB_GLES2) \
+	-Dgles1=$(call ptx/endis, PTXCONF_MESALIB_GLES1)d \
+	-Dgles2=$(call ptx/endis, PTXCONF_MESALIB_GLES2)d \
 	-Dglvnd=false \
 	-Dglx=$(call ptx/ifdef, PTXCONF_MESALIB_GLX, dri, disabled) \
 	-Dglx-direct=true \
 	-Dglx-read-only-text=false \
 	-Dinstall-intel-gpu-tests=false \
-	-Dlibunwind=false \
-	-Dllvm=false \
-	-Dlmsensors=$(call ptx/truefalse, PTXCONF_MESALIB_LMSENSORS) \
+	-Dlibunwind=disabled \
+	-Dllvm=disabled \
+	-Dlmsensors=$(call ptx/endis, PTXCONF_MESALIB_LMSENSORS)d \
 	-Domx-libs-path=/usr/lib/dri \
 	-Dopencl-spirv=false \
 	-Dopengl=$(call ptx/truefalse, PTXCONF_MESALIB_OPENGL) \
@@ -127,25 +127,25 @@ MESALIB_CONF_OPT	:= \
 	-Dosmesa-bits=8 \
 	-Dplatform-sdk-version=25 \
 	-Dplatforms=$(subst $(space),$(comma),$(MESALIBS_EGL_PLATFORMS-y)) \
-	-Dpower8=false \
+	-Dpower8=disabled \
 	-Dprefer-iris=true \
 	-Dselinux=false \
-	-Dshader-cache=$(call ptx/truefalse, PTXCONF_MESALIB_VULKAN_AMD) \
-	-Dshared-glapi=true \
-	-Dshared-llvm=false \
+	-Dshader-cache=$(call ptx/endis, PTXCONF_MESALIB_VULKAN_AMD)d \
+	-Dshared-glapi=enabled \
+	-Dshared-llvm=disabled \
 	-Dshared-swr=true \
 	-Dswr-arches=[] \
 	-Dtools=[] \
 	-Dva-libs-path=/usr/lib/dri \
-	-Dvalgrind=false \
+	-Dvalgrind=disabled \
 	-Dvdpau-libs-path=/usr/lib/vdpau \
 	-Dvulkan-device-select-layer=false \
 	-Dvulkan-drivers=$(subst $(space),$(comma),$(MESALIB_VULKAN_DRIVERS-y)) \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-overlay-layer=false \
-	-Dxlib-lease=false \
+	-Dxlib-lease=disabled \
 	-Dxvmc-libs-path=/usr/lib \
-	-Dzstd=$(call ptx/truefalse, PTXCONF_MESALIB_ZSTD)
+	-Dzstd=$(call ptx/endis, PTXCONF_MESALIB_ZSTD)d
 
 # ----------------------------------------------------------------------------
 # Compile
