@@ -19,8 +19,6 @@ ptxd_make_license_report_header() {
 	\usepackage{adjustbox}
 	\usepackage{spverbatim}
 	\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
-	\usepackage{tocstyle}
-	\usetocstyle{KOMAlike}
 
 	%% Something like this may be needed depending on the package list
 	%\usepackage[CJK]{ucharclasses}
@@ -212,8 +210,6 @@ ptxd_make_license_compliance_header() {
 	\usepackage{adjustbox}
 	\usepackage{spverbatim}
 	\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
-	\usepackage{tocstyle}
-	\usetocstyle{KOMAlike}
 
 	%% Something like this may be needed depending on the package list
 	%\usepackage[CJK]{ucharclasses}
