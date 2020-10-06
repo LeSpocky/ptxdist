@@ -18,7 +18,7 @@ LIBGSF_VERSION	:= 1.14.30
 LIBGSF_MD5	:= e7b672ef37ef6a853ce149c03e4d3a63
 LIBGSF		:= libgsf-$(LIBGSF_VERSION)
 LIBGSF_SUFFIX	:= tar.xz
-LIBGSF_URL	:= http://ftp.gnome.org/pub/GNOME/sources/libgsf/1.14/$(LIBGSF).$(LIBGSF_SUFFIX)
+LIBGSF_URL	:= $(call ptx/mirror, GNOME, libgsf/$(basename $(LIBGSF_VERSION))/$(LIBGSF).$(LIBGSF_SUFFIX))
 LIBGSF_SOURCE	:= $(SRCDIR)/$(LIBGSF).$(LIBGSF_SUFFIX)
 LIBGSF_DIR	:= $(BUILDDIR)/$(LIBGSF)
 
