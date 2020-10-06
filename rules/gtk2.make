@@ -18,7 +18,7 @@ GTK2_VERSION	:= 2.24.32
 GTK2_MD5	:= d5742aa42275203a499b59b4c382a784
 GTK2		:= gtk+-$(GTK2_VERSION)
 GTK2_SUFFIX	:= tar.xz
-GTK2_URL	:= ftp://ftp.gnome.org/pub/gnome/sources/gtk+/2.24/$(GTK2).$(GTK2_SUFFIX)
+GTK2_URL	:= $(call ptx/mirror, GNOME, gtk+/$(basename $(GTK2_VERSION))/$(GTK2).$(GTK2_SUFFIX))
 GTK2_SOURCE	:= $(SRCDIR)/$(GTK2).$(GTK2_SUFFIX)
 GTK2_DIR	:= $(BUILDDIR)/$(GTK2)
 
