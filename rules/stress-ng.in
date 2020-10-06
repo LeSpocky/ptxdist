@@ -3,6 +3,7 @@
 config STRESS_NG
 	tristate
 	prompt "stress-ng"
+	select GCCLIBS_ATOMIC
 	select LIBAIO
 	select LIBBSD
 	select ZLIB
