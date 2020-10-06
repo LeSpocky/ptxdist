@@ -19,11 +19,9 @@ GLIB_VERSION	:= 2.64.4
 GLIB_MD5	:= 0a4f67e9a9d729976e2f797e36fc1a57
 GLIB		:= glib-$(GLIB_VERSION)
 GLIB_SUFFIX	:= tar.xz
+GLIB_URL	:= $(call ptx/mirror, GNOME, glib/$(basename $(GLIB_VERSION))/$(GLIB).$(GLIB_SUFFIX))
 GLIB_SOURCE	:= $(SRCDIR)/$(GLIB).$(GLIB_SUFFIX)
 GLIB_DIR	:= $(BUILDDIR)/$(GLIB)
-
-GLIB_URL	:= http://ftp.gnome.org/pub/GNOME/sources/glib/$(basename $(GLIB_VERSION))/glib-$(GLIB_VERSION).$(GLIB_SUFFIX)
-
 GLIB_LICENSE	:= LGPL-2.0-or-later
 
 # ----------------------------------------------------------------------------
