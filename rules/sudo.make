@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_SUDO) += sudo
 #
 # Paths and names
 #
-SUDO_VERSION	:= 1.8.28
-SUDO_MD5	:= 5afa5acd0c55b40916e4ad864607edfe
+SUDO_VERSION	:= 1.9.3
+SUDO_MD5	:= ecf74b49275f15a3e46f1903c6cb2211
 SUDO		:= sudo-$(SUDO_VERSION)
 SUDO_SUFFIX	:= tar.gz
 SUDO_URL	:= \
@@ -25,7 +25,7 @@ SUDO_URL	:= \
 SUDO_SOURCE	:= $(SRCDIR)/$(SUDO).$(SUDO_SUFFIX)
 SUDO_DIR	:= $(BUILDDIR)/$(SUDO)
 SUDO_LICENSE	:= ISC AND BSD-3-Clause AND BSD-2-Clause-NetBSD AND Zlib
-SUDO_LICENSE_FILES := file://doc/LICENSE;md5=6c76b73603ac7763ab0516ebfbe67b42
+SUDO_LICENSE_FILES := file://doc/LICENSE;md5=828cd502ad216ff869bf83adf3301e02
 
 # ----------------------------------------------------------------------------
 # Prepare
