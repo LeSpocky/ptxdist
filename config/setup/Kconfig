@@ -144,26 +144,12 @@ config SETUP_DEBMIRROR
 	  The Debian pool mirror to use for downloading various
 	  components of the target root filesystem.
 
-config SETUP_SFMIRROR
-	string
-	default "http://downloads.sourceforge.net/sourceforge"
-	prompt "Sourceforge Mirror"
-	help
-	  For all Sourceforge related packages enter an available mirror here.
-
 config SETUP_GNUMIRROR
 	string
 	default "https://ftp.gnu.org/gnu http://ftp.uni-kl.de/pub/gnu"
 	prompt "GNU.org Mirror"
 	help
 	  For all GNU.org related packages enter an available mirror here.
-
-config SETUP_XORGMIRROR
-	string
-	default "https://ftp.x.org/archive https://xorg.freedesktop.org/releases"
-	prompt "x.org Mirror"
-	help
-	  For all x.org related packages enter an available mirror here.
 
 config SETUP_KERNELMIRROR
 	string
@@ -178,6 +164,20 @@ config SETUP_PYPIMIRROR
 	prompt "Python pypi source mirror"
 	help
 	  For all packages available on pypi, enter an available mirror here.
+
+config SETUP_SFMIRROR
+	string
+	default "http://downloads.sourceforge.net/sourceforge"
+	prompt "Sourceforge Mirror"
+	help
+	  For all Sourceforge related packages enter an available mirror here.
+
+config SETUP_XORGMIRROR
+	string
+	default "https://ftp.x.org/archive https://xorg.freedesktop.org/releases"
+	prompt "x.org Mirror"
+	help
+	  For all x.org related packages enter an available mirror here.
 
 choice
 	prompt "archive check"
