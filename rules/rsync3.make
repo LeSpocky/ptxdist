@@ -35,8 +35,8 @@ RSYNC3_AUTOCONF  := \
 	--disable-debug \
 	--disable-profile \
 	--disable-md2man \
-	--$(call ptx/endis, PTXCONF_ARCH_X86)-simd \
-	--$(call ptx/endis, PTXCONF_ARCH_X86)-asm \
+	--disable-simd \
+	--disable-asm \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-locale \
