@@ -33,6 +33,7 @@ PTXCONF_SETUP_SRCDIR="${PTXDIST_WORKSPACE}/src"
 # PTXCONF_SETUP_PTXMIRROR_ONLY is not set
 PTXCONF_SETUP_PTXMIRROR="https://www.pengutronix.de/software/ptxdist/temporary-src"
 PTXCONF_SETUP_DEBMIRROR="http://ftp.uni-kl.de/debian http://archive.debian.org/debian"
+PTXCONF_SETUP_GNOMEMIRROR="https://download.gnome.org/sources https://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.gnome.org/sources"
 PTXCONF_SETUP_GNUMIRROR="https://ftp.gnu.org/gnu http://ftp.uni-kl.de/pub/gnu"
 PTXCONF_SETUP_KERNELMIRROR="https://www.kernel.org/pub/linux http://www.linux-mips.org/pub/linux/mips http://mirror.linux.org.au/linux"
 PTXCONF_SETUP_PYPIMIRROR="https://files.pythonhosted.org/packages/source"

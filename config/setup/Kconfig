@@ -144,6 +144,13 @@ config SETUP_DEBMIRROR
 	  The Debian pool mirror to use for downloading various
 	  components of the target root filesystem.
 
+config SETUP_GNOMEMIRROR
+	string
+	default "https://download.gnome.org/sources https://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.gnome.org/sources"
+	prompt "GNOME Mirror"
+	help
+	  For all GNOME related packages enter an available mirror here.
+
 config SETUP_GNUMIRROR
 	string
 	default "https://ftp.gnu.org/gnu http://ftp.uni-kl.de/pub/gnu"
