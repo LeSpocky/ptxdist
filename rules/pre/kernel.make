@@ -104,4 +104,8 @@ endif
 
 KERNEL_CROSS_COMPILE := $(KERNEL_TOOLCHAIN_LINK)$(PTXCONF_COMPILER_PREFIX_KERNEL)
 
+define ptx/kconfig-targets
+$(addprefix $(strip $(1))_,menuconfig nconfig oldconfig allmodconfig allyesconfig allnoconfig alldefconfig randconfig)
+endef
+
 # vim: syntax=make

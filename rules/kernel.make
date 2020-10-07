@@ -323,7 +323,7 @@ endif
 # oldconfig / menuconfig
 # ----------------------------------------------------------------------------
 
-kernel_%config: $(STATEDIR)/kernel.extract
+$(call ptx/kconfig-targets, kernel): $(STATEDIR)/kernel.extract
 	@$(call world/kconfig, KERNEL, $(subst kernel_,,$@))
 
 # vim: syntax=make

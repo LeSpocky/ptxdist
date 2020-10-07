@@ -97,7 +97,7 @@ $(STATEDIR)/barebox_mlo.clean:
 # oldconfig / menuconfig
 # ----------------------------------------------------------------------------
 
-barebox_mlo_%config: $(STATEDIR)/barebox_mlo.extract
+$(call ptx/kconfig-targets, barebox_mlo): $(STATEDIR)/barebox_mlo.extract
 	@if test -e $(BAREBOX_MLO_CONFIG); then \
 		cp $(BAREBOX_MLO_CONFIG) $(BAREBOX_MLO_DIR)/.config; \
 	fi
