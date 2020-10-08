@@ -297,13 +297,22 @@ add_icecc_args() {
 		if [ "${1}" != clang ]; then
 			add_late_arg "-fno-diagnostics-show-caret"
 			add_late_arg "-gno-record-gcc-switches"
-		elif [ "${PTXDIST_ICECC_CLANG}" != 1 ]; then
-		    unset PTXDIST_ICECC
-		    return
 		fi
 		if [ "${PTXDIST_ICECC_REMOTE_CPP}" != 1 -o "${ICECC_REMOTE_CPP}" = "0" ]; then
 		    add_late_arg "-Wno-implicit-fallthrough"
 		fi
+	fi
+}
+
+clang_check_target_icecc() {
+	if [ "${PTXDIST_ICECC_CLANG}" != 1 ]; then
+	    unset PTXDIST_ICECC
+	fi
+}
+
+clang_check_host_icecc() {
+	if [ "${PTXDIST_ICECC_HOST_CLANG}" != 1 ]; then
+	    unset PTXDIST_ICECC
 	fi
 }
 

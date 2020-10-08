@@ -39,9 +39,10 @@ ptxd_lib_setup_host_icecc() {
 		args[${#args[@]}]="--clang"
 		args[${#args[@]}]="${wrapper_dir}/real/clang"
 	    fi
-	    "${PTXDIST_ICECC_CREATE_ENV}" "${args[@]}" --gcc \
+	    "${PTXDIST_ICECC_CREATE_ENV}" --gcc \
 		"${wrapper_dir}/real/gcc" \
-		"${wrapper_dir}/real/g++" > "${PTXDIST_TEMPDIR}/icecc.log" 2>&1 || \
+		"${wrapper_dir}/real/g++" \
+		"${args[@]}" > "${PTXDIST_TEMPDIR}/icecc.log" 2>&1 || \
 	    {
 		cat "${PTXDIST_TEMPDIR}/icecc.log"
 		ptxd_bailout "Failed to create icecc host environment!"
@@ -50,6 +51,11 @@ ptxd_lib_setup_host_icecc() {
 	) &&
 	mv "${PTXDIST_TEMPDIR}/host-gcc-version" "${icecc_dir}/"
     fi &&
+
+    ptxd_get_path "${icecc_dir}/host"/*.tar.gz &&
+    if tar -tf "${ptxd_reply}" | grep -q clang; then
+	export PTXDIST_ICECC_HOST_CLANG=1
+    fi
 
     export PTXDIST_ICECC_DIR="${icecc_dir}" &&
 
@@ -94,9 +100,9 @@ ptxd_lib_setup_target_icecc() {
 		args[${#args[@]}]="--clang"
 		args[${#args[@]}]="${wrapper_dir}/real/${compiler_prefix}clang"
 	    fi
-	    "${PTXDIST_ICECC_CREATE_ENV}" "${args[@]}" --gcc \
-		"${wrapper_dir}/real/${compiler_prefix}gcc" "${gxx}" > \
-		    "${PTXDIST_TEMPDIR}/icecc.log" 2>&1 || \
+	    "${PTXDIST_ICECC_CREATE_ENV}" --gcc \
+		"${wrapper_dir}/real/${compiler_prefix}gcc" "${gxx}" \
+		    "${args[@]}" > "${PTXDIST_TEMPDIR}/icecc.log" 2>&1 || \
 	    {
 		cat "${PTXDIST_TEMPDIR}/icecc.log"
 		ptxd_bailout "Failed to create icecc target environment!"

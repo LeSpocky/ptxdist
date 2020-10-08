@@ -9,6 +9,7 @@ cc_check_args "${@}"
 cc_add_host_clang
 cc_add_host_ld_args
 cxx_add_host_extra
+clang_check_host_icecc
 cxx_add_host_icecc clang
 
 wrapper_exec "$@"
