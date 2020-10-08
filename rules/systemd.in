@@ -33,6 +33,7 @@ menuconfig SYSTEMD
 	select HOST_SYSTEMD	if SYSTEMD_UDEV_HWDB
 	select ROOTFS_VAR_LIB	if RUNTIME
 	select ROOTFS_VAR_CACHE	if RUNTIME
+	select ROOTFS_VAR_SPOOL if RUNTIME
 	prompt "systemd                       "
 	help
 	  systemd is a system and session manager for Linux, compatible with SysV
