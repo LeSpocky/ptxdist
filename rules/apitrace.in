@@ -1,0 +1,11 @@
+## SECTION=debug_tools
+
+config APITRACE
+	tristate
+	select HOST_CMAKE
+	select HOST_SYSTEM_PYTHON3
+	select ZLIB
+	select LIBPNG
+	prompt "apitrace"
+	help
+	  Tools for tracing OpenGL, Direct3D, and other graphics APIs.
