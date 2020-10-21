@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_NFSUTILS) += nfsutils
 #
 # Paths and names
 #
-NFSUTILS_VERSION	:= 1.3.3
-NFSUTILS_MD5		:= 9b87d890669eaaec8e97a2b0a35b2665
+NFSUTILS_VERSION	:= 2.5.1
+NFSUTILS_MD5		:= 8c89b19224f2c8374ca9776435c66d37
 NFSUTILS		:= nfs-utils-$(NFSUTILS_VERSION)
-NFSUTILS_SUFFIX		:= tar.bz2
-NFSUTILS_URL		:= $(call ptx/mirror, SF, nfs/$(NFSUTILS).$(NFSUTILS_SUFFIX))
+NFSUTILS_SUFFIX		:= tar.gz
+NFSUTILS_URL		:= https://kernel.org/pub/linux/utils/nfs-utils/$(NFSUTILS_VERSION)/$(NFSUTILS).$(NFSUTILS_SUFFIX)
 NFSUTILS_SOURCE		:= $(SRCDIR)/$(NFSUTILS).$(NFSUTILS_SUFFIX)
 NFSUTILS_DIR		:= $(BUILDDIR)/$(NFSUTILS)
 NFSUTILS_LICENSE	:= GPL-2.0-or-later
@@ -46,18 +46,21 @@ NFSUTILS_CONF_OPT	:= \
 	--disable-uuid \
 	--$(call ptx/endis, PTXCONF_NFSUTILS_CLIENT)-mount \
 	--$(call ptx/endis, PTXCONF_NFSUTILS_CLIENT)-libmount-mount \
+	--disable-junction \
 	--$(call ptx/endis, PTXCONF_GLOBAL_IPV6)-tirpc \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-mountconfig \
+	--disable-nfsdcld \
 	--disable-nfsdcltrack \
-	--enable-osdlogin \
 	--disable-caps \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-ldap \
+	--disable-gums \
 	--with-statedir=/var/lib/nfs \
 	--with-statdpath=/var/lib/nfs \
 	--with-statduser=rpcuser \
 	--with-systemd=/usr/lib/systemd/system \
-	--with-rpcgen=internal \
+	--with-rpcgen=$(PTXDIST_SYSROOT_HOST)/bin/rpcgen \
 	--without-mountfile \
 	--without-tcp-wrappers \
 	--without-krb5 \
@@ -95,8 +98,6 @@ else
 		/var/lib/nfs/etab)
 	@$(call install_copy, nfsutils, rpcuser, 0, 0644, -, \
 		/var/lib/nfs/rmtab)
-	@$(call install_copy, nfsutils, rpcuser, 0, 0644, -, \
-		/var/lib/nfs/xtab)
 	@$(call install_copy, nfsutils, rpcuser, 0, 0644, -, \
 		/var/lib/nfs/state)
 	@$(call install_copy, nfsutils, rpcuser, 0, 0755, \

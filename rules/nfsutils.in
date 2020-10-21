@@ -2,6 +2,7 @@
 menuconfig NFSUTILS
 	tristate
 	prompt "nfsutils                      "
+	select HOST_NFSUTILS
 	select GCCLIBS_GCC_S
 	select LIBBLKID
 	select UTIL_LINUX_NG
