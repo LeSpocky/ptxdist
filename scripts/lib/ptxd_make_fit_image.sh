@@ -20,6 +20,7 @@ ptxd_make_image_fit_its() {
 			description = "kernel";
 			data = /incbin/("${image_kernel}");
 			type = "kernel";
+			arch = "$(ptxd_get_ptxconf PTXCONF_ARCH_STRING)";
 			compression = "none";
 			hash-1 {
 				algo = "sha256";
@@ -47,6 +48,7 @@ EOF
 			data = /incbin/("${i}");
 			compression = "none";
 			type = "flat_dt";
+			arch = "$(ptxd_get_ptxconf PTXCONF_ARCH_STRING)";
 			hash-1 {
 				algo = "sha256";
 			};
