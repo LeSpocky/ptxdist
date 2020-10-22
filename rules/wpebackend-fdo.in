@@ -5,6 +5,7 @@ config WPEBACKEND_FDO
 	prompt "wpebackend-fdo"
 	select HOST_CMAKE
 	select HOST_NINJA
+	select LIBEPOXY
 	select LIBWPE
 	select GLIB
 	select MESALIB

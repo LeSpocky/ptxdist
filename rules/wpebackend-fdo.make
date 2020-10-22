@@ -14,9 +14,9 @@ PACKAGES-$(PTXCONF_WPEBACKEND_FDO) += wpebackend-fdo
 #
 # Paths and names
 #
-WPEBACKEND_FDO_VERSION		:= 1.6.1
+WPEBACKEND_FDO_VERSION		:= 1.8.0
 WPEBACKEND_FDO_LIBRARY_VERSION	:= 1.0
-WPEBACKEND_FDO_MD5		:= ea6c2a13e6c2423f2c2b0b31fcf9567b
+WPEBACKEND_FDO_MD5		:= 6df96f80ff34c02d56f32a7a153a62c0
 WPEBACKEND_FDO			:= wpebackend-fdo-$(WPEBACKEND_FDO_VERSION)
 WPEBACKEND_FDO_SUFFIX		:= tar.xz
 WPEBACKEND_FDO_URL		:= https://wpewebkit.org/releases/$(WPEBACKEND_FDO).$(WPEBACKEND_FDO_SUFFIX)
@@ -36,8 +36,7 @@ WPEBACKEND_FDO_CONF_TOOL	:= cmake
 WPEBACKEND_FDO_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
 	-G Ninja \
-	-DBUILD_DOCS=OFF \
-	-DEXPORTABLE_EGL=ON
+	-DBUILD_DOCS=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install
