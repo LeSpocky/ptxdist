@@ -23,6 +23,7 @@ LOGROTATE_URL		:= http://downloads.yoctoproject.org/mirror/sources/$(LOGROTATE).
 LOGROTATE_SOURCE	:= $(SRCDIR)/$(LOGROTATE).$(LOGROTATE_SUFFIX)
 LOGROTATE_DIR		:= $(BUILDDIR)/$(LOGROTATE)
 LOGROTATE_LICENSE	:= GPL-2.0-only
+LOGROTATE_LICENSE_FILES	:= file://COPYING;md5=18810669f13b87348459e611d31ab760
 
 # ----------------------------------------------------------------------------
 # Compile
