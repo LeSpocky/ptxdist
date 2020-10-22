@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_LOGROTATE) += logrotate
 #
 # Paths and names
 #
-LOGROTATE_VERSION	:= 3.9.1
-LOGROTATE_MD5		:= 4492b145b6d542e4a2f41e77fa199ab0
+LOGROTATE_VERSION	:= 3.17.0
+LOGROTATE_MD5		:= ac2a7151fc8a187201872358a20a2813
 LOGROTATE		:= logrotate-$(LOGROTATE_VERSION)
-LOGROTATE_SUFFIX	:= tar.gz
-LOGROTATE_URL		:= http://downloads.yoctoproject.org/mirror/sources/$(LOGROTATE).$(LOGROTATE_SUFFIX)
+LOGROTATE_SUFFIX	:= tar.xz
+LOGROTATE_URL		:= https://github.com/logrotate/logrotate/releases/download/$(LOGROTATE_VERSION)/$(LOGROTATE).$(LOGROTATE_SUFFIX)
 LOGROTATE_SOURCE	:= $(SRCDIR)/$(LOGROTATE).$(LOGROTATE_SUFFIX)
 LOGROTATE_DIR		:= $(BUILDDIR)/$(LOGROTATE)
-LOGROTATE_LICENSE	:= GPL-2.0-only
-LOGROTATE_LICENSE_FILES	:= file://COPYING;md5=18810669f13b87348459e611d31ab760
+LOGROTATE_LICENSE	:= GPL-2.0-or-later
+LOGROTATE_LICENSE_FILES	:= file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
 
 # ----------------------------------------------------------------------------
 # Compile
@@ -33,8 +33,11 @@ LOGROTATE_CONF_TOOL := autoconf
 LOGROTATE_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-werror \
+	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--$(call ptx/wwo, PTXCONF_LOGROTATE_ACL)-acl \
-	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux
+	--with-state-file-path=/var/lib/logrotate/status \
+	--with-default-mail-command=/usr/bin/mail
 
 LOGROTATE_MAKE_OPT := AM_CFLAGS="-Wall"
 
