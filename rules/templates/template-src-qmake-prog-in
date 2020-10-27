@@ -3,6 +3,6 @@
 config @PACKAGE@
 	bool
 	prompt "@package@"
-	select QT4
+	select QT5
 	help
 	  FIXME
