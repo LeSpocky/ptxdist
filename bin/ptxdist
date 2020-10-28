@@ -765,6 +765,8 @@ Misc:
 				use 'newpackage help' for a longer description
   nfsroot			run a userspace NFS server and export the nfsroot
   gdb				run cross gdb with configured sysroot etc.
+  cgdb				run cross gdb with configured sysroot etc.
+  				with cgdb as frontend
   bsp-info			print some basic information about the BSP
   package-info <package>	print some basic information about the package
   print <var>			print the contents of a variable, in the way
@@ -1761,11 +1763,18 @@ EOF
 			ptxd_make_log export_src EXPORTDIR="${1}"
 			exit
 			;;
-		gdb)
+		gdb|cgdb)
+			local -a prefix
+			if [ "${cmd}" = "cgdb" ]; then
+				if [ \! -x "$(which cgdb 2>/dev/null)" ]; then
+					ptxd_bailout "cgdb is required to be installed on your host-machine."
+				fi
+				prefix=( cgdb -d )
+			fi
 			check_premake_compiler &&
 			compiler_prefix="$(ptxd_get_ptxconf PTXCONF_COMPILER_PREFIX)" &&
 			ptxdist_trap_exit_handler &&
-			exec "${PTXDIST_PLATFORMDIR}/sysroot-host/lib/wrapper/${compiler_prefix}gdb" "${@}"
+			exec "${prefix[@]}" "${PTXDIST_PLATFORMDIR}/sysroot-host/lib/wrapper/${compiler_prefix}gdb" "${@}"
 			;;
 		get|urlcheck)
 			declare -a pkgs
