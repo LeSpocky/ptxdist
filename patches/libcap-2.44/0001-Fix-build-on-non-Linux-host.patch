@@ -22,7 +22,7 @@ index ac13c128e3d2..18391f853769 100644
  #ifndef __user
  #define __user
 diff --git a/libcap/include/uapi/linux/capability.h b/libcap/include/uapi/linux/capability.h
-index e3aef34d6c92..855919463c4a 100644
+index 09b556389a87..9e659e379659 100644
 --- a/libcap/include/uapi/linux/capability.h
 +++ b/libcap/include/uapi/linux/capability.h
 @@ -14,7 +14,13 @@
