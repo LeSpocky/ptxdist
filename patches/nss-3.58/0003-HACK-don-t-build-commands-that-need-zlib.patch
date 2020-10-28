@@ -1,0 +1,33 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Wed, 28 Oct 2020 12:08:39 +0100
+Subject: [PATCH] HACK: don't build commands that need zlib
+
+This avoids a zlib dependency. Skipping all commands no longer works:
+Otherwise secutil.h is not copied to dist/private/nss/ and building fails
+because it is needed by nss/lib/pk11wrap/pk11hpke.c.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ nss/cmd/manifest.mn | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/nss/cmd/manifest.mn b/nss/cmd/manifest.mn
+index 695177c9dccf..004c7f819198 100644
+--- a/nss/cmd/manifest.mn
++++ b/nss/cmd/manifest.mn
+@@ -67,7 +67,6 @@ NSS_SRCDIRS = \
+  rsapoptst \
+  sdrtest \
+  selfserv  \
+- signtool \
+  signver \
+  smimetools  \
+  ssltap  \
+@@ -77,7 +76,6 @@ NSS_SRCDIRS = \
+  tstclnt  \
+  vfychain \
+  vfyserv \
+- modutil \
+  $(NULL)
+ 
+ ifndef NSS_DISABLE_LIBPKIX

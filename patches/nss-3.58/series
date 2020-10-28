@@ -2,7 +2,7 @@
 #tag:base --start-number 1
 0001-nss-fix-nsinstall-build.patch
 0002-add-nss.pc.in.patch
-0003-HACK-don-t-build-the-commands.patch
+0003-HACK-don-t-build-commands-that-need-zlib.patch
 0004-HACK-fix-parallel-building-issue.patch
 0005-fix-dependency-generation.patch
-# 368d349ba2a6a8da375a3b8825a4b6f3  - git-ptx-patches magic
+# 51749efb4fc421b49999aad3745d75b9  - git-ptx-patches magic
