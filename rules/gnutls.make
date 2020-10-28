@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GNUTLS) += gnutls
 #
 # Paths and names
 #
-GNUTLS_VERSION	:= 3.6.14
-GNUTLS_MD5	:= bf70632d420e421baff482247f01dbfe
+GNUTLS_VERSION	:= 3.6.15
+GNUTLS_MD5	:= e80e0d20a8bb337a15fa63caa7f67006
 GNUTLS		:= gnutls-$(GNUTLS_VERSION)
 GNUTLS_SUFFIX	:= tar.xz
 GNUTLS_URL	:= https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/$(GNUTLS).$(GNUTLS_SUFFIX)
