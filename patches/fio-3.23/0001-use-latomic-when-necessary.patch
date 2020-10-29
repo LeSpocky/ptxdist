@@ -1,0 +1,41 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Thu, 29 Oct 2020 16:43:00 +0100
+Subject: [PATCH] use -latomic when necessary
+
+Some architectures such as ARMv5 require libatomic for 64 bit atomics.
+Expand the the configure check to add -latomic to $LIBS if necessary.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ configure | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+diff --git a/configure b/configure
+index 6d672fe5ebda..4103a5af66ed 100755
+--- a/configure
++++ b/configure
+@@ -578,16 +578,19 @@ cat > $TMPC <<EOF
+ #include <stdatomic.h>
+ int main(void)
+ {
+-  _Atomic unsigned v;
++  _Atomic unsigned long long v;
+   atomic_load(&v);
+   return 0;
+ }
+ EOF
+ if ! compile_prog "" "" "C11 atomics"; then
+-  echo
+-  echo "Your compiler doesn't support C11 atomics. gcc 4.9/clang 3.6 are the"
+-  echo "minimum versions with it - perhaps your compiler is too old?"
+-  fatal "C11 atomics support not found"
++  if ! compile_prog "" "-latomic" "C11 atomics"; then
++    echo
++    echo "Your compiler doesn't support C11 atomics. gcc 4.9/clang 3.6 are the"
++    echo "minimum versions with it - perhaps your compiler is too old?"
++    fatal "C11 atomics support not found"
++  fi
++  LIBS="-latomic $LIBS"
+ fi
+ 
+ 
