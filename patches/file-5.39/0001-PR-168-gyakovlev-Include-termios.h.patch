@@ -1,0 +1,29 @@
+From: Christos Zoulas <christos@zoulas.com>
+Date: Thu, 18 Jun 2020 16:25:12 +0000
+Subject: [PATCH] PR/168: gyakovlev: Include <termios.h>
+
+---
+ src/seccomp.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/seccomp.c b/src/seccomp.c
+index e667adfe4e3c..68c56485d371 100644
+--- a/src/seccomp.c
++++ b/src/seccomp.c
+@@ -27,7 +27,7 @@
+ #include "file.h"
+ 
+ #ifndef	lint
+-FILE_RCSID("@(#)$File: seccomp.c,v 1.15 2020/05/30 23:56:26 christos Exp $")
++FILE_RCSID("@(#)$File: seccomp.c,v 1.16 2020/06/18 16:25:12 christos Exp $")
+ #endif	/* lint */
+ 
+ #if HAVE_LIBSECCOMP
+@@ -35,6 +35,7 @@ FILE_RCSID("@(#)$File: seccomp.c,v 1.15 2020/05/30 23:56:26 christos Exp $")
+ #include <sys/prctl.h> /* prctl */
+ #include <sys/ioctl.h>
+ #include <sys/socket.h>
++#include <termios.h>
+ #include <fcntl.h>
+ #include <stdlib.h>
+ #include <errno.h>
