@@ -47,4 +47,11 @@ HOST_NFSUTILS_CONF_OPT	:= \
 	--without-gssglue \
 	--without-systemd
 
+HOST_NFSUTILS_MAKE_OPT		:= \
+	-C tools/rpcgen
+
+HOST_NFSUTILS_INSTALL_OPT	:= \
+	$(HOST_NFSUTILS_MAKE_OPT) \
+	install
+
 # vim: syntax=make
