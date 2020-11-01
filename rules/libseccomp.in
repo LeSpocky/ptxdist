@@ -3,6 +3,7 @@
 menuconfig LIBSECCOMP
 	bool
 	prompt "libseccomp                    "
+	select HOST_GPERF
 	select SED if LIBSECCOMP_UTILS && RUNTIME
 	select STRACE if LIBSECCOMP_UTILS && RUNTIME
 	select WHICH if LIBSECCOMP_UTILS && RUNTIME
