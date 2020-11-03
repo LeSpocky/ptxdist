@@ -3,8 +3,10 @@
 config KMSCUBE
 	bool
 	prompt "kmscube"
+	select HOST_MESON
 	select MESALIB
 	select MESALIB_GLES2
 	select LIBDRM
+	select LIBPNG
 	help
 	  kmscube is an application to test kms/drm drivers.

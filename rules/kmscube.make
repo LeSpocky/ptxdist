@@ -15,24 +15,28 @@ PACKAGES-$(PTXCONF_KMSCUBE) += kmscube
 # Paths and names
 #
 # No tags: use a fake descriptive commit-ish to include the date
-KMSCUBE_VERSION	:= 2017-03-13-g803bac5
+KMSCUBE_VERSION	:= 2020-10-28-ge6386d1b
 KMSCUBE		:= kmscube-$(KMSCUBE_VERSION)
-KMSCUBE_MD5	:= 781a59ab2d1d245e99a49df7c3dc1876
+KMSCUBE_MD5	:= cd5fbb6e53545f29e22e20aea3309570
 KMSCUBE_SUFFIX	:= tar.gz
 KMSCUBE_URL	:= https://gitlab.freedesktop.org/mesa/kmscube/-/archive/$(KMSCUBE_VERSION)/$(KMSCUBE).$(KMSCUBE_SUFFIX)
 KMSCUBE_SOURCE	:= $(SRCDIR)/$(KMSCUBE).$(KMSCUBE_SUFFIX)
 KMSCUBE_DIR	:= $(BUILDDIR)/$(KMSCUBE)
-
 KMSCUBE_LICENSE	:= MIT
+KMSCUBE_LICENSE_FILES := \
+	file://COPYING;md5=2a12bf7a66f5f663d75186bf01eb607b
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-KMSCUBE_CONF_TOOL	:= autoconf
+KMSCUBE_CONF_TOOL	:= meson
+KMSCUBE_CONF_OPT	:= \
+	$(CROSS_MESON_USR) \
+	-Dgstreamer=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
