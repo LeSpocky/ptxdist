@@ -23,9 +23,12 @@ DROPBEAR_SUFFIX		:= tar.bz2
 DROPBEAR_URL		:= http://matt.ucc.asn.au/dropbear/releases/$(DROPBEAR).$(DROPBEAR_SUFFIX)
 DROPBEAR_SOURCE		:= $(SRCDIR)/$(DROPBEAR).$(DROPBEAR_SUFFIX)
 DROPBEAR_DIR		:= $(BUILDDIR)/$(DROPBEAR)
-DROPBEAR_LICENSE	:= MIT AND BSD-2-Clause AND BSD-3-Clause AND SSH-short
+DROPBEAR_LICENSE	:= \
+	MIT AND BSD-2-Clause AND BSD-3-Clause AND SSH-short AND (public_domain OR WTFPL)
 DROPBEAR_LICENSE_FILES	:= \
 	file://LICENSE;md5=a5ec40cafba26fc4396d0b550f824e01 \
+	file://libtomcrypt/LICENSE;md5=71baacc459522324ef3e2b9e052e8180 \
+	file://libtommath/LICENSE;md5=f72771f4af5e8c382974750f9f8701ad \
 	file://loginrec.c;startline=1;endline=26;md5=0d785ee11fab1cead2c7fee9c35574f1
 
 # ----------------------------------------------------------------------------
