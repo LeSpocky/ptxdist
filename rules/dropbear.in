@@ -116,6 +116,7 @@ comment "features"
 config DROPBEAR_DIS_X11
 	bool
 	prompt "disable X11 Forwarding"
+	default y
 	help
 	  X11 forwarding means passing X11 (graphical interface)
 	  information over the SSH connection.
@@ -149,7 +150,6 @@ config DROPBEAR_AES128
 config DROPBEAR_3DES
 	bool
 	prompt "3DES"
-	default y
 	help
 	  DES is an IBM algorithm designed during the 1970s.
 	  In 1976, NIST has officially adopted it as an encryption
