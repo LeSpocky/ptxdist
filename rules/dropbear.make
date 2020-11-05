@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_DROPBEAR) += dropbear
 #
 # Paths and names
 #
-DROPBEAR_VERSION	:= 2020.79
-DROPBEAR_MD5		:= 830a7bf6349ac52a39c487d061efb352
+DROPBEAR_VERSION	:= 2020.81
+DROPBEAR_MD5		:= a07438a6159a24c61f98f1bce2d479c0
 DROPBEAR		:= dropbear-$(DROPBEAR_VERSION)
 DROPBEAR_SUFFIX		:= tar.bz2
 DROPBEAR_URL		:= http://matt.ucc.asn.au/dropbear/releases/$(DROPBEAR).$(DROPBEAR_SUFFIX)
@@ -26,7 +26,7 @@ DROPBEAR_DIR		:= $(BUILDDIR)/$(DROPBEAR)
 DROPBEAR_LICENSE	:= \
 	MIT AND BSD-2-Clause AND public_domain AND SSH-short AND (public_domain OR WTFPL) AND Unlicense
 DROPBEAR_LICENSE_FILES	:= \
-	file://LICENSE;md5=da58928b5d844c6667963cb5a109272d \
+	file://LICENSE;md5=25cf44512b7bc8966a48b6b1a9b7605f \
 	file://libtomcrypt/LICENSE;md5=71baacc459522324ef3e2b9e052e8180 \
 	file://libtommath/LICENSE;md5=23e7e0a32e53a2b1d35f5fd9ef053402 \
 	file://loginrec.c;startline=1;endline=26;md5=0d785ee11fab1cead2c7fee9c35574f1
