@@ -539,7 +539,7 @@ export -f ptxd_kconfig_sync_config
 
 
 ptxd_kconfig_update() {
-    local mode
+    local mode file_kconfig
     if [ "${PTXDIST_LAYERS[0]}" = "${PTXDIST_TOPDIR}" ]; then
 	# nothing to do for PTXdist itself
 	return
@@ -548,6 +548,10 @@ ptxd_kconfig_update() {
 	(
 	# call ptxd_kconfig_update() recursively after removing the last layer
 	PTXDIST_LAYERS=( "${PTXDIST_LAYERS[@]:1}" )
+	local orig_IFS="${IFS}"
+	IFS=:
+	PTXDIST_PATH_LAYERS="${PTXDIST_LAYERS[*]}:"
+	IFS="${orig_IFS}"
 	PTX_KGEN_DIR="${PTX_KGEN_DIR}.base"
 	confdir="${confdir}.base"
 	ptxd_init_ptxdist_path &&
@@ -577,8 +581,15 @@ ptxd_kconfig_update() {
 	;;
     esac
     case "${part}" in
-    user|board)
-	mode=single
+    ptx)
+	if ! ptxd_in_path PTXDIST_PATH_LAYERS "Kconfig"; then
+	    ptxd_in_path PTXDIST_PATH_LAYERS "config/Kconfig"
+	fi
+	file_kconfig="${ptxd_reply}"
+	;;
+    platform)
+	ptxd_in_path PTXDIST_PATH_LAYERS "platforms/Kconfig"
+	file_kconfig="${ptxd_reply}"
 	;;
     collection)
 	ptxd_kconfig_find_config run ${ptx_relative_file_dotconfig} || return 0
@@ -596,6 +607,16 @@ ptxd_kconfig_update() {
 	# here.
 	#
 	PTXDIST_COLLECTIONCONFIG="" ptxd_colgen || ptxd_bailout "error in colgen"
+	file_kconfig="${PTXDIST_TOPDIR}/config/collection/Kconfig"
+	;;
+    board)
+	ptxd_in_path PTXDIST_PATH_LAYERS "config/boardsetup/Kconfig"
+	file_kconfig="${ptxd_reply}"
+	mode=single
+	;;
+    user)
+	file_kconfig="${PTXDIST_TOPDIR}/config/setup/Kconfig"
+	mode=single
 	;;
     esac
 
@@ -677,19 +698,17 @@ ptxd_kconfig() {
     local config="${1}"
     local part="${2}"
 
-    local file_kconfig file_dotconfig
+    local file_dotconfig
 
     case "${part}" in
     ptx)
 	if ! ptxd_in_path PTXDIST_PATH_LAYERS "Kconfig"; then
 	    ptxd_in_path PTXDIST_PATH_LAYERS "config/Kconfig"
 	fi
-	file_kconfig="${ptxd_reply}"
 	file_dotconfig="${PTXDIST_PTXCONFIG}"
 	;;
     platform)
 	ptxd_in_path PTXDIST_PATH_LAYERS "platforms/Kconfig"
-	file_kconfig="${ptxd_reply}"
 	file_dotconfig="${PTXDIST_PLATFORMCONFIG}"
 	;;
     collection)
@@ -699,16 +718,13 @@ ptxd_kconfig() {
 	file_dotconfig="${PTXDIST_PLATFORMCONFIG}"
 	ptxd_normalize_config
 	export platform_relative_file_dotconfig="${relative_file_dotconfig}"
-	file_kconfig="${PTXDIST_TOPDIR}/config/collection/Kconfig"
 	file_dotconfig="${3}"
 	;;
     board)
 	ptxd_in_path PTXDIST_PATH_LAYERS "config/boardsetup/Kconfig"
-	file_kconfig="${ptxd_reply}"
 	file_dotconfig="${PTXDIST_BOARDSETUP}"
 	;;
     user)
-	file_kconfig="${PTXDIST_TOPDIR}/config/setup/Kconfig"
 	file_dotconfig="${PTXDIST_PTXRC}"
 	;;
     *)
