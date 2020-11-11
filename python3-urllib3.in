@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_URLLIB3
+	tristate
+	select PYTHON3
+	prompt "urllib3"
+	help
+	  HTTP library with thread-safe connection pooling, file post, and more.
