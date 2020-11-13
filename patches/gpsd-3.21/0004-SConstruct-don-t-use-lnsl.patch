@@ -1,0 +1,30 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 13 Nov 2020 11:55:47 +0100
+Subject: [PATCH] SConstruct: don't use -lnsl
+
+It may be found on Linux but is not actually needed.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ SConstruct | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/SConstruct b/SConstruct
+index d303c3aa6d20..ce627e93f65e 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -1113,13 +1113,7 @@ else:
+     else:
+         confdefs.append("/* #undef HAVE_LIBRT */\n")
+ 
+-    # for slowlaris socket(), bind(), etc.
+-    if config.CheckLib('libnsl'):
+-        confdefs.append("#define HAVE_LIBNSL\n")
+-        # System library - no special flags
+-        rtlibs += ["-lnsl"]
+-    else:
+-        confdefs.append("/* #undef HAVE_LIBNSL */\n")
++    confdefs.append("/* #undef HAVE_LIBNSL */\n")
+ 
+     # for slowlaris socket(), bind(), etc.
+     if config.CheckLib('libsocket'):
