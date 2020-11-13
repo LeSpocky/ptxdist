@@ -27,15 +27,19 @@ SMTPCLIENT_DIR		:= $(BUILDDIR)/$(SMTPCLIENT)
 # Prepare
 # ----------------------------------------------------------------------------
 
-SMTPCLIENT_PATH	:= PATH=$(CROSS_PATH)
-SMTPCLIENT_ENV 	:= $(CROSS_ENV)
+SMTPCLIENT_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_lib_nsl_gethostbyname=no
 
 #
 # autoconf
 #
-SMTPCLIENT_AUTOCONF := $(CROSS_AUTOCONF_USR)
+SMTPCLIENT_CONF_OPT := \
+	$(CROSS_AUTOCONF_USR)
 
-SMTPCLIENT_INSTALL_OPT := prefix=$(SMTPCLIENT_PKGDIR)/usr install
+SMTPCLIENT_INSTALL_OPT := \
+	prefix=$(SMTPCLIENT_PKGDIR)/usr \
+	install
 
 # ----------------------------------------------------------------------------
 # Target-Install
