@@ -30,14 +30,18 @@ LRZSZ_DIR	:= $(BUILDDIR)/$(LRZSZ)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LRZSZ_PATH	:= PATH=$(CROSS_PATH)
-LRZSZ_ENV 	:= $(CROSS_ENV)
-LRZSZ_ENV	+= CFLAGS=-Wstrict-prototypes
+LRZSZ_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_lib_nsl_gethostbyname=no
 
 #
 # autoconf
 #
-LRZSZ_AUTOCONF	=  $(CROSS_AUTOCONF_USR)
+LRZSZ_CONF_OPT	:= \
+	$(CROSS_AUTOCONF_USR) \
+	--disable-nls \
+	--without-included-gettext \
+	--without-catgets
 
 # ----------------------------------------------------------------------------
 # Target-Install
