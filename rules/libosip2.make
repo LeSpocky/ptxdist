@@ -27,6 +27,10 @@ LIBOSIP2_LICENSE	:= LGPL
 # Prepare
 # ----------------------------------------------------------------------------
 
+LIBOSIP2_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_lib_nsl_nis_add=no
+
 #
 # autoconf
 #

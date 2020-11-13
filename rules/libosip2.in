@@ -2,7 +2,6 @@
 
 menuconfig LIBOSIP2
 	tristate
-	select LIBC_NSL
 	prompt "libosip2                      "
 	help
 	  The GNU oSIP library is an implementation of SIP - rfc3261.
