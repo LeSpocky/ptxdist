@@ -32,6 +32,7 @@ SYSLOGNG_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-only
 
 SYSLOGNG_ENV 	= \
 	$(CROSS_ENV) \
+	ac_cv_lib_nsl_gethostbyname=no \
 	ac_cv_path_PYTHON=$(CROSS_PYTHON3)
 
 #
