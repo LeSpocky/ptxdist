@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WAFFLE) += waffle
 #
 # Paths and names
 #
-WAFFLE_VERSION	:= 1.5.2
-WAFFLE_MD5	:= c669c91bf2f7e13a5d781c3dbb30fd8c
+WAFFLE_VERSION	:= 1.6.1
+WAFFLE_MD5	:= c91529e579483f44fb330052872b9c73
 WAFFLE		:= waffle-$(WAFFLE_VERSION)
 WAFFLE_SUFFIX	:= tar.xz
 WAFFLE_URL	:= http://www.waffle-gl.org/files/release/$(WAFFLE)/$(WAFFLE).$(WAFFLE_SUFFIX)
@@ -32,10 +32,16 @@ WAFFLE_LICENSE_FILES := \
 WAFFLE_CONF_TOOL	:= cmake
 WAFFLE_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
-	-Dwaffle_has_glx=$(call ptx/ifdef,PTXCONF_WAFFLE_GLX,1,0) \
-	-Dwaffle_has_wayland=$(call ptx/ifdef,PTXCONF_WAFFLE_WAYLAND,1,0) \
-	-Dwaffle_has_x11_egl=$(call ptx/ifdef,PTXCONF_WAFFLE_X11_EGL,1,0) \
-	-Dwaffle_has_gbm=$(call ptx/ifdef,PTXCONF_WAFFLE_GBM,1,0)
+	-Dwaffle_build_examples=OFF \
+	-Dwaffle_build_htmldocs=OFF \
+	-Dwaffle_build_manpages=OFF \
+	-Dwaffle_build_tests=OFF \
+	-Dwaffle_has_gbm=$(call ptx/onoff,PTXCONF_WAFFLE_GBM) \
+	-Dwaffle_has_glx=$(call ptx/onoff,PTXCONF_WAFFLE_GLX) \
+	-Dwaffle_has_nacl=OFF \
+	-Dwaffle_has_surfaceless_egl=OFF \
+	-Dwaffle_has_wayland=$(call ptx/onoff,PTXCONF_WAFFLE_WAYLAND) \
+	-Dwaffle_has_x11_egl=$(call ptx/onoff,PTXCONF_WAFFLE_X11_EGL) \
 
 
 # ----------------------------------------------------------------------------
