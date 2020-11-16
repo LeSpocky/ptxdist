@@ -170,17 +170,6 @@ config DROPBEAR_AES256
 	  (and others) to protect sensitive information.
 
 
-config DROPBEAR_BLOWFISH
-	bool
-	prompt "Blowfish"
-	help
-	  Blowfish, by Bruce Schneier, combines a Feistel network,
-	  key-dependent S-Boxes, with a non-invertible f function.
-	  This block cipher iterates a simple encryption function
-	  16 times.
-	  Blowfish was designed with a variable key length ranging
-	  from 32 bits to 448 bits.
-
 config DROPBEAR_TWOFISH128
 	bool
 	prompt "Twofish128"
@@ -271,14 +260,6 @@ config DROPBEAR_SHA512
 	  SHA-1. SHA-2 consists of a set of four hash functions with digests
 	  that are 224, 256, 384 or 512 bits.
 
-config DROPBEAR_MD5
-	bool
-	prompt "md5"
-	help
-	  MD5 was developed by Professor Ronald L. Rivest in 1994.
-	  Its 128 bit (16 byte) message digest makes it a faster
-	  implementation than SHA-1.
-
 comment "Hostkey/public key algorithms, at least one required --- SSH2 RFC Draft requires dss, recommends rsa"
 
 config DROPBEAR_RSA
@@ -290,16 +271,6 @@ config DROPBEAR_RSA
 	  is based upon the RSA Problem (RSAP). This problem is
 	  conjectured (but not proven) to be equivalent to the
 	  Integer Factorisation Problem (IFP).
-
-config DROPBEAR_DSS
-	bool
-	prompt "dss"
-	help
-	  DSS stands for Digital Signature Standard.
-	  DSS employs the ElGamal and Schnorr PK systems to produce
-	  a fixed width signature (irrespective of the public/private
-	  key size). In contrast, RSA signature length is a function
-	  of the key length employed.
 
 config DROPBEAR_ECDSA
 	bool

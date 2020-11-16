@@ -124,14 +124,6 @@ else
 	@echo "#define DROPBEAR_AES256 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
-ifdef PTXCONF_DROPBEAR_BLOWFISH
-	@echo "ptxdist: enabling blowfish"
-	@echo "#define DROPBEAR_BLOWFISH 1" >> $(DROPBEAR_LOCALOPTIONS)
-else
-	@echo "ptxdist: disabling blowfish"
-	@echo "#define DROPBEAR_BLOWFISH 0" >> $(DROPBEAR_LOCALOPTIONS)
-endif
-
 ifdef PTXCONF_DROPBEAR_TWOFISH256
 	@echo "ptxdist: enabling twofish256"
 	@echo "#define DROPBEAR_TWOFISH256 1" >> $(DROPBEAR_LOCALOPTIONS)
@@ -201,15 +193,6 @@ else
 	@echo "#define DROPBEAR_SHA2_512_HMAC 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
-ifdef PTXCONF_DROPBEAR_MD5
-	@echo "ptxdist: enabling md5"
-	@echo "WARNING: md5 is considered broken and is deactivated in upstream dropbear by default!"
-	@echo "#define DROPBEAR_MD5_HMAC 1" >> $(DROPBEAR_LOCALOPTIONS)
-else
-	@echo "ptxdist: disabling md5"
-	@echo "#define DROPBEAR_MD5_HMAC 0" >> $(DROPBEAR_LOCALOPTIONS)
-endif
-
 
 ifdef PTXCONF_DROPBEAR_RSA
 	@echo "ptxdist: enabling rsa"
@@ -217,14 +200,6 @@ ifdef PTXCONF_DROPBEAR_RSA
 else
 	@echo "ptxdist: disabling rsa"
 	@echo "#define DROPBEAR_RSA 0" >> $(DROPBEAR_LOCALOPTIONS)
-endif
-
-ifdef PTXCONF_DROPBEAR_DSS
-	@echo "ptxdist: enabling dss"
-	@echo "#define DROPBEAR_DSS 1" >> $(DROPBEAR_LOCALOPTIONS)
-else
-	@echo "ptxdist: disabling dss"
-	@echo "#define DROPBEAR_DSS 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_ECDSA
