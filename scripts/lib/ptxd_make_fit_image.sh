@@ -21,7 +21,20 @@ ptxd_make_image_fit_its() {
 			data = /incbin/("${image_kernel}");
 			type = "kernel";
 			arch = "$(ptxd_get_ptxconf PTXCONF_ARCH_STRING)";
+			os = "linux";
 			compression = "none";
+EOF
+    if [ -n "$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_LOAD)" ]; then
+        cat << EOF
+			load = <$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_LOAD)>;
+EOF
+    fi
+    if [ -n "$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_ENTRY)" ]; then
+        cat << EOF
+			entry = <$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_ENTRY)>;
+EOF
+    fi
+    cat << EOF
 			hash-1 {
 				algo = "sha256";
 			};
@@ -33,6 +46,7 @@ EOF
 			description = "initramfs";
 			data = /incbin/("${image_initramfs}");
 			type = "ramdisk";
+			os = "linux";
 			compression = "none";
 			hash-1 {
 				algo = "sha256";

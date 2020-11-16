@@ -17,6 +17,18 @@ menuconfig KERNEL_FIT
 
 if KERNEL_FIT
 
+config KERNEL_FIT_LOAD
+	string
+	prompt "Kernel load address (optional)"
+	help
+	  Required by most bootloaders. Optional for Barebox.
+
+config KERNEL_FIT_ENTRY
+	string
+	prompt "Kernel entry address (optional)"
+	help
+	  Required by most bootloaders. Optional for Barebox.
+
 config KERNEL_FIT_SIGNED
 	bool
 	prompt "sign FIT image"
