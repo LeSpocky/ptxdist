@@ -16,19 +16,19 @@ PACKAGES-$(PTXCONF_DROPBEAR) += dropbear
 #
 # Paths and names
 #
-DROPBEAR_VERSION	:= 2019.78
-DROPBEAR_MD5		:= a972c85ed678ad0fdcb7844e1294fb54
+DROPBEAR_VERSION	:= 2020.79
+DROPBEAR_MD5		:= 830a7bf6349ac52a39c487d061efb352
 DROPBEAR		:= dropbear-$(DROPBEAR_VERSION)
 DROPBEAR_SUFFIX		:= tar.bz2
 DROPBEAR_URL		:= http://matt.ucc.asn.au/dropbear/releases/$(DROPBEAR).$(DROPBEAR_SUFFIX)
 DROPBEAR_SOURCE		:= $(SRCDIR)/$(DROPBEAR).$(DROPBEAR_SUFFIX)
 DROPBEAR_DIR		:= $(BUILDDIR)/$(DROPBEAR)
 DROPBEAR_LICENSE	:= \
-	MIT AND BSD-2-Clause AND BSD-3-Clause AND SSH-short AND (public_domain OR WTFPL)
+	MIT AND BSD-2-Clause AND public_domain AND SSH-short AND (public_domain OR WTFPL) AND Unlicense
 DROPBEAR_LICENSE_FILES	:= \
-	file://LICENSE;md5=a5ec40cafba26fc4396d0b550f824e01 \
+	file://LICENSE;md5=da58928b5d844c6667963cb5a109272d \
 	file://libtomcrypt/LICENSE;md5=71baacc459522324ef3e2b9e052e8180 \
-	file://libtommath/LICENSE;md5=f72771f4af5e8c382974750f9f8701ad \
+	file://libtommath/LICENSE;md5=23e7e0a32e53a2b1d35f5fd9ef053402 \
 	file://loginrec.c;startline=1;endline=26;md5=0d785ee11fab1cead2c7fee9c35574f1
 
 # ----------------------------------------------------------------------------
@@ -48,6 +48,7 @@ DROPBEAR_CONF_OPT 	:= \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_OPENPTY)-openpty \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_SYSLOG)-syslog \
 	--enable-shadow \
+	--disable-plugin \
 	--disable-fuzz \
 	--enable-bundled-libtom \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_LASTLOG)-lastlog \
