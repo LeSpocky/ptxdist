@@ -67,6 +67,7 @@ $(STATEDIR)/dropbear.prepare:
 
 	@echo "/* localoptions.h created by ptxdist */" > $(DROPBEAR_LOCALOPTIONS)
 
+# features
 ifdef PTXCONF_DROPBEAR_DIS_X11
 	@echo "ptxdist: disabling x11 forwarding"
 	@echo "#define DROPBEAR_X11FWD 0" >> $(DROPBEAR_LOCALOPTIONS)
@@ -76,13 +77,13 @@ else
 endif
 
 ifdef PTXCONF_DROPBEAR_DIS_TCP
-	@echo "ptxdist: disabling tcp"
+	@echo "ptxdist: disabling tcp forwarding"
 	@echo "#define DROPBEAR_CLI_LOCALTCPFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
 	@echo "#define DROPBEAR_CLI_REMOTETCPFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
 	@echo "#define DROPBEAR_SVR_LOCALTCPFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
 	@echo "#define DROPBEAR_SVR_REMOTETCPFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
 else
-	@echo "ptxdist: enabling tcp"
+	@echo "ptxdist: enabling tcp forwarding"
 	@echo "#define DROPBEAR_CLI_LOCALTCPFWD 1" >> $(DROPBEAR_LOCALOPTIONS)
 	@echo "#define DROPBEAR_CLI_REMOTETCPFWD 1" >> $(DROPBEAR_LOCALOPTIONS)
 	@echo "#define DROPBEAR_SVR_LOCALTCPFWD 1" >> $(DROPBEAR_LOCALOPTIONS)
@@ -90,16 +91,16 @@ else
 endif
 
 ifdef PTXCONF_DROPBEAR_DIS_AGENT
-	@echo "ptxdist: disabling agent"
+	@echo "ptxdist: disabling auth agent forwarding"
 	@echo "#define DROPBEAR_SVR_AGENTFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
 	@echo "#define DROPBEAR_CLI_AGENTFWD 0" >> $(DROPBEAR_LOCALOPTIONS)
 else
-	@echo "ptxdist: enabling agent"
+	@echo "ptxdist: enabling auth agent forwarding"
 	@echo "#define DROPBEAR_SVR_AGENTFWD 1" >> $(DROPBEAR_LOCALOPTIONS)
 	@echo "#define DROPBEAR_CLI_AGENTFWD 1" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
-
+# encryption
 ifdef PTXCONF_DROPBEAR_AES128
 	@echo "ptxdist: enabling aes128"
 	@echo "#define DROPBEAR_AES128 1" >> $(DROPBEAR_LOCALOPTIONS)
@@ -140,6 +141,7 @@ else
 	@echo "#define DROPBEAR_TWOFISH128 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
+# ciphers
 ifdef PTXCONF_DROPBEAR_CBC_CIPHERS
 	@echo "ptxdist: enabling cbc ciphers"
 	@echo "#define DROPBEAR_ENABLE_CBC_MODE 1" >> $(DROPBEAR_LOCALOPTIONS)
@@ -157,6 +159,7 @@ else
 	@echo "#define DROPBEAR_ENABLE_CTR_MODE 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
+# integrity
 ifdef PTXCONF_DROPBEAR_SHA1
 	@echo "ptxdist: enabling sha1"
 	@echo "#define DROPBEAR_SHA1_HMAC 1" >> $(DROPBEAR_LOCALOPTIONS)
@@ -193,7 +196,7 @@ else
 	@echo "#define DROPBEAR_SHA2_512_HMAC 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
-
+# host key / public key
 ifdef PTXCONF_DROPBEAR_RSA
 	@echo "ptxdist: enabling rsa"
 	@echo "#define DROPBEAR_RSA 1" >> $(DROPBEAR_LOCALOPTIONS)
@@ -210,6 +213,7 @@ else
 	@echo "#define DROPBEAR_ECDSA 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
+# key exchange algorithm
 ifdef PTXCONF_DROPBEAR_ECDH
 	@echo "ptxdist: enabling ecdh"
 	@echo "#define DROPBEAR_ECDH 1" >> $(DROPBEAR_LOCALOPTIONS)
@@ -226,7 +230,7 @@ else
 	@echo "#define DROPBEAR_CURVE25519 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
-
+# authentication types
 ifdef PTXCONF_DROPBEAR_PASSWD
 	@echo "ptxdist: enabling passwd"
 	@echo "#define DROPBEAR_SVR_PASSWORD_AUTH 1" >> $(DROPBEAR_LOCALOPTIONS)

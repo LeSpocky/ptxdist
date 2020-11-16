@@ -208,7 +208,7 @@ config DROPBEAR_CTR_CIPHERS
 	  CBC mode against certain attacks. This adds around 1kB to binary
 	  size and is recommended for most cases.
 
-comment "Integrity, at least one required --- RFC Draft requires sha1-hmac and recommends sha1-96"
+comment "Integrity, at least one required --- sha2-256 is recommended as a default, sha1 for compatibility"
 
 config DROPBEAR_SHA1
 	bool
@@ -260,7 +260,7 @@ config DROPBEAR_SHA512
 	  SHA-1. SHA-2 consists of a set of four hash functions with digests
 	  that are 224, 256, 384 or 512 bits.
 
-comment "Hostkey/public key algorithms, at least one required --- SSH2 RFC Draft requires dss, recommends rsa"
+comment "Hostkey/public key algorithms, at least one required --- RSA is recommended, DSS is not recommended for new keys"
 
 config DROPBEAR_RSA
 	bool
@@ -278,6 +278,8 @@ config DROPBEAR_ECDSA
 	help
 	  ECDSA stands for Elliptic Curve Digital Signature Algorithm.
 	  ECDSA is significantly faster than RSA or DSS.
+
+comment "Key exchange algorithm ---"
 
 config DROPBEAR_ECDH
 	bool
@@ -348,7 +350,7 @@ config DROPBEAR_SCP
 comment "OpenSSH scp is selected!"
 	depends on OPENSSH_SCP
 
-comment "runtime options   ---"
+comment "runtime options        ---"
 
 config DROPBEAR_STARTSCRIPT
 	bool
