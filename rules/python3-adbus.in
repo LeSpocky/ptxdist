@@ -1,0 +1,11 @@
+## SECTION=python3
+
+config PYTHON3_ADBUS
+	tristate
+	prompt "python3-adbus"
+	select PYTHON3
+	select HOST_PYTHON3_SETUPTOOLS
+	select HOST_CYTHON3
+	select SYSTEMD
+	help
+	  D-Bus Binding for Python using systemd sd-bus API and utilizing the Python's asyncio module.
