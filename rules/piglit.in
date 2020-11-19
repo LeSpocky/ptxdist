@@ -15,6 +15,7 @@ menuconfig PIGLIT
 	select PYTHON3_LZMA
 	select PYTHON3_MAKO
 	select PYTHON3_SIX
+	select PYTHON3_SSL
 	select WAFFLE
 	select WAYLAND if PIGLIT_WAYLAND
 	select LIBXKBCOMMON if PIGLIT_WAYLAND
