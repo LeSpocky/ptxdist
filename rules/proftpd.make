@@ -87,7 +87,6 @@ $(STATEDIR)/proftpd.targetinstall:
 #	#
 #	# busybox init
 #	#
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_PROFTPD_STARTSCRIPT
 	@$(call install_alternative, proftpd, 0, 0, 0755, /etc/init.d/proftpd)
 
@@ -95,7 +94,6 @@ ifneq ($(call remove_quotes,$(PTXCONF_PROFTPD_BBINIT_LINK)),)
 	@$(call install_link, proftpd, \
 		../init.d/proftpd, \
 		/etc/rc.d/$(PTXCONF_PROFTPD_BBINIT_LINK))
-endif
 endif
 endif
 

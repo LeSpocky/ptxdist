@@ -44,6 +44,7 @@ config DBUS_X
 config DBUS_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/dbus"
 
 config DBUS_SYSTEMD_UNIT

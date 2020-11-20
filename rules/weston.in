@@ -77,7 +77,8 @@ config WESTON_LAUNCH
 
 config WESTON_STARTSCRIPT
 	bool
-	default INITMETHOD_BBINIT
+	default y
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/weston-init"
 
 config WESTON_SYSTEMD

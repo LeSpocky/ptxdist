@@ -61,6 +61,7 @@ comment "runtime options   ---"
 config NTPCLIENT_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/ntpclient"
 
 config NTPCLIENT_NTPSERVER_NAME

@@ -42,14 +42,12 @@ $(STATEDIR)/rng-tools.targetinstall:
 	@$(call install_fixup, rng-tools,DESCRIPTION,"random number generator daemon - seed kernel random from hwrng")
 
 	@$(call install_copy, rng-tools, 0, 0, 0755, -, /usr/sbin/rngd)
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_RNG_TOOLS_STARTSCRIPT
 	@$(call install_alternative, rng-tools, 0, 0, 0755, /etc/init.d/rngd)
 ifneq ($(call remove_quotes,$(PTXCONF_RNG_TOOLS_BBINIT_LINK)),)
 	@$(call install_link, rng-tools, \
 		../init.d/rngd, \
 		/etc/rc.d/$(PTXCONF_RNG_TOOLS_BBINIT_LINK))
-endif
 endif
 endif
 ifdef PTXCONF_RNG_TOOLS_SYSTEMD_UNIT

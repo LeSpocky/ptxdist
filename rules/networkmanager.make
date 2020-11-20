@@ -146,7 +146,6 @@ $(STATEDIR)/networkmanager.targetinstall:
 
 	@$(call install_copy, networkmanager, 0, 0, 0755, /var/lib/NetworkManager)
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_NETWORKMANAGER_STARTSCRIPT
 	@$(call install_alternative, networkmanager, 0, 0, 0755, /etc/init.d/NetworkManager)
 
@@ -154,7 +153,6 @@ ifneq ($(call remove_quotes, $(PTXCONF_NETWORKMANAGER_BBINIT_LINK)),)
 	@$(call install_link, networkmanager, \
 		../init.d/NetworkManager, \
 		/etc/rc.d/$(PTXCONF_NETWORKMANAGER_BBINIT_LINK))
-endif
 endif
 endif
 ifdef PTXCONF_NETWORKMANAGER_SYSTEMD_UNIT

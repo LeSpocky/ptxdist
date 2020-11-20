@@ -14,6 +14,7 @@ if PORTMAP
 config PORTMAP_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/portmap"
 
 endif

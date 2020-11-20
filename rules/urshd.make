@@ -51,11 +51,9 @@ $(STATEDIR)/urshd.targetinstall:
 	@$(call install_copy, urshd, 0, 0, 0755, -, \
 		/usr/bin/urshd)
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_URSHD_STARSCRIPT
 	@$(call install_copy, urshd, 0, 0, 0755, /etc/init.d)
 	@$(call install_alternative, urshd, 0, 0, 0755, /etc/init.d/urshd)
-endif
 endif
 ifdef PTXCONF_URSHD_SYSTEMD_UNIT
 	@$(call install_alternative, urshd, 0, 0, 0644, \

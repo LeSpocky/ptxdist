@@ -61,10 +61,8 @@ $(STATEDIR)/openntpd.targetinstall:
 	# busybox init
 	#
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_OPENNTPD_STARTSCRIPT
 	@$(call install_alternative, openntpd, 0, 0, 0644, /etc/init.d/ntp-server, n)
-endif
 endif
 
 	@$(call install_finish, openntpd)

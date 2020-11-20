@@ -94,6 +94,7 @@ config LLDPD_XML
 
 config LLDPD_STARTSCRIPT
 	bool
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/lldpd"
 	default y
 

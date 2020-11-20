@@ -150,7 +150,6 @@ endif
 #	# bb init: start scripts
 #	#
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_BUSYBOX_INETD_STARTSCRIPT
 	@$(call install_alternative, busybox, 0, 0, 0755, /etc/init.d/inetd)
 
@@ -220,8 +219,6 @@ ifneq ($(call remove_quotes,$(PTXCONF_BUSYBOX_BB_SYSCTL_BBINIT_LINK)),)
 		/etc/rc.d/$(PTXCONF_BUSYBOX_BB_SYSCTL_BBINIT_LINK))
 endif
 endif
-
-endif # PTXCONF_INITMETHOD_BBINIT
 
 ifdef PTXCONF_BUSYBOX_TELNETD_SYSTEMD_UNIT
 	@$(call install_alternative, busybox, 0, 0, 0644, \

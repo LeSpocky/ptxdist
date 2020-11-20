@@ -12,6 +12,7 @@ if HAVEGED
 
 config HAVEGED_STARTSCRIPT
 	bool
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/haveged"
 
 config HAVEGED_SYSTEMD_UNIT

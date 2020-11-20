@@ -34,6 +34,7 @@ config NFTABLES_MGMP
 
 config NFTABLES_STARTSCRIPT
 	bool
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/nftables"
 
 config NFTABLES_SYSTEMD_UNIT

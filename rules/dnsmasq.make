@@ -85,7 +85,6 @@ ifdef PTXCONF_DNSMASQ_INETD
 	@$(call install_alternative, dnsmasq, 0, 0, 0644, /etc/inetd.conf.d/dnsmasq)
 endif
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_DNSMASQ_STARTSCRIPT
 	@$(call install_alternative, dnsmasq, 0, 0, 0755, /etc/init.d/dnsmasq)
 
@@ -93,7 +92,6 @@ ifneq ($(call remove_quotes,$(PTXCONF_DNSMASQ_BBINIT_LINK)),)
 	@$(call install_link, dnsmasq, \
 		../init.d/dnsmasq, \
 		/etc/rc.d/$(PTXCONF_DNSMASQ_BBINIT_LINK))
-endif
 endif
 endif
 ifdef PTXCONF_DNSMASQ_SYSTEMD_UNIT

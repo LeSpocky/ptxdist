@@ -155,7 +155,6 @@ endif
 #	# busybox init: start script
 #	#
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_INETUTILS_INETD_STARTSCRIPT
 	@$(call install_alternative, inetutils, 0, 0, 0755, /etc/init.d/inetd, n)
 
@@ -163,7 +162,6 @@ ifneq ($(call remove_quotes, $(PTXCONF_INETUTILS_INETD_BBINIT_LINK)),)
 	@$(call install_link, inetutils, \
 		../init.d/inetd, \
 		/etc/rc.d/$(PTXCONF_INETUTILS_INETD_BBINIT_LINK))
-endif
 endif
 endif
 

@@ -56,6 +56,7 @@ endchoice
 config RSYNC_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT && RSYNC_STARTUP_TYPE_STANDALONE
 	prompt "install /etc/init.d/rsync"
 
 config RSYNC_INETD_STRING

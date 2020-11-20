@@ -27,6 +27,7 @@ if LVM2_LVM_TOOLS
 config LVM2_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
         prompt "install /etc/init.d/lvm2"
 
 endif

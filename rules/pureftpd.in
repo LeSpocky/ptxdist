@@ -93,6 +93,7 @@ config PUREFTPD_SHRINK_MORE
 config PUREFTPD_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/pureftpd"
 
 config PUREFTPD_SYSTEMD_UNIT

@@ -99,6 +99,7 @@ choice
 
 	config DNSMASQ_STARTSCRIPT
 		bool
+		depends on INITMETHOD_BBINIT
 		prompt "standalone"
 		help
 		  This installs dnsmasq startup script /etc/init.d/dnsmasq.

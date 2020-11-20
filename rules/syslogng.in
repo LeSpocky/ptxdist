@@ -93,6 +93,7 @@ config SYSLOGNG_SYSTEMD
 config SYSLOGNG_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
 	help
 	  Installs (if present) the
 	  "./projectroot/etc/init.d/syslog-ng" startscript from your

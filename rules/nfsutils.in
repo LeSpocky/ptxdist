@@ -43,7 +43,7 @@ config NFSUTILS_PYTHON
 
 config NFSUTILS_NFSD_STARTSCRIPT
 	bool
-	depends on NFSUTILS_SERVER
+	depends on NFSUTILS_SERVER && INITMETHOD_BBINIT
 	default y
 	prompt "install /etc/init.d/nfsd"
 

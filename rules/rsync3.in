@@ -19,6 +19,7 @@ if RSYNC3
 config RSYNC3_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/rsync"
 
 config RSYNC3_ACL

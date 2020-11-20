@@ -77,7 +77,6 @@ $(STATEDIR)/lldpd.targetinstall:
 
 	@$(call install_lib, lldpd, 0, 0, 0644, liblldpctl)
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_LLDPD_STARTSCRIPT
 	@$(call install_alternative, lldpd, 0, 0, 0755, /etc/init.d/lldpd)
 	@$(call install_replace, lldpd, /etc/init.d/lldpd, \
@@ -88,7 +87,6 @@ ifdef PTXCONF_LLDPD_STARTSCRIPT
 ifneq ($(call remove_quotes,$(PTXCONF_LLDPD_BBINIT_LINK)),)
 	@$(call install_link, lldpd, ../init.d/lldpd, \
 		/etc/rc.d/$(PTXCONF_LLDPD_BBINIT_LINK))
-endif
 endif
 endif
 

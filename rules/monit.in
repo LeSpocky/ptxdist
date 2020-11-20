@@ -23,6 +23,7 @@ config MONIT_ZLIB
 
 config MONIT_STARTSCRIPT
 	bool
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/monit"
 	default y
 

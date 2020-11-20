@@ -177,7 +177,6 @@ ifdef PTXCONF_NTP_NTPD
 	@$(call install_alternative, ntp, 0, 0, 0644, /etc/ntp-server.conf)
 endif
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_NTP_NTPD_STARTSCRIPT
 	@$(call install_alternative, ntp, 0, 0, 0755, /etc/init.d/ntp-server)
 
@@ -185,7 +184,6 @@ ifneq ($(call remove_quotes,$(PTXCONF_NTP_NTPD_BBINIT_LINK)),)
 	@$(call install_link, ntp, \
 		../init.d/ntp-server, \
 		/etc/rc.d/$(PTXCONF_NTP_NTPD_BBINIT_LINK))
-endif
 endif
 endif
 ifdef PTXCONF_NTP_NTPD_SYSTEMD_UNIT
@@ -204,7 +202,6 @@ ifdef PTXCONF_NTP_NTPDC
 	@$(call install_alternative, ntp, 0, 0, 0644, /etc/ntp-client.conf)
 endif
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_NTP_NTPC_STARTSCRIPT
 	@$(call install_alternative, ntp, 0, 0, 0755, /etc/init.d/ntp-client)
 
@@ -212,7 +209,6 @@ ifneq ($(call remove_quotes,$(PTXCONF_NTP_NTPC_BBINIT_LINK)),)
 	@$(call install_link, ntp, \
 		../init.d/ntp-client, \
 		/etc/rc.d/$(PTXCONF_NTP_NTPC_BBINIT_LINK))
-endif
 endif
 endif
 

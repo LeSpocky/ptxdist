@@ -110,7 +110,6 @@ ifdef PTXCONF_OPENSSH_SSHD_GENKEYS
 endif
 endif
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_OPENSSH_SSHD_STARTSCRIPT
 	@$(call install_alternative, openssh, 0, 0, 0755, /etc/init.d/openssh)
 
@@ -118,7 +117,6 @@ ifneq ($(call remove_quotes,$(PTXCONF_OPENSSH_BBINIT_LINK)),)
 	@$(call install_link, openssh, \
 		../init.d/openssh, \
 		/etc/rc.d/$(PTXCONF_OPENSSH_BBINIT_LINK))
-endif
 endif
 endif
 ifdef PTXCONF_INITMETHOD_SYSTEMD

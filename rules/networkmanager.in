@@ -44,7 +44,7 @@ menuconfig NETWORKMANAGER
 if NETWORKMANAGER
 
 config NETWORKMANAGER_STARTSCRIPT
-	depends on !INITMETHOD_SYSTEMD
+	depends on INITMETHOD_BBINIT
 	bool
 	default y
 	prompt "install /etc/init.d/NetworkManager"

@@ -217,6 +217,7 @@ menu "startup                     "
 config LIGHTTPD_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/lighttpd"
 
 config LIGHTTPD_SYSTEMD_UNIT

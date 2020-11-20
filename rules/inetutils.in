@@ -30,6 +30,7 @@ if INETUTILS_INETD
 config INETUTILS_INETD_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/inetd"
 	help
 	  Install an init script for the network super daemon inetd
@@ -113,6 +114,7 @@ config INETUTILS_SYSLOGD_STARTSCRIPT
 	bool
 	prompt "install /etc/init.d/syslogd"
 	default y
+	depends on INITMETHOD_BBINIT
 	help
 	  Install this script to be able to run this service at system startup
 

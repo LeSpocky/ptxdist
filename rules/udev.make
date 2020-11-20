@@ -138,14 +138,12 @@ ifdef PTXCONF_UDEV_LEGACY_LIBUDEV
 endif
 
 ifdef PTXCONF_UDEV_LEGACY_STARTSCRIPT
-ifdef PTXCONF_INITMETHOD_BBINIT
 	@$(call install_alternative, udev, 0, 0, 0755, /etc/init.d/udev)
 
 ifneq ($(call remove_quotes,$(PTXCONF_UDEV_BBINIT_LINK)),)
 	@$(call install_link, udev, \
 		../init.d/udev, \
 		/etc/rc.d/$(PTXCONF_UDEV_BBINIT_LINK))
-endif
 endif
 endif
 	@$(call install_finish, udev)

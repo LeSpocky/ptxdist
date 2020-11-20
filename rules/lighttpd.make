@@ -149,7 +149,6 @@ endif
 #	# busybox init: start script
 #	#
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_LIGHTTPD_STARTSCRIPT
 	@$(call install_alternative, lighttpd, 0, 0, 0755, /etc/init.d/lighttpd)
 
@@ -157,7 +156,6 @@ ifneq ($(call remove_quotes, $(PTXCONF_LIGHTTPD_BBINIT_LINK)),)
 	@$(call install_link, lighttpd, \
 		../init.d/lighttpd, \
 		/etc/rc.d/$(PTXCONF_LIGHTTPD_BBINIT_LINK))
-endif
 endif
 endif
 

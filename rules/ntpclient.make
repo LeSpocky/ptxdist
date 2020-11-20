@@ -81,7 +81,6 @@ endif
 # busybox init: start script
 #
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_NTPCLIENT_STARTSCRIPT
 	@$(call install_alternative, ntpclient, 0, 0, 0755, /etc/init.d/ntpclient)
 ifneq ($(PTXCONF_NTPCLIENT_NTPSERVER_NAME),"")
@@ -95,7 +94,6 @@ ifneq ($(call remove_quotes,$(PTXCONF_NTPCLIENT_BBINIT_LINK)),)
 	@$(call install_link, ntpclient, \
 		../init.d/ntpclient, \
 		/etc/rc.d/$(PTXCONF_NTPCLIENT_BBINIT_LINK))
-endif
 endif
 endif
 

@@ -71,6 +71,7 @@ config CONNMAN_TESTS
 config CONNMAN_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/connman"
 
 config CONNMAN_SYSTEMD_UNIT

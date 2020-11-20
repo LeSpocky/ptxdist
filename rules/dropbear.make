@@ -296,7 +296,6 @@ endif
 #	# busybox init: start script
 #	#
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_DROPBEAR_STARTSCRIPT
 	@$(call install_alternative, dropbear, 0, 0, 0755, /etc/init.d/dropbear, n)
 	@$(call install_replace, dropbear, /etc/init.d/dropbear, \
@@ -309,7 +308,6 @@ ifneq ($(call remove_quotes,$(PTXCONF_DROPBEAR_BBINIT_LINK)),)
 	@$(call install_link, dropbear, \
 		../init.d/dropbear, \
 		/etc/rc.d/$(PTXCONF_DROPBEAR_BBINIT_LINK))
-endif
 endif
 endif
 

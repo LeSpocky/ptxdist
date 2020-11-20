@@ -64,13 +64,11 @@ $(STATEDIR)/monit.targetinstall:
 	@$(call install_copy, monit, 0, 0, 0755, /var/lib/monit/events)
 	@$(call install_alternative, monit, 0, 0, 0600, /etc/monitrc)
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_MONIT_STARTSCRIPT
 	@$(call install_alternative, monit, 0, 0, 0755, /etc/init.d/monit)
 ifneq ($(call remove_quotes,$(PTXCONF_MONIT_BBINIT_LINK)),)
 	@$(call install_link, monit, ../init.d/monit, \
 		/etc/rc.d/$(PTXCONF_MONIT_BBINIT_LINK))
-endif
 endif
 endif
 

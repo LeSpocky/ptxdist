@@ -196,7 +196,6 @@ endif
 #	#
 #	# busybox init
 #	#
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_SAMBA_STARTSCRIPT
 	@$(call install_alternative, samba, 0, 0, 0755, /etc/init.d/samba)
 
@@ -204,7 +203,6 @@ ifneq ($(call remove_quotes,$(PTXCONF_SAMBA_BBINIT_LINK)),)
 	@$(call install_link, samba, \
 		../init.d/samba, \
 		/etc/rc.d/$(PTXCONF_SAMBA_BBINIT_LINK))
-endif
 endif
 endif
 

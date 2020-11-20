@@ -24,7 +24,7 @@ if BUSYBOX
 
 config BUSYBOX_INETD_STARTSCRIPT
 	bool
-	depends on BUSYBOX_INETD
+	depends on BUSYBOX_INETD && INITMETHOD_BBINIT
 	default y
 	prompt "install /etc/init.d/inetd"
 
@@ -42,7 +42,7 @@ choice
 	config BUSYBOX_TELNETD_STARTSCRIPT
 		bool
 		prompt "startscript (standalone)"
-		depends on BUSYBOX_FEATURE_TELNETD_STANDALONE
+		depends on BUSYBOX_FEATURE_TELNETD_STANDALONE && INITMETHOD_BBINIT
 		help
 		  start busybox telnetd server in standalone mode.
 		  I.e. without inetd.
@@ -53,6 +53,8 @@ choice
 		help
 		  start busybox telnetd server from inetd
 endchoice
+
+if INITMETHOD_BBINIT
 
 config BUSYBOX_UDHCPD_STARTSCRIPT
 	bool
@@ -83,6 +85,8 @@ config BUSYBOX_BB_SYSCTL_STARTSCRIPT
 	depends on BUSYBOX_BB_SYSCTL
 	default y
 	prompt "Install /etc/init.d/sysctl"
+
+endif
 
 comment "---"
 

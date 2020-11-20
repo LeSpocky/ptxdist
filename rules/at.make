@@ -75,7 +75,6 @@ $(STATEDIR)/at.targetinstall:
 	@$(call install_copy, at, 0, 0, 1770, /var/spool/cron/atspool)
 	@$(call install_copy, at, 0, 0, 0600, -, /var/spool/cron/atjobs/.SEQ)
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_AT_STARTSCRIPT
 	@$(call install_alternative, at, 0, 0, 0755, /etc/init.d/atd)
 
@@ -83,7 +82,6 @@ ifneq ($(call remove_quotes, $(PTXCONF_AT_BBINIT_LINK)),)
 	@$(call install_link, at, \
 		../init.d/atd, \
 		/etc/rc.d/$(PTXCONF_AT_BBINIT_LINK))
-endif
 endif
 endif
 

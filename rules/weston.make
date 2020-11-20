@@ -166,14 +166,12 @@ ifdef PTXCONF_WESTON_SYSTEMD
 endif
 	@$(call install_lib, weston, 0, 0, 0644, weston/libexec_weston)
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_WESTON_STARTSCRIPT
 	@$(call install_alternative, weston, 0, 0, 0755, /etc/init.d/weston-init)
 ifneq ($(call remove_quotes,$(PTXCONF_WESTON_BBINIT_LINK)),)
 	@$(call install_link, weston, \
 		../init.d/weston-init, \
 		/etc/rc.d/$(PTXCONF_WESTON_BBINIT_LINK))
-endif
 endif
 endif
 

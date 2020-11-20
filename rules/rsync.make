@@ -66,8 +66,6 @@ $(STATEDIR)/rsync.targetinstall:
 	@$(call install_alternative, rsync, 0, 0, 0644, /etc/rsyncd.conf, n)
 	@$(call install_alternative, rsync, 0, 0, 0644, /etc/rsyncd.secrets, n)
 
-ifdef PTXCONF_RSYNC_STARTUP_TYPE_STANDALONE
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_RSYNC_STARTSCRIPT
 	@$(call install_alternative, rsync, 0, 0, 0755, /etc/init.d/rsyncd, n)
 	@$(call install_replace, rsync, /etc/init.d/rsyncd, \
@@ -78,8 +76,6 @@ ifneq ($(call remove_quotes,$(PTXCONF_RSYNC_BBINIT_LINK)),)
 	@$(call install_link, rsync, \
 		../init.d/rsyncd, \
 		/etc/rc.d/$(PTXCONF_RSYNC_BBINIT_LINK))
-endif
-endif
 endif
 endif
 

@@ -355,6 +355,7 @@ comment "runtime options        ---"
 config DROPBEAR_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/dropbear"
 
 endif

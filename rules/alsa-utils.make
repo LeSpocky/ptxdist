@@ -98,14 +98,12 @@ ifdef PTXCONF_ALSA_UTILS_ALSALOOP
 	@$(call install_copy, alsa-utils, 0, 0, 0755, -, /usr/bin/alsaloop)
 endif
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_ALSA_UTILS_STARTSCRIPT
 	@$(call install_alternative, alsa-utils, 0, 0, 0755, /etc/init.d/alsa-utils, n)
 ifneq ($(call remove_quotes,$(PTXCONF_ALSA_UTILS_BBINIT_LINK)),)
 	@$(call install_link, alsa-utils, \
 		../init.d/alsa-utils, \
 		/etc/rc.d/$(PTXCONF_ALSA_UTILS_BBINIT_LINK))
-endif
 endif
 endif
 ifdef PTXCONF_ALSA_UTILS_SYSTEMD_UNIT

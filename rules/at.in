@@ -44,7 +44,7 @@ config AT_ATD
 config AT_STARTSCRIPT
 	bool "install /etc/init.d/atd"
 	default y
-	depends on AT_ATD
+	depends on AT_ATD && INITMETHOD_BBINIT
 
 config AT_AT
 	bool "install at"

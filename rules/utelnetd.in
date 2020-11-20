@@ -11,6 +11,7 @@ if UTELNETD
 config UTELNETD_STARTSCRIPT
 	bool
 	default y
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/utelnetd"
 
 config UTELNETD_SYSTEMD_UNIT

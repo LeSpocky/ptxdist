@@ -20,7 +20,7 @@ if RNG_TOOLS
 config RNG_TOOLS_STARTSCRIPT
 	bool
 	default y
-	depends on RNG_TOOLS
+	depends on RNG_TOOLS && INITMETHOD_BBINIT
 	prompt "install /etc/init.d/rngd"
 
 config RNG_TOOLS_SYSTEMD_UNIT

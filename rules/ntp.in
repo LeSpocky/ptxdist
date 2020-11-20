@@ -136,7 +136,7 @@ comment "BusyBox' ntpd is selected"
 config NTP_NTPD_STARTSCRIPT
 	bool
 	default y
-	depends on NTP_NTPD
+	depends on NTP_NTPD && INITMETHOD_BBINIT
 	prompt "install /etc/init.d/ntp-server"
 
 config NTP_NTPD_SYSTEMD_UNIT
@@ -155,7 +155,7 @@ config NTP_NTPDC
 config NTP_NTPC_STARTSCRIPT
 	bool
 	default y
-	depends on NTP_NTPDC
+	depends on NTP_NTPDC && INITMETHOD_BBINIT
 	prompt "install /etc/init.d/ntp-client"
 
 config NTP_NTPQ

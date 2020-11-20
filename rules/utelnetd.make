@@ -51,7 +51,6 @@ $(STATEDIR)/utelnetd.targetinstall:
 	# busybox init
 	#
 
-ifdef PTXCONF_INITMETHOD_BBINIT
 ifdef PTXCONF_UTELNETD_STARTSCRIPT
 	@$(call install_alternative, utelnetd, 0, 0, 0755, /etc/init.d/telnetd, n)
 
@@ -59,7 +58,6 @@ ifneq ($(call remove_quotes,$(PTXCONF_UTELNETD_BBINIT_LINK)),)
 	@$(call install_link, utelnetd, \
 		../init.d/telnetd, \
 		/etc/rc.d/$(PTXCONF_UTELNETD_BBINIT_LINK))
-endif
 endif
 endif
 ifdef PTXCONF_UTELNETD_SYSTEMD_UNIT
