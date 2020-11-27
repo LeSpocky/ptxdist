@@ -31,6 +31,11 @@ LIBURIGN_LICENSE_FILES	:= file://LICENSE;md5=f7c2200d2f904868b214103d0cbab6a9
 LIBURING_CONF_TOOL	:= NO
 LIBURING_MAKE_ENV	:= $(CROSS_ENV)
 
+ifdef PTXCONF_KERNEL_HEADER
+LIBURING_CPPFLAGS	:= \
+	-isystem $(KERNEL_HEADERS_INCLUDE_DIR)
+endif
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
