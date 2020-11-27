@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QT5) += qt5
 #
 # Paths and names
 #
-QT5_VERSION	:= 5.15.1
-QT5_MD5		:= ab16c28f4f9e6db8299096312decdbc4
+QT5_VERSION	:= 5.15.2
+QT5_MD5		:= e1447db4f06c841d8947f0a6ce83a7b5
 QT5		:= qt-everywhere-src-$(QT5_VERSION)
 QT5_SUFFIX	:= tar.xz
 QT5_URL		:= \
@@ -399,7 +399,6 @@ QT5_LIBS-$(PTXCONF_QT5_MODULE_QT3D_QUICK)			+= Qt53DQuick Qt53DQuickAnimation Qt
 QT5_QML-$(PTXCONF_QT5_MODULE_QT3D_QUICK)			+= Qt3D
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D)				+= geometryloaders/libdefaultgeometryloader
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D)				+= geometryloaders/libgltfgeometryloader
-QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D)				+= sceneparsers/libassimpsceneimport
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D)				+= sceneparsers/libgltfsceneexport
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D)				+= sceneparsers/libgltfsceneimport
 QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QT3D_QUICK)			+= renderplugins/libscene2d
