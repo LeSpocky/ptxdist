@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDL2) += sdl2
 #
 # Paths and names
 #
-SDL2_VERSION	:= 2.0.10
-SDL2_MD5	:= 5a2114f2a6f348bdab5bf52b994811db
+SDL2_VERSION	:= 2.0.12
+SDL2_MD5	:= 783b6f2df8ff02b19bb5ce492b99c8ff
 SDL2		:= SDL2-$(SDL2_VERSION)
 SDL2_SUFFIX	:= tar.gz
 SDL2_URL	:= https://www.libsdl.org/release/$(SDL2).$(SDL2_SUFFIX)
@@ -86,6 +86,8 @@ SDL2_CONF_OPT	:= \
 	--disable-dummyaudio \
 	--disable-libsamplerate \
 	--disable-libsamplerate-shared \
+	--$(call ptx/endis,PTXCONF_ARCH_ARM_V6)-arm-simd \
+	--$(call ptx/endis,PTXCONF_ARCH_ARM_NEON)-arm-neon \
 	--$(call ptx/endis,PTXCONF_SDL2_WAYLAND)-video-wayland \
 	--disable-video-wayland-qt-touch \
 	--$(call ptx/endis,PTXCONF_SDL2_WAYLAND)-wayland-shared \
@@ -102,6 +104,7 @@ SDL2_CONF_OPT	:= \
 	--$(call ptx/endis,PTXCONF_SDL2_XORG)-video-x11-vm \
 	--disable-video-vivante \
 	--disable-video-cocoa \
+	--disable-video-metal \
 	--disable-render-metal \
 	--disable-video-directfb \
 	--disable-directfb-shared \

@@ -38,7 +38,8 @@ SDL2_TEST_ENV		:= \
 SDL2_TEST_CONF_TOOL	:= autoconf
 SDL2_TEST_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--$(call ptx/endis,PTXCONF_SDL2_OPENGL)-opengl
+	--enable-sdltest \
+	--$(call ptx/wwo,PTXCONF_SDL2_TEST_XORG)-x
 
 ifdef PTXCONF_SDL2_PULSEAUDIO
 SDL2_TEST_LDFLAGS	:= \

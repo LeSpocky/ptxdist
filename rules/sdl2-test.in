@@ -12,3 +12,11 @@ config SDL2_TEST
 	  library designed to provide low level access to audio,
 	  keyboard, mouse, joystick, 3D hardware via OpenGL, and
 	  2D video framebuffer.
+
+if SDL2_TEST
+
+config SDL2_TEST_XORG
+	bool
+	default SDL2_XORG
+
+endif
