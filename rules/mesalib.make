@@ -64,7 +64,26 @@ MESALIB_DRI_LIBS-y = \
 	$(subst nouveau,nouveau_vieux,$(MESALIB_DRI_DRIVERS-y))
 
 MESALIB_DRI_GALLIUM_LIBS-y = \
-	$(subst kmsro,imx-drm pl111 hx8357d stm,$(subst freedreno,kgsl,$(MESALIB_GALLIUM_DRIVERS-y)))
+	$(subst kmsro, \
+		armada-drm \
+		exynos \
+		hx8357d \
+		ili9225 \
+		ili9341 \
+		imx-drm \
+		ingenic-drm \
+		mcde \
+		meson \
+		mi0283qt \
+		mxsfb-drm \
+		pl111 \
+		repaper \
+		rockchip \
+		st7586 \
+		st7735r \
+		stm \
+		sun4i-drm \
+	,$(subst freedreno,kgsl,$(MESALIB_GALLIUM_DRIVERS-y)))
 
 ifdef PTXCONF_ARCH_X86
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_AMD)		+= amd
