@@ -18,15 +18,14 @@ HOST_PACKAGES-$(PTXCONF_HOST_GOBJECT_INTROSPECTION) += host-gobject-introspectio
 #
 # autoconf
 #
-HOST_GOBJECT_INTROSPECTION_CONF_TOOL	:= autoconf
+HOST_GOBJECT_INTROSPECTION_CONF_TOOL	:= meson
 HOST_GOBJECT_INTROSPECTION_CONF_OPT	:= \
-	$(HOST_AUTOCONF) \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf \
-	--disable-doctool \
-	--without-cairo \
-	--with-python=$(SYSTEMPYTHON3)
+	$(HOST_MESON_OPT) \
+	-Dbuild_introspection_data=false \
+	-Dcairo=disabled \
+	-Ddoctool=disabled \
+	-Dgtk_doc=false \
+	-Dpython=$(SYSTEMPYTHON3)
 
 # ----------------------------------------------------------------------------
 # Install
@@ -40,11 +39,10 @@ $(STATEDIR)/host-gobject-introspection.install.post:
 	@echo 'export pkg_ldflags="$$(find -H $${pkg_dir} -name .libs -printf "-Wl,-rpath,%p ")$${pkg_ldflags}"' \
 							>> $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
 	@echo 'export CC=$(CROSS_CC)'			>> $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
-	@echo 'export GI_CROSS_LAUNCHER="$(PTXDIST_SYSROOT_CROSS)/bin/qemu-cross"' \
-							>> $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
-	@echo 'PATH="$(PTXDIST_SYSROOT_CROSS)/bin/qemu:$$PATH"' \
-							>> $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
 	@echo 'exec "$(PTXDIST_SYSROOT_HOST)/bin/g-ir-scanner" \
+		--use-binary-wrapper="$(PTXDIST_SYSROOT_CROSS)/bin/qemu-cross" \
+		--use-ldd-wrapper="$(PTXDIST_SYSROOT_CROSS)/bin/qemu/ldd" \
+		--add-include-path=${PTXDIST_SYSROOT_TARGET}/usr/share/gir-1.0 \
 		"$${@}"'				>> $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
 	@chmod +x $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
 

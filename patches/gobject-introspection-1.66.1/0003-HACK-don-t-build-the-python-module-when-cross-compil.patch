@@ -1,0 +1,46 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Thu, 3 Dec 2020 17:14:56 +0100
+Subject: [PATCH] HACK: don't build the python module when cross-compiling
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ giscanner/meson.build | 4 ++++
+ meson.build           | 6 ++++--
+ 2 files changed, 8 insertions(+), 2 deletions(-)
+
+diff --git a/giscanner/meson.build b/giscanner/meson.build
+index a3b06f37b912..b6dfb7144c76 100644
+--- a/giscanner/meson.build
++++ b/giscanner/meson.build
+@@ -99,6 +99,7 @@ giscanner_lib = static_library('giscanner',
+   dependencies: [glib_dep, gobject_dep, gio_dep, gmodule_dep],
+ )
+ 
++if not meson.is_cross_build()
+ # https://github.com/mesonbuild/meson/issues/4117
+ if host_machine.system() == 'windows'
+   python_ext_dep = python.dependency()
+@@ -120,3 +121,6 @@ giscanner_pymod = python.extension_module('_giscanner', ['giscannermodule.c'],
+   install: true,
+   install_dir: giscannerdir,
+ )
++else
++giscanner_pymod = []
++endif
+diff --git a/meson.build b/meson.build
+index 8429553d483e..ec791006b29e 100644
+--- a/meson.build
++++ b/meson.build
+@@ -157,8 +157,10 @@ endif
+ libffi_dep = dependency('libffi',
+   fallback : ['libffi', 'ffi_dep'])
+ 
+-# python headers
+-cc.check_header('Python.h', dependencies: [python.dependency()], required: true)
++if not meson.is_cross_build()
++  # python headers
++  cc.check_header('Python.h', dependencies: [python.dependency()], required: true)
++endif
+ 
+ # cairo
+ cairo_option = get_option('cairo')
