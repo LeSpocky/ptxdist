@@ -63,6 +63,10 @@ $(STATEDIR)/json-glib.targetinstall:
 		"A library providing (de)serialization support for the JSON format.")
 
 	@$(call install_lib, json-glib, 0, 0, 0644, libjson-glib-1.0)
+ifdef PTXCONF_JSON_GLIB_INTROSPECTION
+	@$(call install_copy, json-glib, 0, 0, 0644, -, \
+		/usr/lib/girepository-1.0/Json-1.0.typelib)
+endif
 
 	@$(call install_finish, json-glib)
 
