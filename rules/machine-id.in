@@ -1,11 +1,26 @@
 ## SECTION=initmethod
 
-config MACHINE_ID
+menuconfig MACHINE_ID
 	tristate
-	prompt "create /etc/machine-id"
-	select RC_ONCE			if RUNTIME
-	select UTIL_LINUX_NG		if !INITMETHOD_SYSTEMD
-	select UTIL_LINUX_NG_UUIDGEN	if !INITMETHOD_SYSTEMD
+	prompt "create /etc/machine-id      "
+	select RC_ONCE			if MACHINE_ID_RC_ONCE && RUNTIME
+	select UTIL_LINUX_NG		if MACHINE_ID_RC_ONCE && !INITMETHOD_SYSTEMD
+	select UTIL_LINUX_NG_UUIDGEN	if MACHINE_ID_RC_ONCE && !INITMETHOD_SYSTEMD
 	help
 	  Enable this to make sure there is always a unique /etc/machine-id
 	  available in the system.
+
+if MACHINE_ID
+
+config MACHINE_ID_RC_ONCE
+	bool "generate (bbinit) or save (systemd) machine-id using rc-once at first boot"
+	default y
+	help
+	  If not set /etc/machine-id will be installed from projectroot
+	  (default: empty file).
+	  Systemd:
+	  If /etc/machine-id exists and is empty, systemd will bind-mount
+	  a file containing the new machine-id over it and later try 
+	  to commit it to disk (if /etc/ is writable).
+
+endif

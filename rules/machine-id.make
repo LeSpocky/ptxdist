@@ -27,7 +27,11 @@ $(STATEDIR)/machine-id.targetinstall:
 	@$(call install_fixup,machine-id,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup,machine-id,DESCRIPTION,missing)
 
+ifdef PTXCONF_MACHINE_ID_RC_ONCE
 	@$(call install_alternative, machine-id, 0, 0, 0755, /etc/rc.once.d/machine-id)
+else
+	@$(call install_alternative, machine-id, 0, 0, 0444, /etc/machine-id)
+endif
 
 	@$(call install_finish,machine-id)
 
