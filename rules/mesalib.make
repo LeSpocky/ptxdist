@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 20.2.3
-MESALIB_MD5	:= 8d73d6eb479d392d2fe20f02ccbe44e0
+MESALIB_VERSION	:= 20.3.0
+MESALIB_MD5	:= 37f5acdb20ef781e7ffdeba0495f46c1
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -90,10 +90,12 @@ MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_AMD)		+= amd
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_INTEL)		+= intel
 endif
 ifdef PTXCONF_ARCH_ARM
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_BROADCOM)	+= broadcom
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_FREEDRENO)	+= freedreno
 endif
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_SWRAST)		+= swrast
 
-MESALIB_VULKAN_LIBS-y = $(subst amd,radeon,$(MESALIB_VULKAN_DRIVERS-y))
+MESALIB_VULKAN_LIBS-y = $(subst amd,radeon,$(subst swrast,lvp,$(MESALIB_VULKAN_DRIVERS-y)))
 
 MESALIB_LIBS-y				:= libglapi
 MESALIB_LIBS-$(PTXCONF_MESALIB_GLX)	+= libGL
@@ -118,6 +120,7 @@ MESALIB_CONF_OPT	:= \
 	-Ddri3=$(call ptx/endis, PTXCONF_MESALIB_DRI3)d \
 	-Degl=$(call ptx/endis, PTXCONF_MESALIB_EGL)d \
 	-Degl-lib-suffix= \
+	-Dfreedreno-kgsl=false \
 	-Dgallium-drivers=$(subst $(space),$(comma),$(MESALIB_GALLIUM_DRIVERS-y)) \
 	-Dgallium-extra-hud=$(call ptx/truefalse, PTXCONF_MESALIB_EXTENDED_HUD) \
 	-Dgallium-nine=false \
@@ -149,10 +152,12 @@ MESALIB_CONF_OPT	:= \
 	-Dpower8=disabled \
 	-Dprefer-iris=true \
 	-Dselinux=false \
+	-Dshader-cache-default=true \
 	-Dshader-cache=$(call ptx/endis, PTXCONF_MESALIB_VULKAN_AMD)d \
 	-Dshared-glapi=enabled \
 	-Dshared-llvm=disabled \
 	-Dshared-swr=true \
+	-Dstatic-libclc=[] \
 	-Dswr-arches=[] \
 	-Dtools=[] \
 	-Dva-libs-path=/usr/lib/dri \
