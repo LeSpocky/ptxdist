@@ -353,7 +353,7 @@ ptxd_make_world_init() {
 	    local conf_env_ptr="ptx_conf_env_${pkg_conf_tool}_${pkg_type}"
 
 	    pkg_conf_opt="${pkg_conf_opt:-${!conf_opt_ptr}}"
-	    pkg_conf_env="PTXDIST_ICECC= CMAKE=false ${pkg_conf_env:-${!conf_env_ptr}}"
+	    pkg_conf_env="PTXDIST_ICECC= CMAKE=false CMAKE_FOR_BUILD=false ${pkg_conf_env:-${!conf_env_ptr}}"
 	    ;;
 	*)
 	    local conf_env_ptr="ptx_conf_env_${pkg_type}"
