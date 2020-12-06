@@ -2,6 +2,7 @@
 
 config GLIBMM
 	tristate
+	select HOST_GLIB
 	select GLIB
 	select LIBSIGCPP
 	select GCCLIBS_CXX
