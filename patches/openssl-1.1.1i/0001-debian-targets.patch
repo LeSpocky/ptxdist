@@ -6,7 +6,7 @@ Imported from openssl_1.1.1h-1.debian.tar.xz
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- Configurations/20-debian.conf | 210 ++++++++++++++++++++++++++++++++++
+ Configurations/20-debian.conf | 210 ++++++++++++++++++++++++++++++++++++++++++
  1 file changed, 210 insertions(+)
  create mode 100644 Configurations/20-debian.conf
 
