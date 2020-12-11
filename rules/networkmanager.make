@@ -112,10 +112,6 @@ ifdef PTXCONF_NETWORKMANAGER_EXAMPLES
 		&& for FILE in `find -type f -executable -printf '%f\n'`; do \
 		install -vD -m 755 "$${FILE}" "$(NETWORKMANAGER_PKGDIR)/usr/bin/nm-$${FILE}"; \
 	done
-	@cd $(NETWORKMANAGER_DIR)/examples/python/dbus \
-		&& for FILE in `find -name "*.py" -printf '%f\n'`; do \
-		install -vD -m 755 "$${FILE}" "$(NETWORKMANAGER_PKGDIR)/usr/bin/nm-$${FILE}"; \
-	done
 	@cd $(NETWORKMANAGER_DIR)/examples/shell/ \
 		&& for FILE in `find -name "*.sh" -printf '%f\n'`; do \
 		install -vD -m 755 "$${FILE}" "$(NETWORKMANAGER_PKGDIR)/usr/bin/nm-$${FILE}"; \
