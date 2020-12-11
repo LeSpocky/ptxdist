@@ -31,6 +31,7 @@ config LIBDMTX_DMTXWRITE
 
 config LIBDMTX_PYTHON
 	bool
+	depends on STAGING
 	prompt "enable python bindings"
 
 endif

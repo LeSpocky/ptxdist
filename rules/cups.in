@@ -87,6 +87,7 @@ choice
 
 config CUPS_PYTHON2
 	bool "python2"
+	depends on STAGING
 
 config CUPS_PYTHON3
 	bool "python3"

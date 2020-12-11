@@ -66,6 +66,7 @@ config CONNMAN_CLIENT
 
 config CONNMAN_TESTS
 	bool
+	depends on STAGING
 	prompt "install test programs"
 
 config CONNMAN_STARTSCRIPT

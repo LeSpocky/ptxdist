@@ -56,6 +56,7 @@ config BLUEZ_CLIENT
 
 config BLUEZ_INSTALL_TESTSCRIPTS
 	bool "install testscripts"
+	depends on STAGING
 	help
 	  Install test scripts that allow to set up bluetooth connections.
 	  These scripts are installed to /usr/lib/bluez/test/.

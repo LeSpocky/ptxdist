@@ -297,6 +297,7 @@ choice
 	config BOOST_PYTHON2
 		bool
 		prompt "python2"
+		depends on STAGING
 		select BOOST_PYTHON
 		help
 		  Select this option if you want to use boost.python in combination with python2.

@@ -142,6 +142,7 @@ config LIBXML2_PYTHON
 	bool
 	prompt "Python bindings"
 	depends on BROKEN
+	depends on STAGING
 	help
 	  Build Python bindings if found.
 

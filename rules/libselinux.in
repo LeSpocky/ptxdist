@@ -22,5 +22,6 @@ if LIBSELINUX
 
 config LIBSELINUX_PYTHON
 	bool "python wrapper"
+	depends on STAGING
 
 endif

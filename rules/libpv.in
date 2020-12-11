@@ -30,6 +30,7 @@ config LIBPV_EVENT
 
 config LIBPV_PYTHON
 	bool
+	depends on STAGING
 	prompt "Python bindings"
 	help
 	  Install libpv Python bindings, a Python module supporting

@@ -24,5 +24,6 @@ if LIBSEMANAGE
 
 config LIBSEMANAGE_PYTHON
 	bool "python wrapper"
+	depends on STAGING
 
 endif

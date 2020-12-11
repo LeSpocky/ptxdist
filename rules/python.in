@@ -1,4 +1,6 @@
-## SECTION=scripting_languages
+## SECTION=staging
+## old section:
+### SECTION=scripting_languages
 
 menuconfig PYTHON
 	tristate "python                        "
@@ -24,6 +26,9 @@ menuconfig PYTHON
 	  for integration with other languages and tools,
 	  comes with extensive standard libraries, and
 	  can be learned in a few days.
+
+	  STAGING: remove in PTXdist 2022.01.0
+	  Python 2.7 EOL was a year ago.
 
 if PYTHON
 
