@@ -1,4 +1,6 @@
-## SECTION=qt
+## SECTION=staging
+## old section:
+### SECTION=qt
 
 menuconfig QWT
 	tristate
@@ -12,6 +14,9 @@ menuconfig QWT
 	  background. Beside a 2D plot widget it provides scales, sliders,
 	  dials, compasses, thermometers, wheels and knobs to control or
 	  display values, arrays, or ranges of type double.
+
+	  STAGING: remove in PTXdist 2022.01.0
+	  Qt4 has been replaces by Qt5 a long time ago.
 
 if QWT
 

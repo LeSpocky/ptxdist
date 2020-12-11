@@ -1,4 +1,6 @@
-## SECTION=qt
+## SECTION=staging
+## old section:
+### SECTION=qt
 # WARNING: this file is generated with qt4_mk_examples.sh
 # do not edit
 

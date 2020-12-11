@@ -1,4 +1,6 @@
-## SECTION=qt
+## SECTION=staging
+## old section:
+### SECTION=qt
 
 menuconfig QT4
 	tristate
@@ -42,6 +44,9 @@ menuconfig QT4
 	prompt "qt                            "
 	help
 	  Qt is Nokia's Widget Library for Linux.
+
+	  STAGING: remove in PTXdist 2022.01.0
+	  Qt4 has been replaces by Qt5 a long time ago.
 
 if QT4
 

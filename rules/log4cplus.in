@@ -17,6 +17,7 @@ if LOG4CPLUS
 
 config LOG4CPLUS_QT4
 	bool
+	depends on STAGING
 	prompt "Qt4 debug appender"
 	help
 	  Build the log4cplus Qt4 debug appender

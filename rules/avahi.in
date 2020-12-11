@@ -37,6 +37,7 @@ config AVAHI_GOBJECT
 
 config AVAHI_QT4
 	bool
+	depends on STAGING
 	prompt "enable qt4 support"
 	help
 	  --enable-qt4
