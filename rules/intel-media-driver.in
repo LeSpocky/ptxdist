@@ -3,6 +3,7 @@
 config INTEL_MEDIA_DRIVER
 	tristate
 	select HOST_CMAKE
+	select HOST_NINJA
 	select LIBC_PTHREAD
 	select LIBC_DL
 	select LIBC_RT
@@ -16,3 +17,11 @@ config INTEL_MEDIA_DRIVER
 	help
 	  intel-media-driver is the VA-API implementation for the Intel
 	  GEN8+ Graphics family.
+
+if INTEL_MEDIA_DRIVER
+
+config INTEL_MEDIA_DRIVER_X11
+	bool
+	default LIBVA_X11
+
+endif
