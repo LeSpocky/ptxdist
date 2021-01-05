@@ -1,0 +1,6 @@
+## SECTION=hosttools_noprompt
+
+config HOST_PYTHON3_TOML
+	tristate
+	default y if ALLYES
+	select HOST_PYTHON3
