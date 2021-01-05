@@ -3,6 +3,8 @@
 config PYTHON3_ZIPP
 	tristate
 	select PYTHON3
+	select HOST_PYTHON3_SETUPTOOLS_SCM
+	select HOST_PYTHON3_TOML
 	prompt "zipp"
 	help
 	  A pathlib-compatible Zipfile object wrapper. A backport of the Path object.
