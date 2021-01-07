@@ -16,26 +16,10 @@ config SHADERC_GLSLC
 	help
 	  Install glslc tool.
 
-config SHADERC_SPVC
-	bool
-	# requires SPIRV-Cross
-	depends on BROKEN
-	prompt "install spvc"
-	help
-	  Install spvc tool.
-
 config SHADERC_LIBSHADERC
 	bool
 	prompt "install libshaderc"
 	help
 	  Install libshaderc shared library.
-
-config SHADERC_LIBSHADERC_SPVC
-	bool
-	# requires SPIRV-Cross
-	depends on BROKEN
-	prompt "install libshaderc_spvc"
-	help
-	  Install libshaderc_spvc shared library.
 
 endif

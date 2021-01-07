@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SHADERC) += shaderc
 #
 # Paths and names
 #
-SHADERC_VERSION			:= v2020.3
-SHADERC_MD5			:= 7415b7c5376dd36c610b9cc53c7dbe1b
+SHADERC_VERSION			:= v2020.4
+SHADERC_MD5			:= 5c587cb6bd3b7e8745ca2e0dd46bb284
 SHADERC				:= shaderc-$(SHADERC_VERSION)
 SHADERC_SUFFIX			:= tar.gz
 SHADERC_URL			:= \
@@ -73,14 +73,9 @@ SHADERC_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
 	-DCMAKE_BUILD_TYPE=Release \
 	-DCMAKE_INSTALL_LIBDIR=/usr/lib \
-	-DSHADERC_ENABLE_SPVC=$(call ptx/onoff, PTXCONF_SHADERC_SPVC) \
 	-DSHADERC_SKIP_INSTALL=OFF \
 	-DSHADERC_SKIP_TESTS=ON \
-	-DSHADERC_SPVC_ENABLE_DIRECT_LOGGING=OFF \
-	-DSHADERC_SPVC_DISABLE_CONTEXT_LOGGING=OFF \
 	-DSHADERC_ENABLE_WERROR_COMPILE=ON
-
-#	-DSHADERC_ENABLE_SHARED_CRT=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -98,15 +93,9 @@ $(STATEDIR)/shaderc.targetinstall:
 ifdef PTXCONF_SHADERC_GLSLC
 	@$(call install_copy, shaderc, 0, 0, 0755, -, /usr/bin/glslc)
 endif
-ifdef PTXCONF_SHADERC_SPVC
-	@$(call install_copy, shaderc, 0, 0, 0755, -, /usr/bin/spvc)
-endif
 
 ifdef PTXCONF_SHADERC_LIBSHADERC
 	@$(call install_lib, shaderc, 0, 0, 0644, libshaderc_shared)
-endif
-ifdef PTXCONF_SHADERC_LIBSHADERC_SPVC
-	@$(call install_lib, shaderc, 0, 0, 0644, libshaderc_spvc)
 endif
 
 	@$(call install_finish, shaderc)
