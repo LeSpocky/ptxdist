@@ -40,5 +40,4 @@ s/^\(\(# \)\?PTXCONF\)_IMAGE_IPKG_EXTRA_ARGS\(.*$\)/\1_IMAGE_XPKG_EXTRA_ARGS\3/
 # symbol : PTXCONF_TF_A_PLATFORM -> PTXCONF_TF_A_PLATFORMS
 # reason : tf-a can be built for multiple platforms now
 #
-s/^\(\(# \)\?PTXCONF\)_TF_A_PLATFORMS\(.*$\)/\1_TF_A_PLATFORM\3/
-s/^\(\(# \)\?PTXCONF_TF_A_PLATFORM\)\(.*$\)/\1S\3/
+s/^\(\(# \)\?PTXCONF_TF_A_PLATFORM\>\)\(.*$\)/\1S\3/
