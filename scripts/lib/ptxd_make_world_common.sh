@@ -253,8 +253,8 @@ ptxd_make_world_init() {
     #
     # ensure that the package is actually selected
     #
-    case "${pkg_stage}" in
-    ${ptx_state_dir}/${pkg_label}.*)
+    case "${pkg_stamp}" in
+    ${pkg_label}.${pkg_stage})
 	# this is only relevant for package stages, not any other targets
 	if ! [[ " ${ptx_packages_selected} " =~ " ${pkg_label} " ]]; then
 	    ptxd_bailout "'${pkg_label}' is not selected." \
