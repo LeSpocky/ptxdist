@@ -36,8 +36,10 @@ function drop(stage) {
 {
 	n = split(stages, l, " ")
 	for (i = 1; i <= n; i++) {
-		j = length(cache[l[i]])
-		cache[l[i]][j] = $0
+		if (l[i] in cache) {
+			j = length(cache[l[i]])
+			cache[l[i]][j] = $0
+		}
 	}
 	last = $0
 }
