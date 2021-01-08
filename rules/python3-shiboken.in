@@ -12,7 +12,6 @@ config PYTHON3_SHIBOKEN
 	select PYTHON3
 	select QT4
 	select QT4_BUILD_XML
-	depends on !SHIBOKEN || ALLYES
 	help
 	  Shiboken generates bindings for C++ libraries using CPython source code.
 
