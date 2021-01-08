@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XORG_SERVER) += xorg-server
 #
 # Paths and names
 #
-XORG_SERVER_VERSION	:= 1.20.5
-XORG_SERVER_MD5		:= c9fc7e21e11286dbedd22c00df652130
+XORG_SERVER_VERSION	:= 1.20.10
+XORG_SERVER_MD5		:= 8cf8bd1f33e3736bc8dd279b20a32399
 XORG_SERVER		:= xorg-server-$(XORG_SERVER_VERSION)
 XORG_SERVER_SUFFIX	:= tar.bz2
 XORG_SERVER_URL		:= $(call ptx/mirror, XORG, individual/xserver/$(XORG_SERVER).$(XORG_SERVER_SUFFIX))
@@ -31,12 +31,6 @@ XORG_SERVER_LICENSE	:= MIT
 XORG_SERVER_WRAPPER_BLACKLIST := \
         TARGET_HARDEN_BINDNOW
 
-XORG_SERVER_ENV		:= \
-	$(CROSS_ENV) \
-	ac_cv_lib_bsd_arc4random_buf=no \
-	ac_cv_sys_linker_h=yes \
-	ac_cv_file__usr_share_sgml_X11_defs_ent=no
-
 #
 # FIXME: not all processors support MTRR. Geode GX1 not for
 # example. But it is a 586 clone. configure decides always to support
@@ -44,114 +38,70 @@ XORG_SERVER_ENV		:= \
 #
 # XORG_SERVER_ENV		+= ac_cv_asm_mtrr_h=no
 
-#
-# autoconf
-#
-# XORG_OPTIONS_TRANS adds:
-# --{en,dis}able-{unix,tcp}-transport
-# --{en,dis}able-ipv6
-#
-XORG_SERVER_CONF_TOOL	:= autoconf
-# use "=" here
-XORG_SERVER_CONF_OPT	= \
-	$(CROSS_AUTOCONF_USR) \
-	--datadir=$(XORG_DATADIR) \
-	--disable-strict-compilation \
-	--disable-docs \
-	--disable-devel-docs \
-	--disable-unit-tests \
-	--disable-static \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--disable-debug \
-	--disable-listen-tcp \
-	--enable-listen-unix \
-	--enable-listen-local \
-	--disable-sparkle \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_COMPOSITE)-composite \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_SHM)-mitshm \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XRES)-xres \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_RECORD)-record \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XV)-xv \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XVMC)-xvmc \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_DGA)-dga \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_SCREENSAVER)-screensaver \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XDMCP)-xdmcp \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XDM_AUTH_1)-xdm-auth-1 \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_GLX)-glx \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_DRI)-dri \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_DRI2)-dri2 \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_DRI3)-dri3 \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_PRESENT)-present \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XINERAMA)-xinerama \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XF86VIDMODE)-xf86vidmode \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XACE)-xace \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XSELINUX)-xselinux \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_XCSECURITY)-xcsecurity \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_DBE)-dbe \
-	--$(call ptx/endis, PTXCONF_XORG_LIB_X11_XF86BIGFONT)-xf86bigfont \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_DPMS)-dpms \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_UDEV)-config-udev \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_UDEV)-config-udev-kms \
-	--disable-config-hal \
-	--disable-config-wscons \
-	--disable-xfree86-utils \
-	--enable-vgahw \
-	--enable-vbe \
-	--enable-int10-module \
-	--disable-windowswm \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_LIBDRM)-libdrm \
-	--enable-clientids \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_XORG)-pciaccess \
-	--enable-linux-acpi \
-	--enable-linux-apm \
-	--disable-systemd-logind \
-	--disable-suid-wrapper \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_XORG)-xorg \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_DMX)-dmx \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_XVFB)-xvfb \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_XNEST)-xnest \
-	--disable-xquartz \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_XWAYLAND)-xwayland \
-	--disable-xwayland-eglstream \
-	--disable-standalone-xpbproxy \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_XWIN)-xwin \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_GLAMOR)-glamor \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_KDRIVE)-kdrive \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_XEPHYR)-xephyr \
-	--disable-libunwind \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_EXT_DRI3)-xshmfence \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_OPT_INSTALL_SETUID)-install-setuid \
-	$(XORG_OPTIONS_TRANS) \
-	--$(call ptx/endis, PTXCONF_XORG_SERVER_OPT_SECURE_RPC)-secure-rpc \
-	--enable-input-thread \
-	--enable-xtrans-send-fds \
-	--without-doxygen \
-	$(XORG_OPTIONS_DOCS) \
-	--with-vendor-name=Ptxdist \
-	--with-vendor-name-short=PTX \
-	--with-vendor-web=https://www.ptxdist.org/pages/support.html \
-	--with-os-name=Linux-$(KERNEL_HEADER_VERSION) \
-	--with-os-vendor=Ptxdist \
-	--with-fontrootdir=$(XORG_FONTDIR) \
-	--with-xkb-output=/tmp \
-	--without-systemd-daemon \
-	--with-sha1=libcrypto
+XORG_FONT_DIRS	:= \
+	misc \
+	truetype \
+	opentype \
+	100dpi \
+	Type1 \
+	75dpi \
+	cyrillic \
+	Speedo
+
 
 #
-# FIXME mol: what is this int10 stuff for?
+# meson
 #
-#
-#ifdef PTXCONF_XORG_SERVER_INT10_VM86
-#XORG_SERVER_AUTOCONF += --with-int10=vm86
-#endif
-#
-#ifdef PTXCONF_XORG_SERVER_INT10_X86EMU
-#XORG_SERVER_AUTOCONF += --with-int10=x86emu
-#endif
-#
-#ifdef PTXCONF_XORG_SERVER_INT10_VM86
-#XORG_SERVER_AUTOCONF += --with-int10=stub
-#endif
+XORG_SERVER_CONF_TOOL	:= meson
+# use "=" here
+XORG_SERVER_CONF_OPT	= \
+	$(CROSS_MESON_USR) \
+	-Dbuilder_addr=ptxdist@pengutronix.de \
+	-Dbuilder_string=PTXdist \
+	-Ddefault_font_path=$(subst $(space),$(comma),$(addprefix $(XORG_FONTDIR)/,$(XORG_FONT_DIRS))) \
+	-Ddga=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_DGA) \
+	-Ddmx=$(call ptx/truefalse, PTXCONF_XORG_SERVER_DMX) \
+	-Ddpms=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_DPMS) \
+	-Ddri1=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_DRI) \
+	-Ddri2=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_DRI2) \
+	-Ddri3=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_DRI3) \
+	-Dglamor=$(call ptx/truefalse, PTXCONF_XORG_SERVER_GLAMOR) \
+	-Dglx=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_GLX) \
+	-Dhal=false \
+	-Dipv6=$(call ptx/truefalse, PTXCONF_GLOBAL_IPV6) \
+	-Dlinux_acpi=true \
+	-Dlinux_apm=true \
+	-Dlisten_local=true \
+	-Dlisten_tcp=false \
+	-Dlisten_unix=true \
+	-Dmitshm=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_SHM) \
+	-Dos_vendor=PTXdist \
+	-Dpciaccess=$(call ptx/truefalse, PTXCONF_XORG_SERVER_XORG) \
+	-Dscreensaver=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_SCREENSAVER) \
+	-Dsecure-rpc=$(call ptx/truefalse, PTXCONF_XORG_SERVER_OPT_SECURE_RPC) \
+	-Dsuid_wrapper=false \
+	-Dsystemd_logind=false \
+	-Dudev=$(call ptx/truefalse, PTXCONF_XORG_SERVER_UDEV) \
+	-Dvbe=true \
+	-Dvgahw=true \
+	-Dxace=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_XACE) \
+	-Dxcsecurity=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_XCSECURITY) \
+	-Dxdm-auth-1=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_XDM_AUTH_1) \
+	-Dxdmcp=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_XDMCP) \
+	-Dxephyr=$(call ptx/truefalse, PTXCONF_XORG_SERVER_XEPHYR) \
+	-Dxf86bigfont=$(call ptx/truefalse, PTXCONF_XORG_LIB_X11_XF86BIGFONT) \
+	-Dxinerama=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_XINERAMA) \
+	-Dxkb_bin_dir=/usr/bin \
+	-Dxkb_dir=/usr/share/X11/xkb \
+	-Dxnest=$(call ptx/truefalse, PTXCONF_XORG_SERVER_XNEST) \
+	-Dxorg=$(call ptx/truefalse, PTXCONF_XORG_SERVER_XORG) \
+	-Dxres=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_XRES) \
+	-Dxv=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_XV) \
+	-Dxvfb=$(call ptx/truefalse, PTXCONF_XORG_SERVER_XVFB) \
+	-Dxvmc=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_XVMC) \
+	-Dxwayland=$(call ptx/truefalse, PTXCONF_XORG_SERVER_XWAYLAND) \
+	-Dxwayland_eglstream=false \
+	-Dxwin=$(call ptx/truefalse, PTXCONF_XORG_SERVER_XWIN)
 
 # ----------------------------------------------------------------------------
 # Target-Install

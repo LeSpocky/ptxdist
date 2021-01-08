@@ -4,6 +4,7 @@ menuconfig XORG_SERVER
 	tristate
 	prompt "xorg server                   "
 
+	select HOST_MESON
 	select HOST_XORG_SERVER
 	select HOST_XORG_UTIL_MACROS
 	select HOST_XORG_LIB_XTRANS	# needed for autoreconf
@@ -83,8 +84,7 @@ menuconfig XORG_SERVER
 	# xres triggered
 	select XORG_LIB_XRES		if XORG_SERVER_EXT_XRES
 
-	# for kdrive
-	select TSLIB
+	select LIBTIRPC			if XORG_SERVER_OPT_SECURE_RPC
 
 	# FIXME: unclear dependencies
 	#select XORG_LIB_XXF86VM	if XORG_SERVER_EXT_XV
@@ -142,12 +142,6 @@ config XORG_SERVER_XORG
 	default y
 	help
 	  This is the main server to be used for the other video drivers
-
-config XORG_SERVER_KDRIVE
-	bool
-	prompt "kdrive server"
-	help
-	  FIXME
 
 config XORG_SERVER_DMX
 	bool
