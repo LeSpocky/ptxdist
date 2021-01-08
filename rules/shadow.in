@@ -6,7 +6,6 @@ menuconfig SHADOW
 	tristate
 	depends on (!BUSYBOX_ADDUSER && !BUSYBOX_ADDGROUP && !BUSYBOX_LOGIN && !BUSYBOX_PASSWD && !BUSYBOX_SU) || ALLYES
 	select LIBC_CRYPT
-	select LIBSELINUX	if GLOBAL_SELINUX
 	select PAM		if GLOBAL_PAM
 	prompt "shadow                        "
 	help

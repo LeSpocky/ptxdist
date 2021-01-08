@@ -1,9 +1,0 @@
-## SECTION=staging
-## old section:
-### SECTION=hosttools_noprompt
-
-config HOST_LIBSELINUX
-	tristate
-	default y if ALLYES
-	select HOST_LIBPCRE
-	select HOST_LIBSEPOL

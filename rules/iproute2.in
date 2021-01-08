@@ -11,7 +11,6 @@ menuconfig IPROUTE2
 	select LIBC_PTHREAD	if IPROUTE2_ARPD
 	select LIBC_RESOLV
 	select LIBMNL		if IPROUTE2_DEVLINK
-	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  Networking and traffic control tools
 

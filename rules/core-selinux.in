@@ -5,7 +5,7 @@ config GLOBAL_SELINUX
 	select BUSYBOX_SELINUX			if BUSYBOX
 	select BUSYBOX_BUILD_LIBBUSYBOX		if BUSYBOX
 	select BUSYBOX_FEATURE_INDIVIDUAL	if BUSYBOX
-	depends on STAGING
+	depends on BROKEN
 	prompt "SELinux support"
 	help
 	  This will enable SELinux for all packages with optional
