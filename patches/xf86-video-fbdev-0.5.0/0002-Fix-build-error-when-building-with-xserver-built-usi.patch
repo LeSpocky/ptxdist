@@ -1,0 +1,21 @@
+From: Tuomo Rinne <tuomo.rinne@pm.me>
+Date: Mon, 14 Jan 2019 22:33:42 +0000
+Subject: [PATCH] Fix build error when building with xserver built using meson
+
+---
+ src/fbdev.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/fbdev.c b/src/fbdev.c
+index 35a3c60f7835..78c27f92f777 100644
+--- a/src/fbdev.c
++++ b/src/fbdev.c
+@@ -1014,7 +1014,7 @@ FBDevScreenInit(SCREEN_INIT_ARGS_DECL)
+ 	fPtr->CloseScreen = pScreen->CloseScreen;
+ 	pScreen->CloseScreen = FBDevCloseScreen;
+ 
+-#if XV
++#ifdef XV
+ 	{
+ 	    XF86VideoAdaptorPtr *ptr;
+ 
