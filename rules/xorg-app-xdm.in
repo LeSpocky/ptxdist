@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_app
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_app
 
 menuconfig XORG_APP_XDM
 	tristate
@@ -13,6 +15,9 @@ menuconfig XORG_APP_XDM
 	select XORG_LIB_XINERAMA if XORG_SERVER_EXT_XINERAMA
 	help
 	  XDM is the graphical login manager
+
+	  STAGING: remove in PTXdist 2022.01.0
+	  Upstream mostly dead and fails to build with glibc 2.32.
 
 if XORG_APP_XDM
 
