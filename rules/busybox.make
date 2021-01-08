@@ -39,6 +39,12 @@ $(STATEDIR)/busybox.prepare:
 	@$(call compile, BUSYBOX, distclean)
 	@grep -e PTXCONF_BUSYBOX_ $(PTXDIST_PTXCONFIG) | \
 		sed -e 's/PTXCONF_BUSYBOX_/CONFIG_/g' > $(BUSYBOX_DIR)/.config
+ifdef PTXCONF_BUSYBOX_NEED_LIBTIRPC
+	@sed -i \
+		-e 's;^\(CONFIG_EXTRA_CFLAGS="\)\(.*"\);\1-I$(PTXDIST_SYSROOT_TARGET)/usr/include/tirpc \2;' \
+		-e 's;^\(CONFIG_EXTRA_LDLIBS="\)\(.*"\);\1tirpc \2;' \
+		$(BUSYBOX_DIR)/.config
+endif
 	@$(call ptx/oldconfig, BUSYBOX)
 
 	@$(call touch)

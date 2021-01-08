@@ -10,6 +10,7 @@ menuconfig BUSYBOX
 	select GCCLIBS_GCC_S	if !BUSYBOX_STATIC
 	select PAM		if GLOBAL_PAM
 	select BUSYBOX_PAM	if GLOBAL_PAM
+	select LIBTIRPC		if BUSYBOX_NEED_LIBTIRPC
 	select BUSYBOX_PLATFORM_LINUX
 	select BUSYBOX_INSTALL_NO_USR
 	help
@@ -20,6 +21,10 @@ menuconfig BUSYBOX
 	  For more information see http://www.busybox.net
 
 if BUSYBOX
+
+config BUSYBOX_NEED_LIBTIRPC
+	bool
+	default BUSYBOX_INETD || BUSYBOX_FEATURE_MOUNT_NFS
 
 config BUSYBOX_INETD_STARTSCRIPT
 	bool
