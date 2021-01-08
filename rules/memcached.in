@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 config MEMCACHED
 	tristate
@@ -10,3 +12,6 @@ config MEMCACHED
 	  arbitrary data (strings, objects) from results of database calls,
 	  API calls, or page rendering.
 
+	  STAGING: remove in PTXdist 2022.01.0
+	  Has not been touched here in a long time and fails to build with gcc 10.
+	  Needs updating and cleanup.
