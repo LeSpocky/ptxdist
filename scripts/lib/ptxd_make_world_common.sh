@@ -394,6 +394,12 @@ ptxd_make_world_init() {
     whitelist_target="$(echo $(cat "${deps_target[@]}" /dev/null 2>/dev/null))"
     pkg_env="PKGCONFIG_WHITELIST_HOST='${whitelist_host}' PKGCONFIG_WHITELIST_TARGET='${whitelist_target}' PKGCONFIG_WHITELIST_SRC='${pkg_label}' ${pkg_env}"
 
+    #
+    # try to prevent downloads outside the get stage
+    #
+    if [ "${pkg_stage}" != "get" ]; then
+	pkg_env="HTTPS_PROXY=- HTTP_PROXY=- https_proxy=- http_proxy=- ${pkg_env}"
+    fi
 
     #
     # build dir
