@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 config WATCHDOG
 	tristate
@@ -13,3 +15,6 @@ config WATCHDOG
 
 	  The ability to reboot will depend on the state of the
 	  machine and interrupts.
+
+	  STAGING: remove in PTXdist 2022.01.0
+	  Fails to build with gcc 10.
