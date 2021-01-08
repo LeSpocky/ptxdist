@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 config P7ZIP
 	tristate
@@ -11,3 +13,6 @@ config P7ZIP
 	  p7zip is a port of 7za.exe for POSIX systems like Unix
 	  (Linux, Solaris, OpenBSD, FreeBSD, Cygwin, AIX, ...),
 	  MacOS X and also for BeOS and Amiga.
+
+	  STAGING: remove in PTXdist 2022.01.0
+	  Needs updating and fails to build with gcc 10.
