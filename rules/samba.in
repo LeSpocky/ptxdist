@@ -4,10 +4,10 @@ menuconfig SAMBA
 	tristate
 	prompt "samba                         "
 	select HOST_SYSTEM_PERL
-	select HOST_SYSTEM_PYTHON
+	select HOST_SYSTEM_PERL_YAPP
+	select HOST_SYSTEM_PYTHON3
 	select LIBC_CRYPT
 	select LIBC_DL
-	select LIBC_NSL
 	select LIBC_RESOLV
 	select GCCLIBS_GCC_S
 	select ACL
@@ -17,6 +17,7 @@ menuconfig SAMBA
 	select LIBBSD
 	select LIBCAP
 	select LIBPOPT
+	select GNUTLS
 	select READLINE
 	select SYSTEMD				if SAMBA_SYSTEMD_UNIT
 	select ZLIB
@@ -78,5 +79,4 @@ config SAMBA_SYSTEMD_UNIT
 	default y
 	depends on SAMBA_SERVER && INITMETHOD_SYSTEMD
 	prompt "install systemd unit files"
-
 endif

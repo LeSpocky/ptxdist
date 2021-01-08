@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_SAMBA) += samba
 #
 # Paths and names
 #
-SAMBA_VERSION	:= 4.9.5
-SAMBA_MD5	:= e761ba58bdbcb903bd3692283d46103a
+SAMBA_VERSION	:= 4.12.6
+SAMBA_MD5	:= 0fa8bdd6826659c642bf1d255545d78d
 SAMBA		:= samba-$(SAMBA_VERSION)
 SAMBA_SUFFIX	:= tar.gz
 SAMBA_URL	:= https://download.samba.org/pub/samba/stable/$(SAMBA).$(SAMBA_SUFFIX)
@@ -36,11 +36,8 @@ SAMBA_CONFIG	 = $(call ptx/get-alternative, config/samba, cross-answers)
 #
 SAMBA_CONF_TOOL	:= NO
 SAMBA_CONF_OPT	:= \
-	--nocache \
-	--without-json-audit \
 	--without-gettext \
 	--disable-python \
-	--disable-gnutls \
 	--without-gpgme \
 	--without-winbind \
 	--without-ads \
@@ -67,6 +64,7 @@ SAMBA_CONF_OPT	:= \
 	--disable-glusterfs \
 	--disable-cephfs \
 	--disable-spotlight \
+	--disable-fault-handling \
 	--$(call ptx/wwo, PTXCONF_SAMBA_SYSTEMD_UNIT)-systemd \
 	--without-lttng \
 	--accel-aes=$(call ptx/ifdef,PTXCONF_ARCH_X86_64,intelaesni,none) \
@@ -74,6 +72,7 @@ SAMBA_CONF_OPT	:= \
 	--with-system-mitkrb5 \
 	--without-ad-dc \
 	--without-ntvfs-fileserver \
+	--without-json \
 	$(CROSS_AUTOCONF_SYSROOT_USR) \
 	--bundled-libraries=NONE,cmocka,tdb,talloc,tevent,ldb \
 	--disable-rpath \
