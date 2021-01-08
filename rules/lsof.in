@@ -4,6 +4,7 @@ comment "BusyBox' lsof is selected!"
 
 config LSOF
 	tristate
+	select LIBTIRPC
 	depends on !BUSYBOX_LSOF || ALLYES
 	prompt "lsof"
 	help

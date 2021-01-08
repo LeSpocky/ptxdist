@@ -14,12 +14,12 @@ PACKAGES-$(PTXCONF_LSOF) += lsof
 #
 # Paths and names
 #
-LSOF_VERSION	:= 4.81.dfsg.1
-LSOF_MD5	:= 138b628cb1b6a3b16b32b792f77abcce
-LSOF_SUFFIX	:= tar.gz
+LSOF_VERSION	:= 4.93.2+dfsg
+LSOF_MD5	:= c58f7c40631ebc666f04e944f35db9a5
+LSOF_SUFFIX	:= tar.xz
 LSOF		:= lsof-$(LSOF_VERSION)
 LSOF_TARBALL	:= lsof_$(LSOF_VERSION).orig.$(LSOF_SUFFIX)
-LSOF_URL	:= http://snapshot.debian.org/archive/debian/20090218T214238Z/pool/main/l/lsof/$(LSOF_TARBALL)
+LSOF_URL	:= https://snapshot.debian.org/archive/debian/20190908T172415Z/pool/main/l/lsof/$(LSOF_TARBALL)
 LSOF_SOURCE	:= $(SRCDIR)/$(LSOF_TARBALL)
 LSOF_DIR	:= $(BUILDDIR)/$(LSOF)
 
@@ -27,30 +27,25 @@ LSOF_DIR	:= $(BUILDDIR)/$(LSOF)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LSOF_PATH	:= PATH=$(CROSS_PATH)
-
-LSOF_ENV 	:= \
+LSOF_CONF_ENV	:= \
 	$(CROSS_ENV) \
+	LSOF_INCLUDE=$(PTXDIST_SYSROOT_TARGET)/usr/include \
 	LINUX_HASSELINUX=N \
 	LSOF_AR="$(CROSS_AR) cr"
 
-LSOF_MAKEVARS	:= \
+LSOF_CONF_OPT := \
+	-n linux
+
+$(STATEDIR)/lsof.prepare:
+	@$(call targetinfo)
+	@$(call world/execute, LSOF, ./Configure $(LSOF_CONF_OPT))
+	@$(call touch)
+
+LSOF_MAKE_OPT	:= \
 	$(CROSS_ENV_CC) \
 	LSOF_USER=none \
 	DEBUG=-O2 \
 	RANLIB="$(CROSS_RANLIB) liblsof.a"
-
-#
-# autoconf
-#
-LSOF_AUTOCONF := -n linux
-
-$(STATEDIR)/lsof.prepare:
-	@$(call targetinfo)
-	cd $(LSOF_DIR) && \
-		$(LSOF_PATH) $(LSOF_ENV) \
-		./Configure $(LSOF_AUTOCONF)
-	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Install
