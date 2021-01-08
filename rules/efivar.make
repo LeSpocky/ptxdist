@@ -31,6 +31,9 @@ EFIVAR_CONF_TOOL	:= NO
 EFIVAR_MAKE_ENV		:= $(CROSS_ENV) PTXDIST_ICECC=
 EFIVAR_INSTALL_OPT	:= libdir="/usr/lib/" install
 
+EFIVAR_CFLAGS	:= \
+	-flto-partition=none
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
