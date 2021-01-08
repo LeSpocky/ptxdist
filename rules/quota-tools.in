@@ -3,6 +3,7 @@
 menuconfig QUOTA_TOOLS
 	tristate
 	prompt "quota tools                   "
+	select LIBTIRPC
 	select E2FSPROGS		if QUOTA_TOOLS_QUOTACHECK_EXT2
 	select E2FSPROGS_LIBEXT2FS	if QUOTA_TOOLS_QUOTACHECK_EXT2
 	select E2FSPROGS_LIBCOM_ERR	if QUOTA_TOOLS_QUOTACHECK_EXT2
@@ -24,12 +25,6 @@ config QUOTA_TOOLS_REPQUOTA
 	prompt "install repquota"
 	help
 	  summarize quotas for a filesystem
-
-config QUOTA_TOOLS_QUOT
-	bool
-	prompt "install quot"
-	help
-	  summarizes file system ownership
 
 config QUOTA_TOOLS_EDQUOTA
 	bool

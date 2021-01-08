@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QUOTA_TOOLS) += quota-tools
 #
 # Paths and names
 #
-QUOTA_TOOLS_VERSION	:= 4.04
-QUOTA_TOOLS_MD5		:= f46f3b0b5141f032f25684005dac49d3
+QUOTA_TOOLS_VERSION	:= 4.06
+QUOTA_TOOLS_MD5		:= aef94648438832b684978d46fdf75110
 QUOTA_TOOLS		:= quota-$(QUOTA_TOOLS_VERSION)
 QUOTA_TOOLS_SUFFIX	:= tar.gz
 QUOTA_TOOLS_URL		:= $(call ptx/mirror, SF, linuxquota/$(QUOTA_TOOLS).$(QUOTA_TOOLS_SUFFIX))
@@ -88,9 +88,6 @@ ifdef PTXCONF_QUOTA_TOOLS_EDQUOTA
 endif
 ifdef PTXCONF_QUOTA_TOOLS_QUOTASTATS
 	@$(call install_copy, quota-tools, 0, 0, 0755, -, /usr/sbin/quotastats)
-endif
-ifdef PTXCONF_QUOTA_TOOLS_QUOT
-	@$(call install_copy, quota-tools, 0, 0, 0755, -, /usr/sbin/quot)
 endif
 ifdef PTXCONF_QUOTA_TOOLS_CONVERTQUOTA
 	@$(call install_copy, quota-tools, 0, 0, 0755, -, /usr/sbin/convertquota)
