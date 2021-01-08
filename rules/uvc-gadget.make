@@ -14,8 +14,9 @@ PACKAGES-$(PTXCONF_UVC_GADGET) += uvc-gadget
 #
 # Paths and names
 #
-UVC_GADGET_VERSION	:= 2019-02-13-g58f5ddeb
-UVC_GADGET_MD5		:= aabd91acafd035a85c2151b67e1491ca
+# No tags: use a fake descriptive commit-ish to include the date
+UVC_GADGET_VERSION	:= 2019-05-02-g105134f9
+UVC_GADGET_MD5		:= cd61b910844f1d95534a8773bf63f248
 UVC_GADGET		:= uvc-gadget-$(UVC_GADGET_VERSION)
 UVC_GADGET_SUFFIX	:= tar.xz
 UVC_GADGET_URL 		:= git://git.ideasonboard.org/uvc-gadget.git;tag=$(UVC_GADGET_VERSION)
