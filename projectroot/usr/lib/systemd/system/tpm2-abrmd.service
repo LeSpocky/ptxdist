@@ -9,7 +9,6 @@ Restart=always
 RestartPreventExitStatus=69 71 74
 RestartSec=5
 BusName=com.intel.tss2.Tabrmd
-StandardOutput=syslog
 ExecStart=/usr/sbin/tpm2-abrmd
 User=tss
 
