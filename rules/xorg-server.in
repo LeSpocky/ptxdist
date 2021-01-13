@@ -29,7 +29,7 @@ menuconfig XORG_SERVER
 	select XORG_LIB_FONTENC
 	select XORG_LIB_XEXT
 	select PIXMAN
-	select OPENSSL
+	select NETTLE
 	select XORG_LIB_XKBFILE
 
 	select UDEV			if XORG_SERVER_UDEV
