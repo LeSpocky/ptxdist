@@ -16,7 +16,9 @@ SOCAT_VERSION	:= 1.7.3.2
 SOCAT_MD5	:= aec3154f7854580cfab0c2d81e910519
 SOCAT		:= socat-$(SOCAT_VERSION)
 SOCAT_SUFFIX	:= tar.gz
-SOCAT_URL	:= http://www.dest-unreach.org/socat/download/$(SOCAT).$(SOCAT_SUFFIX)
+SOCAT_URL	:= \
+	http://www.dest-unreach.org/socat/download/$(SOCAT).$(SOCAT_SUFFIX) \
+	http://www.dest-unreach.org/socat/download/Archive/$(SOCAT).$(SOCAT_SUFFIX)
 SOCAT_SOURCE	:= $(SRCDIR)/$(SOCAT).$(SOCAT_SUFFIX)
 SOCAT_DIR	:= $(BUILDDIR)/$(SOCAT)
 SOCAT_LICENSE	:= GPL-2.0-only
