@@ -19,8 +19,8 @@ LVM2_MD5	:= ee6cfbc5a0c5696ffae79dac04ee7a2b
 LVM2		:= LVM2.$(LVM2_VERSION)
 LVM2_SUFFIX	:= tgz
 LVM2_URL	:= \
-	ftp://sources.redhat.com/pub/lvm2/releases/$(LVM2).$(LVM2_SUFFIX) \
-	ftp://sources.redhat.com/pub/lvm2/old/$(LVM2).$(LVM2_SUFFIX)
+	https://sourceware.org/pub/lvm2/$(LVM2).$(LVM2_SUFFIX) \
+	https://sourceware.org/pub/lvm2/old/$(LVM2).$(LVM2_SUFFIX)
 LVM2_SOURCE	:= $(SRCDIR)/$(LVM2).$(LVM2_SUFFIX)
 LVM2_DIR	:= $(BUILDDIR)/$(LVM2)
 LVM2_LICENSE	:= GPL-2.0-only, LGPL-2.1-only
