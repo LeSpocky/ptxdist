@@ -48,6 +48,15 @@ Run first 'ptxdist clean root' then 'ptxdist images' again.
 "
 	fi
 
+	if ptxd_get_ptxconf PTXCONF_DEBUG_PACKAGES_INSTALL > /dev/null; then
+	    # some packages don't install binaries, so they don't have dbgsyms.
+	    # don't complain about that.
+	    ipkg_files="${image_ipkg_repo_dirs[@]/%//${1}-dbgsym_*.ipk}"
+	    if ptxd_get_path ${ipkg_files[*]}; then
+		ptxd_reply_ipkg_files[${#ptxd_reply_ipkg_files[@]}]="${ptxd_reply}"
+	    fi
+	fi
+
 	shift
     done
 }

@@ -10,3 +10,15 @@ config DEBUG_PACKAGES
 	  are otherwise only available in nfsroot.
 	  This is useful to run debug tools such as gdb, valgrind, perf
 	  etc. on a normal (not nfsroot) rootfs.
+
+config DEBUG_PACKAGES_INSTALL
+	bool
+	select DEBUG_PACKAGES
+	prompt "install debug packages into rootfs"
+	help
+	  Include debug symbols of all packages that are installed into the root
+	  filesystem. This is needed if you want to run gdb, valgrind, etc. on
+	  the target.
+
+	  Debug symbols can take a certain amount of disk space, make sure your
+	  root file system is big enough.
