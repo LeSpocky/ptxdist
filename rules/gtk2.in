@@ -1,4 +1,6 @@
-## SECTION=multimedia_gtk
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gtk
 
 menuconfig GTK2
 	tristate
@@ -21,6 +23,10 @@ menuconfig GTK2
 	  user interfaces. Offering a complete set of widgets, the GTK2+
 	  is suitable for projects ranging from small one-off tools to complete
 	  application suites.
+
+	  STAGING: remove in PTXdist 2022.02.0
+	  Gtk 2 was replaced by Gtk 3 a long time ago. All remaining users
+	  should be ported by now.
 
 if GTK2
 
