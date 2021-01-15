@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 menuconfig RSYSLOG
 	tristate
@@ -15,6 +17,9 @@ menuconfig RSYSLOG
 	help
 	  rsyslog is a reliable system and kernel logging daemon with
 	  modular design and high speed message processing.
+
+	  STAGING: remove in PTXdist 2022.02.0
+	  Old version that fails to build with gcc 10. Need updating to new version.
 
 if RSYSLOG
 
