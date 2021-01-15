@@ -14,51 +14,53 @@ PACKAGES-$(PTXCONF_MOSQUITTO) += mosquitto
 #
 # Paths and names
 #
-MOSQUITTO_VERSION	:= 1.6.7
-MOSQUITTO_MD5		:= ec9074c4f337f64eaa9a4320c6dab020
+MOSQUITTO_VERSION	:= 2.0.5
+MOSQUITTO_MD5		:= 8e70da210301d2f60627170a1064f8f3
 MOSQUITTO		:= mosquitto-$(MOSQUITTO_VERSION)
 MOSQUITTO_SUFFIX	:= tar.gz
 MOSQUITTO_URL		:= https://mosquitto.org/files/source/$(MOSQUITTO).$(MOSQUITTO_SUFFIX)
 MOSQUITTO_SOURCE	:= $(SRCDIR)/$(MOSQUITTO).$(MOSQUITTO_SUFFIX)
 MOSQUITTO_DIR		:= $(BUILDDIR)/$(MOSQUITTO)
 # "Eclipse Distribution License - v 1.0" is in fact BSD-3-Clause
-MOSQUITTO_LICENSE	:= EPL-1.0 AND BSD-3-Clause
-MOSQUITTO_LICENSE_FILES	:= file://epl-v10;md5=8d383c379e91d20ba18a52c3e7d3a979 \
+MOSQUITTO_LICENSE	:= EPL-2.0 OR BSD-3-Clause
+MOSQUITTO_LICENSE_FILES	:= \
+	file://LICENSE.txt;md5=ca9a8f366c6babf593e374d0d7d58749 \
+	file://epl-v20;md5=d9fc0efef5228704e7f5b37f27192723 \
 	file://edl-v10;md5=c09f121939f063aeb5235972be8c722c
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-MOSQUITTO_CONF_TOOL	:= NO
-MOSQUITTO_MAKE_ENV	:= $(CROSS_ENV)
-MOSQUITTO_MAKE_OPT	:= \
-	UNAME=Linux \
-	prefix=/usr \
-	WITH_WRAP=no \
-	WITH_TLS=$(call ptx/yesno, PTXCONF_MOSQUITTO_TLS) \
-	WITH_TLS_PSK=$(call ptx/yesno, PTXCONF_MOSQUITTO_TLS) \
-	WITH_THREADING=yes \
-	WITH_BRIDGE=yes \
-	WITH_PERSISTENCE=yes \
-	WITH_MEMORY_TRACKING=yes \
-	WITH_SYS_TREE=yes \
-	WITH_SYSTEMD=$(call ptx/yesno, PTXCONF_MOSQUITTO_SYSTEMD_UNIT) \
-	WITH_SRV=$(call ptx/yesno, PTXCONF_MOSQUITTO_SRV) \
-	WITH_WEBSOCKETS=no \
-	WITH_EC=yes \
-	WITH_DOCS=no \
-	WITH_SOCKS=yes \
-	WITH_STRIP=yes \
-	WITH_STATIC_LIBRARIES=no \
-	WITH_SHARED_LIBRARIES=yes \
-	WITH_ADNS=no \
-	WITH_EPOLL=yes \
-	WITH_BUNDLED_DEPS=yes \
-	WITH_COVERAGE=no
-MOSQUITTO_INSTALL_OPT	:= \
-	$(MOSQUITTO_MAKE_OPT) \
-	install
+MOSQUITTO_CONF_TOOL	:= cmake
+MOSQUITTO_CONF_OPT	:= \
+	$(CROSS_CMAKE_USR) \
+	-DDOCUMENTATION=OFF \
+	-DINC_BRIDGE_SUPPORT=ON \
+	-DINC_DB_UPGRADE=ON \
+	-DINC_MEMTRACK=ON \
+	-DUSE_LIBWRAP=OFF \
+	-DWITH_ADNS=OFF \
+	-DWITH_APPS=ON \
+	-DWITH_BROKER=$(call ptx/onoff, PTXCONF_MOSQUITTO_BROKER) \
+	-DWITH_BUNDLED_DEPS=ON \
+	-DWITH_CLIENTS=$(call ptx/onoff, PTXCONF_MOSQUITTO_CLIENTS) \
+	-DWITH_CONTROL=ON \
+	-DWITH_DLT=OFF \
+	-DWITH_EC=ON \
+	-DWITH_LIB_CPP=ON \
+	-DWITH_PERSISTENCE=ON \
+	-DWITH_PLUGINS=ON \
+	-DWITH_SOCKS=ON \
+	-DWITH_SRV=$(call ptx/onoff, PTXCONF_MOSQUITTO_SRV) \
+	-DWITH_STATIC_LIBRARIES=OFF \
+	-DWITH_SYSTEMD=$(call ptx/onoff, PTXCONF_MOSQUITTO_SYSTEMD_UNIT) \
+	-DWITH_SYS_TREE=ON \
+	-DWITH_THREADING=ON \
+	-DWITH_TLS=$(call ptx/onoff, PTXCONF_MOSQUITTO_TLS) \
+	-DWITH_TLS_PSK=$(call ptx/onoff, PTXCONF_MOSQUITTO_TLS) \
+	-DWITH_UNIX_SOCKETS=ON \
+	-DWITH_WEBSOCKETS=OFF
 
 # ----------------------------------------------------------------------------
 # Install
@@ -66,8 +68,6 @@ MOSQUITTO_INSTALL_OPT	:= \
 $(STATEDIR)/mosquitto.install:
 	@$(call targetinfo)
 	@$(call world/install, MOSQUITTO)
-	@install -v -D -m644 $(MOSQUITTO_DIR)/mosquitto.conf \
-		$(MOSQUITTO_PKGDIR)/etc/mosquitto/mosquitto.conf
 	@install -v -D -m644 $(MOSQUITTO_DIR)/service/systemd/mosquitto.service.notify \
 		$(MOSQUITTO_PKGDIR)/usr/lib/systemd/system/mosquitto.service
 	@$(call touch)

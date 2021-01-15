@@ -3,6 +3,7 @@
 menuconfig MOSQUITTO
 	tristate
 	prompt "mosquitto                     "
+	select HOST_CMAKE
 	select OPENSSL	if MOSQUITTO_TLS
 	select C_ARES	if MOSQUITTO_SRV
 	select SYSTEMD	if MOSQUITTO_SYSTEMD_UNIT
