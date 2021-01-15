@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_XFSPROGS) += xfsprogs
 #
 # Paths and names
 #
-XFSPROGS_VERSION:= 4.19.0
-XFSPROGS_MD5	:= 955b3dad9cbe01d6b21a562cc0100e04
+XFSPROGS_VERSION:= 5.9.0
+XFSPROGS_MD5	:= bab1e3725c0a1b20d34054291a29e8b3
 XFSPROGS	:= xfsprogs-$(XFSPROGS_VERSION)
 XFSPROGS_SUFFIX	:= tar.gz
 XFSPROGS_URL	:= $(call ptx/mirror, KERNEL, utils/fs/xfs/xfsprogs/$(XFSPROGS).$(XFSPROGS_SUFFIX))
@@ -35,16 +35,20 @@ XFSPROGS_CONF_ENV	:= \
 XFSPROGS_CONF_TOOL	:= autoconf
 XFSPROGS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--sbindir=/usr/sbin \
-	--libdir=/usr/lib \
-	--datarootdir=/usr/share \
 	--enable-static \
 	--disable-gettext \
 	--enable-blkid \
-	--disable-readline \
 	--disable-editline \
 	--disable-termcap \
-	--disable-lib64
+	--disable-lib64 \
+	--enable-librt \
+	--disable-ubsan \
+	--disable-addrsan \
+	--disable-threadsan \
+	--disable-lto \
+	--enable-scrub \
+	--disable-libicu \
+	--with-systemd-unit-dir=/usr/lib/systemd/system
 
 XFSPROGS_INSTALL_OPT	:= \
 	PKG_ROOT_LIB_DIR=/usr/lib \
