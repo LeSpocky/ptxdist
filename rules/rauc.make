@@ -27,7 +27,9 @@ RAUC_LICENSE	:= LGPL-2.1-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-#RAUC_CONF_ENV	:= $(CROSS_ENV)
+RAUC_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	PTXDIST_PKG_CONFIG_VAR_NO_SYSROOT=interfaces_dir
 
 #
 # autoconf
