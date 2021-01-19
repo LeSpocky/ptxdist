@@ -293,6 +293,13 @@ config MTD_UTILS_UBIFORMAT
 	help
 	  Format an MTD device
 
+config MTD_UTILS_UBIHEALTHD
+	bool
+	prompt "ubihealthd"
+	help
+	  Daemon that randomly scans each PEB of a UBI device to ensure that
+	  filesystems with little reading do enough wear leveling.
+
 config MTD_UTILS_UBIMKVOL
 	bool
 	prompt "ubimkvol"

@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_MTD_UTILS) += mtd-utils
 #
 # Paths and names
 #
-MTD_UTILS_VERSION	:= 2.1.1
-MTD_UTILS_MD5		:= 94bbd31b217a5169ae26ab8c0442f691
+MTD_UTILS_VERSION	:= 2.1.2
+MTD_UTILS_MD5		:= 19191bc0195a779c0bd1284c886084ab
 MTD_UTILS		:= mtd-utils-$(MTD_UTILS_VERSION)
 MTD_UTILS_SUFFIX	:= tar.bz2
 MTD_UTILS_URL		:= ftp://ftp.infradead.org/pub/mtd-utils/$(MTD_UTILS).$(MTD_UTILS_SUFFIX)
@@ -185,6 +185,10 @@ endif
 ifdef PTXCONF_MTD_UTILS_UBICRC32
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/ubicrc32)
+endif
+ifdef PTXCONF_MTD_UTILS_UBIHEALTHD
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/sbin/ubihealthd)
 endif
 ifdef PTXCONF_MTD_UTILS_UBIMKVOL
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
