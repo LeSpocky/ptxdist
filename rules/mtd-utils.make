@@ -186,6 +186,10 @@ ifdef PTXCONF_MTD_UTILS_UBICRC32
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/ubicrc32)
 endif
+ifdef PTXCONF_MTD_UTILS_UBIFS_MOUNTHELPER
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/sbin/mount.ubifs)
+endif
 ifdef PTXCONF_MTD_UTILS_UBIHEALTHD
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/ubihealthd)

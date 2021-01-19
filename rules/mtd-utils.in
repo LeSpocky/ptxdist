@@ -293,6 +293,12 @@ config MTD_UTILS_UBIFORMAT
 	help
 	  Format an MTD device
 
+config MTD_UTILS_UBIFS_MOUNTHELPER
+	bool
+	prompt "mount.ubifs"
+	help
+	  Simplifies attaching an ubi and mounting an ubifs via /etc/fstab.
+
 config MTD_UTILS_UBIHEALTHD
 	bool
 	prompt "ubihealthd"
