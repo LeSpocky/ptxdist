@@ -118,10 +118,21 @@ ifdef PTXCONF_MTD_UTILS_JFFS2_DUMP
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/jffs2dump)
 endif
+ifdef PTXCONF_MTD_UTILS_JFFS2READER
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/sbin/jffs2reader)
+endif
+
 ifdef PTXCONF_MTD_UTILS_MTDDEBUG
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/mtd_debug)
 endif
+
+ifdef PTXCONF_MTD_UTILS_MTDPART
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/sbin/mtdpart)
+endif
+
 ifdef PTXCONF_MTD_UTILS_NANDDUMP
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/nanddump)

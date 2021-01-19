@@ -134,29 +134,24 @@ config MTD_UTILS_JFFS2_DUMP
 	help
 	  This utility dumps the contents of a binary JFFS2 image.
 
-#config MTD_UTILS_JFFS2READER
-#	bool
-#	prompt "jffs2reader"
-#	select MTD_UTILS_JFFS
-#	help
-#	  A jffs2 image reader
-
-config MTD_UTILS_JITTERTEST
+config MTD_UTILS_JFFS2READER
 	bool
-	prompt "jittertest"
+	prompt "jffs2reader"
+	select MTD_UTILS_JFFS
 	help
-	  This program is used to measure what the jitter of a
-	  real time task would be under "standard" Linux.
-
-	  More particularly, what is the effect of running
-	  a real time task under Linux with background
-	  JFFS file system activity.
+	  A jffs2 image reader
 
 config MTD_UTILS_MTDDEBUG
 	bool
 	prompt "mtd_debug"
 	help
 	  Does info, read, write and erase on mtd devices
+
+config MTD_UTILS_MTDPART
+	bool
+	prompt "mtdpart"
+	help
+	  Add or remove a partition from an MTD device
 
 config MTD_UTILS_NANDDUMP
 	bool
