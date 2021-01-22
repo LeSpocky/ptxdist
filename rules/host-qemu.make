@@ -38,7 +38,7 @@ HOST_QEMU_BROKEN_ICECC	:= \
 	$(call ptx/sh, gcc -dumpversion | awk -F . '{ if ($$1*100 + $$2 < 409) print "y" }')
 
 ifeq ($(HOST_QEMU_BROKEN_ICECC),y)
-HOST_QEMU_MAKE_ENV	:= PTXDIST_ICECC=
+HOST_QEMU_MAKE_ENV	:= PTXDIST_ICECC=$(PTXDIST_ICERUN)
 endif
 HOST_QEMU_MAKE_OPT	:= V=$(filter 1,$(PTXDIST_VERBOSE))
 

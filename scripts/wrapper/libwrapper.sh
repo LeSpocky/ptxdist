@@ -31,7 +31,7 @@ wrapper_exec() {
 		echo "wrapper: ${PTXDIST_ICECC}${PTXDIST_CCACHE} ${CMD} ${ARG_LIST} $* ${LATE_ARG_LIST}" >&${PTXDIST_FD_LOGFILE}
 	fi
 	if [ -n "${FAKEROOTKEY}" -o -z "${ICECC_VERSION}" -o ! -e "${ICECC_VERSION}" ]; then
-		unset PTXDIST_ICECC
+		PTXDIST_ICECC=${PTXDIST_ICERUN}
 	fi
 	exec ${PTXDIST_ICECC}${PTXDIST_CCACHE} "${FULL_CMD}" ${ARG_LIST} "$@" ${LATE_ARG_LIST}
 }
@@ -85,7 +85,7 @@ cc_check_args() {
 				;;
 			-fplugin=*)
 				# The plugins are not available on the icecc node
-				unset PTXDIST_ICECC
+				PTXDIST_ICECC=${PTXDIST_ICERUN}
 				;;
 			-|-print-search-dirs|--print-search-dirs)
 				COMPILING=true
@@ -306,13 +306,13 @@ add_icecc_args() {
 
 clang_check_target_icecc() {
 	if [ "${PTXDIST_ICECC_CLANG}" != 1 ]; then
-	    unset PTXDIST_ICECC
+	    PTXDIST_ICECC=${PTXDIST_ICERUN}
 	fi
 }
 
 clang_check_host_icecc() {
 	if [ "${PTXDIST_ICECC_HOST_CLANG}" != 1 ]; then
-	    unset PTXDIST_ICECC
+	    PTXDIST_ICECC=${PTXDIST_ICERUN}
 	fi
 }
 

@@ -2504,6 +2504,7 @@ setup_path() {
 	if [ -n "${PTXCONF_SETUP_ICECC}" ]; then
 		PTXDIST_ICECC="$(which icecc 2>/dev/null)"
 		PTXDIST_ICECC_CREATE_ENV="$(which "${PTXCONF_SETUP_ICECC_CREATE_ENV}")"
+		PTXDIST_ICERUN="$(which icerun 2>/dev/null)"
 		if [ -z "${PTXDIST_ICECC}" -o -z "${PTXDIST_ICECC_CREATE_ENV}" ]; then
 			echo
 			echo "${PTXDIST_LOG_PROMPT}warning: icecc has been activated, but was not found on your system"
@@ -2602,6 +2603,7 @@ setup_export() {
 		PTXDIST_FORCE_DOWNLOAD \
 		PTXDIST_ICECC \
 		PTXDIST_ICECC_CREATE_ENV \
+		PTXDIST_ICERUN \
 		PTXDIST_LOG_PROMPT \
 		PTXDIST_OUTPUT_SYNC \
 		PTXDIST_OPTIMIZE_IO \

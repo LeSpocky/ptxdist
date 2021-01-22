@@ -206,7 +206,7 @@ KERNEL_TOOL_PERF_OPTS	:= \
 # manual make to handle CPPFLAGS and broken parallel building for some
 # kernel versions
 KERNEL_TOOL_IIO_OPTS	:= \
-	PTXDIST_ICECC= \
+	PTXDIST_ICECC=$(PTXDIST_ICERUN) \
 	CPPFLAGS="-D__EXPORTED_HEADERS__ -I$(KERNEL_DIR)/include/uapi -I$(KERNEL_DIR)/include" \
 	-C $(KERNEL_DIR)/tools/iio \
 	O=$(KERNEL_BUILD_DIR)/tools/iio \

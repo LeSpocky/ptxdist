@@ -99,7 +99,7 @@ $(STATEDIR)/samba.prepare:
 	@$(call touch)
 
 SAMBA_COMPILE_ENV := \
-	PTXDIST_ICECC=
+	PTXDIST_ICECC=$(PTXDIST_ICERUN)
 
 # ----------------------------------------------------------------------------
 # Target-Install
