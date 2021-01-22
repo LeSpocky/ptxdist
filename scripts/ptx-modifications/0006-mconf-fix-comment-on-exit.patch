@@ -8,10 +8,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/scripts/kconfig/mconf.c b/scripts/kconfig/mconf.c
-index 653f81b9861b..9cd1e2f06f95 100644
+index 2114a7c0c0cd..2de33c190d58 100644
 --- a/scripts/kconfig/mconf.c
 +++ b/scripts/kconfig/mconf.c
-@@ -971,7 +971,7 @@ static int handle_exit(void)
+@@ -972,7 +972,7 @@ static int handle_exit(void)
  		if (!silent)
  			printf("\n\n"
  				 "*** End of the configuration.\n"

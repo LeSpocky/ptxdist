@@ -1,0 +1,31 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 22 Jan 2021 13:14:41 +0100
+Subject: [PATCH] parser: allow 'source' statements in 'choice'
+
+Since Linux kernel commit 09d5873e4d1f70202314b5fe40160f9b14b9d2d0
+("kconfig: allow only 'config', 'comment', and 'if' inside 'choice'",
+'source' is no longer allowed inside 'choice'.
+
+This is used in PTXdist in platforms/code-signing.in so lets readd this
+locally.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ scripts/kconfig/parser.y | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/scripts/kconfig/parser.y b/scripts/kconfig/parser.y
+index 190f1117f35a..8e6992a68fe5 100644
+--- a/scripts/kconfig/parser.y
++++ b/scripts/kconfig/parser.y
+@@ -133,6 +133,7 @@ stmt_list:
+ 
+ stmt_list_in_choice:
+ 	  /* empty */
++	| stmt_list_in_choice source_stmt
+ 	| stmt_list_in_choice comment_stmt
+ 	| stmt_list_in_choice config_stmt
+ 	| stmt_list_in_choice if_stmt_in_choice
+-- 
+2.20.1
+

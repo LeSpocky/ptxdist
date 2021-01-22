@@ -8,37 +8,17 @@ libdir	 	:= @libdir@
 bindir	 	:= @bindir@
 instdir		:= $(libdir)/$(project)
 
-CC		:= @CC@
-CXX		:= @CXX@
-CFLAGS		:= @CFLAGS@
-CXXFLAGS	:= @CXXFLAGS@
-CPPFLAGS	:= @CPPFLAGS@
-LDFLAGS		:= @LDFLAGS@
-
 SHELL		:= @BASH@
 RST2MAN		:= @RST2MAN@
 
 export SHELL
-
-@BUILD_NCONF_TRUE@NCONF = nconf
 
 all: kconfig environment
 	@touch .done
 
 kconfig:
 	@echo "building conf and mconf ..."
-	@CC="$(CC)" \
-	CXX="$(CXX)" \
-	CFLAGS="$(CFLAGS)" \
-	CXXFLAGS="$(CXXFLAGS)" \
-	CPPFLAGS="$(CPPFLAGS)" \
-	LDFLAGS="$(LDFLAGS)" \
-	$(MAKE) -C "$(abs_srcdir)/scripts/kconfig" \
-		CONF_LIBS="@CONF_LIBS@" \
-		MCONF_LIBS="@MCONF_LIBS@" \
-		NCONF_LIBS="@NCONF_LIBS@" \
-		CURSES_LOC="@CURSES_LOC@" \
-		conf mconf $(NCONF)
+	$(MAKE) -C "$(abs_srcdir)/scripts/kconfig"
 	@echo "done."
 
 environment:
