@@ -186,6 +186,10 @@ config SYSTEMD_UDEV_PERSISTENT_CDROM
 	bool
 	prompt "cdrom"
 
+config SYSTEMD_UDEV_PERSISTENT_FIDO
+	bool
+	prompt "fido"
+
 config SYSTEMD_UDEV_PERSISTENT_SCSI
 	bool
 	prompt "scsi"

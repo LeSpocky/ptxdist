@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 246.6
+SYSTEMD_VERSION		:= 247.2
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_MD5		:= a17b5e6b9e0aa1ac71587c05124e46e7
+SYSTEMD_MD5		:= 23449a963dfeda1631f67befdf106d5d
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -63,6 +63,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dbzip2=false \
 	-Dcertificate-root=/etc/ssl \
 	-Dcompat-gateway-hostname=false \
+	-Dcompat-mutable-uid-boundaries=false \
 	-Dcoredump=$(call ptx/truefalse,PTXCONF_SYSTEMD_COREDUMP) \
 	-Dcreate-log-dirs=false \
 	-Ddbus=false \
@@ -101,6 +102,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dima=false \
 	-Dimportd=false \
 	-Dinitrd=false \
+	-Dinstall-sysconfdir=true \
 	-Dinstall-tests=false \
 	-Dkernel-install=false \
 	-Dkexec-path=/usr/sbin/kexec \
@@ -127,6 +129,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dman=false \
 	-Dmemory-accounting-default=true \
 	-Dmicrohttpd=$(call ptx/truefalse,PTXCONF_SYSTEMD_MICROHTTPD) \
+	-Dmode=release \
 	-Dmount-path=/usr/bin/mount \
 	-Dnetworkd=$(call ptx/truefalse,PTXCONF_SYSTEMD_NETWORK) \
 	-Dnobody-group=nogroup \
@@ -137,6 +140,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dnss-systemd=true \
 	-Dntp-servers= \
 	-Dok-color=green \
+	-Doomd=false \
 	-Dopenssl=false \
 	-Doss-fuzz=false \
 	-Dp11kit=false \
@@ -169,6 +173,8 @@ SYSTEMD_CONF_OPT	:= \
 	-Dstatus-unit-format-default=name \
 	-Dsulogin-path=/sbin/sulogin \
 	-Dsupport-url=https://www.ptxdist.org/ \
+	-Dsystem-alloc-gid-min=1 \
+	-Dsystem-alloc-uid-min=1 \
 	-Dsystem-gid-max=999 \
 	-Dsystem-uid-max=999 \
 	-Dsysusers=false \
@@ -269,27 +275,34 @@ SYSTEMD_UDEV_HELPER-y :=
 
 SYSTEMD_UDEV_HELPER-$(PTXCONF_SYSTEMD_UDEV_PERSISTENT_ATA)	+= ata_id
 SYSTEMD_UDEV_HELPER-$(PTXCONF_SYSTEMD_UDEV_PERSISTENT_CDROM)	+= cdrom_id
+SYSTEMD_UDEV_HELPER-$(PTXCONF_SYSTEMD_UDEV_PERSISTENT_FIDO)	+= fido_id
 SYSTEMD_UDEV_HELPER-$(PTXCONF_SYSTEMD_UDEV_PERSISTENT_SCSI)	+= scsi_id
 SYSTEMD_UDEV_HELPER-$(PTXCONF_SYSTEMD_UDEV_PERSISTENT_V4L)	+= v4l_id
 SYSTEMD_UDEV_HELPER-$(PTXCONF_SYSTEMD_UDEV_MTD_PROBE)		+= mtd_probe
 
 SYSTEMD_UDEV_RULES-y := \
 	50-udev-default.rules \
-	60-input-id.rules \
 	60-persistent-alsa.rules \
 	60-persistent-input.rules \
 	60-persistent-storage-tape.rules \
 	60-persistent-storage.rules \
 	60-block.rules \
 	60-drm.rules \
-	60-sensor.rules \
 	60-serial.rules \
 	64-btrfs.rules \
-	70-mouse.rules \
 	75-net-description.rules \
 	78-sound-card.rules \
 	80-net-setup-link.rules \
 	99-systemd.rules
+
+SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_HWDB) += \
+	60-autosuspend.rules \
+	60-evdev.rules \
+	60-input-id.rules \
+	60-sensor.rules \
+	70-joystick.rules \
+	70-mouse.rules \
+	70-touchpad.rules
 
 SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_LOGIND) += \
 	70-power-switch.rules \
@@ -300,7 +313,7 @@ SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_VCONSOLE) += \
 	90-vconsole.rules
 
 SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_PERSISTENT_CDROM)	+= 60-cdrom_id.rules
-SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_HWDB)			+= 60-evdev.rules
+SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_PERSISTENT_FIDO)	+= 60-fido-id.rules
 SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_PERSISTENT_V4L)	+= 60-persistent-v4l.rules
 SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_MTD_PROBE)		+= 75-probe_mtd.rules
 SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_DRIVERS_RULES)	+= 80-drivers.rules
@@ -358,6 +371,8 @@ $(STATEDIR)/systemd.targetinstall:
 	@$(call install_tree, systemd, 0, 0, -, /usr/lib/tmpfiles.d/)
 	@$(call install_copy, systemd, 0, 0, 0644, -, /usr/lib/sysctl.d/50-default.conf)
 
+	@$(call install_copy, systemd, 0, 0, 0644, -, \
+		/usr/share/dbus-1/services/org.freedesktop.systemd1.service)
 	@$(call install_tree, systemd, 0, 0, -, /usr/share/dbus-1/system-services/)
 
 #	# systemd expects this directory to exist.
@@ -416,6 +431,7 @@ ifdef PTXCONF_SYSTEMD_NETWORK
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/networkctl)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/resolvectl)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-resolve)
+	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/lib/systemd/systemd-network-generator)
 	@$(call install_lib, systemd, 0, 0, 0644, libnss_resolve)
 	@$(call install_copy, systemd, 0, 0, 0644, -, /usr/lib/systemd/resolv.conf)
 	@$(call install_alternative, systemd, 0, 0, 0644, \
