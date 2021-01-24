@@ -273,4 +273,11 @@ config LIBXML2_LZMA
 	help
 	  LZMA (compression) support with liblzma from XZ tools.
 
+config LIBXML2_XMLLINT
+	bool
+	default n
+	prompt "install xmllint"
+	help
+	  Install xmllint tool
+
 endif

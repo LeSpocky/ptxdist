@@ -116,6 +116,10 @@ $(STATEDIR)/libxml2.targetinstall:
 
 	@$(call install_lib, libxml2, 0, 0, 0644, libxml2)
 
+ifdef PTXCONF_LIBXML2_XMLLINT
+	@$(call install_copy, libxml2, 0, 0, 0755, -, /usr/bin/xmllint)
+endif
+
 	@$(call install_finish, libxml2)
 
 	@$(call touch)
