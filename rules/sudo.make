@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_SUDO) += sudo
 #
 # Paths and names
 #
-SUDO_VERSION	:= 1.9.3
-SUDO_MD5	:= ecf74b49275f15a3e46f1903c6cb2211
+SUDO_VERSION	:= 1.9.5p2
+SUDO_MD5	:= e6bc4c18c06346e6b3431637a2b5f3d5
 SUDO		:= sudo-$(SUDO_VERSION)
 SUDO_SUFFIX	:= tar.gz
 SUDO_URL	:= \
@@ -25,7 +25,7 @@ SUDO_URL	:= \
 SUDO_SOURCE	:= $(SRCDIR)/$(SUDO).$(SUDO_SUFFIX)
 SUDO_DIR	:= $(BUILDDIR)/$(SUDO)
 SUDO_LICENSE	:= ISC AND BSD-3-Clause AND BSD-2-Clause-NetBSD AND Zlib
-SUDO_LICENSE_FILES := file://doc/LICENSE;md5=828cd502ad216ff869bf83adf3301e02
+SUDO_LICENSE_FILES := file://doc/LICENSE;md5=fdff64d4fd19126330aa81b94d167173
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -77,8 +77,11 @@ SUDO_AUTOCONF = \
 	--disable-package-build \
 	--disable-gss-krb5-ccache-name \
 	--disable-pvs-studio \
+	--disable-log-server \
+	--enable-log-client \
 	--disable-sia \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-python \
 	--disable-pam-session \
 	--disable-kerb5-instance \
 	--without-AFS \
