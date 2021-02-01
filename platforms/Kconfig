@@ -4,6 +4,10 @@
 
 mainmenu "PTXdist $(PTXDIST_VERSION_FULL)"
 
+if 0
+source "generated/ptxdist_options.in"
+endif
+
 source "generated/platform_version.in"
 
 menu "architecture                  "
