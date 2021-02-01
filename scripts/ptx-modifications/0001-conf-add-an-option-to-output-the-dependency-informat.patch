@@ -4,11 +4,11 @@ Subject: [PATCH] conf: add an option to output the dependency information
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- scripts/kconfig/conf.c | 47 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 47 insertions(+)
+ scripts/kconfig/conf.c | 60 ++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 60 insertions(+)
 
 diff --git a/scripts/kconfig/conf.c b/scripts/kconfig/conf.c
-index db03e2f45de4..55845b34b4ad 100644
+index db03e2f45de4..32b4b6b99085 100644
 --- a/scripts/kconfig/conf.c
 +++ b/scripts/kconfig/conf.c
 @@ -35,6 +35,7 @@ enum input_mode {
@@ -19,7 +19,7 @@ index db03e2f45de4..55845b34b4ad 100644
  };
  static enum input_mode input_mode = oldaskconfig;
  
-@@ -454,6 +455,42 @@ static void check_conf(struct menu *menu)
+@@ -454,6 +455,55 @@ static void check_conf(struct menu *menu)
  		check_conf(child);
  }
  
@@ -57,6 +57,19 @@ index db03e2f45de4..55845b34b4ad 100644
 +		}
 +		printf("\n");
 +	}
++	printf("SYMBOLS:ALL");
++	for_all_symbols(i, sym) {
++		if (sym->name && (sym->type != S_UNKNOWN))
++			printf(":%s", sym->name);
++	}
++	printf("\n");
++	printf("SYMBOLS:UNKNOWN");
++	for_all_symbols(i, sym) {
++		if (sym->name && (sym->type == S_UNKNOWN) &&
++			!(sym->flags & SYMBOL_CONST))
++			printf(":%s", sym->name);
++	}
++	printf("\n");
 +}
 +
  static struct option long_opts[] = {

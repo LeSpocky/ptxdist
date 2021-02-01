@@ -489,6 +489,19 @@ static void create_dep_output()
 		}
 		printf("\n");
 	}
+	printf("SYMBOLS:ALL");
+	for_all_symbols(i, sym) {
+		if (sym->name && (sym->type != S_UNKNOWN))
+			printf(":%s", sym->name);
+	}
+	printf("\n");
+	printf("SYMBOLS:UNKNOWN");
+	for_all_symbols(i, sym) {
+		if (sym->name && (sym->type == S_UNKNOWN) &&
+			!(sym->flags & SYMBOL_CONST))
+			printf(":%s", sym->name);
+	}
+	printf("\n");
 }
 
 static struct option long_opts[] = {
