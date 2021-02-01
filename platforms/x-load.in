@@ -14,7 +14,7 @@ if X_LOAD
 
 config X_LOAD_VERSION
 	string
-	default f243938
+	default "f243938"
 	prompt "x-loader version"
 	help
 	  Enter the X-Loader version you want to build. Usually something like "1.4.2"
