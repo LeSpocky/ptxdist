@@ -22,6 +22,7 @@ BEGIN {
 	PARALLEL		= ENVIRON["PTXDIST_PARALLELMFLAGS_EXTERN"]
 	DIRTY			= ENVIRON["PTXDIST_DIRTY"];
 	PTXDIST_OLD_MAKE	= ENVIRON["PTXDIST_OLD_MAKE"];
+	PTXDIST_GEN_ALL		= ENVIRON["PTXDIST_GEN_ALL"];
 	DEP			= DIRTY == "true" ? "|" : ""
 	PTXDIST_HASHLIST	= PTXDIST_TEMPDIR "/pkghash.list"
 	CHECK_LICENSES		= 0
@@ -127,6 +128,8 @@ $1 ~ /^[A-Z_]*PACKAGES-/ {
 		PKG_to_makefile[this_PKG] = FILENAME;
 		FILENAME = "";
 	}
+	if (PTXDIST_GEN_ALL == "1")
+		active_PKG_to_pkg[this_PKG] = this_pkg;
 
 	print "PTX_MAP_TO_package_" this_PKG "=\"" this_pkg "\""	> MAP_ALL;
 	print "PTX_MAP_TO_package_" this_PKG "="   this_pkg 		> MAP_ALL_MAKE;
