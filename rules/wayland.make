@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WAYLAND) += wayland
 #
 # Paths and names
 #
-WAYLAND_VERSION	:= 1.18.0
-WAYLAND_MD5	:= 23317697b6e3ff2e1ac8c5ba3ed57b65
+WAYLAND_VERSION	:= 1.19.0
+WAYLAND_MD5	:= 5d59ac3d8a8f4e42de2ceb8bb19dfca9
 WAYLAND		:= wayland-$(WAYLAND_VERSION)
 WAYLAND_SUFFIX	:= tar.xz
 WAYLAND_URL	:= http://wayland.freedesktop.org/releases/$(WAYLAND).$(WAYLAND_SUFFIX)
@@ -37,10 +37,11 @@ WAYLAND_CONF_ENV	:= \
 WAYLAND_CONF_TOOL	:= meson
 WAYLAND_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dlibraries=true \
 	-Ddocumentation=false \
 	-Ddtd_validation=false \
-	-Dicon_directory=
+	-Dicon_directory= \
+	-Dlibraries=true \
+	-Dscanner=true
 
 # ----------------------------------------------------------------------------
 # Install

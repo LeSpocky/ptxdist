@@ -21,9 +21,10 @@ HOST_PACKAGES-$(PTXCONF_HOST_WAYLAND) += host-wayland
 HOST_WAYLAND_CONF_TOOL	:= meson
 HOST_WAYLAND_CONF_OPT	:= \
 	$(HOST_MESON_OPT) \
-	-Dlibraries=false \
 	-Ddocumentation=false \
 	-Ddtd_validation=false \
-	-Dicon_directory=
+	-Dicon_directory= \
+	-Dlibraries=false \
+	-Dscanner=true
 
 # vim: syntax=make
