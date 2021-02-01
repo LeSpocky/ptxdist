@@ -774,6 +774,7 @@ Misc:
   printnext <var>		assumes that the contents of <var> is another
 				variable and print the contents of this variable
   licensecheck			check md5sums of license files for all packages
+  lint				run some basic checks for the bsp and PTXdist
   list-packages			print a list of all selected packages
   local-src <pkg> [<directory>]	overwrite a package source with a locally provided
 				directory containing the sourcecode.
@@ -1820,6 +1821,11 @@ EOF
 				ptxd_make_log "${pkgs[@]/%/.report}"
 			fi
 			exit
+			;;
+		lint)
+			export PTXDIST_GEN_ALL=1
+			check_premake_compiler &&
+			ptxd_make_log ptxdist-lint
 			;;
 		list-packages)
 			check_config &&
