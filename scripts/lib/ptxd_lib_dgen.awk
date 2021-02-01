@@ -409,13 +409,14 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 
 	print "ifneq ($(" this_PKG "),)"									> DGEN_DEPS_POST;
 	print "ifneq ($(" this_PKG "_PATCHES),)"								> DGEN_DEPS_POST;
-	print this_PKG "_PATCH_DIR := $(call ptx/in-path,PTXDIST_PATH_PATCHES,$(" this_PKG "_PATCHES))"		> DGEN_DEPS_POST;
+	print this_PKG "_PATCH_DIRS := $(call ptx/in-path-all,PTXDIST_PATH_PATCHES,$(" this_PKG "_PATCHES))"	> DGEN_DEPS_POST;
 	print "else"												> DGEN_DEPS_POST;
-	print this_PKG "_PATCH_DIR := $(call ptx/in-path,PTXDIST_PATH_PATCHES,$(" this_PKG "))"			> DGEN_DEPS_POST;
+	print this_PKG "_PATCH_DIRS := $(call ptx/in-path-all,PTXDIST_PATH_PATCHES,$(" this_PKG "))"		> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
-	print "ifeq ($(" this_PKG "_PATCH_DIR),)"								> DGEN_DEPS_POST;
-	print "undefine " this_PKG "_PATCH_DIR"									> DGEN_DEPS_POST;
+	print "ifeq ($(" this_PKG "_PATCH_DIRS),)"								> DGEN_DEPS_POST;
+	print "undefine " this_PKG "_PATCH_DIRS"								> DGEN_DEPS_POST;
 	print "else"												> DGEN_DEPS_POST;
+	print this_PKG "_PATCH_DIR := $(firstword $(" this_PKG "_PATCH_DIRS))"					> DGEN_DEPS_POST;
 	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
 	print "PTXDIST_HASHLIST_DATA += PATCHES: " this_PKG " $(" this_PKG "_PATCH_DIR)\\n"			> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
