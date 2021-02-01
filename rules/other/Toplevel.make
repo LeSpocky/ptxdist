@@ -190,6 +190,14 @@ $(foreach v,$(call ptx/check-expand,$(1)),$(call ptx/print-var,$(v)))
 endef
 
 #
+# remember all variables for lint checks
+# do this here to really catch all variable definition
+#
+ifdef PTXDIST_GEN_ALL
+$(call ptx/file,>$(PTXDIST_TEMPDIR)/VARIABLES_ALL,$(.VARIABLES))
+endif
+
+#
 # Pattern target to allow printing variable
 # $(filter ..) is used to match against all existing variables so patterns
 # containing '%' can be uses to print multiple variables.
