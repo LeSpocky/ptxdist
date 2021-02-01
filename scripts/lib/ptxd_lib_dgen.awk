@@ -203,6 +203,33 @@ $1 ~ /^PTX_MAP_._SOURCE/ {
 	next;
 }
 
+$1 ~ /^PTX_MAP_._SYMBOLS/ {
+	name = gensub(/PTX_MAP_._SYMBOLS_/, "", "g", $1);
+	n = split($2, symbol_array, ":");
+
+	for (i = 1; i <= n; i++)
+		# range limits are unknown symbols in kconfig. Drop them here
+		if (name == "ALL" || !(symbol_array[i] ~ /^([0-9]*|0x[0-9a-f]*)$/))
+			config_symbols[name] = config_symbols[name] " " symbol_array[i]
+
+	next;
+}
+
+function write_symbols(name, symbols) {
+	symbol_file = PTXDIST_TEMPDIR "/SYMBOLS_" name
+	n = split(symbols, symbol_array, " ")
+	asort(symbol_array, symbol_array)
+	symbols = ""
+	last = ""
+	for (i = 1; i <= n; i++) {
+		if (last == symbol_array[i])
+			continue
+		print symbol_array[i]				> symbol_file
+		last = symbol_array[i]
+	}
+	close(symbol_file)
+}
+
 #
 # parse the ptx- and platformconfig
 # record yes and module packages
@@ -605,6 +632,9 @@ function write_deps_pkg_active_image(this_PKG, this_pkg, prefix) {
 }
 
 END {
+	for (symbol in config_symbols)
+		write_symbols(symbol, config_symbols[symbol])
+
 	# writing maps first as this affect the pkghash via virtual packages
 	for (this_PKG in PKG_to_pkg) {
 		this_pkg = PKG_to_pkg[this_PKG];
