@@ -1,9 +1,0 @@
-## SECTION=staging
-## old section:
-### SECTION=hosttools_noprompt
-
-config HOST_APR_UTIL
-	tristate
-	default y if ALLYES
-	select HOST_EXPAT
-	select HOST_APR
