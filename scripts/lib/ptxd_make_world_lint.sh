@@ -10,10 +10,10 @@ export PTXDIST_LINT_COMMANDS
 
 ptxd_lint_error() {
     while [ $# -gt 0 ]; do
-	echo -e "${PTXDIST_LOG_PROMPT}lint: ${1}"
+	echo -e "${1}"
 	shift
     done
-    _ptxd_make_world_lint_failed=1
+    touch "${PTXDIST_TEMPDIR}/lint-failed"
 }
 export -f ptxd_lint_error
 
@@ -132,13 +132,9 @@ PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} macros"
 
 ptxd_make_world_lint() {
     local command
-    local _ptxd_make_world_lint_failed
 
     for command in ${PTXDIST_LINT_COMMANDS}; do
 	ptxd_make_world_lint_${command}
     done
-    if [ -n "${_ptxd_make_world_lint_failed}" ]; then
-	ptxd_bailout "lint failed"
-    fi
 }
 export -f ptxd_make_world_lint
