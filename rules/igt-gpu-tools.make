@@ -27,6 +27,11 @@ IGT_GPU_TOOLS_LICENSE	:= MIT AND ISC
 # Prepare
 # ----------------------------------------------------------------------------
 
+# For some reason, intel_gpu_frequency and other segfault immediately if
+# built with -Wl,-z,now.
+IGT_GPU_TOOLS_WRAPPER_BLACKLIST := \
+	TARGET_HARDEN_BINDNOW
+
 IGT_GPU_TOOLS_LIBDRM-y					:=
 ifdef PTXCONF_ARCH_X86
 IGT_GPU_TOOLS_LIBDRM-$(PTXCONF_IGT_GPU_TOOLS_INTEL)	+= intel
