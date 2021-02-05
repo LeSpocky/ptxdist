@@ -90,6 +90,12 @@ For new packages, the generated templates contain commented-out default
 sections. These are meant as a helper to simplify creating custom stages.
 Any remaining default stages must be removed.
 
+All submissions should be checked with ``ptxdist lint``. It does basic
+sanity checks and finds some typical errors. Old patches that where not
+updated of removed after a version bump. Unknown PTXCONF_* variables or
+macros used in menu files. There are often typos or the variables was just
+removed.
+
 Helper Scripts
 --------------
 

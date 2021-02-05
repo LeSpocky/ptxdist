@@ -250,6 +250,11 @@ Misc Actions
   For the specified package (or all selected packages), check the MD5 sums
   of license files.
 
+``lint``
+  check the BSP and PTXdist for all kinds of issues. These are not checks
+  for things that cause build errors. Instead the checks look for
+  inconsistencies that may cause hidden problems.
+
 ``list-packages``
   print a list of all selected packages. This list does not include the
   host and cross tools.
