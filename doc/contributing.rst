@@ -14,12 +14,15 @@ How to Contribute
 
 Contributions should be sent as patches to the :ref:`mailing_list`. This
 is usually done with ``git send-email``.
+If you're unfamiliar with this workflow, have a look at the intro at
+`git-send-email.io <https://git-send-email.io/>`_.
 
 All patches must contain a descriptive subject and should, for all
 non-obvious changes, contain a commit message describing what has changed
 and why this is necessary.
 
-All patches must contain the correct ``Signed-off-by:`` tag.
+All patches must contain the correct ``Signed-off-by:`` tag,
+see `README.devel <https://git.pengutronix.de/cgit/ptxdist/tree/README.devel>`_.
 
 Package Builds should be Reproducible
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
