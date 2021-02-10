@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_UTIL_LINUX_NG) += util-linux-ng
 #
 # Paths and names
 #
-UTIL_LINUX_NG_VERSION	:= 2.36
-UTIL_LINUX_NG_MD5	:= fe7c0f7e439f08970e462c9d44599903
+UTIL_LINUX_NG_VERSION	:= 2.36.1
+UTIL_LINUX_NG_MD5	:= b0b702979d47043d9c4d8ba93be21e20
 UTIL_LINUX_NG		:= util-linux-$(UTIL_LINUX_NG_VERSION)
 UTIL_LINUX_NG_SUFFIX	:= tar.xz
 UTIL_LINUX_NG_BASENAME	:= v$(call ptx/sh, echo $(UTIL_LINUX_NG_VERSION) | sed -e 's/\([0-9]*\.[0-9]*\)[^0-9].*\?/\1/g')
