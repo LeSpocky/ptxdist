@@ -10,6 +10,7 @@
 # We provide this package
 #
 HOST_PACKAGES-$(PTXCONF_HOST_DUMMY_INSTALL_INFO) += host-dummy-install-info
+HOST_DUMMY_INSTALL_INFO_VERSION := 1
 HOST_DUMMY_INSTALL_INFO_LICENSE := ignore
 
 # ----------------------------------------------------------------------------

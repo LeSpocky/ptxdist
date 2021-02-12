@@ -11,6 +11,7 @@
 # We provide this package
 #
 PACKAGES-$(PTXCONF_BASE) += base
+BASE_VERSION := 1
 BASE_LICENSE := ignore
 
 # vim: syntax=make
