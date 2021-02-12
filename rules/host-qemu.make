@@ -16,8 +16,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_QEMU) += host-qemu
 #
 # Paths and names
 #
-HOST_QEMU_VERSION	:= 5.1.0
-HOST_QEMU_MD5		:= f3eb729786591f05a9ac5d8ab03b9269
+HOST_QEMU_VERSION	:= 5.2.0
+HOST_QEMU_MD5		:= 179f86928835da857c237b42f4b2df73
 HOST_QEMU		:= qemu-$(HOST_QEMU_VERSION)
 HOST_QEMU_SUFFIX	:= tar.xz
 HOST_QEMU_URL		:= https://download.qemu.org/$(HOST_QEMU).$(HOST_QEMU_SUFFIX)
@@ -58,20 +58,27 @@ HOST_QEMU_CONF_TOOL	:= autoconf
 # Note: not realy autoconf:
 # e.g. there is --enable-debug but not --disable-debug
 HOST_QEMU_CONF_OPT	:= \
-	$(HOST_AUTOCONF) \
+	--prefix=/. \
 	--target-list=" \
 		$(call ptx/ifdef, PTXCONF_HOST_QEMU_SYS,$(HOST_QEMU_SYS_TARGETS),) \
 		$(call ptx/ifdef, PTXCONF_HOST_QEMU_USR,$(HOST_QEMU_USR_TARGETS),) \
 	" \
-	--python=$(SYSTEMPYTHON3) \
+	--meson=meson \
+	--ninja=ninja \
+	--disable-sanitizers \
+	--disable-tsan \
 	--disable-werror \
+	--enable-stack-protector \
 	--audio-drv-list= \
 	--block-drv-rw-whitelist= \
 	--block-drv-ro-whitelist= \
 	--enable-trace-backends=nop \
 	--disable-tcg-interpreter \
+	--enable-malloc-trim \
 	--with-coroutine= \
 	--tls-priority=NORMAL \
+	--disable-plugins \
+	--disable-containers \
 	--$(call ptx/endis, PTXCONF_HOST_QEMU_SYS)-system \
 	--disable-user \
 	--$(call ptx/endis, PTXCONF_HOST_QEMU_USR)-linux-user \
@@ -81,30 +88,40 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-guest-agent-msi \
 	--enable-pie \
 	--disable-modules \
+	--disable-module-upgrades \
 	--disable-debug-tcg \
 	--disable-debug-info \
 	--disable-sparse \
+	--disable-safe-stack \
 	--disable-gnutls \
 	--disable-nettle \
 	--disable-gcrypt \
+	--disable-auth-pam \
 	--disable-sdl \
+	--disable-sdl-image \
 	--disable-gtk \
 	--disable-vte \
 	--disable-curses \
+	--enable-iconv \
 	--disable-vnc \
 	--disable-vnc-sasl \
 	--disable-vnc-jpeg \
 	--disable-vnc-png \
 	--disable-cocoa \
 	--enable-virtfs \
+	--disable-virtiofsd \
+	--disable-libudev \
 	--disable-mpath \
 	--disable-xen \
 	--disable-xen-pci-passthrough \
 	--disable-brlapi \
 	--disable-curl \
+	--enable-membarrier \
 	--enable-fdt \
 	--enable-kvm \
 	--disable-hax \
+	--disable-hvf \
+	--disable-whpx \
 	--disable-rdma \
 	--disable-pvrdma \
 	--disable-netmap \
@@ -116,13 +133,16 @@ HOST_QEMU_CONF_OPT	:= \
 	--enable-vhost-vsock \
 	--enable-vhost-scsi \
 	--disable-vhost-crypto \
+	--enable-vhost-kernel \
 	--disable-vhost-user \
+	--disable-vhost-user-blk-server \
 	--disable-vhost-vdpa \
 	--disable-spice \
 	--disable-rbd \
 	--disable-libiscsi \
 	--disable-libnfs \
 	--disable-smartcard \
+	--disable-u2f \
 	--$(call ptx/endis, PTXCONF_HOST_QEMU_SYS)-libusb \
 	--disable-live-block-migration \
 	--disable-usb-redir \
@@ -146,7 +166,11 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-xfsctl \
 	--disable-qom-cast-debug \
 	--disable-tools \
+	--disable-bochs \
+	--disable-cloop \
 	--disable-dmg \
+	--disable-qcow1 \
+	--disable-vdi \
 	--disable-vvfat \
 	--disable-qed \
 	--disable-parallels \
@@ -156,12 +180,11 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-debug-mutex \
 	--disable-libpmem \
 	--disable-xkbcommon \
-	--disable-plugins \
-	--disable-containers \
-	--disable-fuzzing \
 	--disable-rng-none \
-	--disable-keyring \
-	--disable-libdaxctl
+	--disable-libdaxctl \
+	\
+	--disable-fuzzing \
+	--disable-keyring
 
 # Use '=' to delay $(shell ...) calls until this is needed
 QEMU_CROSS_QEMU = $(call ptx/get-alternative, config/qemu, qemu-cross)
