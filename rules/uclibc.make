@@ -12,7 +12,7 @@
 #
 PACKAGES-$(PTXCONF_UCLIBC) += uclibc
 
-UCLIBC_VERSION	:= $(call remove_quotes,$(PTXCONF_UCLIBC_VERSION))
+UCLIBC_VERSION	:= $(call ptx/config-version, PTXCONF_UCLIBC)
 
 # ----------------------------------------------------------------------------
 # Target-Install
