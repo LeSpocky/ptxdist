@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_TF_A) += tf-a
 #
 # Paths and names
 #
-TF_A_VERSION	:= $(call remove_quotes,$(PTXCONF_TF_A_VERSION))
-TF_A_MD5	:= $(call remove_quotes,$(PTXCONF_TF_A_MD5))
+TF_A_VERSION	:= $(call ptx/config-version, PTXCONF_TF_A)
+TF_A_MD5	:= $(call ptx/config-md5, PTXCONF_TF_A)
 TF_A		:= tf-a-$(TF_A_VERSION)
 TF_A_SUFFIX	:= tar.gz
 TF_A_URL	:= https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/snapshot/$(TF_A_VERSION).$(TF_A_SUFFIX)
