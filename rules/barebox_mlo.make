@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_BAREBOX_MLO) += barebox_mlo
 #
 # Paths and names
 #
-BAREBOX_MLO_VERSION	:= $(call remove_quotes,$(PTXCONF_BAREBOX_MLO_VERSION))
-BAREBOX_MLO_MD5		:= $(call remove_quotes,$(PTXCONF_BAREBOX_MLO_MD5))
+BAREBOX_MLO_VERSION	:= $(call ptx/config-version, PTXCONF_BAREBOX_MLO)
+BAREBOX_MLO_MD5		:= $(call ptx/config-md5, PTXCONF_BAREBOX_MLO)
 BAREBOX_MLO		:= barebox-$(BAREBOX_MLO_VERSION)
 BAREBOX_MLO_URL		= http://www.barebox.org/download/$(BAREBOX_MLO).$(BAREBOX_SUFFIX)
 BAREBOX_MLO_DIR		:= $(BUILDDIR)/barebox_mlo-$(BAREBOX_MLO_VERSION)
