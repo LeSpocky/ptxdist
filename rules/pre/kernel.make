@@ -17,7 +17,7 @@ KERNEL_VERSION_MAJOR	:= $(call kernel-major,KERNEL)
 KERNEL_VERSION_MINOR	:= $(call kernel-minor,KERNEL)
 KERNEL_VERSION_MICRO	:= $(call kernel-micro,KERNEL)
 
-KERNEL_HEADER_VERSION		:= $(call remove_quotes,$(PTXCONF_KERNEL_HEADER_VERSION))
+KERNEL_HEADER_VERSION		:= $(call ptx/config-version, PTXCONF_KERNEL_HEADER)
 KERNEL_HEADER_VERSION_MAJOR	:= $(call kernel-major,KERNEL_HEADER)
 KERNEL_HEADER_VERSION_MINOR	:= $(call kernel-minor,KERNEL_HEADER)
 KERNEL_HEADER_VERSION_MICRO	:= $(call kernel-micro,KERNEL_HEADER)

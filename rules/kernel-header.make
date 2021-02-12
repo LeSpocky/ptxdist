@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_KERNEL_HEADER) += kernel-header
 # Paths and names
 #
 KERNEL_HEADER			:= linux-$(KERNEL_HEADER_VERSION)
-KERNEL_HEADER_MD5		:= $(call remove_quotes,$(PTXCONF_KERNEL_HEADER_MD5))
+KERNEL_HEADER_MD5		:= $(call ptx/config-md5, PTXCONF_KERNEL_HEADER)
 ifneq ($(KERNEL_HEADER_NEEDS_GIT_URL),y)
 KERNEL_HEADER_SUFFIX		:= tar.xz
 KERNEL_HEADER_URL		:= $(call kernel-url, KERNEL_HEADER)
