@@ -145,4 +145,44 @@ define ptx/yesno
 $(call ptx/ifdef, $(1), yes, no)
 endef
 
+
+define ptx/config-foo
+$(strip $(if $($(strip $(1))),
+  $(if $(call remove_quotes,$($(2))),
+    $(call remove_quotes,$($(2))),
+    $(error $(2) is undefined or empty)),
+  undefined))
+endef
+
+#
+# $(call ptx/config-version, PTXCONF_SYMBOL,PTXCONF_SYMBOL2) returns:
+# - if PTXCONF_SYMBOL is defined:
+#   - $(PTXCONF_SYMBOL2_VERSION) without quotes if it's not empty
+#   - fails with an error otherwise
+# - 'undefined if PTXCONF_SYMBOL is not defined
+# If PTXCONF_SYMBOL2 is empty then PTXCONF_SYMBOL_VERSION is used instead.
+#
+# This makes it easy to ensure, that the version of a package is defined if
+# the package is enabled.
+#
+define ptx/config-version
+$(call ptx/config-foo,$(strip $(1)),$(if $(strip $(2)),$(strip $(2))_VERSION,$(strip $(1))_VERSION))
+endef
+
+
+#
+# $(call ptx/config-md5, PTXCONF_SYMBOL,PTXCONF_SYMBOL2) returns:
+# - if PTXCONF_SYMBOL is defined:
+#   - $(PTXCONF_SYMBOL2_MD5) without quotes if it's not empty
+#   - fails with an error otherwise
+# - 'undefined if PTXCONF_SYMBOL is not defined
+# If PTXCONF_SYMBOL2 is empty then PTXCONF_SYMBOL_MD5 is used instead.
+#
+# This makes it easy to ensure, that the md5 sum of a package is defined if
+# the package is enabled.
+#
+define ptx/config-md5
+$(call ptx/config-foo,$(strip $(1)),$(if $(strip $(2)),$(strip $(2))_MD5,$(strip $(1))_MD5))
+endef
+
 # vim: syntax=make
