@@ -15,8 +15,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_DTC) += host-dtc
 #
 # Paths and names
 #
-HOST_DTC_VERSION	:= $(call remove_quotes,$(PTXCONF_HOST_DTC_VERSION))
-HOST_DTC_MD5		:= $(call remove_quotes,$(PTXCONF_HOST_DTC_MD5))
+HOST_DTC_VERSION	:= $(call ptx/config-version, PTXCONF_HOST_DTC)
+HOST_DTC_MD5		:= $(call ptx/config-md5, PTXCONF_HOST_DTC)
 HOST_DTC		:= dtc-v$(HOST_DTC_VERSION)
 HOST_DTC_SUFFIX		:= tar.gz
 HOST_DTC_URL		:= https://git.kernel.org/pub/scm/utils/dtc/dtc.git/snapshot/$(HOST_DTC).$(HOST_DTC_SUFFIX)
