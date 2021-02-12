@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_X_LOAD) += x-load
 #
 # Paths and names
 #
-X_LOAD_VERSION	:= $(call remove_quotes,$(PTXCONF_X_LOAD_VERSION))
-X_LOAD_MD5	:= $(call remove_quotes,$(PTXCONF_X_LOAD_MD5))
+X_LOAD_VERSION	:= $(call ptx/config-version, PTXCONF_X_LOAD)
+X_LOAD_MD5	:= $(call ptx/config-md5, PTXCONF_X_LOAD)
 X_LOAD		:= x-load-$(X_LOAD_VERSION)
 X_LOAD_SUFFIX	:= tar.bz2
 X_LOAD_URL	:= http://www.ptxdist.org/software/ptxdist/temporary-src/$(X_LOAD).$(X_LOAD_SUFFIX)
