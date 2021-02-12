@@ -12,7 +12,7 @@ kernel-major = $(word 1,$(call kernel-version-split, $(1)))
 kernel-minor = $(word 2,$(call kernel-version-split, $(1)))
 kernel-micro = $(word 3,$(call kernel-version-split, $(1)))
 
-KERNEL_VERSION		:= $(call remove_quotes,$(PTXCONF_KERNEL_VERSION))
+KERNEL_VERSION		:= $(call ptx/config-version, PTXCONF_KERNEL)
 KERNEL_VERSION_MAJOR	:= $(call kernel-major,KERNEL)
 KERNEL_VERSION_MINOR	:= $(call kernel-minor,KERNEL)
 KERNEL_VERSION_MICRO	:= $(call kernel-micro,KERNEL)

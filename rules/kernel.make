@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_KERNEL) += kernel
 # Paths and names
 #
 KERNEL			:= linux-$(KERNEL_VERSION)
-KERNEL_MD5		:= $(call remove_quotes,$(PTXCONF_KERNEL_MD5))
+KERNEL_MD5		:= $(call ptx/config-md5, PTXCONF_KERNEL)
 ifneq ($(KERNEL_NEEDS_GIT_URL),y)
 KERNEL_SUFFIX		:= tar.xz
 KERNEL_URL		:= $(call kernel-url, KERNEL)
