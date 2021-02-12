@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_GDB) += gdb
 #
 # Paths and names
 #
-GDB_VERSION	 = $(SHARED_GDB_VERSION)
-GDB_MD5		 = $(SHARED_GDB_MD5)
+GDB_VERSION	 = $(call ptx/config-version,PTXCONF_GDB,SHARED_GDB)
+GDB_MD5		 = $(call ptx/config-md5,PTXCONF_GDB,SHARED_GDB)
 GDB		:= gdb-$(GDB_VERSION)
 GDB_SUFFIX	:= tar.xz
 GDB_SOURCE	:= $(SRCDIR)/$(GDB).$(GDB_SUFFIX)
