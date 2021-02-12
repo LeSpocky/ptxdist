@@ -130,6 +130,18 @@ ptxd_make_world_lint_macros() {
 export -f ptxd_make_world_lint_macros
 PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} macros"
 
+ptxd_make_world_lint_version() {
+    local pkg
+
+    echo "Checking for packages without version ..."
+    for pkg in ${ptx_missing_version_pkgs}; do
+	ptxd_lint_error "Package '${pkg}' has no version."
+    done
+    echo
+}
+export -f ptxd_make_world_lint_version
+PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} version"
+
 ptxd_make_world_lint() {
     local command
 
