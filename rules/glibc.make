@@ -18,7 +18,7 @@ PACKAGES-$(PTXCONF_GLIBC) += glibc
 #
 # Paths and names
 #
-GLIBC_VERSION	:= $(call remove_quotes,$(PTXCONF_GLIBC_VERSION))
+GLIBC_VERSION	:= $(call ptx/config-version, PTXCONF_GLIBC)
 # for license information
 -include $(PTXDIST_PLATFORMDIR)/selected_toolchain/../share/compliance/glibc.make
 
