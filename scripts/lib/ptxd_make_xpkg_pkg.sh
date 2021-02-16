@@ -761,7 +761,7 @@ ptxd_install_generic() {
     IFS="${orig_IFS}"
     local usr="${usr:-${stat[0]}}" &&
     local grp="${grp:-${stat[1]}}" &&
-    local mod="${stat[2]}" &&
+    local mod="$(printf "0%o" $(( 0${stat[2]} & ~${umask} )))" &&
     local major="${stat[3]}" &&
     local minor="${stat[4]}" &&
     local type="${stat[5]}" &&
@@ -828,6 +828,7 @@ ptxd_install_tree() {
     local cmd="file"
     local src="${1}"
     local dst="${2}"
+    local umask=0000
     shift 2
     ptxd_install_find "${src}" "${dst}" "$@" ||
     ptxd_install_error "install_tree failed!"
@@ -842,6 +843,7 @@ ptxd_install_glob() {
     local yglob=( ${3} )
     local nglob=( ${4} )
     set -B +f
+    local umask=0000
     local -a glob
 
     if [ -n "${3}" ]; then
@@ -869,6 +871,7 @@ ptxd_install_alternative_tree() {
     local cmd="alternative"
     local src="${1}"
     local dst="${2}"
+    local umask=0022
     shift 2
     ptxd_install_find "${src}" "${dst:-${src}}" "$@" ||
     ptxd_install_error "install_alternative_tree failed!"
@@ -877,6 +880,7 @@ export -f ptxd_install_alternative_tree
 
 ptxd_install_archive() {
     local archive="$1"
+    local umask=0000
     shift
 
     if [ -L "${archive}" -a "$(readlink -f "${archive}")" = /dev/null ]; then
@@ -982,6 +986,7 @@ export -f ptxd_install_spec
 
 ptxd_install_package() {
     local lib_dir=$(ptxd_get_lib_dir)
+    local umask=0000
 
     for dir in "${pkg_pkg_dir}/"{,usr/}{bin,sbin,libexec}; do
 	find "${dir}" \( -type f -o -type l \) \
