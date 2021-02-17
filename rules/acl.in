@@ -2,8 +2,6 @@
 
 menuconfig ACL
 	tristate
-	select ATTR
-	select HOST_GETTEXT if ACL_GETTEXT
 	prompt "acl                           "
 	help
 	  Access control list utilities
@@ -16,9 +14,5 @@ if ACL
 config ACL_TOOLS
 	bool
 	prompt "install tools"
-
-config ACL_GETTEXT
-	bool
-	prompt "gettext support"
 
 endif
