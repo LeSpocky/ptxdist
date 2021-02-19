@@ -1,0 +1,8 @@
+## SECTION=system_libraries
+
+config LIBCLI
+	tristate
+	select LIBC_CRYPT
+	prompt "libcli"
+	help
+	  emulates a cisco style telnet command-line interface
