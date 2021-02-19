@@ -1,0 +1,63 @@
+## SECTION=networking
+
+menuconfig NETSNIFF_NG
+	tristate
+	select LIBCLI			if NETSNIFF_NG_MAUSEZAHN
+	select LIBNET			if NETSNIFF_NG_MAUSEZAHN
+	select LIBNETFILTER_CONNTRACK	if NETSNIFF_NG_FLOWTOP
+	select LIBNL3			if NETSNIFF_NG_LIBNL
+	select LIBPCAP			if NETSNIFF_NG_MAUSEZAHN || NETSNIFF_NG_NETSNIFF_NG
+	select LIBSODIUM		if NETSNIFF_NG_CURVETUN
+	select LIBURCU			if NETSNIFF_NG_FLOWTOP
+	select NCURSES			if NETSNIFF_NG_IFPPS || NETSNIFF_NG_FLOWTOP
+	select ZLIB			if NETSNIFF_NG_ZLIB
+	prompt "netsniff-ng                   "
+	help
+	  Linux network packet sniffer toolkit
+
+if NETSNIFF_NG
+
+config NETSNIFF_NG_LIBNL
+	bool
+
+config NETSNIFF_NG_ZLIB
+	bool
+
+config NETSNIFF_NG_ASTRACEROUTE
+	bool
+	select NETSNIFF_NG_ZLIB
+	prompt "install astraceroute"
+
+config NETSNIFF_NG_BPFC
+	bool
+	prompt "install bpfc"
+
+config NETSNIFF_NG_CURVETUN
+	bool
+	prompt "install curvetun"
+
+config NETSNIFF_NG_FLOWTOP
+	bool
+	select NETSNIFF_NG_ZLIB
+	prompt "install flowtop"
+
+config NETSNIFF_NG_IFPPS
+	bool
+	prompt "install ifpps"
+
+config NETSNIFF_NG_MAUSEZAHN
+	bool
+	prompt "install mausezahn"
+
+config NETSNIFF_NG_NETSNIFF_NG
+	bool
+	select NETSNIFF_NG_LIBNL
+	select NETSNIFF_NG_ZLIB
+	prompt "install netsniff-ng"
+
+config NETSNIFF_NG_TRAFGEN
+	bool
+	select NETSNIFF_NG_LIBNL
+	prompt "install trafgen"
+
+endif
