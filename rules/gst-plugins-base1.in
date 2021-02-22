@@ -199,10 +199,10 @@ config GST_PLUGINS_BASE1_GLX
 	select GST_PLUGINS_BASE1_X11
 	prompt "glx"
 
+endif
+
 config GST_PLUGINS_BASE1_X11
 	bool
-
-endif
 
 config GST_PLUGINS_BASE1_LIBVISUAL
 	bool
@@ -250,6 +250,7 @@ config GST_PLUGINS_BASE1_VORBIS
 
 config GST_PLUGINS_BASE1_X
 	bool
+	select GST_PLUGINS_BASE1_X11
 	prompt "x based plugins"
 	help
 	  X11 ximagesink, xvimagesink plugins and X11 support in libraries
