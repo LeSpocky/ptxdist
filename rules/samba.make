@@ -95,7 +95,7 @@ $(STATEDIR)/samba.prepare:
 		UNAME_V=$(if $(KERNEL_HEADER_VERSION),$(KERNEL_HEADER_VERSION),$(KERNEL_VERSION)) \
 		HAS_64BIT=$(call ptx/ifdef,PTXCONF_ARCH_LP64,OK,NO) \
 		ptxd_replace_magic $(SAMBA_CONFIG) > $(SAMBA_DIR)/cross-answers
-	@$(call world/execute, SAMBA, $(SYSTEMPYTHON) ./buildtools/bin/waf configure $(SAMBA_CONF_OPT))
+	@$(call world/execute, SAMBA, $(SYSTEMPYTHON3) ./buildtools/bin/waf configure $(SAMBA_CONF_OPT))
 	@$(call touch)
 
 SAMBA_COMPILE_ENV := \
