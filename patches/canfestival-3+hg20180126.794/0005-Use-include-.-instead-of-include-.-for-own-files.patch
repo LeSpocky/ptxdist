@@ -1,0 +1,118 @@
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Date: Wed, 29 Apr 2020 22:54:55 +0200
+Subject: [PATCH] Use #include "..." instead of #include <...> for own files
+
+This fixes inclusion if the consumer used
+
+	#include <canfestival/canfestival.h>
+
+(and not -I/usr/include/canfestival) as with
+
+	#include <...>
+
+the local files are not found in this case.
+---
+ include/emcy.h     | 2 +-
+ include/lifegrd.h  | 2 +-
+ include/nmtSlave.h | 2 +-
+ include/objacces.h | 2 +-
+ include/pdo.h      | 4 ++--
+ include/states.h   | 2 +-
+ include/timer.h    | 4 ++--
+ 7 files changed, 9 insertions(+), 9 deletions(-)
+
+diff --git a/include/emcy.h b/include/emcy.h
+index d3a19eb6d335..ad7ce933eebd 100644
+--- a/include/emcy.h
++++ b/include/emcy.h
+@@ -39,7 +39,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ #define __emcy_h__
+ 
+ 
+-#include <applicfg.h>
++#include "applicfg.h"
+ 
+ /* The error states 
+  * ----------------- */
+diff --git a/include/lifegrd.h b/include/lifegrd.h
+index a0600a717038..222a3dd18f73 100644
+--- a/include/lifegrd.h
++++ b/include/lifegrd.h
+@@ -53,7 +53,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ #define __lifegrd_h__
+ 
+ 
+-#include <applicfg.h>
++#include "applicfg.h"
+ 
+ typedef void (*heartbeatError_t)(CO_Data*, UNS8);
+ void _heartbeatError(CO_Data* d, UNS8 heartbeatID);
+diff --git a/include/nmtSlave.h b/include/nmtSlave.h
+index 0a57ae878364..ffb720194e15 100755
+--- a/include/nmtSlave.h
++++ b/include/nmtSlave.h
+@@ -28,7 +28,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ #ifndef __nmtSlave_h__
+ #define __nmtSlave_h__
+ 
+-#include <applicfg.h>
++#include "applicfg.h"
+ #include "data.h"
+ 
+ /** 
+diff --git a/include/objacces.h b/include/objacces.h
+index 26a96542a4ca..05dd46d313d7 100755
+--- a/include/objacces.h
++++ b/include/objacces.h
+@@ -39,7 +39,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ #ifndef __objacces_h__
+ #define __objacces_h__
+ 
+-#include <applicfg.h>
++#include "applicfg.h"
+ 
+ 
+ #ifdef __cplusplus
+diff --git a/include/pdo.h b/include/pdo.h
+index d276d51734fc..713167f50071 100755
+--- a/include/pdo.h
++++ b/include/pdo.h
+@@ -29,8 +29,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ #ifndef __pdo_h__
+ #define __pdo_h__
+ 
+-#include <applicfg.h>
+-#include <def.h>
++#include "applicfg.h"
++#include "def.h"
+ 
+ #include "can.h"
+ 
+diff --git a/include/states.h b/include/states.h
+index 6615a3debe02..804267113bd6 100644
+--- a/include/states.h
++++ b/include/states.h
+@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ #ifndef __states_h__
+ #define __states_h__
+ 
+-#include <applicfg.h>
++#include "applicfg.h"
+ 
+ /* The nodes states 
+  * -----------------
+diff --git a/include/timer.h b/include/timer.h
+index bbf4f98e4f5e..836563021093 100755
+--- a/include/timer.h
++++ b/include/timer.h
+@@ -23,8 +23,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ #ifndef __timer_h__
+ #define __timer_h__
+ 
+-#include <timerscfg.h>
+-#include <applicfg.h>
++#include "timerscfg.h"
++#include "applicfg.h"
+ 
+ #define TIMER_HANDLE INTEGER16
+ 

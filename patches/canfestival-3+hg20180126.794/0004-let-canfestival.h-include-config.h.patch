@@ -1,0 +1,39 @@
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Date: Mon, 29 Jan 2018 14:07:18 +0100
+Subject: [PATCH] let canfestival.h include config.h
+
+This is necessary to make the header self-contained. Otherwise it is necessary to do
+
+	#include <config.h>
+	#include <canfestival.h>
+
+in the API user which might pull in a local config.h.
+---
+ include/sdo.h              | 1 +
+ include/unix/canfestival.h | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/include/sdo.h b/include/sdo.h
+index 28b8c5c414eb..7863bb5c05a0 100644
+--- a/include/sdo.h
++++ b/include/sdo.h
+@@ -36,6 +36,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ struct struct_s_transfer;
+ 
++#include "config.h"
+ #include "timer.h"
+ 
+ /* Block mode : Data consumer receive step 
+diff --git a/include/unix/canfestival.h b/include/unix/canfestival.h
+index f20e593dcf89..ee2a0bc0c4ae 100755
+--- a/include/unix/canfestival.h
++++ b/include/unix/canfestival.h
+@@ -5,6 +5,7 @@
+ extern "C" {
+ #endif
+ 
++#include "config.h"
+ #include "timerscfg.h"
+ #include "can_driver.h"
+ #include "data.h"

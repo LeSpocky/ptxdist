@@ -3,4 +3,6 @@
 0001-fix-for-ldconfig-crash-on-make-install.patch
 0002-fix-for-CAN-ID-byteorder.patch
 0003-Makefile.in-fix-suffix-rules.patch
-# dd854f5028c1d8578c6dffd44f0d1f06  - git-ptx-patches magic
+0004-let-canfestival.h-include-config.h.patch
+0005-Use-include-.-instead-of-include-.-for-own-files.patch
+# 3c7ac338090e2d1acca872cb33f8371f  - git-ptx-patches magic
