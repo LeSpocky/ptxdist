@@ -119,6 +119,11 @@ ptxd_make_world_lint_macros() {
     local macro variables_all
 
     echo "Checking macros in rule files ..."
+    if [ ! -e "${PTXDIST_TEMPDIR}/VARIABLES_ALL" ]; then
+	echo "Your 'make' version is too old for this check!"
+	echo
+	return
+    fi
     variables_all="$(<${PTXDIST_TEMPDIR}/VARIABLES_ALL)"
     exec {filefd}< <(ptxd_make_world_lint_makefiles)
     while read file <&${filefd}; do

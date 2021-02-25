@@ -194,7 +194,9 @@ endef
 # do this here to really catch all variable definition
 #
 ifdef PTXDIST_GEN_ALL
-$(call ptx/file,>$(PTXDIST_TEMPDIR)/VARIABLES_ALL,$(.VARIABLES))
+ifndef PTXDIST_OLD_MAKE
+$(file >$(PTXDIST_TEMPDIR)/VARIABLES_ALL,$(.VARIABLES))
+endif
 endif
 
 #
