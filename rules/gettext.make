@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_GETTEXT) += gettext
 #
 # Paths and names
 #
-GETTEXT_VERSION	:= 0.20.2
-GETTEXT_MD5	:= 0cf5f68338d5d941bbf9ac93b847310f
+GETTEXT_VERSION	:= 0.21
+GETTEXT_MD5	:= 40996bbaf7d1356d3c22e33a8b255b31
 GETTEXT		:= gettext-$(GETTEXT_VERSION)
 GETTEXT_SUFFIX	:= tar.xz
 GETTEXT_URL	:= $(call ptx/mirror, GNU, gettext/$(GETTEXT).$(GETTEXT_SUFFIX))
@@ -32,13 +32,10 @@ GETTEXT_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-GETTEXT_PATH	:= PATH=$(CROSS_PATH)
-GETTEXT_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #
-GETTEXT_AUTOCONF := \
+GETTEXT_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-java \
 	--disable-csharp \
@@ -59,6 +56,8 @@ GETTEXT_AUTOCONF := \
 	--without-included-libxml \
 	--with-included-regex \
 	--without-emacs \
+	--without-git \
+	--without-cvs \
 	--without-bzip2 \
 	--without-xz
 

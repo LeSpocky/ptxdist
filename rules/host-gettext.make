@@ -22,17 +22,25 @@ HOST_PACKAGES-$(PTXCONF_HOST_GETTEXT) += host-gettext
 HOST_GETTEXT_AUTOCONF := \
 	$(HOST_AUTOCONF) \
 	--disable-java \
-	--disable-native-java \
 	--disable-csharp \
+	--enable-threads=posix \
 	--disable-static \
 	--disable-nls \
+	--disable-rpath \
 	--disable-c++ \
+	--enable-cross-guesses=conservative \
 	--enable-relocatable \
 	--disable-libasprintf \
-	--disable-acl \
-	--disable-openmp \
 	--disable-curses \
+	--enable-namespacing \
+	--disable-openmp \
+	--disable-acl \
+	--with-included-libunistring \
+	--with-included-libxml \
+	--with-included-regex \
 	--without-emacs \
+	--without-git \
+	--without-cvs \
 	--without-bzip2 \
 	--without-xz
 
