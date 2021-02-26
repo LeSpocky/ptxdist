@@ -147,6 +147,34 @@ ptxd_make_world_lint_version() {
 export -f ptxd_make_world_lint_version
 PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} version"
 
+ptxd_make_world_lint_autogen() {
+    local dir fd file need_autogen
+
+    echo "Checking for missing autogen.sh ..."
+    for dir in ${ptx_patch_dir_all}; do
+	need_autogen=
+	exec {fd}< <(find "${dir}" -type f ! -name autogen.sh ! -name series)
+	while read file <&${fd}; do
+	    # Check for configure.ac, Makefile.am and similar files. They
+	    # indicate that autogen.sh is needed. But not if Makefile.in is
+	    # found as well. That means that autoreconf is broken.
+	    if diffstat "${file}" | grep -q '\(configure.\(ac\|in\)\|\(GNUm\|m\|M\)ake.*\.am\)' &&
+		    ! diffstat "${file}" | grep -q '\(GNUm\|m\|M\)ake.*\.in'; then
+		need_autogen=1
+		break
+	    fi
+	done < "${ptx_dgen_rulesfiles_make}"
+	exec {fd}<&-
+	if [ -n "${need_autogen}" -a ! -e "${dir}/autogen.sh" ]; then
+	    ptxd_lint_error "'$(ptxd_print_path "${file}")' touches files that require autoreconf" \
+		    "but '$(ptxd_print_path "${dir}/autogen.sh") does not exist."
+	fi
+    done
+    echo
+}
+export -f ptxd_make_world_lint_autogen
+PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} autogen"
+
 ptxd_make_world_lint() {
     local command
 
