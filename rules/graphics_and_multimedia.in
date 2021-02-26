@@ -37,8 +37,6 @@ menu "libs                          "
 source "generated/multimedia_libs.in"
 endmenu
 
-source "generated/multimedia_fltk.in"
-
 menu "framebuffer                   "
 source "generated/multimedia_framebuffer.in"
 endmenu
