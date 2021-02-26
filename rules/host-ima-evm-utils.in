@@ -3,7 +3,6 @@
 config HOST_IMA_EVM_UTILS
 	tristate
 	default y if ALLYES
-	select HOST_ATTR
 	select HOST_OPENSSL
 	select HOST_KEYUTILS
 	help
