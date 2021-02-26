@@ -582,9 +582,11 @@ ptxd_kconfig_update() {
     esac
     case "${part}" in
     ptx)
-	if ! ptxd_in_path PTXDIST_PATH_LAYERS "Kconfig"; then
-	    ptxd_in_path PTXDIST_PATH_LAYERS "config/Kconfig"
+	if ptxd_in_path PTXDIST_PATH_LAYERS "Kconfig"; then
+	    ptxd_bailout "Legacy path '$(ptxd_print_path "${ptxd_reply}")' is no longer supported." \
+		    "It must be moved to '$(ptxd_print_path "${ptxd_reply%Kconfig}config/Kconfig")'."
 	fi
+	ptxd_in_path PTXDIST_PATH_LAYERS "config/Kconfig"
 	file_kconfig="${ptxd_reply}"
 	;;
     platform)
