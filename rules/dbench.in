@@ -2,7 +2,6 @@
 
 menuconfig DBENCH
 	tristate
-	select ATTR
 	prompt "dbench                        "
 	help
 	  The dbench (disk) and tbench (TCP) benchmarks
