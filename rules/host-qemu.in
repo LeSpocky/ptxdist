@@ -4,7 +4,6 @@ menuconfig HOST_QEMU
 	tristate
 	default y if ALLYES
 	prompt "host-side qemu                "
-	select HOST_ATTR
 	select HOST_GLIB
 	select HOST_LIBCAP_NG
 	select HOST_ZLIB
