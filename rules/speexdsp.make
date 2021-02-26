@@ -38,7 +38,7 @@ SPEEXDSP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-valgrind \
 	--$(call ptx/endis, PTXCONF_ARCH_X86)-sse \
-	--$(call ptx/endis, PTXCONF_ARCH_ARM_NEON)-neon \
+	--$(call ptx/endis, PTXCONF_ARCH_ARMV7_NEON)-neon \
 	--$(call ptx/endis, PTXCONF_SPEEXDSP_FIXED_POINT)-fixed-point \
 	--$(call ptx/endis, PTXCONF_SPEEXDSP_FLOAT_API)-float-api \
 	--disable-examples \

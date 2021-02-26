@@ -36,7 +36,7 @@ VO_AACENC_CONF_TOOL	:= autoconf
 VO_AACENC_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-armv5e \
-	--$(call ptx/endis, PTXCONF_ARCH_ARM_NEON)-armv7neon \
+	--$(call ptx/endis, PTXCONF_ARCH_ARMV7_NEON)-armv7neon \
 	--disable-example \
 	--disable-static
 

@@ -235,7 +235,9 @@ cc_add_debug() {
 }
 
 cc_add_arch() {
-	add_opt_arg ARCH_ARM_NEON "-mfpu=neon"
+	if test_opt ARCH_ARM; then
+		add_opt_arg ARCH_ARM_NEON "-mfpu=neon"
+	fi
 }
 
 cpp_add_target_extra() {

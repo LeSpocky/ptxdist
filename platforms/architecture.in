@@ -257,11 +257,17 @@ config ARCH_ARM_IWMMXT
 	  but not all pxa processors.
 
 config ARCH_ARM_NEON
-	bool "support NEON extension"
-	depends on ARCH_ARM
+	bool "support NEON extension" if ARCH_ARM
+	# NEON is not optional on ARM64
+	default y if ARCH_ARM64
+	depends on ARCH_ARM || ARCH_ARM64
 	help
 	  This enables the NEON extension. This is e.g. present on
 	  Cortex A8 processors.
+
+config ARCH_ARMV7_NEON
+	bool
+	default ARCH_ARM_NEON if ARCH_ARM
 
 #
 # hardware / software floating point
