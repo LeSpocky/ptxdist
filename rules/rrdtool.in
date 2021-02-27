@@ -12,8 +12,6 @@ menuconfig RRDTOOL
 	select LIBXML2_SAX1	if RRDTOOL_RRD_RESTORE
 	select LIBXML2_READER	if RRDTOOL_RRD_RESTORE
 
-# for autotools only
-	select HOST_GETTEXT
 	prompt "rrdtool                       "
 	help
 	  The Round Robin Database Tool (RRDtool) is a system to store and
