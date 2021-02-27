@@ -2,7 +2,6 @@
 config PARTED
 	tristate
 	prompt "parted"
-	select HOST_GETTEXT
 	select LIBUUID
 	select E2FSPROGS
 	select NCURSES
