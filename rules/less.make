@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_LESS) += less
 #
 # Paths and names
 #
-LESS_VERSION	:= 530
-LESS_MD5	:= 6a39bccf420c946b0fd7ffc64961315b
+LESS_VERSION	:= 579
+LESS_MD5	:= e79b780e0ae831ac3a4b9473e965c97d
 LESS		:= less-$(LESS_VERSION)
 LESS_SUFFIX	:= tar.gz
-LESS_URL	:= $(call ptx/mirror, GNU, less/$(LESS).$(LESS_SUFFIX))
+LESS_URL	:= https://greenwoodsoftware.com/less/$(LESS).$(LESS_SUFFIX)
 LESS_SOURCE	:= $(SRCDIR)/$(LESS).$(LESS_SUFFIX)
 LESS_DIR	:= $(BUILDDIR)/$(LESS)
 LESS_LICENSE	:= GPL-3.0-or-later AND BSD-2-Clause
