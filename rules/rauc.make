@@ -50,8 +50,10 @@ RAUC_CONF_OPT	:= \
 
 $(STATEDIR)/rauc.prepare:
 	@$(call targetinfo)
-	@test ! -e "$(call ptx/in-platformconfigdir, config/rauc/rauc.key.pem)" || \
-		ptxd_bailout "Please use the signing provider infrastructure desribed in:" \
+	@keyfile="$(call ptx/in-platformconfigdir, config/rauc/rauc.key.pem)"; \
+		test ! -e "$${keyfile}" || \
+		ptxd_bailout "Legacy RAUC keyring exists at $${keyfile}!" \
+			"Please use the signing provider infrastructure instead, as described in:" \
 			"https://www.ptxdist.org/doc/dev_code_signing.html"
 	@$(call world/prepare, RAUC)
 	@$(call touch)
