@@ -49,6 +49,7 @@ material in case SoftHSM is used.
 
 When ``PTXCONF_CODE_SIGNING`` is enabled exactly one code signing provider is
 active during each invocation of PTXdist.
+The active provider can be selected in the ``platformconfig`` menu.
 
 PTXdist comes equipped with a development code signing provider "devel"
 implemented via the package ``host-ptx-code-signing-dev``.
