@@ -151,6 +151,13 @@ ptxd_make_world_lint_autogen() {
     local dir fd file need_autogen
 
     echo "Checking for missing autogen.sh ..."
+
+    if [ -z "$(type -t diffstat)" ]; then
+	    echo "'diffstat' not found, skipping checks for missing autogen.sh"
+	    echo
+	    return
+    fi
+
     for dir in ${ptx_patch_dir_all}; do
 	need_autogen=
 	exec {fd}< <(find "${dir}" -type f ! -name autogen.sh ! -name series)
