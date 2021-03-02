@@ -23,7 +23,7 @@ Signed-off-by: Bastian Stender <bst@pengutronix.de>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/setup.py b/setup.py
-index b8a35218b259..be779cafc95f 100644
+index 9250f5a1b691..3278aaf6e677 100644
 --- a/setup.py
 +++ b/setup.py
 @@ -587,10 +587,12 @@ class PyBuildExt(build_ext):
