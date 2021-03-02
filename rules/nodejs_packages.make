@@ -59,7 +59,7 @@ $(STATEDIR)/nodejs_packages.compile:
 		touch $(YARN_LOCK); \
 		ln -fs $(YARN_LOCK) $(NODEJS_PACKAGES_DIR)/yarn.lock; \
 	fi
-	yarn $(YARN_OPTS) add $(NODEJS_PACKAGES_LIST)
+	$(call node/env, yarn $(YARN_OPTS) add $(NODEJS_PACKAGES_LIST))
 	@find $(NODEJS_PACKAGES_CACHE) -type f -name '.yarn-tarball.tgz' -delete
 	@$(call touch)
 
