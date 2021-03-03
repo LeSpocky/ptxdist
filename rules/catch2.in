@@ -1,0 +1,20 @@
+## SECTION=test_suites
+
+menuconfig CATCH2
+	tristate
+	prompt "Catch2                        "
+	select HOST_CMAKE
+	help
+	  Catch2 is a multi-paradigm test framework for C++ primarily
+	  distributed as a single header file. It comes with convenient
+	  CMake integration.
+
+if CATCH2
+
+config CATCH2_BUILD_TESTING
+	bool
+	prompt "Build SelfTest project"
+
+endif
+
+# vim: ft=kconfig noet tw=72 ts=8 sw=8
