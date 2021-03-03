@@ -1,0 +1,144 @@
+From 3b0511e0e85700a8623ab6d0e1a6f8df42bc1c16 Mon Sep 17 00:00:00 2001
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Wed, 3 Mar 2021 10:46:28 +0100
+Subject: [PATCH] CMake: Allow UA_NODESET_DIR to be custom defined.
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This makes it easier for developers to keep all ua-nodesets XML
+definitions in a common location.
+
+Backported from: https://github.com/open62541/open62541/pull/3310
+
+Signed-off-by: Björn Esser <b.esser@pengutronix.de>
+---
+ CMakeLists.txt                  |  6 +++++-
+ doc/nodeset_compiler.rst        | 22 +++++++++++-----------
+ examples/CMakeLists.txt         |  4 ----
+ tools/cmake/macros_public.cmake |  2 +-
+ 4 files changed, 17 insertions(+), 17 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index d09a77a6..87338eb8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -15,7 +15,6 @@ include(GNUInstallDirs)
+ 
+ # Set when installed via make install
+ set(open62541_TOOLS_DIR ${PROJECT_SOURCE_DIR}/tools)
+-set(open62541_NODESET_DIR ${PROJECT_SOURCE_DIR}/deps/ua-nodeset)
+ set(XDP_LIBRARY "/usr/local/src/bpf-next/tools/lib/bpf/libbpf.a")
+ 
+ include(macros_internal)
+@@ -160,6 +159,11 @@ if(UA_ENABLE_ENCRYPTION_OPENSSL)
+     set(UA_ENABLE_ENCRYPTION_MBEDTLS OFF)
+ endif()    
+ 
++if(NOT UA_NODESET_DIR)
++    set(UA_NODESET_DIR ${PROJECT_SOURCE_DIR}/deps/ua-nodeset)
++endif()
++set(open62541_NODESET_DIR ${UA_NODESET_DIR})
++
+ # Namespace Zero
+ set(UA_NAMESPACE_ZERO "REDUCED" CACHE STRING "Completeness of the generated namespace zero (minimal/reduced/full)")
+ SET_PROPERTY(CACHE UA_NAMESPACE_ZERO PROPERTY STRINGS "MINIMAL" "REDUCED" "FULL")
+diff --git a/doc/nodeset_compiler.rst b/doc/nodeset_compiler.rst
+index 730eda80..ea110d40 100644
+--- a/doc/nodeset_compiler.rst
++++ b/doc/nodeset_compiler.rst
+@@ -292,17 +292,17 @@ Here are some examples for the ``DI`` and ``PLCOpen`` nodesets::
+     # Generate types and namespace for DI
+     ua_generate_nodeset_and_datatypes(
+         NAME "di"
+-        FILE_CSV "${PROJECT_SOURCE_DIR}/deps/ua-nodeset/DI/OpcUaDiModel.csv"
+-        FILE_BSD "${PROJECT_SOURCE_DIR}/deps/ua-nodeset/DI/Opc.Ua.Di.Types.bsd"
++        FILE_CSV "${UA_NODESET_DIR}/deps/ua-nodeset/DI/OpcUaDiModel.csv"
++        FILE_BSD "${UA_NODESET_DIR}/deps/ua-nodeset/DI/Opc.Ua.Di.Types.bsd"
+         NAMESPACE_MAP "2:http://opcfoundation.org/UA/DI/"
+-        FILE_NS "${PROJECT_SOURCE_DIR}/deps/ua-nodeset/DI/Opc.Ua.Di.NodeSet2.xml"
++        FILE_NS "${UA_NODESET_DIR}/deps/ua-nodeset/DI/Opc.Ua.Di.NodeSet2.xml"
+     )
+ 
+     # generate PLCopen namespace which is using DI
+     ua_generate_nodeset_and_datatypes(
+         NAME "plc"
+         # PLCopen does not define custom types. Only generate the nodeset
+-        FILE_NS "${PROJECT_SOURCE_DIR}/deps/ua-nodeset/PLCopen/Opc.Ua.Plc.NodeSet2.xml"
++        FILE_NS "${UA_NODESET_DIR}/PLCopen/Opc.Ua.Plc.NodeSet2.xml"
+         # PLCopen depends on the di nodeset, which must be generated before
+         DEPENDS "di"
+     )
+@@ -401,8 +401,8 @@ This DI nodeset makes use of some additional data types in ``deps/ua-nodeset/DI/
+         NAME "ua_types_di"
+         TARGET_SUFFIX "types-di"
+         NAMESPACE_MAP "2:http://opcfoundation.org/UA/DI/"
+-        FILE_CSV "${PROJECT_SOURCE_DIR}/deps/ua-nodeset/DI/OpcUaDiModel.csv"
+-        FILES_BSD "${PROJECT_SOURCE_DIR}/deps/ua-nodeset/DI/Opc.Ua.Di.Types.bsd"
++        FILE_CSV "${UA_NODESET_DIR}/deps/ua-nodeset/DI/OpcUaDiModel.csv"
++        FILES_BSD "${UA_NODESET_DIR}/deps/ua-nodeset/DI/Opc.Ua.Di.Types.bsd"
+     )
+ 
+ The ``NAMESPACE_MAP`` parameter is an array of strings which indicates the mapping of specific namespace uris to the resulting namespace index.
+@@ -414,11 +414,11 @@ Now you can compile the DI nodeset XML using the following command::
+ 
+     ua_generate_nodeset(
+         NAME "di"
+-        FILE "${PROJECT_SOURCE_DIR}/deps/ua-nodeset/DI/Opc.Ua.Di.NodeSet2.xml"
++        FILE "${UA_NODESET_DIR}/DI/Opc.Ua.Di.NodeSet2.xml"
+         TYPES_ARRAY "UA_TYPES_DI"
+         INTERNAL
+         DEPENDS_TYPES "UA_TYPES"
+-        DEPENDS_NS    "${PROJECT_SOURCE_DIR}/deps/ua-nodeset/Schema/Opc.Ua.NodeSet2.xml"
++        DEPENDS_NS    "${UA_NODESET_DIR}/Schema/Opc.Ua.NodeSet2.xml"
+         DEPENDS_TARGET "open62541-generator-types-di"
+     )
+ 
+@@ -429,13 +429,13 @@ Next we can generate the PLCopen nodeset. Since it doesn't require any additiona
+ 
+     ua_generate_nodeset(
+         NAME "plc"
+-        FILE "${PROJECT_SOURCE_DIR}/deps/ua-nodeset/PLCopen/Opc.Ua.Plc.NodeSet2.xml"
++        FILE "${UA_NODESET_DIR}/PLCopen/Opc.Ua.Plc.NodeSet2.xml"
+         INTERNAL
+         DEPENDS_TYPES
+             "UA_TYPES" "UA_TYPES_DI"
+         DEPENDS_NS
+-            "${PROJECT_SOURCE_DIR}/deps/ua-nodeset/Schema/Opc.Ua.NodeSet2.xml"
+-            "${PROJECT_SOURCE_DIR}/deps/ua-nodeset/DI/Opc.Ua.Di.NodeSet2.xml"
++            "${UA_NODESET_DIR}/Schema/Opc.Ua.NodeSet2.xml"
++            "${UA_NODESET_DIR}/DI/Opc.Ua.Di.NodeSet2.xml"
+         DEPENDS_TARGET "open62541-generator-ns-di"
+     )
+ 
+diff --git a/examples/CMakeLists.txt b/examples/CMakeLists.txt
+index 70c84560..b589dec3 100644
+--- a/examples/CMakeLists.txt
++++ b/examples/CMakeLists.txt
+@@ -26,10 +26,6 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+         set(UA_TOOLS_DIR ${open62541_TOOLS_DIR})
+     endif()
+ 
+-    if(NOT UA_NODESET_DIR)
+-        set(UA_NODESET_DIR ${open62541_NODESET_DIR})
+-    endif()
+-
+     function(assign_source_group)
+         # define empty function. We don't need it in standalone
+     endfunction(assign_source_group)
+diff --git a/tools/cmake/macros_public.cmake b/tools/cmake/macros_public.cmake
+index 95414e3d..4172392f 100644
+--- a/tools/cmake/macros_public.cmake
++++ b/tools/cmake/macros_public.cmake
+@@ -97,7 +97,7 @@ endfunction()
+ #                   passed which will all combined to one resulting code.
+ #   IMPORT_BSD      Combination of types array and path to the .bsd file containing additional type definitions referenced by
+ #                   the FILES_BSD files. The value is separated with a hash sign, i.e.
+-#                   'UA_TYPES#${PROJECT_SOURCE_DIR}/deps/ua-nodeset/Schema/Opc.Ua.Types.bsd'
++#                   'UA_TYPES#${UA_NODESET_DIR}/Schema/Opc.Ua.Types.bsd'
+ #                   Multiple files can be passed which will all be imported.
+ #   [FILES_SELECTED] Optional path to a simple text file which contains a list of types which should be included in the generation.
+ #                   The file should contain one type per line. Multiple files can be passed to this argument.
+-- 
+2.29.2
+
