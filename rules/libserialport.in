@@ -1,0 +1,13 @@
+## SECTION=communication
+
+config LIBSERIALPORT
+	tristate
+	prompt "libserialport"
+	help
+	  libserialport is a minimal library written in C that is
+	  intended to take care of the OS-specific details when writing
+	  software that uses serial ports.
+
+	  https://sigrok.org/wiki/Libserialport
+
+# vim: ft=kconfig noet tw=72 ts=8 sw=8
