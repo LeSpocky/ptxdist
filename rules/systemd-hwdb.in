@@ -1,0 +1,5 @@
+## SECTION=shell_and_console
+
+config SYSTEMD_HWDB
+	tristate
+	select HOST_SYSTEMD

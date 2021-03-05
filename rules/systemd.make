@@ -213,9 +213,6 @@ SYSTEMD_CONF_OPT	:= \
 $(STATEDIR)/systemd.install:
 	@$(call targetinfo)
 	@$(call world/install, SYSTEMD)
-ifdef PTXCONF_SYSTEMD_UDEV_HWDB
-	@$(PTXDIST_SYSROOT_HOST)/bin/systemd-hwdb update --usr --root $(SYSTEMD_PKGDIR)
-endif
 #	# no interactive password prompts
 	@rm -v $(SYSTEMD_PKGDIR)/usr/lib/systemd/system/systemd-ask-password-console.path
 	@rm -v $(SYSTEMD_PKGDIR)/usr/lib/systemd/system/systemd-ask-password-console.service
@@ -232,6 +229,10 @@ endif
 	@rm -v $(SYSTEMD_PKGDIR)/usr/lib/tmpfiles.d/etc.conf
 	@rm -v $(SYSTEMD_PKGDIR)/usr/lib/tmpfiles.d/home.conf
 	@$(call touch)
+
+ifdef PTXCONF_SYSTEMD_HWDB
+$(STATEDIR)/systemd-hwdb.extract.post: $(STATEDIR)/systemd.install.post
+endif
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -485,10 +486,6 @@ endif
 	@$(foreach rule, $(SYSTEMD_UDEV_RULES-y), \
 		$(call install_copy, systemd, 0, 0, 0644, -, \
 			/usr/lib/udev/rules.d/$(rule));)
-
-ifdef PTXCONF_SYSTEMD_UDEV_HWDB
-	@$(call install_copy, systemd, 0, 0, 0644, -, /usr/lib/udev/hwdb.bin)
-endif
 
 ifdef PTXCONF_SYSTEMD_UDEV_CUST_RULES
 	@$(call install_alternative_tree, systemd, 0, 0, /usr/lib/udev/rules.d)

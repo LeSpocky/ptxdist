@@ -29,7 +29,6 @@ menuconfig SYSTEMD
 	# for udev:
 	select ROOTFS_DEV
 	select LIBBLKID
-	select HOST_SYSTEMD	if SYSTEMD_UDEV_HWDB
 	select ROOTFS_VAR_LIB	if RUNTIME
 	select ROOTFS_VAR_CACHE	if RUNTIME
 	select ROOTFS_VAR_SPOOL if RUNTIME
@@ -165,6 +164,7 @@ config SYSTEMD_UDEV_DRIVERS_RULES
 
 config SYSTEMD_UDEV_HWDB
 	bool
+	select SYSTEMD_HWDB
 	prompt "install hardware database"
 
 config SYSTEMD_UDEV_CUST_RULES
