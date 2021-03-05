@@ -1,6 +1,7 @@
 [Unit]
 Description=SSH Per-Connection Server
 DefaultDependencies=no
+IgnoreOnIsolate=true
 
 [Service]
 ExecStart=/usr/sbin/sshd -i
