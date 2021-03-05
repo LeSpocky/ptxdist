@@ -288,6 +288,7 @@ SYSTEMD_UDEV_RULES-y := \
 	60-persistent-storage.rules \
 	60-block.rules \
 	60-drm.rules \
+	60-input-id.rules \
 	60-serial.rules \
 	64-btrfs.rules \
 	75-net-description.rules \
@@ -298,7 +299,6 @@ SYSTEMD_UDEV_RULES-y := \
 SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_HWDB) += \
 	60-autosuspend.rules \
 	60-evdev.rules \
-	60-input-id.rules \
 	60-sensor.rules \
 	70-joystick.rules \
 	70-mouse.rules \
