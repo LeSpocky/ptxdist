@@ -75,7 +75,7 @@ PYTHON3_CONF_OPT	:= \
 	--without-valgrind \
 	--without-dtrace \
 	--with-computed-gotos \
-	--$(call ptx/wwo, PTXCONF_PYTHON3_ENSUREPIP)-ensurepip \
+	--without-ensurepip \
 	--with-openssl=$(SYSROOT)/usr
 
 # Keep dictionary order in .pyc files stable

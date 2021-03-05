@@ -1,0 +1,11 @@
+## SECTION=python3
+
+config PYTHON3_PIP
+	tristate
+	select PYTHON3
+	select PYTHON3_DISTUTILS
+	select PYTHON3_SSL
+	select PYTHON3_SETUPTOOLS	if RUNTIME
+	prompt "python3-pip"
+	help
+	  FIXME

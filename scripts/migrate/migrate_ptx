@@ -418,3 +418,11 @@ s/^\(\(# \)\?PTXCONF_GPSD_DRIVER\)_UBX\>/\1_UBLOX/
 # reason : gst-validate is part of gst-devtools, not released separately anymore
 #
 s/^\(\(# \)\?PTXCONF_GST_\)VALIDATE1\>/\1DEVTOOLS1/
+
+#
+# from   : ptxdist-2021.03.0
+# to     : ptxdist-2021.04.0
+# symbol : PYTHON3_ENSUREPIP -> PYTHON3_PIP
+# reason : pip is now a separate package instead of the bundled version
+#
+s/^\(\(# \)\?PTXCONF_PYTHON3_\)ENSUREPIP\>/\1PIP/
