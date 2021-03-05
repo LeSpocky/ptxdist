@@ -183,7 +183,7 @@ endif
 
 $(STATEDIR)/python3.clean:
 	@$(call targetinfo)
-	@$(call clean_pkg, MESA_DEMOS)
+	@$(call clean_pkg, PYTHON3)
 	@rm -vf \
 		"$(CROSS_PYTHON3)" \
 		"$(PTXDIST_SYSROOT_CROSS)/bin/python3" \
