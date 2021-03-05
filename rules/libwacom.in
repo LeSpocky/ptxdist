@@ -1,0 +1,13 @@
+## SECTION=multimedia_libs
+
+config LIBWACOM
+	tristate
+	select HOST_MESON
+	select UDEV
+	select UDEV_LIBUDEV
+	select LIBGUDEV
+	prompt "libwacom"
+	help
+	  libwacom is a library to identify Wacom tablets and their model-specific
+	  features. It provides easy access to information such as
+	  "is this a built-in on-screen tablet", "what is the size of this model", etc.

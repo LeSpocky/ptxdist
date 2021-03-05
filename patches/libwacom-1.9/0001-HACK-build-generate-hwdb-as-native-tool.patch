@@ -1,0 +1,95 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Tue, 16 Feb 2021 16:28:22 +0100
+Subject: [PATCH] HACK: build generate-hwdb as native tool
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ libwacom/libwacom.c |  6 ++++++
+ meson.build         | 18 ++++++++++++++----
+ 2 files changed, 20 insertions(+), 4 deletions(-)
+
+diff --git a/libwacom/libwacom.c b/libwacom/libwacom.c
+index 062b3131dfec..44d3438ed576 100644
+--- a/libwacom/libwacom.c
++++ b/libwacom/libwacom.c
+@@ -34,7 +34,9 @@
+ #include <stdbool.h>
+ #include <stdio.h>
+ #include <string.h>
++#ifndef NO_UDEV
+ #include <gudev/gudev.h>
++#endif
+ 
+ #include <linux/input-event-codes.h>
+ 
+@@ -44,6 +46,7 @@ libwacom_get_device(const WacomDeviceDatabase *db, const char *match)
+ 	return (WacomDevice *) g_hash_table_lookup (db->device_ht, match);
+ }
+ 
++#ifndef NO_UDEV
+ static gboolean
+ is_tablet (GUdevDevice *device)
+ {
+@@ -304,6 +307,7 @@ out:
+ 		g_object_unref (client);
+ 	return retval;
+ }
++#endif
+ 
+ static WacomDevice *
+ libwacom_copy(const WacomDevice *device)
+@@ -481,6 +485,7 @@ libwacom_new (const WacomDeviceDatabase *db, const char *name, int vendor_id, in
+ 	return device;
+ }
+ 
++#ifndef NO_UDEV
+ LIBWACOM_EXPORT WacomDevice*
+ libwacom_new_from_path(const WacomDeviceDatabase *db, const char *path, WacomFallbackFlags fallback, WacomError *error)
+ {
+@@ -558,6 +563,7 @@ bail:
+ 	libwacom_error_set(error, WERROR_UNKNOWN_MODEL, NULL);
+ 	return NULL;
+ }
++#endif
+ 
+ LIBWACOM_EXPORT WacomDevice*
+ libwacom_new_from_usbid(const WacomDeviceDatabase *db, int vendor_id, int product_id, WacomError *error)
+diff --git a/meson.build b/meson.build
+index b960826820b8..f8f690e4616e 100644
+--- a/meson.build
++++ b/meson.build
+@@ -128,20 +128,30 @@ test('svg-layout-exists',
+ 
+ ############### tools ###########################
+ 
++dep_native_glib    = dependency('glib-2.0', native: true)
++
+ executable('libwacom-list-local-devices',
+ 	   'tools/list-local-devices.c',
+ 	   dependencies: [dep_libwacom, dep_glib],
+ 	   include_directories: [includes_src],
+ 	   install: true)
+ 
+-tools_cflags = ['-DTOPSRCDIR="@0@"'.format(meson.source_root())]
++tools_cflags = [
++	'-DTOPSRCDIR="@0@"'.format(meson.source_root()),
++	'-DDATADIR="@0@"'.format(dir_data),
++	'-DETCDIR="@0@"'.format(dir_etc),
++	'-DNO_UDEV',
++]
+ 
+ gen_hwdb = executable('generate-hwdb',
+-		      'tools/generate-hwdb.c',
+-		      dependencies: [dep_libwacom, dep_glib],
++		      ['tools/generate-hwdb.c',
++		       'libwacom/libwacom-database.c',
++		       'libwacom/libwacom.c',
++		       'libwacom/libwacom-error.c' ],
++		      dependencies: dep_native_glib,
+ 		      include_directories: [includes_src],
+ 		      c_args: tools_cflags,
+-		      install: false)
++		      install: false, native: true)
+ custom_target('hwdb',
+ 	      command: gen_hwdb,
+ 	      capture: true,
