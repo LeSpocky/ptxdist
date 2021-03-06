@@ -30,17 +30,6 @@ PYTHON3_IPYTHON_LICENSE		:= BSD-3-Clause
 PYTHON3_IPYTHON_CONF_TOOL	:= python3
 
 # ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/python3-ipython.install:
-	@$(call targetinfo)
-	@$(call world/install, PYTHON3_IPYTHON)
-	@sed -i 's;#!/.*;#!/usr/bin/python$(PYTHON3_MAJORMINOR);' \
-		$(PYTHON3_IPYTHON_PKGDIR)/usr/bin/*
-	@$(call touch)
-
-# ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
 
