@@ -32,17 +32,6 @@ PYTHON3_PYTEST_LICENSE_FILES := \
 PYTHON3_PYTEST_CONF_TOOL	:= python3
 
 # ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/python3-pytest.install:
-	@$(call targetinfo)
-	@$(call world/install, PYTHON3_PYTEST)
-	@sed -i 's;#!/.*;#!/usr/bin/python$(PYTHON3_MAJORMINOR);' \
-		$(PYTHON3_PYTEST_PKGDIR)/usr/bin/*
-	@$(call touch)
-
-# ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
 
