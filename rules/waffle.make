@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_WAFFLE) += waffle
 #
 # Paths and names
 #
-WAFFLE_VERSION	:= 1.6.1
-WAFFLE_MD5	:= c91529e579483f44fb330052872b9c73
+WAFFLE_VERSION	:= 1.7.0
+WAFFLE_MD5	:= 1e77b0cd95856fc9594f556fe9e13cb9
 WAFFLE		:= waffle-$(WAFFLE_VERSION)
 WAFFLE_SUFFIX	:= tar.xz
-WAFFLE_URL	:= http://www.waffle-gl.org/files/release/$(WAFFLE)/$(WAFFLE).$(WAFFLE_SUFFIX)
+WAFFLE_URL	:= https://mesa.pages.freedesktop.org/waffle/files/release/$(WAFFLE)/$(WAFFLE).$(WAFFLE_SUFFIX)
 WAFFLE_SOURCE	:= $(SRCDIR)/$(WAFFLE).$(WAFFLE_SUFFIX)
 WAFFLE_DIR	:= $(BUILDDIR)/$(WAFFLE)
 WAFFLE_LICENSE	:= BSD-2-Clause
@@ -32,6 +32,10 @@ WAFFLE_LICENSE_FILES := \
 WAFFLE_CONF_TOOL	:= cmake
 WAFFLE_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
+	-G Ninja \
+	-DVALGRIND_EXECUTABLE= \
+	-Dnacl_sdk_path= \
+	-Dnacl_version= \
 	-Dwaffle_build_examples=OFF \
 	-Dwaffle_build_htmldocs=OFF \
 	-Dwaffle_build_manpages=OFF \
@@ -42,7 +46,7 @@ WAFFLE_CONF_OPT	:= \
 	-Dwaffle_has_surfaceless_egl=OFF \
 	-Dwaffle_has_wayland=$(call ptx/onoff,PTXCONF_WAFFLE_WAYLAND) \
 	-Dwaffle_has_x11_egl=$(call ptx/onoff,PTXCONF_WAFFLE_X11_EGL) \
-
+	-Dwaffle_xsltproc=
 
 # ----------------------------------------------------------------------------
 # Target-Install
