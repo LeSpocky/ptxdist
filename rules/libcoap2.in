@@ -1,0 +1,16 @@
+## SECTION=networking
+
+config LIBCOAP2
+	tristate
+	prompt "libcoap2"
+	help
+	  libcoap implements a lightweight application-protocol for
+	  devices that are constrained their resources such as computing
+	  power, RF range, memory, bandwith, or network packet sizes.
+
+	  The Constrained Application Protocol (CoAP) was standardized
+	  in the Internet Engineering Task Force (IETF) as RFC 7252.
+
+	  https://libcoap.net/
+
+# vim: ft=kconfig noet tw=72 ts=8 sw=8
