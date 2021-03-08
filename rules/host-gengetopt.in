@@ -1,8 +1,8 @@
-## SECTION=hosttools
+## SECTION=hosttools_noprompt
 
 config HOST_GENGETOPT
 	tristate
-	prompt "gengetopt"
+	default ALLYES
 	help
 	  Gengetopt is a tool to write command line option
 	  parsing code for C programs.
