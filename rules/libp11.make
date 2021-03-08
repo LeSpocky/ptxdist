@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBP11) += libp11
 #
 # Paths and names
 #
-LIBP11_VERSION	:= 0.4.10
-LIBP11_MD5	:= 3464874bb5ca47b8e4c1d540758dcfe9
+LIBP11_VERSION	:= 0.4.11
+LIBP11_MD5	:= 8b907abd572b0eb8e63413549f68dbe1
 LIBP11		:= libp11-$(LIBP11_VERSION)
 LIBP11_SUFFIX	:= tar.gz
 LIBP11_URL	:= https://github.com/OpenSC/libp11/releases/download/$(LIBP11)/$(LIBP11).$(LIBP11_SUFFIX)
