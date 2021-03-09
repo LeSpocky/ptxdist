@@ -20,6 +20,7 @@ menuconfig SAMBA
 	select GNUTLS
 	select READLINE
 	select SYSTEMD				if SAMBA_SYSTEMD_UNIT
+	select TALLOC
 	select ZLIB
 	select ROOTFS_VAR_LIB			if RUNTIME
 	select ROOTFS_VAR_CACHE			if RUNTIME

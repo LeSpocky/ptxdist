@@ -74,7 +74,7 @@ SAMBA_CONF_OPT	:= \
 	--without-ntvfs-fileserver \
 	--without-json \
 	$(CROSS_AUTOCONF_SYSROOT_USR) \
-	--bundled-libraries=NONE,cmocka,tdb,talloc,tevent,ldb \
+	--bundled-libraries=NONE,cmocka,tdb,tevent,ldb \
 	--disable-rpath \
 	--disable-rpath-install \
 	--enable-auto-reconfigure \
@@ -123,7 +123,6 @@ SAMBA_COMMON_LIBS := \
 	libtevent-util \
 	libwbclient \
 	samba/libldb \
-	samba/libtalloc \
 	samba/libtdb \
 	samba/libtevent
 
