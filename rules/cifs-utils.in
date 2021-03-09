@@ -1,7 +1,18 @@
 ## SECTION=disk_and_file
 
-config CIFS_UTILS
+menuconfig CIFS_UTILS
 	tristate
-	prompt "cifs-utils"
+	select TALLOC		if CIFS_UTILS_UPCALL
+	select KRB5		if CIFS_UTILS_UPCALL
+	select KEYUTILS		if CIFS_UTILS_UPCALL
+	prompt "cifs-utils                    "
 	help
 	  Userspace tools for the CIFS filesystem, such as mount.cifs
+
+if CIFS_UTILS
+
+config CIFS_UTILS_UPCALL
+	bool
+	prompt "install cifs.upcall"
+
+endif
