@@ -1,0 +1,8 @@
+## SECTION=system_libraries
+
+config TALLOC
+	tristate
+	prompt "talloc"
+	select HOST_SYSTEM_PYTHON3
+	help
+	  hierarchical pool based memory allocator
