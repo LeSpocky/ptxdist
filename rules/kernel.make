@@ -79,7 +79,7 @@ ifndef PTXCONF_KERNEL_GCC_PLUGINS
 KERNEL_SHARED_OPT	+= \
 	HOSTCXX="$(HOSTCXX) -DGENERATOR_FILE" \
 	HOSTCC="$(HOSTCC) -DGENERATOR_FILE"
-KERNEL_MAKE_ENV		:= \
+KERNEL_CONF_ENV		:= \
 	PTXDIST_NO_GCC_PLUGINS=1
 endif
 
@@ -326,6 +326,6 @@ endif
 # ----------------------------------------------------------------------------
 
 $(call ptx/kconfig-targets, kernel): $(STATEDIR)/kernel.extract
-	@$(KERNEL_MAKE_ENV) $(call world/kconfig, KERNEL, $(subst kernel_,,$@))
+	@$(call world/kconfig, KERNEL, $(subst kernel_,,$@))
 
 # vim: syntax=make
