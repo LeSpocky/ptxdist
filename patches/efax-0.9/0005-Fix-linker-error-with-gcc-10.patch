@@ -1,0 +1,45 @@
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@pengutronix.de>
+Date: Tue, 16 Mar 2021 12:33:05 +0100
+Subject: [PATCH] Fix linker error with gcc-10
+
+This fixes:
+
+	ld: efaxlib.o:(.bss+0x0): multiple definition of `reversebits'; efix.o:(.bss+0x0): first defined here
+	ld: efaxlib.o:(.bss+0x100): multiple definition of `normalbits'; efix.o:(.bss+0x100): first defined here
+	ld: efaxlib.o:(.bss+0x0): multiple definition of `reversebits'; efax.o:(.bss+0x0): first defined here
+	ld: efaxlib.o:(.bss+0x100): multiple definition of `normalbits'; efax.o:(.bss+0x100): first defined here
+	ld: efaxio.o:(.bss+0x0): multiple definition of `reversebits'; efax.o:(.bss+0x0): first defined here
+	ld: efaxio.o:(.bss+0x100): multiple definition of `normalbits'; efax.o:(.bss+0x100): first defined here
+	ld: efaxos.o:(.bss+0x0): multiple definition of `reversebits'; efax.o:(.bss+0x0): first defined here
+	ld: efaxos.o:(.bss+0x100): multiple definition of `normalbits'; efax.o:(.bss+0x100): first defined here
+---
+ efaxlib.c | 2 ++
+ efaxlib.h | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/efaxlib.c b/efaxlib.c
+index 4887cd9e5d72..347e8bd326e2 100644
+--- a/efaxlib.c
++++ b/efaxlib.c
+@@ -20,6 +20,8 @@
+ #define DEFWIDTH  1728		/* 215x297 mm image at fax resolution */
+ #define DEFHEIGHT 2287
+ 
++uchar reversebits [ 256 ], normalbits [ 256 ] ;
++
+ extern t4tab wtab [ ( 64 + 27 + 13 ) + 1 ] ; /* T.4 coding tables */
+ extern t4tab btab [ ( 64 + 27 + 13 ) + 1 ] ;
+ 
+diff --git a/efaxlib.h b/efaxlib.h
+index 9c725ae9a934..88505694dc0e 100644
+--- a/efaxlib.h
++++ b/efaxlib.h
+@@ -207,7 +207,7 @@ int runor ( short *a, int na, short *b, int nb, short *c, int *pels ) ;
+ /* Bit reversal lookup tables (note that the `normalbits' array
+    is the one actually used for the bit reversal.  */
+ 
+-uchar reversebits [ 256 ], normalbits [ 256 ] ;
++extern uchar reversebits [ 256 ], normalbits [ 256 ] ;
+ 
+ void initbittab(void) ;
+ 

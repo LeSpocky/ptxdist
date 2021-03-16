@@ -4,4 +4,5 @@
 0002-add-nullpointer-check.patch
 0003-fix-l-option-in-efix.patch
 0004-add-missing-include-file.patch
-# 8338636f38d9624eaaf8c3530518be3d  - git-ptx-patches magic
+0005-Fix-linker-error-with-gcc-10.patch
+# dc070db4a15b5fc5df6ab930fcf4bfdc  - git-ptx-patches magic
