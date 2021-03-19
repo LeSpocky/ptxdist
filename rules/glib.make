@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GLIB) += glib
 #
 # Paths and names
 #
-GLIB_VERSION	:= 2.66.6
-GLIB_MD5	:= fd805b652a0732579eaaafa7a17f90a6
+GLIB_VERSION	:= 2.68.0
+GLIB_MD5	:= 7d06a0b20454ec17052572dcf8cd7cea
 GLIB		:= glib-$(GLIB_VERSION)
 GLIB_SUFFIX	:= tar.xz
 GLIB_URL	:= $(call ptx/mirror, GNOME, glib/$(basename $(GLIB_VERSION))/$(GLIB).$(GLIB_SUFFIX))
@@ -40,10 +40,12 @@ GLIB_CONF_OPT	:= \
 	-Dforce_posix_threads=true \
 	-Dglib_assert=true \
 	-Dglib_checks=true \
+	-Dglib_debug=enabled \
 	-Dgtk_doc=false \
 	-Diconv=libc \
 	-Dinstalled_tests=false \
 	-Dinternal_pcre=false \
+	-Dlibelf=disabled \
 	-Dlibmount=$(call ptx/endis, PTXCONF_GLIB_LIBMOUNT)d \
 	-Dman=false \
 	-Dnls=disabled \
@@ -51,6 +53,7 @@ GLIB_CONF_OPT	:= \
 	-Dselinux=disabled \
 	-Dsysprof=disabled \
 	-Dsystemtap=false \
+	-Dtests=false \
 	-Dxattr=false
 
 # ----------------------------------------------------------------------------
