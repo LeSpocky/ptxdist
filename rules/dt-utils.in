@@ -1,11 +1,27 @@
 ## SECTION=shell_and_console
 
-config DT_UTILS
+menuconfig DT_UTILS
 	tristate
-	prompt "dt-utils"
+	prompt "dt-utils                      "
 	select UDEV
 	help
 	  Utilities to work with device trees in Linux userspace:
 
 	  * barebox-state: access barebox' state storage
 	  * fdtdump: dump a device tree binary to stdout
+
+if DT_UTILS
+
+config DT_UTILS_STATE_COMPAT
+	bool "ensure state compatibility with older bareboxes"
+	help
+	  Previous variants of the state variable set did not contain metadata.
+	  The read function in the 'direct' storage backend honors this, but the
+	  write function doesn't, which makes an update of the state variable
+	  set impossible in this case.
+	  When enabling this option, barebox-state will keep the storage in a
+	  format that can be read by barebox <= v2016.08.0 when writing
+	  variables into a 'direct' storage backend, or fail if this requirement
+	  cannot be guaranteed.
+
+endif

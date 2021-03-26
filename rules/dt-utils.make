@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_DT_UTILS) += dt-utils
 #
 # Paths and names
 #
-DT_UTILS_VERSION	:= 2019.01.0
-DT_UTILS_MD5		:= d83ebf99b07fa4516aeaa329afb2a6eb
+DT_UTILS_VERSION	:= 2021.03.0
+DT_UTILS_MD5		:= acf0b5e3b18e40e6172b67fbad2e52fb
 DT_UTILS		:= dt-utils-$(DT_UTILS_VERSION)
 DT_UTILS_SUFFIX		:= tar.xz
 DT_UTILS_URL		:= https://public.pengutronix.de/software/dt-utils/$(DT_UTILS).$(DT_UTILS_SUFFIX)
@@ -31,6 +31,10 @@ DT_UTILS_LICENSE_FILES	:= \
 # ----------------------------------------------------------------------------
 
 DT_UTILS_CONF_TOOL := autoconf
+DT_UTILS_CONF_OPT  := \
+	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--$(call ptx/endis, PTXCONF_DT_UTILS_STATE_COMPAT)-state-backward-compatibility
 
 # ----------------------------------------------------------------------------
 # Target-Install
