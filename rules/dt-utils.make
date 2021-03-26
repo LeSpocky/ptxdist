@@ -22,6 +22,9 @@ DT_UTILS_URL		:= https://public.pengutronix.de/software/dt-utils/$(DT_UTILS).$(D
 DT_UTILS_SOURCE		:= $(SRCDIR)/$(DT_UTILS).$(DT_UTILS_SUFFIX)
 DT_UTILS_DIR		:= $(BUILDDIR)/$(DT_UTILS)
 DT_UTILS_LICENSE	:= GPL-2.0-only
+DT_UTILS_LICENSE_FILES	:= \
+	file://COPYING;md5=9ac2e7cff1ddaf48b6eab6028f23ef88 \
+	file://src/barebox-state.c;startline=6;endline=13;md5=d2a3fab9d93cf1e5a939e59f75cfc921
 
 # ----------------------------------------------------------------------------
 # Prepare
