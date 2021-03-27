@@ -85,6 +85,14 @@ config TARGET_COMPILER_RECORD_SWITCHES
 	  enabled, the final binary will likely be different each time a
 	  package is rebuilt.
 
+config TARGET_NO_SEMANTIC_INTERPOSITION
+	bool
+	prompt "build with -fno-semantic-interposition"
+	help
+	  Compile with -fno-semantic-interposition. This can improve
+	  performance because allows for better optimization The downside
+	  is that this makes LD_PRELOAD impossible.
+
 config TARGET_BUILD_ID
 	bool
 	default y

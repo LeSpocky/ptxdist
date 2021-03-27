@@ -252,6 +252,10 @@ cc_add_arch() {
 	fi
 }
 
+cc_add_optimizations() {
+	add_opt_arg TARGET_NO_SEMANTIC_INTERPOSITION "-fno-semantic-interposition"
+}
+
 cpp_add_target_extra() {
 	cc_check_args ${pkg_cppflags}
 	add_opt_arg TARGET_COMPILER_RECORD_SWITCHES "-frecord-gcc-switches"
@@ -263,6 +267,7 @@ cpp_add_target_extra() {
 cc_add_target_extra() {
 	cc_check_args ${pkg_cflags}
 	cpp_add_target_extra
+	cc_add_optimizations
 	cc_add_debug
 	cc_add_arch
 	add_arg ${pkg_cflags}
@@ -272,6 +277,7 @@ cc_add_target_extra() {
 cxx_add_target_extra() {
 	cc_check_args ${pkg_cxxflags}
 	cpp_add_target_extra
+	cc_add_optimizations
 	cc_add_debug
 	cc_add_arch
 	add_arg ${pkg_cxxflags}
