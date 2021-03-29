@@ -22,6 +22,9 @@ MODEMMANAGER_URL	:= https://www.freedesktop.org/software/ModemManager/$(MODEMMAN
 MODEMMANAGER_SOURCE	:= $(SRCDIR)/$(MODEMMANAGER).$(MODEMMANAGER_SUFFIX)
 MODEMMANAGER_DIR	:= $(BUILDDIR)/$(MODEMMANAGER)
 MODEMMANAGER_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
+MODEMMANAGER_LICENSE_FILES := \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://COPYING.LIB;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
 # Prepare
