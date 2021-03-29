@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBQMI) += libqmi
 #
 # Paths and names
 #
-LIBQMI_VERSION	:= 1.26.2
-LIBQMI_MD5	:= ce7166668c9f1ccd496fc6af882ee00e
+LIBQMI_VERSION	:= 1.28.2
+LIBQMI_MD5	:= 825d7226e001cb2616e85d8a1e2a410f
 LIBQMI		:= libqmi-$(LIBQMI_VERSION)
 LIBQMI_SUFFIX	:= tar.xz
 LIBQMI_URL	:= http://www.freedesktop.org/software/libqmi/$(LIBQMI).$(LIBQMI_SUFFIX)
