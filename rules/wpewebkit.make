@@ -76,6 +76,10 @@ WPEWEBKIT_CONF_OPT	+= \
 	-DENABLE_REMOTE_INSPECTOR=ON \
 	-DUSE_SYSTEM_MALLOC=$(WPEWEBKIT_SYSTEM_MALLOC)
 
+ifdef PTXCONF_WPEWEBKIT_ENABLE_LOGGING
+WPEWEBKIT_CXXFLAGS	:= -DLOG_DISABLED=0
+endif
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------

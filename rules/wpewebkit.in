@@ -90,4 +90,11 @@ config WPEWEBKIT_AUDIO
 	bool
 	prompt "audio support"
 
+config WPEWEBKIT_ENABLE_LOGGING
+	bool
+	prompt "enable logging support"
+	help
+	  Enable this option if you want to get some more logging information. For more
+	  information check https://trac.webkit.org/wiki/WebKitGTK/Debugging.
+
 endif
