@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MODEMMANAGER) += modemmanager
 #
 # Paths and names
 #
-MODEMMANAGER_VERSION	:= 1.14.8
-MODEMMANAGER_MD5	:= 138762a976a654d244744963d2250372
+MODEMMANAGER_VERSION	:= 1.16.2
+MODEMMANAGER_MD5	:= 83c5fc0bf65b8f321532b61b5f2b0b51
 MODEMMANAGER		:= ModemManager-$(MODEMMANAGER_VERSION)
 MODEMMANAGER_SUFFIX	:= tar.xz
 MODEMMANAGER_URL	:= https://www.freedesktop.org/software/ModemManager/$(MODEMMANAGER).$(MODEMMANAGER_SUFFIX)
@@ -45,13 +45,16 @@ MODEMMANAGER_CONF_OPT	:= \
 	--disable-gtk-doc-pdf \
 	--disable-nls \
 	--disable-rpath \
+	--disable-code-coverage \
 	--disable-introspection \
 	--disable-vala \
 	--enable-all-plugins \
 	--with-gnu-ld \
+	--without-gcov \
 	--with-dbus-sys-dir=/usr/share/dbus-1/system.d \
 	--with-udev-base-dir=/usr/lib/udev \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
+	--with-udev \
 	--$(call ptx/wwo, PTXCONF_INITMETHOD_SYSTEMD)-systemd-suspend-resume \
 	--$(call ptx/wwo, PTXCONF_INITMETHOD_SYSTEMD)-systemd-journal \
 	--without-polkit \
