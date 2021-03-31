@@ -61,6 +61,7 @@ KERNEL_BASE_OPT		:= \
 	CROSS_COMPILE=$(KERNEL_CROSS_COMPILE) \
 	DEPMOD=$(PTXDIST_SYSROOT_HOST)/sbin/depmod \
 	\
+	INSTALL_MOD_STRIP=1 \
 	INSTALL_MOD_PATH=$(KERNEL_PKGDIR) \
 	PTX_KERNEL_DIR=$(KERNEL_DIR) \
 	$(call remove_quotes,$(PTXCONF_KERNEL_EXTRA_MAKEVARS))
@@ -313,7 +314,7 @@ ifdef PTXCONF_KERNEL_MODULES_INSTALL
 	@$(call install_fixup, kernel-modules, AUTHOR,"Robert Schwebel <r.schwebel@pengutronix.de>")
 	@$(call install_fixup, kernel-modules, DESCRIPTION,missing)
 
-	@$(call install_glob, kernel-modules, 0, 0, -, /lib/modules, *.ko,, k)
+	@$(call install_glob, kernel-modules, 0, 0, -, /lib/modules, *.ko,, n)
 	@$(call install_glob, kernel-modules, 0, 0, -, /lib/modules,, *.ko */build */source, n)
 
 	@$(call install_finish, kernel-modules)
