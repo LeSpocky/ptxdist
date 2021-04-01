@@ -63,7 +63,7 @@ kernel/opts = \
 	V=$(PTXDIST_VERBOSE) \
 	HOSTCC=$(HOSTCC) \
 	ARCH=$(GENERIC_KERNEL_ARCH) \
-	CROSS_COMPILE=$(COMPILER_PREFIX) \
+	CROSS_COMPILE=$(if $(2),$(2),$(COMPILER_PREFIX)) \
 	DEPMOD=$(PTXDIST_SYSROOT_HOST)/sbin/depmod \
 	\
 	INSTALL_MOD_STRIP=1 \
@@ -71,7 +71,7 @@ kernel/opts = \
 	PTX_KERNEL_DIR=$($(1)_DIR)
 
 kernel-opts = \
-	$(call kernel/opts,$(strip $(1)))
+	$(call kernel/opts,$(strip $(1)),$(strip $(2)))
 
 #
 # Blacklist for all low-level code, e.g. kernel and bootloaders

@@ -55,15 +55,7 @@ KERNEL_MAKEVARS = $(call kernel/deprecated, KERNEL_MAKEVARS)
 
 # like kernel-opts but with different CROSS_COMPILE=
 KERNEL_BASE_OPT		:= \
-	V=$(PTXDIST_VERBOSE) \
-	HOSTCC=$(HOSTCC) \
-	ARCH=$(GENERIC_KERNEL_ARCH) \
-	CROSS_COMPILE=$(KERNEL_CROSS_COMPILE) \
-	DEPMOD=$(PTXDIST_SYSROOT_HOST)/sbin/depmod \
-	\
-	INSTALL_MOD_STRIP=1 \
-	INSTALL_MOD_PATH=$(KERNEL_PKGDIR) \
-	PTX_KERNEL_DIR=$(KERNEL_DIR) \
+	$(call kernel-opts, KERNEL,$(KERNEL_CROSS_COMPILE)) \
 	$(call remove_quotes,$(PTXCONF_KERNEL_EXTRA_MAKEVARS))
 
 # Intermediate option. This will be used by kernel module packages.
