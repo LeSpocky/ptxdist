@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 20.3.3
-MESALIB_MD5	:= c4c81cbd8a93f87104d3f1209948b238
+MESALIB_VERSION	:= 21.0.1
+MESALIB_MD5	:= b7376187ef42cb40c9f914c48dfc07b4
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -134,6 +134,7 @@ MESALIB_CONF_OPT	:= \
 	-Dgles-lib-suffix= \
 	-Dgles1=$(call ptx/endis, PTXCONF_MESALIB_GLES1)d \
 	-Dgles2=$(call ptx/endis, PTXCONF_MESALIB_GLES2)d \
+	-Dglvnd-name= \
 	-Dglvnd=false \
 	-Dglx=$(call ptx/ifdef, PTXCONF_MESALIB_GLX, dri, disabled) \
 	-Dglx-direct=true \
@@ -142,10 +143,12 @@ MESALIB_CONF_OPT	:= \
 	-Dlibunwind=disabled \
 	-Dllvm=disabled \
 	-Dlmsensors=$(call ptx/endis, PTXCONF_MESALIB_LMSENSORS)d \
+	-Dmicrosoft-clc=disabled \
 	-Domx-libs-path=/usr/lib/dri \
+	-Dopencl-native=false \
 	-Dopencl-spirv=false \
 	-Dopengl=$(call ptx/truefalse, PTXCONF_MESALIB_OPENGL) \
-	-Dosmesa=none \
+	-Dosmesa=false \
 	-Dosmesa-bits=8 \
 	-Dplatform-sdk-version=25 \
 	-Dplatforms=$(subst $(space),$(comma),$(MESALIBS_EGL_PLATFORMS-y)) \
@@ -154,9 +157,12 @@ MESALIB_CONF_OPT	:= \
 	-Dselinux=false \
 	-Dshader-cache-default=true \
 	-Dshader-cache=$(call ptx/endis, PTXCONF_MESALIB_VULKAN_AMD)d \
+	-Dshader-max-cache-size=1G \
 	-Dshared-glapi=enabled \
 	-Dshared-llvm=disabled \
 	-Dshared-swr=true \
+	-Dspirv-to-dxil=false \
+	-Dsse2=true \
 	-Dstatic-libclc=[] \
 	-Dswr-arches=[] \
 	-Dtools=[] \
@@ -167,8 +173,9 @@ MESALIB_CONF_OPT	:= \
 	-Dvulkan-drivers=$(subst $(space),$(comma),$(MESALIB_VULKAN_DRIVERS-y)) \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-overlay-layer=false \
-	-Dxlib-lease=disabled \
+	-Dxlib-lease=$(call ptx/endis, PTXCONF_MESALIB_EGL_X11)d \
 	-Dxvmc-libs-path=/usr/lib \
+	-Dzlib=enabled \
 	-Dzstd=$(call ptx/endis, PTXCONF_MESALIB_ZSTD)d
 
 # ----------------------------------------------------------------------------
