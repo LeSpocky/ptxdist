@@ -7,7 +7,7 @@
 #
 
 ptxd_make_image_fit_its() {
-    local model compatible
+    local compatible
 
     cat << EOF
 /dts-v1/;
@@ -55,7 +55,6 @@ EOF
 EOF
     fi
     for i in ${image_dtb}; do
-	model=$(fdtget "${i}" / model)
 	compatible=$(set -- $(fdtget "${i}" / compatible); echo ${1})
 	cat << EOF
 		fdt-${compatible} {
@@ -74,7 +73,6 @@ EOF
 	configurations {
 EOF
     for i in ${image_dtb}; do
-	model=$(fdtget "${i}" / model)
 	compatible=$(set -- $(fdtget "${i}" / compatible); echo ${1})
 	cat << EOF
 		conf-${compatible} {
