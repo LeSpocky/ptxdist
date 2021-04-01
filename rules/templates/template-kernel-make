@@ -105,7 +105,7 @@ $(STATEDIR)/kernel-@package@.targetinstall:
 	@$(call install_copy, kernel-@package@, 0, 0, 0644, \
 		$(IMAGEDIR)/@image@-@package@, /boot/@image@-@package@, n)
 
-	@$(call install_glob, kernel-@package@, 0, 0, -, /lib/modules, *.ko,, k)
+	@$(call install_glob, kernel-@package@, 0, 0, -, /lib/modules, *.ko,, n)
 	@$(call install_glob, kernel-@package@, 0, 0, -, /lib/modules,, *.ko */build */source, n)
 
 	@$(call install_finish, kernel-@package@)
