@@ -27,6 +27,19 @@ config BAREBOX_VERSION
 	string
 	default "2016.08.0"
 
+config BAREBOX_CONFIG_BUILDSYSTEM_VERSION
+        prompt "add a buildsystem version to the barebox binary"
+        bool
+        help
+          When this option is enabled, the nv variable "nv.buildsystem_version"
+          in barebox is set to PTXCONF_BAREBOX_BUILDSYSTEM_VERSION.
+
+config BAREBOX_BUILDSYSTEM_VERSION
+        prompt "barebox buildsystem version"
+        depends on BAREBOX_CONFIG_BUILDSYSTEM_VERSION
+        string
+        default "${PTXDIST_VCS_VERSION}"
+
 config BAREBOX_MD5
 	prompt "barebox source md5sum"
 	string
