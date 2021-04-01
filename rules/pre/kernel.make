@@ -60,7 +60,6 @@ kernel-url = \
 	$(call kernel/url,$(strip $(1)))
 
 kernel/opts = \
-	$(PARALLELMFLAGS) \
 	V=$(PTXDIST_VERBOSE) \
 	HOSTCC=$(HOSTCC) \
 	ARCH=$(GENERIC_KERNEL_ARCH) \
