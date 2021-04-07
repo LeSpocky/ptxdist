@@ -1,0 +1,13 @@
+## SECTION=hosttools_noprompt
+
+config HOST_YUBIHSM_SHELL
+	tristate
+	default y if ALLYES
+	select HOST_CMAKE
+	select HOST_OPENSSL
+	select HOST_LIBCURL
+	select HOST_LIBUSB
+	select HOST_GENGETOPT
+	select HOST_LIBEDIT
+	select HOST_PCSC_LITE
+	select HOST_LIBP11
