@@ -541,7 +541,6 @@ check_compiler() {
     wrapper_dir="${sysroot_host}/lib/wrapper"
 
     ptxd_lib_setup_host_wrapper &&
-    ptxd_lib_setup_host_icecc &&
 
     if ! ptxd_get_ptxconf PTXCONF_BUILD_TOOLCHAIN >/dev/null; then
 	local toolchain compiler_prefix
@@ -553,6 +552,9 @@ check_compiler() {
 	ptxd_lib_setup_target_wrapper &&
 	ptxd_lib_setup_target_icecc
     fi &&
+
+    # ptxd_lib_setup_target_wrapper provides the real/clang symlink needed here
+    ptxd_lib_setup_host_icecc &&
 
     PATH="${wrapper_dir}:${PATH}"
 }
