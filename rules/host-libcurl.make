@@ -61,7 +61,7 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--without-librtmp \
 	\
 	--disable-ares \
-	--disable-http \
+	--enable-http \
 	--disable-nghttp2 \
 	--disable-cookies \
 	--disable-ftp \
@@ -69,7 +69,7 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--disable-file \
 	--disable-crypto-auth \
 	--disable-libssh2 \
-	--without-ssl
+	--with-ssl
 
 $(STATEDIR)/host-libcurl.install:
 	@$(call targetinfo)
