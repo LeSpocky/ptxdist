@@ -9,6 +9,10 @@
 ifdef PTXCONF_CODE_SIGNING_PROVIDER_@PACKAGE@
 CODE_SIGNING_ENV += \
 	PKCS11_MODULE_PATH=@MODULE_PATH@
+
+# if your provider communicates to a server uncomment the following lines
+# to allow network requests outside of get stage
+#$(call ptx/online-code-signing-provider)
 endif
 
 # vim: syntax=make
