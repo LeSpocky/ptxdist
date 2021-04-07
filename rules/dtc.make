@@ -11,7 +11,11 @@
 #
 # We provide this package
 #
+ifdef PTXCONF_DTC_INSTALL_OFTREE
 PACKAGES-$(PTXCONF_DTC) += dtc
+else
+EXTRA_PACKAGES-$(PTXCONF_DTC) += dtc
+endif
 
 DTC_VERSION := 1.0.0
 DTC_LICENSE := ignore
