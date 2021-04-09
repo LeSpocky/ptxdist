@@ -42,6 +42,7 @@ $(STATEDIR)/host-autotools-libtool.extract.post:
 
 HOST_AUTOTOOLS_LIBTOOL_CONF_ENV		:= \
 	$(HOST_ENV) \
+	HELP2MAN=: \
 	MAKEINFO=:
 
 #
