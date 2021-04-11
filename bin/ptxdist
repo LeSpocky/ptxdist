@@ -1886,6 +1886,11 @@ EOF
 		package-info)
 			declare -a pkgs
 
+			if [ ${#} -eq 0 ]; then
+				echo "Usage: package-info <packages...>"
+				exit 1
+			fi
+
 			check_config &&
 			check_deps &&
 			pkgs=( "${@/#/${STATEDIR}/}" ) &&
