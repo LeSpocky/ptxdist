@@ -966,6 +966,11 @@ clean() {
 drop() {
 	local statefile
 
+	if [ -z "${1}" ]; then
+		echo "Usage: drop <package>.<stage>"
+		exit 1
+	fi
+
 	if [ -z "${2}" ]; then
 		statefile="${1}"
 	else
