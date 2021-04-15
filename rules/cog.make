@@ -38,7 +38,7 @@ COG_CONF_OPT	:= \
 	-DCOG_APPID= \
 	-DCOG_BUILD_PROGRAMS=ON \
 	-DCOG_DBUS_OWN_USER= \
-	-DCOG_DBUS_SYSTEM_BUS=OFF \
+	-DCOG_DBUS_SYSTEM_BUS=$(call ptx/onoff,PTXCONF_COG_REMOTE_DBUS_SYSTEM_BUS) \
 	-DCOG_HOME_URI=https://ptxdist.org/ \
 	-DCOG_PLATFORM_DRM=OFF \
 	-DCOG_PLATFORM_FDO=ON \
@@ -63,6 +63,11 @@ $(STATEDIR)/cog.targetinstall:
 	@$(call install_copy, cog, 0, 0, 0755, -, /usr/bin/cog)
 	@$(call install_lib, cog, 0, 0, 0644, libcogplatform-fdo)
 	@$(call install_lib, cog, 0, 0, 0644, libcogcore)
+
+ifdef PTXCONF_COG_REMOTE_DBUS_SYSTEM_BUS
+	@$(call install_copy, cog, 0, 0, 0644, -, \
+		/usr/share/dbus-1/system.d/com.igalia.Cog.conf)
+endif
 
 	@$(call install_finish, cog)
 
