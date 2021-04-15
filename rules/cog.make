@@ -69,6 +69,10 @@ ifdef PTXCONF_COG_REMOTE_DBUS_SYSTEM_BUS
 		/usr/share/dbus-1/system.d/com.igalia.Cog.conf)
 endif
 
+ifdef PTXCONF_COG_COGCTL
+	@$(call install_copy, cog, 0, 0, 0755, -, /usr/bin/cogctl)
+endif
+
 	@$(call install_finish, cog)
 
 	@$(call touch)
