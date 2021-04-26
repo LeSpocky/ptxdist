@@ -17,7 +17,7 @@ else
 fi
 
 declare -a libdir system_path system_incpath
-libdir=( "${prefix/%//lib/pkgconfig}" "${prefix/%//share/pkgconfig}" )
+libdir=( $(find ${prefix} -maxdepth 3 -type d -name pkgconfig) )
 system_libpath=( "${libdir[@]/%//../../lib}" "${libdir[@]/%//../lib}" "/usr/lib" "/lib" )
 system_incpath=( "${libdir[@]/%//../../include}" "${libdir[@]/%//../include}" "/usr/include" "/include" )
 

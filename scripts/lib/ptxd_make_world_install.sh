@@ -238,7 +238,7 @@ ptxd_make_world_install_post() {
     ptxd_make_world_init &&
     (
 	if [ -n "${pkg_pkg_dir}" -a -d "${pkg_pkg_dir}" ]; then
-	    find "${pkg_pkg_dir}"{,/usr}/{lib,share}/pkgconfig -name *.pc \
+	    find "${pkg_pkg_dir}"{,/usr}/{$(ptxd_get_lib_dir),share}/pkgconfig -name *.pc \
 		-printf "%f\n" 2>/dev/null | sed 's/\.pc$//'
 	elif [ "${pkg_type}" != "target" -a -n "${pkg_build_dir}" -a -d "${pkg_build_dir}" ]; then
 	    # workaround for packages that install directly to sysroot
