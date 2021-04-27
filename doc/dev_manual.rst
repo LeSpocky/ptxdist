@@ -14,4 +14,5 @@ This chapter shows all (or most) of the details of how PTXdist works.
    dev_add_bin_only_files
    dev_create_new_pkg_templates
    dev_layers_in_ptxdist
+   dev_kconfig_diffs
    dev_code_signing

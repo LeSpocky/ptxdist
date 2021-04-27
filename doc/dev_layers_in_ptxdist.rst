@@ -98,7 +98,8 @@ Packages with kconfig Based Config Files
 
 For packages such as the Linux kernel that have kconfig based config files,
 a lot of the infrastructure to handle config files and deltas across
-multiple layers can be reused. Consistency validation is done implicitly
+multiple layers can be reused (see :ref:`kconfig-diffs`).
+Consistency validation is done implicitly
 and ``menuconfig`` and other kconfig commands will use config files and
 deltas as expected.
 
