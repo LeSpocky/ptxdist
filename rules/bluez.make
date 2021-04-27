@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_BLUEZ) += bluez
 #
 # Paths and names
 #
-BLUEZ_VERSION	:= 5.54
-BLUEZ_MD5	:= a4029aaedb24575ac1ece67a6a7a0e77
+BLUEZ_VERSION	:= 5.58
+BLUEZ_MD5	:= cee47c57675be451dc37af73caa9fbe6
 BLUEZ		:= bluez-$(BLUEZ_VERSION)
 BLUEZ_SUFFIX	:= tar.gz
 BLUEZ_URL	:= $(call ptx/mirror, KERNEL, bluetooth/$(BLUEZ).$(BLUEZ_SUFFIX))
@@ -54,6 +54,7 @@ BLUEZ_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--disable-health \
 	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-tools \
 	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-monitor \
+	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-hid2hci \
 	--enable-udev \
 	--disable-cups \
 	--disable-mesh \
@@ -99,7 +100,7 @@ endif
 	@$(call install_copy, bluez, 0, 0, 0755, -, /usr/libexec/bluetooth/obexd)
 
 ifdef PTXCONF_BLUEZ_TOOLS
-	@$(foreach binprogram, bccmd bluemoon btattach btmon hex2hcd l2ping \
+	@$(foreach binprogram, bluemoon btattach btmon hex2hcd l2ping \
 			l2test mpris-proxy rctest, \
 		$(call install_copy, bluez, 0, 0, 0755, -, \
 			/usr/bin/$(binprogram))$(ptx/nl))
