@@ -18,7 +18,7 @@ http://www.ptxdist.org/pages/support.html
 on how to subscribe to this list. If you want to search through the
 mailing list archive, visit
 
-https://www.mail-archive.com/ptxdist@pengutronix.de/
+https://lore.ptxdist.org/ptxdist
 
 Please note again that this mailing list is just related to the PTXdist as a
 software. For questions regarding your specific BSP, see the following items.
