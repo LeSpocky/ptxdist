@@ -1,0 +1,8 @@
+## SECTION=communication
+
+config LIBUSBGX
+	bool
+	prompt "libusbgx"
+	help
+	  libusbgx is a C library encapsulating the kernel USB gadget-configfs
+	  userspace API functionality.
