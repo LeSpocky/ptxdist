@@ -2,6 +2,7 @@
 
 config WAYLAND_PROTOCOLS
 	tristate
+	select HOST_MESON
 	select WAYLAND
 	prompt "wayland protocols"
 	help
