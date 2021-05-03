@@ -28,9 +28,10 @@ HOST_NSS_MAKE_ENV   := \
 	NSPR_INCLUDE_DIR=$(PTXDIST_SYSROOT_HOST)/include/nspr \
 	$(if $(filter x86_64%,$(GNU_HOST)),USE_64=1)
 
-# needed for old glibc
+# needed for old glibc and gcc11
 HOST_NSS_CFLAGS := \
-	-D_XOPEN_SOURCE
+	-D_XOPEN_SOURCE \
+	-Wno-array-parameter
 
 HOST_NSS_MAKE_OPT := \
 	all
