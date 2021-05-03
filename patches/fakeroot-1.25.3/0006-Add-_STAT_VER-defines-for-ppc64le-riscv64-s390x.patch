@@ -1,0 +1,26 @@
+From: Dimitri John Ledkov <xnox@ubuntu.com>
+Date: Wed, 17 Feb 2021 14:41:43 +0000
+Subject: [PATCH] Add _STAT_VER defines for ppc64le, riscv64, s390x.
+
+Signed-off-by: Dimitri John Ledkov <xnox@ubuntu.com>
+---
+ libfakeroot.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/libfakeroot.c b/libfakeroot.c
+index 169f4da4de21..74f52ab1df79 100644
+--- a/libfakeroot.c
++++ b/libfakeroot.c
+@@ -93,6 +93,12 @@
+ #ifndef _STAT_VER
+  #if defined (__aarch64__)
+   #define _STAT_VER 0
++ #elif defined (__powerpc__) && __WORDSIZE == 64
++  #define _STAT_VER 1
++ #elif defined (__riscv) && __riscv_xlen==64
++  #define _STAT_VER 0
++ #elif defined (__s390x__)
++  #define _STAT_VER 1
+  #elif defined (__x86_64__)
+   #define _STAT_VER 1
+  #else
