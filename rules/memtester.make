@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_MEMTESTER) += memtester
 #
 # Paths and names
 #
-MEMTESTER_VERSION	:= 4.3.0
-MEMTESTER_MD5		:= 598f41b7308e1f736164bca3ab84ddbe
+MEMTESTER_VERSION	:= 4.5.0
+MEMTESTER_MD5		:= 674a8a88ff54bdb229ca4148218a41f1
 MEMTESTER		:= memtester-$(MEMTESTER_VERSION)
 MEMTESTER_SUFFIX	:= tar.gz
 MEMTESTER_URL		:= http://pyropus.ca/software/memtester/old-versions/$(MEMTESTER).$(MEMTESTER_SUFFIX)
