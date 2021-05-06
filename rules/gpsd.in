@@ -68,6 +68,12 @@ config GPSD_USB
 
 comment "Other options    ---"
 
+config GPSD_LIBGPSMM
+	bool
+	prompt "C++ class wrappers"
+	help
+	  Enables libgpsmm, a C++ class wrapper for libgps.
+
 config GPSD_PYTHON
 	bool
 	prompt "python bindings"
