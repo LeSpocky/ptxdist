@@ -57,7 +57,58 @@ $(STATEDIR)/libusbgx.targetinstall:
 	@$(call install_fixup, libusbgx, DESCRIPTION, missing)
 
 	@$(call install_lib, libusbgx, 0, 0, 0644, libusbgx)
-	@$(call install_tree, libusbgx, 0, 0, -, /usr/bin)
+
+ifdef PTXCONF_SHOW_GADGETS
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/show-gadgets)
+endif
+
+ifdef PTXCONF_SHOW_UDCS
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/show-gadgets)
+endif
+
+ifdef PTXCONF_GADGET_VID_PID_REMOVE
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/gadget-vid-pid-remove)
+endif
+
+ifdef PTXCONF_GADGET_IMPORT
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/gadget-import)
+endif
+
+ifdef PTXCONF_GADGET_EXPORT
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/gadget-export)
+endif
+
+ifdef PTXCONF_GADGET_ACM_ECM
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/gadget-acm-ecm)
+endif
+
+ifdef PTXCONF_GADGET_UVC
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/gadget-uvc)
+endif
+
+ifdef PTXCONF_GADGET_FFS
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/gadget-ffs)
+endif
+
+ifdef PTXCONF_GADGET_MS
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/gadget-ms)
+endif
+
+ifdef PTXCONF_GADGET_MIDI
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/gadget-midi)
+endif
+
+ifdef PTXCONF_GADGET_HID
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/gadget-hid)
+endif
+
+ifdef PTXCONF_GADGET_UAC2
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/gadget-uac2)
+endif
+
+ifdef PTXCONF_GADGET_RNDIS_OS_DESC
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/gadget-rndis-os-desc)
+endif
 
 	@$(call install_finish, libusbgx)
 

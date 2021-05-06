@@ -1,8 +1,91 @@
 ## SECTION=communication
 
-config LIBUSBGX
+menuconfig LIBUSBGX
 	bool
 	prompt "libusbgx"
 	help
 	  libusbgx is a C library encapsulating the kernel USB gadget-configfs
 	  userspace API functionality.
+
+if LIBUSBGX
+
+config SHOW_GADGETS
+	bool "install show-gadget tool"
+	help
+	  Wether to build the show-gadget tool
+	  to list all already installed gadgets in configfs
+
+config SHOW_UDCS
+	bool "install show-udcs tool"
+	help
+	  Wether to build the show-udcs tool
+	  to list all available udcs
+
+config GADGET_VID_PID_REMOVE
+	bool "install gadget-vid-pid-remove tool"
+	help
+	  Wether to build the gadget-vid-pid-remove tool
+	  to remove whole configfs gadget setup defined for
+	  vid and pid
+
+config GADGET_EXPORT
+	bool "install gadget-export tool"
+	help
+	  Wether to build the gadget-export tool
+	  to export the configfs configuration to a scheme file
+
+config GADGET_IMPORT
+	bool "install gadget-import tool"
+	help
+	  Wether to build the gadget-import tool
+	  to import the configfs configuration from a scheme file
+
+config GADGET_ACM_ECM
+	bool "install gadget-acm-ecm example tool"
+	help
+	  Wether to build the gadget-acm-ecm example tool
+	  to create an configfs gadget setup for an acm-ecm device
+
+config GADGET_UVC
+	bool "install gadget-uvc example tool"
+	help
+	  Wether to build the gadget-uvc example tool
+	  to create an configfs gadget setup for an uvc device
+
+config GADGET_FFS
+	bool "install gadget-ffs example tool"
+	help
+	  Wether to build the gadget-ffs example tool
+	  to create an configfs gadget setup for an function-fs device
+
+config GADGET_MS
+	bool "install gadget-ms example tool"
+	help
+	  Wether to build the gadget-ms example tool to create an
+	  configfs gadget setup for an mass-storage device
+
+config GADGET_MIDI
+	bool "install gadget-midi example tool"
+	help
+	  Wether to build the gadget-midi example tool
+	  to create an configfs gadget setup for an midi device
+
+config GADGET_HID
+	bool "install gadget-hid example tool"
+	help
+	  Wether to build the gadget-hid example tool
+	  to create an configfs gadget setup for an hid device
+
+config GADGET_UAC2
+	bool "install gadget-uac2 example tool"
+	help
+	  Wether to build the gadget-uac2 example tool
+	  to create an configfs gadget setup for an Audio Class device
+
+config GADGET_RNDIS_OS_DESC
+	bool "install gadget-rndis-os-desc example tool"
+	help
+	  Wether to build the gadget-rndis-os-desc example tool
+	  to create an configfs gadget setup for an rndis ethernet device
+
+endif
