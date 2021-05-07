@@ -16,12 +16,17 @@ ptxd_make_world_kconfig_mode() {
 }
 export -f ptxd_make_world_kconfig_mode
 
-ptxd_make_kconfig_setup() {
+ptxd_make_kconfig_init() {
     if [ -n "${ref_file_dotconfig}" ]; then
 	file_dotconfig="${ref_file_dotconfig}" ptxd_normalize_config &&
 	relative_ref_file_dotconfig="${relative_file_dotconfig}"
     fi &&
-    ptxd_normalize_config &&
+    ptxd_normalize_config
+}
+export -f ptxd_make_kconfig_init
+
+ptxd_make_kconfig_setup() {
+    ptxd_make_kconfig_init &&
     ptxd_kconfig_setup_config "${ptx_config_mode}" "${pkg_build_dir}/.config" \
 	"${relative_file_dotconfig}" "${file_dotconfig}" "${relative_ref_file_dotconfig}"
     if [ ${?} -ne 0 ]; then
