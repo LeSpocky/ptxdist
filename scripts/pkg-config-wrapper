@@ -16,10 +16,16 @@ else
     exit 1
 fi
 
-declare -a libdir system_path system_incpath
-libdir=( $(find ${prefix} -maxdepth 3 -type d -name pkgconfig) )
-system_libpath=( "${libdir[@]/%//../../lib}" "${libdir[@]/%//../lib}" "/usr/lib" "/lib" )
-system_incpath=( "${libdir[@]/%//../../include}" "${libdir[@]/%//../include}" "/usr/include" "/include" )
+declare -a libdirs libpaths incpaths
+# try to find all our pkgconfig paths.
+libdirs=( $(find ${prefix} -maxdepth 3 -type d -name pkgconfig) )
+for libdir in "${libdirs[@]}"; do
+    lib="$(basename $(dirname ${libdir}))"
+    libpaths+=( "${libdir[@]/%//../../${lib}}" "${libdir[@]/%//../${lib}}" )
+    incpaths+=( "${libdir[@]/%//../../include}" "${libdir[@]/%//../include}" )
+    libpaths+=( "/usr/${lib}" "/${lib}" )
+done
+incpaths+=( "/usr/include" "/include" )
 
 orig_IFS="${IFS}"
 IFS=":"
@@ -30,12 +36,12 @@ unset PKG_CONFIG_SYSROOT_DIR
 # they may include /usr/{lib,include} which is never correct
 unset PKG_CONFIG_ALLOW_SYSTEM_CFLAGS
 unset PKG_CONFIG_ALLOW_SYSTEM_LIBS
-# default pkg-config searchs
-export PKG_CONFIG_LIBDIR="${libdir[*]}"
+# default pkg-config search path
+export PKG_CONFIG_LIBDIR="${libdirs[*]}"
 # default search path that will be dropped from --libs
-export PKG_CONFIG_SYSTEM_LIBRARY_PATH="${system_libpath[*]}"
+export PKG_CONFIG_SYSTEM_LIBRARY_PATH="${libpaths[*]}"
 # default search path that will be dropped from --cflags
-export PKG_CONFIG_SYSTEM_INCLUDE_PATH="${system_incpath[*]}"
+export PKG_CONFIG_SYSTEM_INCLUDE_PATH="${incpaths[*]}"
 IFS="${orig_IFS}"
 
 for ((i = 1; i <= ${#}; i++)); do
