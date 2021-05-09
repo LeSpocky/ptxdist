@@ -196,6 +196,8 @@ ptxd_lib_setup_target_wrapper() {
 	ptxd_replace_copy_from_path PTXDIST_PATH "scripts/wrapper/${cc}-wrapper" \
 	    "${wrapper_dir}/${compiler_prefix}${cc}"
     done &&
+    ptxd_replace_link "${compiler_prefix}g++" "${wrapper_dir}/${compiler_prefix}c++" &&
+    ptxd_replace_link "${compiler_prefix}g++" "${wrapper_dir}/real/${compiler_prefix}c++" &&
     for cc in clang clang++; do
 	if [ ! -e "${toolchain}/${cc}" ]; then
 	    rm -f "${wrapper_dir}/real/${compiler_prefix}${cc}" \
@@ -211,7 +213,7 @@ ptxd_lib_setup_target_wrapper() {
     done
     for tool in "${toolchain}/${compiler_prefix}"* ; do
 	local toolname="${tool#${toolchain}/}"
-	if [ ! -e "${wrapper_dir}/${toolname}" -o -h "${wrapper_dir}/${toolname}" ]; then
+	if [ ! -e "${wrapper_dir}/${toolname}" -o ! -e "${wrapper_dir}/real/${toolname}" ]; then
 	    ptxd_replace_link "${tool}"  "${wrapper_dir}/${toolname}"
 	fi
     done &&
