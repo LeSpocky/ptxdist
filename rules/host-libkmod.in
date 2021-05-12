@@ -2,4 +2,16 @@
 
 config HOST_LIBKMOD
 	tristate
+	select HOST_ZLIB	if HOST_LIBKMOD_ZLIB
+	select HOST_ZSTD	if HOST_LIBKMOD_ZSTD
 	default y if ALLYES
+
+if HOST_LIBKMOD
+
+config HOST_LIBKMOD_ZLIB
+	bool
+
+config HOST_LIBKMOD_ZSTD
+	bool
+
+endif

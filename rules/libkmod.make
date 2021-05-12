@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBKMOD) += libkmod
 #
 # Paths and names
 #
-LIBKMOD_VERSION	:= 27
-LIBKMOD_MD5	:= 3973a74786670d3062d89a827e266581
+LIBKMOD_VERSION	:= 28
+LIBKMOD_MD5	:= 0a2b887b1b3dfb8c0b3f41f598203e56
 LIBKMOD		:= kmod-$(LIBKMOD_VERSION)
 LIBKMOD_SUFFIX	:= tar.xz
 LIBKMOD_URL	:= $(call ptx/mirror, KERNEL, utils/kernel/kmod/$(LIBKMOD).$(LIBKMOD_SUFFIX))
@@ -45,6 +45,7 @@ LIBKMOD_CONF_OPT	:= \
 	--disable-coverage \
 	--without-xz \
 	--$(call ptx/wwo, PTXCONF_LIBKMOD_ZLIB)-zlib \
+	--$(call ptx/wwo, PTXCONF_LIBKMOD_ZSTD)-zstd \
 	--without-openssl
 
 # ----------------------------------------------------------------------------

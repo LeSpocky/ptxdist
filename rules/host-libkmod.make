@@ -31,7 +31,8 @@ HOST_LIBKMOD_CONF_OPT	:= \
 	--disable-python \
 	--disable-coverage \
 	--without-xz \
-	--without-zlib \
+	--$(call ptx/wwo, PTXCONF_HOST_LIBKMOD_ZLIB)-zlib \
+	--$(call ptx/wwo, PTXCONF_HOST_LIBKMOD_ZSTD)-zstd \
 	--without-openssl
 
 # ----------------------------------------------------------------------------

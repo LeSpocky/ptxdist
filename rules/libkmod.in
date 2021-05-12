@@ -2,7 +2,11 @@
 
 menuconfig LIBKMOD
 	tristate
-	select ZLIB if LIBKMOD_ZLIB
+	select ZLIB			if LIBKMOD_ZLIB
+	select ZSTD			if LIBKMOD_ZSTD
+	select HOST_LIBKMOD		if LIBKMOD_ZLIB || LIBKMOD_ZSTD
+	select HOST_LIBKMOD_ZLIB	if LIBKMOD_ZLIB
+	select HOST_LIBKMOD_ZSTD	if LIBKMOD_ZSTD
 	prompt "libkmod                       "
 	help
 	  libkmod is a library with a set of tools frontends to handle common
@@ -82,6 +86,12 @@ config LIBKMOD_ZLIB
 	prompt "use zlib"
 	help
 	  Use the 'zlib' to handle compressed modules
+
+config LIBKMOD_ZSTD
+	bool
+	prompt "use zstd"
+	help
+	  Use 'libzstd' to handle Zstandard compressed modules
 
 config LIBKMOD_LOGGING
 	bool
