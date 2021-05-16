@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_BZIP2) += bzip2
 #
 # Paths and names
 #
-BZIP2_VERSION	:= 1.0.6
-BZIP2_MD5	:= 00b516f4704d4a7cb50a1d97e6e8e15b
+BZIP2_VERSION	:= 1.0.8
+BZIP2_MD5	:= 67e051268d0c475ea773822f7500d0e5
 BZIP2		:= bzip2-$(BZIP2_VERSION)
 BZIP2_SUFFIX	:= tar.gz
 BZIP2_URL	:= \
@@ -25,7 +25,7 @@ BZIP2_URL	:= \
 BZIP2_SOURCE	:= $(SRCDIR)/$(BZIP2).$(BZIP2_SUFFIX)
 BZIP2_DIR	:= $(BUILDDIR)/$(BZIP2)
 BZIP2_LICENSE	:= bzip2-1.0.6
-BZIP2_LICENSE_FILES	:= file://LICENSE;md5=ddeb76cd34e791893c0f539fdab879bb
+BZIP2_LICENSE_FILES	:= file://LICENSE;md5=1e5cffe65fc786f83a11a4b225495c0b
 
 # ----------------------------------------------------------------------------
 # Prepare
