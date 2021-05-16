@@ -25,6 +25,7 @@ BZIP2_URL	:= \
 BZIP2_SOURCE	:= $(SRCDIR)/$(BZIP2).$(BZIP2_SUFFIX)
 BZIP2_DIR	:= $(BUILDDIR)/$(BZIP2)
 BZIP2_LICENSE	:= bzip2-1.0.6
+BZIP2_LICENSE_FILES	:= file://LICENSE;md5=ddeb76cd34e791893c0f539fdab879bb
 
 # ----------------------------------------------------------------------------
 # Prepare
