@@ -41,6 +41,7 @@ HOST_SQLITE_CONF_OPT	:= \
 	--disable-readline \
 	--enable-threadsafe \
 	--disable-dynamic-extensions \
+	--disable-math \
 	--disable-fts5 \
 	--enable-json1 \
 	--disable-session \
