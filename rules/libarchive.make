@@ -14,15 +14,16 @@ PACKAGES-$(PTXCONF_LIBARCHIVE) += libarchive
 #
 # Paths and names
 #
-LIBARCHIVE_VERSION	:= 3.3.2
-LIBARCHIVE_MD5		:= 4583bd6b2ebf7e0e8963d90879eb1b27
+LIBARCHIVE_VERSION	:= 3.5.1
+LIBARCHIVE_MD5		:= c96040b75a14c8ba73238c284147e87f
 LIBARCHIVE		:= libarchive-$(LIBARCHIVE_VERSION)
 LIBARCHIVE_SUFFIX	:= tar.gz
 LIBARCHIVE_URL		:= https://www.libarchive.org/downloads/$(LIBARCHIVE).$(LIBARCHIVE_SUFFIX)
 LIBARCHIVE_SOURCE	:= $(SRCDIR)/$(LIBARCHIVE).$(LIBARCHIVE_SUFFIX)
 LIBARCHIVE_DIR		:= $(BUILDDIR)/$(LIBARCHIVE)
-LIBARCHIVE_LICENSE	:= BSD-2-Clause AND BSD-3-Clause AND public_domain
-LIBARCHIVE_LICENSE_FILES	:= file://COPYING;md5=ed99aca006bc346974bb745a35336425
+LIBARCHIVE_LICENSE	:= BSD-2-Clause AND BSD-3-Clause AND public_domain AND \
+			   (CC-0-1.0 OR OpenSSL OR Apache-2.0)
+LIBARCHIVE_LICENSE_FILES	:= file://COPYING;md5=d499814247adaee08d88080841cb5665
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -49,11 +50,14 @@ LIBARCHIVE_CONF_OPT	:= \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--with-zlib \
 	--$(call ptx/wwo, PTXCONF_LIBARCHIVE_BZIP2)-bz2lib \
+	--without-libb2 \
 	--without-iconv \
 	--without-lz4 \
+	--without-zstd \
 	--$(call ptx/wwo, PTXCONF_LIBARCHIVE_LZMA)-lzma \
 	--without-lzo2 \
 	--without-cng \
+	--without-mbedtls \
 	--without-nettle \
 	--without-openssl \
 	--without-xml2 \
