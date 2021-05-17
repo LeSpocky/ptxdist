@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_LIBXML2) += libxml2
 #
 # Paths and names
 #
-LIBXML2_VERSION	:= 2.9.10
-LIBXML2_MD5	:= 10942a1dc23137a8aa07f0639cbfece5
+LIBXML2_VERSION	:= 2.9.12
+LIBXML2_MD5	:= f433a39be087a9f0b197eb2307ad9f75
 LIBXML2		:= libxml2-$(LIBXML2_VERSION)
 LIBXML2_SUFFIX	:= tar.gz
 LIBXML2_SOURCE	:= $(SRCDIR)/$(LIBXML2).$(LIBXML2_SUFFIX)
@@ -26,7 +26,7 @@ LIBXML2_LICENSE	:= MIT AND ISC
 # The file 'COPYING' is just a symlink on the file 'Copyright'
 LIBXML2_LICENSE_FILES := \
 	file://Copyright;md5=2044417e2e5006b65a8b9067b683fcf1 \
-	file://hash.c;startline=6;endline=15;md5=96f7296605eae807670fb08947829969
+	file://hash.c;startline=6;endline=15;md5=e77f77b12cb69e203d8b4090a0eee879
 
 LIBXML2_URL := \
 	ftp://xmlsoft.org/libxml2/$(LIBXML2).$(LIBXML2_SUFFIX) \
