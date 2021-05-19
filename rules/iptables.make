@@ -48,7 +48,7 @@ IPTABLES_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_IPTABLES_NFTABLES_COMPAT)-nftables \
 	--disable-connlabel \
 	--with-kernel=$(KERNEL_HEADERS_DIR) \
-	--with-xtlibdir=/usr/lib
+	--with-xtlibdir=/usr/$(CROSS_LIB_DIR)
 
 # ----------------------------------------------------------------------------
 # Install
@@ -81,28 +81,28 @@ ifdef PTXCONF_IPTABLES_LIBIPQ
 	@$(call install_lib, iptables, 0, 0, 0644, libipq)
 endif
 
-	@cd $(IPTABLES_PKGDIR)/usr/lib && \
+	@cd $(IPTABLES_PKGDIR)/usr/$(CROSS_LIB_DIR) && \
 		for file in libxt_*.so; do \
 			$(call install_copy, iptables, 0, 0, 0644, -,\
-				/usr/lib/$$file); \
+				/usr/$(CROSS_LIB_DIR)/$$file); \
 		done
 
 ifdef PTXCONF_IPTABLES_IPV6
 #	# install the IPv6 relevant shared libraries
-	@cd $(IPTABLES_PKGDIR)/usr/lib && \
+	@cd $(IPTABLES_PKGDIR)/usr/$(CROSS_LIB_DIR) && \
 		for file in libip6t_*.so; do \
 			$(call install_copy, iptables, 0, 0, 0644, -, \
-				/usr/lib/$$file); \
+				/usr/$(CROSS_LIB_DIR)/$$file); \
 		done
 	@$(call install_lib, iptables, 0, 0, 0644, libip6tc)
 endif
 
 ifdef PTXCONF_IPTABLES_IPV4
 #	# install the IPv4 relevant shared libraries
-	@cd $(IPTABLES_PKGDIR)/usr/lib && \
+	@cd $(IPTABLES_PKGDIR)/usr/$(CROSS_LIB_DIR) && \
 		for file in libipt_*.so; do \
 			$(call install_copy, iptables, 0, 0, 0644, -,\
-				/usr/lib/$$file); \
+				/usr/$(CROSS_LIB_DIR)/$$file); \
 		done
 	@$(call install_lib, iptables, 0, 0, 0644, libip4tc)
 endif
