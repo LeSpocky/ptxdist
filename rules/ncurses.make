@@ -48,7 +48,7 @@ NCURSES_AUTOCONF_SHARED = \
 	--without-tack \
 	--without-tests \
 	--with-curses-h \
-	--with-pkg-config-libdir=/usr/lib/pkgconfig \
+	--with-pkg-config-libdir=/usr/$(CROSS_LIB_DIR)/pkgconfig \
 	--$(call ptx/endis,$(1))-pc-files \
 	--enable-mixed-case \
 	--without-libtool \
