@@ -206,8 +206,24 @@ config MESALIB_VULKAN_FREEDRENO
 
 config MESALIB_VULKAN_SWRAST
 	bool
+	# needs LLVM
+	depends on BROKEN
 	select MESALIB_DRI_SWRAST
 	prompt "Software Rasterizer"
+
+comment "Vulkan layers"
+
+config MESALIB_VULKAN_DEVICE_SELECT
+	bool
+	prompt "Device select layer"
+
+config MESALIB_VULKAN_INTEL_NULLHW
+	bool
+	prompt "Intel nullhw layer"
+
+config MESALIB_VULKAN_OVERLAY
+	bool
+	prompt "Overlay layer"
 
 config MESALIB_ZSTD
 	bool
