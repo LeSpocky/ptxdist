@@ -29,6 +29,11 @@ OPENCV_DIR	:= $(BUILDDIR)/$(OPENCV)
 OPENCV_LICENSE	:= BSD
 OPENCV_BUILD_DIR := $(OPENCV_DIR)-build
 
+ifdef PTXCONF_OPENCV_EXAMPLES
+# the examples are installed from the build tree
+OPENCV_DEVPKG	:= NO
+endif
+
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
