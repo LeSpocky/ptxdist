@@ -40,4 +40,13 @@ HOST_ICU_CONF_OPT	:= \
 	--disable-tests \
 	--disable-samples
 
+# ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+
+# only the build tree is needed for icu
+$(STATEDIR)/host-icu.install:
+	@$(call targetinfo)
+	@$(call touch)
+
 # vim: syntax=make
