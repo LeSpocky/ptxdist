@@ -94,6 +94,7 @@ world/env/impl = \
 	pkg_build_dir="$(call ptx/escape,$($(1)_BUILD_DIR))"			\
 										\
 	pkg_wrapper_blacklist="$(call ptx/escape,$($(1)_WRAPPER_BLACKLIST))"	\
+	pkg_flags_blacklist="$(call ptx/escape,$($(1)_FLAGS_BLACKLIST))"	\
 										\
 	pkg_cppflags="$(call ptx/escape,$($(1)_CPPFLAGS))"			\
 	pkg_cflags="$(call ptx/escape,$($(1)_CFLAGS))"				\

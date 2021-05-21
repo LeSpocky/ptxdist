@@ -103,6 +103,12 @@ cc_check_args() {
 				COMPILING=true
 				;;
 		esac
+		case " ${pkg_flags_blacklist} " in
+			*" ${ARG} "*)
+				echo "wrapper: found blacklisted flag '${ARG}'" >&2
+				exit 1
+				;;
+		esac
 	done
 	# Used e.g. by the kernel to get the compiler version. Adding
 	# linker options confuses gcc because there is nothing to link.

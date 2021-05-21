@@ -308,6 +308,14 @@ Build Environment for all Stages
   flags. Adding them via environment variables or ``make`` arguments can
   have unexpected side effects, such as as overwriting existing defaults.
 
+``<PKG>_FLAGS_BLACKLIST``
+  A list of arbitrary flags. If any one of these flags is found as an
+  argument to the compiler, preprocessor or linker then the call will fail.
+  This is useful to prevent implicit dependencies: Many packages try to
+  link to libraries at configure time and use them if it works. Adding
+  '-l<lib>' to the blacklist makes it possible to prevent such a detection
+  and explicitly avoid the dependency.
+
 ``<PKG>_WRAPPER_BLACKLIST``
   PTXdist has several options in the platformconfig that inject options in
   the compiler command line. This is used, for example, to add hardening
