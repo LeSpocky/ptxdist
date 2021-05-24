@@ -2,6 +2,8 @@
 menuconfig DHCP
 	tristate
 	prompt "dhcp                          "
+	select BIND
+	select ZLIB
 	help
 	  This is the DHCP server from version 3 of the Internet Software
 	  Consortium DHCP package. For more information visit the ISC web
