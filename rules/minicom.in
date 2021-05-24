@@ -4,6 +4,9 @@ menuconfig MINICOM
 	tristate
 	prompt "minicom                       "
 	select NCURSES
+	select ROOTFS
+	select ROOTFS_VAR_LOCK
+	select CKERMIT			if MINICOM_KERMIT
         help
 	  friendly menu driven serial communication program
 
@@ -19,4 +22,7 @@ config MINICOM_DEFCONFIG
 	help
           Install /etc/minirc.dfl config file from projectroot or ptxdist generic.
 
+config MINICOM_KERMIT
+	bool
+	prompt "ckermit support"
 endif

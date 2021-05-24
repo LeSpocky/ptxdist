@@ -2,6 +2,7 @@
 #
 # Copyright (C) 2007 by Carsten Schlote <c.schlote@konzeptpark.de>
 #               2009, 2010 by Marc Kleine-Budde <mkl@pengutronix.de>
+#               2021 Roland Hieber, Pengutronix <rhi@pengutronix.de>
 #
 # For further information about the PTXdist project and license conditions
 # see the README file.
@@ -15,12 +16,12 @@ PACKAGES-$(PTXCONF_MINICOM) += minicom
 #
 # Paths and names
 #
-MINICOM_VERSION	:= 2.6.2
-MINICOM_MD5	:= 203c56c4b447f45e2301b0cc4e83da3c
-MINICOM_SUFFIX	:= tar.gz
+MINICOM_VERSION	:= 2.8
+MINICOM_MD5	:= d32eb2e615f286611c4d1877a25939be
+MINICOM_SUFFIX	:= tar.bz2
 MINICOM		:= minicom-$(MINICOM_VERSION)
 MINICOM_TARBALL	:= minicom_$(MINICOM_VERSION).orig.$(MINICOM_SUFFIX)
-MINICOM_URL	:= http://snapshot.debian.org/archive/debian/20130208T032801Z/pool/main/m/minicom/$(MINICOM_TARBALL)
+MINICOM_URL	:= http://snapshot.debian.org/archive/debian/20210524T032801Z/pool/main/m/minicom/$(MINICOM_TARBALL)
 MINICOM_SOURCE	:= $(SRCDIR)/$(MINICOM).$(MINICOM_SUFFIX)
 MINICOM_DIR	:= $(BUILDDIR)/$(MINICOM)
 MINICOM_LICENSE	:= LGPL-2.0-or-later AND xinetd AND GPL-2.0-or-later
@@ -37,12 +38,19 @@ MINICOM_LICENSE_FILES	:= \
 #
 # autoconf
 #
-MINICOM_AUTOCONF := \
+MINICOM_CONF_TOOL	:= autoconf
+MINICOM_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-nls \
 	--disable-rpath \
+	--disable-music \
 	--enable-socket \
-	--disable-music
+	--enable-lock-dir=/var/lock \
+	--enable-dfl-port=/dev/modem \
+	--enable-dfl-baud=115200 \
+	--enable-cfg-dir=/etc \
+	--enable-kermit=$(call ptx/ifdef,PTXCONF_MINICOM_KERMIT,/usr/bin/ckermit,/usr/bin/false) \
+	--disable-nls \
+	--without-dmalloc
 
 # ----------------------------------------------------------------------------
 # Target-Install
