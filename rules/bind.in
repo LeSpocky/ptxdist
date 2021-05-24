@@ -1,0 +1,10 @@
+## SECTION=networking
+
+config BIND
+	tristate
+	prompt "bind"
+	help
+	  The ISC BIND nameserver
+
+	  Currently only used as a library dependency for ISC DHCP, no binaries
+	  are installed to the target.
