@@ -23,7 +23,12 @@ MINICOM_TARBALL	:= minicom_$(MINICOM_VERSION).orig.$(MINICOM_SUFFIX)
 MINICOM_URL	:= http://snapshot.debian.org/archive/debian/20130208T032801Z/pool/main/m/minicom/$(MINICOM_TARBALL)
 MINICOM_SOURCE	:= $(SRCDIR)/$(MINICOM).$(MINICOM_SUFFIX)
 MINICOM_DIR	:= $(BUILDDIR)/$(MINICOM)
-MINICOM_LICENSE	:= GPL-2.0-only
+MINICOM_LICENSE	:= LGPL-2.0-or-later AND xinetd AND GPL-2.0-or-later
+MINICOM_LICENSE_FILES	:= \
+	file://lib/getopt.c;startline=12;endline=20;md5=33478700692dbfddf8702809f842f9dc \
+	file://lib/snprintf.c;startline=15;endline=40;md5=a311a669ac916dad747dde2011caed9b \
+	file://src/main.c;startline=7;endline=10;md5=908a4d755c7a49f4c6156a07400f3d60 \
+	file://COPYING;md5=420477abc567404debca0a2a1cb6b645
 
 # ----------------------------------------------------------------------------
 # Prepare
