@@ -27,6 +27,11 @@ CRYPTSETUP_LICENSE	:= GPL-2.0-or-later
 # Prepare
 # ----------------------------------------------------------------------------
 
+
+CRYPTSETUP_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	PTXDIST_PKG_CONFIG_VAR_NO_SYSROOT=tmpfilesdir
+
 #
 # autoconf
 #
@@ -71,6 +76,8 @@ $(STATEDIR)/cryptsetup.targetinstall:
 	@$(call install_fixup, cryptsetup,DESCRIPTION,missing)
 
 	@$(call install_lib, cryptsetup, 0, 0, 0644, libcryptsetup)
+	@$(call install_alternative, cryptsetup, 0, 0, 0644, \
+		/usr/lib/tmpfiles.d/cryptsetup.conf)
 
 ifdef PTXCONF_CRYPTSETUP_CRYPTSETUP
 	@$(call install_copy, cryptsetup, 0, 0, 0755, -, /usr/sbin/cryptsetup)
