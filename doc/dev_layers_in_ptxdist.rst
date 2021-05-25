@@ -29,7 +29,7 @@ are used. Any layer specific handling is done implicitly by PTXdist.
 However, there are a few things that need special handling.
 
 The variables :ref:`PTXDIST_WORKSPACE<ptxdist_workspace>` and
-:ref:`PTXDIST_PLATFORMCONFIGDIR`<ptxdist_platformconfigdir>` always refer
+:ref:`PTXDIST_PLATFORMCONFIGDIR<ptxdist_platformconfigdir>` always refer
 to the directories in the top layer. These variables might be used in rules
 files like this:
 
