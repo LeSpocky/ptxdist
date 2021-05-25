@@ -67,8 +67,30 @@ $(STATEDIR)/iputils.targetinstall:
 	@$(call install_fixup, iputils,AUTHOR,"Alexander Aring <aar@pengutronix.de>")
 	@$(call install_fixup, iputils,DESCRIPTION,missing)
 
-	@$(call install_tree, iputils, 0, 0, -, /usr/bin)
-	@$(call install_tree, iputils, 0, 0, -, /usr/sbin)
+ifdef PTXCONF_IPUTILS_ARPING
+	@$(call install_copy, iputils, 0, 0, 0755, -, /usr/bin/arping)
+endif
+ifdef PTXCONF_IPUTILS_CLOCKDIFF
+	@$(call install_copy, iputils, 0, 0, 0755, -, /usr/bin/clockdiff)
+endif
+ifdef PTXCONF_IPUTILS_PING
+	@$(call install_copy, iputils, 0, 0, 0755, -, /usr/bin/ping)
+endif
+ifdef PTXCONF_IPUTILS_RARPD
+	@$(call install_copy, iputils, 0, 0, 0755, -, /usr/sbin/rarpd)
+endif
+ifdef PTXCONF_IPUTILS_RDISC
+	@$(call install_copy, iputils, 0, 0, 0755, -, /usr/sbin/rdisc)
+endif
+ifdef PTXCONF_IPUTILS_TFTPD
+	@$(call install_copy, iputils, 0, 0, 0755, -, /usr/bin/tftpd)
+endif
+ifdef PTXCONF_IPUTILS_TRACEPATH
+	@$(call install_copy, iputils, 0, 0, 0755, -, /usr/bin/tracepath)
+endif
+ifdef PTXCONF_IPUTILS_TRACEROUTE6
+	@$(call install_copy, iputils, 0, 0, 0755, -, /usr/bin/traceroute6)
+endif
 
 	@$(call install_finish, iputils)
 
