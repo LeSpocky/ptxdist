@@ -14,14 +14,21 @@ PACKAGES-$(PTXCONF_NFSUTILS) += nfsutils
 #
 # Paths and names
 #
-NFSUTILS_VERSION	:= 2.5.1
-NFSUTILS_MD5		:= 8c89b19224f2c8374ca9776435c66d37
+NFSUTILS_VERSION	:= 2.5.3
+NFSUTILS_MD5		:= e22d09701b4da853baa6ac7bae259732
 NFSUTILS		:= nfs-utils-$(NFSUTILS_VERSION)
 NFSUTILS_SUFFIX		:= tar.gz
 NFSUTILS_URL		:= https://kernel.org/pub/linux/utils/nfs-utils/$(NFSUTILS_VERSION)/$(NFSUTILS).$(NFSUTILS_SUFFIX)
 NFSUTILS_SOURCE		:= $(SRCDIR)/$(NFSUTILS).$(NFSUTILS_SUFFIX)
 NFSUTILS_DIR		:= $(BUILDDIR)/$(NFSUTILS)
-NFSUTILS_LICENSE	:= GPL-2.0-or-later
+NFSUTILS_LICENSE	:= GPL-2.0-or-later AND BSD-3-Clause
+NFSUTILS_LICENSE_FILES	:= \
+	file://COPYING;md5=95f3a93a5c3c7888de623b46ea085a84 \
+	file://utils/showmount/showmount.c;startline=5;endline=13;md5=d3811a49409f2f42614bb59fd6d68bb4 \
+	file://utils/statd/COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3 \
+	file://utils/statd/hostname.c;startline=6;endline=14;md5=3607f10ab196fbbf8bacb79042f718e7 \
+	file://utils/statd/svc_run.c;startline=13;endline=34;md5=78baf6ac3cfbb3cb057a7668cb93f64b \
+	file://utils/mount/mount.c;startline=9;endline=17;md5=d3811a49409f2f42614bb59fd6d68bb4 \
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -47,11 +54,12 @@ NFSUTILS_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_NFSUTILS_CLIENT)-mount \
 	--$(call ptx/endis, PTXCONF_NFSUTILS_CLIENT)-libmount-mount \
 	--disable-junction \
-	--$(call ptx/endis, PTXCONF_GLOBAL_IPV6)-tirpc \
+	--enable-tirpc \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-mountconfig \
 	--disable-nfsdcld \
 	--disable-nfsdcltrack \
+	--disable-nfsv4server \
 	--disable-caps \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-ldap \
