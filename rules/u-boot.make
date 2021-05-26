@@ -145,6 +145,12 @@ endif
 ifdef PTXCONF_U_BOOT_INSTALL_ELF
 	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot $(IMAGEDIR)/u-boot.elf
 endif
+ifdef PTXCONF_U_BOOT_INSTALL_EFI_APPLICATION
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-app.efi $(IMAGEDIR)/u-boot-app.efi
+endif
+ifdef PTXCONF_U_BOOT_INSTALL_EFI_PAYLOAD
+	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-payload.efi $(IMAGEDIR)/u-boot-payload.efi
+endif
 ifdef PTXCONF_U_BOOT_INSTALL_SPL
 	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/SPL $(IMAGEDIR)/SPL
 endif

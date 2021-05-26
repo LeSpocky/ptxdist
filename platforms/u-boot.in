@@ -171,6 +171,18 @@ config U_BOOT_INSTALL_ELF
 	help
 	  Installing the U-Boot ELF binary into platform image directory.
 
+config U_BOOT_INSTALL_EFI_APPLICATION
+	prompt "install u-boot-app.efi"
+	bool
+	help
+	  Installing the U-Boot EFI application into platform image directory.
+
+config U_BOOT_INSTALL_EFI_PAYLOAD
+	prompt "install u-boot-payload.efi"
+	bool
+	help
+	  Installing the U-Boot EFI payload into platform image directory.
+
 config U_BOOT_INSTALL_SPL
 	prompt "install SPL"
 	bool
