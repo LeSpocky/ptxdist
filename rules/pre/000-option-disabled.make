@@ -150,7 +150,7 @@ define ptx/config-foo
 $(strip $(if $($(strip $(1))),
   $(if $(call remove_quotes,$($(2))),
     $(call remove_quotes,$($(2))),
-    $(error $(2) is undefined or empty)),
+    $(if $(filter update,$(3)),,$(error $(2) is undefined or empty))),
   undefined))
 endef
 
@@ -182,7 +182,7 @@ endef
 # the package is enabled.
 #
 define ptx/config-md5
-$(call ptx/config-foo,$(strip $(1)),$(if $(strip $(2)),$(strip $(2))_MD5,$(strip $(1))_MD5))
+$(call ptx/config-foo,$(strip $(1)),$(if $(strip $(2)),$(strip $(2))_MD5,$(strip $(1))_MD5),$(PTXCONF_SETUP_CHECK))
 endef
 
 # vim: syntax=make
