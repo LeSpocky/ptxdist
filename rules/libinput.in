@@ -7,6 +7,9 @@ menuconfig LIBINPUT
 	select LIBEVDEV
 	select UDEV
 	select UDEV_LIBUDEV
+	select PYTHON3			if LIBINPUT_TOOL_REPLAY && RUNTIME
+	select PYTHON3_LIBEVDEV		if LIBINPUT_TOOL_REPLAY && RUNTIME
+	select PYTHON3_PYYAML		if LIBINPUT_TOOL_REPLAY && RUNTIME
 	prompt "libinput                      "
 	help
 	  libinput is a library to handle input devices in Wayland compositors and to
@@ -30,5 +33,14 @@ config LIBINPUT_TOOL
 	prompt "install libinput tool"
 	help
 	  Install the libinput tool.
+
+config LIBINPUT_TOOL_REPLAY
+	bool
+	depends on LIBINPUT_TOOL
+	prompt "install Python dependencies for 'libinput replay'"
+	help
+	  'libinput replay' is a Python 3 script that has several
+	  dependencies. Enable this option to ensure that all Python
+	  packages needed for 'libinput replay' are available.
 
 endif
