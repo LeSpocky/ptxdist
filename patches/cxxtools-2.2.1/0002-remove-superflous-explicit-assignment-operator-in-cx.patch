@@ -1,0 +1,23 @@
+From: =?UTF-8?q?Tommi=20M=C3=A4kitalo?= <tommi@tntnet.org>
+Date: Mon, 27 Apr 2020 11:06:24 +0200
+Subject: [PATCH] remove superflous explicit assignment operator in
+ cxxtools::Char
+
+---
+ include/cxxtools/char.h | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/include/cxxtools/char.h b/include/cxxtools/char.h
+index 6ce22c78b94a..c5565a022090 100644
+--- a/include/cxxtools/char.h
++++ b/include/cxxtools/char.h
+@@ -112,9 +112,6 @@ namespace cxxtools
+                 return Char(0);
+             }
+ 
+-            Char& operator=(const Char& ch)
+-            { _value = ch._value; return *this; }
+-
+             /**
+              * @brief Returns the internal value (unsigned 32 bits) of this character.
+              * @return The 32-bit-value of this character.
