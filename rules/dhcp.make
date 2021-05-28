@@ -71,6 +71,12 @@ DHCP_CONF_OPT := \
 	--without-ldap-gssapi \
 	--without-ldapcasa
 
+ifdef PTXCONF_ARCH_PPC
+DHCP_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	LIBS=-latomic
+endif
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
