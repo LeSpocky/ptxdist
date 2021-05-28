@@ -5,4 +5,4 @@ config PYTHON3_LIBEVDEV
 	select PYTHON3
 	prompt "libevdev"
 	help
-	  FIXME
+	  Python 3 wrapper for libevdev
