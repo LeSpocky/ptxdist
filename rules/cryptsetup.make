@@ -28,10 +28,6 @@ CRYPTSETUP_LICENSE	:= GPL-2.0-or-later
 # ----------------------------------------------------------------------------
 
 
-CRYPTSETUP_CONF_ENV	:= \
-	$(CROSS_ENV) \
-	PTXDIST_PKG_CONFIG_VAR_NO_SYSROOT=tmpfilesdir
-
 #
 # autoconf
 #
@@ -60,6 +56,7 @@ CRYPTSETUP_CONF_OPT	:= \
 	--enable-dev-random \
 	--enable-luks-adjust-xts-keysize \
 	--with-crypto_backend=$(PTXCONF_CRYPTSETUP_CRYPT_BACKEND) \
+	--with-tmpfilesdir=/usr/lib/tmpfiles.d \
 	--with-luks2-lock-path=/run/cryptsetup
 
 # ----------------------------------------------------------------------------
