@@ -76,6 +76,7 @@ ptxd_colgen_generate_sections()
 	"${PTX_MAP_ALL}" \
 	"${PTX_MAP_DEPS}" \
 	-
+    check_pipe_status
 }
 
 
