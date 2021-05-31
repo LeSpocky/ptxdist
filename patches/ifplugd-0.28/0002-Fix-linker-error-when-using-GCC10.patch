@@ -1,0 +1,28 @@
+From: Felix Mellmann <flix.ptxdist@benfm.de>
+Date: Mon, 31 May 2021 15:05:14 +0200
+Subject: [PATCH] Fix linker error when using GCC10
+
+This patch fixes a linker error when using GCC10. Two
+variables need to be marked as external to avoid multiple
+definition.
+
+Signed-off-by: Felix Mellmann <flix.ptxdist@benfm.de>
+---
+ src/interface.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/interface.h b/src/interface.h
+index d223b1f5fabc..fd4a5f4cea63 100644
+--- a/src/interface.h
++++ b/src/interface.h
+@@ -21,8 +21,8 @@
+  * Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA.
+  */
+ 
+-int interface_auto_up;
+-int interface_do_message;
++extern int interface_auto_up;
++extern int interface_do_message;
+ 
+ typedef enum { IFSTATUS_UP, IFSTATUS_DOWN, IFSTATUS_ERR } interface_status_t;
+ 
