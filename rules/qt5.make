@@ -35,7 +35,7 @@ QT5_MKSPECS	 = $(call ptx/get-alternative, config/qt5, linux-ptx-g++)
 
 ifdef PTXCONF_QT5
 ifeq ($(strip $(QT5_MKSPECS)),)
-$(error Qt5 mkspecs are missing)
+$(call ptx/error, Qt5 mkspecs are missing)
 endif
 endif
 
@@ -314,7 +314,7 @@ endif
 
 ifdef PTXCONF_QT5_GUI
 ifndef PTXCONF_QT5_PLATFORM_DEFAULT
-$(error Qt5: select at least one GUI platform!)
+$(call ptx/error, Qt5: select at least one GUI platform!)
 endif
 endif
 

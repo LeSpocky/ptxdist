@@ -225,6 +225,21 @@ endif
 print-%: /print-%
 	@:
 
+ifneq ($(call ptx/have-errors),)
+# skip error reporting for 'ptxdist print'
+ifeq ($(filter /print-% print-%,$(MAKECMDGOALS)),)
+ptxdist-error-report:
+	@$(call ptx/report-errors)
+
+ptxdist-error-target: ptxdist-error-report
+	@$(error failed)
+
+PHONY += ptxdist-error-target ptxdist-error-report
+# make sure this is executed befor any other target
+-include ptxdist-error-target
+endif
+endif
+
 .PHONY: $(PHONY)
 
 #

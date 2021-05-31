@@ -43,7 +43,7 @@ PLY_CONF_TOOL	:= autoconf
 ifdef PTXCONF_PLY
 ifdef PTXCONF_KERNEL
 ifneq ($(call remove_quotes,$(PTXCONF_KERNEL_HEADER_VERSION)),$(call remove_quotes,$(PTXCONF_KERNEL_VERSION)))
-$(error ply only works if the kernel header version matches the kernel version)
+$(call ptx/error, ply only works if the kernel header version matches the kernel version)
 endif
 endif
 endif

@@ -8,6 +8,6 @@
 
 ifdef PTXCONF_CODE_SIGNING
 ifeq ($(call remove_quotes,$(PTXCONF_CODE_SIGNING_PROVIDER)),)
-$(error PTXCONF_CODE_SIGNING_PROVIDER must be set correctly)
+$(call ptx/error, PTXCONF_CODE_SIGNING_PROVIDER must be set correctly)
 endif
 endif

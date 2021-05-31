@@ -64,7 +64,7 @@ endif
 
 ifdef PTXCONF_TF_A
 ifeq ($(TF_A_ARTIFACTS),)
-$(error TF_A_ARTIFACTS is empty. Nothing to install.)
+$(call ptx/error, TF_A_ARTIFACTS is empty. Nothing to install.)
 endif
 endif
 

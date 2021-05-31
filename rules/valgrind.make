@@ -45,11 +45,8 @@ VALGRIND_ENV	:= \
 
 ifdef PTXCONF_VALGRIND
 ifeq ($(VALGRIND_KERNEL_VERSION),)
- $(warning ######################### ERROR ################################)
- $(warning # Linux kernel version required in order to make valgrind work #)
- $(warning #      Define a platform kernel or the kernel headers          #)
- $(warning ################################################################)
- $(error )
+$(call ptx/error, Linux kernel version required in order to make valgrind work!)
+$(call ptx/error, Define a platform kernel or the kernel headers.)
 endif
 endif
 

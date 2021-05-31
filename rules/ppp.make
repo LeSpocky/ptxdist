@@ -33,11 +33,8 @@ PPP_KERNEL_VERSION := $(if $(KERNEL_HEADER_VERSION),$(KERNEL_HEADER_VERSION),$(K
 
 ifdef PTXCONF_PPP
 ifeq ($(PPP_KERNEL_VERSION),)
- $(warning ######################### ERROR ###########################)
- $(warning # Linux kernel version required in order to make ppp work #)
- $(warning #   Define a platform kernel or the kernel headers        #)
- $(warning ###########################################################)
- $(error )
+$(call ptx/error, Linux kernel version required in order to make ppp work!)
+$(call ptx/error, Define a platform kernel or the kernel headers)
 endif
 endif
 

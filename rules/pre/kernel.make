@@ -94,10 +94,9 @@ PTXDIST_LOWLEVEL_WRAPPER_BLACKLIST := \
 ifdef PTXCONF_KERNEL
     ifneq ($(PTXCONF_COMPILER_PREFIX),$(PTXCONF_COMPILER_PREFIX_KERNEL))
         ifeq ($(wildcard selected_toolchain_kernel/$(PTXCONF_COMPILER_PREFIX_KERNEL)gcc),)
-            $(warning *** no 'selected_toolchain_kernel' link found. Please create a link)
-            $(warning *** 'selected_toolchain_kernel' to the bin directory of your)
-            $(warning '$(PTXCONF_COMPILER_PREFIX_KERNEL)' toolchain)
-            $(error )
+            $(call ptx/error, no 'selected_toolchain_kernel' link found. Please create a link)
+            $(call ptx/error, 'selected_toolchain_kernel' to the bin directory of your)
+            $(call ptx/error, '$(PTXCONF_COMPILER_PREFIX_KERNEL)' toolchain)
         endif
         KERNEL_TOOLCHAIN_LINK := $(PTXDIST_WORKSPACE)/selected_toolchain_kernel/
     endif

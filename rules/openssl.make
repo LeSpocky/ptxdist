@@ -55,7 +55,7 @@ endif
 
 ifdef PTXCONF_OPENSSL
 ifndef OPENSSL_ARCH-y
-$(error *** Sorry unsupported ARCH in openssl.make)
+$(call ptx/error, Sorry unsupported ARCH in openssl.make)
 endif
 endif
 

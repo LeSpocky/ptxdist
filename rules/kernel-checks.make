@@ -9,9 +9,8 @@
 ifdef PTXCONF_KERNEL
 
 ifeq ($(PTXCONF_KERNEL_VERSION),)
-    $(warning *** PTXCONF_KERNEL_VERSION is empty)
-    $(warning *** please run 'ptxdist platformconfig' and activate the kernel)
-    $(error )
+$(call ptx/error, PTXCONF_KERNEL_VERSION is empty)
+$(call ptx/error, please run 'ptxdist platformconfig' and activate the kernel)
 endif
 
 endif	# PTXCONF_KERNEL

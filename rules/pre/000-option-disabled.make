@@ -150,7 +150,7 @@ define ptx/config-foo
 $(strip $(if $($(strip $(1))),
   $(if $(call remove_quotes,$($(2))),
     $(call remove_quotes,$($(2))),
-    $(if $(filter update,$(3)),,$(error $(2) is undefined or empty))),
+    $(if $(filter update,$(3)),,$(call ptx/error, $(2) is undefined or empty))),
   undefined))
 endef
 

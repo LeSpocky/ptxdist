@@ -21,10 +21,9 @@ DTC_VERSION := 1.0.0
 DTC_LICENSE := ignore
 
 ifneq ($(subst PTXCONF_KERNEL_ARCH_STRING,,$(value PTXCONF_DTC_OFTREE_DTS_PATH)),$(value PTXCONF_DTC_OFTREE_DTS_PATH))
-$(warning *** invalid value for PTXCONF_DTC_OFTREE_DTS_PATH:)
-$(warning *** PTXCONF_KERNEL_ARCH_STRING is no longer defined.)
-$(warning *** Use GENERIC_KERNEL_ARCH instead)
-$(error )
+$(call ptx/error, invalid value for PTXCONF_DTC_OFTREE_DTS_PATH:)
+$(call ptx/error, PTXCONF_KERNEL_ARCH_STRING is no longer defined.)
+$(call ptx/error, Use GENERIC_KERNEL_ARCH instead)
 endif
 
 # ----------------------------------------------------------------------------
