@@ -1,5 +1,6 @@
 From: Ladislav Michl <ladis@linux-mips.org>
-Subject: Compilation fails because of kernel header inclusion
+Date: Mon, 31 May 2021 15:00:21 +0200
+Subject: [PATCH] Compilation fails because of kernel header inclusion
 
 Fixes the following error:
 
@@ -9,8 +10,13 @@ In file included from interface.c:27:
 
 Signed-off-by: Ladislav Michl <ladis@linux-mips.org>
 ---
---- ifplugd-0.28/src/interface.c	2005-01-05 01:25:31.000000000 +0100
-+++ ifplugd-0.28/src/interface.c	2007-07-15 21:04:54.000000000 +0200
+ src/interface.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/interface.c b/src/interface.c
+index e5038f41ba52..352b4799ef4b 100644
+--- a/src/interface.c
++++ b/src/interface.c
 @@ -23,11 +23,9 @@
  #endif
  
