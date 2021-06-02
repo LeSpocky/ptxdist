@@ -182,6 +182,22 @@ ptxd_make_world_lint_autogen() {
 export -f ptxd_make_world_lint_autogen
 PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} autogen"
 
+ptxd_make_world_lint_credits() {
+    local filefd file
+
+    echo "Checking for obsolte 'See CREDITS for details about who has contributed to this project.' comment ..."
+
+    exec {filefd}< <(ptxd_make_world_lint_makefiles)
+    while read file <&${filefd}; do
+	if grep -q "See CREDITS for details about who has contributed to this project\." "${file}"; then
+	    ptxd_lint_error "'$(ptxd_print_path "${file}")' contains obsolete 'CREDITS' comment."
+	fi
+    done < "${ptx_dgen_rulesfiles_make}"
+    exec {filefd}<&-
+}
+export -f ptxd_make_world_lint_credits
+PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} credits"
+
 ptxd_make_world_lint() {
     local command
 
