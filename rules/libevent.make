@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBEVENT) += libevent
 #
 # Paths and names
 #
-LIBEVENT_VERSION	:= 2.1.8
-LIBEVENT_MD5		:= f3eeaed018542963b7d2416ef1135ecc
+LIBEVENT_VERSION	:= 2.1.12
+LIBEVENT_MD5		:= b5333f021f880fe76490d8a799cd79f4
 LIBEVENT		:= libevent-$(LIBEVENT_VERSION)-stable
 LIBEVENT_SUFFIX		:= tar.gz
 LIBEVENT_URL		:= https://github.com/libevent/libevent/releases/download/release-$(LIBEVENT_VERSION)-stable/$(LIBEVENT).$(LIBEVENT_SUFFIX)
