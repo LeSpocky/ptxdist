@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GLSLANG) += glslang
 #
 # Paths and names
 #
-GLSLANG_VERSION		:= 2021-02-18-ge56beaee7368
-GLSLANG_MD5		:= 6764b726b8cdbf728edc66afc19ade17
+GLSLANG_VERSION		:= 11.4.0
+GLSLANG_MD5		:= 40780ba8c5475482c047027487e56466
 GLSLANG			:= glslang-$(GLSLANG_VERSION)
 GLSLANG_SUFFIX		:= tar.gz
 GLSLANG_URL		:= https://github.com/KhronosGroup/glslang/archive/$(GLSLANG_VERSION).$(GLSLANG_SUFFIX)
