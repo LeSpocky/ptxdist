@@ -1,0 +1,10 @@
+## SECTION=shell_and_console
+
+config PPS_TOOLS
+	tristate
+	prompt "pps-tools"
+	select LIBC_M
+	help
+	  The pps-tools provide applications to configure and test pulse per
+	  second devices. They also provide the official PPS API header
+	  timepps.h.
