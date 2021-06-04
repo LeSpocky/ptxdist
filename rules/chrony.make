@@ -52,7 +52,7 @@ CHRONY_CONF_OPT		:= \
 	$(call ptx/ifdef, PTXCONF_CHRONY_ADVANCED_COMMAND,--enable-debug,) \
 	--disable-refclock \
 	--disable-phc \
-	--disable-pps \
+	$(call ptx/ifdef, PTXCONF_CHRONY_PPS_REFCLK,,--disable-pps) \
 	$(call ptx/ifdef, PTXCONF_GLOBAL_IPV6,,--disable-ipv6) \
 	--with-user=chrony \
 	$(call ptx/ifdef, PTXCONF_CHRONY_SECCOMP,--enable-scfilter,) \

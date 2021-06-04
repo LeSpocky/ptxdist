@@ -8,6 +8,7 @@ menuconfig CHRONY
 	select LIBCAP
 	select LIBSECCOMP	if CHRONY_SECCOMP
 	select NETTLE		if CHRONY_USE_NETTLE
+	select PPS_TOOLS	if CHRONY_PPS_REFCLK
 	help
 	  This will install the Chrony NTPD Daemon (chronyd)
 	  Chrony is a pair of programs which are used to maintain
@@ -43,6 +44,13 @@ config CHRONY_ADVANCED_COMMAND
 	help
 	  This allows getting advanced NTP time synchronization
 	  status monitoring from the service.
+
+config CHRONY_PPS_REFCLK
+	bool
+	prompt "Enable support for PPS devices"
+	help
+	  Pulse per second devices signal the start of every second
+	  with high precision.
 
 comment "install options   ---"
 
