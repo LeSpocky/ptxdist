@@ -32,7 +32,7 @@ CHRONY_LICENSE_FILES	:= \
 # ----------------------------------------------------------------------------
 
 #
-# Chony is using a handcrafted configure script so normal ptx/endis
+# Chrony is using a handcrafted configure script so normal ptx/endis
 # and ptx/wwo are broken and causes "Unrecognized option".
 # CROSS_AUTOCONF_USR is not used as that adds 3 unrecognized options:
 # --libdir=, --build=, --host=
