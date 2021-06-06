@@ -185,7 +185,7 @@ PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} autogen"
 ptxd_make_world_lint_credits() {
     local filefd file
 
-    echo "Checking for obsolte 'See CREDITS for details about who has contributed to this project.' comment ..."
+    echo "Checking for obsolete 'See CREDITS for details about who has contributed to this project.' comment ..."
 
     exec {filefd}< <(ptxd_make_world_lint_makefiles)
     while read file <&${filefd}; do
