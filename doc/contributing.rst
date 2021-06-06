@@ -1,19 +1,22 @@
 Contributing to PTXdist
 =======================
 
-PTXdist Packages
+Development Tree
 ----------------
 
-While contributions to all parts of PTXdist are welcome, most contributions
-concern individual packages. Here is a checklist of things to look out for
-while creating or updating packages. These are not hard requirements, but
-there should be good reasons for different choices.
+PTXdist uses Git for version control.
+The master repository is available at::
+
+   git://git.pengutronix.de/ptxdist
+
+A `Git web interface <https://git.pengutronix.de/cgit/ptxdist/>`_ is also available.
 
 How to Contribute
-~~~~~~~~~~~~~~~~~
+-----------------
 
-Contributions should be sent as patches to the :ref:`mailing_list`. This
-is usually done with ``git send-email``.
+Patches for PTXdist are always welcome.
+Contributions should be sent to the :ref:`mailing_list`.
+This is usually done with ``git send-email``.
 If you're unfamiliar with this workflow, have a look at the intro at
 `git-send-email.io <https://git-send-email.io/>`_.
 
@@ -21,8 +24,59 @@ All patches must contain a descriptive subject and should, for all
 non-obvious changes, contain a commit message describing what has changed
 and why this is necessary.
 
-All patches must contain the correct ``Signed-off-by:`` tag,
-see `README.devel <https://git.pengutronix.de/cgit/ptxdist/tree/README.devel>`_.
+Each patch accepted into the master repository must be certified to be
+compatible with PTXdist's license (GPLv2, see `COPYING`_).
+To do this you have to sign your patches (or the ones you forward).
+If you can certify the below::
+
+   Developer's Certificate of Origin 1.1
+   
+   By making a contribution to this project, I certify that:
+   
+   (a) The contribution was created in whole or in part by me and I
+       have the right to submit it under the open source license
+       indicated in the file; or
+   
+   (b) The contribution is based upon previous work that, to the best
+       of my knowledge, is covered under an appropriate open source
+       license and I have the right under that license to submit that
+       work with modifications, whether created in whole or in part
+       by me, under the same open source license (unless I am
+       permitted to submit under a different license), as indicated
+       in the file; or
+   
+   (c) The contribution was provided directly to me by some other
+       person who certified (a), (b) or (c) and I have not modified
+       it.
+   
+   (d) I understand and agree that this project and the contribution
+       are public and that a record of the contribution (including all
+       personal information I submit with it, including my sign-off) is
+       maintained indefinitely and may be redistributed consistent with
+       this project or the open source license(s) involved.
+
+then you just add a line saying::
+
+   Signed-off-by: Random J Developer <random@developer.example.org>
+
+using your real name (sorry, no pseudonyms or anonymous contributions) at the
+end of the patch description.
+
+.. _COPYING: https://git.pengutronix.de/cgit/ptxdist/tree/COPYING
+
+There are some more usual tags (like *Acked-by* or *Reported-by*) which only
+have informational character and so are not formally specified here.
+See the `Linux kernel documentation
+<https://www.kernel.org/doc/html/latest/process/submitting-patches.html>`_
+for a more complete list.
+
+PTXdist Packages
+----------------
+
+While contributions to all parts of PTXdist are welcome, most contributions
+concern individual packages. Here is a checklist of things to look out for
+while creating or updating packages. These are not hard requirements, but
+there should be good reasons for different choices.
 
 Package Builds should be Reproducible
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
