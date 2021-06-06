@@ -48,6 +48,12 @@ Documentation
 See <https://www.ptxdist.org/doc/> for the full documentation, which
 includes a quickstart guide as well as a reference for users and
 developers.
+You can also find the documentation in reStructuredText form in the doc/
+directory inside this PTXdist tree, which you can build into HTML with
+
+    ./bin/ptxdist docs-html
+
+The generated HTML documents will be created in Documentation/html/.
 
 Bugs
 ----
