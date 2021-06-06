@@ -2641,6 +2641,10 @@ setup_export() {
 ########################################################################
 
 main() {
+	if [ -n "${PTXDIST_TOPDIR}" ]; then
+		ptxd_bailout "Calling PTXdist inside 'ptxdist bash' is not supported."
+	fi
+
 	check_uid &&
 	check_path &&
 
