@@ -82,9 +82,8 @@ in mind:
 -  There may be patches for the old version. Make sure they are updated as
    well, or removed if they are no longer needed.
    Running ``ptxdist lint`` will tell you about this.
--  Build the license report once to make sure that the checksum of pinned-down
-   license files haven't changed. (Or enable ``PTXCONF_PROJECT_CHECK_LICENSES``,
-   then this step is done during the *targetinstall* stage.)
+-  Run ``ptxdist licensecheck [<pkg>]`` to make sure that the checksum of
+   pinned-down license files haven't changed.
 
 Misc
 ~~~~
