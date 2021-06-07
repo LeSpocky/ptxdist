@@ -1,0 +1,41 @@
+## SECTION=test_suites
+
+config GOOGLETEST
+	select HOST_CMAKE
+	tristate
+	prompt "googletest"
+	help
+	  Google's C++ test framework sources
+
+	  Google Test is a framework for writing C++ tests on a
+	  variety of platforms. Based on the xUnit
+	  architecture. Supports automatic test discovery, a rich set
+	  of assertions, user-defined assertions, death tests, fatal
+	  and non-fatal failures, value- and type-parameterized tests,
+	  various options for running the tests, and XML test report
+	  generation.
+
+	  Google Mock is an extension of Google Test for C++ mocking.
+	  Inspired by jMock, EasyMock, and Hamcrest, and designed with
+	  C++'s specifics in mind, it can help you derive better
+	  designs of your system and write better tests.
+
+	  Google Mock:
+
+	  * provides a declarative syntax for defining mocks,
+	  * can easily define partial (hybrid) mocks, which are a
+	    cross of real and mock objects,
+	  * handles functions of arbitrary types and overloaded
+	    functions,
+	  * comes with a rich set of matchers for validating function
+	    arguments,
+	  * uses an intuitive syntax for controlling the behavior of a
+	    mock,
+	  * does automatic verification of expectations (no
+	    record-and-replay needed),
+	  * allows arbitrary (partial) ordering constraints on
+	    function calls to be expressed,
+	  * lets a user extend it by defining new matchers and
+	    actions.
+	  * does not use exceptions, and
+	  * is easy to learn and use.
