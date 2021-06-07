@@ -17,6 +17,11 @@ menuconfig RNG_TOOLS
 
 if RNG_TOOLS
 
+config RNG_TOOLS_RNGD
+	bool
+	default y
+	prompt "install rngd"
+
 config RNG_TOOLS_STARTSCRIPT
 	bool
 	default y
