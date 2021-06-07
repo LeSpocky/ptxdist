@@ -21,8 +21,10 @@ RAUC_HAWKBIT_UPDATER_SUFFIX		:= tar.gz
 RAUC_HAWKBIT_UPDATER_URL		:= https://github.com/rauc/rauc-hawkbit-updater/archive/$(RAUC_HAWKBIT_UPDATER).$(RAUC_HAWKBIT_UPDATER_SUFFIX)
 RAUC_HAWKBIT_UPDATER_SOURCE		:= $(SRCDIR)/$(RAUC_HAWKBIT_UPDATER).$(RAUC_HAWKBIT_UPDATER_SUFFIX)
 RAUC_HAWKBIT_UPDATER_DIR		:= $(BUILDDIR)/$(RAUC_HAWKBIT_UPDATER)
-RAUC_HAWKBIT_UPDATER_LICENSE		:= LGPL-2.1-or-later
-RAUC_HAWKBIT_UPDATER_LICENSE_FILES	:= file://LICENSE;md5=1a6d268fd218675ffea8be556788b780
+RAUC_HAWKBIT_UPDATER_LICENSE		:= LGPL-2.1-only
+RAUC_HAWKBIT_UPDATER_LICENSE_FILES	:= \
+	file://LICENSE;md5=1a6d268fd218675ffea8be556788b780 \
+	file://src/rauc-hawkbit-updater.c;startline=2;endline=18;md5=77f866ecbd1a16747812cee95cdfcf44
 
 # ----------------------------------------------------------------------------
 # Prepare
