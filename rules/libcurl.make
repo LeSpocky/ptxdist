@@ -89,15 +89,15 @@ LIBCURL_CONF_OPT	:= \
 	--without-brotli \
 	--without-zstd \
 	--without-gssapi \
-	--with-default-ssl-backend=$(call ptx/ifdef, PTXCONF_LIBCURL_SSL,openssl,no) \
+	--with-default-ssl-backend=$(PTXCONF_LIBCURL_SSL_DEFAULT_BACKEND) \
 	--without-winssl \
 	--without-schannel \
 	--without-darwinssl \
 	--without-secure-transport \
 	--without-amissl \
-	--with-ssl=$(call ptx/ifdef, PTXCONF_LIBCURL_SSL,$(SYSROOT)/usr,no) \
+	--with-ssl=$(call ptx/ifdef, PTXCONF_LIBCURL_SSL_OPENSSL,$(SYSROOT)/usr,no) \
 	--with-random=/dev/urandom \
-	--without-gnutls \
+	--with-gnutls=$(call ptx/ifdef, PTXCONF_LIBCURL_SSL_GNUTLS,$(SYSROOT)/usr,no) \
 	--without-mbedtls \
 	--without-wolfssl \
 	--without-mesalink \

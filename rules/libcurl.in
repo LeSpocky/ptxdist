@@ -5,7 +5,8 @@ menuconfig LIBCURL
 	prompt "libcurl                       "
 	select LIBC_RT
 	select ZLIB
-	select OPENSSL		if LIBCURL_SSL
+	select OPENSSL		if LIBCURL_SSL_OPENSSL
+	select GNUTLS		if LIBCURL_SSL_GNUTLS
 	select LIBSSH2		if LIBCURL_LIBSSH2
 	select CA_CERTIFICATES	if LIBCURL_SSL_CA_CERTIFICATES && RUNTIME
 	select C_ARES		if LIBCURL_C_ARES
@@ -59,6 +60,17 @@ config LIBCURL_SSL
 if LIBCURL_SSL
 
 choice
+	prompt "SSL backend"
+	default LIBCURL_SSL_OPENSSL
+
+	config LIBCURL_SSL_OPENSSL
+		bool "OpenSSL"
+
+	config LIBCURL_SSL_GNUTLS
+		bool "GnuTLS"
+endchoice
+
+choice
 	prompt "Central CA certificate storage"
 	
 	config LIBCURL_SSL_NOCA
@@ -80,6 +92,12 @@ config LIBCURL_SSL_CA_CERTIFICATES_PATH
 	default CA_CERTIFICATES_CERTS
 
 endif
+
+config LIBCURL_SSL_DEFAULT_BACKEND
+	string
+	default "openssl"	if LIBCURL_SSL_OPENSSL
+	default "gnutls"	if LIBCURL_SSL_GNUTLS
+	default "no"		if !LIBCURL_SSL
 
 config LIBCURL_SSL_CAPATH_PATH
 	string "CA directory path" if LIBCURL_SSL_CAPATH
