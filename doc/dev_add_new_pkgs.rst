@@ -960,7 +960,7 @@ In our example there is a hidden dependency to the math library
 ``libm``. Our new package was built successfully, because the linker was
 able to link our binaries against the ``libm`` from the toolchain. But
 in this case the ``libm`` must also be available in the target’s root
-filesystem to fulfil the run-time dependency: We have to force PTXdist to
+filesystem to fulfill the run-time dependency: We have to force PTXdist to
 install ``libm``. ``libm`` is part of the *glibc* package, but is not
 installed by default (to keep the root filesystem small). So, it **does
 not** help to select the ``GLIBC`` symbol, to get a ``libm`` at run-time.
