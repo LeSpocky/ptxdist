@@ -38,7 +38,7 @@ GRPC_CONF_OPT	:= \
 	-DCMAKE_CXX_FLAGS='-Wno-error=ignored-qualifiers' \
 	-DgRPC_BACKWARDS_COMPATIBILITY_MODE=OFF \
 	-DgRPC_BENCHMARK_PROVIDER=none \
-	-DgRPC_BUILD_CSHARP_EXT=OFF \
+	-DgRPC_BUILD_CSHARP_EXT=$(call ptx/onoff, PTXCONF_GRPC_CSHARP_EXTENSION) \
 	-DgRPC_BUILD_TESTS=OFF \
 	-D_gRPC_CARES_LIBRARIES=cares \
 	-DgRPC_CARES_PROVIDER=none \
@@ -83,6 +83,10 @@ $(STATEDIR)/grpc.targetinstall:
 	@$(call install_lib, grpc, 0, 0, 0644, libgpr)
 	@$(call install_lib, grpc, 0, 0, 0644, libgrpc)
 	@$(call install_lib, grpc, 0, 0, 0644, libgrpc++)
+
+ifdef PTXCONF_GRPC_CSHARP_EXTENSION
+	@$(call install_lib, grpc, 0, 0, 0644, libgrpc_csharp_ext)
+endif
 
 	@$(call install_finish, grpc)
 

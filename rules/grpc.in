@@ -1,6 +1,6 @@
 ## SECTION=system_libraries
 
-config GRPC
+menuconfig GRPC
 	tristate
 	select HOST_CMAKE
 	select HOST_GRPC
@@ -18,3 +18,11 @@ config GRPC
 	help
 	  gRPC is a modern, open source, high-performance remote procedure
 	  call (RPC) framework.
+
+if GRPC
+
+config GRPC_CSHARP_EXTENSION
+	bool
+	prompt "C# extension"
+
+endif
