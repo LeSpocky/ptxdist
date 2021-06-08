@@ -30,7 +30,7 @@ config OPROFILE_VMLINUX
 	help
 	  Disabled by default.
 	  The vmlinux ELF file is needed to profile the kernel.
-	  Because this file is very large (too large for some filesysems), it
+	  Because this file is very large (too large for some filesystems), it
 	  can be omitted. Kernel profile is still possible by installing vmlinux
 	  in other filesystem, e.g. NFS.
 

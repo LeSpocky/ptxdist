@@ -132,7 +132,7 @@ config NTP_RIPENCC
 
 config NTP_SHM
 	bool
-	prompt "SHM clock attached thru shared memory"
+	prompt "SHM clock attached through shared memory"
 	help
 	  Clock attached through shared memory (runs in a
 	  separate program).

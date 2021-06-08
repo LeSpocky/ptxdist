@@ -11,7 +11,7 @@ menuconfig MSMTP
 	  light SMTP client with support for server profiles
 
 	  STAGING: remove in ptxdist-2021.05.0
-	  Realy old version and download broken. Must be updated to a new
+	  Really old version and download broken. Must be updated to a new
 	  version. Project moved to https://marlam.de/msmtp/
 
 if MSMTP

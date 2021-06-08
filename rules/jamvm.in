@@ -39,7 +39,7 @@ config JAMVM_TRACE_ALL
 	select JAMVM_TRACE_THREAD
 	select JAMVM_TRACE_DIRECT
 	select JAMVM_TRACE_INLINING
-	prompt "enalbe all tracers"
+	prompt "enable all tracers"
 
 config JAMVM_TRACE_GC
 	bool

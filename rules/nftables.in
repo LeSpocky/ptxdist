@@ -29,7 +29,7 @@ config NFTABLES_MGMP
 	bool
 	prompt "use mini-GMP"
 	help
-	  use the nftables build-in mini-GMP instead of linking to the shared
+	  use the nftables built-in mini-GMP instead of linking to the shared
 	  libgmp. (may reduce debugging verbosity on some files)
 
 config NFTABLES_STARTSCRIPT

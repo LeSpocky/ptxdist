@@ -6,7 +6,7 @@ config LIBCOAP2
 	help
 	  libcoap implements a lightweight application-protocol for
 	  devices that are constrained their resources such as computing
-	  power, RF range, memory, bandwith, or network packet sizes.
+	  power, RF range, memory, bandwidth, or network packet sizes.
 
 	  The Constrained Application Protocol (CoAP) was standardized
 	  in the Internet Engineering Task Force (IETF) as RFC 7252.
