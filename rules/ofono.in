@@ -1,0 +1,31 @@
+## SECTION=networking
+
+menuconfig OFONO
+	tristate
+	prompt "ofono                         "
+	select GLIB
+	select UDEV
+	select DBUS
+	select BLUEZ		if OFONO_BLUETOOTH
+	select PYTHON3		if OFONO_TESTS
+	help
+	  oFono provides a mobile telephony (GSM/UMTS) application development
+	  framework that includes consistent, minimal, and easy to use complete
+	  APIs. It includes a high-level D-Bus API for use by telephony
+	  applications of any license. oFono also includes a low-level plug-in
+	  API for integrating with open source as well as third party telephony
+	  stacks, cellular modems, and storage back ends.
+
+if OFONO
+
+config OFONO_BLUETOOTH
+	bool
+	prompt "bluetooth support"
+
+config OFONO_TESTS
+	bool
+	prompt "install test programs"
+	help
+	  The test programs will be installed to /usr/lib/ofono/test.
+
+endif
