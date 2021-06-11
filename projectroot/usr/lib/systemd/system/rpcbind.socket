@@ -1,8 +1,0 @@
-[Unit]
-Description=RPCbind Server Activation Socket
-
-[Socket]
-ListenStream=/run/rpcbind.sock
-
-[Install]
-WantedBy=sockets.target
