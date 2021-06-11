@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_COREUTILS) += coreutils
 #
 # Paths and names
 #
-COREUTILS_VERSION	:= 8.31
-COREUTILS_MD5		:= 0009a224d8e288e8ec406ef0161f9293
+COREUTILS_VERSION	:= 8.32
+COREUTILS_MD5		:= 022042695b7d5bcf1a93559a9735e668
 COREUTILS		:= coreutils-$(COREUTILS_VERSION)
 COREUTILS_SUFFIX	:= tar.xz
 COREUTILS_URL		:= $(call ptx/mirror, GNU, coreutils/$(COREUTILS).$(COREUTILS_SUFFIX))
 COREUTILS_SOURCE	:= $(SRCDIR)/$(COREUTILS).$(COREUTILS_SUFFIX)
 COREUTILS_DIR		:= $(BUILDDIR)/$(COREUTILS)
 COREUTILS_LICENSE	:= GPL-3.0-or-later
-COREUTILS_LICENSE_FILES	:= file://COPYING;md5=d32239bcb673463ab874e80d47fae504
+COREUTILS_LICENSE_FILES	:= file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -162,6 +162,7 @@ COREUTILS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-threads=posix \
+	--enable-cross-guesses=conservative \
 	--disable-acl \
 	--disable-assert \
 	--disable-rpath \
