@@ -4,7 +4,6 @@ menuconfig MINICOM
 	tristate
 	prompt "minicom                       "
 	select NCURSES
-	select ROOTFS
 	select ROOTFS_VAR_LOCK
 	select CKERMIT			if MINICOM_KERMIT
         help
