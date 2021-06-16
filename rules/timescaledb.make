@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_TIMESCALEDB) += timescaledb
 #
 # Paths and names
 #
-TIMESCALEDB_VERSION	:= 1.5.0
-TIMESCALEDB_MD5		:= d48403460f6ee4e3a8f9ba51a5a95899
+TIMESCALEDB_VERSION	:= 2.3.0
+TIMESCALEDB_MD5		:= fc0a789deb5097c7213c231190e4b15f
 TIMESCALEDB		:= timescaledb-$(TIMESCALEDB_VERSION)
 TIMESCALEDB_SUFFIX	:= tar.gz
 TIMESCALEDB_URL		:= https://github.com/timescale/timescaledb/archive/$(TIMESCALEDB_VERSION).$(TIMESCALEDB_SUFFIX)
@@ -42,9 +42,14 @@ TIMESCALEDB_CONF_OPT	:= \
 	-DPG_PKGLIBDIR="/usr/lib/postgresql" \
 	-DPG_SHAREDIR="/usr/share/postgresql" \
 	-DAPACHE_ONLY=1 \
+	-DASSERTIONS=OFF \
+	-DCODECOVERAGE=OFF \
+	-DENABLE_OPTIMIZER_DEBUG=OFF \
+	-DLINTER=OFF \
 	-DREGRESS_CHECKS=0 \
 	-DSEND_TELEMETRY_DEFAULT=0 \
-	-DUSE_OPENSSL=0
+	-DUSE_OPENSSL=0 \
+	-DWARNINGS_AS_ERRORS=OFF
 
 # -DAPACHE_ONLY=1             is needed to build a free/libre version
 #                             of TimescaleDB.
