@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_POSTGRESQL) += postgresql
 #
 # Paths and names
 #
-POSTGRESQL_VERSION	:= 11.5
-POSTGRESQL_MD5		:= 580da94f6d85046ff2a228785ab2cc89
+POSTGRESQL_VERSION	:= 13.3
+POSTGRESQL_MD5		:= edf0e016fc53025bcabc7e793920f1c1
 POSTGRESQL		:= postgresql-$(POSTGRESQL_VERSION)
 POSTGRESQL_SUFFIX	:= tar.bz2
 POSTGRESQL_URL		:= https://ftp.postgresql.org/pub/source/v$(POSTGRESQL_VERSION)/$(POSTGRESQL).$(POSTGRESQL_SUFFIX)
@@ -42,7 +42,6 @@ POSTGRESQL_CONF_OPT	:= \
 	--disable-rpath \
 	--enable-spinlocks \
 	--enable-atomics \
-	--enable-strong-random \
 	--disable-debug \
 	--disable-profiling \
 	--disable-coverage \
@@ -52,8 +51,6 @@ POSTGRESQL_CONF_OPT	:= \
 	--disable-cassert \
 	--enable-thread-safety \
 	--enable-largefile \
-	--disable-float4-byval \
-	--disable-float8-byval \
 	--without-llvm \
 	--without-icu \
 	--without-tcl \
