@@ -95,7 +95,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dgshadow=false \
 	-Dhibernate=false \
 	-Dhomed=false \
-	-Dhostnamed=true \
+	-Dhostnamed=$(call ptx/truefalse,PTXCONF_SYSTEMD_HOSTNAMED) \
 	-Dhtml=false \
 	-Dhwdb=$(call ptx/truefalse,PTXCONF_SYSTEMD_UDEV_HWDB) \
 	-Didn=false \
@@ -152,7 +152,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dpstore=false \
 	-Dpwquality=false \
 	-Dqrencode=false \
-	-Dquotacheck=true \
+	-Dquotacheck=$(call ptx/truefalse,PTXCONF_SYSTEMD_QUOTACHECK) \
 	-Dquotacheck-path=/usr/sbin/quotacheck \
 	-Dquotaon-path=/usr/sbin/quotaon \
 	-Drandomseed=$(call ptx/falsetrue,PTXCONF_SYSTEMD_DISABLE_RANDOM_SEED) \
@@ -248,7 +248,7 @@ SYSTEMD_HELPER := \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_COREDUMP,systemd-coredump) \
 	systemd-fsck \
 	systemd-growfs \
-	systemd-hostnamed \
+	$(call ptx/ifdef, PTXCONF_SYSTEMD_HOSTNAMED,systemd-hostnamed) \
 	systemd-journald \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_JOURNAL_REMOTE,systemd-journal-remote) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_LOCALES,systemd-localed) \
@@ -257,7 +257,7 @@ SYSTEMD_HELPER := \
 	systemd-modules-load \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_NETWORK,systemd-networkd) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_NETWORK,systemd-networkd-wait-online) \
-	systemd-quotacheck \
+	$(call ptx/ifdef, PTXCONF_SYSTEMD_QUOTACHECK,systemd-quotacheck) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_DISABLE_RANDOM_SEED,,systemd-random-seed) \
 	systemd-remount-fs \
 	systemd-reply-password \
@@ -347,7 +347,9 @@ $(STATEDIR)/systemd.targetinstall:
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-notify)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-tmpfiles)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/busctl)
+ifdef PTXCONF_SYSTEMD_HOSTNAMED
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/hostnamectl)
+endif
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-analyze)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-cat)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-cgls)
@@ -377,9 +379,11 @@ $(STATEDIR)/systemd.targetinstall:
 	@$(call install_tree, systemd, 0, 0, -, /usr/lib/tmpfiles.d/)
 	@$(call install_copy, systemd, 0, 0, 0644, -, /usr/lib/sysctl.d/50-default.conf)
 
+ifdef PTXCONF_SYSTEMD_DBUS_SERVICES
 	@$(call install_copy, systemd, 0, 0, 0644, -, \
 		/usr/share/dbus-1/services/org.freedesktop.systemd1.service)
 	@$(call install_tree, systemd, 0, 0, -, /usr/share/dbus-1/system-services/)
+endif
 
 #	# systemd expects this directory to exist.
 	@$(call install_copy, systemd, 0, 0, 0755, /var/lib/systemd)

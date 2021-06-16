@@ -56,11 +56,15 @@ comment "D-Bus is needed for the enabled features"
 config SYSTEMD_DBUS
 	bool
 
+config SYSTEMD_DBUS_SERVICES
+	bool
+
 config SYSTEMD_MICROHTTPD
 	bool
 
 config SYSTEMD_LOCALES
 	bool
+	select SYSTEMD_DBUS_SERVICES
 	default LOCALES
 
 config SYSTEMD_VCONSOLE
@@ -77,9 +81,19 @@ config SYSTEMD_DISABLE_RANDOM_SEED
 	  the random seed is not possible.
 	  Warning: enabling this option may be insecure.
 
+config SYSTEMD_HOSTNAMED
+	bool
+	default y
+	select SYSTEMD_DBUS_SERVICES
+	prompt "hostname daemon"
+	help
+	  A tiny daemon that can be used to control the hostname and related
+	  machine meta data from user programs.
+
 config SYSTEMD_LOGIND
 	bool
 	select SYSTEMD_DBUS
+	select SYSTEMD_DBUS_SERVICES
 	prompt "login daemon"
 
 config SYSTEMD_UNITS_USER
@@ -89,6 +103,7 @@ config SYSTEMD_UNITS_USER
 
 config SYSTEMD_NETWORK
 	bool
+	select SYSTEMD_DBUS_SERVICES
 	prompt "network configuration with systemd"
 
 config SYSTEMD_IPMASQUERADE
@@ -102,6 +117,7 @@ config SYSTEMD_TIMEDATE
 	bool
 	default y
 	select SYSTEMD_DBUS
+	select SYSTEMD_DBUS_SERVICES
 	prompt "date/time handling"
 	help
 	  NTP client for time synchronization and local timezone handling.
@@ -121,6 +137,13 @@ config SYSTEMD_SECCOMP
 config SYSTEMD_POLKIT
 	bool
 	default POLKIT
+
+config SYSTEMD_QUOTACHECK
+	bool
+	default y
+	prompt "disk quota support"
+	help
+	  File system quota checker logic
 
 menu "journald                    "
 
