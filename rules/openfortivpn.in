@@ -1,8 +1,8 @@
 ## SECTION=networking
 
-menuconfig OPENFORTIVPN
+config OPENFORTIVPN
 	tristate
-	prompt "openfortivpn                  "
+	prompt "openfortivpn"
 	select LIBC_PTHREAD
 	select LIBC_UTIL
 	select OPENSSL
