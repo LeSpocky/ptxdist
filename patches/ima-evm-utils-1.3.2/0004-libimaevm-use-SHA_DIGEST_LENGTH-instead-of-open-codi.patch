@@ -8,10 +8,10 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/libimaevm.c b/src/libimaevm.c
-index 8fc23be08bd7..b6c328801708 100644
+index fa6c27858d0f..002b0657337c 100644
 --- a/src/libimaevm.c
 +++ b/src/libimaevm.c
-@@ -379,7 +379,7 @@ int verify_hash_v1(const char *file, const unsigned char *hash, int size,
+@@ -382,7 +382,7 @@ static int verify_hash_v1(const char *file, const unsigned char *hash, int size,
  	SHA_CTX ctx;
  	unsigned char out[1024];
  	RSA *key;
@@ -20,7 +20,7 @@ index 8fc23be08bd7..b6c328801708 100644
  	struct signature_hdr *hdr = (struct signature_hdr *)sig;
  
  	log_info("hash-v1: ");
-@@ -744,7 +744,7 @@ int sign_hash_v1(const char *hashalgo, const unsigned char *hash, int size, cons
+@@ -805,7 +805,7 @@ static int sign_hash_v1(const char *hashalgo, const unsigned char *hash,
  	unsigned char pub[1024];
  	RSA *key;
  	char name[20];

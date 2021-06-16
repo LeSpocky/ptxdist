@@ -12,10 +12,10 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  1 file changed, 16 insertions(+), 4 deletions(-)
 
 diff --git a/src/evmctl.c b/src/evmctl.c
-index 20eccfa93b2b..55fc619f5990 100644
+index cca2fabdb2a6..e6761f2ae5e4 100644
 --- a/src/evmctl.c
 +++ b/src/evmctl.c
-@@ -1234,13 +1234,20 @@ static int find(const char *path, int dts, find_cb_t func)
+@@ -1336,13 +1336,20 @@ static int find(const char *path, int dts, find_cb_t func)
  	}
  
  	while ((de = readdir(dir))) {
@@ -38,7 +38,7 @@ index 20eccfa93b2b..55fc619f5990 100644
  	}
  
  	if (chdir("..")) {
-@@ -1249,8 +1256,13 @@ static int find(const char *path, int dts, find_cb_t func)
+@@ -1351,8 +1358,13 @@ static int find(const char *path, int dts, find_cb_t func)
  		return -1;
  	}
  

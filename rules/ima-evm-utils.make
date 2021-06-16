@@ -1,7 +1,7 @@
 # -*-makefile-*-
 #
 # Copyright (C) 2013 by Michael Grzeschik <mgr@pengutronix.de>
-#               2015 by Marc Kleine-Budde <mkl@pengutronix.de>
+#               2015, 2020 by Marc Kleine-Budde <mkl@pengutronix.de>
 #               2021 Roland Hieber, Pengutronix <rhi@pengutronix.de>
 #
 # For further information about the PTXdist project and license conditions
@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_IMA_EVM_UTILS) += ima-evm-utils
 #
 # Paths and names
 #
-IMA_EVM_UTILS_VERSION	:= 1.1
-IMA_EVM_UTILS_MD5	:= 77455aeee54fdc7a70c733bcb65d33cc
+IMA_EVM_UTILS_VERSION	:= 1.3.2
+IMA_EVM_UTILS_MD5	:= 55cc0e2c77a725f722833c3b4a36038c
 IMA_EVM_UTILS		:= ima-evm-utils-$(IMA_EVM_UTILS_VERSION)
 IMA_EVM_UTILS_SUFFIX	:= tar.gz
 IMA_EVM_UTILS_URL	:= $(call ptx/mirror, SF, linux-ima/ima-evm-utils/$(IMA_EVM_UTILS).$(IMA_EVM_UTILS_SUFFIX))
@@ -32,9 +32,16 @@ IMA_EVM_UTILS_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
+IMA_EVM_UTILS_CONF_ENV := \
+	$(CROSS_ENV) \
+	ac_cv_lib_tss2_esys_Esys_Free=no \
+	ac_cv_lib_tss2_rc_Tss2_RC_Decode=no \
+	ac_cv_path_XMLCATALOG=
+
 IMA_EVM_UTILS_CONF_TOOL := autoconf
 IMA_EVM_UTILS_AUTOCONF := \
 	$(CROSS_AUTOCONF_USR) \
+	--enable-openssl-conf \
 	--disable-debug
 
 # ----------------------------------------------------------------------------
