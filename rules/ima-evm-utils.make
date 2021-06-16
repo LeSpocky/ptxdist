@@ -2,6 +2,7 @@
 #
 # Copyright (C) 2013 by Michael Grzeschik <mgr@pengutronix.de>
 #               2015 by Marc Kleine-Budde <mkl@pengutronix.de>
+#               2021 Roland Hieber, Pengutronix <rhi@pengutronix.de>
 #
 # For further information about the PTXdist project and license conditions
 # see the README file.
@@ -22,7 +23,10 @@ IMA_EVM_UTILS_SUFFIX	:= tar.gz
 IMA_EVM_UTILS_URL	:= $(call ptx/mirror, SF, linux-ima/ima-evm-utils/$(IMA_EVM_UTILS).$(IMA_EVM_UTILS_SUFFIX))
 IMA_EVM_UTILS_SOURCE	:= $(SRCDIR)/$(IMA_EVM_UTILS).$(IMA_EVM_UTILS_SUFFIX)
 IMA_EVM_UTILS_DIR	:= $(BUILDDIR)/$(IMA_EVM_UTILS)
-IMA_EVM_UTILS_LICENSE	:= LGPL-2.0-or-later
+IMA_EVM_UTILS_LICENSE	:= GPL-2.0-only WITH custom-exception
+IMA_EVM_UTILS_LICENSE_FILES	:= \
+	file://src/evmctl.c;startline=13;endline=35;md5=1e6e51503ab04045269a92c0bc5d5b55 \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
 
 # ----------------------------------------------------------------------------
 # Prepare
