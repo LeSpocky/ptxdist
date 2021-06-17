@@ -14,17 +14,17 @@ PACKAGES-$(PTXCONF_ICU) += icu
 #
 # Paths and names
 #
-ICU_VERSION	:= 60.3
-ICU_MD5		:= 4f558e73b7bd1fa93caf3d10479de41b
+ICU_VERSION	:= 69.1
+ICU_MD5		:= 9403db682507369d0f60a25ea67014c4
 ICU		:= icu4c-$(subst .,_,$(ICU_VERSION))-src
 ICU_SUFFIX	:= tgz
 ICU_URL		:= https://github.com/unicode-org/icu/releases/download/release-$(subst .,-,$(ICU_VERSION))/$(ICU).$(ICU_SUFFIX)
 ICU_SOURCE	:= $(SRCDIR)/$(ICU).$(ICU_SUFFIX)
 ICU_DIR		:= $(BUILDDIR)/$(ICU)
 ICU_SUBDIR	:= source
-ICU_LICENSE	:= MIT AND Unicode-TOU AND public_domain
+ICU_LICENSE	:= MIT AND Unicode-TOU AND public_domain AND BSD-3-Clause
 ICU_LICENSE_FILES := \
-	file://LICENSE;md5=675f2d069434d8a1e4e6b0dcf4379226
+	file://LICENSE;md5=002d2fdc32d17f0ec06e9a47f2c0c8d0
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -38,24 +38,39 @@ ICU_LICENSE_FILES := \
 ICU_CONF_TOOL	:= autoconf
 ICU_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--enable-icu-config \
 	--disable-debug \
 	--enable-release \
+	--disable-strict \
 	--enable-shared \
 	--disable-static \
 	--enable-draft \
 	--enable-renaming \
 	--disable-tracing \
+	--disable-plugins \
 	--enable-dyload \
 	--disable-rpath \
 	--disable-weak-threads \
 	--disable-extras \
 	--enable-icuio \
-	--disable-layout \
+	--disable-layoutex \
 	--enable-tools \
+	--disable-fuzzer \
 	--disable-tests \
 	--disable-samples \
 	--with-cross-build=$(HOST_ICU_DIR)/$(ICU_SUBDIR) \
 	--with-data-packaging=archive
+
+# ----------------------------------------------------------------------------
+# Compile
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/icu.compile:
+	@$(call targetinfo)
+#	# only created with tests enabled
+	@mkdir -p $(ICU_DIR)/$(ICU_SUBDIR)/data/out/tmp
+	@$(call world/compile, ICU)
+	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Target-Install

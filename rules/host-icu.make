@@ -23,20 +23,24 @@ HOST_ICU_SUBDIR	= $(ICU_SUBDIR)
 HOST_ICU_CONF_TOOL	:= autoconf
 HOST_ICU_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
+	--enable-icu-config \
 	--disable-debug \
 	--enable-release \
+	--disable-strict \
 	--enable-shared \
 	--disable-static \
 	--enable-draft \
 	--enable-renaming \
 	--disable-tracing \
+	--disable-plugins \
 	--enable-dyload \
 	--disable-rpath \
 	--disable-weak-threads \
 	--disable-extras \
 	--disable-icuio \
-	--disable-layout \
+	--disable-layoutex \
 	--enable-tools \
+	--disable-fuzzer \
 	--disable-tests \
 	--disable-samples
 
