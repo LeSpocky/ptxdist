@@ -1,0 +1,5 @@
+RFC -> v2
+---------
+- Used 'apply-debian' script to rework debian patch series
+
+Link: https://lore.ptxdist.org/ptxdist/20210616115355.GL839947@pengutronix.de/2-apply-debian
