@@ -53,3 +53,9 @@ config DHCP_RELAY
 	  which the original request came.
 
 endif
+
+comment ""
+	depends on INVISIBLE
+
+comment "Note: no DHCP binaries are currently selected"
+	depends on DHCP && !DHCP_SERVER && !DHCP_CLIENT && !DHCP_RELAY
