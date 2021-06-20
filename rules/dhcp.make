@@ -93,9 +93,6 @@ $(STATEDIR)/dhcp.targetinstall:
 ifdef PTXCONF_DHCP_SERVER
 	@$(call install_copy, dhcp, 0, 0, 0755, -, \
 		/usr/sbin/dhcpd)
-endif
-
-ifdef PTXCONF_DHCP_DHCPD_CONF
 	@$(call install_alternative, dhcp, 0, 0, 0644, /etc/dhcpd.conf)
 endif
 
@@ -106,13 +103,7 @@ ifdef PTXCONF_DHCP_CLIENT
 	@$(call install_copy, dhcp, 0, 0, 0755, -, \
 		/usr/sbin/dhclient)
 
-endif
-
-ifdef PTXCONF_DHCP_DHCLIENT_SCRIPT
 	@$(call install_alternative, dhcp, 0, 0, 0755, /etc/dhclient-script)
-endif
-
-ifdef PTXCONF_DHCP_DHCLIENT_CONF
 	@$(call install_alternative, dhcp, 0, 0, 0644, /etc/dhclient.conf)
 endif
 
