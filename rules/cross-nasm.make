@@ -37,6 +37,8 @@ CROSS_NASM_LICENSE_FILES := \
 CROSS_NASM_CONF_TOOL := autoconf
 CROSS_NASM_INSTALL_OPT := INSTALLROOT="$(CROSS_NASM_PKGDIR)" install
 
+else
+CROSS_NASM_LICENSE      := ignore
 endif
 
 # vim: syntax=make
