@@ -23,7 +23,12 @@ LIBUSBGX_URL		:= \
 LIBUSBGX_SOURCE	:= \
 	$(SRCDIR)/$(LIBUSBGX).$(LIBUSBGX_SUFFIX)
 LIBUSBGX_DIR		:= $(BUILDDIR)/$(LIBUSBGX)
-LIBUSBGX_LICENSE	:= GPLv2
+LIBUSBGX_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
+LIBUSBGX_LICENSE_FILES	:= \
+	file://examples/gadget-export.c;startline=6;endline=14;md5=89ff91d940b4bc09b6de0300b34a888f \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://src/usbg.c;startline=10;endline=18;md5=75c08ee73fa8cdd35281fdcbe8874ff5 \
+	file://COPYING.LGPL;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
 # Prepare
