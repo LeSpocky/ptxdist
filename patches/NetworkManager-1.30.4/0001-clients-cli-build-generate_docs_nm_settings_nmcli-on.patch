@@ -1,4 +1,3 @@
-From 5ddd262c1042ef2cd748b3b2a724d2e15f89b9fb Mon Sep 17 00:00:00 2001
 From: Robert Schwebel <r.schwebel@pengutronix.de>
 Date: Sat, 25 Jul 2020 18:14:35 +0200
 Subject: [PATCH] clients/cli: build generate_docs_nm_settings_nmcli only if
@@ -10,10 +9,10 @@ Signed-off-by: Robert Schwebel <r.schwebel@pengutronix.de>
  1 file changed, 5 insertions(+)
 
 diff --git a/clients/cli/meson.build b/clients/cli/meson.build
-index 517deffa6..2dada71f5 100644
+index f8e6a8236d4e..af57eedabfb9 100644
 --- a/clients/cli/meson.build
 +++ b/clients/cli/meson.build
-@@ -35,6 +35,9 @@ executable(
+@@ -37,6 +37,9 @@ executable(
  
  endif
  
@@ -23,12 +22,12 @@ index 517deffa6..2dada71f5 100644
  generate_docs_nm_settings_nmcli = executable(
    'generate-docs-nm-settings-nmcli',
    files(
-@@ -56,3 +59,5 @@ generate_docs_nm_settings_nmcli_xml = custom_target(
-   command: [ generate_docs_nm_settings_nmcli ],
-   capture: true,
+@@ -54,6 +57,8 @@ generate_docs_nm_settings_nmcli = executable(
+   link_depends: linker_script_binary,
  )
-+
+ 
 +endif
--- 
-2.27.0
-
++
+ if enable_docs
+   generate_docs_nm_settings_nmcli_xml = custom_target(
+     'generate-docs-nm-settings-nmcli.xml',

@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_NETWORKMANAGER) += networkmanager
 #
 # Paths and names
 #
-NETWORKMANAGER_VERSION	:= 1.26.2
-NETWORKMANAGER_MD5	:= ad5332a7fe5d00db7c75b722337be62b
+NETWORKMANAGER_VERSION	:= 1.30.4
+NETWORKMANAGER_MD5	:= 8ce53a38356864832f7f10ad46fcde27
 NETWORKMANAGER		:= NetworkManager-$(NETWORKMANAGER_VERSION)
 NETWORKMANAGER_SUFFIX	:= tar.xz
 NETWORKMANAGER_URL	:= $(call ptx/mirror, GNOME, NetworkManager/$(basename $(NETWORKMANAGER_VERSION))/$(NETWORKMANAGER).$(NETWORKMANAGER_SUFFIX))
@@ -57,7 +57,6 @@ NETWORKMANAGER_CONF_OPT = \
 	-Dintrospection=false \
 	-Diptables=/usr/sbin/iptables \
 	-Diwd=false \
-	-Djson_validation=false \
 	-Dkernel_firmware_dir=/lib/firmware \
 	-Dld_gc=true \
 	-Dlibaudit=no \
@@ -73,7 +72,7 @@ NETWORKMANAGER_CONF_OPT = \
 	-Dofono=false \
 	-Dovs=false \
 	-Dpolkit=$(call ptx/truefalse,PTXCONF_NETWORKMANAGER_POLKIT) \
-	-Dpolkit_agent=false \
+	-Dpolkit_agent_helper_1=/usr/libexec/polkit-agent-helper-1 \
 	-Dppp=$(call ptx/truefalse,PTXCONF_NETWORKMANAGER_PPP) \
 	-Dpppd=/usr/sbin/pppd \
 	-Dpppd_plugin_dir=$(PPP_SHARED_INST_PATH) \
