@@ -1,23 +1,27 @@
-From: Michael Olbrich <m.olbrich@pengutronix.de>
-Date: Sat, 28 Sep 2019 08:11:50 +0200
+From: Alexander Dahl <ada@thorsis.com>
+Date: Wed, 16 Jun 2021 18:22:49 +0200
 Subject: [PATCH] Debian-specific changes.
 
-Imported from ppp_2.4.7-2+4.1.debian.tar.xz
+Imported from ppp_2.4.9-1+1.debian.tar.xz
 
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+Signed-off-by: Alexander Dahl <ada@thorsis.com>
 ---
- pppd/Makefile.linux    | 6 ++----
+ pppd/Makefile.linux    | 6 +++---
  pppd/pathnames.h       | 2 +-
  pppd/pppd.h            | 2 +-
  pppdump/Makefile.linux | 4 ++--
- 4 files changed, 6 insertions(+), 8 deletions(-)
+ 4 files changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/pppd/Makefile.linux b/pppd/Makefile.linux
-index 16b3ee879791..5549145e5791 100644
+index 22837c50415e..bbb476827cea 100644
 --- a/pppd/Makefile.linux
 +++ b/pppd/Makefile.linux
-@@ -61,14 +61,14 @@ HAVE_MULTILINK=y
- USE_TDB=y
+@@ -64,17 +64,17 @@ USE_TDB=y
+ # Uncomment the next line to enable Type=notify services in systemd
+ # If enabled, and the user sets the up_sdnotify option, then
+ # pppd will not detach and will notify systemd when up.
+-#SYSTEMD=y
++SYSTEMD=y
  
  HAS_SHADOW=y
 -#USE_PAM=y
@@ -33,23 +37,11 @@ index 16b3ee879791..5549145e5791 100644
  
  # Enable EAP SRP-SHA1 authentication (requires libsrp)
  #USE_SRP=y
-@@ -178,11 +178,9 @@ LIBS	+= -ldl
- endif
- 
- ifdef FILTER
--ifneq ($(wildcard /usr/include/pcap-bpf.h),)
- LIBS    += -lpcap
- CFLAGS  += -DPPP_FILTER
- endif
--endif
- 
- ifdef HAVE_INET6
-      PPPDSRCS += ipv6cp.c eui64.c
 diff --git a/pppd/pathnames.h b/pppd/pathnames.h
-index a33f0466c9d6..46972601fc92 100644
+index 524d608ce12c..2df61354f40e 100644
 --- a/pppd/pathnames.h
 +++ b/pppd/pathnames.h
-@@ -28,7 +28,7 @@
+@@ -33,7 +33,7 @@
  #define _PATH_AUTHUP	 _ROOT_PATH "/etc/ppp/auth-up"
  #define _PATH_AUTHDOWN	 _ROOT_PATH "/etc/ppp/auth-down"
  #define _PATH_TTYOPT	 _ROOT_PATH "/etc/ppp/options."
@@ -59,10 +51,10 @@ index a33f0466c9d6..46972601fc92 100644
  #define _PATH_RESOLV	 _ROOT_PATH "/etc/ppp/resolv.conf"
  
 diff --git a/pppd/pppd.h b/pppd/pppd.h
-index b11670586244..567d702181ca 100644
+index 10a9977598aa..a14483b76acc 100644
 --- a/pppd/pppd.h
 +++ b/pppd/pppd.h
-@@ -870,7 +870,7 @@ extern void (*snoop_send_hook) __P((unsigned char *p, int len));
+@@ -879,7 +879,7 @@ extern void (*snoop_send_hook)(unsigned char *p, int len);
    || defined(DEBUGCHAP) || defined(DEBUG) || defined(DEBUGIPV6CP)
  #define LOG_PPP LOG_LOCAL2
  #else
@@ -72,10 +64,10 @@ index b11670586244..567d702181ca 100644
  #endif /* LOG_PPP */
  
 diff --git a/pppdump/Makefile.linux b/pppdump/Makefile.linux
-index 87777fab5e94..1eeeafe20111 100644
+index de7e574d10e1..04b1c10b34c7 100644
 --- a/pppdump/Makefile.linux
 +++ b/pppdump/Makefile.linux
-@@ -2,9 +2,9 @@ DESTDIR = $(INSTROOT)@DESTDIR@
+@@ -6,9 +6,9 @@ DESTDIR = $(INSTROOT)@DESTDIR@
  BINDIR = $(DESTDIR)/sbin
  MANDIR = $(DESTDIR)/share/man/man8
  
@@ -85,5 +77,5 @@ index 87777fab5e94..1eeeafe20111 100644
 -HAVE_ZLIB=n
 +HAVE_ZLIB=y
  
- COPTS=-O2 -g
- CFLAGS= $(COPTS) -I../include/net
+ CFLAGS = $(COPTS) -I../include/net
+ OBJS = pppdump.o

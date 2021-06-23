@@ -11,11 +11,11 @@ Signed-off-by: Juergen Beisert <juergen@kreuzholzen.de>
  2 files changed, 11 insertions(+), 1 deletion(-)
 
 diff --git a/configure b/configure
-index 6a55e0f08be4..3886564fa495 100755
+index b0c3d2b49122..4bc6a18fad32 100755
 --- a/configure
 +++ b/configure
-@@ -14,6 +14,16 @@ SYSCONF=/etc
- #  fi
+@@ -15,6 +15,16 @@ release=`uname -r`
+ arch=`uname -m`
  state="unknown"
  
 +if [ -n $TARGET_OS ]; then
@@ -32,10 +32,10 @@ index 6a55e0f08be4..3886564fa495 100755
    Linux)
      makext="linux";
 diff --git a/pppd/plugins/Makefile.linux b/pppd/plugins/Makefile.linux
-index bc29968d44c9..e010ad215981 100644
+index 6403e3d477e3..375be764e19a 100644
 --- a/pppd/plugins/Makefile.linux
 +++ b/pppd/plugins/Makefile.linux
-@@ -47,5 +47,5 @@ clean:
+@@ -49,5 +49,5 @@ clean:
  	for d in $(SUBDIRS); do $(MAKE) $(MFLAGS) -C $$d clean || exit $$?; done
  
  depend:

@@ -1,5 +1,5 @@
-From: Michael Olbrich <m.olbrich@pengutronix.de>
-Date: Sat, 28 Sep 2019 08:11:50 +0200
+From: Alexander Dahl <ada@thorsis.com>
+Date: Wed, 16 Jun 2021 18:22:49 +0200
 Subject: [PATCH] Replace vendored hash functions with libcrypto
 
 Bug-Debian: https://bugs.debian.org/826625
@@ -14,24 +14,24 @@ preferable both due to the patch being slightly less invasive and also because
 of our use of the EAP-TLS patch which requires OpenSSL.
 
 
-Imported from ppp_2.4.7-2+4.1.debian.tar.xz
+Imported from ppp_2.4.9-1+1.debian.tar.xz
 
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+Signed-off-by: Alexander Dahl <ada@thorsis.com>
 ---
- pppd/Makefile.linux          |  25 ++--
+ pppd/Makefile.linux          |  28 +---
  pppd/chap-md5.c              |   2 +-
  pppd/chap_ms.c               |  40 ++----
- pppd/eap.c                   |   2 +-
- pppd/md4.c                   | 299 -----------------------------------------
- pppd/md4.h                   |  64 ---------
- pppd/md5.c                   | 311 -------------------------------------------
- pppd/md5.h                   |  68 ----------
+ pppd/eap.c                   |   3 +-
+ pppd/md4.c                   | 290 -----------------------------------------
+ pppd/md4.h                   |  55 --------
+ pppd/md5.c                   | 299 -------------------------------------------
+ pppd/md5.h                   |  65 ----------
  pppd/plugins/radius/md5.c    |   2 +-
  pppd/plugins/radius/radius.c |   2 +-
  pppd/plugins/winbind.c       |   2 +-
- pppd/sha1.c                  | 170 -----------------------
+ pppd/sha1.c                  | 171 -------------------------
  pppd/sha1.h                  |  31 -----
- 13 files changed, 28 insertions(+), 990 deletions(-)
+ 13 files changed, 27 insertions(+), 963 deletions(-)
  delete mode 100644 pppd/md4.c
  delete mode 100644 pppd/md4.h
  delete mode 100644 pppd/md5.c
@@ -40,10 +40,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  delete mode 100644 pppd/sha1.h
 
 diff --git a/pppd/Makefile.linux b/pppd/Makefile.linux
-index 4a11d5fea748..58a634ce8c3b 100644
+index bbb476827cea..bc01e3fd2a24 100644
 --- a/pppd/Makefile.linux
 +++ b/pppd/Makefile.linux
-@@ -11,16 +11,16 @@ INCDIR = $(DESTDIR)/include
+@@ -15,16 +15,16 @@ INCDIR = $(DESTDIR)/include
  
  TARGETS = pppd
  
@@ -64,16 +64,16 @@ index 4a11d5fea748..58a634ce8c3b 100644
  	   ecp.o auth.o options.o demand.o utils.o sys-linux.o ipxcp.o tty.o \
  	   eap.o chap-md5.o session.o
  
-@@ -33,7 +33,7 @@ endif
- # CC = gcc
- #
- COPTS = -O2 -pipe -Wall -g
--LIBS =
-+LIBS = -lcrypto
+@@ -34,7 +34,7 @@ ifeq (.depend,$(wildcard .depend))
+ include .depend
+ endif
  
- # Uncomment the next 2 lines to include support for Microsoft's
+-LIBS = -lrt
++LIBS = -lrt -lcrypto
+ 
+ # Uncomment the next line to include support for Microsoft's
  # MS-CHAP authentication protocol.  Also, edit plugins/radius/Makefile.linux.
-@@ -91,8 +91,8 @@ LDFLAGS=$(LDOPTS)
+@@ -98,8 +98,8 @@ CFLAGS= $(COPTS) $(COMPILE_FLAGS) $(INCLUDE_DIRS) '-DDESTDIR="@DESTDIR@"'
  ifdef CHAPMS
  CFLAGS   += -DCHAPMS=1
  NEEDDES=y
@@ -84,12 +84,11 @@ index 4a11d5fea748..58a634ce8c3b 100644
  ifdef MSLANMAN
  CFLAGS   += -DMSLANMAN=1
  endif
-@@ -104,25 +104,18 @@ endif
- # EAP SRP-SHA1
+@@ -113,26 +113,17 @@ endif
  ifdef USE_SRP
  CFLAGS	+= -DUSE_SRP -DOPENSSL -I/usr/local/ssl/include
--LIBS	+= -lsrp -L/usr/local/ssl/lib -lcrypto
-+LIBS	+= -lsrp -L/usr/local/ssl/lib
+ LIBS	+= -lsrp -L/usr/local/ssl/lib
+-NEEDCRYPTOLIB = y
  TARGETS	+= srp-entry
  EXTRAINSTALL = $(INSTALL) -c -m 555 srp-entry $(BINDIR)/srp-entry
  MANPAGES += srp-entry.8
@@ -106,27 +105,50 @@ index 4a11d5fea748..58a634ce8c3b 100644
  
  # EAP-TLS
  ifdef USE_EAPTLS
- CFLAGS += -DUSE_EAPTLS=1 -I/usr/kerberos/include
--LIBS += -lssl -lcrypto
-+LIBS += -lssl
+ CFLAGS += -DUSE_EAPTLS=1
+ LIBS += -lssl
+-NEEDCRYPTOLIB = y
  PPPDSRC += eap-tls.c
  HEADERS += eap-tls.h
  PPPDOBJS += eap-tls.o
+@@ -156,7 +147,6 @@ endif
+ ifdef NEEDDES
+ ifndef USE_CRYPT
+ CFLAGS   += -I$(shell $(CC) --print-sysroot)/usr/include/openssl
+-NEEDCRYPTOLIB = y
+ else
+ CFLAGS   += -DUSE_CRYPT=1
+ endif
+@@ -164,10 +154,6 @@ PPPDOBJS += pppcrypt.o
+ HEADERS += pppcrypt.h
+ endif
+ 
+-ifdef NEEDCRYPTOLIB
+-LIBS     += -lcrypto
+-endif
+-
+ # For "Pluggable Authentication Modules", see ftp.redhat.com:/pub/pam/.
+ ifdef USE_PAM
+ CFLAGS   += -DUSE_PAM
 diff --git a/pppd/chap-md5.c b/pppd/chap-md5.c
-index 269b52cb2041..7f7967a56842 100644
+index 77dd4ecc7059..d86564aa865a 100644
 --- a/pppd/chap-md5.c
 +++ b/pppd/chap-md5.c
-@@ -39,7 +39,7 @@
- #ifdef USE_EAPTLS
- #include "eap-tls.h"
- #else
--#include "md5.h"
+@@ -32,11 +32,11 @@
+ 
+ #include <stdlib.h>
+ #include <string.h>
 +#include <openssl/md5.h>
- #endif /* USE_EAPTLS */
+ #include "pppd.h"
+ #include "chap-new.h"
+ #include "chap-md5.h"
+ #include "magic.h"
+-#include "md5.h"
  
  #define MD5_HASH_SIZE		16
+ #define MD5_MIN_CHALLENGE	16
 diff --git a/pppd/chap_ms.c b/pppd/chap_ms.c
-index c2bd00f9c6f7..19edb85d27a8 100644
+index e6b84f203fc3..64848f20f660 100644
 --- a/pppd/chap_ms.c
 +++ b/pppd/chap_ms.c
 @@ -89,8 +89,8 @@
@@ -140,7 +162,7 @@ index c2bd00f9c6f7..19edb85d27a8 100644
  #include "pppcrypt.h"
  #include "magic.h"
  
-@@ -535,8 +535,8 @@ ChallengeHash(u_char PeerChallenge[16], u_char *rchallenge,
+@@ -536,8 +536,8 @@ ChallengeHash(u_char PeerChallenge[16], u_char *rchallenge,
  	      char *username, u_char Challenge[8])
      
  {
@@ -151,7 +173,7 @@ index c2bd00f9c6f7..19edb85d27a8 100644
      char	*user;
  
      /* remove domain from "domain\username" */
-@@ -574,23 +574,11 @@ ascii2unicode(char ascii[], int ascii_len, u_char unicode[])
+@@ -575,23 +575,11 @@ ascii2unicode(char ascii[], int ascii_len, u_char unicode[])
  static void
  NTPasswordHash(u_char *secret, int secret_len, u_char hash[MD4_SIGNATURE_SIZE])
  {
@@ -178,7 +200,7 @@ index c2bd00f9c6f7..19edb85d27a8 100644
  
  }
  
-@@ -671,8 +659,8 @@ GenerateAuthenticatorResponse(u_char PasswordHashHash[MD4_SIGNATURE_SIZE],
+@@ -672,8 +660,8 @@ GenerateAuthenticatorResponse(u_char PasswordHashHash[MD4_SIGNATURE_SIZE],
  	  0x6E };
  
      int		i;
@@ -189,7 +211,7 @@ index c2bd00f9c6f7..19edb85d27a8 100644
      u_char	Challenge[8];
  
      SHA1_Init(&sha1Context);
-@@ -725,8 +713,8 @@ GenerateAuthenticatorResponsePlain
+@@ -726,8 +714,8 @@ GenerateAuthenticatorResponsePlain
  void
  mppe_set_keys(u_char *rchallenge, u_char PasswordHashHash[MD4_SIGNATURE_SIZE])
  {
@@ -200,7 +222,7 @@ index c2bd00f9c6f7..19edb85d27a8 100644
  
      SHA1_Init(&sha1Context);
      SHA1_Update(&sha1Context, PasswordHashHash, MD4_SIGNATURE_SIZE);
-@@ -769,9 +757,9 @@ void
+@@ -770,9 +758,9 @@ void
  mppe_set_keys2(u_char PasswordHashHash[MD4_SIGNATURE_SIZE],
  	       u_char NTResponse[24], int IsServer)
  {
@@ -214,24 +236,27 @@ index c2bd00f9c6f7..19edb85d27a8 100644
      u_char SHApad1[40] =
  	{ 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
 diff --git a/pppd/eap.c b/pppd/eap.c
-index 032407c3dbb2..35d111015ff3 100644
+index 79146557bd32..d987888d9f20 100644
 --- a/pppd/eap.c
 +++ b/pppd/eap.c
-@@ -71,7 +71,7 @@
- #ifdef USE_EAPTLS
- #include "eap-tls.h"
- #else
--#include "md5.h"
-+#include <openssl/md5.h>
- #endif /* USE_EAPTLS */
+@@ -59,9 +59,10 @@
+ #include <assert.h>
+ #include <errno.h>
  
- #ifdef USE_SRP
++#include <openssl/md5.h>
++
+ #include "pppd.h"
+ #include "pathnames.h"
+-#include "md5.h"
+ #include "eap.h"
+ 
+ #ifdef CHAPMS
 diff --git a/pppd/md4.c b/pppd/md4.c
 deleted file mode 100644
-index d943e8885f2d..000000000000
+index 42a9b2e75d6e..000000000000
 --- a/pppd/md4.c
 +++ /dev/null
-@@ -1,299 +0,0 @@
+@@ -1,290 +0,0 @@
 -/*
 -** ********************************************************************
 -** md4.c -- Implementation of MD4 Message Digest Algorithm           **
@@ -321,8 +346,7 @@ index d943e8885f2d..000000000000
 -** This is a user-callable routine.
 -*/
 -void
--MD4Print(MDp)
--MD4_CTX *MDp;
+-MD4Print(MD4_CTX *MDp)
 -{
 -  int i,j;
 -  for (i=0;i<4;i++)
@@ -335,8 +359,7 @@ index d943e8885f2d..000000000000
 -** This is a user-callable routine.
 -*/
 -void
--MD4Init(MDp)
--MD4_CTX *MDp;
+-MD4Init(MD4_CTX *MDp)
 -{
 -  int i;
 -  MDp->buffer[0] = I0;
@@ -354,9 +377,7 @@ index d943e8885f2d..000000000000
 -** This routine is not user-callable.
 -*/
 -static void
--MDblock(MDp,Xb)
--MD4_CTX *MDp;
--unsigned char *Xb;
+-MDblock(MD4_CTX *MDp, unsigned char *Xb)
 -{
 -  register unsigned int tmp, A, B, C, D;
 -  unsigned int X[16];
@@ -440,10 +461,7 @@ index d943e8885f2d..000000000000
 -** if desired.
 -*/
 -void
--MD4Update(MDp,X,count)
--MD4_CTX *MDp;
--unsigned char *X;
--unsigned int count;
+-MD4Update(MD4_CTX *MDp, unsigned char *X, unsigned int count)
 -{
 -  unsigned int i, tmp, bit, byte, mask;
 -  unsigned char XX[64];
@@ -511,9 +529,7 @@ index d943e8885f2d..000000000000
 -** Finish up MD4 computation and return message digest.
 -*/
 -void
--MD4Final(buf, MD)
--unsigned char *buf;
--MD4_CTX *MD;
+-MD4Final(unsigned char *buf, MD4_CTX *MD)
 -{
 -  int i, j;
 -  unsigned int w;
@@ -533,10 +549,10 @@ index d943e8885f2d..000000000000
 -****************************(cut)***********************************/
 diff --git a/pppd/md4.h b/pppd/md4.h
 deleted file mode 100644
-index 80e8f9a2acca..000000000000
+index b6fc3f561faa..000000000000
 --- a/pppd/md4.h
 +++ /dev/null
-@@ -1,64 +0,0 @@
+@@ -1,55 +0,0 @@
 -
 -/*
 -** ********************************************************************
@@ -546,15 +562,6 @@ index 80e8f9a2acca..000000000000
 -** (C) 1990 RSA Data Security, Inc.                                  **
 -** ********************************************************************
 -*/
--
--#ifndef __P
--# if defined(__STDC__) || defined(__GNUC__)
--#  define __P(x) x
--# else
--#  define __P(x) ()
--# endif
--#endif
--
 -
 -/* MDstruct is the data structure for a message digest computation.
 -*/
@@ -568,7 +575,7 @@ index 80e8f9a2acca..000000000000
 -** Initialize the MD4_CTX prepatory to doing a message digest
 -** computation.
 -*/
--extern void MD4Init __P((MD4_CTX *MD));
+-extern void MD4Init(MD4_CTX *MD);
 -
 -/* MD4Update(MD,X,count)
 -** Input: X -- a pointer to an array of unsigned characters.
@@ -582,7 +589,7 @@ index 80e8f9a2acca..000000000000
 -** every MD computation should end with one call to MD4Update with a
 -** count less than 512.  Zero is OK for a count.
 -*/
--extern void MD4Update __P((MD4_CTX *MD, unsigned char *X, unsigned int count));
+-extern void MD4Update(MD4_CTX *MD, unsigned char *X, unsigned int count);
 -
 -/* MD4Print(MD)
 -** Prints message digest buffer MD as 32 hexadecimal digits.
@@ -590,23 +597,23 @@ index 80e8f9a2acca..000000000000
 -** of buffer[3].
 -** Each byte is printed with high-order hexadecimal digit first.
 -*/
--extern void MD4Print __P((MD4_CTX *));
+-extern void MD4Print(MD4_CTX *);
 -
 -/* MD4Final(buf, MD)
 -** Returns message digest from MD and terminates the message
 -** digest computation.
 -*/
--extern void MD4Final __P((unsigned char *, MD4_CTX *));
+-extern void MD4Final(unsigned char *, MD4_CTX *);
 -
 -/*
 -** End of md4.h
 -****************************(cut)***********************************/
 diff --git a/pppd/md5.c b/pppd/md5.c
 deleted file mode 100644
-index 6f8f7207c592..000000000000
+index f7988e64141a..000000000000
 --- a/pppd/md5.c
 +++ /dev/null
-@@ -1,311 +0,0 @@
+@@ -1,299 +0,0 @@
 -
 -
 -/*
@@ -641,8 +648,6 @@ index 6f8f7207c592..000000000000
 - ** documentation and/or software.                                    **
 - ***********************************************************************
 - */
--
--#ifndef USE_EAPTLS
 -
 -#include <string.h>
 -#include "md5.h"
@@ -713,8 +718,7 @@ index 6f8f7207c592..000000000000
 -/* The routine MD5_Init initializes the message-digest context
 -   mdContext. All fields are set to zero.
 - */
--void MD5_Init (mdContext)
--MD5_CTX *mdContext;
+-void MD5_Init (MD5_CTX *mdContext)
 -{
 -  mdContext->i[0] = mdContext->i[1] = (UINT4)0;
 -
@@ -730,10 +734,7 @@ index 6f8f7207c592..000000000000
 -   account for the presence of each of the characters inBuf[0..inLen-1]
 -   in the message whose digest is being computed.
 - */
--void MD5_Update (mdContext, inBuf, inLen)
--MD5_CTX *mdContext;
--unsigned char *inBuf;
--unsigned int inLen;
+-void MD5_Update (MD5_CTX *mdContext, unsigned char *inBuf, unsigned int inLen)
 -{
 -  UINT4 in[16];
 -  int mdi;
@@ -768,9 +769,7 @@ index 6f8f7207c592..000000000000
 -/* The routine MD5Final terminates the message-digest computation and
 -   ends with the desired message digest in mdContext->digest[0...15].
 - */
--void MD5_Final (hash, mdContext)
--unsigned char hash[];
--MD5_CTX *mdContext;
+-void MD5_Final (unsigned char hash[], MD5_CTX *mdContext)
 -{
 -  UINT4 in[16];
 -  int mdi;
@@ -811,9 +810,7 @@ index 6f8f7207c592..000000000000
 -
 -/* Basic MD5 step. Transforms buf based on in.
 - */
--static void Transform (buf, in)
--UINT4 *buf;
--UINT4 *in;
+-static void Transform (UINT4 *buf, UINT4 *in)
 -{
 -  UINT4 a = buf[0], b = buf[1], c = buf[2], d = buf[3];
 -
@@ -916,14 +913,12 @@ index 6f8f7207c592..000000000000
 - ** End of md5.c                                                      **
 - ******************************** (cut) ********************************
 - */
--#endif /* USE_EAPTLS */
--
 diff --git a/pppd/md5.h b/pppd/md5.h
 deleted file mode 100644
-index 14d712171c5e..000000000000
+index 71e8b00e2dde..000000000000
 --- a/pppd/md5.h
 +++ /dev/null
-@@ -1,68 +0,0 @@
+@@ -1,65 +0,0 @@
 -/*
 - ***********************************************************************
 - ** md5.h -- header file for implementation of MD5                    **
@@ -962,7 +957,6 @@ index 14d712171c5e..000000000000
 - ** documentation and/or software.                                    **
 - ***********************************************************************
 - */
--#ifndef USE_EAPTLS
 -
 -#ifndef __MD5_INCLUDE__
 -
@@ -990,8 +984,6 @@ index 14d712171c5e..000000000000
 -
 -#define __MD5_INCLUDE__
 -#endif /* __MD5_INCLUDE__ */
--
--#endif /* USE_EAPTLS */
 diff --git a/pppd/plugins/radius/md5.c b/pppd/plugins/radius/md5.c
 index 8af03aa3713e..90d9b025d211 100644
 --- a/pppd/plugins/radius/md5.c
@@ -1006,7 +998,7 @@ index 8af03aa3713e..90d9b025d211 100644
  void rc_md5_calc (unsigned char *output, unsigned char *input, unsigned int inlen)
  {
 diff --git a/pppd/plugins/radius/radius.c b/pppd/plugins/radius/radius.c
-index 06e00590b635..60282d9b2b9c 100644
+index c5798316719a..d5d63698a6dc 100644
 --- a/pppd/plugins/radius/radius.c
 +++ b/pppd/plugins/radius/radius.c
 @@ -31,7 +31,7 @@ static char const RCSID[] =
@@ -1019,7 +1011,7 @@ index 06e00590b635..60282d9b2b9c 100644
  #endif
  #include "radiusclient.h"
 diff --git a/pppd/plugins/winbind.c b/pppd/plugins/winbind.c
-index bb05acd87dce..5f87a317b677 100644
+index 0c395c34711a..6320645ac994 100644
 --- a/pppd/plugins/winbind.c
 +++ b/pppd/plugins/winbind.c
 @@ -38,7 +38,7 @@
@@ -1033,10 +1025,10 @@ index bb05acd87dce..5f87a317b677 100644
  #include "ipcp.h"
 diff --git a/pppd/sha1.c b/pppd/sha1.c
 deleted file mode 100644
-index f4f975cf516f..000000000000
+index 4e51cee506c2..000000000000
 --- a/pppd/sha1.c
 +++ /dev/null
-@@ -1,170 +0,0 @@
+@@ -1,171 +0,0 @@
 -/*
 - * ftp://ftp.funet.fi/pub/crypt/hash/sha/sha1.c
 - * 
@@ -1056,6 +1048,7 @@ index f4f975cf516f..000000000000
 -/* #define SHA1HANDSOFF * Copies data before messing with it. */
 -
 -#include <string.h>
+-#include <time.h>
 -#include <netinet/in.h>	/* htonl() */
 -#include <net/ppp_defs.h>
 -#include "sha1.h"

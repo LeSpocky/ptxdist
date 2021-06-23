@@ -1,0 +1,24 @@
+From: Alexander Dahl <ada@thorsis.com>
+Date: Wed, 16 Jun 2021 18:22:48 +0200
+Subject: [PATCH] pppoe_noads
+
+Imported from ppp_2.4.9-1+1.debian.tar.xz
+
+Signed-off-by: Alexander Dahl <ada@thorsis.com>
+---
+ pppd/plugins/pppoe/plugin.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/pppd/plugins/pppoe/plugin.c b/pppd/plugins/pppoe/plugin.c
+index de9b8166ce7b..58fbdf95be3f 100644
+--- a/pppd/plugins/pppoe/plugin.c
++++ b/pppd/plugins/pppoe/plugin.c
+@@ -412,8 +412,6 @@ plugin_init(void)
+     }
+ 
+     add_options(Options);
+-
+-    info("PPPoE plugin from pppd %s", VERSION);
+ }
+ 
+ void pppoe_check_options(void)

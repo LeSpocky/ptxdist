@@ -1,10 +1,22 @@
-From: Michael Olbrich <m.olbrich@pengutronix.de>
-Date: Sat, 28 Sep 2019 08:11:49 +0200
-Subject: [PATCH] ppp-2.3.11-oedod.dif
+From: Alexander Dahl <ada@thorsis.com>
+Date: Wed, 16 Jun 2021 18:22:48 +0200
+Subject: [PATCH] Forwarded: https://github.com/paulusmack/ppp/issues/187
 
-Imported from ppp_2.4.7-2+4.1.debian.tar.xz
+Upstream said:
 
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+"
+Hmmm, dial-on-demand was never tested with the sync option, and in fact I don't
+know what devices would use that option.
+
+To be accepted, the patch would need a sign-off and a description that
+explained the changes in the patch - in particular, what the large lump of code
+added to demand_rexmit() is doing.
+"
+
+
+Imported from ppp_2.4.9-1+1.debian.tar.xz
+
+Signed-off-by: Alexander Dahl <ada@thorsis.com>
 ---
  pppd/demand.c | 99 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
  pppd/ipcp.c   |  2 +-
@@ -13,7 +25,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  4 files changed, 101 insertions(+), 4 deletions(-)
 
 diff --git a/pppd/demand.c b/pppd/demand.c
-index 5e57658ea831..3eddf3016d98 100644
+index 289c9f8fdd57..4c61444d3968 100644
 --- a/pppd/demand.c
 +++ b/pppd/demand.c
 @@ -36,6 +36,8 @@
@@ -34,7 +46,7 @@ index 5e57658ea831..3eddf3016d98 100644
  #ifdef PPP_FILTER
  #include <pcap-bpf.h>
  #endif
-@@ -221,6 +225,14 @@ loop_chars(p, n)
+@@ -218,6 +222,14 @@ loop_chars(unsigned char *p, int n)
      int c, rv;
  
      rv = 0;
@@ -49,14 +61,12 @@ index 5e57658ea831..3eddf3016d98 100644
      for (; n > 0; --n) {
  	c = *p++;
  	if (c == PPP_FLAG) {
-@@ -299,17 +311,102 @@ loop_frame(frame, len)
+@@ -294,16 +306,101 @@ loop_frame(unsigned char *frame, int len)
   * loopback, now that the real serial link is up.
   */
  void
--demand_rexmit(proto)
-+demand_rexmit(proto, newip)
-     int proto;
-+    u_int32_t newip;
+-demand_rexmit(int proto)
++demand_rexmit(int proto, u_int32_t newip)
  {
      struct packet *pkt, *prev, *nextpkt;
 +    unsigned short checksum;
@@ -69,9 +79,11 @@ index 5e57658ea831..3eddf3016d98 100644
      prev = NULL;
      pkt = pend_q;
      pend_q = NULL;
++
 +    tv.tv_sec = 1;
 +    tv.tv_usec = 0;
-+    select(0,NULL,NULL,NULL,&tv);	/* Sleep for 1 Seconds */
++    select(0,NULL,NULL,NULL,&tv);	/* Sleep for 1 Second */
++
      for (; pkt != NULL; pkt = nextpkt) {
  	nextpkt = pkt->next;
  	if (PPP_PROTOCOL(pkt->data) == proto) {
@@ -83,7 +95,6 @@ index 5e57658ea831..3eddf3016d98 100644
 +                if (checksum == 0xFFFF) {
 +                    checksum = 0;
 +                }
-+
 + 
 +                if (pkt->data[13] == 17) {
 +                    pkt_checksum =  *((unsigned short *) (pkt->data+10+iphdr));
@@ -154,10 +165,10 @@ index 5e57658ea831..3eddf3016d98 100644
  	    free(pkt);
  	} else {
 diff --git a/pppd/ipcp.c b/pppd/ipcp.c
-index c8fe279d4ede..dceca807542a 100644
+index 302ca40b4c83..3ac26a08032a 100644
 --- a/pppd/ipcp.c
 +++ b/pppd/ipcp.c
-@@ -1904,7 +1904,7 @@ ipcp_up(f)
+@@ -1850,7 +1850,7 @@ ipcp_up(fsm *f)
  		    proxy_arp_set[f->unit] = 1;
  
  	}
@@ -167,12 +178,12 @@ index c8fe279d4ede..dceca807542a 100644
  
      } else {
 diff --git a/pppd/ipv6cp.c b/pppd/ipv6cp.c
-index 356ff84ead41..c1602f41c206 100644
+index 431cb62211bf..a32b0002e10d 100644
 --- a/pppd/ipv6cp.c
 +++ b/pppd/ipv6cp.c
-@@ -1232,7 +1232,7 @@ ipv6cp_up(f)
- 	    }
- 
+@@ -1253,7 +1253,7 @@ ipv6cp_up(fsm *f)
+ 		if (sif6defaultroute(f->unit, go->ourid, ho->hisid))
+ 		    default_route_set[f->unit] = 1;
  	}
 -	demand_rexmit(PPP_IPV6);
 +	demand_rexmit(PPP_IPV6,0);
@@ -180,15 +191,15 @@ index 356ff84ead41..c1602f41c206 100644
  
      } else {
 diff --git a/pppd/pppd.h b/pppd/pppd.h
-index 7495df657fe9..e65106d4c126 100644
+index 612902f55d0d..10a9977598aa 100644
 --- a/pppd/pppd.h
 +++ b/pppd/pppd.h
-@@ -594,7 +594,7 @@ void demand_conf __P((void));	/* config interface(s) for demand-dial */
- void demand_block __P((void));	/* set all NPs to queue up packets */
- void demand_unblock __P((void)); /* set all NPs to pass packets */
- void demand_discard __P((void)); /* set all NPs to discard packets */
--void demand_rexmit __P((int));	/* retransmit saved frames for an NP */
-+void demand_rexmit __P((int, u_int32_t)); /* retransmit saved frames for an NP*/
- int  loop_chars __P((unsigned char *, int)); /* process chars from loopback */
- int  loop_frame __P((unsigned char *, int)); /* should we bring link up? */
+@@ -598,7 +598,7 @@ void demand_conf(void);	/* config interface(s) for demand-dial */
+ void demand_block(void);	/* set all NPs to queue up packets */
+ void demand_unblock(void); /* set all NPs to pass packets */
+ void demand_discard(void); /* set all NPs to discard packets */
+-void demand_rexmit(int);	/* retransmit saved frames for an NP */
++void demand_rexmit(int, u_int32_t);	/* retransmit saved frames for an NP */
+ int  loop_chars(unsigned char *, int); /* process chars from loopback */
+ int  loop_frame(unsigned char *, int); /* should we bring link up? */
  

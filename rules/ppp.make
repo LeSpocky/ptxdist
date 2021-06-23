@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_PPP) += ppp
 #
 # Paths and names
 #
-PPP_VERSION	:= 2.4.7
-PPP_MD5		:= 78818f40e6d33a1d1de68a1551f6595a
+PPP_VERSION	:= 2.4.9
+PPP_MD5		:= c88153ae3d16ae114152cd3c15c7301d
 PPP		:= ppp-$(PPP_VERSION)
 PPP_SUFFIX	:= tar.gz
 PPP_URL		:= http://ftp.samba.org/pub/ppp/$(PPP).$(PPP_SUFFIX)
@@ -55,7 +55,7 @@ PPP_SHARED_INST_PATH := /usr/lib/pppd/$(PPP_VERSION)
 $(STATEDIR)/ppp.prepare:
 	@$(call targetinfo)
 	@cd $(PPP_DIR) && $(PPP_PATH) $(PPP_CONF_ENV) \
-		./configure --prefix=/usr --sysconfdir=/etc
+		./configure --prefix=/usr --sysconfdir=/etc --cc=$(CROSS_CC)
 
 	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,USE_PAM=y)
 

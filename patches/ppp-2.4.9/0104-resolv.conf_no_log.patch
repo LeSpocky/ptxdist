@@ -1,19 +1,19 @@
-From: Michael Olbrich <m.olbrich@pengutronix.de>
-Date: Sat, 28 Sep 2019 08:11:50 +0200
+From: Alexander Dahl <ada@thorsis.com>
+Date: Wed, 16 Jun 2021 18:22:48 +0200
 Subject: [PATCH] resolv.conf_no_log
 
-Imported from ppp_2.4.7-2+4.1.debian.tar.xz
+Imported from ppp_2.4.9-1+1.debian.tar.xz
 
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+Signed-off-by: Alexander Dahl <ada@thorsis.com>
 ---
  pppd/ipcp.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/pppd/ipcp.c b/pppd/ipcp.c
-index d6e0e2a699fe..b81b2fd0a29f 100644
+index 3ac26a08032a..ce002262bb34 100644
 --- a/pppd/ipcp.c
 +++ b/pppd/ipcp.c
-@@ -2152,7 +2152,7 @@ create_resolv(peerdns1, peerdns2)
+@@ -2093,7 +2093,7 @@ create_resolv(u_int32_t peerdns1, u_int32_t peerdns2)
  
      f = fopen(_PATH_RESOLV, "w");
      if (f == NULL) {

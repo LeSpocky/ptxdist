@@ -1,19 +1,25 @@
-From: Michael Olbrich <m.olbrich@pengutronix.de>
-Date: Sat, 28 Sep 2019 08:11:49 +0200
+From: Alexander Dahl <ada@thorsis.com>
+Date: Wed, 16 Jun 2021 18:22:48 +0200
 Subject: [PATCH] support building pppdump with the system zlib
 
-Imported from ppp_2.4.7-2+4.1.debian.tar.xz
+Forwarded: https://github.com/paulusmack/ppp/pull/189
+but nacked: "it caused compile failures (on Fedora at least), which
+reminded me that the zlib.c here is not the same as upstream; it has
+extra functions that I added a long time ago."
 
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+
+Imported from ppp_2.4.9-1+1.debian.tar.xz
+
+Signed-off-by: Alexander Dahl <ada@thorsis.com>
 ---
  pppdump/Makefile.linux | 28 ++++++++++++++++++++++++++--
  1 file changed, 26 insertions(+), 2 deletions(-)
 
 diff --git a/pppdump/Makefile.linux b/pppdump/Makefile.linux
-index 65e5c14914fb..87777fab5e94 100644
+index a94187fa9e29..de7e574d10e1 100644
 --- a/pppdump/Makefile.linux
 +++ b/pppdump/Makefile.linux
-@@ -2,18 +2,42 @@ DESTDIR = $(INSTROOT)@DESTDIR@
+@@ -6,15 +6,39 @@ DESTDIR = $(INSTROOT)@DESTDIR@
  BINDIR = $(DESTDIR)/sbin
  MANDIR = $(DESTDIR)/share/man/man8
  
@@ -21,10 +27,7 @@ index 65e5c14914fb..87777fab5e94 100644
 +DO_BSD_COMPRESS=y
 +HAVE_ZLIB=n
 +
- COPTS=-O2 -g
- CFLAGS= $(COPTS) -I../include/net
- LDFLAGS=$(LDOPTS)
- 
+ CFLAGS = $(COPTS) -I../include/net
 -OBJS = pppdump.o bsd-comp.o deflate.o zlib.o
 +OBJS = pppdump.o
 +LIBS =
@@ -40,14 +43,14 @@ index 65e5c14914fb..87777fab5e94 100644
 +else
 +CFLAGS += -DDO_DEFLATE=0
 +endif
-+
+ 
 +ifdef DO_BSD_COMPRESS
 +CFLAGS += -DDO_BSD_COMPRESS=1
 +OBJS += bsd-comp.o
 +else
 +CFLAGS += -DDO_BSD_COMPRESS=0
 +endif
- 
++ 
  INSTALL= install
  
  all:	pppdump

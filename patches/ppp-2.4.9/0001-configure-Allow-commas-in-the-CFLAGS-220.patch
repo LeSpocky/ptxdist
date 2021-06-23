@@ -1,0 +1,28 @@
+From: =?UTF-8?q?Jaroslav=20=C5=A0karvada?= <jskarvad@redhat.com>
+Date: Fri, 8 Jan 2021 02:43:46 +0100
+Subject: [PATCH] configure: Allow commas in the CFLAGS (#220)
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+It allows e.g. the following:
+./configure --cflags='-Wp,-D_FORTIFY_SOURCE=2'
+
+Signed-off-by: Jaroslav Škarvada <jskarvad@redhat.com>
+---
+ configure | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure b/configure
+index f977663fd8db..b0c3d2b49122 100755
+--- a/configure
++++ b/configure
+@@ -123,7 +123,7 @@ mkmkf() {
+ 	echo "  $2 <= $1"
+ 	sed -e "s,@DESTDIR@,$DESTDIR,g" -e "s,@SYSCONF@,$SYSCONF,g" \
+ 	    -e "s,@CROSS_COMPILE@,$CROSS_COMPILE,g" -e "s,@CC@,$CC,g" \
+-	    -e "s,@CFLAGS@,$CFLAGS,g" $1 >$2
++	    -e "s|@CFLAGS@|$CFLAGS|g" $1 >$2
+     fi
+ }
+ 

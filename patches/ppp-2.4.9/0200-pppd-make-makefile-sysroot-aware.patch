@@ -13,14 +13,14 @@ Signed-off-by: Marc Kleine-Budde <m.kleine-budde@pengutronix.de>
 Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- pppd/Makefile.linux | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
+ pppd/Makefile.linux | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/pppd/Makefile.linux b/pppd/Makefile.linux
-index cb9d4f9dcf22..ea0a7f02766b 100644
+index bc01e3fd2a24..9b0119463c1f 100644
 --- a/pppd/Makefile.linux
 +++ b/pppd/Makefile.linux
-@@ -103,8 +103,8 @@ endif
+@@ -111,8 +111,8 @@ endif
  
  # EAP SRP-SHA1
  ifdef USE_SRP
@@ -31,32 +31,12 @@ index cb9d4f9dcf22..ea0a7f02766b 100644
  TARGETS	+= srp-entry
  EXTRAINSTALL = $(INSTALL) -c -m 555 srp-entry $(BINDIR)/srp-entry
  MANPAGES += srp-entry.8
-@@ -114,7 +114,7 @@ endif
- 
- # EAP-TLS
- ifdef USE_EAPTLS
--CFLAGS += -DUSE_EAPTLS=1 -I/usr/kerberos/include
-+CFLAGS += -DUSE_EAPTLS=1
- LIBS += -lssl
- PPPDSRC += eap-tls.c
- HEADERS += eap-tls.h
-@@ -126,10 +126,8 @@ CFLAGS   += -DHAS_SHADOW
- #LIBS     += -lshadow $(LIBS)
- endif
- 
--ifneq ($(wildcard /usr/include/crypt.h),)
- CFLAGS  += -DHAVE_CRYPT_H=1
- LIBS	+= -lcrypt
--endif
- 
- ifdef USE_LIBUTIL
- CFLAGS	+= -DHAVE_LOGWTMP=1
-@@ -138,7 +136,7 @@ endif
+@@ -146,7 +146,7 @@ endif
  
  ifdef NEEDDES
  ifndef USE_CRYPT
--CFLAGS   += -I/usr/include/openssl
+-CFLAGS   += -I$(shell $(CC) --print-sysroot)/usr/include/openssl
 +CFLAGS   += -I$(SYSROOT)/usr/include/openssl
- LIBS     += -lcrypto
  else
  CFLAGS   += -DUSE_CRYPT=1
+ endif
