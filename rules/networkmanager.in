@@ -104,6 +104,12 @@ config NETWORKMANAGER_POLKIT
 	bool
 	prompt "polkit support"
 
+config NETWORKMANAGER_MORE_LOGGING
+	bool
+	prompt "more logging"
+	help
+	  Allows debug log level in NetworkManager.conf
+
 endif
 
 menu "networkmanager plugins        "
