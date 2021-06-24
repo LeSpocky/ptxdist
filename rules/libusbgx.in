@@ -2,7 +2,7 @@
 
 menuconfig LIBUSBGX
 	bool
-	prompt "libusbgx"
+	prompt "libusbgx                      "
 	help
 	  libusbgx is a C library encapsulating the kernel USB gadget-configfs
 	  userspace API functionality.
