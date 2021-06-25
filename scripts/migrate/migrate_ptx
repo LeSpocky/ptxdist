@@ -426,3 +426,16 @@ s/^\(\(# \)\?PTXCONF_GST_\)VALIDATE1\>/\1DEVTOOLS1/
 # reason : pip is now a separate package instead of the bundled version
 #
 s/^\(\(# \)\?PTXCONF_PYTHON3_\)ENSUREPIP\>/\1PIP/
+
+# from   : ptxdist-2021.06.0
+# to     : ptxdist-2021.07.0
+# symbol : BERLIOS_CAN_UTILS_JSPY -> PTXCONF_BERLIOS_CAN_UTILS_J1939SPY
+# symbol : BERLIOS_CAN_UTILS_JSR -> PTXCONF_BERLIOS_CAN_UTILS_J1939SR
+# symbol : BERLIOS_CAN_UTILS_JACD -> PTXCONF_BERLIOS_CAN_UTILS_J1939ACD
+# symbol : BERLIOS_CAN_UTILS_JCAT -> PTXCONF_BERLIOS_CAN_UTILS_J1939CAT
+# reason : This utils was renamed mainline to avoid conflicts on debian
+#
+s/^\(\(# \)\?PTXCONF_BERLIOS_CAN_UTILS_\)JSPY\>/\1J1939SPY/
+s/^\(\(# \)\?PTXCONF_BERLIOS_CAN_UTILS_\)JSR\>/\1J1939SR/
+s/^\(\(# \)\?PTXCONF_BERLIOS_CAN_UTILS_\)JACD\>/\1J1939ACD/
+s/^\(\(# \)\?PTXCONF_BERLIOS_CAN_UTILS_\)JCAT\>/\1J1939CAT/
