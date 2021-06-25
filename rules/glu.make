@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GLU) += glu
 #
 # Paths and names
 #
-GLU_VERSION	:= 9.0.1
-GLU_MD5		:= 151aef599b8259efe9acd599c96ea2a3
+GLU_VERSION	:= 9.0.2
+GLU_MD5		:= 2b0f13fa5b949bfb3a995927c6e35125
 GLU		:= glu-$(GLU_VERSION)
 GLU_SUFFIX	:= tar.xz
 GLU_URL		:= ftp://ftp.freedesktop.org/pub/mesa/glu/$(GLU).$(GLU_SUFFIX)
@@ -33,12 +33,11 @@ GLU_LICENSE_FILES := \
 #
 # autoconf
 #
-GLU_CONF_TOOL	:= autoconf
+GLU_CONF_TOOL	:= meson
 GLU_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-static \
-	--disable-debug \
-	--disable-osmesa
+	$(CROSS_MESON_USR) \
+	-Ddefault_library=shared \
+	-Dgl_provider=gl
 
 # ----------------------------------------------------------------------------
 # Target-Install

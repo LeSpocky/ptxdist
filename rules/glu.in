@@ -3,6 +3,7 @@
 config GLU
 	tristate
 	prompt "glu"
+	select HOST_MESON
 	select MESALIB
 	select MESALIB_GLX
 	help
