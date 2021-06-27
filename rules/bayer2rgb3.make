@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_BAYER2RGB3) += bayer2rgb3
 #
 # Paths and names
 #
-BAYER2RGB3_VERSION	:= 0.4.1
-BAYER2RGB3_MD5		:= 5362a93d4251eb012d38c1409af0182e
+BAYER2RGB3_VERSION	:= v0.6.0
+BAYER2RGB3_MD5		:= e71f76727583a77302a86bdddefc9be1
 BAYER2RGB3		:= bayer2rgb3-$(BAYER2RGB3_VERSION)
-BAYER2RGB3_SUFFIX	:= zip
-BAYER2RGB3_URL		:= https://gitlab-ext.sigma-chemnitz.de/ensc/bayer2rgb/-/archive/master/bayer2rgb-master.zip
+BAYER2RGB3_SUFFIX	:= tar.bz2
+BAYER2RGB3_URL		:= https://gitlab-ext.sigma-chemnitz.de/ensc/bayer2rgb/-/archive/$(BAYER2RGB3_VERSION)/$(BAYER2RGB3).$(BAYER2RGB3_SUFFIX)
 BAYER2RGB3_SOURCE	:= $(SRCDIR)/$(BAYER2RGB3).$(BAYER2RGB3_SUFFIX)
 BAYER2RGB3_DIR		:= $(BUILDDIR)/$(BAYER2RGB3)
 BAYER2RGB3_LICENSE	:= GPL-3.0-only
