@@ -1080,15 +1080,15 @@ parse_first()
 			PTX_SLEDGEHAMMER=true
 			;;
 		--ptxconfig=*)
-			PTXDIST_PTXCONFIG="$(ptxd_abspath "${arg#*=}")" &&
+			PTXDIST_PTXCONFIG="${arg#*=}" &&
 			PTX_ptxconfig_SET=true
 			;;
 		--platformconfig=*)
-			PTXDIST_PLATFORMCONFIG="$(ptxd_abspath "${arg#*=}")" &&
+			PTXDIST_PLATFORMCONFIG="${arg#*=}" &&
 			PTX_platformconfig_SET=true
 			;;
 		--collectionconfig=*)
-			PTXDIST_COLLECTIONCONFIG="$(ptxd_abspath "${arg#*=}")" &&
+			PTXDIST_COLLECTIONCONFIG="${arg#*=}" &&
 			PTX_collectionconfig_SET=true
 			;;
 		--toolchain=*)
@@ -1171,6 +1171,7 @@ setup_layers()
 {
 	export -a PTXDIST_LAYERS
 	local layer="${PTXDIST_WORKSPACE}"
+	local -a cfgs
 
 	while [ -e "${layer}" -o -h "${layer}" ]; do
 		if [ ! -d "${layer}" ]; then
@@ -1201,7 +1202,13 @@ setup_layers()
 	PTXDIST_LAYERS[${#PTXDIST_LAYERS[@]}]="${PTXDIST_TOPDIR}"
 
 	if [ "${PTX_ptxconfig_SET}" = "false" ]; then
-		local -a cfgs=( "selected_ptxconfig" "configs/ptxconfig" )
+		cfgs=( "selected_ptxconfig" "configs/ptxconfig" )
+	elif ! [[ "${PTXDIST_PTXCONFIG}" =~ ^/.* ]]; then
+		cfgs=( "${PTXDIST_PTXCONFIG}" )
+	else
+		cfgs=()
+	fi
+	if [ "${#cfgs[*]}" -gt 0 ]; then
 		PTXDIST_PTXCONFIG="${PTXDIST_LAYERS[0]}/${cfgs[0]}"
 		for layer in "${PTXDIST_LAYERS[@]}"; do
 			local -a ptxd_reply
@@ -1212,7 +1219,13 @@ setup_layers()
 	fi
 
 	if [ "${PTX_platformconfig_SET}" = "false" ]; then
-		local -a cfgs=( "selected_platformconfig" "configs/*/platformconfig" )
+		cfgs=( "selected_platformconfig" "configs/*/platformconfig" )
+	elif ! [[ "${PTXDIST_PLATFORMCONFIG}" =~ ^/.* ]]; then
+		cfgs=( "${PTXDIST_PLATFORMCONFIG}" )
+	else
+		cfgs=()
+	fi
+	if [ "${#cfgs[*]}" -gt 0 ]; then
 		PTXDIST_PLATFORMCONFIG="${PTXDIST_LAYERS[0]}/${cfgs[0]}"
 		for layer in "${PTXDIST_LAYERS[@]}"; do
 			local tmp=( ${cfgs[@]/#/${layer}/} )
@@ -1227,9 +1240,16 @@ setup_layers()
 	fi
 
 	if [ "${PTX_collectionconfig_SET}" = "false" ]; then
+		cfgs=( "selected_collectionconfig" )
+	elif ! [[ "${PTXDIST_COLLECTIONCONFIG}" =~ ^/.* ]]; then
+		cfgs=( "${PTXDIST_COLLECTIONCONFIG}" )
+	else
+		cfgs=()
+	fi
+	if [ "${#cfgs[*]}" -gt 0 ]; then
 		for layer in "${PTXDIST_LAYERS[@]}"; do
 			local -a ptxd_reply
-			ptxd_get_path_filtered "${layer}/selected_collectionconfig" || continue
+			ptxd_get_path_filtered "${cfgs[@]/#/${layer}/}" || continue
 			PTXDIST_COLLECTIONCONFIG="${ptxd_reply[0]}"
 			break
 		done
