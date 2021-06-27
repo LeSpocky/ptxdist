@@ -267,7 +267,7 @@ _get_config_ptx() {
 _check_config_ptx() {
 	local configfile_version
 
-	_get_config_ptx
+	_get_config_ptx || return
 
 	check_version "${configfile_version}" || {
 		ptxd_dialog_msgbox \
@@ -2369,7 +2369,7 @@ setup_auto_version()
 	saved_ptxconfig="${PTXDIST_PTXCONFIG}"
 	PTXDIST_PTXCONFIG="${ptxd_reply[${#ptxd_reply[@]}-1]}"
 
-	_get_config_ptx
+	_get_config_ptx || return
 	PTXDIST_PTXCONFIG="${saved_ptxconfig}"
 	if PTXDIST_FORCE= check_version "${configfile_version}"; then
 		# this is already the correct version
