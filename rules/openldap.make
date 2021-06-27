@@ -19,7 +19,7 @@ OPENLDAP_LIBVERSION	:= 2.4
 OPENLDAP_MD5		:= e508f97bfd778fec7799f286e5c07176
 OPENLDAP		:= openldap-$(OPENLDAP_VERSION)
 OPENLDAP_SUFFIX		:= tgz
-OPENLDAP_URL		:= ftp://ftp.openldap.org/pub/OpenLDAP/openldap-release/$(OPENLDAP).$(OPENLDAP_SUFFIX)
+OPENLDAP_URL		:= https://www.openldap.org/software/download/OpenLDAP/openldap-release/$(OPENLDAP).$(OPENLDAP_SUFFIX)
 OPENLDAP_SOURCE		:= $(SRCDIR)/$(OPENLDAP).$(OPENLDAP_SUFFIX)
 OPENLDAP_DIR		:= $(BUILDDIR)/$(OPENLDAP)
 # http://www.openldap.org/software/release/license.html
