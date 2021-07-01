@@ -58,6 +58,7 @@ $(STATEDIR)/ppp.prepare:
 		./configure --prefix=/usr --sysconfdir=/etc --cc=$(CROSS_CC)
 
 	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,USE_PAM=y)
+	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,SYSTEMD=y)
 
 ifdef PTXCONF_GLOBAL_IPV6
 	@$(call enable_sh,$(PPP_DIR)/pppd/Makefile,HAVE_INET6=y)
@@ -127,6 +128,7 @@ ifdef PTXCONF_PPP_PLUGINS
 else
 	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,PLUGIN=y)
 endif
+
 	@$(call touch)
 
 
