@@ -15,6 +15,11 @@ HOST_PACKAGES-$(PTXCONF_HOST_NFSUTILS) += host-nfsutils
 # Prepare
 # ----------------------------------------------------------------------------
 
+# fake rpc/rpc.h availability, it's not needed for rpcgen
+HOST_NFSUTILS_CONF_ENV	:= \
+	$(HOST_ENV) \
+	ac_cv_header_rpc_rpc_h=yes
+
 #
 # autoconf
 #
