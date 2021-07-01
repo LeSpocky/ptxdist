@@ -31,6 +31,7 @@ OPENLDAP_LICENSE	:= OpenLDAP Public License
 
 OPENLDAP_CONF_ENV	:= \
 	$(CROSS_ENV) \
+	ac_cv_header_unicode_utypes_h=no \
 	ac_cv_header_uuid_uuid_h=no
 
 OPENLDAP_TLS_CONF_OPT-$(PTXCONF_OPENLDAP_TLS_GNUTLS)	:= gnutls
