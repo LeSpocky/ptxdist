@@ -36,16 +36,17 @@ HOST_NFSUTILS_CONF_OPT	:= \
 	--disable-mountconfig \
 	--disable-nfsdcld \
 	--disable-nfsdcltrack \
+	--disable-nfsv4server \
 	--disable-caps \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-ldap \
 	--disable-gums \
+	--without-systemd \
 	--with-rpcgen=internal \
 	--without-mountfile \
 	--without-tcp-wrappers \
 	--without-krb5 \
-	--without-gssglue \
-	--without-systemd
+	--without-gssglue
 
 HOST_NFSUTILS_MAKE_OPT		:= \
 	-C tools/rpcgen
