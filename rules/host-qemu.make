@@ -16,8 +16,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_QEMU) += host-qemu
 #
 # Paths and names
 #
-HOST_QEMU_VERSION	:= 5.2.0
-HOST_QEMU_MD5		:= 179f86928835da857c237b42f4b2df73
+HOST_QEMU_VERSION	:= 6.0.0
+HOST_QEMU_MD5		:= cce185dc0119546e395909e8a71a75bb
 HOST_QEMU		:= qemu-$(HOST_QEMU_VERSION)
 HOST_QEMU_SUFFIX	:= tar.xz
 HOST_QEMU_URL		:= https://download.qemu.org/$(HOST_QEMU).$(HOST_QEMU_SUFFIX)
@@ -67,6 +67,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--ninja=ninja \
 	--disable-sanitizers \
 	--disable-tsan \
+	--disable-strip \
 	--disable-werror \
 	--enable-stack-protector \
 	--audio-drv-list= \
@@ -91,8 +92,10 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-module-upgrades \
 	--disable-debug-tcg \
 	--disable-debug-info \
+	--disable-lto \
 	--disable-sparse \
 	--disable-safe-stack \
+	--disable-cfi \
 	--disable-gnutls \
 	--disable-nettle \
 	--disable-gcrypt \
@@ -182,6 +185,9 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-xkbcommon \
 	--disable-rng-none \
 	--disable-libdaxctl \
+	--disable-fuse \
+	--enable-multiprocess \
+	--disable-gio \
 	\
 	--disable-fuzzing \
 	--disable-keyring
