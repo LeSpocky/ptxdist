@@ -39,7 +39,7 @@ RAUC_HAWKBIT_UPDATER_CONF_OPT	:= \
 	-DWITH_SYSTEMD=$(call ptx/onoff,PTXCONF_RAUC_HAWKBIT_UPDATER_SYSTEMD_UNIT) \
 	-DBUILD_DOC=OFF \
 	-DQA_BUILD=ON \
-	--with-systemdsystemunitdir=/usr/lib/systemd/system
+	-DSYSTEMD_SERVICES_INSTALL_DIR=/usr/lib/systemd/system
 
 # ----------------------------------------------------------------------------
 # Target-Install
