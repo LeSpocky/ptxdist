@@ -64,7 +64,8 @@ MYSQL_CONF_OPT	:= \
 	-DINSTALL_LAYOUT=TARGZ \
 	-DBUILD_CONFIG=mysql_release \
 	-DSTACK_DIRECTION=1 \
-	-DHAVE_LLVM_LIBCPP_EXITCODE=no \
+	-DHAVE_LLVM_LIBCPP_EXITCODE=1 \
+	-DHAVE_LLVM_LIBCPP_EXITCODE__TRYRUN_OUTPUT="" \
 	-DWITH_ZLIB=system \
 	-DWITH_LZ4=bundled \
 	-DWITH_SSL=bundled \
@@ -93,12 +94,12 @@ MYSQL_CXXFLAGS := -std=c++98
 $(STATEDIR)/mysql.compile:
 	@$(call targetinfo)
 
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/gen_lex_hash $(MYSQL_DIR)/sql/
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/gen_lex_token $(MYSQL_DIR)/sql/
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/lz4_decompress $(MYSQL_DIR)/extra/
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/zlib_decompress $(MYSQL_DIR)/extra/
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/comp_err $(MYSQL_DIR)/extra/
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/comp_sql $(MYSQL_DIR)/scripts/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/gen_lex_hash $(MYSQL_DIR)-build/sql/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/gen_lex_token $(MYSQL_DIR)-build/sql/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/lz4_decompress $(MYSQL_DIR)-build/extra/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/zlib_decompress $(MYSQL_DIR)-build/extra/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/comp_err $(MYSQL_DIR)-build/extra/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/comp_sql $(MYSQL_DIR)-build/scripts/
 
 	@$(call world/compile, MYSQL)
 	@$(call touch)
