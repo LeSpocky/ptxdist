@@ -1,0 +1,13 @@
+## SECTION=python3
+
+config PYTHON3_YOYO_MIGRATIONS
+	tristate
+	prompt "python3-yoyo-migrations"
+	select PYTHON3
+	select PYTHON3_SETUPTOOLS
+	select PYTHON3_INIHERIT
+	select PYTHON3_TEXT_UNIDECODE
+	select PYTHON3_SQLPARSE
+	select PYTHON3_TABULATE
+	help
+	  Yoyo is a database schema migration tool using python.
