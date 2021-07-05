@@ -52,7 +52,14 @@ GDBSERVER_CONF_OPT  := \
 	--disable-werror
 
 GDBSERVER_BUILD_OOT := YES
+
+ifeq ($(filter 1%,$(GDBSERVER_VERSION)),)
+# version < 10
 GDBSERVER_SUBDIR := gdb/gdbserver
+else
+GDBSERVER_MAKE_OPT := all-gdbserver
+GDBSERVER_INSTALL_OPT := install-gdbserver
+endif
 
 # ----------------------------------------------------------------------------
 # Target-Install
