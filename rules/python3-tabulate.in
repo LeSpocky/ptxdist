@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_TABULATE
+	tristate
+	select PYTHON3
+	prompt "tabulate"
+	help
+	  Pretty-print tabular data in Python, a library and a command-line utility
