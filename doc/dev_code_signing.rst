@@ -19,6 +19,11 @@ development) the URIs are usually not hardcoded in the package configuration.
 Instead, PTXdist has the idea of **roles** which are string identifiers used to
 access a single private/public key pair and a certificate.
 
+Roles can be grouped into **role groups**.
+Role groups should be used where more than one role is needed, but the exact
+names and/or number of roles depend on the concrete code signing provider.
+For example, an i.MX HABv4 fuse table can contain up to four keys.
+
 Finally, one or several **code signing providers** supply the mapping from
 roles to the respective key material or even provide it themselves for
 development.

@@ -215,6 +215,85 @@ Preconditions:
 - when used with SoftHSM, certificates must have been imported before
   (see :ref:`cs_import_cert_from_der`, :ref:`cs_import_cert_from_pem`)
 
+.. _cs_define_group:
+
+cs_define_group
+^^^^^^^^^^^^^^^
+
+Usage:
+
+.. code-block:: bash
+
+   cs_define_group <group>
+
+Define a new role group.
+
+See :ref:`cs_group_add_roles` for an example.
+
+.. _cs_group_add_roles:
+
+cs_group_add_roles
+^^^^^^^^^^^^^^^^^^
+
+Usage:
+
+.. code-block:: bash
+
+   cs_group_add_roles <group> <roles...>
+
+Add all given roles to a role group.
+
+Preconditions:
+
+- the group must have been defined (see :ref:`cs_define_group`)
+- the role(s) must have been defined (see :ref:`cs_define_role`)
+
+Example:
+
+.. code-block:: bash
+
+   # define two roles named imx-habv4-srk1 and imx-habv4-srk2
+   r="imx-habv4-srk1"
+   cs_define_role "${r}"
+   cs_set_uri "${r}" "pkcs11:object=SRK CA 0"
+   cs_append_ca_from_uri "${r}"
+   r="imx-habv4-srk2"
+   cs_define_role "${r}"
+   cs_set_uri "${r}" "pkcs11:object=SRK CA 1"
+   cs_append_ca_from_uri "${r}"
+
+   # define a group and add the roles
+   g="imx-habv4-srk"
+   cs_define_group "${g}"
+   cs_group_add_roles "${g}" "imx-habv4-srk1" "imx-habv4-srk2"
+
+.. _cs_group_get_roles:
+
+cs_group_get_roles
+^^^^^^^^^^^^^^^^^^
+
+Usage:
+
+.. code-block:: bash
+
+   cs_group_get_roles <group>
+
+Get a list of all roles that have been added to the role group.
+
+Example:
+
+.. code-block:: bash
+
+   # iterate over role names in a role group, and print their name and URI
+   for role in $(cs_group_get_roles "imx-habv4-srk"); do
+   	echo "role '${role}' has URI '$(cs_get_uri "${role}")'"
+   done
+
+In the example given in :ref:`cs_group_add_roles` above, this would print::
+
+   role 'imx-habv4-srk1' has URI 'pkcs11:object=SRK CA 0'
+   role 'imx-habv4-srk2' has URI 'pkcs11:object=SRK CA 1'
+
 Consumer Functions
 ~~~~~~~~~~~~~~~~~~
 
