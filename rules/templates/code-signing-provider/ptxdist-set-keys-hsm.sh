@@ -18,7 +18,7 @@ set_rauc_keys() {
 }
 
 set_imx_habv4_keys() {
-	local r
+	local r g
 
 	# HSM use case, assuming it contains only 1st CSF/IMG key
 	for i in 1 2 3 4; do
@@ -27,6 +27,10 @@ set_imx_habv4_keys() {
 		cs_set_uri "${r}" "pkcs11:token=foo;object=srk${i}"
 		cs_append_ca_from_uri "${r}"
 	done
+
+	g="imx-habv4-srk"
+	cs_define_group "${g}"
+	cs_group_add_roles "${g}" "imx-habv4-srk1" "imx-habv4-srk2" "imx-habv4-srk3" "imx-habv4-srk4"
 
 	r="imx-habv4-csf1"
 	cs_define_role ${r}
