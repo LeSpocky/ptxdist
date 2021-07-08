@@ -18,6 +18,7 @@ ptxd_make_license_report_header() {
 	\usepackage{tikz}
 	\usepackage{adjustbox}
 	\usepackage{spverbatim}
+	\usepackage{pdfpages}
 	\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
 
 	%% Something like this may be needed depending on the package list
@@ -209,6 +210,7 @@ ptxd_make_license_compliance_header() {
 	\usepackage{tikz}
 	\usepackage{adjustbox}
 	\usepackage{spverbatim}
+	\usepackage{pdfpages}
 	\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
 
 	%% Something like this may be needed depending on the package list

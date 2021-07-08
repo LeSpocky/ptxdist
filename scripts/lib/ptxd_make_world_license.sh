@@ -188,21 +188,32 @@ ptxd_make_world_license_write() {
 	    continue
 	fi
 	title="$(basename "${license}")"
-	cat <<- EOF
-		\section{$(ptxd_make_latex_escape "${title}")${guess}}
-		\begin{small}
-		\begin{spverbatim}
-	EOF
-	if [ -f "${license}.utf-8" ]; then
-	    cat "${license}.utf-8"
-	else
-	    cat "${license}"
-	fi | sed -e 's/\f/\n/g'
-	check_pipe_status || return
-	cat <<- EOF
-		\end{spverbatim}
-		\end{small}
-	EOF
+	case "${license}" in
+	    *.pdf)
+		cat <<- EOF
+			\section{$(ptxd_make_latex_escape "${title}")${guess}}
+			\includepdf[pages=-]{${license}}
+		EOF
+		;;
+	    *)
+		cat <<- EOF
+			\section{$(ptxd_make_latex_escape "${title}")${guess}}
+			\begin{small}
+			\begin{spverbatim}
+		EOF
+
+		if [ -f "${license}.utf-8" ]; then
+		    cat "${license}.utf-8"
+		else
+		    cat "${license}"
+		fi | sed -e 's/\f/\n/g'
+		check_pipe_status || return
+		cat <<- EOF
+			\end{spverbatim}
+			\end{small}
+		EOF
+		;;
+	esac
     done
 }
 export -f ptxd_make_world_license_write
