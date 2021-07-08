@@ -21,9 +21,12 @@ PYTHON3_PYCRYPTODOMEX_SUFFIX	:= tar.gz
 PYTHON3_PYCRYPTODOMEX_URL	:= $(call ptx/mirror-pypi, pycryptodomex, $(PYTHON3_PYCRYPTODOMEX).$(PYTHON3_PYCRYPTODOMEX_SUFFIX))
 PYTHON3_PYCRYPTODOMEX_SOURCE	:= $(SRCDIR)/$(PYTHON3_PYCRYPTODOMEX).$(PYTHON3_PYCRYPTODOMEX_SUFFIX)
 PYTHON3_PYCRYPTODOMEX_DIR	:= $(BUILDDIR)/$(PYTHON3_PYCRYPTODOMEX)
-PYTHON3_PYCRYPTODOMEX_LICENSE	:= BSD-2
+PYTHON3_PYCRYPTODOMEX_LICENSE	:= Unlicense AND BSD-2-Clause and custom
 PYTHON3_PYCRYPTODOMEX_LICENSE_FILES := \
-	file://LICENSE.rst;md5=accfa6aeaceb3ba96676edf18e78302c
+	file://LICENSE.rst;md5=accfa6aeaceb3ba96676edf18e78302c \
+	file://Doc/ocb/license1.pdf;md5=e33fa8dcf4d10e5c0d9a9e9291714d3d \
+	file://Doc/ocb/license2.pdf;md5=68cfc4690fbbaa0d89d3ea3abcc60b0f \
+	file://Doc/ocb/license3.pdf;md5=2124679d48d559681738985e040ae388
 
 # ----------------------------------------------------------------------------
 # Prepare
