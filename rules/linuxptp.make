@@ -23,6 +23,9 @@ LINUXPTP_URL		:= $(call ptx/mirror, SF, linuxptp/$(LINUXPTP).$(LINUXPTP_SUFFIX))
 LINUXPTP_SOURCE		:= $(SRCDIR)/$(LINUXPTP).$(LINUXPTP_SUFFIX)
 LINUXPTP_DIR		:= $(BUILDDIR)/$(LINUXPTP)
 LINUXPTP_LICENSE	:= GPL-2.0-or-later
+LINUXPTP_LICENSE_FILES	:= \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://version.c;startline=6;endline=14;md5=89ff91d940b4bc09b6de0300b34a888f
 
 # ----------------------------------------------------------------------------
 # Prepare
