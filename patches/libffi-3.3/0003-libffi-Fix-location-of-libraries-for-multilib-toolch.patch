@@ -1,0 +1,24 @@
+From: Christian Melki <christian.melki@t2data.com>
+Date: Thu, 8 Jul 2021 15:41:52 +0200
+Subject: [PATCH] libffi: Fix location of libraries for multilib toolchains.
+
+Buildroot came to the same solution.
+
+Signed-off-by: Christian Melki <christian.melki@t2data.com>
+---
+ Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 4fd6193d9b21..e392009e1354 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -34,7 +34,7 @@ MAKEOVERRIDES=
+ pkgconfigdir = $(libdir)/pkgconfig
+ pkgconfig_DATA = libffi.pc
+ 
+-toolexeclib_LTLIBRARIES = libffi.la
++lib_LTLIBRARIES = libffi.la
+ noinst_LTLIBRARIES = libffi_convenience.la
+ 
+ libffi_la_SOURCES = src/prep_cif.c src/types.c \
