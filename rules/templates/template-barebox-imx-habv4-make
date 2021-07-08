@@ -74,7 +74,7 @@ $(STATEDIR)/barebox-@package@.compile:
 	@$(call targetinfo)
 
 	@$(call world/env, BAREBOX_@PACKAGE@) \
-		ptxd_make_imx_habv4_gen_table "imx-habv4-srk%d" 4
+		ptxd_make_imx_habv4_gen_table imx-habv4-srk
 
 	@$(call world/compile, BAREBOX_@PACKAGE@)
 
