@@ -31,7 +31,7 @@ menuconfig SAMBA
 	  Windows operating systems. Samba is freely available under the
 	  GNU General Public License
 
-	  See http://www.samba.org for details.
+	  See https://www.samba.org for details.
 
 	  Note: on a read-only root filesystem this package still requires a
 	  writable '/var/lib' and '/var/cache'.
