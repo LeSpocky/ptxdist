@@ -16,7 +16,7 @@ menuconfig DBENCH
 	  Note that this benchmark is *not* a realistic
 	  reflection of normal server load.
 
-	  http://samba.org/ftp/tridge/dbench/
+	  https://www.samba.org/ftp/tridge/dbench/
 
 if DBENCH
 
