@@ -24,9 +24,15 @@ KERNEL_@PACKAGE@_SOURCE		:= $(SRCDIR)/$(KERNEL_@PACKAGE@_PATCHES).$(KERNEL_@PACK
 KERNEL_@PACKAGE@_DIR		:= $(BUILDDIR)/$(KERNEL_@PACKAGE@)
 KERNEL_@PACKAGE@_BUILD_DIR	:= $(KERNEL_@PACKAGE@_DIR)-build
 KERNEL_@PACKAGE@_CONFIG		:= $(call ptx/in-platformconfigdir, kernelconfig-@package@)
+KERNEL_@PACKAGE@_DTS_PATH	:= ${PTXDIST_PLATFORMCONFIG_SUBDIR}/dts:${KERNEL_@PACKAGE@_DIR}/arch/${GENERIC_KERNEL_ARCH}/boot/dts
+KERNEL_@PACKAGE@_DTS		:= @dts@
+KERNEL_@PACKAGE@_DTB_FILES	:= $(addsuffix .dtb,$(basename $(KERNEL_@PACKAGE@_DTS)))
 KERNEL_@PACKAGE@_LICENSE	:= GPL-2.0-only
 KERNEL_@PACKAGE@_LICENSE_FILES	:=
 KERNEL_@PACKAGE@_BUILD_OOT	:= KEEP
+
+# track changes to devices-trees in the BSP
+$(call world/dts-cfghash-file, KERNEL_@PACKAGE@)
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -89,6 +95,12 @@ KERNEL_@PACKAGE@_INSTALL_OPT	:= \
 	$(call kernel-opts, KERNEL_@PACKAGE@) \
 	modules_install
 
+$(STATEDIR)/kernel-@package@.install:
+	@$(call targetinfo)
+	@$(call world/install, KERNEL_@PACKAGE@)
+	@$(call world/dtb, KERNEL_@PACKAGE@)
+	@$(call touch)
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
@@ -100,6 +112,11 @@ $(STATEDIR)/kernel-@package@.targetinstall:
 		install -v -m 644 $(image) \
 			$(IMAGEDIR)/$(notdir $(image))-@package@$(ptx/nl))
 
+	@$(foreach dtb ,$(KERNEL_@PACKAGE@_DTB_FILES), \
+		echo -e "Installing $(dtb) ...\n"$(ptx/nl) \
+		install -D -m0644 $(KERNEL_@PACKAGE@_PKGDIR)/boot/$(dtb) \
+			$(IMAGEDIR)/$(dtb)$(ptx/nl))
+
 	@$(call install_init,  kernel-@package@)
 	@$(call install_fixup, kernel-@package@, PRIORITY,optional)
 	@$(call install_fixup, kernel-@package@, SECTION,base)
@@ -109,12 +126,26 @@ $(STATEDIR)/kernel-@package@.targetinstall:
 	@$(call install_copy, kernel-@package@, 0, 0, 0644, \
 		$(IMAGEDIR)/@image@-@package@, /boot/@image@-@package@, n)
 
+	@$(foreach dtb, $(KERNEL_@PACKAGE@_DTB_FILES), \
+		$(call install_copy, kernel-@package@, 0, 0, 0644, -, \
+			/boot/$(dtb), n)$(ptx/nl))
+
 	@$(call install_glob, kernel-@package@, 0, 0, -, /lib/modules, *.ko,, n)
 	@$(call install_glob, kernel-@package@, 0, 0, -, /lib/modules,, *.ko */build */source, n)
 
 	@$(call install_finish, kernel-@package@)
 
 	@$(call touch)
+
+# ----------------------------------------------------------------------------
+# Clean
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/kernel-@package@.clean:
+	@$(call targetinfo)
+	@$(call clean_pkg, KERNEL_@PACKAGE@)
+	@$(foreach dtb,$(KERNEL_@PACKAGE@_DTB_FILES), \
+		rm -vf $(IMAGEDIR)/$(dtb)$(ptx/nl))
 
 # ----------------------------------------------------------------------------
 # oldconfig / menuconfig

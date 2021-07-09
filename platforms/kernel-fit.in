@@ -5,7 +5,6 @@ menuconfig KERNEL_FIT
 	select KERNEL
 	select HOST_DTC
 	select HOST_U_BOOT_TOOLS
-	select DTC
 	select CODE_SIGNING	if KERNEL_FIT_SIGNED
 	select IMAGE_ROOT_CPIO	if KERNEL_FIT_INITRAMFS
 	prompt "Generate images/linuximage.fit"

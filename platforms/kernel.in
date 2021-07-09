@@ -158,6 +158,30 @@ config KERNEL_IMAGE
 	default "Image"		if KERNEL_IMAGE_RAW
 	default "simpleImage.${PTXCONF_KERNEL_IMAGE_SIMPLE_TARGET}.elf" if KERNEL_IMAGE_SIMPLE
 
+menuconfig KERNEL_DTB
+	bool
+	prompt "Build device trees            "
+
+if KERNEL_DTB
+
+config KERNEL_DTS_PATH
+	string "path to source dts file"
+	default "${PTXDIST_PLATFORMCONFIG_SUBDIR}/dts:${KERNEL_DIR}/arch/${GENERIC_KERNEL_ARCH}/boot/dts"
+	help
+	  Define path to the dts source file. Multiple directories can be
+	  specified separated by ':'.
+
+config KERNEL_DTS
+	string "source dts file"
+	default "<yourboard>.dts"
+	help
+	  Select the dts file to use for the device tree binary
+	  blob generation. For relative file names DTC_OFTREE_DTS_PATH
+	  is used as a search path for the device tree files specified
+	  here. Multiple dts files can be specified, separated by spaces.
+
+endif
+
 config KERNEL_ZSTD
 	prompt "build zstd hosttool"
 	bool

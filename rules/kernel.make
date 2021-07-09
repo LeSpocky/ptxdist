@@ -27,10 +27,23 @@ endif
 KERNEL_DIR		:= $(BUILDDIR)/$(KERNEL)
 KERNEL_BUILD_DIR	:= $(KERNEL_DIR)-build
 KERNEL_CONFIG		:= $(call ptx/in-platformconfigdir, $(call remove_quotes, $(PTXCONF_KERNEL_CONFIG)))
+KERNEL_DTS_PATH		:= $(call remove_quotes,$(PTXCONF_KERNEL_DTS_PATH))
+KERNEL_DTS		:= $(call remove_quotes,$(PTXCONF_KERNEL_DTS))
+KERNEL_DTB_FILES	:= $(addsuffix .dtb,$(basename $(KERNEL_DTS)))
 KERNEL_LICENSE		:= GPL-2.0-only
 KERNEL_SOURCE		:= $(SRCDIR)/$(KERNEL).$(KERNEL_SUFFIX)
 KERNEL_DEVPKG		:= NO
 KERNEL_BUILD_OOT	:= KEEP
+
+# track changes to devices-trees in the BSP
+$(call world/dts-cfghash-file, KERNEL)
+
+# in case we migrate some old syntax
+ifneq ($(KERNEL_DTS),$(notdir $(KERNEL_DTS)))
+$(call ptx/error, the device trees in PTXCONF_KERNEL_DTS must be specified without)
+$(call ptx/error, directory. Use PTXCONF_KERNEL_DTS_PATH to provide a list of direcories)
+$(call ptx/error, that will be searched.)
+endif
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -240,6 +253,7 @@ $(STATEDIR)/kernel.install:
 ifdef PTXCONF_KERNEL_MODULES_INSTALL
 	@$(call world/install, KERNEL)
 endif
+	@$(call world/dtb, KERNEL)
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
@@ -248,6 +262,11 @@ endif
 
 $(STATEDIR)/kernel.targetinstall:
 	@$(call targetinfo)
+
+	@$(foreach dtb, $(KERNEL_DTB_FILES), \
+		echo -e "Installing $(dtb) ...\n"$(ptx/nl) \
+		install -D -m0644 $(KERNEL_PKGDIR)/boot/$(dtb) \
+			$(IMAGEDIR)/$(dtb)$(ptx/nl))
 
 ifdef PTXCONF_KERNEL_XPKG
 	@$(call install_init,  kernel)
@@ -260,6 +279,10 @@ ifdef PTXCONF_KERNEL_XPKG
 
 ifdef PTXCONF_KERNEL_INSTALL
 	@$(call install_copy, kernel, 0, 0, 0644, $(KERNEL_IMAGE_PATH_y), /boot/$(KERNEL_IMAGE), n)
+
+	@$(foreach dtb, $(KERNEL_DTB_FILES), \
+		$(call install_copy, kernel, 0, 0, 0644, -, \
+			/boot/$(dtb), n)$(ptx/nl))
 endif
 
 # install the ELF kernel image for debugging purpose
@@ -315,6 +338,16 @@ ifdef PTXCONF_KERNEL_MODULES_INSTALL
 endif
 
 	@$(call touch)
+
+# ----------------------------------------------------------------------------
+# Clean
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/kernel.clean:
+	@$(call targetinfo)
+	@$(call clean_pkg, KERNEL)
+	@$(foreach dtb,$(KERNEL_DTB_FILES), \
+		rm -vf $(IMAGEDIR)/$(dtb)$(ptx/nl))
 
 # ----------------------------------------------------------------------------
 # oldconfig / menuconfig

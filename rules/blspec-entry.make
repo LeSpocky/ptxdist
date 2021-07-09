@@ -19,7 +19,7 @@ BLSPEC_ENTRY_VERSION	:= $(KERNEL_VERSION)
 
 BLSPEC_ENTRY_TITLE	:= PTXdist - $(call remove_quotes,$(PTXCONF_PROJECT_VENDOR)-$(PTXCONF_PROJECT))
 ifdef PTXCONF_BLSPEC_ENTRY_DEVICETREE
-BLSPEC_ENTRY_NAMES	= $(basename $(notdir $(DTC_DTB)))
+BLSPEC_ENTRY_NAMES	= $(basename $(notdir $(KERNEL_DTB)))
 blspec/title		= $(BLSPEC_ENTRY_TITLE) $(strip $(1))
 blspec/devicetree	= devicetree\t/boot/$(strip $(1)).dtb
 else

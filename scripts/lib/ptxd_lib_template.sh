@@ -512,6 +512,7 @@ ptxd_template_new_kernel() {
     export class="kernel-"
     ptxd_template_read_basic &&
     ptxd_template_read "enter kernel image" image "zImage"
+    ptxd_template_read "enter device-tree files" dts "yourboard.dts"
     ptxd_template_read_author &&
     ptxd_template_write_platform_rules
 }
