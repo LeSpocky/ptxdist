@@ -2013,9 +2013,14 @@ EOF
 #
 # bash implementation of realpath / readlink -f
 #   arg1 - filename
-realpath()
+_realpath()
 {
 	local fname oldfname
+
+	if type -p realpath > /dev/null; then
+		realpath "${@}"
+		return
+	fi
 
 	fname="${1%/}" # strips trailing '/'
 	while [ -L "${fname}" ]; do
@@ -2046,7 +2051,7 @@ realpath()
 setup_topdir() {
 	local ptxdist topdir
 
-	ptxdist="$(realpath "${0}")" &&
+	ptxdist="$(_realpath "${0}")" &&
 	topdir="$(cd "$(dirname "${ptxdist}")"/.. && pwd)" || return
 
 	#
@@ -2067,6 +2072,9 @@ setup_topdir() {
 	eval PTXDIST_PLATFORMCONFIG_DEFAULT="${PTXDIST_PLATFORMCONFIG_DEFAULT}"
 	eval PTXDIST_COLLECTIONCONFIG_DEFAULT="${PTXDIST_COLLECTIONCONFIG_DEFAULT}"
 	eval PTXDIST_TOOLCHAIN_DEFAULT="${PTXDIST_TOOLCHAIN_DEFAULT}"
+
+	# ${PTXDIST_TOPDIR}/bin contains links to sane tools found by configure
+	export PATH="${PTXDIST_TOPDIR}/bin:${PATH}"
 }
 
 
@@ -2158,9 +2166,6 @@ setup_env() {
 
 	export LANG=C
 	export LC_ALL=POSIX
-
-	# ${PTXDIST_TOPDIR}/bin contains links to sane tools found by configure
-	export PATH="${PTXDIST_TOPDIR}/bin:${PATH}"
 }
 
 

@@ -44,6 +44,7 @@ environment:
 	@ln -sf @GNU_cat@ "$(abs_srcdir)/bin/cat"
 	@ln -sf @GNU_dirname@ "$(abs_srcdir)/bin/dirname"
 	@ln -sf @GNU_readlink@ "$(abs_srcdir)/bin/readlink"
+	@ln -sf @GNU_realpath@ "$(abs_srcdir)/bin/realpath"
 	@ln -sf @GNU_sort@ "$(abs_srcdir)/bin/sort"
 	@ln -sf @SED@ "$(abs_srcdir)/bin/sed"
 	@ln -sf @GNU_xargs@ "$(abs_srcdir)/bin/xargs"
