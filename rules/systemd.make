@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 248
+SYSTEMD_VERSION		:= 249
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_MD5		:= 00131adf0e98c1fd8a7fde4eb47f10c8
+SYSTEMD_MD5		:= 8e8adf909c255914dfc10709bd372e69
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -58,6 +58,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dbacklight=false \
 	-Dbinfmt=false \
 	-Dblkid=true \
+	-Dbpf-framework=false \
 	-Dbump-proc-sys-fs-file-max=true \
 	-Dbump-proc-sys-fs-nr-open=true \
 	-Dbzip2=false \
@@ -190,6 +191,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dtmpfiles=true \
 	-Dtpm=false \
 	-Dtpm2=false \
+	-Dtranslations=false \
 	-Dtty-gid=112 \
 	-Dumount-path=/usr/bin/umount \
 	-Duserdb=false \

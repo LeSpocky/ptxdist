@@ -4,6 +4,7 @@ menuconfig SYSTEMD
 	tristate
 	depends on INITMETHOD_SYSTEMD
 	select HOST_SYSTEM_PYTHON3
+	select HOST_SYSTEM_PYTHON3_JINJA2
 	select HOST_MESON
 	select HOST_GPERF
 	select ROOTFS_RUN

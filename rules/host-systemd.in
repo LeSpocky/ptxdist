@@ -3,6 +3,8 @@
 config HOST_SYSTEMD
 	bool
 	default y if ALLYES
+	select HOST_SYSTEM_PYTHON3
+	select HOST_SYSTEM_PYTHON3_JINJA2
 	select HOST_MESON
 	select HOST_GPERF
 	select HOST_UTIL_LINUX_NG
