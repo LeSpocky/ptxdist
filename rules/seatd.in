@@ -1,0 +1,35 @@
+## SECTION=system_libraries
+
+menuconfig SEATD
+	tristate
+	select HOST_MESON
+	select SYSTEMD			if SEATD_SYSTEMD_LOGIND
+	select SYSTEMD_LOGIND		if SEATD_SYSTEMD_LOGIND
+	prompt "libseat"
+	help
+	  A minimal seat management daemon, and a universal seat management library.
+
+if SEATD
+
+config SEATD_SYSTEMD_LOGIND
+	bool
+	default INITMETHOD_SYSTEMD
+	prompt "logind support"
+
+config SEATD_SEATD
+	bool
+	default y
+	prompt "seatd server"
+	help
+	  The seatd server is an alternative to systemd-logind to provide the
+	  seat. If you are using systemd-logind, you don't need the seatd
+	  server. If both are installed and running, libseat will prefer the
+	  seatd server.
+
+config SEATD_SEATD_SYSTEMD_UNIT
+	bool
+	default y
+	depends on SEATD_SEATD && INITMETHOD_SYSTEMD
+	prompt "install seatd service file"
+
+endif

@@ -1,0 +1,8 @@
+[Unit]
+Description=Seat management daemon
+
+[Service]
+Restart=always
+# Do not require a VT
+Environment=SEATD_VTBOUND=0
+ExecStart=/usr/bin/seatd
