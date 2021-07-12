@@ -3,6 +3,7 @@
 config ATK
 	tristate
 	prompt "atk"
+	select HOST_MESON
 	select GLIB
 	select GOBJECT_INTROSPECTION	if ATK_INTROSPECTION
 	help

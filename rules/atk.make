@@ -16,33 +16,30 @@ PACKAGES-$(PTXCONF_ATK) += atk
 #
 # Paths and names
 #
-ATK_VERSION	:= 2.28.1
-ATK_MD5		:= dfb5e7474220afa3f4ca7e45af9f3a11
+ATK_VERSION	:= 2.36.0
+ATK_MD5		:= 01aa5ec5138f5f8c9b3a4e3196ed2900
 ATK		:= atk-$(ATK_VERSION)
 ATK_SUFFIX	:= tar.xz
 ATK_URL		:= $(call ptx/mirror, GNOME, atk/$(basename $(ATK_VERSION))/$(ATK).$(ATK_SUFFIX))
 ATK_SOURCE	:= $(SRCDIR)/$(ATK).$(ATK_SUFFIX)
 ATK_DIR		:= $(BUILDDIR)/$(ATK)
-ATK_LICENSE	:= LGPL-2.0-only
+ATK_LICENSE	:= LGPL-2.0-or-later
+ATK_LICENSE_FILES := \
+	file://atk/atkaction.c;startline=1;endline=18;md5=6fd31cd2fdc9b30f619ca8d819bc12d3 \
+	file://COPYING;md5=3bf50002aefd002f49e7bb854063f7e7
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-ATK_CONF_TOOL	:= autoconf
+ATK_CONF_TOOL	:= meson
 ATK_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--enable-static \
-	--disable-rebuilds \
-	--disable-nls \
-	--disable-rpath \
-	--$(call ptx/endis, PTXCONF_ATK_INTROSPECTION)-introspection \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf
+	$(CROSS_MESON_USR) \
+	-Ddocs=false \
+	-Dintrospection=$(call ptx/truefalse, PTXCONF_ATK_INTROSPECTION)
 
 # ----------------------------------------------------------------------------
 # Target-Install
