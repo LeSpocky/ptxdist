@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_CIFS_UTILS) += cifs-utils
 #
 # Paths and names
 #
-CIFS_UTILS_VERSION	:= 6.12
-CIFS_UTILS_MD5		:= b49b10692bcae7f28669173a472077dd
+CIFS_UTILS_VERSION	:= 6.13
+CIFS_UTILS_MD5		:= 4348921483c530826950e9503b08b033
 CIFS_UTILS		:= cifs-utils-$(CIFS_UTILS_VERSION)
 CIFS_UTILS_SUFFIX	:= tar.bz2
 CIFS_UTILS_URL		:= https://ftp.samba.org/pub/linux-cifs/cifs-utils/$(CIFS_UTILS).$(CIFS_UTILS_SUFFIX)
@@ -41,6 +41,7 @@ CIFS_UTILS_CONF_OPT	:= \
 	--disable-cifsidmap \
 	--disable-cifsacl \
 	--disable-smbinfo \
+	--disable-pythontools \
 	--disable-pam \
 	--disable-systemd \
 	--disable-man \
