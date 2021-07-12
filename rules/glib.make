@@ -15,14 +15,17 @@ PACKAGES-$(PTXCONF_GLIB) += glib
 #
 # Paths and names
 #
-GLIB_VERSION	:= 2.68.1
-GLIB_MD5	:= bc9f2250be1f773bb17747d3b2e6a3ae
+GLIB_VERSION	:= 2.68.3
+GLIB_MD5	:= a3968c7510447f055fd2204ba947f80f
 GLIB		:= glib-$(GLIB_VERSION)
 GLIB_SUFFIX	:= tar.xz
 GLIB_URL	:= $(call ptx/mirror, GNOME, glib/$(basename $(GLIB_VERSION))/$(GLIB).$(GLIB_SUFFIX))
 GLIB_SOURCE	:= $(SRCDIR)/$(GLIB).$(GLIB_SUFFIX)
 GLIB_DIR	:= $(BUILDDIR)/$(GLIB)
 GLIB_LICENSE	:= LGPL-2.0-or-later
+GLIB_LICENSE_FILES := \
+	file://glib/glib.h;startline=1;endline=16;md5=48a2e189b0f5db4b3c3fd8f53bdb55a0 \
+	file://COPYING;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
 # Prepare

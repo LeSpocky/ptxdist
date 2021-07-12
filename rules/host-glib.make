@@ -30,15 +30,22 @@ HOST_GLIB_CONF_OPT	:= \
 	-Ddtrace=false \
 	-Dfam=false \
 	-Dforce_posix_threads=true \
+	-Dglib_assert=true \
+	-Dglib_checks=true \
+	-Dglib_debug=enabled \
 	-Dgtk_doc=false \
 	-Diconv=libc \
 	-Dinstalled_tests=false \
 	-Dinternal_pcre=false \
+	-Dlibelf=disabled \
 	-Dlibmount=disabled \
 	-Dman=false \
 	-Dnls=disabled \
+	-Doss_fuzz=disabled \
 	-Dselinux=disabled \
+	-Dsysprof=disabled \
 	-Dsystemtap=false \
+	-Dtests=false \
 	-Dxattr=false
 
 $(STATEDIR)/host-glib.install.post:
