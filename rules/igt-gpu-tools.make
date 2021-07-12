@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_IGT_GPU_TOOLS) += igt-gpu-tools
 #
 # Paths and names
 #
-IGT_GPU_TOOLS_VERSION	:= 1.25
-IGT_GPU_TOOLS_MD5	:= 4c148d3be97607859168ed70b15e8b2f
+IGT_GPU_TOOLS_VERSION	:= 1.26
+IGT_GPU_TOOLS_MD5	:= 6781293a2c312bb625aa5cbe5506a9bf
 IGT_GPU_TOOLS		:= igt-gpu-tools-$(IGT_GPU_TOOLS_VERSION)
 IGT_GPU_TOOLS_SUFFIX	:= tar.xz
 IGT_GPU_TOOLS_URL	:= $(call ptx/mirror, XORG, individual/app/$(IGT_GPU_TOOLS).$(IGT_GPU_TOOLS_SUFFIX))
 IGT_GPU_TOOLS_SOURCE	:= $(SRCDIR)/$(IGT_GPU_TOOLS).$(IGT_GPU_TOOLS_SUFFIX)
 IGT_GPU_TOOLS_DIR	:= $(BUILDDIR)/$(IGT_GPU_TOOLS)
 IGT_GPU_TOOLS_LICENSE	:= MIT AND ISC
+IGT_GPU_TOOLS_LICENSE_FILES := \
+	file://COPYING;md5=67bfee4df38fa6ecbe3a675c552d4c08
 
 # ----------------------------------------------------------------------------
 # Prepare
