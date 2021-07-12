@@ -8,7 +8,7 @@ Signed-off-by: Lucas Stach <l.stach@pengutronix.de>
  1 file changed, 5 insertions(+)
 
 diff --git a/configure.ac b/configure.ac
-index 119ef6005103..e9b4ebe32c03 100644
+index 1089a9766593..0858563e9524 100644
 --- a/configure.ac
 +++ b/configure.ac
 @@ -38,6 +38,9 @@ AM_PROG_LIBTOOL
@@ -21,12 +21,12 @@ index 119ef6005103..e9b4ebe32c03 100644
  dnl Checks for header files.
  AC_HEADER_STDC
  AC_CONFIG_HEADERS(include/config.h)
-@@ -706,6 +709,8 @@ if test ! -L "$srcdir"/include/alsa ; then
+@@ -731,6 +734,8 @@ if test ! -L "$srcdir"/include/alsa ; then
    ln -sf . "$srcdir"/include/alsa
  fi
  
 +CPPFLAGS='-include $(CONFIG_HEADER)'
 +
  AC_OUTPUT(Makefile doc/Makefile doc/pictures/Makefile doc/doxygen.cfg \
- 	  include/Makefile include/sound/Makefile src/Versions src/Makefile \
-           src/control/Makefile src/mixer/Makefile \
+ 	  include/Makefile include/sound/Makefile include/sound/uapi/Makefile \
+ 	  src/Versions src/Makefile \
