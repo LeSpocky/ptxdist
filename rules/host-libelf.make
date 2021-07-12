@@ -29,15 +29,18 @@ HOST_LIBELF_CONF_OPT	:= \
 	--disable-sanitize-undefined \
 	--disable-valgrind \
 	--disable-valgrind-annotations \
+	--disable-install-elfh \
 	--disable-tests-rpath \
 	--enable-textrelcheck \
 	--enable-symbol-versioning \
 	--disable-nls \
+	--disable-rpath \
+	--disable-libdebuginfod \
 	--disable-debuginfod \
-	--without-valgrind \
 	--with-zlib \
 	--without-bzlib \
 	--without-lzma \
+	--without-zstd \
 	--without-biarch
 
 # vim: syntax=make
