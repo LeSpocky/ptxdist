@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_PYASN1
+	bool
+	prompt "pyasn1"
+	select PYTHON3
+	select HOST_PYTHON3_SETUPTOOLS
+	help
+	  Pure-Python implementation of ASN.1 types and DER/BER/CER codecs (X.208)
