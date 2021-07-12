@@ -14,14 +14,18 @@ PACKAGES-$(PTXCONF_GTK) += gtk
 #
 # Paths and names
 #
-GTK_VERSION	:= 3.24.21
-GTK_MD5		:= 95afed6c860d27de827db66434d681da
+GTK_VERSION	:= 3.24.30
+GTK_MD5		:= 1cfb66b3460ae5a62f964a5cc14c66b6
 GTK		:= gtk+-$(GTK_VERSION)
 GTK_SUFFIX	:= tar.xz
 GTK_URL		:= $(call ptx/mirror, GNOME, gtk+/$(basename $(GTK_VERSION))/$(GTK).$(GTK_SUFFIX))
 GTK_SOURCE	:= $(SRCDIR)/$(GTK).$(GTK_SUFFIX)
 GTK_DIR		:= $(BUILDDIR)/$(GTK)
 GTK_LICENSE	:= LGPL-2.0-or-later
+GTK_LICENSE_FILES := \
+	file://gtk/gtk.h;startline=1;endline=16;md5=afc4cab684b2381c66b31615c9c5b99c \
+	file://COPYING;md5=5f30f0716dfdd0d91eb439ebec522ec2
+
 
 # ----------------------------------------------------------------------------
 # Prepare

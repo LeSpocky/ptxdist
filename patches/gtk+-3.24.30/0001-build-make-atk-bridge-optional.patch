@@ -46,19 +46,19 @@ index 7f0e5207d915..81b2ed0d55b3 100644
  #endif
  
 diff --git a/meson.build b/meson.build
-index 945c5de87ba8..cb421f0b516f 100644
+index a8860810c763..88e8d430f071 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -572,7 +572,7 @@ if x11_enabled
+@@ -577,7 +577,7 @@ if x11_enabled
    xfixes_dep     = dependency('xfixes', required: false)
    xcomposite_dep = dependency('xcomposite', required: false)
    fontconfig_dep = dependency('fontconfig', fallback: ['fontconfig', 'fontconfig_dep'])
--  atkbridge_dep  = dependency('atk-bridge-2.0', version: atk_req)
-+  atkbridge_dep  = dependency('atk-bridge-2.0', version: atk_req, required: false)
+-  atkbridge_dep  = dependency('atk-bridge-2.0', version: at_spi2_atk_req)
++  atkbridge_dep  = dependency('atk-bridge-2.0', version: at_spi2_atk_req, required: false)
  
    x11_pkgs = ['fontconfig', 'x11', 'xext', 'xi', 'xrandr']
  
-@@ -588,8 +588,9 @@ if x11_enabled
+@@ -593,8 +593,9 @@ if x11_enabled
    if xdamage_dep.found()
      x11_pkgs += ['xdamage']
    endif
