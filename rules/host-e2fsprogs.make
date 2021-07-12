@@ -34,8 +34,10 @@ HOST_E2FSPROGS_CONF_OPT		:= \
 	--disable-jbd-debug \
 	--disable-blkid-debug \
 	--disable-testio-debug \
+	--disable-developer-features \
 	--disable-libuuid \
 	--disable-libblkid \
+	--disable-subset \
 	--disable-backtrace \
 	--disable-debugfs \
 	--disable-imager \
@@ -50,10 +52,12 @@ HOST_E2FSPROGS_CONF_OPT		:= \
 	--disable-bmap-stats \
 	--disable-bmap-stats-ops \
 	--disable-nls \
-	--enable-threads=posix \
 	--disable-rpath \
 	--disable-fuse2fs \
-	--without-included-gettext
+	--disable-ubsan \
+	--disable-addrsan \
+	--disable-threadsan \
+	--with-pthread
 
 # ----------------------------------------------------------------------------
 # Install
