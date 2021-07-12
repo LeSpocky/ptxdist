@@ -14,21 +14,21 @@ PACKAGES-$(PTXCONF_AVAHI) += avahi
 #
 # Paths and names
 #
-AVAHI_VERSION	:= 0.7
-AVAHI_MD5	:= d76c59d0882ac6c256d70a2a585362a6
+AVAHI_VERSION	:= 0.8
+AVAHI_MD5	:= 229c6aa30674fc43c202b22c5f8c2be7
 AVAHI		:= avahi-$(AVAHI_VERSION)
 AVAHI_SUFFIX	:= tar.gz
 AVAHI_URL	:= http://avahi.org/download/$(AVAHI).$(AVAHI_SUFFIX)
 AVAHI_SOURCE	:= $(SRCDIR)/$(AVAHI).$(AVAHI_SUFFIX)
 AVAHI_DIR	:= $(BUILDDIR)/$(AVAHI)
 AVAHI_LICENSE	:= LGPL-2.1-or-later
+AVAHI_LICENSE_FILES := \
+	file://avahi-core/announce.c;startline=1;endline=18;md5=1f85ea0f4d74ffb2d21a12c931196ced \
+	file://LICENSE;md5=2d5025d4aa3495befef8f17206a5b0a1
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
-
-AVAHI_PATH	:= PATH=$(CROSS_PATH)
-AVAHI_ENV 	:= $(CROSS_ENV)
 
 #
 # autoconf
@@ -38,11 +38,14 @@ AVAHI_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-stack-protector \
 	--disable-nls \
+	--disable-rpath \
 	--$(call ptx/endis, PTXCONF_AVAHI_GLIB)-glib \
 	--$(call ptx/endis, PTXCONF_AVAHI_GOBJECT)-gobject \
 	--disable-introspection \
+	--disable-libevent \
 	--disable-qt3 \
 	--$(call ptx/endis, PTXCONF_AVAHI_QT4)-qt4 \
+	--$(call ptx/endis, PTXCONF_AVAHI_QT5)-qt5 \
 	--disable-gtk \
 	--$(call ptx/endis, PTXCONF_AVAHI_GTK)-gtk3 \
 	--$(call ptx/endis, PTXCONF_AVAHI_DBUS)-dbus \
@@ -114,6 +117,10 @@ endif
 
 ifdef PTXCONF_AVAHI_QT4
 	@$(call install_lib, avahi, 0, 0, 0644, libavahi-qt4)
+endif
+
+ifdef PTXCONF_AVAHI_QT5
+	@$(call install_lib, avahi, 0, 0, 0644, libavahi-qt5)
 endif
 
 ifdef PTXCONF_AVAHI_LIBAVAHI_CLIENT
