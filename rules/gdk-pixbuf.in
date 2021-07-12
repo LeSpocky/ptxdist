@@ -6,17 +6,12 @@ menuconfig GDK_PIXBUF
 	select HOST_GLIB
 	select HOST_MESON
 	select GLIB
-	select XORG_LIB_X11	if GDK_PIXBUF_X11
 	select LIBPNG		if GDK_PIXBUF_LOADER_PNG
 	select LIBJPEG		if GDK_PIXBUF_LOADER_JPEG
 	help
 	  GTK helper library for pixel handling.
 
 if GDK_PIXBUF
-
-config GDK_PIXBUF_X11
-	bool
-	prompt "X11 support"
 
 config GDK_PIXBUF_LOADER_PNG
 	bool

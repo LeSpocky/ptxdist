@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GDK_PIXBUF) += gdk-pixbuf
 #
 # Paths and names
 #
-GDK_PIXBUF_VERSION	:= 2.40.0
-GDK_PIXBUF_MD5		:= 05eb1ebc258ba905f1c8644ef49de064
+GDK_PIXBUF_VERSION	:= 2.42.6
+GDK_PIXBUF_MD5		:= 7cd2fdaa3c55e2302316fe36968f7425
 GDK_PIXBUF		:= gdk-pixbuf-$(GDK_PIXBUF_VERSION)
 GDK_PIXBUF_SUFFIX	:= tar.xz
 GDK_PIXBUF_URL		:= $(call ptx/mirror, GNOME, gdk-pixbuf/$(basename $(GDK_PIXBUF_VERSION))/$(GDK_PIXBUF).$(GDK_PIXBUF_SUFFIX))
@@ -43,16 +43,15 @@ GDK_PIXBUF_CONF_OPT	:= \
 	-Dbuiltin_loaders=$(subst $(space),$(comma),$(GDK_PIXBUF_LOADER-y)) \
 	-Ddocs=false \
 	-Dgio_sniffing=false \
-	-Dgir=false \
+	-Dgtk_doc=false \
 	-Dinstalled_tests=false \
-	-Djasper=false \
+	-Dintrospection=disabled \
 	-Djpeg=$(call ptx/truefalse, PTXCONF_GDK_PIXBUF_LOADER_JPEG) \
 	-Dman=false \
 	-Dnative_windows_loaders=false \
 	-Dpng=$(call ptx/truefalse, PTXCONF_GDK_PIXBUF_LOADER_PNG) \
 	-Drelocatable=false \
-	-Dtiff=false \
-	-Dx11=$(call ptx/truefalse, PTXCONF_GDK_PIXBUF_X11)
+	-Dtiff=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -67,9 +66,6 @@ $(STATEDIR)/gdk-pixbuf.targetinstall:
 	@$(call install_fixup, gdk-pixbuf,AUTHOR,"Robert Schwebel <r.schwebel@pengutronix.de>")
 	@$(call install_fixup, gdk-pixbuf,DESCRIPTION,missing)
 
-ifdef PTXCONF_GDK_PIXBUF_X11
-	@$(call install_lib, gdk-pixbuf, 0, 0, 0644, libgdk_pixbuf_xlib-2.0)
-endif
 	@$(call install_lib, gdk-pixbuf, 0, 0, 0644, libgdk_pixbuf-2.0)
 
 	@$(call install_finish, gdk-pixbuf)
