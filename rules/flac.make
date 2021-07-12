@@ -14,14 +14,20 @@ PACKAGES-$(PTXCONF_FLAC) += flac
 #
 # Paths and names
 #
-FLAC_VERSION	:= 1.3.2
-FLAC_MD5	:= 454f1bfa3f93cc708098d7890d0499bd
+FLAC_VERSION	:= 1.3.3
+FLAC_MD5	:= 26703ed2858c1fc9ffc05136d13daa69
 FLAC		:= flac-$(FLAC_VERSION)
 FLAC_SUFFIX	:= tar.xz
 FLAC_URL	:= http://downloads.xiph.org/releases/flac/$(FLAC).$(FLAC_SUFFIX)
 FLAC_SOURCE	:= $(SRCDIR)/$(FLAC).$(FLAC_SUFFIX)
 FLAC_DIR	:= $(BUILDDIR)/$(FLAC)
 FLAC_LICENSE	:= BSD-3-Clause AND GPL-2.0-or-later AND LGPL-2.0-or-later
+FLAC_LICENSE_FILES := \
+	file://COPYING.Xiph;md5=b59c1b6d7fc0fb7965f821a3d36505e3 \
+	file://src/flac/analyze.c;startline=1;endline=18;md5=09777e2934947a36f13568d0beb81199 \
+	file://COPYING.GPL;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://src/share/grabbag/file.c;startline=1;endline=18;md5=d7caed91c0cec733420f04cf36386d01 \
+	file://COPYING.LGPL;md5=fbc093901857fcd118f065f900982c24
 
 # ----------------------------------------------------------------------------
 # Prepare
