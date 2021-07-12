@@ -19,6 +19,8 @@ HOST_DOSFSTOOLS_CONF_TOOL	:= autoconf
 HOST_DOSFSTOOLS_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--enable-compat-symlinks \
-	--without-udev
+	--disable-atari-check \
+	--disable-rpath \
+	--without-iconv
 
 # vim: syntax=make

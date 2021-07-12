@@ -15,10 +15,10 @@ PACKAGES-$(PTXCONF_DOSFSTOOLS) += dosfstools
 #
 # Paths and names
 #
-DOSFSTOOLS_VERSION	:= 4.1
-DOSFSTOOLS_MD5		:= 07a1050db1a898e9a2e03b0c4569c4bd
+DOSFSTOOLS_VERSION	:= 4.2
+DOSFSTOOLS_MD5		:= 49c8e457327dc61efab5b115a27b087a
 DOSFSTOOLS		:= dosfstools-$(DOSFSTOOLS_VERSION)
-DOSFSTOOLS_SUFFIX	:= tar.xz
+DOSFSTOOLS_SUFFIX	:= tar.gz
 DOSFSTOOLS_SRC		:= $(DOSFSTOOLS).$(DOSFSTOOLS_SUFFIX)
 DOSFSTOOLS_URL		:= https://github.com/dosfstools/dosfstools/releases/download/v$(DOSFSTOOLS_VERSION)/$(DOSFSTOOLS_SRC)
 DOSFSTOOLS_SOURCE	:= $(SRCDIR)/$(DOSFSTOOLS_SRC)
@@ -26,7 +26,7 @@ DOSFSTOOLS_DIR		:= $(BUILDDIR)/$(DOSFSTOOLS)
 DOSFSTOOLS_LICENSE	:= GPL-3.0-or-later
 DOSFSTOOLS_LICENSE_FILES	:= \
 	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
-	file://src/fsck.fat.c;startline=1;endline=22;md5=3f94b53f3d7556100055c58a48937788
+	file://src/fsck.fat.c;startline=1;endline=23;md5=29df02b73d125363cfcbacaa45707eed
 
 # ----------------------------------------------------------------------------
 # Prepare (nothing to be done here)
@@ -36,8 +36,10 @@ DOSFSTOOLS_CONF_TOOL	:= autoconf
 DOSFSTOOLS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-compat-symlinks \
-	--$(call ptx/wwo, PTXCONF_DOSFSTOOLS_UDEV)-udev \
-	$(GLOBAL_LARGE_FILE_OPTION)
+	--disable-atari-check \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-rpath \
+	--without-iconv
 
 # ----------------------------------------------------------------------------
 # Target-Install
