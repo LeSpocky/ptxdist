@@ -1,0 +1,191 @@
+From: winlin <winlin@vip.126.com>
+Date: Sun, 20 Jun 2021 10:33:40 +0800
+Subject: [PATCH] Revert "Detect and handle broken "OPENSSL_cleanse"."
+
+This reverts commit ec465b8fa362c94bda19c6dea89416858a1c6379.
+
+For https://github.com/cisco/libsrtp/issues/479
+---
+ config_in.h                    |  3 ---
+ configure                      | 54 ------------------------------------------
+ configure.ac                   | 25 -------------------
+ crypto/math/datatypes.c        |  2 +-
+ crypto/test/datatypes_driver.c | 26 --------------------
+ 5 files changed, 1 insertion(+), 109 deletions(-)
+
+diff --git a/config_in.h b/config_in.h
+index 31e6ffe38553..3ca64f1e439c 100644
+--- a/config_in.h
++++ b/config_in.h
+@@ -138,9 +138,6 @@
+ /* Define this to use OpenSSL crypto. */
+ #undef OPENSSL
+ 
+-/* Define this if OPENSSL_cleanse is broken. */
+-#undef OPENSSL_CLEANSE_BROKEN
+-
+ /* Define this to use OpenSSL KDF for SRTP. */
+ #undef OPENSSL_KDF
+ 
+diff --git a/configure b/configure
+index 93c9840e8d2a..7cb1398cc21c 100755
+--- a/configure
++++ b/configure
+@@ -5897,60 +5897,6 @@ $as_echo "#define OPENSSL 1" >>confdefs.h
+    USE_EXTERNAL_CRYPTO=1
+ 
+ 
+-   { $as_echo "$as_me:${as_lineno-$LINENO}: checking if OPENSSL_cleanse is broken" >&5
+-$as_echo_n "checking if OPENSSL_cleanse is broken... " >&6; }
+-   if test "$cross_compiling" = yes; then :
+-  { { $as_echo "$as_me:${as_lineno-$LINENO}: error: in \`$ac_pwd':" >&5
+-$as_echo "$as_me: error: in \`$ac_pwd':" >&2;}
+-as_fn_error $? "cannot run test program while cross compiling
+-See \`config.log' for more details" "$LINENO" 5; }
+-else
+-  cat confdefs.h - <<_ACEOF >conftest.$ac_ext
+-/* end confdefs.h.  */
+-
+-     #include <stdio.h>
+-     #include <openssl/crypto.h>
+-
+-int
+-main ()
+-{
+-
+-     #define BUFFER_SIZE (16)
+-     char buffer[BUFFER_SIZE];
+-     int i;
+-     for (i = 0; i < BUFFER_SIZE; i++) {
+-       buffer[i] = i & 0xff;
+-     }
+-     OPENSSL_cleanse(buffer, BUFFER_SIZE);
+-     for (i = 0; i < BUFFER_SIZE; i++) {
+-       if (buffer[i]) {
+-         printf("Buffer contents not zero at position %d (is %d)\n", i,
+-             buffer[i]);
+-         return 1;
+-       }
+-     }
+-
+-  ;
+-  return 0;
+-}
+-_ACEOF
+-if ac_fn_c_try_run "$LINENO"; then :
+-  openssl_cleanse_broken=no
+-else
+-
+-     openssl_cleanse_broken=yes
+-
+-$as_echo "#define OPENSSL_CLEANSE_BROKEN 1" >>confdefs.h
+-
+-
+-fi
+-rm -f core *.core core.conftest.* gmon.out bb.out conftest$ac_exeext \
+-  conftest.$ac_objext conftest.beam conftest.$ac_ext
+-fi
+-
+-   { $as_echo "$as_me:${as_lineno-$LINENO}: result: $openssl_cleanse_broken" >&5
+-$as_echo "$openssl_cleanse_broken" >&6; }
+-
+    { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether to leverage OpenSSL KDF algorithm" >&5
+ $as_echo_n "checking whether to leverage OpenSSL KDF algorithm... " >&6; }
+    # Check whether --enable-openssl-kdf was given.
+diff --git a/configure.ac b/configure.ac
+index fc312bbdc23b..2207a9c70873 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -263,31 +263,6 @@ if test "$enable_openssl" = "yes"; then
+    HMAC_OBJS=crypto/hash/hmac_ossl.o
+    AC_SUBST([USE_EXTERNAL_CRYPTO], [1])
+ 
+-   AC_MSG_CHECKING([if OPENSSL_cleanse is broken])
+-   AC_RUN_IFELSE([AC_LANG_PROGRAM([
+-     #include <stdio.h>
+-     #include <openssl/crypto.h>
+-   ], [
+-     #define BUFFER_SIZE (16)
+-     char buffer[[BUFFER_SIZE]];
+-     int i;
+-     for (i = 0; i < BUFFER_SIZE; i++) {
+-       buffer[[i]] = i & 0xff;
+-     }
+-     OPENSSL_cleanse(buffer, BUFFER_SIZE);
+-     for (i = 0; i < BUFFER_SIZE; i++) {
+-       if (buffer[[i]]) {
+-         printf("Buffer contents not zero at position %d (is %d)\n", i,
+-             buffer[[i]]);
+-         return 1;
+-       }
+-     }
+-   ])], [openssl_cleanse_broken=no], [
+-     openssl_cleanse_broken=yes
+-     AC_DEFINE([OPENSSL_CLEANSE_BROKEN], [1], [Define this if OPENSSL_cleanse is broken.])
+-   ])
+-   AC_MSG_RESULT([$openssl_cleanse_broken])
+-
+    AC_MSG_CHECKING([whether to leverage OpenSSL KDF algorithm])
+    AC_ARG_ENABLE([openssl-kdf],
+       [AS_HELP_STRING([--enable-openssl-kdf], [Use OpenSSL KDF algorithm])],
+diff --git a/crypto/math/datatypes.c b/crypto/math/datatypes.c
+index 001584c1bf03..8a342e2af2c3 100644
+--- a/crypto/math/datatypes.c
++++ b/crypto/math/datatypes.c
+@@ -436,7 +436,7 @@ void srtp_cleanse(void *s, size_t len)
+ 
+ void octet_string_set_to_zero(void *s, size_t len)
+ {
+-#if defined(OPENSSL) && !defined(OPENSSL_CLEANSE_BROKEN)
++#ifdef OPENSSL
+     OPENSSL_cleanse(s, len);
+ #else
+     srtp_cleanse(s, len);
+diff --git a/crypto/test/datatypes_driver.c b/crypto/test/datatypes_driver.c
+index 96379befe15d..2f78903eb8eb 100644
+--- a/crypto/test/datatypes_driver.c
++++ b/crypto/test/datatypes_driver.c
+@@ -60,8 +60,6 @@ void print_string(char *s);
+ 
+ void test_bswap(void);
+ 
+-void test_set_to_zero(void);
+-
+ int main(void)
+ {
+     /*
+@@ -137,7 +135,6 @@ int main(void)
+     printf(" } \n");
+ 
+     test_bswap();
+-    test_set_to_zero();
+ 
+     return 0;
+ }
+@@ -231,26 +228,3 @@ void test_bswap(void)
+     printf("bswapped octet string: %s\n",
+            octet_string_hex_string((uint8_t *)&y, 8));
+ }
+-
+-void test_set_to_zero(void)
+-{
+-#define BUFFER_SIZE (16)
+-    uint8_t buffer[BUFFER_SIZE];
+-    size_t i;
+-
+-    for (i = 0; i < BUFFER_SIZE; i++) {
+-        buffer[i] = i & 0xff;
+-    }
+-    printf("Buffer before: %s\n", octet_string_hex_string(buffer, BUFFER_SIZE));
+-    octet_string_set_to_zero(buffer, BUFFER_SIZE);
+-    printf("Buffer after: %s\n", octet_string_hex_string(buffer, BUFFER_SIZE));
+-    for (i = 0; i < BUFFER_SIZE; i++) {
+-        if (buffer[i]) {
+-            fprintf(stderr,
+-                    "Buffer contents not zero at position %zu (is %d)\n", i,
+-                    buffer[i]);
+-            abort();
+-        }
+-    }
+-#undef BUFFER_SIZE
+-}

@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_LIBSRTP) += libsrtp
 #
 # Paths and names
 #
-LIBSRTP_VERSION	:= 2.2.0
-LIBSRTP_MD5	:= f77a27457d219f2991ea7aa2f0c11ec9
+LIBSRTP_VERSION	:= 2.3.0
+LIBSRTP_MD5	:= da38ee5d9c31be212a12964c22d7f795
 LIBSRTP		:= libsrtp-$(LIBSRTP_VERSION)
 LIBSRTP_SUFFIX	:= tar.gz
 LIBSRTP_URL	:= https://github.com/cisco/libsrtp/archive/v$(LIBSRTP_VERSION).$(LIBSRTP_SUFFIX)
 LIBSRTP_SOURCE	:= $(SRCDIR)/$(LIBSRTP).$(LIBSRTP_SUFFIX)
 LIBSRTP_DIR	:= $(BUILDDIR)/$(LIBSRTP)
 LIBSRTP_LICENSE	:= BSD-3-Clause
+LIBSRTP_LICENSE_FILES := \
+	file://LICENSE;md5=2909fcf6f09ffff8430463d91c08c4e1
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -35,7 +37,9 @@ LIBSRTP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-debug-logging \
 	--enable-openssl \
+	--disable-nss \
 	--disable-openssl-kdf \
+	--disable-pcap \
 	--enable-log-stdout
 
 LIBSRTP_MAKE_OPT	:= shared_library
