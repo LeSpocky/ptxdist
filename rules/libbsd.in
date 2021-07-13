@@ -2,6 +2,7 @@
 
 config LIBBSD
 	tristate
+	select LIBMD
 	prompt "libbsd"
 	help
 	  This library provides useful functions commonly found on
