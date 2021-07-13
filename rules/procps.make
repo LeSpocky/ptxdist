@@ -17,8 +17,8 @@ PACKAGES-$(PTXCONF_PROCPS) += procps
 #
 # Paths and names
 #
-PROCPS_VERSION	:= 3.3.16
-PROCPS_MD5	:= e8dc8455e573bdc40b8381d572bbb89b
+PROCPS_VERSION	:= 3.3.17
+PROCPS_MD5	:= d60613e88c2f442ebd462b5a75313d56
 PROCPS		:= procps-ng-$(PROCPS_VERSION)
 PROCPS_SUFFIX	:= tar.xz
 PROCPS_URL	:= $(call ptx/mirror, SF, procps-ng/Production/$(PROCPS).$(PROCPS_SUFFIX))
@@ -40,9 +40,9 @@ PROCPS_CONF_TOOL	:= autoconf
 PROCPS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-nls \
 	--enable-shared \
 	--disable-static \
-	--disable-nls \
 	--disable-rpath \
 	--disable-watch8bit \
 	--disable-libselinux \
