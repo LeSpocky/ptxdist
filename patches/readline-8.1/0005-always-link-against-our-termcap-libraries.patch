@@ -14,7 +14,7 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/shlib/Makefile.in b/shlib/Makefile.in
-index f2ec3e46b7ba..3298008abec4 100644
+index d138524ce9ee..ee46f9806332 100644
 --- a/shlib/Makefile.in
 +++ b/shlib/Makefile.in
 @@ -174,11 +174,11 @@ unsupported:

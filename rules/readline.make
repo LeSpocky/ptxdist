@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_READLINE) += readline
 #
 # Paths and names
 #
-READLINE_VERSION	:= 8.0
-READLINE_MD5		:= 7e6c1f16aee3244a69aba6e438295ca3
+READLINE_VERSION	:= 8.1
+READLINE_MD5		:= e9557dd5b1409f5d7b37ef717c64518e
 READLINE		:= readline-$(READLINE_VERSION)
 READLINE_SUFFIX		:= tar.gz
 READLINE_URL		:= $(call ptx/mirror, GNU, readline/$(READLINE).$(READLINE_SUFFIX))
@@ -35,6 +35,7 @@ READLINE_AUTOCONF := \
 	--enable-shared \
 	--disable-static\
 	--disable-install-examples \
+	--enable-bracketed-paste-default \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--$(call ptx/wwo,PTXCONF_READLINE_NCURSES)-curses
 
