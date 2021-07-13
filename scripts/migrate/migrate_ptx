@@ -439,3 +439,10 @@ s/^\(\(# \)\?PTXCONF_BERLIOS_CAN_UTILS_\)JSPY\>/\1J1939SPY/
 s/^\(\(# \)\?PTXCONF_BERLIOS_CAN_UTILS_\)JSR\>/\1J1939SR/
 s/^\(\(# \)\?PTXCONF_BERLIOS_CAN_UTILS_\)JACD\>/\1J1939ACD/
 s/^\(\(# \)\?PTXCONF_BERLIOS_CAN_UTILS_\)JCAT\>/\1J1939CAT/
+
+# from   : ptxdist-2021.07.0
+# to     : ptxdist-2021.08.0
+# symbol : LIBTHEORA__* -> LIBTHEORA_*
+# reason : cleanup to remove the double '_'
+#
+s/^\(\(# \)\?PTXCONF_LIBTHEORA_\)_/\1/

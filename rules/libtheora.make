@@ -23,18 +23,26 @@ LIBTHEORA_URL		:= http://downloads.xiph.org/releases/theora/$(LIBTHEORA).$(LIBTH
 LIBTHEORA_SOURCE	:= $(SRCDIR)/$(LIBTHEORA).$(LIBTHEORA_SUFFIX)
 LIBTHEORA_DIR		:= $(BUILDDIR)/$(LIBTHEORA)
 LIBTHEORA_LICENSE	:= BSD-3-Clause
+LIBTHEORA_LICENSE_FILES	:= \
+	file://COPYING;md5=cf91718f59eb6a83d06dc7bcaf411132 \
+	file://LICENSE;md5=82ccf023e3ce1aa18043edc61f948e2c
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBTHEORA_PATH	:= PATH=$(CROSS_PATH)
-LIBTHEORA_ENV 	:= $(CROSS_ENV)
+LIBTHEORA_CONF_ENV := \
+	$(CROSS_ENV) \
+	ac_cv_prog_HAVE_DOXYGEN=false \
+	ac_cv_prog_HAVE_PDFLATEX=no \
+	ac_cv_prog_HAVE_BIBTEX=no \
+	ac_cv_prog_HAVE_TRANSFIG=no
 
 #
 # autoconf
 #
-LIBTHEORA_AUTOCONF := \
+LIBTHEORA_CONF_TOOL	:= autoconf
+LIBTHEORA_CONF_OPT	 := \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-asm \
 	--disable-examples \
@@ -42,19 +50,11 @@ LIBTHEORA_AUTOCONF := \
 	--disable-valgrind-testing \
 	--disable-telemetry \
 	--disable-examples \
-	--$(call ptx/endis, PTXCONF_LIBTHEORA__OGG)-ogg \
-	--$(call ptx/endis, PTXCONF_LIBTHEORA__VORBIS)-vorbis \
-	--$(call ptx/endis, PTXCONF_LIBTHEORA__SDL)-sdl \
-	--$(call ptx/endis, PTXCONF_LIBTHEORA__FLOAT)-float \
-	--$(call ptx/endis, PTXCONF_LIBTHEORA__ENCODING)-encode
-
-ifndef PTXCONF_LIBTHEORA__DOC
-LIBTHEORA_AUTOCONF += \
-	ac_cv_prog_HAVE_DOXYGEN=false \
-	ac_cv_prog_HAVE_PDFLATEX=no \
-	ac_cv_prog_HAVE_BIBTEX=no \
-	ac_cv_prog_HAVE_TRANSFIG=no
-endif
+	--enable-ogg \
+	--$(call ptx/endis, PTXCONF_LIBTHEORA_VORBIS)-vorbis \
+	--$(call ptx/endis, PTXCONF_LIBTHEORA_SDL)-sdl \
+	--$(call ptx/endis, PTXCONF_LIBTHEORA_FLOAT)-float \
+	--$(call ptx/endis, PTXCONF_LIBTHEORA_ENCODING)-encode
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -71,7 +71,9 @@ $(STATEDIR)/libtheora.targetinstall:
 
 	@$(call install_lib, libtheora, 0, 0, 0644, libtheora)
 	@$(call install_lib, libtheora, 0, 0, 0644, libtheoradec)
+ifdef PTXCONF_LIBTHEORA_ENCODING
 	@$(call install_lib, libtheora, 0, 0, 0644, libtheoraenc)
+endif
 
 	@$(call install_finish, libtheora)
 
