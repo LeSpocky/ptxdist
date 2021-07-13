@@ -3,6 +3,7 @@
 config LIBGUDEV
 	tristate
 	select HOST_GLIB
+	select HOST_MESON
 	select GLIB
 	select GOBJECT_INTROSPECTION	if LIBGUDEV_INTROSPECTION
 	select UDEV

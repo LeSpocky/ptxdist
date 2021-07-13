@@ -1,0 +1,27 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Tue, 13 Jul 2021 14:09:45 +0200
+Subject: [PATCH] Prepare to check for an older UDEV
+
+In order to use libgudev with systemd's based udev and the standalone udev
+libgudev must check for an older udev release. Since v182 is the last
+standalone udev, check for this specific release. The libudev API seems stable
+enough in both releases.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index cd8fa2938d14..ab5835e3737b 100644
+--- a/meson.build
++++ b/meson.build
+@@ -41,7 +41,7 @@ vapidir = join_paths(datadir, 'vala', 'vapi')
+ cc = meson.get_compiler('c')
+ 
+ glib_req = '>= 2.38.0'
+-libudev_req = '>= 199'
++libudev_req = '>= 182'
+ introspection_req = '>= 1.31.1'
+ vapigen_req = '>= 0.38.0'
+ gtk_doc_req = '>= 1.18'
