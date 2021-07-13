@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBPCRE) += libpcre
 #
 # Paths and names
 #
-LIBPCRE_VERSION	:= 8.44
-LIBPCRE_MD5	:= cf7326204cc46c755b5b2608033d9d24
+LIBPCRE_VERSION	:= 8.45
+LIBPCRE_MD5	:= 4452288e6a0eefb2ab11d36010a1eebb
 LIBPCRE		:= pcre-$(LIBPCRE_VERSION)
 LIBPCRE_SUFFIX	:= tar.bz2
 LIBPCRE_URL	:= \
@@ -25,7 +25,7 @@ LIBPCRE_URL	:= \
 LIBPCRE_SOURCE	:= $(SRCDIR)/$(LIBPCRE).$(LIBPCRE_SUFFIX)
 LIBPCRE_DIR	:= $(BUILDDIR)/$(LIBPCRE)
 LIBPCRE_LICENSE	:= BSD-3-Clause
-LIBPCRE_LICENSE_FILES := file://LICENCE;md5=3bb381a66a5385b246d4877922e7511e
+LIBPCRE_LICENSE_FILES := file://LICENCE;md5=b5d5d1a69a24ea2718263f1ff85a1c58
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -34,6 +34,7 @@ LIBPCRE_LICENSE_FILES := file://LICENCE;md5=3bb381a66a5385b246d4877922e7511e
 #
 # autoconf
 #
+# Note: the --enable-newline-* options are broken. Only one should be used
 LIBPCRE_CONF_TOOL	:= autoconf
 LIBPCRE_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
@@ -46,11 +47,8 @@ LIBPCRE_CONF_OPT	:= \
 	--disable-rebuild-chartables \
 	--$(call ptx/endis, PTXCONF_LIBPCRE_ENABLE_UTF8)-utf \
 	--$(call ptx/endis, PTXCONF_LIBPCRE_ENABLE_UTF8)-unicode-properties \
-	--disable-newline-is-cr \
-	--$(call ptx/disen, PTXCONF_LIBPCRE_ENABLE_NEWLINE_IS_ANYCRLF)-newline-is-lf \
-	--disable-newline-is-crlf \
-	--$(call ptx/endis, PTXCONF_LIBPCRE_ENABLE_NEWLINE_IS_ANYCRLF)-newline-is-anycrlf \
-	--disable-newline-is-any \
+	$(call ptx/ifdef, PTXCONF_LIBPCRE_ENABLE_NEWLINE_IS_ANYCRLF,,--enable-newline-is-lf) \
+	$(call ptx/ifdef, PTXCONF_LIBPCRE_ENABLE_NEWLINE_IS_ANYCRLF,--enable-newline-is-anycrlf) \
 	--disable-bsr-anycrlf \
 	--disable-ebcdic \
 	--disable-ebcdic-nl25 \
