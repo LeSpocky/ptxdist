@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_NBD) += nbd
 #
 # Paths and names
 #
-NBD_VERSION	:= 3.12.1
-NBD_MD5		:= 055eb1c5a95cc6976256dcc84ae63abb
+NBD_VERSION	:= 3.21
+NBD_MD5		:= c51c4c500fe1ed84c3d5d5dd2ca71d23
 NBD		:= nbd-$(NBD_VERSION)
 NBD_SUFFIX	:= tar.xz
 NBD_URL		:= $(call ptx/mirror, SF, nbd/$(NBD).$(NBD_SUFFIX))
 NBD_SOURCE	:= $(SRCDIR)/$(NBD).$(NBD_SUFFIX)
 NBD_DIR		:= $(BUILDDIR)/$(NBD)
 NBD_LICENSE	:= GPL-2.0-only
+NBD_LICENSE_FILES := \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
 
 #
 # autoconf
@@ -34,7 +36,9 @@ NBD_CONF_OPT	:= \
 	--disable-debug \
 	--disable-sdp \
 	--disable-gznbd \
-	--disable-glibtest
+	--disable-manpages \
+	--without-gnutls \
+	--with-libnl
 
 # ----------------------------------------------------------------------------
 # Target-Install

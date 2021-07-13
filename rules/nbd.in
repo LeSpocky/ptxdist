@@ -3,6 +3,7 @@
 config NBD
 	tristate
 	select GLIB
+	select LIBNL3
 	prompt "NBD server and client"
 	help
 	  NBD client and server utils.
