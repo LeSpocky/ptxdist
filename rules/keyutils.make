@@ -2,20 +2,28 @@
 #
 # Copyright (C) 2013 by Michael Grzeschik <mgr@pengutronix.de>
 #
+# For further information about the PTXdist project and license conditions
+# see the README file.
+#
 
 PACKAGES-$(PTXCONF_KEYUTILS) += keyutils
 
 #
 # Paths and names
 #
-KEYUTILS_VERSION	:= 1.5.10
-KEYUTILS_MD5		:= 3771676319bc7b84b1549b5c63ff5243
+KEYUTILS_VERSION	:= 1.6.1
+KEYUTILS_MD5		:= 919af7f33576816b423d537f8a8692e8
 KEYUTILS		:= keyutils-$(KEYUTILS_VERSION)
 KEYUTILS_SUFFIX		:= tar.bz2
 KEYUTILS_URL		:= http://people.redhat.com/~dhowells/keyutils/$(KEYUTILS).$(KEYUTILS_SUFFIX)
 KEYUTILS_SOURCE		:= $(SRCDIR)/$(KEYUTILS).$(KEYUTILS_SUFFIX)
 KEYUTILS_DIR		:= $(BUILDDIR)/$(KEYUTILS)
 KEYUTILS_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
+KEYUTILS_LICENSE_FILES	:= \
+	file://keyctl.c;startline=1;endline=10;md5=0b1fcf840ca0484f208ebf00b1d87a74 \
+	file://LICENCE.GPL;md5=5f6e72824f5da505c1f4a7197f004b45 \
+	file://keyutils.c;startline=1;endline=10;md5=944d046e96ff177131a078ba3957e2c7 \
+	file://LICENCE.LGPL;md5=7d1cacaa3ea752b72ea5e525df54a21f
 
 # ----------------------------------------------------------------------------
 # Prepare
