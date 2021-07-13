@@ -23,6 +23,7 @@ HOST_LIBKMOD_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-static \
 	--enable-shared \
+	--disable-experimental \
 	--enable-tools \
 	--disable-manpages \
 	--disable-test-modules \
@@ -30,9 +31,9 @@ HOST_LIBKMOD_CONF_OPT	:= \
 	--disable-debug \
 	--disable-python \
 	--disable-coverage \
+	--$(call ptx/wwo, PTXCONF_HOST_LIBKMOD_ZSTD)-zstd \
 	--without-xz \
 	--$(call ptx/wwo, PTXCONF_HOST_LIBKMOD_ZLIB)-zlib \
-	--$(call ptx/wwo, PTXCONF_HOST_LIBKMOD_ZSTD)-zstd \
 	--without-openssl
 
 # ----------------------------------------------------------------------------
