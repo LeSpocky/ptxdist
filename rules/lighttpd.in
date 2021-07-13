@@ -6,6 +6,7 @@ menuconfig LIGHTTPD
 	select LIBC_DL
 	select LIBC_CRYPT
 	select ZLIB			if LIGHTTPD_ZLIB
+	select ZSTD			if LIGHTTPD_ZSTD
 	select BZIP2			if LIGHTTPD_BZ2LIB
 	select BZIP2_LIBBZ2		if LIGHTTPD_BZ2LIB
 	select ATTR			if LIGHTTPD_ATTR
@@ -111,25 +112,31 @@ config LIGHTTPD_MOD_CML
 	help
 	  Cache Meta Language
 
-config LIGHTTPD_MOD_COMPRESS
+config LIGHTTPD_MOD_DEFLATE
 	bool
-	prompt "mod_compress"
+	prompt "mod_deflate"
 	help
 	  Output compression support.
 
-if LIGHTTPD_MOD_COMPRESS
+if LIGHTTPD_MOD_DEFLATE
 
 config LIGHTTPD_ZLIB
 	bool
 	prompt "zlib support"
 	help
-	  Enable zlib support for mod_compress.
+	  Enable zlib support for mod_deflate.
+
+config LIGHTTPD_ZSTD
+	bool
+	prompt "zstd support"
+	help
+	  Enable zstd support for mod_deflate.
 
 config LIGHTTPD_BZ2LIB
 	bool
 	prompt "bz2lib support"
 	help
-	  Enable bzip2 support for mod_compress.
+	  Enable bzip2 support for mod_deflate.
 endif
 
 config LIGHTTPD_MOD_FASTCGI

@@ -446,3 +446,10 @@ s/^\(\(# \)\?PTXCONF_BERLIOS_CAN_UTILS_\)JCAT\>/\1J1939CAT/
 # reason : cleanup to remove the double '_'
 #
 s/^\(\(# \)\?PTXCONF_LIBTHEORA_\)_/\1/
+
+# from   : ptxdist-2021.07.0
+# to     : ptxdist-2021.08.0
+# symbol : LIGHTTPD_MOD_COMPRESS -> LIGHTTPD_MOD_DEFLATE
+# reason : upstream lighttpd module mod_compress was replaced by mod_deflate
+#
+s/^\(\(# \)\?PTXCONF_LIGHTTPD_MOD_\)COMPRESS\>/\1DEFLATE/

@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIGHTTPD) += lighttpd
 #
 # Paths and names
 #
-LIGHTTPD_VERSION	:= 1.4.55
-LIGHTTPD_MD5		:= be4bda2c28bcbdac6eb941528f6edf03
+LIGHTTPD_VERSION	:= 1.4.59
+LIGHTTPD_MD5		:= a8838dac90fcddbcc05c0d1877bd8cdf
 LIGHTTPD		:= lighttpd-$(LIGHTTPD_VERSION)
 LIGHTTPD_SUFFIX		:= tar.xz
 LIGHTTPD_URL		:= http://download.lighttpd.net/lighttpd/releases-1.4.x/$(LIGHTTPD).$(LIGHTTPD_SUFFIX)
@@ -25,8 +25,8 @@ LIGHTTPD_DIR		:= $(BUILDDIR)/$(LIGHTTPD)
 LIGHTTPD_LICENSE	:= BSD-3-Clause AND OML AND RSA-MD
 LIGHTTPD_LICENSE_FILES	:= \
 	file://COPYING;md5=e4dac5c6ab169aa212feb5028853a579 \
-	file://src/fastcgi.h;startline=7;endline=15;md5=fe9ffe753772839aace9c90e814bc356 \
-	file://src/md5.c;startline=6;endline=26;md5=b5be3b6afd4afa7bb89b16361244f9b6
+	file://src/compat/fastcgi.h;startline=7;endline=15;md5=fe9ffe753772839aace9c90e814bc356 \
+	file://src/algo_md5.c;startline=9;endline=29;md5=b5be3b6afd4afa7bb89b16361244f9b6
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -58,13 +58,16 @@ LIGHTTPD_CONF_OPT	:= \
 	--without-wolfssl \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_PCRE)-pcre \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_ZLIB)-zlib \
+	--$(call ptx/wwo, PTXCONF_LIGHTTPD_ZSTD)-zstd \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_BZ2LIB)-bzip2 \
+	--without-brotli \
 	--without-fam \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_WEBDAV_PROPS)-webdav-props \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_WEBDAV_PROPS)-libxml \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_WEBDAV_PROPS)-sqlite \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_WEBDAV_LOCKS)-webdav-locks \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_WEBDAV_LOCKS)-uuid \
+	--without-xxhash \
 	--without-gdbm \
 	--without-geoip \
 	--without-maxminddb \
@@ -92,7 +95,7 @@ LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_ALIAS)		+= mod_alias
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_AUTH)		+= mod_auth
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_AUTH)		+= mod_authn_file
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_CML)		+= mod_cml
-LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_COMPRESS)	+= mod_compress
+LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_DEFLATE)	+= mod_deflate
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_FASTCGI)	+= mod_fastcgi
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_MAGNET)		+= mod_magnet
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_OPENSSL)		+= mod_openssl
