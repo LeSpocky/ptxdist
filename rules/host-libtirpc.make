@@ -23,7 +23,9 @@ HOST_LIBTIRPC_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-gssapi \
 	--disable-shared \
-	--enable-static
+	--enable-static \
+	--disable-authdes \
+	--enable-symvers
 
 # ----------------------------------------------------------------------------
 # Install

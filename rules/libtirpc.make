@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_LIBTIRPC) += libtirpc
 #
 # Paths and names
 #
-LIBTIRPC_VERSION	:= 1.2.6
-LIBTIRPC_MD5		:= b25f9cc18bfad50f7c446c77f4ae00bb
+LIBTIRPC_VERSION	:= 1.3.2
+LIBTIRPC_MD5		:= cf4ca51f3fc401bea61c702c69171ab0
 LIBTIRPC		:= libtirpc-$(LIBTIRPC_VERSION)
 LIBTIRPC_SUFFIX		:= tar.bz2
 LIBTIRPC_URL		:= $(call ptx/mirror, SF, libtirpc/$(LIBTIRPC).$(LIBTIRPC_SUFFIX))
 LIBTIRPC_SOURCE		:= $(SRCDIR)/$(LIBTIRPC).$(LIBTIRPC_SUFFIX)
 LIBTIRPC_DIR		:= $(BUILDDIR)/$(LIBTIRPC)
 LIBTIRPC_LICENSE	:= BSD-3-Clause
+LIBTIRPC_LICENSE_FILES	:= \
+	file://COPYING;md5=f835cce8852481e4b2bbbdd23b5e47f3
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -34,7 +36,9 @@ LIBTIRPC_CONF_TOOL	:= autoconf
 LIBTIRPC_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-gssapi \
-	$(GLOBAL_IPV6_OPTION)
+	--disable-authdes \
+	$(GLOBAL_IPV6_OPTION) \
+	--enable-symvers
 
 # ----------------------------------------------------------------------------
 # Target-Install
