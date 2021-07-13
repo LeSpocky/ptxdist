@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_LIBJPEG) += libjpeg
 #
 # Paths and names
 #
-LIBJPEG_VERSION	:= 2.0.5
-LIBJPEG_MD5	:= 3a7dc293918775fc933f81e2bce36464
+LIBJPEG_VERSION	:= 2.1.0
+LIBJPEG_MD5	:= be306afc2d2ebd6931b634df0e8cbaf5
 LIBJPEG_SUFFIX	:= tar.gz
 LIBJPEG		:= libjpeg-turbo-$(LIBJPEG_VERSION)
 LIBJPEG_TARBALL	:= $(LIBJPEG).$(LIBJPEG_SUFFIX)
@@ -26,9 +26,9 @@ LIBJPEG_SOURCE	:= $(SRCDIR)/$(LIBJPEG_TARBALL)
 LIBJPEG_DIR	:= $(BUILDDIR)/$(LIBJPEG)
 LIBJPEG_LICENSE	:= IJG, BSD-3-Clause, Zlib
 LIBJPEG_LICENSE_FILES := \
-	file://LICENSE.md;md5=26d6491346496a57f75f00a78199122e \
-	file://README.ijg;startline=112;endline=174;md5=3a823783b9d7587c8a5ef2447e833e19 \
-	file://simd/nasm/jsimdext.inc;startline=12;endline=27;md5=839b9ed7df5168976efc071bee29a76e
+	file://LICENSE.md;md5=970f17d51650fe54e4f839c6e6121f79 \
+	file://README.ijg;startline=112;endline=174;md5=9fcb5339d9de46b31309aeef52d7deb1 \
+	file://simd/nasm/jsimdext.inc;startline=13;endline=28;md5=839b9ed7df5168976efc071bee29a76e
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -48,17 +48,18 @@ LIBJPEG_CONF_OPT := \
 	$(CROSS_CMAKE_USR) \
 	-DENABLE_SHARED=ON \
 	-DENABLE_STATIC=OFF \
+	-DFORCE_INLINE=ON \
 	-DREQUIRE_SIMD=OFF \
 	-DWITH_12BIT=OFF \
 	-DWITH_ARITH_DEC=ON \
 	-DWITH_ARITH_ENC=ON \
+	-DWITH_FUZZ=OFF \
 	-DWITH_JAVA=OFF \
 	-DWITH_JPEG7=ON \
 	-DWITH_JPEG8=ON \
 	-DWITH_MEM_SRCDST=ON \
 	-DWITH_SIMD=$(call ptx/onoff,LIBJPEG_SIMD) \
-	-DWITHOUT_TURBOJPEG=ON \
-	-DFORCE_INLINE=ON
+	-DWITH_TURBOJPEG=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install
