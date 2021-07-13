@@ -14,16 +14,18 @@ PACKAGES-$(PTXCONF_OPENLDAP) += openldap
 #
 # Paths and names
 #
-OPENLDAP_VERSION	:= 2.4.47
+OPENLDAP_VERSION	:= 2.4.59
 OPENLDAP_LIBVERSION	:= 2.4
-OPENLDAP_MD5		:= e508f97bfd778fec7799f286e5c07176
+OPENLDAP_MD5		:= 6036a03b3a67b4a1fe1246e0a2c7265a
 OPENLDAP		:= openldap-$(OPENLDAP_VERSION)
 OPENLDAP_SUFFIX		:= tgz
 OPENLDAP_URL		:= https://www.openldap.org/software/download/OpenLDAP/openldap-release/$(OPENLDAP).$(OPENLDAP_SUFFIX)
 OPENLDAP_SOURCE		:= $(SRCDIR)/$(OPENLDAP).$(OPENLDAP_SUFFIX)
 OPENLDAP_DIR		:= $(BUILDDIR)/$(OPENLDAP)
-# http://www.openldap.org/software/release/license.html
-OPENLDAP_LICENSE	:= OpenLDAP Public License
+OPENLDAP_LICENSE	:= OLDAP-2.8
+OPENLDAP_LICENSE_FILES	:= \
+	file://COPYRIGHT;md5=b6dea6c170362fc46381fe3690c722cb \
+	file://LICENSE;md5=153d07ef052c4a37a8fac23bc6031972
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -44,11 +46,12 @@ OPENLDAP_TLS_CONF_OPT-$(PTXCONF_OPENLDAP_TLS_DISABLED)	:= no
 OPENLDAP_CONF_TOOL	:= autoconf
 OPENLDAP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--$(call ptx/endis, PTXCONF_GLOBAL_IPV6)-ipv6 \
-	--enable-syslog \
-	--enable-local \
-	--enable-proctitle \
+	--disable-debug \
 	--enable-dynamic \
+	--enable-syslog \
+	--enable-proctitle \
+	--$(call ptx/endis, PTXCONF_GLOBAL_IPV6)-ipv6 \
+	--enable-local \
 	\
 	--$(call ptx/endis, PTXCONF_OPENLDAP_SLAPD)-slapd \
 	--disable-dynacl \
@@ -64,9 +67,9 @@ OPENLDAP_CONF_OPT	:= \
 	--disable-slp \
 	--disable-wrappers \
 	\
-	--enable-hdb=no \
-	--enable-dnssrv=no \
 	--enable-bdb=no \
+	--enable-dnssrv=no \
+	--enable-hdb=no \
 	--enable-ldap=yes \
 	--enable-mdb=yes \
 	--enable-meta=no \
@@ -84,9 +87,9 @@ OPENLDAP_CONF_OPT	:= \
 	\
 	--without-cyrus-sasl \
 	--without-fetch \
-	--with-yielding_select=yes \
 	--with-threads \
-	--with-tls=$(OPENLDAP_TLS_CONF_OPT-y)
+	--with-tls=$(OPENLDAP_TLS_CONF_OPT-y) \
+	--with-yielding_select=yes
 
 
 # ----------------------------------------------------------------------------
