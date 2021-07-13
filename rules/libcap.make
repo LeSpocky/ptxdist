@@ -14,16 +14,16 @@ PACKAGES-$(PTXCONF_LIBCAP) += libcap
 #
 # Paths and names
 #
-LIBCAP_VERSION	:= 2.44
-LIBCAP_MD5	:= 46ab71759e17a07efa920692ac2f714d
+LIBCAP_VERSION	:= 2.51
+LIBCAP_MD5	:= 4c9febc1bf0afca6a4d9f86fcdb6d900
 LIBCAP		:= libcap-$(LIBCAP_VERSION)
 LIBCAP_SUFFIX	:= tar.xz
 LIBCAP_URL	:= \
 	$(call ptx/mirror, KERNEL, libs/security/linux-privs/libcap2/$(LIBCAP).$(LIBCAP_SUFFIX))
 LIBCAP_SOURCE	:= $(SRCDIR)/$(LIBCAP).$(LIBCAP_SUFFIX)
 LIBCAP_DIR	:= $(BUILDDIR)/$(LIBCAP)
-LIBCAP_LICENSE	:= BSD-3-Clause AND GPL-2.0-only
-LIBCAP_LICENSE_FILES := file://License;md5=3f84fd6f29d453a56514cb7e4ead25f1
+LIBCAP_LICENSE	:= BSD-3-Clause OR GPL-2.0-only
+LIBCAP_LICENSE_FILES := file://License;md5=e2370ba375efe9e1a095c26d37e483b8
 
 # ----------------------------------------------------------------------------
 # Prepare
