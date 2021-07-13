@@ -1,0 +1,54 @@
+## SECTION=multimedia_libs
+
+menuconfig PIPEWIRE
+	tristate
+	select HOST_MESON
+	select DBUS
+	select ALSA_LIB
+	select ALSA_LIB_PCM
+	select ALSA_LIB_UCM
+	select ALSA_LIB_SEQ
+	select GLIB			if PIPEWIRE_GSTREAMER
+	select GSTREAMER1		if PIPEWIRE_GSTREAMER
+	select GST_PLUGINS_BASE1	if PIPEWIRE_GSTREAMER
+	select LIBSNDFILE
+	select SYSTEMD			if PIPEWIRE_SYSTEMD
+	select UDEV
+	select UDEV_LIBUDEV
+	prompt "pipewire                      "
+	help
+	  PipeWire is a server and user space API to deal with multimedia
+	  pipelines. This includes:
+	   - Making available sources of video (such as from a capture devices or
+	     application provided streams) and multiplexing this with clients.
+	   - Accessing sources of video for consumption.
+	   - Generating graphs for audio and video processing.
+
+if PIPEWIRE
+
+config PIPEWIRE_GSTREAMER
+	bool
+	prompt "build and install gstreamer plugins"
+
+config PIPEWIRE_SYSTEMD
+	bool
+
+config PIPEWIRE_PULSEAUDIO
+	bool
+	prompt "install pulseaudio compatibility service"
+
+config PIPEWIRE_SYSTEMD_UNIT
+	bool
+	default y
+	depends on INITMETHOD_SYSTEMD
+	select PIPEWIRE_SYSTEMD
+	prompt "install systemd system unit file for pipewire"
+
+config PIPEWIRE_SYSTEMD_UNIT_USER
+	bool
+	default y
+	depends on INITMETHOD_SYSTEMD
+	select PIPEWIRE_SYSTEMD
+	prompt "install systemd user unit file for pipewire"
+
+endif
