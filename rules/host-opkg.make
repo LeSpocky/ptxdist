@@ -35,12 +35,13 @@ HOST_OPKG_CONF_OPT	:= \
 	--disable-pathfinder \
 	--disable-xz \
 	--disable-bzip2 \
+	--disable-lz4 \
 	--disable-curl \
 	--disable-sha256 \
 	--disable-openssl \
 	--disable-ssl-curl \
 	--disable-gpg \
-	--without-libsolv \
-	--without-static-libopkg
+	--without-static-libopkg \
+	--without-libsolv
 
 # vim: syntax=make
