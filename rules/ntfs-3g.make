@@ -14,16 +14,16 @@ PACKAGES-$(PTXCONF_NTFS_3G) += ntfs-3g
 #
 # Paths and names
 #
-NTFS_3G_VERSION	:= 2017.3.23
-NTFS_3G_MD5	:= d97474ae1954f772c6d2fa386a6f462c
+NTFS_3G_VERSION	:= 2017.3.23AR.6
+NTFS_3G_MD5	:= d4a69fec34150f8f4a59e7c65be8c48c
 NTFS_3G		:= ntfs-3g_ntfsprogs-$(NTFS_3G_VERSION)
 NTFS_3G_SUFFIX	:= tgz
-NTFS_3G_URL	:= https://download.tuxera.com/opensource/$(NTFS_3G).$(NTFS_3G_SUFFIX)
+NTFS_3G_URL	:= https://jp-andre.pagesperso-orange.fr/$(NTFS_3G).$(NTFS_3G_SUFFIX)
 NTFS_3G_SOURCE	:= $(SRCDIR)/$(NTFS_3G).$(NTFS_3G_SUFFIX)
 NTFS_3G_DIR	:= $(BUILDDIR)/$(NTFS_3G)
 NTFS_3G_LICENSE	:= GPL-2.0-or-later AND LGPL-2.0-only
 NTFS_3G_LICENSE_FILES	:= \
-	file://README;startline=35;endline=42;md5=a3204cfad57631a62a347096d10f3498 \
+	file://README;startline=39;endline=46;md5=a3204cfad57631a62a347096d10f3498 \
 	file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552 \
 	file://COPYING.LIB;md5=f30a9716ef3762e3467a2f62bf790f0a
 
@@ -43,8 +43,8 @@ NTFS_3G_CONF_OPT	:= \
 	--disable-pedantic \
 	--disable-really-static \
 	--disable-mount-helper \
-	--disable-ldconfig \
 	--disable-ldscript \
+	--disable-ldconfig \
 	--disable-library \
 	--disable-mtab \
 	--disable-posix-acls \
@@ -54,13 +54,13 @@ NTFS_3G_CONF_OPT	:= \
 	--enable-ntfs-3g \
 	--disable-ntfsprogs \
 	--disable-crypto \
-	--disable-quarantined \
 	--disable-extras \
+	--disable-quarantined \
 	--disable-nfconv \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--with-fuse=external \
 	--with-uuid \
-	--without-hd \
-	$(GLOBAL_LARGE_FILE_OPTION)
+	--without-hd
 
 # ----------------------------------------------------------------------------
 # Target-Install
