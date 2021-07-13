@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_LIBSOUP) += libsoup
 #
 # Paths and names
 #
-LIBSOUP_VERSION	:= 2.66.2
-LIBSOUP_MD5	:= 66c2ae89d6031b01337d78a2c57c75d5
+LIBSOUP_VERSION	:= 2.72.0
+LIBSOUP_MD5	:= 859380b76b51fb55d720daea3c76c945
 LIBSOUP		:= libsoup-$(LIBSOUP_VERSION)
 LIBSOUP_SUFFIX	:= tar.xz
 LIBSOUP_URL	:= $(call ptx/mirror, GNOME, libsoup/$(basename $(LIBSOUP_VERSION))/$(LIBSOUP).$(LIBSOUP_SUFFIX))
 LIBSOUP_SOURCE	:= $(SRCDIR)/$(LIBSOUP).$(LIBSOUP_SUFFIX)
 LIBSOUP_DIR	:= $(BUILDDIR)/$(LIBSOUP)
 LIBSOUP_LICENSE	:= LGPL-2.1-only
+LIBSOUP_LICENSE_FILES := \
+	file://COPYING;md5=5f30f0716dfdd0d91eb439ebec522ec2
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -33,16 +35,19 @@ LIBSOUP_LICENSE	:= LGPL-2.1-only
 LIBSOUP_CONF_TOOL := meson
 LIBSOUP_CONF_OPT := \
 	$(CROSS_MESON_USR) \
-	-Dgssapi=false \
-	-Ddoc=false \
+	-Dbrotli=disabled \
 	-Dgnome=true \
-	-Dvapi=false \
-	-Dintrospection=$(call ptx/truefalse, PTXCONF_LIBSOUP_INTROSPECTION) \
+	-Dgssapi=disabled \
+	-Dgtk_doc=false \
+	-Dinstalled_tests=false \
+	-Dintrospection=$(call ptx/endis, PTXCONF_LIBSOUP_INTROSPECTION)d \
 	-Dkrb5_config= \
-	-Dntlm=false \
+	-Dntlm=disabled \
 	-Dntlm_auth=ntlm_auth \
+	-Dsysprof=disabled \
 	-Dtests=false \
-	-Dtls_check=false
+	-Dtls_check=false \
+	-Dvapi=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
