@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBPCAP) += libpcap
 #
 # Paths and names
 #
-LIBPCAP_VERSION	:= 1.8.1
-LIBPCAP_MD5	:= 3d48f9cd171ff12b0efd9134b52f1447
+LIBPCAP_VERSION	:= 1.10.1
+LIBPCAP_MD5	:= 28e17495004036567c2cc884b51eba45
 LIBPCAP		:= libpcap-$(LIBPCAP_VERSION)
 LIBPCAP_SUFFIX	:= tar.gz
 LIBPCAP_URL	:= http://www.tcpdump.org/release/$(LIBPCAP).$(LIBPCAP_SUFFIX)
@@ -27,12 +27,8 @@ LIBPCAP_LICENSE	:= BSD-3-Clause
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBPCAP_PATH := PATH=$(CROSS_PATH)
-LIBPCAP_ENV  := \
+LIBPCAP_CONF_ENV  := \
 	$(CROSS_ENV) \
-	ac_cv_linux_vers=2 \
-	ac_cv_lib_nl_nl_socket_alloc=no \
-	ac_cv_lib_nl_nl_handle_alloc=no \
 	ac_cv_lbl_hci_channel_monitor_is_defined=no
 
 LIBPCAP_COMPILE_ENV := \
@@ -44,31 +40,28 @@ LIBPCAP_COMPILE_ENV := \
 #
 # autoconf
 #
-LIBPCAP_AUTOCONF := \
+LIBPCAP_CONF_TOOL	:= autoconf
+LIBPCAP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-protochain \
 	$(GLOBAL_IPV6_OPTION) \
+	--disable-remote \
 	--disable-optimizer-dbg \
 	--disable-yydebug \
 	--disable-universal \
 	--enable-shared \
 	--disable-usb \
+	--disable-netmap \
 	--$(call ptx/endis, PTXCONF_LIBPCAP_BLUETOOTH)-bluetooth \
 	--disable-dbus \
-	--disable-packet-ring \
-	--with-libnl=$(SYSROOT)/usr \
+	--disable-rdma \
+	--with-pcap=linux \
+	--with-libnl \
 	--without-dag \
 	--without-septel \
 	--without-snf \
 	--without-turbocap
-
-ifdef PTXCONF_ARCH_MINGW
-LIBPCAP_AUTOCONF += --with-pcap=null
-LIBPCAP_ENV += ac_cv_lbl_gcc_fixincludes=yes
-else
-LIBPCAP_AUTOCONF += --with-pcap=linux
-endif
 
 # ----------------------------------------------------------------------------
 # Target-Install

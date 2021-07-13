@@ -8,10 +8,10 @@ Signed-off-by: Alexander Aring <alex.aring@gmail.com>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/pcap-config.in b/pcap-config.in
-index 206be3b4a644..50b05f53d32e 100644
+index 54ca42f07bc5..23b06c300577 100644
 --- a/pcap-config.in
 +++ b/pcap-config.in
-@@ -6,8 +6,8 @@
+@@ -10,8 +10,8 @@
  #
  prefix="@prefix@"
  exec_prefix="@exec_prefix@"
@@ -21,8 +21,8 @@ index 206be3b4a644..50b05f53d32e 100644
 +libdir="${SYSROOT}@libdir@"
  V_RPATH_OPT="@V_RPATH_OPT@"
  LIBS="@LIBS@"
- 
-@@ -41,7 +41,7 @@ then
+ PACKAGE_NAME="@PACKAGE_NAME@"
+@@ -46,7 +46,7 @@ then
  	#
  	# If libdir isn't /usr/lib, add it to the run-time linker path.
  	#

@@ -12,24 +12,24 @@ Signed-off-by: Alexander Aring <alex.aring@gmail.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile.in b/Makefile.in
-index e71d973ca448..e0debadeb837 100644
+index 5d88ea713174..2cbcab1a0907 100644
 --- a/Makefile.in
 +++ b/Makefile.in
-@@ -358,7 +358,7 @@ EXTRA_DIST = \
+@@ -415,7 +415,7 @@ EXTRA_DIST = \
  	Win32/Prj/wpcap.vcxproj \
  	Win32/Prj/wpcap.vcxproj.filters
  
--all: libpcap.a shared pcap-config
-+all: shared pcap-config
+-all: libpcap.a shared $(BUILD_RPCAPD) libpcap.pc pcap-config
++all: shared $(BUILD_RPCAPD) libpcap.pc pcap-config
  
  libpcap.a: $(OBJ)
  	@rm -f $@
-@@ -550,7 +550,7 @@ selpolltest: tests/selpolltest.c libpcap.a
- valgrindtest: tests/valgrindtest.c libpcap.a
- 	$(CC) $(FULL_CFLAGS) -I. -L. -o valgrindtest $(srcdir)/tests/valgrindtest.c libpcap.a $(LIBS)
+@@ -601,7 +601,7 @@ testprogs: FORCE
  
--install: install-shared install-archive pcap-config
-+install: install-shared pcap-config
+ FORCE:
+ 
+-install: install-shared install-archive libpcap.pc pcap-config @INSTALL_RPCAPD@
++install: install-shared libpcap.pc pcap-config @INSTALL_RPCAPD@
  	[ -d $(DESTDIR)$(libdir) ] || \
  	    (mkdir -p $(DESTDIR)$(libdir); chmod 755 $(DESTDIR)$(libdir))
  	[ -d $(DESTDIR)$(includedir) ] || \
