@@ -15,15 +15,17 @@ PACKAGES-$(PTXCONF_NTPCLIENT) += ntpclient
 #
 # Paths and names
 #
-NTPCLIENT_VERSION	:= 365
-NTPCLIENT_MD5		:= cb98711f11769cdd22fc592844cef414
+NTPCLIENT_VERSION	:= 2015_365
+NTPCLIENT_MD5		:= e0d0e6089dd3300b6958055340a7796f
 NTPCLIENT_SUFFIX	:= tar.gz
-NTPCLIENT		:= ntpclient-2007
-NTPCLIENT_TARBALL	:= ntpclient_2007_$(NTPCLIENT_VERSION).$(NTPCLIENT_SUFFIX)
+NTPCLIENT		:= ntpclient_$(NTPCLIENT_VERSION)
+NTPCLIENT_TARBALL	:= $(NTPCLIENT).$(NTPCLIENT_SUFFIX)
 NTPCLIENT_URL		:= http://doolittle.icarus.com/ntpclient/$(NTPCLIENT_TARBALL)
 NTPCLIENT_SOURCE	:= $(SRCDIR)/$(NTPCLIENT_TARBALL)
 NTPCLIENT_DIR		:= $(BUILDDIR)/$(NTPCLIENT)
 NTPCLIENT_LICENSE	:= GPL-2.0-only
+NTPCLIENT_LICENSE_FILES	:= \
+	file://ntpclient.c;startline=6;endline=16;md5=3c2ff3dfb1e4846d1a114bd3b2e9fdbd
 
 # ----------------------------------------------------------------------------
 # Prepare
