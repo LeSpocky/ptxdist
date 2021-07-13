@@ -111,7 +111,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-vnc-jpeg \
 	--disable-vnc-png \
 	--disable-cocoa \
-	--enable-virtfs \
+	--$(call ptx/endis, PTXCONF_HOST_QEMU_SYS)-virtfs \
 	--disable-virtiofsd \
 	--disable-libudev \
 	--disable-mpath \
