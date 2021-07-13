@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_LIBINPUT) += libinput
 #
 # Paths and names
 #
-LIBINPUT_VERSION	:= 1.17.3
-LIBINPUT_MD5		:= 3533f4dc8f0562ccd1a8814da155281b
+LIBINPUT_VERSION	:= 1.18.0
+LIBINPUT_MD5		:= 847a3c24383e1a937d1d46c46332e710
 LIBINPUT		:= libinput-$(LIBINPUT_VERSION)
 LIBINPUT_SUFFIX		:= tar.xz
 LIBINPUT_URL		:= http://www.freedesktop.org/software/libinput/$(LIBINPUT).$(LIBINPUT_SUFFIX)
 LIBINPUT_SOURCE		:= $(SRCDIR)/$(LIBINPUT).$(LIBINPUT_SUFFIX)
 LIBINPUT_DIR		:= $(BUILDDIR)/$(LIBINPUT)
 LIBINPUT_LICENSE	:= MIT
+LIBINPUT_LICENSE_FILES	:= \
+	file://COPYING;md5=bab4ac7dc1c10bc0fb037dc76c46ef8a
 
 # ----------------------------------------------------------------------------
 # Prepare
