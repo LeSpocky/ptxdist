@@ -78,7 +78,7 @@ QT5_PKG_CONFIG_ENV := \
 # target options are provided via mkspecs
 QT5_CONF_ENV := \
 	$(QT5_PKG_CONFIG_ENV) \
-	MAKEFLAGS="$(PARALLELMFLAGS)" \
+	MAKEFLAGS="$(PARALLELMFLAGS) --output-sync=none" \
 	COMPILER_PREFIX=$(COMPILER_PREFIX)
 
 ifdef PTXCONF_QT5_MODULE_QTWEBENGINE
