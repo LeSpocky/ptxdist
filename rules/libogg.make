@@ -14,26 +14,28 @@ PACKAGES-$(PTXCONF_LIBOGG) += libogg
 #
 # Paths and names
 #
-LIBOGG_VERSION	:= 1.1.4
-LIBOGG_MD5	:= 10200ec22543841d9d1c23e0aed4e5e9
+LIBOGG_VERSION	:= 1.3.5
+LIBOGG_MD5	:= 3267127fe8d7ba77d3e00cb9d7ad578d
 LIBOGG		:= libogg-$(LIBOGG_VERSION)
 LIBOGG_SUFFIX	:= tar.gz
 LIBOGG_URL	:= http://downloads.xiph.org/releases/ogg/$(LIBOGG).$(LIBOGG_SUFFIX)
 LIBOGG_SOURCE	:= $(SRCDIR)/$(LIBOGG).$(LIBOGG_SUFFIX)
 LIBOGG_DIR	:= $(BUILDDIR)/$(LIBOGG)
 LIBOGG_LICENSE	:= BSD-3-Clause
+LIBOGG_LICENSE_FILES := \
+	file://COPYING;md5=db1b7a668b2a6f47b2af88fb008ad555
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBOGG_PATH	:= PATH=$(CROSS_PATH)
-LIBOGG_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #
-LIBOGG_AUTOCONF := $(CROSS_AUTOCONF_USR)
+LIBOGG_CONF_TOOL	:= autoconf
+LIBOGG_CONF_OPT		:= \
+	$(CROSS_AUTOCONF_USR) \
+	--enable-crc
 
 # ----------------------------------------------------------------------------
 # Target-Install
