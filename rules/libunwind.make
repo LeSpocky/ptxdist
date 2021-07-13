@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_LIBUNWIND) += libunwind
 #
 # Paths and names
 #
-LIBUNWIND_VERSION	:= 1.4.0
-LIBUNWIND_MD5		:= 5114504c74ac3992ac06aa551cd55678
+LIBUNWIND_VERSION	:= 1.5.0
+LIBUNWIND_MD5		:= c6923dda0675f6a4ef21426164dc8b6a
 LIBUNWIND		:= libunwind-$(LIBUNWIND_VERSION)
 LIBUNWIND_SUFFIX	:= tar.gz
 LIBUNWIND_URL		:= http://download.savannah.gnu.org/releases/libunwind/$(LIBUNWIND).$(LIBUNWIND_SUFFIX)
 LIBUNWIND_SOURCE	:= $(SRCDIR)/$(LIBUNWIND).$(LIBUNWIND_SUFFIX)
 LIBUNWIND_DIR		:= $(BUILDDIR)/$(LIBUNWIND)
 LIBUNWIND_LICENSE	:= MIT
+LIBUNWIND_LICENSE_FILES	:= \
+	file://COPYING;md5=2d80c8ed4062b8339b715f90fa68cc9f
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -39,6 +41,7 @@ LIBUNWIND_CONF_OPT	:= \
 	--enable-setjmp \
 	--disable-documentation \
 	--disable-tests \
+	--enable-weak-backtrace \
 	--disable-debug \
 	--disable-cxx-exceptions \
 	--enable-debug-frame \
@@ -46,6 +49,7 @@ LIBUNWIND_CONF_OPT	:= \
 	--enable-conservative-checks \
 	--disable-msabi-support \
 	--disable-minidebuginfo \
+	--enable-zlibdebuginfo \
 	--disable-per-thread-cache
 
 # ----------------------------------------------------------------------------

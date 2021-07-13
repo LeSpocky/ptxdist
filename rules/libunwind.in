@@ -2,6 +2,7 @@
 
 config LIBUNWIND
 	tristate
+	select ZLIB
 	prompt "libunwind"
 	help
 	  Portable and efficient C programming interface to determine the
