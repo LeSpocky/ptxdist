@@ -14,13 +14,18 @@ PACKAGES-$(PTXCONF_NETTLE) += nettle
 #
 # Paths and names
 #
-NETTLE_VERSION	:= 3.6
-NETTLE_MD5	:= c45ee24ed7361dcda152a035d396fe8a
+NETTLE_VERSION	:= 3.7.3
+NETTLE_MD5	:= a60273d0fab9c808646fcf5e9edc2e8f
 NETTLE		:= nettle-$(NETTLE_VERSION)
 NETTLE_SUFFIX	:= tar.gz
 NETTLE_SOURCE	:= $(SRCDIR)/$(NETTLE).$(NETTLE_SUFFIX)
 NETTLE_DIR	:= $(BUILDDIR)/$(NETTLE)
-NETTLE_LICENSE	:= GPL-2.0-or-later
+NETTLE_LICENSE	:= GPL-2.0-or-later OR LGPL-3.0-or-later
+NETTLE_LICENSE_FILES := \
+	file://aes-decrypt-internal.c;startline=7;endline=31;md5=772749d9eca03de6e7c61a3dff9627d6 \
+	file://COPYINGv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://COPYINGv3;md5=11cc2d3ee574f9d6b7ee797bdce4d423 \
+	file://COPYING.LESSERv3;md5=6a6a8e020838b23406c81b19c1d46df6
 
 NETTLE_URL	:= \
 	http://www.lysator.liu.se/~nisse/archive/$(NETTLE).$(NETTLE_SUFFIX) \
