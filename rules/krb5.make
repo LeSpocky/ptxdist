@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_KRB5) += krb5
 #
 # Paths and names
 #
-KRB5_VERSION	:= 1.15.2
-KRB5_MD5	:= b160f72161c730897dc7689f876b6e2a
+KRB5_VERSION	:= 1.19.1
+KRB5_MD5	:= 81257292f8243f735654d4fd5d1fef6a
 KRB5		:= krb5-$(KRB5_VERSION)
 KRB5_SUFFIX	:= tar.gz
-KRB5_URL	:= https://web.mit.edu/kerberos/dist/krb5/1.15/$(KRB5).$(KRB5_SUFFIX)
+KRB5_URL	:= https://web.mit.edu/kerberos/dist/krb5/$(basename $(KRB5_VERSION))/$(KRB5).$(KRB5_SUFFIX)
 KRB5_SOURCE	:= $(SRCDIR)/$(KRB5).$(KRB5_SUFFIX)
 KRB5_DIR	:= $(BUILDDIR)/$(KRB5)
 KRB5_LICENSE	:= MIT
@@ -52,7 +52,9 @@ KRB5_CONF_OPT	:= \
 	--enable-thread-support \
 	--disable-rpath \
 	--disable-athena \
+	--disable-nls \
 	--disable-audit-plugin \
+	--$(call ptx/endis, PTXCONF_ARCH_X86_64)-aesni \
 	--enable-kdc-lookaside-cache \
 	--disable-asan \
 	--enable-pkinit \
@@ -67,8 +69,10 @@ KRB5_CONF_OPT	:= \
 	--without-vague-errors \
 	--with-crypto-impl=openssl \
 	--with-prng-alg=fortuna \
-	--with-pkinit-crypto-impl=openssl \
 	--with-tls-impl=openssl \
+	--$(call ptx/wwo,PTXCONF_KRB5_CLIENT_TOOLS)-keyutils \
+	--with-spake-openssl \
+	--without-lmdb \
 	--without-libedit \
 	--without-readline \
 	--without-system-verto
