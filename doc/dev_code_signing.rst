@@ -10,6 +10,8 @@ This is also essential when a verified boot chain is established, e.g. via
 *High Assurance Boot* (HAB), signed FIT images, and a verified root file
 system.
 
+.. image:: dev_code_signing_flowchart.svg
+
 On the one side, **code signing consumers** are PTXdist recipes that want to
 make use of key material, e.g. for signing kernel modules or disk images.
 PTXdist uses `PKCS#11 <pkcs11-doc_>`_ internally to provide access to keys and
