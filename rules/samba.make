@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_SAMBA) += samba
 #
 # Paths and names
 #
-SAMBA_VERSION	:= 4.12.6
-SAMBA_MD5	:= 0fa8bdd6826659c642bf1d255545d78d
+SAMBA_VERSION	:= 4.14.6
+SAMBA_MD5	:= 0e6b5607ad37209a5a10235579fa9765
 SAMBA		:= samba-$(SAMBA_VERSION)
 SAMBA_SUFFIX	:= tar.gz
 SAMBA_URL	:= https://download.samba.org/pub/samba/stable/$(SAMBA).$(SAMBA_SUFFIX)
@@ -39,6 +39,7 @@ SAMBA_CONF_OPT	:= \
 	--without-gettext \
 	--disable-python \
 	--without-gpgme \
+	--with-shared-modules="!vfs_snapper" \
 	--without-winbind \
 	--without-ads \
 	--without-ldap \
@@ -79,12 +80,11 @@ SAMBA_CONF_OPT	:= \
 	--disable-rpath-install \
 	--enable-auto-reconfigure \
 	--cross-compile \
-	--cross-execute=/does/not/exist/and/triggers/exceptions \
 	--cross-answers=$(SAMBA_DIR)/cross-answers \
 	--hostcc=$(HOSTCC) \
 	--enable-fhs \
-	--with-piddir=/run/samba \
 	--with-lockdir=/var/lib/samba/lock \
+	--with-piddir=/run/samba \
 	$(call ptx/ifdef,PTXCONF_SAMBA_SYSTEMD_UNIT,--systemd-install-services,) \
 	--with-systemddir=/usr/lib/systemd/system
 
@@ -98,7 +98,7 @@ $(STATEDIR)/samba.prepare:
 	@$(call world/execute, SAMBA, $(SYSTEMPYTHON3) ./buildtools/bin/waf configure $(SAMBA_CONF_OPT))
 	@$(call touch)
 
-SAMBA_COMPILE_ENV := \
+SAMBA_MAKE_ENV := \
 	PTXDIST_ICECC=$(PTXDIST_ICERUN)
 
 # ----------------------------------------------------------------------------
@@ -108,6 +108,7 @@ SAMBA_COMPILE_ENV := \
 SAMBA_COMMON_LIBS := \
 	libdcerpc \
 	libdcerpc-binding \
+	libdcerpc-server-core \
 	libndr-krb5pac \
 	libndr-nbt \
 	libndr-standard \

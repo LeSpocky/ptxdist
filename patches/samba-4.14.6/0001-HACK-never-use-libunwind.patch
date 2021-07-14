@@ -1,0 +1,46 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Thu, 15 Jul 2021 13:30:48 +0200
+Subject: [PATCH] HACK: never use libunwind
+
+The check is broken. libunwind is found by pkg-config, but the cflags are
+not used so libunwind.h is not found. This breaks building:
+
+../../lib/util/fault.c: In function 'log_stack_trace':
+../../lib/util/fault.c:228:2: error: unknown type name 'unw_cursor_t'
+../../lib/util/fault.c:229:2: error: unknown type name 'unw_context_t'; did you mean 'ucontext_t'?
+../../lib/util/fault.c:233:2: error: unknown type name 'unw_word_t'
+../../lib/util/fault.c:237:6: warning: implicit declaration of function 'unw_getcontext' [-Wimplicit-function-declaration]
+../../lib/util/fault.c:241:6: warning: implicit declaration of function 'unw_init_local' [-Wimplicit-function-declaration]
+../../lib/util/fault.c:249:6: warning: implicit declaration of function 'unw_get_reg' [-Wimplicit-function-declaration]
+../../lib/util/fault.c:249:27: error: 'UNW_REG_IP' undeclared (first use in this function)
+../../lib/util/fault.c:249:27: note: each undeclared identifier is reported only once for each function it appears in
+../../lib/util/fault.c:250:27: error: 'UNW_REG_SP' undeclared (first use in this function)
+../../lib/util/fault.c:252:14: warning: implicit declaration of function 'unw_get_proc_name'; did you mean 'rep_getprogname'? [-Wimplicit-function-declaration]
+../../lib/util/fault.c:256:12: error: 'UNW_ENOMEM' undeclared (first use in this function); did you mean 'ENOMEM'?
+../../lib/util/fault.c:271:11: warning: implicit declaration of function 'unw_step' [-Wimplicit-function-declaration]
+
+So just don't try to use libunwind at all.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ lib/util/wscript_configure | 7 -------
+ 1 file changed, 7 deletions(-)
+
+diff --git a/lib/util/wscript_configure b/lib/util/wscript_configure
+index d4450d25b985..389c70d1b3ac 100644
+--- a/lib/util/wscript_configure
++++ b/lib/util/wscript_configure
+@@ -11,13 +11,6 @@ conf.CHECK_FUNCS_IN('backtrace backtrace_symbols', 'execinfo', checklibc=True, h
+ conf.CHECK_HEADERS('execinfo.h')
+ 
+ conf.SET_TARGET_TYPE('LIBUNWIND', 'EMPTY')
+-if conf.check_cfg(package='libunwind-generic',
+-                  args='--cflags --libs',
+-                  msg='Checking for libunwind',
+-                  uselib_store='LIBUNWIND',
+-                  mandatory=False):
+-    if conf.CHECK_HEADERS('libunwind.h'):
+-        conf.SET_TARGET_TYPE('LIBUNWIND', 'SYSLIB')
+ 
+ conf.CHECK_STRUCTURE_MEMBER('struct statvfs', 'f_frsize', define='HAVE_FRSIZE', headers='sys/statvfs.h')
+ 
