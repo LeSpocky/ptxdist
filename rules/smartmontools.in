@@ -3,7 +3,8 @@
 menuconfig SMARTMONTOOLS
 	tristate
 	prompt "smartmontools                 "
-	select BUSYBOX_START_STOP_DAEMON if SMARTMONTOOLS_SMARTD_INITD
+	select BUSYBOX_START_STOP_DAEMON	if SMARTMONTOOLS_SMARTD_INITD
+	select SYSTEMD				if SMARTMONTOOLS_SYSTEMD_UNIT
 	select LIBC_M
 	select GCCLIBS_CXX
 	select GCCLIBS_GCC_S
@@ -48,7 +49,7 @@ config SMARTMONTOOLS_SMARTD_INITD
 config SMARTMONTOOLS_SYSTEMD_UNIT
 	bool
 	default y
-	depends on SMARTMONTOOLS_SMARTD && SYSTEMD
+	depends on SMARTMONTOOLS_SMARTD && INITMETHOD_SYSTEMD
 	prompt "install systemd unit file for smartd"
 
 endif

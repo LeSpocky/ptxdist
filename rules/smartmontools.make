@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_SMARTMONTOOLS) += smartmontools
 #
 # Paths and names
 #
-SMARTMONTOOLS_VERSION	:= 6.6
-SMARTMONTOOLS_MD5	:= 9ae2c6e7131cd2813edcc65cbe5f223f
+SMARTMONTOOLS_VERSION	:= 7.2
+SMARTMONTOOLS_MD5	:= e8d134c69ae4959a05cb56b31172ffb1
 SMARTMONTOOLS		:= smartmontools-$(SMARTMONTOOLS_VERSION)
 SMARTMONTOOLS_SUFFIX	:= tar.gz
 SMARTMONTOOLS_URL	:= $(call ptx/mirror, SF, smartmontools/$(SMARTMONTOOLS).$(SMARTMONTOOLS_SUFFIX))
 SMARTMONTOOLS_SOURCE	:= $(SRCDIR)/$(SMARTMONTOOLS).$(SMARTMONTOOLS_SUFFIX)
 SMARTMONTOOLS_DIR	:= $(BUILDDIR)/$(SMARTMONTOOLS)
-SMARTMONTOOLS_LICENSE	:= GPL-2.0-only
+SMARTMONTOOLS_LICENSE	:= GPL-2.0-or-later
+SMARTMONTOOLS_LICENSE_FILES := \
+	file://smartctl.cpp;startline=6;endline=10;md5=cf81e7daba6234e2c6674a2a20344e55 \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -31,11 +34,15 @@ SMARTMONTOOLS_CONF_TOOL	:= autoconf
 SMARTMONTOOLS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-sample \
-	--with-systemdsystemunitdir=/usr/lib/systemd/system \
+	--disable-scsi-cdb-check \
+	--enable-fast-lebe \
 	--without-update-smart-drivedb \
 	--without-gnupg \
 	--without-selinux \
 	--without-libcap-ng \
+	--$(call ptx/wwo, PTXCONF_SMARTMONTOOLS_SYSTEMD_UNIT)-libsystemd \
+	$(call ptx/ifdef, PTXCONF_SMARTMONTOOLS_SYSTEMD_UNIT,--with-systemdsystemunitdir=/usr/lib/systemd/system) \
+	--without-systemdenvfile \
 	--without-nvme-devicescan
 
 # ----------------------------------------------------------------------------
