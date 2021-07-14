@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WGET) += wget
 #
 # Paths and names
 #
-WGET_VERSION	:= 1.20
-WGET_MD5	:= 9f1515d083b769e9ff7642ce6016518e
+WGET_VERSION	:= 1.21.1
+WGET_MD5	:= b939ee54eabc6b9b0a8d5c03ace879c9
 WGET		:= wget-$(WGET_VERSION)
 WGET_SUFFIX	:= tar.gz
 WGET_URL	:= $(call ptx/mirror, GNU, wget/$(WGET).$(WGET_SUFFIX))
@@ -24,7 +24,7 @@ WGET_DIR	:= $(BUILDDIR)/$(WGET)
 WGET_LICENSE	:= GPL-3.0-or-later
 WGET_LICENSE_FILES := \
 	file://COPYING;md5=c678957b0c8e964aa6c70fd77641a71e \
-	file://src/main.c;startline=1;endline=28;md5=7b27873e910933ba54fa16589c4b8eed
+	file://src/main.c;startline=1;endline=28;md5=d6e80d7f1c0f263a0c8bb406c515a77c
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -54,6 +54,7 @@ WGET_CONF_OPT := \
 	--disable-rpath \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-iri \
+	--disable-pcre2 \
 	--disable-pcre \
 	--disable-xattr \
 	--without-libpsl \
