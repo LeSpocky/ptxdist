@@ -16,14 +16,18 @@ PACKAGES-$(PTXCONF_STRACE) += strace
 #
 # Paths and names
 #
-STRACE_VERSION	:= 5.8
-STRACE_MD5	:= 1a808c5917f0d91169e377c90faee6dd
+STRACE_VERSION	:= 5.9
+STRACE_MD5	:= fef7264b3501c6af86224c685751d0c6
 STRACE		:= strace-$(STRACE_VERSION)
 STRACE_SUFFIX	:= tar.xz
 STRACE_URL	:= https://strace.io/files/$(STRACE_VERSION)/$(STRACE).$(STRACE_SUFFIX)
 STRACE_SOURCE	:= $(SRCDIR)/$(STRACE).$(STRACE_SUFFIX)
 STRACE_DIR	:= $(BUILDDIR)/$(STRACE)
-STRACE_LICENSE	:= BSD-3-Clause
+STRACE_LICENSE	:= LGPL-2.1-or-later
+STRACE_LICENSE_FILES := \
+	file://COPYING;md5=c756d9d5dabc27663df64f0bf492166c \
+	file://LGPL-2.1-or-later;md5=9e4c7a7a5be83d7f3da645ac5d466052
+
 
 # ----------------------------------------------------------------------------
 # Prepare
