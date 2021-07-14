@@ -512,6 +512,7 @@ ptxd_make_world_license() {
 	ptxd_make_world_parse_license_files "${arg}" &&
 
 	local lic="${pkg_license_dir}/license/${filename//\//_}" &&
+	echo " $(ptxd_print_path "${file}")${guess:+ (guessed)}" &&
 	sed -n "${startline},${endline}p" "${file}" > "${lic}" &&
 	if [ -n "${encoding}" ]; then
 	    iconv -f "${encoding}" -t "utf-8"  -o "${lic}.utf-8" "${lic}"
@@ -532,6 +533,7 @@ changed: ${md5} -> $(md5sum "${lic}" | sed 's/ .*//')
 	fi ||
 	ptxd_bailout "Failed to copy '$(ptxd_print_path "${file}")'"
     done &&
+    echo &&
 
     ptxd_make_world_license_write | \
 	sed -e 's/%/\\%/g' > "${pkg_license_dir}/license-report.tex" &&
