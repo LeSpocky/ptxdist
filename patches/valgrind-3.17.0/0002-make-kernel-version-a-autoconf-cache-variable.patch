@@ -8,7 +8,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 6 insertions(+), 5 deletions(-)
 
 diff --git a/configure.ac b/configure.ac
-index c5c1eccfe3b4..54518bfa0cc5 100755
+index 6e428c82013b..ee81a3fd0a26 100755
 --- a/configure.ac
 +++ b/configure.ac
 @@ -345,16 +345,17 @@ case "${host_os}" in

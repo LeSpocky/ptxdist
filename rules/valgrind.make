@@ -18,14 +18,17 @@ PACKAGES-$(PTXCONF_ARCH_ARM64)-$(PTXCONF_VALGRIND) += valgrind
 #
 # Paths and names
 #
-VALGRIND_VERSION	:= 3.16.1
-VALGRIND_MD5		:= d1b153f1ab17cf1f311705e7a83ef589
+VALGRIND_VERSION	:= 3.17.0
+VALGRIND_MD5		:= afe11b5572c3121a781433b7c0ab741b
 VALGRIND		:= valgrind-$(VALGRIND_VERSION)
 VALGRIND_SUFFIX		:= tar.bz2
 VALGRIND_URL		:= https://sourceware.org/pub/valgrind/$(VALGRIND).$(VALGRIND_SUFFIX)
 VALGRIND_SOURCE		:= $(SRCDIR)/$(VALGRIND).$(VALGRIND_SUFFIX)
 VALGRIND_DIR		:= $(BUILDDIR)/$(VALGRIND)
-VALGRIND_LICENSE	:= GPL-2.0-only
+VALGRIND_LICENSE	:= GPL-2.0-or-later
+VALGRIND_LICENSE_FILES	:= \
+	file://callgrind/main.c;startline=11;endline=29;md5=a403c9acc35909154c705a9d66c2c65d \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -56,8 +59,13 @@ endif
 VALGRIND_CONF_TOOL	:= autoconf
 VALGRIND_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--without-mpicc \
-	--enable-tls
+	--disable-only64bit \
+	--disable-only32bit \
+	--disable-inner \
+	--disable-ubsan \
+	--disable-lto \
+	--enable-tls \
+	--without-mpicc
 
 # ----------------------------------------------------------------------------
 # Target-Install
