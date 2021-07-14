@@ -22,6 +22,8 @@ HARFBUZZ_URL		:= https://www.freedesktop.org/software/harfbuzz/release/$(HARFBUZ
 HARFBUZZ_SOURCE		:= $(SRCDIR)/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)
 HARFBUZZ_DIR		:= $(BUILDDIR)/$(HARFBUZZ)
 HARFBUZZ_LICENSE	:= MIT
+HARFBUZZ_LICENSE_FILES	:= \
+	file://COPYING;md5=8f787620b7d3866d9552fd1924c07572
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -36,9 +38,9 @@ HARFBUZZ_CONF_OPT	:= \
 	--disable-gtk-doc \
 	--disable-gtk-doc-html \
 	--disable-gtk-doc-pdf \
-	--disable-introspection \
+	--$(call ptx/endis, PTXCONF_HARFBUZZ_INTROSPECTION)-introspection \
 	--with-glib \
-	--without-gobject \
+	--$(call ptx/wwo, PTXCONF_HARFBUZZ_INTROSPECTION)-gobject \
 	--without-cairo \
 	--without-fontconfig \
 	--$(call ptx/wwo, PTXCONF_HARFBUZZ_ICU)-icu \
