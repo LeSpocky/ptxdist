@@ -15,14 +15,16 @@ PACKAGES-$(PTXCONF_TCPDUMP) += tcpdump
 #
 # Paths and names
 #
-TCPDUMP_VERSION	:= 4.9.2
-TCPDUMP_MD5	:= 9bbc1ee33dab61302411b02dd0515576
+TCPDUMP_VERSION	:= 4.9.3
+TCPDUMP_MD5	:= a4ead41d371f91aa0a2287f589958bae
 TCPDUMP		:= tcpdump-$(TCPDUMP_VERSION)
 TCPDUMP_SUFFIX	:= tar.gz
 TCPDUMP_URL	:= http://www.tcpdump.org/release/$(TCPDUMP).$(TCPDUMP_SUFFIX)
 TCPDUMP_SOURCE	:= $(SRCDIR)/$(TCPDUMP).$(TCPDUMP_SUFFIX)
 TCPDUMP_DIR	:= $(BUILDDIR)/$(TCPDUMP)
-TCPDUMP_LICENSE := BSD-3-Clause
+TCPDUMP_LICENSE	:= BSD-3-Clause
+TCPDUMP_LICENSE_FILES := \
+	file://LICENSE;md5=1d4b0366557951c84a94fabe3529f867
 
 # ----------------------------------------------------------------------------
 # Prepare
