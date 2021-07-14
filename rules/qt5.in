@@ -636,8 +636,6 @@ config QT5_MODULE_QTVIRTUALKEYBOARD
 config QT5_MODULE_QTWAYLAND
 	bool
 	depends on QT5_GUI
-	# HACK: we get link errors without this
-	select QT5_PLATFORM_EGLFS if QT5_OPENGL_ES2
 	prompt "QtWayland"
 
 if QT5_MODULE_QTWAYLAND
