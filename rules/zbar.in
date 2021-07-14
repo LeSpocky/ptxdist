@@ -1,0 +1,7 @@
+## SECTION=multimedia_libs
+
+config ZBAR
+	tristate
+	prompt "zbar"
+	help
+	  QR code / bar code scanner and decoder
