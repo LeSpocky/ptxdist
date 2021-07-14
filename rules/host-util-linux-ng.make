@@ -27,16 +27,30 @@ HOST_UTIL_LINUX_NG_DIR	= $(HOST_BUILDDIR)/$(UTIL_LINUX_NG)
 HOST_UTIL_LINUX_NG_CONF_TOOL	:= autoconf
 HOST_UTIL_LINUX_NG_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
+	--disable-werror \
+	--disable-asan \
+	--disable-ubsan \
+	--disable-fuzzing-engine \
 	--enable-shared \
 	--disable-static \
+	--enable-symvers \
 	--disable-gtk-doc \
+	--enable-assert \
 	--disable-nls \
+	--disable-rpath \
 	--disable-static-programs \
 	--disable-all-programs \
+	--disable-asciidoc \
+	--disable-poman \
 	--enable-tls \
+	--disable-widechar \
 	--enable-libuuid \
+	--disable-libuuid-force-uuidd \
 	--enable-libblkid \
 	--enable-libmount \
+	--disable-libmount-support-mtab \
+	--disable-libsmartcols \
+	--disable-libfdisk \
 	--disable-bash-completion \
 	--disable-pylibmount \
 	--disable-pg-bell \

@@ -15,11 +15,11 @@ PACKAGES-$(PTXCONF_UTIL_LINUX_NG) += util-linux-ng
 #
 # Paths and names
 #
-UTIL_LINUX_NG_VERSION	:= 2.36.1
-UTIL_LINUX_NG_MD5	:= b0b702979d47043d9c4d8ba93be21e20
+UTIL_LINUX_NG_VERSION	:= 2.37
+UTIL_LINUX_NG_MD5	:= 75eb0a648098332d4042f1646eca4069
 UTIL_LINUX_NG		:= util-linux-$(UTIL_LINUX_NG_VERSION)
 UTIL_LINUX_NG_SUFFIX	:= tar.xz
-UTIL_LINUX_NG_BASENAME	:= v$(call ptx/sh, echo $(UTIL_LINUX_NG_VERSION) | sed -e 's/\([0-9]*\.[0-9]*\)[^0-9].*\?/\1/g')
+UTIL_LINUX_NG_BASENAME	:= v$(if $(filter 2,$(basename $(UTIL_LINUX_NG_VERSION))),$(UTIL_LINUX_NG_VERSION),$(basename $(UTIL_LINUX_NG_VERSION)))
 UTIL_LINUX_NG_URL	:= $(call ptx/mirror, KERNEL, utils/util-linux/$(UTIL_LINUX_NG_BASENAME)/$(UTIL_LINUX_NG).$(UTIL_LINUX_NG_SUFFIX))
 UTIL_LINUX_NG_SOURCE	:= $(SRCDIR)/$(UTIL_LINUX_NG).$(UTIL_LINUX_NG_SUFFIX)
 UTIL_LINUX_NG_DIR	:= $(BUILDDIR)/$(UTIL_LINUX_NG)
@@ -53,6 +53,7 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--disable-werror \
 	--disable-asan \
 	--disable-ubsan \
+	--disable-fuzzing-engine \
 	--enable-shared \
 	--disable-static \
 	--enable-symvers \
@@ -63,6 +64,8 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--disable-rpath \
 	--disable-static-programs \
 	--enable-all-programs=undefined \
+	--disable-asciidoc \
+	--disable-poman \
 	--enable-tls \
 	--disable-widechar \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_LIBUUID)-libuuid \
@@ -79,6 +82,9 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_FSCK)-fsck \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_PARTX_TOOLS)-partx \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_UUIDD)-uuidd \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_UUIDGEN)-uuidgen \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_BLKID)-blkid \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_WIPEFS)-wipefs \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_MOUNTPOINT)-mountpoint \
 	--disable-fallocate \
 	--disable-unshare \
@@ -93,10 +99,15 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--disable-minix \
 	--disable-fdformat \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_HWCLOCK)-hwclock \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_MKFS)-mkfs \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_FSTRIM)-fstrim \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_SWAPON)-swapon \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_LSCPU)-lscpu \
 	--disable-lslogins \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_WDCTL)-wdctl \
 	--disable-cal \
 	--disable-logger \
+	--disable-whereis \
 	--disable-switch_root \
 	--disable-pivot_root \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_LSMEM)-lsmem \
@@ -106,6 +117,7 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_IRQTOP)-irqtop \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_LSIRQ)-lsirq \
 	--disable-rfkill \
+	--disable-scriptutils \
 	--disable-tunelp \
 	--disable-kill \
 	--disable-last \
@@ -155,15 +167,16 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--without-readline \
 	--without-utempter \
 	--without-cap-ng \
-	--without-libmagic \
 	--without-libz \
+	--without-libmagic \
 	--without-user \
 	--without-btrfs \
 	--without-systemd \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
 	--without-smack \
 	--without-econf \
-	--without-python
+	--without-python \
+	--without-cryptsetup
 
 # ----------------------------------------------------------------------------
 # Target-Install
