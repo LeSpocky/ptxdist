@@ -37,18 +37,28 @@ ptxd_make_spdx() {
     case "${license}" in
 """ % (basename(sys.argv[0]), basename(sys.argv[1]), basename(sys.argv[2])))
 
+lines = []
 for l in data['licenses']:
     arg = ''
     if l['isDeprecatedLicenseId']:
         arg = 'deprecated="true" '
     elif l['isOsiApproved']:
         arg = 'osi="true" '
-    outfile.write("	{}) {};;\n".format(l['licenseId'], arg))
+    lines.append("	{}) {};;\n".format(l['licenseId'], arg))
 
+lines.sort(key=str.casefold)
+for line in lines:
+    outfile.write(line)
+
+lines=[]
 for l in ex_data['exceptions']:
     if l['isDeprecatedLicenseId']:
         continue
-    outfile.write("	{}) exception=\"true\" ;;\n".format(l['licenseExceptionId']))
+    lines.append("	{}) exception=\"true\" ;;\n".format(l['licenseExceptionId']))
+
+lines.sort(key=str.casefold)
+for line in lines:
+    outfile.write(line)
 
 outfile.write("""	*) return 1 ;;
     esac
