@@ -109,7 +109,7 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--disable-logger \
 	--disable-whereis \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_SWITCH_ROOT)-switch_root \
-	--disable-pivot_root \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_PIVOT_ROOT)-pivot_root \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_LSMEM)-lsmem \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_CHMEM)-chmem \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_IPCRM)-ipcrm \
@@ -354,6 +354,9 @@ ifdef PTXCONF_UTIL_LINUX_NG_SULOGIN
 endif
 ifdef PTXCONF_UTIL_LINUX_NG_SWITCH_ROOT
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/sbin/switch_root)
+endif
+ifdef PTXCONF_UTIL_LINUX_NG_PIVOT_ROOT
+	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/sbin/pivot_root)
 endif
 
 	@$(call install_finish, util-linux-ng)
