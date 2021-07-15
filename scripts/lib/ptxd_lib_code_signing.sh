@@ -288,7 +288,16 @@ cs_get_ca() {
     local role="${1}"
     cs_init_variables
 
-    echo "${keydir}/${role}/ca.pem"
+    local ca="${keydir}/${role}/ca.pem"
+
+    if [ ! -d "${keydir}" ]; then
+	echo "ERROR_CA_NOT_YET_SET"
+	return 1
+    fi
+
+    if [ -e "${ca}" ]; then
+	echo "${ca}"
+    fi
 }
 export -f cs_get_ca
 

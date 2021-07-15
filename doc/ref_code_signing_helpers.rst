@@ -330,8 +330,24 @@ Usage:
 
 Get path to the CA keyring in PEM format for role.
 
+If the provider does not set a CA for this role (see :ref:`cs_append_ca_from_pem`,
+:ref:`cs_append_ca_from_der`, :ref:`cs_append_ca_from_uri`), this function will print an empty
+string.
+
 Preconditions:
 
-- a certificate must have been appended to the CA keyring
-  (see :ref:`cs_append_ca_from_pem`, :ref:`cs_append_ca_from_der`,
-  :ref:`cs_append_ca_from_uri`)
+- The role must have been defined by the provider (see :ref:`cs_define_role`).
+  Otherwise, this function will print ``ERROR_CA_NOT_YET_SET`` and return 1.
+  This can happen if the function is evaluated by a variable expansion in make
+  with ``:=`` instead of ``=`` before the code signing provider is set up.
+
+Example:
+
+.. code-block:: make
+
+   # set up kernel module signing, and add a trusted CA if the provider set one
+   KERNEL_SIGN_OPT =
+   	CONFIG_MODULE_SIG_KEY='"$(shell cs_get_uri kernel-modules)"' \
+   	CONFIG_MODULE_SIG_ALL=y \
+   	$(if $(shell cs_get_ca kernel-trusted), \
+   		CONFIG_SYSTEM_TRUSTED_KEYS=$(shell cs_get_ca kernel-trusted))
