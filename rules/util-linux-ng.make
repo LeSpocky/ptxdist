@@ -108,7 +108,7 @@ UTIL_LINUX_NG_CONF_OPT	:= \
 	--disable-cal \
 	--disable-logger \
 	--disable-whereis \
-	--disable-switch_root \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_SWITCH_ROOT)-switch_root \
 	--disable-pivot_root \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_LSMEM)-lsmem \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NG_CHMEM)-chmem \
@@ -351,6 +351,9 @@ ifdef PTXCONF_UTIL_LINUX_NG_LOGIN
 endif
 ifdef PTXCONF_UTIL_LINUX_NG_SULOGIN
 	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/sbin/sulogin)
+endif
+ifdef PTXCONF_UTIL_LINUX_NG_SWITCH_ROOT
+	@$(call install_copy, util-linux-ng, 0, 0, 0755, -, /usr/sbin/switch_root)
 endif
 
 	@$(call install_finish, util-linux-ng)

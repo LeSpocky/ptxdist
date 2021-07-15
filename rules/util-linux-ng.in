@@ -514,4 +514,15 @@ config UTIL_LINUX_NG_SULOGIN
 comment "BusyBox' sulogin is selected!"
 	depends on BUSYBOX_SULOGIN
 
+config UTIL_LINUX_NG_SWITCH_ROOT
+	bool
+	depends on !BUSYBOX_SWITCH_ROOT
+	prompt "switch_root"
+	help
+	  switch to another filesystem as the root of the mount
+	  tree.
+
+comment "BusyBox' switch_root is selected!"
+	depends on BUSYBOX_SWITCH_ROOT
+
 endif
