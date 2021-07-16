@@ -63,7 +63,7 @@ NSS_MAKE_ENV := \
 
 NSS_MAKE_OPT := \
 	OS_ARCH=Linux \
-	OS_RELEASE=$(PTXCONF_KERNEL_VERSION) \
+	OS_RELEASE=$(KERNEL_VERSION) \
 	OS_TEST=$(NSS_ARCH) \
 	all
 
@@ -92,7 +92,7 @@ $(STATEDIR)/nss.install:
 	@$(call world/install, NSS)
 
 	@$(foreach lib,$(NSS_LIBS), \
-		install -v -m644 -D $(NSS_DIR)/dist/Linux$(PTXCONF_KERNEL_VERSION)_$(NSS_ARCH)_*/lib/$(lib).so \
+		install -v -m644 -D $(NSS_DIR)/dist/Linux$(KERNEL_VERSION)_$(NSS_ARCH)_*/lib/$(lib).so \
 			$(NSS_PKGDIR)/usr/lib/$(lib).so$(ptx/nl))
 
 	install -d $(NSS_PKGDIR)/usr/lib/pkgconfig/
