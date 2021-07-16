@@ -34,16 +34,23 @@ ptxd_make_world_lint_patches() {
 export -f ptxd_make_world_lint_patches
 PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} patches"
 
-ptxd_make_world_lint_symbols_make() {
-    local sedfd
-
+ptxd_make_world_lint_symbols_make_get() {
     # - drop comments
     # - split after ')' to match multiple symbols in one line
     # - match '$(PTXCONF_*)'
     # - match 'ifdef PTXCONF_*' and similar things
-    exec {sedfd}< <(sed -e '/^#/d' -e 's/)/)\n/g' "${1}" | \
+    # - skip (BOARD|)SETUP_ for now because we cannot track those symbols
+    sed -e '/^#/d' -e 's/)/)\n/g' "${1}" | \
 	sed -n -e 's/.*\$(PTXCONF_\([A-Z0-9_]\+\)).*/\1/p' \
-	       -e 's/.* PTXCONF_\([A-Z0-9_]\+\)$/\1/p' | sort -u)
+	       -e 's/.* PTXCONF_\([A-Z0-9_]\+\)$/\1/p' | \
+	sort -u
+}
+export -f ptxd_make_world_lint_symbols_make_get
+
+ptxd_make_world_lint_symbols_make() {
+    local sedfd
+
+    exec {sedfd}< <(ptxd_make_world_lint_symbols_make_get "${1}")
     while read symbol <&${sedfd}; do
 	if ! [[ " ${symbols_all} " =~ " ${symbol} " ]]; then
 	    if [[ "${symbol}" =~ ^(BOARD|)SETUP_ ]]; then
