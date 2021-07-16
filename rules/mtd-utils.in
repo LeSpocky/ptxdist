@@ -43,7 +43,7 @@ config MTD_UTILS_FLASH_ERASE
 	bool
 	prompt "flash_erase"
 	help
-	  Erase parts of a MTD device
+	  Erase parts of an MTD device
 
 config MTD_UTILS_FLASH_ERASEALL
 	bool

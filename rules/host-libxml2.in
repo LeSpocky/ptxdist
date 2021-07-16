@@ -5,7 +5,7 @@ config HOST_LIBXML2
 	select HOST_ZLIB
 	default y if ALLYES
 	help
-	  Libxml2 is a XML C parser and toolkit. XML itself is a
+	  Libxml2 is an XML C parser and toolkit. XML itself is a
 	  metalanguage to design markup languages, i.e. text
 	  language where semantic and structure are added to the
 	  content using extra "markup" information enclosed

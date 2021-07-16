@@ -10,5 +10,5 @@ config XORG_APP_XINPUT
 	select XORGPROTO
 	prompt "xinput"
 	help
-	  Xinput is an utility for configuring and testing XInput
+	  Xinput is a utility for configuring and testing XInput
 	  devices.

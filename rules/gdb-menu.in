@@ -26,7 +26,7 @@ config GDB_MD5
 	default "d42841167fd061d90fddf9a7212a1f9f" if !GDB_TOOLCHAIN_VERSION
 	help
 	  md5sum for the gdb source archive. If the version is provided by
-	  the toolchain and the toolchain is a OSELAS.Toolchain then this
+	  the toolchain and the toolchain is an OSELAS.Toolchain then this
 	  can be left empty and the md5sum from the toolchain ptxconfig is
 	  used.
 

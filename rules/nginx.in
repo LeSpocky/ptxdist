@@ -89,7 +89,7 @@ config NGINX_HTTP_SCGI_MODULE
 	bool
 	prompt "ngx_http_scgi_module"
 	help
-	  ngx_http_scgi_module allows passing requests to a SCGI
+	  ngx_http_scgi_module allows passing requests to an SCGI
 	  server.
 
 config NGINX_HTTP_SSL_MODULE

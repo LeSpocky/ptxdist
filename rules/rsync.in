@@ -35,7 +35,7 @@ choice
 		bool
 		prompt "inetd driven"
 		help
-		  Install a inetd rule for rsync. This option adds the following line
+		  Install an inetd rule for rsync. This option adds the following line
 		  to /etc/inetd.conf.d/rsync:
 
 		  rsync stream tcp nowait root /usr/bin/rsync rsyncd --daemon @CONFIG@

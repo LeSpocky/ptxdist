@@ -10,7 +10,7 @@ config MTR
 	  Full screen ncurses traceroute tool
 
 	  mtr combines the functionality of the 'traceroute' and
-	  'ping' programs in a asingle network diagnostic tool.
+	  'ping' programs in a single network diagnostic tool.
 
 	  As mtr starts, it investigates the network connection
 	  between the host mtr runs on and a user-specified

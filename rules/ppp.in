@@ -172,7 +172,7 @@ config PPP_WINBIND
 	prompt "winbind"
 	help
 	  WINBIND plugin for pppd. Performs PAP, CHAP, MS-CHAP, MS-CHAPv2
-	  authentication using WINBIND to contact a NT-style PDC.
+	  authentication using WINBIND to contact an NT-style PDC.
 
 endif
 

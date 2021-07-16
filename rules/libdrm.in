@@ -9,7 +9,7 @@ menuconfig LIBDRM
 	select HOST_XORG_UTIL_MACROS
 	select LIBPCIACCESS	if LIBDRM_INTEL
 	help
-	  This library provides an user-level interface to the DRM
+	  This library provides a user-level interface to the DRM
 	  device. It is needed for x.org.
 
 if LIBDRM

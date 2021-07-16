@@ -137,7 +137,7 @@ menuconfig INETUTILS_TFTPD
 	prompt "tftpd                         "
 	depends on !BUSYBOX_TFTPD || ALLYES
 	help
-	  TFTPD is a ftp daemon to be used for diskless clients. Most bootloaders
+	  TFTPD is an ftp daemon to be used for diskless clients. Most bootloaders
 	  use the Trivial File Transfer Protocol to load their OS image. Note:
 	  There is no authentication!
 

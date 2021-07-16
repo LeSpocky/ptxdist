@@ -59,6 +59,6 @@ config DOSFSTOOLS_FATLABEL
 	bool
 	prompt "fatlabel"
 	help
-	  set or get a MS-DOS filesystem label
+	  set or get an MS-DOS filesystem label
 
 endif

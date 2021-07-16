@@ -73,5 +73,5 @@ The helper functions that are used in the example above are defined in
 The template is a normal shell function. Arbitrary things can be done here
 to create the new package. The helper functions are just the most
 convenient way to crate simple templates. It is also possible to create
-more files. For examples, the builtin ``genimage`` template creates a extra
+more files. For examples, the builtin ``genimage`` template creates an extra
 config file for the new package.

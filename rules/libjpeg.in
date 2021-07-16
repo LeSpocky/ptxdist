@@ -8,7 +8,7 @@ menuconfig LIBJPEG
 	help
 	  libjpeg-turbo is a library for handling the JPEG (JFIF) image format
 	  that uses SIMD instructions (MMX, SSE2, AVX2, NEON, AltiVec) to
-	  accelerate baseline JPEG compression an decompression.
+	  accelerate baseline JPEG compression and decompression.
 
 if LIBJPEG
 

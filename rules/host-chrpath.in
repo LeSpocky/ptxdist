@@ -4,4 +4,4 @@ config HOST_CHRPATH
 	tristate
 	default y
 	help
-	  Tool to change the rpath of a ELF binary.
+	  Tool to change the rpath of an ELF binary.

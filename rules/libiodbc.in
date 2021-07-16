@@ -9,7 +9,7 @@ menuconfig LIBIODBC
 
 	  iODBC (intrinsic Open Database Connectivity) driver manager
 	  is compatible with ODBC 2.x and 3.x specification and
-	  performs exact the jobs of a ODBC driver manager
+	  performs exact the jobs of an ODBC driver manager
 	  (i.e. driver loading, Parameters and function sequence
 	  checking, driver's function invoking, etc). Any ODBC driver
 	  works with ODBC 2.0 and 3.x driver manager will also work

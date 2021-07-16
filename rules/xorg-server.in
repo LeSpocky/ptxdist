@@ -165,7 +165,7 @@ config XORG_SERVER_XNEST
 	select XORG_SERVER_EXT_XDMCP
 	prompt "xorg xnest server"
 	help
-	  A X server working on a running X server. Disadvantage is Xnest
+	  An X server working on a running X server. Disadvantage is Xnest
 	  supports only features the running X server itself supports.
 
 config XORG_SERVER_XWAYLAND

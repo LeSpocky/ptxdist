@@ -19,7 +19,7 @@ config MARIADB
 	select ROOTFS_VAR_LIB	if RUNTIME
 	prompt "mariadb" if ALLYES
 	help
-	  MariaDB, a SQL database engine
+	  MariaDB, an SQL database engine
 
 	  Note: on a read-only root filesystem this package still requires a
 	  writable '/var/lib' for the database.

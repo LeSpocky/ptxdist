@@ -89,7 +89,7 @@ must be updated before they can be used. This can be done by using the
 ``oldconfig`` command. In this special case, PTXdist will iterate from the
 bottom to the top layer and run ``oldconfig`` for each of them. It will
 use the delta config applied to the full config of the layer below at each
-step. This means that it's possible to enable or disable a option in the
+step. This means that it's possible to enable or disable an option in the
 bottom layer and ``oldconfig`` will propagate this change to all other
 layers.
 

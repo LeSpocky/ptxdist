@@ -149,7 +149,7 @@ config UDEV_LEGACY_ACCELEROMETER
 	depends on SYSTEMD = n
 	prompt "accelerometer"
 	help
-	  When an "change" event is received on an accelerometer,
+	  When a "change" event is received on an accelerometer,
 	  open its device node, and from the value, as well as the previous
 	  value of the property, calculate the device's new orientation,
 	  and export it as ID_INPUT_ACCELEROMETER_ORIENTATION.
