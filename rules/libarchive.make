@@ -32,7 +32,8 @@ LIBARCHIVE_LICENSE_FILES	:= file://COPYING;md5=d499814247adaee08d88080841cb5665
 LIBARCHIVE_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	ac_cv_have_decl_EXT2_IOC_GETFLAGS=no \
-	ac_cv_header_ext2fs_ext2_fs_h=no
+	ac_cv_header_ext2fs_ext2_fs_h=no \
+	ac_cv_lib_md_MD5Init=no
 
 #
 # autoconf
