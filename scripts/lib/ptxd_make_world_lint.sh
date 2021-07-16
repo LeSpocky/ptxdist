@@ -201,6 +201,7 @@ ptxd_make_world_lint_credits() {
 	fi
     done
     exec {filefd}<&-
+    echo
 }
 export -f ptxd_make_world_lint_credits
 PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} credits"
