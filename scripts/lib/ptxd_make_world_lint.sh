@@ -206,8 +206,64 @@ ptxd_make_world_lint_credits() {
 export -f ptxd_make_world_lint_credits
 PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} credits"
 
+unset ptxd_make_world_lint_cross_whitelist
+# we don't care about the initmethod
+ptxd_make_world_lint_cross_whitelist+="INITMETHOD_BBINIT INITMETHOD_SYSTEMD "
+# used to add the include path for the kernel headers
+ptxd_make_world_lint_cross_whitelist+="KERNEL_HEADER "
+# basically global stuff
+ptxd_make_world_lint_cross_whitelist+="LOCALES "
+ptxd_make_world_lint_cross_whitelist+="PRELINK "
+ptxd_make_world_lint_cross_whitelist+="ROOTFS_ETC_HOSTNAME "
+# needed for dependencies
+ptxd_make_world_lint_cross_whitelist+="SYSTEMD_HWDB "
+# needed by the kernel
+ptxd_make_world_lint_cross_whitelist+="IMAGE_KERNEL_INITRAMFS IMAGE_KERNEL_INSTALL_EARLY IMAGE_KERNEL_LZOP "
+export ptxd_make_world_lint_cross_whitelist
+
+ptxd_make_world_lint_cross() {
+    local filefd file pkg packages
+
+    echo "Checking for packages that use symbols from other packages ..."
+
+    packages="$(tr 'a-z-' 'A-Z_' <<<${ptx_packages_all})"
+
+    exec {filefd}< <(ptxd_make_world_lint_makefiles)
+    while read file <&${filefd}; do
+	pkg="$(sed -n -e 's/^[A-Z_]*PACKAGES-.*\$(PTXCONF_\([A-Z0-9]*\)) +=.*/\1/p' -e '/^[A-Z]/q' "${file}")"
+	if [ -z "${pkg}" ]; then
+	    continue
+	fi
+	exec {sedfd}< <(ptxd_make_world_lint_symbols_make_get "${file}")
+	while read symbol <&${sedfd}; do
+	    found="false"
+	    if [[ "${symbol}" =~ ^${pkg} ]]; then
+		continue
+	    fi
+	    if [[ " ${ptxd_make_world_lint_cross_whitelist} " =~ " ${symbol} " ]]; then
+		continue
+	    fi
+	    for tmp in ${packages}; do
+		if [[ "${symbol}" =~ ^${tmp}$ || "${symbol}" =~ ^${tmp}_ ]]; then
+		    found="true"
+		    break
+		fi
+	    done
+	    if ${found}; then
+		ptxd_lint_error "'$(ptxd_print_path "${file}")' contains symbol 'PTXCONF_${symbol}' from another package."
+	    fi
+	done
+    done
+    exec {filefd}<&-
+    echo
+}
+export -f ptxd_make_world_lint_cross
+PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} cross"
+
 ptxd_make_world_lint() {
     local command
+
+    ptxd_make_world_env_init || return
 
     for command in ${PTXDIST_LINT_COMMANDS}; do
 	ptxd_make_world_lint_${command}
