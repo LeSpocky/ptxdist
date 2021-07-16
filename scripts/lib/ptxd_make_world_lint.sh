@@ -97,7 +97,7 @@ ptxd_make_world_lint_symbols() {
     exec {filefd}< <(ptxd_make_world_lint_makefiles)
     while read file <&${filefd}; do
 	ptxd_make_world_lint_symbols_make "${file}"
-    done < "${ptx_dgen_rulesfiles_make}"
+    done
     exec {filefd}<&-
     echo
 }
@@ -135,7 +135,7 @@ ptxd_make_world_lint_macros() {
     exec {filefd}< <(ptxd_make_world_lint_makefiles)
     while read file <&${filefd}; do
 	ptxd_make_world_lint_macros_make "${file}"
-    done < "${ptx_dgen_rulesfiles_make}"
+    done
     exec {filefd}<&-
     echo
 }
@@ -177,7 +177,7 @@ ptxd_make_world_lint_autogen() {
 		need_autogen=1
 		break
 	    fi
-	done < "${ptx_dgen_rulesfiles_make}"
+	done
 	exec {fd}<&-
 	if [ -n "${need_autogen}" -a ! -e "${dir}/autogen.sh" ]; then
 	    ptxd_lint_error "'$(ptxd_print_path "${file}")' touches files that require autoreconf" \
@@ -199,7 +199,7 @@ ptxd_make_world_lint_credits() {
 	if grep -q "See CREDITS for details about who has contributed to this project\." "${file}"; then
 	    ptxd_lint_error "'$(ptxd_print_path "${file}")' contains obsolete 'CREDITS' comment."
 	fi
-    done < "${ptx_dgen_rulesfiles_make}"
+    done
     exec {filefd}<&-
 }
 export -f ptxd_make_world_lint_credits
