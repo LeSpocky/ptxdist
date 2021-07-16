@@ -22,7 +22,7 @@ $(call ptx/in-path3,
 $(foreach path,$(1),$(if $(filter-out /%,$(path)),
 $(call ptx/in-path-all,PTXDIST_PATH_LAYERS,$(path)),$(path))),$(2))
 endef
-# create a path ist from the variable with ':' separated paths
+# create a path from the variable with ':' separated paths
 define ptx/in-path-all
 $(call ptx/in-path2,$(subst :,$(ptx/def/space),$($(strip $(1)))),$(2))
 endef

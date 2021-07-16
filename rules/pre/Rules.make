@@ -351,11 +351,11 @@ HOST_CROSS_AUTOCONF_SYSROOT := --prefix=$(PTXDIST_SYSROOT_CROSS) $(HOST_CROSS_AU
 # add_locale
 #
 # add locale support to locales-archive, if not exist, a new locale
-# archive will be created automaticly
+# archive will be created automatically
 #
 # $1: localename: localename (i.E. zh_CN or zh_CN.GBK)
 # $2: localedef; locale definition file (i.E. de_DE or de_DE@euro)
-# $3: charmap; charachter encoding map (i.E. ISO-8859-1)
+# $3: charmap; character encoding map (i.E. ISO-8859-1)
 # $4: prefix; installation prefix for locales-archive
 #
 #

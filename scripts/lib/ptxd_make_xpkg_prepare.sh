@@ -14,7 +14,7 @@
 # in some rare cases there is more than one xpkg per package and/or
 # the names don't correspond, so we have to use the mapping file
 #
-# in:	$pkg_run_deps	(space seperated)
+# in:	$pkg_run_deps	(space separated)
 # out:	$pkg_xpkg_deps	(array)
 #
 ptxd_make_xpkg_deps() {

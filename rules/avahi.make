@@ -191,9 +191,9 @@ endif
 
 ifdef PTXCONF_AVAHI_AUTOIP
 #	avahi autoip daemon (avahi IPv4LL Implementation)
-#	this component is needed for rfc3927 style link local adressing
+#	this component is needed for rfc3927 style link local addressing
 #	depends on libdaemon
-#	be shure to set CONFIG_FILE_LOCKING=y in your Kernel Config
+#	be sure to set CONFIG_FILE_LOCKING=y in your Kernel Config
 	@$(call install_copy, avahi, 0, 0, 0755, -, /usr/sbin/avahi-autoipd)
 	@$(call install_copy, avahi, 0, 0, 0755, -, \
 		/etc/avahi/avahi-autoipd.action)

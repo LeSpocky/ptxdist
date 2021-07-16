@@ -784,7 +784,7 @@ ptxd_install_generic() {
 	    ptxd_install_file "${file}" "${dst}" "${usr}" "${grp}" "${mod}" "${strip}"
 	    ;;
 	*)
-	    echo "Error: File type '${type}' unkown!"
+	    echo "Error: File type '${type}' unknown!"
 	    return 1
 	    ;;
     esac

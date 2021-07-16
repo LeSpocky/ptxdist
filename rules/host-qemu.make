@@ -55,7 +55,7 @@ HOST_QEMU_SYS_TARGETS	:= $(patsubst %,%-softmmu,$(HOST_QEMU_TARGETS))
 HOST_QEMU_USR_TARGETS	:= $(patsubst %,%-linux-user,$(HOST_QEMU_TARGETS))
 
 HOST_QEMU_CONF_TOOL	:= autoconf
-# Note: not realy autoconf:
+# Note: not really autoconf:
 # e.g. there is --enable-debug but not --disable-debug
 HOST_QEMU_CONF_OPT	:= \
 	--prefix=/. \

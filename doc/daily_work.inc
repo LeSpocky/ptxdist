@@ -1443,9 +1443,9 @@ A different approach to have a writable ``/var`` without persistency is to use
 a so called *overlay filesystem*. This *overlay filesystem* is a transparent
 writable layer on top of a read-only filesystem. After the system's start the
 *overlay filesystem layer* is empty and all reads will be satisfied by the
-underlaying read-only filesystem. Writes (new files, directories, changes of
+underlying read-only filesystem. Writes (new files, directories, changes of
 existing files) are stored in the *overlay filesystem layer* and on the
-next read satisfied by this layer, instead of the underlaying read-only
+next read satisfied by this layer, instead of the underlying read-only
 filesystem.
 
 PTXdist supports this use case, by enabling the *overlay* feature for the

@@ -61,7 +61,7 @@ EOF
     elif [ \( "${pkg_conf_tool}" = "qmake" -o "${pkg_conf_tool}" = "perl" \) -a "${pkg_type}" != "target" ]; then
 	cat >&2 <<EOF
 
-error: only ${pkg_conf_tool} taget packages are supported
+error: only ${pkg_conf_tool} target packages are supported
 
 EOF
 	exit 1

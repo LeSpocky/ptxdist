@@ -42,8 +42,8 @@ export -f ptxd_make_world_init_deprecation_check
 
 
 #
-# initialize deprecated variables to work with the new sheme
-# (wich is still WIP)
+# initialize deprecated variables to work with the new scheme
+# (which is still WIP)
 #
 ptxd_make_world_init_compat() {
     if [ "${pkg_stage}" = "prepare" ]; then
@@ -497,7 +497,7 @@ ptxd_make_world_init() {
 	    pkg_make_par="${PTXDIST_PARALLEL_FLAGS} ${PTXDIST_LOADMFLAGS}"
 	    ;;
 	python*)
-	    # no consistant support for parallel building
+	    # no consistent support for parallel building
 	    pkg_make_par="${python_pkg_make_par}"
 	    ;;
 	scons)

@@ -385,7 +385,7 @@ ptxd_make_world_patchin_fixup()
 	# - on blackfin they've got symbols with more "_" prefixes than on other platforms
 	# - teach libtool to cope with it
 	#
-	# the second one supresses the adding of "rpath"
+	# the second one suppresses the adding of "rpath"
 	#
 	sed -i \
 	    -e "s=sed -e \"s/\\\\(\.\*\\\\)/\\\\1;/\"=sed -e \"s/\\\\(.*\\\\)/'\"\$ac_symprfx\"'\\\\1;/\"=" \

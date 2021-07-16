@@ -153,7 +153,7 @@ ifdef PTXCONF_IPTABLES_INSTALL_IPTABLES_APPLY
 	@$(call install_copy, iptables, 0, 0, 0755, -, /usr/sbin/iptables-apply)
 endif
 
-#	#  compability layer for nftables
+#	#  compatibility layer for nftables
 ifdef PTXCONF_IPTABLES_NFTABLES_COMPAT
 	@$(call install_copy, iptables, 0, 0, 0755, -, /usr/sbin/xtables-nft-multi)
 

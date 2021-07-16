@@ -83,7 +83,7 @@ $(STATEDIR)/host-python3.install:
 # remove "python" so that it doesn't interfere with the build
 # machine's python
 #
-# the target build proces will only use python with the
+# the target build process will only use python with the
 # python-$(PYTHON3_MAJORMINOR)
 #
 	@rm -v \

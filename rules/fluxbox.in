@@ -22,7 +22,7 @@ menuconfig FLUXBOX
 if FLUXBOX
 config FLUXBOX_IMLIB2
 	bool
-	# imlib2 ist not in PTXdist
+	# imlib2 is not in PTXdist
 	depends on BROKEN
 	prompt "imlib based theme support"
 	help

@@ -52,7 +52,7 @@ ptxd_make_get_http() {
 
 	#
 	# download to temporary file first, move it to correct
-	# file name after successfull download
+	# file name after successful download
 	#
 	local file="${url##*/}"
 
@@ -305,9 +305,9 @@ export -f ptxd_make_get_download_permitted
 
 #
 # $1: target source path (including file name)
-# $@: possible download URLs, seperated by space
+# $@: possible download URLs, separated by space
 #
-# options seperated from URLs by ";"
+# options separated from URLs by ";"
 #
 # valid options:
 # - no-check-certificate	don't check server certificate (https only)
@@ -352,7 +352,7 @@ ptxd_make_get() {
 			ptxmirror_url=
 			continue
 		fi
-		# restrict donwload only to white-listed URLs
+		# restrict download only to white-listed URLs
 		if [ -n "${PTXCONF_SETUP_PTXMIRROR_ONLY}" ]; then
 			local pattern
 			add=false
@@ -380,7 +380,7 @@ ptxd_make_get() {
 
 	while [ ${#} -ne 0 ]; do
 		#
-		# strip options which are seperated by ";" form the
+		# strip options which are separated by ";" form the
 		# URL, store in "opts" array
 		#
 		local orig_ifs="${IFS}"

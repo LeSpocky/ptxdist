@@ -321,7 +321,7 @@ export -f ptxd_make_world_copy_patch_files
 # $1 path to the extracted and patched sources [1]
 # $2 base directory where to copy the patches to (without the trailing 'patches')
 #
-# [1] assumed here is the existance of the '.ptxdist' directory which contains
+# [1] assumed here is the existence of the '.ptxdist' directory which contains
 #     the selected patch stack if any
 ptxd_make_world_copy_patches() {
    local patches_directory=""

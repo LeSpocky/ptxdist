@@ -27,7 +27,7 @@ source "config/Kconfig"
 #
 # "## SECTION=project_specific"
 #
-# After that include this menu or menues with the following line:
+# After that include this menu or menus with the following line:
 #
 # source "generated/project_specific.in"
 #

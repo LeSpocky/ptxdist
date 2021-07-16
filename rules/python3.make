@@ -130,7 +130,7 @@ $(STATEDIR)/python3.install.post:
 		> "$(PTXDIST_SYSROOT_CROSS)/bin/python$(PYTHON3_MAJORMINOR)-config"
 	@chmod +x "$(PTXDIST_SYSROOT_CROSS)/bin/python$(PYTHON3_MAJORMINOR)-config"
 
-#	# make sure grammer pickle is generated to avoid parallel building issues
+#	# make sure grammar pickle is generated to avoid parallel building issues
 	@"$(CROSS_PYTHON3)" -c 'from setuptools.command import build_py'
 
 	@$(call touch)

@@ -26,7 +26,7 @@ GTK2_DIR	:= $(BUILDDIR)/$(GTK2)
 # Prepare
 # ----------------------------------------------------------------------------
 
-# cups-config otherwhise picks up the host version
+# cups-config otherwise picks up the host version
 GTK2_CONF_ENV := \
 	$(CROSS_ENV) \
 	ac_cv_path_CUPS_CONFIG=no

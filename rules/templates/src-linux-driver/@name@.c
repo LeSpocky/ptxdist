@@ -12,7 +12,7 @@
  * This is the first of two exported functions to handle inserting this
  * code into a running kernel
  *
- * Returns 0 if successfull, otherwise -1
+ * Returns 0 if successful, otherwise -1
  */
 
 static int __init template_init(void)

@@ -4,4 +4,4 @@ config SCHEDTOOL
 	tristate
 	prompt "schedtool"
 	help
-	  schedtool can be used to query or alter a process' scheduling policy under linux
+	  schedtool can be used to query or alter a process's scheduling policy under linux

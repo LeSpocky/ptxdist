@@ -96,5 +96,5 @@ To boot from SD-Card a disk image including bootloader, partition table and
 rootfs is needed. The ``image-genimage`` template can be uses again to
 create such an image for each variant.
 
-.. note:: The genimage config files in ``config/images/`` are good examles
+.. note:: The genimage config files in ``config/images/`` are good examples
    when writing genimage for the new images.

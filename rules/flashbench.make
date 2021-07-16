@@ -30,7 +30,7 @@ FLASHBENCH_LICENSE	:= GPL v2
 FLASHBENCH_CONF_TOOL	:= NO
 FLASHBENCH_MAKE_ENV	:= $(CROSS_ENV)
 
-# Use '=' instaed of ':=' because $(PTXCONF_FLASHBENCH_MAX_BUFSIZE) is not defined
+# Use '=' instead of ':=' because $(PTXCONF_FLASHBENCH_MAX_BUFSIZE) is not defined
 # when flashbench is not selected to be built.
 FLASHBENCH_MAKE_OPT	= CC=$(CROSS_CC) \
 	EXTRA_CFLAGS=-DMAX_BUFSIZE=$(shell expr 1024 \* 1024 \* $(PTXCONF_FLASHBENCH_MAX_BUFSIZE))

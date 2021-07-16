@@ -7,5 +7,5 @@ config GST_BAYER2RGB_NEON
 	select GSTREAMER1
 	select GST_PLUGINS_BASE1
 	help
-	  Unofficial Gstreamer-plugin that utilizes
+	  Unofficial GStreamer-plugin that utilizes
 	  NEON-extension to convert video/x-bayer to RGB.

@@ -135,7 +135,7 @@ config ROOTFS_MNT
 	prompt "/mnt"
 	default y
 	help
-	  This is a common directory to temporarely mount external media. Its
+	  This is a common directory to temporarily mount external media. Its
 	  always a good idea to select this entry.
 
 config ROOTFS_PROC
@@ -178,7 +178,7 @@ config ROOTFS_VAR_OVERLAYFS
 	help
 	  This lets the whole '/var' content be writable transparently via an
 	  'overlayfs'.
-	  Reading content happens from the underlaying root filesystem, while
+	  Reading content happens from the underlying root filesystem, while
 	  changed content gets stored into a RAM disk instead. This enables all
 	  applications to read initial data (configuration files for example)
 	  and let them change this data even if the root filesystem is read-only.

@@ -50,7 +50,7 @@ export -f ptxd_make_world_install_library_path_one
 # For every binary (library and executable) in that package directory
 # it translates the path to the correspondent path after copying
 # to the sysroot-host and invokes ptxd_make_world_install_library_path_one
-# which finally edits the install path of libaries/executables.
+# which finally edits the install path of libraries/executables.
 ptxd_make_world_install_library_path()
 {
     if [ "$(uname -s)" != Darwin ] ; then

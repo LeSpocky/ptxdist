@@ -12,9 +12,9 @@
 #   PTX_COMMON_CHECKS()
 #         Does common checks for libraries and programs
 #   PTX_LIBRARY_CHECKS()
-#         Does library specific checks wich makes no sense for programs
+#         Does library specific checks which makes no sense for programs
 #   PTX_APPLICATION_CHECKS()
-#         Does program specific checks wich makes no sense for libraries
+#         Does program specific checks which makes no sense for libraries
 #
 #   Usage example:
 #

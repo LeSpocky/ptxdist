@@ -53,7 +53,7 @@ PHP5_AUTOCONF := \
 	--without-xmlrpc \
 	--without-iconv
 
-# FIXME: php5 doesn't interprete "with_foo=no" correctly, so we cannot
+# FIXME: php5 doesn't interpret "with_foo=no" correctly, so we cannot
 # give --without-foo options. Should be fixed in php5's configure.in.
 
 # ------------

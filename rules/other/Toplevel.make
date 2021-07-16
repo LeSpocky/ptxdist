@@ -40,7 +40,7 @@ $(file $(1),$(2))
 endef
 endif
 
-# allow skiping thing for the second make all with --progress
+# allow skipping thing for the second make all with --progress
 ifeq ($(wildcard $(PTXDIST_TEMPDIR)/setup-once),)
 PTXDIST_SETUP_ONCE := 1
 $(call ptx/file,>>$(PTXDIST_TEMPDIR)/setup-once)
@@ -211,7 +211,7 @@ endif
 	@:$(call ptx/print-vars,$(*))
 
 #
-# As above but tread the variable value as another variable and prints
+# As above but treat the variable value as another variable and prints
 # the value of this variable.
 # Patterns are expanded as above on both levels.
 # Printing stops at the first error.

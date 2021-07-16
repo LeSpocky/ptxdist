@@ -8,7 +8,7 @@
 
 #
 # Check for defined icecc
-# Check for a usefull icecc version and setup the host environment
+# Check for a useful icecc version and setup the host environment
 #
 ptxd_lib_setup_host_icecc() {
     local icecc_dir="${sysroot_host}/lib/icecc"

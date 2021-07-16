@@ -184,7 +184,7 @@ check_path() {
 check_version() {
 	#
 	# if config file and ptxdist match return success
-	# (or if beeing forced)
+	# (or if being forced)
 	#
 	if [ "${1}" = "${PTXDIST_VERSION_FULL}" -o \
 	    -n "${PTXDIST_FORCE}" ]; then
@@ -477,7 +477,7 @@ check_dirs() {
 		fi
 	fi
 
-	# create standard direcory layout
+	# create standard directory layout
 	for dir in \
 		"${ptxconf_sysroot_host}" \
 		"${ptxconf_sysroot_cross}" \
@@ -579,7 +579,7 @@ check_umask() {
 }
 
 #
-# checks if the dependencies are allright (make for the poor)
+# checks if the dependencies are alright (make for the poor)
 #
 check_deps() {
 	ptxd_dgen || ptxd_bailout "error in dgen"

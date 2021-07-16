@@ -15,18 +15,18 @@
 #
 ptxd_kconfig_migrate() {
     local part="${1}"
-    local assistent="${PTX_MIGRATEDIR}/migrate_${part}"
+    local assistant="${PTX_MIGRATEDIR}/migrate_${part}"
 
-    if [ \! -f "${assistent}" ]; then
+    if [ \! -f "${assistant}" ]; then
 	return 0
     fi
 
     cp -- ".config" ".config.old" || return
-    sed -f "${assistent}" ".config.old" > ".config"
+    sed -f "${assistant}" ".config.old" > ".config"
     retval=$?
 
     if [ $retval -ne 0 ]; then
-	ptxd_dialog_msgbox "error: error occured during migration"
+	ptxd_dialog_msgbox "error: error occurred during migration"
 	return ${retval}
     fi
 
@@ -40,7 +40,7 @@ export -f ptxd_kconfig_migrate
 
 
 #
-# nomalize the path to a config file
+# normalize the path to a config file
 #
 # $file_dotconfig the absolute path to the config file
 #

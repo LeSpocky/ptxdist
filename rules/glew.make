@@ -31,7 +31,7 @@ GLEW_CONF_TOOL	:= NO
 
 #
 # The makefile expects ld == gcc, so we set the tools
-# seperately and not use the CROSS_TOOLS variable
+# separately and not use the CROSS_TOOLS variable
 #
 GLEW_MAKE_OPT	:= \
 	$(CROSS_ENV_CC) \
