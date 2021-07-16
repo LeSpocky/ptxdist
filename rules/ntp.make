@@ -31,6 +31,7 @@ NTP_LICENSE_FILES	:= file://COPYRIGHT;md5=e877a1d567a6a58996d2b66e3e387003
 
 NTP_CONF_ENV	:= \
 	$(CROSS_ENV) \
+	ac_cv_search_MD5Init=no \
 	libopts_cv_test_dev_zero=yes \
 	ntp_cv_vsnprintf_percent_m=yes
 
