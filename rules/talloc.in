@@ -3,6 +3,7 @@
 config TALLOC
 	tristate
 	prompt "talloc"
+	select LIBBSD
 	select HOST_SYSTEM_PYTHON3
 	help
 	  hierarchical pool based memory allocator
