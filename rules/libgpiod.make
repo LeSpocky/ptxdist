@@ -39,7 +39,7 @@ LIBGPIOD_CONF_OPT	:= \
 
 LIBGPIOD_CONF_ENV := \
 	$(CROSS_ENV) \
-	$(if $(PTXCONF_PYTHON3), ac_cv_path_PYTHON=$(CROSS_PYTHON3))
+	$(if $(PTXCONF_LIBGPIOD_PYTHON3), ac_cv_path_PYTHON=$(CROSS_PYTHON3))
 
 # libgpiod requires kernel headers >= 4.8
 ifdef PTXCONF_KERNEL_HEADER
