@@ -29,10 +29,6 @@ LIBXCB_LICENSE		:= MIT
 
 LIBXCB_CONF_ENV := $(CROSS_ENV) ac_cv_prog_BUILD_DOCS=no
 
-ifndef PTXCONF_XORG_SERVER_EXT_XDMCP
-LIBXCB_CONF_ENV += ac_cv_lib_Xdmcp_XdmcpWrap=no
-endif
-
 #
 # autoconf
 #
