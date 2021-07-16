@@ -41,7 +41,8 @@ GAWK_CONF_OPT	:= \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-nls \
 	--disable-rpath \
-	--$(call ptx/endis, PTXCONF_GAWK_EXTENSIONS)-extensions
+	--$(call ptx/endis, PTXCONF_GAWK_EXTENSIONS)-extensions \
+	--without-readline
 
 # ----------------------------------------------------------------------------
 # Target-Install
