@@ -42,7 +42,7 @@ RSYNC3_AUTOCONF  := \
 	--disable-locale \
 	--disable-openssl \
 	--disable-xxhash \
-	--$(call ptx/endis, PTXCONF_ZSTD)-zstd \
+	--$(call ptx/endis, PTXCONF_RSYNC3_ZSTD)-zstd \
 	--disable-lz4 \
 	--$(call ptx/endis, PTXCONF_ICONV)-iconv-open \
 	--$(call ptx/endis, PTXCONF_ICONV)-iconv \
