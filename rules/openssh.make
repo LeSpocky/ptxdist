@@ -34,6 +34,7 @@ OPENSSH_LICENSE_FILES := file://LICENCE;md5=d9d2753bdef9f19466dc7bc959114b11
 
 OPENSSH_CONF_ENV	:= \
 	$(CROSS_ENV) \
+	ac_cv_search_SHA256Update=no \
 	select_works_with_rlimit=yes \
 	LD=$(COMPILER_PREFIX)gcc
 
