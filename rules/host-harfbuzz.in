@@ -1,0 +1,7 @@
+## SECTION=hosttools_noprompt
+
+config HOST_HARFBUZZ
+	tristate
+	select HOST_FREETYPE
+	select HOST_GLIB
+	default y if ALLYES
