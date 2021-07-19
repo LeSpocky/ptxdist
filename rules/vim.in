@@ -1,13 +1,23 @@
 ## SECTION=editors
 
-config VIM
+menuconfig VIM
 	tristate
 	select LIBC_DL
 	select LIBC_M
 	select GCCLIBS_GCC_S
 	select NCURSES
-	prompt "vim"
+	prompt "vim                           "
 	help
 	  Vim is an advanced text editor that seeks to provide the
 	  power of the de-facto Unix editor 'Vi', with a more complete
 	  feature set.
+
+if VIM
+
+config VIM_VIM
+	bool "Vim Editor"
+
+config VIM_XXD
+	bool "XXD"
+
+endif
