@@ -127,7 +127,7 @@ PIPEWIRE_SPA_MODULES := \
 	audiotestsrc/libspa-audiotestsrc \
 	control/libspa-control \
 	support/libspa-dbus \
-	support/libspa-journal \
+	$(call ptx/ifdef,PTXCONF_PIPEWIRE_SYSTEMD,support/libspa-journal) \
 	support/libspa-support \
 	v4l2/libspa-v4l2 \
 	videotestsrc/libspa-videotestsrc \
