@@ -229,13 +229,17 @@ ptxd_install_setup_src() {
     # We depend on the first available file, which is the one that will
     # be used. If one with a higher priority is created, the dependency
     # will cause the package to be recreated.
+    # Make cannot handle filenames that contain a ':'. So don't generate
+    # dependecies for those files.
     local deprule=""
-    for src in "${list[@]}"; do
-	# don't provide dependencies for files in PTXDIST_PLATFORMDIR.
-	if [ "${src}" == "${src#${PTXDIST_PLATFORMDIR}}" -a -n "${src}" ]; then
-		deprule="${deprule} ${src}"
-	fi
-    done
+    if ! [[ "${src}" =~ : ]]; then
+	for src in "${list[@]}"; do
+	    # don't provide dependencies for files in PTXDIST_PLATFORMDIR.
+	    if [ "${src}" == "${src#${PTXDIST_PLATFORMDIR}}" -a -n "${src}" ]; then
+		    deprule="${deprule} ${src}"
+	    fi
+	done
+    fi
     if [ -n "${deprule}" ]; then
 	deprule="${ptx_state_dir}/${pkg_stamp}: \$(firstword \$(wildcard ${deprule}))"
 	# Make the deps rule robust for varying installation paths, and
