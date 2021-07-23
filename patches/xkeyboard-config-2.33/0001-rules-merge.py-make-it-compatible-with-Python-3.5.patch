@@ -1,0 +1,43 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 23 Jul 2021 10:11:02 +0200
+Subject: [PATCH] rules/merge.py: make it compatible with Python 3.5
+
+Path objects as argument for open() are only supported since Python 3.6.
+But Path objects have their own open() function, so use that instead.
+
+Otherwise, building with Python 3.5 fails with:
+
+Traceback (most recent call last):
+  File "./merge.py", line 96, in <module>
+    merge(fd, [find_file(f) for f in ns.files])
+  File "./merge.py", line 61, in merge
+    with open(f) as fd:
+TypeError: invalid file: PosixPath('0000-hdr.part')
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ rules/merge.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/rules/merge.py b/rules/merge.py
+index 3e395d5077f6..4b6958f24894 100755
+--- a/rules/merge.py
++++ b/rules/merge.py
+@@ -10,7 +10,7 @@ def handle_file(path):
+     Return a tuple of (header, path) for the file at path.
+     If the file does not have a header, the header is the empty string.
+     '''
+-    with open(path) as fd:
++    with path.open() as fd:
+         header = fd.readline()
+         if header.startswith('! '):
+             return header, path
+@@ -58,7 +58,7 @@ def merge(dest, files):
+             dest.write('\n')
+             dest.write(header)
+         for f in sections[header]:
+-            with open(f) as fd:
++            with f.open() as fd:
+                 if header:
+                     fd.readline()  # drop the header
+                 dest.write(fd.read())
