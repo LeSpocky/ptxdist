@@ -272,7 +272,6 @@ SYSTEMD_HELPER := \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_TIMEDATE,systemd-time-wait-sync) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_TIMEDATE,systemd-timedated) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_TIMEDATE,systemd-timesyncd) \
-	systemd-udevd \
 	systemd-update-done \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_UNITS_USER,systemd-user-runtime-dir) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_VCONSOLE,systemd-vconsole-setup)
@@ -488,6 +487,8 @@ endif
 
 #	# udev
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/udevadm)
+	@$(call install_link, systemd, ../../bin/udevadm, \
+		/usr/lib/systemd/systemd-udevd)
 	@$(call install_lib, systemd, 0, 0, 0644, libudev)
 
 	@$(foreach helper, $(SYSTEMD_UDEV_HELPER-y), \
