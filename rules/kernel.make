@@ -76,6 +76,10 @@ KERNEL_BASE_OPT		+= \
 	$(if $(shell cs_get_ca kernel-trusted), \
 		CONFIG_SYSTEM_TRUSTED_KEYS=$(shell cs_get_ca kernel-trusted))
 endif
+ifdef PTXCONF_KERNEL_MODULES_SIGN
+KERNEL_BASE_OPT		+= \
+	CONFIG_MODULE_SIG_KEY='"$(shell cs_get_uri kernel-modules)"'
+endif
 
 # Intermediate option. This will be used by kernel module packages.
 KERNEL_MODULE_OPT	= \

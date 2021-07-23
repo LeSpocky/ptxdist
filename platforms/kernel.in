@@ -39,6 +39,21 @@ config KERNEL_MODULES_INSTALL
 	prompt "Install modules into /lib/modules"
 	depends on KERNEL_MODULES
 
+config KERNEL_MODULES_SIGN
+	bool
+	depends on KERNEL_MODULES
+	select KERNEL_CODE_SIGNING
+	select KERNEL_MODULES_INSTALL
+	prompt "sign modules"
+	help
+	  If enabled, kernel modules are signed during the install stage with
+	  the key specified by the code signing provider in the "kernel-modules"
+	  role.
+
+	  See the section "Kernel module signing" in the "Daily Work" chapter in
+	  the PTXdist manual for use cases and more infos about what needs to be
+	  enabled in the kernel config file.
+
 config KERNEL_VERSION
 	prompt "kernel version"
 	string

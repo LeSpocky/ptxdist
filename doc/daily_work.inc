@@ -157,6 +157,44 @@ add those certificates to the kernel trust root.
 :ref:`cs_append_ca_from_pem`, or :ref:`cs_append_ca_from_uri` with the
 ``kernel-trusted`` role to supply those certificates.)
 
+Note that the kernel also always adds the module signing key to the trust root
+(see :ref:`kernel_module_signing` below).
+If the EVM key is signed by the module signing key (or if the two keys are the
+same *and* it is self-signed), no additional trust CA is necessary.
+
+.. _kernel_module_signing:
+
+Kernel Module Signing
+~~~~~~~~~~~~~~~~~~~~~
+
+The kernel's build system can generate cryptographic signatures for all
+kernel modules during the build process.
+This can ensure that all modules loaded on the target at runtime have been
+built by a trustworthy source.
+
+If ``PTXCONF_KERNEL_MODULES_SIGN`` ("sign modules") is enabled in the
+platformconfig, PTXdist augments the kernel config with the following config
+options during the `kernel.compile` and `kernel.install` stages:
+
+* ``CONFIG_MODULE_SIG_KEY`` ("File name or PKCS#11 URI of module signing key"):
+  PTXdist supplies the URI from the ``kernel-modules`` role of the configured
+  code signing provider.
+  (The code signing provider should use :ref:`cs_set_uri` to set the URI.)
+
+However, additional settings must also be enabled in the kernel config:
+
+* ``CONFIG_MODULE_SIG=y`` ("Module signature verification"):
+  Enable this option for module signing, and to get access to its sub-options.
+* ``CONFIG_MODULE_SIG_ALL=y`` ("Automatically sign all modules"):
+  Enable this option so that the kernel's build system signs the modules during
+  PTXdist's `kernel.install` stage.
+* Additionally, ``CONFIG_MODULE_SIG_FORCE`` ("Require modules to be validly
+  signed") can be useful so that the kernel refuses loading modules with
+  invalid, untrusted, or no signature.
+
+For the full overview, refer to the `kernel's module signing documentation
+<https://www.kernel.org/doc/html/latest/admin-guide/module-signing.html>`_.
+
 Discovering Runtime Dependencies
 --------------------------------
 
