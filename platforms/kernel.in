@@ -3,6 +3,7 @@
 menuconfig KERNEL
 	bool
 	default y
+	select CODE_SIGNING		if KERNEL_CODE_SIGNING
 	select HOST_U_BOOT_TOOLS	if KERNEL_IMAGE_U || (KERNEL_IMAGE_SIMPLE && ARCH_MICROBLAZE)
 	select HOST_ZSTD		if KERNEL_ZSTD
 	select HOST_XZ			if KERNEL_XZ
@@ -181,6 +182,19 @@ config KERNEL_DTS
 	  here. Multiple dts files can be specified, separated by spaces.
 
 endif
+
+config KERNEL_CODE_SIGNING
+	prompt "use code signing infrastructure"
+	select KERNEL_OPENSSL
+	bool
+	help
+	  Enable this option if you want the kernel to make use of the code
+	  signing infrastructure, e.g. to supply trust roots from the
+	  'kernel-trusted' code signing role.
+
+	  See the section "Using the Code Signing Infrastructure with the Kernel
+	  Recipe" in the "Daily Use" chapter in the PTXdist manual for use
+	  cases and more information.
 
 config KERNEL_ZSTD
 	prompt "build zstd hosttool"

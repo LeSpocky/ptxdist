@@ -67,17 +67,23 @@ endef
 KERNEL_MAKEVARS = $(call kernel/deprecated, KERNEL_MAKEVARS)
 
 # like kernel-opts but with different CROSS_COMPILE=
-KERNEL_BASE_OPT		:= \
+KERNEL_BASE_OPT		= \
 	$(call kernel-opts, KERNEL,$(KERNEL_CROSS_COMPILE)) \
 	$(call remove_quotes,$(PTXCONF_KERNEL_EXTRA_MAKEVARS))
 
+ifdef PTXCONF_KERNEL_CODE_SIGNING
+KERNEL_BASE_OPT		+= \
+	$(if $(shell cs_get_ca kernel-trusted), \
+		CONFIG_SYSTEM_TRUSTED_KEYS=$(shell cs_get_ca kernel-trusted))
+endif
+
 # Intermediate option. This will be used by kernel module packages.
-KERNEL_MODULE_OPT	:= \
+KERNEL_MODULE_OPT	= \
 	-C $(KERNEL_DIR) \
 	O=$(KERNEL_BUILD_DIR) \
 	$(KERNEL_BASE_OPT)
 
-KERNEL_SHARED_OPT	:= \
+KERNEL_SHARED_OPT	= \
 	$(KERNEL_MODULE_OPT)
 
 ifndef PTXCONF_KERNEL_GCC_PLUGINS
@@ -92,7 +98,7 @@ KERNEL_MAKE_ENV		:= \
 endif
 
 KERNEL_CONF_TOOL	:= kconfig
-KERNEL_CONF_OPT		:= \
+KERNEL_CONF_OPT		= \
 	$(KERNEL_SHARED_OPT)
 
 ifdef PTXCONF_KERNEL_CONFIG_BASE_VERSION
@@ -244,7 +250,7 @@ endif
 # Install
 # ----------------------------------------------------------------------------
 
-KERNEL_INSTALL_OPT := \
+KERNEL_INSTALL_OPT = \
 	$(KERNEL_BASE_OPT) \
 	modules_install
 

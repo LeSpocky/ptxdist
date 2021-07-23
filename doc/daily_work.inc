@@ -123,6 +123,40 @@ To rebuild the kernel:
          package. A ``ptxdist clean kernel`` call will only delete the
          symlinks in the build directory, but not clean the kernel compiled files.
 
+Using the Code Signing Infrastructure with the Kernel Recipe
+------------------------------------------------------------
+
+The kernel recipe can make use of the :ref:`code signing infrastructure
+<code_signing>` to supply cryptographic key material for several kernel features.
+They can be enabled in the `Linux kernel` section of ``ptxdist platformconfig``.
+
+.. important::
+
+   When supplying the kernel with key material, you should also make sure that
+   all necessary crypto algorithms are enabled in the kernel.
+   For example, if your module signing key is signed with an SHA256 hash,
+   you must enable ``CONFIG_CRYPTO_SHA256`` so that the signature can be verified.
+   Otherwise, some older kernels throw a stack trace on boot, and will not load
+   the supplied key material.
+
+.. _kernel_trust_root:
+
+Trusted Root CAs
+~~~~~~~~~~~~~~~~
+
+In some setups additional trusted CAs can be necessary;
+for example, when using EVM, the EVM key must be issued by a certificate that
+is trusted by the kernel.
+
+When ``PTXCONF_KERNEL_CODE_SIGNING`` ("depend on code signing infrastructure")
+is enabled in the platformconfig, and if the code signing provider supplies CA
+certificates in the ``kernel-trusted`` role,
+PTXdist adds the option ``CONFIG_SYSTEM_TRUSTED_KEYS`` to the kernel config to
+add those certificates to the kernel trust root.
+(The code signing provider should use :ref:`cs_append_ca_from_der`,
+:ref:`cs_append_ca_from_pem`, or :ref:`cs_append_ca_from_uri` with the
+``kernel-trusted`` role to supply those certificates.)
+
 Discovering Runtime Dependencies
 --------------------------------
 
