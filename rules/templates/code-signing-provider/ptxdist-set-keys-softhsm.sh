@@ -48,6 +48,10 @@ import_imx_habv4_keys() {
 		cs_import_cert_from_der "${r}" "${crts}/IMG${i}_1_sha256_4096_65537_v3_usr_crt.der"
 		cs_import_key_from_pem "${r}" "${keys}/IMG${i}_1_sha256_4096_65537_v3_usr_key.pem"
 	done
+
+	g="imx-habv4-srk"
+	cs_define_group "${g}"
+	cs_group_add_roles "${g}" "imx-habv4-srk1" "imx-habv4-srk2" "imx-habv4-srk3" "imx-habv4-srk4"
 }
 
 
