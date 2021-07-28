@@ -51,7 +51,7 @@ SYSLOGNG_AUTOCONF = \
 	--enable-dynamic-linking \
 	--disable-mixed-linking \
 	$(GLOBAL_IPV6_OPTION) \
-	--$(call ptx/endis, PTXCONF_SYSLOGNG_TCP_WRAPPER)-tcp-wrapper \
+	--disable-tcp-wrapper \
 	--$(call ptx/endis, PTXCONF_SYSLOGNG_SPOOF_SOURCE)-spoof-source \
 	--disable-sun-streams \
 	--disable-openbsd-system-source \
