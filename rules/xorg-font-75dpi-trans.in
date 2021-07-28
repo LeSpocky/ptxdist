@@ -38,12 +38,4 @@ config XORG_FONT_BH_75DPI_TRANS
 	  This package contains fonts in several ISO 8859
 	  encodings: -2, -3, -4, -9, -10, -13 and -14.
 
-config XORG_FONT_BH_LUCIDATYPEWRITER_75DPI_TRANS
-	bool
-	depends on XORG_FONT_BH_LUCIDATYPEWRITER_75DPI
-	prompt "BH Lucida Typewriter 75dpi transcoded"
-	help
-	  This package contains fonts in several ISO 8859
-	  encodings: -2, -3, -4, -9, -10, -13 and -14.
-
 endmenu
