@@ -20,8 +20,6 @@ menuconfig QT4
 	select LIBPNG		if QT4_PNG_SYSTEM
 	select LIBJPEG		if QT4_JPG_SYSTEM
 	select SQLITE		if QT4_SQLITE_SYSTEM
-	select GSTREAMER	if QT4_BUILD_PHONON
-	select GST_PLUGINS_BASE	if QT4_BUILD_PHONON
 	select OPENSSL		if QT4_OPENSSL
 	select MESALIB		if QT4_OPENGL_DESKTOP
 	select ALSA_LIB		if QT4_BUILD_MULTIMEDIA
@@ -869,7 +867,7 @@ config QT4_BUILD_MULTIMEDIA
 
 config QT4_BUILD_PHONON
 	bool
-	depends on STAGING
+	depends on BROKEN
 	select QT4_BUILD_GUI
 	select QT4_GLIB
 	prompt "Phonon"
