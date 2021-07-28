@@ -18,7 +18,6 @@ menuconfig LIGHTTPD
 	select LIBMEMCACHED		if LIGHTTPD_MEMCACHED
 	select LUA			if LIGHTTPD_LUA
 	select LUA_INSTALL_LIBLUA	if LIGHTTPD_LUA
-	select PHP5			if LIGHTTPD_MOD_FASTCGI_PHP && RUNTIME
 	select BUSYBOX_START_STOP_DAEMON			if LIGHTTPD_STARTSCRIPT
 	select BUSYBOX_FEATURE_START_STOP_DAEMON_FANCY		if LIGHTTPD_STARTSCRIPT
 	select BUSYBOX_FEATURE_START_STOP_DAEMON_LONG_OPTIONS	if LIGHTTPD_STARTSCRIPT
@@ -147,14 +146,11 @@ if LIGHTTPD_MOD_FASTCGI
 
 config LIGHTTPD_MOD_FASTCGI_PHP
 	bool
-	depends on STAGING
+	depends on BROKEN
 	prompt "setup php handling with fastcgi"
 	help
 	  Enables the necessary packages and configuration files
 	  to enable PHP support in lighttpd
-
-comment "PHP CGI SAPI must be enabled"
-	depends on LIGHTTPD_MOD_FASTCGI_PHP && !PHP5_SAPI_CGI
 
 endif
 
