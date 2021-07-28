@@ -88,7 +88,8 @@ AVAHI_CONF_OPT	:= \
 # warning: libavahi-glib.so.1, needed by ./.libs/libavahi-ui-gtk3.so, not found (try using -rpath or -rpath-link)
 AVAHI_LDFLAGS := -Wl,-rpath-link,$(AVAHI_DIR)/avahi-glib/.libs/
 
-AVAHI_CFLAGS:= -D_FILE_OFFSET_BITS=64
+AVAHI_CFLAGS	:= -D_FILE_OFFSET_BITS=64
+AVAHI_CXXFLAGS	:= -D_FILE_OFFSET_BITS=64 -std=c++11
 
 # ----------------------------------------------------------------------------
 # Target-Install
