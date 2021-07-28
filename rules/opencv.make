@@ -38,6 +38,13 @@ endif
 # Prepare
 # ----------------------------------------------------------------------------
 
+# set PKG_CONFIG_LIBDIR to something, otherwise opencv will not use
+# pkg-config when cross-compiling. The value does not matter, the wrapper
+# overwrites it anyways.
+OPENCV_CONF_ENV		:= \
+	$(CROSS_ENV) \
+	PKG_CONFIG_LIBDIR=not-empty
+
 OPENCV_CONF_TOOL	:= cmake
 
 # Note: configure_helper.py does not show some options that are only

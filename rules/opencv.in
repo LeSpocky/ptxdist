@@ -12,7 +12,8 @@ menuconfig OPENCV
 	select QT5			if OPENCV_QT
 	select QT5_TEST			if OPENCV_QT
 	select QT5_GUI			if OPENCV_QT
-	select GSTREAMER		if OPENCV_GSTREAMER
+	select GSTREAMER1		if OPENCV_GSTREAMER
+	select GST_PLUGINS_BASE1	if OPENCV_GSTREAMER
 	select V4L_UTILS		if OPENCV_V4L_LIBV4L2
 	select V4L_UTILS_LIBV4L1	if OPENCV_V4L_LIBV4L2
 	select V4L_UTILS_LIBV4L2	if OPENCV_V4L_LIBV4L2
@@ -114,7 +115,6 @@ config OPENCV_DNN
 
 config OPENCV_GSTREAMER
 	bool
-	depends on STAGING
 	prompt "gstreamer"
 	help
 	  Gstreamer Support
