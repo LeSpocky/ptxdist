@@ -7,7 +7,6 @@ menuconfig LIBRSVG
 	select LIBXML2
 	select LIBXML2_PUSH
 	select LIBGSF	if LIBRSVG_SVGZ
-	select LIBCROCO	if LIBRSVG_CROCO
 	help
 	  AX-based renderer library for SVG files
 
@@ -31,7 +30,7 @@ config LIBRSVG_SVGZ
 
 config LIBRSVG_CROCO
 	bool
-	depends on STAGING
+	depends on BROKEN
 	prompt "libcroco support"
 	help
 	  Libcroco is a general CSS parsing and manipulation library.
