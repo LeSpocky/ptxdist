@@ -32,7 +32,7 @@ menuconfig MESALIB
 	select XORG_LIB_XSHMFENCE	if MESALIB_DRI3
 	select EXPAT
 	select ZLIB
-	select ZSTD			if MESALIB_ZSTD
+	select ZSTD			if MESALIB_SHADER_CACHE
 	help
 	  Mesa is a 3-D graphics library with an API which is very
 	  similar to that of OpenGL. See the project homepage for
@@ -226,9 +226,9 @@ config MESALIB_VULKAN_OVERLAY
 	bool
 	prompt "Overlay layer"
 
-config MESALIB_ZSTD
+config MESALIB_SHADER_CACHE
 	bool
-	prompt "use Zstandard for shader cache compression"
+	prompt "enable shader cache"
 
 endif
 

@@ -160,7 +160,7 @@ MESALIB_CONF_OPT	:= \
 	-Dpower8=disabled \
 	-Dprefer-iris=true \
 	-Dselinux=false \
-	-Dshader-cache=$(call ptx/endis, PTXCONF_MESALIB_VULKAN_AMD)d \
+	-Dshader-cache=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d \
 	-Dshader-cache-default=true \
 	-Dshader-cache-max-size=1G \
 	-Dshared-glapi=enabled \
@@ -180,7 +180,7 @@ MESALIB_CONF_OPT	:= \
 	-Dxlib-lease=$(call ptx/endis, PTXCONF_MESALIB_EGL_X11)d \
 	-Dxvmc-libs-path=/usr/lib \
 	-Dzlib=enabled \
-	-Dzstd=$(call ptx/endis, PTXCONF_MESALIB_ZSTD)d
+	-Dzstd=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d
 
 # ----------------------------------------------------------------------------
 # Compile
