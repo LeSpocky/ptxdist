@@ -37,6 +37,7 @@ menuconfig GST_PLUGINS_BAD1
 	select WAYLAND			if GST_PLUGINS_BAD1_WAYLAND
 	select WAYLAND_PROTOCOLS	if GST_PLUGINS_BAD1_WAYLAND
 	select LIBNICE			if GST_PLUGINS_BAD1_WEBRTC
+	select ZBAR			if GST_PLUGINS_BAD1_ZBAR
 
 	prompt "gst-plugins-bad               "
 	help
@@ -908,8 +909,6 @@ config GST_PLUGINS_BAD1_X265
 
 config GST_PLUGINS_BAD1_ZBAR
 	bool
-	# needs zbar
-	depends on BROKEN
 	prompt "zbar"
 	help
 	  Barcode image scanner plugin using zbar library
