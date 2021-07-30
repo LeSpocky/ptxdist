@@ -21,7 +21,11 @@ CAIRO_SUFFIX	:= tar.xz
 CAIRO_URL	:= http://cairographics.org/releases/cairo-$(CAIRO_VERSION).$(CAIRO_SUFFIX)
 CAIRO_SOURCE	:= $(SRCDIR)/$(CAIRO).$(CAIRO_SUFFIX)
 CAIRO_DIR	:= $(BUILDDIR)/$(CAIRO)
-CAIRO_LICENSE	:= LGPL-2.1-only AND MPL-1.1
+CAIRO_LICENSE	:= LGPL-2.1-only OR MPL-1.1
+CAIRO_LICENSE_FILES := \
+	file://COPYING;md5=e73e999e0c72b5ac9012424fa157ad77 \
+	file://COPYING-LGPL-2.1;md5=c9bb0ee6dbe833915b94063d594c4bfc \
+	file://COPYING-MPL-1.1;md5=bfe1f75d606912a4111c90743d6c7325
 
 # ----------------------------------------------------------------------------
 # Prepare
