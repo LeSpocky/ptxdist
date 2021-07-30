@@ -82,7 +82,7 @@ $(STATEDIR)/valgrind.targetinstall:
 
 	@$(call install_copy, valgrind, 0, 0, 0755, -, /usr/bin/valgrind)
 
-	@$(call install_glob, valgrind, 0, 0, -, /usr/lib/valgrind,,*.a)
+	@$(call install_tree, valgrind, 0, 0, -, /usr/libexec/valgrind)
 
 	@$(call install_finish, valgrind)
 
