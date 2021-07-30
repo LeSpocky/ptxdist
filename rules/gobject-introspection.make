@@ -42,6 +42,38 @@ GOBJECT_INTROSPECTION_CONF_OPT	:= \
 	-Dgtk_doc=false \
 	-Dpython=$(SYSTEMPYTHON3)
 
+$(STATEDIR)/gobject-introspection.prepare:
+	@$(call targetinfo)
+
+	@echo '#!/bin/sh'				>  $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
+	@echo 'export GI_SCANNER_DISABLE_CACHE=1'	>> $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
+	@echo 'export pkg_ldflags="$$(find -H $${pkg_dir} -name .libs -printf "-Wl,-rpath,%p ")$${pkg_ldflags}"' \
+							>> $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
+	@echo 'export CC=$(CROSS_CC)'			>> $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
+	@echo 'exec "$(PTXDIST_SYSROOT_HOST)/bin/g-ir-scanner" \
+		--use-binary-wrapper="$(PTXDIST_SYSROOT_CROSS)/bin/qemu-cross" \
+		--use-ldd-wrapper="$(PTXDIST_SYSROOT_CROSS)/bin/qemu/ldd" \
+		--add-include-path=${PTXDIST_SYSROOT_TARGET}/usr/share/gir-1.0 \
+		"$${@}"'				>> $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
+	@chmod +x $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner
+
+	@echo '#!/bin/sh'				>  $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-compiler
+	@echo '$(PTXDIST_SYSROOT_CROSS)/bin/qemu-cross \
+		$(SYSROOT)/usr/bin/g-ir-compiler --includedir \
+		$(SYSROOT)/usr/share/gir-1.0 "$${@}"'	>> $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-compiler
+	@chmod +x $(PTXDIST_SYSROOT_CROSS)/bin/g-ir-compiler
+
+	@sed -i 's;"/share";"$(PTXDIST_SYSROOT_HOST)/share";' \
+		"$(PTXDIST_SYSROOT_HOST)/bin/g-ir-scanner" \
+		"$(PTXDIST_SYSROOT_HOST)/bin/g-ir-annotation-tool"
+
+	@sed -i "s;'/lib';'$(PTXDIST_SYSROOT_HOST)/lib';" \
+		"$(PTXDIST_SYSROOT_HOST)/bin/g-ir-scanner" \
+		"$(PTXDIST_SYSROOT_HOST)/bin/g-ir-annotation-tool"
+
+	@$(call world/prepare, GOBJECT_INTROSPECTION)
+	@$(call touch)
+
 # needed so g-ir-compiler runs in qemu
 GOBJECT_INTROSPECTION_MAKE_ENV	= \
 	CROSS_LD_LIBRARY_PATH=$(GOBJECT_INTROSPECTION_DIR)-build/girepository
@@ -78,5 +110,16 @@ $(STATEDIR)/gobject-introspection.targetinstall:
 	@$(call install_finish, gobject-introspection)
 
 	@$(call touch)
+
+# ----------------------------------------------------------------------------
+# Clean
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/gobject-introspection.clean:
+	@$(call targetinfo)
+	@$(call clean_pkg, GOBJECT_INTROSPECTION)
+	@rm \
+		$(PTXDIST_SYSROOT_CROSS)/bin/g-ir-scanner \
+		$(PTXDIST_SYSROOT_CROSS)/bin/g-ir-compiler
 
 # vim: syntax=make
