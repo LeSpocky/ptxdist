@@ -29,6 +29,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Ddri3=disabled \
 	-Degl=disabled \
 	-Degl-lib-suffix= \
+	-Degl-native-platform=auto \
 	-Dfreedreno-kgsl=false \
 	-Dgallium-drivers= \
 	-Dgallium-extra-hud=false \

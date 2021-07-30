@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 21.1.3
-MESALIB_MD5	:= 0d6e96ca75cf8decc6f8a8a75c729ab9
+MESALIB_VERSION	:= 21.1.6
+MESALIB_MD5	:= 115a4b7383982f03b2aa5b91d1a8a259
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -125,6 +125,7 @@ MESALIB_CONF_OPT	:= \
 	-Ddri3=$(call ptx/endis, PTXCONF_MESALIB_DRI3)d \
 	-Degl=$(call ptx/endis, PTXCONF_MESALIB_EGL)d \
 	-Degl-lib-suffix= \
+	-Degl-native-platform=auto \
 	-Dfreedreno-kgsl=false \
 	-Dgallium-drivers=$(subst $(space),$(comma),$(MESALIB_GALLIUM_DRIVERS-y)) \
 	-Dgallium-extra-hud=$(call ptx/truefalse, PTXCONF_MESALIB_EXTENDED_HUD) \
