@@ -29,6 +29,8 @@ LIBXML2_LICENSE_FILES := \
 	file://hash.c;startline=6;endline=15;md5=e77f77b12cb69e203d8b4090a0eee879
 
 LIBXML2_URL := \
+	http://xmlsoft.org/sources/$(LIBXML2).$(LIBXML2_SUFFIX) \
+	http://xmlsoft.org/sources/old/$(LIBXML2).$(LIBXML2_SUFFIX) \
 	ftp://xmlsoft.org/libxml2/$(LIBXML2).$(LIBXML2_SUFFIX) \
 	ftp://xmlsoft.org/libxml2/old/$(LIBXML2).$(LIBXML2_SUFFIX)
 
