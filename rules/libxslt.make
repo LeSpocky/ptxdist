@@ -24,6 +24,8 @@ LIBXSLT_DIR	:= $(BUILDDIR)/$(LIBXSLT)
 LIBXSLT_LICENSE	:= MIT
 
 LIBXSLT_URL	:= \
+	http://xmlsoft.org/sources/$(LIBXSLT).$(LIBXSLT_SUFFIX) \
+	http://xmlsoft.org/sources/old/$(LIBXSLT).$(LIBXSLT_SUFFIX) \
 	ftp://xmlsoft.org/libxslt/$(LIBXSLT).$(LIBXSLT_SUFFIX) \
 	ftp://xmlsoft.org/libxslt/old/$(LIBXSLT).$(LIBXSLT_SUFFIX)
 
