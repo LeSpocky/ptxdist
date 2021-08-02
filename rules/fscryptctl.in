@@ -1,0 +1,14 @@
+## SECTION=selinux
+
+config FSCRYPTCTL
+	tristate
+	prompt "fscryptctl"
+	help
+	  fscryptctl is a low-level tool that handles raw keys and manages
+	  policies for the Linux filesystem encryption, specifically the
+	  "fscrypt" kernel interface which is supported by the ext4,
+	  f2fs, and UBIFS filesystems.
+
+	  fscryptctl is mainly intended for embedded systems which can't use the
+	  full-featured fscrypt tool. It does *not* handle key generation,
+	  key stretching, key wrapping, or PAM integration.
