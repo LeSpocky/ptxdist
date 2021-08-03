@@ -14,9 +14,9 @@ PACKAGES-$(PTXCONF_LIBWPE) += libwpe
 #
 # Paths and names
 #
-LIBWPE_VERSION		:= 1.8.0
+LIBWPE_VERSION		:= 1.10.1
 LIBWPE_LIBRARY_VERSION	:= 1.0
-LIBWPE_MD5		:= 328ea59dd8dee9107a49353536d00844
+LIBWPE_MD5		:= f60fc13b519a66d262afb76c77441870
 LIBWPE			:= libwpe-$(LIBWPE_VERSION)
 LIBWPE_SUFFIX		:= tar.xz
 LIBWPE_URL		:= https://wpewebkit.org/releases/$(LIBWPE).$(LIBWPE_SUFFIX)
@@ -32,12 +32,11 @@ LIBWPE_LICENSE_FILES	:= file://COPYING;md5=371a616eb4903c6cb79e9893a5f615cc
 #
 # cmake
 #
-LIBWPE_CONF_TOOL	:= cmake
+LIBWPE_CONF_TOOL	:= meson
 LIBWPE_CONF_OPT	:= \
-	$(CROSS_CMAKE_USR) \
-	-G Ninja \
-	-DBUILD_DOCS=OFF \
-	-DWPE_BACKEND= \
+	$(CROSS_MESON_USR) \
+	-Dbuild-docs=false \
+	-Ddefault-backend=
 
 # ----------------------------------------------------------------------------
 # Target-Install
