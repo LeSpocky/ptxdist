@@ -88,6 +88,11 @@ AVAHI_CONF_OPT	:= \
 # warning: libavahi-glib.so.1, needed by ./.libs/libavahi-ui-gtk3.so, not found (try using -rpath or -rpath-link)
 AVAHI_LDFLAGS := -Wl,-rpath-link,$(AVAHI_DIR)/avahi-glib/.libs/
 
+ifdef PTXCONF_AVAHI_QT5
+AVAHI_MAKE_ENV	:= \
+	ICECC_REMOTE_CPP=0
+endif
+
 AVAHI_CFLAGS	:= -D_FILE_OFFSET_BITS=64
 AVAHI_CXXFLAGS	:= -D_FILE_OFFSET_BITS=64 -std=c++11
 
