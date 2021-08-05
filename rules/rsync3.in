@@ -6,7 +6,6 @@ menuconfig RSYNC3
 	select OPENSSH	if RUNTIME
 	select OPENSSH_SSH
 	select ACL	if RSYNC3_ACL
-	select ATTR	if RSYNC3_ATTR
 	select ZSTD	if RSYNC3_ZSTD
 	help
 	  rsync is a program that behaves in much the same way that rcp does,
