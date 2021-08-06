@@ -156,6 +156,10 @@ updated of removed after a version bump. Unknown PTXCONF_* variables or
 macros used in menu files. There are often typos or the variables was just
 removed.
 
+New packages must also have licensing information in the ``<PKG>_LICENSE``
+and ``<PKG>_LICENSE_FILES`` variables.
+Refer to the section :ref:`licensing_in_packages` for more information.
+
 Helper Scripts
 --------------
 

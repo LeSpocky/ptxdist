@@ -127,6 +127,8 @@ Other useful variables:
   that are built and installed during the PTXdist build run.
   There are analogous ``-y`` and ``-m`` variants of those variables too.
 
+.. _package_specific_variables:
+
 Package Specific Variables
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -223,10 +225,19 @@ Package Definition
   'gdbserver' for an example.
 
 ``<PKG>_LICENSE``
-  The license of the package. The SPDX license identifiers should be used
-  here. Use ``proprietary`` for proprietary packages and ``ignore`` for
-  packages without their own license, e.g. meta packages or packages that
-  only install files from ``projectroot/``.
+  The license of the package in the form of an `SPDX license expression
+  <https://spdx.org/licenses/>`_.
+  The following values have special meaning for PTXdist:
+
+  - ``custom`` and ``custom-exception``: for licenses or license exceptions
+    that are considered free software, but do not match any license or license
+    exception known to SPDX.
+  - ``proprietary``: for proprietary (non-free) packages
+  - ``ignore`` for packages without their own license, e.g. meta packages or
+    packages that only install files from ``projectroot/``
+  - ``unknown``: no licensing information was extracted yet
+
+  See the section :ref:`licensing_in_packages` for more information.
 
 ``<PKG>_LICENSE_FILES``
   A space separated list of URLs of license text files. The URLs must be
@@ -238,6 +249,7 @@ Package Definition
   used in case the specified file contains more than just the license text,
   e.g. if the license is in the header of a source file. For non ASCII or
   UTF-8 files the encoding can be specified with ``encoding=<enc>``.
+  See the section :ref:`licensing_in_packages` for more information.
 
 For most packages the variables described above are undefined by default.
 However, for cross and host packages these variables default to the value
