@@ -72,6 +72,10 @@ config CAIRO_PNG
 	bool
 	prompt "PNG support"
 
+config CAIRO_SCRIPT
+	bool
+	prompt "script surface"
+
 if CAIRO_GL || CAIRO_GLES2
 
 config CAIRO_GLX

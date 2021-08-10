@@ -71,7 +71,7 @@ CAIRO_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_CAIRO_EGL)-egl \
 	--$(call ptx/endis, PTXCONF_CAIRO_GLX)-glx \
 	--disable-wgl \
-	--disable-script \
+	--$(call ptx/endis, PTXCONF_CAIRO_SCRIPT)-script \
 	--$(call ptx/endis, PTXCONF_CAIRO_FREETYPE)-ft \
 	--$(call ptx/endis, PTXCONF_CAIRO_FREETYPE)-fc \
 	--$(call ptx/endis, PTXCONF_CAIRO_PS)-ps \
