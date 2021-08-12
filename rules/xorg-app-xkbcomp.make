@@ -35,6 +35,9 @@ XORG_APP_XKBCOMP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--datadir=$(XORG_DATADIR)
 
+XORG_APP_XKBCOMP_MAKE_ENV	:= \
+	ICECC_REMOTE_CPP=0
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
