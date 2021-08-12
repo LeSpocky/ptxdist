@@ -17,6 +17,10 @@ RNG_TOOLS_URL		:= https://github.com/nhorman/rng-tools/archive/v$(RNG_TOOLS_VERS
 RNG_TOOLS_SOURCE	:= $(SRCDIR)/$(RNG_TOOLS).$(RNG_TOOLS_SUFFIX)
 RNG_TOOLS_DIR		:= $(BUILDDIR)/$(RNG_TOOLS)
 RNG_TOOLS_LICENSE	:= GPL-2.0-or-later
+RNG_TOOLS_LICENSE_FILES	:= \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://rngd.c;startline=12;endline=26;md5=8737e0a69b00f9cb52b9411c81aaa1d5 \
+	file://rngtest.c;startline=7;endline=21;md5=0bf96e235e77c1ff6cab766073094c7f
 
 # ----------------------------------------------------------------------------
 # Prepare
