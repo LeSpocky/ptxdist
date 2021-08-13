@@ -9,8 +9,8 @@
 
 PACKAGES-$(PTXCONF_RNG_TOOLS) += rng-tools
 
-RNG_TOOLS_VERSION	:= 6.5
-RNG_TOOLS_MD5		:= c153517cc73f7f2a899bf59df06ed1ce
+RNG_TOOLS_VERSION	:= 6.14
+RNG_TOOLS_MD5		:= 917d21dd2b06816b0484e220dfb5ba4b
 RNG_TOOLS		:= rng-tools-$(RNG_TOOLS_VERSION)
 RNG_TOOLS_SUFFIX	:= tar.gz
 RNG_TOOLS_URL		:= https://github.com/nhorman/rng-tools/archive/v$(RNG_TOOLS_VERSION).$(RNG_TOOLS_SUFFIX)
@@ -29,8 +29,11 @@ RNG_TOOLS_LICENSE_FILES	:= \
 RNG_TOOLS_CONF_TOOL	:= autoconf
 RNG_TOOLS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--with-libgcrypt \
-	--without-nistbeacon
+	--disable-jitterentropy \
+	--without-nistbeacon \
+	--without-pkcs11 \
+	--without-rtlsdr \
+	--without-libargp
 
 # ----------------------------------------------------------------------------
 # Target-Install

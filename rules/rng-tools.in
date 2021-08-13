@@ -3,9 +3,8 @@
 menuconfig RNG_TOOLS
 	tristate
 	prompt "rng-tools rngd                "
-	select LIBSYSFS
 	select LIBC_PTHREAD
-	select LIBGCRYPT
+	select OPENSSL
 	help
 	  random number generator daemon - seed kernel random from hwrng
 
