@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 21.1.7
-MESALIB_MD5	:= ed45b314285612ea3634f8e5c0c2689e
+MESALIB_VERSION	:= 21.2.1
+MESALIB_MD5	:= f81336168864b1f890edfa5db8587f2b
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -59,6 +59,10 @@ ifdef PTXCONF_ARCH_X86
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_IRIS)	+= iris
 endif
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_ZINK)	+= zink
+MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_ASAHI)	+= asahi
+ifdef PTXCONF_ARCH_X86
+MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_CROCUS)	+= crocus
+endif
 
 MESALIB_DRI_LIBS-y = \
 	$(subst nouveau,nouveau_vieux,$(MESALIB_DRI_DRIVERS-y))
@@ -92,6 +96,7 @@ endif
 ifdef PTXCONF_ARCH_ARM
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_BROADCOM)	+= broadcom
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_FREEDRENO)	+= freedreno
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_PANFROST)	+= panfrost
 endif
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_SWRAST)		+= swrast
 
@@ -117,7 +122,9 @@ MESALIB_CONF_OPT	:= \
 	-Dandroid-stub=false \
 	-Dbuild-aco-tests=false \
 	-Dbuild-tests=false \
+	-Dcustom-shader-replacement= \
 	-Dd3d-drivers-path=/usr/lib/d3d \
+	-Ddatasources=auto \
 	-Ddraw-use-llvm=true \
 	-Ddri-drivers=$(subst $(space),$(comma),$(MESALIB_DRI_DRIVERS-y)) \
 	-Ddri-drivers-path=/usr/lib/dri \
@@ -126,7 +133,9 @@ MESALIB_CONF_OPT	:= \
 	-Degl=$(call ptx/endis, PTXCONF_MESALIB_EGL)d \
 	-Degl-lib-suffix= \
 	-Degl-native-platform=auto \
+	-Dexecmem=true \
 	-Dfreedreno-kgsl=false \
+	-Dgallium-d3d10umd=false \
 	-Dgallium-drivers=$(subst $(space),$(comma),$(MESALIB_GALLIUM_DRIVERS-y)) \
 	-Dgallium-extra-hud=$(call ptx/truefalse, PTXCONF_MESALIB_EXTENDED_HUD) \
 	-Dgallium-nine=false \
@@ -137,6 +146,7 @@ MESALIB_CONF_OPT	:= \
 	-Dgallium-xa=disabled \
 	-Dgallium-xvmc=disabled \
 	-Dgbm=$(call ptx/endis, PTXCONF_MESALIB_GBM)d \
+	-Dgbm-backends-path= \
 	-Dgles-lib-suffix= \
 	-Dgles1=$(call ptx/endis, PTXCONF_MESALIB_GLES1)d \
 	-Dgles2=$(call ptx/endis, PTXCONF_MESALIB_GLES2)d \
@@ -150,15 +160,18 @@ MESALIB_CONF_OPT	:= \
 	-Dllvm=disabled \
 	-Dlmsensors=$(call ptx/endis, PTXCONF_MESALIB_LMSENSORS)d \
 	-Dmicrosoft-clc=disabled \
+	-Dmoltenvk-dir= \
 	-Domx-libs-path=/usr/lib/dri \
 	-Dopencl-native=false \
 	-Dopencl-spirv=false \
 	-Dopengl=$(call ptx/truefalse, PTXCONF_MESALIB_OPENGL) \
 	-Dosmesa=false \
 	-Dosmesa-bits=8 \
+	-Dperfetto=false \
 	-Dplatform-sdk-version=25 \
 	-Dplatforms=$(subst $(space),$(comma),$(MESALIBS_EGL_PLATFORMS-y)) \
 	-Dpower8=disabled \
+	-Dprefer-crocus=false \
 	-Dprefer-iris=true \
 	-Dselinux=false \
 	-Dshader-cache=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d \
