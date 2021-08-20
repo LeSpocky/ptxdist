@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GLMARK2) += glmark2
 #
 # Paths and names
 #
-GLMARK2_VERSION	:= 2020.04
-GLMARK2_MD5	:= a90713700a740180fef3576f7ee3c9db
+GLMARK2_VERSION	:= 2021.02
+GLMARK2_MD5	:= b81d52c61ff3ef1fb20f42b3c0faf780
 GLMARK2		:= glmark2-$(GLMARK2_VERSION)
 GLMARK2_SUFFIX	:= tar.gz
 GLMARK2_URL	:= https://github.com/glmark2/glmark2/archive/$(GLMARK2_VERSION).$(GLMARK2_SUFFIX)
@@ -31,9 +31,6 @@ GLMARK2_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-GLMARK2_CONF_ENV	:= \
-	$(CROSS_ENV)
-
 GLMARK2_FLAVORS-y :=
 GLMARK2_FLAVORS-$(PTXCONF_GLMARK2_FLAVOR_X11_GL)	+= x11-gl
 GLMARK2_FLAVORS-$(PTXCONF_GLMARK2_FLAVOR_X11_GLES2)	+= x11-glesv2
@@ -45,37 +42,13 @@ GLMARK2_FLAVORS-$(PTXCONF_GLMARK2_FLAVOR_WAYLAND_GLES2)	+= wayland-glesv2
 GLMARK2_FLAVORS := $(strip $(GLMARK2_FLAVORS-y))
 GLMARK2_FLAVORS := $(subst $(ptx/def/space),$(ptx/def/comma),$(GLMARK2_FLAVORS))
 
-GLMARK2_CONF_TOOL	:= NO
+GLMARK2_CONF_TOOL	:= meson
 GLMARK2_CONF_OPT	:= \
-	--prefix=/usr \
-	--with-flavors=$(GLMARK2_FLAVORS)
-
-$(STATEDIR)/glmark2.prepare:
-	@$(call targetinfo)
-	@cd $(GLMARK2_DIR) && \
-		$(GLMARK2_CONF_ENV) PATH=$(CROSS_PATH) \
-		$(SYSTEMPYTHON3) ./waf configure $(GLMARK2_CONF_OPT)
-	@$(call touch)
-
-# ----------------------------------------------------------------------------
-# Compile
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/glmark2.compile:
-	@$(call targetinfo)
-	@cd $(GLMARK2_DIR) && $(SYSTEMPYTHON3) ./waf build -j 1
-	@$(call touch)
-
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/glmark2.install:
-	@$(call targetinfo)
-	@rm -rf "$(GLMARK2_PKGDIR)"
-	@mkdir -p "$(GLMARK2_PKGDIR)"
-	@cd "$(GLMARK2_DIR)" && $(SYSTEMPYTHON3) ./waf --destdir=$(GLMARK2_PKGDIR) install
-	@$(call touch)
+	$(CROSS_MESON_USR) \
+	-Dflavors=$(GLMARK2_FLAVORS) \
+	-Ddata-path='' \
+	-Dextras-path='' \
+	-Dversion-suffix=''
 
 # ----------------------------------------------------------------------------
 # Target-Install
