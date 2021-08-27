@@ -1,7 +1,7 @@
 #!/bin/sh
 
 . /lib/init/initmethod-bbinit-functions.sh
-. /lib/init/rc-once.sh
+. /usr/lib/init/rc-once.sh
 
 start() {
 	if ! mount_root_rw; then

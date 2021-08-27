@@ -3,7 +3,7 @@
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 . /lib/init/initmethod-bbinit-functions.sh
-. /lib/init/rc-once.sh
+. /usr/lib/init/rc-once.sh
 
 do_start() {
 	test -e "$STAMP" && return
