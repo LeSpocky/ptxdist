@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. /lib/init/initmethod-bbinit-functions.sh
+. /usr/lib/init/initmethod-bbinit-functions.sh
 . /usr/lib/init/rc-once.sh
 
 start() {
