@@ -7,8 +7,6 @@ NAME=dropbear
 DROPBEAR_PORT=22
 DROPBEAR_EXTRA_ARGS=
 
-. /lib/init/initmethod-bbinit-functions.sh
-
 # test ! -h /var/service/dropbear || exit 0
 
 DROPBEAR_RSAKEY_DEFAULT="@KEYDIR@/dropbear_rsa_host_key"
