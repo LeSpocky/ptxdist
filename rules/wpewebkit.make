@@ -43,7 +43,7 @@ WPEWEBKIT_CONF_OPT	:= \
 	-DENABLE_GTKDOC=OFF\
 	-DENABLE_MEDIA_SOURCE=ON \
 	-DENABLE_VIDEO=$(call ptx/onoff,PTXCONF_WPEWEBKIT_VIDEO) \
-	-DENABLE_WEBDRIVER=ON \
+	-DENABLE_WEBDRIVER=$(call ptx/onoff,PTXCONF_WPEWEBKIT_WEBDRIVER) \
 	-DENABLE_WEB_AUDIO=$(call ptx/onoff,PTXCONF_WPEWEBKIT_AUDIO) \ \
 	-DENABLE_WEB_CRYPTO=ON \
 	-DENABLE_WPE_QT_API=$(call ptx/onoff,PTXCONF_WPEWEBKIT_QT) \
@@ -100,6 +100,10 @@ $(STATEDIR)/wpewebkit.targetinstall:
 
 ifdef PTXCONF_WPEWEBKIT_QT
 	@$(call install_tree, wpewebkit, 0, 0, -, /usr/lib/qt5/qml/org/wpewebkit)
+endif
+
+ifdef PTXCONF_WPEWEBKIT_WEBDRIVER
+	@$(call install_copy, wpewebkit, 0, 0, 0755, -, /usr/bin/WPEWebDriver)
 endif
 
 	@$(call install_finish, wpewebkit)

@@ -98,4 +98,11 @@ config WPEWEBKIT_ENABLE_LOGGING
 	  Enable this option if you want to get some more logging information. For more
 	  information check https://trac.webkit.org/wiki/WebKitGTK/Debugging.
 
+config WPEWEBKIT_WEBDRIVER
+	bool
+	prompt "WebDriver support"
+	help
+	  WebDriver is a standalone server that implements the W3C WebDriver standard
+	  for automated testing.
+
 endif
