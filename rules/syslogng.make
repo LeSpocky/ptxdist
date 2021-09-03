@@ -41,6 +41,8 @@ SYSLOGNG_ENV 	= \
 SYSLOGNG_AUTOCONF = \
 	$(CROSS_AUTOCONF_USR) \
 	--localstatedir=/var/run \
+	--with-module-dir=/usr/$(CROSS_LIB_DIR)/syslog-ng \
+	--with-module-path=/usr/$(CROSS_LIB_DIR)/syslog-ng \
 	--enable-forced-server-mode \
 	--disable-debug \
 	--enable-force-gnu99 \
@@ -99,7 +101,7 @@ $(STATEDIR)/syslogng.install:
 	@$(call targetinfo)
 	@$(call world/install, SYSLOGNG)
 #	# test plugins, not needed on the target
-	@rm -r "$(SYSLOGNG_PKGDIR)/usr/lib/syslog-ng/loggen"
+	@rm -r "$(SYSLOGNG_PKGDIR)/usr/$(CROSS_LIB_DIR)/syslog-ng/loggen"
 	@$(call touch)
 
 
@@ -122,7 +124,7 @@ $(STATEDIR)/syslogng.targetinstall:
 	@$(call install_lib, syslogng, 0, 0, 0644, libsyslog-ng-$(SYSLOG_LIBVERSION))
 	@$(call install_lib, syslogng, 0, 0, 0644, libevtlog-$(SYSLOG_LIBVERSION))
 	@$(call install_lib, syslogng, 0, 0, 0644, libsecret-storage)
-	@$(call install_glob, syslogng, 0, 0, -, /usr/lib/syslog-ng, *.so)
+	@$(call install_glob, syslogng, 0, 0, -, /usr/$(CROSS_LIB_DIR)/syslog-ng, *.so)
 
 #	# config
 ifdef PTXCONF_SYSLOGNG_CONFIG
