@@ -93,8 +93,10 @@ ifdef PTXCONF_ARCH_X86
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_AMD)		+= amd
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_INTEL)		+= intel
 endif
-ifdef PTXCONF_ARCH_ARM
+ifdef PTXCONF_ARCH_ARM_NEON
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_BROADCOM)	+= broadcom
+endif
+ifdef PTXCONF_ARCH_ARM
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_FREEDRENO)	+= freedreno
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_PANFROST)	+= panfrost
 endif
@@ -199,6 +201,13 @@ MESALIB_CONF_OPT	:= \
 # ----------------------------------------------------------------------------
 # Compile
 # ----------------------------------------------------------------------------
+
+ifdef PTXCONF_ARCH_ARM
+ifndef PTXCONF_ARCH_ARM_NEON
+# don't try to build NEON code on platforms that don't have NEON
+MESALIB_CFLAGS := -DNO_FORMAT_ASM
+endif
+endif
 
 $(STATEDIR)/mesalib.compile:
 	@$(call targetinfo)
