@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.32
-PIPEWIRE_MD5		:= c3f81ad2d0eedf87265cfae30f08c10b
+PIPEWIRE_VERSION	:= 0.3.34
+PIPEWIRE_MD5		:= 1da6f0e53dc8aa138f450e400a358b55
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -64,7 +64,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dgstreamer-device-provider=$(call ptx/endis,PTXCONF_PIPEWIRE_GSTREAMER)d \
 	-Dinstalled_tests=disabled \
 	-Djack=disabled \
-	-Djack-devel=disabled \
+	-Djack-devel=false \
 	-Dlibcamera=disabled \
 	-Dlibjack-path= \
 	-Dlibpulse=disabled \
@@ -182,6 +182,7 @@ endif
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/client.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/client-rt.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/demonic.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-convolver.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-dolby-surround.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-eq6.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-matrix-spatialiser.conf)
