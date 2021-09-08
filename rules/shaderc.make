@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SHADERC) += shaderc
 #
 # Paths and names
 #
-SHADERC_VERSION			:= v2021.1
-SHADERC_MD5			:= ebb17b2cb26d2e6b6eadfe0ebac48921
+SHADERC_VERSION			:= v2021.2
+SHADERC_MD5			:= fd2c46957ebef72309bb21b5c96d4ce5
 SHADERC				:= shaderc-$(SHADERC_VERSION)
 SHADERC_SUFFIX			:= tar.gz
 SHADERC_URL			:= \
