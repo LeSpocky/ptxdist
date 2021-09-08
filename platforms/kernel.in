@@ -185,14 +185,16 @@ config KERNEL_DTS_PATH
 	default "${PTXDIST_PLATFORMCONFIG_SUBDIR}/dts:${KERNEL_DIR}/arch/${GENERIC_KERNEL_ARCH}/boot/dts"
 	help
 	  Define path to the dts source file. Multiple directories can be
-	  specified separated by ':'.
+	  specified separated by ':'. A relative path will be expanded relative
+	  to the workspace and all other layers. Only on of the specified paths
+	  can be a relative path.
 
 config KERNEL_DTS
 	string "source dts file"
 	default "<yourboard>.dts"
 	help
 	  Select the dts file to use for the device tree binary
-	  blob generation. For relative file names DTC_OFTREE_DTS_PATH
+	  blob generation. For relative file names KERNEL_DTS_PATH
 	  is used as a search path for the device tree files specified
 	  here. Multiple dts files can be specified, separated by spaces.
 
