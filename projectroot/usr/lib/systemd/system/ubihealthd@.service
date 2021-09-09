@@ -1,0 +1,13 @@
+# enable with `systemctl enable ubihealthd@ubi0.service`
+
+[Unit]
+Description=ubihealthd UBI device PEB scan daemon for %I
+BindsTo=dev-%i.device
+After=dev-%i.device
+
+[Service]
+Type=forking
+ExecStart=/usr/sbin/ubihealthd -d /dev/%I -i 120
+
+[Install]
+WantedBy=multi-user.target

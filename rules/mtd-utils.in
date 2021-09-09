@@ -294,12 +294,22 @@ config MTD_UTILS_UBIFS_MOUNTHELPER
 	help
 	  Simplifies attaching an ubi and mounting an ubifs via /etc/fstab.
 
-config MTD_UTILS_UBIHEALTHD
+menuconfig MTD_UTILS_UBIHEALTHD
 	bool
 	prompt "ubihealthd"
 	help
 	  Daemon that randomly scans each PEB of a UBI device to ensure that
 	  filesystems with little reading do enough wear leveling.
+
+if MTD_UTILS_UBIHEALTHD
+
+config MTD_UTILS_UBIHEALTHD_SYSTEMD_UNIT
+	bool
+	prompt "install systemd unit files"
+	default y
+	depends on SYSTEMD
+
+endif
 
 config MTD_UTILS_UBIMKVOL
 	bool

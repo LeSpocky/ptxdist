@@ -205,6 +205,12 @@ endif
 ifdef PTXCONF_MTD_UTILS_UBIHEALTHD
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/ubihealthd)
+ifdef PTXCONF_MTD_UTILS_UBIHEALTHD_SYSTEMD_UNIT
+	@$(call install_alternative, mtd-utils, 0, 0, 0644, \
+		/usr/lib/systemd/system/ubihealthd@.service)
+	@$(call install_link, mtd-utils, ../ubihealthd@.service, \
+		/usr/lib/systemd/system/multi-user.target.wants/ubihealthd@ubi0.service)
+endif
 endif
 ifdef PTXCONF_MTD_UTILS_UBIMKVOL
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
