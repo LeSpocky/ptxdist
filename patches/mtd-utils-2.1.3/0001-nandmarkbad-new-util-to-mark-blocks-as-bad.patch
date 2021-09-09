@@ -9,7 +9,7 @@ Subject: [PATCH] nandmarkbad: new util to mark blocks as bad
  create mode 100644 nand-utils/nandmarkbad.c
 
 diff --git a/nand-utils/Makemodule.am b/nand-utils/Makemodule.am
-index d75b0cb3e36c..c31dcb01f06e 100644
+index cee677783e7a..7fd1de5aa9ae 100644
 --- a/nand-utils/Makemodule.am
 +++ b/nand-utils/Makemodule.am
 @@ -7,6 +7,9 @@ nandwrite_LDADD = libmtd.a
@@ -19,18 +19,18 @@ index d75b0cb3e36c..c31dcb01f06e 100644
 +nandmarkbad_SOURCES = nand-utils/nandmarkbad.c
 +nandmarkbad_LDADD = libmtd.a
 +
- nftldump_SOURCES = nand-utils/nftldump.c
+ nftldump_SOURCES = nand-utils/nftldump.c include/mtd_swab.h
+ nftldump_SOURCES += include/mtd/nftl-user.h include/mtd/ftl-user.h
  nftldump_LDADD = libmtd.a
+@@ -23,7 +26,7 @@ NAND_SH = \
  
-@@ -14,7 +17,7 @@ nftl_format_SOURCES = nand-utils/nftl_format.c
- nftl_format_LDADD = libmtd.a
+ EXTRA_DIST += $(NAND_SH)
  
- NAND_BINS = \
--	nanddump nandwrite nandtest nftldump nftl_format
-+	nanddump nandwrite nandtest nandmarkbad nftldump nftl_format
+-sbin_PROGRAMS += nanddump nandwrite nandtest nftldump nftl_format nandflipbits
++sbin_PROGRAMS += nanddump nandwrite nandtest nandmarkbad nftldump nftl_format nandflipbits
  
- NAND_SH = \
- 	nand-utils/load_nandsim.sh
+ if BUILD_TESTS
+ test_SCRIPTS += $(NAND_SH)
 diff --git a/nand-utils/nandmarkbad.c b/nand-utils/nandmarkbad.c
 new file mode 100644
 index 000000000000..cf05698c3609
