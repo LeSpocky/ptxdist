@@ -17,11 +17,22 @@ ptxd_make_world_update_md5() {
     local md5="${1}"
 
     local PKG_MD5="PTXCONF_${PKG}_MD5"
-    for conf in "${PTXDIST_PLATFORMCONFIG}" "${PTXDIST_PTXCONFIG}"; do
-	conf="$(readlink -f "${conf}")"
-	if [ $(grep "^${PKG_MD5}=\"" "${conf}" 2> /dev/null | wc -l) = 1 ]; then
+    for config in "${PTXDIST_PLATFORMCONFIG}" "${PTXDIST_PTXCONFIG}"; do
+	local conf="$(readlink -f "${config}")"
+	if grep -q "^${PKG_MD5}=\"" "${conf}"; then
 	    sed -i "s/^${PKG_MD5}=\".*$/${PKG_MD5}=\"${md5}\"/" "${conf}"
 	    ptxd_warning "New checksum for ${pkg_label}: ${md5} in $(ptxd_print_path "${conf}")"
+	    if [ -e "${conf}.diff" ]; then
+		if grep -q "^${PKG_MD5}=\"" "${conf}.diff"; then
+		    sed -i "s/^${PKG_MD5}=\".*$/${PKG_MD5}=\"${md5}\"/" "${conf}.diff"
+		else
+		    echo "${PKG_MD5}=\"${md5}\"" >> "${conf}.diff"
+		    if [ "${config}" == "${PTXDIST_PLATFORMCONFIG}" ]; then
+			arg=" platform"
+		    fi
+		    ptxd_warning "$(ptxd_print_path "${config}") is dirty. Run 'ptxdist oldconfig${arg}'."
+		fi
+	    fi
 	    return
 	fi
     done
