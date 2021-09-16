@@ -161,6 +161,9 @@ endif
 ifdef PTXCONF_WESTON_IVISHELL
 	@$(call install_lib, weston, 0, 0, 0644, weston/ivi-shell)
 endif
+ifdef PTXCONF_WESTON_SHELL_KIOSK
+	@$(call install_lib, weston, 0, 0, 0644, weston/kiosk-shell)
+endif
 ifdef PTXCONF_WESTON_SYSTEMD
 	@$(call install_lib, weston, 0, 0, 0644, weston/systemd-notify)
 endif
