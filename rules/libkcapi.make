@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBKCAPI) += libkcapi
 #
 # Paths and names
 #
-LIBKCAPI_VERSION	:= 1.1.5
-LIBKCAPI_MD5		:= 38776243296c2fb1ad78ca92bab4adcf
+LIBKCAPI_VERSION	:= 1.3.1
+LIBKCAPI_MD5		:= d65056b8eff5e570cc8d0750d29ea48c
 LIBKCAPI		:= libkcapi-$(LIBKCAPI_VERSION)
 LIBKCAPI_SUFFIX		:= tar.xz
 LIBKCAPI_URL		:= http://www.chronox.de/libkcapi//$(LIBKCAPI).$(LIBKCAPI_SUFFIX)
