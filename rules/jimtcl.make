@@ -57,7 +57,7 @@ JIMTCL_CONF_OPT		:= \
 $(STATEDIR)/jimtcl.install:
 	@$(call targetinfo)
 	@$(call world/install, JIMTCL)
-	@ln -sf libjim.so.$(JIMTCL_VERSION) $(JIMTCL_PKGDIR)/usr/lib/libjim.so
+	@ln -sf libjim.so.$(JIMTCL_VERSION) $(JIMTCL_PKGDIR)/usr/$(CROSS_LIB_DIR)/libjim.so
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
