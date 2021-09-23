@@ -42,9 +42,9 @@ LIBUSBGX_CONF_ENV	:= $(CROSS_ENV)
 LIBUSBGX_CONF_TOOL	:= autoconf
 LIBUSBGX_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--without-libconfig \
+	--$(call ptx/wow, PTXCONF_LIBUSBGX_SCHEMES)-libconfig \
 	--enable-examples \
-	--disable-gadget-schemes
+	--$(call ptx/endis, PTXCONF_LIBUSBGX_SCHEMES)-gadget-schemes
 
 # ----------------------------------------------------------------------------
 # Target-Install

@@ -2,12 +2,19 @@
 
 menuconfig LIBUSBGX
 	bool
+	select LIBCONFIG	if LIBUSBGX_SCHEMES
 	prompt "libusbgx                      "
 	help
 	  libusbgx is a C library encapsulating the kernel USB gadget-configfs
 	  userspace API functionality.
 
 if LIBUSBGX
+
+config LIBUSBGX_SCHEMES
+	bool "enable schemes support"
+	help
+	  With schemes support it is possible to export/import
+	  configs layout to/from declerative scheme files
 
 config SHOW_GADGETS
 	bool "install show-gadget tool"
