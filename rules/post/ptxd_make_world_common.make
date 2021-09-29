@@ -54,6 +54,9 @@ ptx/env = \
 	ptx_conf_opt_meson_host="$(call ptx/escape,$(HOST_MESON_OPT))"		\
 	ptx_conf_env_meson_host="$(call ptx/escape,$(HOST_ENV))"		\
 										\
+	ptx_make_opt_cargo_target="$(call ptx/escape,$(CROSS_CARGO_OPT))"	\
+	ptx_make_env_cargo_target="$(call ptx/escape,$(CROSS_CARGO_ENV))"	\
+										\
 	ptx_xpkg_extra_args=$(PTXCONF_IMAGE_XPKG_EXTRA_ARGS)
 
 world/env/impl = \

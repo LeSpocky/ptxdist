@@ -261,6 +261,15 @@ CROSS_MESON_USR := \
 CROSS_MESON_ENV = \
 	$(HOST_ENV_PROGS)
 
+CROSS_CARGO_ENV := \
+	RUST_TARGET_PATH=$(PTXDIST_PLATFORMDIR)/selected_toolchain
+
+CROSS_CARGO_OPT := \
+	build \
+	--target $(PTXCONF_GNU_TARGET) \
+	--release \
+	--frozen
+
 ifdef PTXCONF_GLOBAL_IPV6
 GLOBAL_IPV6_OPTION := --enable-ipv6
 else

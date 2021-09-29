@@ -514,6 +514,7 @@ function write_deps_pkg_active(this_PKG, this_pkg, prefix) {
 		print "$(STATEDIR)/" this_pkg ".extract: | "          "$(STATEDIR)/" this_pkg ".get"		> DGEN_DEPS_POST;
 
 	print "$(STATEDIR)/" this_pkg ".extract.post: "               "$(STATEDIR)/" this_pkg ".extract"	> DGEN_DEPS_POST;
+	print "$(STATEDIR)/" this_pkg ".cargosync: "                  "$(STATEDIR)/" this_pkg ".extract.post"	> DGEN_DEPS_POST;
 	print "$(STATEDIR)/" this_pkg ".prepare: "                    "$(STATEDIR)/" this_pkg ".extract.post"	> DGEN_DEPS_POST;
 	if (DIRTY != "true") {
 		print "$(STATEDIR)/" this_pkg ".prepare: " \

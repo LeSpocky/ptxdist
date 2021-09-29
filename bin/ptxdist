@@ -787,6 +787,9 @@ Misc:
   docs-latex			generate LaTeX / PDF documentation
   export_src <target dir>	export all source archives needed for this
 				project to <target dir>
+  cargosync <pkg>		create or update the rule file for the cargo package
+				dependencies
+
 Overwrite defaults:
 
   --ptxconfig=<config>		use specified ptxconfig
@@ -1628,7 +1631,7 @@ parse_second()
 
 ######## standard target, directly into make
 
-		prepare|compile|install|targetinstall|tags)
+		prepare|compile|install|targetinstall|tags|cargosync)
 			PTXDIST_OPTIMIZE_IO=true
 			;&  # fallthrough
 		extract)

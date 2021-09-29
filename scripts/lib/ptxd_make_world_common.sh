@@ -317,6 +317,9 @@ ptxd_make_world_init() {
 	if [ -e "${pkg_conf_dir}/meson.build" ]; then
 	    pkg_conf_tool=${pkg_conf_tool}meson
 	fi
+	if [ -e "${pkg_conf_dir}/Cargo.toml" ]; then
+	    pkg_conf_tool=${pkg_conf_tool}cargo
+	fi
     fi
 
     case "${pkg_conf_tool}" in
@@ -354,6 +357,15 @@ ptxd_make_world_init() {
 
 	    pkg_conf_opt="${pkg_conf_opt:-${!conf_opt_ptr}}"
 	    pkg_conf_env="PTXDIST_ICECC= CMAKE=false CMAKE_FOR_BUILD=false ${pkg_conf_env:-${!conf_env_ptr}}"
+	    ;;
+	cargo)
+	    local make_opt_ptr="ptx_make_opt_${pkg_conf_tool}_${pkg_type}"
+	    local make_env_ptr="ptx_make_env_${pkg_conf_tool}_${pkg_type}"
+
+	    pkg_make_opt="${pkg_make_opt:-${!make_opt_ptr}}"
+	    pkg_make_env="${pkg_make_env:-${!make_env_ptr}}"
+	    pkg_cargo_home="${pkg_dir}/ptxdist-cargo-home"
+	    pkg_make_env="CARGO_HOME='${pkg_cargo_home}' ${pkg_make_env}"
 	    ;;
 	*)
 	    local conf_env_ptr="ptx_conf_env_${pkg_type}"
@@ -500,7 +512,7 @@ ptxd_make_world_init() {
 	    # no consistent support for parallel building
 	    pkg_make_par="${python_pkg_make_par}"
 	    ;;
-	scons)
+	scons|cargo)
 	    # only -jX is supported not other options
 	    pkg_make_par="${PTXDIST_PARALLEL_FLAGS}"
 	    ;;

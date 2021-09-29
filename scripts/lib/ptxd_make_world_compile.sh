@@ -47,6 +47,16 @@ ptxd_make_world_compile() {
 	    "${pkg_make_opt}" \
 	    "${pkg_make_par}"
 	;;
+	cargo)
+	ptxd_eval \
+	    cd "${pkg_build_dir}" '&&' \
+	    "${pkg_path}" \
+	    "${pkg_env}" \
+	    "${pkg_make_env}" \
+	    cargo \
+	    "${pkg_make_opt}" \
+	    "${pkg_make_par}"
+	;;
 	*)
 	ptxd_eval \
 	    "${pkg_path}" \

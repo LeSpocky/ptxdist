@@ -10,7 +10,7 @@
 #
 # ptxd_make_world_extract
 #
-ptxd_make_world_extract() {
+ptxd_make_world_extract_impl() {
     ptxd_make_world_init || return
 
     if [ -z "${pkg_url}" -a -z "${pkg_src}" -o -z "${pkg_dir}" ]; then
@@ -86,5 +86,51 @@ extract: pkg_extract_dir=$(ptxd_print_path ${pkg_dir})"
     ptxd_make_serialize_put
     return ${ret}
 }
+export -f ptxd_make_world_extract_impl
 
+ptxd_make_world_extract_cargo() {
+    local src
+    echo "extract: cargo dependencies:"
+    rm -rf "${pkg_cargo_home}" &&
+    mkdir -p "${pkg_cargo_home}/source" &&
+    cd "${pkg_cargo_home}/source" &&
+    for src in ${pkg_srcs}; do
+	case "${src}" in
+	*.crate)
+	    echo "extract: ${src}"
+	    tar xf "${src}" || break
+	    set -- $(sha256sum "${src}")
+	    srcdir="$(basename ${src%.crate})"
+	    if [ ! -d "${srcdir}" ]; then
+		ptxd_bailout "missing source directory '${srcdir}'"
+	    fi
+	    printf '{"files": {}, "package": "%s"}' "${1}" > "${srcdir}/.cargo-checksum.json"
+	    ;;
+	*)
+	    ;;
+	esac
+    done &&
+    cat << EOF > ${pkg_cargo_home}/config
+[source.ptxdist]
+directory = "${pkg_cargo_home}/source"
+
+[source.crates-io]
+replace-with = "ptxdist"
+local-registry = "/nonexistant"
+
+[build]
+target-dir = "${pkg_build_dir}/target"
+
+[net]
+offline = true
+EOF
+}
+export -f ptxd_make_world_extract_cargo
+
+ptxd_make_world_extract() {
+    ptxd_make_world_extract_impl &&
+    if [ "${pkg_conf_tool}" = "cargo" ]; then
+	ptxd_make_world_extract_cargo
+    fi
+}
 export -f ptxd_make_world_extract

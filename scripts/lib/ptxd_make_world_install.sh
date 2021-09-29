@@ -113,6 +113,9 @@ ptxd_make_world_install() {
 	    "${pkg_install_opt}" \
 	)
 	;;
+	cargo)
+	ptxd_bailout "Packages that use cargo require a custom install stage"
+	;;
 	*)
 	cmd=( \
 	    "${pkg_path}" \

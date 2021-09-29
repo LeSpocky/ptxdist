@@ -461,3 +461,34 @@ instead.
 
 .. note:: *FOO* is still the name of our example package. It must be
   replaced by the real package name.
+
+Managing Cargo Packages
+=======================
+
+As with any other package, the correct configuration tool must be selected
+for Cargo packages:
+
+.. code-block:: make
+
+    FOO_CONF_TOOL := cargo
+
+Additional *cargo* options can be added to the configuration options like this:
+
+.. code-block:: make
+
+    FOO_CONF_OPT := \
+    	$(CROSS_CARGO_OPT) \
+    	--features ...
+
+Cargo wants to manage its own dependencies. PTXdist wants to manage all
+downloads. To make this work, PTXdist must be aware of all cargo
+dependencies. To make this possible, the package must contain a
+``Cargo.lock`` file.
+For new packages or whenever the ``Cargo.lock`` file changes, ``ptxdist
+cargosync foo`` must be called. This creates (or updates)
+``foo.cargo.make``. It is placed in the same directory as ``foo.make``.
+This introduces all dependencies from ``Cargo.lock`` as additional sources
+for the package.
+Finally, PTXdist builds all cargo packages with ``--frozen`` to ensure that
+the exact same versions are used and nothing is downloaded in the compile
+stage.

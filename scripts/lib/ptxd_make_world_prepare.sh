@@ -155,6 +155,40 @@ ptxd_make_world_prepare_meson() {
 }
 export -f ptxd_make_world_prepare_meson
 
+#
+# prepare for cargo based pkgs
+#
+ptxd_make_world_prepare_cargo() {
+    local arg cargo_lock_md5
+    local -a tmp
+    local pkg_makefile_cargo="${pkg_makefile%.make}.cargo.make"
+
+    set -- ${pkg_conf_opt}
+    while [ $# -gt 0 ]; do
+	arg="${1}"
+	shift
+	case "${arg}" in
+	cargo-lock-md5)
+	    cargo_lock_md5="${1}"
+	    shift
+	    tmp=( $(md5sum Cargo.lock 2>/dev/null) )
+	    if [ "${tmp[0]}" != "${cargo_lock_md5}" ]; then
+		ptxd_bailout "Cargo.lock has changed!" \
+		    "Run 'ptxdist cargosync ${pkg_lable}' to regenerate '$(ptxd_print_path ${pkg_makefile_cargo})'."
+	    fi
+	    ;;
+	*)
+	    ptxd_bailout "unknown option '${arg}' in <PKG>_CONF_OPT!"
+	    ;;
+	esac
+    done
+    if [ -z "${cargo_lock_md5}" ]; then
+	ptxd_bailout "Cargo dependency config is missing!" \
+	    "Run 'ptxdist cargosync ${pkg_lable}' to generate '$(ptxd_print_path ${pkg_makefile_cargo})'."
+    fi
+}
+export -f ptxd_make_world_prepare_cargo
+
 ptxd_make_world_prepare_init() {
     # delete existing build_dir
     if [ -n "${pkg_build_oot}" ]; then
@@ -212,7 +246,7 @@ ptxd_make_world_prepare() {
     esac
 
     case "${pkg_conf_tool}" in
-	autoconf|cmake|qmake|kconfig|perl|meson)
+	autoconf|cmake|qmake|kconfig|perl|meson|cargo)
 	    cd -- "${pkg_build_dir}" &&
 	    ptxd_make_world_prepare_"${pkg_conf_tool}" ;;
 	python|python3|scons)
