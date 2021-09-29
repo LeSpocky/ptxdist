@@ -1,19 +1,19 @@
 From: Michael Olbrich <m.olbrich@pengutronix.de>
 Date: Fri, 13 Nov 2020 11:55:47 +0100
-Subject: [PATCH] SConstruct: don't use -lnsl
+Subject: [PATCH] SConscript: don't use -lnsl
 
 It may be found on Linux but is not actually needed.
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- SConstruct | 8 +-------
+ SConscript | 8 +-------
  1 file changed, 1 insertion(+), 7 deletions(-)
 
-diff --git a/SConstruct b/SConstruct
-index d303c3aa6d20..ce627e93f65e 100644
---- a/SConstruct
-+++ b/SConstruct
-@@ -1113,13 +1113,7 @@ else:
+diff --git a/SConscript b/SConscript
+index 400af2c1fdb3..d6678ba9bd13 100644
+--- a/SConscript
++++ b/SConscript
+@@ -1082,13 +1082,7 @@ if not cleaning and not helping:
      else:
          confdefs.append("/* #undef HAVE_LIBRT */\n")
  

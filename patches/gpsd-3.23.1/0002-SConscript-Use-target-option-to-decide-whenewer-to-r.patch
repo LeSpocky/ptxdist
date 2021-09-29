@@ -1,17 +1,18 @@
 From: Ladislav Michl <ladis@linux-mips.org>
 Date: Sun, 2 Feb 2020 09:45:04 +0100
-Subject: [PATCH] SConstruct: Use 'target' option to decide whenewer to restart
+Subject: [PATCH] SConscript: Use 'target' option to decide whenewer to restart
  systemd
 
+Signed-off-by: Ladislav Michl <ladis@linux-mips.org>
 ---
- SConstruct | 2 +-
+ SConscript | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/SConstruct b/SConstruct
-index 71643c428f26..434141f3e46b 100644
---- a/SConstruct
-+++ b/SConstruct
-@@ -2853,7 +2853,7 @@ udev_install = Utility('udev-install', 'install', [
+diff --git a/SConscript b/SConscript
+index dc7a5c997357..e090a3a22e24 100644
+--- a/SConscript
++++ b/SConscript
+@@ -3102,7 +3102,7 @@ udev_install = Utility('udev-install', 'install', [
  
  if env['systemd']:
      env.Requires(udev_install, systemd_install)

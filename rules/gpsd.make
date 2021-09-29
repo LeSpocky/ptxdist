@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_GPSD) += gpsd
 #
 # Paths and names
 #
-GPSD_VERSION	:= 3.21
-GPSD_MD5	:= 782e4b10193f225cc95c65528636d4f5
+GPSD_VERSION	:= 3.23.1
+GPSD_MD5	:= 7984a35e7104b46c2cb570fb30c4be03
 GPSD		:= gpsd-$(GPSD_VERSION)
 GPSD_SUFFIX	:= tar.xz
 GPSD_URL	:= http://download.savannah.gnu.org/releases/gpsd/$(GPSD).$(GPSD_SUFFIX)
@@ -101,6 +101,7 @@ GPSD_CONF_OPT	= \
 	profiling=$(call ptx/yesno, PTXCONF_GPSD_PROFILING) \
 	python=$(call ptx/yesno, PTXCONF_GPSD_PYTHON) \
 	python_libdir=/usr/lib/python$(PYTHON3_MAJORMINOR) \
+	python_shebang=/usr/bin/python$(PYTHON3_MAJORMINOR) \
 	qt=no \
 	rtcm104v2=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_RTCM104V2) \
 	rtcm104v3=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_RTCM104V3) \
