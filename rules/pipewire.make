@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.34
-PIPEWIRE_MD5		:= 1da6f0e53dc8aa138f450e400a358b55
+PIPEWIRE_VERSION	:= 0.3.37
+PIPEWIRE_MD5		:= 7e69099ca3763761acca33bdc3e28e8d
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -53,7 +53,6 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dbluez5-codec-aptx=disabled \
 	-Dbluez5-codec-ldac=disabled \
 	-Dcontrol=enabled \
-	-Ddefault-session-manager=media-session \
 	-Ddocdir= \
 	-Ddocs=disabled \
 	-Decho-cancel-webrtc=disabled \
@@ -166,6 +165,7 @@ endif
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/spa-monitor)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/spa-resample)
 
+	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-dsdplay)
 	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-midiplay)
 	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-midirecord)
 	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-play)
@@ -182,17 +182,17 @@ endif
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/client.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/client-rt.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/demonic.conf)
-	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-convolver.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-dolby-surround.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-eq6.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-matrix-spatialiser.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-virtual-surround-5.1-kemar.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-virtual-surround-7.1-hesuvi.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/source-rnnoise.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire.conf)
 ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire-pulse.conf)
 endif
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/media-session.d/alsa-monitor.conf)
-	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/media-session.d/bluez-hardware.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/media-session.d/bluez-monitor.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/media-session.d/media-session.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/media-session.d/v4l2-monitor.conf)
