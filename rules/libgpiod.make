@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBGPIOD) += libgpiod
 #
 # Paths and names
 #
-LIBGPIOD_VERSION	:= 1.3
-LIBGPIOD_MD5		:= 70a3d4738495f4ec0c5f3fa6aeb999ed
+LIBGPIOD_VERSION	:= 1.6.3
+LIBGPIOD_MD5		:= 25b6d8e7ebda37bb9b55aa290af0f062
 LIBGPIOD		:= libgpiod-$(LIBGPIOD_VERSION)
 LIBGPIOD_SUFFIX		:= tar.gz
 LIBGPIOD_URL		:= https://www.kernel.org/pub/software/libs/libgpiod/$(LIBGPIOD).$(LIBGPIOD_SUFFIX)
@@ -32,7 +32,6 @@ LIBGPIOD_CONF_TOOL	:= autoconf
 LIBGPIOD_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_LIBGPIOD_TOOLS)-tools \
-	--disable-install-tests \
 	--disable-tests \
 	--$(call ptx/endis, PTXCONF_LIBGPIOD_CXX)-bindings-cxx \
 	--$(call ptx/endis, PTXCONF_LIBGPIOD_PYTHON3)-bindings-python
@@ -46,6 +45,8 @@ ifdef PTXCONF_KERNEL_HEADER
 LIBGPIOD_CPPFLAGS	:= \
 	-isystem $(KERNEL_HEADERS_INCLUDE_DIR)
 endif
+
+LIBGPIOD_LDFLAGS:= -Wl,-rpath-link,$(LIBGPIOD_DIR)/lib/.libs
 
 LIBGPIOD_TOOLS-$(PTXCONF_LIBGPIOD_GPIODETECT)	+= gpiodetect
 LIBGPIOD_TOOLS-$(PTXCONF_LIBGPIOD_GPIOINFO)	+= gpioinfo
