@@ -62,6 +62,7 @@ $(STATEDIR)/waffle.targetinstall:
 	@$(call install_fixup, waffle,DESCRIPTION,missing)
 
 	@$(call install_lib, waffle, 0, 0, 0644, libwaffle-1)
+	@$(call install_copy, waffle, 0, 0, 0755, -, /usr/bin/wflinfo)
 
 	@$(call install_finish, waffle)
 
