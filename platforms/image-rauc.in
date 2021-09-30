@@ -26,4 +26,19 @@ config IMAGE_RAUC_DESCRIPTION
 	help
 	  Optional description that will be placed in the Bundles metadata.
 
+choice
+	prompt "Bundle format"
+
+config IMAGE_RAUC_BUNDLE_FORMAT_PLAIN
+	bool "plain"
+	help
+	  The old bundle format, which since rauc 1.5 is now known as 'plain'.
+
+config IMAGE_RAUC_BUNDLE_FORMAT_VERITY
+	bool "verity"
+	help
+	  The improved 'verity' bundle format
+
+endchoice
+
 endif
