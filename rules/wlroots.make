@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WLROOTS) += wlroots
 #
 # Paths and names
 #
-WLROOTS_VERSION	:= 0.11.0
-WLROOTS_MD5	:= 3ed69ea05c4d3a05f96a9a859cb5f333
+WLROOTS_VERSION	:= 0.14.1
+WLROOTS_MD5	:= 3fbe8f81d2ba59362f041940869ed1e2
 WLROOTS		:= wlroots-$(WLROOTS_VERSION)
 WLROOTS_SUFFIX	:= tar.gz
 WLROOTS_URL	:= https://github.com/swaywm/wlroots/archive/$(WLROOTS_VERSION).$(WLROOTS_SUFFIX)

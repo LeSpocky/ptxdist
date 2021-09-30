@@ -15,6 +15,7 @@ menuconfig WLROOTS
 	select UDEV
 	select UDEV_LIBUDEV
 	select PIXMAN
+	select SEATD
 	select SYSTEMD			if WLROOTS_SYSTEMD
 	select SYSTEMD_LOGIND		if WLROOTS_SYSTEMD_LOGIND
 	prompt "wlroots                       "
