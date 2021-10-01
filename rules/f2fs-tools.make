@@ -16,14 +16,16 @@ endif
 #
 # Paths and names
 #
-F2FS_TOOLS_VERSION	:= 1.12.0
-F2FS_TOOLS_MD5		:= 52d8ab4d6b6e7b8d416cb1c0da518fb0
+F2FS_TOOLS_VERSION	:= 1.14.0
+F2FS_TOOLS_MD5		:= df05b251ce1e9966450bb801da91d7a3
 F2FS_TOOLS		:= f2fs-tools-$(F2FS_TOOLS_VERSION)
-F2FS_TOOLS_SUFFIX	:= tar.xz
-F2FS_TOOLS_URL		:= git://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git;tag=v$(F2FS_TOOLS_VERSION)
+F2FS_TOOLS_SUFFIX	:= tar.gz
+F2FS_TOOLS_URL		:= https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/$(F2FS_TOOLS).$(F2FS_TOOLS_SUFFIX)
 F2FS_TOOLS_SOURCE	:= $(SRCDIR)/$(F2FS_TOOLS).$(F2FS_TOOLS_SUFFIX)
 F2FS_TOOLS_DIR		:= $(BUILDDIR)/$(F2FS_TOOLS)
-F2FS_TOOLS_LICENSE	:= GPL-2.0-or-later LGPL-2.1-or-later
+F2FS_TOOLS_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
+F2FS_TOOLS_LICENSE_FILES := \
+	file://COPYING;md5=362b4b2594cd362b874a97718faa51d3
 
 # ----------------------------------------------------------------------------
 # Prepare
