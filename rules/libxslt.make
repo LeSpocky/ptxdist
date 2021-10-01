@@ -48,7 +48,7 @@ LIBXSLT_AUTOCONF := \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_DEBUG)-debug \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_DEBUG)-mem-debug \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_DEBUG)-debugger \
-	--without-profiler \
+	--$(call ptx/wwo, PTXCONF_LIBXSLT_PROFILER)-profiler \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_PLUGINS)-plugins
 
 # ----------------------------------------------------------------------------
