@@ -1,0 +1,55 @@
+From: Lucas Stach <l.stach@pengutronix.de>
+Date: Sat, 11 Sep 2021 01:52:35 +0200
+Subject: [PATCH] fix the last cross-compilation fix
+
+Instead of trying to figure out which way to call echo in order to supress
+the newline and apparently getting it wrong on some platforms (on a Fedora
+build host compilation fails due to stray \c characters in the generated
+files) use the POSIX recommended portable way of calling printf.
+
+Signed-off-by: Lucas Stach <l.stach@pengutronix.de>
+---
+ src/gen-lock-obj.sh | 16 ++++------------
+ 1 file changed, 4 insertions(+), 12 deletions(-)
+
+diff --git a/src/gen-lock-obj.sh b/src/gen-lock-obj.sh
+index a710f0ccee5a..aea9edb6095a 100755
+--- a/src/gen-lock-obj.sh
++++ b/src/gen-lock-obj.sh
+@@ -38,14 +38,6 @@
+ #     AWK=gawk ./gen-lock-obj.sh
+ #
+ 
+-if test -n `echo -n`; then
+-    ECHO_C='\c'
+-    ECHO_N=''
+-else
+-    ECHO_C=''
+-    ECHO_N='-n'
+-fi
+-
+ if test "$1" = --disable-threads; then
+     cat <<EOF
+ ## lock-obj-pub.$host.h - NO LOCK SUPPORT
+@@ -107,17 +99,17 @@ EOF
+ #     USE_LONG_DOUBLE_FOR_ALIGNMENT
+ #
+ 
+-echo ${ECHO_N} "#define GPGRT_LOCK_INITIALIZER {$LOCK_ABI_VERSION,{{${ECHO_C}"
++printf "%s" "#define GPGRT_LOCK_INITIALIZER {$LOCK_ABI_VERSION,{{"
+ 
+ i=0
+ while test "$i" -lt $ac_mtx_size; do
+     if test "$i" -ne 0 -a "$(( $i % 8 ))" -eq 0; then
+         echo ' \'
+-        echo ${ECHO_N} "                                    ${ECHO_C}"
++        printf "%s" "                                    "
+     fi
+-    echo ${ECHO_N} "0${ECHO_C}"
++    printf "%s" "0"
+     if test "$i" -lt $(($ac_mtx_size - 1)); then
+-        echo ${ECHO_N} ",${ECHO_C}"
++        printf "%s" ","
+     fi
+     i=$(( i + 1 ))
+ done
