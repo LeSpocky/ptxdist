@@ -1,0 +1,11 @@
+## SECTION=shell_and_console
+
+config GT
+	tristate
+	select HOST_CMAKE
+	select LIBUSBGX
+	select LIBUSBGX_SCHEMES
+	select LIBCONFIG
+	prompt "gadget-tool (gt)"
+	help
+	  Gadget-tool - Linux command line tool for setting USB gadget using configFS
