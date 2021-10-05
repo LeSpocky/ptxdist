@@ -42,9 +42,10 @@ LIBUSBGX_CONF_ENV	:= $(CROSS_ENV)
 LIBUSBGX_CONF_TOOL	:= autoconf
 LIBUSBGX_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--$(call ptx/wow, PTXCONF_LIBUSBGX_SCHEMES)-libconfig \
+	--$(call ptx/wwo, PTXCONF_LIBUSBGX_SCHEMES)-libconfig \
 	--enable-examples \
-	--$(call ptx/endis, PTXCONF_LIBUSBGX_SCHEMES)-gadget-schemes
+	--$(call ptx/endis, PTXCONF_LIBUSBGX_SCHEMES)-gadget-schemes \
+	--disable-doxygen-doc
 
 # ----------------------------------------------------------------------------
 # Target-Install
