@@ -66,7 +66,7 @@ ifdef PTXCONF_SHOW_GADGETS
 endif
 
 ifdef PTXCONF_SHOW_UDCS
-	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/show-gadgets)
+	@$(call install_copy, libusbgx, 0, 0, 0755, -, /usr/bin/show-udcs)
 endif
 
 ifdef PTXCONF_GADGET_VID_PID_REMOVE
