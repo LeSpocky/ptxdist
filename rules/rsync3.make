@@ -27,6 +27,10 @@ RSYNC3_LICENSE	:= GPL-3.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
+RSYNC3_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_lib_attr_getxattr=no
+
 #
 # autoconf
 #
