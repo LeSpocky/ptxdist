@@ -21,7 +21,9 @@ DFU_UTIL_SUFFIX		:= tar.gz
 DFU_UTIL_URL		:= http://dfu-util.sourceforge.net/releases/$(DFU_UTIL).$(DFU_UTIL_SUFFIX)
 DFU_UTIL_SOURCE		:= $(SRCDIR)/$(DFU_UTIL).$(DFU_UTIL_SUFFIX)
 DFU_UTIL_DIR		:= $(BUILDDIR)/$(DFU_UTIL)
-DFU_UTIL_LICENSE	:= GPL-2.0-only
+DFU_UTIL_LICENSE	:= GPL-2.0-or-later
+DFU_UTIL_LICENSE_FILES	:= file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f
+# The file 'dfuse-pack.py' has different license, but is not copied to target
 
 # ----------------------------------------------------------------------------
 # Prepare
