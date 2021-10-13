@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_JIMTCL) += jimtcl
 #
 # Paths and names
 #
-JIMTCL_VERSION	:= 0.78
-JIMTCL_MD5	:= bde9021d78a77fe28e1bbc423142ab23
+JIMTCL_VERSION	:= 0.80
+JIMTCL_MD5	:= 4e437ade61b069d2d638e959c8f26bd0
 JIMTCL		:= jimtcl-$(JIMTCL_VERSION)
-JIMTCL_SUFFIX	:= tar.xz
-JIMTCL_URL	:= http://repo.or.cz/jimtcl.git;tag=$(JIMTCL_VERSION)
+JIMTCL_SUFFIX	:= tar.gz
+JIMTCL_URL	:= https://github.com/msteveb/jimtcl/archive/refs/tags/$(JIMTCL_VERSION).$(JIMTCL_SUFFIX)
 JIMTCL_SOURCE	:= $(SRCDIR)/$(JIMTCL).$(JIMTCL_SUFFIX)
 JIMTCL_DIR	:= $(BUILDDIR)/$(JIMTCL)
 JIMTCL_LICENSE	:= BSD-2-Clause
