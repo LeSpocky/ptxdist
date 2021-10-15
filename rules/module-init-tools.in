@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 # module-init-tools configuration
 
 menuconfig MODULE_INIT_TOOLS
@@ -8,6 +10,8 @@ menuconfig MODULE_INIT_TOOLS
 	  This package contains a set of programs for loading, inserting
 	  and removing kernel modules for Linux (versions 2.5.48 and
 	  above).
+
+	  STAGING: this package is obsolete and has been replaced by libkmod.
 
 if MODULE_INIT_TOOLS
 
