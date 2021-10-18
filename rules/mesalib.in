@@ -93,6 +93,14 @@ config MESALIB_DRI_KMSRO
 	bool
 	prompt "KMS renderonly"
 
+config MESALIB_DRI_SVGA
+	bool
+	prompt "SVGA"
+
+config MESALIB_DRI_VIRGL
+	bool
+	prompt "VIRGL"
+
 config MESALIB_DRI_FREEDRENO
 	bool
 	prompt "Freedreno"
