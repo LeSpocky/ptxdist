@@ -1,0 +1,42 @@
+## SECTION=networking
+
+menuconfig SYSKLOGD
+	tristate
+	prompt "sysklogd                      "
+	depends on !BUSYBOX_SYSLOGD || ALLYES
+	depends on !BUSYBOX_LOGGER || ALLYES
+	select SYSTEMD		if SYSKLOGD_SYSTEMD
+	help
+	  The venerable BSD syslogd and klogd rolled into one syslogd.
+	  This is a maintained and updated variant of the same.
+
+comment "BusyBox' syslogd is selected!"
+	depends on BUSYBOX_SYSLOGD
+
+comment "BusyBox' logger is selected!"
+	depends on BUSYBOX_LOGGER
+
+if SYSKLOGD
+
+comment "runtime options   ---"
+
+config SYSKLOGD_SYSTEMD
+	bool
+	default y
+	prompt "Enable systemd support"
+	depends on INITMETHOD_SYSTEMD
+	help
+	  Installs the systemd service file and enables support for the
+	  systemd-journal
+
+config SYSKLOGD_STARTSCRIPT
+	bool
+	default y
+	depends on INITMETHOD_BBINIT
+	help
+	  Installs (if present) the
+	  "./projectroot/etc/init.d/syslogd" startscript from your
+	  workspace, otherwise a generic one from the ptxdist
+	  installation ("<PTXDIST>/projectroot/etc/init.d/syslogd").
+
+endif
