@@ -11,11 +11,11 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index bcbbec71a1cb..3868d7638e46 100644
+index 401c623a65f8..36a0557d2aa8 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -132,7 +132,7 @@ MAKE.k = $(findstring k,$(firstword $(MAKEFLAGS)))
- MAKE.q = $(findstring q,$(firstword $(MAKEFLAGS)))
+@@ -136,7 +136,7 @@ MAKE.k = $(findstring k,$(firstword $(filter-out --%,$(MAKEFLAGS))))
+ MAKE.q = $(findstring q,$(firstword $(filter-out --%,$(MAKEFLAGS))))
  MAKE.nq = $(if $(word 2, $(MAKE.n) $(MAKE.q)),nq)
  NINJAFLAGS = $(if $V,-v) $(if $(MAKE.n), -n) $(if $(MAKE.k), -k0) \
 -        $(filter-out -j, $(lastword -j1 $(filter -l% -j%, $(MAKEFLAGS)))) \
