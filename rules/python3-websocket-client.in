@@ -1,0 +1,12 @@
+## SECTION=python3
+
+config PYTHON3_WEBSOCKET_CLIENT
+	tristate
+	select PYTHON3
+	select PYTHON3_SSL
+	prompt "python3-websocket-client"
+	help
+	  A WebSocket client for Python. It provides access to low level
+	  APIs for WebSockets. websocket-client implements version hybi-13
+	  of the WebSocket protocol. This client does not currently support
+	  the permessage-deflate extension from RFC 7692.
