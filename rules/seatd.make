@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_SEATD) += seatd
 #
 # Paths and names
 #
-SEATD_VERSION		:= 0.5.0
-SEATD_MD5		:= 264a36907f4be34efa400fb6e1b26f5f
+SEATD_VERSION		:= 0.6.3
+SEATD_MD5		:= 0d375928bbcc39b1652e2730e01e6089
 SEATD			:= seatd-$(SEATD_VERSION)
 SEATD_SUFFIX		:= tar.gz
 SEATD_URL		:= https://git.sr.ht/~kennylevinsen/seatd/archive/$(SEATD_VERSION).$(SEATD_SUFFIX)
@@ -36,9 +36,9 @@ SEATD_LICENSE_FILES	:= file://LICENSE;md5=715a99d2dd552e6188e74d4ed2914d5a
 SEATD_CONF_TOOL	:= meson
 SEATD_CONF_OPT	:=  \
 	$(CROSS_MESON_USR) \
-	-Dlogind=$(call ptx/endis,PTXCONF_SEATD_SYSTEMD_LOGIND)d \
-	-Dseatd=$(call ptx/endis,PTXCONF_SEATD_SEATD)d \
-	-Dbuiltin=disabled \
+	-Dlibseat-logind=$(call ptx/ifdef,PTXCONF_SEATD_SYSTEMD_LOGIND,systemd,disabled) \
+	-Dlibseat-seatd=$(call ptx/endis,PTXCONF_SEATD_SEATD)d \
+	-Dlibseat-builtin=disabled \
 	-Dserver=$(call ptx/endis,PTXCONF_SEATD_SEATD)d \
 	-Dexamples=disabled \
 	-Dman-pages=disabled \
@@ -61,6 +61,7 @@ $(STATEDIR)/seatd.targetinstall:
 
 ifdef PTXCONF_SEATD_SEATD
 	@$(call install_copy, seatd, 0, 0, 0755, -, /usr/bin/seatd)
+	@$(call install_copy, seatd, 0, 0, 0755, -, /usr/bin/seatd-launch)
 ifdef PTXCONF_SEATD_SEATD_SYSTEMD_UNIT
 	@$(call install_alternative, seatd, 0, 0, 0644, \
 		/usr/lib/systemd/system/seatd.service)
