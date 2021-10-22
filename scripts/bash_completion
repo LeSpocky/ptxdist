@@ -13,7 +13,9 @@ declare -a _ptxdist_completion_newpkg
 __ptxdist_completion_packages() {
 	set -- $(${_ptxdist_cmd} print STATEDIR PTXDIST_PTXCONFIG PTXDIST_PLATFORMCONFIG PTXDIST_COLLECTIONCONFIG)
 	local cache="${1}/.bash_completion_packages"
-	if [ -z "${2}" -o "${2}" -nt "${cache}" -o "${3}" -nt "${cache}" -o "${4}" -nt "${cache}" ]; then
+	if [ ! -d "${1}" ]; then
+		${_ptxdist_cmd} print PTX_PACKAGES_SELECTED 2>/dev/null
+	elif [ -z "${2}" -o "${2}" -nt "${cache}" -o "${3}" -nt "${cache}" -o "${4}" -nt "${cache}" ]; then
 		${_ptxdist_cmd} print PTX_PACKAGES_SELECTED 2>/dev/null | tee "${cache}" 2>/dev/null
 		if [ ${PIPESTATUS[0]} -ne 0 -o ${PIPESTATUS[1]} -ne 0 ]; then
 			rm "${cache}"
