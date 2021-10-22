@@ -1,0 +1,30 @@
+## SECTION=multimedia_libs
+
+config LIBTIFF
+	bool
+	select ZLIB             if LIBTIFF_ZLIB
+	select LIBJPEG		if LIBTIFF_JPEG
+	select LIBWEBP		if LIBTIFF_WEBP
+	prompt "libtiff"
+	help
+	  TIFF library
+
+if LIBTIFF
+
+config LIBTIFF_TOOLS
+        bool
+        prompt "install tools"
+
+config LIBTIFF_ZLIB
+        bool
+        prompt "support ZLIB compression"
+
+config LIBTIFF_JPEG
+	bool
+	prompt "support JPEG compression"
+
+config LIBTIFF_WEBP
+	bool
+	prompt "support WEBP compression"
+
+endif
