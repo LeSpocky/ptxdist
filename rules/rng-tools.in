@@ -24,13 +24,15 @@ config RNG_TOOLS_RNGD
 config RNG_TOOLS_STARTSCRIPT
 	bool
 	default y
-	depends on RNG_TOOLS && INITMETHOD_BBINIT
+	select RNG_TOOLS_RNGD
+	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/rngd"
 
 config RNG_TOOLS_SYSTEMD_UNIT
 	bool
 	default y
-	depends on SYSTEMD
+	depends on INITMETHOD_SYSTEMD
+	select RNG_TOOLS_RNGD
 	prompt "install systemd unit files"
 
 config RNG_TOOLS_RNGTEST
