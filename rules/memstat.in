@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+### old section:
+### SECTION=shell_and_console
 
 config MEMSTAT
 	tristate
@@ -6,3 +8,9 @@ config MEMSTAT
 	help
 	  memstat is a memory diagnosis tool which lets you find
  	  out which process uses how much virtual memory.
+
+	  STAGING: remove in PTXdist 2022.11.0
+	  
+	  Old version that should be updated, unclear licensing
+	  situation, and unresponsive upstream:
+	  https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=989578
