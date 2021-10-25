@@ -68,6 +68,19 @@ config GPSD_USB
 
 comment "Other options    ---"
 
+config GPSD_DEBUG
+	bool
+	prompt "debug support"
+	help
+	  Client debug support, debug information in build, install
+	  gpsdebuginfo.
+
+config GPSD_LOGGING
+	bool
+	prompt "log/hexdump"
+	help
+	  If unset: squelch gpsd_log/gpsd_hexdump to save cpu.
+
 config GPSD_LIBGPSMM
 	bool
 	prompt "C++ class wrappers"

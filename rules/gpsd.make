@@ -61,11 +61,12 @@ GPSD_CONF_OPT	= \
 	aivdm=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_AIVDM) \
 	ashtech=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_ASHTECH) \
 	bluez=$(call ptx/yesno, PTXCONF_GPSD_BLUEZ) \
-	clientdebug=no \
+	clientdebug=$(call ptx/yesno, PTXCONF_GPSD_DEBUG) \
 	control_socket=yes \
 	coveraging=no \
 	dbus_export=$(call ptx/yesno, PTXCONF_GPSD_DBUS) \
-	debug=no \
+	debug=$(call ptx/yesno, PTXCONF_GPSD_DEBUG) \
+	debug_opt=false \
 	earthmate=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_EARTHMATE) \
 	evermore=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_EVERMORE) \
 	force_global=yes \
@@ -111,7 +112,7 @@ GPSD_CONF_OPT	= \
 	sirf=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_SIRF) \
 	skytraq=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_SKYTRAQ) \
 	socket_export=$(call ptx/yesno, PTXCONF_GPSD_SOCKET) \
-	squelch=yes \
+	squelch=$(call ptx/noyes, PTXCONF_GPSD_LOGGING) \
 	superstar2=$(call ptx/yesno, PTXCONF_GPSD_DRIVER_SUPERSTAR2) \
 	sysconfdir=/etc \
 	systemd=$(call ptx/yesno, PTXCONF_GPSD_SYSTEMD) \
@@ -184,6 +185,9 @@ endif
 ifdef PTXCONF_GPSD_PYTHON
 	@$(call install_glob, gpsd, 0, 0, -, \
 		/usr/lib/python$(PYTHON3_MAJORMINOR), *.py)
+endif
+ifdef PTXCONF_GPSD_DEBUG
+	@$(call install_copy, gpsd, 0, 0, 0755, -, /usr/bin/gpsdebuginfo)
 endif
 	@$(call install_finish, gpsd)
 
