@@ -146,6 +146,18 @@ $(call ptx/ifdef, $(1), yes, no)
 endef
 
 
+#
+# $(call ptx/noyes, PTXCONF_SYMBOL) returns "no" or "yes"
+# depending on the symbol is defined or not
+#
+# $(call ptx/noyes, PTXCONF_SYMBOL)
+#                     $1
+#
+define ptx/noyes
+$(call ptx/ifdef, $(1), no, yes)
+endef
+
+
 define ptx/config-foo
 $(strip $(if $($(strip $(1))),
   $(if $(call remove_quotes,$($(2))),

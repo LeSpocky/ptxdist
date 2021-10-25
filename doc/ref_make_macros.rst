@@ -673,6 +673,7 @@ Usage:
  $(call ptx/wow, VARIABLE)
  $(call ptx/wwo, VARIABLE)
  $(call ptx/yesno, VARIABLE)
+ $(call ptx/noyes, VARIABLE)
  $(call ptx/truefalse, VARIABLE)
  $(call ptx/falsetrue, VARIABLE)
  $(call ptx/onoff, VARIABLE)
@@ -693,6 +694,8 @@ These are useful for ``<PKG>_CONF_OPT`` variables, and expand as follows:
 | ptx/wwo            | ``with``                      | ``without``                     | autoconf            |
 +--------------------+-------------------------------+---------------------------------+---------------------+
 | ptx/yesno          | ``yes``                       | ``no``                          | autoconf cache vars |
++--------------------+-------------------------------+---------------------------------+---------------------+
+| ptx/noyes          | ``no``                        | ``yes``                         | scons               |
 +--------------------+-------------------------------+---------------------------------+---------------------+
 | ptx/truefalse      | ``true``                      | ``false``                       | meson               |
 +--------------------+-------------------------------+---------------------------------+---------------------+
