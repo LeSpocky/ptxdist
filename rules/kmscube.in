@@ -1,7 +1,7 @@
 ## SECTION=multimedia_libs
 
 config KMSCUBE
-	bool
+	tristate
 	prompt "kmscube"
 	select HOST_MESON
 	select MESALIB
