@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDL2) += sdl2
 #
 # Paths and names
 #
-SDL2_VERSION	:= 2.0.12
-SDL2_MD5	:= 783b6f2df8ff02b19bb5ce492b99c8ff
+SDL2_VERSION	:= 2.0.16
+SDL2_MD5	:= 98b8a1535a757ea1d03ae44e2fb20247
 SDL2		:= SDL2-$(SDL2_VERSION)
 SDL2_SUFFIX	:= tar.gz
 SDL2_URL	:= https://www.libsdl.org/release/$(SDL2).$(SDL2_SUFFIX)
@@ -72,6 +72,8 @@ SDL2_CONF_OPT	:= \
 	--disable-esd \
 	--disable-esdtest \
 	--disable-esd-shared \
+	--disable-pipewire \
+	--disable-pipewire-shared \
 	--$(call ptx/endis,PTXCONF_SDL2_PULSEAUDIO)-pulseaudio \
 	--$(call ptx/endis,PTXCONF_SDL2_PULSEAUDIO)-pulseaudio-shared \
 	--disable-arts \
@@ -91,6 +93,8 @@ SDL2_CONF_OPT	:= \
 	--$(call ptx/endis,PTXCONF_SDL2_WAYLAND)-video-wayland \
 	--disable-video-wayland-qt-touch \
 	--$(call ptx/endis,PTXCONF_SDL2_WAYLAND)-wayland-shared \
+	--disable-libdecor \
+	--disable-libdecor-shared \
 	--disable-video-rpi \
 	--$(call ptx/endis,PTXCONF_SDL2_XORG)-video-x11 \
 	--disable-x11-shared \
@@ -121,17 +125,20 @@ SDL2_CONF_OPT	:= \
 	--disable-ime \
 	--disable-ibus \
 	--disable-fcitx \
-	--$(call ptx/endis,PTXCONF_SDL2_TSLIB)-input-tslib \
+	--disable-joystick-mfi \
 	--enable-pthreads \
 	--enable-pthread-sem \
 	--disable-directx \
+	--$(call ptx/endis,PTXCONF_SDL2_XORG)-xinput \
 	--disable-wasapi \
 	--enable-sdl-dlopen \
 	--enable-hidapi \
+	--disable-hidapi-libusb \
 	--enable-clock_gettime \
 	--disable-rpath \
 	--disable-backgrounding-signal \
 	--disable-foregrounding-signal \
+	--disable-joystick-virtual \
 	--disable-render-d3d \
 	--disable-sdl2-config \
 	--$(call ptx/wwo,PTXCONF_SDL2_XORG)-x

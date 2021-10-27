@@ -16,7 +16,6 @@ menuconfig SDL2
 	select XORG_LIB_XRANDR		if SDL2_XORG
 	select XORG_LIB_XCURSOR		if SDL2_XORG
 	select XORG_LIB_XI		if SDL2_XORG
-	select TSLIB			if SDL2_TSLIB
 	select DBUS			if SDL2_DBUS
 	select LIBDRM			if SDL2_WAYLAND
 	select MESALIB			if SDL2_WAYLAND || SDL2_OPENGL || SDL2_OPENGLES || SDL2_KMS
@@ -130,12 +129,6 @@ config SDL2_OPENGLES2
 	  OpenGL ES2 graphics support
 
 endif
-
-config SDL2_TSLIB
-	bool
-	prompt "tslib Support"
-	help
-	  Turn on support for the touchscreen library 'tslib'
 
 config SDL2_UDEV
 	bool
