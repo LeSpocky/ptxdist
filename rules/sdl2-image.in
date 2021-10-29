@@ -7,6 +7,7 @@ menuconfig SDL2_IMAGE
 	select LIBPNG	if SDL2_IMAGE_PNG
 	select LIBJPEG	if SDL2_IMAGE_JPG
 	select LIBWEBP	if SDL2_IMAGE_WEBP
+	select LIBTIFF	if SDL2_IMAGE_TIF
 	help
 	  This is a simple library to load images of various
 	  formats as SDL surfaces. This library currently supports
