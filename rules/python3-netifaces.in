@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_NETIFACES
+	tristate
+	select PYTHON3
+	prompt "python3-netifaces"
+	help
+	  netifaces provides an easy way to get the address(es) of the
+	  machine’s network interfaces in Python.
