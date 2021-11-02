@@ -71,8 +71,6 @@ MESALIB_DRI_LIBS-y = \
 
 MESALIB_DRI_GALLIUM_LIBS-y = \
 	$(subst kmsro, \
-		kms_swrast \
-		virgl \
 		armada-drm \
 		exynos \
 		hx8357d \
@@ -91,8 +89,9 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 		st7735r \
 		stm \
 		sun4i-drm \
+	,$(subst swrast,swrast kms_swrast \
 	,$(subst freedreno,kgsl \
-	,$(subst svga,vmwgfx, $(MESALIB_GALLIUM_DRIVERS-y))))
+	,$(subst svga,vmwgfx, $(MESALIB_GALLIUM_DRIVERS-y)))))
 
 ifdef PTXCONF_ARCH_X86
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_AMD)		+= amd
