@@ -76,9 +76,12 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 		hx8357d \
 		ili9225 \
 		ili9341 \
+		imx-dcss \
 		imx-drm \
 		ingenic-drm \
+		mali-dp \
 		mcde \
+		mediatek \
 		meson \
 		mi0283qt \
 		mxsfb-drm \
