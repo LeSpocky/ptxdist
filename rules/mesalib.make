@@ -95,6 +95,7 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 	,$(subst swrast,swrast kms_swrast \
 	,$(subst freedreno,kgsl msm \
 	,$(subst svga,vmwgfx \
+	,$(subst virgl,virtio_gpu \
 	,$(MESALIB_GALLIUM_DRIVERS-y) \
 	)))))
 
