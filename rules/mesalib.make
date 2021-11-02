@@ -93,7 +93,7 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 		stm \
 		sun4i-drm \
 	,$(subst swrast,swrast kms_swrast \
-	,$(subst freedreno,kgsl \
+	,$(subst freedreno,kgsl msm \
 	,$(subst svga,vmwgfx \
 	,$(MESALIB_GALLIUM_DRIVERS-y) \
 	)))))
