@@ -248,6 +248,8 @@ ifneq ($(strip $(MESALIB_DRI_GALLIUM_LIBS-y)),)
 		/usr/lib/dri/gallium_dri.so)
 
 	@$(foreach lib, $(MESALIB_DRI_GALLIUM_LIBS-y), \
+		test -f $(MESALIB_PKGDIR)/usr/lib/dri/$(lib)_dri.so || \
+			ptxd_bailout "missing gallium driver $(lib)_dri.so"$(ptx/nl) \
 		$(call install_link, mesalib, gallium_dri.so, \
 		/usr/lib/dri/$(lib)_dri.so)$(ptx/nl))
 endif
