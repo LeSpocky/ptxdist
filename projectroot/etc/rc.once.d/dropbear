@@ -8,7 +8,8 @@ gen_key() {
 	key_type=$1
 	key_file=$2
 
-	[ -e "$key_file" ] && return
+	# do not overwrite valid key files
+	[ -s "$key_file" ] && dropbearkey -y -f "$key_file" > /dev/null 2>&1 && return
 
 	rm -f $key_file > /dev/null 2>&1
 
