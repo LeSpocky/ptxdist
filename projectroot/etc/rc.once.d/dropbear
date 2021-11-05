@@ -5,9 +5,10 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 . /usr/lib/init/dropbear.sh
 
 gen_key() {
-
 	key_type=$1
 	key_file=$2
+
+	[ -e "$key_file" ] && return
 
 	rm -f $key_file > /dev/null 2>&1
 
@@ -22,4 +23,22 @@ gen_key() {
 	fi
 }
 
-[ -e "$DROPBEAR_RSAKEY" ] || gen_key rsa "$DROPBEAR_RSAKEY"
+gen_keys() {
+	for keytype in $DROPBEAR_KEYTYPES
+	do
+		case "$keytype" in
+			rsa)
+				gen_key rsa "$DROPBEAR_RSAKEY"
+				;;
+			*)
+				echo "Key type '$keytype' not supported"
+				;;
+		esac
+	done
+}
+
+if ! gen_keys
+then
+	echo "Generating SSH keys failed!"
+	exit 1
+fi

@@ -15,9 +15,18 @@ test -z "$DROPBEAR_BANNER" || \
   DROPBEAR_EXTRA_ARGS="$DROPBEAR_EXTRA_ARGS -b $DROPBEAR_BANNER"
 
 dropbear_start() {
-
     KEY_ARGS=""
-    test -f $DROPBEAR_RSAKEY && KEY_ARGS="$KEY_ARGS -r $DROPBEAR_RSAKEY"
+    for keytype in $DROPBEAR_KEYTYPES
+    do
+        case "$keytype" in
+            rsa)
+                test -f "$DROPBEAR_RSAKEY" && KEY_ARGS="$KEY_ARGS -r $DROPBEAR_RSAKEY"
+                ;;
+            *)
+                echo "Key type '$keytype' not supported"
+                ;;
+        esac
+    done
 
     echo -n "starting dropbear..."
 
