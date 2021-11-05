@@ -643,7 +643,7 @@ END {
 	}
 	# extend pkghash files fist
 	for (this_PKG in active_PKG_to_pkg)
-		write_deps_pkg_active_cfghash(this_PKG, this_pkg)
+		write_deps_pkg_active_cfghash(this_PKG, PKG_to_pkg[this_PKG])
 
 	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
 	print "$(call ptx/force-shell, echo -e '$(PTXDIST_HASHLIST_DATA)' >> " PTXDIST_HASHLIST ")"		> DGEN_DEPS_POST;
