@@ -7,7 +7,7 @@
 #
 
 ptxd_make_world_package_info() {
-    local last_config base_config ref_config
+    local last_config base_config ref_config makefile
 
     # use patchin_init for  pkg_patch_dir
     ptxd_make_world_patchin_init || return
@@ -61,6 +61,9 @@ ptxd_make_world_package_info() {
     do_echo "${pkg_dir}${pkg_pkg_dir}"
 
     do_echo "rule file:" "$(ptxd_print_path "${pkg_makefile}")"
+    for makefile in ${pkg_extra_makefiles}; do
+        do_echo "" "$(ptxd_print_path "${makefile}")"
+    done
     do_echo "menu file:" "$(ptxd_print_path "${pkg_infile}")"
     echo
 

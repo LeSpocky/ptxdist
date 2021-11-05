@@ -67,6 +67,7 @@ world/env/impl = \
 	pkg_run_deps_all="$(call ptx/escape,$(PTX_MAP_R_dep_all_$(1)))"		\
 	pkg_license_files="$(call ptx/escape,$($(1)_LICENSE_FILES))"		\
 	pkg_makefile="$(call ptx/escape,$($(1)_MAKEFILE))"			\
+	pkg_extra_makefiles="$(call ptx/escape,$($(1)_EXTRA_MAKEFILES))"	\
 	pkg_infile="$(call ptx/escape,$($(1)_INFILE))"				\
 										\
 	pkg_pkg="$(call ptx/escape,$($(1)))"					\

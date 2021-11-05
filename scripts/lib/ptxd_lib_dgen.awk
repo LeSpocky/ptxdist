@@ -51,6 +51,13 @@ FNR == 1 {
 
 	# will be set later, if makefile belongs to a pkg
 	is_pkg = "";
+
+	if (FILENAME ~ /.+\/rules\/.+\..+\.make/) {
+		this_pkg = gensub(/.+\/rules\/(.+)\..+\.make/, "\\1", 1, FILENAME)
+		this_aux = gensub(/.+\/rules\/.+\.(.+)\.make/, "\\1", 1, FILENAME)
+		is_pkg = this_pkg
+		pkg_to_aux_makefile[this_pkg][this_aux] = FILENAME;
+	}
 }
 
 /^/ {
@@ -273,16 +280,31 @@ $1 ~ /^PTXCONF_/ {
 	next;
 }
 
+function pkg_aux_makefiles(this_pkg, l, ll, i) {
+	delete l;
+	if (this_pkg in pkg_to_aux_makefile) {
+		asorti(pkg_to_aux_makefile[this_pkg], ll);
+		for (i in ll) {
+			l[i] = pkg_to_aux_makefile[this_pkg][ll[i]]
+		}
+	}
+}
+
 function write_vars_all(this_PKG) {
 	#
 	# include this rules file
 	#
 	if (this_PKG in PKG_to_makefile) {
-		print "include " PKG_to_makefile[this_PKG]		> DGEN_RULESFILES_MAKE;
-		print this_PKG "_MAKEFILE = " PKG_to_makefile[this_PKG]> DGEN_DEPS_PRE;
+		print "include " PKG_to_makefile[this_PKG]			> DGEN_RULESFILES_MAKE;
+		pkg_aux_makefiles(PKG_to_pkg[this_PKG], makefiles);
+		for (i in makefiles) {
+			print "include " makefiles[i]				> DGEN_RULESFILES_MAKE;
+			print this_PKG "_EXTRA_MAKEFILES += " makefiles[i]	> DGEN_DEPS_PRE;
+		}
+		print this_PKG "_MAKEFILE = " PKG_to_makefile[this_PKG]		> DGEN_DEPS_PRE;
 	}
 	if (this_PKG in PKG_to_infile) {
-		print this_PKG "_INFILE = " PKG_to_infile[this_PKG]	> DGEN_DEPS_PRE;
+		print this_PKG "_INFILE = " PKG_to_infile[this_PKG]		> DGEN_DEPS_PRE;
 	}
 }
 
@@ -426,6 +448,9 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 		print "RULES: " this_PKG " " PKG_to_infile[this_PKG]						> PTXDIST_HASHLIST;
 	if (this_PKG in PKG_to_makefile)
 		print "RULES: " this_PKG " " PKG_to_makefile[this_PKG]						> PTXDIST_HASHLIST;
+	pkg_aux_makefiles(PKG_to_pkg[this_PKG], makefiles);
+	for (i in makefiles)
+		print "RULES: " this_PKG " " makefiles[i]							> PTXDIST_HASHLIST;
 
 	target_PKG = gensub(/^HOST_|^CROSS_/, "", 1, this_PKG);
 	if (prefix != "" && target_PKG in active_PKG_to_pkg)
