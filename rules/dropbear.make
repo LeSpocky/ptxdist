@@ -264,6 +264,13 @@ DROPBEAR_INSTALL_OPT	:= install inst_scp
 # Target-Install
 # ----------------------------------------------------------------------------
 
+ifdef PTXCONF_DROPBEAR_RSA
+DROPBEAR_KEY_TYPES	+= rsa
+endif
+ifdef PTXCONF_DROPBEAR_ECDSA
+DROPBEAR_KEY_TYPES	+= ecdsa
+endif
+
 $(STATEDIR)/dropbear.targetinstall:
 	@$(call targetinfo)
 
@@ -276,6 +283,8 @@ $(STATEDIR)/dropbear.targetinstall:
 	@$(call install_alternative, dropbear, 0, 0, 0644, /usr/lib/init/dropbear.sh)
 	@$(call install_replace, dropbear, /usr/lib/init/dropbear.sh, \
 		@KEYDIR@, $(PTXCONF_DROPBEAR_KEY_DIR))
+	@$(call install_replace, dropbear, /usr/lib/init/dropbear.sh, \
+		@KEYTYPES@, '$(DROPBEAR_KEY_TYPES)')
 
 ifdef PTXCONF_DROPBEAR_DROPBEAR
 	@$(call install_copy, dropbear, 0, 0, 0755, -, \
