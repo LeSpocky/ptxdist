@@ -281,6 +281,10 @@ endif
 ifdef PTXCONF_DROPBEAR_DROPBEAR_KEY
 	@$(call install_copy, dropbear, 0, 0, 0755, -, \
 		/usr/bin/dropbearkey)
+
+	@$(call install_alternative, dropbear, 0, 0, 0755, /etc/rc.once.d/dropbear, n)
+	@$(call install_replace, dropbear, /etc/rc.once.d/dropbear, \
+		@KEYDIR@, $(PTXCONF_DROPBEAR_KEY_DIR))
 endif
 
 ifdef PTXCONF_DROPBEAR_DROPBEAR_CONVERT
@@ -302,9 +306,6 @@ endif
 ifdef PTXCONF_DROPBEAR_STARTSCRIPT
 	@$(call install_alternative, dropbear, 0, 0, 0755, /etc/init.d/dropbear, n)
 	@$(call install_replace, dropbear, /etc/init.d/dropbear, \
-		@KEYDIR@, $(PTXCONF_DROPBEAR_KEY_DIR))
-	@$(call install_alternative, dropbear, 0, 0, 0755, /etc/rc.once.d/dropbear, n)
-	@$(call install_replace, dropbear, /etc/rc.once.d/dropbear, \
 		@KEYDIR@, $(PTXCONF_DROPBEAR_KEY_DIR))
 
 ifneq ($(call remove_quotes,$(PTXCONF_DROPBEAR_BBINIT_LINK)),)
