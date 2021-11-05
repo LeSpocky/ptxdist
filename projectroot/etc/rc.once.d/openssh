@@ -27,6 +27,7 @@ create_keys() {
 	hostkeys="$(get_hostkeys)" || return
 
 	for keyfile in $hostkeys; do
+		[ -s "$keyfile" ] && ssh-keygen -l -f "${keyfile}.pub" > /dev/null && continue
 		create_key "$keyfile" || return
 	done
 }
