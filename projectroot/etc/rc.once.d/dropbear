@@ -30,6 +30,9 @@ gen_keys() {
 			rsa)
 				gen_key rsa "$DROPBEAR_RSAKEY"
 				;;
+			ecdsa)
+				gen_key ecdsa "$DROPBEAR_ECDSAKEY"
+				;;
 			*)
 				echo "Key type '$keytype' not supported"
 				;;

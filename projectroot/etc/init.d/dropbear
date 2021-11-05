@@ -22,6 +22,9 @@ dropbear_start() {
             rsa)
                 test -f "$DROPBEAR_RSAKEY" && KEY_ARGS="$KEY_ARGS -r $DROPBEAR_RSAKEY"
                 ;;
+            ecdsa)
+                test -f "$DROPBEAR_ECDSAKEY" && KEY_ARGS="$KEY_ARGS -r $DROPBEAR_ECDSAKEY"
+                ;;
             *)
                 echo "Key type '$keytype' not supported"
                 ;;
