@@ -260,7 +260,7 @@ config DROPBEAR_SHA512
 	  SHA-1. SHA-2 consists of a set of four hash functions with digests
 	  that are 224, 256, 384 or 512 bits.
 
-comment "Hostkey/public key algorithms, at least one required --- RSA is recommended, DSS is not recommended for new keys"
+comment "Hostkey/public key algorithms, at least one required ---"
 
 config DROPBEAR_RSA
 	bool
@@ -277,7 +277,7 @@ config DROPBEAR_ECDSA
 	prompt "ecdsa"
 	help
 	  ECDSA stands for Elliptic Curve Digital Signature Algorithm.
-	  ECDSA is significantly faster than RSA or DSS.
+	  ECDSA is significantly faster than RSA.
 
 comment "Key exchange algorithm ---"
 

@@ -3,12 +3,9 @@
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
 DROPBEAR_RSAKEY_DEFAULT="@KEYDIR@/dropbear_rsa_host_key"
-DROPBEAR_DSSKEY_DEFAULT="@KEYDIR@/dropbear_dss_host_key"
 
 test -n "$DROPBEAR_RSAKEY" || \
   DROPBEAR_RSAKEY=$DROPBEAR_RSAKEY_DEFAULT
-test -n "$DROPBEAR_DSSKEY" || \
-  DROPBEAR_DSSKEY=$DROPBEAR_DSSKEY_DEFAULT
 
 gen_key() {
 
@@ -29,5 +26,3 @@ gen_key() {
 }
 
 [ -e "$DROPBEAR_RSAKEY" ] || gen_key rsa "$DROPBEAR_RSAKEY"
-[ -e "$DROPBEAR_DSSKEY" ] || gen_key dss "$DROPBEAR_DSSKEY"
-

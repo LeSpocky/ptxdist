@@ -10,21 +10,17 @@ DROPBEAR_EXTRA_ARGS=
 # test ! -h /var/service/dropbear || exit 0
 
 DROPBEAR_RSAKEY_DEFAULT="@KEYDIR@/dropbear_rsa_host_key"
-DROPBEAR_DSSKEY_DEFAULT="@KEYDIR@/dropbear_dss_host_key"
 
 test -z "$DROPBEAR_BANNER" || \
   DROPBEAR_EXTRA_ARGS="$DROPBEAR_EXTRA_ARGS -b $DROPBEAR_BANNER"
 test -n "$DROPBEAR_RSAKEY" || \
   DROPBEAR_RSAKEY=$DROPBEAR_RSAKEY_DEFAULT
-test -n "$DROPBEAR_DSSKEY" || \
-  DROPBEAR_DSSKEY=$DROPBEAR_DSSKEY_DEFAULT
 test -n "$DROPBEAR_KEYTYPES" || \
-  DROPBEAR_KEYTYPES="rsa dss"
+  DROPBEAR_KEYTYPES="rsa"
 
 dropbear_start() {
 
     KEY_ARGS=""
-    test -f $DROPBEAR_DSSKEY && KEY_ARGS="$KEY_ARGS -d $DROPBEAR_DSSKEY"
     test -f $DROPBEAR_RSAKEY && KEY_ARGS="$KEY_ARGS -r $DROPBEAR_RSAKEY"
 
     echo -n "starting dropbear..."

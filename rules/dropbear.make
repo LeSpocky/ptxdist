@@ -198,6 +198,9 @@ else
 endif
 
 # host key / public key
+	@echo "ptxdist: disabling dss"
+	@echo "#define DROPBEAR_DSS 0" >> $(DROPBEAR_LOCALOPTIONS)
+
 ifdef PTXCONF_DROPBEAR_RSA
 	@echo "ptxdist: enabling rsa"
 	@echo "#define DROPBEAR_RSA 1" >> $(DROPBEAR_LOCALOPTIONS)
