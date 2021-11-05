@@ -273,6 +273,10 @@ $(STATEDIR)/dropbear.targetinstall:
 	@$(call install_fixup, dropbear,AUTHOR,"Robert Schwebel <r.schwebel@pengutronix.de>")
 	@$(call install_fixup, dropbear,DESCRIPTION,missing)
 
+	@$(call install_alternative, dropbear, 0, 0, 0644, /usr/lib/init/dropbear.sh)
+	@$(call install_replace, dropbear, /usr/lib/init/dropbear.sh, \
+		@KEYDIR@, $(PTXCONF_DROPBEAR_KEY_DIR))
+
 ifdef PTXCONF_DROPBEAR_DROPBEAR
 	@$(call install_copy, dropbear, 0, 0, 0755, -, \
 		/usr/sbin/dropbear)
@@ -283,8 +287,6 @@ ifdef PTXCONF_DROPBEAR_DROPBEAR_KEY
 		/usr/bin/dropbearkey)
 
 	@$(call install_alternative, dropbear, 0, 0, 0755, /etc/rc.once.d/dropbear, n)
-	@$(call install_replace, dropbear, /etc/rc.once.d/dropbear, \
-		@KEYDIR@, $(PTXCONF_DROPBEAR_KEY_DIR))
 endif
 
 ifdef PTXCONF_DROPBEAR_DROPBEAR_CONVERT
@@ -305,8 +307,6 @@ endif
 
 ifdef PTXCONF_DROPBEAR_STARTSCRIPT
 	@$(call install_alternative, dropbear, 0, 0, 0755, /etc/init.d/dropbear, n)
-	@$(call install_replace, dropbear, /etc/init.d/dropbear, \
-		@KEYDIR@, $(PTXCONF_DROPBEAR_KEY_DIR))
 
 ifneq ($(call remove_quotes,$(PTXCONF_DROPBEAR_BBINIT_LINK)),)
 	@$(call install_link, dropbear, \

@@ -2,10 +2,7 @@
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 
-DROPBEAR_RSAKEY_DEFAULT="@KEYDIR@/dropbear_rsa_host_key"
-
-test -n "$DROPBEAR_RSAKEY" || \
-  DROPBEAR_RSAKEY=$DROPBEAR_RSAKEY_DEFAULT
+. /usr/lib/init/dropbear.sh
 
 gen_key() {
 

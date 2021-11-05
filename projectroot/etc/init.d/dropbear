@@ -7,14 +7,12 @@ NAME=dropbear
 DROPBEAR_PORT=22
 DROPBEAR_EXTRA_ARGS=
 
-# test ! -h /var/service/dropbear || exit 0
+. /usr/lib/init/dropbear.sh
 
-DROPBEAR_RSAKEY_DEFAULT="@KEYDIR@/dropbear_rsa_host_key"
+# test ! -h /var/service/dropbear || exit 0
 
 test -z "$DROPBEAR_BANNER" || \
   DROPBEAR_EXTRA_ARGS="$DROPBEAR_EXTRA_ARGS -b $DROPBEAR_BANNER"
-test -n "$DROPBEAR_RSAKEY" || \
-  DROPBEAR_RSAKEY=$DROPBEAR_RSAKEY_DEFAULT
 test -n "$DROPBEAR_KEYTYPES" || \
   DROPBEAR_KEYTYPES="rsa"
 
