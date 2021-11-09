@@ -37,7 +37,6 @@ endif
 MESALIB_DRI_DRIVERS-$(PTXCONF_MESALIB_DRI_NOUVEAU_VIEUX)+= nouveau
 MESALIB_DRI_DRIVERS-$(PTXCONF_MESALIB_DRI_R200)		+= r200
 
-MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_KMSRO)	+= kmsro
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_VIRGL)	+= virgl
 ifndef PTXCONF_ARCH_ARM # broken: https://bugs.freedesktop.org/show_bug.cgi?id=72064
 ifndef PTXCONF_ARCH_X86 # needs llvm
@@ -70,7 +69,7 @@ MESALIB_DRI_LIBS-y = \
 	$(subst nouveau,nouveau_vieux,$(MESALIB_DRI_DRIVERS-y))
 
 MESALIB_DRI_GALLIUM_LIBS-y = \
-	$(subst kmsro, \
+	$(call ptx/ifdef, PTXCONF_MESALIB_DRI_KMSRO, \
 		armada-drm \
 		exynos \
 		hx8357d \
@@ -91,13 +90,13 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 		st7586 \
 		st7735r \
 		stm \
-		sun4i-drm \
-	,$(subst swrast,swrast kms_swrast \
+		sun4i-drm) \
+	$(subst swrast,swrast kms_swrast \
 	,$(subst freedreno,kgsl msm \
 	,$(subst svga,vmwgfx \
 	,$(subst virgl,virtio_gpu \
 	,$(MESALIB_GALLIUM_DRIVERS-y) \
-	)))))
+	))))
 
 ifdef PTXCONF_ARCH_X86
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_AMD)		+= amd
