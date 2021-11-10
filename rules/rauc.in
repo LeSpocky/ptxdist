@@ -14,6 +14,7 @@ menuconfig RAUC
 	select DBUS				if RAUC_SERVICE
 	select LIBCURL				if RAUC_NETWORK
 	select JSON_GLIB			if RAUC_JSON
+	select UTIL_LINUX_NG_LIBFDISK		if RAUC_GPT
 	select SQUASHFS_TOOLS			if RUNTIME
 	select SQUASHFS_TOOLS_UNSQUASHFS	if RUNTIME
 	select DT_UTILS				if RUNTIME && RAUC_BAREBOX
@@ -49,6 +50,16 @@ config RAUC_JSON
 	help
 	  Enables JSON output format for 'rauc info' and 'rauc status'.
 	  Output format can be selected via '--output-format=<json/json-pretty>'
+
+config RAUC_GPT
+	bool
+	prompt "Support atomic EFI/bootloader partition updates (GPT)"
+	help
+	  Enables support for atomic bootloader updates on first GPT (EFI)
+	  partition (slot type 'boot-gpt-switch').
+	  For details, see
+	  https://rauc.readthedocs.io/en/latest/advanced.html#update-boot-partition-in-gpt
+
 
 config RAUC_CONFIGURATION
 	bool

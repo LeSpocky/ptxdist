@@ -44,6 +44,7 @@ RAUC_CONF_OPT	:= \
 	--$(call ptx/endis,PTXCONF_RAUC_SERVICE)-service \
 	--$(call ptx/endis,PTXCONF_RAUC_NETWORK)-network \
 	--$(call ptx/endis,PTXCONF_RAUC_JSON)-json \
+	--$(call ptx/endis,PTXCONF_RAUC_GPT)-gpt \
 	--with-systemdunitdir=/usr/lib/systemd/system \
 	--with-dbuspolicydir=/usr/share/dbus-1/system.d \
 	--with-dbussystemservicedir=/usr/share/dbus-1/system-services
