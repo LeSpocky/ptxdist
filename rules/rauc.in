@@ -2,7 +2,7 @@
 
 menuconfig RAUC
 	tristate
-	prompt "Rauc Update Tool              "
+	prompt "RAUC Update Tool              "
 	select OPENSSL
 	select GLIB
 	select GLIB_LIBMOUNT
