@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_CHRONY) += chrony
 #
 # Paths and names
 #
-CHRONY_VERSION	:= 3.5
-CHRONY_MD5	:= 5f66338bc940a9b51eede8f391e7bed3
+CHRONY_VERSION	:= 4.1
+CHRONY_MD5	:= 7133880806887b629678c36a48217806
 CHRONY		:= chrony-$(CHRONY_VERSION)
 CHRONY_SUFFIX	:= tar.gz
 CHRONY_URL	:= http://download.tuxfamily.org/chrony/$(CHRONY).$(CHRONY_SUFFIX)
