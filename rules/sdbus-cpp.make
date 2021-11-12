@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDBUS_CPP) += sdbus-cpp
 #
 # Paths and names
 #
-SDBUS_CPP_VERSION	:= 0.8.2
-SDBUS_CPP_MD5		:= 29b02ecce98adbb34d8dcd22bc26cc53
+SDBUS_CPP_VERSION	:= 1.0.0
+SDBUS_CPP_MD5		:= cf53be4342605419ba8d60d261a89466
 SDBUS_CPP		:= sdbus-cpp-$(SDBUS_CPP_VERSION)
 SDBUS_CPP_SUFFIX	:= tar.gz
 SDBUS_CPP_URL		:= https://github.com/Kistler-Group/sdbus-cpp/archive/v$(SDBUS_CPP_VERSION).$(SDBUS_CPP_SUFFIX)
