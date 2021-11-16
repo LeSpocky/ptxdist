@@ -41,6 +41,7 @@ ptxd_make_dtb() {
 	-I"$(dirname "${dts}")" \
 	-I${pkg_dir}/arch/${pkg_arch}/boot/dts \
 	-I${pkg_dir}/arch/${pkg_arch}/boot/dts/include \
+	-I${pkg_dir}/scripts/dtc/include-prefixes \
 	-I${pkg_dir}/drivers/of/testcase-data \
 	-I${pkg_dir}/include \
 	-undef -D__DTS__ -x assembler-with-cpp \
