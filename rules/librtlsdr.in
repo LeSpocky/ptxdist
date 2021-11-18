@@ -1,0 +1,29 @@
+## SECTION=system_libraries
+
+menuconfig LIBRTLSDR
+	tristate
+	prompt "librtlsdr		      "
+	select HOST_CMAKE
+	select LIBUSB
+	help
+	  Realtek SDR (Software Defined Radio) library.
+
+if LIBRTLSDR
+
+comment "Install options   ---"
+
+config LIBRTLSDR_TOOLS
+	bool
+	default y
+	prompt "Install tools		  "
+	help
+	  Installs rtl-sdr tools.
+
+config LIBRTLSDR_UDEV
+	bool
+	default y
+	prompt "Install udev rules	  "
+	help
+	  Installs udev rules.
+
+endif
