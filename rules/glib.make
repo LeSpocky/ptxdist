@@ -47,7 +47,6 @@ GLIB_CONF_OPT	:= \
 	-Dgtk_doc=false \
 	-Diconv=libc \
 	-Dinstalled_tests=false \
-	-Dinternal_pcre=false \
 	-Dlibelf=disabled \
 	-Dlibmount=$(call ptx/endis, PTXCONF_GLIB_LIBMOUNT)d \
 	-Dman=false \
