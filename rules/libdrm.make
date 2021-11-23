@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBDRM) += libdrm
 #
 # Paths and names
 #
-LIBDRM_VERSION	:= 2.4.107
-LIBDRM_MD5	:= 252175d363e3dbc4ffe32faaa8e93494
+LIBDRM_VERSION	:= 2.4.108
+LIBDRM_MD5	:= 1cc371b9201b8e68f6f8c061926f6157
 LIBDRM		:= libdrm-$(LIBDRM_VERSION)
 LIBDRM_SUFFIX	:= tar.xz
 LIBDRM_URL	:= http://dri.freedesktop.org/libdrm/$(LIBDRM).$(LIBDRM_SUFFIX)
@@ -103,6 +103,7 @@ ifdef PTXCONF_LIBDRM_ETNAVIV
 endif
 endif
 ifdef PTXCONF_LIBDRM_AMDGPU
+	@$(call install_copy, libdrm, 0, 0, 0755, -, /usr/bin/amdgpu_stress)
 	@$(call install_copy, libdrm, 0, 0, 0644, -, /usr/share/libdrm/amdgpu.ids)
 endif
 	@$(call install_finish, libdrm)
