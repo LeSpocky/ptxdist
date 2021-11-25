@@ -1,0 +1,9 @@
+## SECTION=networking
+
+menuconfig DUMP1090FA
+	tristate
+	prompt "dump1090fa                    "
+	select LIBRTLSDR
+	select NCURSES
+	help
+	  FlightAware MODE-S/ADS-B decoder.

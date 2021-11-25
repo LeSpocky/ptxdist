@@ -1,0 +1,61 @@
+From 059e48b82beb4fb920cca977b02db1ceb48facb9 Mon Sep 17 00:00:00 2001
+From: Oliver Jowett <oliver.jowett@flightaware.com>
+Date: Thu, 23 Sep 2021 13:23:17 +0800
+Subject: [PATCH] Allow env vars (not only command line overrides) to set
+ CPUFEATURES_{ARCH,UNAME}. Change CPUFEATURES_{ARCH,UNAME} defaults to use
+ {ARCH,UNAME} values.
+
+Fixes #158
+---
+ Makefile             | 8 ++++++--
+ Makefile.cpufeatures | 4 ++--
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index a85d154c5..9d81ed157 100644
+--- a/Makefile
++++ b/Makefile
+@@ -39,7 +39,11 @@ else
+   LIMESDR ?= no
+ endif
+ 
+-UNAME := $(shell uname)
++HOST_UNAME := $(shell uname)
++HOST_ARCH := $(shell uname -m)
++
++UNAME ?= $(HOST_UNAME)
++ARCH ?= $(HOST_ARCH)
+ 
+ ifeq ($(UNAME), Linux)
+   CPPFLAGS += -D_DEFAULT_SOURCE
+@@ -150,7 +154,6 @@ endif
+ ## starch (runtime DSP code selection) mix, architecture-specific
+ ##
+ 
+-ARCH ?= $(shell uname -m)
+ ifneq ($(CPUFEATURES),yes)
+   # need to be able to detect CPU features at runtime to enable any non-standard compiler flags
+   STARCH_MIX := generic
+@@ -180,6 +183,7 @@ include dsp/generated/makefile.$(STARCH_MIX)
+ showconfig:
+ 	@echo "Building with:" >&2
+ 	@echo "  Version string:  $(DUMP1090_VERSION)" >&2
++	@echo "  Architecture:    $(ARCH)" >&2
+ 	@echo "  DSP mix:         $(STARCH_MIX)" >&2
+ 	@echo "  RTLSDR support:  $(RTLSDR)" >&2
+ 	@echo "  BladeRF support: $(BLADERF)" >&2
+diff --git a/Makefile.cpufeatures b/Makefile.cpufeatures
+index 8c3b8418d..6b4289978 100644
+--- a/Makefile.cpufeatures
++++ b/Makefile.cpufeatures
+@@ -2,8 +2,8 @@
+ 
+ # cmake integration is a little tricky, so let's do this by hand for now
+ 
+-CPUFEATURES_UNAME := $(shell uname)
+-CPUFEATURES_ARCH := $(shell uname -m)
++CPUFEATURES_UNAME ?= $(UNAME)
++CPUFEATURES_ARCH ?= $(ARCH)
+ 
+ CPUFEATURES_OBJS := cpu_features/src/filesystem.o cpu_features/src/stack_line_reader.o cpu_features/src/string_view.o
+ CPUFEATURES_CFLAGS := -std=c99 -O -g -DSTACK_LINE_READER_BUFFER_SIZE=1024 -DNDEBUG
