@@ -35,7 +35,8 @@ IMAGE_RAUC_ENV	= \
 	RAUC_BUNDLE_DESCRIPTION=$(PTXCONF_IMAGE_RAUC_DESCRIPTION) \
 	RAUC_KEY="$(shell cs_get_uri update)" \
 	RAUC_CERT="$(shell cs_get_uri update)" \
-	RAUC_KEYRING="$(shell cs_get_ca update)"
+	RAUC_KEYRING="$(shell cs_get_ca update)" \
+	RAUC_INTERMEDIATE=$(call ptx/ifdef, PTXCONF_IMAGE_RAUC_INTERMEDIATE,'"$(shell cs_get_ca update-intermediate)"','{}')
 
 $(IMAGE_RAUC_IMAGE):
 	@$(call targetinfo)
