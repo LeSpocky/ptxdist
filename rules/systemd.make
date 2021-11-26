@@ -299,6 +299,7 @@ SYSTEMD_UDEV_RULES-y := \
 	64-btrfs.rules \
 	75-net-description.rules \
 	78-sound-card.rules \
+	80-drivers.rules \
 	80-net-setup-link.rules \
 	99-systemd.rules
 
@@ -323,7 +324,6 @@ SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_PERSISTENT_FIDO)	+= 60-fido-id.rules
 SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_PERSISTENT_V4L)	+= 60-persistent-v4l.rules
 SYSTEMD_UDEV_RULES-$(PTXCONF_ARCH_X86)				+= 70-memory.rules
 SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_MTD_PROBE)		+= 75-probe_mtd.rules
-SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_DRIVERS_RULES)	+= 80-drivers.rules
 
 $(STATEDIR)/systemd.targetinstall:
 	@$(call targetinfo)

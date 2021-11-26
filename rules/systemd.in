@@ -176,17 +176,6 @@ menu "udev                        "
 
 menu "install options               "
 
-config SYSTEMD_UDEV_DRIVERS_RULES
-	bool
-	default y
-	prompt "install udev driver rules"
-	help
-	  This will install the generic udev drivers rules files from the udev package
-	  under '/usr/lib/udev/rules.d/',
-	  These rules are required to automatically load kernel modules on
-	  udev start.
-	  If unsure say Y.
-
 config SYSTEMD_UDEV_HWDB
 	bool
 	select SYSTEMD_HWDB
