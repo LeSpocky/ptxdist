@@ -88,7 +88,8 @@ KERNEL_MODULE_OPT	= \
 	$(KERNEL_BASE_OPT)
 
 KERNEL_SHARED_OPT	= \
-	$(KERNEL_MODULE_OPT)
+	$(KERNEL_MODULE_OPT) \
+	PAHOLE=false
 
 ifndef PTXCONF_KERNEL_GCC_PLUGINS
 # no gcc plugins; avoid config changes depending on the host compiler
