@@ -54,7 +54,7 @@ endif
 endif
 
 IMAGE_HDIMG_ENV = \
-	GPT=$(call ptx/ifdef, PTXCONF_IMAGE_HDIMG_GPT,true,false) \
+	PARTITION_TABLE_TYPE=$(call ptx/ifdef, PTXCONF_IMAGE_HDIMG_GPT,gpt,mbr) \
 	PARTITION_TYPE_SUFFIX=$(call ptx/ifdef, PTXCONF_IMAGE_HDIMG_GPT,-uuid) \
 	ROOT_PARTITION_TYPE=$(call ptx/ifdef, PTXCONF_IMAGE_HDIMG_GPT,L,0x83) \
 	$(IMAGE_HDIMG_BOOTLOADER_ENV)
