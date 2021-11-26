@@ -39,9 +39,9 @@ KERNEL_BUILD_OOT	:= KEEP
 $(call world/dts-cfghash-file, KERNEL)
 
 # in case we migrate some old syntax
-ifneq ($(KERNEL_DTS),$(notdir $(KERNEL_DTS)))
-$(call ptx/error, the device trees in PTXCONF_KERNEL_DTS must be specified without)
-$(call ptx/error, directory. Use PTXCONF_KERNEL_DTS_PATH to provide a list of direcories)
+ifneq ($(filter /%,$(KERNEL_DTS)),)
+$(call ptx/error, the device trees in PTXCONF_KERNEL_DTS must be specified without an)
+$(call ptx/error, absolute path. Use PTXCONF_KERNEL_DTS_PATH to provide a list of direcories)
 $(call ptx/error, that will be searched.)
 endif
 

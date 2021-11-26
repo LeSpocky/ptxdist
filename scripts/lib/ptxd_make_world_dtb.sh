@@ -9,8 +9,8 @@
 ptxd_make_dtb() {
     local dtc dts tmp_dts dtb deps tmp_deps
 
-    if [ "$(basename "${dts_dts}")" != "${dts_dts}" ]; then
-	ptxd_bailout "'${dts_dts}' must not include directories!" \
+    if [[ "${dts_dts}" =~ ^/.* ]]; then
+	ptxd_bailout "'${dts_dts}' must not be an absolute path!" \
 	    "Use <PKG>_DTS_PATH to specify the search path."
     fi
 
@@ -18,7 +18,7 @@ ptxd_make_dtb() {
 	ptxd_bailout "Device-tree '${dts_dts}' not found in '${pkg_dts_path}'."
     fi
     dts="${ptxd_reply}"
-    dtb="${dtb_dir}/${dts_dts/%.dts/.dtb}"
+    dtb="${dtb_dir}/$(basename ${dts/%.dts/.dtb})"
 
     dtc="${pkg_build_dir}/scripts/dtc/dtc"
     if [ ! -x "${dtc}" ]; then
