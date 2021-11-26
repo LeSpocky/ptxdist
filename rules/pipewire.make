@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.37
-PIPEWIRE_MD5		:= 7e69099ca3763761acca33bdc3e28e8d
+PIPEWIRE_VERSION	:= 0.3.40
+PIPEWIRE_MD5		:= 6a9fd25a010ed6113cb71f29ba2b1f84
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -53,6 +53,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dbluez5-codec-aptx=disabled \
 	-Dbluez5-codec-ldac=disabled \
 	-Dcontrol=enabled \
+	-Ddbus=enabled \
 	-Ddocdir= \
 	-Ddocs=disabled \
 	-Decho-cancel-webrtc=disabled \
@@ -66,15 +67,17 @@ PIPEWIRE_CONF_OPT	:= \
 	-Djack-devel=false \
 	-Dlibcamera=disabled \
 	-Dlibjack-path= \
+	-Dlibv4l2-path= \
 	-Dlibpulse=disabled \
 	-Dlibusb=disabled \
 	-Dman=disabled \
 	-Dpipewire-alsa=enabled \
 	-Dpipewire-jack=disabled \
+	-Dpipewire-v4l2=enabled \
 	-Dpw-cat=enabled \
 	-Droc=disabled \
 	-Dsdl2=disabled \
-	-Dsession-managers=media-session \
+	-Dsession-managers= \
 	-Dsndfile=enabled \
 	-Dspa-plugins=enabled \
 	-Dsupport=enabled \
@@ -144,12 +147,13 @@ $(STATEDIR)/pipewire.targetinstall:
 	@$(call install_lib, pipewire, 0, 0, 644, libpipewire-0.3)
 
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pipewire)
-	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pipewire-media-session)
 ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pipewire-pulse)
 endif
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-cat)
+ifdef PTXCONF_PIPEWIRE_PW_CTL
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-cli)
+endif
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-dot)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-dump)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-link)
@@ -159,6 +163,10 @@ endif
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-mon)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-profiler)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-reserve)
+ifdef PTXCONF_PIPEWIRE_PW_TOP
+	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-top)
+endif
+	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-v4l2)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/spa-acp-tool)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/spa-inspect)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/spa-json-dump)
@@ -174,6 +182,8 @@ endif
 	@$(foreach module, $(PIPEWIRE_MODULES), \
 		$(call install_lib, pipewire, 0, 0, 644, \
 			pipewire-0.3/libpipewire-module-$(module))$(ptx/nl))
+
+	@$(call install_lib, pipewire, 0, 0, 644, pipewire-0.3/v4l2/libpw-v4l2)
 
 	@$(foreach module, $(PIPEWIRE_SPA_MODULES), \
 		$(call install_lib, pipewire, 0, 0, 644, \
@@ -192,10 +202,6 @@ endif
 ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire-pulse.conf)
 endif
-	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/media-session.d/alsa-monitor.conf)
-	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/media-session.d/bluez-monitor.conf)
-	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/media-session.d/media-session.conf)
-	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/media-session.d/v4l2-monitor.conf)
 
 ifdef PTXCONF_PIPEWIRE_GSTREAMER
 	@$(call install_lib, pipewire, 0, 0, 644, gstreamer-1.0/libgstpipewire)
@@ -204,13 +210,9 @@ ifdef PTXCONF_PIPEWIRE_SYSTEMD_UNIT_USER
 	@$(call install_alternative, pipewire, 0, 0, 0644, \
 		/usr/lib/systemd/user/pipewire.service)
 	@$(call install_alternative, pipewire, 0, 0, 0644, \
-		/usr/lib/systemd/user/pipewire-media-session.service)
-	@$(call install_alternative, pipewire, 0, 0, 0644, \
 		/usr/lib/systemd/user/pipewire.socket)
 	@$(call install_link, pipewire, ../pipewire.socket, \
 		/usr/lib/systemd/user/sockets.target.wants/pipewire.socket)
-	@$(call install_link, pipewire, ../pipewire-media-session.service, \
-		/usr/lib/systemd/user/pipewire.service.wants/pipewire-media-session.service)
 ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
 	@$(call install_alternative, pipewire, 0, 0, 0644, \
 		/usr/lib/systemd/user/pipewire-pulse.service)
@@ -222,13 +224,9 @@ ifdef PTXCONF_PIPEWIRE_SYSTEMD_UNIT
 	@$(call install_alternative, pipewire, 0, 0, 0644, \
 		/usr/lib/systemd/system/pipewire.service)
 	@$(call install_alternative, pipewire, 0, 0, 0644, \
-		/usr/lib/systemd/system/pipewire-media-session.service)
-	@$(call install_alternative, pipewire, 0, 0, 0644, \
 		/usr/lib/systemd/system/pipewire.socket)
 	@$(call install_link, pipewire, ../pipewire.socket, \
 		/usr/lib/systemd/system/sockets.target.wants/pipewire.socket)
-	@$(call install_link, pipewire, ../pipewire-media-session.service, \
-		/usr/lib/systemd/system/pipewire.service.wants/pipewire-media-session.service)
 endif
 
 	@$(call install_finish, pipewire)

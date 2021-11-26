@@ -12,6 +12,9 @@ menuconfig PIPEWIRE
 	select GSTREAMER1		if PIPEWIRE_GSTREAMER
 	select GST_PLUGINS_BASE1	if PIPEWIRE_GSTREAMER
 	select LIBSNDFILE
+	select READLINE			if PIPEWIRE_PW_CTL
+	select NCURSES			if PIPEWIRE_PW_TOP
+	select NCURSES_WIDE_CHAR	if PIPEWIRE_PW_TOP
 	select SYSTEMD			if PIPEWIRE_SYSTEMD
 	select UDEV
 	select UDEV_LIBUDEV
@@ -29,6 +32,14 @@ if PIPEWIRE
 config PIPEWIRE_GSTREAMER
 	bool
 	prompt "build and install gstreamer plugins"
+
+config PIPEWIRE_PW_CTL
+	bool
+	prompt "build and install pw-cli, requires readline"
+
+config PIPEWIRE_PW_TOP
+	bool
+	prompt "build and install pw-top, requires ncurses"
 
 config PIPEWIRE_SYSTEMD
 	bool
