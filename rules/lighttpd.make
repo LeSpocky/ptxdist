@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIGHTTPD) += lighttpd
 #
 # Paths and names
 #
-LIGHTTPD_VERSION	:= 1.4.59
-LIGHTTPD_MD5		:= a8838dac90fcddbcc05c0d1877bd8cdf
+LIGHTTPD_VERSION	:= 1.4.61
+LIGHTTPD_MD5		:= 4814a4e9762bd55d0ac5b4d66ecbfd02
 LIGHTTPD		:= lighttpd-$(LIGHTTPD_VERSION)
 LIGHTTPD_SUFFIX		:= tar.xz
 LIGHTTPD_URL		:= http://download.lighttpd.net/lighttpd/releases-1.4.x/$(LIGHTTPD).$(LIGHTTPD_SUFFIX)
@@ -40,6 +40,7 @@ LIGHTTPD_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--libdir=/usr/lib/lighttpd \
 	--$(call ptx/endis, PTXCONF_GLOBAL_LARGE_FILE)-lfs \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-mmap \
 	--enable-extra-warnings \
