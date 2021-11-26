@@ -1,0 +1,32 @@
+## SECTION=multimedia_libs
+
+menuconfig MEDIA_SESSION
+	tristate
+	select HOST_MESON
+	select DBUS
+	select ALSA_LIB
+	select ALSA_LIB_PCM
+	select ALSA_LIB_UCM
+	select ALSA_LIB_SEQ
+	select PIPEWIRE
+	select SYSTEMD				if MEDIA_SESSION_SYSTEMD
+	prompt "media-session                 "
+	help
+	  Example session manager for PipeWire
+
+if MEDIA_SESSION
+
+config MEDIA_SESSION_SYSTEMD
+	bool
+
+config MEDIA_SESSION_SYSTEMD_UNIT
+	bool
+	default PIPEWIRE_SYSTEMD_UNIT
+	select MEDIA_SESSION_SYSTEMD
+
+config MEDIA_SESSION_SYSTEMD_UNIT_USER
+	bool
+	default PIPEWIRE_SYSTEMD_UNIT_USER
+	select MEDIA_SESSION_SYSTEMD
+
+endif
