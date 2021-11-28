@@ -33,9 +33,6 @@ DUMP1090FA_ARCH := $(call remove_quotes,$(PTXCONF_ARCH_STRING))
 ifeq ($(DUMP1090FA_ARCH),arm64)
 DUMP1090FA_ARCH := aarch64
 endif
-ifeq ($(DUMP1090FA_ARCH),i386)
-DUMP1090FA_ARCH := x86
-endif
 
 DUMP1090FA_CONF_TOOL := NO
 DUMP1090FA_MAKE_ENV := \
@@ -47,6 +44,13 @@ DUMP1090FA_MAKE_ENV := \
 	ARCH=$(DUMP1090FA_ARCH) \
 	CPUFEATURES_ARCH=$(DUMP1090FA_ARCH) \
 	CPUFEATURES_UNAME="Linux"
+
+ifdef PTXCONF_ARCH_ARM
+ifndef PTXCONF_ARCH_ARM_NEON
+# don't try to use NEON if it's not available
+DUMP1090FA_MAKE_ENV += CPUFEATURES=no
+endif
+endif
 
 # ----------------------------------------------------------------------------
 # Install
