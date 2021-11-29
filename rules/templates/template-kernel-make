@@ -46,6 +46,7 @@ KERNEL_@PACKAGE@_PATH		:= PATH=$(CROSS_PATH)
 KERNEL_@PACKAGE@_SHARED_OPT	:= \
 	-C $(KERNEL_@PACKAGE@_DIR) \
 	O=$(KERNEL_@PACKAGE@_BUILD_DIR) \
+	PAHOLE=false \
 	$(call kernel-opts, KERNEL_@PACKAGE@)
 
 # no gcc plugins; avoid config changes depending on the host compiler
