@@ -9,6 +9,13 @@ menuconfig TF_A
 
 if TF_A
 
+config TF_A_URL
+	string
+	default "https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/snapshot"
+	prompt "TF-A URL"
+	help
+	  Enter the TF-A URL you want to use.
+
 config TF_A_VERSION
 	string
 	default "v2.2"
