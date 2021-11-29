@@ -113,6 +113,7 @@ QT5_CONF_OPT	:= \
 	-opensource \
 	-confirm-license \
 	-release \
+	-no-feature-relocatable \
 	--disable-optimized-tools \
 	--disable-separate-debug-info \
 	--disable-gdb-index \
