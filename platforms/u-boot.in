@@ -2,6 +2,7 @@
 
 menuconfig U_BOOT
 	select BOOTLOADER
+	select HOST_OPENSSL	if U_BOOT_NEEDS_HOST_OPENSSL
 	prompt "U-Boot                        "
 	bool
 
@@ -246,6 +247,18 @@ config U_BOOT_INSTALL_U_BOOT_STM32
 	  Installing the U-Boot image with stm32 header (u-boot.stm32) into
 	  platform image directory. Say yes if you are building for STM32MP1
 	  SOCs.
+
+config U_BOOT_NEEDS_HOST_OPENSSL
+	prompt "needs host OpenSSL"
+	bool
+	help
+	  Newer host U-Boot tools can sign images and use OpenSSL for that.
+	  It is most probably needed if your board config does not disable
+	  CONFIG_TOOLS_LIBCRYPTO.
+	
+	  Select this if you're unsure, as it won't hurt.
+	  It might just increase the build time, if no other package has
+	  host openssl selected.
 
 endif
 
