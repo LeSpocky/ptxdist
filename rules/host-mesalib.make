@@ -87,6 +87,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dva-libs-path=/usr/lib/dri \
 	-Dvalgrind=disabled \
 	-Dvdpau-libs-path=/usr/lib/vdpau \
+	-Dvmware-mks-stats=false \
 	-Dvulkan-drivers=[] \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-layers=[] \
