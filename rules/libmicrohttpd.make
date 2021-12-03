@@ -34,13 +34,26 @@ LIBMICROHTTPD_LICENSE	:= LGPL-2.1-only OR GPL-2.0-only WITH eCos-exception-2.0
 LIBMICROHTTPD_CONF_TOOL	:= autoconf
 LIBMICROHTTPD_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-nls \
+	--disable-rpath \
+	--disable-thread-names \
+	--disable-doc \
+	--disable-examples \
+	--enable-poll \
+	--enable-epoll \
+	--enable-itc=eventfd \
 	--disable-curl \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--enable-sendfile \
 	--$(call ptx/endis, PTXCONF_LIBMICROHTTPD_MESSAGES)-messages \
+	--enable-postprocessor \
 	--$(call ptx/endis, PTXCONF_LIBMICROHTTPD_HTTPS)-https \
 	--enable-bauth \
 	--disable-dauth \
-	--disable-coverage
+	--disable-httpupgrade \
+	--disable-coverage \
+	--enable-asserts \
+	--disable-experimental
 
 # ----------------------------------------------------------------------------
 # Target-Install
