@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBMICROHTTPD) += libmicrohttpd
 #
 # Paths and names
 #
-LIBMICROHTTPD_VERSION	:= 0.9.66
-LIBMICROHTTPD_MD5	:= ce4050e75cc40d68506e2b403e1a76f9
+LIBMICROHTTPD_VERSION	:= 0.9.73
+LIBMICROHTTPD_MD5	:= 2b15949b1633e4fa487e08cdcc97f0e3
 LIBMICROHTTPD		:= libmicrohttpd-$(LIBMICROHTTPD_VERSION)
 LIBMICROHTTPD_SUFFIX	:= tar.gz
 LIBMICROHTTPD_URL	:= $(call ptx/mirror, GNU, libmicrohttpd/$(LIBMICROHTTPD).$(LIBMICROHTTPD_SUFFIX))
@@ -31,7 +31,8 @@ LIBMICROHTTPD_LICENSE	:= LGPL-2.1-only
 else
 LIBMICROHTTPD_LICENSE	:= LGPL-2.1-only OR GPL-2.0-only WITH eCos-exception-2.0
 LIBMICROHTTPD_LICENSE_FILES += \
-	file://doc/ecos.texi;md5=2f39d254e3e5ed800a68ed0fc265b8a1
+	file://doc/gpl-2.0.texi;md5=677a43782a1741516a301d9bc9ba9bf6 \
+	file://doc/ecos.texi;md5=3d1924c9f32fb6f323cca650df416f54
 endif
 
 # ----------------------------------------------------------------------------
@@ -46,9 +47,13 @@ LIBMICROHTTPD_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-nls \
 	--disable-rpath \
+	--enable-gcc-hardening \
+	--enable-linker-hardening \
+	--disable-sanitizer \
 	--disable-thread-names \
 	--disable-doc \
 	--disable-examples \
+	--disable-heavy-tests \
 	--enable-poll \
 	--enable-epoll \
 	--enable-itc=eventfd \
