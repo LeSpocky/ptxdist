@@ -153,7 +153,7 @@ config SETUP_GNOMEMIRROR
 
 config SETUP_GNUMIRROR
 	string
-	default "https://ftp.gnu.org/gnu http://ftp.uni-kl.de/pub/gnu"
+	default "https://ftp.gnu.org/gnu https://ftpmirror.gnu.org"
 	prompt "GNU.org Mirror"
 	help
 	  For all GNU.org related packages enter an available mirror here.
