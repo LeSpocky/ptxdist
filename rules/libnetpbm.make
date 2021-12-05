@@ -22,6 +22,14 @@ LIBNETPBM_SUFFIX	:= tgz
 LIBNETPBM_URL		:= $(call ptx/mirror, SF, netpbm/$(LIBNETPBM).$(LIBNETPBM_SUFFIX))
 LIBNETPBM_SOURCE	:= $(SRCDIR)/$(LIBNETPBM).$(LIBNETPBM_SUFFIX)
 LIBNETPBM_DIR		:= $(BUILDDIR)/$(LIBNETPBM)
+LIBNETPBM_LICENSE	:= custom AND BSD-3-Clause AND GPL-2.0-or-later AND LGPL-2.1-or-later
+LIBNETPBM_LICENSE_FILES	:= \
+	file://doc/COPYRIGHT.PATENT;md5=83a4a19d53bc174ed2757af93e089f15 \
+	file://doc/copyright_summary;md5=0a5d51ab9c96cf1d16a4fc492adc4618 \
+	file://analyzer/pamslice.c;startline=3;endline=17;md5=da4d231aceaa21a9ec40599efb12ddca \
+	file://doc/GPL_LICENSE.txt;md5=079b27cd65c86dbc1b6997ffde902735 \
+	file://converter/other/pamtosvg/thin-image.c;startline=5;endline=13;md5=4061fde4d9ef38d50e21a9e471bfc9bc \
+	file://doc/lgpl_v21.txt;md5=7fbc338309ac38fefcd64b04bb903e34
 
 # ----------------------------------------------------------------------------
 # Prepare
