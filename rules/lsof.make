@@ -22,6 +22,8 @@ LSOF_TARBALL	:= lsof_$(LSOF_VERSION).orig.$(LSOF_SUFFIX)
 LSOF_URL	:= https://snapshot.debian.org/archive/debian/20190908T172415Z/pool/main/l/lsof/$(LSOF_TARBALL)
 LSOF_SOURCE	:= $(SRCDIR)/$(LSOF_TARBALL)
 LSOF_DIR	:= $(BUILDDIR)/$(LSOF)
+LSOF_LICENSE	:= custom
+LSOF_LICENSE_FILES	:= file://00README;startline=645;endline=676;md5=3161a245910921b0f58644299e268d39
 
 # ----------------------------------------------------------------------------
 # Prepare
