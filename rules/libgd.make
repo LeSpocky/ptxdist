@@ -21,6 +21,8 @@ LIBGD_SUFFIX	:= tar.gz
 LIBGD_URL	:= https://github.com/libgd/libgd/releases/download/$(LIBGD)/libgd-$(LIBGD_VERSION).$(LIBGD_SUFFIX)
 LIBGD_SOURCE	:= $(SRCDIR)/$(LIBGD).$(LIBGD_SUFFIX)
 LIBGD_DIR	:= $(BUILDDIR)/$(LIBGD)
+LIBGD_LICENSE	:= custom
+LIBGD_LICENSE_FILES	:= file://COPYING;md5=07384b3aa2e0d39afca0d6c40286f545
 
 # ----------------------------------------------------------------------------
 # Prepare
