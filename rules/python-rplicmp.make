@@ -21,6 +21,8 @@ PYTHON_RPLICMP_SUFFIX	:= tar.gz
 PYTHON_RPLICMP_URL	:= http://cakelab.org/~eintopf/RPL/$(PYTHON_RPLICMP).$(PYTHON_RPLICMP_SUFFIX)
 PYTHON_RPLICMP_SOURCE	:= $(SRCDIR)/$(PYTHON_RPLICMP).$(PYTHON_RPLICMP_SUFFIX)
 PYTHON_RPLICMP_DIR	:= $(BUILDDIR)/$(PYTHON_RPLICMP)
+PYTHON_RPLICMP_LICENSE	:= NIST-PD
+PYTHON_RPLICMP_LICENSE_FILES	:= file://README.md;md5=971992eb5e04f01db532d4eeb89442bf;startline=80;endline=95
 
 # ----------------------------------------------------------------------------
 # Prepare
