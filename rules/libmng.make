@@ -21,6 +21,8 @@ LIBMNG_SUFFIX	:= tar.bz2
 LIBMNG_URL	:= $(call ptx/mirror, SF, libmng/$(LIBMNG).$(LIBMNG_SUFFIX))
 LIBMNG_SOURCE	:= $(SRCDIR)/$(LIBMNG).$(LIBMNG_SUFFIX)
 LIBMNG_DIR	:= $(BUILDDIR)/$(LIBMNG)
+LIBMNG_LICENSE	:= custom
+LIBMNG_LICENSE_FILES	:= file://LICENSE;md5=32becdb8930f90eab219a8021130ec09
 
 # ----------------------------------------------------------------------------
 # Prepare
