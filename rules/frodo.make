@@ -21,6 +21,8 @@ FRODO_SUFFIX	:= Src.tar.gz
 FRODO_URL	:= http://frodo.cebix.net/downloads/FrodoV4_1b.$(FRODO_SUFFIX)
 FRODO_SOURCE	:= $(SRCDIR)/FrodoV4_1b.$(FRODO_SUFFIX)
 FRODO_DIR	:= $(BUILDDIR)/$(FRODO)
+FRODO_LICENSE	:= custom
+FRODO_LICENSE_FILES	:= file://Docs/legalmush.html;md5=108f0874f3c2ef9b625501635c933d92
 
 # ----------------------------------------------------------------------------
 # Prepare
