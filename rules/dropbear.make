@@ -24,7 +24,7 @@ DROPBEAR_URL		:= http://matt.ucc.asn.au/dropbear/releases/$(DROPBEAR).$(DROPBEAR
 DROPBEAR_SOURCE		:= $(SRCDIR)/$(DROPBEAR).$(DROPBEAR_SUFFIX)
 DROPBEAR_DIR		:= $(BUILDDIR)/$(DROPBEAR)
 DROPBEAR_LICENSE	:= \
-	MIT AND BSD-2-Clause AND public_domain AND SSH-short AND (public_domain OR WTFPL) AND Unlicense
+	MIT AND BSD-2-Clause AND SSH-short AND (custom OR WTFPL) AND Unlicense
 DROPBEAR_LICENSE_FILES	:= \
 	file://LICENSE;md5=25cf44512b7bc8966a48b6b1a9b7605f \
 	file://libtomcrypt/LICENSE;md5=71baacc459522324ef3e2b9e052e8180 \
