@@ -22,6 +22,8 @@ HDPARM_SUFFIX	:= tar.gz
 HDPARM_URL	:= $(call ptx/mirror, SF, hdparm/$(HDPARM).$(HDPARM_SUFFIX))
 HDPARM_SOURCE	:= $(SRCDIR)/$(HDPARM).$(HDPARM_SUFFIX)
 HDPARM_DIR	:= $(BUILDDIR)/$(HDPARM)
+HDPARM_LICENSE	:= custom
+HDPARM_LICENSE_FILES	:= file://LICENSE.TXT;md5=495d03e50dc6c89d6a30107ab0df5b03
 
 
 # ----------------------------------------------------------------------------
