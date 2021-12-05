@@ -21,6 +21,8 @@ PYTHON_ROUTING_SUFFIX	:= tar.gz
 PYTHON_ROUTING_URL	:= http://cakelab.org/~eintopf/RPL/$(PYTHON_ROUTING).$(PYTHON_ROUTING_SUFFIX)
 PYTHON_ROUTING_SOURCE	:= $(SRCDIR)/$(PYTHON_ROUTING).$(PYTHON_ROUTING_SUFFIX)
 PYTHON_ROUTING_DIR	:= $(BUILDDIR)/$(PYTHON_ROUTING)
+PYTHON_ROUTING_LICENSE	:= NIST-PD
+PYTHON_ROUTING_LICENSE_FILES	:= file://README.md;md5=971992eb5e04f01db532d4eeb89442bf;startline=129;endline=144
 
 # ----------------------------------------------------------------------------
 # Prepare
