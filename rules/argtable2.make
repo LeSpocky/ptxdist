@@ -22,6 +22,10 @@ ARGTABLE2_SUFFIX	:= tar.gz
 ARGTABLE2_URL		:= $(call ptx/mirror, SF, argtable/$(ARGTABLE2).$(ARGTABLE2_SUFFIX))
 ARGTABLE2_SOURCE	:= $(SRCDIR)/$(ARGTABLE2).$(ARGTABLE2_SUFFIX)
 ARGTABLE2_DIR		:= $(BUILDDIR)/$(ARGTABLE2)
+ARGTABLE2_LICENSE	:= LGPL-2.0-or-later
+ARGTABLE2_LICENSE_FILES	:= \
+	file://COPYING;md5=f30a9716ef3762e3467a2f62bf790f0a \
+	file://src/argtable2.c;startline=6;endline=14;md5=955d1d74393b5b5850210927b08a069a
 
 # ----------------------------------------------------------------------------
 # Prepare
