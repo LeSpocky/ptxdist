@@ -21,6 +21,8 @@ SIMPLERPL_SUFFIX	:= tar.gz
 SIMPLERPL_URL		:= http://cakelab.org/~eintopf/RPL/$(SIMPLERPL).$(SIMPLERPL_SUFFIX)
 SIMPLERPL_SOURCE	:= $(SRCDIR)/$(SIMPLERPL).$(SIMPLERPL_SUFFIX)
 SIMPLERPL_DIR		:= $(BUILDDIR)/$(SIMPLERPL)
+SIMPLERPL_LICENSE	:= NIST-PD
+SIMPLERPL_LICENSE_FILES	:= file://LICENSE.txt;md5=05ed185d8aa70ee449a71246bc9b0d18
 
 # ----------------------------------------------------------------------------
 # Prepare
