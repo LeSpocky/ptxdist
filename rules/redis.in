@@ -1,0 +1,27 @@
+## SECTION=system_libraries
+menuconfig REDIS
+	tristate
+	prompt "redis                         "
+	select GCCLIBS_GCC_S
+	select LIBC_DL
+	select LIBC_PTHREAD
+	select LIBC_CRYPT
+	select SYSTEMD		if REDIS_SYSTEMD
+	help
+	  Redis is an open source (BSD licensed), in-memory data
+	  structure store, used as a database, cache, and message
+	  broker.
+
+if REDIS
+
+config REDIS_SYSTEMD
+	bool
+	default INITMETHOD_SYSTEMD
+
+config REDIS_SYSTEMD_UNIT
+	bool
+	default y
+	depends on SYSTEMD
+	prompt "Unit file for systemd"
+
+endif
