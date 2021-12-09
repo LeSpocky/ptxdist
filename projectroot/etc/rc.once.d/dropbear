@@ -13,15 +13,9 @@ gen_key() {
 
 	rm -f $key_file > /dev/null 2>&1
 
-	echo -n "generating $key_type key..."
-	dropbearkey -t $key_type -f $key_file > /dev/null 2>&1
-
-	if [ "$?" = "0" ]; then
-		echo "done"
-	else
-		echo "failed"
-		exit 1
-	fi
+	echo "Create $key_type key; this may take some time ..."
+	dropbearkey -t $key_type -f $key_file > /dev/null 2>&1 || return
+	echo "Created $key_type key."
 }
 
 gen_keys() {
@@ -29,10 +23,10 @@ gen_keys() {
 	do
 		case "$keytype" in
 			rsa)
-				gen_key rsa "$DROPBEAR_RSAKEY"
+				gen_key rsa "$DROPBEAR_RSAKEY" || return
 				;;
 			ecdsa)
-				gen_key ecdsa "$DROPBEAR_ECDSAKEY"
+				gen_key ecdsa "$DROPBEAR_ECDSAKEY" || return
 				;;
 			*)
 				echo "Key type '$keytype' not supported"
