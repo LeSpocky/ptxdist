@@ -29,7 +29,11 @@ KERNEL_BUILD_DIR	:= $(KERNEL_DIR)-build
 KERNEL_CONFIG		:= $(call ptx/in-platformconfigdir, $(call remove_quotes, $(PTXCONF_KERNEL_CONFIG)))
 KERNEL_DTS_PATH		:= $(call remove_quotes,$(PTXCONF_KERNEL_DTS_PATH))
 KERNEL_DTS		:= $(call remove_quotes,$(PTXCONF_KERNEL_DTS))
+KERNEL_DTSO_PATH	:= $(call remove_quotes,$(PTXCONF_KERNEL_DTSO_PATH))
+KERNEL_DTSO		:= $(call remove_quotes,$(PTXCONF_KERNEL_DTSO))
 KERNEL_DTB_FILES	:= $(addsuffix .dtb,$(basename $(KERNEL_DTS)))
+KERNEL_DTBO_FILES	:= $(addsuffix .dtbo,$(basename $(KERNEL_DTSO)))
+KERNEL_DTBO_DIR		:= /boot/overlays
 KERNEL_LICENSE		:= GPL-2.0-only
 KERNEL_SOURCE		:= $(SRCDIR)/$(KERNEL).$(KERNEL_SUFFIX)
 KERNEL_DEVPKG		:= NO
@@ -265,6 +269,7 @@ ifdef PTXCONF_KERNEL_MODULES_INSTALL
 	@$(call world/install, KERNEL)
 endif
 	@$(call world/dtb, KERNEL)
+	@$(call world/dtbo, KERNEL)
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
@@ -294,6 +299,10 @@ ifdef PTXCONF_KERNEL_INSTALL
 	@$(foreach dtb, $(KERNEL_DTB_FILES), \
 		$(call install_copy, kernel, 0, 0, 0644, -, \
 			/boot/$(dtb), n)$(ptx/nl))
+
+	@$(foreach dtbo, $(KERNEL_DTBO_FILES), \
+		$(call install_copy, kernel, 0, 0, 0644, -, \
+			$(KERNEL_DTBO_DIR)/$(dtbo), n)$(ptx/nl))
 endif
 
 # install the ELF kernel image for debugging purpose

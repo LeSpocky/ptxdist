@@ -186,7 +186,7 @@ config KERNEL_DTS_PATH
 	help
 	  Define path to the dts source file. Multiple directories can be
 	  specified separated by ':'. A relative path will be expanded relative
-	  to the workspace and all other layers. Only on of the specified paths
+	  to the workspace and all other layers. Only one of the specified paths
 	  can be a relative path.
 
 config KERNEL_DTS
@@ -197,6 +197,36 @@ config KERNEL_DTS
 	  blob generation. For relative file names KERNEL_DTS_PATH
 	  is used as a search path for the device tree files specified
 	  here. Multiple dts files can be specified, separated by spaces.
+
+config KERNEL_DTS_SUPPORT_OVERLAYS
+	bool
+
+endif
+
+menuconfig KERNEL_DTBO
+	bool
+	select KERNEL_DTS_SUPPORT_OVERLAYS
+	prompt "Build device tree overlays    "
+
+if KERNEL_DTBO
+
+config KERNEL_DTSO_PATH
+	string "path to overlay file(s)"
+	default "${PTXDIST_PLATFORMCONFIG_SUBDIR}/dts/overlays:${KERNEL_DIR}/arch/${GENERIC_KERNEL_ARCH}/boot/dts"
+	help
+	  Define path to the dts(o) source file(s). Multiple directories can be
+	  specified separated by ':'. A relative path will be expanded relative
+	  to the workspace and all other layers. Only one of the specified paths
+	  can be a relative path.
+
+config KERNEL_DTSO
+	string "overlay file(s)"
+	default "<youroverlay>.dtso"
+	help
+	  Select the dts(o) file(s) to be compiled. For relative file
+	  names KERNEL_DTSO_PATH is used as a search path for the device
+	  tree files specified here.
+	  Multiple dts(o) files can be specified, separated by spaces.
 
 endif
 
