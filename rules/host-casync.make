@@ -19,15 +19,14 @@ HOST_CASYNC_CONF_TOOL	:= meson
 HOST_CASYNC_CONF_OPT	:= \
 	$(HOST_MESON_OPT) \
 	-Dfuse=false \
-	-Dselinux=false \
-	-Dudev=false \
-	-Dudevrulesdir=no \
-	-Dman=false \
-	-Dlibzstd=disabled \
 	-Dliblzma=enabled \
 	-Dlibz=enabled \
-	-Doss-fuzz=false \
+	-Dlibzstd=disabled \
 	-Dllvm-fuzz=false \
-	-Dbashcompletiondir=no
+	-Dman=false \
+	-Doss-fuzz=false \
+	-Dselinux=false \
+	-Dudev=false \
+	-Dudevrulesdir=no
 
 # vim: syntax=make

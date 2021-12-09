@@ -33,16 +33,15 @@ CASYNC_CONF_TOOL	:= meson
 CASYNC_CONF_OPT		:= \
 	$(CROSS_MESON_USR) \
 	-Dfuse=$(call ptx/truefalse,PTXCONF_CASYNC_FUSE) \
-	-Dselinux=$(call ptx/truefalse,PTXCONF_GLOBAL_SELINUX) \
-	-Dudev=$(call ptx/truefalse,PTXCONF_CASYNC_UDEV) \
-	-Dudevrulesdir=/usr/lib/udev/rules.d \
-	-Dman=false \
-	-Dlibzstd=disabled \
 	-Dliblzma=$(call ptx/endis,PTXCONF_CASYNC_LZMA)d \
 	-Dlibz=$(call ptx/endis,PTXCONF_CASYNC_ZLIB)d \
-	-Doss-fuzz=false \
+	-Dlibzstd=disabled \
 	-Dllvm-fuzz=false \
-	-Dbashcompletiondir=no
+	-Dman=false \
+	-Doss-fuzz=false \
+	-Dselinux=$(call ptx/truefalse,PTXCONF_GLOBAL_SELINUX) \
+	-Dudev=$(call ptx/truefalse,PTXCONF_CASYNC_UDEV) \
+	-Dudevrulesdir=/usr/lib/udev/rules.d
 
 # ----------------------------------------------------------------------------
 # Target-Install
