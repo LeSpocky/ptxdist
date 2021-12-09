@@ -43,10 +43,10 @@ MEDIA_SESSION_CONF_OPT	:= \
 	-Ddocdir= \
 	-Ddocs=disabled \
 	-Dinstalled_tests=disabled \
+	-Dsystemd=$(call ptx/endis,PTXCONF_MEDIA_SESSION_SYSTEMD)d \
 	-Dsystemd-system-service=$(call ptx/endis,PTXCONF_MEDIA_SESSION_SYSTEMD_UNIT)d \
 	-Dsystemd-user-service=$(call ptx/endis,PTXCONF_MEDIA_SESSION_SYSTEMD_UNIT_USER)d \
 	-Dsystemd-user-unit-dir= \
-	-Dsystemd=$(call ptx/endis,PTXCONF_MEDIA_SESSION_SYSTEMD)d \
 	-Dtests=disabled \
 	-Dwith-module-sets=
 
