@@ -17,7 +17,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/nss/coreconf/rules.mk b/nss/coreconf/rules.mk
-index dc72e9cef62f..62fb57655819 100644
+index a341b8385ae4..2c0a7a3f30b1 100644
 --- a/nss/coreconf/rules.mk
 +++ b/nss/coreconf/rules.mk
 @@ -373,8 +373,8 @@ endif
@@ -30,4 +30,4 @@ index dc72e9cef62f..62fb57655819 100644
 +	$$(INSTALL) -m 444 $$< $(3)
  
  $(1): $$(addprefix $(3)/,$$($(2))) | $(3)/d
- endif
+ 

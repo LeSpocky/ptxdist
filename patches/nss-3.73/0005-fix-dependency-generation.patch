@@ -18,7 +18,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 insertions(+)
 
 diff --git a/nss/coreconf/rules.mk b/nss/coreconf/rules.mk
-index 62fb57655819..b318eb41cb7c 100644
+index 2c0a7a3f30b1..a188881df94b 100644
 --- a/nss/coreconf/rules.mk
 +++ b/nss/coreconf/rules.mk
 @@ -191,6 +191,8 @@ ifeq ($(OS_ARCH),WINNT)
