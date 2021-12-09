@@ -30,14 +30,12 @@ WLROOTS_LICENSE	:= MIT
 WLROOTS_CONF_TOOL := meson
 WLROOTS_CONF_OPT := \
 	$(CROSS_MESON_USR) \
-	-Dlogind=$(call ptx/endis, PTXCONF_WLROOTS_SYSTEMD_LOGIND)d \
-	-Dlogind-provider=systemd \
+	-Dexamples=false \
+	-Drenderers=gles2 \
+	-Dx11-backend=disabled \
 	-Dxcb-errors=disabled \
 	-Dxcb-icccm=disabled \
-	-Dxwayland=disabled \
-	-Dx11-backend=disabled \
-	-Dexamples=false \
-	-Dwerror=false
+	-Dxwayland=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install

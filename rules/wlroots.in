@@ -1,6 +1,6 @@
 ## SECTION=multimedia_wayland
 
-menuconfig WLROOTS
+config WLROOTS
 	tristate
 	select HOST_MESON
 	select WAYLAND
@@ -16,22 +16,8 @@ menuconfig WLROOTS
 	select UDEV_LIBUDEV
 	select PIXMAN
 	select SEATD
-	select SYSTEMD			if WLROOTS_SYSTEMD
-	select SYSTEMD_LOGIND		if WLROOTS_SYSTEMD_LOGIND
-	prompt "wlroots                       "
+	prompt "wlroots"
 	help
 	  wlroots provides pluggable, composable, unopinionated modules for
 	  building a Wayland compositor.
 
-if WLROOTS
-
-config WLROOTS_SYSTEMD
-	bool
-	default INITMETHOD_SYSTEMD
-
-config WLROOTS_SYSTEMD_LOGIND
-	bool
-	depends on WLROOTS_SYSTEMD
-	prompt "support rootless session via logind"
-
-endif
