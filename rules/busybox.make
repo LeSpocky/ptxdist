@@ -268,6 +268,10 @@ ifdef PTXCONF_BUSYBOX_BB_SYSCTL
 	@$(call install_alternative, busybox, 0, 0, 0644, /etc/sysctl.conf)
 endif
 
+ifdef PTXCONF_BUSYBOX_FEATURE_SYSLOGD_CFG
+	@$(call install_alternative, busybox, 0, 0, 0644, /etc/syslog.conf)
+endif
+
 	@$(call install_finish, busybox)
 
 	@$(call touch)
