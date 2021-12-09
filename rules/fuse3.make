@@ -30,8 +30,8 @@ FUSE3_LICENSE	:= GPL-2.0-only AND LGPL-2.1-only
 #
 # meson
 #
-FUSE_CONF_TOOL	:= meson
-FUSE_CONF_OPT	:= \
+FUSE3_CONF_TOOL	:= meson
+FUSE3_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Ddisable-mtab=true \
 	-Dexamples=false \
