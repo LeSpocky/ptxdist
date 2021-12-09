@@ -1,0 +1,83 @@
+From: Kalev Lember <klember@redhat.com>
+Date: Sun, 10 Jan 2021 09:35:40 +0100
+Subject: [PATCH] Avoid diagnostics for gcc-11 false positive out of bounds
+ accesses
+
+This is a patch by Jeff Law <law@redhat.com> done in downstream Fedora
+to fix the build with gcc 11.
+---
+ gtk/gtktextchild.c   | 14 ++++++++++++++
+ gtk/gtktextsegment.c |  7 +++++++
+ 2 files changed, 21 insertions(+)
+
+diff --git a/gtk/gtktextchild.c b/gtk/gtktextchild.c
+index 2ff7de2394a7..7597ca3e2ac6 100644
+--- a/gtk/gtktextchild.c
++++ b/gtk/gtktextchild.c
+@@ -129,6 +129,12 @@ const GtkTextLineSegmentClass gtk_text_pixbuf_type = {
+ GtkTextLineSegment *
+ _gtk_pixbuf_segment_new (GdkPixbuf *pixbuf)
+ {
++  /* gcc-11 issues a diagnostic here because the size allocated
++     for SEG does not cover the entire size of a GtkTextLineSegment
++     and gcc has no way to know that the union will only be used
++     for limited types and the additional space is not needed.  */
++#pragma GCC diagnostic push
++#pragma GCC diagnostic ignored "-Warray-bounds"
+   GtkTextLineSegment *seg;
+ 
+   seg = g_slice_alloc (PIXBUF_SEG_SIZE);
+@@ -158,6 +164,7 @@ child_segment_cleanup_func (GtkTextLineSegment *seg,
+   seg->body.child.line = line;
+ 
+   return seg;
++#pragma GCC diagnostic pop
+ }
+ 
+ static int
+@@ -224,6 +231,12 @@ const GtkTextLineSegmentClass gtk_text_child_type = {
+ GtkTextLineSegment *
+ _gtk_widget_segment_new (GtkTextChildAnchor *anchor)
+ {
++  /* gcc-11 issues a diagnostic here because the size allocated
++     for SEG does not cover the entire size of a GtkTextLineSegment
++     and gcc has no way to know that the union will only be used
++     for limited types and the additional space is not needed.  */
++#pragma GCC diagnostic push
++#pragma GCC diagnostic ignored "-Warray-bounds"
+   GtkTextLineSegment *seg;
+ 
+   seg = g_slice_alloc (WIDGET_SEG_SIZE);
+@@ -247,6 +260,7 @@ _gtk_widget_segment_new (GtkTextChildAnchor *anchor)
+   g_object_ref (anchor);
+   
+   return seg;
++#pragma GCC diagnostic pop
+ }
+ 
+ void
+diff --git a/gtk/gtktextsegment.c b/gtk/gtktextsegment.c
+index 8539db5297ac..8e00b1ddc900 100644
+--- a/gtk/gtktextsegment.c
++++ b/gtk/gtktextsegment.c
+@@ -426,6 +426,12 @@ char_segment_check_func (GtkTextLineSegment *segPtr, GtkTextLine *line)
+ GtkTextLineSegment*
+ _gtk_toggle_segment_new (GtkTextTagInfo *info, gboolean on)
+ {
++  /* gcc-11 issues a diagnostic here because the size allocated
++     for SEG does not cover the entire size of a GtkTextLineSegment
++     and gcc has no way to know that the union will only be used
++     for limited types and the additional space is not needed.  */
++#pragma GCC diagnostic push
++#pragma GCC diagnostic ignored "-Warray-bounds"
+   GtkTextLineSegment *seg;
+ 
+   seg = g_slice_alloc (TSEG_SIZE);
+@@ -441,6 +447,7 @@ _gtk_toggle_segment_new (GtkTextTagInfo *info, gboolean on)
+   seg->body.toggle.inNodeCounts = 0;
+ 
+   return seg;
++#pragma GCC diagnostic pop
+ }
+ 
+ void
