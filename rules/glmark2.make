@@ -45,9 +45,9 @@ GLMARK2_FLAVORS := $(subst $(ptx/def/space),$(ptx/def/comma),$(GLMARK2_FLAVORS))
 GLMARK2_CONF_TOOL	:= meson
 GLMARK2_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dflavors=$(GLMARK2_FLAVORS) \
 	-Ddata-path='' \
 	-Dextras-path='' \
+	-Dflavors=$(GLMARK2_FLAVORS) \
 	-Dversion-suffix=''
 
 # ----------------------------------------------------------------------------
