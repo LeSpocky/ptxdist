@@ -36,13 +36,13 @@ SEATD_LICENSE_FILES	:= file://LICENSE;md5=715a99d2dd552e6188e74d4ed2914d5a
 SEATD_CONF_TOOL	:= meson
 SEATD_CONF_OPT	:=  \
 	$(CROSS_MESON_USR) \
+	-Ddefaultpath= \
+	-Dexamples=disabled \
+	-Dlibseat-builtin=disabled \
 	-Dlibseat-logind=$(call ptx/ifdef,PTXCONF_SEATD_SYSTEMD_LOGIND,systemd,disabled) \
 	-Dlibseat-seatd=$(call ptx/endis,PTXCONF_SEATD_SEATD)d \
-	-Dlibseat-builtin=disabled \
-	-Dserver=$(call ptx/endis,PTXCONF_SEATD_SEATD)d \
-	-Dexamples=disabled \
 	-Dman-pages=disabled \
-	-Ddefaultpath=
+	-Dserver=$(call ptx/endis,PTXCONF_SEATD_SEATD)d
 
 # ----------------------------------------------------------------------------
 # Target-Install
