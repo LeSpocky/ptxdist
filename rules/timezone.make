@@ -87,6 +87,11 @@ $(STATEDIR)/timezone.install:
 	@for target in $(TIMEZONE-y); do \
 		$(call add_zoneinfo, $$target, $(TIMEZONE_PKGDIR)/usr/share, $(PTXDIST_SYSROOT_HOST)/usr); \
 	done
+# Fix entries in zonetab to match the selected PTXCONF_TIMEZONE_* options.
+	@grep "\($$(find $(TIMEZONE_PKGDIR)/usr/share/zoneinfo -type f -printf '%P\|')#\)" \
+		$(PTXDIST_SYSROOT_HOST)/usr/share/zoneinfo/zone1970.tab > \
+		$(TIMEZONE_PKGDIR)/usr/share/zoneinfo/zone1970.tab
+
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
@@ -115,6 +120,8 @@ ifneq ($(call remove_quotes,$(PTXCONF_TIMEZONE_LOCALTIME)),)
 	@$(call install_link, timezone, ..$(TIMEZONE_LOCALTIME_FILE), \
 		/etc/localtime)
 endif
+
+	@$(call install_copy, timezone, 0, 0, 0644, -, /usr/share/zoneinfo/zone1970.tab)
 
 	@$(call install_finish, timezone)
 
