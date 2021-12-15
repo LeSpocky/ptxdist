@@ -10,10 +10,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 3 insertions(+)
 
 diff --git a/mesonbuild/modules/unstable_simd.py b/mesonbuild/modules/unstable_simd.py
-index 4c066fb91339..e4b1824a7087 100644
+index 3339cea5a03f..da2e740d4cd3 100644
 --- a/mesonbuild/modules/unstable_simd.py
 +++ b/mesonbuild/modules/unstable_simd.py
-@@ -62,6 +62,9 @@ class SimdModule(ExtensionModule):
+@@ -64,6 +64,9 @@ class SimdModule(ExtensionModule):
                  continue
              iset_fname = kwargs[iset] # Might also be an array or Files. static_library will validate.
              args = compiler.get_instruction_set_args(iset)
