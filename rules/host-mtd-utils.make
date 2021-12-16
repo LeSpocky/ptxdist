@@ -31,7 +31,7 @@ HOST_MTD_UTILS_CONF_OPT		:= \
 	--with-ubifs \
 	--with-xattr \
 	--with-lzo \
-	--without-zstd \
+	--with-zstd \
 	--without-selinux \
 	--without-crypto
 
