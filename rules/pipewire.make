@@ -76,7 +76,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dpipewire-jack=disabled \
 	-Dpipewire-v4l2=enabled \
 	-Dpw-cat=enabled \
-	-Draop=disabled \
+	-Draop=$(call ptx/endis,PTXCONF_PIPEWIRE_RAOP)d \
 	-Droc=disabled \
 	-Dsdl2=disabled \
 	-Dsession-managers= \
@@ -103,7 +103,7 @@ PIPEWIRE_CPPFLAGS = -isystem $(KERNEL_HEADERS_INCLUDE_DIR)
 # Target-Install
 # ----------------------------------------------------------------------------
 
-PIPEWIRE_MODULES := \
+PIPEWIRE_MODULES-y := \
 	access \
 	adapter \
 	client-device \
@@ -124,6 +124,8 @@ PIPEWIRE_MODULES := \
 	spa-device-factory \
 	spa-node \
 	spa-node-factory
+
+PIPEWIRE_MODULES-$(PTXCONF_PIPEWIRE_RAOP)	+= raop-sink
 
 PIPEWIRE_SPA_MODULES := \
 	alsa/libspa-alsa \
@@ -181,7 +183,7 @@ endif
 	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-play)
 	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-record)
 
-	@$(foreach module, $(PIPEWIRE_MODULES), \
+	@$(foreach module, $(PIPEWIRE_MODULES-y), \
 		$(call install_lib, pipewire, 0, 0, 644, \
 			pipewire-0.3/libpipewire-module-$(module))$(ptx/nl))
 

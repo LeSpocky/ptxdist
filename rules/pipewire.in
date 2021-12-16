@@ -15,6 +15,7 @@ menuconfig PIPEWIRE
 	select READLINE			if PIPEWIRE_PW_CTL
 	select NCURSES			if PIPEWIRE_PW_TOP
 	select NCURSES_WIDE_CHAR	if PIPEWIRE_PW_TOP
+	select OPENSSL			if PIPEWIRE_RAOP
 	select SYSTEMD			if PIPEWIRE_SYSTEMD
 	select UDEV
 	select UDEV_LIBUDEV
@@ -47,6 +48,10 @@ config PIPEWIRE_SYSTEMD
 config PIPEWIRE_PULSEAUDIO
 	bool
 	prompt "install pulseaudio compatibility service"
+
+config PIPEWIRE_RAOP
+	bool
+	prompt "enable Remote Audio Output Protocol module"
 
 config PIPEWIRE_SYSTEMD_UNIT
 	bool
