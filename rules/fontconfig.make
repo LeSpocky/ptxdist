@@ -25,8 +25,8 @@ FONTCONFIG_LICENSE	:= HPND-sell-variant AND MIT AND custom AND MIT-Modern-Varian
 FONTCONFIG_LICENSE_FILES	:= \
 	file://COPYING;md5=7a0449e9bc5370402a94c00204beca3d \
 	file://src/fcfreetype.c;startline=26;endline=44;md5=44e5309810857e7964a78e3381fa2910 \
-	file://src/ftglue.c;startline=1;endline=8;789386c3d7c853bbce055520a11aaeb9 \
-	file://src/fcatomic.h;startline=4,endline=24;md5=89c79dedb0fb324bfa2fae6b7bf7f673 \
+	file://src/ftglue.c;startline=1;endline=8;md5=789386c3d7c853bbce055520a11aaeb9 \
+	file://src/fcatomic.h;startline=4;endline=24;md5=89c79dedb0fb324bfa2fae6b7bf7f673 \
 	file://fc-case/CaseFolding.txt;startline=3;endline=6;md5=c6e05768ea162f646ae2e29667c48b2e
 
 # ----------------------------------------------------------------------------
