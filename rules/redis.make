@@ -33,11 +33,20 @@ REDIS_CONF_TOOL := NO
 REDIS_MAKE_ENV := \
 	$(CROSS_ENV)
 
+REDIS_ARCH := $(PTXCONF_ARCH_STRING)
+# the relevant check is for armv*, so there is no need for special v6/v7
+# handling
+ifdef PTXCONF_ARCH_ARM
+REDIS_ARCH := armv5
+endif
+
 REDIS_MAKE_OPT := \
 	CC=$(CROSS_CC) \
 	PREFIX=/usr \
 	USE_JEMALLOC=no \
 	USE_SYSTEMD=$(call ptx/ifdef,PTXCONF_REDIS_SYSTEMD,yes,no) \
+	uname_M=$(REDIS_ARCH) \
+	uname_S=Linux \
 	all
 
 REDIS_PATH := PATH=$(CROSS_PATH)
