@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBUNWIND) += libunwind
 #
 # Paths and names
 #
-LIBUNWIND_VERSION	:= 1.5.0
-LIBUNWIND_MD5		:= c6923dda0675f6a4ef21426164dc8b6a
+LIBUNWIND_VERSION	:= 1.6.2
+LIBUNWIND_MD5		:= f625b6a98ac1976116c71708a73dc44a
 LIBUNWIND		:= libunwind-$(LIBUNWIND_VERSION)
 LIBUNWIND_SUFFIX	:= tar.gz
 LIBUNWIND_URL		:= http://download.savannah.gnu.org/releases/libunwind/$(LIBUNWIND).$(LIBUNWIND_SUFFIX)
