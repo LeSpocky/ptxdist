@@ -15,10 +15,10 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 7.77.0
-LIBCURL_MD5	:= 045d28029679dabb6b20a814934671ad
+LIBCURL_VERSION	:= 7.80.0
+LIBCURL_MD5	:= cf9f8553762150ef0ebcd5ee412737f5
 LIBCURL		:= curl-$(LIBCURL_VERSION)
-LIBCURL_SUFFIX	:= tar.bz2
+LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.haxx.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_SOURCE	:= $(SRCDIR)/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_DIR	:= $(BUILDDIR)/$(LIBCURL)
@@ -40,7 +40,6 @@ LIBCURL_CONF_OPT	:= \
 	--disable-werror \
 	--disable-curldebug \
 	--enable-symbol-hiding \
-	--enable-hidden-symbols \
 	--$(call ptx/endis, PTXCONF_LIBCURL_C_ARES)-ares \
 	--enable-rt \
 	--disable-ech \
@@ -73,6 +72,7 @@ LIBCURL_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBCURL_VERBOSE)-verbose \
 	--disable-sspi \
 	--$(call ptx/endis, PTXCONF_LIBCURL_CRYPTO_AUTH)-crypto-auth \
+	--$(call ptx/endis, PTXCONF_LIBCURL_CRYPTO_AUTH)-ntlm \
 	--disable-ntlm-wb \
 	--enable-tls-srp \
 	--enable-unix-sockets \
@@ -85,7 +85,7 @@ LIBCURL_CONF_OPT	:= \
 	--enable-netrc \
 	--enable-progress-meter \
 	--disable-dnsshuffle \
-	--enable-get-easy-option \
+	--enable-get-easy-options \
 	--disable-alt-svc \
 	--enable-hsts \
 	--without-schannel \
@@ -99,6 +99,7 @@ LIBCURL_CONF_OPT	:= \
 	--without-bearssl \
 	--without-rustls \
 	--without-nss \
+	--without-hyper \
 	--with-zlib=$(SYSROOT) \
 	--without-brotli \
 	--without-zstd \
@@ -110,7 +111,6 @@ LIBCURL_CONF_OPT	:= \
 	--without-ca-fallback \
 	--without-libpsl \
 	--without-libgsasl \
-	--without-libmetalink \
 	--$(call ptx/wwo, PTXCONF_LIBCURL_LIBSSH2)-libssh2 \
 	--without-libssh \
 	--without-wolfssh \
@@ -121,7 +121,6 @@ LIBCURL_CONF_OPT	:= \
 	--without-ngtcp2 \
 	--without-nghttp3 \
 	--without-quiche \
-	--without-hyper \
 	--without-zsh-functions-dir \
 	--without-fish-functions-dir
 
