@@ -15,14 +15,14 @@ PACKAGES-$(PTXCONF_LIBFFI) += libffi
 #
 # Paths and names
 #
-LIBFFI_VERSION	:= 3.3
-LIBFFI_MD5	:= 6313289e32f1d38a9df4770b014a2ca7
+LIBFFI_VERSION	:= 3.4.2
+LIBFFI_MD5	:= 294b921e6cf9ab0fbaea4b639f8fdbe8
 LIBFFI		:= libffi-$(LIBFFI_VERSION)
 LIBFFI_SUFFIX	:= tar.gz
 LIBFFI_SOURCE	:= $(SRCDIR)/$(LIBFFI).$(LIBFFI_SUFFIX)
 LIBFFI_DIR	:= $(BUILDDIR)/$(LIBFFI)
 LIBFFI_URL	:= \
-	http://ftp.gwdg.de/pub/linux/sources.redhat.com/libffi/$(LIBFFI).$(LIBFFI_SUFFIX) \
+	https://github.com/libffi/libffi/releases/download/v$(LIBFFI_VERSION)/$(LIBFFI).$(LIBFFI_SUFFIX) \
 	ftp://sourceware.org/pub/libffi/$(LIBFFI).$(LIBFFI_SUFFIX)
 LIBFFI_LICENSE	:= MIT
 
