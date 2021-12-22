@@ -1,0 +1,24 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 7 Jan 2022 12:53:57 +0100
+Subject: [PATCH] suppress_remap
+
+Imported from screen_4.8.0-7.debian.tar.xz
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ termcap.c | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/termcap.c b/termcap.c
+index 26cba62fd7c1..ed9e838c4c9d 100644
+--- a/termcap.c
++++ b/termcap.c
+@@ -553,8 +553,6 @@ int map;
+       else
+ 	break;
+     }
+-  if (n < KMAP_KEYS)
+-    domap = 1;
+   if (map == 0 && domap)
+     return 0;
+   if (map && !domap)
