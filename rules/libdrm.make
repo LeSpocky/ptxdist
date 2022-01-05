@@ -101,9 +101,11 @@ ifdef PTXCONF_LIBDRM_ETNAVIV
 	@$(call install_copy, libdrm, 0, 0, 0755, -, /usr/bin/etnaviv_cmd_stream_test)
 	@$(call install_copy, libdrm, 0, 0, 0755, -, /usr/bin/etnaviv_bo_cache_test)
 endif
-endif
 ifdef PTXCONF_LIBDRM_AMDGPU
 	@$(call install_copy, libdrm, 0, 0, 0755, -, /usr/bin/amdgpu_stress)
+endif
+endif
+ifdef PTXCONF_LIBDRM_AMDGPU
 	@$(call install_copy, libdrm, 0, 0, 0644, -, /usr/share/libdrm/amdgpu.ids)
 endif
 	@$(call install_finish, libdrm)
