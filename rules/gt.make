@@ -14,8 +14,9 @@ PACKAGES-$(PTXCONF_GT) += gt
 #
 # Paths and names
 #
-GT_VERSION	:= 31b135546d0d1733b5b7ca19f48748c06824d65a
-GT_MD5		:= 5ae9260049f5d2cd2ebeccef92e7888b
+# No tags: use a fake descriptive commit-ish to include the date
+GT_VERSION	:= 2021-09-30-g7247547a
+GT_MD5		:= ac390e90cc866ca95cf4821fbf25812b
 GT		:= gt-$(GT_VERSION)
 GT_SUFFIX	:= tar.gz
 GT_URL		:= https://github.com/linux-usb-gadgets/gt/archive/$(GT_VERSION).$(GT_SUFFIX)
@@ -50,8 +51,7 @@ $(STATEDIR)/gt.targetinstall:
 	@$(call install_fixup, gt, DESCRIPTION, missing)
 
 	@$(call install_copy, gt, 0, 0, 0755, -, /usr/bin/gt)
-	@$(call install_copy, gt, 0, 0, 0644, \
-	        $(GT_PKGDIR)/usr/etc/gt/gt.conf, /etc/gt/gt.conf)
+	@$(call install_alternative, gt, 0, 0, 0644, /etc/gt/gt.conf)
 
 	@$(call install_finish, gt)
 
