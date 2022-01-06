@@ -9,4 +9,5 @@
 0007-HACK-qtwebengine-workaround-for-too-long-file-names.patch
 0008-qtbase-include-limits-where-necessary.patch
 0009-qtdeclarative-Add-missing-limits-include-to-fix-buil.patch
-# f48701510a7b265918cc79b1cc68a359  - git-ptx-patches magic
+0010-qtwebengine-include-limits-where-necessary.patch
+# 915b5aee7e6c7bcfd390d9c14e4b0d49  - git-ptx-patches magic

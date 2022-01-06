@@ -1,0 +1,24 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Thu, 6 Jan 2022 13:25:15 +0100
+Subject: [PATCH] qtwebengine: include limits where necessary
+
+Fixes build with GCC11, which changed internal includes so that
+limits isn't implicitly pulled in some cases.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ .../third_party/perfetto/src/trace_processor/containers/string_pool.h    | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/qtwebengine/src/3rdparty/chromium/third_party/perfetto/src/trace_processor/containers/string_pool.h b/qtwebengine/src/3rdparty/chromium/third_party/perfetto/src/trace_processor/containers/string_pool.h
+index 11ae91cfeca5..558ff00e8feb 100644
+--- a/qtwebengine/src/3rdparty/chromium/third_party/perfetto/src/trace_processor/containers/string_pool.h
++++ b/qtwebengine/src/3rdparty/chromium/third_party/perfetto/src/trace_processor/containers/string_pool.h
+@@ -20,6 +20,7 @@
+ #include <stddef.h>
+ #include <stdint.h>
+ 
++#include <limits>
+ #include <unordered_map>
+ #include <vector>
+ 
