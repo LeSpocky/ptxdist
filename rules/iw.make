@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_IW) += iw
 #
 # Paths and names
 #
-IW_VERSION	:= 5.9
-IW_MD5		:= 7a47d6f749ec69afcaf351166fd12f6f
+IW_VERSION	:= 5.16
+IW_MD5		:= 782a3460da2854bd2e5b8f96845a62f8
 IW		:= iw-$(IW_VERSION)
 IW_SUFFIX	:= tar.xz
 IW_URL		:= https://www.kernel.org/pub/software/network/iw/$(IW).$(IW_SUFFIX)
