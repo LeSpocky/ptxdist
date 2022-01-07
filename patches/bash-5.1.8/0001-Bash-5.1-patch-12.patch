@@ -1,0 +1,262 @@
+diff -urN bash-5.1.8.orig/builtins/wait.def bash-5.1.8/builtins/wait.def
+--- bash-5.1.8.orig/builtins/wait.def	2021-12-21 12:57:08.083139502 +0100
++++ bash-5.1.8/builtins/wait.def	2021-12-21 12:58:24.304849937 +0100
+@@ -111,7 +111,8 @@
+ wait_builtin (list)
+      WORD_LIST *list;
+ {
+-  int status, code, opt, nflag, wflags;
++  int status, code, opt, nflag;
++  volatile int wflags;
+   char *vname;
+   SHELL_VAR *pidvar;
+   struct procstat pstat;
+@@ -180,6 +181,8 @@
+       last_command_exit_signal = wait_signal_received;
+       status = 128 + wait_signal_received;
+       wait_sigint_cleanup ();
++      if (wflags & JWAIT_WAITING)
++	unset_waitlist ();
+       WAIT_RETURN (status);
+     }
+ 
+diff -urN bash-5.1.8.orig/command.h bash-5.1.8/command.h
+--- bash-5.1.8.orig/command.h	2021-12-21 12:57:08.099139862 +0100
++++ bash-5.1.8/command.h	2021-12-21 12:58:27.760927380 +0100
+@@ -124,6 +124,7 @@
+ #define SUBSHELL_PROCSUB 0x20	/* subshell caused by <(command) or >(command) */
+ #define SUBSHELL_COPROC	0x40	/* subshell from a coproc pipeline */
+ #define SUBSHELL_RESETTRAP 0x80	/* subshell needs to reset trap strings on first call to trap */
++#define SUBSHELL_IGNTRAP 0x100  /* subshell should reset trapped signals from trap_handler */
+ 
+ /* A structure which represents a word. */
+ typedef struct word_desc {
+diff -urN bash-5.1.8.orig/execute_cmd.c bash-5.1.8/execute_cmd.c
+--- bash-5.1.8.orig/execute_cmd.c	2021-12-21 12:57:08.091139683 +0100
++++ bash-5.1.8/execute_cmd.c	2021-12-21 12:58:27.764927470 +0100
+@@ -1547,6 +1547,9 @@
+   clear_pending_traps ();
+   reset_signal_handlers ();
+   subshell_environment |= SUBSHELL_RESETTRAP;
++  /* Note that signal handlers have been reset, so we should no longer
++    reset the handler and resend trapped signals to ourselves. */
++  subshell_environment &= ~SUBSHELL_IGNTRAP;
+ 
+   /* We are in a subshell, so forget that we are running a trap handler or
+      that the signal handler has changed (we haven't changed it!) */
+@@ -4320,7 +4323,8 @@
+ 	  already_forked = 1;
+ 	  cmdflags |= CMD_NO_FORK;
+ 
+-	  subshell_environment = SUBSHELL_FORK;		/* XXX */
++	  /* We redo some of what make_child() does with SUBSHELL_IGNTRAP */
++	  subshell_environment = SUBSHELL_FORK|SUBSHELL_IGNTRAP;	/* XXX */
+ 	  if (pipe_in != NO_PIPE || pipe_out != NO_PIPE)
+ 	    subshell_environment |= SUBSHELL_PIPE;
+ 	  if (async)
+@@ -4574,6 +4578,7 @@
+ 	     trap strings if we run trap to change a signal disposition. */
+ 	  reset_signal_handlers ();
+ 	  subshell_environment |= SUBSHELL_RESETTRAP;
++	  subshell_environment &= ~SUBSHELL_IGNTRAP;
+ 
+ 	  if (async)
+ 	    {
+@@ -5514,6 +5519,7 @@
+       reset_terminating_signals ();	/* XXX */
+       /* Cancel traps, in trap.c. */
+       restore_original_signals ();
++      subshell_environment &= ~SUBSHELL_IGNTRAP;
+ 
+ #if defined (JOB_CONTROL)
+       FREE (p);
+diff -urN bash-5.1.8.orig/jobs.c bash-5.1.8/jobs.c
+--- bash-5.1.8.orig/jobs.c	2021-12-21 12:57:08.091139683 +0100
++++ bash-5.1.8/jobs.c	2021-12-21 12:58:27.764927470 +0100
+@@ -2217,6 +2217,8 @@
+ 	 signals to the default state for a new process. */
+       pid_t mypid;
+ 
++      subshell_environment |= SUBSHELL_IGNTRAP;
++
+       /* If this ends up being changed to modify or use `command' in the
+ 	 child process, go back and change callers who free `command' in
+ 	 the child process when this returns. */
+diff -urN bash-5.1.8.orig/lib/malloc/malloc.c bash-5.1.8/lib/malloc/malloc.c
+--- bash-5.1.8.orig/lib/malloc/malloc.c	2021-12-21 12:57:08.095139773 +0100
++++ bash-5.1.8/lib/malloc/malloc.c	2021-12-21 12:58:22.200802784 +0100
+@@ -1286,13 +1286,12 @@
+       p = (union mhead *) ap - 1;
+     }
+ 
+-  /* XXX - should we return 0 if ISFREE? */
+-  maxbytes = binsize(p->mh_index);
+-
+-  /* So the usable size is the maximum number of bytes in the bin less the
+-     malloc overhead */
+-  maxbytes -= MOVERHEAD + MSLOP;
+-  return (maxbytes);
++  /* return 0 if ISFREE */
++  if (p->mh_alloc == ISFREE)
++    return 0;
++  
++  /* Since we use bounds checking, the usable size is the last requested size. */
++  return (p->mh_nbytes);
+ }
+ 
+ #if !defined (NO_VALLOC)
+diff -urN bash-5.1.8.orig/nojobs.c bash-5.1.8/nojobs.c
+--- bash-5.1.8.orig/nojobs.c	2021-12-21 12:57:08.091139683 +0100
++++ bash-5.1.8/nojobs.c	2021-12-21 12:58:27.764927470 +0100
+@@ -575,6 +575,8 @@
+ 	last_asynchronous_pid = getpid ();
+ #endif
+ 
++      subshell_environment |= SUBSHELL_IGNTRAP;
++
+       default_tty_job_signals ();
+     }
+   else
+diff -urN bash-5.1.8.orig/parse.y bash-5.1.8/parse.y
+--- bash-5.1.8.orig/parse.y	2021-12-21 12:57:08.099139862 +0100
++++ bash-5.1.8/parse.y	2021-12-21 12:58:26.112890455 +0100
+@@ -6493,10 +6493,8 @@
+   old_expand_aliases = expand_aliases;
+ 
+   push_stream (1);
+-#if 0 /* TAG: bash-5.2 Alex fxmbsw7 Ratchev <fxmbsw7@gmail.com> 11/17/2020 */
+   if (ea = expanding_alias ())
+     parser_save_alias ();
+-#endif
+   last_read_token = WORD;		/* WORD to allow reserved words here */
+   current_command_line_count = 0;
+   echo_input_at_read = expand_aliases = 0;
+@@ -6531,10 +6529,8 @@
+   last_read_token = '\n';
+   pop_stream ();
+ 
+-#if 0 /* TAG: bash-5.2 */
+   if (ea)
+     parser_restore_alias ();
+-#endif
+ 
+ #if defined (HISTORY)
+   remember_on_history = old_remember_on_history;
+diff -urN bash-5.1.8.orig/patchlevel.h bash-5.1.8/patchlevel.h
+--- bash-5.1.8.orig/patchlevel.h	2021-12-21 12:57:08.075139321 +0100
++++ bash-5.1.8/patchlevel.h	2021-12-21 12:58:27.764927470 +0100
+@@ -25,6 +25,6 @@
+    regexp `^#define[ 	]*PATCHLEVEL', since that's what support/mkversion.sh
+    looks for to find the patch level (for the sccs version string). */
+ 
+-#define PATCHLEVEL 8
++#define PATCHLEVEL 12
+ 
+ #endif /* _PATCHLEVEL_H_ */
+diff -urN bash-5.1.8.orig/sig.c bash-5.1.8/sig.c
+--- bash-5.1.8.orig/sig.c	2021-12-21 12:57:08.071139231 +0100
++++ bash-5.1.8/sig.c	2021-12-21 12:58:27.764927470 +0100
+@@ -55,7 +55,8 @@
+ #  include "bashhist.h"
+ #endif
+ 
+-extern void initialize_siglist ();
++extern void initialize_siglist PARAMS((void));
++extern void set_original_signal PARAMS((int, SigHandler *));
+ 
+ #if !defined (JOB_CONTROL)
+ extern void initialize_job_signals PARAMS((void));
+@@ -255,6 +256,13 @@
+       sigaction (XSIG (i), &act, &oact);
+       XHANDLER(i) = oact.sa_handler;
+       XSAFLAGS(i) = oact.sa_flags;
++
++#if 0
++      set_original_signal (XSIG(i), XHANDLER(i));	/* optimization */
++#else
++      set_original_signal (XSIG(i), act.sa_handler);	/* optimization */
++#endif
++
+       /* Don't do anything with signals that are ignored at shell entry
+ 	 if the shell is not interactive. */
+       /* XXX - should we do this for interactive shells, too? */
+diff -urN bash-5.1.8.orig/subst.c bash-5.1.8/subst.c
+--- bash-5.1.8.orig/subst.c	2021-12-21 12:57:08.099139862 +0100
++++ bash-5.1.8/subst.c	2021-12-21 12:58:27.764927470 +0100
+@@ -5951,6 +5951,7 @@
+       free_pushed_string_input ();
+       /* Cancel traps, in trap.c. */
+       restore_original_signals ();	/* XXX - what about special builtins? bash-4.2 */
++      subshell_environment &= ~SUBSHELL_IGNTRAP;
+       QUIT;	/* catch any interrupts we got post-fork */
+       setup_async_signals ();
+ #if 0
+@@ -6382,6 +6383,7 @@
+ 	}	
+       QUIT;	/* catch any interrupts we got post-fork */
+       subshell_environment |= SUBSHELL_RESETTRAP;
++      subshell_environment &= ~SUBSHELL_IGNTRAP;
+     }
+ 
+ #if defined (JOB_CONTROL)
+diff -urN bash-5.1.8.orig/trap.c bash-5.1.8/trap.c
+--- bash-5.1.8.orig/trap.c	2021-12-21 12:57:08.083139502 +0100
++++ bash-5.1.8/trap.c	2021-12-21 12:58:27.764927470 +0100
+@@ -481,6 +481,32 @@
+       SIGRETURN (0);
+     }
+ 
++  /* This means we're in a subshell, but have not yet reset the handler for
++     trapped signals. We're not supposed to execute the trap in this situation;
++     we should restore the original signal and resend the signal to ourselves
++     to preserve the Posix "signal traps that are not being ignored shall be
++     set to the default action" semantics. */
++  if ((subshell_environment & SUBSHELL_IGNTRAP) && trap_list[sig] != (char *)IGNORE_SIG)
++    {
++      sigset_t mask;
++
++      /* Paranoia */
++      if (original_signals[sig] == IMPOSSIBLE_TRAP_HANDLER)
++	original_signals[sig] = SIG_DFL;
++
++      restore_signal (sig);
++
++      /* Make sure we let the signal we just caught through */
++      sigemptyset (&mask);
++      sigprocmask (SIG_SETMASK, (sigset_t *)NULL, &mask);
++      sigdelset (&mask, sig);
++      sigprocmask (SIG_SETMASK, &mask, (sigset_t *)NULL);
++
++      kill (getpid (), sig);
++
++      SIGRETURN (0);
++    }
++
+   if ((sig >= NSIG) ||
+       (trap_list[sig] == (char *)DEFAULT_SIG) ||
+       (trap_list[sig] == (char *)IGNORE_SIG))
+diff -urN bash-5.1.8.orig/y.tab.c bash-5.1.8/y.tab.c
+--- bash-5.1.8.orig/y.tab.c	2021-12-21 12:57:08.075139321 +0100
++++ bash-5.1.8/y.tab.c	2021-12-21 12:58:26.116890545 +0100
+@@ -8787,10 +8787,8 @@
+   old_expand_aliases = expand_aliases;
+ 
+   push_stream (1);
+-#if 0 /* TAG: bash-5.2 Alex fxmbsw7 Ratchev <fxmbsw7@gmail.com> 11/17/2020 */
+   if (ea = expanding_alias ())
+     parser_save_alias ();
+-#endif
+   last_read_token = WORD;		/* WORD to allow reserved words here */
+   current_command_line_count = 0;
+   echo_input_at_read = expand_aliases = 0;
+@@ -8825,10 +8823,8 @@
+   last_read_token = '\n';
+   pop_stream ();
+ 
+-#if 0 /* TAG: bash-5.2 */
+   if (ea)
+     parser_restore_alias ();
+-#endif
+ 
+ #if defined (HISTORY)
+   remember_on_history = old_remember_on_history;
