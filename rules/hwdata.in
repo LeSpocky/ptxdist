@@ -1,0 +1,47 @@
+## SECTION=shell_and_console
+
+menuconfig HWDATA
+	tristate
+	prompt "hwdata                        "
+	help
+	  Hwdata package.
+	  This package contains identity files for pci and usb etc.
+	  Various packages that have not been ported to systemd's binary
+	  hwdb may use this instead.
+
+if HWDATA
+
+config HWDATA_PCI
+	bool
+	prompt "hwdata PCI"
+	help
+	  The hwdata PCI (Vendor and product id) data set.
+
+config HWDATA_USB
+	bool
+	prompt "hwdata USB"
+	help
+	  The hwdata USB (Vendor and product id) data set.
+
+config HWDATA_PNP
+	bool
+	prompt "hwdata PNP"
+	help
+	  The hwdata PNP (Vendor names and vendor acronyms)
+	  data set.
+
+config HWDATA_OUI
+	bool
+	prompt "hwdata OUI"
+	help
+	  The hwdata OUI (IEEE Organizationally Unique Identifier)
+	  data set.
+
+config HWDATA_IAB
+	bool
+	prompt "hwdata IAB"
+	help
+	  The hwdata IAB (IEEE Individual Address Block)
+	  data set.
+
+endif
