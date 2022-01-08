@@ -46,7 +46,7 @@ LIBPCIACCESS_CONF_OPT	:= \
 	--disable-linux-rom-fallback \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--with-pciids-path=/usr/share \
-	--$(call ptx/wwo, PTXCONF_LIBPCIACCESS_ZLIB)-zlib
+	--without-zlib
 
 # ----------------------------------------------------------------------------
 # Target-Install

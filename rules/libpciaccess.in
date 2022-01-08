@@ -2,7 +2,6 @@
 
 menuconfig LIBPCIACCESS
 	tristate
-	select ZLIB	if LIBPCIACCESS_ZLIB
 	prompt "libpciaccess                  "
 	help
 	  libpciaccess contains low level access functions to be used by
@@ -19,9 +18,5 @@ config LIBPCIACCESS_MTRR
 	  BTW: MTRR stands for "memory type range registers" and its used to
 	  optimize accesses to various memory types, like main memory
 	  or memory accessible via buses like video memory on PCI cards.
-
-config LIBPCIACCESS_ZLIB
-	bool
-	default PCIUTILS_COMPRESS
 
 endif
