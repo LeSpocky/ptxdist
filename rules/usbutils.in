@@ -2,6 +2,10 @@
 
 menuconfig USBUTILS
 	select LIBUSB
+	select UDEV
+	select UDEV_LIBUDEV
+	select HWDATA		if !SYSTEMD_HWDB
+	select HWDATA_USB	if !SYSTEMD_HWDB
 	tristate
 	prompt "usbutils                      "
 	help
