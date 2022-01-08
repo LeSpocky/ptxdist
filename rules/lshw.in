@@ -7,6 +7,9 @@ menuconfig LSHW
 	select GCCLIBS_CXX
 	select GCCLIBS_GCC_S
 	select GTK if LSHW_GUI
+	select HWDATA		if !SYSTEMD_HWDB
+	select HWDATA_USB	if !SYSTEMD_HWDB
+	select HWDATA_PCI	if !SYSTEMD_HWDB
 	help
 	  lshw (Hardware Lister) is a small tool to provide detailed information
 	  on the hardware configuration of the machine. It can report exact

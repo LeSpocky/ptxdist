@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LSHW) += lshw
 #
 # Paths and names
 #
-LSHW_VERSION	:= B.02.14
-LSHW_MD5	:= 8bed55768c5cb2ceff062b882a687e9b
+LSHW_VERSION	:= B.02.19.2
+LSHW_MD5	:= 8c70d46e906688309095c73ecb9396e3
 LSHW		:= lshw-$(LSHW_VERSION)
 LSHW_SUFFIX	:= tar.gz
 LSHW_URL	:= http://www.ezix.org/software/files/$(LSHW).$(LSHW_SUFFIX)
@@ -58,12 +58,6 @@ $(STATEDIR)/lshw.targetinstall:
 	@$(call install_fixup, lshw,DESCRIPTION,missing)
 
 	@$(call install_copy, lshw, 0, 0, 0755, -, /usr/sbin/lshw)
-
-	@$(call install_copy, lshw, 0, 0, 0755, /usr/share/lshw)
-	@$(call install_copy, lshw, 0, 0, 0644, -, /usr/share/lshw/pci.ids)
-	@$(call install_copy, lshw, 0, 0, 0644, -, /usr/share/lshw/usb.ids)
-	@$(call install_copy, lshw, 0, 0, 0644, -, /usr/share/lshw/oui.txt)
-	@$(call install_copy, lshw, 0, 0, 0644, -, /usr/share/lshw/manuf.txt)
 
 ifdef PTXCONF_LSHW_GUI
 	@$(call install_copy, lshw, 0, 0, 0755, -, /usr/sbin/gtk-lshw)
