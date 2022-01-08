@@ -56,7 +56,7 @@ UDEV_LEGACY_CONF_OPT	:= \
 	--disable-floppy \
 	--without-selinux \
 	--with-usb-ids-path=/usr/share/usb.ids \
-	--with-pci-ids-path=/usr/share/pci.ids$(call ptx/ifdef, PTXCONF_PCIUTILS_COMPRESS,.gz,)
+	--with-pci-ids-path=/usr/share/pci.ids
 
 UDEV_LEGACY_RULES-y := \
 	50-udev-default.rules \
