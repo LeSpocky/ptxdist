@@ -32,7 +32,7 @@ USBIP_CONF_TOOL	:= autoconf
 USBIP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--without-tcp-wrappers \
-	--with-usbids-dir=/usr/share/hwdata/ \
+	--with-usbids-dir=/usr/share/ \
 	--with-fortify
 
 # ----------------------------------------------------------------------------

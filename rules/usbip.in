@@ -4,6 +4,8 @@ config USBIP
 	tristate
 	select UDEV
 	select UDEV_LIBUDEV
+	select HWDATA		if !SYSTEMD_HWDB
+	select HWDATA_USB	if !SYSTEMD_HWDB
 	prompt "usbip"
 	help
 	  USB/IP system for sharing USB devices over the network.
