@@ -39,7 +39,6 @@ PCIUTILS_MAKE_OPT := \
 	SBINDIR=/usr/bin \
 	HOST=$(PTXCONF_ARCH_STRING)-linux \
 	RELEASE=$(KERNEL_HEADER_VERSION) \
-	ZLIB=$(call ptx/yesno, PTXCONF_PCIUTILS_COMPRESS) \
 	LIBKMOD=$(call ptx/yesno, PTXCONF_PCIUTILS_LIBKMOD) \
 	SHARED=$(call ptx/yesno, PTXCONF_PCIUTILS_LIBPCI) \
 	STRIP= \
@@ -67,20 +66,12 @@ $(STATEDIR)/pciutils.targetinstall:
 ifdef PTXCONF_PCIUTILS_TOOLS
 	@$(call install_copy, pciutils, 0, 0, 0755, -, /usr/bin/lspci)
 	@$(call install_copy, pciutils, 0, 0, 0755, -, /usr/bin/setpci)
-	@$(call install_copy, pciutils, 0, 0, 0755, -, /usr/bin/update-pciids)
 endif
 
 ifdef PTXCONF_PCIUTILS_LIBPCI
 	@$(call install_lib, pciutils, 0, 0, 0644, libpci)
 endif
 
-ifdef PTXCONF_PCIUTILS_COMPRESS
-	@$(call install_copy, pciutils, 0, 0, 0644, -, \
-		/usr/share/pci.ids.gz, n)
-else
-	@$(call install_copy, pciutils, 0, 0, 0644, -, \
-		/usr/share/pci.ids, n)
-endif
 	@$(call install_finish, pciutils)
 
 	@$(call touch)

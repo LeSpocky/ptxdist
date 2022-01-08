@@ -1,7 +1,8 @@
 ## SECTION=shell_and_console
 menuconfig PCIUTILS
-	select ZLIB	if PCIUTILS_COMPRESS
-	select LIBKMOD	if PCIUTILS_LIBKMOD
+	select LIBKMOD		if PCIUTILS_LIBKMOD
+	select HWDATA		if !SYSTEMD_HWDB
+	select HWDATA_PCI	if !SYSTEMD_HWDB	
 	tristate
 	prompt "pciutils                      "
 	help
@@ -35,14 +36,6 @@ config PCIUTILS_LIBPCI
 	prompt "libpci support"
 	help
 	  Generate and install the shared libpci library.
-
-config PCIUTILS_COMPRESS
-	bool
-	default y
-	prompt "compress pci_ids"
-	help
-	  Save storage space by compressing the pci-id database. Access will
-	  be a little bit slower then.
 
 endif
 
