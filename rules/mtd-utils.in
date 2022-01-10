@@ -363,6 +363,14 @@ config MTD_UTILS_UBIRMVOL
 comment "busybox' ubirmvol is selected!"
 	depends on BUSYBOX_UBIRMVOL
 
+config MTD_UTILS_UBISCAN
+	bool
+	prompt "ubiscan"
+	help
+	  ubiscan will scan the PEBs in a specific MTD device and print
+	  a summary of the PEB erase counters and (optionally) details
+	  about each PEB's status.
+
 config MTD_UTILS_UBIUPDATEVOL
 	bool
 	prompt "ubiupdatevol"

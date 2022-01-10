@@ -228,6 +228,10 @@ ifdef PTXCONF_MTD_UTILS_UBIRMVOL
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/ubirmvol)
 endif
+ifdef PTXCONF_MTD_UTILS_UBISCAN
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/sbin/ubiscan)
+endif
 ifdef PTXCONF_MTD_UTILS_UBIUPDATEVOL
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/ubiupdatevol)
