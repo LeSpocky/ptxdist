@@ -52,6 +52,7 @@ config SAMBA_SERVER
 config SAMBA_CLIENT
 	bool
 	select SAMBA_COMMON
+	select SAMBA_LIBCLIENT
 	prompt "Samba client"
 	help
 	  Installs some client components of the Samba suite.
