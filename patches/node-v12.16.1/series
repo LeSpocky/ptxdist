@@ -5,4 +5,5 @@
 0003-tools-do-not-explicitely-set-an-rpath-in-make-genera.patch
 0004-HACK-don-t-add-LD_LIBRARY_PATH-for-external-tools.patch
 0005-HACK-run-configure-directly-with-python2.patch
-# c39d7fdc79e6b2f672a807f38ade396e  - git-ptx-patches magic
+0006-build-uvwasi-honours-node_shared_libuv.patch
+# c8720e3d38a736f9877911821bd3e666  - git-ptx-patches magic
