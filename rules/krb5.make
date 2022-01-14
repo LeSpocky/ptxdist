@@ -91,15 +91,15 @@ $(STATEDIR)/krb5.targetinstall:
 	@$(call install_fixup, krb5,DESCRIPTION,missing)
 
 	@$(call install_lib, krb5, 0, 0, 0644, libgssapi_krb5)
-	@$(call install_lib, krb5, 0, 0, 0644, libgssrpc)
 	@$(call install_lib, krb5, 0, 0, 0644, libk5crypto)
-	@$(call install_lib, krb5, 0, 0, 0644, libkdb5)
 	@$(call install_lib, krb5, 0, 0, 0644, libkrb5)
 	@$(call install_lib, krb5, 0, 0, 0644, libkrb5support)
 
 ifdef PTXCONF_KRB5_ADMIN_LIBS
+	@$(call install_lib, krb5, 0, 0, 0644, libgssrpc)
 	@$(call install_lib, krb5, 0, 0, 0644, libkadm5clnt_mit)
 	@$(call install_lib, krb5, 0, 0, 0644, libkadm5srv_mit)
+	@$(call install_lib, krb5, 0, 0, 0644, libkdb5)
 endif
 
 ifdef PTXCONF_KRB5_CLIENT_TOOLS
