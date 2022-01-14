@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NFTABLES) += nftables
 #
 # Paths and names
 #
-NFTABLES_VERSION	:= 0.8.3
-NFTABLES_MD5		:= a604501c10a302fa417410b16f293d2c
+NFTABLES_VERSION	:= 1.0.1
+NFTABLES_MD5		:= e3cf7011ee1e8e123c962446262de7cc
 NFTABLES		:= nftables-$(NFTABLES_VERSION)
 NFTABLES_SUFFIX		:= tar.bz2
 NFTABLES_URL		:= http://ftp.netfilter.org/pub/nftables/$(NFTABLES).$(NFTABLES_SUFFIX)
@@ -36,10 +36,11 @@ NFTABLES_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_NFTABLES_DEBUG)-debug \
 	--disable-man-doc \
-	--disable-pdf-doc \
+	--disable-python \
 	--$(call ptx/wwo, PTXCONF_NFTABLES_MGMP)-mini-gmp \
 	--without-cli \
-	--without-xtables
+	--without-xtables \
+	--without-json
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -56,6 +57,7 @@ $(STATEDIR)/nftables.targetinstall:
 
 	@$(call install_copy, nftables, 0, 0, 0755, -, /usr/sbin/nft)
 	@$(call install_alternative, nftables, 0, 0, 0755, /etc/nftables.conf)
+	@$(call install_lib, nftables, 0, 0, 0644, libnftables)
 
 ifdef PTXCONF_NFTABLES_STARTSCRIPT
 	@$(call install_alternative, nftables, 0, 0, 0755, /etc/init.d/nftables)
