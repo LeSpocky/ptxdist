@@ -10,10 +10,10 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  1 file changed, 1 insertion(+)
 
 diff --git a/Makefile.flags b/Makefile.flags
-index f3c897b0687f..72e0a13a6388 100644
+index c34356230a9f..7c42c3abf80c 100644
 --- a/Makefile.flags
 +++ b/Makefile.flags
-@@ -153,6 +153,7 @@ ifeq ($(CONFIG_SELINUX),y)
+@@ -180,6 +180,7 @@ ifeq ($(CONFIG_SELINUX),y)
  SELINUX_PC_MODULES = libselinux libsepol
  $(eval $(call pkg_check_modules,SELINUX,$(SELINUX_PC_MODULES)))
  CPPFLAGS += $(SELINUX_CFLAGS)
