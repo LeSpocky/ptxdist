@@ -118,7 +118,7 @@ ifdef PTXCONF_VIM_VIM
 endif
 
 ifdef PTXCONF_VIM_XXD
-	@$(call install_copy, vim, 0, 0, 0755, $(VIM_DIR)/$(VIM_SUBDIR)/xxd/xxd, /usr/bin/vim)
+	@$(call install_copy, vim, 0, 0, 0755, $(VIM_DIR)/$(VIM_SUBDIR)/xxd/xxd, /usr/bin/xxd)
 endif
 	@$(call install_finish, vim)
 
