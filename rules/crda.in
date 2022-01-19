@@ -1,12 +1,26 @@
 ## SECTION=networking
 
-config CRDA
+menuconfig CRDA
 	tristate
 	select LIBNL3
 	select OPENSSL
-	prompt "crda"
+	select HOST_SYSTEM_PYTHON3
+	prompt "crda                          "
 	help
 	  CRDA acts as the udev helper for communication between the kernel and
 	  userspace for regulatory compliance. It relies on nl80211 for communication.
 	  CRDA is intended to be run only through udev communication from the kernel.
 	  The user should never have to run it manually except if debugging udev issues.
+
+if CRDA
+
+config CRDA_ONLY_REGULATORY_DB
+	bool
+	prompt "Install only regulatory db"
+	help
+	  CRDA is a legacy option for kernels older than 4.15.
+	  Newer kernels can use the regulatory db as a firmware file,
+	  without external help.
+	  If enabled, the CRDA package only installs the regulatory.db file.
+
+endif
