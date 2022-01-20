@@ -129,6 +129,7 @@ PIPEWIRE_MODULES-$(PTXCONF_PIPEWIRE_RAOP)	+= raop-sink
 
 PIPEWIRE_SPA_MODULES := \
 	alsa/libspa-alsa \
+	audioconvert/libspa-audioconvert \
 	audiomixer/libspa-audiomixer \
 	audiotestsrc/libspa-audiotestsrc \
 	control/libspa-control \
