@@ -78,13 +78,13 @@ ifdef PTXCONF_MEDIA_SESSION_SYSTEMD_UNIT_USER
 		/usr/lib/systemd/user/pipewire.service.wants/pipewire-media-session.service)
 endif
 
-	@$(call install_copy, media-session, 0, 0, 644, -, \
+	@$(call install_alternative, media-session, 0, 0, 0644, \
 		/usr/share/pipewire/media-session.d/alsa-monitor.conf)
-	@$(call install_copy, media-session, 0, 0, 644, -, \
+	@$(call install_alternative, media-session, 0, 0, 0644, \
 		/usr/share/pipewire/media-session.d/bluez-monitor.conf)
-	@$(call install_copy, media-session, 0, 0, 644, -, \
+	@$(call install_alternative, media-session, 0, 0, 0644, \
 		/usr/share/pipewire/media-session.d/media-session.conf)
-	@$(call install_copy, media-session, 0, 0, 644, -, \
+	@$(call install_alternative, media-session, 0, 0, 0644, \
 		/usr/share/pipewire/media-session.d/v4l2-monitor.conf)
 
 	@$(call install_finish, media-session)
