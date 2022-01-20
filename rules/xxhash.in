@@ -1,0 +1,7 @@
+## SECTION=system_libraries
+
+config XXHASH
+	tristate
+	prompt "xxhash"
+	help
+	  Extremely fast non-cryptographic hash library.
