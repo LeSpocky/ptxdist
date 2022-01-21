@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBMICROHTTPD) += libmicrohttpd
 #
 # Paths and names
 #
-LIBMICROHTTPD_VERSION	:= 0.9.73
-LIBMICROHTTPD_MD5	:= 2b15949b1633e4fa487e08cdcc97f0e3
+LIBMICROHTTPD_VERSION	:= 0.9.75
+LIBMICROHTTPD_MD5	:= aff64581937b53f3a23b05216ad2cd02
 LIBMICROHTTPD		:= libmicrohttpd-$(LIBMICROHTTPD_VERSION)
 LIBMICROHTTPD_SUFFIX	:= tar.gz
 LIBMICROHTTPD_URL	:= $(call ptx/mirror, GNU, libmicrohttpd/$(LIBMICROHTTPD).$(LIBMICROHTTPD_SUFFIX))
@@ -49,7 +49,6 @@ LIBMICROHTTPD_CONF_OPT	:= \
 	--disable-rpath \
 	--enable-gcc-hardening \
 	--enable-linker-hardening \
-	--disable-sanitizer \
 	--disable-thread-names \
 	--disable-doc \
 	--disable-examples \
@@ -68,6 +67,7 @@ LIBMICROHTTPD_CONF_OPT	:= \
 	--disable-httpupgrade \
 	--disable-coverage \
 	--enable-asserts \
+	--disable-sanitizers \
 	--disable-experimental
 
 # ----------------------------------------------------------------------------
