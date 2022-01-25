@@ -20,6 +20,16 @@ config U_BOOT_MD5
 	string
 	prompt "U-Boot source md5"
 
+config U_BOOT_BUILD_OOT
+	prompt "Out of tree build"
+	default y
+	bool
+	help
+	  U-Boot is usually built out of tree.
+	  But for some builds, f.ex. with firmware blobs, out of tree builds
+	  can break because of vendors using source paths to files.
+	  Disable OOT build if you need a workaround for those type of builds.
+
 choice
 	prompt "config system"
 	default U_BOOT_CONFIGSYSTEM_LEGACY

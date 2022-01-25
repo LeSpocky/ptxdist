@@ -23,9 +23,9 @@ U_BOOT_SUFFIX		:= tar.bz2
 U_BOOT_URL		:= https://ftp.denx.de/pub/u-boot/$(U_BOOT).$(U_BOOT_SUFFIX)
 U_BOOT_SOURCE		:= $(SRCDIR)/$(U_BOOT).$(U_BOOT_SUFFIX)
 U_BOOT_DIR		:= $(BUILDDIR)/$(U_BOOT)
-U_BOOT_BUILD_DIR	:= $(U_BOOT_DIR)-build
+U_BOOT_BUILD_DIR	:= $(U_BOOT_DIR)$(call ptx/ifdef, PTXCONF_U_BOOT_BUILD_OOT,-build)
 U_BOOT_DEVPKG		:= NO
-U_BOOT_BUILD_OOT	:= KEEP
+U_BOOT_BUILD_OOT	:= $(call ptx/ifdef, PTXCONF_U_BOOT_BUILD_OOT,KEEP,NO)
 
 ifdef PTXCONF_U_BOOT_CONFIGSYSTEM_KCONFIG
 U_BOOT_CONFIG	:= $(call ptx/in-platformconfigdir, \
@@ -54,7 +54,7 @@ U_BOOT_WRAPPER_BLACKLIST := \
 
 U_BOOT_CONF_OPT		:= \
 	-C $(U_BOOT_DIR) \
-	O=$(U_BOOT_BUILD_DIR) \
+	$(call ptx/ifdef, PTXCONF_U_BOOT_BUILD_OOT,O=$(U_BOOT_BUILD_DIR)) \
 	V=$(PTXDIST_VERBOSE) \
 	$(call remove_quotes,$(PTXCONF_U_BOOT_CUSTOM_MAKE_OPTS))
 
