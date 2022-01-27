@@ -13,16 +13,16 @@ PACKAGES-$(PTXCONF_NCURSES) += ncurses
 #
 # Paths and names
 #
-NCURSES_VERSION	:= 6.2
+NCURSES_VERSION	:= 6.3
 NCURSES_MAJOR	:= $(word 1,$(subst ., ,$(NCURSES_VERSION)))
-NCURSES_MD5	:= e812da327b1c2214ac1aed440ea3ae8d
+NCURSES_MD5	:= a2736befde5fee7d2b7eb45eb281cdbe
 NCURSES		:= ncurses-$(NCURSES_VERSION)
 NCURSES_SUFFIX	:= tar.gz
 NCURSES_URL	:= $(call ptx/mirror, GNU, ncurses/$(NCURSES).$(NCURSES_SUFFIX))
 NCURSES_SOURCE	:= $(SRCDIR)/$(NCURSES).$(NCURSES_SUFFIX)
 NCURSES_DIR	:= $(BUILDDIR)/$(NCURSES)
 NCURSES_LICENSE	:= MIT
-NCURSES_LICENSE_FILES := file://COPYING;md5=910e05334f7e0b7631da6b4ebb1e1aab
+NCURSES_LICENSE_FILES := file://COPYING;md5=f852913c5d988a5f5a2f1df7ba7ee893
 
 # ----------------------------------------------------------------------------
 # Prepare
