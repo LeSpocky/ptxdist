@@ -9,7 +9,7 @@ that by writing to a temporary string buffer.
 Signed-off-by: David Zeuthen <zeuthen@gmail.com>
 Origin: upstream, 0.106, commit:14121fda7e4fa9463c66ce419cc32be7e7f3b535
 
-Imported from policykit-1_0.105-25.debian.tar.xz
+Imported from policykit-1_0.105-31.1.debian.tar.xz
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
