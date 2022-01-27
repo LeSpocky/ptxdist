@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIGHTTPD) += lighttpd
 #
 # Paths and names
 #
-LIGHTTPD_VERSION	:= 1.4.63
-LIGHTTPD_MD5		:= f4ad032b4b861f42a5df5f900ec6457b
+LIGHTTPD_VERSION	:= 1.4.64
+LIGHTTPD_MD5		:= 02762422b074d0609db3d099d9d9e05c
 LIGHTTPD		:= lighttpd-$(LIGHTTPD_VERSION)
 LIGHTTPD_SUFFIX		:= tar.xz
 LIGHTTPD_URL		:= http://download.lighttpd.net/lighttpd/releases-1.4.x/$(LIGHTTPD).$(LIGHTTPD_SUFFIX)
@@ -26,7 +26,7 @@ LIGHTTPD_LICENSE	:= BSD-3-Clause AND OML AND RSA-MD
 LIGHTTPD_LICENSE_FILES	:= \
 	file://COPYING;md5=e4dac5c6ab169aa212feb5028853a579 \
 	file://src/compat/fastcgi.h;startline=7;endline=15;md5=fe9ffe753772839aace9c90e814bc356 \
-	file://src/algo_md5.c;startline=9;endline=29;md5=b5be3b6afd4afa7bb89b16361244f9b6
+	file://src/algo_md5.c;startline=12;endline=32;md5=b5be3b6afd4afa7bb89b16361244f9b6
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -57,8 +57,12 @@ LIGHTTPD_CONF_OPT	:= \
 	--without-krb5 \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_OPENSSL)-openssl \
 	--without-wolfssl \
-	--without-pcre2 \
+	--without-mbedtls \
+	--without-nettle \
+	--without-gnutls \
+	--without-nss \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_PCRE)-pcre \
+	--without-pcre2 \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_ZLIB)-zlib \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_ZSTD)-zstd \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_BZ2LIB)-bzip2 \
@@ -70,10 +74,7 @@ LIGHTTPD_CONF_OPT	:= \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_WEBDAV_LOCKS)-webdav-locks \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_WEBDAV_LOCKS)-uuid \
 	--without-xxhash \
-	--without-gdbm \
-	--without-geoip \
 	--without-maxminddb \
-	--$(call ptx/wwo, PTXCONF_LIGHTTPD_MEMCACHED)-memcached \
 	--$(call ptx/wwo, PTXCONF_LIGHTTPD_LUA)-lua
 
 # ----------------------------------------------------------------------------
@@ -96,13 +97,11 @@ LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_ACCESSLOG)	+= mod_accesslog
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_ALIAS)		+= mod_alias
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_AUTH)		+= mod_auth
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_AUTH)		+= mod_authn_file
-LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_CML)		+= mod_cml
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_DEFLATE)	+= mod_deflate
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_FASTCGI)	+= mod_fastcgi
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_MAGNET)		+= mod_magnet
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_OPENSSL)		+= mod_openssl
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_REWRITE)	+= mod_rewrite
-LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_TRIGGER_B4_DL)	+= mod_trigger_b4_dl
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_WEBDAV)		+= mod_webdav
 LIGHTTPD_MODULES-y += $(call remove_quotes,$(PTXCONF_LIGHTTPD_MOD_EXTRA))
 
