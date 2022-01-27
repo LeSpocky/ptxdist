@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.43
-PIPEWIRE_MD5		:= 773573d312fc3865068b2f14820e202f
+PIPEWIRE_VERSION	:= 0.3.44
+PIPEWIRE_MD5		:= 1b6fadc2495ea1091c9dec05a27a9976
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -66,6 +66,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Djack=disabled \
 	-Djack-devel=false \
 	-Dlibcamera=disabled \
+	-Dlibcanberra=disabled \
 	-Dlibjack-path= \
 	-Dlibpulse=disabled \
 	-Dlibusb=disabled \
@@ -85,6 +86,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dsupport=enabled \
 	-Dsystemd=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD)d \
 	-Dsystemd-system-service=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD_UNIT)d \
+	-Dsystemd-system-unit-dir= \
 	-Dsystemd-user-service=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD_UNIT_USER)d \
 	-Dsystemd-user-unit-dir= \
 	-Dtest=disabled \
@@ -95,7 +97,8 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dvideoconvert=disabled \
 	-Dvideotestsrc=enabled \
 	-Dvolume=enabled \
-	-Dvulkan=disabled
+	-Dvulkan=disabled \
+	-Dx11=disabled
 
 PIPEWIRE_CPPFLAGS = -isystem $(KERNEL_HEADERS_INCLUDE_DIR)
 
@@ -204,6 +207,7 @@ endif
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-virtual-surround-7.1-hesuvi.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/source-rnnoise.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/minimal.conf)
 ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire-pulse.conf)
 endif
