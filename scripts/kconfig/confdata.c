@@ -426,6 +426,7 @@ load:
 			if (def == S_DEF_USER) {
 				sym = sym_find(line + 2 + strlen(CONFIG_));
 				if (!sym) {
+					conf_warning("trying to assign nonexistent symbol %s", line + 2 + strlen(CONFIG_));
 					sym_add_change_count(1);
 					continue;
 				}
@@ -468,8 +469,10 @@ load:
 					 * include/config/foo.h must be touched.
 					 */
 					conf_touch_dep(line + strlen(CONFIG_));
-				else
+				else {
+					conf_warning("trying to assign nonexistent symbol %s", line + strlen(CONFIG_));
 					sym_add_change_count(1);
+				}
 				continue;
 			}
 

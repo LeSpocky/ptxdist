@@ -1,0 +1,43 @@
+From: Christian Melki <christian.melki@t2data.com>
+Date: Fri, 28 Jan 2022 13:15:42 +0100
+Subject: [PATCH v2] confdata.c: (Re-)add warning about unassigned symbols.
+
+The Linux kconfig has removed a warning regarding unassigned symbols.
+Commit f072181e6403b0fe2e2aa800a005497b748fd284,
+kconfig: drop the ""trying to assign nonexistent symbol" warning.
+
+This warning actually helps detecting symbol renames which are lost in
+translation which in turn is helpful when doing oldconfigs etc.
+
+Signed-off-by: Christian Melki <christian.melki@t2data.com>
+---
+ scripts/kconfig/confdata.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/scripts/kconfig/confdata.c b/scripts/kconfig/confdata.c
+index c5f4b552b..09777fdfe 100644
+--- a/scripts/kconfig/confdata.c
++++ b/scripts/kconfig/confdata.c
+@@ -426,6 +426,7 @@ load:
+ 			if (def == S_DEF_USER) {
+ 				sym = sym_find(line + 2 + strlen(CONFIG_));
+ 				if (!sym) {
++					conf_warning("trying to assign nonexistent symbol %s", line + 2 + strlen(CONFIG_));
+ 					sym_add_change_count(1);
+ 					continue;
+ 				}
+@@ -468,8 +469,10 @@ load:
+ 					 * include/config/foo.h must be touched.
+ 					 */
+ 					conf_touch_dep(line + strlen(CONFIG_));
+-				else
++				else {
++					conf_warning("trying to assign nonexistent symbol %s", line + strlen(CONFIG_));
+ 					sym_add_change_count(1);
++				}
+ 				continue;
+ 			}
+ 
+-- 
+2.30.2
+
