@@ -109,6 +109,7 @@ GST_PLUGINS_BASE1_CONF_OPT	= \
 	$(call GSTREAMER1_GENERIC_CONF_OPT,GStreamer Base Plug-ins) \
 	-Daudioresample_format=auto \
 	-Degl_module_name=libEGL \
+	-Dexamples=disabled \
 	-Dgl-graphene=$(call ptx/endis, PTXCONF_GST_PLUGINS_BASE1_GL)d \
 	-Dgl-jpeg=$(call ptx/endis, PTXCONF_GST_PLUGINS_BASE1_OPENGL)d \
 	-Dgl-png=$(call ptx/endis, PTXCONF_GST_PLUGINS_BASE1_OPENGL)d \
@@ -118,6 +119,7 @@ GST_PLUGINS_BASE1_CONF_OPT	= \
 	-Dgles2_module_name=libGLESv2 \
 	-Dintrospection=$(call ptx/endis,PTXCONF_GSTREAMER1_INTROSPECTION)d \
 	-Diso-codes=disabled \
+	-Dnls=disabled \
 	-Dopengl_module_name=libGL \
 	-Dorc=enabled \
 	-Dtools=$(call ptx/endis, PTXCONF_GST_PLUGINS_BASE1_INSTALL_TOOLS)d \

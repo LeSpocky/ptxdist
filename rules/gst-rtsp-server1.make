@@ -34,6 +34,7 @@ GST_RTSP_SERVER1_CONF_TOOL	= meson
 GST_RTSP_SERVER1_CONF_OPT	= \
 	$(CROSS_MESON_USR) \
 	$(call GSTREAMER1_GENERIC_CONF_OPT,GStreamer RTSP Server Library) \
+	-Dexamples=disabled \
 	-Dintrospection=$(call ptx/endis,PTXCONF_GSTREAMER1_INTROSPECTION)d \
 	-Drtspclientsink=auto
 

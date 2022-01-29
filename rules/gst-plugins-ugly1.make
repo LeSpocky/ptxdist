@@ -53,7 +53,8 @@ GST_PLUGINS_UGLY1_ENABLEP-y	+= $(GST_PLUGINS_UGLY1_ENABLE-y)
 GST_PLUGINS_UGLY1_CONF_TOOL	:= meson
 GST_PLUGINS_UGLY1_CONF_OPT	= \
 	$(CROSS_MESON_USR) \
-	$(call GSTREAMER1_GENERIC_CONF_OPT,GStreamer Ugly Plug-ins)
+	$(call GSTREAMER1_GENERIC_CONF_OPT,GStreamer Ugly Plug-ins) \
+	-Dnls=disabled
 
 ifneq ($(call remove_quotes,$(GST_PLUGINS_UGLY1_ENABLEC-y)),)
 GST_PLUGINS_UGLY1_CONF_OPT +=  $(addsuffix =enabled, $(addprefix -D, $(GST_PLUGINS_UGLY1_ENABLEC-y)))
