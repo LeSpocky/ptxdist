@@ -8,7 +8,12 @@ config BAREBOX_ARCH_STRING
 	default "ppc"			if ARCH_PPC
 	default "x86"			if ARCH_X86
 
+config BAREBOX_DEPENDENCIES
+	tristate
+	select VIRTUAL
+
 menuconfig BAREBOX
+	select BAREBOX_DEPENDENCIES
 	select BOOTLOADER
 	select HOST_LIBUSB if BAREBOX_NEEDS_HOST_LIBUSB
 	select HOST_OPENSSL if BAREBOX_NEEDS_HOST_OPENSSL
@@ -54,6 +59,14 @@ config BAREBOX_CONFIG
 	help
 	  This entry specifies the .config file used to compile
 	  barebox.
+
+menuconfig BAREBOX_FIRMWARE
+	bool
+	prompt "integrate firmware blobs      "
+
+if BAREBOX_FIRMWARE
+source "generated/barebox_firmware.in"
+endif
 
 config BAREBOX_EXTRA_ENV
 	prompt "extend the builtin barebox environment"

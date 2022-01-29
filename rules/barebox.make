@@ -34,6 +34,8 @@ BAREBOX_CONFIG		:= $(call ptx/in-platformconfigdir, \
 # Prepare
 # ----------------------------------------------------------------------------
 
+BAREBOX_INJECT_PATH	:= ${PTXDIST_SYSROOT_TARGET}/usr/lib/firmware
+
 # use host pkg-config for host tools
 BAREBOX_PATH		:= PATH=$(HOST_PATH)
 
@@ -92,6 +94,10 @@ ifdef PTXCONF_BAREBOX_EXTRA_ENV
 			cp "$(path)" $(BAREBOX_BUILD_DIR)/.ptxdist-defaultenv/; \
 		fi;)
 	@rm -rf $(BAREBOX_BUILD_DIR)/defaultenv/barebox_default_env
+endif
+
+ifdef PTXCONF_BAREBOX_FIRMWARE
+	@$(call world/inject, BAREBOX)
 endif
 
 	@$(call touch)
