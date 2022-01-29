@@ -31,10 +31,10 @@ WLROOTS_CONF_TOOL := meson
 WLROOTS_CONF_OPT := \
 	$(CROSS_MESON_USR) \
 	-Dexamples=false \
+	-Dicon_directory= \
 	-Drenderers=gles2 \
 	-Dx11-backend=disabled \
 	-Dxcb-errors=disabled \
-	-Dxcb-icccm=disabled \
 	-Dxwayland=disabled
 
 # ----------------------------------------------------------------------------
