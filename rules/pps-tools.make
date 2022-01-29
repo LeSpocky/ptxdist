@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_PPS_TOOLS) += pps-tools
 #
 # Paths and names
 #
-PPS_TOOLS_VERSION	:= 1.0.2
-PPS_TOOLS_MD5		:= 6eddfeb151cffe8751f4766e428b8eb7
+PPS_TOOLS_VERSION	:= 1.0.3
+PPS_TOOLS_MD5		:= 9b18c55efe020d02c26cd8c759ac258d
 PPS_TOOLS		:= pps-tools-$(PPS_TOOLS_VERSION)
 PPS_TOOLS_SUFFIX	:= tar.gz
 PPS_TOOLS_URL		:= https://github.com/redlab-i/pps-tools/archive/v$(PPS_TOOLS_VERSION).$(PPS_TOOLS_SUFFIX)

@@ -1,0 +1,29 @@
+From: Christian Melki <christian.melki@t2data.com>
+Date: Sat, 29 Jan 2022 19:22:44 +0100
+Subject: [PATCH] Makefile: Remove obstructive use of SYSROOT variable.
+
+Ptxdist declares a SYSROOT env variable which is picked up here.
+But it is used as a cc --sysroot variable.
+This offsets searches for std headers and causes breakage.
+Remove it. Not needed.
+
+Signed-off-by: Christian Melki <christian.melki@t2data.com>
+---
+ Makefile | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index a57a325bc133..30672f79585c 100644
+--- a/Makefile
++++ b/Makefile
+@@ -3,10 +3,6 @@ TARGETS = ppstest ppsctl ppswatch ppsldisc
+ CFLAGS += -Wall -O2 -D_GNU_SOURCE
+ CFLAGS += -ggdb
+ CFLAGS += -fPIC
+-ifdef SYSROOT
+-CFLAGS += --sysroot $(SYSROOT)
+-endif
+-
+ LDLIBS += -lm
+ 
+ # -- Actions section --
