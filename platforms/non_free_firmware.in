@@ -1,0 +1,7 @@
+## SECTION=non_free_firmware
+
+#
+# This file does only exist to create a defined entry in the "non_free_firmware"
+# section, so that the toplevel Kconfig can include generated/non_free_firmware.in
+# even if no package is in that category.
+#
