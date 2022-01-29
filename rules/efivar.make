@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_EFIVAR) += efivar
 #
 # Paths and names
 #
-EFIVAR_VERSION	:= 37
-EFIVAR_MD5	:= 9f067275c5f7aafdd75bfb364280ac9c
+EFIVAR_VERSION	:= 38
+EFIVAR_MD5	:= 243fdbc48440212695cb9c6e6fd0f44f
 EFIVAR		:= efivar-$(EFIVAR_VERSION)
 EFIVAR_SUFFIX	:= tar.bz2
 EFIVAR_URL	:= https://github.com/rhboot/efivar/releases/download/$(EFIVAR_VERSION)/$(EFIVAR).$(EFIVAR_SUFFIX)
@@ -28,7 +28,11 @@ EFIVAR_LICENSE	:= LGPL-2.1-only
 # ----------------------------------------------------------------------------
 
 EFIVAR_CONF_TOOL	:= NO
-EFIVAR_MAKE_ENV		:= $(CROSS_ENV) PTXDIST_ICECC=$(PTXDIST_ICERUN)
+EFIVAR_MAKE_ENV		:= \
+	$(CROSS_ENV) \
+	ERRORS="-Wno-error" \
+	PTXDIST_ICECC=$(PTXDIST_ICERUN)
+
 EFIVAR_INSTALL_OPT	:= libdir="/usr/$(CROSS_LIB_DIR)/" install
 
 EFIVAR_CFLAGS	:= \
