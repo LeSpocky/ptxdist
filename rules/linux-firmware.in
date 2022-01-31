@@ -1,0 +1,32 @@
+## SECTION=system_libraries
+
+menuconfig LINUX_FIRMWARE
+	tristate
+	prompt "linux-firmware                "
+	help
+	  Linux firmware is a collection of firmwares that are used for various hardware.
+
+if LINUX_FIRMWARE
+
+config LINUX_FIRMWARE_SELECTED_LICENSES
+	string
+	prompt "Linux-firmware license files to include"
+	help
+	  Set the firmware license files use.
+	  Since there is no strict match between firmware files
+	  and license files, this must be provided by the user.
+	  Multiple license files are separated by space.
+	  For example "LICENSE.amd-ucode LICENSE.amdgpu"
+
+config LINUX_FIRMWARE_SELECTED_FIRMWARES
+	string
+	prompt "Linux-firmware files to copy to target"
+	help
+	  Set the firmware files to copy, with globs.
+	  Since the firmware files can be large, this makes
+	  it possible to do a fine grained copy.
+	  Multiple firmware files are separated by space.	  
+	  Rembember that the glob MUST match the full path.
+	  For example "*amd-ucode/* *amdgpu/*raven_* *amdgpu/*raven2*
+
+endif
