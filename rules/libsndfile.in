@@ -3,6 +3,7 @@
 menuconfig LIBSNDFILE
 	tristate
 	prompt "libsndfile                    "
+	select HOST_SYSTEM_PYTHON3
 	select LIBOGG if LIBSNDFILE_EXT_LIBS
 	select LIBVORBIS if LIBSNDFILE_EXT_LIBS
 	select FLAC if LIBSNDFILE_EXT_LIBS
