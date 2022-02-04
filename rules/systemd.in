@@ -28,6 +28,7 @@ menuconfig SYSTEMD
 	select IPTABLES		if SYSTEMD_IPMASQUERADE
 	select LIBELF		if SYSTEMD_COREDUMP
 	select LIBELF_LIBDW	if SYSTEMD_COREDUMP
+	select OPENSSL		if SYSTEMD_OPENSSL
 	# for udev:
 	select ROOTFS_DEV
 	select LIBBLKID
@@ -107,6 +108,12 @@ config SYSTEMD_NETWORK
 	bool
 	select SYSTEMD_DBUS_SERVICES
 	prompt "network configuration with systemd"
+
+config SYSTEMD_OPENSSL
+	bool
+	prompt "openssl support"
+	help
+	  OpenSSL is needed for DNSSEC support in systemd-resolved
 
 config SYSTEMD_IPMASQUERADE
 	bool
