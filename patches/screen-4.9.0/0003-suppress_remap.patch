@@ -10,7 +10,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 deletions(-)
 
 diff --git a/termcap.c b/termcap.c
-index 26cba62fd7c1..ed9e838c4c9d 100644
+index 26c8f5a96589..29684cf974f7 100644
 --- a/termcap.c
 +++ b/termcap.c
 @@ -553,8 +553,6 @@ int map;
