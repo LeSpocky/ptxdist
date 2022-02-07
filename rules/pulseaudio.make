@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PULSEAUDIO) += pulseaudio
 #
 # Paths and names
 #
-PULSEAUDIO_VERSION	:= 13.0
-PULSEAUDIO_MD5		:= e41d606f90254ed45c90520faf83d95c
+PULSEAUDIO_VERSION	:= 15.0
+PULSEAUDIO_MD5		:= bb888e7747b778c1c487c63b582ddf40
 PULSEAUDIO		:= pulseaudio-$(PULSEAUDIO_VERSION)
 PULSEAUDIO_SUFFIX	:= tar.xz
 PULSEAUDIO_URL		:= http://freedesktop.org/software/pulseaudio/releases/$(PULSEAUDIO).$(PULSEAUDIO_SUFFIX)
@@ -50,7 +50,7 @@ PULSEAUDIO_CONF_OPT	:= \
 	-Datomic-arm-linux-helpers=true \
 	-Datomic-arm-memory-barrier=true \
 	-Davahi=disabled \
-	-Dbluez5=$(call ptx/truefalse, PTXCONF_PULSEAUDIO_BLUETOOTH) \
+	-Dbluez5=$(call ptx/endis, PTXCONF_PULSEAUDIO_BLUETOOTH)d \
 	-Dbluez5-native-headset=$(call ptx/truefalse, PTXCONF_PULSEAUDIO_BLUETOOTH) \
 	-Dbluez5-ofono-headset=false \
 	-Ddatabase=simple \
@@ -84,7 +84,8 @@ PULSEAUDIO_CONF_OPT	:= \
 	-Dudevrulesdir=/lib/udev/rules.d \
 	-Dwebrtc-aec=$(call ptx/endis, PTXCONF_PULSEAUDIO_WEBRTC_AEC)d \
 	-Dx11=disabled \
-	-Dzshcompletiondir=
+	-Dzshcompletiondir= \
+	-Ddoxygen=false
 
 PULSEAUDIO_LDFLAGS	:= -Wl,-rpath,/usr/lib/pulseaudio:/usr/lib/pulse-$(PULSEAUDIO_VERSION)/modules
 

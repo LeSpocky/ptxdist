@@ -1,0 +1,21 @@
+From: Yureka Lilian <yuka@yuka.dev>
+Date: Fri, 22 Oct 2021 09:09:55 +0000
+Subject: [PATCH] Make gio-2.0 optional when gsettings is disabled
+
+---
+ meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index d7e468cabec7..92f2d20bdca0 100644
+--- a/meson.build
++++ b/meson.build
+@@ -614,7 +614,7 @@ if dbus_dep.found()
+   cdata.set('HAVE_DBUS', 1)
+ endif
+ 
+-gio_dep = dependency('gio-2.0', version : '>= 2.26.0')
++gio_dep = dependency('gio-2.0', version : '>= 2.26.0', required : get_option('gsettings'))
+ if get_option('gsettings').enabled()
+   assert(gio_dep.found(), 'GSettings support needs glib I/O library (GIO)')
+   cdata.set('HAVE_GSETTINGS', 1)
