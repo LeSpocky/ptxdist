@@ -13,11 +13,11 @@ menuconfig WESTON
 	select LIBINPUT
 	select CAIRO
 	select CAIRO_PNG
-	select LIBDRM			if WESTON_DRM_COMPOSITOR || BUILDTIME
-	select UDEV			if WESTON_DRM_COMPOSITOR || WESTON_FBDEV_COMPOSITOR
-	select UDEV_LIBUDEV		if WESTON_DRM_COMPOSITOR || WESTON_FBDEV_COMPOSITOR
+	select LIBDRM
+	select UDEV
+	select UDEV_LIBUDEV
 	select MESALIB			if WESTON_GL
-	select MESALIB_GBM		if WESTON_DRM_COMPOSITOR && WESTON_GL
+	select MESALIB_GBM		if WESTON_GL
 	select MESALIB_EGL		if WESTON_GL
 	select MESALIB_EGL_WAYLAND	if WESTON_GL
 	select MESALIB_GLES2		if WESTON_GL
@@ -28,6 +28,7 @@ menuconfig WESTON
 	select XORG_LIB_XCURSOR		if WESTON_XWAYLAND
 	select XORG_SERVER		if WESTON_XWAYLAND && RUNTIME
 	select XORG_SERVER_XWAYLAND	if WESTON_XWAYLAND && RUNTIME
+	select SEATD			if WESTON_SEATD
 	select SYSTEMD			if WESTON_SYSTEMD
 	select SYSTEMD_LOGIND		if WESTON_SYSTEMD_LOGIND
 	select DBUS			if WESTON_SYSTEMD_LOGIND
@@ -39,6 +40,7 @@ menuconfig WESTON
 	select GST_PLUGINS_GOOD1_RTP	if WESTON_REMOTING && RUNTIME
 	select GST_PLUGINS_GOOD1_UDP	if WESTON_REMOTING && RUNTIME
 	select PANGO			if WESTON_IVISHELL_EXAMPLE
+	select PIPEWIRE 		if WESTON_PIPEWIRE
 	prompt "weston                        "
 	help
 	  Wayland compositor reference implementation
@@ -49,13 +51,8 @@ config WESTON_XWAYLAND
 	bool
 	prompt "Xwayland support"
 
-config WESTON_DRM_COMPOSITOR
-	bool
-	prompt "drm compositor"
-
 config WESTON_GL
 	bool
-	depends on WESTON_DRM_COMPOSITOR
 	prompt "OpenGL accelerated compositing"
 
 config WESTON_HEADLESS_COMPOSITOR
@@ -66,20 +63,26 @@ config WESTON_FBDEV_COMPOSITOR
 	bool
 	prompt "fbdev compositor"
 
-config WESTON_LAUNCH
+config WESTON_DEPRECATED_WL_SHELL
 	bool
-	prompt "weston-launch support"
-	# needs pam
-	depends on BROKEN
+	prompt "enable the deprecated wl-shell protocol"
 	help
-	  weston-launch is a setuid-root program which does privileged
-	  operations on Weston's behalf
+	  Allow clients to use the deprecated wl-shell protocol.
+
+	  The wl-shell is deprecated. If you have to enable this option,
+	  consider migrating your clients to the xdg-shell protocol and
+	  disabling this option.
 
 config WESTON_STARTSCRIPT
 	bool
 	default y
 	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/weston-init"
+
+config WESTON_SEATD
+	bool
+	default y
+	prompt "libseat backend"
 
 config WESTON_SYSTEMD
 	bool
@@ -123,12 +126,9 @@ config WESTON_SHELL_KIOSK
 config WESTON_PIPEWIRE
 	bool
 	prompt "pipewire plugin"
-	# needs pipewire
-	depends on BROKEN
 
 config WESTON_REMOTING
 	bool
-	select WESTON_DRM_COMPOSITOR
 	select WESTON_GL
 	prompt "remoting plugin"
 
