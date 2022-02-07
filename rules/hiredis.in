@@ -1,0 +1,8 @@
+## SECTION=system_libraries
+
+config HIREDIS
+	tristate
+	select HOST_CMAKE
+	prompt "hiredis                       "
+	help
+	  Hiredis is a minimalistic C client library for the Redis database.
