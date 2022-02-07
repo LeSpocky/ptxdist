@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 6.1.0
-QEMU_MD5	:= 47f776c276a24f42108ba512a2aa3013
+QEMU_VERSION	:= 6.2.0
+QEMU_MD5	:= a077669ce58b6ee07ec355e54aad25be
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -52,7 +52,8 @@ QEMU_CONF_OPT	:= \
 	--disable-strip \
 	--disable-werror \
 	--enable-stack-protector \
-	--audio-drv-list= \
+	--$(call ptx/endis, PTXCONF_QEMU_ALSA)-alsa \
+	--$(call ptx/endis, PTXCONF_QEMU_PULSEAUDIO)-pa \
 	--block-drv-rw-whitelist= \
 	--block-drv-ro-whitelist= \
 	--enable-trace-backends=nop \
@@ -143,8 +144,6 @@ QEMU_CONF_OPT	:= \
 	--disable-libssh \
 	--disable-numa \
 	--disable-libxml2 \
-	--disable-tcmalloc \
-	--disable-jemalloc \
 	--enable-replication \
 	--disable-opengl \
 	--disable-virglrenderer \
@@ -172,6 +171,11 @@ QEMU_CONF_OPT	:= \
 	\
 	--disable-fuzzing \
 	--disable-keyring
+
+ifdef PTXCONF_QEMU_PULSEAUDIO
+QEMU_LDFLAGS      := \
+        -Wl,-rpath-link,$(SYSROOT)/usr/lib/pulseaudio
+endif
 
 # ----------------------------------------------------------------------------
 # Install

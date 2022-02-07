@@ -148,8 +148,6 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-libssh \
 	--disable-numa \
 	--disable-libxml2 \
-	--disable-tcmalloc \
-	--disable-jemalloc \
 	--enable-replication \
 	--disable-opengl \
 	--disable-virglrenderer \

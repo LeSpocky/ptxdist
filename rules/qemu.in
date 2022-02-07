@@ -10,10 +10,12 @@ menuconfig QEMU
 	select GLIB
 	select LIBCAP_NG
 	select ZLIB
-	select SDL2	if QEMU_SDL
-	select GTK	if QEMU_GTK
-	select LIBUSB	if QEMU_SYS
-	select PIXMAN	if QEMU_SYS
+	select SDL2		if QEMU_SDL
+	select GTK		if QEMU_GTK
+	select LIBUSB		if QEMU_SYS
+	select PIXMAN		if QEMU_SYS
+	select PULSEAUDIO	if QEMU_PULSEAUDIO
+	select ALSA_LIB 	if QEMU_ALSA
 	help
 	  QEMU is a generic and open source machine emulator and
 	  virtualizer.
@@ -40,6 +42,18 @@ config QEMU_GTK
 	prompt "Enable GTK graphical output support."
 	help
 	  Say y to build with GTK support.
+
+config QEMU_PULSEAUDIO
+	bool
+	prompt "Enable pulseaudio output support."
+	help
+	  Say y to build with pa support.
+
+config QEMU_ALSA
+	bool
+	prompt "Enable alsa audio output support."
+	help
+	  Say y to build with alsa support.
 
 config QEMU_TOOLS
 	bool
