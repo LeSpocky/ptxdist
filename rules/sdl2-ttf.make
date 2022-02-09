@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_SDL2_TTF) += sdl2-ttf
 #
 # Paths and names
 #
-SDL2_TTF_VERSION	:= 2.0.15
-SDL2_TTF_MD5		:= 04fe06ff7623d7bdcb704e82f5f88391
+SDL2_TTF_VERSION	:= 2.0.18
+SDL2_TTF_MD5		:= 86d3023ad3fab597203022f856cff103
 SDL2_TTF		:= SDL2_ttf-$(SDL2_TTF_VERSION)
-SDL2_TTF_SUFFIX	:= tar.gz
+SDL2_TTF_SUFFIX		:= tar.gz
 SDL2_TTF_URL		:= https://www.libsdl.org/projects/SDL_ttf/release/$(SDL2_TTF).$(SDL2_TTF_SUFFIX)
-SDL2_TTF_SOURCE	:= $(SRCDIR)/$(SDL2_TTF).$(SDL2_TTF_SUFFIX)
+SDL2_TTF_SOURCE		:= $(SRCDIR)/$(SDL2_TTF).$(SDL2_TTF_SUFFIX)
 SDL2_TTF_DIR		:= $(BUILDDIR)/$(SDL2_TTF)
-SDL2_TTF_LICENSE	:= unknown
+SDL2_TTF_LICENSE	:= zlib
+SDL2_TTF_LICENSE_FILES	:= \
+	file://COPYING.txt;md5=e98cfd01ca78f683e9d035795810ce87
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -29,8 +31,7 @@ SDL2_TTF_LICENSE	:= unknown
 
 SDL2_TTF_CONF_TOOL	:= autoconf
 SDL2_TTF_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--$(call ptx/endis,PTXCONF_SDL2_OPENGL)-opengl
+	$(CROSS_AUTOCONF_USR)
 
 ifdef PTXCONF_SDL2_PULSEAUDIO
 SDL2_TTF_LDFLAGS	:= \
