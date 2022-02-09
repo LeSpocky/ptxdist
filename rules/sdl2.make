@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDL2) += sdl2
 #
 # Paths and names
 #
-SDL2_VERSION	:= 2.0.16
-SDL2_MD5	:= 98b8a1535a757ea1d03ae44e2fb20247
+SDL2_VERSION	:= 2.0.20
+SDL2_MD5	:= a53acc02e1cca98c4123229069b67c9e
 SDL2		:= SDL2-$(SDL2_VERSION)
 SDL2_SUFFIX	:= tar.gz
 SDL2_URL	:= https://www.libsdl.org/release/$(SDL2).$(SDL2_SUFFIX)
@@ -131,7 +131,6 @@ SDL2_CONF_OPT	:= \
 	--disable-directx \
 	--$(call ptx/endis,PTXCONF_SDL2_XORG)-xinput \
 	--disable-wasapi \
-	--enable-sdl-dlopen \
 	--enable-hidapi \
 	--disable-hidapi-libusb \
 	--enable-clock_gettime \
