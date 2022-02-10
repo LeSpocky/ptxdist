@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_COG) += cog
 #
 # Paths and names
 #
-COG_VERSION		:= 0.10.0
-COG_MD5			:= 1b0407b6163a3a01afdfc0fb454a7570
+COG_VERSION		:= 0.12.0
+COG_MD5			:= 30d6f68914af0ba5c32ac14df504215a
 COG			:= cog-$(COG_VERSION)
 COG_SUFFIX		:= tar.xz
 COG_URL			:= https://wpewebkit.org/releases/$(COG).$(COG_SUFFIX)
@@ -35,16 +35,21 @@ COG_CONF_TOOL	:= cmake
 COG_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
 	-G Ninja \
+	-DBUILD_DOCS=OFF \
 	-DCOG_APPID= \
 	-DCOG_BUILD_PROGRAMS=ON \
 	-DCOG_DBUS_OWN_USER= \
 	-DCOG_DBUS_SYSTEM_BUS=$(call ptx/onoff,PTXCONF_COG_REMOTE_DBUS_SYSTEM_BUS) \
 	-DCOG_HOME_URI=https://ptxdist.org/ \
+	-DCOG_MODULEDIR=/usr/lib/cog/modules \
 	-DCOG_PLATFORM_DRM=OFF \
-	-DCOG_PLATFORM_FDO=ON \
-	-DCOG_USE_WEBKITGTK=OFF \
+	-DCOG_PLATFORM_GTK4=OFF \
+	-DCOG_PLATFORM_HEADLESS=OFF \
+	-DCOG_PLATFORM_WL=ON \
+	-DCOG_PLATFORM_X11=OFF \
 	-DCOG_WESTON_DIRECT_DISPLAY=OFF \
 	-DINSTALL_MAN_PAGES=OFF \
+	-DUSE_SOUP2=ON \
 	-DWAYLAND_PROTOCOLS=$(PTXDIST_SYSROOT_TARGET)/usr/share/wayland-protocols
 
 # ----------------------------------------------------------------------------
@@ -61,7 +66,7 @@ $(STATEDIR)/cog.targetinstall:
 	@$(call install_fixup, cog,DESCRIPTION,"WPE launcher and webapp container")
 
 	@$(call install_copy, cog, 0, 0, 0755, -, /usr/bin/cog)
-	@$(call install_lib, cog, 0, 0, 0644, libcogplatform-fdo)
+	@$(call install_lib, cog, 0, 0, 0644, cog/modules/libcogplatform-wl)
 	@$(call install_lib, cog, 0, 0, 0644, libcogcore)
 
 ifdef PTXCONF_COG_REMOTE_DBUS_SYSTEM_BUS
