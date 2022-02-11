@@ -12,9 +12,10 @@ ptxd_make_dtb() {
     dts="${dtb_source}"
     dtb="${dtb_target}"
 
-    dtb_kernel_dir="${pkg_kernel_src:-${pkg_dir}}"
+    dtb_kernel_dir="${pkg_kernel_dir:-${pkg_dir}}"
+    dtb_kernel_build_dir="${pkg_kernel_build_dir:-${pkg_build_dir}}"
 
-    dtc="${dtb_kernel_dir}/scripts/dtc/dtc"
+    dtc="${dtb_kernel_build_dir}/scripts/dtc/dtc"
     if [ ! -x "${dtc}" ]; then
 	dtc=dtc
     fi
