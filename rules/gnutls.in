@@ -4,6 +4,7 @@ menuconfig GNUTLS
 	tristate
 	select LIBTASN1
 	select NETTLE
+	select LIBKCAPI		if GNUTLS_AFALG
 	select GCCLIBS_CXX	if GNUTLS_CXX
 	select CRYPTODEV_API	if GNUTLS_CRYPTODEV && BUILDTIME
 	prompt "gnutls                        "
@@ -27,6 +28,16 @@ config GNUTLS_CRYPTODEV
 	prompt "enable cryptodev support"
 	help
 	  Enable the BSD cryptodev engine even if we are not using BSD.
+
+config GNUTLS_AFALG
+	bool
+	prompt "enable AFALG support"
+
+config GNUTLS_KTLS
+	bool
+	prompt "enable KTLS support"
+	help
+	  Kernel TLS offload. Sufficiently moderen kernel headers are needed.
 
 config GNUTLS_OPENSSL
 	bool

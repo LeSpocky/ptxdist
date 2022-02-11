@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_GNUTLS) += gnutls
 #
 # Paths and names
 #
-GNUTLS_VERSION	:= 3.6.16
-GNUTLS_MD5	:= 5db1678931fa6bbd40beed235c6a0a37
+GNUTLS_VERSION	:= 3.7.3
+GNUTLS_MD5	:= 3723d8fee66c5d45d780ca64c089ed23
 GNUTLS		:= gnutls-$(GNUTLS_VERSION)
 GNUTLS_SUFFIX	:= tar.xz
-GNUTLS_URL	:= https://www.gnupg.org/ftp/gcrypt/gnutls/v3.6/$(GNUTLS).$(GNUTLS_SUFFIX)
+GNUTLS_URL	:= https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/$(GNUTLS).$(GNUTLS_SUFFIX)
 GNUTLS_SOURCE	:= $(SRCDIR)/$(GNUTLS).$(GNUTLS_SUFFIX)
 GNUTLS_DIR	:= $(BUILDDIR)/$(GNUTLS)
 GNUTLS_LICENSE	:= LGPL-3.0-or-later
@@ -26,6 +26,11 @@ GNUTLS_LICENSE	:= LGPL-3.0-or-later
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
+
+ifdef PTXCONF_KERNEL_HEADER
+GNUTLS_CPPFLAGS	:= \
+	-isystem $(KERNEL_HEADERS_INCLUDE_DIR)
+endif
 
 #
 # autoconf
@@ -41,6 +46,7 @@ GNUTLS_CONF_OPT		:= \
 	--disable-manpages \
 	--disable-tools \
 	--enable-cxx \
+	--disable-dyn-ncrypt \
 	--enable-hardware-acceleration \
 	--enable-tls13-interop \
 	--enable-padlock \
@@ -58,6 +64,8 @@ GNUTLS_CONF_OPT		:= \
 	--enable-ecdhe \
 	--enable-gost \
 	--$(call ptx/endis, PTXCONF_GNUTLS_CRYPTODEV)-cryptodev \
+	--$(call ptx/endis, PTXCONF_GNUTLS_AFALG)-afalg \
+	--$(call ptx/endis, PTXCONF_GNUTLS_KTLS)-ktls \
 	--enable-ocsp \
 	--$(call ptx/endis, PTXCONF_GNUTLS_OPENSSL)-openssl-compatibility \
 	--disable-tests \
@@ -78,9 +86,6 @@ GNUTLS_CONF_OPT		:= \
 	--disable-fips140-mode \
 	--enable-non-suiteb-curves \
 	--disable-libdane \
-	--enable-local-libopts \
-	--disable-libopts-install \
-	--enable-optional-args \
 	--disable-guile \
 	--with-nettle-mini \
 	--without-included-libtasn1 \
@@ -88,9 +93,9 @@ GNUTLS_CONF_OPT		:= \
 	--without-fips140-key \
 	--without-idn \
 	--without-p11-kit \
+	--without-tpm2 \
 	--without-tpm \
 	--without-trousers-lib \
-	--without-libregex \
 	--with-default-trust-store-file=/etc/ssl/certs/ca-certificates.crt
 
 # ----------------------------------------------------------------------------
