@@ -2,20 +2,20 @@ From: Debian OpenSSL Team <pkg-openssl-devel@lists.alioth.debian.org>
 Date: Sun, 5 Nov 2017 15:09:09 +0100
 Subject: [PATCH] debian-targets
 
-Imported from openssl_1.1.1l-1.debian.tar.xz
+Imported from openssl_1.1.1m-1.debian.tar.xz
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- Configurations/20-debian.conf | 210 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 210 insertions(+)
+ Configurations/20-debian.conf | 213 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 213 insertions(+)
  create mode 100644 Configurations/20-debian.conf
 
 diff --git a/Configurations/20-debian.conf b/Configurations/20-debian.conf
 new file mode 100644
-index 000000000000..a3d5f68d36aa
+index 000000000000..49600280bd6c
 --- /dev/null
 +++ b/Configurations/20-debian.conf
-@@ -0,0 +1,210 @@
+@@ -0,0 +1,213 @@
 +my %targets = (
 +	"debian" => {
 +		cflags => add("-Wa,--noexecstack -Wall"),
@@ -30,6 +30,9 @@ index 000000000000..a3d5f68d36aa
 +	"debian-alpha-ev5" => {
 +		inherit_from => [ "debian-alpha" ],
 +		cflags => add("-mcpu=ev5"),
++	},
++	"debian-arc" => {
++		inherit_from => [ "linux-generic32", "debian" ],
 +	},
 +	"debian-arm64" => {
 +		inherit_from => [ "linux-aarch64", "debian" ],
