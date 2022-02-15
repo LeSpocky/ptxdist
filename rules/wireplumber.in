@@ -1,0 +1,29 @@
+## SECTION=multimedia_libs
+
+config WIREPLUMBER
+	tristate
+	select HOST_MESON
+	select PIPEWIRE
+	select LUA
+	select LUA_INSTALL_LIBLUA
+	select SYSTEMD				if WIREPLUMBER_SYSTEMD
+	prompt "wireplumber"
+	help
+	  modular session / policy manager for PipeWire
+
+if WIREPLUMBER
+
+config WIREPLUMBER_SYSTEMD
+	bool
+
+config WIREPLUMBER_SYSTEMD_UNIT
+	bool
+	default PIPEWIRE_SYSTEMD_UNIT
+	select WIREPLUMBER_SYSTEMD
+
+config WIREPLUMBER_SYSTEMD_UNIT_USER
+	bool
+	default PIPEWIRE_SYSTEMD_UNIT_USER
+	select WIREPLUMBER_SYSTEMD
+
+endif
