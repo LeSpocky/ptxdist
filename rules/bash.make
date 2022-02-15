@@ -13,8 +13,8 @@ PACKAGES-$(PTXCONF_BASH) += bash
 #
 # Paths and names
 #
-BASH_VERSION	:= 5.1.8
-BASH_MD5	:= 23eee6195b47318b9fd878e590ccb38c
+BASH_VERSION	:= 5.1.16
+BASH_MD5	:= c17b20a09fc38d67fb303aeb6c130b4e
 BASH		:= bash-$(BASH_VERSION)
 BASH_SUFFIX	:= tar.gz
 BASH_URL	:= $(call ptx/mirror, GNU, bash/$(BASH).$(BASH_SUFFIX))
