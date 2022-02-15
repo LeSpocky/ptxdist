@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20211216
-LINUX_FIRMWARE_MD5	:= 93d3a9f686c3420972115c2216ae37e5
+LINUX_FIRMWARE_VERSION	:= 20220209
+LINUX_FIRMWARE_MD5	:= 304b1b50ddff87ad0a5bc91b556e8e5c
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -32,6 +32,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENSE.amd-ucode;md5=3c5399dc9148d7f0e1f41e34b69cf14f \
 	file://LICENSE.atmel;md5=aa74ac0c60595dee4d4e239107ea77a3 \
 	file://LICENCE.fw_sst_0f28;md5=6353931c988ad52818ae733ac61cd293 \
+	file://LICENSE.amphion_vpu;md5=2bcdc00527b2d0542bd92b52aaec2b60 \
 	file://LICENCE.cw1200;md5=f0f770864e7a8444a5c5aa9d12a3a7ed \
 	file://LICENCE.moxa;md5=1086614767d8ccf744a923289d3d4261 \
 	file://LICENCE.NXP;md5=58bb8ba632cd729b9ba6183bc6aed36f \
@@ -71,6 +72,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENSE.amlogic_vdec;md5=dc44f59bf64a81643e500ad3f39a468a \
 	file://LICENCE.microchip;md5=db753b00305675dfbf120e3f24a47277 \
 	file://LICENSE.radeon;md5=68ec28bacb3613200bca44f404c69b16 \
+	file://LICENCE.cnm;md5=93b67e6bac7f8fec22b96b8ad0a1a9d0 \
 	file://LICENCE.wl1251;md5=ad3f81922bb9e197014bb187289d3b5b \
 	file://LICENCE.via_vt6656;md5=e4159694cba42d4377a912e78a6e850f \
 	file://LICENCE.chelsio_firmware;md5=819aa8c3fa453f1b258ed8d168a9d903 \
