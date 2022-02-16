@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MOSQUITTO) += mosquitto
 #
 # Paths and names
 #
-MOSQUITTO_VERSION	:= 2.0.5
-MOSQUITTO_MD5		:= 8e70da210301d2f60627170a1064f8f3
+MOSQUITTO_VERSION	:= 2.0.14
+MOSQUITTO_MD5		:= abe42d8cdb4ec973bdbecc6da29cb98f
 MOSQUITTO		:= mosquitto-$(MOSQUITTO_VERSION)
 MOSQUITTO_SUFFIX	:= tar.gz
 MOSQUITTO_URL		:= https://mosquitto.org/files/source/$(MOSQUITTO).$(MOSQUITTO_SUFFIX)
@@ -25,8 +25,8 @@ MOSQUITTO_DIR		:= $(BUILDDIR)/$(MOSQUITTO)
 MOSQUITTO_LICENSE	:= EPL-2.0 OR BSD-3-Clause
 MOSQUITTO_LICENSE_FILES	:= \
 	file://LICENSE.txt;md5=ca9a8f366c6babf593e374d0d7d58749 \
-	file://epl-v20;md5=d9fc0efef5228704e7f5b37f27192723 \
-	file://edl-v10;md5=c09f121939f063aeb5235972be8c722c
+	file://epl-v20;md5=2dd765ca47a05140be15ebafddbeadfe \
+	file://edl-v10;md5=9f6accb1afcb570f8be65039e2fcd49e
 
 # ----------------------------------------------------------------------------
 # Prepare
