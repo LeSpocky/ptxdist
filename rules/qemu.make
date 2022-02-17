@@ -55,7 +55,7 @@ QEMU_CONF_OPT	:= \
 	--disable-strip \
 	--disable-werror \
 	--enable-stack-protector \
-	--audio-drv-list=$(subst $(space),$(comma),$(QEMU_AUDIO_DRIVER-y)) \
+	--audio-drv-list=$(subst $(space),$(comma),$(strip $(QEMU_AUDIO_DRIVER-y))) \
 	--block-drv-rw-whitelist= \
 	--block-drv-ro-whitelist= \
 	--with-coroutine= \
