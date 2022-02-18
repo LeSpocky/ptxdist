@@ -112,6 +112,8 @@ config BAREBOX_BAREBOXIMD
 	  The tool 'bareboximd' can be used to extract metadata from
 	  the (flashed) barebox image.
 
+comment "build dependencies"
+
 config BAREBOX_NEEDS_HOST_LIBUSB
 	prompt "barebox needs libusb"
 	bool
