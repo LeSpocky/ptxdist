@@ -3,6 +3,7 @@
 config JSON_GLIB
 	tristate
 	prompt "json-glib"
+	select HOST_MESON
 	select GLIB
 	select HOST_GLIB # for glib-mkenums
 	select GOBJECT_INTROSPECTION	if JSON_GLIB_INTROSPECTION
