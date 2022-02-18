@@ -258,6 +258,8 @@ config U_BOOT_INSTALL_U_BOOT_STM32
 	  platform image directory. Say yes if you are building for STM32MP1
 	  SOCs.
 
+comment "build dependencies"
+
 config U_BOOT_NEEDS_HOST_OPENSSL
 	prompt "needs host OpenSSL"
 	bool
