@@ -1,0 +1,22 @@
+## SECTION=system_libraries
+
+menuconfig NEATVNC
+	tristate
+	select HOST_MESON
+	select PIXMAN
+	select ZLIB
+	select AML
+	select LIBJPEG		if NEATVNC_JPEG
+	select LIBJPEG_TURBO	if NEATVNC_JPEG
+	select LIBDRM		if BUILDTIME
+	prompt "neatvnc"
+	help
+	  VNC Server library
+
+if NEATVNC
+
+config NEATVNC_JPEG
+	bool
+	prompt "enable jpeg compression"
+
+endif
