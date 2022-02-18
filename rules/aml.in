@@ -1,0 +1,8 @@
+## SECTION=system_libraries
+
+config AML
+	tristate
+	select HOST_MESON
+	prompt "aml"
+	help
+	  Andri's Main Loop
