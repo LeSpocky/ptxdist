@@ -22,6 +22,7 @@ HOST_DTC_SUFFIX		:= tar.gz
 HOST_DTC_URL		:= https://git.kernel.org/pub/scm/utils/dtc/dtc.git/snapshot/$(HOST_DTC).$(HOST_DTC_SUFFIX)
 HOST_DTC_SOURCE		:= $(SRCDIR)/$(HOST_DTC).$(HOST_DTC_SUFFIX)
 HOST_DTC_DIR		:= $(HOST_BUILDDIR)/$(HOST_DTC)
+HOST_DTC_LICENSE	:= GPL-2.0-only
 
 # ----------------------------------------------------------------------------
 # Prepare
