@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIGLIT) += piglit
 #
 # Paths and names
 #
-PIGLIT_VERSION	:= 2020-02-22-g6c0de1646ec0
-PIGLIT_MD5	:= 7ff7552117bd1e5fc05ed7ab2077b77c
+PIGLIT_VERSION	:= 2021-11-17-g2f80c7cc9c02
+PIGLIT_MD5	:= c1975f4f0ff2eb2c37e30af1da87d8a9
 PIGLIT		:= piglit-$(PIGLIT_VERSION)
 PIGLIT_SUFFIX	:= tar.gz
 PIGLIT_URL	:= https://gitlab.freedesktop.org/mesa/piglit/-/archive/$(PIGLIT_VERSION)/$(PIGLIT).$(PIGLIT_SUFFIX)
