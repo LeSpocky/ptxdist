@@ -62,7 +62,7 @@ END {
 	if (dirs == "")
 		exit;
 	n = split(dirs, dir_array, " ");
-	asort(dir_array, dir_array);
+	asort(dir_array);
 	dirs = ""
 	last = ""
 	for (i = 1; i <= n; i++) {
@@ -77,7 +77,7 @@ END {
 	for (dir in pkgs) {
 		split(pkgs[dir], list, " ")
 		n = split(files[dir], file_list, " ")
-		asort(file_list, file_list)
+		asort(file_list)
 		for (pkg in list) {
 			pkg = list[pkg]
 			f1 = PTXDIST_TEMPDIR "/pkghash-" pkg

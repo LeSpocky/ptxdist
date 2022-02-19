@@ -225,7 +225,7 @@ $1 ~ /^PTX_MAP_._SYMBOLS/ {
 function write_symbols(name, symbols) {
 	symbol_file = PTXDIST_TEMPDIR "/SYMBOLS_" name
 	n = split(symbols, symbol_array, " ")
-	asort(symbol_array, symbol_array)
+	asort(symbol_array)
 	symbols = ""
 	last = ""
 	for (i = 1; i <= n; i++) {
@@ -328,7 +328,7 @@ function write_maps(this_PKG, dep_type) {
 		}
 	}
 	n = split(this_PKG_DEP, this_DEP_array, " ");
-	asort(this_DEP_array, this_DEP_array);
+	asort(this_DEP_array);
 	this_PKG_dep = ""
 	this_PKG_DEP = ""
 	last = ""
@@ -368,7 +368,7 @@ function pkg_all_deps(this_PKG, dep_type, n, this_PKG_dep, this_DEP_array) {
 	for (i = 1; i <= n; i++)
 		this_PKG_dep = this_PKG_dep " " PKG_to_pkg[this_DEP_array[i]] " " pkg_all_deps(this_DEP_array[i], dep_type)
 	n = split(this_PKG_dep, this_DEP_array, " ");
-	asort(this_DEP_array, this_DEP_array);
+	asort(this_DEP_array);
 	this_PKG_dep = ""
 	last = ""
 	for (i = 1; i <= n; i++) {
