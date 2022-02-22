@@ -3,9 +3,7 @@
 config LIBNICE
 	tristate
 	prompt "libnice"
-	# for autogen.sh
-	select HOST_GTK_DOC
-
+	select HOST_MESON
 	select GLIB
 	select GSTREAMER1
 	select OPENSSL

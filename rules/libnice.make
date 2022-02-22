@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBNICE) += libnice
 #
 # Paths and names
 #
-LIBNICE_VERSION	:= 0.1.16
-LIBNICE_MD5	:= 5ad936c43d3c6d33117b2c64982f2fd9
+LIBNICE_VERSION	:= 0.1.18
+LIBNICE_MD5	:= 408482fa4bab7c6b884b0fb9ad57a038
 LIBNICE		:= libnice-$(LIBNICE_VERSION)
 LIBNICE_SUFFIX	:= tar.gz
 LIBNICE_URL	:= https://libnice.freedesktop.org/releases/$(LIBNICE).$(LIBNICE_SUFFIX)
@@ -28,23 +28,18 @@ LIBNICE_LICENSE	:= MPL-1.1 OR LGPL-2.1-only
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-LIBNICE_CONF_TOOL	:= autoconf
+LIBNICE_CONF_TOOL	:= meson
 LIBNICE_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--enable-assert \
-	--enable-compile-warnings=yes \
-	--disable-gupnp \
-	--disable-coverage \
-	--disable-static-plugins \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf \
-	--disable-introspection \
-	--with-crypto-library=openssl \
-	--with-gstreamer \
-	--without-gstreamer-0.10
+	$(CROSS_MESON_USR) \
+	-Dcrypto-library=openssl \
+	-Dexamples=disabled \
+	-Dgstreamer=enabled \
+	-Dgtk_doc=disabled \
+	-Dgupnp=disabled \
+	-Dintrospection=disabled \
+	-Dtests=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
