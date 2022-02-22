@@ -1,10 +1,73 @@
 ## SECTION=image
 
-config IMAGE_ROOT_CPIO
+menuconfig IMAGE_ROOT_CPIO
 	tristate
 	select HOST_GENIMAGE
 	select IMAGE_ROOT_TGZ
-	prompt "Generate images/root.cpio"
+	select HOST_ZSTD		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_ZSTD
+	select HOST_XZ			if IMAGE_ROOT_CPIO_COMPRESSION_MODE_XZ
+	select HOST_LZOP		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_LZOP
+	prompt "Generate images/root.cpio     "
 	help
-	  Build the traditionally initrd RAM disk to be used
-	  as initramfs by the kernel.
+	  Build the traditional rootfs to be used as initramfs
+	  by the kernel.
+	  The compression choices are for external initramfs use.
+	  When including a cpio archive inside the kernel blob,
+	  the kernel build system can manage compressing the cpio
+	  archive itself.
+
+if IMAGE_ROOT_CPIO
+
+choice
+	prompt "CPIO compression mode"
+	default IMAGE_ROOT_CPIO_COMPRESSION_MODE_NONE
+
+config IMAGE_ROOT_CPIO_COMPRESSION_MODE_NONE
+	bool
+	prompt "no compression"
+	help
+	  No compression.
+
+config IMAGE_ROOT_CPIO_COMPRESSION_MODE_GZ
+	bool
+	prompt "gz"
+	help
+	  Compress root.cpio with gz
+
+config IMAGE_ROOT_CPIO_COMPRESSION_MODE_ZSTD
+	bool
+	prompt "zstd"
+	help
+	  Compress root.cpio with zstd
+
+config IMAGE_ROOT_CPIO_COMPRESSION_MODE_XZ
+	bool
+	prompt "xz"
+	help
+	  Compress root.cpio with xz
+
+config IMAGE_ROOT_CPIO_COMPRESSION_MODE_LZOP
+	bool
+	prompt "lzop"
+	help
+	  Compress root.cpio with lzop
+
+endchoice
+
+config IMAGE_ROOT_CPIO_COMPRESSION_SUFFIX
+	string
+	default ""		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_NONE
+	default ".gz"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_GZ
+	default ".zst"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_ZSTD
+	default ".xz"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_XZ
+	default ".lzo"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_LZOP
+
+config IMAGE_ROOT_CPIO_COMPRESSION_UTIL
+	string
+	default ""		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_NONE
+	default "gzip"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_GZ
+	default "zstd"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_ZSTD
+	default "xz"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_XZ
+	default "lzop"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_LZOP
+
+endif

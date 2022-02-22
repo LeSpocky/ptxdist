@@ -51,3 +51,11 @@ s/^\(\(# \)\?PTXCONF_TF_A_PLATFORM\>\)\(.*$\)/\1S\3/
 #
 s/^\(\(# \)\?PTXCONF\)_DTC\>\(.*$\)/\1_KERNEL_DTB\3/
 s/^\(\(# \)\?PTXCONF\)_DTC_OFTREE\(_DTS\(\|_PATH\)\)\(.*$\)/\1_KERNEL\3\5/
+
+#
+# from   : ptxdist-2022.02.0
+# to     : ptxdist-2022.03.0
+# symbol : PTXCONF_IMAGE_ROOT_CPIO_GZ -> PTXCONF_IMAGE_ROOT_CPIO, PTXCONF_IMAGE_ROOT_CPIO_COMPRESSION_MODE_GZ
+# reason : root.cpio generation consolidated. gz generation now dependent on regular cpio generation.
+#
+s/^\(\(# \)\?PTXCONF_\)IMAGE_ROOT_CPIO_GZ\>\(.*\)$/\1IMAGE_ROOT_CPIO\3\n\1IMAGE_ROOT_CPIO_COMPRESSION_MODE_GZ\3/
