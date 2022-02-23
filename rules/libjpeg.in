@@ -19,4 +19,11 @@ config LIBJPEG_BIN
 	  cjpeg and djpeg are simple bineries to convert some basic image
 	  formats to jpeg (cjpeg) or convert them back from jpeg (djpeg)
 
+config LIBJPEG_TURBO
+	bool
+	prompt "Build and install libturbojpeg"
+	help
+	  In addition to the traditional libjpeg API, also provide the less
+	  powerful but more straightforward TurboJPEG API.
+
 endif

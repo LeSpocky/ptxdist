@@ -60,7 +60,7 @@ LIBJPEG_CONF_OPT := \
 	-DWITH_JPEG8=ON \
 	-DWITH_MEM_SRCDST=ON \
 	-DWITH_SIMD=$(call ptx/onoff,LIBJPEG_SIMD) \
-	-DWITH_TURBOJPEG=OFF
+	-DWITH_TURBOJPEG=$(call ptx/onoff,PTXCONF_LIBJPEG_TURBO)
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -76,6 +76,9 @@ $(STATEDIR)/libjpeg.targetinstall:
 	@$(call install_fixup, libjpeg,DESCRIPTION,missing)
 
 	@$(call install_lib, libjpeg, 0, 0, 0644, libjpeg)
+ifdef PTXCONF_LIBJPEG_TURBO
+	@$(call install_lib, libjpeg, 0, 0, 0644, libturbojpeg)
+endif
 ifdef PTXCONF_LIBJPEG_BIN
 	@$(call install_copy, libjpeg, 0, 0, 0755, -, /usr/bin/cjpeg)
 	@$(call install_copy, libjpeg, 0, 0, 0755, -, /usr/bin/djpeg)
