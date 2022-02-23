@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GST_LIBAV1) += gst-libav1
 #
 # Paths and names
 #
-GST_LIBAV1_VERSION	:= 1.18.5
-GST_LIBAV1_MD5		:= 9a49ce948d4e400b6e1b073d0e034080
+GST_LIBAV1_VERSION	:= 1.20.0
+GST_LIBAV1_MD5		:= 755e2844e1bd346eadc300d584d6afd6
 GST_LIBAV1		:= gst-libav-$(GST_LIBAV1_VERSION)
 GST_LIBAV1_SUFFIX	:= tar.xz
 GST_LIBAV1_URL		:= http://gstreamer.freedesktop.org/src/gst-libav/$(GST_LIBAV1).$(GST_LIBAV1_SUFFIX)
@@ -35,7 +35,8 @@ GST_LIBAV1_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Ddoc=disabled \
 	-Dpackage-name="GStreamer FFMPEG Plug-ins source release" \
-	-Dpackage-origin=PTXdist
+	-Dpackage-origin=PTXdist \
+	-Dtests=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
