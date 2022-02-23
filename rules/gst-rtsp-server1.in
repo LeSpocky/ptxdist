@@ -4,6 +4,7 @@ config GST_RTSP_SERVER1
 	tristate
 	select HOST_MESON
 	select GSTREAMER1
+	select GST_PLUGINS_BAD1
 	select GST_PLUGINS_BASE1
 	prompt "gst-rtsp-server"
 	help
