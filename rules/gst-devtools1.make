@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GST_DEVTOOLS1) += gst-devtools1
 #
 # Paths and names
 #
-GST_DEVTOOLS1_VERSION	:= 1.18.5
-GST_DEVTOOLS1_MD5	:= 12656dc06805c4de8e3ee48d80545785
+GST_DEVTOOLS1_VERSION	:= 1.20.0
+GST_DEVTOOLS1_MD5	:= e2232b5d3d4d612116c6359c08d6d794
 GST_DEVTOOLS1		:= gst-devtools-$(GST_DEVTOOLS1_VERSION)
 GST_DEVTOOLS1_SUFFIX	:= tar.xz
 GST_DEVTOOLS1_URL	:= http://gstreamer.freedesktop.org/data/src/gst-devtools/$(GST_DEVTOOLS1).$(GST_DEVTOOLS1_SUFFIX)
@@ -33,6 +33,7 @@ GST_DEVTOOLS1_LICENSE	:= LGPL-2.1-or-later
 GST_DEVTOOLS1_CONF_TOOL	:= meson
 GST_DEVTOOLS1_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
+	-Dcairo=$(call ptx/endis,PTXCONF_GST_DEVTOOLS1_VIDEO)d \
 	-Ddebug_viewer=disabled \
 	-Ddoc=disabled \
 	-Dintrospection=$(call ptx/endis,PTXCONF_GSTREAMER1_INTROSPECTION)d \
@@ -69,8 +70,6 @@ $(STATEDIR)/gst-devtools1.targetinstall:
 		/usr/bin/gst-validate-1.0)
 	@$(call install_copy, gst-devtools1, 0, 0, 0755, -, \
 		/usr/bin/gst-validate-media-check-1.0)
-	@$(call install_copy, gst-devtools1, 0, 0, 0755, -, \
-		/usr/bin/gst-validate-transcoding-1.0)
 
 	@$(call install_tree, gst-devtools1, 0, 0, -, \
 		/usr/share/gstreamer-1.0/validate/scenarios)
