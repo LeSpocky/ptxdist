@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GST_PYTHON1) += gst-python1
 #
 # Paths and names
 #
-GST_PYTHON1_VERSION	:= 1.18.5
-GST_PYTHON1_MD5		:= eb19229f72f61506e33182a6fbce4a2e
+GST_PYTHON1_VERSION	:= 1.20.0
+GST_PYTHON1_MD5		:= b47f33b2d5c6011ecabb01c3839821c0
 GST_PYTHON1		:= gst-python-$(GST_PYTHON1_VERSION)
 GST_PYTHON1_SUFFIX	:= tar.xz
 GST_PYTHON1_URL		:= http://gstreamer.freedesktop.org/src/gst-python/$(GST_PYTHON1).$(GST_PYTHON1_SUFFIX)
@@ -35,8 +35,10 @@ GST_PYTHON1_CONF_TOOL	:= meson
 GST_PYTHON1_CONF_OPT	= \
 	$(CROSS_MESON_USR) \
 	-Dlibpython-dir=/usr/lib \
+	-Dplugin=enabled \
 	-Dpygi-overrides-dir=$(PYTHON3_SITEPACKAGES)/gi \
-	-Dpython=$(CROSS_PYTHON3)
+	-Dpython=$(CROSS_PYTHON3) \
+	-Dtests=disabled
 
 # ----------------------------------------------------------------------------
 # Install
