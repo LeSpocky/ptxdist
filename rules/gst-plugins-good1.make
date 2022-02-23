@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GST_PLUGINS_GOOD1) += gst-plugins-good1
 #
 # Paths and names
 #
-GST_PLUGINS_GOOD1_VERSION	:= 1.18.5
-GST_PLUGINS_GOOD1_MD5		:= 1c8ec6b14d166d7affbb216e863c9e42
+GST_PLUGINS_GOOD1_VERSION	:= 1.20.0
+GST_PLUGINS_GOOD1_MD5		:= f952449915499ed3402c32e79d1037fa
 GST_PLUGINS_GOOD1		:= gst-plugins-good-$(GST_PLUGINS_GOOD1_VERSION)
 GST_PLUGINS_GOOD1_SUFFIX	:= tar.xz
 GST_PLUGINS_GOOD1_URL		:= http://gstreamer.freedesktop.org/src/gst-plugins-good/$(GST_PLUGINS_GOOD1).$(GST_PLUGINS_GOOD1_SUFFIX)
@@ -143,6 +143,9 @@ GST_PLUGINS_GOOD1_CONF_OPT	= \
 	-Dorc=$(call ptx/endis,PTXCONF_GST_PLUGINS_GOOD1_ORC)d \
 	-Dosxaudio=disabled \
 	-Dosxvideo=disabled \
+	-Drpi-header-dir= \
+	-Drpi-lib-dir= \
+	-Drpicamsrc=disabled \
 	-Dv4l2-gudev=$(call ptx/endis,PTXCONF_GST_PLUGINS_GOOD1_V4L2)d \
 	-Dv4l2-probe=$(call ptx/truefalse,PTXCONF_GST_PLUGINS_GOOD1_V4L2) \
 	-Dwaveform=disabled \
