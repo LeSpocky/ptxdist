@@ -19,11 +19,13 @@ menuconfig GST_PLUGINS_BAD1
 	select LIBCURL_LIBSSH2		if GST_PLUGINS_BAD1_CURL_SSH2
 	select LIBXML2			if GST_PLUGINS_BAD1_DASH || GST_PLUGINS_BAD1_SMOOTHSTREAMING || GST_PLUGINS_BAD1_TTML
 	select LIBXML2_DOM		if GST_PLUGINS_BAD1_DASH || GST_PLUGINS_BAD1_SMOOTHSTREAMING
+	select OPENSSL			if GST_PLUGINS_BAD1_AES
 	select OPENSSL			if GST_PLUGINS_BAD1_DTLS
 	select OPENSSL			if GST_PLUGINS_BAD1_HLS
-	select LIBMMS			if GST_PLUGINS_BAD1_LIBMMS
 	select LIBDRM			if GST_PLUGINS_BAD1_KMS || GST_PLUGINS_BAD1_WAYLAND
 	select OPUS			if GST_PLUGINS_BAD1_OPUS
+	select JSON_GLIB		if GST_PLUGINS_BAD1_QROVERLAY
+	select QRENCODE			if GST_PLUGINS_BAD1_QROVERLAY
 	select RTMPDUMP			if GST_PLUGINS_BAD1_RTMP
 	select LIBSNDFILE		if GST_PLUGINS_BAD1_SNDFILE
 	select LIBSRTP			if GST_PLUGINS_BAD1_SRTP
@@ -103,6 +105,10 @@ config GST_PLUGINS_BAD1_BAYER
 config GST_PLUGINS_BAD1_CAMERABIN2
 	bool
 	prompt "camerabin2"
+
+config GST_PLUGINS_BAD1_CODECALPHA
+	bool
+	prompt "codecalpha"
 
 config GST_PLUGINS_BAD1_COLOREFFECTS
 	bool
@@ -317,6 +323,12 @@ config GST_PLUGINS_BAD1_Y4M
 	prompt "y4m"
 
 comment "plugins with dependencies"
+
+config GST_PLUGINS_BAD1_AES
+	bool
+	prompt "aes"
+	help
+	  AES encryption/decryption plugin
 
 config GST_PLUGINS_BAD1_AOM
 	bool
@@ -555,12 +567,6 @@ config GST_PLUGINS_BAD1_LIBDE265
 	help
 	  HEVC/H.265 video decoder plugin
 
-config GST_PLUGINS_BAD1_LIBMMS
-	bool
-	prompt "libmms"
-	help
-	  Microsoft multimedia server network source plugin
-
 config GST_PLUGINS_BAD1_LV2
 	bool
 	# needs liblilv
@@ -633,14 +639,6 @@ config GST_PLUGINS_BAD1_NVCODEC
 	help
 	  NVIDIA GPU codec plugin
 
-config GST_PLUGINS_BAD1_OFA
-	bool
-	# needs libofa
-	depends on BROKEN
-	prompt "ofa"
-	help
-	  Open Fingerprint Architecture library plugin
-
 config GST_PLUGINS_BAD1_OPENAL
 	bool
 	# needs OpenAL
@@ -708,6 +706,12 @@ config GST_PLUGINS_BAD1_OPUS
 	prompt "opus"
 	help
 	  OPUS audio parser plugin
+
+config GST_PLUGINS_BAD1_QROVERLAY
+	bool
+	prompt "qroverlay"
+	help
+	  QR code overlay plugin
 
 config GST_PLUGINS_BAD1_RESINDVD
 	bool
