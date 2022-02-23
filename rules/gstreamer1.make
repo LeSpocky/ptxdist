@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GSTREAMER1) += gstreamer1
 #
 # Paths and names
 #
-GSTREAMER1_VERSION	:= 1.18.5
-GSTREAMER1_MD5		:= d7e7ba88a1ccb431d754bd9474728c22
+GSTREAMER1_VERSION	:= 1.20.0
+GSTREAMER1_MD5		:= aa2990f8e587249875a9598af07e39c4
 GSTREAMER1		:= gstreamer-$(GSTREAMER1_VERSION)
 GSTREAMER1_SUFFIX	:= tar.xz
 GSTREAMER1_URL		:= http://gstreamer.freedesktop.org/src/gstreamer/$(GSTREAMER1).$(GSTREAMER1_SUFFIX)
@@ -53,7 +53,6 @@ GSTREAMER1_CONF_OPT	:= \
 	-Dextra-checks=disabled \
 	-Dgst_debug=$(call ptx/truefalse,PTXCONF_GSTREAMER1_DEBUG) \
 	-Dgst_parse=true \
-	-Dgtk_doc=disabled \
 	-Dintrospection=$(call ptx/endis,PTXCONF_GSTREAMER1_INTROSPECTION)d \
 	-Dlibdw=disabled \
 	-Dlibunwind=enabled \
