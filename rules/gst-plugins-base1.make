@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GST_PLUGINS_BASE1) += gst-plugins-base1
 #
 # Paths and names
 #
-GST_PLUGINS_BASE1_VERSION	:= 1.18.5
-GST_PLUGINS_BASE1_MD5		:= 69b23213a6bb79d6d1b8371a9dd3e82e
+GST_PLUGINS_BASE1_VERSION	:= 1.20.0
+GST_PLUGINS_BASE1_MD5		:= a9bbe2d2fc79ac472cda0022bd2f9880
 GST_PLUGINS_BASE1		:= gst-plugins-base-$(GST_PLUGINS_BASE1_VERSION)
 GST_PLUGINS_BASE1_SUFFIX	:= tar.xz
 GST_PLUGINS_BASE1_URL		:= http://gstreamer.freedesktop.org/src/gst-plugins-base/$(GST_PLUGINS_BASE1).$(GST_PLUGINS_BASE1_SUFFIX)
@@ -116,12 +116,14 @@ GST_PLUGINS_BASE1_CONF_OPT	= \
 	-Dgl_api=$(GST_PLUGINS_BASE1_GL_API) \
 	-Dgl_platform=$(GST_PLUGINS_BASE1_GL_PLATFORM) \
 	-Dgl_winsys=$(GST_PLUGINS_BASE1_GL_WINSYS) \
-	-Dgles2_module_name=libGLESv2 \
+	-Dgles2_module_name=libGLESv2.so \
+	-Dinstall_plugins_helper= \
 	-Dintrospection=$(call ptx/endis,PTXCONF_GSTREAMER1_INTROSPECTION)d \
 	-Diso-codes=disabled \
 	-Dnls=disabled \
 	-Dopengl_module_name=libGL \
 	-Dorc=enabled \
+	-Dqt5=disabled \
 	-Dtools=$(call ptx/endis, PTXCONF_GST_PLUGINS_BASE1_INSTALL_TOOLS)d \
 	-Dx11=$(call ptx/endis, PTXCONF_GST_PLUGINS_BASE1_X11)d
 
