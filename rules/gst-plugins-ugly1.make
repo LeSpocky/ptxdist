@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_GST_PLUGINS_UGLY1) += gst-plugins-ugly1
 #
 # Paths and names
 #
-GST_PLUGINS_UGLY1_VERSION	:= 1.18.5
-GST_PLUGINS_UGLY1_MD5		:= 049f90b7a3a72e241ad47564b5cd7a7a
+GST_PLUGINS_UGLY1_VERSION	:= 1.20.0
+GST_PLUGINS_UGLY1_MD5		:= 151fbd3e96783909e371e7a6aef87bc2
 GST_PLUGINS_UGLY1		:= gst-plugins-ugly-$(GST_PLUGINS_UGLY1_VERSION)
 GST_PLUGINS_UGLY1_SUFFIX	:= tar.xz
 GST_PLUGINS_UGLY1_URL		:= http://gstreamer.freedesktop.org/src/gst-plugins-ugly/$(GST_PLUGINS_UGLY1).$(GST_PLUGINS_UGLY1_SUFFIX)
 GST_PLUGINS_UGLY1_SOURCE	:= $(SRCDIR)/$(GST_PLUGINS_UGLY1).$(GST_PLUGINS_UGLY1_SUFFIX)
 GST_PLUGINS_UGLY1_DIR		:= $(BUILDDIR)/$(GST_PLUGINS_UGLY1)
 GST_PLUGINS_UGLY1_LICENSE	:= LGPL-2.1-or-later
+ifdef PTXCONF_GST_PLUGINS_UGLY1_MPEG2DEC
+GST_PLUGINS_UGLY1_LICENSE += AND $(LIBMPEG2_LICENSE)
+endif
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -54,7 +57,9 @@ GST_PLUGINS_UGLY1_CONF_TOOL	:= meson
 GST_PLUGINS_UGLY1_CONF_OPT	= \
 	$(CROSS_MESON_USR) \
 	$(call GSTREAMER1_GENERIC_CONF_OPT,GStreamer Ugly Plug-ins) \
-	-Dnls=disabled
+	-Dgpl=$(call ptx/endis,PTXCONF_GST_PLUGINS_UGLY1_MPEG2DEC)d \
+	-Dnls=disabled \
+	-Dx264_libraries=
 
 ifneq ($(call remove_quotes,$(GST_PLUGINS_UGLY1_ENABLEC-y)),)
 GST_PLUGINS_UGLY1_CONF_OPT +=  $(addsuffix =enabled, $(addprefix -D, $(GST_PLUGINS_UGLY1_ENABLEC-y)))
