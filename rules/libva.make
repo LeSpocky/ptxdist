@@ -31,7 +31,6 @@ LIBVA_LICENSE_FILES := \
 
 LIBVA_ENABLE-y				:= drm
 LIBVA_ENABLE-$(PTXCONF_LIBVA_X11)	+= x11
-LIBVA_ENABLE-$(PTXCONF_LIBVA_GLX)	+= glx
 LIBVA_ENABLE-$(PTXCONF_LIBVA_WAYLAND)	+= wayland
 
 LIBVA_CONF_TOOL	:= meson
@@ -41,7 +40,7 @@ LIBVA_CONF_OPT	:= \
 	-Ddriverdir='' \
 	-Denable_docs=false \
 	-Denable_va_messaging=true \
-	-Dwith_glx=$(call ptx/yesno, PTXCONF_LIBVA_GLX) \
+	-Dwith_glx=no \
 	-Dwith_wayland=$(call ptx/yesno, PTXCONF_LIBVA_WAYLAND) \
 	-Dwith_x11=$(call ptx/yesno, PTXCONF_LIBVA_X11)
 
