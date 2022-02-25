@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_GLSLANG) += glslang
 #
 # Paths and names
 #
-GLSLANG_VERSION		:= 11.7.1
-GLSLANG_MD5		:= 0855c7b65da1e9be5ff89eeddeda691a
+GLSLANG_VERSION		:= 1.3.204.0
+GLSLANG_MD5		:= 68aec74ed09b3cefa0b1abd2681287cf
 GLSLANG			:= glslang-$(GLSLANG_VERSION)
 GLSLANG_SUFFIX		:= tar.gz
-GLSLANG_URL		:= https://github.com/KhronosGroup/glslang/archive/$(GLSLANG_VERSION).$(GLSLANG_SUFFIX)
+GLSLANG_URL		:= https://github.com/KhronosGroup/glslang/archive/sdk-$(GLSLANG_VERSION).$(GLSLANG_SUFFIX)
 GLSLANG_SOURCE		:= $(SRCDIR)/$(GLSLANG).$(GLSLANG_SUFFIX)
 GLSLANG_DIR		:= $(BUILDDIR)/$(GLSLANG)
-GLSLANG_LICENSE		:= BSD-3-clause AND BSD-2-clause AND MIT AND Apple-MIT-License AND Apache-2.0 AND (GPL-3.0-or-later WITH Bison-exception-2.2)
-GLSLANG_LICENSE_FILES := file://LICENSE.txt;md5=c5ce49c0456e9b413b98a4368c378229
+GLSLANG_LICENSE		:= BSD-3-clause AND BSD-2-clause AND MIT AND Apple-MIT-License AND Apache-2.0 AND (GPL-3.0-or-later WITH Bison-exception-2.2) AND custom
+GLSLANG_LICENSE_FILES := file://LICENSE.txt;md5=2a2b5acd7bc4844964cfda45fe807dc3
 
 # ----------------------------------------------------------------------------
 # Prepare
