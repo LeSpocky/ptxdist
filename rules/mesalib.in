@@ -12,6 +12,7 @@ menuconfig MESALIB
 	select GCCLIBS
 	select GCCLIBS_CXX
 	select LIBDRM
+	select LIBVA			if MESALIB_VA
 	select LIBDRM_INTEL		if MESALIB_DRI_I915 || MESALIB_DRI_I965
 	select WAYLAND			if MESALIB_EGL_WAYLAND
 	select WAYLAND_PROTOCOLS	if MESALIB_EGL_WAYLAND
@@ -171,6 +172,11 @@ config MESALIB_EGL
 config MESALIB_GBM
 	bool
 	prompt "GBM"
+
+config MESALIB_VA
+	bool
+	depends on MESALIB_DRI_RADEONSI || MESALIB_DRI_R600 || MESALIB_DRI_NOUVEAU
+	prompt "VA"
 
 comment "Platforms"
 

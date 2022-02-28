@@ -38,7 +38,7 @@ MESALIB_DRI_DRIVERS-$(PTXCONF_MESALIB_DRI_NOUVEAU_VIEUX)+= nouveau
 MESALIB_DRI_DRIVERS-$(PTXCONF_MESALIB_DRI_R200)		+= r200
 
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_VIRGL)	+= virgl
-ifndef PTXCONF_ARCH_ARM # broken: https://bugs.freedesktop.org/show_bug.cgi?id=72064
+ifndef PTXCONF_ARCH_ARM # broken: https://gitlab.freedesktop.org/mesa/mesa/-/issues/473
 ifndef PTXCONF_ARCH_X86 # needs llvm
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_R300)	+= r300
 endif
@@ -127,6 +127,14 @@ MESALIB_LIBS-$(PTXCONF_MESALIB_GBM)	+= libgbm
 MESALIBS_EGL_PLATFORMS-$(PTXCONF_MESALIB_EGL_WAYLAND)	+= wayland
 MESALIBS_EGL_PLATFORMS-$(PTXCONF_MESALIB_EGL_X11)	+= x11
 
+ifdef PTXCONF_MESALIB_VA
+ifndef PTXCONF_ARCH_ARM # broken: https://gitlab.freedesktop.org/mesa/mesa/-/issues/473
+MESALIB_DRI_VA_LIBS-$(PTXCONF_MESALIB_DRI_R600)		+= r600
+MESALIB_DRI_VA_LIBS-$(PTXCONF_MESALIB_DRI_RADEONSI)	+= radeonsi
+endif
+MESALIB_DRI_VA_LIBS-$(PTXCONF_MESALIB_DRI_NOUVEAU)	+= nouveau
+endif
+
 MESALIB_CONF_TOOL	:= meson
 MESALIB_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
@@ -152,7 +160,7 @@ MESALIB_CONF_OPT	:= \
 	-Dgallium-nine=false \
 	-Dgallium-omx=disabled \
 	-Dgallium-opencl=disabled \
-	-Dgallium-va=disabled \
+	-Dgallium-va=$(call ptx/endis, PTXCONF_MESALIB_VA)d \
 	-Dgallium-vdpau=disabled \
 	-Dgallium-xa=disabled \
 	-Dgallium-xvmc=disabled \
@@ -252,6 +260,17 @@ ifneq ($(strip $(MESALIB_DRI_GALLIUM_LIBS-y)),)
 			ptxd_bailout "missing gallium driver $(lib)_dri.so"$(ptx/nl) \
 		$(call install_link, mesalib, gallium_dri.so, \
 		/usr/lib/dri/$(lib)_dri.so)$(ptx/nl))
+endif
+ifneq ($(strip $(MESALIB_DRI_VA_LIBS-y)),)
+	@$(call install_copy, mesalib, 0, 0, 0644, \
+		$(MESALIB_PKGDIR)/usr/lib/dri/$(firstword $(MESALIB_DRI_VA_LIBS-y))_drv_video.so, \
+		/usr/lib/dri/va_dri.so)
+
+	@$(foreach lib, $(MESALIB_DRI_VA_LIBS-y), \
+		test -f $(MESALIB_PKGDIR)/usr/lib/dri/$(lib)_drv_video.so || \
+			ptxd_bailout "missing va driver $(lib)_drv_video.so"$(ptx/nl) \
+		$(call install_link, mesalib, va_dri.so, \
+		/usr/lib/dri/$(lib)_drv_video.so)$(ptx/nl))
 endif
 
 ifneq ($(strip $(MESALIB_VULKAN_LIBS-y)),)
