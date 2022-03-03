@@ -62,6 +62,14 @@ config QEMU_TOOLS
 	help
 	  Say y here to include tools.
 
+config QEMU_EDK2_FIRMWARE
+	bool
+	prompt "Enable edk2 firmware"
+	default y
+	help
+	  Say n here to drop the edk2 (UEFI) firmware files.
+	  They can be substantial in size (> 100M).
+
 config QEMU_SYS
 	bool
 	prompt "system emulation"

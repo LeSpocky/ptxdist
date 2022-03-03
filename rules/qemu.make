@@ -235,11 +235,13 @@ ifneq ($(filter i386 x86_64,$(QEMU_TARGETS)),)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/bios-256k.bin)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/bios-microvm.bin)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/bios.bin)
+ifdef PTXCONF_QEMU_EDK2_FIRMWARE
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/edk2-i386-code.fd)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/edk2-i386-secure-code.fd)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/edk2-i386-vars.fd)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/edk2-x86_64-code.fd)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/edk2-x86_64-secure-code.fd)
+endif
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/linuxboot.bin)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/linuxboot_dma.bin)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/pxe-e1000.rom)
@@ -257,9 +259,11 @@ ifneq ($(filter i386 x86_64,$(QEMU_TARGETS)),)
 endif
 
 ifneq ($(filter arm aarch64,$(QEMU_TARGETS)),)
+ifdef PTXCONF_QEMU_EDK2_FIRMWARE
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/edk2-aarch64-code.fd)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/edk2-arm-code.fd)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/edk2-arm-vars.fd)
+endif
 	@$(call install_glob, qemu, 0, 0, -, /usr/share/qemu/firmware, *arm*,)
 	@$(call install_glob, qemu, 0, 0, -, /usr/share/qemu/firmware, *aarch64*,)
 endif
