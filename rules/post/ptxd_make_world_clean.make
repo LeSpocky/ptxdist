@@ -28,4 +28,11 @@ world/clean = \
 clean_pkg = \
 	$(call world/clean, $(1))
 
+#
+# image-clean
+#
+world/image-clean = \
+	$(call world/image/env, $(1)) \
+	ptxd_make_world_image_clean
+
 # vim: syntax=make

@@ -32,6 +32,27 @@ ptxd_make_world_clean_sysroot() {
 }
 export -f ptxd_make_world_clean_sysroot
 
+ptxd_make_world_image_clean_impl() {
+    local pkg_image_stamp="${ptx_state_dir}/${pkg_label}.images"
+
+    if [ -e "${pkg_image_stamp}" ]; then
+	echo "Deleting images:"
+	while read file; do
+	    echo "${file}"
+	    rm "${file}" || break
+	done < "${pkg_image_stamp}"
+	rm "${pkg_image_stamp}"
+	echo
+    fi
+}
+export -f ptxd_make_world_image_clean_impl
+
+ptxd_make_world_image_clean() {
+    ptxd_make_world_init &&
+    ptxd_make_world_image_clean_impl
+}
+export -f ptxd_make_world_image_clean
+
 #
 # clean
 #
@@ -46,6 +67,7 @@ ptxd_make_world_clean() {
 	done
 	echo
     fi
+    ptxd_make_world_image_clean_impl
     if [ -n "$(ls "${ptx_state_dir}/${pkg_label}".* 2> /dev/null)" ]; then
 	echo "Deleting stage files:"
 	if [ -e "${pkg_xpkg_map}" ]; then

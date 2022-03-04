@@ -14,4 +14,16 @@ $(STATEDIR)/%.targetinstall.post:
 	@$(call targetinfo)
 	@$(call touch)
 
+ptx/image-install = \
+	$(call world/env, $(1)) \
+	pkg_file="$(strip $(2))" \
+	pkg_image="$(strip $(3))" \
+	ptxd_make_image_install
+
+ptx/image-install-link = \
+	$(call world/env, $(1)) \
+	pkg_file="$(strip $(2))" \
+	pkg_image="$(strip $(3))" \
+	ptxd_make_image_install_link
+
 # vim: syntax=make
