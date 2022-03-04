@@ -138,48 +138,46 @@ $(STATEDIR)/u-boot.install:
 
 $(STATEDIR)/u-boot.targetinstall:
 	@$(call targetinfo)
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot.bin $(IMAGEDIR)/u-boot.bin
+	@$(call world/image-clean, U_BOOT)
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot.bin)
 ifdef PTXCONF_U_BOOT_INSTALL_SREC
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot.srec $(IMAGEDIR)/u-boot.srec
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot.srec)
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_ELF
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot $(IMAGEDIR)/u-boot.elf
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot, u-boot.elf)
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_EFI_APPLICATION
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-app.efi $(IMAGEDIR)/u-boot-app.efi
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot-app.efi)
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_EFI_PAYLOAD
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-payload.efi $(IMAGEDIR)/u-boot-payload.efi
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot-payload.efi)
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_SPL
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/SPL $(IMAGEDIR)/SPL
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/SPL)
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_MLO
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/MLO $(IMAGEDIR)/MLO
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/MLO)
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_IMG
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot.img $(IMAGEDIR)/u-boot.img
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot.img)
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_IMX
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot.imx $(IMAGEDIR)/u-boot.imx
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot.imx)
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_DTB_IMX
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-dtb.imx $(IMAGEDIR)/u-boot-dtb.imx
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot-dtb.imx)
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_DTB
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-dtb.bin \
-		$(IMAGEDIR)/u-boot-dtb.bin
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot-dtb.bin)
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_WITH_SPL_PBL
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-with-spl-pbl.bin \
-		$(IMAGEDIR)/u-boot-with-spl-pbl.bin
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot-with-spl-pbl.bin)
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_STM32
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot.stm32 $(IMAGEDIR)/u-boot.stm32
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot.stm32)
 endif
 ifndef PTXCONF_U_BOOT_ENV_IMAGE_NONE
-	@install -v -D -m644 $(U_BOOT_BUILD_DIR)/u-boot-env.img \
-		$(IMAGEDIR)/u-boot-env.img
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot-env.img)
 endif
 
 ifdef PTXCONF_U_BOOT_BOOT_SCRIPT
@@ -203,12 +201,6 @@ endif
 $(STATEDIR)/u-boot.clean:
 	@$(call targetinfo)
 	@$(call clean_pkg, U_BOOT)
-	@rm -vf $(IMAGEDIR)/u-boot.bin $(IMAGEDIR)/u-boot.srec $(IMAGEDIR)/u-boot.elf
-	@rm -vf $(IMAGEDIR)/u-boot.img $(IMAGEDIR)/SPL $(IMAGEDIR)/MLO
-	@rm -vf $(IMAGEDIR)/u-boot.imx $(IMAGEDIR)/u-boot-dtb.imx
-	@rm -vf $(IMAGEDIR)/u-boot-env.img
-	@rm -vf	$(IMAGEDIR)/u-boot-dtb.bin $(IMAGEDIR)/u-boot-with-spl-pbl.bin
-	@rm -vf $(IMAGEDIR)/u-boot.stm32
 
 # ----------------------------------------------------------------------------
 # oldconfig / menuconfig
