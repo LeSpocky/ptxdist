@@ -178,28 +178,31 @@ ifneq ($(strip $(BAREBOX_PROGS_TARGET_y)),)
 	@$(call install_finish, barebox)
 endif
 
-	@rm -f $(IMAGEDIR)/barebox-image
+	@$(call world/image-clean, BAREBOX)
 	@if [ -d $(BAREBOX_BUILD_DIR)/images ]; then \
 		find $(BAREBOX_BUILD_DIR)/images/ -name "barebox-*.img" | sort | while read image; do \
-			install -D -m644 $$image $(IMAGEDIR)/`basename $$image`; \
+			$(call ptx/image-install, BAREBOX, $$image); \
 			if [ ! -e $(IMAGEDIR)/barebox-image ]; then \
-				ln -sf `basename $$image` $(IMAGEDIR)/barebox-image; \
+				$(call ptx/image-install-link, BAREBOX, `basename $$image`, barebox-image); \
 			fi; \
 		done; \
 	fi
 	@if [ -e $(IMAGEDIR)/barebox-image ]; then \
 		:; \
 	elif [ -e $(BAREBOX_BUILD_DIR)/barebox-flash-image ]; then \
-		install -D -m644 $(BAREBOX_BUILD_DIR)/barebox-flash-image $(IMAGEDIR)/barebox-image; \
+		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/barebox-flash-image, barebox-image); \
 	else \
-		install -D -m644 $(BAREBOX_BUILD_DIR)/barebox.bin $(IMAGEDIR)/barebox-image; \
+		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/barebox.bin, barebox-image); \
 	fi
 	@if [ -e $(BAREBOX_BUILD_DIR)/defaultenv/barebox_zero_env ]; then \
-		install -D -m644 $(BAREBOX_BUILD_DIR)/defaultenv/barebox_zero_env $(IMAGEDIR)/barebox-default-environment; \
+		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/defaultenv/barebox_zero_env, \
+			barebox-default-environment); \
 	elif [ -e $(BAREBOX_BUILD_DIR)/common/barebox_default_env ]; then \
-		install -D -m644 $(BAREBOX_BUILD_DIR)/common/barebox_default_env $(IMAGEDIR)/barebox-default-environment; \
+		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/common/barebox_default_env, \
+			barebox-default-environment); \
 	elif [ -e $(BAREBOX_BUILD_DIR)/barebox_default_env ]; then \
-		install -D -m644 $(BAREBOX_BUILD_DIR)/barebox_default_env $(IMAGEDIR)/barebox-default-environment; \
+		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/barebox_default_env, \
+			barebox-default-environment); \
 	fi
 	@$(call touch)
 
@@ -212,7 +215,6 @@ $(STATEDIR)/barebox.clean:
 	@$(call clean_pkg, BAREBOX)
 	@$(foreach prog, $(BAREBOX_PROGS_HOST), \
 		rm -vf $(PTXDIST_SYSROOT_HOST)/bin/$(notdir $(prog))$(ptx/nl))
-	@rm -vf $(IMAGEDIR)/barebox-image $(IMAGEDIR)/barebox-default-environment
 
 # ----------------------------------------------------------------------------
 # oldconfig / menuconfig
