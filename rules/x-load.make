@@ -65,10 +65,11 @@ $(STATEDIR)/x-load.install:
 
 $(STATEDIR)/x-load.targetinstall:
 	@$(call targetinfo)
-	@install -D -m644 $(X_LOAD_DIR)/x-load.bin $(IMAGEDIR)/x-load.bin
+	@$(call world/image-clean, X_LOAD)
+	@$(call ptx/image-install, X_LOAD, $(X_LOAD_DIR)/x-load.bin)
 ifdef PTXCONF_X_LOAD_MAKE_IFT
-	@install -D -m644 $(X_LOAD_DIR)/x-load.bin.ift $(IMAGEDIR)/x-load.bin.ift
-	@install -D -m644 $(X_LOAD_DIR)/x-load.bin.ift $(IMAGEDIR)/MLO
+	@$(call ptx/image-install, X_LOAD, $(X_LOAD_DIR)/x-load.bin.ift)
+	@$(call ptx/image-install, X_LOAD, $(X_LOAD_DIR)/x-load.bin.ift, MLO)
 endif
 	@$(call touch)
 
@@ -79,6 +80,5 @@ endif
 $(STATEDIR)/x-load.clean:
 	@$(call targetinfo)
 	@$(call clean_pkg, X_LOAD)
-	@rm -f $(IMAGEDIR)/x-load.bin $(IMAGEDIR)/x-load.bin.ift $(IMAGEDIR)/MLO
 
 # vim: syntax=make
