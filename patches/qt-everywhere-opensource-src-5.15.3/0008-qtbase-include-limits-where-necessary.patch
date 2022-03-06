@@ -1,0 +1,28 @@
+From: Lucas Stach <l.stach@pengutronix.de>
+Date: Sat, 1 May 2021 00:57:24 +0200
+Subject: [PATCH] qtbase: include limits where necessary
+
+Upstream fixes:
+https://code.qt.io/cgit/qt/qtbase.git/commit/?id=813a928c7c3cf986
+
+Fixes build with GCC11, which changed internal includes so that
+limits isn't implicitly pulled in some cases.
+
+Signed-off-by: Lucas Stach <l.stach@pengutronix.de>
+---
+ qtbase/src/corelib/text/qbytearraymatcher.h | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/qtbase/src/corelib/text/qbytearraymatcher.h b/qtbase/src/corelib/text/qbytearraymatcher.h
+index 0eedfc1d2035..f5f9bef7b87c 100644
+--- a/qtbase/src/corelib/text/qbytearraymatcher.h
++++ b/qtbase/src/corelib/text/qbytearraymatcher.h
+@@ -42,6 +42,8 @@
+ 
+ #include <QtCore/qbytearray.h>
+ 
++#include <limits>
++
+ QT_BEGIN_NAMESPACE
+ 
+ 
