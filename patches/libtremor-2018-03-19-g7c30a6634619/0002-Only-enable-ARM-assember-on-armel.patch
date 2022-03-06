@@ -1,0 +1,30 @@
+From: Sebastian Ramacher <sramacher@debian.org>
+Date: Sat, 12 Sep 2020 17:48:41 +0200
+Subject: [PATCH] Only enable ARM assember on armel
+
+---
+ configure.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/configure.in b/configure.in
+index 6eaf6e418363..a33613e34aab 100644
+--- a/configure.in
++++ b/configure.in
+@@ -48,7 +48,7 @@ cflags_save="$CFLAGS"
+ ldflags_save="$LDFLAGS"
+ if test -z "$GCC"; then
+         case $host in 
+-        arm-*-*)
++        arm-*-gnueabi)
+                 DEBUG="-g -D_ARM_ASSEM_" 
+                 CFLAGS="-O -D_ARM_ASSEM_"
+                 PROFILE="-p -g -O -D_ARM_ASSEM_" ;;
+@@ -60,7 +60,7 @@ if test -z "$GCC"; then
+ else
+ 
+         case $host in 
+-        arm-*-*)
++        arm-*-gnueabi)
+                 DEBUG="-g -Wall -D__NO_MATH_INLINES -fsigned-char -D_ARM_ASSEM_"
+                 CFLAGS="-O2 -D_ARM_ASSEM_ -fsigned-char"
+                 PROFILE="-W -pg -g -O2 -D_ARM_ASSEM_ -fsigned-char -fno-inline-functions";;

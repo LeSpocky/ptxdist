@@ -13,7 +13,7 @@ Tested-by: Juergen Beisert <jbe@pengutronix.de>
  1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/configure.in b/configure.in
-index e7f5690..6eaf6e4 100644
+index e7f56900295d..6eaf6e418363 100644
 --- a/configure.in
 +++ b/configure.in
 @@ -119,11 +119,7 @@ fi
