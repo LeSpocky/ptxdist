@@ -41,10 +41,6 @@ menu "framebuffer                   "
 source "generated/multimedia_framebuffer.in"
 endmenu
 
-menu "gstreamer 0.10                "
-source "generated/multimedia_gstreamer.in"
-endmenu
-
 menu "gstreamer 1.0                 "
 source "generated/multimedia_gstreamer1.in"
 endmenu
