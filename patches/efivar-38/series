@@ -2,4 +2,5 @@
 #tag:base --start-number 1
 0001-src-Makefile-build-util.c-separately-for-makeguids.patch
 0002-docs-Remove-docs-building.patch
-# 6d7bd314e7046e2c5c771e319b825e34  - git-ptx-patches magic
+0003-fix-building-with-binutils-2.36.patch
+# 051f21d7f5a24e87b0ddfd14b98df864  - git-ptx-patches magic
