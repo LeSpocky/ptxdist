@@ -129,6 +129,7 @@ choice
 		help
 		 This is the target to get the kernel image as an raw uncompressed
 		 binary file.
+
 	config KERNEL_IMAGE_SIMPLE
 		bool
 		prompt "simpleImage"
