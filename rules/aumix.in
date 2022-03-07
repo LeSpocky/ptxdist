@@ -1,4 +1,6 @@
-## SECTION=multimedia_sound
+## SECTION=staging
+## old section:
+### SECTION=multimedia_sound
 
 config AUMIX
 	tristate
@@ -15,3 +17,6 @@ config AUMIX
 	  can read default settings from a file, and it can also
 	  automatically save and restore the mixer settings at
 	  shutdown and boot.
+
+	  STAGING: remove in PTXdist 2023.04.0
+	  Upstream is dead and fails to build with a current toolchain.
