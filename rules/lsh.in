@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 # lsh configuration
 
 menuconfig LSH
@@ -10,6 +12,10 @@ menuconfig LSH
 	select ZLIB
 	help
 	  lsh is an SSH implementation.
+
+	  STAGING: remove in PTXdist 2023.04.0
+	  Upstream is dead and fails to build with a current toolchain.
+
 if LSH
 
 config LSH_EXECUV
