@@ -39,6 +39,7 @@ menuconfig CUPS_FILTERS
 if CUPS_FILTERS
 
 config CUPS_FILTERS_POPPLER
+	depends on STAGING
 	bool "build with poppler support"
 	help
 	  Build with poppler support, needed for pdfto* filters and banners.

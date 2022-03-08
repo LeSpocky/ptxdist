@@ -1,4 +1,6 @@
-## SECTION=multimedia_gtk
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gtk
 
 menuconfig POPPLER
 	tristate
@@ -24,6 +26,10 @@ menuconfig POPPLER
 	select QT5_MODULE_QTBASE_WIDGETS	if POPPLER_QT5
 	help
 	  Poppler is a PDF rendering library based on the xpdf-3.0 code base.
+
+	  STAGING: remove in PTXdist 2023.04.0
+	  Not realy maintained in PTXdist and fails to build with a current
+	  toolchain (gcc 11).
 
 if POPPLER
 
