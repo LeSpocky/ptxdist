@@ -1,4 +1,6 @@
-## SECTION=multimedia_gtk
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gtk
 
 config PANGOMM
 	tristate
@@ -8,3 +10,6 @@ config PANGOMM
 	prompt "pangomm"
 	help
 	  c++ bindings for pango
+
+	  STAGING: remove in PTXdist 2023.04.0
+	  Not realy maintained in PTXdist and glibmm was move to staging.
