@@ -22,6 +22,9 @@ LIBXSLT_SUFFIX	:= tar.gz
 LIBXSLT_SOURCE	:= $(SRCDIR)/$(LIBXSLT).$(LIBXSLT_SUFFIX)
 LIBXSLT_DIR	:= $(BUILDDIR)/$(LIBXSLT)
 LIBXSLT_LICENSE	:= MIT
+# The file 'COPYING' is just a symlink on the file 'Copyright'
+LIBXSLT_LICENSE_FILES := \
+	file://Copyright;md5=0cd9a07afbeb24026c9b03aecfeba458
 
 LIBXSLT_URL	:= \
 	http://xmlsoft.org/sources/$(LIBXSLT).$(LIBXSLT_SUFFIX) \
