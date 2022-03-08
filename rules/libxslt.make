@@ -15,10 +15,10 @@ PACKAGES-$(PTXCONF_LIBXSLT) += libxslt
 #
 # Paths and names
 #
-LIBXSLT_VERSION	:= 1.1.34
-LIBXSLT_MD5	:= db8765c8d076f1b6caafd9f2542a304a
+LIBXSLT_VERSION	:= 1.1.35
+LIBXSLT_MD5	:= 5b3a634b77effd8a6268c21173575053
 LIBXSLT		:= libxslt-$(LIBXSLT_VERSION)
-LIBXSLT_SUFFIX	:= tar.gz
+LIBXSLT_SUFFIX	:= tar.xz
 LIBXSLT_SOURCE	:= $(SRCDIR)/$(LIBXSLT).$(LIBXSLT_SUFFIX)
 LIBXSLT_DIR	:= $(BUILDDIR)/$(LIBXSLT)
 LIBXSLT_LICENSE	:= MIT
@@ -27,10 +27,7 @@ LIBXSLT_LICENSE_FILES := \
 	file://Copyright;md5=0cd9a07afbeb24026c9b03aecfeba458
 
 LIBXSLT_URL	:= \
-	http://xmlsoft.org/sources/$(LIBXSLT).$(LIBXSLT_SUFFIX) \
-	http://xmlsoft.org/sources/old/$(LIBXSLT).$(LIBXSLT_SUFFIX) \
-	ftp://xmlsoft.org/libxslt/$(LIBXSLT).$(LIBXSLT_SUFFIX) \
-	ftp://xmlsoft.org/libxslt/old/$(LIBXSLT).$(LIBXSLT_SUFFIX)
+	https://download.gnome.org/sources/libxslt/$(basename $(LIBXSLT_VERSION))/$(LIBXSLT).$(LIBXSLT_SUFFIX)
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -45,6 +42,7 @@ LIBXSLT_ENV	:= \
 #
 LIBXSLT_AUTOCONF := \
 	 $(CROSS_AUTOCONF_USR) \
+	--disable-rebuild-docs \
 	--disable-static \
 	--without-python \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_CRYPTO)-crypto \
