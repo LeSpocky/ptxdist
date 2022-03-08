@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_support_libs
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_support_libs
 
 config FREEGLUT
 	tristate
@@ -19,3 +21,6 @@ config FREEGLUT
 	  of platforms and also read the mouse, keyboard and
 	  joystick functions.
 
+	  STAGING: remove in PTXdist 2023.04.0
+	  Not realy maintained in PTXdist and fails to build with a current
+	  toolchain (gcc 11).
