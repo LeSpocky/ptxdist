@@ -1,4 +1,6 @@
-## SECTION=multimedia_gtk
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gtk
 
 config GLIBMM
 	tristate
@@ -10,3 +12,6 @@ config GLIBMM
 	help
 	  glibmm is the C++ interface to the glib library.
 
+	  STAGING: remove in PTXdist 2023.04.0
+	  Not realy maintained in PTXdist and fails to build with a current
+	  toolchain (gcc 11).
