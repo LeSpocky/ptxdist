@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 menuconfig NCFTP
 	tristate
@@ -11,6 +13,9 @@ menuconfig NCFTP
 	  remote network site, and offers additional features that are
 	  not found in the standard interface, ftp. This version has
 	  Readline support enabled.
+
+	  STAGING: remove in PTXdist 2023.04.0
+	  Upstream is dead and fails to build with a current toolchain (gcc 11).
 
 if NCFTP
 
