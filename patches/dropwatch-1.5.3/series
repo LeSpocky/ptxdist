@@ -2,4 +2,6 @@
 #tag:base --start-number 1
 0001-Fix-build-issue-when-compiling-with-Wcast-align.patch
 0002-Fix-configure-for-libnl3-genl.patch
-# 68fccae5492fb3b53d1b549cfe32ed5f  - git-ptx-patches magic
+0003-Fix-compilation-error-with-gcc-11.patch
+0004-Fix-compilation-error-with-gcc-12.patch
+# 0bdb18723e433fa329543ad35fcad562  - git-ptx-patches magic
