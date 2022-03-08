@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 config HPING
 	tristate
 	select LIBPCAP
@@ -10,3 +12,5 @@ config HPING
 	  ICMP and RAW-IP protocols, has a traceroute mode, the ability to
 	  send files between a covered channel, and many other features.
 
+	  STAGING: remove in PTXdist 2023.04.0
+	  Upstream is dead and fails to build with a current toolchain.
