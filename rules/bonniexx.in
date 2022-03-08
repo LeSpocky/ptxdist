@@ -1,4 +1,6 @@
-## SECTION=test_suites
+## SECTION=staging
+## old section:
+### SECTION=test_suites
 config BONNIEXX
 	tristate
 	prompt "bonnie++"
@@ -10,3 +12,6 @@ config BONNIEXX
 	  This program also tests performance by creating large numbers
 	  of files.
 
+	  STAGING: remove in PTXdist 2023.04.0
+	  Not realy maintained in PTXdist and fails to build with a current
+	  toolchain (gcc 11).
