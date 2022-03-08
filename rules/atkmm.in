@@ -1,4 +1,6 @@
-## SECTION=multimedia_gtk
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gtk
 
 config ATKMM
 	tristate
@@ -9,3 +11,6 @@ config ATKMM
 	  atkmm is the official C++ interface for the ATK accessibility
 	  toolkit library. It may be used, for instance, by user interfaces
 	  implemented with gtkmm.
+
+	  STAGING: remove in PTXdist 2023.04.0
+	  Not realy maintained in PTXdist and glibmm was move to staging.
