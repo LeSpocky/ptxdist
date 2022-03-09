@@ -45,7 +45,6 @@ TF_A_MAKE_OPT	:= \
 	-C $(TF_A_DIR) \
 	CROSS_COMPILE=$(BOOTLOADER_CROSS_COMPILE) \
 	HOSTCC=$(HOSTCC) \
-	DEBUG=0 \
 	ARCH=$(PTXCONF_TF_A_ARCH_STRING) \
 	ARM_ARCH_MAJOR=$(PTXCONF_TF_A_ARM_ARCH_MAJOR) \
 	BUILD_STRING=$(PTXCONF_TF_A_VERSION) \
@@ -90,7 +89,7 @@ $(STATEDIR)/tf-a.compile:
 # ----------------------------------------------------------------------------
 
 tf-a/inst_plat = $(foreach artifact, \
-	$(wildcard $(TF_A_BUILDDIR)/$(1)/release/$(TF_A_ARTIFACTS)), \
+	$(wildcard $(TF_A_BUILDDIR)/$(1)/$(if $(filter DEBUG=1,$(call remove_quotes,$(PTXCONF_TF_A_EXTRA_ARGS))),debug,release)/$(TF_A_ARTIFACTS)), \
 	install -v -D -m 644 $(artifact) \
 		$(2)/$(1)-$(notdir $(artifact))$(ptx/nl))
 
