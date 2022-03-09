@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBXKBCOMMON) += libxkbcommon
 #
 # Paths and names
 #
-LIBXKBCOMMON_VERSION	:= 1.3.0
-LIBXKBCOMMON_MD5	:= 00b5275ec1309a1d427a645de5861605
+LIBXKBCOMMON_VERSION	:= 1.4.0
+LIBXKBCOMMON_MD5	:= e021899fe359240757684be08f22135f
 LIBXKBCOMMON		:= libxkbcommon-$(LIBXKBCOMMON_VERSION)
 LIBXKBCOMMON_SUFFIX	:= tar.xz
 LIBXKBCOMMON_URL	:= http://xkbcommon.org/download/$(LIBXKBCOMMON).$(LIBXKBCOMMON_SUFFIX)
@@ -46,7 +46,6 @@ LIBXKBCOMMON_CONF_OPT	:= \
 	-Dx-locale-root=$(XORG_DATADIR)/X11/locale \
 	-Dxkb-config-extra-path=/etc/xkb \
 	-Dxkb-config-root=$(XORG_DATADIR)/X11/xkb \
-
 
 # ----------------------------------------------------------------------------
 # Target-Install
