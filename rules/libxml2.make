@@ -16,10 +16,10 @@ PACKAGES-$(PTXCONF_LIBXML2) += libxml2
 #
 # Paths and names
 #
-LIBXML2_VERSION	:= 2.9.12
-LIBXML2_MD5	:= f433a39be087a9f0b197eb2307ad9f75
+LIBXML2_VERSION	:= 2.9.13
+LIBXML2_MD5	:= 824470f8cc325ae6b01f174b842c321f
 LIBXML2		:= libxml2-$(LIBXML2_VERSION)
-LIBXML2_SUFFIX	:= tar.gz
+LIBXML2_SUFFIX	:= tar.xz
 LIBXML2_SOURCE	:= $(SRCDIR)/$(LIBXML2).$(LIBXML2_SUFFIX)
 LIBXML2_DIR	:= $(BUILDDIR)/$(LIBXML2)
 LIBXML2_LICENSE	:= MIT AND ISC
@@ -29,10 +29,7 @@ LIBXML2_LICENSE_FILES := \
 	file://hash.c;startline=6;endline=15;md5=e77f77b12cb69e203d8b4090a0eee879
 
 LIBXML2_URL := \
-	http://xmlsoft.org/sources/$(LIBXML2).$(LIBXML2_SUFFIX) \
-	http://xmlsoft.org/sources/old/$(LIBXML2).$(LIBXML2_SUFFIX) \
-	ftp://xmlsoft.org/libxml2/$(LIBXML2).$(LIBXML2_SUFFIX) \
-	ftp://xmlsoft.org/libxml2/old/$(LIBXML2).$(LIBXML2_SUFFIX)
+	https://download.gnome.org/sources/libxml2/$(basename $(LIBXML2_VERSION))/$(LIBXML2).$(LIBXML2_SUFFIX)
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -47,6 +44,7 @@ LIBXML2_ENV	:= $(CROSS_ENV)
 LIBXML2_AUTOCONF := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-static \
+	--disable-rebuild-docs \
 	$(GLOBAL_IPV6_OPTION) \
 	--oldincludedir=$(SYSROOT)/usr/include \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_C14N)-c14n \

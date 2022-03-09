@@ -10,7 +10,7 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/xml2-config.in b/xml2-config.in
-index cb4aa613a68c..31f9e67a999b 100644
+index 5863ffa04956..b5effdb2d15e 100644
 --- a/xml2-config.in
 +++ b/xml2-config.in
 @@ -1,6 +1,6 @@
