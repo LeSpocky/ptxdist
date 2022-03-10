@@ -170,6 +170,13 @@ endif
 
 comment "target install"
 
+config U_BOOT_INSTALL_U_BOOT_BIN
+	prompt "install u-boot.bin"
+	bool
+	default y
+	help
+	  Installing the U-Boot default binary target.
+
 config U_BOOT_INSTALL_SREC
 	prompt "install u-boot.srec"
 	bool
@@ -257,6 +264,12 @@ config U_BOOT_INSTALL_U_BOOT_STM32
 	  Installing the U-Boot image with stm32 header (u-boot.stm32) into
 	  platform image directory. Say yes if you are building for STM32MP1
 	  SOCs.
+
+config U_BOOT_INSTALL_U_BOOT_FLASH_BIN
+	prompt "install flash.bin"
+	bool
+	help
+	  Installing the U-Boot image to Gateworks.
 
 comment "build dependencies"
 

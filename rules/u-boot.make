@@ -139,7 +139,9 @@ $(STATEDIR)/u-boot.install:
 $(STATEDIR)/u-boot.targetinstall:
 	@$(call targetinfo)
 	@$(call world/image-clean, U_BOOT)
+ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_BIN
 	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot.bin)
+endif
 ifdef PTXCONF_U_BOOT_INSTALL_SREC
 	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot.srec)
 endif
@@ -175,6 +177,9 @@ ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_WITH_SPL_PBL
 endif
 ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_STM32
 	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot.stm32)
+endif
+ifdef PTXCONF_U_BOOT_INSTALL_U_BOOT_FLASH_BIN
+	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/flash.bin)
 endif
 ifndef PTXCONF_U_BOOT_ENV_IMAGE_NONE
 	@$(call ptx/image-install, U_BOOT, $(U_BOOT_BUILD_DIR)/u-boot-env.img)
