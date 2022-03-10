@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 21.3.7
-MESALIB_MD5	:= 689d32b071b10520a54d78267a2edcf7
+MESALIB_VERSION	:= 22.0.0
+MESALIB_MD5	:= cbc2f80946339578e75adcefe32cbd8a
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -24,18 +24,11 @@ MESALIB_SOURCE	:= $(SRCDIR)/$(MESALIB).$(MESALIB_SUFFIX)
 MESALIB_DIR	:= $(BUILDDIR)/Mesa-$(MESALIB_VERSION)
 MESALIB_LICENSE	:= MIT
 MESALIB_LICENSE_FILES := \
-	file://docs/license.rst;md5=17a4ea65de7a9ab42437f3131e616a7f
+	file://docs/license.rst;md5=9a383ee9f65a4e939d6630e9b067ff58
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
-
-ifdef PTXCONF_ARCH_X86
-MESALIB_DRI_DRIVERS-$(PTXCONF_MESALIB_DRI_I915)		+= i915
-MESALIB_DRI_DRIVERS-$(PTXCONF_MESALIB_DRI_I965)		+= i965
-endif
-MESALIB_DRI_DRIVERS-$(PTXCONF_MESALIB_DRI_NOUVEAU_VIEUX)+= nouveau
-MESALIB_DRI_DRIVERS-$(PTXCONF_MESALIB_DRI_R200)		+= r200
 
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_VIRGL)	+= virgl
 ifndef PTXCONF_ARCH_ARM # broken: https://gitlab.freedesktop.org/mesa/mesa/-/issues/473
@@ -65,9 +58,6 @@ MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_CROCUS)	+= crocus
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_SVGA)	+= svga
 endif
 
-MESALIB_DRI_LIBS-y = \
-	$(subst nouveau,nouveau_vieux,$(MESALIB_DRI_DRIVERS-y))
-
 MESALIB_DRI_GALLIUM_LIBS-y = \
 	$(call ptx/ifdef, PTXCONF_MESALIB_DRI_KMSRO, \
 		armada-drm \
@@ -78,6 +68,8 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 		imx-dcss \
 		imx-drm \
 		ingenic-drm \
+		kirin \
+		komeda \
 		mali-dp \
 		mcde \
 		mediatek \
@@ -85,6 +77,7 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 		mi0283qt \
 		mxsfb-drm \
 		pl111 \
+		rcar-du \
 		repaper \
 		rockchip \
 		st7586 \
@@ -145,7 +138,7 @@ MESALIB_CONF_OPT	:= \
 	-Dd3d-drivers-path=/usr/lib/d3d \
 	-Ddatasources=auto \
 	-Ddraw-use-llvm=true \
-	-Ddri-drivers=$(subst $(space),$(comma),$(MESALIB_DRI_DRIVERS-y)) \
+	-Ddri-drivers=[] \
 	-Ddri-drivers-path=/usr/lib/dri \
 	-Ddri-search-path=/usr/lib/dri \
 	-Ddri3=$(call ptx/endis, PTXCONF_MESALIB_DRI3)d \
@@ -190,24 +183,21 @@ MESALIB_CONF_OPT	:= \
 	-Dplatform-sdk-version=25 \
 	-Dplatforms=$(subst $(space),$(comma),$(MESALIBS_EGL_PLATFORMS-y)) \
 	-Dpower8=disabled \
-	-Dprefer-crocus=false \
-	-Dprefer-iris=true \
 	-Dselinux=false \
 	-Dshader-cache=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d \
 	-Dshader-cache-default=true \
 	-Dshader-cache-max-size=1G \
 	-Dshared-glapi=enabled \
 	-Dshared-llvm=disabled \
-	-Dshared-swr=true \
 	-Dspirv-to-dxil=false \
 	-Dsse2=true \
 	-Dstatic-libclc=[] \
-	-Dswr-arches=[] \
 	-Dtools=[] \
 	-Dva-libs-path=/usr/lib/dri \
 	-Dvalgrind=disabled \
 	-Dvdpau-libs-path=/usr/lib/vdpau \
 	-Dvmware-mks-stats=false \
+	-Dvulkan-beta=false \
 	-Dvulkan-drivers=$(subst $(space),$(comma),$(MESALIB_VULKAN_DRIVERS-y)) \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-layers=$(subst $(space),$(comma),$(MESALIB_VULKAN_LAYERS-y)) \
@@ -245,10 +235,6 @@ $(STATEDIR)/mesalib.targetinstall:
 	@$(call install_fixup, mesalib,SECTION,base)
 	@$(call install_fixup, mesalib,AUTHOR,"Robert Schwebel <r.schwebel@pengutronix.de>")
 	@$(call install_fixup, mesalib,DESCRIPTION,missing)
-
-	@$(foreach lib, $(MESALIB_DRI_LIBS-y), \
-		$(call install_copy, mesalib, 0, 0, 0644, -, \
-		/usr/lib/dri/$(lib)_dri.so)$(ptx/nl))
 
 ifneq ($(strip $(MESALIB_DRI_GALLIUM_LIBS-y)),)
 	@$(call install_copy, mesalib, 0, 0, 0644, \
