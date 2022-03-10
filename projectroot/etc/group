@@ -35,4 +35,5 @@ chrony:x:211:
 rauc-hawkbit:x:212:
 redis:x:213:
 sgx:x:214:
+seat:x:215:
 nogroup:x:65534:

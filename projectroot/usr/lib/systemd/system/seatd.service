@@ -5,4 +5,4 @@ Description=Seat management daemon
 Restart=always
 # Do not require a VT
 Environment=SEATD_VTBOUND=0
-ExecStart=/usr/bin/seatd
+ExecStart=/usr/bin/seatd -g seat
