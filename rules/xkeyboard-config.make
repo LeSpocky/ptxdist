@@ -14,10 +14,10 @@ PACKAGES-$(PTXCONF_XKEYBOARD_CONFIG) += xkeyboard-config
 #
 # Paths and names
 #
-XKEYBOARD_CONFIG_VERSION	:= 2.33
-XKEYBOARD_CONFIG_MD5		:= 49282f120fd22c6c860004931c03c595
+XKEYBOARD_CONFIG_VERSION	:= 2.35.1
+XKEYBOARD_CONFIG_MD5		:= cea34f56cdf13c4a82b264bc513fe834
 XKEYBOARD_CONFIG		:= xkeyboard-config-$(XKEYBOARD_CONFIG_VERSION)
-XKEYBOARD_CONFIG_SUFFIX		:= tar.bz2
+XKEYBOARD_CONFIG_SUFFIX		:= tar.xz
 XKEYBOARD_CONFIG_URL		:= $(call ptx/mirror, XORG, individual/data/xkeyboard-config/$(XKEYBOARD_CONFIG).$(XKEYBOARD_CONFIG_SUFFIX))
 XKEYBOARD_CONFIG_SOURCE		:= $(SRCDIR)/$(XKEYBOARD_CONFIG).$(XKEYBOARD_CONFIG_SUFFIX)
 XKEYBOARD_CONFIG_DIR		:= $(BUILDDIR)/$(XKEYBOARD_CONFIG)
@@ -32,15 +32,11 @@ XKEYBOARD_CONFIG_LICENSE_FILES	:= \
 #
 # autoconf
 #
-XKEYBOARD_CONFIG_CONF_TOOL	:= autoconf
+XKEYBOARD_CONFIG_CONF_TOOL	:= meson
 XKEYBOARD_CONFIG_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--enable-compat-rules \
-	--disable-runtime-deps \
-	--disable-nls \
-	--disable-rpath \
-	--without-xsltproc \
-	--with-xkb-base=$(XORG_DATADIR)/X11/xkb \
+	$(CROSS_MESON_USR) \
+	-Dcompat-rules=true \
+	-Dxkb-base=$(XORG_DATADIR)/X11/xkb
 
 # ----------------------------------------------------------------------------
 # Target-Install
