@@ -4,8 +4,5 @@ config XKEYBOARD_CONFIG
 	tristate
 	prompt "xkeyboard-config"
 	select HOST_MESON
-	select HOST_SYSTEM_PYTHON3
-	select HOST_INTLTOOL
-	select HOST_GETTEXT
 	help
 	  FIXME
