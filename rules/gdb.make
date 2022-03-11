@@ -37,10 +37,21 @@ GDB_WRAPPER_BLACKLIST := \
 	TARGET_HARDEN_PIE
 endif
 
-GDB_ENV := \
+GDB_CONF_OPT_HOST	:= \
+	--disable-tui \
+	--disable-rpath \
+	--without-expat
+
+ifneq ($(filter 1%,$(GDBSERVER_VERSION)),)
+# version >= 10
+GDB_CONF_OPT_HOST	+= \
+	--without-xxhash
+endif
+
+GDB_CONF_ENV		:= \
 	$(CROSS_ENV) \
 	$(CROSS_ENV_FLAGS_FOR_TARGET) \
-	host_configargs='--disable-tui --disable-rpath --without-expat'
+	host_configargs='$(GDB_CONF_OPT_HOST)'
 
 ifndef PTXCONF_GDB_SHARED
 GDB_MAKEVARS := LDFLAGS=-static
@@ -49,12 +60,11 @@ endif
 #
 # autoconf
 #
-GDB_AUTOCONF := \
+GDB_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
 	--target=$(PTXCONF_GNU_TARGET) \
 	--with-build-sysroot=$(SYSROOT) \
 	--disable-werror
-
 
 GDB_BUILD_OOT := YES
 
