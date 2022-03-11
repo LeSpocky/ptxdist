@@ -184,6 +184,17 @@ ptxd_make_world_env_init() {
 }
 export -f ptxd_make_world_env_init
 
+ptxd_make_layer_init() {
+    # PTXDIST_LAYERS gets lost in 'make' so redefine it here
+    local orig_IFS="${IFS}"
+    IFS=:
+    PTXDIST_LAYERS=( ${PTXDIST_PATH_LAYERS} )
+    IFS="${orig_IFS}"
+    export PTXDIST_LAYERS
+}
+export -f ptxd_make_layer_init
+
+
 #
 # ptxd_make_world_init()
 #
@@ -198,14 +209,8 @@ export -f ptxd_make_world_env_init
 #
 ptxd_make_world_init() {
     ptxd_make_world_env_init &&
-    ptxd_make_world_init_sanity_check || return
-
-    # PTXDIST_LAYERS gets lost in 'make' so redefine it here
-    local orig_IFS="${IFS}"
-    IFS=:
-    PTXDIST_LAYERS=( ${PTXDIST_PATH_LAYERS} )
-    IFS="${orig_IFS}"
-    export PTXDIST_LAYERS
+    ptxd_make_world_init_sanity_check &&
+    ptxd_make_layer_init || return
 
     # make sure any make calls appear to be the toplevel make
     unset MAKELEVEL
