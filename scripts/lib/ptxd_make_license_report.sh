@@ -263,7 +263,6 @@ ptxd_make_license_compliance_footer() {
 export -f ptxd_make_license_compliance_footer
 
 ptxd_make_license_compliance_pdf() {
-    local -a ptxd_reply
     local ptx_license_target_tex pkg_lic pkg
     local -A ptxd_package_license_association
 
@@ -295,8 +294,7 @@ ptxd_make_license_compliance_pdf() {
 export -f ptxd_make_license_compliance_pdf
 
 ptxd_make_license_compliance_yaml() {
-    local -a ptxd_reply
-    local ptx_license_target_tex pkg_lic pkg
+    local pkg_lic pkg
     local -A ptxd_package_license_association
 
     # regenerate license info and sort out unused packages
