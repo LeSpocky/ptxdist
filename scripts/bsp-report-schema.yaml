@@ -1,0 +1,224 @@
+type: object
+required:
+- ptxdist
+- bsp
+- packages
+- images
+additionalProperties: false
+properties:
+  ptxdist:
+    type: object
+    required:
+    - version
+    - path
+    additionalProperties: false
+    properties:
+      version:
+        $ref: '#/$defs/version'
+      path:
+        $ref: '#/$defs/path'
+  bsp:
+    type: object
+    required:
+    - project-version
+    - platform-version
+    - ptxconfig
+    - platformconfig
+    - toolchain
+    - layers
+    additionalProperties: false
+    properties:
+      project-version:
+        $ref: '#/$defs/version'
+      platform-version:
+        $ref: '#/$defs/version'
+      ptxconfig:
+        $ref: '#/$defs/path'
+      platformconfig:
+        $ref: '#/$defs/path'
+      collectionconfig:
+        $ref: '#/$defs/path'
+      toolchain:
+        $ref: '#/$defs/path'
+      layers:
+        type: array
+        items:
+          $ref: '#/$defs/path'
+  packages:
+    type: object
+    additionalProperties: false
+    patternProperties:
+      '^[a-z0-9_-]+$':
+        allOf:
+        - $ref: '#/$defs/pkg'
+        - required:
+          - srchash
+          dependentRequired:
+            patches:
+            - source
+            source:
+            - md5
+            - sources
+            - md5s
+            - url
+            url:
+            - srcdir
+            - builddir
+        - if:
+            properties:
+              license-section:
+                const: 'ignore'
+          then: {}
+          else:
+            required:
+            - version
+  images:
+    type: object
+    additionalProperties: false
+    patternProperties:
+      '^[a-z0-9_-]+$':
+        allOf:
+        - $ref: '#/$defs/pkg'
+        - required:
+          - image
+$defs:
+  pkgname:
+    type: string
+    pattern: '^[a-z0-9_-]+$'
+  path:
+    type: string
+    pattern: '^/[^\s]+$'
+  md5:
+    type: string
+    pattern: '^[a-f0-9]{32}$'
+  md5s:
+    type: string
+    pattern: '^([a-f0-9]{32}( [a-f0-9]{32})*|none)$'
+  url:
+    type: string
+    pattern: '^(file|ftp|git|git+file|https?|lndir|ssh|svn)://[^\s]+$'
+  version:
+    type: string
+    pattern: '^[^\s]+'
+  pkg:
+    type: object
+    required:
+    - name
+    - rulefile
+    - menufile
+    - cfghash
+    - license-section
+    - licenses
+    additionalProperties: false
+    properties:
+      name:
+        $ref: '#/$defs/pkgname'
+      rulefile:
+        $ref: '#/$defs/path'
+      extra-rulefiles:
+        type: array
+        items:
+          $ref: '#/$defs/path'
+      menufile:
+        $ref: '#/$defs/path'
+      builddeps:
+        type: array
+        items:
+          $ref: '#/$defs/pkgname'
+      rundeps:
+        type: array
+        items:
+          $ref: '#/$defs/pkgname'
+      config:
+        type: string
+      version:
+        $ref: '#/$defs/version'
+      url:
+        type: array
+        items:
+          $ref: '#/$defs/url'
+      md5:
+        $ref: '#/$defs/md5s'
+      source:
+        $ref: '#/$defs/path'
+      md5s:
+        type: array
+        items:
+          $ref: '#/$defs/md5s'
+      sources:
+        type: array
+        items:
+          $ref: '#/$defs/path'
+      patches:
+        $ref: '#/$defs/path'
+      series:
+        $ref: '#/$defs/path'
+      srcdir:
+        $ref: '#/$defs/path'
+      builddir:
+        $ref: '#/$defs/path'
+      pkgdir:
+        $ref: '#/$defs/path'
+      cfghash:
+        $ref: '#/$defs/md5'
+      srchash:
+        $ref: '#/$defs/md5'
+      devpkg:
+        $ref: '#/$defs/path'
+      license-section:
+        enum:
+        - deprecated
+        - ignore
+        - misc
+        - mixed
+        - osi-conform
+        - other
+        - proprietary
+        - public_domain
+        - unknown
+      licenses:
+        type: string
+      license-flags:
+        type: array
+        items:
+          enum:
+          - nosource
+          - nopatches
+          - attribution
+          - choice
+      license-files:
+        anyOf:
+          - type: object
+            additionalProperties: false
+            patternProperties:
+              '^[^\s]+$':
+                additionalProperties: false
+                required:
+                - file
+                - guessed
+                - md5
+                properties:
+                  guessed:
+                    type: boolean
+                  file:
+                    $ref: '#/$defs/path'
+                  md5:
+                    $ref: '#/$defs/md5'
+          - type: array
+            items:
+              type: string
+              pattern: '^file://[^;]*(;encoding=[^;]*|;startline=[0-9]+|;endline=[0-9]+|;md5=[a-f0-9]{32})*$'
+      ipkgs:
+        type: array
+        items:
+          $ref: '#/$defs/path'
+      image:
+        $ref: '#/$defs/path'
+      pkgs:
+        type: array
+        items:
+          $ref: '#/$defs/pkgname'
+      files:
+        type: array
+        items:
+          $ref: '#/$defs/path'

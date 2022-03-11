@@ -771,6 +771,12 @@ Misc:
   				with cgdb as frontend
   bsp-info			print some basic information about the BSP
   package-info <package>	print some basic information about the package
+  fast-bsp-report		generate a yaml file that describes the BSP and
+				all packages. Less data but works without
+				building packages.
+  full-bsp-report		generate a yaml file that describes the BSP and
+				all packages. More data but will build all
+				packages if necessary.
   print <var>			print the contents of a variable, in the way
 				it is known by "make"
   printnext <var>		assumes that the contents of <var> is another
@@ -1792,6 +1798,11 @@ EOF
 			fi
 			check_premake &&
 			ptxd_make_log export_src EXPORTDIR="${1}"
+			exit
+			;;
+		fast-bsp-report|full-bsp-report)
+			check_premake_compiler &&
+			ptxd_make_log "${cmd}"
 			exit
 			;;
 		gdb|cgdb)

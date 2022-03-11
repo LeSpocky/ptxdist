@@ -229,6 +229,32 @@ Misc Actions
   are shown as well, so this can be used to verify that the correct version
   of these files are used.
 
+``fast-bsp-report``
+  create a yaml report that describes the BSP and all packages. The data is
+  similar to what ``bsp-info`` and ``package-info`` provide but combined
+  into a machine readable format.
+
+  To run this command, the BSP must be configured (e.g. the toolchain must
+  be available), but it works without building packages.
+
+  The expected format of the yaml file is described in schema
+  ``scripts/bsp-report-schema.yaml`` in the PTXdist source tree. There is
+  also a simple helper script ``scripts/validate-bsp-report-schema.py``
+  that can be used to validate the yaml file.
+
+  The result is found in ``<platform-dir>/release/fast-bsp-report.yaml``.
+
+``full-bsp-report``
+  create a yaml report much like ``fast-bsp-report``. It contains some
+  additional data, such as the list of ipkgs created by a package. The
+  license information is validated and expanded, so this can be used to
+  create a custom license report.
+
+  When the report is generated all packages will be built unless they are
+  already built.
+
+  The result is found in ``<platform-dir>/release/full-bsp-report.yaml``.
+
 .. _command_print:
 
 ``print <var>``
