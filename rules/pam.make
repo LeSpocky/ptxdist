@@ -30,6 +30,10 @@ PAM_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
+PAM_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_lib_nsl_yp_match=no
+
 #
 # autoconf
 #
