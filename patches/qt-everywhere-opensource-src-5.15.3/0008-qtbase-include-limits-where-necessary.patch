@@ -4,14 +4,16 @@ Subject: [PATCH] qtbase: include limits where necessary
 
 Upstream fixes:
 https://code.qt.io/cgit/qt/qtbase.git/commit/?id=813a928c7c3cf986
+https://code.qt.io/cgit/qt/qtbase.git/commit/?id=2b2b3155d9f6ba1e
 
 Fixes build with GCC11, which changed internal includes so that
 limits isn't implicitly pulled in some cases.
 
 Signed-off-by: Lucas Stach <l.stach@pengutronix.de>
 ---
- qtbase/src/corelib/text/qbytearraymatcher.h | 2 ++
- 1 file changed, 2 insertions(+)
+ qtbase/src/corelib/text/qbytearraymatcher.h     | 2 ++
+ qtbase/src/corelib/tools/qoffsetstringarray_p.h | 1 +
+ 2 files changed, 3 insertions(+)
 
 diff --git a/qtbase/src/corelib/text/qbytearraymatcher.h b/qtbase/src/corelib/text/qbytearraymatcher.h
 index 0eedfc1d2035..f5f9bef7b87c 100644
@@ -25,4 +27,16 @@ index 0eedfc1d2035..f5f9bef7b87c 100644
 +
  QT_BEGIN_NAMESPACE
  
+ 
+diff --git a/qtbase/src/corelib/tools/qoffsetstringarray_p.h b/qtbase/src/corelib/tools/qoffsetstringarray_p.h
+index 4dd9e9603bc1..e26a57ff4320 100644
+--- a/qtbase/src/corelib/tools/qoffsetstringarray_p.h
++++ b/qtbase/src/corelib/tools/qoffsetstringarray_p.h
+@@ -55,6 +55,7 @@
+ 
+ #include <tuple>
+ #include <array>
++#include <limits>
+ 
+ QT_BEGIN_NAMESPACE
  
