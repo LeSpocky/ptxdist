@@ -15,6 +15,8 @@ menuconfig IMAGE_ROOT_CPIO
 	  When including a cpio archive inside the kernel blob,
 	  the kernel build system can manage compressing the cpio
 	  archive itself.
+	  Beware, not all compressors are inherently deterministic
+	  when using them in a multithreaded fashion.
 
 if IMAGE_ROOT_CPIO
 
@@ -32,42 +34,57 @@ config IMAGE_ROOT_CPIO_COMPRESSION_MODE_GZ
 	bool
 	prompt "gz"
 	help
-	  Compress root.cpio with gz
+	  Compress root.cpio with gz.
+	  Uses default compression level.
 
 config IMAGE_ROOT_CPIO_COMPRESSION_MODE_ZSTD
 	bool
 	prompt "zstd"
 	help
-	  Compress root.cpio with zstd
+	  Compress root.cpio with zstd.
+	  Uses multithreaded, compression level 19.
 
 config IMAGE_ROOT_CPIO_COMPRESSION_MODE_XZ
 	bool
 	prompt "xz"
 	help
-	  Compress root.cpio with xz
+	  Compress root.cpio with xz.
+	  Uses default compression level and
+	  crc32 checksum for kernel cpio compatibility.
 
 config IMAGE_ROOT_CPIO_COMPRESSION_MODE_LZOP
 	bool
 	prompt "lzop"
 	help
-	  Compress root.cpio with lzop
+	  Compress root.cpio with lzop.
+	  Uses default compression level.
 
 endchoice
 
+config IMAGE_ROOT_CPIO_CUSTOM_COMPRESSION
+	bool
+	prompt "customize compression command"
+	help
+	  This allows specifying additional arguments to the compressor
+	  command. Note that the command itself should not be changed.
+	  Otherwise ptxdist cannot ensure that the tool is available.
+
 config IMAGE_ROOT_CPIO_COMPRESSION_SUFFIX
 	string
-	default ""		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_NONE
-	default ".gz"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_GZ
-	default ".zst"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_ZSTD
-	default ".xz"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_XZ
-	default ".lzo"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_LZOP
+	prompt "compression suffix"	if IMAGE_ROOT_CPIO_CUSTOM_COMPRESSION
+	default ""			if IMAGE_ROOT_CPIO_COMPRESSION_MODE_NONE
+	default ".gz"			if IMAGE_ROOT_CPIO_COMPRESSION_MODE_GZ
+	default ".zst"			if IMAGE_ROOT_CPIO_COMPRESSION_MODE_ZSTD
+	default ".xz"			if IMAGE_ROOT_CPIO_COMPRESSION_MODE_XZ
+	default ".lzo"			if IMAGE_ROOT_CPIO_COMPRESSION_MODE_LZOP
 
 config IMAGE_ROOT_CPIO_COMPRESSION_UTIL
 	string
-	default ""		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_NONE
-	default "gzip"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_GZ
-	default "zstd"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_ZSTD
-	default "xz"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_XZ
-	default "lzop"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_LZOP
+	prompt "compression tool"	if IMAGE_ROOT_CPIO_CUSTOM_COMPRESSION
+	default ""			if IMAGE_ROOT_CPIO_COMPRESSION_MODE_NONE
+	default "gzip"			if IMAGE_ROOT_CPIO_COMPRESSION_MODE_GZ
+	default "zstd -T0 -19"		if IMAGE_ROOT_CPIO_COMPRESSION_MODE_ZSTD
+	default "xz --check=crc32"	if IMAGE_ROOT_CPIO_COMPRESSION_MODE_XZ
+	default "lzop"			if IMAGE_ROOT_CPIO_COMPRESSION_MODE_LZOP
 
 endif
