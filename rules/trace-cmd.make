@@ -33,15 +33,8 @@ TRACE_CMD_MAKE_ENV	:= \
 	$(CROSS_ENV) \
 	CROSS_COMPILE=$(COMPILER_PREFIX) \
 	NO_PYTHON=1 \
-	prefix=/usr
-
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-TRACE_CMD_INSTALL_OPT := \
-	LP64=0 \
-	install
+	prefix=/usr \
+	libdir_relative=lib
 
 # ----------------------------------------------------------------------------
 # Target-Install
