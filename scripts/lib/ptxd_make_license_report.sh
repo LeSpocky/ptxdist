@@ -279,7 +279,7 @@ ptxd_make_license_compliance_pdf() {
 	ptxd_make_license_compliance_header
 	for pkg in ${@}; do
 		pkg_lic="${ptxd_package_license_association[${pkg}]}"
-		if [ -z "${pkg_lic}" -o "${pkg_lic}" = "proprietary" ]; then
+		if [ -z "${pkg_lic}" -o "${pkg_lic}" = "proprietary" -o "${pkg_lic}" = "ignore" ]; then
 			continue
 		fi
 		pkg_lic="${pkg_lic}/${pkg}"

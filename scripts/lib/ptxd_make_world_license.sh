@@ -491,11 +491,6 @@ ptxd_make_world_license() {
 
     rm -rf "${pkg_license_dir}" || return
 
-    if [ "${pkg_section}" == "ignore" ]; then
-	echo "Package to be ignored: metapackage for example"
-	return 0
-    fi
-
     mkdir -p ${pkg_license_dir} &&
     echo ${pkg_section}/${pkg_label} >> "${ptx_report_dir}/package.list" &&
 
@@ -535,9 +530,11 @@ changed: ${md5} -> $(md5sum "${lic}" | sed 's/ .*//')
     done &&
     echo &&
 
-    ptxd_make_world_license_write | \
-	sed -e 's/%/\\%/g' > "${pkg_license_dir}/license-report.tex" &&
-    check_pipe_status &&
+    if [ "${pkg_section}" != "ignore" ]; then
+	ptxd_make_world_license_write | \
+	    sed -e 's/%/\\%/g' > "${pkg_license_dir}/license-report.tex" &&
+	check_pipe_status
+    fi &&
 
     ptxd_make_world_license_yaml > "${pkg_license_dir}/license-report.yaml" &&
 
