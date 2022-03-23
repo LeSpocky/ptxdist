@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=security
+## SECTION=security
 
 config OPTEE_TEST
 	tristate
@@ -12,6 +10,3 @@ config OPTEE_TEST
 	  The optee_test git contains the source code for the TEE sanity
 	  testsuite in Linux using the ARM(R) TrustZone(R) technology. It is
 	  distributed under the GPLv2 and BSD 2-clause open-source licenses.
-
-	  STAGING: remove in ptxdist-2021.05.0
-	  Old version that need to be updated. Fails to build with gcc >= 9.x.
