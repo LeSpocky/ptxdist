@@ -60,6 +60,18 @@ ifdef PTXCONF_HOST_SYSTEM_PYTHON3_SIX
 		ptxd_bailout "Python six module not found! \
 	Please install python3-six (debian)";
 endif
+ifdef PTXCONF_HOST_SYSTEM_PYTHON3_PYELFTOOLS
+	@echo "Checking for Python Pyelftools ..."
+	@$(SYSTEMPYTHON3) -c 'import elftools' 2>/dev/null || \
+		ptxd_bailout "Python elftools module not found! \
+	Please install python3-pyelftools (debian)";
+endif
+ifdef PTXCONF_HOST_SYSTEM_PYTHON3_CRYPTOGRAPHY
+	@echo "Checking for Python Cryptography ..."
+	@$(SYSTEMPYTHON3) -c 'import cryptography' 2>/dev/null || \
+		ptxd_bailout "Python cryptography module not found! \
+	Please install python3-cryptography (debian)";
+endif
 	@$(call touch)
 
 # vim: syntax=make
