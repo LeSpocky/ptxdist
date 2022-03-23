@@ -3,8 +3,9 @@
 menuconfig OPTEE
 	prompt "OP-TEE                        "
 	bool
-	select HOST_SYSTEM_PYTHON
-	select HOST_SYSTEM_PYTHON_CRYPTO
+	select HOST_SYSTEM_PYTHON3
+	select HOST_SYSTEM_PYTHON3_PYELFTOOLS
+	select HOST_SYSTEM_PYTHON3_CRYPTOGRAPHY
 	depends on ARCH_ARM || ARCH_ARM64
 	depends on !ARCH_ARM64 || BROKEN
 	help
