@@ -81,7 +81,6 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--without-gnutls \
 	--without-mbedtls \
 	--without-wolfssl \
-	--without-mesalink \
 	--without-bearssl \
 	--without-rustls \
 	--without-nss \

@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 7.81.0
-LIBCURL_MD5	:= 41954fa09f879fccb57d88be23fe8606
+LIBCURL_VERSION	:= 7.82.0
+LIBCURL_MD5	:= ce05eb61ef7c398feb7dbe23122d0bd9
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.haxx.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_SOURCE	:= $(SRCDIR)/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_DIR	:= $(BUILDDIR)/$(LIBCURL)
 LIBCURL_LICENSE	:= curl
-LIBCURL_LICENSE_FILES := file://COPYING;md5=425f6fdc767cc067518eef9bbdf4ab7b
+LIBCURL_LICENSE_FILES := file://COPYING;md5=190c514872597083303371684954f238
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -96,7 +96,6 @@ LIBCURL_CONF_OPT	:= \
 	--with-gnutls=$(call ptx/ifdef, PTXCONF_LIBCURL_SSL_GNUTLS,$(SYSROOT)/usr,no) \
 	--without-mbedtls \
 	--without-wolfssl \
-	--without-mesalink \
 	--without-bearssl \
 	--without-rustls \
 	--without-nss \
