@@ -23,6 +23,7 @@ LIBCURL_URL	:= https://curl.haxx.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_SOURCE	:= $(SRCDIR)/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_DIR	:= $(BUILDDIR)/$(LIBCURL)
 LIBCURL_LICENSE	:= curl
+LIBCURL_LICENSE_FILES := file://COPYING;md5=425f6fdc767cc067518eef9bbdf4ab7b
 
 # ----------------------------------------------------------------------------
 # Prepare
