@@ -22,7 +22,7 @@ LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.haxx.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_SOURCE	:= $(SRCDIR)/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_DIR	:= $(BUILDDIR)/$(LIBCURL)
-LIBCURL_LICENSE	:= MIT
+LIBCURL_LICENSE	:= curl
 
 # ----------------------------------------------------------------------------
 # Prepare
