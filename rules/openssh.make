@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_OPENSSH) += openssh
 #
 # Paths and names
 #
-OPENSSH_VERSION	:= 8.8p1
-OPENSSH_MD5	:= 8ce5f390958baeeab635aafd0ef41453
+OPENSSH_VERSION	:= 8.9p1
+OPENSSH_MD5	:= f33910174f0af52491277211e2b105bb
 OPENSSH		:= openssh-$(OPENSSH_VERSION)
 OPENSSH_SUFFIX	:= tar.gz
 OPENSSH_URL	:= \
@@ -25,8 +25,8 @@ OPENSSH_URL	:= \
 
 OPENSSH_SOURCE	:= $(SRCDIR)/$(OPENSSH).$(OPENSSH_SUFFIX)
 OPENSSH_DIR	:= $(BUILDDIR)/$(OPENSSH)
-OPENSSH_LICENSE	:= BSD AND BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause AND MIT AND Beerware AND ISC
-OPENSSH_LICENSE_FILES := file://LICENCE;md5=d9d2753bdef9f19466dc7bc959114b11
+OPENSSH_LICENSE	:= BSD AND BSD-2-Clause AND BSD-3-Clause AND MIT AND Beerware AND ISC
+OPENSSH_LICENSE_FILES := file://LICENCE;md5=8baf365614c9bdd63705f298c9afbfb9
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -78,8 +78,7 @@ OPENSSH_CONF_OPT	:= \
 	--with-privsep-user=sshd \
 	--with-sandbox=$(OPENSSH_SANDBOX-y) \
 	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
-	--with-privsep-path=/var/run/sshd \
-	--without-md5-passwords
+	--with-privsep-path=/var/run/sshd
 
 # ----------------------------------------------------------------------------
 # Target-Install
