@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBGUDEV) += libgudev
 #
 # Paths and names
 #
-LIBGUDEV_VERSION	:= 236
-LIBGUDEV_MD5		:= ad5a63bd88fe97189fec7b7afb2d4150
+LIBGUDEV_VERSION	:= 237
+LIBGUDEV_MD5		:= a7783083cd74957d3a727ddc4737ee84
 LIBGUDEV		:= libgudev-$(LIBGUDEV_VERSION)
 LIBGUDEV_SUFFIX		:= tar.xz
 LIBGUDEV_URL		:= $(call ptx/mirror, GNOME, libgudev/$(LIBGUDEV_VERSION)/$(LIBGUDEV).$(LIBGUDEV_SUFFIX))
@@ -23,7 +23,7 @@ LIBGUDEV_SOURCE		:= $(SRCDIR)/$(LIBGUDEV).$(LIBGUDEV_SUFFIX)
 LIBGUDEV_DIR		:= $(BUILDDIR)/$(LIBGUDEV)
 LIBGUDEV_LICENSE	:= LGPL-2.1-or-later
 LIBGUDEV_LICENSE_FILES	:= \
-	file://gudev/gudevclient.c;startline=3;endline=17;md5=9b5faada7cee1391bdd7c4af9a0acd34 \
+	file://gudev/gudevclient.c;startline=3;endline=17;md5=829bbbdef46b2ae9fc89115aea26f119 \
 	file://COPYING;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
