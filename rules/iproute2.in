@@ -65,14 +65,6 @@ config IPROUTE2_IP
 comment "busybox' ip is selected"
 	depends on BUSYBOX_IP
 
-config IPROUTE2_IFCFG
-	bool
-	prompt "ifcfg"
-	help
-	  ifcfg is a script wrapping ip, written as replacement for
-	  ifconfig.
-	  Needs arping and rdisk programs from the iputils package.
-
 config IPROUTE2_IFSTAT
 	bool
 	prompt "ifstat"
@@ -94,12 +86,6 @@ config IPROUTE2_NSTAT
 	help
 	  handy utility to read counters /proc/net/netstat and snmp
 
-config IPROUTE2_ROUTEF
-	bool
-	prompt "routef"
-	help
-	  Component of ip route for flushing the routing tables
-
 config IPROUTE2_ROUTEL
 	bool
 	prompt "routel"
@@ -117,12 +103,6 @@ config IPROUTE2_RTMON
 	prompt "rtmon"
 	help
 	  Route monitoring
-
-config IPROUTE2_RTPR
-	bool
-	prompt "rtpr"
-	help
-	  A tool to make the output of "ip -o" readable
 
 config IPROUTE2_RTSTAT
 	bool
