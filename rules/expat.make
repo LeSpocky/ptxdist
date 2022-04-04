@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_EXPAT) += expat
 #
 # Paths and names
 #
-EXPAT_VERSION	:= 2.4.7
-EXPAT_MD5	:= cd3d5825dbd57519232cfcadd14a5725
+EXPAT_VERSION	:= 2.4.8
+EXPAT_MD5	:= 0aa62f74c097c96ecbe62e656f352c3b
 EXPAT		:= expat-$(EXPAT_VERSION)
 EXPAT_SUFFIX	:= tar.bz2
 EXPAT_URL	:= $(call ptx/mirror, SF, expat/$(EXPAT).$(EXPAT_SUFFIX))
