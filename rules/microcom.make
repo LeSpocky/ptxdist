@@ -21,7 +21,7 @@ MICROCOM_SUFFIX		:= tar.xz
 MICROCOM_URL		:= https://github.com/pengutronix/microcom/releases/download/v$(MICROCOM_VERSION)/microcom-$(MICROCOM_VERSION).$(MICROCOM_SUFFIX)
 MICROCOM_SOURCE		:= $(SRCDIR)/$(MICROCOM).$(MICROCOM_SUFFIX)
 MICROCOM_DIR		:= $(BUILDDIR)/$(MICROCOM)
-MICROCOM_LICENSE	:= GPL-2.0-only
+MICROCOM_LICENSE	:= GPL-2.0-or-later
 
 # ----------------------------------------------------------------------------
 # Prepare
