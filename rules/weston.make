@@ -30,7 +30,7 @@ WESTON_LICENSE	:= MIT
 # ----------------------------------------------------------------------------
 
 WESTON_SIMPLE_CLIENTS-y := damage im shm touch
-WESTON_SIMPLE_CLIENTS-$(PTXCONF_WESTON_GL) += egl dmabuf-egl
+WESTON_SIMPLE_CLIENTS-$(PTXCONF_WESTON_GL) += egl dmabuf-egl dmabuf-feedback
 
 WESTON_CONF_TOOL	:= meson
 WESTON_CONF_OPT		:= \
@@ -113,6 +113,7 @@ ifdef PTXCONF_WESTON_SIMPLE_CLIENTS
 ifdef PTXCONF_WESTON_GL
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-egl)
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-dmabuf-egl)
+	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-dmabuf-feedback)
 endif
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-shm)
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-touch)
