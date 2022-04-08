@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.47
-PIPEWIRE_MD5		:= 80cd7e0e9a1711594dd5caa418a5d85f
+PIPEWIRE_VERSION	:= 0.3.49
+PIPEWIRE_MD5		:= ec08ce08b9d632ce3d65c2204f524ea8
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
