@@ -8,16 +8,33 @@
 
 ptxd_make_bsp_report_header() {
     local layer
+    local indent="  "
+
     do_echo() {
 	if [ -n "${2}" ]; then
-	    echo "  ${1} '${2}'"
+	    echo "${indent}${1} '${2}'"
 	fi
     }
+    do_list() {
+	if [ -n "${2}" ]; then
+	    echo "${indent}${1}"
+	    awk "BEGIN { RS=\" \" } { if (\$1) print \"${indent}- '\" \$1 \"'\" }" <<<"${2}"
+	fi
+    }
+    do_path() {
+	local orig_IFS="${IFS}"
+	# only the paths added by PTXdist
+	local path="${2%:${PTXDIST_TOPDIR}/bin:*}:${PTXDIST_TOPDIR}/bin"
+	echo "${indent}${1}"
+	awk "BEGIN { RS=\":\" } { if (\$1) print \"${indent}- '\" \$1 \"'\" }" <<<"${path}"
+    }
+
     echo "ptxdist:"
     do_echo "version:" "${PTXDIST_VERSION_FULL}"
     do_echo "path:" "${PTXDIST_TOPDIR}"
     echo "bsp:"
     do_echo "project-version:" "$(ptxd_get_ptxconf PTXCONF_PROJECT_VERSION)"
+    do_echo "platform:" "$(ptxd_get_ptxconf PTXCONF_PLATFORM)"
     do_echo "platform-version:" "$(ptxd_get_ptxconf PTXCONF_PLATFORM_VERSION)"
     do_echo "ptxconfig:" "${PTXDIST_PTXCONFIG}"
     do_echo "platformconfig:" "${PTXDIST_PLATFORMCONFIG}"
@@ -27,6 +44,21 @@ ptxd_make_bsp_report_header() {
     for layer in "${PTXDIST_LAYERS[@]}"; do
 	echo "  - '${layer}'"
     done
+
+    echo "develop:"
+    indent="    "
+    echo "  host:"
+    do_path "path:" "${ptx_path_host}"
+    do_echo "toolchain-prefix:" "${PTXDIST_PATH_SYSROOT_HOST}/lib/wrapper"
+    do_echo "cmake-toolchain:" "${PTXDIST_CMAKE_TOOLCHAIN_HOST}"
+    echo "  target:"
+    do_path "path:" "${ptx_path_target}"
+    do_echo "toolchain-prefix:" "${PTXDIST_PATH_SYSROOT_HOST}/lib/wrapper"
+    do_echo "gnu-target:" "$(ptxd_get_ptxconf PTXCONF_GNU_TARGET)"
+    do_echo "compiler-prefix:" "$(ptxd_get_ptxconf PTXCONF_COMPILER_PREFIX)"
+    do_echo "cmake-toolchain:" "${PTXDIST_CMAKE_TOOLCHAIN_TARGET}"
+    do_echo "meson-cross-file:" "${PTXDIST_MESON_CROSS_FILE}"
+    do_echo "nfsroot:" "${ptx_nfsroot}"
 }
 export -f ptxd_make_bsp_report_header
 

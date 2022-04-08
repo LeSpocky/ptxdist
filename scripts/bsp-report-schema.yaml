@@ -2,6 +2,7 @@ type: object
 required:
 - ptxdist
 - bsp
+- develop
 - packages
 - images
 additionalProperties: false
@@ -30,6 +31,8 @@ properties:
     properties:
       project-version:
         $ref: '#/$defs/version'
+      platform:
+        type: string
       platform-version:
         $ref: '#/$defs/version'
       ptxconfig:
@@ -44,6 +47,57 @@ properties:
         type: array
         items:
           $ref: '#/$defs/path'
+  develop:
+    type: object
+    required:
+    - host
+    - target
+    additionalProperties: false
+    properties:
+      host:
+        type: object
+        required:
+        - path
+        - toolchain-prefix
+        - cmake-toolchain
+        additionalProperties: false
+        properties:
+          path:
+            type: array
+            items:
+              $ref: '#/$defs/path'
+          toolchain-prefix:
+            $ref: '#/$defs/path'
+          cmake-toolchain:
+            $ref: '#/$defs/path'
+      target:
+        type: object
+        required:
+        - path
+        - toolchain-prefix
+        - gnu-target
+        - compiler-prefix
+        - cmake-toolchain
+        - meson-cross-file
+        - nfsroot
+        additionalProperties: false
+        properties:
+          path:
+            type: array
+            items:
+              $ref: '#/$defs/path'
+          toolchain-prefix:
+            $ref: '#/$defs/path'
+          gnu-target:
+            type: string
+          compiler-prefix:
+            type: string
+          cmake-toolchain:
+            $ref: '#/$defs/path'
+          meson-cross-file:
+            $ref: '#/$defs/path'
+          nfsroot:
+            $ref: '#/$defs/path'
   packages:
     type: object
     additionalProperties: false
