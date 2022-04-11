@@ -28,13 +28,13 @@ HOST_FREETYPE_CONF_TOOL	:= autoconf
 HOST_FREETYPE_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-static \
-	--disable-biarch-config \
 	--enable-freetype-config \
 	--enable-mmap \
 	--without-zlib \
 	--without-bzip2 \
 	--without-png \
 	--without-harfbuzz \
+	--without-brotli \
 	--without-old-mac-fonts \
 	--without-fsspec \
 	--without-fsref \

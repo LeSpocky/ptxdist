@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_FREETYPE) += freetype
 #
 # Paths and names
 #
-FREETYPE_VERSION	:= 2.10.4
-FREETYPE_MD5		:= 0e6c0e9b218be3ba3e26e1d23b1c80dd
+FREETYPE_VERSION	:= 2.11.1
+FREETYPE_MD5		:= 24e79233d607ded439ef36ff1f3ab68f
 FREETYPE		:= freetype-$(FREETYPE_VERSION)
 FREETYPE_SUFFIX		:= tar.xz
 FREETYPE_SOURCE		:= $(SRCDIR)/$(FREETYPE).$(FREETYPE_SUFFIX)
 FREETYPE_DIR		:= $(BUILDDIR)/$(FREETYPE)
 FREETYPE_LICENSE	:= BSD-2-Clause AND FTL AND GPL-2.0-or-later
 FREETYPE_LICENSE_FILES	:= \
-	file://docs/LICENSE.TXT;md5=4af6221506f202774ef74f64932878a1 \
+	file://LICENSE.TXT;md5=a5927784d823d443c6cae55701d01553 \
 	file://docs/GPLv2.TXT;md5=8ef380476f642c20ebf40fecb0add2ec \
 	file://docs/FTL.TXT;md5=9f37b4e6afa3fef9dba8932b16bd3f97 \
 	file://src/bdf/README;startline=98;endline=140;md5=d0c2c2e2e102c393a12869bc34515be2 \
@@ -37,14 +37,12 @@ FREETYPE_URL := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
+# freetype's top level configure is handcrafted
+
 FREETYPE_CONF_TOOL	:= autoconf
 FREETYPE_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-static \
-	--disable-biarch-config \
 	--enable-freetype-config \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-mmap \
@@ -52,6 +50,7 @@ FREETYPE_CONF_OPT	:= \
 	--without-bzip2 \
 	--without-png \
 	--without-harfbuzz \
+	--without-brotli \
 	--without-old-mac-fonts \
 	--without-fsspec \
 	--without-fsref \
