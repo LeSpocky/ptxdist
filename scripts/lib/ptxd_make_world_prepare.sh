@@ -69,6 +69,26 @@ EOF
 }
 export -f ptxd_make_world_prepare_sanity_check
 
+ptxd_make_world_prepare_compile_commands() {
+    local src_cmds dst_cmds
+    if [ ! -e compile_commands.json ]; then
+	return
+    fi
+
+    if [ "${pkg_dir}" = "${pkg_build_dir}" ]; then
+	mv compile_commands.json compile_commands.json.orig
+	src_cmds=compile_commands.json.orig
+    else
+	src_cmds=compile_commands.json
+    fi
+    dst_cmds="${pkg_dir}/compile_commands.json"
+
+    sed \
+	-e "s#\(\"command\": \"[^ ]*\(gcc\|clang\) \)#\1 ${PTXDIST_CROSS_CPPFLAGS} ${pkg_cflags} #" \
+	-e "s#\(\"command\": \"[^ ]*++ \)#\1 ${PTXDIST_CROSS_CPPFLAGS} ${pkg_cxxflags} #" \
+	"${src_cmds}" > "${dst_cmds}"
+}
+export -f ptxd_make_world_prepare_compile_commands
 
 #
 # prepare for cmake based pkgs
@@ -81,7 +101,8 @@ ptxd_make_world_prepare_cmake() {
 	"${pkg_conf_env}" \
 	cmake \
 	"${pkg_conf_opt}" \
-	"${pkg_conf_dir}"
+	"${pkg_conf_dir}" &&
+    ptxd_make_world_prepare_compile_commands
 }
 export -f ptxd_make_world_prepare_cmake
 
@@ -151,7 +172,8 @@ ptxd_make_world_prepare_meson() {
 	"${pkg_conf_env}" \
 	meson \
 	"${pkg_conf_opt}" \
-	"${pkg_conf_dir}"
+	"${pkg_conf_dir}" &&
+    ptxd_make_world_prepare_compile_commands
 }
 export -f ptxd_make_world_prepare_meson
 
