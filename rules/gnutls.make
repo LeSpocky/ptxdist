@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GNUTLS) += gnutls
 #
 # Paths and names
 #
-GNUTLS_VERSION	:= 3.7.3
-GNUTLS_MD5	:= 3723d8fee66c5d45d780ca64c089ed23
+GNUTLS_VERSION	:= 3.7.4
+GNUTLS_MD5	:= 4bce06332c525eae540bb237433d4225
 GNUTLS		:= gnutls-$(GNUTLS_VERSION)
 GNUTLS_SUFFIX	:= tar.xz
 GNUTLS_URL	:= https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/$(GNUTLS).$(GNUTLS_SUFFIX)
@@ -53,6 +53,7 @@ GNUTLS_CONF_OPT		:= \
 	--enable-strict-der-time \
 	--enable-sha1-support \
 	--disable-ssl3-support \
+	--disable-strict-x509 \
 	--enable-ssl2-support \
 	--enable-dtls-srtp-support \
 	--enable-alpn-support \
@@ -70,9 +71,6 @@ GNUTLS_CONF_OPT		:= \
 	--$(call ptx/endis, PTXCONF_GNUTLS_OPENSSL)-openssl-compatibility \
 	--disable-tests \
 	--disable-fuzzer-target \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf \
 	--disable-nls \
 	--disable-rpath \
 	--disable-seccomp-tests \
@@ -90,12 +88,15 @@ GNUTLS_CONF_OPT		:= \
 	--with-nettle-mini \
 	--without-included-libtasn1 \
 	--with-included-unistring \
+	--without-libbrotli \
 	--without-fips140-key \
 	--without-idn \
 	--without-p11-kit \
 	--without-tpm2 \
 	--without-tpm \
 	--without-trousers-lib \
+	--without-zlib \
+	--without-libzstd \
 	--with-default-trust-store-file=/etc/ssl/certs/ca-certificates.crt
 
 # ----------------------------------------------------------------------------
