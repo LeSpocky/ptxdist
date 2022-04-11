@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20220209
-LINUX_FIRMWARE_MD5	:= 304b1b50ddff87ad0a5bc91b556e8e5c
+LINUX_FIRMWARE_VERSION	:= 20220310
+LINUX_FIRMWARE_MD5	:= 77ce7e5531264d8726aeb3be3872f2f9
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -60,12 +60,11 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.ralink_a_mediatek_company_firmware;md5=728f1a85fd53fd67fa8d7afb080bc435 \
 	file://LICENCE.ti-keystone;md5=3a86335d32864b0bef996bee26cc0f2c \
 	file://LICENSE.amd-sev;md5=e750538791a8be0b7249c579edefb035 \
-	file://LICENSE.amdgpu;md5=d357524f5099e2a3db3c1838921c593f \
+	file://LICENSE.amdgpu;md5=44c1166d052226cb2d6c8d7400090203 \
 	file://LICENCE.agere;md5=af0133de6b4a9b2522defd5f188afd31 \
 	file://LICENCE.siano;md5=4556c1bf830067f12ca151ad953ec2a5 \
 	file://LICENCE.broadcom_bcm43xx;md5=3160c14df7228891b868060e1951dfbc \
 	file://LICENCE.rtlwifi_firmware.txt;md5=00d06cfd3eddd5a2698948ead2ad54a5 \
-	file://silabs/LICENCE.wf200;md5=4d1beff00d902c05c9c7e95a5d8eb52d \
 	file://LICENCE.ralink-firmware.txt;md5=ab2c269277c45476fb449673911a2dfd \
 	file://LICENSE.QualcommAtheros_ath10k;md5=cb42b686ee5f5cb890275e4321db60a8 \
 	file://LICENCE.cavium;md5=c37aaffb1ebe5939b2580d073a95daea \
@@ -94,9 +93,11 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.r8a779x_usb3;md5=4c1671656153025d7076105a5da7e498 \
 	file://LICENCE.tda7706-firmware.txt;md5=835997cf5e3c131d0dddd695c7d9103e \
 	file://LICENCE.cypress;md5=48cd9436c763bf873961f9ed7b5c147b \
-	file://LICENSE.nxp_mc_firmware;md5=9dc97e4b279b3858cae8879ae2fe5dd7 \
+	file://wfx/LICENCE.wf200;md5=4d1beff00d902c05c9c7e95a5d8eb52d \
+	file://LICENSE.nxp_mc_firmware;md5=9dc97e4b279b3858cae8879ae2fe5dd7  \
 	file://LICENCE.IntcSST2;md5=9e7d8bea77612d7cc7d9e9b54b623062 \
 	file://LICENCE.ti-tspa;md5=d1a0eb27d0020752040190b9d51ad9be
+
 
 LINUX_FIRMWARE_SELECTED_LICENSES := $(call remove_quotes, $(PTXCONF_LINUX_FIRMWARE_SELECTED_LICENSES))
 ifneq ($(LINUX_FIRMWARE_SELECTED_LICENSES),)
