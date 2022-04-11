@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WIREPLUMBER) += wireplumber
 #
 # Paths and names
 #
-WIREPLUMBER_VERSION		:= 0.4.8
-WIREPLUMBER_MD5			:= a5a405f0f8e973df9d644a20a8c0620b
+WIREPLUMBER_VERSION		:= 0.4.9
+WIREPLUMBER_MD5			:= b77170b2740ef7bc5e943d0878452a6c
 WIREPLUMBER			:= wireplumber-$(WIREPLUMBER_VERSION)
 WIREPLUMBER_SUFFIX		:= tar.bz2
 WIREPLUMBER_URL			:= https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/$(WIREPLUMBER_VERSION)/$(WIREPLUMBER).$(WIREPLUMBER_SUFFIX)
@@ -55,7 +55,6 @@ WIREPLUMBER_MODULES := \
 	default-nodes \
 	default-nodes-api \
 	default-profile \
-	device-activation \
 	file-monitor-api \
 	lua-scripting \
 	metadata \
