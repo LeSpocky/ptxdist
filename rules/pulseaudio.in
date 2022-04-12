@@ -37,10 +37,17 @@ config PULSEAUDIO_SYSTEMD
 	bool
 	default INITMETHOD_SYSTEMD
 
-config PULSEAUDIO_SYSTEMD_USER
+config PULSEAUDIO_SYSTEMD_UNIT
 	bool
+	default !SYSTEMD_UNITS_USER
 	depends on PULSEAUDIO_SYSTEMD
-	default y if SYSTEMD_UNITS_USER
+	prompt "install systemd system unit file"
+
+config PULSEAUDIO_SYSTEMD_UNIT_USER
+	bool
+	default y
+	depends on PULSEAUDIO_SYSTEMD && SYSTEMD_UNITS_USER
+	prompt "install systemd user unit file"
 
 config PULSEAUDIO_BLUETOOTH
         bool

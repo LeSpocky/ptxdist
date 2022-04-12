@@ -121,22 +121,21 @@ ifdef PTXCONF_PULSEAUDIO_BLUETOOTH
 		/etc/dbus-1/system.d/pulseaudio-system.conf)
 endif
 
-ifdef PTXCONF_PULSEAUDIO_SYSTEMD
-ifndef PTXCONF_PULSEAUDIO_SYSTEMD_USER
+ifdef PTXCONF_PULSEAUDIO_SYSTEMD_UNIT
 	@$(call install_alternative, pulseaudio, 0, 0, 0644, \
 		/usr/lib/systemd/system/pulseaudio.service)
 	@$(call install_alternative, pulseaudio, 0, 0, 0644, \
 		/usr/lib/systemd/system/pulseaudio.socket)
 	@$(call install_link, pulseaudio, ../pulseaudio.socket, \
 		/usr/lib/systemd/system/sockets.target.wants/pulseaudio.socket)
-else
+endif
+ifdef PTXCONF_PULSEAUDIO_SYSTEMD_UNIT_USER
 	@$(call install_alternative, pulseaudio, 0, 0, 0644, \
 		/usr/lib/systemd/user/pulseaudio.service)
 	@$(call install_alternative, pulseaudio, 0, 0, 0644, \
 		/usr/lib/systemd/user/pulseaudio.socket)
 	@$(call install_link, pulseaudio, ../pulseaudio.socket, \
 		/usr/lib/systemd/user/sockets.target.wants/pulseaudio.socket)
-endif
 endif
 
 	@$(call install_copy, pulseaudio, 0, 0, 0755, -, /usr/bin/pulseaudio)
