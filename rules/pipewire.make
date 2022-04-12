@@ -227,6 +227,8 @@ ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
 		/usr/lib/systemd/user/pipewire-pulse.service)
 	@$(call install_alternative, pipewire, 0, 0, 0644, \
 		/usr/lib/systemd/user/pipewire-pulse.socket)
+	@$(call install_link, pipewire, ../pipewire-pulse.socket, \
+		/usr/lib/systemd/user/sockets.target.wants/pipewire-pulse.socket)
 endif
 endif
 ifdef PTXCONF_PIPEWIRE_SYSTEMD_UNIT
