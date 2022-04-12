@@ -112,6 +112,7 @@ PIPEWIRE_MODULES-y := \
 	client-device \
 	client-node \
 	echo-cancel \
+	fallback-sink \
 	filter-chain \
 	link-factory \
 	loopback \
@@ -120,6 +121,7 @@ PIPEWIRE_MODULES-y := \
 	profiler \
 	protocol-native \
 	protocol-pulse \
+	protocol-simple \
 	rt \
 	rtkit \
 	session-manager \
@@ -208,6 +210,8 @@ endif
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/source-rnnoise.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/minimal.conf)
+
+	@$(call install_tree, pipewire, 0, 0, -, /usr/share/alsa-card-profile)
 ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire-pulse.conf)
 endif
