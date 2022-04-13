@@ -1,4 +1,4 @@
-## SECTION=multimedia_libs
+## SECTION=multimedia_pipewire
 
 config WIREPLUMBER
 	tristate

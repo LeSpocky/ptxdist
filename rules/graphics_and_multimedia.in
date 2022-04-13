@@ -52,6 +52,10 @@ endmenu
 # moved to staging
 #source "generated/multimedia_mplayer.in"
 
+menu "pipewire                      "
+source "generated/multimedia_pipewire.in"
+endmenu
+
 menu "qt                            "
 source "generated/qt.in"
 endmenu
