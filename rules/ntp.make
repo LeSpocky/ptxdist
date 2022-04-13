@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_NTP) += ntp
 #
 # Paths and names
 #
-NTP_VERSION	:= 4.2.8p12
-NTP_MD5		:= 1522d66574bae14abb2622746dad2bdc
+NTP_VERSION	:= 4.2.8p15
+NTP_MD5		:= e1e6b23d2fc75cced41801dbcd6c2561
 NTP		:= ntp-$(NTP_VERSION)
 NTP_SUFFIX	:= tar.gz
 NTP_URL		:= http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/$(NTP).$(NTP_SUFFIX)
 NTP_SOURCE	:= $(SRCDIR)/$(NTP).$(NTP_SUFFIX)
 NTP_DIR		:= $(BUILDDIR)/$(NTP)
 NTP_LICENSE	:= ntp
-NTP_LICENSE_FILES	:= file://COPYRIGHT;md5=e877a1d567a6a58996d2b66e3e387003
+NTP_LICENSE_FILES	:= file://COPYRIGHT;md5=4190b39435611e92a4da74e682623f19
 
 # ----------------------------------------------------------------------------
 # Prepare
