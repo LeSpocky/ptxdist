@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBMNL) += libmnl
 #
 # Paths and names
 #
-LIBMNL_VERSION	:= 1.0.4
-LIBMNL_MD5	:= be9b4b5328c6da1bda565ac5dffadb2d
+LIBMNL_VERSION	:= 1.0.5
+LIBMNL_MD5	:= 0bbb70573119ec5d49435114583e7a49
 LIBMNL		:= libmnl-$(LIBMNL_VERSION)
 LIBMNL_SUFFIX	:= tar.bz2
 LIBMNL_URL		:= http://ftp.netfilter.org/pub/libmnl/$(LIBMNL).$(LIBMNL_SUFFIX)
