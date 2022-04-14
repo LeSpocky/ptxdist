@@ -16,10 +16,10 @@ PACKAGES-$(PTXCONF_DBUS) += dbus
 #
 # Paths and names
 #
-DBUS_VERSION	:= 1.12.22
-DBUS_MD5	:= c6430ac3be48162b1b62a92d99a1d448
+DBUS_VERSION	:= 1.14.0
+DBUS_MD5	:= ddd5570aff05191dbee8e42d751f1b7d
 DBUS		:= dbus-$(DBUS_VERSION)
-DBUS_SUFFIX	:= tar.gz
+DBUS_SUFFIX	:= tar.xz
 DBUS_URL	:= http://dbus.freedesktop.org/releases/dbus/$(DBUS).$(DBUS_SUFFIX)
 DBUS_SOURCE	:= $(SRCDIR)/$(DBUS).$(DBUS_SUFFIX)
 DBUS_DIR	:= $(BUILDDIR)/$(DBUS)
@@ -61,6 +61,7 @@ DBUS_CONF_OPT	:= \
 	--disable-console-owner-file \
 	--disable-launchd \
 	--$(call ptx/endis, PTXCONF_DBUS_SYSTEMD)-systemd \
+	--enable-traditional-activation \
 	--disable-embedded-tests \
 	--disable-modular-tests \
 	--disable-tests \
@@ -70,13 +71,14 @@ DBUS_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_DBUS_X)-x11-autolaunch \
 	--disable-compile-warnings \
 	--disable-Werror \
+	--disable-qt-help \
 	--disable-relocation \
 	--disable-stats \
 	--$(call ptx/endis, PTXCONF_DBUS_SYSTEMD)-user-session \
 	--with-system-socket=/run/dbus/system_bus_socket \
 	--with-dbus-user=messagebus \
 	--without-valgrind \
-	--$(call ptx/wwo, PTXCONF_DBUS_X)-x$(call ptx/ifdef,PTXCONF_DBUS_X,=$(SYSROOT)/usr,) \
+	--with-x=$(call ptx/ifdef,PTXCONF_DBUS_X,auto,no) \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
 	--with-systemduserunitdir=/usr/lib/systemd/user
 
