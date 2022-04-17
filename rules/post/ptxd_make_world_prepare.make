@@ -6,6 +6,10 @@
 # see the README file.
 #
 
+world/compile-commands = \
+	$(call world/env, $(1)) \
+	ptxd_make_world_compile_commands $(2)
+
 world/cfghash = \
 	+$(call world/env, $1) \
 	ptxd_make_world_hash cfghash

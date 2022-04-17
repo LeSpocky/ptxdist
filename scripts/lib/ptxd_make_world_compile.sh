@@ -5,6 +5,23 @@
 # see the README file.
 #
 
+ptxd_make_world_compile_finish() {
+    if [ "${pkg_build_tool}" = "kconfig" ]; then
+	if [ -x "${pkg_dir}/scripts/clang-tools/gen_compile_commands.py" ]; then
+	    # fake dependency for python wrapper
+	    pkg_build_deps=host-system-python3 \
+	    "${pkg_dir}/scripts/clang-tools/gen_compile_commands.py" \
+		-d "${pkg_build_dir}" -o "${pkg_build_dir}/compile_commands.json"
+	    if [ $? -ne 0 ]; then
+		ptxd_warning "Ignoring failed scripts/clang-tools/gen_compile_commands.py"
+	    else
+		ptxd_make_world_compile_commands_filter
+	    fi
+	fi
+    fi
+}
+export -f ptxd_make_world_compile_finish
+
 #
 # call the compiler
 #
@@ -66,6 +83,7 @@ ptxd_make_world_compile() {
 	    "${pkg_make_opt}" \
 	    "${pkg_make_par}"
 	;;
-    esac
+    esac &&
+    ptxd_make_world_compile_finish
 }
 export -f ptxd_make_world_compile
