@@ -34,6 +34,6 @@ export -f ptxd_make_world_compile_commands_filter
 
 ptxd_make_world_compile_commands() {
     ptxd_make_world_init &&
-    ptxd_make_world_compile_commands_filter
+    ptxd_make_world_compile_commands_filter "${@}"
 }
 export -f ptxd_make_world_compile_commands
