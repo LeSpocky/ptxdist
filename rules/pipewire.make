@@ -75,7 +75,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dman=disabled \
 	-Dpipewire-alsa=enabled \
 	-Dpipewire-jack=disabled \
-	-Dpipewire-v4l2=enabled \
+	-Dpipewire-v4l2=disabled \
 	-Dpw-cat=enabled \
 	-Draop=$(call ptx/endis,PTXCONF_PIPEWIRE_RAOP)d \
 	-Droc=disabled \
@@ -176,7 +176,6 @@ endif
 ifdef PTXCONF_PIPEWIRE_PW_TOP
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-top)
 endif
-	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-v4l2)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/spa-acp-tool)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/spa-inspect)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/spa-json-dump)
@@ -192,8 +191,6 @@ endif
 	@$(foreach module, $(PIPEWIRE_MODULES-y), \
 		$(call install_lib, pipewire, 0, 0, 644, \
 			pipewire-0.3/libpipewire-module-$(module))$(ptx/nl))
-
-	@$(call install_lib, pipewire, 0, 0, 644, pipewire-0.3/v4l2/libpw-v4l2)
 
 	@$(foreach module, $(PIPEWIRE_SPA_MODULES), \
 		$(call install_lib, pipewire, 0, 0, 644, \
