@@ -35,12 +35,11 @@ OPENSSH_LICENSE_FILES := file://LICENCE;md5=8baf365614c9bdd63705f298c9afbfb9
 OPENSSH_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	ac_cv_search_SHA256Update=no \
-	select_works_with_rlimit=yes \
 	LD=$(COMPILER_PREFIX)gcc
 
 OPENSSH_SANDBOX-y			:= seccomp_filter
 # seccomp_filter sandbox is not supported for ppc
-OPENSSH_SANDBOX-$(PTXCONF_ARCH_PPC)	:= rlimit
+OPENSSH_SANDBOX-$(PTXCONF_ARCH_PPC)	:= no
 
 #
 # autoconf
