@@ -33,11 +33,19 @@ LIBSNDFILE_LICENSE	:= LGPL-2.1-only
 LIBSNDFILE_CONF_TOOL := autoconf
 LIBSNDFILE_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--disable-octave \
+	--disable-experimental \
+	--disable-werror \
+	--disable-cpu-clip \
+	--disable-bow-docs \
+	--disable-sqlite \
 	--disable-alsa \
+	--$(call ptx/endis,PTXCONF_LIBSNDFILE_EXT_LIBS)-external-libs \
+	--disable-mpeg \
+	--disable-octave \
+	--enable-full-suite \
 	--disable-test-coverage \
-	--$(call ptx/endis,PTXCONF_LIBSNDFILE_EXT_LIBS)-external-libs
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--without-mkoctfile
 
 # ----------------------------------------------------------------------------
 # Target-Install
