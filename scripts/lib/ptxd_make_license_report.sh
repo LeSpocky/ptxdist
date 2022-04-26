@@ -185,7 +185,7 @@ ptxd_make_license_report() {
 	ptxd_make_license_report_header
 	for pkg in ${@}; do
 		pkg_lic="${ptxd_package_license_association[${pkg}]}"
-		if [ -z ${pkg_lic} ]; then
+		if [ -z ${pkg_lic} -o "${pkg_lic}" = "ignore" ]; then
 			continue
 		fi
 		pkg_lic="${pkg_lic}/${pkg}"
