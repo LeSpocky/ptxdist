@@ -46,6 +46,8 @@ ptxd_make_bsp_report_header() {
     done
 
     echo "develop:"
+    do_echo "workspace:" "${PTXDIST_WORKSPACE}"
+    do_echo "platform:" "${PTXDIST_PLATFORMDIR}"
     indent="    "
     echo "  host:"
     do_path "path:" "${ptx_path_host}"

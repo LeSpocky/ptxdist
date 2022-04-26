@@ -50,10 +50,16 @@ properties:
   develop:
     type: object
     required:
+    - workspace
+    - platform
     - host
     - target
     additionalProperties: false
     properties:
+      workspace:
+        $ref: '#/$defs/path'
+      platform:
+        $ref: '#/$defs/path'
       host:
         type: object
         required:
