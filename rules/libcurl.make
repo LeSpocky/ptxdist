@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 7.82.0
-LIBCURL_MD5	:= ce05eb61ef7c398feb7dbe23122d0bd9
+LIBCURL_VERSION	:= 7.83.0
+LIBCURL_MD5	:= b7924acdea33dedc3150a044789ed0bb
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.haxx.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -45,6 +45,7 @@ LIBCURL_CONF_OPT	:= \
 	--enable-rt \
 	--disable-ech \
 	--disable-code-coverage \
+	--disable-headers-api \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--$(call ptx/endis, PTXCONF_LIBCURL_HTTP)-http \
 	--$(call ptx/endis, PTXCONF_LIBCURL_FTP)-ftp \
@@ -119,6 +120,7 @@ LIBCURL_CONF_OPT	:= \
 	--without-libidn2 \
 	--without-nghttp2 \
 	--without-ngtcp2 \
+	--without-msh3 \
 	--without-nghttp3 \
 	--without-quiche \
 	--without-zsh-functions-dir \
