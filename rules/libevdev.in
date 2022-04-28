@@ -2,6 +2,7 @@
 
 config LIBEVDEV
 	tristate
+	select HOST_SYSTEM_PYTHON3
 	prompt "libevdev"
 	help
 	  libevdev is a wrapper library for evdev devices. it moves the
