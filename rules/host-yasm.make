@@ -27,5 +27,16 @@ HOST_YASM_DIR		:= $(HOST_BUILDDIR)/$(HOST_YASM)
 # ----------------------------------------------------------------------------
 
 HOST_YASM_CONF_TOOL	:= autoconf
+HOST_YASM_CONF_OPT	:= \
+	$(HOST_AUTOCONF) \
+	--disable-debug \
+	--disable-warnerror \
+	--disable-profiling \
+	--disable-gcov \
+	--disable-python \
+	--disable-python-bindings \
+	--disable-nls \
+	--disable-rpath \
+	--without-dmalloc
 
 # vim: syntax=make
