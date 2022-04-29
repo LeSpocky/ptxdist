@@ -255,6 +255,10 @@ else
 	@echo "#define DROPBEAR_CLI_PUBKEY_AUTH 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
+# match ptxdist sftp-server installation path
+	@echo "ptxdist: setting sftp-server path"
+	@echo '#define SFTPSERVER_PATH "/usr/sbin/sftp-server"' >> $(DROPBEAR_LOCALOPTIONS)
+
 	@$(call touch)
 
 DROPBEAR_MAKE_OPT	:= all scp
