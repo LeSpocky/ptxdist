@@ -96,7 +96,9 @@ endif
 	@$(call install_copy, polkit, 0, 0, 0755, -, /usr/libexec/polkitd)
 
 # binaries with suid
+ifdef PTXCONF_POLKIT_PKEXEC
 	@$(call install_copy, polkit, 0, 0, 4755, -, /usr/bin/pkexec)
+endif
 	@$(call install_copy, polkit, 0, 0, 4755, -, \
 		/usr/libexec/polkit-agent-helper-1)
 

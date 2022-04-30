@@ -29,4 +29,14 @@ config POLKIT_SYSTEMD
 	help
 	  Use systemd for session tracking, else ConsoleKit is used
 
+comment "install options   ---"
+
+config POLKIT_PKEXEC
+	bool
+	prompt "Install pkexec"
+	help
+	  pkexec - Execute a command as another user or with elevated privileges.
+
+	  Old and obsolete tool. Use 'sudo' for this kind of task.
+
 endif
