@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GST_LIBAV1) += gst-libav1
 #
 # Paths and names
 #
-GST_LIBAV1_VERSION	:= 1.20.1
-GST_LIBAV1_MD5		:= ac7a9f384775e1a2ad6d23124c62cc3d
+GST_LIBAV1_VERSION	:= 1.20.2
+GST_LIBAV1_MD5		:= 30ec3fe428b9e2a6ba9326d34bd37a4d
 GST_LIBAV1		:= gst-libav-$(GST_LIBAV1_VERSION)
 GST_LIBAV1_SUFFIX	:= tar.xz
 GST_LIBAV1_URL		:= http://gstreamer.freedesktop.org/src/gst-libav/$(GST_LIBAV1).$(GST_LIBAV1_SUFFIX)
