@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_PYTHON3) += python3
 #
 # Paths and names
 #
-PYTHON3_VERSION		:= 3.7.10
-PYTHON3_MD5		:= 9e34914bc804ab2e7d955b49c5e1e391
+PYTHON3_VERSION		:= 3.10.4
+PYTHON3_MD5		:= 21f2e113e087083a1e8cf10553d93599
 PYTHON3_MAJORMINOR	:= $(basename $(PYTHON3_VERSION))
 PYTHON3_SITEPACKAGES	:= /usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages
 PYTHON3			:= Python-$(PYTHON3_VERSION)
@@ -94,7 +94,7 @@ $(STATEDIR)/python3.install:
 
 	@$(call install, PYTHON3)
 
-	@rm -vrf $(PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/config-$(PYTHON3_MAJORMINOR)m
+	@rm -vrf $(PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/config-$(PYTHON3_MAJORMINOR)*
 	@$(call world/env, PYTHON3) ptxd_make_world_install_python_cleanup
 
 	@$(call touch)
@@ -116,8 +116,8 @@ $(STATEDIR)/python3.install.post:
 	 d=`cat $(PYTHON3_DIR)/pybuilddir.txt` && \
 	 cross_dir="$(PTXDIST_SYSROOT_CROSS)/lib/python$(PYTHON3_MAJORMINOR)" && \
 	 mkdir -p "$${cross_dir}" && \
-	 cp "$(PYTHON3_DIR)/$$d/_sysconfigdata_m_linux_$${m}.py" "$${cross_dir}" && \
-	 echo "_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata_m_linux_$$m"	>> "$(CROSS_PYTHON3)" && \
+	 cp "$(PYTHON3_DIR)/$$d/_sysconfigdata__linux_$${m}.py" "$${cross_dir}" && \
+	 echo "_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata__linux_$$m"	>> "$(CROSS_PYTHON3)" && \
 	 echo "PYTHONPATH=$${cross_dir}"				>> "$(CROSS_PYTHON3)"
 	@echo 'PYTHONHASHSEED=0'					>> "$(CROSS_PYTHON3)"
 	@echo 'export _PYTHON_PROJECT_BASE _PYTHON_HOST_PLATFORM'	>> "$(CROSS_PYTHON3)"
@@ -165,7 +165,7 @@ $(STATEDIR)/python3.targetinstall:
 
 	@$(call install_copy, python3, 0, 0, 0755, -, /usr/bin/python$(PYTHON3_MAJORMINOR))
 	@$(call install_link, python3, python$(PYTHON3_MAJORMINOR), /usr/bin/python3)
-	@$(call install_lib, python3, 0, 0, 0644, libpython$(PYTHON3_MAJORMINOR)m)
+	@$(call install_lib, python3, 0, 0, 0644, libpython$(PYTHON3_MAJORMINOR))
 
 	@$(call install_copy, python3, 0, 0, 0644, -, /usr/lib/python$(PYTHON3_MAJORMINOR)/venv/scripts/common/activate)
 

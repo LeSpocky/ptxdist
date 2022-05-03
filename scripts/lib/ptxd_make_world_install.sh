@@ -37,7 +37,7 @@ ptxd_make_world_install_python_cleanup() {
 	    # not python3 or already handled
 	    continue
 	fi
-	cp -v "$(dirname "${file}")/__pycache__/$(basename "${file%py}")"cpython-??.pyc "${file}c" || return
+	cp -v "$(dirname "${file}")/__pycache__/$(basename "${file%py}")"cpython-???.pyc "${file}c" || return
     done &&
     check_pipe_status &&
     find "${pkg_pkg_dir}" -type d -name __pycache__  -print0 | xargs -0 rm -rf &&
