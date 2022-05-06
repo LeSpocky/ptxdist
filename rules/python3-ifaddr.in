@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_IFADDR
+	tristate
+	select PYTHON3
+	prompt "ifaddr"
+	help
+	  ifaddr is a small Python library that allows you to find all
+	  the Ethernet and IP addresses of the computer.
