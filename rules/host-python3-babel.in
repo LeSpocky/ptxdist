@@ -1,0 +1,8 @@
+## SECTION=hosttools_noprompt
+
+config HOST_PYTHON3_BABEL
+	tristate
+	default y if ALLYES
+	select HOST_PYTHON3
+	select HOST_PYTHON3_TZ
+	select HOST_PYTHON3_SETUPTOOLS
