@@ -14,23 +14,28 @@ PACKAGES-$(PTXCONF_PYTHON3_NUMPY) += python3-numpy
 #
 # Paths and names
 #
-PYTHON3_NUMPY_VERSION	:= 1.17.4
-PYTHON3_NUMPY_MD5	:= d7d3563cca0b99ba68a3f064a9e46ebe
+PYTHON3_NUMPY_VERSION	:= 1.22.3
+PYTHON3_NUMPY_MD5	:= b56530be068796a50bf5a09105c8011e
 PYTHON3_NUMPY		:= numpy-$(PYTHON3_NUMPY_VERSION)
 PYTHON3_NUMPY_SUFFIX	:= zip
 PYTHON3_NUMPY_URL	:= $(call ptx/mirror-pypi, numpy, $(PYTHON3_NUMPY).$(PYTHON3_NUMPY_SUFFIX))
 PYTHON3_NUMPY_SOURCE	:= $(SRCDIR)/$(PYTHON3_NUMPY).$(PYTHON3_NUMPY_SUFFIX)
 PYTHON3_NUMPY_DIR	:= $(BUILDDIR)/$(PYTHON3_NUMPY)
-PYTHON3_NUMPY_LICENSE	:= BSD-3-Clause AND MIT
+PYTHON3_NUMPY_LICENSE	:= BSD-3-Clause AND MIT AND Zlib
 PYTHON3_NUMPY_LICENSE_FILES := \
-	file://LICENSE.txt;md5=1a32aba007a415aa8a1c708a0e2b86a1 \
+	file://LICENSE.txt;md5=8026691468924fb6ec155dadfe2a1a7f \
 	file://tools/npy_tempita/license.txt;md5=c66b85ddcd09296abff87601467724fd \
-	file://numpy/core/src/multiarray/dragon4.c;startline=2;endline=20;md5=7f70862b43e17922c5adf18ec84fb720
+	file://numpy/core/src/multiarray/dragon4.c;startline=2;endline=20;md5=7f70862b43e17922c5adf18ec84fb720 \
+	file://numpy/core/include/numpy/libdivide/LICENSE.txt;md5=e1c97b70a98c8ec5aff0aa275fdb2c91
 
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
+
+PYTHON3_NUMPY_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	NPY_DISABLE_SVML=1
 
 PYTHON3_NUMPY_CONF_TOOL	:= python3
 
