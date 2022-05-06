@@ -33,6 +33,7 @@ SYSLOGNG_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-only
 SYSLOGNG_ENV 	= \
 	$(CROSS_ENV) \
 	ac_cv_lib_nsl_gethostbyname=no \
+	am_cv_python_version=$(PYTHON3_MAJORMINOR) \
 	ac_cv_path_PYTHON=$(CROSS_PYTHON3)
 
 #
@@ -72,7 +73,7 @@ SYSLOGNG_AUTOCONF = \
 	--$(call ptx/endis, PTXCONF_SYSLOGNG_SYSTEMD)-systemd \
 	--disable-geoip2 \
 	--disable-riemann \
-	--with-python=$(PYTHON3_MAJORMINOR) \
+	--with-python=auto \
 	--$(call ptx/endis, PTXCONF_SYSLOGNG_PYTHON_DESTINATION)-python \
 	--disable-kafka \
 	--disable-manpages \
