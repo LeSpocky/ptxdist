@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PYTHON3_GI) += python3-gi
 #
 # Paths and names
 #
-PYTHON3_GI_VERSION	:= 3.28.3
-PYTHON3_GI_MD5		:= 3bac63c86bb963aa401f97859464aa90
+PYTHON3_GI_VERSION	:= 3.42.1
+PYTHON3_GI_MD5		:= 8b2fa857229aaf526781376a20367ba8
 PYTHON3_GI		:= pygobject-$(PYTHON3_GI_VERSION)
 PYTHON3_GI_SUFFIX	:= tar.xz
 PYTHON3_GI_URL		:= $(call ptx/mirror, GNOME, pygobject/$(basename $(PYTHON3_GI_VERSION))/$(PYTHON3_GI).$(PYTHON3_GI_SUFFIX))
@@ -28,19 +28,14 @@ PYTHON3_GI_LICENSE	:= LGPL-2.1-or-later
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-PYTHON3_GI_CONF_TOOL	:= autoconf
+PYTHON3_GI_CONF_TOOL	:= meson
 PYTHON3_GI_CONF_OPT	 = \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-glibtest \
-	--disable-cairo \
-	--enable-introspection \
-	--enable-compile-warnings \
-	--disable-Werror \
-	--disable-code-coverage \
-	--with-python=$(CROSS_PYTHON3) \
-	--without-common
+	$(CROSS_MESON_USR) \
+	-Dpycairo=disabled \
+	-Dpython=$(CROSS_PYTHON3) \
+	-Dtests=false
 
 # ----------------------------------------------------------------------------
 # Install
