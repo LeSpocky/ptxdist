@@ -57,7 +57,7 @@ $(STATEDIR)/python3-pip.targetinstall:
 		$(PYTHON3_SITEPACKAGES),, *.py *.exe)
 	# accessed at runtime by .../pip/_vendor/pep517/wrappers.py
 	@$(call install_copy, python3-pip, 0, 0, 0644, -, \
-		/usr/lib/python3.7/site-packages/pip/_vendor/pep517/_in_process.py)
+		/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/pip/_vendor/pep517/_in_process.py)
 
 	@$(call install_finish, python3-pip)
 
