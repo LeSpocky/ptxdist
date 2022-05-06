@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_ZEROCONF
+	tristate
+	select PYTHON3
+	select PYTHON3_IFADDR
+	prompt "zeroconf"
+	help
+	  Multicast DNS Service Discovery for Python.
