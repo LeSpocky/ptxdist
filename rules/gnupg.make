@@ -19,7 +19,9 @@ GNUPG_VERSION	:= 2.2.23
 GNUPG_MD5	:= a094ff856a53a9a9fd5465657d998079
 GNUPG		:= gnupg-$(GNUPG_VERSION)
 GNUPG_SUFFIX	:= tar.bz2
-GNUPG_URL	:= ftp://ftp.gnupg.org/gcrypt/gnupg/$(GNUPG).$(GNUPG_SUFFIX)
+GNUPG_URL	:= \
+	https://www.gnupg.org/ftp/gcrypt/gnupg/$(GNUPG).$(GNUPG_SUFFIX) \
+	ftp://ftp.gnupg.org/gcrypt/gnupg/$(GNUPG).$(GNUPG_SUFFIX)
 GNUPG_SOURCE	:= $(SRCDIR)/$(GNUPG).$(GNUPG_SUFFIX)
 GNUPG_DIR	:= $(BUILDDIR)/$(GNUPG)
 GNUPG_LICENSE	:= GPL-3.0-or-later
