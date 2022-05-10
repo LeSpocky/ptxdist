@@ -18,7 +18,9 @@ NPTH_VERSION		:= 1.5
 NPTH_MD5		:= 9ba2dc4302d2f32c66737c43ed191b1b
 NPTH			:= npth-$(NPTH_VERSION)
 NPTH_SUFFIX		:= tar.bz2
-NPTH_URL		:= ftp://ftp.gnupg.org/gcrypt/npth/$(NPTH).$(NPTH_SUFFIX)
+NPTH_URL		:= \
+	https://www.gnupg.org/ftp/gcrypt/npth/$(NPTH).$(NPTH_SUFFIX) \
+	ftp://ftp.gnupg.org/gcrypt/npth/$(NPTH).$(NPTH_SUFFIX)
 NPTH_SOURCE		:= $(SRCDIR)/$(NPTH).$(NPTH_SUFFIX)
 NPTH_DIR		:= $(BUILDDIR)/$(NPTH)
 NPTH_LICENSE		:= LGPL-2.1-only
