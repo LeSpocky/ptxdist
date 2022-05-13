@@ -31,8 +31,8 @@ ptxd_make_world_compile_commands_filter() {
 
     ptxd_verbose "Generating '$(ptxd_print_path "${dst_cmds}")'"
     sed \
-	-e "s#\(\"command\": \"[^ ]*\(gcc\|clang\) \)#\1 ${PTXDIST_CROSS_CPPFLAGS} ${pkg_cflags} #" \
-	-e "s#\(\"command\": \"[^ ]*++ \)#\1 ${PTXDIST_CROSS_CPPFLAGS} ${pkg_cxxflags} #" \
+	-e "s#\(\"command\": \" *[^ ]*\(gcc\|clang\) \)#\1 ${PTXDIST_CROSS_CPPFLAGS} ${pkg_cflags} #" \
+	-e "s#\(\"command\": \" *[^ ]*++ \)#\1 ${PTXDIST_CROSS_CPPFLAGS} ${pkg_cxxflags} #" \
 	"${src_cmds}" > "${dst_cmds}"
 }
 export -f ptxd_make_world_compile_commands_filter
