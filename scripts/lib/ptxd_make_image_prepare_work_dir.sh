@@ -39,9 +39,6 @@ ${list[*]}
 
     ARCH="${PTXDIST_IPKG_ARCH_STRING}" \
     SRC="" \
-    CHECKSIG="" \
-    CAPATH="" \
-    CAFILE="" \
 	ptxd_replace_magic "${ptxd_reply}" >> "${xpkg_conf}" &&
 
     DESTDIR="${work_dir}" \

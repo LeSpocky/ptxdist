@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_OPKG) += opkg
 #
 # Paths and names
 #
-OPKG_VERSION	:= 0.4.5
-OPKG_MD5	:= 5dc41ad37d88803b5e0f456a9c5a0811
+OPKG_VERSION	:= 0.5.0
+OPKG_MD5	:= b85f4bafd53d0cdffbcef178319901fa
 OPKG		:= opkg-$(OPKG_VERSION)
 OPKG_SUFFIX	:= tar.gz
 OPKG_URL	:= http://downloads.yoctoproject.org/releases/opkg/$(OPKG).$(OPKG_SUFFIX)
@@ -38,13 +38,12 @@ OPKG_CONF_OPT	:= \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-libopkg-api \
 	--disable-static \
-	--$(call ptx/endis, PTXCONF_OPKG_PATHFINDER)-pathfinder \
 	--disable-xz \
 	--disable-bzip2 \
 	--disable-lz4 \
+	--disable-zstd \
 	--$(call ptx/endis, PTXCONF_OPKG_CURL)-curl \
 	--$(call ptx/endis, PTXCONF_OPKG_SHA256)-sha256 \
-	--$(call ptx/endis, PTXCONF_OPKG_OPENSSL)-openssl \
 	--$(call ptx/endis, PTXCONF_OPKG_SSL_CURL)-ssl-curl \
 	--$(call ptx/endis, PTXCONF_OPKG_GPG)-gpg \
 	--without-static-libopkg \
@@ -76,31 +75,12 @@ endif
 
 	@$(call install_lib,  opkg, 0, 0, 0644, libopkg)
 
-ifdef PTXCONF_IMAGE_IPKG_SIGN_OPENSSL
-	@$(call install_copy, opkg, 0, 0, 0644, $(PTXCONF_IMAGE_IPKG_SIGN_OPENSSL_SIGNER), /etc/ssl/certs/opkg.crt)
-endif
-
 ifdef PTXCONF_OPKG_OPKG_CONF
 	@$(call install_alternative, opkg, 0, 0, 0644, /etc/opkg/opkg.conf)
 	@$(call install_replace, opkg, /etc/opkg/opkg.conf, @SRC@, \
 		$(PTXCONF_OPKG_OPKG_CONF_URL))
 	@$(call install_replace, opkg, /etc/opkg/opkg.conf, @ARCH@, \
 		$(PTXDIST_IPKG_ARCH_STRING))
-ifdef PTXCONF_OPKG_OPKG_CONF_CHECKSIG
-	@$(call install_replace, opkg, /etc/opkg/opkg.conf, @CHECKSIG@, \
-		"option check_signature 1")
-	@$(call install_replace, opkg, /etc/opkg/opkg.conf, @CAPATH@, \
-		"option signature_ca_path /etc/ssl/certs")
-	@$(call install_replace, opkg, /etc/opkg/opkg.conf, @CAFILE@, \
-		"option signature_ca_file /etc/ssl/certs/opkg.crt")
-else
-	@$(call install_replace, opkg, /etc/opkg/opkg.conf, @CHECKSIG@, \
-		"#option check_signature 0")
-	@$(call install_replace, opkg, /etc/opkg/opkg.conf, @CAPATH@, \
-		"#option signature_ca_path /etc/ssl/certs")
-	@$(call install_replace, opkg, /etc/opkg/opkg.conf, @CAFILE@, \
-		"#option signature_ca_file /etc/ssl/certs/opkg.crt")
-endif
 endif
 
 	@$(call install_finish, opkg)

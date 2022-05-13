@@ -4,7 +4,6 @@ menuconfig OPKG
 	tristate
 	select LIBARCHIVE
 	select LIBCURL if OPKG_CURL
-	select OPENSSL if OPKG_OPENSSL
 	prompt "opkg                          "
 	help
 	  Opkg is a lightweight package management system based on Ipkg.
@@ -12,21 +11,6 @@ menuconfig OPKG
 	  http://code.google.com/p/opkg/
 
 if OPKG
-
-config OPKG_PATHFINDER
-	bool
-	prompt "pathfinder support"
-	# needs pathfinder-openssl
-	depends on BROKEN
-	help
-	  Pathfinder is designed to provide a mechanism for any
-	  program to perform RFC3280-compliant path validation
-	  of X.509 certificates, even when some of the intermediate
-	  certificates are not present on the local machine. It will
-	  automatically download any such certificates (and their
-	  CRLs) from the Internet as needed using the AIA and CRL
-	  distribution point extensions of the certificate it is
-	  processing.
 
 config OPKG_CURL
 	bool
@@ -42,12 +26,6 @@ config OPKG_SHA256
 	help
 	  FIXME
 
-config OPKG_OPENSSL
-	bool
-	prompt "openssl signature checking"
-	help
-	  FIXME
-
 config OPKG_SSL_CURL
 	bool
 	prompt "libcurl certificate authentication"
@@ -57,8 +35,6 @@ config OPKG_SSL_CURL
 config OPKG_GPG
 	bool
 	prompt "signature checking with gpg"
-	# gpg and openssl are mutually exclusive
-	depends on ! OPKG_OPENSSL
 	# needs gpgme
 	depends on BROKEN
 	help
@@ -97,17 +73,6 @@ config OPKG_OPKG_CONF_URL
 
 	  If you don't want to use this feature, keep the whole entry empty.
 
-config OPKG_OPKG_CONF_CHECKSIG
-	bool
-	prompt "enable repository signature checking"
-	depends on OPKG_OPENSSL
-	help
-	  Set the following options in opkg.conf:
-	     option check_signature 1
-	     option signature_ca_path /etc/ssl/certs
-	     option signature_ca_file /etc/ssl/certs/opkg.crt
-	
-	  Repository will only be used if it's signature can be validated.
 endif
 
 endif
