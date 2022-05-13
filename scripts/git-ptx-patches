@@ -64,7 +64,6 @@ while getopts "aft:n" opt; do
 			;;
 		t)
 			tag="${OPTARG}"
-			range="${tag}"
 			;;
 		n)
 			numbered_patches=false
