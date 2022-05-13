@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_FREETYPE) += freetype
 #
 # Paths and names
 #
-FREETYPE_VERSION	:= 2.11.1
-FREETYPE_MD5		:= 24e79233d607ded439ef36ff1f3ab68f
+FREETYPE_VERSION	:= 2.12.1
+FREETYPE_MD5		:= 7f7cd7c706d8e402354305c1c59e3ff2
 FREETYPE		:= freetype-$(FREETYPE_VERSION)
 FREETYPE_SUFFIX		:= tar.xz
 FREETYPE_SOURCE		:= $(SRCDIR)/$(FREETYPE).$(FREETYPE_SUFFIX)
@@ -26,7 +26,7 @@ FREETYPE_LICENSE_FILES	:= \
 	file://LICENSE.TXT;md5=a5927784d823d443c6cae55701d01553 \
 	file://docs/GPLv2.TXT;md5=8ef380476f642c20ebf40fecb0add2ec \
 	file://docs/FTL.TXT;md5=9f37b4e6afa3fef9dba8932b16bd3f97 \
-	file://src/bdf/README;startline=98;endline=140;md5=d0c2c2e2e102c393a12869bc34515be2 \
+	file://src/bdf/README;startline=98;endline=140;md5=fef9416f085f0834b3ba93a5dc5a622c \
 	file://src/pcf/README;startline=69;endline=88;md5=e0f11f550450e58753f2d54ddaf17d34
 
 FREETYPE_URL := \
