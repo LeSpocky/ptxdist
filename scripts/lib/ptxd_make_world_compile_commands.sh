@@ -10,6 +10,11 @@ ptxd_make_world_compile_commands_filter() {
     local src_cmds="${1:-${pkg_build_dir}/compile_commands.json}"
     local dst_cmds="${pkg_dir}/compile_commands.json"
 
+    if [[ "${pkg_url}" =~ ^lndir:// ]]; then
+	# find the real source dir for lndir:// URLs
+	dst_cmds="$(ptxd_abspath "$(ptxd_file_url_path "${pkg_url}")")/compile_commands.json"
+    fi
+
     if [ ! -e "${src_cmds}" ]; then
 	ptxd_verbose "Ignoring missing '${src_cmds}'."
 	return
