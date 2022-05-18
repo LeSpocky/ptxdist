@@ -359,7 +359,7 @@ function write_maps(this_PKG, dep_type) {
 	print "PTX_MAP_" dep_type "_dep_" this_PKG "=" this_PKG_dep	> MAP_ALL_MAKE;
 }
 
-function pkg_all_deps(this_PKG, dep_type, n, this_PKG_dep, this_DEP_array) {
+function pkg_all_deps(this_PKG, dep_type, n, i, this_PKG_dep, this_DEP_array) {
 	if (this_PKG in PKG_to_dep_all)
 		return PKG_to_dep_all[this_PKG];
 
