@@ -10,8 +10,6 @@ menuconfig BLUEZ
 	select UDEV
 	select LIBICAL			# needed for --enable-obex
 	select READLINE			if BLUEZ_CLIENT
-	select PYGOBJECT		if BLUEZ_INSTALL_TESTSCRIPTS
-	select DBUS_PYTHON		if BLUEZ_INSTALL_TESTSCRIPTS
 	help
 	  Official Linux Bluetooth protocol stack.
 	  For more information refer to <http://www.bluez.org>.
@@ -56,7 +54,8 @@ config BLUEZ_CLIENT
 
 config BLUEZ_INSTALL_TESTSCRIPTS
 	bool "install testscripts"
-	depends on STAGING
+	# needs D-Bus python bindings
+	depends on BROKEN
 	help
 	  Install test scripts that allow to set up bluetooth connections.
 	  These scripts are installed to /usr/lib/bluez/test/.

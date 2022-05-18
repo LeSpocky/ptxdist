@@ -54,10 +54,9 @@ config PYTHON3_SSL
 	bool "ssl & hashlib bindings"
 
 config PYTHON3_SYMLINK
-        depends on !PYTHON_SYMLINK
 	bool
 	prompt "install symbolic link /usr/bin/python"
-	default y if !PYTHON_SYMLINK
+	default y
 
 config PYTHON3_DISTUTILS
 	bool

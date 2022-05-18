@@ -1,6 +1,0 @@
-## SECTION=hosttools_noprompt
-
-config HOST_PYTHON_SETUPTOOLS
-	tristate
-	default y if ALLYES
-	select HOST_PYTHON

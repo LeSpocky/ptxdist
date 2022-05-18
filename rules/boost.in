@@ -12,7 +12,6 @@ menuconfig BOOST
 	select BZIP2		if BOOST_IOSTREAMS
 	select BZIP2_LIBBZ2	if BOOST_IOSTREAMS
 	select XZ		if BOOST_IOSTREAMS
-	select PYTHON		if BOOST_PYTHON2
 	select PYTHON3		if BOOST_PYTHON3
 	prompt "boost                         "
 	help
@@ -293,14 +292,6 @@ choice
 		prompt "no python support"
 		help
 		  Select this option if you don't want to build boost.python.
-
-	config BOOST_PYTHON2
-		bool
-		prompt "python2"
-		depends on STAGING
-		select BOOST_PYTHON
-		help
-		  Select this option if you want to use boost.python in combination with python2.
 
 	config BOOST_PYTHON3
 		bool

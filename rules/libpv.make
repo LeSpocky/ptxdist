@@ -44,11 +44,10 @@ LIBPV_CONF_OPT := \
 	--enable-static \
 	--disable-debug \
 	--$(call ptx/endis, PTXCONF_LIBPV_EVENT)-event \
-	--$(call ptx/endis, PTXCONF_LIBPV_PYTHON)-python \
+	--disable-python \
 	--$(call ptx/wwo, PTXCONF_LIBPV_XML_EXPAT)-expat
 
-LIBPV_MAKE_OPT		= HOSTPYTHON=$(CROSS_PYTHON)
-LIBPV_INSTALL_OPT	= $(LIBPV_MAKE_OPT) install
+LIBPV_INSTALL_OPT	= install
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -71,11 +70,6 @@ endif
 ifdef PTXCONF_LIBPV_EVENT
 	@$(call install_copy, libpv, 0, 0, 0755, -, \
 		/usr/bin/pv_eventd)
-endif
-
-ifdef PTXCONF_LIBPV_PYTHON
-	@$(call install_copy, libpv, 0, 0, 0644, -, \
-		/usr/lib/python$(PYTHON_MAJORMINOR)/site-packages/libpv.so)
 endif
 	@$(call install_finish, libpv)
 

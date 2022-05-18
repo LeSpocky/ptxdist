@@ -64,6 +64,7 @@ LIBXML2_AUTOCONF := \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_OUTPUT)-output \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_PATTERN)-pattern \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_PUSH)-push \
+	--without-python \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_READER)-reader \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_REGEXPS)-regexps \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_RUN_DEBUG)-run-debug \
@@ -87,12 +88,6 @@ ifdef PTXCONF_ICONV
 LIBXML2_AUTOCONF += --with-iconv=yes
 else
 LIBXML2_AUTOCONF += --with-iconv=no
-endif
-
-ifdef PTXCONF_LIBXML2_PYTHON
-LIBXML2_AUTOCONF += --with-python=$(SYSROOT)/usr
-else
-LIBXML2_AUTOCONF += --with-python=no
 endif
 
 ifdef PTXCONF_LIBXML2_ZLIB

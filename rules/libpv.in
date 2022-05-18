@@ -9,7 +9,6 @@ menuconfig LIBPV
 	select LIBLIST		if !LIBPV_XML_EXPAT
 	select LIBXMLCONFIG	if !LIBPV_XML_EXPAT
 	select EXPAT		if LIBPV_XML_EXPAT
-	select PYTHON		if LIBPV_PYTHON
 	help
 	  libpv.so is a library that implements a user space shared memory for
 	  automation applications. The shared memory is being described by an
@@ -27,14 +26,6 @@ config LIBPV_EVENT
 	  This switch enables support for the libpv event mechanism. If
 	  enabled it is possible to be notified when process variables have
 	  changed.
-
-config LIBPV_PYTHON
-	bool
-	depends on STAGING
-	prompt "Python bindings"
-	help
-	  Install libpv Python bindings, a Python module supporting
-	  PvEngine, PvEngineAttr and Pv.
 
 config LIBPV_PVTOOL
 	bool

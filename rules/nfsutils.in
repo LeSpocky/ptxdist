@@ -10,8 +10,8 @@ menuconfig NFSUTILS
 	select UTIL_LINUX_NG_LIBMOUNT
 	select RPCBIND			if RUNTIME
 	select ROOTFS_PROTOCOLS		if NFSUTILS_CLIENT
-	select PYTHON3			if NFSUTILS_PYTHON && !PYTHON && RUNTIME
-	select PYTHON3_SYMLINK		if NFSUTILS_PYTHON && !PYTHON && RUNTIME
+	select PYTHON3			if NFSUTILS_PYTHON && RUNTIME
+	select PYTHON3_SYMLINK		if NFSUTILS_PYTHON && RUNTIME
 	select ROOTFS_VAR_LIB		if RUNTIME
 	help
 	  The Sun Network Filesystem (NFS) protocol provides transparent remote

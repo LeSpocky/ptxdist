@@ -3,7 +3,6 @@
 menuconfig LIBDMTX
 	tristate
 	prompt "libdmtx                       "
-	select PYTHON	if LIBDMTX_PYTHON
 	help
 	  libdmtx is open source software for reading and writing Data
 	  Matrix barcodes on Linux, Unix, OS X, Windows, and mobile
@@ -28,11 +27,6 @@ config LIBDMTX_DMTXWRITE
 	# requires Wand >= 6.2.4
 	depends on BROKEN
 	prompt "install dmtxwrite"
-
-config LIBDMTX_PYTHON
-	bool
-	depends on STAGING
-	prompt "enable python bindings"
 
 endif
 

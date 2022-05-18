@@ -10,7 +10,6 @@ menuconfig CONNMAN
 	select IPTABLES
 	select READLINE				if CONNMAN_CLIENT
 	select POLKIT				if CONNMAN_POLKIT
-	select DBUS_PYTHON			if CONNMAN_TESTS && RUNTIME
 	select WPA_SUPPLICANT			if CONNMAN_WIFI && RUNTIME
 	select WPA_SUPPLICANT_CTRL_IFACE_DBUS	if CONNMAN_WIFI
 	select BUSYBOX_START_STOP_DAEMON	if CONNMAN_STARTSCRIPT && RUNTIME
@@ -66,7 +65,8 @@ config CONNMAN_CLIENT
 
 config CONNMAN_TESTS
 	bool
-	depends on STAGING
+	# needs D-Bus python bindings
+	depends on BROKEN
 	prompt "install test programs"
 
 config CONNMAN_STARTSCRIPT

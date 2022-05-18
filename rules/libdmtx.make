@@ -27,10 +27,6 @@ LIBDMTX_LICENSE	:= unknown
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBDMTX_CONF_ENV = \
-	$(CROSS_ENV) \
-	PYTHON=$(CROSS_PYTHON)
-
 #
 # autoconf
 #
@@ -46,7 +42,7 @@ LIBDMTX_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBDMTX_DMTXQUERY)-dmtxquery \
 	--$(call ptx/endis, PTXCONF_LIBDMTX_DMTXREAD)-dmtxread \
 	--$(call ptx/endis, PTXCONF_LIBDMTX_DMTXWRITE)-dmtxwrite \
-	--$(call ptx/endis, PTXCONF_LIBDMTX_PYTHON)-python
+	--disable-python
 
 
 # ----------------------------------------------------------------------------
@@ -72,13 +68,6 @@ ifdef PTXCONF_LIBDMTX_DMTXREAD
 endif
 ifdef PTXCONF_LIBDMTX_DMTXWRITE
 	@$(call install_copy, libdmtx, 0, 0, 0755, -, /usr/bin/dmtxwrite)
-endif
-
-ifdef PTXCONF_LIBDMTX_PYTHON
-	@$(call install_copy, libdmtx, 0, 0, 0644, -, \
-		/usr/lib/python$(PYTHON_MAJORMINOR)/site-packages/pydmtx.pyc)
-	@$(call install_copy, libdmtx, 0, 0, 0644, -, \
-		/usr/lib/python$(PYTHON_MAJORMINOR)/site-packages/_pydmtx.so)
 endif
 
 	@$(call install_finish, libdmtx)
