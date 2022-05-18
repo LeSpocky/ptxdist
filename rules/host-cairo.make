@@ -25,9 +25,6 @@ HOST_CAIRO_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--enable-shared \
 	--disable-static \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf \
 	--enable-atomic \
 	--disable-gcov \
 	--disable-valgrind \
