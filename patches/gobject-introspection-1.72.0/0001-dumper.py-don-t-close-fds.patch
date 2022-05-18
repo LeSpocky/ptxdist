@@ -10,7 +10,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/giscanner/dumper.py b/giscanner/dumper.py
-index e4b6ea03a301..cb3a7ad1659e 100644
+index 22afd61efb67..08c3ae19f4f2 100644
 --- a/giscanner/dumper.py
 +++ b/giscanner/dumper.py
 @@ -275,7 +275,7 @@ class DumpCompiler(object):
