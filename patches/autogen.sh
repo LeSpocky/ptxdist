@@ -6,6 +6,7 @@ if [ -n "${pkg_stamp}" ] && ! [[ " ${pkg_build_deps} " =~ " host-gettext " ]]; t
 	echo "No host-gettext dependency. Faking autopoint: AUTOPOINT=true."
 	export AUTOPOINT=true
 fi
+export GTKDOCIZE=true
 
 aclocal $ACLOCAL_FLAGS
 
