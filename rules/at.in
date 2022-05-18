@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 menuconfig AT
 	tristate
@@ -18,6 +20,10 @@ menuconfig AT
 	  Use
 	  at    to run the job at a specified time
 	  batch to run the job when system load levels permit
+
+	  STAGING: remove in PTXdist 2023.06.0
+	  Unmaintained in PTXdist and fails to build with current autoconf.
+	  Needs updating to latest version and maybe build fixes.
 
 if AT
 
