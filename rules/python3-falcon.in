@@ -1,0 +1,12 @@
+## SECTION=python3
+
+config PYTHON3_FALCON
+	bool
+	select PYTHON3
+	select PYTHON3_GUNICORN
+	prompt "falcon"
+	help
+	  The Falcon Web Framework.
+	  Falcon is a minimalist ASGI/WSGI framework for building
+	  mission-critical REST APIs and microservices, with a focus
+	  on reliability, correctness, and performance at scale.
