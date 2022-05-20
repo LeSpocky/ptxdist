@@ -415,7 +415,8 @@ ptxd_make_world_init() {
     # try to prevent downloads outside the get stage
     #
     if [ "${pkg_stage}" != "get" ]; then
-	pkg_env="HTTPS_PROXY=- HTTP_PROXY=- https_proxy=- http_proxy=- ${pkg_env}"
+	local invalid_proxy="PTXDIST-UNALLOWED-DOWNLOAD"
+	pkg_env="HTTPS_PROXY=$invalid_proxy HTTP_PROXY=$invalid_proxy https_proxy=$invalid_proxy http_proxy=$invalid_proxy ${pkg_env}"
     fi
 
     #
