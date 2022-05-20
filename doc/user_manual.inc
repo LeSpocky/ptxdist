@@ -125,6 +125,10 @@ download an archive currently not existing on the development host. But
 there are ways to prevent PTXdist from doing so (refer to section
 :ref:`source-arch-loc`).
 
+.. note:: PTXdist tries to prevent downloads outside of the *get* stage
+  by setting certain widespread proxy environment variables to an
+  inexistent host name.
+
 First steps with PTXdist
 ------------------------
 
