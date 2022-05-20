@@ -27,24 +27,9 @@ HOST_NINJA_LICENSE	:= Apache-2.0
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_NINJA_BUILD_OOT	:= NO
-
-# ----------------------------------------------------------------------------
-# Compile
-# ----------------------------------------------------------------------------
-
 HOST_NINJA_CONF_TOOL	:= cmake
 HOST_NINJA_CONF_OPT	:= \
-	$(HOST_CMAKE_OPT) 
-
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/host-ninja.install:
-	@$(call targetinfo)
-	@$(call world/execute, HOST_NINJA, \
-		install -vD -m755 $(HOST_NINJA_DIR)/ninja $(HOST_NINJA_PKGDIR)/bin/ninja)
-	@$(call touch)
+	$(HOST_CMAKE_OPT) \
+	-DBUILD_TESTING=OFF
 
 # vim: syntax=make
