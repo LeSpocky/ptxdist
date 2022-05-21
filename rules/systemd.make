@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 250.4
+SYSTEMD_VERSION		:= 251
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_MD5		:= a2a080032b6efbabe0922fdef0baf97f
+SYSTEMD_MD5		:= 8090fcccc3a2ec20995e89d56fed61b1
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -66,6 +66,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dcompat-mutable-uid-boundaries=false \
 	-Dcoredump=$(call ptx/truefalse,PTXCONF_SYSTEMD_COREDUMP) \
 	-Dcreate-log-dirs=false \
+	-Dcryptolib=openssl \
 	-Ddbus=false \
 	-Ddbuspolicydir=/usr/share/dbus-1/system.d \
 	-Ddbussessionservicedir=/usr/share/dbus-1/services \
@@ -116,6 +117,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dlibidn=false \
 	-Dlibidn2=false \
 	-Dlibiptc=$(call ptx/truefalse,PTXCONF_SYSTEMD_IPMASQUERADE) \
+	-Dlink-boot-shared=true \
 	-Dlink-networkd-shared=true \
 	-Dlink-systemctl-shared=true \
 	-Dlink-timesyncd-shared=true \
@@ -123,6 +125,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dllvm-fuzz=false \
 	-Dloadkeys-path=/usr/bin/loadkeys \
 	-Dlocaled=$(call ptx/truefalse,PTXCONF_SYSTEMD_LOCALES) \
+	-Dlog-message-verification=false \
 	-Dlog-trace=false \
 	-Dlogind=$(call ptx/truefalse,PTXCONF_SYSTEMD_LOGIND) \
 	-Dlz4=$(call ptx/truefalse,PTXCONF_SYSTEMD_LZ4) \
@@ -165,6 +168,8 @@ SYSTEMD_CONF_OPT	:= \
 	-Dselinux=$(call ptx/truefalse,PTXCONF_GLOBAL_SELINUX) \
 	-Dservice-watchdog=3min \
 	-Dsetfont-path=/usr/bin/setfont \
+	-Dshared-lib-tag=$(SYSTEMD_VERSION) \
+	-Dskip-deps=false \
 	-Dslow-tests=false \
 	-Dsmack=false \
 	-Dsplit-bin=true \
@@ -181,6 +186,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dsystem-gid-max=999 \
 	-Dsystem-uid-max=999 \
 	-Dsysusers=false \
+	-Dsysusers=false \
 	-Dsysvinit-path= \
 	-Dsysvrcnd-path= \
 	-Dtelinit-path=/usr/bin/telinit \
@@ -194,6 +200,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dtranslations=false \
 	-Dtty-gid=112 \
 	-Dumount-path=/usr/bin/umount \
+	-Durlify=false \
 	-Duserdb=false \
 	-Dusers-gid=-1 \
 	-Dutmp=false \
@@ -335,6 +342,7 @@ $(STATEDIR)/systemd.targetinstall:
 	@$(call install_fixup, systemd,DESCRIPTION,missing)
 
 	@$(call install_lib, systemd, 0, 0, 0644, libsystemd)
+	@$(call install_lib, systemd, 0, 0, 0644, systemd/libsystemd-core-$(SYSTEMD_VERSION_MAJOR))
 	@$(call install_lib, systemd, 0, 0, 0644, systemd/libsystemd-shared-$(SYSTEMD_VERSION_MAJOR))
 
 	@$(call install_lib, systemd, 0, 0, 0644, libnss_myhostname)
