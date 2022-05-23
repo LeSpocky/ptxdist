@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBXKBCOMMON) += libxkbcommon
 #
 # Paths and names
 #
-LIBXKBCOMMON_VERSION	:= 1.4.0
-LIBXKBCOMMON_MD5	:= e021899fe359240757684be08f22135f
+LIBXKBCOMMON_VERSION	:= 1.4.1
+LIBXKBCOMMON_MD5	:= a871be5c9af2511f899e1bd6db8b429f
 LIBXKBCOMMON		:= libxkbcommon-$(LIBXKBCOMMON_VERSION)
 LIBXKBCOMMON_SUFFIX	:= tar.xz
 LIBXKBCOMMON_URL	:= http://xkbcommon.org/download/$(LIBXKBCOMMON).$(LIBXKBCOMMON_SUFFIX)
@@ -40,6 +40,7 @@ LIBXKBCOMMON_CONF_OPT	:= \
 	-Ddefault-rules='evdev' \
 	-Ddefault-variant='' \
 	-Denable-docs=false \
+	-Denable-tools=false \
 	-Denable-wayland=false \
 	-Denable-x11=$(call ptx/truefalse, PTXCONF_LIBXKBCOMMON_X11) \
 	-Denable-xkbregistry=false \
