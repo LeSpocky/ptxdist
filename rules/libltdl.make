@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBLTDL) += libltdl
 #
 # Paths and names
 #
-LIBLTDL_VERSION	:= 2.4.3
-LIBLTDL_MD5	:= ec4dabd3bc580dc188197d4d5eb95fe3
+LIBLTDL_VERSION	:= 2.4.7
+LIBLTDL_MD5	:= ed40528d8a066ee3fffd714588721cff
 LIBLTDL		:= libtool-$(LIBLTDL_VERSION)
 LIBLTDL_SUFFIX	:= tar.gz
 LIBLTDL_URL	:= $(call ptx/mirror, GNU, libtool/$(LIBLTDL).$(LIBLTDL_SUFFIX))
