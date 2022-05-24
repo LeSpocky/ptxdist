@@ -9,7 +9,7 @@ Signed-off-by: Denis Osterland <Denis.Osterland@diehl.com>
  2 files changed, 17 insertions(+), 11 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 119110d2f010..c40c4cd6e0f7 100644
+index a2820e04fe24..300b8192c03e 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -4,13 +4,13 @@
@@ -28,7 +28,7 @@ index 119110d2f010..c40c4cd6e0f7 100644
  INSTALL_BIN= $(INSTALL_TOP)/bin
  INSTALL_INC= $(INSTALL_TOP)/include
  INSTALL_LIB= $(INSTALL_TOP)/lib
-@@ -52,7 +52,7 @@ R= $V.4
+@@ -52,7 +52,7 @@ R= $V.6
  all:	$(PLAT)
  
  $(PLATS) clean:
@@ -49,7 +49,7 @@ index 119110d2f010..c40c4cd6e0f7 100644
  
  uninstall:
 diff --git a/src/Makefile b/src/Makefile
-index d71c75c87322..8ad9a1b718ad 100644
+index a13afb996273..071870ca55a7 100644
 --- a/src/Makefile
 +++ b/src/Makefile
 @@ -4,15 +4,13 @@

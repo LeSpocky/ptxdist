@@ -10,7 +10,7 @@ Signed-off-by: Denis Osterland <Denis.Osterland@diehl.com>
  create mode 100644 lua.pc.in
 
 diff --git a/Makefile b/Makefile
-index c40c4cd6e0f7..179246813af2 100644
+index 300b8192c03e..b48c0e7eff71 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -57,8 +57,8 @@ $(PLATS) clean:
