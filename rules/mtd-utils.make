@@ -35,7 +35,7 @@ MTD_UTILS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-unit-tests \
 	$(GLOBAL_LARGE_FILE_OPTION) \
-	--disable-tests \
+	--$(call ptx/endis,PTXCONF_MTD_UTILS_TESTS)-tests \
 	--$(call ptx/endis,PTXCONF_MTD_UTILS_UBIHEALTHD)-ubihealthd \
 	--$(call ptx/endis, PTXCONF_MTD_UTILS_LSMTD)-lsmtd \
 	--$(call ptx/wwo, PTXCONF_MTD_UTILS_JFFS)-jffs \
@@ -255,6 +255,22 @@ endif
 ifdef PTXCONF_MTD_UTILS_MTDINFO
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/mtdinfo)
+endif
+ifdef PTXCONF_MTD_UTILS_TESTS
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/libexec/mtd-utils/nandbiterrs)
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/libexec/mtd-utils/flash_speed)
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/libexec/mtd-utils/flash_stress)
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/libexec/mtd-utils/flash_readtest)
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/libexec/mtd-utils/nandpagetest)
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/libexec/mtd-utils/nandsubpagetest)
+	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
+		/usr/libexec/mtd-utils/flash_torture)
 endif
 
 	@$(call install_finish, mtd-utils)

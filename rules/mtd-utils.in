@@ -396,4 +396,12 @@ config MTD_UTILS_MTDINFO
 
 endif
 
+config MTD_UTILS_TESTS
+    bool
+    prompt "MTD test programs"
+    help
+      MTD test-suite with the following, potentially dangerous, test
+      programs: nandbiterrs, flash_speed, flash_stress, flash_readtest,
+      nandpagetest, nandsubpagetest, and flash_torture.
+
 endif
