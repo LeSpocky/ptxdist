@@ -1,0 +1,18 @@
+## SECTION=shell_and_console
+
+menuconfig NUMACTL
+	tristate
+	prompt "numactl                       "
+	help
+	  NUMA policy support for Linux.
+	  Consists of a 'numactl' program and a 'libnuma' shared library.
+
+if NUMACTL
+
+config NUMACTL_NUMACTL
+	bool
+	prompt "numactl"
+	help
+	  Program to run other programs with a specific NUMA policy.
+
+endif
