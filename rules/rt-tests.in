@@ -5,6 +5,7 @@ menuconfig RT_TESTS
 	select LIBC_PTHREAD
 	select LIBC_RT
 	select LIBC_DL
+	select NUMACTL
 	select GCCLIBS_GCC_S if RT_TESTS_RT_MIGRATE_TEST
 	prompt "rt-tests                      "
 	help
@@ -67,10 +68,6 @@ config RT_TESTS_PTSEMATEST
 config RT_TESTS_RT_MIGRATE_TEST
 	bool
 	prompt "rt-migrate-test"
-
-config RT_TESTS_SENDME
-	bool
-	prompt "sendme"
 
 config RT_TESTS_SIGNALTEST
 	bool
