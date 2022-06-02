@@ -2,7 +2,8 @@
 
 menuconfig U_BOOT
 	select BOOTLOADER
-	select HOST_OPENSSL	if U_BOOT_NEEDS_HOST_OPENSSL
+	select HOST_SYSTEM_PYTHON3
+	select HOST_OPENSSL		if U_BOOT_NEEDS_HOST_OPENSSL
 	prompt "U-Boot                        "
 	bool
 
