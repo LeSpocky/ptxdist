@@ -132,11 +132,14 @@ if LIGHTTPD_MOD_FASTCGI
 
 config LIGHTTPD_MOD_FASTCGI_PHP
 	bool
-	depends on BROKEN
+	depends on PHP8_SAPI_CGI
 	prompt "setup php handling with fastcgi"
 	help
 	  Enables the necessary packages and configuration files
 	  to enable PHP support in lighttpd
+
+comment "PHP CGI SAPI must be enabled"
+	depends on !PHP8_SAPI_CGI
 
 endif
 
