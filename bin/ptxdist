@@ -2476,29 +2476,29 @@ setup_platform() {
 	# reread vars with correct PTXDIST_PLATFORMDIR
 	source "${SCRIPTSDIR}/ptxdist_vars.sh" || return
 
-	local cfg_file cfg_dir
+	local cfg_file tmp_dir cfg_dir rel_cfg_dir
 	for cfg_file in \
 		"${PTXDIST_PLATFORMCONFIG}" \
 		"${PTXDIST_PTXCONFIG}"; do
 		[ -e "${cfg_file}" ] || continue
 
 		cfg_file="$(readlink -f "${cfg_file}")" || return
-		cfg_dir="$(dirname "${cfg_file}")"
+		tmp_dir="$(dirname "${cfg_file}")"
+		rel_cfg_dir="${tmp_dir}"
 		for layer in "${PTXDIST_LAYERS[@]}"; do
-			cfg_dir="${cfg_dir/#$(readlink -f ${layer})\//${layer}/}"
+			local tmp="${tmp_dir/#$(readlink -f ${layer})\//}"
+			# check the string length to get the shortest relative path
+			# this is necessary when a base layer is the parent directory
+			if [ "${tmp}" != "${tmp_dir}" -a ${#tmp} -lt ${#rel_cfg_dir} ]; then
+				rel_cfg_dir="${tmp}"
+				cfg_dir="${layer}/${tmp}"
+			fi
 		done
 		break
 	done
 
 	PTXDIST_PLATFORMCONFIGDIR="${cfg_dir:-${PTXDIST_WORKSPACE}}"
-	PTXDIST_PLATFORMCONFIG_SUBDIR=
-	if [ "${PTXDIST_WORKSPACE}" != "${PTXDIST_PLATFORMCONFIGDIR}" ]; then
-		local tmp=${PTXDIST_PLATFORMCONFIGDIR#${PTXDIST_WORKSPACE}/}
-		while [ "${tmp}" != "${tmp#base/}" ]; do
-			tmp=${tmp#base/}
-		done
-		PTXDIST_PLATFORMCONFIG_SUBDIR="${tmp}"
-	fi
+	PTXDIST_PLATFORMCONFIG_SUBDIR="${rel_cfg_dir}"
 
 	PTXDIST_BOARDSETUP="${HOME}/.ptxdist/boardsetup.${project}${project_version}.${platform}"
 }
