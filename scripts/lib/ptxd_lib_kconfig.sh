@@ -50,13 +50,16 @@ export -f ptxd_kconfig_migrate
 #   ${PTXDIST_LAYERS[X]}/${relative_file_dotconfig}
 #
 ptxd_normalize_config() {
-    local normalized old
-    normalized="$(readlink -f "${file_dotconfig}")"
-    old="${normalized}"
+    local normalized relative old
+    old="$(readlink -f "${file_dotconfig}")"
+    relative="${old}"
     for layer in "${PTXDIST_LAYERS[@]}"; do
-	local tmp="${old/#$(readlink -f ${layer})\//${layer}/}"
-	if [ "${tmp}" != "${old}" ]; then
-	    normalized="${tmp}"
+	local tmp="${old/#$(readlink -f ${layer})\//}"
+	# check the string length to get the shortest relative path
+	# this is necessary when a base layer is the parent directory
+	if [ "${tmp}" != "${old}" -a ${#tmp} -lt ${#relative} ]; then
+	    relative="${tmp}"
+	    normalized="${layer}/${tmp}"
 	fi
     done
     if [ "$(readlink -f "${normalized}")" != "${old}" ]; then
@@ -71,14 +74,8 @@ ptxd_normalize_config() {
 	    "${file_dotconfig}" \
 	    "must be located inside the BSP!"
     fi
-    for layer in "${PTXDIST_LAYERS[@]}"; do
-	local relative="${normalized#${layer}/}"
-	if [ "${relative}" != "${normalized}" ]; then
-	    relative_file_dotconfig="${relative}"
-	fi
-    done
+    relative_file_dotconfig="${relative}"
     file_dotconfig="${normalized}"
-
 }
 export -f ptxd_normalize_config
 
