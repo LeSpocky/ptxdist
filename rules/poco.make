@@ -27,12 +27,6 @@ POCO_LICENSE	:= BSL-1.0
 # Prepare
 # ----------------------------------------------------------------------------
 
-POCO_LIBS-					:= CppUnit
-POCO_LIBS-					+= CppUnit/WinTestRunner
-POCO_LIBS-					+= Data/ODBC
-POCO_LIBS-					+= PageCompiler
-POCO_LIBS-					+= PageCompiler/File2Page
-
 POCO_LIBS-y					+= Foundation
 POCO_LIBS-$(PTXCONF_POCO_ENCODINGS)		+= Encodings
 POCO_LIBS-$(PTXCONF_POCO_XML)			+= XML
@@ -48,22 +42,37 @@ POCO_LIBS-$(PTXCONF_POCO_ZIP)			+= Zip
 POCO_LIBS-$(PTXCONF_POCO_MONGODB)		+= MongoDB
 POCO_LIBS-$(PTXCONF_POCO_REDIS)			+= Redis
 
-POCO_CONF_TOOL	:= autoconf
+POCO_CONF_TOOL	:= cmake
 POCO_CONF_OPT	:= \
-	--config=Linux \
-	--prefix=/usr \
-	--no-tests \
-	--no-samples \
-	--omit=$(subst $(ptx/def/space),$(ptx/def/comma),$(POCO_LIBS-)) \
-	$(call ptx/ifdef, PTXCONF_POCO_POQUITO,--poquito) \
-	--unbundled \
-	--shared
-
-POCO_MAKE_ENV	:= \
-	$(CROSS_ENV) \
-	CROSS_COMPILE=$(PTXCONF_COMPILER_PREFIX) \
-	POCO_TARGET_OSNAME=Linux \
-	POCO_TARGET_OSARCH=$(PTXCONF_ARCH_STRING)
+	$(CROSS_CMAKE_USR) \
+	-G Ninja \
+	-DENABLE_APACHECONNECTOR=OFF \
+	-DENABLE_CPPPARSER=OFF \
+	-DENABLE_CRYPTO=$(call ptx/onoff,PTXCONF_POCO_CRYPTO) \
+	-DENABLE_DATA=$(call ptx/onoff,PTXCONF_POCO_DATA) \
+	-DENABLE_DATA_MYSQL=$(call ptx/onoff,PTXCONF_POCO_DATA_MYSQL) \
+	-DENABLE_DATA_ODBC=OFF \
+	-DENABLE_DATA_SQLITE=$(call ptx/onoff,PTXCONF_POCO_DATA_SQLITE) \
+	-DENABLE_ENCODINGS=$(call ptx/onoff,PTXCONF_POCO_ENCODINGS) \
+	-DENABLE_ENCODINGS_COMPILER=OFF \
+	-DENABLE_JSON=$(call ptx/onoff,PTXCONF_POCO_JSON) \
+	-DENABLE_MONGODB=$(call ptx/onoff,PTXCONF_POCO_MONGODB) \
+	-DENABLE_NET=$(call ptx/onoff,PTXCONF_POCO_NET) \
+	-DENABLE_NETSSL=$(call ptx/onoff,PTXCONF_POCO_NETSSL_OPENSSL) \
+	-DENABLE_NETSSL_WIN=OFF \
+	-DENABLE_PAGECOMPILER=OFF \
+	-DENABLE_PAGECOMPILER_FILE2PAGE=OFF \
+	-DENABLE_PDF=OFF \
+	-DENABLE_POCODOC=OFF \
+	-DENABLE_REDIS=$(call ptx/onoff,PTXCONF_POCO_REDIS) \
+	-DENABLE_SEVENZIP=OFF \
+	-DENABLE_TESTS=OFF \
+	-DENABLE_UTIL=$(call ptx/onoff,PTXCONF_POCO_UTIL) \
+	-DENABLE_XML=$(call ptx/onoff,PTXCONF_POCO_XML) \
+	-DENABLE_ZIP=$(call ptx/onoff,PTXCONF_POCO_ZIP) \
+	-DFORCE_OPENSSL=OFF \
+	-DPOCO_STATIC=OFF \
+	-DPOCO_UNBUNDLED=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install

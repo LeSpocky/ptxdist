@@ -2,6 +2,8 @@
 
 menuconfig POCO
 	tristate
+	select HOST_CMAKE
+	select HOST_NINJA
 	select GCCLIBS_CXX
 	select GCCLIBS_GCC_S
 	select ZLIB
