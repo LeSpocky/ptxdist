@@ -71,12 +71,6 @@ config POPPLER_INTROSPECTION
 	default GOBJECT_INTROSPECTION_HELPER
 	bool
 
-config POPPLER_QT4
-	bool
-	prompt "enable Qt4 wrapper"
-	help
-	  build poppler Qt4 wrapper.
-
 config POPPLER_QT5
 	bool
 	prompt "enable Qt5 wrapper"

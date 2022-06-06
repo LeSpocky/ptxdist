@@ -31,11 +31,9 @@ LOG4CPLUS_LICENSE	:= Apache-2.0
 LOG4CPLUS_CONF_TOOL	:= cmake
 
 LOG4CPLUS_CONF_OPT	:= $(CROSS_CMAKE_USR)
-LOG4CPLUS_CONF_OPT	+= -DLOG4CPLUS_BUILD_TESTING=OFF
-
-ifdef PTXCONF_LOG4CPLUS_QT4
-LOG4CPLUS_CONF_OPT	+= -DLOG4CPLUS_QT4=ON
-endif
+LOG4CPLUS_CONF_OPT	+= \
+	-DLOG4CPLUS_BUILD_TESTING=OFF \
+	-DLOG4CPLUS_QT4=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -53,10 +51,6 @@ $(STATEDIR)/log4cplus.targetinstall:
 
 	@$(call install_lib, log4cplus, 0, 0, 0644, liblog4cplus)
 	@$(call install_copy, log4cplus, 0, 0, 0755, -, /usr/bin/loggingserver)
-
-ifdef PTXCONF_LOG4CPLUS_QT4
-	@$(call install_lib, log4cplus, 0, 0, 0644, liblog4cplusqt4debugappender)
-endif
 
 	@$(call install_finish, log4cplus)
 

@@ -44,7 +44,7 @@ AVAHI_CONF_OPT	:= \
 	--disable-introspection \
 	--disable-libevent \
 	--disable-qt3 \
-	--$(call ptx/endis, PTXCONF_AVAHI_QT4)-qt4 \
+	--disable-qt4 \
 	--$(call ptx/endis, PTXCONF_AVAHI_QT5)-qt5 \
 	--disable-gtk \
 	--$(call ptx/endis, PTXCONF_AVAHI_GTK)-gtk3 \
@@ -119,10 +119,6 @@ $(STATEDIR)/avahi.targetinstall:
 ifdef PTXCONF_AVAHI_DBUS
 	@$(call install_alternative, avahi, 0, 0, 0644, \
 		/usr/share/dbus-1/system.d/avahi-dbus.conf)
-endif
-
-ifdef PTXCONF_AVAHI_QT4
-	@$(call install_lib, avahi, 0, 0, 0644, libavahi-qt4)
 endif
 
 ifdef PTXCONF_AVAHI_QT5
