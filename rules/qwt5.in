@@ -7,7 +7,7 @@ menuconfig QWT5
 	select QT5_GUI
 	select QT5_OPENGL
 	select QT5_MODULE_QTBASE_WIDGETS
-	select QT5_MODULE_QTSVG if QWT_SVG
+	select QT5_MODULE_QTSVG if QWT5_SVG
 	help
 	  The Qwt library contains GUI Components and utility classes
 	  which are primarily useful for programs with a technical
