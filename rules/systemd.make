@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 251
+SYSTEMD_VERSION		:= 251.3
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_MD5		:= 8090fcccc3a2ec20995e89d56fed61b1
+SYSTEMD_MD5		:= 114c576ea4b80c719336351d9c862add
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -168,7 +168,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dselinux=$(call ptx/truefalse,PTXCONF_GLOBAL_SELINUX) \
 	-Dservice-watchdog=3min \
 	-Dsetfont-path=/usr/bin/setfont \
-	-Dshared-lib-tag=$(SYSTEMD_VERSION) \
+	-Dshared-lib-tag=$(SYSTEMD_VERSION_MAJOR) \
 	-Dskip-deps=false \
 	-Dslow-tests=false \
 	-Dsmack=false \
