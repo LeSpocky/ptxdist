@@ -84,18 +84,30 @@ check_pipe_status() {
 	done
 }
 
+#
+# meson suppresses any pkg-config output, so dump it into the logfile instead
+#
+if [ "${pkg_conf_tool}" = "meson" -a -n "${PTXDIST_FD_LOGFILE}" ]; then
+    ERROR_FD=${PTXDIST_FD_LOGFILE}
+else
+    ERROR_FD=2
+fi
+
 if [ -n "${PKGCONFIG_WHITELIST_SRC}" -a "${1}" != "--version" -a "${1}" != "--help" ]; then
     error="$(mktemp "${PTXDIST_TEMPDIR}/pkg-config.XXXXXX")"
     pkgs="$(pkg-config.real --print-provides "${@}" 2> "${error}" | awk '{print $1}' && check_pipe_status)"
     if [ $? -ne 0 ]; then
-	cat "${error}" >&2
+	if [ "${ERROR_FD}" != "2" ]; then
+	    echo "$(basename ${0}) $*" >&${PTXDIST_FD_LOGFILE}
+	fi
+	cat "${error}" >&${ERROR_FD}
 	rm "${error}"
 	exit 1
     fi
     rm "${error}"
     for pkg in ${pkgs}; do
 	if [[ ! " ${whitelist} " =~ " ${pkg} " && ! "${pkg}" =~ '-uninstalled' ]]; then
-	    echo "$(basename ${0}): warning: blocking '${pkg}': not selected by '${PKGCONFIG_WHITELIST_SRC}'" >&2
+	    echo "$(basename ${0}): warning: blocking '${pkg}': not selected by '${PKGCONFIG_WHITELIST_SRC}'" >&${ERROR_FD}
 	    exit 1
 	fi
     done
