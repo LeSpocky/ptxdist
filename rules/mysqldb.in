@@ -14,6 +14,7 @@ choice
 
 config MYSQLDB_MYSQL
 	bool
+	depends on STAGING
 	prompt "mysql                  "
 
 config MYSQLDB_MARIADB

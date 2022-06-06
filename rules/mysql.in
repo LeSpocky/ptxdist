@@ -1,4 +1,6 @@
-## SECTION=mysql
+## SECTION=staging
+## old section:
+### SECTION=mysql
 
 config MYSQL
 	tristate
@@ -18,6 +20,9 @@ config MYSQL
 	prompt "mysql" if ALLYES
 	help
 	  mySQL, an SQL database engine
+
+	  STAGING: remove in PTXdist 2023.07.0
+	  Ancient version, not realy maintained in PTXdist. Needs to be updated.
 
 if MYSQL
 
