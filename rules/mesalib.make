@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 22.0.4
-MESALIB_MD5	:= 9dc7c0fb775d19fb14673464e4f2fd84
+MESALIB_VERSION	:= 22.1.1
+MESALIB_MD5	:= 56d5b4145097ff3b5807a2b16b52d8cf
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -147,6 +147,7 @@ MESALIB_CONF_OPT	:= \
 	-Degl-native-platform=auto \
 	-Dexecmem=true \
 	-Dfreedreno-kgsl=false \
+	-Dfreedreno-virtio=false \
 	-Dgallium-d3d10umd=false \
 	-Dgallium-drivers=$(subst $(space),$(comma),$(MESALIB_GALLIUM_DRIVERS-y)) \
 	-Dgallium-extra-hud=$(call ptx/truefalse, PTXCONF_MESALIB_EXTENDED_HUD) \
@@ -167,7 +168,9 @@ MESALIB_CONF_OPT	:= \
 	-Dglx=$(call ptx/ifdef, PTXCONF_MESALIB_GLX, dri, disabled) \
 	-Dglx-direct=true \
 	-Dglx-read-only-text=false \
+	-Dimagination-srv=false \
 	-Dinstall-intel-gpu-tests=false \
+	-Dintel-clc=disabled \
 	-Dlibunwind=disabled \
 	-Dllvm=disabled \
 	-Dlmsensors=$(call ptx/endis, PTXCONF_MESALIB_LMSENSORS)d \
