@@ -179,31 +179,16 @@ ifneq ($(strip $(BAREBOX_PROGS_TARGET_y)),)
 endif
 
 	@$(call world/image-clean, BAREBOX)
-	@if [ -d $(BAREBOX_BUILD_DIR)/images ]; then \
-		find $(BAREBOX_BUILD_DIR)/images/ -name "barebox-*.img" | sort | while read image; do \
-			$(call ptx/image-install, BAREBOX, $$image); \
-			if [ ! -e $(IMAGEDIR)/barebox-image ]; then \
-				$(call ptx/image-install-link, BAREBOX, `basename $$image`, barebox-image); \
-			fi; \
-		done; \
-	fi
-	@if [ -e $(IMAGEDIR)/barebox-image ]; then \
-		:; \
-	elif [ -e $(BAREBOX_BUILD_DIR)/barebox-flash-image ]; then \
-		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/barebox-flash-image, barebox-image); \
-	else \
-		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/barebox.bin, barebox-image); \
-	fi
-	@if [ -e $(BAREBOX_BUILD_DIR)/defaultenv/barebox_zero_env ]; then \
-		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/defaultenv/barebox_zero_env, \
-			barebox-default-environment); \
-	elif [ -e $(BAREBOX_BUILD_DIR)/common/barebox_default_env ]; then \
-		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/common/barebox_default_env, \
-			barebox-default-environment); \
-	elif [ -e $(BAREBOX_BUILD_DIR)/barebox_default_env ]; then \
-		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/barebox_default_env, \
-			barebox-default-environment); \
-	fi
+
+	@$(foreach image, $(shell cat $(BAREBOX_BUILD_DIR)/barebox-flash-images), \
+		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/$(image))$(ptx/nl) \
+		if [ ! -e $(IMAGEDIR)/barebox-image ]; then \
+			$(call ptx/image-install-link, BAREBOX, $(notdir $(image)), barebox-image); \
+		fi$(ptx/nl))
+
+	@$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/defaultenv/barebox_zero_env, \
+		barebox-default-environment)
+
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
