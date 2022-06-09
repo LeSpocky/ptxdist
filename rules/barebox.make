@@ -180,6 +180,11 @@ endif
 
 	@$(call world/image-clean, BAREBOX)
 
+ifdef PTXCONF_BAREBOX_INSTALL_DTBS
+	@$(foreach dtb, $(shell find $(BAREBOX_BUILD_DIR) -name "*.dtb"), \
+		$(call ptx/image-install, BAREBOX, $(dtb), barebox-$(notdir $(dtb)))$(ptx/nl))
+endif
+
 	@$(foreach image, $(shell cat $(BAREBOX_BUILD_DIR)/barebox-flash-images), \
 		$(call ptx/image-install, BAREBOX, $(BAREBOX_BUILD_DIR)/$(image))$(ptx/nl) \
 		if [ ! -e $(IMAGEDIR)/barebox-image ]; then \

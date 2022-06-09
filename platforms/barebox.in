@@ -89,6 +89,14 @@ config BAREBOX_BAREBOXENV
 	  environment. Enable this option to access the barebox environment
 	  from the target Linux system.
 
+config BAREBOX_INSTALL_DTBS
+       prompt "install dtbs"
+       bool
+       help
+         Install barebox generated dtbs into the image directory.
+	 These dtbs can, for example, be used when constructing a
+	 FIP image for TF-A boot.
+
 config BAREBOX_BAREBOXCRC32
 	prompt "install 'bareboxcrc32'"
 	bool
