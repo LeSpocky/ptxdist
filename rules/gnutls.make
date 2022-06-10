@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GNUTLS) += gnutls
 #
 # Paths and names
 #
-GNUTLS_VERSION	:= 3.7.4
-GNUTLS_MD5	:= 4bce06332c525eae540bb237433d4225
+GNUTLS_VERSION	:= 3.7.6
+GNUTLS_MD5	:= 5b07c89e53a351209dc23b714da3ef98
 GNUTLS		:= gnutls-$(GNUTLS_VERSION)
 GNUTLS_SUFFIX	:= tar.xz
 GNUTLS_URL	:= https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/$(GNUTLS).$(GNUTLS_SUFFIX)
@@ -53,7 +53,6 @@ GNUTLS_CONF_OPT		:= \
 	--enable-strict-der-time \
 	--enable-sha1-support \
 	--disable-ssl3-support \
-	--disable-strict-x509 \
 	--enable-ssl2-support \
 	--enable-dtls-srtp-support \
 	--enable-alpn-support \
@@ -71,6 +70,9 @@ GNUTLS_CONF_OPT		:= \
 	--$(call ptx/endis, PTXCONF_GNUTLS_OPENSSL)-openssl-compatibility \
 	--disable-tests \
 	--disable-fuzzer-target \
+	--disable-gtk-doc \
+	--disable-gtk-doc-html \
+	--disable-gtk-doc-pdf \
 	--disable-nls \
 	--disable-rpath \
 	--disable-seccomp-tests \
@@ -82,13 +84,13 @@ GNUTLS_CONF_OPT		:= \
 	--disable-static \
 	--enable-shared \
 	--disable-fips140-mode \
+	--disable-strict-x509 \
 	--enable-non-suiteb-curves \
 	--disable-libdane \
 	--disable-guile \
 	--with-nettle-mini \
 	--without-included-libtasn1 \
 	--with-included-unistring \
-	--without-libbrotli \
 	--without-fips140-key \
 	--without-idn \
 	--without-p11-kit \
@@ -96,7 +98,8 @@ GNUTLS_CONF_OPT		:= \
 	--without-tpm \
 	--without-trousers-lib \
 	--without-zlib \
-	--without-libzstd \
+	--without-brotli \
+	--without-zstd \
 	--with-default-trust-store-file=/etc/ssl/certs/ca-certificates.crt
 
 # ----------------------------------------------------------------------------
