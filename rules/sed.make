@@ -15,17 +15,16 @@ PACKAGES-$(PTXCONF_SED) += sed
 #
 # Paths and names
 #
-SED_VERSION	:= 4.2.2
-SED_MD5		:= 7ffe1c7cdc3233e1e0c4b502df253974
+SED_VERSION	:= 4.8
+SED_MD5		:= 4b9b442ae2527ac316d2915facc41622
 SED		:= sed-$(SED_VERSION)
-SED_SUFFIX	:= tar.bz2
+SED_SUFFIX	:= tar.gz
 SED_URL		:= $(call ptx/mirror, GNU, sed/$(SED).$(SED_SUFFIX))
 SED_SOURCE	:= $(SRCDIR)/$(SED).$(SED_SUFFIX)
 SED_DIR		:= $(BUILDDIR)/$(SED)
-SED_LICENSE	:= GPL-3.0-only AND GNU Free Documentation License
+SED_LICENSE	:= GPL-3.0-only
 SED_LICENSE_FILES := \
-	file://COPYING;md5=f27defe1e96c2e1ecd4e0c9be8967949 \
-	file://COPYING.DOC;md5=10b9de612d532fdeeb7fe8fcd1435cc6
+	file://COPYING;md5=c678957b0c8e964aa6c70fd77641a71e
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -43,7 +42,9 @@ SED_AUTOCONF := \
 	--disable-acl \
 	--disable-nls \
 	--disable-rpath \
-	--without-selinux
+	--without-selinux \
+	--enable-threads=posix \
+	--disable-assert
 
 # ----------------------------------------------------------------------------
 # Target-Install
