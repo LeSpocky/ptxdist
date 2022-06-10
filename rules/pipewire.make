@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.51
-PIPEWIRE_MD5		:= a63ff8c12652657f049329568756c9c3
+PIPEWIRE_VERSION	:= 0.3.52
+PIPEWIRE_MD5		:= 96b08bdbbaf7907957c599e4b67e8bed
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -51,6 +51,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dbluez5-backend-ofono=disabled \
 	-Dbluez5-codec-aac=disabled \
 	-Dbluez5-codec-aptx=disabled \
+	-Dbluez5-codec-lc3plus=disabled \
 	-Dbluez5-codec-ldac=disabled \
 	-Dcontrol=enabled \
 	-Ddbus=enabled \
@@ -117,6 +118,7 @@ PIPEWIRE_MODULES-y := \
 	link-factory \
 	loopback \
 	metadata \
+	pipe-tunnel \
 	portal \
 	profiler \
 	protocol-native \
