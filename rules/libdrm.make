@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBDRM) += libdrm
 #
 # Paths and names
 #
-LIBDRM_VERSION	:= 2.4.110
-LIBDRM_MD5	:= ef6449de30a41ecdf69dc7ae78e676a9
+LIBDRM_VERSION	:= 2.4.111
+LIBDRM_MD5	:= 6fc1c5b01d8568d10c7d4d84ddd8efa3
 LIBDRM		:= libdrm-$(LIBDRM_VERSION)
 LIBDRM_SUFFIX	:= tar.xz
 LIBDRM_URL	:= http://dri.freedesktop.org/libdrm/$(LIBDRM).$(LIBDRM_SUFFIX)
@@ -58,7 +58,6 @@ LIBDRM_BACKENDSL-y += $(LIBDRM_BACKENDS-y)
 LIBDRM_CONF_TOOL := meson
 LIBDRM_CONF_OPT := \
 	$(CROSS_MESON_USR) \
-	-Dlibkms=$(call ptx/truefalse, PTXCONF_LIBDRM_LIBKMS) \
 	$(patsubst %,-D%=true,$(LIBDRM_BACKENDSC-y)) \
 	$(patsubst %,-D%=false,$(LIBDRM_BACKENDSC-)) \
 	-Dcairo-tests=false \
@@ -83,17 +82,11 @@ $(STATEDIR)/libdrm.targetinstall:
 
 	@$(call install_lib, libdrm, 0, 0, 0644, libdrm)
 
-ifdef PTXCONF_LIBDRM_LIBKMS
-	@$(call install_lib, libdrm, 0, 0, 0644, libkms)
-endif
 	@$(foreach backend,$(LIBDRM_BACKENDSL-y), \
 		$(call install_lib, libdrm, 0, 0, 0644, libdrm_$(backend));)
 
 ifdef PTXCONF_LIBDRM_TESTS
-ifdef PTXCONF_LIBDRM_LIBKMS
-	@$(call install_copy, libdrm, 0, 0, 0755, -, /usr/bin/kmstest)
 	@$(call install_copy, libdrm, 0, 0, 0755, -, /usr/bin/modetest)
-endif
 	@$(call install_copy, libdrm, 0, 0, 0755, -, /usr/bin/modeprint)
 	@$(call install_copy, libdrm, 0, 0, 0755, -, /usr/bin/vbltest)
 ifdef PTXCONF_LIBDRM_ETNAVIV

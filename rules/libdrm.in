@@ -14,53 +14,49 @@ menuconfig LIBDRM
 
 if LIBDRM
 
-config LIBDRM_LIBKMS
-	bool
-	prompt "build libkms"
-
 config LIBDRM_INTEL
 	bool
-	prompt "intel KMS support"
+	prompt "intel support"
 
 config LIBDRM_RADEON
 	bool
-	prompt "radeon KMS support"
+	prompt "radeon support"
 
 config LIBDRM_AMDGPU
 	bool
-	prompt "amdgpu KMS support"
+	prompt "amdgpu support"
 
 config LIBDRM_NOUVEAU
 	bool
-	prompt "nouveau KMS support"
+	prompt "nouveau support"
 
 config LIBDRM_VMWGFX
 	bool
-	prompt "vmwgfx KMS support"
+	prompt "vmwgfx support"
 
 config LIBDRM_OMAP
 	bool
-	prompt "omap KMS support"
+	prompt "omap support"
 
 config LIBDRM_EXYNOS
 	bool
-	prompt "exynos KMS support"
+	prompt "exynos support"
 
 config LIBDRM_FREEDRENO
 	bool
-	prompt "freedreno KMS support"
+	prompt "freedreno support"
 
 config LIBDRM_TEGRA
 	bool
-	prompt "tegra KMS support"
+	prompt "tegra support"
 
 config LIBDRM_VC4
 	bool
-	prompt "vc4 KMS support"
+	prompt "vc4 support"
 
 config LIBDRM_ETNAVIV
 	bool
-	prompt "etnaviv KMS support"
+	prompt "etnaviv support"
 
 config LIBDRM_TESTS
 	bool
