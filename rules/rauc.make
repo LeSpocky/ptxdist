@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_RAUC) += rauc
 #
 # Paths and names
 #
-RAUC_VERSION	:= 1.5.1
-RAUC_MD5	:= e1c1fad12d81b955784968c37130d272
+RAUC_VERSION	:= 1.7
+RAUC_MD5	:= aa31fc2a457ba2e3fca8206d9fb9f126
 RAUC		:= rauc-$(RAUC_VERSION)
 RAUC_SUFFIX	:= tar.xz
 RAUC_URL	:= https://github.com/rauc/rauc/releases/download/v$(RAUC_VERSION)/$(RAUC).$(RAUC_SUFFIX)
