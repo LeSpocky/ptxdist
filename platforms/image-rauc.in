@@ -28,6 +28,7 @@ config IMAGE_RAUC_DESCRIPTION
 
 choice
 	prompt "Bundle format"
+	default IMAGE_RAUC_BUNDLE_FORMAT_VERITY
 
 config IMAGE_RAUC_BUNDLE_FORMAT_PLAIN
 	bool "plain"
