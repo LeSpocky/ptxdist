@@ -46,6 +46,7 @@ RAUC_CONF_OPT	:= \
 	--$(call ptx/endis,PTXCONF_RAUC_SERVICE)-service \
 	--disable-create \
 	--$(call ptx/endis,PTXCONF_RAUC_NETWORK)-network \
+	--$(call ptx/endis,PTXCONF_RAUC_STREAMING)-streaming \
 	--$(call ptx/endis,PTXCONF_RAUC_JSON)-json \
 	--$(call ptx/endis,PTXCONF_RAUC_GPT)-gpt \
 	--with-gcov=gcov \

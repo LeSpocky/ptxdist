@@ -13,6 +13,7 @@ menuconfig RAUC
 	select BUSYBOX_FEATURE_SEAMLESS_GZ	if BUSYBOX_TAR
 	select DBUS				if RAUC_SERVICE
 	select LIBCURL				if RAUC_NETWORK
+	select LIBNL3				if RAUC_STREAMING
 	select JSON_GLIB			if RAUC_JSON
 	select UTIL_LINUX_NG_LIBFDISK		if RAUC_GPT
 	select SQUASHFS_TOOLS			if RUNTIME
@@ -43,6 +44,15 @@ config RAUC_NETWORK
 	  via http/https/ftp/sftp (using libcurl).
 	  Note that network is primarily designed to be used for RAUC'S casync
 	  capabilities, not for fetching full bundles.
+
+config RAUC_STREAMING
+	bool
+	prompt "Enable streaming support"
+	select RAUC_NETWORK
+	help
+	  Enables built-in HTTP(S) streaming support that allows RAUC to
+	  access remote bundles via http/https and write images without the
+	  need for intermediate storage on the target.
 
 config RAUC_JSON
 	bool
