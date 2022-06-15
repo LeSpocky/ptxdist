@@ -27,6 +27,15 @@ menuconfig RAUC
 
 if RAUC
 
+config RAUC_CREATE
+	bool
+	prompt "Enable bundle creation support on target"
+	help
+	  Enables support for creating bundles on target.
+	  Disabling this will remove functionality required for bundle
+	  creation which is not required on the target in most cases and thus
+	  allows to save space.
+
 config RAUC_SERVICE
 	bool
 	prompt "Enable service (D-Bus) support"

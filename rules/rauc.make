@@ -43,6 +43,7 @@ RAUC_CONF_OPT	:= \
 	--disable-Werror \
 	--disable-code-coverage \
 	--disable-valgrind \
+	--$(call ptx/endis,PTXCONF_RAUC_CREATE)-create \
 	--$(call ptx/endis,PTXCONF_RAUC_SERVICE)-service \
 	--disable-create \
 	--$(call ptx/endis,PTXCONF_RAUC_NETWORK)-network \
