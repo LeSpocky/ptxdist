@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_STRONGSWAN) += strongswan
 #
 # Paths and names
 #
-STRONGSWAN_VERSION	:= 5.9.2
-STRONGSWAN_MD5		:= 8918e6675e1be3784817641f07eadeb8
+STRONGSWAN_VERSION	:= 5.9.6
+STRONGSWAN_MD5		:= 0eeb13eda09fb34e9ab5e2bfcfab1211
 STRONGSWAN		:= strongswan-$(STRONGSWAN_VERSION)
 STRONGSWAN_SUFFIX	:= tar.bz2
 STRONGSWAN_URL		:= https://download.strongswan.org/$(STRONGSWAN).$(STRONGSWAN_SUFFIX)
@@ -221,8 +221,10 @@ STRONGSWAN_CONF_OPT	:= \
 	--disable-log-thread-ids \
 	--disable-monolithic \
 	--disable-defaults \
+	--enable-kdf \
 	--enable-dependency-tracking \
 	--enable-shared \
+	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--$(call ptx/endis, PTXCONF_STRONGSWAN_SWANCTL)-swanctl \
 	--with-ipseclibdir=/usr/lib \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system
@@ -243,6 +245,7 @@ STRONGSWAN_PLUGINS := \
 	libstrongswan-gcm.so \
 	libstrongswan-gmp.so \
 	libstrongswan-hmac.so \
+	libstrongswan-kdf.so \
 	libstrongswan-kernel-netlink.so \
 	libstrongswan-nonce.so \
 	libstrongswan-pem.so \
