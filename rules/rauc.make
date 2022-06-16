@@ -39,15 +39,20 @@ RAUC_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-debug=info \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--enable-compile-warnings=yes \
+	--disable-Werror \
 	--disable-code-coverage \
 	--disable-valgrind \
 	--$(call ptx/endis,PTXCONF_RAUC_SERVICE)-service \
+	--disable-create \
 	--$(call ptx/endis,PTXCONF_RAUC_NETWORK)-network \
 	--$(call ptx/endis,PTXCONF_RAUC_JSON)-json \
 	--$(call ptx/endis,PTXCONF_RAUC_GPT)-gpt \
+	--with-gcov=gcov \
 	--with-systemdunitdir=/usr/lib/systemd/system \
 	--with-dbuspolicydir=/usr/share/dbus-1/system.d \
-	--with-dbussystemservicedir=/usr/share/dbus-1/system-services
+	--with-dbussystemservicedir=/usr/share/dbus-1/system-services \
+	--with-dbusinterfacesdir=/usr/share/dbus-1/interfaces
 
 $(STATEDIR)/rauc.prepare:
 	@$(call targetinfo)
