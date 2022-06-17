@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GST_RTSP_SERVER1) += gst-rtsp-server1
 #
 # Paths and names
 #
-GST_RTSP_SERVER1_VERSION	:= 1.20.2
-GST_RTSP_SERVER1_MD5		:= 4f89a74dfe75cef2c15ca04bf905d65e
+GST_RTSP_SERVER1_VERSION	:= 1.20.3
+GST_RTSP_SERVER1_MD5		:= afe95bb37187589072ca27e5852fd12a
 GST_RTSP_SERVER1		:= gst-rtsp-server-$(GST_RTSP_SERVER1_VERSION)
 GST_RTSP_SERVER1_SUFFIX		:= tar.xz
 GST_RTSP_SERVER1_URL		:= http://gstreamer.freedesktop.org/src/gst-rtsp/$(GST_RTSP_SERVER1).$(GST_RTSP_SERVER1_SUFFIX)
@@ -38,11 +38,11 @@ GST_RTSP_SERVER1_CONF_OPT	= \
 	-Dglib-asserts=enabled \
 	-Dglib-checks=enabled \
 	-Dgobject-cast-checks=enabled \
+	-Dintrospection=$(call ptx/endis,PTXCONF_GSTREAMER1_INTROSPECTION)d \
 	-Dpackage-name="GStreamer RTSP Server Library source release" \
 	-Dpackage-origin=PTXdist \
-	-Dtests=disabled \
-	-Dintrospection=$(call ptx/endis,PTXCONF_GSTREAMER1_INTROSPECTION)d \
-	-Drtspclientsink=auto
+	-Drtspclientsink=auto \
+	-Dtests=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
