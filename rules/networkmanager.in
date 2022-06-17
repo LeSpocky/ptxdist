@@ -3,6 +3,7 @@
 menuconfig NETWORKMANAGER
 	tristate
 	# intltool is unconditionally requested by configure
+	select GOBJECT_INTROSPECTION            if NETWORKMANAGER_INTROSPECTION
 	select HOST_GLIB
 	select HOST_INTLTOOL
 	select HOST_LIBXSLT
@@ -109,6 +110,11 @@ config NETWORKMANAGER_MORE_LOGGING
 	prompt "more logging"
 	help
 	  Allows debug log level in NetworkManager.conf
+
+config NETWORKMANAGER_INTROSPECTION
+       bool
+       prompt "introspection support"
+       default GOBJECT_INTROSPECTION_HELPER
 
 endif
 

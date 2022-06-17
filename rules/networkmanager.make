@@ -54,7 +54,7 @@ NETWORKMANAGER_CONF_OPT = \
 	-Dhostname_persist=default \
 	-Difcfg_rh=false \
 	-Difupdown=true \
-	-Dintrospection=false \
+	-Dintrospection=$(call ptx/truefalse,PTXCONF_NETWORKMANAGER_INTROSPECTION) \
 	-Diptables=/usr/sbin/iptables \
 	-Diwd=false \
 	-Dkernel_firmware_dir=/lib/firmware \
@@ -212,6 +212,10 @@ endif
 
 ifdef PTXCONF_NETWORKMANAGER_EXAMPLES
 	@$(call install_glob, networkmanager, 0, 0, -, /usr/bin, */nm-*-*)
+endif
+
+ifdef PTXCONF_NETWORKMANAGER_INTROSPECTION
+	@$(call install_tree, networkmanager, 0, 0, -, /usr/lib/girepository-1.0)
 endif
 
 	@$(call install_finish, networkmanager)
