@@ -94,7 +94,6 @@ config CUPS_STARTSCRIPT
 
 config CUPS_TEST_TOOLS
 	bool "install cupstest* tools"
-	default n
 	help
 	  Install cupstestdsc and cupstestppd on the target.
 

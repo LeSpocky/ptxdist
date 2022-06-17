@@ -17,7 +17,6 @@ if MPG123
 
 config MPG123_INT_QUALITY
 	bool
-	default n
 	prompt "integer quality mode"
 	help
 	  Use rounding instead of fast truncation for integer output.

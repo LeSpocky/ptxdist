@@ -37,7 +37,6 @@ config RNG_TOOLS_SYSTEMD_UNIT
 
 config RNG_TOOLS_RNGTEST
 	bool
-	default n
 	prompt "install rngtest"
 
 endif

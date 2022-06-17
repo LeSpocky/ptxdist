@@ -63,7 +63,6 @@ config DNSMASQ_SCRIPT
 
 config DNSMASQ_SCRIPT_LUA
 	bool
-	default n
 	depends on DNSMASQ_SCRIPT
 	prompt "include lease script LUA support"
 	help
@@ -71,7 +70,6 @@ config DNSMASQ_SCRIPT_LUA
 
 config DNSMASQ_DNSSEC
 	bool
-	default n
 	prompt "include DNSSEC support"
 	help
 	  Without this option it is not possible to call scripts when a lease changes

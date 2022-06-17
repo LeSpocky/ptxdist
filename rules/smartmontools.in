@@ -25,7 +25,6 @@ config SMARTMONTOOLS_SMARTCTL
 
 config SMARTMONTOOLS_SMARTD
 	bool
-	default n
 	prompt "install smartd"
 	help
 	  SMART Disk Monitoring Daemon
@@ -33,7 +32,6 @@ config SMARTMONTOOLS_SMARTD
 config SMARTMONTOOLS_SMARTD_CONFIG
 	bool
 	depends	on SMARTMONTOOLS_SMARTD
-	default n
 	prompt "install smartd.conf"
 	help
 	  SMART Disk Monitoring Daemon Configuration File
@@ -41,7 +39,6 @@ config SMARTMONTOOLS_SMARTD_CONFIG
 config SMARTMONTOOLS_SMARTD_INITD
 	bool
 	depends	on SMARTMONTOOLS_SMARTD
-	default n
 	prompt "install /etc/init.d/smartd"
 	help
 	  SMART Disk Monitoring Daemon Configuration File

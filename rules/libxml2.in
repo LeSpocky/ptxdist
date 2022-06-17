@@ -266,7 +266,6 @@ config LIBXML2_LZMA
 
 config LIBXML2_XMLLINT
 	bool
-	default n
 	prompt "install xmllint"
 	help
 	  Install xmllint tool

@@ -26,7 +26,6 @@ config STRONGSWAN_LIBCURL
 
 config STRONGSWAN_OPENSSL
 	bool
-	default n
 	prompt "OpenSSL crypto library for IKE"
 	help
 	  This will add Elliptic Curve support in IKE Diffie-Hellman key exchange.

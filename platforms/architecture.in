@@ -280,7 +280,6 @@ config HAS_HARDFLOAT
 	default y if ARCH_SPARC
 	default y if ARCH_ARM64
 	default y if ARCH_RISCV
-	default n
 
 #
 # memory management unit
