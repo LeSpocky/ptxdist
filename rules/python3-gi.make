@@ -61,7 +61,7 @@ $(STATEDIR)/python3-gi.targetinstall:
 	@$(call install_fixup, python3-gi,DESCRIPTION,missing)
 
 	@$(call install_glob, python3-gi, 0, 0, -, \
-		$(PYTHON3_SITEPACKAGES)/gi,, *.py *.la)
+		$(PYTHON3_SITEPACKAGES)/gi,, *.la)
 
 	@$(call install_finish, python3-gi)
 
