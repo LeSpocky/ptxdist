@@ -80,6 +80,11 @@ ptxd_make_world_lint_makefiles() {
 }
 export -f ptxd_make_world_lint_makefiles
 
+ptxd_make_world_lint_menu_files() {
+    sed -n 's;source "\(.*\)";\1;p' ${PTX_KGEN_DIR}/generated/*
+}
+export -f ptxd_make_world_lint_menu_files
+
 ptxd_make_world_lint_symbols() {
     local symbol symbols_all
 
@@ -259,6 +264,23 @@ ptxd_make_world_lint_cross() {
 }
 export -f ptxd_make_world_lint_cross
 PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} cross"
+
+ptxd_make_world_lint_menu() {
+    local filefd file
+
+    echo "Checking menu files for redundant 'default n' ..."
+
+    exec {filefd}< <(ptxd_make_world_lint_menu_files)
+    while read file <&${filefd}; do
+	if grep -q "\<default n$" "${file}"; then
+	    ptxd_lint_error "'$(ptxd_print_path "${file}")' contains redundant 'default n'."
+	fi
+    done
+    exec {filefd}<&-
+    echo
+}
+export -f ptxd_make_world_lint_menu
+PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} menu"
 
 ptxd_make_world_lint() {
     local command
