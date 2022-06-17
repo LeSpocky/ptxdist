@@ -14,20 +14,20 @@ PACKAGES-$(PTXCONF_OPENVPN) += openvpn
 #
 # Paths and names
 #
-OPENVPN_VERSION		:= 2.4.6
-OPENVPN_MD5		:= 3a1f3f63bdaede443b4df49957df9405
+OPENVPN_VERSION		:= 2.5.6
+OPENVPN_MD5		:= 434f02d3b371bf1dcd1e618e56969a4c
 OPENVPN			:= openvpn-$(OPENVPN_VERSION)
-OPENVPN_SUFFIX		:= tar.xz
-OPENVPN_URL		:= http://swupdate.openvpn.org/community/releases/$(OPENVPN).$(OPENVPN_SUFFIX)
+OPENVPN_SUFFIX		:= tar.gz
+OPENVPN_URL		:= https://swupdate.openvpn.org/community/releases/$(OPENVPN).$(OPENVPN_SUFFIX)
 OPENVPN_SOURCE		:= $(SRCDIR)/$(OPENVPN).$(OPENVPN_SUFFIX)
 OPENVPN_DIR		:= $(BUILDDIR)/$(OPENVPN)
 OPENVPN_LICENSE		:= GPL-2.0-only WITH openvpn-openssl-exception AND BSD-2-Clause AND BSD-3-Clause
 OPENVPN_LICENSE_FILES := \
-	file://COPYING;md5=7aee596ed2deefe3e8a861e24292abba \
+	file://COPYING;md5=b76abd82c14ee01cc34c4ff5e3627b89 \
 	file://COPYRIGHT.GPL;md5=52cadf4008002e3c314a47a54fa7306c \
-	file://src/openvpn/openvpn.c;startline=2;endline=21;md5=0f37ee042b428e513bda42b430344d42 \
+	file://src/openvpn/openvpn.c;startline=2;endline=21;md5=82f794c2390084d34cb32d871c17b4be \
 	file://src/openvpn/base64.c;startline=2;endline=31;md5=f4debd767645b13107fc5912faf2ad8f \
-	file://src/compat/compat-lz4.c;startline=13;endline=38;md5=5f66cf078523624965e41518eed881e2
+	file://src/compat/compat-lz4.c;startline=13;endline=38;md5=5163f975ae122fe0c260002537edab22
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -55,10 +55,8 @@ OPENVPN_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_OPENVPN_LZO)-lzo \
 	--disable-lz4 \
 	--disable-comp-stub \
-	--enable-crypto \
 	--enable-ofb-cfb \
 	--disable-x509-alt-username \
-	--enable-server \
 	--disable-plugins \
 	--enable-management \
 	--disable-pkcs11 \
@@ -72,6 +70,7 @@ OPENVPN_CONF_OPT	:= \
 	--enable-pf \
 	--disable-plugin-auth-pam \
 	--enable-plugin-down-root \
+	--disable-pam-dlopen \
 	--disable-strict \
 	--disable-pedantic \
 	--disable-werror \
@@ -83,13 +82,13 @@ OPENVPN_CONF_OPT	:= \
 
 OPENVPN_INSTALL_SAMPLE_CONFIG_FILES := \
 	client.conf loopback-client loopback-server README server.conf \
-	static-home.conf static-office.conf tls-home.conf tls-office.conf \
-	xinetd-client-config xinetd-server-config
+	tls-home.conf tls-office.conf xinetd-client-config xinetd-server-config
 
 OPENVPN_INSTALL_SAMPLE_CONFIG_SCRIPTS := \
 	firewall.sh home.up office.up openvpn-shutdown.sh openvpn-startup.sh
 
-OPENVPN_INSTALL_SAMPLE_SCRIPTS := bridge-start bridge-stop
+OPENVPN_INSTALL_SAMPLE_SCRIPTS := auth-pam.pl bridge-start bridge-stop ucn.pl \
+	verify-cn
 
 # ----------------------------------------------------------------------------
 # Target-Install
