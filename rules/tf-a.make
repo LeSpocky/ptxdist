@@ -40,6 +40,8 @@ TF_A_ARTIFACTS		:= $(call remove_quotes, $(PTXCONF_TF_A_ARTIFACTS))
 TF_A_WRAPPER_BLACKLIST	:= \
 	$(PTXDIST_LOWLEVEL_WRAPPER_BLACKLIST)
 
+TF_A_EXTRA_ARGS		:= $(call remove_quotes,$(PTXCONF_TF_A_EXTRA_ARGS))
+TF_A_BINDIR		 = $(TF_A_BUILDDIR)/$(1)/$(if $(filter DEBUG=1,$(TF_A_EXTRA_ARGS)),debug,release)
 TF_A_PATH	:= PATH=$(CROSS_PATH)
 TF_A_MAKE_OPT	:= \
 	-C $(TF_A_DIR) \
@@ -48,7 +50,7 @@ TF_A_MAKE_OPT	:= \
 	ARCH=$(PTXCONF_TF_A_ARCH_STRING) \
 	ARM_ARCH_MAJOR=$(PTXCONF_TF_A_ARM_ARCH_MAJOR) \
 	BUILD_STRING=$(PTXCONF_TF_A_VERSION) \
-	$(call remove_quotes,$(PTXCONF_TF_A_EXTRA_ARGS)) \
+	$(TF_A_EXTRA_ARGS) \
 	all
 
 ifdef PTXCONF_TF_A_BL32_TSP
@@ -89,7 +91,7 @@ $(STATEDIR)/tf-a.compile:
 # ----------------------------------------------------------------------------
 
 tf-a/inst_plat = $(foreach artifact, \
-	$(wildcard $(TF_A_BUILDDIR)/$(1)/$(if $(filter DEBUG=1,$(call remove_quotes,$(PTXCONF_TF_A_EXTRA_ARGS))),debug,release)/$(TF_A_ARTIFACTS)), \
+	$(wildcard $(addprefix $(TF_A_BINDIR)/, $(TF_A_ARTIFACTS))), \
 	install -v -D -m 644 $(artifact) \
 		$(2)/$(1)-$(notdir $(artifact))$(ptx/nl))
 
