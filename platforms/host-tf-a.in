@@ -1,0 +1,7 @@
+## SECTION=hosttools_platform
+
+config HOST_TF_A
+	tristate
+	default y if ALLYES && TF_A
+	help
+	  This provides fiptool
