@@ -25,7 +25,7 @@ config IPUTILS_ARPING
 	  address source.
 
 comment "BusyBox' arping is selected!"
-        depends on BUSYBOX_ARPING
+	depends on BUSYBOX_ARPING
 
 config IPUTILS_CLOCKDIFF
 	bool
@@ -47,10 +47,10 @@ config IPUTILS_PING
 	  be enforced by specifying -4 or -6.
 
 comment "inetutils' ping is selected!"
-        depends on INETUTILS_PING
+	depends on INETUTILS_PING
 
 comment "BusyBox' ping is selected!"
-        depends on BUSYBOX_PING
+	depends on BUSYBOX_PING
 
 config IPUTILS_RARPD
 	bool
@@ -76,10 +76,10 @@ config IPUTILS_TFTPD
 	prompt "tftpd"
 
 comment "inetutils' tftpd is selected!"
-        depends on INETUTILS_PING
+	depends on INETUTILS_PING
 
 comment "BusyBox' tftpd is selected!"
-        depends on BUSYBOX_TFTPD
+	depends on BUSYBOX_TFTPD
 
 config IPUTILS_TRACEPATH
 	bool
@@ -101,6 +101,6 @@ config IPUTILS_TRACEROUTE6
 	  for IPv6 only.
 
 comment "BusyBox' traceroute6 is selected!"
-        depends on BUSYBOX_TRACEROUTE6
+	depends on BUSYBOX_TRACEROUTE6
 
 endif

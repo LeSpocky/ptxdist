@@ -66,7 +66,7 @@ config RSYNC_INETD_STRING
 	default "rsync stream tcp nowait root /usr/bin/rsync rsyncd --daemon @CONFIG@"
 	help
 	  This string is added to the inetd configuration /etc/inetd.conf.d/rsync.
-          @CONFIG@ in this string will be replaced with the --config option, and the
+	  @CONFIG@ in this string will be replaced with the --config option, and the
 	  path given above for configuration
 
 endif

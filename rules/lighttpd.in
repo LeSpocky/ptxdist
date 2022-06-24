@@ -63,7 +63,7 @@ config LIGHTTPD_PCRE
 	prompt "pcre support"
 	help
 	  Enable pcre support.
-	  
+
 	  WARNING: pcre is no longer maintained. Please move to pcre2 instead!
 
 endmenu

@@ -142,7 +142,7 @@ menuconfig INETUTILS_TFTPD
 	  There is no authentication!
 
 comment "BusyBox' tftpd is selected!"
-        depends on BUSYBOX_TFTPD
+	depends on BUSYBOX_TFTPD
 
 if INETUTILS_TFTPD
 

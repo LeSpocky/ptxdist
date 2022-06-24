@@ -8,7 +8,7 @@ config BONNIEXX
 	help
 	  Hard drive bottleneck testing benchmark suite
 
- 	  It is called Bonnie++ because it was based on the Bonnie program.
+	  It is called Bonnie++ because it was based on the Bonnie program.
 	  This program also tests performance by creating large numbers
 	  of files.
 

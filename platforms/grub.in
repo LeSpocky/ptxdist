@@ -185,25 +185,25 @@ config GRUB_3C509
 	bool
 	prompt "3c509  network driver"
 	help
-          enable 3Com509 driver
+	  enable 3Com509 driver
 
 config GRUB_3C529
 	bool
 	prompt "3c529  network driver"
 	help
-          enable 3Com529 driver
+	  enable 3Com529 driver
 
 config GRUB_3C595
 	bool
 	prompt "3c595 network driver"
 	help
-          enable 3Com595 driver
+	  enable 3Com595 driver
 
 config GRUB_3C90X
 	bool
 	prompt "3c90x network driver"
 	help
-          enable 3Com90x driver
+	  enable 3Com90x driver
 
 menuconfig GRUB_CS89X0
 	bool

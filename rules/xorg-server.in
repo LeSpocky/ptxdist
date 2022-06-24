@@ -293,9 +293,9 @@ config XORG_SERVER_EXT_DGA
 	prompt "dga extension"
 	default y
 	help
-	 DGA (Direct Access Graphics mode) is a feature of XFree86 that allows
-	 the program to access directly to video memory on the graphics card.
-	 DGA supports the double flickering.
+	  DGA (Direct Access Graphics mode) is a feature of XFree86 that allows
+	  the program to access directly to video memory on the graphics card.
+	  DGA supports the double flickering.
 
 config XORG_SERVER_EXT_SCREENSAVER
 	bool

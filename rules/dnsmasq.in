@@ -12,7 +12,7 @@ menuconfig DNSMASQ
 	help
 	  A small caching DNS proxy and DHCP server.
 
- 	  Dnsmasq is lightweight, easy to configure DNS forwarder
+	  Dnsmasq is lightweight, easy to configure DNS forwarder
 	  and DHCP server. It is designed to provide DNS and,
 	  optionally, DHCP, to a small network. It can serve the
 	  names of local machines which are not in the global DNS.
@@ -20,7 +20,7 @@ menuconfig DNSMASQ
 	  machines with DHCP-allocated addresses to appear in the DNS
 	  with names configured either in each host or in a central
 	  configuration file. Dnsmasq supports static and dynamic
- 	  DHCP leases and BOOTP for network booting of diskless machines.
+	  DHCP leases and BOOTP for network booting of diskless machines.
 	  Note: In order to make dnsmasq work as DHCP, you have to enable
 	  the following kernel features: FIXME
 

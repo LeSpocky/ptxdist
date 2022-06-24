@@ -23,11 +23,11 @@ config VULKAN_TOOLS_CUBE
 	  Install vkcube and vkcubepp examples.
 
 config VULKAN_TOOLS_XCB
-        bool
-        default y if VULKAN_LOADER_XCB
+	bool
+	default y if VULKAN_LOADER_XCB
 
 config VULKAN_TOOLS_WAYLAND
-        bool
-        default y if VULKAN_LOADER_WAYLAND
+	bool
+	default y if VULKAN_LOADER_WAYLAND
 
 endif

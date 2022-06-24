@@ -9,7 +9,7 @@ config DROPWATCH
 	select READLINE
 	help
 	  User space utility for use with dropwatch kernel protocol.
-	  
+
 	  https://github.com/nhorman/dropwatch
 
 # vim: ft=kconfig noet tw=72

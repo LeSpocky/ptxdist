@@ -42,7 +42,7 @@ config U_BOOT_CONFIGSYSTEM_KCONFIG
 	  U-Boot from version 2014.10 uses Kconfig for configuring a target.
 	  Use this if you want to configure U-Boot inside the BSP, e.g.
 	  with menuconfig.
-	  
+
 	  NOTE: if you just want to use a defconfig, you can still use the
 	  legacy config system by using the name of a defconfig file from
 	  the "configs" folder as config target.
@@ -232,17 +232,17 @@ config U_BOOT_INSTALL_U_BOOT_IMX
 	prompt "install u-boot.imx"
 	bool
 	help
-	  Installing the U-Boot image with imx header (u-boot.imx) into platform 
+	  Installing the U-Boot image with imx header (u-boot.imx) into platform
 	  image directory. Say yes if you are building for freescale i.MX SOCs
 	  and are not using SPL.
 
 config U_BOOT_INSTALL_U_BOOT_DTB_IMX
-        prompt "install u-boot-dtb.imx"
-        bool
-        help
-          Installing the U-Boot image with device tree support and imx header (u-boot-dtb.imx)
-          into platform image directory. Say yes if you are building for freescale i.MX SOCs
-          and are not using SPL.
+	prompt "install u-boot-dtb.imx"
+	bool
+	help
+	  Installing the U-Boot image with device tree support and imx header (u-boot-dtb.imx)
+	  into platform image directory. Say yes if you are building for freescale i.MX SOCs
+	  and are not using SPL.
 
 config U_BOOT_INSTALL_U_BOOT_DTB
 	prompt "install u-boot-dtb.bin"
@@ -281,7 +281,7 @@ config U_BOOT_NEEDS_HOST_OPENSSL
 	  Newer host U-Boot tools can sign images and use OpenSSL for that.
 	  It is most probably needed if your board config does not disable
 	  CONFIG_TOOLS_LIBCRYPTO.
-	
+
 	  Select this if you're unsure, as it won't hurt.
 	  It might just increase the build time, if no other package has
 	  host openssl selected.

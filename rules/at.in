@@ -58,7 +58,7 @@ config AT_ATQ
 	default y
 	help
 	  lists the user's pending jobs, unless the user is the
-          superuser; in that case, everybody's jobs are listed.
+	  superuser; in that case, everybody's jobs are listed.
 
 config AT_ATRM
 	bool "install atrm"
@@ -72,7 +72,7 @@ config AT_BATCH
 	select AT_AT
 	help
 	  executes commands when system load levels permit; in other
-          words, when the load average drops below 1.5, or the value
-          specified in the invocation of atd.
+	  words, when the load average drops below 1.5, or the value
+	  specified in the invocation of atd.
 
 endif

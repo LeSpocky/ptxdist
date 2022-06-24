@@ -82,6 +82,6 @@ config NCURSES_PANEL
 	  to go. It obviates the need of doing series of wnoutrefresh(),
 	  doupdate() and relieves the burden of doing it correctly(bottom up).
 	  The library maintains information about the order of windows, their
- 	  overlapping and update the screen properly.
+	  overlapping and update the screen properly.
 
 endif

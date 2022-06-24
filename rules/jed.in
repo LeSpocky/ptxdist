@@ -7,7 +7,7 @@ config JED
 	help
 	  JED - An editor for programmers
 
- 	  Jed offers:
+	  Jed offers:
 	  Extensible in a language resembling C. Completely customizable.
 	  Capable of read GNU info files from within JED's info browser.
 	  A variety of programming modes (with syntax highlighting) are

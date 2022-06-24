@@ -19,5 +19,5 @@ config LIBSYSFS_SYSTOOL
 	  to query sysfs entries: it can list devices
 	  by bus, class, and topology.
 
-endif	  
+endif
 

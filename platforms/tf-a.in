@@ -30,9 +30,9 @@ config TF_A_MD5
 	prompt "TF-A source md5"
 
 config TF_A_ARCH_STRING
-        string
-        default "aarch32" if ARCH_ARM
-        default "aarch64" if ARCH_ARM64
+	string
+	default "aarch32" if ARCH_ARM
+	default "aarch64" if ARCH_ARM64
 
 choice
 	prompt "TF-A Architecture"
@@ -59,10 +59,10 @@ choice
 endchoice
 
 config TF_A_ARM_ARCH_MAJOR
-        int
-        default 7 if TF_A_ARM_ARCH_MAJOR_7
-        default 8 if TF_A_ARM_ARCH_MAJOR_8_32_BIT
-        default 8 if TF_A_ARM_ARCH_MAJOR_8
+	int
+	default 7 if TF_A_ARM_ARCH_MAJOR_7
+	default 8 if TF_A_ARM_ARCH_MAJOR_8_32_BIT
+	default 8 if TF_A_ARM_ARCH_MAJOR_8
 
 
 config TF_A_PLATFORMS
@@ -138,10 +138,10 @@ choice TF_A_BL32_TSP_RAM_LOCATION
 endchoice
 
 config TF_A_BL32_TSP_RAM_LOCATION_STRING
-        string
-        default "tsram" if TF_A_BL32_TSP_RAM_LOCATION_TSRAM
-        default "tdram" if TF_A_BL32_TSP_RAM_LOCATION_TDRAM
-        default "dram"  if TF_A_BL32_TSP_RAM_LOCATION_DRAM
+	string
+	default "tsram" if TF_A_BL32_TSP_RAM_LOCATION_TSRAM
+	default "tdram" if TF_A_BL32_TSP_RAM_LOCATION_TDRAM
+	default "dram"  if TF_A_BL32_TSP_RAM_LOCATION_DRAM
 
 endif
 

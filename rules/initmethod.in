@@ -30,7 +30,7 @@ choice
 		bool
 		select INITRAMFS_TOOLS
 		prompt "initramfs init  "
- 
+
 endchoice
 
 source "generated/initmethod.in"

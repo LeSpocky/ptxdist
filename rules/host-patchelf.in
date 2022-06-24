@@ -8,7 +8,7 @@ config HOST_PATCHELF
 	  executables and libraries.  In particular, it can do the
 	  following:
 	  * Change the dynamic loader ("ELF interpreter") of
-            executables
+	    executables
 	  * Change the RPATH of executables and libraries
 	  * Remove declared dependencies on dynamic libraries
-            (DT_NEEDED entries)
+	    (DT_NEEDED entries)

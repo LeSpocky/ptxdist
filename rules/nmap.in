@@ -15,7 +15,7 @@ menuconfig NMAP
 if NMAP
 
 config NMAP_OPENSSL
-       bool "openssl support"
+	bool "openssl support"
 
 config NMAP_NPING
 	bool "build and install nping"

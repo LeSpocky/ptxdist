@@ -112,9 +112,9 @@ config NETWORKMANAGER_MORE_LOGGING
 	  Allows debug log level in NetworkManager.conf
 
 config NETWORKMANAGER_INTROSPECTION
-       bool
-       prompt "introspection support"
-       default GOBJECT_INTROSPECTION_HELPER
+	bool
+	prompt "introspection support"
+	default GOBJECT_INTROSPECTION_HELPER
 
 endif
 

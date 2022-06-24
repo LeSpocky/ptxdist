@@ -18,8 +18,8 @@ config OPENFORTIVPN
 if OPENFORTIVPN
 
 config OPENFORTIVPN_SYSTEMD
-        bool
-        default INITMETHOD_SYSTEMD
+	bool
+	default INITMETHOD_SYSTEMD
 
 endif
 

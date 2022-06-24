@@ -7,4 +7,4 @@ config XORG_FONT_BH_75DPI
 	prompt "BH 75dpi"
 	help
 	  This package contains BH fonts in the ISO 10646-1,
-          ISO 8859-1 and ISO 8859-15 encodings
+	  ISO 8859-1 and ISO 8859-15 encodings

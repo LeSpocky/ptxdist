@@ -11,7 +11,7 @@ menuconfig PUREFTPD
 	  bandwidth throttling, ratios, fortune files, Apache-like log
 	  files, fast standalone mode, atomic uploads, text / HTML /
 	  XML real-time status report, virtual users, virtual quotas,
- 	  privilege separation, SSL/TLS and more.
+	  privilege separation, SSL/TLS and more.
 
 if PUREFTPD
 

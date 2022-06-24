@@ -5,7 +5,7 @@ menuconfig DBENCH
 	prompt "dbench                        "
 	help
 	  The dbench (disk) and tbench (TCP) benchmarks
- 	  dbench and tbench simulate the load of the
+	  dbench and tbench simulate the load of the
 	  netbench "industry standard" benchmark used
 	  to rate (windows) file servers.  Unlike netbench,
 	  they do not require a lab of Microsoft Windows

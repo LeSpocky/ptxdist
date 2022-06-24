@@ -13,5 +13,5 @@ config SERDISPLIB_TESTSERDISP
 	depends on SERDISPLIB
 	help
 	  If selected, the testserdisp test program will be installed on
-          the target.
+	  the target.
 

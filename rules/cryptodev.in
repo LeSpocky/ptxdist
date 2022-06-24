@@ -8,4 +8,4 @@ config CRYPTODEV
 	  Cryptodev-linux is a device that allows access to Linux kernel
 	  cryptographic drivers; thus allowing of userspace applications
 	  to take advantage of hardware accelerators. Its API is
-	  compatible with OpenBSD's cryptodev userspace API (/dev/crypto). 
+	  compatible with OpenBSD's cryptodev userspace API (/dev/crypto).

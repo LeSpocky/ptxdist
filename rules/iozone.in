@@ -8,4 +8,4 @@ config IOZONE
 	select GCCLIBS_GCC_S
 	help
 	  IOzone is a filesystem benchmark tool. The benchmark generates
-          and measures a variety of file operations.
+	  and measures a variety of file operations.

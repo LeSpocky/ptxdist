@@ -189,7 +189,7 @@ choice
 		  The compiler will generate code for Pentium II CPUs as default.
 		  This code will run on Pentium II and above CPUs.
 
-  	config ARCH_X86_P3M
+	config ARCH_X86_P3M
 		bool "PIII/M     "
 		help
 		  The compiler will generate code for Pentium III and Pentium M CPUs as default.
@@ -216,10 +216,10 @@ config ARCH_LP64
 # endianness
 #
 config ARCH_SUPPORTS_ENDIAN_BIG
-       bool
+	bool
 
 config ARCH_SUPPORTS_ENDIAN_LITTLE
-       bool
+	bool
 
 choice
 	prompt "endianness      "

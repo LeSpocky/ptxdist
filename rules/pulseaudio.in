@@ -50,8 +50,8 @@ config PULSEAUDIO_SYSTEMD_UNIT_USER
 	prompt "install systemd user unit file"
 
 config PULSEAUDIO_BLUETOOTH
-        bool
-        prompt "enable bluetooth support"
+	bool
+	prompt "enable bluetooth support"
 
 config PULSEAUDIO_SPEEX
 	bool

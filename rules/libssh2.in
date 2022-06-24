@@ -7,7 +7,7 @@ config LIBSSH2
 	select OPENSSL
 	help
 	  SSH2 client-side library
-	  
+
 	  libssh2 is the thin library implementing client side of SSH2
 	  protocol as defined by Internet Drafts SECSH-TRANS,
 	  SECSH-USERAUTH, SECSH-CONNECTION, SECSH-ARCH,

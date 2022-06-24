@@ -3,8 +3,8 @@ menuconfig PNPUTILS
 	tristate
 	prompt "pnputils                      "
 	help
-	 Builds the pnputils to show debugging information about PNP
-	 devices in your hardware. This is useful for x86 targets only.
+	  Builds the pnputils to show debugging information about PNP
+	  devices in your hardware. This is useful for x86 targets only.
 
 if PNPUTILS
 

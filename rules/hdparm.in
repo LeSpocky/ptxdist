@@ -6,7 +6,7 @@ config HDPARM
 	help
 	  hdparm - get/set ATA drive parameters under Linux
 
-	  See http://sourceforge.net/projects/hdparm/ for details. 
+	  See http://sourceforge.net/projects/hdparm/ for details.
 
 comment "BusyBox' hdparm is selected"
 	depends on BUSYBOX_HDPARM

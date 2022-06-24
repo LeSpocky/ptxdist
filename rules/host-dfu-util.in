@@ -12,4 +12,4 @@ config HOST_DFU_UTIL
 	  devices like micro-controller boards up to mobile phones. Using
 	  dfu-util you can download firmware to your DFU-enabled device or
 	  upload firmware from it. dfu-util has been tested with the Openmoko
-	  Neo1973 and Freerunner and many other devices. 
+	  Neo1973 and Freerunner and many other devices.

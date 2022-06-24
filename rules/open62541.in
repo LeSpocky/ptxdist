@@ -9,5 +9,5 @@ config OPEN62541
 	select LIBC_PTHREAD
 	select MBEDTLS
 	help
-          The open62541 project is an open source implementation of the OPC UA
-          communication infrastructure which is used in industrial control.
+	  The open62541 project is an open source implementation of the OPC UA
+	  communication infrastructure which is used in industrial control.

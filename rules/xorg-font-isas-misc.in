@@ -6,4 +6,4 @@ config XORG_FONT_ISAS_MISC
 	prompt "Isas misc"
 	help
 	   Xorg ISAS fonts, contains Chinese fonts
-	  
+

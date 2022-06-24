@@ -8,4 +8,4 @@ config LIBLZO
 	help
 	  Compiles the LZO compression libraries on your target system.
 
-          See http://www.oberhumer.com/opensource/lzo/ for info about it.
+	  See http://www.oberhumer.com/opensource/lzo/ for info about it.

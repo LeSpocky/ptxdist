@@ -62,9 +62,9 @@ config PHP8_FILTER
 	prompt "filter support"
 	default y
 	help
-	  This extension filters data by either validating or sanitizing it. 
-	  This is especially useful when the data source contains unknown (or foreign) data, like user supplied input. 
-	  For example, this data may come from an HTML form. 
+	  This extension filters data by either validating or sanitizing it.
+	  This is especially useful when the data source contains unknown (or foreign) data, like user supplied input.
+	  For example, this data may come from an HTML form.
 
 config PHP8_SAPI_CLI
 	bool

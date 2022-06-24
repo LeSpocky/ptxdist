@@ -285,7 +285,7 @@ config UTIL_LINUX_NG_IRQTOP
 	prompt "irqtop"
 	help
 	  irqtop is a tool to observe irqs and softirqs in
-          a top like fashion.
+	  a top like fashion.
 
 config UTIL_LINUX_NG_LSIRQ
 	bool
@@ -344,17 +344,17 @@ comment "BusyBox' chrt is selected!"
 	depends on BUSYBOX_CHRT
 
 config UTIL_LINUX_NG_HWCLOCK
-        bool
-        prompt "hwclock"
-        depends on !BUSYBOX_HWCLOCK || ALLYES
-        help
+	bool
+	prompt "hwclock"
+	depends on !BUSYBOX_HWCLOCK || ALLYES
+	help
 	  hwclock - The hwclock utility is used to read and set the hardware
 	  clock on a system.  This is primarily used to set the current time
 	  on shutdown in the hardware clock, so the hardware will keep the
 	  correct time when Linux is _not_ running.
 
 comment "BusyBox' hwclock is selected!"
-        depends on BUSYBOX_HWCLOCK
+	depends on BUSYBOX_HWCLOCK
 
 config UTIL_LINUX_NG_WDCTL
 	bool
@@ -465,21 +465,21 @@ config UTIL_LINUX_NG_LSMEM
 	prompt "lsmem"
 	help
 	  The lsmem command lists the ranges of available memory and
-          it's online status.
+	  it's online status.
 
 config UTIL_LINUX_NG_CHMEM
 	bool
 	prompt "chmem"
 	help
 	  The chmem command sets a particular size or range of
-          memory online or offline.
+	  memory online or offline.
 
 config UTIL_LINUX_NG_MKFS
 	bool
 	prompt "mkfs"
 	help
 	  The mkfs command is a generic wrapper for fs specific
-          mkfs.* commands.
+	  mkfs.* commands.
 
 config UTIL_LINUX_NG_LSCPU
 	bool

@@ -35,7 +35,7 @@ config BLUEZ_TOOLS
 	bool "install tools"
 	help
 	  Install the following tools:
-	  
+
 	  bccmd bluemoon btattach btmon hex2hcd l2ping l2test mpris-proxy
 	  rctest
 
@@ -44,7 +44,7 @@ config BLUEZ_TOOLS_DEPRECATED
 	bool "install deprecated tools"
 	help
 	  Install the following tools, which have been deprecated by upstream:
-	  
+
 	  ciptool hciattach hciconfig hcidump hcitool rfcomm sdptool
 
 config BLUEZ_CLIENT

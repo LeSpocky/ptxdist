@@ -21,41 +21,41 @@ menuconfig LIBCURL
 if LIBCURL
 
 config LIBCURL_CURL
-       bool "install curl program"
+	bool "install curl program"
 
 config LIBCURL_C_ARES
 	bool "enable c-ares for DNS lookups"
 
 config LIBCURL_HTTP
-       bool "http"
-       default y
+	bool "http"
+	default y
 
 config LIBCURL_COOKIES
-       bool "cookies support"
-       depends on LIBCURL_HTTP
+	bool "cookies support"
+	depends on LIBCURL_HTTP
 
 config LIBCURL_FTP
-       bool "ftp"
-       default y
+	bool "ftp"
+	default y
 
 config LIBCURL_TFTP
-       bool "tftp"
+	bool "tftp"
 
 config LIBCURL_FILE
-       bool "file"
+	bool "file"
 
 config LIBCURL_SMTP
-       bool "smtp"
-       help
-       enable smtp support for sending emails
+	bool "smtp"
+	help
+	enable smtp support for sending emails
 
 config LIBCURL_VERBOSE
-       bool "verbose messages"
-       help
-       enable verbose messages, helpful for error indication
+	bool "verbose messages"
+	help
+	enable verbose messages, helpful for error indication
 
 config LIBCURL_SSL
-       bool "ssl"
+	bool "ssl"
 
 if LIBCURL_SSL
 
@@ -72,7 +72,7 @@ endchoice
 
 choice
 	prompt "Central CA certificate storage"
-	
+
 	config LIBCURL_SSL_NOCA
 		bool "No CA storage      "
 
@@ -110,9 +110,9 @@ config LIBCURL_SSL_CABUNDLE_PATH
 	default "no"
 
 config LIBCURL_CRYPTO_AUTH
-       bool "cryptographic authentication"
+	bool "cryptographic authentication"
 
 config LIBCURL_LIBSSH2
-       bool "scp/sftp (via libssh2)"
+	bool "scp/sftp (via libssh2)"
 
 endif

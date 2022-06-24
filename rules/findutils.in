@@ -21,14 +21,14 @@ comment "BusyBox' find is selected!"
 	depends on BUSYBOX_FIND
 
 config FINDUTILS_XARGS
-   bool
+	bool
 	depends on !BUSYBOX_XARGS || ALLYES
 	prompt "xargs"
 	help
 	  Can be used to apply a given command to a list of files
 
 comment "BusyBox' xargs is selected!"
-   depends on BUSYBOX_XARGS
+	depends on BUSYBOX_XARGS
 
 config FINDUTILS_DATABASE
 	bool

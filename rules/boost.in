@@ -25,8 +25,8 @@ menuconfig BOOST
 	  The boost team aims to establish "existing practice" and provide
 	  reference implementations so that Boost libraries are suitable for
 	  eventual standardization. Ten Boost libraries are already included in
-	  the C++ Standards Committee`s Library Technical Report ( TR1) and in 
-	  the new C++11 Standard. C++11 also includes several more Boost libraries 
+	  the C++ Standards Committee`s Library Technical Report ( TR1) and in
+	  the new C++11 Standard. C++11 also includes several more Boost libraries
 	  in addition to those from TR1. More Boost libraries are proposed for TR2.
 
 	  For details see the project homepage:

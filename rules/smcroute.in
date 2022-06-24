@@ -7,7 +7,7 @@ menuconfig SMCROUTE
 	select LIBCAP		if SMCROUTE_LIBCAP
 	help
 	  SMCRoute is a daemon and command line tool to manipulate
-	  the multicast routing table in the UNIX kernel. 
+	  the multicast routing table in the UNIX kernel.
 	  SMCRoute can be used as an alternative to dynamic multicast
 	  routing daemons like mrouted or pimd when (only) static
 	  multicast routes should be maintained and/or no proper

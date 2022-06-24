@@ -6,7 +6,7 @@ menuconfig MINICOM
 	select NCURSES
 	select ROOTFS_VAR_LOCK
 	select CKERMIT			if MINICOM_KERMIT
-        help
+	help
 	  friendly menu driven serial communication program
 
 	  Minicom is a clone of the MS-DOS "Telix" communication
@@ -19,7 +19,7 @@ config MINICOM_DEFCONFIG
 	bool
 	prompt "install default config file"
 	help
-          Install /etc/minirc.dfl config file from projectroot or ptxdist generic.
+	  Install /etc/minirc.dfl config file from projectroot or ptxdist generic.
 
 config MINICOM_KERMIT
 	bool

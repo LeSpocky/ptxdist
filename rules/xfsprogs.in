@@ -10,8 +10,8 @@ menuconfig XFSPROGS
 	select LIBUUID
 	select HOST_LIBUUID
 	help
-	 The xfsprogs package provides the filesystem utilities for use
-	 with the xfs filesystem.
+	  The xfsprogs package provides the filesystem utilities for use
+	  with the xfs filesystem.
 
 if XFSPROGS
 

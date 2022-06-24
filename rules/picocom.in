@@ -4,4 +4,4 @@ config PICOCOM
 	tristate
 	prompt "picocom"
 	help
-          picocom is a minimal dumb-terminal emulation program
+	  picocom is a minimal dumb-terminal emulation program

@@ -7,7 +7,7 @@ menuconfig JVISU
 	help
 	  JVISU - A java applet based visualisation suite
 
- 	  JVisu Highlights:
+	  JVisu Highlights:
 	  Graphical Interface Builder for easy construction of interfaces
 	  Clear Separation between HMI frontend and PLC backend
 	  Java applet runs in every JDK-1.4.x enabled web browser

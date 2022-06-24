@@ -8,4 +8,4 @@ config LIBGMP
 	help
 	  Compiles the GNU Multiprecision libraries for your target system.
 
-          See http://gmplib.org/ for info about it.
+	  See http://gmplib.org/ for info about it.

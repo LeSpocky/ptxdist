@@ -14,8 +14,8 @@ menuconfig LIBMEMCACHED
 	  implements several command line tools: memcat, memflush, memrm,
 	  memstat, and memslap (for load generation). The library has been
 	  designed to allow for different hashing methods on keys,
-	  partitioning by keys, and to use consistent hashing for 
-	  distribution. 
+	  partitioning by keys, and to use consistent hashing for
+	  distribution.
 	  You can find more information here: http://tangent.org/552/libmemcached.html
 
 	config LIBMEMCACHED_LIBHASHKIT

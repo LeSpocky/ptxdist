@@ -28,7 +28,7 @@ config LIBIODBC_GUI
 	# needs gtk2
 	depends on BROKEN
 	help
-	 build GUI applications
+	  build GUI applications
 
 choice
 	prompt "driver manager version"

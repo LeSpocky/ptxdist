@@ -1,8 +1,8 @@
 ## SECTION=platform_version
 
 config _platformconfig_MAGIC__
-        bool
-        default y
+	bool
+	default y
 
 
 comment "------------------------------------"

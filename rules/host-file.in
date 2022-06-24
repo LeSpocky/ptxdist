@@ -10,5 +10,5 @@ config HOST_FILE
 	  charge - don't rely on filename extensions to tell you the type of a
 	  file, but look at the file's actual contents. This is, of course, more
 	  reliable, but requires a bit of I/O.
-	  
+
 	  http://www.darwinsys.com/file/

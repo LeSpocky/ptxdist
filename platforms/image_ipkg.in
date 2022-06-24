@@ -8,9 +8,9 @@ config IMAGE_IPKG_PUSH_TO_REPOSITORY
 	help
 	  If this option is checked the packet files are pushed to
 	  the ipkg-repository (to be specified in .ptxdistrc).
-	  
+
 	  Please note, that the ipkg-repository is currently a
-	  local directory on your machine.  
+	  local directory on your machine.
 
 config IMAGE_IPKG_FORCED_PUSH
 	depends on IMAGE_IPKG_PUSH_TO_REPOSITORY
@@ -20,7 +20,7 @@ config IMAGE_IPKG_FORCED_PUSH
 	  Usually the script checks for some previous ipkg-push to
 	  a 'dist' release and requires you to delete a previous
 	  dist directory
-	  
+
 	  If this option is checked, this is done by default. This
 	  is most useful for development purposes.
 
@@ -58,7 +58,7 @@ config IMAGE_INSTALL_FROM_IPKG_REPOSITORY
 	help
 	  If this option is checked the packet files from the
 	  ipkg-repository are used to create the images
-	  
+
 	  Please note, that the ipkg-repository is currently a
 	  local directory on your machine.
 

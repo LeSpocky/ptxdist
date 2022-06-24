@@ -2,7 +2,7 @@
 menuconfig PCIUTILS
 	select LIBKMOD		if PCIUTILS_LIBKMOD
 	select HWDATA		if !SYSTEMD_HWDB
-	select HWDATA_PCI	if !SYSTEMD_HWDB	
+	select HWDATA_PCI	if !SYSTEMD_HWDB
 	tristate
 	prompt "pciutils                      "
 	help

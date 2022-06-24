@@ -12,5 +12,5 @@ config GFLAGS
 	  a replacement for getopt(). It has increased flexibility, including
 	  built-in support for C++ types like string, and the ability to define
 	  flags in the source file in which they're used.
-	  
+
 	  See https://code.google.com/p/gflags/ for info about it.

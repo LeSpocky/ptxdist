@@ -5,4 +5,4 @@ config HOST_KEYUTILS
 	default y if ALLYES
 	help
 	  Tools to control the key management system build into the
-          Linux kernel.
+	  Linux kernel.

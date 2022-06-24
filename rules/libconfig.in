@@ -9,6 +9,6 @@ menuconfig LIBCONFIG
 if LIBCONFIG
 
 config LIBCONFIG_CXX
-       bool "build and install install libconfig++"
+	bool "build and install install libconfig++"
 
 endif

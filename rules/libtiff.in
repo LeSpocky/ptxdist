@@ -12,12 +12,12 @@ config LIBTIFF
 if LIBTIFF
 
 config LIBTIFF_TOOLS
-        bool
-        prompt "install tools"
+	bool
+	prompt "install tools"
 
 config LIBTIFF_ZLIB
-        bool
-        prompt "support ZLIB compression"
+	bool
+	prompt "support ZLIB compression"
 
 config LIBTIFF_JPEG
 	bool

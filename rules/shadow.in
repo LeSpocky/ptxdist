@@ -1,6 +1,6 @@
 ## SECTION=shell_and_console
 comment "BusyBox' loginutils selected!"
-        depends on BUSYBOX_ADDUSER || BUSYBOX_ADDGROUP || BUSYBOX_LOGIN || BUSYBOX_PASSWD || BUSYBOX_SU
+	depends on BUSYBOX_ADDUSER || BUSYBOX_ADDGROUP || BUSYBOX_LOGIN || BUSYBOX_PASSWD || BUSYBOX_SU
 
 menuconfig SHADOW
 	tristate
