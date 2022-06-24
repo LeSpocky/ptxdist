@@ -9,6 +9,9 @@ config PYTHON3_AIOHTTP
 	select PYTHON3_YARL		if RUNTIME
 	select PYTHON3_ASYNC_TIMEOUT	if RUNTIME
 	select PYTHON3_ATTRS		if RUNTIME
+	select PYTHON3_IDNA_SSL		if RUNTIME
+	select PYTHON3_CHARSET_NORMALIZER	if RUNTIME
+	select PYTHON3_AIOSIGNAL	if RUNTIME
 	prompt "aiohttp"
 	help
 	  http client/server for asyncio
