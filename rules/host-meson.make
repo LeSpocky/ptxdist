@@ -49,6 +49,7 @@ HOST_MESON_INSTALL_OPT	:= \
 	--prefix=/ \
 	--install-lib=/lib/meson \
 	--install-scripts=/lib/meson \
+	--install-data=/lib/meson \
 	--root=$(HOST_MESON_PKGDIR)
 
 $(STATEDIR)/host-meson.install:
