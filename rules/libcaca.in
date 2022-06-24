@@ -27,11 +27,6 @@ config LIBCACA_X11
 	help
 	  X11 support
 
-#config LIBCACA_GL
-#	bool "OpenGL graphics backend"
-#	help
-#	  OpenGL support
-
 config LIBCACA_CXX
 	bool "C++ bindings"
 	help

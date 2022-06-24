@@ -53,7 +53,7 @@ LIBCACA_AUTOCONF := \
 	\
 	--$(call ptx/endis, PTXCONF_LIBCACA_NCURSES)-ncurses \
 	--$(call ptx/endis, PTXCONF_LIBCACA_X11)-x11 \
-	--$(call ptx/endis, PTXCONF_LIBCACA_GL)-gl \
+	--disable-gl \
 	--$(call ptx/endis, PTXCONF_LIBCACA_CXX)-cxx
 
 # ----------------------------------------------------------------------------
