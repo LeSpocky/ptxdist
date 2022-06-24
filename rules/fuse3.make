@@ -36,7 +36,7 @@ FUSE3_CONF_OPT	:= \
 	-Ddisable-mtab=true \
 	-Dexamples=false \
 	-Dudevrulesdir=/usr/lib/udev/rules.d \
-	-Dutils=$(call ptx/truefalse,PTXCONF_FUSE_UTIL)
+	-Dutils=true
 
 # ----------------------------------------------------------------------------
 # Target-Install
