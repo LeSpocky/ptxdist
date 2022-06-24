@@ -274,12 +274,18 @@ PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} cross"
 ptxd_make_world_lint_menu() {
     local filefd file
 
-    echo "Checking menu files for redundant 'default n' ..."
+    echo "Checking menu file formating and basic syntax ..."
 
     exec {filefd}< <(ptxd_make_world_lint_menu_files)
     while read file <&${filefd}; do
 	if grep -q "\<default n$" "${file}"; then
 	    ptxd_lint_error "'$(ptxd_print_path "${file}")' contains redundant 'default n'."
+	fi
+	if grep -q "[	 ]$" "${file}"; then
+	    ptxd_lint_error "'$(ptxd_print_path "${file}")' contains trailing whitespaces."
+	fi
+	if grep -q "^  *[^ ]" "${file}"; then
+	    ptxd_lint_error "'$(ptxd_print_path "${file}")' uses spaces instead of tabs."
 	fi
     done
     exec {filefd}<&-
