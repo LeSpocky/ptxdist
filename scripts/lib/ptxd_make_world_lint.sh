@@ -39,10 +39,12 @@ ptxd_make_world_lint_symbols_make_get() {
     # - split after ')' to match multiple symbols in one line
     # - match '$(PTXCONF_*)'
     # - match 'ifdef PTXCONF_*' and similar things
-    # - skip (BOARD|)SETUP_ for now because we cannot track those symbols
+    # - match '$(call ... PTXCONF_*)'
     sed -e '/^#/d' -e 's/)/)\n/g' "${1}" | \
-	sed -n -e 's/.*\$(PTXCONF_\([A-Z0-9_]\+\)).*/\1/p' \
-	       -e 's/.* PTXCONF_\([A-Z0-9_]\+\)$/\1/p' | \
+	sed -e 's/.*\$[{(]\(PTXCONF_[A-Z0-9_]\+\)[})].*/\1/' \
+	    -e 's/.* \(PTXCONF_[A-Z0-9_]\+\)$/\1/' \
+	    -e 's/.*call .*[, ]\(PTXCONF_[A-Z0-9_]\+\).*/\1/' | \
+	sed -n 's/^PTXCONF_\([A-Z0-9_][A-Z0-9_]*\)$/\1/p' | \
 	sort -u
 }
 export -f ptxd_make_world_lint_symbols_make_get
@@ -55,6 +57,10 @@ ptxd_make_world_lint_symbols_make() {
 	if ! [[ " ${symbols_all} " =~ " ${symbol} " ]]; then
 	    if [[ "${symbol}" =~ ^(BOARD|)SETUP_ ]]; then
 		# skip for now because we cannot track those symbols
+		continue
+	    fi
+	    if [ "${symbol}" = "QT5_MODULE_" ]; then
+		# used in a macro to build configure options
 		continue
 	    fi
 	    symbol="PTXCONF_${symbol}"
