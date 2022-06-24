@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_IDNA_SSL
+	tristate
+	select PYTHON3
+	prompt "python3-idna-ssl"
+	help
+	  Patch ssl.match_hostname for Unicode(idna) domains support
