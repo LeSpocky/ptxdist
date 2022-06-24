@@ -1,0 +1,8 @@
+## SECTION=python3
+
+config PYTHON3_CHARSET_NORMALIZER
+	tristate
+	select PYTHON3
+	prompt "charset-normalizer"
+	help
+	  Truly universal encoding detector in pure Python
