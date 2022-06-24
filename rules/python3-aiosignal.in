@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_AIOSIGNAL
+	tristate
+	select PYTHON3
+	select PYTHON3_FROZENLIST	if RUNTIME
+	prompt "aiosignal"
+	help
+	  A project to manage callbacks in asyncio projects
