@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_FROZENLIST
+	tristate
+	select PYTHON3
+	prompt "frozenlist"
+	help
+	  A list-like structure which implements
+	  collections.abc.MutableSequence, and which can be made immutable.
