@@ -22,6 +22,8 @@ PYTHON3_FROZENLIST_URL		:= $(call ptx/mirror-pypi, frozenlist, $(PYTHON3_FROZENL
 PYTHON3_FROZENLIST_SOURCE	:= $(SRCDIR)/$(PYTHON3_FROZENLIST).$(PYTHON3_FROZENLIST_SUFFIX)
 PYTHON3_FROZENLIST_DIR		:= $(BUILDDIR)/$(PYTHON3_FROZENLIST)
 PYTHON3_FROZENLIST_LICENSE	:= Apache-2.0
+PYTHON3_FROZENLIST_LICENSE_FILES:= \
+	file://LICENSE;md5=cf056e8e7a0a5477451af18b7b5aa98c
 
 # ----------------------------------------------------------------------------
 # Prepare
