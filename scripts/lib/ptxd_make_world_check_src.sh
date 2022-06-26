@@ -12,25 +12,27 @@
 # this only works if the makefile contains a "<PKG>_MD5 := ..." line.
 #
 ptxd_make_world_update_md5() {
+    local config file_dotconfig
     local PKG="$(ptxd_name_to_NAME "${pkg_label}")"
     set -- $(md5sum "${pkg_src}")
     local md5="${1}"
 
     local PKG_MD5="PTXCONF_${PKG}_MD5"
     for config in "${PTXDIST_PLATFORMCONFIG}" "${PTXDIST_PTXCONFIG}"; do
-	local conf="$(readlink -f "${config}")"
-	if grep -q "^${PKG_MD5}=\"" "${conf}"; then
-	    sed -i "s/^${PKG_MD5}=\".*$/${PKG_MD5}=\"${md5}\"/" "${conf}"
-	    ptxd_warning "New checksum for ${pkg_label}: ${md5} in $(ptxd_print_path "${conf}")"
-	    if [ -e "${conf}.diff" ]; then
-		if grep -q "^${PKG_MD5}=\"" "${conf}.diff"; then
-		    sed -i "s/^${PKG_MD5}=\".*$/${PKG_MD5}=\"${md5}\"/" "${conf}.diff"
+	file_dotconfig="${config}"
+	ptxd_normalize_config
+	if grep -q "^${PKG_MD5}=\"" "${file_dotconfig}"; then
+	    sed -i "s/^${PKG_MD5}=\".*$/${PKG_MD5}=\"${md5}\"/" "${file_dotconfig}"
+	    ptxd_warning "New checksum for ${pkg_label}: ${md5} in $(ptxd_print_path "${file_dotconfig}")"
+	    if [ -e "${file_dotconfig}.diff" ]; then
+		if grep -q "^${PKG_MD5}=\"" "${file_dotconfig}.diff"; then
+		    sed -i "s/^${PKG_MD5}=\".*$/${PKG_MD5}=\"${md5}\"/" "${file_dotconfig}.diff"
 		else
-		    echo "${PKG_MD5}=\"${md5}\"" >> "${conf}.diff"
+		    echo "${PKG_MD5}=\"${md5}\"" >> "${file_dotconfig}.diff"
 		    if [ "${config}" == "${PTXDIST_PLATFORMCONFIG}" ]; then
 			arg=" platform"
 		    fi
-		    ptxd_warning "$(ptxd_print_path "${config}") is dirty. Run 'ptxdist oldconfig${arg}'."
+		    ptxd_warning "$(ptxd_print_path "${file_dotconfig}") is dirty. Run 'ptxdist oldconfig${arg}'."
 		fi
 	    fi
 	    return
