@@ -22,6 +22,8 @@ PYTHON3_AIOSIGNAL_URL		:= $(call ptx/mirror-pypi, aiosignal, $(PYTHON3_AIOSIGNAL
 PYTHON3_AIOSIGNAL_SOURCE	:= $(SRCDIR)/$(PYTHON3_AIOSIGNAL).$(PYTHON3_AIOSIGNAL_SUFFIX)
 PYTHON3_AIOSIGNAL_DIR		:= $(BUILDDIR)/$(PYTHON3_AIOSIGNAL)
 PYTHON3_AIOSIGNAL_LICENSE	:= Apache-2.0
+PYTHON3_AIOSIGNAL_LICENSE_FILES	:= \
+	file://LICENSE;md5=cf056e8e7a0a5477451af18b7b5aa98c
 
 # ----------------------------------------------------------------------------
 # Prepare
