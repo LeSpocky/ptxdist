@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 7.83.1
-LIBCURL_MD5	:= 08c6d9c25d9cf8d17be28363753e42ca
+LIBCURL_VERSION	:= 7.84.0
+LIBCURL_MD5	:= 6ce66afa416bb11b8f39cc9e059afd5b
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.haxx.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)

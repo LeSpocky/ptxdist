@@ -1,0 +1,22 @@
+From: vvb2060 <vvb2060@gmail.com>
+Date: Tue, 28 Jun 2022 03:48:43 +0800
+Subject: [PATCH] easy_lock.h: use __asm__ instead of asm to fix build
+
+Closes #9056
+---
+ lib/easy_lock.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/easy_lock.h b/lib/easy_lock.h
+index 1f54289ceb2d..07c85c5ffdd1 100644
+--- a/lib/easy_lock.h
++++ b/lib/easy_lock.h
+@@ -54,7 +54,7 @@ static inline void curl_simple_lock_lock(curl_simple_lock *lock)
+ #if defined(__i386__) || defined(__x86_64__)
+       __builtin_ia32_pause();
+ #elif defined(__aarch64__)
+-      asm volatile("yield" ::: "memory");
++      __asm__ volatile("yield" ::: "memory");
+ #elif defined(HAVE_SCHED_YIELD)
+       sched_yield();
+ #endif
