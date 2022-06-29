@@ -103,7 +103,6 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-libpmem \
 	--disable-libudev \
 	--$(call ptx/endis, PTXCONF_HOST_QEMU_SYS)-libusb \
-	--disable-libxml2 \
 	--disable-linux-aio \
 	--disable-linux-io-uring \
 	--disable-lzfse \
@@ -170,9 +169,8 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-tpm \
 	--disable-libssh \
 	--disable-numa \
-	--enable-replication \
+	--disable-replication \
 	--disable-opengl \
-	--disable-xfsctl \
 	--disable-qom-cast-debug \
 	--disable-tools \
 	--disable-bochs \
