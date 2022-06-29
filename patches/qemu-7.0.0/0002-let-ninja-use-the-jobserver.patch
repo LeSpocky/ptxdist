@@ -11,7 +11,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 74c5b46d38b5..4b3e390e8947 100644
+index e5fd1ebdf619..23128172d02a 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -142,7 +142,7 @@ MAKE.k = $(findstring k,$(firstword $(filter-out --%,$(MAKEFLAGS))))
@@ -22,4 +22,4 @@ index 74c5b46d38b5..4b3e390e8947 100644
 +        $(filter-out -j, $(lastword $(filter -l% -j%, $(MAKEFLAGS)))) \
  
  ninja-cmd-goals = $(or $(MAKECMDGOALS), all)
- ninja-cmd-goals += $(foreach t, $(.tests), $(.test.deps.$t))
+ ninja-cmd-goals += $(foreach t, $(.check.build-suites), $(.check-$t.deps))

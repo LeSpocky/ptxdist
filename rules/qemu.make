@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 6.2.0
-QEMU_MD5	:= a077669ce58b6ee07ec355e54aad25be
+QEMU_VERSION	:= 7.0.0
+QEMU_MD5	:= bfb5b09a0d1f887c8c42a6d5f26971ab
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -101,7 +101,6 @@ QEMU_CONF_OPT	:= \
 	--disable-libpmem \
 	--disable-libudev \
 	--$(call ptx/endis, PTXCONF_QEMU_SYS)-libusb \
-	--disable-libxml2 \
 	--disable-linux-aio \
 	--disable-linux-io-uring \
 	--disable-lzfse \
@@ -169,9 +168,8 @@ QEMU_CONF_OPT	:= \
 	--disable-tpm \
 	--disable-libssh \
 	--disable-numa \
-	--enable-replication \
+	--disable-replication \
 	--disable-opengl \
-	--disable-xfsctl \
 	--disable-qom-cast-debug \
 	--$(call ptx/endis, PTXCONF_QEMU_TOOLS)-tools \
 	--disable-bochs \
