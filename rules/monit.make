@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MONIT) += monit
 #
 # Paths and names
 #
-MONIT_VERSION	:= 5.27.1
-MONIT_MD5	:= 200068f37847e3402f6a9b061c2d327e
+MONIT_VERSION	:= 5.32.0
+MONIT_MD5	:= 4e3e9f9dd4a5094101e1cd24a292a4fb
 MONIT		:= monit-$(MONIT_VERSION)
 MONIT_SUFFIX	:= tar.gz
 MONIT_URL	:= http://mmonit.com/monit/dist/$(MONIT).$(MONIT_SUFFIX)
@@ -36,6 +36,7 @@ MONIT_CONF_TOOL	:= autoconf
 MONIT_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-optimized \
+	--disable-werror \
 	--disable-profiling \
 	--disable-codesign \
 	--$(call ptx/wwo, PTXCONF_GLOBAL_IPV6)-ipv6 \
