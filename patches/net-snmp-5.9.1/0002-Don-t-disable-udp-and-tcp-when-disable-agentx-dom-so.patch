@@ -17,10 +17,10 @@ semantic.
  1 file changed, 5 insertions(+), 3 deletions(-)
 
 diff --git a/configure.d/config_project_with_enable b/configure.d/config_project_with_enable
-index daa0ccc0fbbc..fd7feba777b4 100644
+index cdf56deb69dc..37d6ed1d6984 100644
 --- a/configure.d/config_project_with_enable
 +++ b/configure.d/config_project_with_enable
-@@ -777,9 +777,11 @@ NETSNMP_ARG_ENABLE(local-smux,
+@@ -771,9 +771,11 @@ NETSNMP_ARG_ENABLE(local-smux,
      fi])
  
  NETSNMP_ARG_ENABLE(agentx-dom-sock-only,

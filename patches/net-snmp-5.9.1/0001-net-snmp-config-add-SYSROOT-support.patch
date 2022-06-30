@@ -16,10 +16,10 @@ Signed-off-by: Alexander Dahl <post@lespocky.de>
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/net-snmp-config.in b/net-snmp-config.in
-index a412412118af..eb7bd0921fd6 100644
+index 6b5abf8f838a..366d648dfb19 100644
 --- a/net-snmp-config.in
 +++ b/net-snmp-config.in
-@@ -54,7 +54,7 @@ NSC_LAGENTLIBS="@LAGENTLIBS@ @PERLLDOPTS_FOR_APPS@"
+@@ -57,7 +57,7 @@ NSC_LAGENTLIBS="@LAGENTLIBS@ @PERLLDOPTS_FOR_APPS@"
  NSC_LMIBLIBS="@LMIBLIBS@"
  
  NSC_INCLUDEDIR=${includedir}
@@ -28,7 +28,7 @@ index a412412118af..eb7bd0921fd6 100644
  
  NSC_SNMPLIBS="-lnetsnmp ${NSC_LNETSNMPLIBS}"
  NSC_SUBAGENTLIBS="-lnetsnmpagent ${NSC_LAGENTLIBS} ${NSC_SNMPLIBS}"
-@@ -140,10 +140,10 @@ else
+@@ -143,10 +143,10 @@ else
        ;;
      #################################################### compile
      --base-cflags)
@@ -41,12 +41,12 @@ index a412412118af..eb7bd0921fd6 100644
        ;;
      --srcdir)
        echo $NSC_SRCDIR
-@@ -657,7 +657,7 @@ EOF
+@@ -660,7 +660,7 @@ EOF
          echo "Ack.  Can't create $tmpfile."
  	exit 1
        fi
 -      cmd="@CC@ $cflags @CFLAGS@ @DEVFLAGS@ -I. -I${NSC_INCLUDEDIR} -o $outname $tmpfile $cfiles $NSC_LDFLAGS $NSC_LIBDIR $NSC_BASE_AGENT_LIBS $NSC_AGENTLIBS $ldflags"
 +      cmd="@CC@ $cflags @CFLAGS@ @DEVFLAGS@ -I. -I${SYSROOT}${NSC_INCLUDEDIR} -o $outname $tmpfile $cfiles $NSC_LDFLAGS $NSC_LIBDIR $NSC_BASE_AGENT_LIBS $NSC_AGENTLIBS $ldflags"
        echo "running: $cmd"
-       `$cmd`
+       echo `$cmd`
        result=$?
