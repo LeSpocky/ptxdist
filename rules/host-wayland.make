@@ -25,6 +25,7 @@ HOST_WAYLAND_CONF_OPT	:= \
 	-Ddtd_validation=false \
 	-Dicon_directory= \
 	-Dlibraries=false \
-	-Dscanner=true
+	-Dscanner=true \
+	-Dtests=false
 
 # vim: syntax=make
