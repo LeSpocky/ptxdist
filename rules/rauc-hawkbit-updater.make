@@ -14,17 +14,16 @@ PACKAGES-$(PTXCONF_RAUC_HAWKBIT_UPDATER) += rauc-hawkbit-updater
 #
 # Paths and names
 #
-RAUC_HAWKBIT_UPDATER_VERSION		:= 2020-09-09-gb38f5a5
-RAUC_HAWKBIT_UPDATER_MD5		:= c2accd9bdcab813dbf9850e6ed63085e
+RAUC_HAWKBIT_UPDATER_VERSION		:= 1.2
+RAUC_HAWKBIT_UPDATER_MD5		:= b28ec46961572dafca4afe7ac9992cf2
 RAUC_HAWKBIT_UPDATER			:= rauc-hawkbit-updater-$(RAUC_HAWKBIT_UPDATER_VERSION)
 RAUC_HAWKBIT_UPDATER_SUFFIX		:= tar.gz
-RAUC_HAWKBIT_UPDATER_URL		:= https://github.com/rauc/rauc-hawkbit-updater/archive/$(RAUC_HAWKBIT_UPDATER).$(RAUC_HAWKBIT_UPDATER_SUFFIX)
+RAUC_HAWKBIT_UPDATER_URL		:= https://github.com/rauc/rauc-hawkbit-updater/releases/download/v$(RAUC_HAWKBIT_UPDATER_VERSION)/$(RAUC_HAWKBIT_UPDATER).$(RAUC_HAWKBIT_UPDATER_SUFFIX)
 RAUC_HAWKBIT_UPDATER_SOURCE		:= $(SRCDIR)/$(RAUC_HAWKBIT_UPDATER).$(RAUC_HAWKBIT_UPDATER_SUFFIX)
 RAUC_HAWKBIT_UPDATER_DIR		:= $(BUILDDIR)/$(RAUC_HAWKBIT_UPDATER)
 RAUC_HAWKBIT_UPDATER_LICENSE		:= LGPL-2.1-only
 RAUC_HAWKBIT_UPDATER_LICENSE_FILES	:= \
-	file://LICENSE;md5=1a6d268fd218675ffea8be556788b780 \
-	file://src/rauc-hawkbit-updater.c;startline=2;endline=18;md5=77f866ecbd1a16747812cee95cdfcf44
+	file://LICENSE;md5=1a6d268fd218675ffea8be556788b780
 
 # ----------------------------------------------------------------------------
 # Prepare
