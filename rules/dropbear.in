@@ -150,7 +150,7 @@ config DROPBEAR_AES128
 
 config DROPBEAR_3DES
 	bool
-	prompt "3DES"
+	prompt "3DES (legacy)"
 	help
 	  DES is an IBM algorithm designed during the 1970s.
 	  In 1976, NIST has officially adopted it as an encryption
@@ -182,7 +182,7 @@ config DROPBEAR_CHACHA20POLY1305
 
 config DROPBEAR_CBC_CIPHERS
 	bool
-	prompt "CBC mode ciphers"
+	prompt "CBC mode ciphers (legacy)"
 	help
 	  Enable CBC mode for ciphers. This has security issues though
 	  is the most compatible with older SSH implementations.
@@ -196,11 +196,11 @@ config DROPBEAR_CTR_CIPHERS
 	  CBC mode against certain attacks. This adds around 1kB to binary
 	  size and is recommended for most cases.
 
-comment "Integrity, at least one required --- sha2-256 is recommended as a default, sha1 for compatibility"
+comment "Message Integrity (HMAC), at least one required ---"
 
 config DROPBEAR_SHA1
 	bool
-	prompt "sha1"
+	prompt "sha1 (compat)"
 	help
 	  The Secure Hash Algorithm (SHA) was developed by NIST and
 	  is specified in the Secure Hash Standard (SHS, FIPS 180).
@@ -212,7 +212,7 @@ config DROPBEAR_SHA1
 
 config DROPBEAR_SHA1_96
 	bool
-	prompt "sha1-96"
+	prompt "sha1-96 (legacy)"
 	help
 	  The Secure Hash Algorithm (SHA) was developed by NIST and
 	  is specified in the Secure Hash Standard (SHS, FIPS 180).
@@ -224,7 +224,7 @@ config DROPBEAR_SHA1_96
 
 config DROPBEAR_SHA256
 	bool
-	prompt "sha256"
+	prompt "sha256 (recommended)"
 	default y
 	help
 	  SHA-2 is a set of cryptographic hash functions (SHA-224, SHA-256,
