@@ -170,6 +170,16 @@ config DROPBEAR_AES256
 	  algorithm that may be used by U.S. Government organizations
 	  (and others) to protect sensitive information.
 
+config DROPBEAR_CHACHA20POLY1305
+	bool
+	prompt "Chacha20-Poly1305"
+	default y
+	help
+	  Enable Chacha20-Poly1305 authenticated encryption mode.
+	  This is generally faster than AES256 on CPU w/o dedicated AES
+	  instructions, having the same key size.
+	  Recommended.
+
 config DROPBEAR_CBC_CIPHERS
 	bool
 	prompt "CBC mode ciphers"

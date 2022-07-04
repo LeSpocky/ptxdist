@@ -127,6 +127,14 @@ else
 	@echo "#define DROPBEAR_AES256 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
+ifdef PTXCONF_DROPBEAR_CHACHA20POLY1305
+	@echo "ptxdist: enabling chacha20-poly1305"
+	@echo "#define DROPBEAR_CHACHA20POLY1305 1" >> $(DROPBEAR_LOCALOPTIONS)
+else
+	@echo "ptxdist: disabling chacha20-poly1305"
+	@echo "#define DROPBEAR_CHACHA20POLY1305 0" >> $(DROPBEAR_LOCALOPTIONS)
+endif
+
 # ciphers
 ifdef PTXCONF_DROPBEAR_CBC_CIPHERS
 	@echo "ptxdist: enabling cbc ciphers"
