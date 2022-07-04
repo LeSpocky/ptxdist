@@ -25,6 +25,9 @@ dropbear_start() {
             ecdsa)
                 test -f "$DROPBEAR_ECDSAKEY" && KEY_ARGS="$KEY_ARGS -r $DROPBEAR_ECDSAKEY"
                 ;;
+            ed25519)
+                test -f "$DROPBEAR_ED25519KEY" && KEY_ARGS="$KEY_ARGS -r $DROPBEAR_ED25519KEY"
+                ;;
             *)
                 echo "Key type '$keytype' not supported"
                 ;;

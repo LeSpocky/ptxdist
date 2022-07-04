@@ -28,6 +28,9 @@ gen_keys() {
 			ecdsa)
 				gen_key ecdsa "$DROPBEAR_ECDSAKEY" || return
 				;;
+			ed25519)
+				gen_key ed25519 "$DROPBEAR_ED25519KEY" || return
+				;;
 			*)
 				echo "Key type '$keytype' not supported"
 				;;

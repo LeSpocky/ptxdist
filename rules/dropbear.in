@@ -257,6 +257,18 @@ config DROPBEAR_ECDSA
 	  ECDSA stands for Elliptic Curve Digital Signature Algorithm.
 	  ECDSA is significantly faster than RSA.
 
+config DROPBEAR_ED25519
+	bool
+	prompt "ed25519"
+	default y
+	help
+	  Ed25519 is the EdDSA signature scheme using SHA-512 (SHA-2)
+	  and Curve25519.
+	  Ed25519 is intended to provide attack resistance comparable to
+	  quality 128-bit symmetric ciphers.
+	  Public keys are 256 bits long and signatures are 512 bits
+	  long.
+
 comment "Key exchange algorithm ---"
 
 config DROPBEAR_ECDH

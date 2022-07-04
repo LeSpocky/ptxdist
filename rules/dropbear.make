@@ -202,6 +202,14 @@ else
 	@echo "#define DROPBEAR_ECDSA 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
+ifdef PTXCONF_DROPBEAR_ED25519
+	@echo "ptxdist: enabling ed25519"
+	@echo "#define DROPBEAR_ED25519 1" >> $(DROPBEAR_LOCALOPTIONS)
+else
+	@echo "ptxdist: disabling ed25519"
+	@echo "#define DROPBEAR_ED25519 0" >> $(DROPBEAR_LOCALOPTIONS)
+endif
+
 	@echo "ptxdist: disabling u2f security key support"
 	@echo "#define DROPBEAR_SK_ECDSA 0" >> $(DROPBEAR_LOCALOPTIONS)
 	@echo "#define DROPBEAR_SK_ED25519 0" >> $(DROPBEAR_LOCALOPTIONS)
@@ -262,6 +270,9 @@ DROPBEAR_KEY_TYPES	+= rsa
 endif
 ifdef PTXCONF_DROPBEAR_ECDSA
 DROPBEAR_KEY_TYPES	+= ecdsa
+endif
+ifdef PTXCONF_DROPBEAR_ED25519
+DROPBEAR_KEY_TYPES	+= ed25519
 endif
 
 $(STATEDIR)/dropbear.targetinstall:
