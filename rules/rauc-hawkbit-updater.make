@@ -38,7 +38,7 @@ RAUC_HAWKBIT_UPDATER_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
 	-DWITH_SYSTEMD=$(call ptx/onoff,PTXCONF_RAUC_HAWKBIT_UPDATER_SYSTEMD_UNIT) \
 	-DBUILD_DOC=OFF \
-	-DQA_BUILD=ON \
+	-DQA_BUILD=OFF \
 	-DSYSTEMD_SERVICES_INSTALL_DIR=/usr/lib/systemd/system
 
 # ----------------------------------------------------------------------------
