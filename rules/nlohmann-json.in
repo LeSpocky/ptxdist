@@ -1,0 +1,21 @@
+## SECTION=system_libraries
+
+menuconfig NLOHMANN_JSON
+	tristate
+	prompt "JSON for Modern C++           "
+	select HOST_CMAKE
+	help
+	  Modern C++11 JSON library with intuitive syntax, trivial
+	  integration, and serious testing.
+
+	  https://json.nlohmann.me/
+
+if NLOHMANN_JSON
+
+config NLOHMANN_JSON_BUILD_TESTS
+	bool
+	prompt "Build the unit tests"
+
+endif
+
+# vim: ft=kconfig noet tw=72 ts=8 sw=8
