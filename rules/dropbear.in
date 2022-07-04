@@ -279,7 +279,6 @@ config DROPBEAR_ECDH
 
 config DROPBEAR_CURVE25519
 	bool
-	depends on DROPBEAR_ECDSA || DROPBEAR_ECDH
 	prompt "curve25519-donna"
 	help
 	  Enable curve25519-donna for key exchange.
