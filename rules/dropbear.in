@@ -279,7 +279,30 @@ config DROPBEAR_ED25519
 	  Public keys are 256 bits long and signatures are 512 bits
 	  long.
 
-comment "Key exchange algorithm ---"
+comment "Key exchange algorithm, at least one required ---"
+
+config DROPBEAR_DH_GROUP14_SHA256
+	bool
+	prompt "group14_sha256"
+	default y
+	help
+	  2048 bit, sha2-256.
+	  group14 is supported by most implementations.
+
+config DROPBEAR_DH_GROUP14_SHA1
+	bool
+	prompt "group14_sha1"
+	help
+	  2048 bit, sha1.
+	  group14 is supported by most implementations.
+
+config DROPBEAR_DH_GROUP16
+	bool
+	prompt "group16"
+	help
+	  4096 bit, sha2-512.
+	  group16 provides a greater strength level but is slower and
+	  increases binary size.
 
 config DROPBEAR_ECDH
 	bool
@@ -287,15 +310,31 @@ config DROPBEAR_ECDH
 	help
 	  ECDH stands for Elliptic Curve Diffie-Hellman.
 
+	  Small systems should generally include either curve25519 or
+	  ecdh for performance.
+
 config DROPBEAR_CURVE25519
 	bool
-	prompt "curve25519-donna"
+	prompt "curve25519"
 	help
-	  Enable curve25519-donna for key exchange.
+	  Enable curve25519 for key exchange.
 	  This is another elliptic curve method with good security properties.
 	  This algorithm does not rely on NIST-based curves
 	  and gives us more security confidence against a possible
 	  backdoor in nistp-256 curve.
+
+	  Small systems should generally include either curve25519 or
+	  ecdh for performance.
+
+config DROPBEAR_DH_GROUP1
+	bool
+	prompt "group1 (legacy, client only)"
+	help
+	  1024 bit, sha1.
+	  This is too small for security though is necessary if you need
+	  compatibility with some implementations such as Dropbear
+	  versions < 0.53.
+	  Client only!
 
 comment "Authentication types, at least one required --- RFC Draft requires pubkey auth"
 

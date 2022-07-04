@@ -157,13 +157,9 @@ endif
 ifdef PTXCONF_DROPBEAR_SHA1
 	@echo "ptxdist: enabling sha1"
 	@echo "#define DROPBEAR_SHA1_HMAC 1" >> $(DROPBEAR_LOCALOPTIONS)
-	@echo "#define DROPBEAR_DH_GROUP1 1" >> $(DROPBEAR_LOCALOPTIONS)
-	@echo "#define DROPBEAR_DH_GROUP14_SHA1 1" >> $(DROPBEAR_LOCALOPTIONS)
 else
 	@echo "ptxdist: disabling sha1"
 	@echo "#define DROPBEAR_SHA1_HMAC 0" >> $(DROPBEAR_LOCALOPTIONS)
-	@echo "#define DROPBEAR_DH_GROUP1 0" >> $(DROPBEAR_LOCALOPTIONS)
-	@echo "#define DROPBEAR_DH_GROUP14_SHA1 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 ifdef PTXCONF_DROPBEAR_SHA1_96
@@ -223,6 +219,30 @@ endif
 	@echo "#define DROPBEAR_SK_ED25519 0" >> $(DROPBEAR_LOCALOPTIONS)
 
 # key exchange algorithm
+ifdef PTXCONF_DROPBEAR_DH_GROUP14_SHA256
+	@echo "ptxdist: enabling dh_group14_sha256"
+	@echo "#define DROPBEAR_DH_GROUP14_SHA256 1" >> $(DROPBEAR_LOCALOPTIONS)
+else
+	@echo "ptxdist: disabling dh_group14_sha256"
+	@echo "#define DROPBEAR_DH_GROUP14_SHA256 0" >> $(DROPBEAR_LOCALOPTIONS)
+endif
+
+ifdef PTXCONF_DROPBEAR_DH_GROUP14_SHA1
+	@echo "ptxdist: enabling dh_group14_sha1"
+	@echo "#define DROPBEAR_DH_GROUP14_SHA1 1" >> $(DROPBEAR_LOCALOPTIONS)
+else
+	@echo "ptxdist: disabling dh_group14_sha1"
+	@echo "#define DROPBEAR_DH_GROUP14_SHA1 0" >> $(DROPBEAR_LOCALOPTIONS)
+endif
+
+ifdef PTXCONF_DROPBEAR_DH_GROUP16
+	@echo "ptxdist: enabling dh_group16"
+	@echo "#define DROPBEAR_DH_GROUP16 1" >> $(DROPBEAR_LOCALOPTIONS)
+else
+	@echo "ptxdist: disabling dh_group16"
+	@echo "#define DROPBEAR_DH_GROUP16 0" >> $(DROPBEAR_LOCALOPTIONS)
+endif
+
 ifdef PTXCONF_DROPBEAR_ECDH
 	@echo "ptxdist: enabling ecdh"
 	@echo "#define DROPBEAR_ECDH 1" >> $(DROPBEAR_LOCALOPTIONS)
@@ -237,6 +257,14 @@ ifdef PTXCONF_DROPBEAR_CURVE25519
 else
 	@echo "ptxdist: disabling curve25519"
 	@echo "#define DROPBEAR_CURVE25519 0" >> $(DROPBEAR_LOCALOPTIONS)
+endif
+
+ifdef PTXCONF_DROPBEAR_DH_GROUP1
+	@echo "ptxdist: enabling dh_group1"
+	@echo "#define DROPBEAR_DH_GROUP1 1" >> $(DROPBEAR_LOCALOPTIONS)
+else
+	@echo "ptxdist: disabling dh_group1"
+	@echo "#define DROPBEAR_DH_GROUP1 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
 # authentication types
