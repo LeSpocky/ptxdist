@@ -1,0 +1,546 @@
+## SECTION=qt
+
+menuconfig QT6
+	tristate
+	select HOST_CMAKE
+	select HOST_NINJA
+	select HOST_FONTCONFIG		if QT6_MODULE_QTWEBENGINE
+	select HOST_FREETYPE		if QT6_MODULE_QTWEBENGINE
+	select HOST_LIBJPEG		if QT6_MODULE_QTWEBENGINE
+	select HOST_LIBPNG		if QT6_MODULE_QTWEBENGINE
+	select HOST_LIBWEBP		if QT6_MODULE_QTWEBENGINE
+	select HOST_NINJA		if QT6_MODULE_QTWEBENGINE
+	select HOST_NODEJS		if QT6_MODULE_QTWEBENGINE
+	select HOST_NSPR		if QT6_MODULE_QTWEBENGINE
+	select HOST_NSS			if QT6_MODULE_QTWEBENGINE
+	select HOST_QT6
+	select HOST_QT6_DBUS		if QT6_DBUS
+	select HOST_QT6_QTDECLARATIVE	if QT6_MODULE_QTDECLARATIVE
+	select HOST_QT6_QTQUICK3D	if QT6_MODULE_QTQUICK3D
+	select HOST_QT6_QTREMOTEOBJECTS	if QT6_MODULE_QTREMOTEOBJECTS
+	select HOST_QT6_QTSCXML		if QT6_MODULE_QTSCXML
+	select HOST_QT6_QTSHADERTOOLS	if QT6_MODULE_QTSHADERTOOLS
+	select HOST_QT6_QTWAYLAND	if QT6_MODULE_QTWAYLAND
+	select HOST_QT6_QTWEBENGINE	if QT6_MODULE_QTWEBENGINE
+	select HOST_SYSTEM_PERL
+	select HOST_SYSTEM_PYTHON3	if QT6_MODULE_QTDECLARATIVE || QT6_MODULE_QTWEBENGINE
+	select LIBC_PTHREAD
+	select LIBC_DL
+	select LIBC_RT
+	select LIBC_M
+	select GCCLIBS_CXX
+	select GCCLIBS_GCC_S
+	select PCRE2
+	select PCRE2_16
+	select ZLIB
+	select ALSA_LIB			if QT6_MODULE_QTMULTIMEDIA || QT6_MODULE_QTWEBENGINE_MEDIA
+	select ALSA_LIB_HWDEP		if QT6_MODULE_QTWEBENGINE_MEDIA
+	select ALSA_LIB_MIXER		if QT6_MODULE_QTWEBENGINE_MEDIA
+	select ALSA_LIB_PCM		if QT6_MODULE_QTMULTIMEDIA || QT6_MODULE_QTWEBENGINE_MEDIA
+	select ALSA_LIB_RAWMIDI		if QT6_MODULE_QTWEBENGINE_MEDIA
+	select ALSA_LIB_SEQ		if QT6_MODULE_QTWEBENGINE_MEDIA
+	select BLUEZ			if QT6_MODULE_QTCONNECTIVITY
+	select BLUEZ_LIBBLUETOOTH	if QT6_MODULE_QTCONNECTIVITY
+	select DBUS			if QT6_DBUS || QT6_MODULE_QTWEBENGINE || QT6_MODULE_QTCONNECTIVITY
+	select FONTCONFIG		if QT6_GUI || QT6_MODULE_QTWEBENGINE
+	select FREETYPE			if QT6_GUI || QT6_MODULE_QTWEBENGINE
+	select GLIB			if QT6_GLIB
+	select GSTREAMER1		if QT6_MODULE_QTMULTIMEDIA_GST
+	select GST_PLUGINS_BASE1	if QT6_MODULE_QTMULTIMEDIA_GST
+	select GST_PLUGINS_BASE1_APP	if QT6_MODULE_QTMULTIMEDIA_GST
+	select GST_PLUGINS_BASE1_GL	if QT6_MODULE_QTMULTIMEDIA_GST && QT6_OPENGL
+	select HARFBUZZ			if QT6_GUI
+	select ICU			if QT6_ICU
+	select LIBDRM			if QT6_PLATFORM_EGLFS
+	select LIBINPUT			if QT6_INPUT_LIBINPUT
+	select LIBJPEG			if QT6_LIBJPEG || QT6_MODULE_QTWEBENGINE
+	select LIBMNG			if QT6_LIBMNG
+	select LIBPNG			if QT6_LIBPNG || QT6_MODULE_QTWEBENGINE
+	select LIBTIFF			if QT6_MODULE_QTIMAGEFORMATS
+	select LIBWEBP			if QT6_MODULE_QTIMAGEFORMATS || QT6_MODULE_QTWEBENGINE
+	select LIBWEBP_DEMUX		if QT6_MODULE_QTIMAGEFORMATS || QT6_MODULE_QTWEBENGINE
+	select LIBWEBP_MUX		if QT6_MODULE_QTIMAGEFORMATS || QT6_MODULE_QTWEBENGINE
+	select LIBXKBCOMMON		if QT6_LIBXKBCOMMON
+	select MESALIB			if QT6_PLATFORM_EGLFS
+	select MESALIB_EGL		if QT6_PLATFORM_EGLFS || QT6_MODULE_QTWAYLAND_MESA
+	select MESALIB_EGL_DRM		if QT6_PLATFORM_EGLFS
+	select MESALIB_EGL_WAYLAND	if QT6_MODULE_QTWAYLAND_MESA
+	select MESALIB_GBM		if QT6_PLATFORM_EGLFS
+	select MYSQLDB			if QT6_MODULE_QTBASE_SQL_MYSQL
+	select NSPR			if QT6_MODULE_QTWEBENGINE
+	select NSS			if QT6_MODULE_QTWEBENGINE
+	select OPENSSL			if QT6_OPENSSL
+	select OPUS			if QT6_MODULE_QTWEBENGINE
+	select PLATFORM_OPENGL		if QT6_OPENGL
+	select SQLITE			if QT6_MODULE_QTBASE_SQL_SQLITE
+	select SYSTEMD			if QT6_JOURNALD
+	select UDEV			if QT6_LIBUDEV
+	select UDEV_LIBUDEV		if QT6_LIBUDEV
+	select WAYLAND			if QT6_MODULE_QTWAYLAND
+
+	select QT6_MODULE_QTBASE
+	select QT6_MODULE_QTBASE_SQL	if QT6_MODULE_QTDECLARATIVE
+	prompt "qt6                           "
+	help
+	  Qt is a full development framework with tools designed to
+	  streamline the creation of applications and user interfaces
+	  for desktop, embedded and mobile platforms.
+
+if QT6
+
+config QT6_PREPARE_EXAMPLES
+	bool
+
+config QT6_LIBXKBCOMMON
+	bool
+	default QT6_MODULE_QTWAYLAND || QT6_INPUT_LIBINPUT || QT6_MODULE_QTWEBENGINE
+
+menu "Feature Options             "
+
+config QT6_GIF
+	bool
+	prompt "gif support"
+
+config QT6_LIBJPEG
+	bool
+	prompt "JPEG support"
+
+config QT6_LIBMNG
+	bool
+	select QT6_MODULE_QTIMAGEFORMATS
+	prompt "MNG support"
+
+config QT6_LIBPNG
+	bool
+	prompt "PNG support"
+
+comment "----------------------------"
+
+config QT6_ACCESSIBILITY
+	bool
+	prompt "accessibility support"
+
+config QT6_ICU
+	bool
+	prompt "ICU support"
+
+config QT6_DBUS
+	bool
+	select QT6_GLIB
+	prompt "D-Bus support"
+
+config QT6_GLIB
+	bool
+	prompt "glib support"
+
+config QT6_LIBUDEV
+	bool
+
+config QT6_JOURNALD
+	bool
+	depends on INITMETHOD_SYSTEMD
+	default y
+	prompt "journald support"
+
+config QT6_OPENSSL
+	bool
+	prompt "OpenSSL support"
+
+config QT6_OPENGL
+	bool
+	prompt "OpenGL ES2 support"
+
+config QT6_TEST
+	bool
+	prompt "Testing support"
+
+endmenu
+
+menuconfig QT6_GUI
+	bool
+	select QT6_LIBUDEV
+	prompt "GUI Platform Plugins        "
+
+if QT6_GUI
+
+comment "supported plugins"
+
+config QT6_PLATFORM_DEFAULT
+	string
+	default "eglfs"		if QT6_PLATFORM_DEFAULT_EGLFS
+	default "wayland"	if QT6_PLATFORM_DEFAULT_WAYLAND
+
+config QT6_PLATFORM_EGLFS
+	bool
+	prompt "eglfs"
+	select QT6_OPENGL
+
+comment "default plugin"
+
+choice
+	prompt "selected"
+	help
+	  At least one GUI platform plugin must be selected here to be used as
+	  the default. Don't keep this entry as '--nothing--'.
+
+config QT6_PLATFORM_DEFAULT_MISSING
+	bool
+	prompt "--nothing--"
+	depends on !QT6_PLATFORM_EGLFS
+	depends on !QT6_MODULE_QTWAYLAND
+
+config QT6_PLATFORM_DEFAULT_EGLFS
+	bool
+	depends on QT6_PLATFORM_EGLFS
+	prompt "eglfs"
+
+config QT6_PLATFORM_DEFAULT_WAYLAND
+	bool
+	depends on QT6_MODULE_QTWAYLAND
+	prompt "wayland"
+
+endchoice
+
+endif
+
+# add this here so 'Input Plugins' is sorted into the correct menu
+config QT6_WIDGETS
+	bool
+
+if QT6_GUI
+
+menu "Input Plugins               "
+
+config QT6_INPUT_EVDEV
+	bool
+	select QT6_LIBUDEV
+	default y
+	prompt "evdev"
+
+config QT6_INPUT_LIBINPUT
+	bool
+	select QT6_LIBUDEV
+	prompt "libinput"
+
+endmenu
+
+endif
+
+menu "Modules                     "
+
+config QT6_MODULE_QT3D
+	bool
+	select QT6_GUI
+	select QT6_OPENGL
+	select QT6_MODULE_QTDECLARATIVE
+	prompt "Qt3D"
+
+config QT6_MODULE_QT3D_QUICK
+	bool
+	depends on QT6_MODULE_QT3D
+	default QT6_MODULE_QTDECLARATIVE
+
+config QT6_MODULE_QT5COMPAT
+	bool
+	prompt "Qt5Compat"
+
+config QT6_MODULE_QTBASE
+	bool
+	prompt "QtBase"
+
+if QT6_MODULE_QTBASE
+
+config QT6_MODULE_QTBASE_GUI
+	bool
+	default QT6_GUI
+
+config QT6_MODULE_QTBASE_WIDGETS
+	bool
+	select QT6_GUI
+	select QT6_WIDGETS
+	select QT6_LIBPNG
+	prompt "QtWidgets"
+
+config QT6_MODULE_QTBASE_PRINT
+	bool
+	select QT6_MODULE_QTBASE_WIDGETS
+	prompt "printing support"
+
+config QT6_MODULE_QTBASE_SQL
+	bool
+	prompt "QtSQL"
+
+if QT6_MODULE_QTBASE_SQL
+
+config QT6_MODULE_QTBASE_SQL_SQLITE
+	bool
+	prompt "SQLite backend"
+
+config QT6_MODULE_QTBASE_SQL_MYSQL
+	bool
+	prompt "mySQL backend"
+
+endif
+
+endif
+
+config QT6_MODULE_QTCHARTS
+	bool
+	select QT6_MODULE_QTBASE_WIDGETS
+	prompt "QtCharts"
+
+config QT6_MODULE_QTCHARTS_QUICK
+	bool
+	depends on QT6_MODULE_QTCHARTS
+	default QT6_MODULE_QTDECLARATIVE
+
+config QT6_MODULE_QTCOAP
+	bool
+	prompt "QtCoap"
+
+config QT6_MODULE_QTCONNECTIVITY
+	bool
+	select QT6_DBUS
+	prompt "QtConnectivity"
+
+config QT6_MODULE_QTCONNECTIVITY_QUICK
+	bool
+	depends on QT6_MODULE_QTCONNECTIVITY
+	default QT6_MODULE_QTDECLARATIVE
+
+config QT6_MODULE_QTDATAVIS3D
+	bool
+	select QT6_MODULE_QTBASE_WIDGETS
+	select QT6_MODULE_QTDECLARATIVE
+	select QT6_OPENGL
+	prompt "QtDataVisualization"
+
+config QT6_MODULE_QTDECLARATIVE
+	bool
+	# FIXME: fails to build without QT6_TEST
+	select QT6_TEST
+	select QT6_MODULE_QTSHADERTOOLS
+	prompt "QtDeclarative"
+
+if QT6_MODULE_QTDECLARATIVE
+
+config QT6_MODULE_QTDECLARATIVE_QML
+	bool
+	prompt "install qml"
+	help
+	  Commandline application that replaces qmlscene.
+
+config QT6_MODULE_QTDECLARATIVE_QMLSCENE
+	bool
+	prompt "install qmlscene (deprecated)"
+
+config QT6_MODULE_QTDECLARATIVE_DEBUG
+	bool
+	prompt "QML debugging"
+
+config QT6_MODULE_QTDECLARATIVE_QUICK
+	bool
+	default QT6_GUI
+
+if QT6_MODULE_QTDECLARATIVE_QUICK
+
+config QT6_MODULE_QTDECLARATIVE_QUICK_WIDGETS
+	bool
+	default QT6_WIDGETS
+
+config QT6_MODULE_QTDECLARATIVE_QUICK_DEBUG
+	bool
+	default QT6_MODULE_QTDECLARATIVE_DEBUG
+
+config QT6_MODULE_QTDECLARATIVE_QUICK_PARTICLES
+	bool
+	default QT6_OPENGL
+
+endif
+endif
+
+config QT6_MODULE_QTIMAGEFORMATS
+	bool
+	prompt "QtImageFormats"
+
+config QT6_MODULE_QTLOTTIE
+	bool
+	prompt "QtLottie"
+
+config QT6_MODULE_QTMQTT
+	bool
+	select QT6_MODULE_QTDECLARATIVE
+	prompt "QtMqtt"
+
+config QT6_MODULE_QTMULTIMEDIA
+	bool
+	select QT6_GUI
+	select QT6_MODULE_QTSHADERTOOLS
+	prompt "QtMultimedia"
+
+if QT6_MODULE_QTMULTIMEDIA
+
+config QT6_MODULE_QTMULTIMEDIA_GST
+	bool
+	default y
+	prompt "gstreamer backend"
+
+config QT6_MODULE_QTMULTIMEDIA_QUICK
+	bool
+	default QT6_MODULE_QTDECLARATIVE_QUICK
+
+config QT6_MODULE_QTMULTIMEDIA_WIDGETS
+	bool
+	default QT6_WIDGETS
+
+endif
+
+config QT6_MODULE_QTNETWORKAUTH
+	bool
+	prompt "QtNetworkAuth"
+
+config QT6_MODULE_QTOPCUA
+	bool
+	prompt "QtOpcua"
+
+config QT6_MODULE_QTPOSITIONING
+	bool
+	prompt "QtPositioning"
+
+config QT6_MODULE_QTQUICK3D
+	bool
+	select QT6_MODULE_QTDECLARATIVE
+	select QT6_MODULE_QTQUICKTIMELINE
+	select QT6_MODULE_QTSHADERTOOLS
+	prompt "QtQuick3D"
+
+config QT6_MODULE_QTQUICKTIMELINE
+	bool
+	select QT6_MODULE_QTDECLARATIVE
+	prompt "QtQuickTimeline"
+
+config QT6_MODULE_QTREMOTEOBJECTS
+	bool
+	prompt "QtRemoteObjects"
+
+config QT6_MODULE_QTREMOTEOBJECTS_QUICK
+	bool
+	depends on QT6_MODULE_QTREMOTEOBJECTS
+	default QT6_MODULE_QTDECLARATIVE
+
+config QT6_MODULE_QTSCXML
+	bool
+	prompt "QtScxml"
+
+config QT6_MODULE_QTSCXML_QUICK
+	bool
+	depends on QT6_MODULE_QTSCXML
+	default QT6_MODULE_QTDECLARATIVE
+
+config QT6_MODULE_QTSENSORS
+	bool
+	prompt "QtSensors"
+
+config QT6_MODULE_QTSENSORS_QUICK
+	bool
+	depends on QT6_MODULE_QTSENSORS
+	default QT6_MODULE_QTDECLARATIVE
+
+config QT6_MODULE_QTSERIALBUS
+	bool
+	select QT6_MODULE_QTSERIALPORT
+	prompt "QtSerialBus"
+
+config QT6_MODULE_QTSERIALPORT
+	bool
+	prompt "QtSerialPort"
+
+config QT6_MODULE_QTSHADERTOOLS
+	bool
+	prompt "QtShaderTools"
+
+config QT6_MODULE_QTSVG
+	bool
+	prompt "QtSvg"
+
+config QT6_MODULE_QTSVG_WIDGETS
+	bool
+	depends on QT6_MODULE_QTSVG
+	default QT6_WIDGETS
+
+config QT6_MODULE_QTVIRTUALKEYBOARD
+	bool
+	select QT6_MODULE_QTSVG
+	select QT6_MODULE_QTDECLARATIVE
+	prompt "QtVirtualKeyboard"
+
+config QT6_MODULE_QTWAYLAND
+	bool
+	select QT6_GUI
+	prompt "QtWayland"
+
+if QT6_MODULE_QTWAYLAND
+
+config QT6_MODULE_QTWAYLAND_MESA
+	bool
+	default MESALIB && QT6_OPENGL
+
+config QT6_MODULE_QTWAYLAND_QUICK
+	bool
+	default QT6_MODULE_QTDECLARATIVE
+
+endif
+
+config QT6_MODULE_QTWEBCHANNEL
+	bool
+	select QT6_GUI
+	prompt "QtWebChannel"
+
+config QT6_MODULE_QTWEBCHANNEL_QUICK
+	bool
+	depends on QT6_MODULE_QTWEBCHANNEL
+	default QT6_MODULE_QTDECLARATIVE
+
+config QT6_MODULE_QTWEBENGINE
+	bool
+	# undefined symbols if accessibility is not enabled
+	select QT6_ACCESSIBILITY
+	select QT6_GLIB
+	select QT6_GUI
+	select QT6_LIBJPEG
+	select QT6_LIBPNG
+	select QT6_OPENSSL
+	select QT6_MODULE_QTDECLARATIVE
+	select QT6_MODULE_QTWEBCHANNEL
+	prompt "QtWebEngine"
+
+if QT6_MODULE_QTWEBENGINE
+
+config QT6_MODULE_QTWEBENGINE_WIDGETS
+	bool
+	default QT6_WIDGETS
+
+config QT6_MODULE_QTWEBENGINE_MEDIA
+	bool
+	prompt "audio/video support"
+
+endif
+
+config QT6_MODULE_QTWEBSOCKETS
+	bool
+	prompt "QtWebSockets"
+
+config QT6_MODULE_QTWEBSOCKETS_QUICK
+	bool
+	depends on QT6_MODULE_QTWEBSOCKETS
+	default QT6_MODULE_QTDECLARATIVE
+
+config QT6_MODULE_QTWEBVIEW
+	bool
+	select QT6_MODULE_QTDECLARATIVE
+	select QT6_MODULE_QTWEBENGINE
+	prompt "QtWebView"
+
+endmenu
+
+endif

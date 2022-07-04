@@ -1,0 +1,26 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 8 Jul 2022 17:01:15 +0200
+Subject: [PATCH] ptxdist: qtwebengine: allow building with ptxdist
+
+The buildsystem detects some hardware features from CXXFLAGS.
+With ptxdist the relevant flags are hidden in the toolchain defaults, so
+inject them via environment variable.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ qtwebengine/cmake/Functions.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/qtwebengine/cmake/Functions.cmake b/qtwebengine/cmake/Functions.cmake
+index 370ea082c81e..d6ad21df1b9f 100644
+--- a/qtwebengine/cmake/Functions.cmake
++++ b/qtwebengine/cmake/Functions.cmake
+@@ -719,7 +719,7 @@ function(extract_cflag result cflag)
+         list(APPEND cflags ${CMAKE_CXX_COMPILER_ARG${i}})
+         math(EXPR i "${i} + 1")
+     endwhile()
+-    list(APPEND cflags ${CMAKE_C_FLAGS} ${CMAKE_CXX_FLAGS})
++    list(APPEND cflags ${CMAKE_C_FLAGS} ${CMAKE_CXX_FLAGS} $ENV{PTX_CMAKE_CFLAGS})
+     string(REPLACE ";" " " cflags "${cflags}")
+     message(DEBUG "Found cflags: ${cflags}")
+     if(cflags MATCHES "-${cflag}=([^ ]+)")

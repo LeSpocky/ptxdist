@@ -1,0 +1,51 @@
+## SECTION=hosttools_noprompt
+
+config HOST_QT6
+	tristate
+	select HOST_CMAKE
+	select HOST_NINJA
+	select HOST_SYSTEM_PYTHON3	if HOST_QT6_QTDECLARATIVE
+	select HOST_PCRE2
+	select HOST_WAYLAND		if HOST_QT6_QTWAYLAND
+	select HOST_ZLIB
+	default y if ALLYES
+
+if HOST_QT6
+
+config HOST_QT6_GUI
+	bool
+
+config HOST_QT6_NETWORK
+	bool
+
+config HOST_QT6_DBUS
+	bool
+
+config HOST_QT6_QTDECLARATIVE
+	bool
+	select HOST_QT6_NETWORK
+
+config HOST_QT6_QTQUICK3D
+	bool
+	select HOST_QT6_QTDECLARATIVE
+
+config HOST_QT6_QTREMOTEOBJECTS
+	bool
+	select HOST_QT6_NETWORK
+
+config HOST_QT6_QTSCXML
+	select HOST_QT6_QTDECLARATIVE
+	bool
+
+config HOST_QT6_QTSHADERTOOLS
+	select HOST_QT6_GUI
+	bool
+
+config HOST_QT6_QTWAYLAND
+	select HOST_QT6_GUI
+	bool
+
+config HOST_QT6_QTWEBENGINE
+	bool
+
+endif
