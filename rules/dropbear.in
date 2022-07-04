@@ -115,7 +115,8 @@ comment "features"
 
 config DROPBEAR_DIS_X11
 	bool
-	prompt "disable X11 Forwarding"
+	# X11 forwarding fails to build
+	#prompt "disable X11 Forwarding"
 	default y
 	help
 	  X11 forwarding means passing X11 (graphical interface)
@@ -168,29 +169,6 @@ config DROPBEAR_AES256
 	  and Vincent Rijmen, is a FIPS-approved symmetric encryption
 	  algorithm that may be used by U.S. Government organizations
 	  (and others) to protect sensitive information.
-
-
-config DROPBEAR_TWOFISH128
-	bool
-	prompt "Twofish128"
-	help
-	  Another great algorithm designed by Bruce Schneier.
-	  This block cipher was designed as a successor to
-	  the 64-bit Blowfish block cipher.
-	  Twofish combines a 16-round Feistel network with a
-	  bijective f function made by four key-dependent
-	  8x8-bit S-boxes.
-
-config DROPBEAR_TWOFISH256
-	bool
-	prompt "Twofish256"
-	help
-	  Another great algorithm designed by Bruce Schneier.
-	  This block cipher was designed as a successor to
-	  the 64-bit Blowfish block cipher.
-	  Twofish combines a 16-round Feistel network with a
-	  bijective f function made by four key-dependent
-	  8x8-bit S-boxes.
 
 config DROPBEAR_CBC_CIPHERS
 	bool

@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_DROPBEAR) += dropbear
 #
 # Paths and names
 #
-DROPBEAR_VERSION	:= 2020.81
-DROPBEAR_MD5		:= a07438a6159a24c61f98f1bce2d479c0
+DROPBEAR_VERSION	:= 2022.82
+DROPBEAR_MD5		:= 7a4a5f2c6d23ff2e6627c97d7c1aeceb
 DROPBEAR		:= dropbear-$(DROPBEAR_VERSION)
 DROPBEAR_SUFFIX		:= tar.bz2
 DROPBEAR_URL		:= https://matt.ucc.asn.au/dropbear/releases/$(DROPBEAR).$(DROPBEAR_SUFFIX)
@@ -42,6 +42,7 @@ DROPBEAR_CONF_TOOL	:= autoconf
 DROPBEAR_CONF_OPT 	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-harden \
+	--disable-werror \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--$(call ptx/endis, PTXCONF_DROPBEAR_ZLIB)-zlib \
 	--disable-pam \
@@ -126,22 +127,6 @@ else
 	@echo "#define DROPBEAR_AES256 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
 
-ifdef PTXCONF_DROPBEAR_TWOFISH256
-	@echo "ptxdist: enabling twofish256"
-	@echo "#define DROPBEAR_TWOFISH256 1" >> $(DROPBEAR_LOCALOPTIONS)
-else
-	@echo "ptxdist: disabling twofish256"
-	@echo "#define DROPBEAR_TWOFISH256 0" >> $(DROPBEAR_LOCALOPTIONS)
-endif
-
-ifdef PTXCONF_DROPBEAR_TWOFISH128
-	@echo "ptxdist: enabling twofish128"
-	@echo "#define DROPBEAR_TWOFISH128 1" >> $(DROPBEAR_LOCALOPTIONS)
-else
-	@echo "ptxdist: disabling twofish128"
-	@echo "#define DROPBEAR_TWOFISH128 0" >> $(DROPBEAR_LOCALOPTIONS)
-endif
-
 # ciphers
 ifdef PTXCONF_DROPBEAR_CBC_CIPHERS
 	@echo "ptxdist: enabling cbc ciphers"
@@ -216,6 +201,10 @@ else
 	@echo "ptxdist: disabling ecdsa"
 	@echo "#define DROPBEAR_ECDSA 0" >> $(DROPBEAR_LOCALOPTIONS)
 endif
+
+	@echo "ptxdist: disabling u2f security key support"
+	@echo "#define DROPBEAR_SK_ECDSA 0" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_SK_ED25519 0" >> $(DROPBEAR_LOCALOPTIONS)
 
 # key exchange algorithm
 ifdef PTXCONF_DROPBEAR_ECDH
