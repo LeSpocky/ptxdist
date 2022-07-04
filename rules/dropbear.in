@@ -180,6 +180,9 @@ config DROPBEAR_CHACHA20POLY1305
 	  instructions, having the same key size.
 	  Recommended.
 
+comment "WARNING: No encryption method selected!"
+	depends on !DROPBEAR_AES128 && !DROPBEAR_3DES && !DROPBEAR_AES256 && !DROPBEAR_CHACHA20POLY1305
+
 config DROPBEAR_CBC_CIPHERS
 	bool
 	prompt "CBC mode ciphers (legacy)"
@@ -248,6 +251,9 @@ config DROPBEAR_SHA512
 	  SHA-1. SHA-2 consists of a set of four hash functions with digests
 	  that are 224, 256, 384 or 512 bits.
 
+comment "WARNING: No Message Integrity method selected!"
+	depends on !DROPBEAR_SHA1 && !DROPBEAR_SHA1_96 && !DROPBEAR_SHA256 && !DROPBEAR_SHA512
+
 comment "Hostkey/public key algorithms, at least one required ---"
 
 config DROPBEAR_RSA
@@ -278,6 +284,9 @@ config DROPBEAR_ED25519
 	  quality 128-bit symmetric ciphers.
 	  Public keys are 256 bits long and signatures are 512 bits
 	  long.
+
+comment "WARNING: No Hostkey/public key algorithm selected!"
+	depends on !DROPBEAR_RSA && !DROPBEAR_ECDSA && !DROPBEAR_ED25519
 
 comment "Key exchange algorithm, at least one required ---"
 
@@ -336,6 +345,9 @@ config DROPBEAR_DH_GROUP1
 	  versions < 0.53.
 	  Client only!
 
+comment "WARNING: No key exchange algorithm selected!"
+	depends on !DROPBEAR_DH_GROUP14_SHA256 && !DROPBEAR_DH_GROUP14_SHA1 && !DROPBEAR_DH_GROUP16 && !DROPBEAR_ECDH && !DROPBEAR_CURVE25519 && !DROPBEAR_DH_GROUP1
+
 comment "Authentication types, at least one required --- RFC Draft requires pubkey auth"
 
 config DROPBEAR_PASSWD
@@ -351,6 +363,9 @@ config DROPBEAR_PUBKEY
 	default y
 	help
 	  Use public key authentication
+
+comment "WARNING: No authentication type selected!"
+	depends on !DROPBEAR_PASSWD && !DROPBEAR_PUBKEY
 
 comment "installation options   ---"
 
