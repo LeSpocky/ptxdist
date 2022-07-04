@@ -111,7 +111,7 @@ config DROPBEAR_DIS_PUTUTXLINE
 	help
 	  pututxline is needed to write to the utmpx structure.
 
-comment "features"
+menu "Features                     "
 
 config DROPBEAR_DIS_X11
 	bool
@@ -136,7 +136,11 @@ config DROPBEAR_DIS_AGENT
 	  Authentication agent is a program to automate the
 	  use of authentication private keys.
 
-comment "Encryption, at least one required --- RFC Draft requires 3DES and recommends AES128"
+endmenu
+
+menu "Encryption                   "
+
+comment "at least one required --- RFC Draft requires 3DES and recommends AES128"
 
 config DROPBEAR_AES128
 	bool
@@ -199,7 +203,11 @@ config DROPBEAR_CTR_CIPHERS
 	  CBC mode against certain attacks. This adds around 1kB to binary
 	  size and is recommended for most cases.
 
-comment "Message Integrity (HMAC), at least one required ---"
+endmenu
+
+menu "Message Integrity (HMAC)     "
+
+comment "at least one required ---"
 
 config DROPBEAR_SHA1
 	bool
@@ -254,7 +262,11 @@ config DROPBEAR_SHA512
 comment "WARNING: No Message Integrity method selected!"
 	depends on !DROPBEAR_SHA1 && !DROPBEAR_SHA1_96 && !DROPBEAR_SHA256 && !DROPBEAR_SHA512
 
-comment "Hostkey/public key algorithms, at least one required ---"
+endmenu
+
+menu "Hostkey/public key algorithms"
+
+comment "at least one required ---"
 
 config DROPBEAR_RSA
 	bool
@@ -288,7 +300,11 @@ config DROPBEAR_ED25519
 comment "WARNING: No Hostkey/public key algorithm selected!"
 	depends on !DROPBEAR_RSA && !DROPBEAR_ECDSA && !DROPBEAR_ED25519
 
-comment "Key exchange algorithm, at least one required ---"
+endmenu
+
+menu "Key exchange algorithm       "
+
+comment "at least one required ---"
 
 config DROPBEAR_DH_GROUP14_SHA256
 	bool
@@ -348,7 +364,11 @@ config DROPBEAR_DH_GROUP1
 comment "WARNING: No key exchange algorithm selected!"
 	depends on !DROPBEAR_DH_GROUP14_SHA256 && !DROPBEAR_DH_GROUP14_SHA1 && !DROPBEAR_DH_GROUP16 && !DROPBEAR_ECDH && !DROPBEAR_CURVE25519 && !DROPBEAR_DH_GROUP1
 
-comment "Authentication types, at least one required --- RFC Draft requires pubkey auth"
+endmenu
+
+menu "Authentication types         "
+
+comment "at least one required --- RFC Draft requires pubkey auth"
 
 config DROPBEAR_PASSWD
 	bool
@@ -367,7 +387,9 @@ config DROPBEAR_PUBKEY
 comment "WARNING: No authentication type selected!"
 	depends on !DROPBEAR_PASSWD && !DROPBEAR_PUBKEY
 
-comment "installation options   ---"
+endmenu
+
+comment "Installation options           ---"
 
 config DROPBEAR_DROPBEAR
 	bool
@@ -403,7 +425,7 @@ config DROPBEAR_SCP
 comment "OpenSSH scp is selected!"
 	depends on OPENSSH_SCP
 
-comment "runtime options        ---"
+comment "Runtime options                ---"
 
 config DROPBEAR_STARTSCRIPT
 	bool
