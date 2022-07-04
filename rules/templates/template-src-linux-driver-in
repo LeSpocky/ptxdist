@@ -3,6 +3,7 @@
 config @PACKAGE@
 	tristate
 	select KERNEL
+	select HOST_SYSTEM_PYTHON3
 	prompt "@package@"
 	help
 	  FIXME
