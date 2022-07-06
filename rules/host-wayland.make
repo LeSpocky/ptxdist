@@ -24,7 +24,7 @@ HOST_WAYLAND_CONF_OPT	:= \
 	-Ddocumentation=false \
 	-Ddtd_validation=false \
 	-Dicon_directory= \
-	-Dlibraries=false \
+	-Dlibraries=true \
 	-Dscanner=true \
 	-Dtests=false
 
