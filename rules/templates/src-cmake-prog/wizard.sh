@@ -7,11 +7,11 @@ if [ -z "$NAME" ]; then
 fi
 NAME_UP="$(echo $NAME | tr '[a-z-]' '[A-Z_]')"
 
-mv "@name@.cpp" "${NAME}.cpp"
+mv "@name@.c" "${NAME}.c"
 
 for i in \
 	CMakeLists.txt \
-	"${NAME}.cpp" \
+	"${NAME}.c" \
 ; do
 	sed -i -e "s/\@name\@/${NAME}/g" \
 	       -e "s/\@NAME\@/${NAME_UP}/g" $i
