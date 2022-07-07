@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_LIBSODIUM) += libsodium
 #
 # Paths and names
 #
-LIBSODIUM_VERSION	:= 1.0.16
-LIBSODIUM_MD5		:= 37b18839e57e7a62834231395c8e962b
+LIBSODIUM_VERSION	:= 1.0.18
+LIBSODIUM_MD5		:= 3ca9ebc13b6b4735acae0a6a4c4f9a95
 LIBSODIUM		:= libsodium-$(LIBSODIUM_VERSION)
 LIBSODIUM_SUFFIX	:= tar.gz
-LIBSODIUM_URL		:= https://github.com/jedisct1/libsodium/releases/download/$(LIBSODIUM_VERSION)/$(LIBSODIUM).$(LIBSODIUM_SUFFIX)
+LIBSODIUM_URL		:= https://download.libsodium.org/libsodium/releases/$(LIBSODIUM).$(LIBSODIUM_SUFFIX)
 LIBSODIUM_SOURCE	:= $(SRCDIR)/$(LIBSODIUM).$(LIBSODIUM_SUFFIX)
 LIBSODIUM_DIR		:= $(BUILDDIR)/$(LIBSODIUM)
 LIBSODIUM_LICENSE	:= ISC
-LIBSODIUM_LICENSE_FILES	:= file://LICENSE;md5=7f5ecba1fa793fc1f3c8f32d6cb5a37b
+LIBSODIUM_LICENSE_FILES	:= file://LICENSE;md5=47203c753972e855179dfffe15188bee
 
 # ----------------------------------------------------------------------------
 # Prepare
