@@ -22,6 +22,7 @@ LIBSODIUM_URL		:= https://github.com/jedisct1/libsodium/releases/download/$(LIBS
 LIBSODIUM_SOURCE	:= $(SRCDIR)/$(LIBSODIUM).$(LIBSODIUM_SUFFIX)
 LIBSODIUM_DIR		:= $(BUILDDIR)/$(LIBSODIUM)
 LIBSODIUM_LICENSE	:= ISC
+LIBSODIUM_LICENSE_FILES	:= file://LICENSE;md5=7f5ecba1fa793fc1f3c8f32d6cb5a37b
 
 # ----------------------------------------------------------------------------
 # Prepare
