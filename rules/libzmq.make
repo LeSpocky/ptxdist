@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_LIBZMQ) += libzmq
 #
 # Paths and names
 #
-LIBZMQ_VERSION		:= 4.0.4
-LIBZMQ_MD5		:= f3c3defbb5ef6cc000ca65e529fdab3b
+LIBZMQ_VERSION		:= 4.3.4
+LIBZMQ_MD5		:= c897d4005a3f0b8276b00b7921412379
 LIBZMQ			:= zeromq-$(LIBZMQ_VERSION)
 LIBZMQ_SUFFIX		:= tar.gz
-LIBZMQ_URL		:= http://download.zeromq.org/$(LIBZMQ).$(LIBZMQ_SUFFIX)
+LIBZMQ_URL		:= https://github.com/zeromq/libzmq/releases/download/v$(LIBZMQ_VERSION)/$(LIBZMQ).$(LIBZMQ_SUFFIX)
 LIBZMQ_SOURCE		:= $(SRCDIR)/$(LIBZMQ).$(LIBZMQ_SUFFIX)
 LIBZMQ_DIR		:= $(BUILDDIR)/$(LIBZMQ)
 LIBZMQ_LICENSE		:= LGPL-3.0-or-later WITH custom-exception
@@ -40,16 +40,38 @@ LIBZMQ_CONF_ENV		:= \
 LIBZMQ_CONF_TOOL	:= autoconf
 LIBZMQ_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-code-coverage \
 	--disable-static \
 	--enable-shared \
+	--disable-valgrind \
+	--enable-symvers \
+	--disable-force-CXX98-compat \
 	--disable-debug \
+	--disable-pedantic \
+	--disable-thread-sanitizer \
+	--disable-address-sanitizer \
+	--disable-Werror \
 	--enable-eventfd \
-	--with-gnu-ld \
+	--disable-perf \
+	--enable-curve-keygen \
+	--enable-curve \
+	--disable-ws \
+	--disable-libbsd \
+	--disable-drafts \
+	--disable-libunwind \
 	--without-gcov \
-	--without-libsodium \
-	--without-documentation \
+	--with-gnu-ld \
+	--without-militant \
+	--without-docs \
 	--with-poller=epoll \
-	--without-pgm
+	--without-libgssapi_krb5 \
+	--without-libsodium \
+	--without-nss \
+	--without-tls \
+	--without-pgm \
+	--without-norm \
+	--without-vmci \
+	--without-fuzzing-engine
 
 # ----------------------------------------------------------------------------
 # Target-Install
