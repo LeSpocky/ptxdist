@@ -3,6 +3,7 @@
 config LIBZMQ
 	tristate
 	prompt "libzmq"
+	select LIBSODIUM
 	help
 	  The zeroMQ lightweight messaging kernel is a library which extends the
 	  standard socket interfaces with features traditionally provided by

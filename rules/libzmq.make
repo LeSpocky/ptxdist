@@ -65,7 +65,7 @@ LIBZMQ_CONF_OPT		:= \
 	--without-docs \
 	--with-poller=epoll \
 	--without-libgssapi_krb5 \
-	--without-libsodium \
+	--with-libsodium \
 	--without-nss \
 	--without-tls \
 	--without-pgm \
