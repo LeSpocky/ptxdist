@@ -21,7 +21,10 @@ LIBZMQ_SUFFIX		:= tar.gz
 LIBZMQ_URL		:= http://download.zeromq.org/$(LIBZMQ).$(LIBZMQ_SUFFIX)
 LIBZMQ_SOURCE		:= $(SRCDIR)/$(LIBZMQ).$(LIBZMQ_SUFFIX)
 LIBZMQ_DIR		:= $(BUILDDIR)/$(LIBZMQ)
-LIBZMQ_LICENSE		:= LGPL-3.0-or-later
+LIBZMQ_LICENSE		:= LGPL-3.0-or-later WITH custom-exception
+LIBZMQ_LICENSE_FILES	:= \
+	file://COPYING;md5=f7b40df666d41e6508d03e1c207d498f \
+	file://COPYING.LESSER;md5=d5311495d952062e0e4fbba39cbf3de1
 
 # ----------------------------------------------------------------------------
 # Prepare
