@@ -89,3 +89,5 @@ endif
 	@$(call install_finish, libwebp)
 
 	@$(call touch)
+
+# vim: syntax=make
