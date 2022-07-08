@@ -40,8 +40,10 @@ LIBZMQ_CONF_OPT		:= \
 	--disable-static \
 	--enable-shared \
 	--disable-debug \
+	--enable-eventfd \
 	--with-gnu-ld \
 	--without-gcov \
+	--without-libsodium \
 	--without-documentation \
 	--with-poller=epoll \
 	--without-pgm
