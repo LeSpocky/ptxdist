@@ -475,17 +475,19 @@ ptxd_make_world_init() {
     fi
 
     # DESTDIR
-    case "${pkg_build_tool}" in
-	python*)
-	    pkg_install_opt="${pkg_install_opt} --root=${pkg_pkg_dir}"
-	    ;;
-	ninja|scons)
-	    pkg_env="DESTDIR=\"${pkg_pkg_dir}\" ${pkg_env}"
-	    ;;
-	*)
-	    pkg_install_opt="DESTDIR=\"${pkg_pkg_dir}\" INSTALL_ROOT=\"${pkg_pkg_dir}\" ${pkg_install_opt}"
-	    ;;
-    esac
+    if [[ "${pkg_stage}" =~ "install" ]]; then
+	case "${pkg_build_tool}" in
+	    python*)
+		pkg_install_opt="${pkg_install_opt} --root=${pkg_pkg_dir}"
+		;;
+	    ninja|scons)
+		pkg_env="DESTDIR=\"${pkg_pkg_dir}\" ${pkg_env}"
+		;;
+	    *)
+		pkg_install_opt="DESTDIR=\"${pkg_pkg_dir}\" INSTALL_ROOT=\"${pkg_pkg_dir}\" ${pkg_install_opt}"
+		;;
+	esac
+    fi
 
     #
     # parallelmake
