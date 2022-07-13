@@ -3,5 +3,6 @@
 config HOST_TF_A
 	tristate
 	default y if ALLYES && TF_A
+	select HOST_OPENSSL
 	help
 	  This provides fiptool
