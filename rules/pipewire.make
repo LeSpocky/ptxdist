@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.54
-PIPEWIRE_MD5		:= c1a8dd8231270c208f51fd0e83549f00
+PIPEWIRE_VERSION	:= 0.3.56
+PIPEWIRE_MD5		:= 4ca296732cfc5ffefe30d8957328a3ef
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -44,6 +44,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Daudiomixer=enabled \
 	-Daudiotestsrc=enabled \
 	-Davahi=disabled \
+	-Davb=disabled \
 	-Dbluez5=disabled \
 	-Dbluez5-backend-hfp-native=disabled \
 	-Dbluez5-backend-hsp-native=disabled \
@@ -200,12 +201,16 @@ endif
 
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/client.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/client-rt.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/demonic.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-dolby-surround.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-eq6.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-make-LFE.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-matrix-spatialiser.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-mix-FL-FR.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-virtual-surround-5.1-kemar.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-virtual-surround-7.1-hesuvi.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/source-duplicate-FL.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/source-rnnoise.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/minimal.conf)
