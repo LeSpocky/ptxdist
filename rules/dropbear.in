@@ -115,8 +115,7 @@ menu "Features                     "
 
 config DROPBEAR_DIS_X11
 	bool
-	# X11 forwarding fails to build
-	#prompt "disable X11 Forwarding"
+	prompt "disable X11 Forwarding"
 	default y
 	help
 	  X11 forwarding means passing X11 (graphical interface)
