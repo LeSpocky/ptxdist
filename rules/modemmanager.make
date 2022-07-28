@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MODEMMANAGER) += modemmanager
 #
 # Paths and names
 #
-MODEMMANAGER_VERSION	:= 1.16.6
-MODEMMANAGER_MD5	:= bde995400758db3a98c886608c2d5d9d
+MODEMMANAGER_VERSION	:= 1.18.10
+MODEMMANAGER_MD5	:= e3ed043771fdee6f2078b9e51ca5e56a
 MODEMMANAGER		:= ModemManager-$(MODEMMANAGER_VERSION)
 MODEMMANAGER_SUFFIX	:= tar.xz
 MODEMMANAGER_URL	:= https://www.freedesktop.org/software/ModemManager/$(MODEMMANAGER).$(MODEMMANAGER_SUFFIX)
@@ -51,6 +51,7 @@ MODEMMANAGER_CONF_OPT	:= \
 	--enable-all-plugins \
 	--with-gnu-ld \
 	--without-gcov \
+	--without-qrtr \
 	--with-dbus-sys-dir=/usr/share/dbus-1/system.d \
 	--with-udev-base-dir=/usr/lib/udev \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
