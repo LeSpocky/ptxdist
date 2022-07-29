@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBKSBA) += libksba
 #
 # Paths and names
 #
-LIBKSBA_VERSION	:= 1.3.5
-LIBKSBA_MD5	:= 8302a3e263a7c630aa7dea7d341f07a2
+LIBKSBA_VERSION	:= 1.6.0
+LIBKSBA_MD5	:= d333b2e1381068d4f9a328240f062f0f
 LIBKSBA		:= libksba-$(LIBKSBA_VERSION)
 LIBKSBA_SUFFIX	:= tar.bz2
 LIBKSBA_URL	:= \
@@ -38,7 +38,9 @@ LIBKSBA_LICENSE_FILES := \
 #
 LIBKSBA_AUTOCONF := \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-gcov \
 	--enable-build-timestamp="$(PTXDIST_BUILD_TIMESTAMP)" \
+	--disable-doc \
 	--enable-optimization
 
 # ----------------------------------------------------------------------------
