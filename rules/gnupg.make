@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GNUPG) += gnupg
 #
 # Paths and names
 #
-GNUPG_VERSION	:= 2.2.23
-GNUPG_MD5	:= a094ff856a53a9a9fd5465657d998079
+GNUPG_VERSION	:= 2.3.7
+GNUPG_MD5	:= 1c6a6722b9cececcf10ca4e24106e34b
 GNUPG		:= gnupg-$(GNUPG_VERSION)
 GNUPG_SUFFIX	:= tar.bz2
 GNUPG_URL	:= \
@@ -32,13 +32,13 @@ GNUPG_LICENSE	:= GPL-3.0-or-later
 
 GNUPG_CONF_TOOL := autoconf
 GNUPG_CONF_OPT := $(CROSS_AUTOCONF_USR) \
-	--enable-gpg \
 	--disable-gpgsm \
 	--disable-scdaemon \
 	--disable-g13 \
 	--disable-dirmngr \
+	--disable-keyboxd \
+	--disable-tpm2d \
 	--disable-doc \
-	--disable-symcryptrun \
 	--disable-gpgtar \
 	--disable-wks-tools \
 	--disable-gpg-is-gpg2 \
@@ -83,6 +83,7 @@ GNUPG_CONF_OPT := $(CROSS_AUTOCONF_USR) \
 	--disable-nls \
 	--enable-endian-check \
 	--enable-optimization \
+	--disable-log-clock \
 	--disable-werror \
 	--disable-all-tests \
 	--disable-run-gnupg-user-socket \
