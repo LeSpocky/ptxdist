@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NPTH) += npth
 #
 # Paths and names
 #
-NPTH_VERSION		:= 1.5
-NPTH_MD5		:= 9ba2dc4302d2f32c66737c43ed191b1b
+NPTH_VERSION		:= 1.6
+NPTH_MD5		:= 375d1a15ad969f32d25f1a7630929854
 NPTH			:= npth-$(NPTH_VERSION)
 NPTH_SUFFIX		:= tar.bz2
 NPTH_URL		:= \
