@@ -24,7 +24,13 @@ GNUPG_URL	:= \
 	ftp://ftp.gnupg.org/gcrypt/gnupg/$(GNUPG).$(GNUPG_SUFFIX)
 GNUPG_SOURCE	:= $(SRCDIR)/$(GNUPG).$(GNUPG_SUFFIX)
 GNUPG_DIR	:= $(BUILDDIR)/$(GNUPG)
-GNUPG_LICENSE	:= GPL-3.0-or-later
+GNUPG_LICENSE	:= GPL-2.0-or-later AND GPL-3.0-or-later AND LGPL-2.1-or-later AND LGPL-3.0-or-later AND MIT AND Spencer-86 AND BSD-2-Clause-Views AND Unicode-DFS-2016
+GNUPG_LICENSE_FILES := \
+	file://COPYING;md5=189af8afca6d6075ba6c9e0aa8077626 \
+	file://COPYING.GPL2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://COPYING.LGPL21;md5=3c9636424f4ef15d6cb24f934190cfb0 \
+	file://COPYING.LGPL3;md5=a2b6bf2cb38ee52619e60f30a1fc7257 \
+	file://COPYING.other;md5=a231ccb4bb5b0651e08464e4e6f846d3
 
 # ----------------------------------------------------------------------------
 # Prepare
