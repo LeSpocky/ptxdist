@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBGCRYPT) += libgcrypt
 #
 # Paths and names
 #
-LIBGCRYPT_VERSION	:= 1.8.8
-LIBGCRYPT_MD5		:= 252045343c586e5261134c91330f5b90
+LIBGCRYPT_VERSION	:= 1.10.1
+LIBGCRYPT_MD5		:= 8fadbe1fddafa341dce5ef3869f70e25
 LIBGCRYPT		:= libgcrypt-$(LIBGCRYPT_VERSION)
 LIBGCRYPT_SUFFIX	:= tar.bz2
 LIBGCRYPT_URL		:= https://www.gnupg.org/ftp/gcrypt/libgcrypt/$(LIBGCRYPT).$(LIBGCRYPT_SUFFIX)
@@ -57,10 +57,12 @@ LIBGCRYPT_AUTOCONF := \
 	--$(call ptx/endis,LIBGCRYPT_ASM)-asm \
 	--disable-m-guard \
 	--disable-large-data-tests \
+	--disable-force-soft-hwfeatures \
 	--disable-hmac-binary-check \
 	--enable-jent-support \
 	--enable-padlock-support \
 	--enable-aesni-support \
+	--disable-shaext-support \
 	--enable-pclmul-support \
 	--enable-sse41-support \
 	--enable-drng-support \
@@ -68,7 +70,9 @@ LIBGCRYPT_AUTOCONF := \
 	--enable-avx2-support \
 	--$(call ptx/endis,PTXCONF_ARCH_ARM_NEON)-neon-support \
 	--enable-arm-crypto-support \
+	--disable-ppc-crypto-support \
 	--enable-O-flag-munging \
+	--disable-instrumentation-munging \
 	--disable-amd64-as-feature-detection \
 	--enable-optimization \
 	--enable-noexecstack \
