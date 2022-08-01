@@ -9,14 +9,26 @@ menuconfig NEATVNC
 	select LIBJPEG		if NEATVNC_JPEG
 	select LIBJPEG_TURBO	if NEATVNC_JPEG
 	select LIBDRM		if BUILDTIME
+	select MESALIB		if NEATVNC_GBM
+	select MESALIB_GBM	if NEATVNC_GBM
 	prompt "neatvnc"
 	help
 	  VNC Server library
 
 if NEATVNC
 
+config NEATVNC_GBM
+	bool
+	prompt "enable gbm integration"
+
 config NEATVNC_JPEG
 	bool
 	prompt "enable jpeg compression"
+
+config NEATVNC_OPENH264
+	bool
+	# needs openh264
+	depends on BROKEN
+	prompt "enable open h264 encoding"
 
 endif
