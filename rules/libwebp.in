@@ -22,10 +22,12 @@ config LIBWEBP_DEMUX
 
 config LIBWEBP_CWEBP
 	bool
+	select LIBWEBP_DEMUX
 	prompt "install cwebp tool"
 
 config LIBWEBP_DWEBP
 	bool
+	select LIBWEBP_DEMUX
 	prompt "install dwebp tool"
 
 endif
