@@ -19,6 +19,6 @@ if WAYVNC
 
 config WAYVNC_SCREENCOPY_DMABUF
 	bool
-	prompt "Enable GPU-side screencopy (experimental)"
+	prompt "Enable GPU-side screencopy"
 
 endif

@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WAYVNC) += wayvnc
 #
 # Paths and names
 #
-WAYVNC_VERSION	:= 0.4.1
-WAYVNC_MD5	:= edbc130394fcba052090eaf1ef9fda2c
+WAYVNC_VERSION	:= 0.5.0
+WAYVNC_MD5	:= 0ae3b19a8354c656f5c96e19f9ccaea5
 WAYVNC		:= wayvnc-$(WAYVNC_VERSION)
 WAYVNC_SUFFIX	:= tar.gz
 WAYVNC_URL	:= https://github.com/any1/wayvnc/archive/refs/tags/v$(WAYVNC_VERSION).$(WAYVNC_SUFFIX)
@@ -33,9 +33,9 @@ WAYVNC_LICENSE	:= ISC
 WAYVNC_CONF_TOOL	:= meson
 WAYVNC_CONF_OPT	:=  \
 	$(CROSS_MESON_USR) \
-	-Dscreencopy-dmabuf=$(call ptx/endis,PTXCONF_WAYVNC_SCREENCOPY_DMABUF)d \
-	-Dpam=disabled \
 	-Dman-pages=disabled \
+	-Dpam=disabled \
+	-Dscreencopy-dmabuf=$(call ptx/endis,PTXCONF_WAYVNC_SCREENCOPY_DMABUF)d \
 	-Dsystemtap=false
 
 # ----------------------------------------------------------------------------
