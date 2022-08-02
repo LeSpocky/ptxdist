@@ -14,16 +14,16 @@ PACKAGES-$(PTXCONF_HARFBUZZ) += harfbuzz
 #
 # Paths and names
 #
-HARFBUZZ_VERSION	:= 2.6.7
-HARFBUZZ_MD5		:= 3b884586a09328c5fae76d8c200b0e1c
+HARFBUZZ_VERSION	:= 5.1.0
+HARFBUZZ_MD5		:= 76faebc692afe666520cc158430f1a14
 HARFBUZZ		:= harfbuzz-$(HARFBUZZ_VERSION)
 HARFBUZZ_SUFFIX		:= tar.xz
-HARFBUZZ_URL		:= https://www.freedesktop.org/software/harfbuzz/release/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)
+HARFBUZZ_URL		:= https://github.com/harfbuzz/harfbuzz/releases/download/$(HARFBUZZ_VERSION)/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)
 HARFBUZZ_SOURCE		:= $(SRCDIR)/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)
 HARFBUZZ_DIR		:= $(BUILDDIR)/$(HARFBUZZ)
 HARFBUZZ_LICENSE	:= MIT
 HARFBUZZ_LICENSE_FILES	:= \
-	file://COPYING;md5=8f787620b7d3866d9552fd1924c07572
+	file://COPYING;md5=6ee0f16281694fb6aa689cca1e0fb3da
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -42,7 +42,7 @@ HARFBUZZ_CONF_OPT	:= \
 	--with-glib \
 	--$(call ptx/wwo, PTXCONF_HARFBUZZ_INTROSPECTION)-gobject \
 	--without-cairo \
-	--without-fontconfig \
+	--without-chafa \
 	--$(call ptx/wwo, PTXCONF_HARFBUZZ_ICU)-icu \
 	--$(call ptx/wwo, PTXCONF_HARFBUZZ_GRAPHITE)-graphite2 \
 	--with-freetype \
