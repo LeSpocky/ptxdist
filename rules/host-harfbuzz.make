@@ -30,7 +30,7 @@ HOST_HARFBUZZ_CONF_OPT	:=  \
 	--with-glib \
 	--without-gobject \
 	--without-cairo \
-	--without-fontconfig \
+	--without-chafa \
 	--without-icu \
 	--without-graphite2 \
 	--with-freetype \
