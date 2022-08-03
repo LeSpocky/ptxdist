@@ -49,6 +49,9 @@ U_BOOT_ENV_IMAGE_CUSTOM_SRC := $(call ptx/in-platformconfigdir, \
 $(call ptx/cfghash-file, U_BOOT, $(U_BOOT_ENV_IMAGE_CUSTOM_SRC))
 endif
 
+# use host pkg-config for host tools
+U_BOOT_PATH		:= PATH=$(HOST_PATH)
+
 U_BOOT_WRAPPER_BLACKLIST := \
 	$(PTXDIST_LOWLEVEL_WRAPPER_BLACKLIST)
 
