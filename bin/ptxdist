@@ -83,6 +83,7 @@ menu() {
 		"--------------"	"--------------------------------------------" \
 		"boardsetup"		"Configure Board Properties" \
 		"setup"			"Configure User Properties" \
+		"localsetup"		"Configure BSP Properties" \
 		"--------------"	"--------------------------------------------" \
 		"go"			"Build the project" \
 		"images"		"Build all images" \
@@ -99,6 +100,7 @@ menu() {
 	platform)	cmd=platformconfig ;;
 	boardsetup)	cmd=board ;;
 	setup)		cmd=setup ;;
+	localsetup)	cmd=localsetup ;;
 	esac
 
 	PTXDIST_QUIET=1
@@ -108,7 +110,7 @@ menu() {
 		menu_select "${cmd}"
 		;;
 
-	ptx|platform|kernel|barebox|board|setup)
+	ptx|platform|kernel|barebox|board|setup|localsetup)
 		do_config menuconfig "${cmd}"
 		# FIXME: reread user config file
 		;;
@@ -692,6 +694,7 @@ Setup and Project Actions:
   menu				enter main control menu
 
   setup				setup per-user preferences
+  localsetup			setup per-bsp preferences
   boardsetup			setup per-board preferences
 
   nconfig
@@ -1299,7 +1302,7 @@ do_config()
 
 	if [ "${part}" = "platform" ] && ptxd_get_ptxconf PTXCONF_NO_PLATFORM >/dev/null; then
 		return
-	elif [ "${part}" != "setup" ]; then
+	elif [ "${part}" != "setup" -a "${part}" != "localsetup" ]; then
 		check_config || return
 	fi
 
@@ -1318,7 +1321,7 @@ do_config()
 	"ptx"|"ptxdist"|"")
 		PTXDIST_DEP_TARGET="all" ptxd_kconfig "${config}" "ptx"
 		;;
-	"platform"|"board"|"setup")
+	"platform"|"board"|"setup"|"localsetup")
 		PTXDIST_DEP_TARGET="all" ptxd_kconfig "${config}" "${part}"
 		;;
 	"collection")
@@ -1684,6 +1687,11 @@ parse_second()
 
 		setup)
 			do_config menuconfig setup
+			exit
+			;;
+
+		localsetup)
+			do_config menuconfig localsetup
 			exit
 			;;
 
@@ -2143,6 +2151,14 @@ ensure_ptxrc() {
 		"${include}" <(tail -n +2 "${tmpptxrc}.diff")
 	else
 		"${include}" "${tmpptxrc}"
+	fi
+
+	PTXDIST_LOCAL_PTXRC="${PTXDIST_WORKSPACE}/.ptxdistrc"
+	if [ -e "${PTXDIST_LOCAL_PTXRC}.diff" ]; then
+		# explicitly unset variables that may have been set in the include above
+		"${include}" <(tail -n +2 "${PTXDIST_LOCAL_PTXRC}.diff" | sed 's/^# \(.*\) is not set$/unset \1/')
+	elif [ -e "${PTXDIST_LOCAL_PTXRC}" ]; then
+		"${include}" "${PTXDIST_LOCAL_PTXRC}"
 	fi
 
 	if [ "$(type -t ptxd_source_kconfig)" = function ]; then

@@ -57,6 +57,10 @@ Setup and Project Actions
   simply some network settings to permit PTXdist to download required
   packages.
 
+``localsetup``
+  The same setting as `ptxdist setup`. Any changes are saved locally in the
+  BSP and overwrite the global settings.
+
 ``boardsetup``
   PTXdist based projects can provide information to
   setup and configure the target automatically. This action lets the user

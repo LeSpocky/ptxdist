@@ -627,8 +627,13 @@ ptxd_kconfig_update() {
 	file_kconfig="${ptxd_reply}"
 	mode=single
 	;;
-    setup)
+    setup|localsetup)
 	file_kconfig="${PTXDIST_TOPDIR}/config/setup/Kconfig"
+	# only relevalnt for localsetup:  automatically update the lower
+	# 'layers', which means ~/.ptxdist/ptxdistrc-<version>, with defaults
+	if [ "${kconfig_layer_configs[0]}" != "${file_dotconfig}" ]; then
+	    config=defconfig
+	fi
 	;;
     esac
 
@@ -742,6 +747,10 @@ ptxd_kconfig() {
     setup)
 	file_dotconfig="${PTXDIST_PTXRC}"
 	kconfig_layer_configs=( "${file_dotconfig}" ${PTXDIST_TOPDIR}/config/setup/ptxdistrc.default )
+	;;
+    localsetup)
+	file_dotconfig="${PTXDIST_LOCAL_PTXRC}"
+	kconfig_layer_configs=( "${file_dotconfig}" "${PTXDIST_PTXRC}" ${PTXDIST_TOPDIR}/config/setup/ptxdistrc.default )
 	;;
     *)
 	ptxd_bailout "invalid use of '${FUNCNAME} ${@}'"

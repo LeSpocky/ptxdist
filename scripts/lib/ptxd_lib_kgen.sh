@@ -93,7 +93,7 @@ EOF
     local oldIFS="$IFS"
     case "${kgen_part}" in
 	ptx|platform) IFS=: kgen_dirs=( ${PTXDIST_PATH_RULES} ${PTXDIST_PATH_PLATFORMS} ) ;;
-	board|setup|collection) return 0 ;;
+	board|setup|localsetup|collection) return 0 ;;
 	*) cat <<EOF
 
 ${PROMPT}error: '${FUNCNAME}' doesn't support '${part}', yet
