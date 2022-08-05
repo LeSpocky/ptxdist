@@ -8,8 +8,8 @@ fi
 
 case "${name}" in
 python) dep="host-system-python / host-system-python3" ;;
-python2) dep=host-system-python ;;
-python3) dep=host-system-python3 ;;
+python2*) dep=host-system-python ;;
+python3*) dep=host-system-python3 ;;
 esac
 
 case " ${pkg_build_deps} " in

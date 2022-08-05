@@ -79,6 +79,12 @@ ptxd_lib_setup_host_wrapper() {
 		ptxd_bailout "Unable to create ${python/[23]} wrapper link"
 	fi
     done &&
+    for python in python2.7{,-config} python3.{1..20}{,-config}; do
+	if type -P "${python}" > /dev/null; then
+	    ptxd_replace_link "python-wrapper" "${wrapper_dir}/${python}" || \
+		ptxd_bailout "Unable to create ${python} wrapper link"
+	fi
+    done &&
 
     for tool in ar as nm objcopy objdump ranlib readelf size strip ; do
 	tool_abs="$(which "${tool}" 2>/dev/null)"
