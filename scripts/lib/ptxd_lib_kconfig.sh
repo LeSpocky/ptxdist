@@ -540,6 +540,17 @@ ptxd_kconfig_sync_config() {
 }
 export -f ptxd_kconfig_sync_config
 
+ptxd_kconfig_run_conf() {
+    (
+	(
+	    # swap stdout and stderr to filter out OPTION_DOES_NOT_EXIST warning
+	    "${conf}" "${@}" 3>&1 1>&2 2>&3 | grep -s -v 'OPTION_DOES_NOT_EXIST'
+	    # only fail if ${conf} failed
+	    exit ${PIPESTATUS[0]}
+	) 3>&1 1>&2 2>&3
+    )
+}
+export -f ptxd_kconfig_run_conf
 
 ptxd_kconfig_update() {
     local mode file_kconfig
@@ -665,7 +676,7 @@ ptxd_kconfig_update() {
 	"${relative_file_dotconfig}" "${file_dotconfig}" &&
 
     if [ "${mode}" = check ]; then
-	if ! "${conf}" --oldconfig "${file_kconfig}" < /dev/null; then
+	if ! ptxd_kconfig_run_conf --oldconfig "${file_kconfig}" < /dev/null; then
 	    # error handling in ptxd_kconfig_sync_config()
 	    :> .config
 	fi
@@ -683,16 +694,16 @@ ptxd_kconfig_update() {
 		# migrate touches the config, so update the timestamp
 		stat -c '%y' ".config" > ".config.stamp"
 	    fi &&
-	    "${conf}" --oldconfig "${file_kconfig}"
+	    ptxd_kconfig_run_conf --oldconfig "${file_kconfig}"
 	    ;;
 	defconfig)
 	    ptxd_kconfig_run_conf --oldconfig "${file_kconfig}" < /dev/null > /dev/null
 	    ;;
 	all*config|randconfig)
-	    "${conf}" --${config} "${file_kconfig}"
+	    ptxd_kconfig_run_conf --${config} "${file_kconfig}"
 	    ;;
 	dep)
-	    KCONFIG_ALLCONFIG=".config" "${conf}" \
+	    KCONFIG_ALLCONFIG=".config" ptxd_kconfig_run_conf \
 		--writedepend --alldefconfig "${file_kconfig}" &&
 	    mv -- ".config" "${PTXDIST_DGEN_DIR}/${part}config"
 	    return
