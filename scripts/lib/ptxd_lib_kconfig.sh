@@ -250,9 +250,8 @@ ptxd_kconfig_validate_config_check() {
 export -f ptxd_kconfig_validate_config_check
 
 ptxd_kconfig_validate_config_next() {
-	local layer
-	for layer in "${@}"; do
-	    next="${layer}/${relative_config}"
+	local next
+	for next in "${@}"; do
 	    if ! ptxd_kconfig_validate_config_check "${next}"; then
 		continue
 	    fi
@@ -263,6 +262,11 @@ ptxd_kconfig_validate_config_next() {
 }
 export -f ptxd_kconfig_validate_config_next
 
+ptxd_kconfig_setup_layer_configs() {
+    layer_configs=( "${PTXDIST_LAYERS[@]/%//${relative_config}}" )
+}
+export -f ptxd_kconfig_setup_layer_configs
+
 ptxd_kconfig_validate_config() {
     local relative_config="${1}"
     local relative_ref_config="${2}"
@@ -271,16 +275,15 @@ ptxd_kconfig_validate_config() {
     local last next
     local -a layers
 
+    ptxd_kconfig_setup_layer_configs
+
     if [ "${mode}" = update ]; then
-	layers=( "${PTXDIST_LAYERS[@]:1}" )
-    else
-	layers=( "${PTXDIST_LAYERS[@]}" )
+	layer_configs=( "${layer_configs[@]:1}" )
     fi
 
-    set -- "${layers[@]}";
+    set -- "${layer_configss[@]}";
     while [ $# -gt 0 ]; do
-	layer="${1}"
-	last="${layer}/${relative_config}"
+	last="${1}"
 	shift
 	if ! ptxd_kconfig_validate_config_check "${last}"; then
 	    continue
@@ -293,7 +296,7 @@ ptxd_kconfig_validate_config() {
 	    relative_config="${relative_ref_config}"
 	    unset relative_ref_config
 	    ignore_last_diff=y
-	    set -- "${layer}" "${@}"
+	    set -- "${last}" "${@}"
 	    ptxd_kconfig_validate_config_next "${@}"
 	fi
 	if [ ! -e "${next}" ]; then
@@ -330,14 +333,16 @@ ptxd_kconfig_find_config() {
     local mode="${1}"
     local relative_config="${2}"
     local relative_ref_config="${3}"
-    local -a layers
-    local tmp_config
+    local -a layer_configs
+    local tmp_config tmp
 
     if [ "${mode}" = run -o "${mode}" = "update" ]; then
 	ptxd_kconfig_validate_config "${relative_config}" "${relative_ref_config}" || return
     fi
 
-    last_config="${PTXDIST_LAYERS[0]}/${relative_config}"
+    ptxd_kconfig_setup_layer_configs
+
+    last_config="${layer_configs[0]}"
     if [ "$(readlink -f "${last_config}")" = /dev/null ]; then
 	# use the first existing config for 'run'
 	if [ "${mode}" = run ]; then
@@ -349,15 +354,12 @@ ptxd_kconfig_find_config() {
     fi
 
     if [ "${mode}" = update ]; then
-	layers=( "${PTXDIST_LAYERS[@]:1}" )
+	layer_configs=( "${layer_configs[@]:1}" )
     else
 	base_config="${last_config}"
-	layers=( "${PTXDIST_LAYERS[@]}" )
     fi
 
-    for layer in "${layers[@]}"; do
-	local tmp
-	tmp="${layer}/${relative_config}"
+    for tmp in "${layer_configs[@]}"; do
 	if [ "$(readlink -f "${tmp}")" = /dev/null ]; then
 	    continue
 	fi
