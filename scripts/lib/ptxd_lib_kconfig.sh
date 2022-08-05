@@ -11,7 +11,7 @@
 # migrate a config file
 # look in PTX_MIGRATEDIR for a migration handler and call it
 #
-# $1	part identifier ("ptx", "platform", "collection", "board", "user")
+# $1	part identifier ("ptx", "platform", "collection", "board", "setup")
 #
 ptxd_kconfig_migrate() {
     local part="${1}"
@@ -543,7 +543,7 @@ ptxd_kconfig_update() {
 	# nothing to do for PTXdist itself
 	return
     fi
-    if [ "${config}" != dep -a "${part}" != user -a "${part}" != board ]; then
+    if [ "${config}" != dep -a "${part}" != setup -a "${part}" != board ]; then
 	(
 	# call ptxd_kconfig_update() recursively after removing the last layer
 	PTXDIST_LAYERS=( "${PTXDIST_LAYERS[@]:1}" )
@@ -615,7 +615,7 @@ ptxd_kconfig_update() {
 	file_kconfig="${ptxd_reply}"
 	mode=single
 	;;
-    user)
+    setup)
 	file_kconfig="${PTXDIST_TOPDIR}/config/setup/Kconfig"
 	mode=single
 	;;
@@ -692,7 +692,7 @@ export -f ptxd_kconfig_update
 
 #
 # $1	what kind of config ("oldconfig", "menuconfig", "dep")
-# $2	part identifier ("ptx", "platform", "collection", "board", "user")
+# $2	part identifier ("ptx", "platform", "collection", "board", "setup")
 # $...	optional parameters
 #
 ptxd_kconfig() {
@@ -725,7 +725,7 @@ ptxd_kconfig() {
 	ptxd_in_path PTXDIST_PATH_LAYERS "config/boardsetup/Kconfig"
 	file_dotconfig="${PTXDIST_BOARDSETUP}"
 	;;
-    user)
+    setup)
 	file_dotconfig="${PTXDIST_PTXRC}"
 	;;
     *)
@@ -747,7 +747,7 @@ ptxd_kconfig() {
     fi
 
     (
-	if [ "${part}" != user -a "${part}" != board ]; then
+	if [ "${part}" != setup -a "${part}" != board ]; then
 	    ptxd_normalize_config
 	fi &&
 	ptxd_kconfig_update

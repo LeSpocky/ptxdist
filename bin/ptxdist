@@ -98,7 +98,7 @@ menu() {
 	select)		cmd=ptxconfig ;;
 	platform)	cmd=platformconfig ;;
 	boardsetup)	cmd=board ;;
-	setup)		cmd=user ;;
+	setup)		cmd=setup ;;
 	esac
 
 	PTXDIST_QUIET=1
@@ -108,7 +108,7 @@ menu() {
 		menu_select "${cmd}"
 		;;
 
-	ptx|platform|kernel|barebox|board|user)
+	ptx|platform|kernel|barebox|board|setup)
 		do_config menuconfig "${cmd}"
 		# FIXME: reread user config file
 		;;
@@ -1299,7 +1299,7 @@ do_config()
 
 	if [ "${part}" = "platform" ] && ptxd_get_ptxconf PTXCONF_NO_PLATFORM >/dev/null; then
 		return
-	elif [ "${part}" != "user" ]; then
+	elif [ "${part}" != "setup" ]; then
 		check_config || return
 	fi
 
@@ -1318,10 +1318,7 @@ do_config()
 	"ptx"|"ptxdist"|"")
 		PTXDIST_DEP_TARGET="all" ptxd_kconfig "${config}" "ptx"
 		;;
-	"setup")
-		ptxd_kconfig "${config}" "user"
-		;;
-	"platform"|"board"|"user")
+	"platform"|"board"|"setup")
 		PTXDIST_DEP_TARGET="all" ptxd_kconfig "${config}" "${part}"
 		;;
 	"collection")
@@ -1686,7 +1683,7 @@ parse_second()
 			;;
 
 		setup)
-			do_config menuconfig user
+			do_config menuconfig setup
 			exit
 			;;
 
