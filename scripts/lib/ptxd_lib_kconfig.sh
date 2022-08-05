@@ -263,7 +263,11 @@ ptxd_kconfig_validate_config_next() {
 export -f ptxd_kconfig_validate_config_next
 
 ptxd_kconfig_setup_layer_configs() {
-    layer_configs=( "${PTXDIST_LAYERS[@]/%//${relative_config}}" )
+    if [ ${#kconfig_layer_configs[@]} -gt 0 ]; then
+	layer_configs=( "${kconfig_layer_configs[@]}" )
+    else
+	layer_configs=( "${PTXDIST_LAYERS[@]/%//${relative_config}}" )
+    fi
 }
 export -f ptxd_kconfig_setup_layer_configs
 
@@ -539,21 +543,29 @@ export -f ptxd_kconfig_sync_config
 
 ptxd_kconfig_update() {
     local mode file_kconfig
+    if [ ${#kconfig_layer_configs[@]} -eq 1 ]; then
+	#  Don't touch the last config. It's ptxdistrc.default
+	return
+    fi
     if [ "${PTXDIST_LAYERS[0]}" = "${PTXDIST_TOPDIR}" ]; then
 	# nothing to do for PTXdist itself
 	return
     fi
-    if [ "${config}" != dep -a "${part}" != setup -a "${part}" != board ]; then
+    if [ "${config}" != dep -a "${part}" != board ]; then
 	(
-	# call ptxd_kconfig_update() recursively after removing the last layer
-	PTXDIST_LAYERS=( "${PTXDIST_LAYERS[@]:1}" )
-	local orig_IFS="${IFS}"
-	IFS=:
-	PTXDIST_PATH_LAYERS="${PTXDIST_LAYERS[*]}:"
-	IFS="${orig_IFS}"
-	PTX_KGEN_DIR="${PTX_KGEN_DIR}.base"
-	confdir="${confdir}.base"
-	ptxd_init_ptxdist_path &&
+	if [ ${#kconfig_layer_configs[@]} -eq 0 ]; then
+	    # call ptxd_kconfig_update() recursively after removing the last layer
+	    PTXDIST_LAYERS=( "${PTXDIST_LAYERS[@]:1}" )
+	    local orig_IFS="${IFS}"
+	    IFS=:
+	    PTXDIST_PATH_LAYERS="${PTXDIST_LAYERS[*]}:"
+	    IFS="${orig_IFS}"
+	    PTX_KGEN_DIR="${PTX_KGEN_DIR}.base"
+	    confdir="${confdir}.base"
+	    ptxd_init_ptxdist_path
+	else
+	    kconfig_layer_configs=( "${kconfig_layer_configs[@]:1}" )
+	fi
 	ptxd_kconfig_update
 	ret=$?
 	if [ "${ret}" -ne 42 ]; then
@@ -617,7 +629,6 @@ ptxd_kconfig_update() {
 	;;
     setup)
 	file_kconfig="${PTXDIST_TOPDIR}/config/setup/Kconfig"
-	mode=single
 	;;
     esac
 
@@ -669,6 +680,9 @@ ptxd_kconfig_update() {
 	    fi &&
 	    "${conf}" --oldconfig "${file_kconfig}"
 	    ;;
+	defconfig)
+	    ptxd_kconfig_run_conf --oldconfig "${file_kconfig}" < /dev/null > /dev/null
+	    ;;
 	all*config|randconfig)
 	    "${conf}" --${config} "${file_kconfig}"
 	    ;;
@@ -699,7 +713,7 @@ ptxd_kconfig() {
     local config="${1}"
     local part="${2}"
 
-    local file_dotconfig
+    local file_dotconfig kconfig_layer_configs
 
     case "${part}" in
     ptx)
@@ -727,6 +741,7 @@ ptxd_kconfig() {
 	;;
     setup)
 	file_dotconfig="${PTXDIST_PTXRC}"
+	kconfig_layer_configs=( "${file_dotconfig}" ${PTXDIST_TOPDIR}/config/setup/ptxdistrc.default )
 	;;
     *)
 	ptxd_bailout "invalid use of '${FUNCNAME} ${@}'"

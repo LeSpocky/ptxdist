@@ -2139,7 +2139,11 @@ ensure_ptxrc() {
 		tmpptxrc="${ptxrc}"
 	fi
 
-	"${include}" "${tmpptxrc}"
+	if [ -e "${tmpptxrc}.diff" ]; then
+		"${include}" <(tail -n +2 "${tmpptxrc}.diff")
+	else
+		"${include}" "${tmpptxrc}"
+	fi
 
 	if [ "$(type -t ptxd_source_kconfig)" = function ]; then
 		PTXDIST_PTXRC="${ptxrc}"
