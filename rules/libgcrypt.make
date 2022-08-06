@@ -37,7 +37,8 @@ LIBGCRYPT_ASM :=
 endif
 
 LIBGCRYPT_ENV := \
-	$(CROSS_ENV)
+	$(CROSS_ENV) \
+	ac_cv_path_GPGRT_CONFIG=$(PTXDIST_SYSROOT_CROSS)/bin/gpgrt-config
 
 ifdef PTXCONF_ARCH_X86
 LIBGCRYPT_ENV += ac_cv_sys_symbol_underscore=no
