@@ -1,0 +1,33 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sun, 7 Aug 2022 11:28:19 +0200
+Subject: [PATCH] gpgrt-config: improve pkg-config file parsing
+
+.pc files may contain '${pcfiledir}'. Set it to ensure that paths that use
+it are expanded correctly.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ src/gpgrt-config.in | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/gpgrt-config.in b/src/gpgrt-config.in
+index 3aaa24329ecf..3bbc9e0e6184 100644
+--- a/src/gpgrt-config.in
++++ b/src/gpgrt-config.in
+@@ -166,6 +166,7 @@ read_config_file () {
+ 	fi
+ 	exit 1
+     fi
++    VAR_pcfiledir="$(dirname $RESULT)"
+     read_config_from_stdin $RESULT < $RESULT
+ }
+ 
+@@ -522,7 +523,7 @@ output=""
+ 
+ mt="no"
+ 
+-VAR_list=VAR_pc_sysrootdir
++VAR_list="VAR_pc_sysrootdir VAR_pcfiledir"
+ if [ -z "$PKG_CONFIG_SYSROOT_DIR" ]; then
+     VAR_pc_sysrootdir="/"
+ else
