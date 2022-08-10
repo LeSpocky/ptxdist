@@ -6,7 +6,6 @@ config TPM2_ABRMD
 	select DBUS
 	select GLIB
 	select TPM2_TSS
-	select HOST_DBUS_GLIB
 	prompt "tpm2-abrmd"
 	help
 	  TPM2 Access Broker & Resource Management Daemon implementing
