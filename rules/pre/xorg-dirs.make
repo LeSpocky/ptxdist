@@ -18,4 +18,14 @@ XORG_OPTIONS_DOCS	:= \
 	--without-fop \
 	--without-xsltproc
 
+XORG_FONT_DIRS	:= \
+	misc \
+	truetype \
+	opentype \
+	100dpi \
+	Type1 \
+	75dpi \
+	cyrillic \
+	Speedo
+
 # vim: syntax=make

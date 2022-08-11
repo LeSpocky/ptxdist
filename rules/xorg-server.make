@@ -38,17 +38,6 @@ XORG_SERVER_WRAPPER_BLACKLIST := \
 #
 # XORG_SERVER_ENV		+= ac_cv_asm_mtrr_h=no
 
-XORG_FONT_DIRS	:= \
-	misc \
-	truetype \
-	opentype \
-	100dpi \
-	Type1 \
-	75dpi \
-	cyrillic \
-	Speedo
-
-
 #
 # meson
 #
