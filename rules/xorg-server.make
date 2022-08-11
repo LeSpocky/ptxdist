@@ -88,7 +88,7 @@ XORG_SERVER_CONF_OPT	= \
 	-Dxv=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_XV) \
 	-Dxvfb=$(call ptx/truefalse, PTXCONF_XORG_SERVER_XVFB) \
 	-Dxvmc=$(call ptx/truefalse, PTXCONF_XORG_SERVER_EXT_XVMC) \
-	-Dxwayland=$(call ptx/truefalse, PTXCONF_XORG_SERVER_XWAYLAND) \
+	-Dxwayland=false \
 	-Dxwayland_eglstream=false \
 	-Dxwin=$(call ptx/truefalse, PTXCONF_XORG_SERVER_XWIN)
 
@@ -126,10 +126,6 @@ endif
 ifdef PTXCONF_XORG_SERVER_XNEST
 	@$(call install_copy, xorg-server, 0, 0, 0755, -, \
 		$(XORG_PREFIX)/bin/Xnest)
-endif
-ifdef PTXCONF_XORG_SERVER_XWAYLAND
-	@$(call install_copy, xorg-server, 0, 0, 0755, -, \
-		$(XORG_PREFIX)/bin/Xwayland)
 endif
 ifdef PTXCONF_XORG_SERVER_XWIN
 	@$(call install_copy, xorg-server, 0, 0, 0755, -, \

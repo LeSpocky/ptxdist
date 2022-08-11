@@ -62,11 +62,6 @@ menuconfig XORG_SERVER
 	# xorg ddx
 	select LIBPCIACCESS		if XORG_SERVER_XORG
 
-	# xwayland ddx
-	select WAYLAND			if XORG_SERVER_XWAYLAND
-	select LIBDRM			if XORG_SERVER_XWAYLAND
-	select LIBEPOXY			if XORG_SERVER_XWAYLAND
-
 	# glamor module
 	select LIBEPOXY			if XORG_SERVER_GLAMOR
 	select MESALIB			if XORG_SERVER_GLAMOR
@@ -167,12 +162,6 @@ config XORG_SERVER_XNEST
 	help
 	  An X server working on a running X server. Disadvantage is Xnest
 	  supports only features the running X server itself supports.
-
-config XORG_SERVER_XWAYLAND
-	bool
-	select XORG_SERVER_EXT_COMPOSITE
-	select XORG_SERVER_EXT_DRI3
-	prompt "Xwayland server"
 
 config XORG_SERVER_XWIN
 	bool

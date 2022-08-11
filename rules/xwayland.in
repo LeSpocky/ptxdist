@@ -1,0 +1,75 @@
+## SECTION=multimedia_xorg
+
+menuconfig XWAYLAND
+	tristate
+	prompt "XWayland"
+	select HOST_MESON
+	select LIBC_M
+	select LIBDRM
+	select LIBEPOXY
+	select LIBXCVT
+	select NETTLE
+	select PIXMAN
+	select WAYLAND
+	select XORGPROTO
+	select XORG_LIB_FONTENC
+	select XORG_LIB_XAU
+	select XORG_LIB_XEXT
+	select XORG_LIB_XFONT2
+	select XORG_LIB_XKBFILE
+	select XORG_LIB_XSHMFENCE
+	select XORG_LIB_XTRANS
+	select MESALIB			if XWAYLAND_GLAMOR
+	select MESALIB_GBM		if XWAYLAND_GLAMOR
+	select XORG_LIB_XV		if XWAYLAND_EXT_XV
+	select XORG_LIB_XRES		if XWAYLAND_EXT_XRES
+	select XORG_APP_XKBCOMP		if RUNTIME
+
+if XWAYLAND
+
+menu "xwayland extensions"
+
+config XWAYLAND_EXT_GLX
+	bool
+	prompt "glx extension"
+	default y
+	help
+	  Support for the GLX extension allowing clients to set up
+	  a OpenGL context on a X display when not using EGL.
+
+config XWAYLAND_EXT_SHM
+	bool
+	prompt "shm extension"
+	default y
+	help
+	  Support for MIT Shared Memory
+
+config XWAYLAND_EXT_XRES
+	bool
+	prompt "xres extension"
+	default y
+	help
+	  The X-Resource extension allows a client to query the X server about
+	  its usage of various resources.
+
+config XWAYLAND_EXT_XV
+	bool
+	prompt "xv extension"
+	default y
+	help
+	  The Xv extension provides support for video adaptors attached to an X
+	  display. It takes the approach that a display may have one or more
+	  video adaptors, each of which has one or more ports through which
+	  independent video streams pass
+
+config XWAYLAND_GLAMOR
+	bool
+	prompt "glamor module"
+	help
+	  The glamor module is an open-source 2D graphics common driver
+	  for the X Window System as implemented by X.org. It supports a
+	  variety of graphics chipsets which have EGL/GBM/OpenGL 2.1 support.
+
+endmenu
+
+endif
