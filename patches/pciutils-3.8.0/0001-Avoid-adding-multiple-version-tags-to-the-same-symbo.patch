@@ -1,47 +1,43 @@
-From: Michael Olbrich <m.olbrich@pengutronix.de>
-Date: Sun, 8 May 2022 09:34:43 +0200
-Subject: [PATCH] work around build issue with gcc <= 9.x
+From: Martin Mares <mj@ucw.cz>
+Date: Wed, 10 Aug 2022 13:34:28 +0700
+Subject: [PATCH] Avoid adding multiple version tags to the same symbol
 
-Without this, building fails with:
-
-...-gcc -O2 -Wall -W -Wno-parentheses -Wstrict-prototypes -Wmissing-prototypes -fPIC -fvisibility=hidden   -c -o filter.o filter.c
-/tmp/ccwDUrvo.s: Assembler messages:
-/tmp/ccwDUrvo.s:6: Error: multiple versions [`pci_filter_init@@LIBPCI_3.8'|`pci_filter_init@LIBPCI_3.3'] for symbol `pci_filter_init_v38'
-/tmp/ccwDUrvo.s:8: Error: multiple versions [`pci_filter_parse_slot@@LIBPCI_3.8'|`pci_filter_parse_slot@LIBPCI_3.3'] for symbol `pci_filter_parse_slot_v38'
-/tmp/ccwDUrvo.s:10: Error: multiple versions [`pci_filter_parse_id@@LIBPCI_3.8'|`pci_filter_parse_id@LIBPCI_3.3'] for symbol `pci_filter_parse_id_v38'
-/tmp/ccwDUrvo.s:12: Error: multiple versions [`pci_filter_match@@LIBPCI_3.8'|`pci_filter_match@LIBPCI_3.3'] for symbol `pci_filter_match_v38'
-make[1]: *** [<builtin>: filter.o] Error 1
-
-See also:
-https://github.com/pciutils/pciutils/issues/98
-
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+This is apparently forbidden in most versions of binutils.
 ---
- lib/filter.c | 4 ----
- 1 file changed, 4 deletions(-)
+ lib/filter.c | 12 ++++++++----
+ 1 file changed, 8 insertions(+), 4 deletions(-)
 
 diff --git a/lib/filter.c b/lib/filter.c
-index b881b6bc9083..bc34e8c2bab9 100644
+index b881b6bc9083..d025a96c8809 100644
 --- a/lib/filter.c
 +++ b/lib/filter.c
-@@ -304,20 +304,16 @@ pci_filter_match_v30(struct pci_filter_v30 *f, struct pci_dev *d)
+@@ -303,21 +303,25 @@ pci_filter_match_v30(struct pci_filter_v30 *f, struct pci_dev *d)
+ // (their positions in struct pci_filter were declared as RFU).
  
  STATIC_ALIAS(void pci_filter_init(struct pci_access *a, struct pci_filter *f), pci_filter_init_v38(a, f));
++DEFINE_ALIAS(void pci_filter_init_v33(struct pci_access *a, struct pci_filter *f), pci_filter_init_v38);
  SYMBOL_VERSION(pci_filter_init_v30, pci_filter_init@LIBPCI_3.0);
 -SYMBOL_VERSION(pci_filter_init_v38, pci_filter_init@LIBPCI_3.3);
++SYMBOL_VERSION(pci_filter_init_v33, pci_filter_init@LIBPCI_3.3);
  SYMBOL_VERSION(pci_filter_init_v38, pci_filter_init@@LIBPCI_3.8);
  
  STATIC_ALIAS(char *pci_filter_parse_slot(struct pci_filter *f, char *str), pci_filter_parse_slot_v38(f, str));
++DEFINE_ALIAS(char *pci_filter_parse_slot_v33(struct pci_filter *f, char *str), pci_filter_parse_slot_v38);
  SYMBOL_VERSION(pci_filter_parse_slot_v30, pci_filter_parse_slot@LIBPCI_3.0);
 -SYMBOL_VERSION(pci_filter_parse_slot_v38, pci_filter_parse_slot@LIBPCI_3.3);
++SYMBOL_VERSION(pci_filter_parse_slot_v33, pci_filter_parse_slot@LIBPCI_3.3);
  SYMBOL_VERSION(pci_filter_parse_slot_v38, pci_filter_parse_slot@@LIBPCI_3.8);
  
  STATIC_ALIAS(char *pci_filter_parse_id(struct pci_filter *f, char *str), pci_filter_parse_id_v38(f, str));
++DEFINE_ALIAS(char *pci_filter_parse_id_v33(struct pci_filter *f, char *str), pci_filter_parse_id_v38);
  SYMBOL_VERSION(pci_filter_parse_id_v30, pci_filter_parse_id@LIBPCI_3.0);
 -SYMBOL_VERSION(pci_filter_parse_id_v38, pci_filter_parse_id@LIBPCI_3.3);
++SYMBOL_VERSION(pci_filter_parse_id_v33, pci_filter_parse_id@LIBPCI_3.3);
  SYMBOL_VERSION(pci_filter_parse_id_v38, pci_filter_parse_id@@LIBPCI_3.8);
  
  STATIC_ALIAS(int pci_filter_match(struct pci_filter *f, struct pci_dev *d), pci_filter_match_v38(f, d));
++DEFINE_ALIAS(int pci_filter_match_v33(struct pci_filter *f, struct pci_dev *d), pci_filter_match_v38);
  SYMBOL_VERSION(pci_filter_match_v30, pci_filter_match@LIBPCI_3.0);
 -SYMBOL_VERSION(pci_filter_match_v38, pci_filter_match@LIBPCI_3.3);
++SYMBOL_VERSION(pci_filter_match_v33, pci_filter_match@LIBPCI_3.3);
  SYMBOL_VERSION(pci_filter_match_v38, pci_filter_match@@LIBPCI_3.8);
