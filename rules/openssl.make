@@ -23,8 +23,8 @@ OPENSSL_MD5	:= c685d239b6a6e1bd78be45624c092f51
 OPENSSL		:= openssl-$(OPENSSL_VERSION)
 OPENSSL_SUFFIX	:= tar.gz
 OPENSSL_URL	:= \
-	http://www.openssl.org/source/$(OPENSSL).$(OPENSSL_SUFFIX) \
-	http://www.openssl.org/source/old/$(OPENSSL_BASE)/$(OPENSSL).$(OPENSSL_SUFFIX)
+	https://www.openssl.org/source/$(OPENSSL).$(OPENSSL_SUFFIX) \
+	https://www.openssl.org/source/old/$(OPENSSL_BASE)/$(OPENSSL).$(OPENSSL_SUFFIX)
 OPENSSL_SOURCE	:= $(SRCDIR)/$(OPENSSL).$(OPENSSL_SUFFIX)
 OPENSSL_DIR	:= $(BUILDDIR)/$(OPENSSL)
 OPENSSL_LICENSE	:= OpenSSL
