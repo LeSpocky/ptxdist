@@ -11,6 +11,7 @@ menuconfig IPROUTE2
 	select LIBC_PTHREAD	if IPROUTE2_ARPD
 	select LIBC_RESOLV
 	select LIBMNL		if IPROUTE2_DEVLINK
+	select PYTHON3		if IPROUTE2_ROUTEL && RUNTIME
 	help
 	  Networking and traffic control tools
 
@@ -91,6 +92,7 @@ config IPROUTE2_ROUTEL
 	prompt "routel"
 	help
 	  Component of ip route for listing the routing tables
+	  This component requires Python3 at run-time
 
 config IPROUTE2_RTACCT
 	bool
