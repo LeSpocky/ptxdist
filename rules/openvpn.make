@@ -43,8 +43,11 @@ OPENVPN_CONF_ENV	:= \
 	IFCONFIG=/usr/sbin/ifconfig \
 	IPROUTE=/usr/sbin/ip \
 	NETSTAT=/usr/bin/netstat \
-	ROUTE=/usr/sbin/route \
-	SYSTEMD_ASK_PASSWORD=/usr/bin/systemd-ask-password
+	ROUTE=/usr/sbin/route
+
+ifdef PTXCONF_OPENVPN_SYSTEMD
+OPENVPN_CONF_ENV += SYSTEMD_ASK_PASSWORD=/usr/bin/systemd-ask-password
+endif
 
 #
 # autoconf
