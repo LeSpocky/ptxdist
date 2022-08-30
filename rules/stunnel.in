@@ -3,6 +3,9 @@
 config STUNNEL
 	tristate
 	select OPENSSL
+	select LIBC_UTIL
+	select LIBC_PTHREAD
+	select LIBC_CRYPT
 	prompt "stunnel"
 	help
 	  The stunnel program is designed to work as an SSL encryption
