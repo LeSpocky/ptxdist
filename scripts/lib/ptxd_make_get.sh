@@ -270,6 +270,32 @@ ptxd_make_get_svn() {
 }
 export -f ptxd_make_get_svn
 
+#
+# in env:
+#
+# ${path}	: local file name
+# ${url}	: the url to download
+# ${opts[]}	: an array of options
+#
+ptxd_make_get_s3() {
+	local temp_file
+	set -- "${opts[@]}"
+	unset opts
+
+	# remove any pending or half downloaded files
+	rm -f -- "${path}."*
+
+	temp_file="$(mktemp "${path}.XXXXXXXXXX")" || ptxd_bailout "failed to create tempfile"
+
+	aws s3 cp "${url}" "${temp_file}" || return
+	chmod 644 -- "${temp_file}" &&
+	touch -- "${temp_file}" &&
+	mv -- "${temp_file}" "${path}"
+
+	ptxd_make_serialize_put
+}
+export -f ptxd_make_get_s3
+
 
 #
 # check if download is disabled
@@ -411,6 +437,10 @@ ptxd_make_get() {
 		http://*|https://*|ftp://*)
 			ptxd_make_get_download_permitted &&
 			ptxd_make_get_http && return
+			;;
+		s3://*)
+			ptxd_make_get_download_permitted &&
+			ptxd_make_get_s3 && return
 			;;
 		file*)
 			local thing="${url/file:\/\///}"
