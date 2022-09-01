@@ -24,6 +24,12 @@ $(STATEDIR)/host-system-python3.prepare:
 	@$(SYSTEMPYTHON3) -V >/dev/null 2>&1 || \
 		ptxd_bailout "'python3' not found! Please install.";
 	@echo
+ifdef PTXCONF_HOST_SYSTEM_PYTHON3_CRYPTOGRAPHY
+	@echo "Checking for Python Cryptography ..."
+	@$(SYSTEMPYTHON3) -c 'import cryptography' 2>/dev/null || \
+		ptxd_bailout "Python cryptography module not found! \
+	Please install python3-cryptography (debian)";
+endif
 ifdef PTXCONF_HOST_SYSTEM_PYTHON3_DEV
 	@echo "Checking for Python development files ..."
 	@$(SYSTEMPYTHON3)-config --includes &>/dev/null || \
@@ -77,12 +83,6 @@ ifdef PTXCONF_HOST_SYSTEM_PYTHON3_PYYAML
 	@$(SYSTEMPYTHON3) -c 'import yaml' 2>/dev/null || \
 		ptxd_bailout "Python pyyaml module not found! \
 	Please install python3-yaml (debian)";
-endif
-ifdef PTXCONF_HOST_SYSTEM_PYTHON3_CRYPTOGRAPHY
-	@echo "Checking for Python Cryptography ..."
-	@$(SYSTEMPYTHON3) -c 'import cryptography' 2>/dev/null || \
-		ptxd_bailout "Python cryptography module not found! \
-	Please install python3-cryptography (debian)";
 endif
 	@$(call touch)
 
