@@ -59,7 +59,6 @@ config LIGHTTPD_OPENSSL
 
 config LIGHTTPD_PCRE
 	bool
-	select LIBPCRE
 	prompt "pcre support"
 	help
 	  Enable pcre support.
