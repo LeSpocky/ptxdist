@@ -54,7 +54,6 @@ config E2FSPROGS_LIBEXT2FS
 	bool
 	prompt "libext2fs"
 	select E2FSPROGS_LIBCOM_ERR
-	select LIBC_PTHREAD
 	help
 	  Install libext2fs.
 
@@ -62,8 +61,6 @@ config E2FSPROGS_LIBSS
 	bool
 	prompt "libss"
 	select E2FSPROGS_LIBCOM_ERR
-	select LIBC_DL
-	select LIBC_PTHREAD
 	help
 	  Install libss.
 
