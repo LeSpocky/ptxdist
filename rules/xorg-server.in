@@ -40,6 +40,7 @@ menuconfig XORG_SERVER
 	# glx triggered
 	select XORG_LIB_X11		if XORG_SERVER_EXT_GLX
 	select MESALIB			if XORG_SERVER_EXT_GLX
+	select MESALIB_GLX		if XORG_SERVER_EXT_GLX
 
 	# dri triggered
 	select MESALIB			if XORG_SERVER_EXT_DRI
@@ -311,7 +312,6 @@ config XORG_SERVER_EXT_GLX
 	select XORG_SERVER_EXT_XRES
 	# This select doesn't work! But it is workarounded by mesalib only
 	# presenting the DRI driver as it's backend if GLX is active.
-	select MESALIB_GLX
 	prompt "glx extension"
 	help
 	  --enable-glx
