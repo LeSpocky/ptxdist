@@ -35,6 +35,7 @@ menuconfig SYSTEMD
 	select ROOTFS_VAR_LIB	if RUNTIME
 	select ROOTFS_VAR_CACHE	if RUNTIME
 	select ROOTFS_VAR_SPOOL if RUNTIME
+	select SYSTEMD_HWDB	if SYSTEMD_UDEV_HWDB && RUNTIME
 	prompt "systemd                       "
 	help
 	  systemd is a system and session manager for Linux, compatible with SysV
@@ -185,7 +186,6 @@ menu "install options               "
 
 config SYSTEMD_UDEV_HWDB
 	bool
-	select SYSTEMD_HWDB
 	prompt "install hardware database"
 
 config SYSTEMD_UDEV_CUST_RULES
