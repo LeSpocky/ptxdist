@@ -34,6 +34,30 @@ LIBZMQ_CONF_ENV		:= \
 	$(CROSS_ENV) \
 	ac_cv_lib_sodium_sodium_init=no
 
+# Assume these are always available:
+# - O_CLOEXEC		(2007, kernel 2.6.23, glibc 2.7)
+# - EFD_CLOEXEC		(2008, kernel 2.6.27, glibc 2.9)
+# - SOCK_CLOEXEC	(2008, kernel 2.6.27, glibc 2.9)
+# - SO_BINDTODEVICE	(2009, kernel 2.6.31)
+# - SO_KEEPALIVE	(2009, kernel 2.6.31, glibc 1.x)
+# - SO_PRIORITY		(2009, kernel 2.6.31)
+# - TCP_KEEPCNT		(pre 2005/2013, pre kernel 2.6.12, glibc 2.18)
+# - TCP_KEEPIDLE	(pre 2005/2013, pre kernel 2.6.12, glibc 2.18)
+# - TCP_KEEPINTVL	(pre 2005/2013, pre kernel 2.6.12, glibc 2.18)
+# - getrandom		(2014/2017, kernel 3.17, glibc 2.25)
+# Note: TCP_KEEPALIVE is not available in glibc/kernel.
+LIBZMQ_CONF_ENV		+= \
+	libzmq_cv_o_cloexec=yes \
+	libzmq_cv_efd_cloexec=yes \
+	libzmq_cv_sock_cloexec=yes \
+	libzmq_cv_so_bindtodevice=yes \
+	libzmq_cv_so_keepalive=yes \
+	libzmq_cv_so_priority=yes \
+	libzmq_cv_tcp_keepcnt=yes \
+	libzmq_cv_tcp_keepidle=yes \
+	libzmq_cv_tcp_keepintvl=yes \
+	libzmq_cv_getrandom=yes
+
 #
 # autoconf
 #
