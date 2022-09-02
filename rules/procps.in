@@ -23,7 +23,6 @@ config PROCPS_WITH_SYSTEMD
 	prompt "Enable systemd support"
 	depends on INITMETHOD_SYSTEMD
 	default y
-	select SYSTEMD
 	help
 	  Enable systemd support to show information about systemd units, slices
 	  and containers in tools like ps. Recommended when using systemd.
