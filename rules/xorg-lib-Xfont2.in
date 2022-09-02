@@ -22,7 +22,6 @@ config XORG_LIB_XFONT2
 
 config XORG_LIB_XFONT2_FREETYPE
 	depends on XORG_LIB_XFONT2
-	select FREETYPE
 	bool
 	prompt "Use freetype as rendering library"
 	help
