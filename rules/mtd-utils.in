@@ -3,10 +3,11 @@
 menuconfig MTD_UTILS
 	tristate
 	prompt "mtd-utils                     "
-	select LIBC_M if MTD_UTILS_MKFS_UBIFS
+	select GCCLIBS_GCC_S	if MTD_UTILS_UBIFORMAT
+	select LIBC_M		if MTD_UTILS_MKFS_UBIFS
 	select ZLIB
-	select LIBUUID if MTD_UTILS_UBIFS
-	select LIBLZO if MTD_UTILS_USE_LIBLZO
+	select LIBUUID		if MTD_UTILS_UBIFS
+	select LIBLZO		if MTD_UTILS_USE_LIBLZO
 	help
 	  Memory Technology Device Utilities
 
@@ -283,7 +284,6 @@ comment "busybox' ubidetach is selected!"
 
 config MTD_UTILS_UBIFORMAT
 	bool
-	select GCCLIBS_GCC_S
 	prompt "ubiformat"
 	help
 	  Format an MTD device
