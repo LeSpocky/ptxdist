@@ -16,6 +16,8 @@ menuconfig OPROFILE
 	select BUSYBOX_TR
 	select BINUTILS
 	select BINUTILS_OBJDUMP
+	select KERNEL		if OPROFILE_VMLINUX && RUNTIME
+	select KERNEL_VMLINUX	if OPROFILE_VMLINUX && RUNTIME
 	prompt "oprofile                      "
 	help
 	  oprofile user space executables including opcontrol, opreport and others
@@ -24,8 +26,6 @@ if OPROFILE
 
 config OPROFILE_VMLINUX
 	bool
-	select KERNEL
-	select KERNEL_VMLINUX
 	prompt "Install vmlinux"
 	help
 	  Disabled by default.
