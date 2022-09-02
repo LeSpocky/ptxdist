@@ -699,6 +699,12 @@ END {
 	write_all_deps("R")
 	write_all_deps("B")
 	print "PTX_PACKAGES_ALL := " all_pkg									> DGEN_DEPS_PRE;
+	virtual_pkgs = ""
+	for (this_PKG in virtual_pkg) {
+		this_pkg = gensub("_", "-", "g", tolower(this_PKG));
+		virtual_pkgs = virtual_pkgs " " this_pkg
+	}
+	print "PTX_PACKAGES_VIRTUAL := " virtual_pkgs								> DGEN_DEPS_PRE;
 
 	# for active pkgs
 	for (this_PKG in active_PKG_to_pkg) {
