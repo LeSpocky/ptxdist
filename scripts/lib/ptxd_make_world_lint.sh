@@ -91,8 +91,32 @@ ptxd_make_world_lint_menu_files() {
 }
 export -f ptxd_make_world_lint_menu_files
 
+ptxd_make_world_lint_symbol_package() {
+    local packages package tmp
+
+    packages="$(tr 'a-z-' 'A-Z_' <<<"${ptx_packages_all} ${ptx_packages_virtual}")"
+    for tmp in ${packages}; do
+	if [[ "${1}" =~ ^"${tmp}" && ${#tmp} -gt ${#package} ]]; then
+	    package="${tmp}"
+	fi
+    done
+    echo "${package}"
+}
+export -f ptxd_make_world_lint_symbol_package
+
+unset ptxd_make_world_lint_dep_whitelist
+# special packages. It's more readable like this here
+ptxd_make_world_lint_dep_whitelist+="FAKE_OVERLAYFS "
+ptxd_make_world_lint_dep_whitelist+="LIBC "
+ptxd_make_world_lint_dep_whitelist+="GCCLIBS "
+ptxd_make_world_lint_dep_whitelist+="ROOTFS "
+# toplevel symbol is defined in a different file
+ptxd_make_world_lint_dep_whitelist+="INITMETHOD_SYSTEMD "
+export ptxd_make_world_lint_dep_whitelist
+
 ptxd_make_world_lint_symbols() {
     local symbol symbols_all
+    local -A deps
 
     echo "Checking kconfig symbols in menu files ..."
     if [ -e "${PTXDIST_TEMPDIR}/SYMBOLS_UNKNOWN" ]; then
@@ -101,10 +125,44 @@ ptxd_make_world_lint_symbols() {
 	done
     fi
     echo
-
-    echo "Checking kconfig symbols in rule files ..."
     symbols_all="$(<${PTXDIST_TEMPDIR}/SYMBOLS_ALL)"
     symbols_all="${symbols_all//$'\n'/ }"
+
+    echo "Checking dependencies of package sub-options ..."
+    exec {depfd}< <(sed -n "s/PTX_MAP_._DEP_\(.*\)=\(.*\)/\1 \2/p" \
+	${PTXDIST_PLATFORMDIR}/state/ptx_map_deps.sh.tmp | \
+	sed 's/:/ /g')
+    while read tmp <&${depfd}; do
+	set -- ${tmp}
+	tmp="${1}"
+	shift
+	deps[${tmp}]+=" ${*}"
+    done
+    exec {depfd}<&-
+
+    for symbol in ${symbols_all}; do
+	local package dep dep_package
+	if [ -z "${deps[${symbol}]}" ]; then
+	    continue
+	fi
+	package="$(ptxd_make_world_lint_symbol_package "${symbol}")"
+	if [ "${package}" = "${symbol}" -o -z "${package}" ]; then
+	    continue
+	fi
+	if [[ " ${ptxd_make_world_lint_dep_whitelist} " =~ " ${package} " ]]; then
+	    continue
+	fi
+	exec {depfd}< <(echo ${deps[${symbol}]} | sed 's/ /\n/g' | sort -u)
+	while read dep <&${depfd}; do
+	    local dep_package="$(ptxd_make_world_lint_symbol_package "${dep}")"
+	    if [ "${package}" != "${dep_package}" ]; then
+		ptxd_lint_error "Sub-option ${symbol} selects ${dep} from another package"
+	    fi
+	done
+	exec {depfd}<&-
+    done
+
+    echo "Checking kconfig symbols in rule files ..."
     exec {filefd}< <(ptxd_make_world_lint_makefiles)
     while read file <&${filefd}; do
 	ptxd_make_world_lint_symbols_make "${file}"
