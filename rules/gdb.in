@@ -21,7 +21,6 @@ if GDB
 config GDB_SHARED
 	bool "build shared"
 	default y
-	select LIBC_M
 	help
 	  If not set, the build option
 	  LDFLAGS=-static will be activated.
