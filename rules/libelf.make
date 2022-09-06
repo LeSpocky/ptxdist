@@ -59,7 +59,7 @@ LIBELF_CONF_OPT	:= \
 	--disable-debuginfod \
 	--with-zlib \
 	--without-bzlib \
-	--without-lzma \
+	--$(call ptx/wwo, PTXCONF_LIBELF_XZ)-lzma \
 	--without-zstd \
 	--without-biarch
 

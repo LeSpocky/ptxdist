@@ -4,12 +4,17 @@ menuconfig LIBELF
 	tristate
 	prompt "libelf                        "
 	select ZLIB
+	select XZ		if LIBELF_XZ
 	help
 	  The libelf1 package provides a shared library which allows reading
 	  and writing ELF files on a high level.  Third party programs depend
 	  on this package to read internals of ELF files.
 
 if LIBELF
+
+config LIBELF_XZ
+	bool
+	prompt "xz compression support"
 
 config LIBELF_LIBDW
 	bool
