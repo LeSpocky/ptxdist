@@ -14,6 +14,7 @@
 xpkg/env/impl = \
 	$(call world/env, $(2))							\
 	CROSS_STRIP="$(call ptx/escape,$(CROSS_STRIP))"				\
+	CROSS_NM="$(call ptx/escape,$(CROSS_NM))"				\
 	CROSS_OBJCOPY="$(call ptx/escape,$(CROSS_OBJCOPY))"			\
 	CROSS_READELF="$(call ptx/escape,$(CROSS_READELF))"			\
 	pkg_xpkg="$(call ptx/escape,$(1))"					\

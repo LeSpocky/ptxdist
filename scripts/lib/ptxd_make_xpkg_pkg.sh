@@ -421,16 +421,40 @@ export -f ptxd_install_file_extract_debug
 ptxd_install_file_strip() {
     local -a strip_cmd files
     local dst="${1}"
-    local i file
+    local i file target_mini_debuginfo
 
     case "${strip:-y}" in
 	k) strip_cmd=( "${CROSS_STRIP}" --strip-debug -R .GCC.command.line ) ;;
-	y) strip_cmd=( "${CROSS_STRIP}" -R .note -R .comment -R .GCC.command.line ) ;;
+	y)
+	    strip_cmd=( "${CROSS_STRIP}" -R .note -R .comment -R .GCC.command.line )
+	    target_mini_debuginfo="$(ptxd_get_ptxconf PTXCONF_TARGET_MINI_DEBUGINFO)"
+	;;
     esac
 
     files=( "${sdirs[@]/%/${dst}}" )
     install -d "${files[0]%/*}" &&
+    if [ "${target_mini_debuginfo}" = "y" ]; then
+	local keep_symbols="$(mktemp -u "${PTXDIST_TEMPDIR}/keep_symbols.XXXXX")"
+	local debug="$(mktemp -u "${PTXDIST_TEMPDIR}/debug.XXXXX")"
+	local mini_debug="$(mktemp -u "${PTXDIST_TEMPDIR}/mini_debug.XXXXX")"
+
+	comm -13 \
+	    <("${CROSS_NM}" -D "${src}" --format=posix --defined-only \
+		| awk '{ print $1 }' | sort) \
+	    <("${CROSS_NM}" "${src}" --format=posix --defined-only \
+		| awk '{ if ($2 == "T" || $2 == "t" || $2 == "D") print $1 }' | sort) \
+	    > "${keep_symbols}" &&
+	"${CROSS_OBJCOPY}" --only-keep-debug "${src}" "${debug}" &&
+	"${CROSS_OBJCOPY}" -S --remove-section .gdb_index --remove-section .comment \
+	    --keep-symbols="${keep_symbols}" "${debug}" "${mini_debug}" &&
+	rm "${keep_symbols}" "${debug}" &&
+	xz "${mini_debug}"
+    fi &&
     "${strip_cmd[@]}" -o "${files[0]}" "${src}" &&
+    if [ "${target_mini_debuginfo}" = "y" ]; then
+	"${CROSS_OBJCOPY}" --add-section .gnu_debugdata="${mini_debug}.xz" "${files[0]}" &&
+	rm "${mini_debug}.xz"
+    fi &&
     for (( i=1 ; ${i} < ${#files[@]} ; i=$[i+1] )); do
 	install -m "${mod_rw}" -D "${files[0]}" "${files[${i}]}" || return
     done &&

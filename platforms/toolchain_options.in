@@ -70,6 +70,18 @@ choice
 		  command-line.
 endchoice
 
+config TARGET_MINI_DEBUGINFO
+	bool
+	prompt "add .gnu_debugdata section to the binaries"
+	help
+	  Enable this to create and add the .gnu_debugdata section to all
+	  binaries. It allows resolving function names when no other debug
+	  symbols are available.
+	  In combination with some stack unwinding support, it can be used
+	  to create readable backtraces, e.g. with systemd-coredump.
+	  On x86_64 and AArch64 the stack unwinding can be done with the
+	  .eh_frame sections.
+
 config TARGET_COMPILER_RECORD_SWITCHES
 	bool
 	prompt "store compiler flags (-frecord-gcc-switches)"
