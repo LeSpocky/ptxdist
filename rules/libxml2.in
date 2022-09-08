@@ -50,13 +50,6 @@ config LIBXML2_DEBUG
 	help
 	  Enable debugging support.
 
-config LIBXML2_DOCBOOK
-	bool
-	default y
-	prompt "Docbook support"
-	help
-	  Enable Docbook SGML support
-
 config LIBXML2_FEXCEPTIONS
 	bool
 	prompt "C++ Exception Support"

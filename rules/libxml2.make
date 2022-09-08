@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_LIBXML2) += libxml2
 #
 # Paths and names
 #
-LIBXML2_VERSION	:= 2.9.14
-LIBXML2_MD5	:= b7b3029ac6beb32a7925225515f83ca3
+LIBXML2_VERSION	:= 2.10.2
+LIBXML2_MD5	:= 5ffd0cd047056d5699b3363c635582bc
 LIBXML2		:= libxml2-$(LIBXML2_VERSION)
 LIBXML2_SUFFIX	:= tar.xz
 LIBXML2_SOURCE	:= $(SRCDIR)/$(LIBXML2).$(LIBXML2_SUFFIX)
@@ -44,13 +44,11 @@ LIBXML2_ENV	:= $(CROSS_ENV)
 LIBXML2_AUTOCONF := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-static \
-	--disable-rebuild-docs \
 	$(GLOBAL_IPV6_OPTION) \
 	--oldincludedir=$(SYSROOT)/usr/include \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_C14N)-c14n \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_CATALOG)-catalog \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_DEBUG)-debug \
-	--$(call ptx/wwo, PTXCONF_LIBXML2_DOCBOOK)-docbook \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_FEXCEPTIONS)-fexceptions \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_FTP)-ftp \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_HISTORY)-history \
