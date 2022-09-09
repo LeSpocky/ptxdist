@@ -396,7 +396,6 @@ config DROPBEAR_DROPBEAR
 	default y
 	select DROPBEAR_DROPBEAR_KEY
 	select DROPBEAR_RSA
-	select BUSYBOX_START_STOP_DAEMON if BUSYBOX
 	help
 	  Installs the dropbar server in /usr/sbin/dropbear on the target
 
