@@ -96,7 +96,7 @@ config UDEV_LEGACY_CUST_RULES
 	prompt "install customized udev rules"
 	help
 	  This will install the customized udev rules files from
-	  projectroot/usr/usr/lib/udev/rules.d into /lib/udev/rules.d
+	  projectroot/usr/lib/udev/rules.d into /usr/lib/udev/rules.d
 
 config UDEV_LEGACY_LIBUDEV
 	bool
