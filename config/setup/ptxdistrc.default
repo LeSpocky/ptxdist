@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# PTXdist 2020.10.0
+# PTXdist 2022.09.0
 #
 
 #
@@ -12,6 +12,7 @@
 #
 PTXCONF_SETUP_USER_NAME=""
 PTXCONF_SETUP_USER_EMAIL=""
+# end of User              
 
 #
 # Proxies           
@@ -20,11 +21,13 @@ PTXCONF_SETUP_FTP_PROXY=""
 PTXCONF_SETUP_HTTP_PROXY=""
 PTXCONF_SETUP_HTTPS_PROXY=""
 PTXCONF_SETUP_NO_PROXY=""
+# end of Proxies           
 
 #
 # Source Directories
 #
 PTXCONF_SETUP_SRCDIR="${PTXDIST_WORKSPACE}/src"
+# end of Source Directories
 
 #
 # Source Download   
@@ -35,7 +38,7 @@ PTXCONF_SETUP_PTXMIRROR="https://www.pengutronix.de/software/ptxdist/temporary-s
 PTXCONF_SETUP_DEBMIRROR="http://ftp.uni-kl.de/debian http://archive.debian.org/debian"
 PTXCONF_SETUP_GNOMEMIRROR="https://download.gnome.org/sources https://ftp-stud.hs-esslingen.de/pub/Mirrors/ftp.gnome.org/sources"
 PTXCONF_SETUP_GNUMIRROR="https://ftp.gnu.org/gnu https://ftpmirror.gnu.org"
-PTXCONF_SETUP_KERNELMIRROR="https://www.kernel.org/pub/linux http://www.linux-mips.org/pub/linux/mips http://mirror.linux.org.au/linux"
+PTXCONF_SETUP_KERNELMIRROR="https://mirrors.edge.kernel.org/pub/linux https://www.kernel.org/pub/linux"
 PTXCONF_SETUP_PYPIMIRROR="https://files.pythonhosted.org/packages/source"
 PTXCONF_SETUP_SFMIRROR="http://downloads.sourceforge.net/sourceforge"
 PTXCONF_SETUP_XORGMIRROR="https://ftp.x.org/archive https://xorg.freedesktop.org/releases"
@@ -43,16 +46,19 @@ PTXCONF_SETUP_CHECK_ALWAYS=y
 # PTXCONF_SETUP_CHECK_NOTEMPTY is not set
 # PTXCONF_SETUP_CHECK_NEVER is not set
 PTXCONF_SETUP_CHECK="always"
+# end of Source Download   
 
 #
 # IPKG Repository   
 #
 PTXCONF_SETUP_IPKG_REPOSITORY="/var/www/ipkg-repository"
+# end of IPKG Repository   
 
 #
 # Java SDK          
 #
 PTXCONF_SETUP_JAVA_SDK="/usr/lib/jvm/default-java"
+# end of Java SDK          
 
 #
 # Developer Options 
@@ -74,3 +80,4 @@ PTXCONF_SETUP_HOST_CPP="cpp"
 PTXCONF_SETUP_HOST_CC="gcc"
 PTXCONF_SETUP_HOST_CXX="g++"
 PTXCONF_SETUP_HOST_MAKE="make"
+# end of Developer Options 

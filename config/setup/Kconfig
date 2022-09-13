@@ -160,7 +160,7 @@ config SETUP_GNUMIRROR
 
 config SETUP_KERNELMIRROR
 	string
-	default "https://www.kernel.org/pub/linux http://www.linux-mips.org/pub/linux/mips http://mirror.linux.org.au/linux"
+	default "https://mirrors.edge.kernel.org/pub/linux https://www.kernel.org/pub/linux"
 	prompt "kernel.org Mirror"
 	help
 	  For all kernel.org related packages enter an available mirror here.
