@@ -44,6 +44,16 @@ PSMISC_CONF_OPT		:= \
 # Target-Install
 # ----------------------------------------------------------------------------
 
+PSMISC_BIN-y				:=
+PSMISC_BIN-$(PTXCONF_PSMISC_FUSER)	+= fuser
+PSMISC_BIN-$(PTXCONF_PSMISC_KILLALL)	+= killall
+ifndef PTXCONF_ARCH_ARM64
+PSMISC_BIN-$(PTXCONF_PSMISC_PEEKFD)	+= peekfd
+endif
+PSMISC_BIN-$(PTXCONF_PSMISC_PRTSTAT)	+= prtstat
+PSMISC_BIN-$(PTXCONF_PSMISC_PSLOG)	+= pslog
+PSMISC_BIN-$(PTXCONF_PSMISC_PSTREE)	+= pstree
+
 $(STATEDIR)/psmisc.targetinstall:
 	@$(call targetinfo)
 
@@ -53,13 +63,9 @@ $(STATEDIR)/psmisc.targetinstall:
 	@$(call install_fixup, psmisc,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup, psmisc,DESCRIPTION,missing)
 
-	@$(call install_copy, psmisc, 0, 0, 0755, -, /usr/bin/fuser)
-	@$(call install_copy, psmisc, 0, 0, 0755, -, /usr/bin/killall)
-ifndef PTXCONF_ARCH_ARM64
-	@$(call install_copy, psmisc, 0, 0, 0755, -, /usr/bin/peekfd)
-endif
-	@$(call install_copy, psmisc, 0, 0, 0755, -, /usr/bin/prtstat)
-	@$(call install_copy, psmisc, 0, 0, 0755, -, /usr/bin/pstree)
+	@$(foreach tool, $(PSMISC_BIN-y), \
+		$(call install_copy, psmisc, 0, 0, 0755, -, \
+		/usr/bin/$(tool));)
 
 	@$(call install_finish, psmisc)
 
