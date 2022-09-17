@@ -1,0 +1,129 @@
+## SECTION=multimedia_libs
+
+menuconfig LIBCAMERA
+	bool
+	select HOST_MESON
+	select HOST_SYSTEM_PYTHON3
+	select HOST_SYSTEM_PYTHON3_JINJA2
+	select HOST_SYSTEM_PYTHON3_PYYAML
+	select HOST_SYSTEM_PYTHON3_PLY
+	select HOST_OPENSSL
+	select GNUTLS				if LIBCAMERA_IPA_MODULE_SIGN_GNUTLS
+	select OPENSSL				if LIBCAMERA_IPA_MODULE_SIGN_OPENSSL
+	select UDEV_LIBUDEV
+	select LIBYAML
+	select LIBUNWIND			if LIBCAMERA_BACKTRACE
+	select GSTREAMER1			if LIBCAMERA_GSTREAMER
+	select GST_PLUGINS_BASE1		if LIBCAMERA_GSTREAMER
+	select LIBEVENT				if LIBCAMERA_CAM
+	select LIBDRM				if LIBCAMERA_CAM_KMS_SINK
+	select QT5				if LIBCAMERA_QCAM
+	select QT5_MODULE_QTBASE		if LIBCAMERA_QCAM
+	select QT5_MODULE_QTBASE_GUI		if LIBCAMERA_QCAM
+	select QT5_MODULE_QTBASE_WIDGETS	if LIBCAMERA_QCAM
+	prompt "libcamera                     "
+	help
+	  A complex camera support library for Linux, Android, and ChromeOS.
+
+if LIBCAMERA
+
+config LIBCAMERA_GSTREAMER
+	bool
+	prompt "Install GStreamer plugin"
+
+config LIBCAMERA_CAM
+	bool
+	prompt "Install cam test application"
+
+if LIBCAMERA_CAM
+
+config LIBCAMERA_CAM_KMS_SINK
+	bool
+	prompt "Enable KMS sink"
+endif
+
+config LIBCAMERA_QCAM
+	bool
+	prompt "Install qcam test application"
+
+config LIBCAMERA_BACKTRACE
+	bool
+	prompt "Add support for backtraces"
+
+menu "Platforms"
+
+config LIBCAMERA_PIPELINE_IPU3
+	bool
+	prompt "ipu3 pipeline"
+
+config LIBCAMERA_IPA_IPU3
+	bool
+	default y
+	prompt "ipu3 IPA"
+	depends on LIBCAMERA_PIPELINE_IPU3
+
+config LIBCAMERA_PIPELINE_RASPBERRYPI
+	bool
+	prompt "raspberrypi pipeline"
+
+config LIBCAMERA_IPA_RASPBERRYPI
+	bool
+	default y
+	prompt "raspberrypi IPA"
+	depends on LIBCAMERA_PIPELINE_RASPBERRYPI
+
+config LIBCAMERA_PIPELINE_RKISP1
+	bool
+	prompt "rkisp1 pipeline"
+
+config LIBCAMERA_IPA_RKISP1
+	bool
+	default y
+	prompt "rkisp1 IPA"
+	depends on LIBCAMERA_PIPELINE_RKISP1
+
+config LIBCAMERA_PIPELINE_SIMPLE
+	bool
+	prompt "simple pipeline"
+
+config LIBCAMERA_PIPELINE_UVCVIDEO
+	bool
+	prompt "uvcvideo pipeline"
+
+config LIBCAMERA_PIPELINE_VIMC
+	bool
+	prompt "vimc pipeline"
+
+config LIBCAMERA_IPA_VIMC
+	bool
+	default y
+	prompt "vimc IPA"
+	depends on LIBCAMERA_PIPELINE_VIMC
+
+endmenu
+
+config LIBCAMERA_IPA_MODULE_SIGN
+	bool
+	default y
+	prompt "Enable IPA module signing"
+	help
+	  Without IPA module signing, all IPA modules will be isolated in a
+	  separate process. This adds an unnecessary extra overhead at runtime.
+
+if LIBCAMERA_IPA_MODULE_SIGN
+
+choice
+	prompt "Crypt provider"
+	default LIBCAMERA_IPA_MODULE_SIGN_GNUTLS
+
+config LIBCAMERA_IPA_MODULE_SIGN_GNUTLS
+	bool "gnutls"
+
+config LIBCAMERA_IPA_MODULE_SIGN_OPENSSL
+	bool "openssl (libcrypto)"
+
+endchoice
+
+endif
+
+endif

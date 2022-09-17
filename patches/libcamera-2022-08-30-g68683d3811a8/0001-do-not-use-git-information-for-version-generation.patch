@@ -1,0 +1,29 @@
+From: Matthias Fend <matthias.fend@emfend.at>
+Date: Wed, 31 Aug 2022 16:54:20 +0200
+Subject: [PATCH] do not use git information for version generation
+
+Since libcamera is checked out without a git repo, git version reports the
+version of the BSP. Since this is obviously wrong, just use the project
+version.
+
+Signed-off-by: Matthias Fend <matthias.fend@emfend.at>
+---
+ meson.build | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 72919102ad55..e333df59388d 100644
+--- a/meson.build
++++ b/meson.build
+@@ -20,9 +20,8 @@ libcamera_git_version = run_command('utils/gen-version.sh',
+                                     meson.project_build_root(),
+                                     meson.project_source_root(),
+                                     check: false).stdout().strip()
+-if libcamera_git_version == ''
+-    libcamera_git_version = meson.project_version()
+-endif
++
++libcamera_git_version = meson.project_version()
+ 
+ libcamera_version = libcamera_git_version.split('+')[0]
+ 
