@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.56
-PIPEWIRE_MD5		:= 4ca296732cfc5ffefe30d8957328a3ef
+PIPEWIRE_VERSION	:= 0.3.58
+PIPEWIRE_MD5		:= 4a14fa6db732b00957f835b09d47c406
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -54,6 +54,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dbluez5-codec-aptx=disabled \
 	-Dbluez5-codec-lc3plus=disabled \
 	-Dbluez5-codec-ldac=disabled \
+	-Dbluez5-codec-opus=disabled \
 	-Dcontrol=enabled \
 	-Ddbus=enabled \
 	-Ddocdir= \
@@ -62,11 +63,13 @@ PIPEWIRE_CONF_OPT	:= \
 	-Devl=disabled \
 	-Dexamples=enabled \
 	-Dffmpeg=disabled \
+	-Dflatpak=disabled \
 	-Dgstreamer=$(call ptx/endis,PTXCONF_PIPEWIRE_GSTREAMER)d \
 	-Dgstreamer-device-provider=$(call ptx/endis,PTXCONF_PIPEWIRE_GSTREAMER)d \
 	-Dinstalled_tests=disabled \
 	-Djack=disabled \
 	-Djack-devel=false \
+	-Dlegacy-rtkit=false \
 	-Dlibcamera=disabled \
 	-Dlibcanberra=disabled \
 	-Dlibjack-path= \
@@ -100,7 +103,8 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dvideotestsrc=enabled \
 	-Dvolume=enabled \
 	-Dvulkan=disabled \
-	-Dx11=disabled
+	-Dx11=disabled \
+	-Dx11-xfixes=disabled
 
 PIPEWIRE_CPPFLAGS = -isystem $(KERNEL_HEADERS_INCLUDE_DIR)
 
@@ -126,7 +130,6 @@ PIPEWIRE_MODULES-y := \
 	protocol-pulse \
 	protocol-simple \
 	rt \
-	rtkit \
 	session-manager \
 	spa-device \
 	spa-device-factory \
