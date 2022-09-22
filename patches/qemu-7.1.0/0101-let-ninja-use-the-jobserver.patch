@@ -20,6 +20,6 @@ index e5fd1ebdf619..23128172d02a 100644
  NINJAFLAGS = $(if $V,-v) $(if $(MAKE.n), -n) $(if $(MAKE.k), -k0) \
 -        $(filter-out -j, $(lastword -j1 $(filter -l% -j%, $(MAKEFLAGS)))) \
 +        $(filter-out -j, $(lastword $(filter -l% -j%, $(MAKEFLAGS)))) \
- 
+         -d keepdepfile
  ninja-cmd-goals = $(or $(MAKECMDGOALS), all)
- ninja-cmd-goals += $(foreach t, $(.check.build-suites), $(.check-$t.deps))
+ ninja-cmd-goals += $(foreach g, $(MAKECMDGOALS), $(.ninja-goals.$g))))

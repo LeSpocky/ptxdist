@@ -134,7 +134,6 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-virtiofsd \
 	--disable-vnc \
 	--disable-vnc-jpeg \
-	--disable-vnc-png \
 	--disable-vnc-sasl \
 	--disable-vte \
 	--disable-whpx \
@@ -158,8 +157,6 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-rdma \
 	--disable-pvrdma \
 	--enable-vhost-net \
-	--enable-vhost-vsock \
-	--enable-vhost-scsi \
 	--disable-vhost-crypto \
 	--enable-vhost-kernel \
 	--disable-vhost-user \

@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 7.0.0
-QEMU_MD5	:= bfb5b09a0d1f887c8c42a6d5f26971ab
+QEMU_VERSION	:= 7.1.0
+QEMU_MD5	:= 3be5458a9171b4ec5220c65d5d52bdcf
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -133,7 +133,6 @@ QEMU_CONF_OPT	:= \
 	--disable-virtiofsd \
 	--disable-vnc \
 	--disable-vnc-jpeg \
-	--disable-vnc-png \
 	--disable-vnc-sasl \
 	--disable-vte \
 	--disable-whpx \
@@ -157,8 +156,6 @@ QEMU_CONF_OPT	:= \
 	--disable-rdma \
 	--disable-pvrdma \
 	--enable-vhost-net \
-	--enable-vhost-vsock \
-	--enable-vhost-scsi \
 	--disable-vhost-crypto \
 	--enable-vhost-kernel \
 	--disable-vhost-user \
