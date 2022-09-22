@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBPOPT) += libpopt
 #
 # Paths and names
 #
-LIBPOPT_VERSION	:= 1.18
-LIBPOPT_MD5	:= 450f2f636e6a3aa527de803d0ae76c5a
+LIBPOPT_VERSION	:= 1.19
+LIBPOPT_MD5	:= eaa2135fddb6eb03f2c87ee1823e5a78
 LIBPOPT		:= popt-$(LIBPOPT_VERSION)
 LIBPOPT_SUFFIX	:= tar.gz
 LIBPOPT_URL	:= \
@@ -24,7 +24,7 @@ LIBPOPT_URL	:= \
 LIBPOPT_SOURCE	:= $(SRCDIR)/$(LIBPOPT).$(LIBPOPT_SUFFIX)
 LIBPOPT_DIR	:= $(BUILDDIR)/$(LIBPOPT)
 LIBPOPT_LICENSE	:= MIT
-LIBPOPT_LICENSE_FILES := file://COPYING;md5=cb0613c30af2a8249b8dcc67d3edb06d
+LIBPOPT_LICENSE_FILES := file://COPYING;md5=e0206ac9471d06667e076212db20c5f4
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -39,7 +39,8 @@ LIBPOPT_CONF_OPT	:= \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-build-gcov \
 	--$(call ptx/endis, PTXCONF_LIBPOPT_NLS)-nls \
-	--disable-rpath
+	--disable-rpath \
+	--disable-werror
 
 # ----------------------------------------------------------------------------
 # Target-Install
