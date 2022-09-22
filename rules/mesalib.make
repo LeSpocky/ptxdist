@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 22.1.5
-MESALIB_MD5	:= d54dea9910791fbb080ac57870f15c3f
+MESALIB_VERSION	:= 22.2.0
+MESALIB_MD5	:= 731cdd53d5f9dd695aae1b3a37081d5f
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -24,7 +24,7 @@ MESALIB_SOURCE	:= $(SRCDIR)/$(MESALIB).$(MESALIB_SUFFIX)
 MESALIB_DIR	:= $(BUILDDIR)/Mesa-$(MESALIB_VERSION)
 MESALIB_LICENSE	:= MIT
 MESALIB_LICENSE_FILES := \
-	file://docs/license.rst;md5=9a383ee9f65a4e939d6630e9b067ff58
+	file://docs/license.rst;md5=63779ec98d78d823a9dc533a0735ef10
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -149,6 +149,7 @@ MESALIB_CONF_OPT	:= \
 	-Dfreedreno-kgsl=false \
 	-Dfreedreno-virtio=false \
 	-Dgallium-d3d10umd=false \
+	-Dgallium-d3d12-video=disabled \
 	-Dgallium-drivers=$(subst $(space),$(comma),$(MESALIB_GALLIUM_DRIVERS-y)) \
 	-Dgallium-extra-hud=$(call ptx/truefalse, PTXCONF_MESALIB_EXTENDED_HUD) \
 	-Dgallium-nine=false \
@@ -175,17 +176,19 @@ MESALIB_CONF_OPT	:= \
 	-Dllvm=disabled \
 	-Dlmsensors=$(call ptx/endis, PTXCONF_MESALIB_LMSENSORS)d \
 	-Dmicrosoft-clc=disabled \
+	-Dmin-windows-version=8 \
 	-Dmoltenvk-dir= \
 	-Domx-libs-path=/usr/lib/dri \
 	-Dopencl-native=false \
 	-Dopencl-spirv=false \
 	-Dopengl=$(call ptx/truefalse, PTXCONF_MESALIB_OPENGL) \
 	-Dosmesa=false \
-	-Dosmesa-bits=8 \
+	-Dosmesa-bits=unspecified \
 	-Dperfetto=false \
 	-Dplatform-sdk-version=25 \
 	-Dplatforms=$(subst $(space),$(comma),$(MESALIBS_EGL_PLATFORMS-y)) \
 	-Dpower8=disabled \
+	-Dradv-build-id='' \
 	-Dselinux=false \
 	-Dshader-cache=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d \
 	-Dshader-cache-default=true \
@@ -199,6 +202,7 @@ MESALIB_CONF_OPT	:= \
 	-Dva-libs-path=/usr/lib/dri \
 	-Dvalgrind=disabled \
 	-Dvdpau-libs-path=/usr/lib/vdpau \
+	-Dvideo-codecs=[] \
 	-Dvmware-mks-stats=false \
 	-Dvulkan-beta=false \
 	-Dvulkan-drivers=$(subst $(space),$(comma),$(MESALIB_VULKAN_DRIVERS-y)) \
