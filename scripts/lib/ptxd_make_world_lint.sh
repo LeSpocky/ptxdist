@@ -112,6 +112,7 @@ ptxd_make_world_lint_dep_whitelist+="GCCLIBS "
 ptxd_make_world_lint_dep_whitelist+="ROOTFS "
 # toplevel symbol is defined in a different file
 ptxd_make_world_lint_dep_whitelist+="INITMETHOD_SYSTEMD "
+ptxd_make_world_lint_dep_whitelist+="INITMETHOD_BBINIT "
 export ptxd_make_world_lint_dep_whitelist
 
 ptxd_make_world_lint_symbols() {
