@@ -9,6 +9,9 @@ menuconfig PPP
 	select LIBC_CRYPT
 	select LIBC_RESOLV	if PPP_PLUGINS
 	select LIBPCAP		if PPP_FILTER
+	select BUSYBOX_KILL	if BUSYBOX && PPP_STARTSCRIPT
+	select BUSYBOX_TEST	if BUSYBOX && PPP_STARTSCRIPT
+	select BUSYBOX_SLEEP	if BUSYBOX && PPP_STARTSCRIPT
 	select OPENSSL
 	help
 	  Point-to-Point Protocol (PPP) - daemon
@@ -209,9 +212,6 @@ config PPP_INST_PONOFF
 config PPP_STARTSCRIPT
 	bool
 	depends on INITMETHOD_BBINIT
-	select BUSYBOX_KILL if BUSYBOX
-	select BUSYBOX_TEST if BUSYBOX
-	select BUSYBOX_SLEEP if BUSYBOX
 	default y
 	prompt "install /etc/init.d/pppd"
 	help
