@@ -24,6 +24,7 @@ WESTON_URL	:= https://gitlab.freedesktop.org/wayland/weston/-/releases/$(WESTON_
 WESTON_SOURCE	:= $(SRCDIR)/$(WESTON).$(WESTON_SUFFIX)
 WESTON_DIR	:= $(BUILDDIR)/$(WESTON)
 WESTON_LICENSE	:= MIT
+WESTON_LICENSE_FILES	:= file://COPYING;md5=d79ee9e66bb0f95d3386a7acae780b70
 
 # ----------------------------------------------------------------------------
 # Prepare
