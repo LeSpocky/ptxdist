@@ -14,9 +14,9 @@ PACKAGES-$(PTXCONF_LIBWPE) += libwpe
 #
 # Paths and names
 #
-LIBWPE_VERSION		:= 1.12.0
+LIBWPE_VERSION		:= 1.14.0
 LIBWPE_LIBRARY_VERSION	:= 1.0
-LIBWPE_MD5		:= 5a3f11789535d826370ba465ea141393
+LIBWPE_MD5		:= f9737912975f979f9e4e01eec174a271
 LIBWPE			:= libwpe-$(LIBWPE_VERSION)
 LIBWPE_SUFFIX		:= tar.xz
 LIBWPE_URL		:= https://wpewebkit.org/releases/$(LIBWPE).$(LIBWPE_SUFFIX)
@@ -36,7 +36,8 @@ LIBWPE_CONF_TOOL	:= meson
 LIBWPE_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Dbuild-docs=false \
-	-Ddefault-backend=
+	-Ddefault-backend= \
+	-Denable-xkb=true
 
 # ----------------------------------------------------------------------------
 # Target-Install
