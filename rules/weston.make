@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_WESTON) += weston
 #
 # Paths and names
 #
-WESTON_VERSION	:= 10.0.2
-LIBWESTON_MAJOR := 10
-WESTON_MD5	:= 8d46c0c0dd5c2ddfdced0a79ea7b6155
+WESTON_VERSION	:= 11.0.0
+LIBWESTON_MAJOR := 11
+WESTON_MD5	:= ce50a4b11e5bb6d4a3a517ab34e86aa5
 WESTON		:= weston-$(WESTON_VERSION)
 WESTON_SUFFIX	:= tar.xz
 WESTON_URL	:= https://gitlab.freedesktop.org/wayland/weston/-/releases/$(WESTON_VERSION)/downloads/$(WESTON).$(WESTON_SUFFIX)
@@ -43,12 +43,10 @@ WESTON_CONF_OPT		:= \
 	-Dbackend-rdp=false \
 	-Dbackend-wayland=$(call ptx/truefalse,PTXCONF_WESTON_GL) \
 	-Dbackend-x11=false \
-	-Dcolor-management-colord=false \
 	-Dcolor-management-lcms=false \
 	-Ddemo-clients=$(call ptx/truefalse,PTXCONF_WESTON_IVISHELL_EXAMPLE) \
-	-Ddeprecated-backend-fbdev=$(call ptx/truefalse,PTXCONF_WESTON_FBDEV_COMPOSITOR) \
-	-Ddeprecated-weston-launch=false \
-	-Ddeprecated-wl-shell=$(call ptx/truefalse,PTXCONF_WESTON_DEPRECATED_WL_SHELL) \
+	-Ddeprecated-color-management-colord=false \
+	-Ddeprecated-color-management-static=false \
 	-Ddesktop-shell-client-default=weston-desktop-shell \
 	-Ddoc=false \
 	-Dimage-jpeg=true \
@@ -66,7 +64,6 @@ WESTON_CONF_OPT		:= \
 	-Dshell-kiosk=$(call ptx/truefalse,PTXCONF_WESTON_SHELL_KIOSK) \
 	-Dsimple-clients=$(subst $(space),$(comma),$(WESTON_SIMPLE_CLIENTS-y)) \
 	-Dsystemd=$(call ptx/truefalse,PTXCONF_WESTON_SYSTEMD) \
-	-Dtest-gl-renderer=false \
 	-Dtest-junit-xml=false \
 	-Dtest-skip-is-failure=false \
 	-Dtools=calibrator,debug,info,terminal,touch-calibrator \
@@ -106,7 +103,6 @@ $(STATEDIR)/weston.targetinstall:
 	@$(call install_fixup, weston,DESCRIPTION,"wayland reference compositor implementation")
 
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston)
-	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-info)
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-debug)
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-screenshooter)
 ifdef PTXCONF_WESTON_SIMPLE_CLIENTS
@@ -129,7 +125,6 @@ ifdef PTXCONF_WESTON_WCAP_TOOLS
 endif
 
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR))
-	@$(call install_lib, weston, 0, 0, 0644, libweston-desktop-$(LIBWESTON_MAJOR))
 ifdef PTXCONF_WESTON_XWAYLAND
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/xwayland)
 endif

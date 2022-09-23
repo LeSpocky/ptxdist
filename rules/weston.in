@@ -59,20 +59,6 @@ config WESTON_HEADLESS_COMPOSITOR
 	bool
 	prompt "headless compositor"
 
-config WESTON_FBDEV_COMPOSITOR
-	bool
-	prompt "fbdev compositor"
-
-config WESTON_DEPRECATED_WL_SHELL
-	bool
-	prompt "enable the deprecated wl-shell protocol"
-	help
-	  Allow clients to use the deprecated wl-shell protocol.
-
-	  The wl-shell is deprecated. If you have to enable this option,
-	  consider migrating your clients to the xdg-shell protocol and
-	  disabling this option.
-
 config WESTON_STARTSCRIPT
 	bool
 	default y
