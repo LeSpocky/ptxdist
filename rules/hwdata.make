@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_HWDATA) += hwdata
 #
 # Paths and names
 #
-HWDATA_VERSION		:= 0.361
-HWDATA_MD5		:= 7291f123d9a486a94425e076db9d8c71
+HWDATA_VERSION		:= 0.362
+HWDATA_MD5		:= 8a47c40da026c74314c95ec63050b9f8
 HWDATA			:= hwdata-$(HWDATA_VERSION)
 HWDATA_SUFFIX		:= tar.gz
 HWDATA_URL		:= https://github.com/vcrhonek/hwdata/archive/refs/tags/v$(HWDATA_VERSION).$(HWDATA_SUFFIX)
@@ -37,7 +37,8 @@ HWDATA_ENV		:= $(CROSS_ENV)
 # Only text files are processed. Just prefix setting here.
 HWDATA_CONF_TOOL	:= autoconf
 HWDATA_CONF_OPT		:= \
-	--prefix=/usr
+	--prefix=/usr \
+	--enable-blacklist
 
 # ----------------------------------------------------------------------------
 # Target-Install
