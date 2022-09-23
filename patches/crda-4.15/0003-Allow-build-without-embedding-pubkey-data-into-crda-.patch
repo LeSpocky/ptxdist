@@ -10,7 +10,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  2 files changed, 9 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index b74d3b544bd9..9ce318484001 100644
+index 4ba2ed5aadd8..8f45630296d7 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -42,7 +42,12 @@ ifeq ($(USE_OPENSSL),1)
@@ -27,7 +27,7 @@ index b74d3b544bd9..9ce318484001 100644
  else
  CFLAGS += -DUSE_GCRYPT
 diff --git a/reglib.c b/reglib.c
-index e00e9b8d4b44..87691022f9e7 100644
+index 4dee40151bd6..6f1edec4e154 100644
 --- a/reglib.c
 +++ b/reglib.c
 @@ -30,7 +30,7 @@
