@@ -125,6 +125,7 @@ config WESTON_SHELL_KIOSK
 
 config WESTON_PIPEWIRE
 	bool
+	select WESTON_GL
 	prompt "pipewire plugin"
 
 config WESTON_REMOTING
