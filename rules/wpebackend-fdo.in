@@ -6,6 +6,7 @@ config WPEBACKEND_FDO
 	select HOST_MESON
 	select LIBEPOXY
 	select LIBWPE
+	select LIBXKBCOMMON
 	select GLIB
 	select MESALIB
 	select MESALIB_EGL
