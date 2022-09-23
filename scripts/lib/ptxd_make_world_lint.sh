@@ -162,6 +162,7 @@ ptxd_make_world_lint_symbols() {
 	done
 	exec {depfd}<&-
     done
+    echo
 
     echo "Checking kconfig symbols in rule files ..."
     exec {filefd}< <(ptxd_make_world_lint_makefiles)
