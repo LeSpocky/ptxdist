@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBFFI) += libffi
 #
 # Paths and names
 #
-LIBFFI_VERSION	:= 3.4.2
-LIBFFI_MD5	:= 294b921e6cf9ab0fbaea4b639f8fdbe8
+LIBFFI_VERSION	:= 3.4.3
+LIBFFI_MD5	:= b57b0ac1d1072681cee9148a417bd2ec
 LIBFFI		:= libffi-$(LIBFFI_VERSION)
 LIBFFI_SUFFIX	:= tar.gz
 LIBFFI_SOURCE	:= $(SRCDIR)/$(LIBFFI).$(LIBFFI_SUFFIX)
@@ -37,6 +37,7 @@ LIBFFI_CONF_OPT := \
 	--enable-portable-binary \
 	--disable-pax_emutramp \
 	--disable-debug \
+	--disable-docs \
 	--enable-structs \
 	--enable-raw-api \
 	--disable-purify-safety \
