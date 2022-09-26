@@ -2,6 +2,7 @@
 
 menuconfig AT91BOOTSTRAP2
 	select BOOTLOADER
+	select HOST_SYSTEM_PYTHON3
 	tristate
 	prompt "AT91 bootstrap 3.x            "
 	help
@@ -36,7 +37,7 @@ if AT91BOOTSTRAP2
 
 config AT91BOOTSTRAP2_VERSION
 	string
-	default "3.8.5"
+	default "3.9.3"
 	prompt "AT91 Bootstrap version"
 	help
 	  Enter the AT91 Bootstrap version you want to build. Usually something like "3.8.5"
