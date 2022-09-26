@@ -1,6 +1,7 @@
 ## SECTION=bootloader
 
 menuconfig AT91BOOTSTRAP2
+	select BOOTLOADER
 	tristate
 	prompt "AT91 bootstrap 3.x            "
 	help
