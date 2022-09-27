@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_COG) += cog
 #
 # Paths and names
 #
-COG_VERSION		:= 0.14.1
-COG_MD5			:= 69d72ac046a0fc485ea7b61b96e7e7fc
+COG_VERSION		:= 0.16.0
+COG_MD5			:= 2705472ea4f333290973722c0862b21d
 COG			:= cog-$(COG_VERSION)
 COG_SUFFIX		:= tar.xz
 COG_URL			:= https://wpewebkit.org/releases/$(COG).$(COG_SUFFIX)
@@ -31,26 +31,21 @@ COG_LICENSE_FILES	:= file://COPYING;md5=bf1229cd7425b302d60cdb641b0ce5fb
 #
 # cmake
 #
-COG_CONF_TOOL	:= cmake
+COG_CONF_TOOL	:= meson
 COG_CONF_OPT	:= \
-	$(CROSS_CMAKE_USR) \
-	-G Ninja \
-	-DBUILD_DOCS=OFF \
-	-DCOG_APPID= \
-	-DCOG_BUILD_PROGRAMS=ON \
-	-DCOG_DBUS_OWN_USER= \
-	-DCOG_DBUS_SYSTEM_BUS=$(call ptx/onoff,PTXCONF_COG_REMOTE_DBUS_SYSTEM_BUS) \
-	-DCOG_HOME_URI=https://ptxdist.org/ \
-	-DCOG_MODULEDIR=/usr/lib/cog/modules \
-	-DCOG_PLATFORM_DRM=OFF \
-	-DCOG_PLATFORM_GTK4=OFF \
-	-DCOG_PLATFORM_HEADLESS=OFF \
-	-DCOG_PLATFORM_WL=ON \
-	-DCOG_PLATFORM_X11=OFF \
-	-DCOG_WESTON_DIRECT_DISPLAY=OFF \
-	-DINSTALL_MAN_PAGES=OFF \
-	-DUSE_SOUP2=ON \
-	-DWAYLAND_PROTOCOLS=$(PTXDIST_SYSROOT_TARGET)/usr/share/wayland-protocols
+	$(CROSS_MESON_USR) \
+	-Dcog_appid=com.igalia.Cog \
+	-Dcog_dbus_control=$(call ptx/ifdef, PTXCONF_COG_REMOTE_DBUS_SYSTEM_BUS,system,user) \
+	-Dcog_dbus_system_owner= \
+	-Dcog_home_uri=https://ptxdist.org/ \
+	-Ddocumentation=false \
+	-Dmanpages=false \
+	-Dplatforms=wayland \
+	-Dplugin_path=/usr/lib/cog/modules \
+	-Dprograms=true \
+	-Dsoup2=enabled \
+	-Dwayland_weston_content_protection=false \
+	-Dwayland_weston_direct_display=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
