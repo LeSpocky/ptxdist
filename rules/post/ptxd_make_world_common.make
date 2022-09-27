@@ -73,6 +73,7 @@ world/env/impl = \
 	pkg_extra_makefiles="$(call ptx/escape,$($(1)_EXTRA_MAKEFILES))"	\
 	pkg_infile="$(call ptx/escape,$($(1)_INFILE))"				\
 										\
+	pkg_PKG="$(call ptx/escape,$(1))"					\
 	pkg_pkg="$(call ptx/escape,$($(1)))"					\
 	pkg_version="$(call ptx/escape,$($(1)_VERSION))"			\
 	pkg_config="$(call ptx/escape,$($(1)_CONFIG))"				\
