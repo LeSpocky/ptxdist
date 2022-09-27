@@ -38,7 +38,7 @@ config LIBC_C
 
 config LIBC_PTHREAD
 	bool
-	select GLIBC_PTHREAD		if LIBC_GLIBC
+	select GLIBC_PTHREAD		if LIBC_GLIBC && !GLIBC_2_34
 	select UCLIBC_PTHREAD		if LIBC_UCLIBC
 
 config LIBC_THREAD_DB
@@ -48,13 +48,13 @@ config LIBC_THREAD_DB
 
 config LIBC_RT
 	bool
-	select GLIBC_RT			if LIBC_GLIBC
-	select GLIBC_PTHREAD		if LIBC_GLIBC
+	select GLIBC_RT			if LIBC_GLIBC && !GLIBC_2_34
+	select GLIBC_PTHREAD		if LIBC_GLIBC && !GLIBC_2_34
 	select UCLIBC_RT		if LIBC_UCLIBC
 
 config LIBC_DL
 	bool
-	select GLIBC_DL			if LIBC_GLIBC
+	select GLIBC_DL			if LIBC_GLIBC && !GLIBC_2_34
 	select UCLIBC_DL		if LIBC_UCLIBC
 
 config LIBC_CRYPT
@@ -64,7 +64,7 @@ config LIBC_CRYPT
 
 config LIBC_UTIL
 	bool
-	select GLIBC_UTIL		if LIBC_GLIBC
+	select GLIBC_UTIL		if LIBC_GLIBC && !GLIBC_2_34
 	select UCLIBC_UTIL		if LIBC_UCLIBC
 
 config LIBC_M

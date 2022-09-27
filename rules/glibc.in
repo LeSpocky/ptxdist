@@ -10,6 +10,16 @@ menu "glibc                         "
 
 comment	"Install options"
 
+config GLIBC_2_34
+	bool
+	prompt "glibc-2.34 or later"
+	help
+	  Since glibc-2.34 libpthread, libdl, libutil, libanl and librt are
+	  merged into libc. By selecting this option, these libraries are
+	  no longer installed through the package dependencies. The
+	  libraries can still be selected explicitly here if necessary.
+	  For example if legacy binaries link to such a library.
+
 config GLIBC_LD
 	bool
 	help
