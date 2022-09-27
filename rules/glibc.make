@@ -44,7 +44,7 @@ ifdef PTXCONF_GLIBC_C
 endif
 
 ifdef PTXCONF_GLIBC_PTHREAD
-	@$(call install_copy_toolchain_lib, glibc, libpthread.so)
+	@$(call install_copy_toolchain_lib, glibc, libpthread.so.0)
 endif
 
 ifdef PTXCONF_GLIBC_THREAD_DB
@@ -52,7 +52,7 @@ ifdef PTXCONF_GLIBC_THREAD_DB
 endif
 
 ifdef PTXCONF_GLIBC_RT
-	@$(call install_copy_toolchain_lib, glibc, librt.so)
+	@$(call install_copy_toolchain_lib, glibc, librt.so.1)
 endif
 
 ifdef PTXCONF_GLIBC_DL
@@ -60,23 +60,23 @@ ifdef PTXCONF_GLIBC_DL
 endif
 
 ifdef PTXCONF_GLIBC_CRYPT
-	@$(call install_copy_toolchain_lib, glibc, libcrypt.so)
+	@$(call install_copy_toolchain_lib, glibc, libcrypt.so.1)
 endif
 
 ifdef PTXCONF_GLIBC_UTIL
-	@$(call install_copy_toolchain_lib, glibc, libutil.so)
+	@$(call install_copy_toolchain_lib, glibc, libutil.so.1)
 endif
 
 ifdef PTXCONF_GLIBC_M
-	@$(call install_copy_toolchain_lib, glibc, libm.so)
+	@$(call install_copy_toolchain_lib, glibc, libm.so.6)
 endif
 
 ifdef PTXCONF_GLIBC_NSS_DNS
-	@$(call install_copy_toolchain_lib, glibc, libnss_dns.so)
+	@$(call install_copy_toolchain_lib, glibc, libnss_dns.so.2)
 endif
 
 ifdef PTXCONF_GLIBC_NSS_FILES
-	@$(call install_copy_toolchain_lib, glibc, libnss_files.so)
+	@$(call install_copy_toolchain_lib, glibc, libnss_files.so.2)
 endif
 
 ifdef PTXCONF_GLIBC_NSS_HESIOD
@@ -84,7 +84,7 @@ ifdef PTXCONF_GLIBC_NSS_HESIOD
 endif
 
 ifdef PTXCONF_GLIBC_ANL
-	@$(call install_copy_toolchain_lib, glibc, libanl.so)
+	@$(call install_copy_toolchain_lib, glibc, libanl.so.1)
 endif
 
 ifdef PTXCONF_GLIBC_NSS_NIS
@@ -100,11 +100,11 @@ ifdef PTXCONF_GLIBC_NSS_COMPAT
 endif
 
 ifdef PTXCONF_GLIBC_RESOLV
-	@$(call install_copy_toolchain_lib, glibc, libresolv.so)
+	@$(call install_copy_toolchain_lib, glibc, libresolv.so.2)
 endif
 
 ifdef PTXCONF_GLIBC_NSL
-	@$(call install_copy_toolchain_lib, glibc, libnsl.so)
+	@$(call install_copy_toolchain_lib, glibc, libnsl.so.1)
 endif
 
 ifdef PTXCONF_GLIBC_GCONF_BASE
