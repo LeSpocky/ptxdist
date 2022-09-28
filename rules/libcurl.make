@@ -93,6 +93,7 @@ LIBCURL_CONF_OPT	:= \
 	--without-schannel \
 	--without-secure-transport \
 	--without-amissl \
+	--$(call ptx/wwo,PTXCONF_LIBCURL_SSL)-ssl \
 	--with-openssl=$(call ptx/ifdef, PTXCONF_LIBCURL_SSL_OPENSSL,$(SYSROOT)/usr,no) \
 	--with-gnutls=$(call ptx/ifdef, PTXCONF_LIBCURL_SSL_GNUTLS,$(SYSROOT)/usr,no) \
 	--without-mbedtls \
