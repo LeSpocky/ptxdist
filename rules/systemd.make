@@ -375,7 +375,7 @@ endif
 	@$(call install_tree, systemd, 0, 0, -, /usr/lib/systemd/system-generators/)
 	@$(foreach helper, $(SYSTEMD_HELPER), \
 		$(call install_copy, systemd, 0, 0, 0755, -, \
-			/usr/lib/systemd/$(helper));)
+			/usr/lib/systemd/$(helper))$(ptx/nl))
 
 #	# configuration
 	@$(call install_alternative, systemd, 0, 0, 0644, \
@@ -501,11 +501,11 @@ endif
 
 	@$(foreach helper, $(SYSTEMD_UDEV_HELPER-y), \
 		$(call install_copy, systemd, 0, 0, 0755, -, \
-			/usr/lib/udev/$(helper));)
+			/usr/lib/udev/$(helper))$(ptx/nl))
 
 	@$(foreach rule, $(SYSTEMD_UDEV_RULES-y), \
 		$(call install_copy, systemd, 0, 0, 0644, -, \
-			/usr/lib/udev/rules.d/$(rule));)
+			/usr/lib/udev/rules.d/$(rule))$(ptx/nl))
 
 ifdef PTXCONF_SYSTEMD_UDEV_CUST_RULES
 	@$(call install_alternative_tree, systemd, 0, 0, /usr/lib/udev/rules.d)

@@ -65,7 +65,7 @@ $(STATEDIR)/rt-tests.targetinstall:
 
 	@$(foreach tool, $(RT_TESTS_BIN-y), \
 		$(call install_copy, rt-tests, 0, 0, 0755, -, \
-		/usr/bin/$(tool));)
+			/usr/bin/$(tool))$(ptx/nl))
 
 	@$(call install_finish, rt-tests)
 

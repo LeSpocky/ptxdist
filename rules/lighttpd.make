@@ -128,7 +128,7 @@ $(STATEDIR)/lighttpd.targetinstall:
 
 ifdef PTXCONF_LIGHTTPD_INSTALL_SELECTED_MODULES
 	@$(foreach mod,$(LIGHTTPD_MODULES_INSTALL), \
-		$(call install_lib, lighttpd, 0, 0, 0644, lighttpd/$(mod));)
+		$(call install_lib, lighttpd, 0, 0, 0644, lighttpd/$(mod))$(ptx/nl))
 else
 #	# modules
 	@$(call install_tree, lighttpd, 0, 0, -, /usr/lib/lighttpd)

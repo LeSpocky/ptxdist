@@ -173,7 +173,7 @@ ifneq ($(strip $(BAREBOX_PROGS_TARGET_y)),)
 
 	@$(foreach prog, $(BAREBOX_PROGS_TARGET_y), \
 		$(call install_copy, barebox, 0, 0, 0755, -, \
-			/usr/bin/$(prog));)
+			/usr/bin/$(prog))$(ptx/nl))
 
 	@$(call install_finish, barebox)
 endif

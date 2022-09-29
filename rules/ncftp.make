@@ -58,7 +58,8 @@ $(STATEDIR)/ncftp.targetinstall:
 	@$(call install_fixup, ncftp,DESCRIPTION,missing)
 
 	@$(foreach prog, $(NCFTP_PROGS_y), \
-		$(call install_copy, ncftp, 0, 0, 0755, -, /usr/bin/$(prog));)
+		$(call install_copy, ncftp, 0, 0, 0755, -, \
+			/usr/bin/$(prog))$(ptx/nl))
 
 ifdef PTXCONF_NCFTP_NCFTPBATCH_NCFTPSPOOLER
 	@$(call install_link, ncftp, ncftpbatch, /usr/bin/ncftpspooler)

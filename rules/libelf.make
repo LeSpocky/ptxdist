@@ -96,7 +96,7 @@ ifdef PTXCONF_LIBELF_ELFSUTILS
 		make-debug-archive nm objdump ranlib readelf size stack strings \
 		strip unstrip, \
 		$(call install_copy, libelf, 0, 0, 0755, -, \
-		/usr/bin/eu-$(bin));)
+			/usr/bin/eu-$(bin))$(ptx/nl))
 endif
 
 	@$(call install_finish, libelf)

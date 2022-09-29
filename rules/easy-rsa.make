@@ -47,11 +47,11 @@ $(STATEDIR)/easy-rsa.targetinstall:
 
 	@$(foreach script,$(EASY_RSA_INSTALL_SCRIPTS), \
 		$(call install_copy, easy-rsa, 0, 0, 0755, -, \
-		/usr/share/easy-rsa/$(script));)
+			/usr/share/easy-rsa/$(script))$(ptx/nl))
 
 	@$(foreach file,$(EASY_RSA_INSTALL_FILES), \
 		$(call install_copy, easy-rsa, 0, 0, 0644, -, \
-		/usr/share/easy-rsa/$(file));)
+			/usr/share/easy-rsa/$(file))$(ptx/nl))
 
 	@$(call install_finish, easy-rsa)
 

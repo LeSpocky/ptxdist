@@ -83,7 +83,8 @@ $(STATEDIR)/libdrm.targetinstall:
 	@$(call install_lib, libdrm, 0, 0, 0644, libdrm)
 
 	@$(foreach backend,$(LIBDRM_BACKENDSL-y), \
-		$(call install_lib, libdrm, 0, 0, 0644, libdrm_$(backend));)
+		$(call install_lib, libdrm, 0, 0, 0644, \
+			libdrm_$(backend))$(ptx/nl))
 
 ifdef PTXCONF_LIBDRM_TESTS
 	@$(call install_copy, libdrm, 0, 0, 0755, -, /usr/bin/modetest)

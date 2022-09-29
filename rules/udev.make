@@ -116,7 +116,7 @@ endif
 
 	@$(foreach rule, $(UDEV_LEGACY_RULES-y), \
 		$(call install_copy, udev, 0, 0, 0644, -, \
-			/usr/lib/udev/rules.d/$(rule));)
+			/usr/lib/udev/rules.d/$(rule))$(ptx/nl))
 
 ifdef PTXCONF_UDEV_LEGACY_KEYMAPS
 	@cd $(UDEV_LEGACY_PKGDIR) && \
@@ -131,7 +131,7 @@ endif
 
 	@$(foreach helper, $(UDEV_LEGACY_HELPER-y), \
 		$(call install_copy, udev, 0, 0, 0755, -, \
-			/usr/lib/udev/$(helper));)
+			/usr/lib/udev/$(helper))$(ptx/nl))
 
 ifdef PTXCONF_UDEV_LEGACY_LIBUDEV
 	@$(call install_lib, udev, 0, 0, 0644, libudev)

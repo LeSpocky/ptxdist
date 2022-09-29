@@ -301,7 +301,7 @@ $(STATEDIR)/strongswan.targetinstall:
 
 	@$(foreach plugin, $(STRONGSWAN_PLUGINS), \
 		$(call install_copy, strongswan, 0, 0, 0644, -, \
-			/usr/lib/plugins/$(plugin));)
+			/usr/lib/plugins/$(plugin))$(ptx/nl))
 
 ifdef PTXCONF_STRONGSWAN_SYSTEMD_UNIT
 	@$(call install_alternative, strongswan, 0, 0, 0644, \

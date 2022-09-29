@@ -179,7 +179,7 @@ endif
 ifdef PTXCONF_CONNMAN_TESTS
 	@$(foreach test, $(CONNMAN_TESTS), \
 		$(call install_copy, connman, 0, 0, 0755, -, \
-			/usr/sbin/cm-$(test));)
+			/usr/sbin/cm-$(test))$(ptx/nl))
 endif
 
 	@$(call install_finish, connman)

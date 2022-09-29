@@ -76,7 +76,8 @@ $(STATEDIR)/libsndfile.targetinstall:
 
 ifdef PTXCONF_LIBSNDFILE_TOOLS
 	@$(foreach prog, $(LIBSNDFILE_PROGS), \
-		$(call install_copy, libsndfile, 0, 0, 0755, -, /usr/bin/$(prog));)
+		$(call install_copy, libsndfile, 0, 0, 0755, -, \
+			/usr/bin/$(prog))$(ptx/nl))
 endif
 
 	@$(call install_finish, libsndfile)

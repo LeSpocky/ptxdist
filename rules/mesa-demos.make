@@ -93,7 +93,8 @@ $(STATEDIR)/mesa-demos.targetinstall:
 	@$(call install_fixup, mesa-demos,DESCRIPTION,missing)
 
 	@$(foreach bin, $(MESA_DEMOS_BIN-y), \
-		$(call install_copy, mesa-demos, 0, 0, 0755, -, /usr/bin/$(bin));)
+		$(call install_copy, mesa-demos, 0, 0, 0755, -, \
+			/usr/bin/$(bin))$(ptx/nl))
 
 	@$(call install_finish, mesa-demos)
 

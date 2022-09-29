@@ -94,7 +94,7 @@ ifdef PTXCONF_ECRYPTFS_UTILS_MOUNT_ECRYPTFS
 endif
 
 	@$(foreach prog, $(ECRYPTFS_UTILS_PROGS_y), \
-		$(call install_copy, ecryptfs-utils, 0, 0, 0755, -, $(prog));)
+		$(call install_copy, ecryptfs-utils, 0, 0, 0755, -, $(prog))$(ptx/nl))
 
 	@$(call install_finish, ecryptfs-utils)
 

@@ -126,7 +126,8 @@ ifdef PTXCONF_LIBNL3_ENABLE_CLI
 endif
 
 	@$(foreach tool,$(LIBNL3_INSTALL_FILES-y), \
-		$(call install_copy, libnl3, 0, 0, 0755, -, /usr/bin/$(tool));)
+		$(call install_copy, libnl3, 0, 0, 0755, -, \
+			/usr/bin/$(tool))$(ptx/nl))
 
 	@$(call install_alternative, libnl3, 0, 0, 0644, /etc/libnl/classid)
 	@$(call install_alternative, libnl3, 0, 0, 0644, /etc/libnl/pktloc)

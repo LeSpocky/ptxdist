@@ -130,7 +130,8 @@ $(STATEDIR)/perl.targetinstall:
 	@$(call install_fixup, perl,DESCRIPTION,missing)
 
 	@$(foreach prog, $(PERL_PROGRAMS), \
-		$(call install_copy, perl, 0, 0, 0755, -, /usr/bin/$(prog));)
+		$(call install_copy, perl, 0, 0, 0755, -, \
+			/usr/bin/$(prog))$(ptx/nl))
 
 	@$(call install_tree, perl, 0, 0, -, /usr/lib/perl5)
 

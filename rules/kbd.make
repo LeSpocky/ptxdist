@@ -82,7 +82,7 @@ $(STATEDIR)/kbd.targetinstall:
 
 	@$(foreach tool,$(KBD_TOOLS-y), \
 		$(call install_copy, kbd, 0, 0, 0755, -, \
-			/usr/bin/$(tool));)
+			/usr/bin/$(tool))$(ptx/nl))
 
 ifdef PTXCONF_KBD_PSFXTABLE
 	@$(call install_link, kbd, psfxtable, /usr/bin/psfaddtable)

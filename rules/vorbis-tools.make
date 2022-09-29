@@ -72,7 +72,8 @@ $(STATEDIR)/vorbis-tools.targetinstall:
 	@$(call install_fixup, vorbis-tools,DESCRIPTION,missing)
 
 	@$(foreach prog, $(VORBIS_TOOLS_PROGS_y), \
-		$(call install_copy, vorbis-tools, 0, 0, 0755, -, /usr/bin/$(prog));)
+		$(call install_copy, vorbis-tools, 0, 0, 0755, -, \
+			/usr/bin/$(prog))$(ptx/nl))
 
 	@$(call install_finish, vorbis-tools)
 

@@ -69,7 +69,7 @@ $(STATEDIR)/trace-cmd.targetinstall:
 
 	@$(foreach plugin, $(TRACE_CMD_PLUGINS), \
 		$(call install_lib, trace-cmd, 0, 0, 0644, \
-			traceevent/plugins/plugin_$(plugin));)
+			traceevent/plugins/plugin_$(plugin))$(ptx/nl))
 
 	@$(call install_finish, trace-cmd)
 

@@ -112,7 +112,7 @@ ifdef PTXCONF_VIM_VIM
 	@$(call install_copy, vim, 0, 0, 0755, -, /usr/bin/vim)
 
 	@$(foreach link, $(VIM_LINKS), \
-		$(call install_link, vim, vim, /usr/bin/$(link));)
+		$(call install_link, vim, vim, /usr/bin/$(link))$(ptx/nl))
 
 	@$(call install_tree, vim, 0, 0, -, /usr/share/vim)
 endif

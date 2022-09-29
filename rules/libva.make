@@ -60,7 +60,7 @@ $(STATEDIR)/libva.targetinstall:
 	@$(call install_lib, libva, 0, 0, 0644, libva)
 
 	@$(foreach api, $(LIBVA_ENABLE-y), \
-		$(call install_lib, libva, 0, 0, 0644, libva-$(api));)
+		$(call install_lib, libva, 0, 0, 0644, libva-$(api))$(ptx/nl))
 
 	@$(call install_finish, libva)
 

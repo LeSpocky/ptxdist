@@ -97,7 +97,8 @@ ifdef PTXCONF_MUNIN_MASTER
 	@$(call install_copy, munin, 0, 0, 0755, -, /usr/bin/munin-check)
 
 	@$(foreach tool, $(MONIN_TOOLS), \
-		$(call install_copy, munin, 0, 0, 0755, -, /usr/lib/munin/$(tool));)
+		$(call install_copy, munin, 0, 0, 0755, -, \
+			/usr/lib/munin/$(tool))$(ptx/nl))
 
 	@$(call install_tree, munin, 0, 0, -, $(PERL_SITELIB)/Munin/Master)
 endif
@@ -107,7 +108,7 @@ ifdef PTXCONF_MUNIN_NODE
 	@$(call install_copy, munin, 0, 0, 0755, /etc/munin/plugins/)
 	@$(foreach plugin, $(call remove_quotes,$(PTXCONF_MUNIN_NODE_PLUGINS)), \
 		$(call install_link, munin, /usr/lib/munin/plugins/$(plugin), \
-		/etc/munin/plugins/$(plugin));)
+			/etc/munin/plugins/$(plugin))$(ptx/nl))
 
 	@$(call install_copy, munin, 0, 0, 0755, -, /usr/sbin/munin-node-configure)
 	@$(call install_copy, munin, 0, 0, 0755, -, /usr/sbin/munin-sched)

@@ -72,10 +72,12 @@ $(STATEDIR)/tomoyo-tools.targetinstall:
 	@$(call install_copy, tomoyo-tools, 0, 0, 0755, -, /sbin/tomoyo-init)
 
 	@$(foreach prog, $(TOMOYO_TOOLS_SBIN_PROGS), \
-		$(call install_copy, tomoyo-tools, 0, 0, 0755, -, /usr/sbin/$(prog));)
+		$(call install_copy, tomoyo-tools, 0, 0, 0755, -, \
+			/usr/sbin/$(prog))$(ptx/nl))
 
 	@$(foreach prog, $(TOMOYO_TOOLS_LIBEXEC_PROGS), \
-		$(call install_copy, tomoyo-tools, 0, 0, 0755, -, /usr/lib/tomoyo/$(prog));)
+		$(call install_copy, tomoyo-tools, 0, 0, 0755, -, \
+			/usr/lib/tomoyo/$(prog))$(ptx/nl))
 
 	@$(call install_lib, tomoyo-tools, 0, 0, 0644, libtomoyotools)
 

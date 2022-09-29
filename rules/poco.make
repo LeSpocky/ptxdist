@@ -89,7 +89,7 @@ $(STATEDIR)/poco.targetinstall:
 
 	@$(foreach lib, $(POCO_LIBS-y), \
 		$(call install_lib, poco, 0, 0, 0644, \
-			libPoco$(subst /,,$(subst _OpenSSL,,$(lib))));)
+			libPoco$(subst /,,$(subst _OpenSSL,,$(lib))))$(ptx/nl))
 
 	@$(call install_finish, poco)
 
