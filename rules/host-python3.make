@@ -78,7 +78,7 @@ HOST_PYTHON3_INSTALL_OPT := \
 
 $(STATEDIR)/host-python3.install:
 	@$(call targetinfo)
-	@$(call install, HOST_PYTHON3,,h)
+	@$(call world/install, HOST_PYTHON3)
 #
 # remove "python" so that it doesn't interfere with the build
 # machine's python
