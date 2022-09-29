@@ -55,7 +55,7 @@ WIRELESS_MAKEVARS := \
 
 $(STATEDIR)/wireless.install:
 	@$(call targetinfo)
-	@$(call install, WIRELESS,,install-hdr)
+	@$(call world/install, WIRELESS)
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
