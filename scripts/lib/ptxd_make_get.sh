@@ -122,7 +122,7 @@ export -f ptxd_make_get_http
 ptxd_make_get_git() {
 	set -- "${opts[@]}"
 	unset opts
-	local tag
+	local tag archive_args
 	local mirror="${url#[a-z]*//}"
 	mirror="$(dirname "${path}")/${mirror//\//.}"
 	local prefix="$(basename "${path}")"
@@ -130,6 +130,9 @@ ptxd_make_get_git() {
 
 	case "${path}" in
 	*.tar.gz|*.tar.bz2|*.tar.xz|*.zip)
+		;;
+	*.crate)
+		archive_args="--format=tar.gz"
 		;;
 	*)
 		ptxd_bailout "Only .tar.gz, .tar.bz2, .tar.xz and .zip archives are supported for git downloads."
@@ -187,7 +190,7 @@ ptxd_make_get_git() {
 		ptxd_bailout "git: tag '${tag}' not found in '${url}'"
 	fi &&
 
-	git --git-dir="${mirror}" archive --prefix="${prefix}" -o "${path}" "${tag}"
+	git --git-dir="${mirror}" archive ${archive_args} --prefix="${prefix}" -o "${path}" "${tag}"
 	ptxd_make_serialize_put
 }
 export -f ptxd_make_get_git
@@ -426,7 +429,8 @@ ptxd_make_get() {
 			echo "local git repository, removing git+file:// prefix from URL"
 			url=${url#git+file://}
 			;&
-		git://*|http://*.git|https://*.git|ssh://*.git)
+		git://*|git+http://*|git+https://*|http://*.git|https://*.git|ssh://*.git)
+			url=${url#git+}
 			ptxd_make_get_download_permitted &&
 			ptxd_make_get_git && return
 			;;
