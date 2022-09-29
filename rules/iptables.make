@@ -56,7 +56,7 @@ IPTABLES_CONF_OPT	:= \
 
 $(STATEDIR)/iptables.install:
 	@$(call targetinfo)
-	@$(call install, IPTABLES)
+	@$(call world/install, IPTABLES)
 	install $(IPTABLES_DIR)/iptables/iptables-apply $(IPTABLES_PKGDIR)/usr/sbin
 	@$(touch)
 

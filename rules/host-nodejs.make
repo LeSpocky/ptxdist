@@ -42,7 +42,7 @@ HOST_NODEJS_CONF_OPT	:= \
 
 $(STATEDIR)/host-nodejs.install:
 	@$(call targetinfo)
-	@$(call install, HOST_NODEJS)
+	@$(call world/install, HOST_NODEJS)
 
 #	# Needed to cross-compile for target.
 	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/bytecode_builtins_list_generator $(HOST_NODEJS_PKGDIR)/bin/

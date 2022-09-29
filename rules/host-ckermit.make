@@ -44,7 +44,7 @@ HOST_CKERMIT_INSTALL_OPT := \
 
 $(STATEDIR)/host-ckermit.install:
 	@$(call targetinfo)
-	@$(call install, HOST_CKERMIT)
+	@$(call world/install, HOST_CKERMIT)
 	@ln -sf kermit $(HOST_CKERMIT_PKGDIR)/bin/ckermit
 	@install -m755 $(HOST_CKERMIT_DIR)/wart $(HOST_CKERMIT_PKGDIR)/bin/
 	@$(call touch)

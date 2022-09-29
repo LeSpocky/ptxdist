@@ -92,7 +92,7 @@ $(STATEDIR)/python3.install:
 #	# remove unneeded stuff
 	@find $(PYTHON3_DIR) \( -name test -o -name tests \) -print0 | xargs -0 rm -vrf
 
-	@$(call install, PYTHON3)
+	@$(call world/install, PYTHON3)
 
 	@rm -vrf $(PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/config-$(PYTHON3_MAJORMINOR)*
 	@$(call world/env, PYTHON3) ptxd_make_world_install_python_cleanup
