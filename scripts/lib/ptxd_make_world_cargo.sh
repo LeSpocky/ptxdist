@@ -12,12 +12,16 @@ BEGIN {
     FS=" = "
     name=""
     version=""
+    url=""
+    source=""
 }
 function dump() {
-    if (name && version)
-	print name, version
+    if (name && version && source)
+	print name, version, url
     name=""
     version=""
+    url=""
+    source=""
 }
 /[[package]]/ {
     dump()
@@ -28,6 +32,15 @@ $1 == "name" {
 $1 == "version" {
     version=substr($2, 2, length($2)-2)
 }
+
+$1 == "source" {
+    source=$2
+}
+
+/^source = "git\+http/ {
+    url=gensub(/source = "(git\+http[s]?:\/\/[^\?]*)(\?.*)?#(.*)"/, "\\1;tag=\\3", 1, $0)
+}
+
 END {
     dump()
 }
@@ -36,11 +49,13 @@ END {
 export -f ptxd_make_world_cargo_sync_parse
 
 ptxd_make_world_cargo_sync_package() {
-    local url="https://crates.io/api/v1/crates/${package}/${version}/download"
     local path="${PTXDIST_SRCDIR}/${package}-${version}.crate"
     local PACKAGE="$(tr '[a-z]' '[A-Z]' <<< "${package}-${version}" | tr -sc '[:alnum:]' '_')"
     PACKAGE="${PACKAGE%_}"
 
+    if [ -z "${url}" ]; then
+	url="https://crates.io/api/v1/crates/${package}/${version}/download"
+    fi
     echo "Processing ${package} ${version} ..."
     if [ ! -e "${path}" ]; then
 	echo "Downloading ${url} ..."
@@ -91,7 +106,7 @@ ${PKG}_CONF_OPT += cargo-lock-md5 $1
 EOF
 
     exec {cargofd}< <(ptxd_make_world_cargo_sync_parse) &&
-    while read package version <&${cargofd}; do
+    while read package version url <&${cargofd}; do
 	if [ "${package}" = "${pkg_label}" ]; then
 	    continue
 	fi
@@ -109,3 +124,5 @@ EOF
     exec {makefilefd}<&-
 }
 export -f ptxd_make_world_cargo_sync
+
+# vim: syntax=bash
