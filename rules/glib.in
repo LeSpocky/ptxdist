@@ -10,8 +10,8 @@ menuconfig GLIB
 	select LIBFFI
 	select LIBPCRE
 	select LIBPCRE_ENABLE_UTF8
-	select UTIL_LINUX_NG		if GLIB_LIBMOUNT
-	select UTIL_LINUX_NG_LIBMOUNT	if GLIB_LIBMOUNT
+	select UTIL_LINUX		if GLIB_LIBMOUNT
+	select UTIL_LINUX_LIBMOUNT	if GLIB_LIBMOUNT
 	select ZLIB
 	help
 	  GLib is a library containing many useful C routines for things

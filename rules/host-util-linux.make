@@ -9,12 +9,12 @@
 #
 # We provide this package
 #
-HOST_PACKAGES-$(PTXCONF_HOST_UTIL_LINUX_NG) += host-util-linux-ng
+HOST_PACKAGES-$(PTXCONF_HOST_UTIL_LINUX) += host-util-linux
 
 #
 # Paths and names
 #
-HOST_UTIL_LINUX_NG_DIR	= $(HOST_BUILDDIR)/$(UTIL_LINUX_NG)
+HOST_UTIL_LINUX_DIR	= $(HOST_BUILDDIR)/$(UTIL_LINUX)
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -24,8 +24,8 @@ HOST_UTIL_LINUX_NG_DIR	= $(HOST_BUILDDIR)/$(UTIL_LINUX_NG)
 # autoconf
 #
 
-HOST_UTIL_LINUX_NG_CONF_TOOL	:= autoconf
-HOST_UTIL_LINUX_NG_CONF_OPT	:= \
+HOST_UTIL_LINUX_CONF_TOOL	:= autoconf
+HOST_UTIL_LINUX_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-werror \
 	--disable-asan \

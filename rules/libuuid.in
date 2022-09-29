@@ -3,12 +3,12 @@
 config LIBUUID
 	tristate
 	select VIRTUAL
-	select UTIL_LINUX_NG
-	select UTIL_LINUX_NG_LIBUUID
+	select UTIL_LINUX
+	select UTIL_LINUX_LIBUUID
 	help
 	  Helper to select the target packet containing a recent libuuid.so
 	  library and its header.
 
 	  The following packages provide libuuid:
-	  - e2fsprogs      (older version)
-	  - utils-linux-ng (more recent version)
+	  - e2fsprogs   (older version)
+	  - utils-linux (more recent version)

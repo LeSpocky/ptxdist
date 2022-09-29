@@ -17,8 +17,8 @@ menuconfig SYSTEMD
 	select LIBCAP
 	select LIBKMOD
 	select LIBKMOD_TOOLS
-	select UTIL_LINUX_NG
-	select UTIL_LINUX_NG_LIBMOUNT
+	select UTIL_LINUX
+	select UTIL_LINUX_LIBMOUNT
 	select MACHINE_ID	if RUNTIME
 	select XZ		if SYSTEMD_XZ
 	select LZ4		if SYSTEMD_LZ4

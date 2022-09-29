@@ -453,3 +453,10 @@ s/^\(\(# \)\?PTXCONF_LIBTHEORA_\)_/\1/
 # reason : upstream lighttpd module mod_compress was replaced by mod_deflate
 #
 s/^\(\(# \)\?PTXCONF_LIGHTTPD_MOD_\)COMPRESS\>/\1DEFLATE/
+
+# from   : ptxdist-2022.10.0
+# to     : ptxdist-2022.11.0
+# symbol : UTIL_LINUX_NG* -> UTIL_LINUX*
+# reason : upstream util-linux-ng fork was renamed back to util-linux over a decade ago
+#
+s/^\(\(# \)\?PTXCONF_UTIL_LINUX\)_NG/\1/

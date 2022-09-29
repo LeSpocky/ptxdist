@@ -16,9 +16,9 @@ menuconfig OWFS
 	select FUSE_LIB			if OWFS_OWFS
 	depends on !BUSYBOX_MOUNT || ALLYES
 	depends on !BUSYBOX_UMOUNT || ALLYES
-	select UTIL_LINUX_NG		if OWFS_OWFS
-	select UTIL_LINUX_NG_MOUNT	if OWFS_OWFS
-	select UTIL_LINUX_NG_UMOUNT	if OWFS_OWFS
+	select UTIL_LINUX		if OWFS_OWFS
+	select UTIL_LINUX_MOUNT		if OWFS_OWFS
+	select UTIL_LINUX_UMOUNT	if OWFS_OWFS
 	help
 	  OWFS is the 1-Wire file system. It is used by Dallas 1-Wire and iButton
 	  chips with standard linux commands. Create temperature loggers. Monitor

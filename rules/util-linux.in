@@ -1,81 +1,81 @@
 ## SECTION=shell_and_console
-menuconfig UTIL_LINUX_NG
+menuconfig UTIL_LINUX
 
 	tristate
 	prompt "util-linux                    "
 	select GCCLIBS_GCC_S
-	select UTIL_LINUX_NG_LIBBLKID
-	select UTIL_LINUX_NG_LIBUUID		if UTIL_LINUX_NG_MKSWAP_UUID
-	select NCURSES				if UTIL_LINUX_NG_USES_NCURSES
-	select PAM				if UTIL_LINUX_NG_USES_PAM
+	select UTIL_LINUX_LIBBLKID
+	select UTIL_LINUX_LIBUUID		if UTIL_LINUX_MKSWAP_UUID
+	select NCURSES				if UTIL_LINUX_USES_NCURSES
+	select PAM				if UTIL_LINUX_USES_PAM
 
-if UTIL_LINUX_NG
+if UTIL_LINUX
 
-config UTIL_LINUX_NG_LIBBLKID
+config UTIL_LINUX_LIBBLKID
 	bool
 
-config UTIL_LINUX_NG_LIBUUID
+config UTIL_LINUX_LIBUUID
 	bool
 
-config UTIL_LINUX_NG_LIBMOUNT
+config UTIL_LINUX_LIBMOUNT
 	bool
 
-config UTIL_LINUX_NG_LIBSMARTCOLS
+config UTIL_LINUX_LIBSMARTCOLS
 	bool
 
-config UTIL_LINUX_NG_LIBFDISK
-	select UTIL_LINUX_NG_LIBUUID
+config UTIL_LINUX_LIBFDISK
+	select UTIL_LINUX_LIBUUID
 	bool
 
-config UTIL_LINUX_NG_FDISKS
+config UTIL_LINUX_FDISKS
 	bool
 
-config UTIL_LINUX_NG_USES_NCURSES
+config UTIL_LINUX_USES_NCURSES
 	bool
 
-config UTIL_LINUX_NG_USES_PAM
+config UTIL_LINUX_USES_PAM
 	bool
 
-config UTIL_LINUX_NG_PARTX_TOOLS
-	select UTIL_LINUX_NG_LIBBLKID
-	select UTIL_LINUX_NG_LIBSMARTCOLS
+config UTIL_LINUX_PARTX_TOOLS
+	select UTIL_LINUX_LIBBLKID
+	select UTIL_LINUX_LIBSMARTCOLS
 	bool
 
-config UTIL_LINUX_NG_SCHEDUTILS
+config UTIL_LINUX_SCHEDUTILS
 	bool
 
 comment "disk-utils"
 
-config UTIL_LINUX_NG_ADDPART
+config UTIL_LINUX_ADDPART
 	bool
-	select UTIL_LINUX_NG_PARTX_TOOLS
+	select UTIL_LINUX_PARTX_TOOLS
 	prompt "addpart"
 	help
 	  The addpart utility.
 
-config UTIL_LINUX_NG_CFDISK
+config UTIL_LINUX_CFDISK
 	bool
-	select UTIL_LINUX_NG_LIBFDISK
-	select UTIL_LINUX_NG_LIBSMARTCOLS
-	select UTIL_LINUX_NG_FDISKS
-	select UTIL_LINUX_NG_USES_NCURSES
+	select UTIL_LINUX_LIBFDISK
+	select UTIL_LINUX_LIBSMARTCOLS
+	select UTIL_LINUX_FDISKS
+	select UTIL_LINUX_USES_NCURSES
 	prompt "cfdisk"
 	help
 	  cfdisk is a curses based program for partitioning any hard disk drive.
 
-config UTIL_LINUX_NG_DELPART
+config UTIL_LINUX_DELPART
 	bool
-	select UTIL_LINUX_NG_PARTX_TOOLS
+	select UTIL_LINUX_PARTX_TOOLS
 	prompt "delpart"
 	help
 	  The delpart utility.
 
-config UTIL_LINUX_NG_FDISK
+config UTIL_LINUX_FDISK
 	bool
 	prompt "fdisk"
-	select UTIL_LINUX_NG_LIBFDISK
-	select UTIL_LINUX_NG_LIBSMARTCOLS
-	select UTIL_LINUX_NG_FDISKS
+	select UTIL_LINUX_LIBFDISK
+	select UTIL_LINUX_LIBSMARTCOLS
+	select UTIL_LINUX_FDISKS
 	depends on !BUSYBOX_FDISK || ALLYES
 	help
 	  fdisk - Partition table manipulator for Linux
@@ -83,10 +83,10 @@ config UTIL_LINUX_NG_FDISK
 comment "BusyBox' fdisk is selected!"
 	depends on BUSYBOX_FDISK
 
-config UTIL_LINUX_NG_FSCK
+config UTIL_LINUX_FSCK
 	bool
 	prompt "fsck"
-	select UTIL_LINUX_NG_LIBMOUNT
+	select UTIL_LINUX_LIBMOUNT
 	depends on !BUSYBOX_FSCK || ALLYES
 	help
 	  fsck  is  used  to  check and optionally repair one or
@@ -97,52 +97,52 @@ config UTIL_LINUX_NG_FSCK
 comment "BusyBox' fsck is selected!"
 	depends on BUSYBOX_FSCK
 
-config UTIL_LINUX_NG_MKFS
+config UTIL_LINUX_MKFS
 	bool
 	prompt "mkfs"
 	help
 	  The mkfs command is a generic wrapper for fs specific
 	  mkfs.* commands.
 
-config UTIL_LINUX_NG_MKSWAP
+config UTIL_LINUX_MKSWAP
 	bool
 	prompt "mkswap"
 	depends on !BUSYBOX_MKSWAP || ALLYES
 	help
 	  mkswap sets up a Linux swap area on a device or in a file.
 
-config UTIL_LINUX_NG_MKSWAP_UUID
+config UTIL_LINUX_MKSWAP_UUID
 	bool
 	prompt "enable uuid support for mkswap"
-	depends on UTIL_LINUX_NG_MKSWAP
+	depends on UTIL_LINUX_MKSWAP
 	help
 	  enable uuid support for mkswap
 
 comment "BusyBox' mkswap is selected!"
 	depends on BUSYBOX_MKSWAP
 
-config UTIL_LINUX_NG_PARTX
+config UTIL_LINUX_PARTX
 	bool
-	select UTIL_LINUX_NG_PARTX_TOOLS
+	select UTIL_LINUX_PARTX_TOOLS
 	prompt "partx"
 	help
 	  The partx utility.
 
-config UTIL_LINUX_NG_SFDISK
+config UTIL_LINUX_SFDISK
 	bool
 	prompt "sfdisk"
-	select UTIL_LINUX_NG_LIBFDISK
-	select UTIL_LINUX_NG_LIBSMARTCOLS
-	select UTIL_LINUX_NG_FDISKS
+	select UTIL_LINUX_LIBFDISK
+	select UTIL_LINUX_LIBSMARTCOLS
+	select UTIL_LINUX_FDISKS
 	help
 	  sfdisk - Partition table manipulator for Linux,
 	  scriptable for unattended partitioning
 
 comment "login-utils"
 
-config UTIL_LINUX_NG_LOGIN
+config UTIL_LINUX_LOGIN
 	bool
-	select UTIL_LINUX_NG_USES_PAM
+	select UTIL_LINUX_USES_PAM
 	depends on GLOBAL_PAM && ((!BUSYBOX_LOGIN && !SHADOW) || ALLYES)
 	prompt "login"
 	help
@@ -155,7 +155,7 @@ comment "BusyBox' login is selected!"
 comment "Shadow package is selected!"
 	depends on SHADOW
 
-config UTIL_LINUX_NG_SULOGIN
+config UTIL_LINUX_SULOGIN
 	bool
 	depends on !BUSYBOX_SULOGIN || ALLYES
 	prompt "sulogin"
@@ -168,9 +168,9 @@ comment "BusyBox' sulogin is selected!"
 
 comment "misc-utils"
 
-config UTIL_LINUX_NG_BLKID
+config UTIL_LINUX_BLKID
 	bool
-	select UTIL_LINUX_NG_LIBBLKID
+	select UTIL_LINUX_LIBBLKID
 	depends on !BUSYBOX_BLKID || ALLYES
 	prompt "blkid"
 	help
@@ -182,9 +182,9 @@ config UTIL_LINUX_NG_BLKID
 comment "BusyBox' blkid is selected!"
 	depends on BUSYBOX_BLKID
 
-config UTIL_LINUX_NG_FINDFS
+config UTIL_LINUX_FINDFS
 	bool
-	select UTIL_LINUX_NG_LIBBLKID
+	select UTIL_LINUX_LIBBLKID
 	depends on !BUSYBOX_FINDFS || ALLYES
 	prompt "findfs"
 	help
@@ -194,7 +194,7 @@ config UTIL_LINUX_NG_FINDFS
 comment "BusyBox' findfs is selected!"
 	depends on BUSYBOX_FINDFS
 
-config UTIL_LINUX_NG_GETOPT
+config UTIL_LINUX_GETOPT
 	bool
 	prompt "getopt"
 	depends on !BUSYBOX_GETOPT || ALLYES
@@ -206,26 +206,26 @@ config UTIL_LINUX_NG_GETOPT
 comment "BusyBox' getopt is selected!"
 	depends on BUSYBOX_GETOPT
 
-config UTIL_LINUX_NG_LSBLK
+config UTIL_LINUX_LSBLK
 	bool
-	select UTIL_LINUX_NG_LIBBLKID
-	select UTIL_LINUX_NG_LIBMOUNT
-	select UTIL_LINUX_NG_LIBSMARTCOLS
+	select UTIL_LINUX_LIBBLKID
+	select UTIL_LINUX_LIBMOUNT
+	select UTIL_LINUX_LIBSMARTCOLS
 	prompt "lsblk"
 	help
 	  The lsblk command lists information about all available or the
 	  specified block devices.
 
-config UTIL_LINUX_NG_MCOOKIE
+config UTIL_LINUX_MCOOKIE
 	bool
 	prompt "mcookie"
 	help
 	  mcookie generates a 128-bit random hexadecimal number for
 	  use with the X authority system.
 
-config UTIL_LINUX_NG_UUIDD
+config UTIL_LINUX_UUIDD
 	bool
-	select UTIL_LINUX_NG_LIBUUID
+	select UTIL_LINUX_LIBUUID
 	prompt "uuidd"
 	help
 	  The  uuidd  daemon  is  used by the UUID library to generate
@@ -233,16 +233,16 @@ config UTIL_LINUX_NG_UUIDD
 	  in a secure and guaranteed- unique fashion, even in the face of large
 	  numbers of threads running on different CPUs trying to grab UUIDs.
 
-config UTIL_LINUX_NG_UUIDGEN
+config UTIL_LINUX_UUIDGEN
 	bool
-	select UTIL_LINUX_NG_LIBUUID
+	select UTIL_LINUX_LIBUUID
 	prompt "uuidgen"
 	help
 	  uuidgen is a command-line utility to create a new UUID value.
 
-config UTIL_LINUX_NG_WIPEFS
+config UTIL_LINUX_WIPEFS
 	bool
-	select UTIL_LINUX_NG_LIBBLKID
+	select UTIL_LINUX_LIBBLKID
 	prompt "wipefs"
 	help
 	  The wipefs program can erase filesystem, raid or partition-table
@@ -250,10 +250,10 @@ config UTIL_LINUX_NG_WIPEFS
 
 comment "schedutils"
 
-config UTIL_LINUX_NG_CHRT
+config UTIL_LINUX_CHRT
 	bool
 	prompt "chrt"
-	select UTIL_LINUX_NG_SCHEDUTILS
+	select UTIL_LINUX_SCHEDUTILS
 	depends on !BUSYBOX_CHRT || ALLYES
 	help
 	  chrt manipulates the real-time attributes of a process.
@@ -261,17 +261,17 @@ config UTIL_LINUX_NG_CHRT
 comment "BusyBox' chrt is selected!"
 	depends on BUSYBOX_CHRT
 
-config UTIL_LINUX_NG_IONICE
+config UTIL_LINUX_IONICE
 	bool
 	prompt "ionice"
-	select UTIL_LINUX_NG_SCHEDUTILS
+	select UTIL_LINUX_SCHEDUTILS
 	help
 	  ionice gets/sets the program io scheduling class and priority.
 
-config UTIL_LINUX_NG_TASKSET
+config UTIL_LINUX_TASKSET
 	bool
 	prompt "taskset"
-	select UTIL_LINUX_NG_SCHEDUTILS
+	select UTIL_LINUX_SCHEDUTILS
 	depends on !BUSYBOX_TASKSET || ALLYES
 	help
 	  taskset retrieves or sets a process's CPU affinity.
@@ -281,14 +281,14 @@ comment "BusyBox' taskset is selected!"
 
 comment "sys-utils"
 
-config UTIL_LINUX_NG_CHMEM
+config UTIL_LINUX_CHMEM
 	bool
 	prompt "chmem"
 	help
 	  The chmem command sets a particular size or range of
 	  memory online or offline.
 
-config UTIL_LINUX_NG_DMESG
+config UTIL_LINUX_DMESG
 	bool
 	depends on !BUSYBOX_DMESG || ALLYES
 	prompt "dmesg"
@@ -298,7 +298,7 @@ config UTIL_LINUX_NG_DMESG
 comment "BusyBox' dmesg is selected!"
 	depends on BUSYBOX_DMESG
 
-config UTIL_LINUX_NG_FLOCK
+config UTIL_LINUX_FLOCK
 	bool
 	prompt "flock"
 	depends on !BUSYBOX_FLOCK || ALLYES
@@ -309,7 +309,7 @@ config UTIL_LINUX_NG_FLOCK
 comment "BusyBox' flock is selected!"
 	depends on BUSYBOX_FLOCK
 
-config UTIL_LINUX_NG_FSFREEZE
+config UTIL_LINUX_FSFREEZE
 	bool
 	prompt "fsfreeze"
 	depends on !BUSYBOX_FSFREEZE || ALLYES
@@ -319,7 +319,7 @@ config UTIL_LINUX_NG_FSFREEZE
 comment "BusyBox' fsfreeze is selected!"
 	depends on BUSYBOX_FSFREEZE
 
-config UTIL_LINUX_NG_FSTRIM
+config UTIL_LINUX_FSTRIM
 	bool
 	prompt "fstrim"
 	depends on !BUSYBOX_FSTRIM || ALLYES
@@ -331,7 +331,7 @@ config UTIL_LINUX_NG_FSTRIM
 comment "BusyBox' fstrim is selected!"
 	depends on BUSYBOX_FSTRIM
 
-config UTIL_LINUX_NG_HWCLOCK
+config UTIL_LINUX_HWCLOCK
 	bool
 	prompt "hwclock"
 	depends on !BUSYBOX_HWCLOCK || ALLYES
@@ -344,7 +344,7 @@ config UTIL_LINUX_NG_HWCLOCK
 comment "BusyBox' hwclock is selected!"
 	depends on BUSYBOX_HWCLOCK
 
-config UTIL_LINUX_NG_IPCRM
+config UTIL_LINUX_IPCRM
 	bool
 	prompt "ipcrm"
 	depends on !BUSYBOX_IPCRM || ALLYES
@@ -355,7 +355,7 @@ config UTIL_LINUX_NG_IPCRM
 comment "BusyBox' ipcrm is selected!"
 	depends on BUSYBOX_IPCRM
 
-config UTIL_LINUX_NG_IPCS
+config UTIL_LINUX_IPCS
 	bool
 	prompt "ipcs"
 	depends on !BUSYBOX_IPCS || ALLYES
@@ -366,24 +366,24 @@ config UTIL_LINUX_NG_IPCS
 comment "BusyBox' ipcs is selected!"
 	depends on BUSYBOX_IPCS
 
-config UTIL_LINUX_NG_IRQTOP
+config UTIL_LINUX_IRQTOP
 	bool
-	select UTIL_LINUX_NG_USES_NCURSES
+	select UTIL_LINUX_USES_NCURSES
 	prompt "irqtop"
 	help
 	  irqtop is a tool to observe irqs and softirqs in
 	  a top like fashion.
 
-config UTIL_LINUX_NG_LDATTACH
+config UTIL_LINUX_LDATTACH
 	bool
 	prompt "ldattach"
 	help
 	  attach a line discipline to a serial line
 
-config UTIL_LINUX_NG_LOSETUP
+config UTIL_LINUX_LOSETUP
 	bool
 	prompt "losetup"
-	select UTIL_LINUX_NG_LIBSMARTCOLS
+	select UTIL_LINUX_LIBSMARTCOLS
 	depends on !BUSYBOX_LOSETUP || ALLYES
 	help
 	  losetup is used to associate or detach a loop device with a regular
@@ -392,30 +392,30 @@ config UTIL_LINUX_NG_LOSETUP
 comment "BusyBox' losetup is selected!"
 	depends on BUSYBOX_LOSETUP
 
-config UTIL_LINUX_NG_LSCPU
+config UTIL_LINUX_LSCPU
 	bool
-	select UTIL_LINUX_NG_LIBSMARTCOLS
+	select UTIL_LINUX_LIBSMARTCOLS
 	prompt "lscpu"
 	help
 	  lscpu shows information about the CPU architecture
 
-config UTIL_LINUX_NG_LSIRQ
+config UTIL_LINUX_LSIRQ
 	bool
 	prompt "lsirq"
 	help
 	  lsirq is a tool to list kernel interrupt information.
 
-config UTIL_LINUX_NG_LSMEM
+config UTIL_LINUX_LSMEM
 	bool
 	prompt "lsmem"
 	help
 	  The lsmem command lists the ranges of available memory and
 	  it's online status.
 
-config UTIL_LINUX_NG_MOUNT
+config UTIL_LINUX_MOUNT
 	bool
 	prompt "mount"
-	select UTIL_LINUX_NG_LIBMOUNT
+	select UTIL_LINUX_LIBMOUNT
 	depends on !BUSYBOX_MOUNT || ALLYES
 	help
 	  The mount command serves to attach the file system
@@ -424,9 +424,9 @@ config UTIL_LINUX_NG_MOUNT
 comment "BusyBox' mount is selected!"
 	depends on BUSYBOX_MOUNT
 
-config UTIL_LINUX_NG_MOUNTPOINT
+config UTIL_LINUX_MOUNTPOINT
 	bool
-	select UTIL_LINUX_NG_LIBMOUNT
+	select UTIL_LINUX_LIBMOUNT
 	depends on !BUSYBOX_MOUNTPOINT || ALLYES
 	prompt "mountpoint"
 	help
@@ -435,13 +435,13 @@ config UTIL_LINUX_NG_MOUNTPOINT
 comment "BusyBox' mountpoint is selected!"
 	depends on BUSYBOX_MOUNTPOINT
 
-config UTIL_LINUX_NG_NSENTER
+config UTIL_LINUX_NSENTER
 	bool
 	prompt "nsenter"
 	help
 	  The nsenter utility
 
-config UTIL_LINUX_NG_PIVOT_ROOT
+config UTIL_LINUX_PIVOT_ROOT
 	bool
 	depends on !BUSYBOX_PIVOT_ROOT
 	prompt "pivot_root"
@@ -451,7 +451,7 @@ config UTIL_LINUX_NG_PIVOT_ROOT
 comment "BusyBox' pivot_root is selected!"
 	depends on BUSYBOX_PIVOT_ROOT
 
-config UTIL_LINUX_NG_READPROFILE
+config UTIL_LINUX_READPROFILE
 	bool
 	prompt "readprofile"
 	depends on !BUSYBOX_READPROFILE || ALLYES
@@ -468,12 +468,12 @@ config UTIL_LINUX_NG_READPROFILE
 comment "BusyBox' readprofile is selected!"
 	depends on BUSYBOX_READPROFILE
 
-config UTIL_LINUX_NG_SWAPON
+config UTIL_LINUX_SWAPON
 	bool
 	prompt "swapon"
-	select UTIL_LINUX_NG_LIBBLKID
-	select UTIL_LINUX_NG_LIBMOUNT
-	select UTIL_LINUX_NG_LIBSMARTCOLS
+	select UTIL_LINUX_LIBBLKID
+	select UTIL_LINUX_LIBMOUNT
+	select UTIL_LINUX_LIBSMARTCOLS
 	depends on !BUSYBOX_SWAPON || ALLYES
 	help
 	  Swapon is used to specify devices on which paging and swapping are to take place.
@@ -481,7 +481,7 @@ config UTIL_LINUX_NG_SWAPON
 comment "BusyBox' swapon is selected!"
 	depends on BUSYBOX_SWAPON
 
-config UTIL_LINUX_NG_SWITCH_ROOT
+config UTIL_LINUX_SWITCH_ROOT
 	bool
 	depends on !BUSYBOX_SWITCH_ROOT
 	prompt "switch_root"
@@ -492,10 +492,10 @@ config UTIL_LINUX_NG_SWITCH_ROOT
 comment "BusyBox' switch_root is selected!"
 	depends on BUSYBOX_SWITCH_ROOT
 
-config UTIL_LINUX_NG_UMOUNT
+config UTIL_LINUX_UMOUNT
 	bool
 	prompt "umount"
-	select UTIL_LINUX_NG_MOUNT
+	select UTIL_LINUX_MOUNT
 	depends on !BUSYBOX_MOUNT || ALLYES
 	depends on !BUSYBOX_UMOUNT || ALLYES
 	help
@@ -506,13 +506,13 @@ config UTIL_LINUX_NG_UMOUNT
 comment "BusyBox' umount is selected!"
 	depends on BUSYBOX_UMOUNT
 
-config UTIL_LINUX_NG_WDCTL
+config UTIL_LINUX_WDCTL
 	bool
 	prompt "wdctl"
 	help
 	  wdctl - Utility to show hardware watchdog status.
 
-config UTIL_LINUX_NG_ZRAMCTL
+config UTIL_LINUX_ZRAMCTL
 	bool
 	prompt "zramctl"
 	help
@@ -520,15 +520,15 @@ config UTIL_LINUX_NG_ZRAMCTL
 
 comment "term-utils"
 
-config UTIL_LINUX_NG_AGETTY
+config UTIL_LINUX_AGETTY
 	bool
 	prompt "agetty"
 	help
 	  A small getty.
 
-config UTIL_LINUX_NG_SETTERM
+config UTIL_LINUX_SETTERM
 	bool
-	select UTIL_LINUX_NG_USES_NCURSES
+	select UTIL_LINUX_USES_NCURSES
 	prompt "setterm"
 	help
 	  setterm - set terminal attributes like terminal name, cursor
@@ -536,14 +536,14 @@ config UTIL_LINUX_NG_SETTERM
 
 comment "text-utils"
 
-config UTIL_LINUX_NG_COLUMN
+config UTIL_LINUX_COLUMN
 	bool
-	select UTIL_LINUX_NG_LIBSMARTCOLS
+	select UTIL_LINUX_LIBSMARTCOLS
 	prompt "column"
 	help
 	  Columnate lists.
 
-config UTIL_LINUX_NG_LINE
+config UTIL_LINUX_LINE
 	bool
 	prompt "line"
 	help
