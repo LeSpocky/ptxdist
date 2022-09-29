@@ -13,10 +13,6 @@
 ptxd_make_world_init_deprecation_check() {
     local -a dep
     dep=(
-	pkg_deprecated_install_builddir
-	pkg_deprecated_install_hosttool
-	pkg_deprecated_install_opt
-
 	pkg_deprecated_builddir
 	pkg_deprecated_env
 	pkg_deprecated_autoconf
@@ -51,13 +47,10 @@ ptxd_make_world_init_compat() {
     fi
 
     # build_dir
-    if [ -n "${pkg_deprecated_install_builddir}" -a -n "${pkg_deprecated_builddir}" -a \
-	"${pkg_deprecated_install_builddir}" != "${pkg_deprecated_builddir}" -o \
-	-n "${pkg_build_dir}" -a -n "${pkg_deprecated_builddir}" -a \
+    if [ -n "${pkg_build_dir}" -a -n "${pkg_deprecated_builddir}" -a \
 	"${pkg_build_dir}" != "${pkg_deprecated_builddir}" ]; then
 	ptxd_bailout "${FUNCNAME}: build dir inconsistency detected!"
     fi
-    pkg_build_dir="${pkg_deprecated_install_builddir}"
     pkg_build_dir="${pkg_build_dir:-${pkg_deprecated_builddir}}"
 
 
@@ -105,9 +98,11 @@ ptxd_make_world_init_compat() {
 	if [ -n "${pkg_make_opt}" ]; then
 	    ptxd_bailout "${FUNCNAME}: <PKG>_MAKEVARS is incompatible with <PKG>_MAKE_OPT"
 	fi
+	if [ -n "${pkg_install_opt}" ]; then
+	    ptxd_bailout "${FUNCNAME}: <PKG>_MAKEVARS is incompatible with <PKG>_INSTALL_OPT"
+	fi
 	pkg_make_opt="${pkg_deprecated_makevars}"
     fi
-
 
     # install_opt
     if [[ -z "${pkg_install_opt}" && "${pkg_conf_tool}" =~ "python" ]]; then
@@ -119,14 +114,8 @@ ptxd_make_world_init_compat() {
 
 	# deprecared_makevars
 	pkg_install_opt="${pkg_install_opt}${pkg_deprecated_makevars:+ }${pkg_deprecated_makevars}"
-
-	# deprecared_install_opt
-	pkg_install_opt="${pkg_install_opt}${pkg_deprecated_install_opt:+ }${pkg_deprecated_install_opt}"
-    else
-	if [ -n "${pkg_deprecated_makevars}" -o -n "${pkg_deprecated_install_opt}" ]; then
-	    ptxd_bailout "${FUNCNAME}: <PKG>_MAKEVARS is incompatible with <PKG>_INSTALL_OPT"
-	fi
     fi
+
 
     #
     # pkg_binconfig_glob

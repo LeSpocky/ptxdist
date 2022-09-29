@@ -34,19 +34,7 @@ world/install.post = \
 	$(call world/env, $1) \
 	ptxd_make_world_install_post
 
-#
-# Perform standard install actions
-#
-# $1: label of the packet
-# $2: optional: alternative directory
-# $3: optional: "h" = install as a host tool
-# $4: optional: args to pass to make install call
-#
-install = \
-	pkg_deprecated_install_builddir="$(call ptx/escape, $(2))" \
-	pkg_deprecated_install_hosttool="$(call ptx/escape, $(3))" \
-	pkg_deprecated_install_opt="$(call ptx/escape, $(4))" \
-	$(call world/install, $(1))
+install = ptxd_bailout "install is gone, use world/install instead"
 
 $(STATEDIR)/%.install:
 	@$(call targetinfo)
