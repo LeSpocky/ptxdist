@@ -72,7 +72,26 @@ while getopts "aft:n" opt; do
 done
 shift $((${OPTIND} - 1))
 
-tag2=$(grep "#tag:" .ptxdist/series | awk "/#tag:${tag} /{if (getline) print \$1}" | sed 's,#tag:,,')
+tag2=$(awk -F "[ :]" "
+/^#tag:/ {
+	if (state == 1) {
+		print \$2
+		state=2
+	}
+}
+/^#tag:${tag}( |\$)/ {
+	state=1
+}
+END {
+	if (!state)
+		exit 1
+}" < .ptxdist/series)
+
+if [ $? -ne 0 ]; then
+	echo "Failed to find tag '${tag}' in the series"
+	exit 1
+fi
+
 range="${tag}..${tag2}"
 
 if "${all_tags}" ; then
