@@ -57,6 +57,8 @@ ptx/env = \
 	ptx_make_opt_cargo_target="$(call ptx/escape,$(CROSS_CARGO_OPT))"	\
 	ptx_make_env_cargo_target="$(call ptx/escape,$(CROSS_CARGO_ENV))"	\
 										\
+	ptx_make_opt_cargo_host="$(call ptx/escape,$(HOST_CARGO_OPT))"		\
+										\
 	ptx_xpkg_extra_args=$(PTXCONF_IMAGE_XPKG_EXTRA_ARGS)
 
 world/env/impl = \
