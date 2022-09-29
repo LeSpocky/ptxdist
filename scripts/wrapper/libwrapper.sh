@@ -23,7 +23,7 @@ fi
 . ${PTXDIST_PLATFORMCONFIG}
 
 CMD="${0##*/}"
-FULL_CMD="${0%/*}/real/${CMD}"
+FULL_CMD="$(readlink "${0%/*}/real/${CMD}")"
 
 wrapper_exec() {
 	PATH="$(echo "${PATH}" | sed "s;${PTXDIST_PATH_SYSROOT_HOST}/lib/wrapper:;;")"

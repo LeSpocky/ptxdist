@@ -62,7 +62,7 @@ ptxd_lib_setup_host_wrapper() {
 
 	if [ -n "${cc_alternate}" ]; then
 	    ptxd_replace_link "${cc_default}" "${wrapper_dir}/${cc_alternate}" &&
-	    ptxd_replace_link "${cc_default}" "${wrapper_dir}/real/${cc_alternate}"
+	    ptxd_replace_link "${wrapper_dir}/real/${cc_default}" "${wrapper_dir}/real/${cc_alternate}"
 	fi || {
 	    rm -rf "${wrapper_dir}"
 	    ptxd_bailout "unable to create compiler wrapper link"
@@ -203,7 +203,7 @@ ptxd_lib_setup_target_wrapper() {
 	    "${wrapper_dir}/${compiler_prefix}${cc}"
     done &&
     ptxd_replace_link "${compiler_prefix}g++" "${wrapper_dir}/${compiler_prefix}c++" &&
-    ptxd_replace_link "${compiler_prefix}g++" "${wrapper_dir}/real/${compiler_prefix}c++" &&
+    ptxd_replace_link "${wrapper_dir}/real/${compiler_prefix}g++" "${wrapper_dir}/real/${compiler_prefix}c++" &&
     for cc in clang clang++; do
 	if [ ! -e "${toolchain}/${cc}" ]; then
 	    rm -f "${wrapper_dir}/real/${compiler_prefix}${cc}" \
