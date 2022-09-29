@@ -117,7 +117,7 @@ ptxd_template_read_conf_tool() {
 	    export conf_tool="autoconf"
 	else
 		supported=("autoconf" "cmake" "kconfig" "meson" "perl"
-		    "python3" )
+		    "python3" "cargo" )
 	    if [ -z "${AUTOCONF_CLASS}" ]; then
 		supported[${#supported[*]}]="qmake"
 	    fi
@@ -156,6 +156,8 @@ ptxd_template_read_conf_tool() {
 	else
 	    SELECT="HOST_SYSTEM_PYTHON3"
 	fi
+	;;
+    cargo)
 	;;
     esac
     if [ -n "${CONF_OPT}" ]; then
