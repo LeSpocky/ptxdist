@@ -812,6 +812,7 @@ Options:
 
   --debug, -d			print out additional info (like make decisions)
   --quiet, -q			suppress output, show only stderr
+  --silent, -s			alias for --quiet
   --verbose, -v			be more verbose, print command before execute them
   --output-sync			Improve output readability for parallel building.
 				Disabled by default except for quiet builds.
@@ -1148,7 +1149,7 @@ parse_first()
 		--progress)
 			PTXDIST_PROGRESS=1
 			;;
-		-q|--quiet)
+		-q|--quiet|-s|--silent)
 			PTXDIST_QUIET=1
 			;;
 		--git)
