@@ -43,7 +43,7 @@ COG_CONF_OPT	:= \
 	-Dplatforms=wayland \
 	-Dplugin_path=/usr/lib/cog/modules \
 	-Dprograms=true \
-	-Dsoup2=enabled \
+	-Dsoup2=disabled \
 	-Dwayland_weston_content_protection=false \
 	-Dwayland_weston_direct_display=false
 
