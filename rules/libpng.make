@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_LIBPNG) += libpng
 #
 # Paths and names
 #
-LIBPNG_VERSION	:= 1.6.37
-LIBPNG_MD5	:= 015e8e15db1eecde5f2eb9eb5b6e59e9
+LIBPNG_VERSION	:= 1.6.38
+LIBPNG_MD5	:= 122e6b7837811698563083b352bc8ca2
 LIBPNG		:= libpng-$(LIBPNG_VERSION)
 LIBPNG_SUFFIX	:= tar.xz
 LIBPNG_URL	:= $(call ptx/mirror, SF, libpng/$(LIBPNG).$(LIBPNG_SUFFIX))
