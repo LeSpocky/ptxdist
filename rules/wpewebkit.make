@@ -69,7 +69,7 @@ WPEWEBKIT_CONF_OPT	:= \
 	-DUSE_JPEGXL=OFF \
 	-DUSE_LCMS=OFF \
 	-DUSE_OPENJPEG=OFF \
-	-DUSE_SOUP2=ON \
+	-DUSE_SOUP2=OFF \
 	-DUSE_THIN_ARCHIVES=ON \
 	-DUSE_WOFF2=OFF
 
@@ -105,10 +105,10 @@ $(STATEDIR)/wpewebkit.targetinstall:
 	@$(call install_fixup, wpewebkit,AUTHOR,"Steffen Trumtrar <s.trumtrar@pengutronix.de>")
 	@$(call install_fixup, wpewebkit,DESCRIPTION,missing)
 
-	@$(call install_lib, wpewebkit, 0, 0, 0644, libWPEWebKit-1.0)
+	@$(call install_lib, wpewebkit, 0, 0, 0644, libWPEWebKit-1.1)
 
-	@$(call install_tree, wpewebkit, 0, 0, -, /usr/libexec/wpe-webkit-1.0)
-	@$(call install_tree, wpewebkit, 0, 0, -, /usr/lib/wpe-webkit-1.0)
+	@$(call install_tree, wpewebkit, 0, 0, -, /usr/libexec/wpe-webkit-1.1)
+	@$(call install_tree, wpewebkit, 0, 0, -, /usr/lib/wpe-webkit-1.1)
 
 ifdef PTXCONF_WPEWEBKIT_QT
 	@$(call install_tree, wpewebkit, 0, 0, -, /usr/lib/qt5/qml/org/wpewebkit)
