@@ -6,11 +6,8 @@ config LIBSOUP
 	select HOST_GLIB
 	select GLIB
 	select SQLITE
+	select LIBNGHTTP2
 	select LIBPSL
-	select LIBXML2
-	select LIBXML2_OUTPUT
-	select LIBXML2_SAX1
-	select HOST_INTLTOOL
 	select GOBJECT_INTROSPECTION	if LIBSOUP_INTROSPECTION
 	prompt "libsoup"
 	help

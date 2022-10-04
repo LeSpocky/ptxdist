@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBSOUP) += libsoup
 #
 # Paths and names
 #
-LIBSOUP_VERSION	:= 2.72.0
-LIBSOUP_MD5	:= 859380b76b51fb55d720daea3c76c945
+LIBSOUP_VERSION	:= 3.2.0
+LIBSOUP_MD5	:= 34f1f15aa43f974dadf256aef2e89587
 LIBSOUP		:= libsoup-$(LIBSOUP_VERSION)
 LIBSOUP_SUFFIX	:= tar.xz
 LIBSOUP_URL	:= $(call ptx/mirror, GNOME, libsoup/$(basename $(LIBSOUP_VERSION))/$(LIBSOUP).$(LIBSOUP_SUFFIX))
@@ -35,15 +35,18 @@ LIBSOUP_LICENSE_FILES := \
 LIBSOUP_CONF_TOOL := meson
 LIBSOUP_CONF_OPT := \
 	$(CROSS_MESON_USR) \
+	-Dautobahn=disabled \
 	-Dbrotli=disabled \
-	-Dgnome=true \
+	-Ddoc_tests=false \
+	-Ddocs=disabled \
+	-Dfuzzing=disabled \
 	-Dgssapi=disabled \
-	-Dgtk_doc=false \
 	-Dinstalled_tests=false \
 	-Dintrospection=$(call ptx/endis, PTXCONF_LIBSOUP_INTROSPECTION)d \
 	-Dkrb5_config= \
 	-Dntlm=disabled \
 	-Dntlm_auth=ntlm_auth \
+	-Dpkcs11_tests=disabled \
 	-Dsysprof=disabled \
 	-Dtests=false \
 	-Dtls_check=false \
@@ -62,10 +65,10 @@ $(STATEDIR)/libsoup.targetinstall:
 	@$(call install_fixup, libsoup,AUTHOR,"Marc Kleine-Budde <mkl@pengutronix.de>")
 	@$(call install_fixup, libsoup,DESCRIPTION,missing)
 
-	@$(call install_lib, libsoup, 0, 0, 0644, libsoup-2.4)
+	@$(call install_lib, libsoup, 0, 0, 0644, libsoup-3.0)
 ifdef PTXCONF_LIBSOUP_INTROSPECTION
 	@$(call install_copy, libsoup, 0, 0, 0644, -, \
-		/usr/lib/girepository-1.0/Soup-2.4.typelib)
+		/usr/lib/girepository-1.0/Soup-3.0.typelib)
 endif
 
 	@$(call install_finish, libsoup)
