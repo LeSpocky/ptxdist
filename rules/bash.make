@@ -13,18 +13,17 @@ PACKAGES-$(PTXCONF_BASH) += bash
 #
 # Paths and names
 #
-BASH_VERSION	:= 5.1.16
-BASH_MD5	:= c17b20a09fc38d67fb303aeb6c130b4e
+BASH_VERSION	:= 5.2
+BASH_MD5	:= cfb4cf795fc239667f187b3d6b3d396f
 BASH		:= bash-$(BASH_VERSION)
 BASH_SUFFIX	:= tar.gz
 BASH_URL	:= $(call ptx/mirror, GNU, bash/$(BASH).$(BASH_SUFFIX))
 BASH_SOURCE	:= $(SRCDIR)/$(BASH).$(BASH_SUFFIX)
 BASH_DIR	:= $(BUILDDIR)/$(BASH)
-BASH_MAKE_PAR	:= NO
 BASH_LICENSE	:= GPL-3.0-or-later
 BASH_LICENSE_FILES	:= \
 	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
-	file://general.c;startline=1;endline=19;md5=94a266185749191808da241ccc2af60a
+	file://general.c;startline=1;endline=19;md5=e33b255b2fde7a27805a07a2a59d571e
 
 # ----------------------------------------------------------------------------
 # Prepare
