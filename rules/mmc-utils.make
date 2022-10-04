@@ -19,7 +19,7 @@ MMC_UTILS_VERSION	:= 2019-10-04-g73d6c59af8d1
 MMC_UTILS_MD5		:= 5d7c8db4f1735111d42773799e1a84bc
 MMC_UTILS		:= mmc-utils-$(MMC_UTILS_VERSION)
 MMC_UTILS_SUFFIX	:= tar.gz
-MMC_UTILS_URL		:= https://git.kernel.org/pub/scm/linux/kernel/git/cjb/mmc-utils.git;tag=$(MMC_UTILS_VERSION)
+MMC_UTILS_URL		:= https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git;tag=$(MMC_UTILS_VERSION)
 MMC_UTILS_SOURCE	:= $(SRCDIR)/$(MMC_UTILS).$(MMC_UTILS_SUFFIX)
 MMC_UTILS_DIR		:= $(BUILDDIR)/$(MMC_UTILS)
 MMC_UTILS_LICENSE	:= GPL-2.0-only AND BSD-3-Clause
