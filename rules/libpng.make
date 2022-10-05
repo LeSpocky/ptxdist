@@ -37,7 +37,7 @@ LIBPNG_CONF_OPT := \
 	--enable-unversioned-links \
 	--enable-unversioned-libpng-pc \
 	--enable-unversioned-libpng-config \
-	--enable-arm-neon=$(call ptx/ifdef, PTXCONF_ARCH_ARM_NEON, check, no) \
+	--enable-arm-neon=$(call ptx/yesno, PTXCONF_ARCH_ARM_NEON) \
 	--disable-mips-msa \
 	--$(call ptx/endis, PTXCONF_ARCH_X86)-intel-sse \
 	--disable-powerpc-vsx \
