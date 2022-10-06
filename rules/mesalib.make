@@ -67,6 +67,7 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 		ili9341 \
 		imx-dcss \
 		imx-drm \
+		imx-lcdif \
 		ingenic-drm \
 		kirin \
 		komeda \
