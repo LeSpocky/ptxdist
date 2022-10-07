@@ -113,6 +113,7 @@ ptxd_make_world_lint_dep_whitelist+="ROOTFS "
 # toplevel symbol is defined in a different file
 ptxd_make_world_lint_dep_whitelist+="INITMETHOD_SYSTEMD "
 ptxd_make_world_lint_dep_whitelist+="INITMETHOD_BBINIT "
+ptxd_make_world_lint_dep_whitelist+="SYSTEMD_UDEV_HWDB "
 export ptxd_make_world_lint_dep_whitelist
 
 ptxd_make_world_lint_symbols() {
@@ -151,6 +152,9 @@ ptxd_make_world_lint_symbols() {
 	    continue
 	fi
 	if [[ " ${ptxd_make_world_lint_dep_whitelist} " =~ " ${package} " ]]; then
+	    continue
+	fi
+	if [[ " ${ptxd_make_world_lint_dep_whitelist} " =~ " ${symbol} " ]]; then
 	    continue
 	fi
 	exec {depfd}< <(echo ${deps[${symbol}]} | sed 's/ /\n/g' | sort -u)
