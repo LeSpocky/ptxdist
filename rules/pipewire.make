@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.58
-PIPEWIRE_MD5		:= 4a14fa6db732b00957f835b09d47c406
+PIPEWIRE_VERSION	:= 0.3.59
+PIPEWIRE_MD5		:= d310bf1f3cc5b2b446aecfa97c2cde82
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -52,6 +52,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dbluez5-backend-ofono=disabled \
 	-Dbluez5-codec-aac=disabled \
 	-Dbluez5-codec-aptx=disabled \
+	-Dbluez5-codec-lc3=disabled \
 	-Dbluez5-codec-lc3plus=disabled \
 	-Dbluez5-codec-ldac=disabled \
 	-Dbluez5-codec-opus=disabled \
