@@ -82,7 +82,7 @@ LIBCURL_CONF_OPT	:= \
 	--enable-socketpair \
 	--$(call ptx/endis, PTXCONF_LIBCURL_HTTP)-http-auth \
 	--disable-doh \
-	--disable-mime \
+	--$(call ptx/endis, PTXCONF_LIBCURL_MIME)-mime \
 	--enable-dateparse \
 	--enable-netrc \
 	--enable-progress-meter \

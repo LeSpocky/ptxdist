@@ -115,4 +115,7 @@ config LIBCURL_CRYPTO_AUTH
 config LIBCURL_LIBSSH2
 	bool "scp/sftp (via libssh2)"
 
+config LIBCURL_MIME
+	bool "MIME support"
+
 endif
