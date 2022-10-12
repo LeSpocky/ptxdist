@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_MTD_UTILS) += mtd-utils
 #
 # Paths and names
 #
-MTD_UTILS_VERSION	:= 2.1.4
-MTD_UTILS_MD5		:= f1dc14163903dfecd4fe474e0fdcf606
+MTD_UTILS_VERSION	:= 2.1.5
+MTD_UTILS_MD5		:= 1fc83c1ca90093dd79443a603c35e987
 MTD_UTILS		:= mtd-utils-$(MTD_UTILS_VERSION)
 MTD_UTILS_SUFFIX	:= tar.bz2
 MTD_UTILS_URL		:= https://infraroot.at/pub/mtd/$(MTD_UTILS).$(MTD_UTILS_SUFFIX)
