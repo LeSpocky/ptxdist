@@ -434,7 +434,14 @@ ptxd_make_get() {
 			ptxd_make_get_download_permitted &&
 			ptxd_make_get_git && return
 			;;
-		svn://*)
+		svn://*|svn+*://*)
+			url=${url/svn+https/https}
+			if [[ "${url}" =~ ^https ]]; then
+				echo "svn+https is fixed in URL, using https directly"
+			fi
+			if [[ "${url}" =~ ^svn\+ ]]; then
+				echo "Custom SVN tunnel scheme detected"
+			fi
 			ptxd_make_get_download_permitted &&
 			ptxd_make_get_svn && return
 			;;

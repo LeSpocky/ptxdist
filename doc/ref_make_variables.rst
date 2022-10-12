@@ -196,8 +196,13 @@ Package Definition
   Git URLs must either start with 'git://' or end with '.git'. They have a
   mandatory ``tag=<tagname>`` option.
 
-  Svn URLs must start with 'svn://'. They have a mandatory
+  SVN URLs must start with 'svn://'. They have a mandatory
   ``rev=r<number>`` option.
+
+  SVN custom tunnel schemes (e.g. 'svn+ssh') are supported as
+  well. There is a special treatment for 'svn+https'. In this case
+  the URL is fixed and 'svn+' is removed from URL. This is useful to
+  work around firewalls that block 'svn' ports.
 
 ``<PKG>_SOURCE``
   The location of the downloaded source archive. There should be no reason
