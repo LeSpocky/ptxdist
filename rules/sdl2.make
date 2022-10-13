@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDL2) += sdl2
 #
 # Paths and names
 #
-SDL2_VERSION	:= 2.0.22
-SDL2_MD5	:= 40aedb499cb2b6f106d909d9d97f869a
+SDL2_VERSION	:= 2.24.1
+SDL2_MD5	:= 10bad2a286f155565edc611f41345de1
 SDL2		:= SDL2-$(SDL2_VERSION)
 SDL2_SUFFIX	:= tar.gz
 SDL2_URL	:= https://www.libsdl.org/release/$(SDL2).$(SDL2_SUFFIX)
@@ -50,7 +50,6 @@ SDL2_CONF_OPT	:= \
 	--enable-sensor \
 	--disable-power \
 	--disable-filesystem \
-	--enable-threads \
 	--enable-timers \
 	--enable-file \
 	--enable-loadso \
@@ -100,12 +99,10 @@ SDL2_CONF_OPT	:= \
 	--disable-x11-shared \
 	--$(call ptx/endis,PTXCONF_SDL2_XORG)-video-x11-xcursor \
 	--disable-video-x11-xdbe \
-	--disable-video-x11-xinerama \
 	--$(call ptx/endis,PTXCONF_SDL2_XORG)-video-x11-xinput \
 	--$(call ptx/endis,PTXCONF_SDL2_XORG)-video-x11-xrandr \
 	--disable-video-x11-scrnsaver \
 	--disable-video-x11-xshape \
-	--$(call ptx/endis,PTXCONF_SDL2_XORG)-video-x11-vm \
 	--disable-video-vivante \
 	--disable-video-cocoa \
 	--disable-video-metal \
