@@ -1340,6 +1340,7 @@ do_config()
 			fi
 		fi
 
+		check_premake_compiler &&
 		ptxd_kconfig "${config}" "${part}" "${file_dotconfig}"
 		;;
 	*)
