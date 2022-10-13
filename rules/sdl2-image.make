@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDL2_IMAGE) += sdl2-image
 #
 # Paths and names
 #
-SDL2_IMAGE_VERSION	:= 2.0.5
-SDL2_IMAGE_MD5		:= f26f3a153360a8f09ed5220ef7b07aea
+SDL2_IMAGE_VERSION	:= 2.6.2
+SDL2_IMAGE_MD5		:= 35da7c375b1c187b0f684c1c83b3b9c3
 SDL2_IMAGE		:= SDL2_image-$(SDL2_IMAGE_VERSION)
 SDL2_IMAGE_SUFFIX	:= tar.gz
 SDL2_IMAGE_URL		:= https://www.libsdl.org/projects/SDL_image/release/$(SDL2_IMAGE).$(SDL2_IMAGE_SUFFIX)
@@ -34,6 +34,9 @@ SDL2_IMAGE_CONF_OPT	:= \
 	--disable-static \
 	--disable-imageio \
 	--disable-sdltest \
+	--disable-stb-image \
+	--disable-jxl \
+	--disable-qoi \
 	--$(call ptx/endis, PTXCONF_SDL2_IMAGE_BMP)-bmp \
 	--$(call ptx/endis, PTXCONF_SDL2_IMAGE_GIF)-gif \
 	--$(call ptx/endis, PTXCONF_SDL2_IMAGE_JPG)-jpg \
