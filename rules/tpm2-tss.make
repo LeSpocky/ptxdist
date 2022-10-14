@@ -43,6 +43,7 @@ TPM2_TSS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-debug=info \
 	--disable-unit \
+	--enable-fapi \
 	--enable-tcti-device \
 	--enable-tcti-mssim \
 	--disable-tcti-fuzzing \
@@ -87,6 +88,7 @@ $(STATEDIR)/tpm2-tss.targetinstall:
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-esys)
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-mu)
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-sys)
+	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-fapi)
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-tcti-device)
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-tcti-mssim)
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-tctildr)
