@@ -43,7 +43,7 @@ TPM2_TOOLS_CONF_OPT	:= \
 	--disable-unit \
 	--enable-hardening \
 	--without-gcov \
-	--without-bashcompdir
+	--with-bashcompdir=/ignore
 
 TPM2_TOOLS_CFLAGS	:= \
 	-fPIC
