@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_TPM2_TOOLS) += tpm2-tools
 #
 # Paths and names
 #
-TPM2_TOOLS_VERSION		:= 5.2
-TPM2_TOOLS_MD5			:= 0057615ef43b9322d4577fc3bde0e8d6
+TPM2_TOOLS_VERSION		:= 5.3
+TPM2_TOOLS_MD5			:= a319d4623f184b80851780b4e425208f
 TPM2_TOOLS			:= tpm2-tools-$(TPM2_TOOLS_VERSION)
 TPM2_TOOLS_SUFFIX		:= tar.gz
 TPM2_TOOLS_URL			:= https://github.com/tpm2-software/tpm2-tools/releases/download/$(TPM2_TOOLS_VERSION)/$(TPM2_TOOLS).$(TPM2_TOOLS_SUFFIX)
 TPM2_TOOLS_SOURCE		:= $(SRCDIR)/$(TPM2_TOOLS).$(TPM2_TOOLS_SUFFIX)
 TPM2_TOOLS_DIR			:= $(BUILDDIR)/$(TPM2_TOOLS)
 TPM2_TOOLS_LICENSE		:= BSD-3-Clause
-TPM2_TOOLS_LICENSE_FILES	:= file://doc/LICENSE;md5=a846608d090aa64494c45fc147cc12e3
+TPM2_TOOLS_LICENSE_FILES	:= file://docs/LICENSE;md5=a846608d090aa64494c45fc147cc12e3
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -42,6 +42,7 @@ TPM2_TOOLS_CONF_OPT	:= \
 	--disable-code-coverage \
 	--disable-unit \
 	--enable-hardening \
+	--enable-fapi \
 	--without-gcov \
 	--with-bashcompdir=/ignore
 
@@ -75,6 +76,7 @@ TPM2_TOOLS_TPM2_PROGS := \
 	tpm2_ecdhkeygen \
 	tpm2_ecdhzgen \
 	tpm2_ecephemeral \
+	tpm2_encodeobject \
 	tpm2_encryptdecrypt \
 	tpm2_eventlog \
 	tpm2_evictcontrol \
@@ -154,6 +156,45 @@ TPM2_TOOLS_TPM2_PROGS := \
 	tpm2_verifysignature \
 	tpm2_zgen2phase
 
+TPM2_TOOLS_TSS2_PROGS := \
+	tss2_authorizepolicy \
+	tss2_changeauth \
+	tss2_createkey \
+	tss2_createnv \
+	tss2_createseal \
+	tss2_decrypt \
+	tss2_delete \
+	tss2_encrypt \
+	tss2_exportkey \
+	tss2_exportpolicy \
+	tss2_getappdata \
+	tss2_getcertificate \
+	tss2_getdescription \
+	tss2_getinfo \
+	tss2_getplatformcertificates \
+	tss2_getrandom \
+	tss2_gettpm2object \
+	tss2_gettpmblobs \
+	tss2_import \
+	tss2_list \
+	tss2_nvextend \
+	tss2_nvincrement \
+	tss2_nvread \
+	tss2_nvsetbits \
+	tss2_nvwrite \
+	tss2_pcrextend \
+	tss2_pcrread \
+	tss2_provision \
+	tss2_quote \
+	tss2_setappdata \
+	tss2_setcertificate \
+	tss2_setdescription \
+	tss2_sign \
+	tss2_unseal \
+	tss2_verifyquote \
+	tss2_verifysignature \
+	tss2_writeauthorizenv
+
 $(STATEDIR)/tpm2-tools.targetinstall:
 	@$(call targetinfo)
 
@@ -164,9 +205,13 @@ $(STATEDIR)/tpm2-tools.targetinstall:
 	@$(call install_fixup, tpm2-tools,DESCRIPTION,missing)
 
 	@$(call install_copy, tpm2-tools, 0, 0, 0755, -, /usr/bin/tpm2)
+	@$(call install_copy, tpm2-tools, 0, 0, 0755, -, /usr/bin/tss2)
 
 	@$(foreach prog, $(TPM2_TOOLS_TPM2_PROGS), \
 		@$(call install_link, tpm2-tools, tpm2, /usr/bin/$(prog))$(ptx/nl))
+
+	@$(foreach prog, $(TPM2_TOOLS_TSS2_PROGS), \
+		@$(call install_link, tpm2-tools, tss2, /usr/bin/$(prog))$(ptx/nl))
 
 	@$(call install_finish, tpm2-tools)
 
