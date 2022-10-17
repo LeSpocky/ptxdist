@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_BIND) += bind
 #
 # Paths and names
 #
-BIND_VERSION		:= 9.11.31
-BIND_MD5		:= 40732ca6e4fcc9d022ab0f17b3e55b71
+BIND_VERSION		:= 9.11.37
+BIND_MD5		:= 0a11e9596c46d6728fa3b0989ee75197
 BIND			:= bind-$(BIND_VERSION)
 BIND_SUFFIX		:= tar.gz
 BIND_URL		:= https://ftp.isc.org/isc/bind9/$(BIND_VERSION)/$(BIND).$(BIND_SUFFIX)
@@ -25,7 +25,7 @@ BIND_LICENSE		:= MPL-2.0 AND ISC AND BSD-3-Clause AND BSD-2-Clause \
 	AND unknown AND JPNIC AND RSA-MD AND OpenSSL AND Apache-2.0
 BIND_LICENSE_FILES	:= \
 	file://LICENSE;md5=f27a50d2e878867827842f2c60e30bfc \
-	file://COPYRIGHT;md5=b88e7ca5f21908e1b2720169f6807cf6
+	file://COPYRIGHT;md5=89a97ebbf713f7125fe5c02223d3ae95
 
 # ----------------------------------------------------------------------------
 # Prepare
