@@ -27,9 +27,6 @@ PELTS_TESTS_DIR		:= $(BUILDDIR)/$(PELTS_TESTS)
 # Prepare
 # ----------------------------------------------------------------------------
 
-PELTS_TESTS_PATH	:= PATH=$(CROSS_PATH)
-PELTS_TESTS_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

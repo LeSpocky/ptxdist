@@ -21,9 +21,6 @@ HOST_LIBXSLT_DIR	= $(HOST_BUILDDIR)/$(LIBXSLT)
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_LIBXSLT_PATH	:= PATH=$(HOST_PATH)
-HOST_LIBXSLT_ENV 	:= $(HOST_ENV)
-
 #
 # autoconf
 #

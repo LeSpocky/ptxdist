@@ -31,9 +31,6 @@ endif
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_FONT_BITSTREAM_SPEEDO_PATH	:= PATH=$(CROSS_PATH)
-XORG_FONT_BITSTREAM_SPEEDO_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

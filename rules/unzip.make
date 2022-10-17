@@ -30,7 +30,6 @@ UNZIP_LICENSE_FILES := file://LICENSE;md5=94caec5a51ef55ef711ee4e8b1c69e29
 # Compile
 # ----------------------------------------------------------------------------
 
-UNZIP_PATH		:= PATH=$(CROSS_PATH)
 UNZIP_MAKE_OPT		:= $(CROSS_ENV_CC) -f unix/Makefile generic
 
 UNZIP_INSTALL_OPT	:= -f unix/Makefile prefix=$(UNZIP_PKGDIR)/usr install

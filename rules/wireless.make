@@ -42,9 +42,6 @@ endif
 # Compile
 # ----------------------------------------------------------------------------
 
-WIRELESS_PATH	:= PATH=$(CROSS_PATH)
-WIRELESS_ENV 	:= $(CROSS_ENV)
-
 WIRELESS_MAKEVARS := \
 	$(CROSS_ENV_CC) \
 	PREFIX=/usr

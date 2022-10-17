@@ -27,9 +27,6 @@ LIBPTHREAD_STUBS_LICENSE	:= MIT
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBPTHREAD_STUBS_PATH	:= PATH=$(CROSS_PATH)
-LIBPTHREAD_STUBS_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

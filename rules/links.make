@@ -24,9 +24,6 @@ LINKS_DIR	:= $(BUILDDIR)/$(LINKS)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LINKS_PATH     := PATH=$(CROSS_PATH)
-LINKS_ENV      := $(CROSS_ENV)
-
 #
 # autoconf
 #

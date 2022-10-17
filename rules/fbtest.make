@@ -28,7 +28,6 @@ FBTEST_LICENSE	:= GPL-2.0-only
 # Compile
 # ----------------------------------------------------------------------------
 
-FBTEST_PATH	:= PATH=$(CROSS_PATH)
 FBTEST_MAKE_ENV	:= $(CROSS_ENV) CROSS_COMPILE=$(COMPILER_PREFIX)
 FBTEST_MAKE_PAR	:= NO
 

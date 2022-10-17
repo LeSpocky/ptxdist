@@ -31,7 +31,6 @@ SUDO_LICENSE_FILES := file://doc/LICENSE;md5=fdff64d4fd19126330aa81b94d167173
 # Prepare
 # ----------------------------------------------------------------------------
 
-SUDO_PATH	:= PATH=$(CROSS_PATH)
 SUDO_ENV 	:= \
 	$(CROSS_ENV) \
 	sudo_cv_func_fnmatch=yes \

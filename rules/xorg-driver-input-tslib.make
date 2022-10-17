@@ -26,9 +26,6 @@ XORG_DRIVER_INPUT_TSLIB_DIR	:= $(BUILDDIR)/$(XORG_DRIVER_INPUT_TSLIB)
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_DRIVER_INPUT_TSLIB_PATH	:= PATH=$(CROSS_PATH)
-XORG_DRIVER_INPUT_TSLIB_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

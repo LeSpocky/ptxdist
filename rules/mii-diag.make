@@ -29,9 +29,6 @@ MII_DIAG_LICENSE	:= GPL
 # Prepare
 # ----------------------------------------------------------------------------
 
-MII_DIAG_PATH	:= PATH=$(CROSS_PATH)
-MII_DIAG_ENV 	:= $(CROSS_ENV)
-
 MII_DIAG_MAKE_OPT := $(CROSS_ENV_CC) mii-diag
 MII_DIAG_INSTALL_OPT := install-mii-diag
 

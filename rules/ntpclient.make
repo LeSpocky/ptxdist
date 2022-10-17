@@ -31,7 +31,6 @@ NTPCLIENT_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-NTPCLIENT_PATH	:= PATH=$(CROSS_PATH)
 NTPCLIENT_MAKE_OPT := \
 	CC="$(CROSS_CC)"
 

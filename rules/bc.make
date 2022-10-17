@@ -31,9 +31,6 @@ BC_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-BC_PATH	:= PATH=$(CROSS_PATH)
-BC_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

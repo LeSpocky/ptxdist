@@ -20,9 +20,6 @@ HOST_LIBSIGCPP_DIR	= $(HOST_BUILDDIR)/$(LIBSIGCPP)
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_LIBSIGCPP_PATH	:= PATH=$(HOST_PATH)
-HOST_LIBSIGCPP_ENV 	:= $(HOST_ENV)
-
 #
 # autoconf
 #

@@ -30,9 +30,6 @@ LIBSYSFS_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBSYSFS_PATH	:= PATH=$(CROSS_PATH)
-LIBSYSFS_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

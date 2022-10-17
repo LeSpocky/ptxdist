@@ -27,7 +27,6 @@ HPING_LICENSE	:= GPL-2.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-HPING_PATH	:= PATH=$(CROSS_PATH)
 HPING_ENV 	:= \
 	$(CROSS_ENV) \
 	MANPATH=/usr/man

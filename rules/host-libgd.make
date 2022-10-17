@@ -20,9 +20,6 @@ HOST_LIBGD_DIR	= $(HOST_BUILDDIR)/$(LIBGD)
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_LIBGD_PATH	:= PATH=$(HOST_PATH)
-HOST_LIBGD_ENV 	:= $(HOST_ENV)
-
 #
 # autoconf
 #

@@ -21,9 +21,6 @@ HOST_LIBXML2_DIR	= $(HOST_BUILDDIR)/$(LIBXML2)
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_LIBXML2_PATH	:= PATH=$(HOST_PATH)
-HOST_LIBXML2_ENV 	:= $(HOST_ENV)
-
 #
 # autoconf
 #

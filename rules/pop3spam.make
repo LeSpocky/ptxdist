@@ -28,9 +28,6 @@ POP3SPAM_DIR		:= $(BUILDDIR)/$(POP3SPAM)
 # Prepare
 # ----------------------------------------------------------------------------
 
-POP3SPAM_PATH	:= PATH=$(CROSS_PATH)
-POP3SPAM_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

@@ -21,9 +21,6 @@ HOST_XORG_FONT_UTIL_DIR	= $(HOST_BUILDDIR)/$(XORG_FONT_UTIL)
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_XORG_FONT_UTIL_PATH	:= PATH=$(HOST_PATH)
-HOST_XORG_FONT_UTIL_ENV 	:= $(HOST_ENV)
-
 #
 # autoconf
 #

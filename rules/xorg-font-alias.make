@@ -27,9 +27,6 @@ XORG_FONT_ALIAS_LICENSE	:= Vakulenko
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_FONT_ALIAS_PATH	:= PATH=$(CROSS_PATH)
-XORG_FONT_ALIAS_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

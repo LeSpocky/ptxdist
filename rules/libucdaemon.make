@@ -26,9 +26,6 @@ LIBUCDAEMON_DIR		:= $(BUILDDIR)/$(LIBUCDAEMON)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBUCDAEMON_PATH	:= PATH=$(CROSS_PATH)
-LIBUCDAEMON_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

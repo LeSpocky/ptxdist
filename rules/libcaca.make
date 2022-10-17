@@ -26,7 +26,6 @@ LIBCACA_DIR	:= $(BUILDDIR)/$(LIBCACA)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBCACA_PATH	:= PATH=$(CROSS_PATH)
 LIBCACA_ENV 	:= \
 	$(CROSS_ENV) \
 	CONFIG_SHELL=bash

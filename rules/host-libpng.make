@@ -20,9 +20,6 @@ HOST_LIBPNG_DIR	= $(HOST_BUILDDIR)/$(LIBPNG)
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_LIBPNG_PATH	:= PATH=$(HOST_PATH)
-HOST_LIBPNG_ENV 	:= $(HOST_ENV)
-
 #
 # autoconf
 #

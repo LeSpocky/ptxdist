@@ -39,9 +39,6 @@ $(STATEDIR)/host-xorg-app-bdftopcf.extract:
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_XORG_APP_BDFTOPCF_PATH	:= PATH=$(HOST_PATH)
-HOST_XORG_APP_BDFTOPCF_ENV 	:= $(HOST_ENV)
-
 #
 # autoconf
 #

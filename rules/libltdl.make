@@ -30,7 +30,6 @@ LIBLTDL_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBLTDL_PATH	:= PATH=$(CROSS_PATH)
 LIBLTDL_ENV 	:= $(CROSS_ENV) HELP2MAN=:
 
 #

@@ -42,7 +42,6 @@ TF_A_WRAPPER_BLACKLIST	:= \
 
 TF_A_EXTRA_ARGS		:= $(call remove_quotes,$(PTXCONF_TF_A_EXTRA_ARGS))
 TF_A_BINDIR		 = $(TF_A_BUILDDIR)/$(1)/$(if $(filter DEBUG=1,$(TF_A_EXTRA_ARGS)),debug,release)
-TF_A_PATH	:= PATH=$(CROSS_PATH)
 TF_A_MAKE_OPT	:= \
 	-C $(TF_A_DIR) \
 	CROSS_COMPILE=$(BOOTLOADER_CROSS_COMPILE) \

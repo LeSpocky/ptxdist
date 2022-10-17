@@ -26,9 +26,6 @@ PANGOMM_DIR	:= $(BUILDDIR)/$(PANGOMM)
 # Prepare
 # ----------------------------------------------------------------------------
 
-PANGOMM_PATH	:= PATH=$(CROSS_PATH)
-PANGOMM_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

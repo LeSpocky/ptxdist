@@ -33,9 +33,6 @@ FFTW_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-FFTW_PATH	:= PATH=$(CROSS_PATH)
-FFTW_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

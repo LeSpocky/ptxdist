@@ -28,7 +28,6 @@ FRODO_LICENSE_FILES	:= file://Docs/legalmush.html;md5=108f0874f3c2ef9b625501635c
 # Prepare
 # ----------------------------------------------------------------------------
 
-FRODO_PATH	:= PATH=$(CROSS_PATH)
 FRODO_CONF_ENV	:= $(CROSS_ENV)
 ifdef PTXCONF_FRODO_SVGALIB
 FRODO_CONF_ENV	+= ac_cv_lib_vga_vga_setmode=yes SDL_CONFIG=no

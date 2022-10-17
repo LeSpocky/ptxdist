@@ -31,9 +31,6 @@ endif
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_FONT_CRONYX_CYRILLIC_PATH	:= PATH=$(CROSS_PATH)
-XORG_FONT_CRONYX_CYRILLIC_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

@@ -32,8 +32,6 @@ FINDUTILS_LICENSE_FILES   := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-FINDUTILS_PATH	:= PATH=$(CROSS_PATH)
-FINDUTILS_ENV 	:= $(CROSS_ENV)
 #
 # where to place the database at runtime
 #

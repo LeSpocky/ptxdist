@@ -30,9 +30,6 @@ HWDATA_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-HWDATA_PATH		:= PATH=$(CROSS_PATH)
-HWDATA_ENV		:= $(CROSS_ENV)
-
 # Package is not really using autoconf, so skip normal cross declaration.
 # Only text files are processed. Just prefix setting here.
 HWDATA_CONF_TOOL	:= autoconf

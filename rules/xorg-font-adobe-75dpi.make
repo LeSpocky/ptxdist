@@ -31,9 +31,6 @@ endif
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_FONT_ADOBE_75DPI_PATH	:= PATH=$(CROSS_PATH)
-XORG_FONT_ADOBE_75DPI_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

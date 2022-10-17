@@ -31,7 +31,6 @@ ZIP_LICENSE_FILES	:= file://LICENSE;md5=04d43c5d70b496c032308106e26ae17d
 # Compile
 # ----------------------------------------------------------------------------
 
-ZIP_PATH	:= PATH=$(CROSS_PATH)
 ZIP_MAKE_OPT	:= \
 	$(CROSS_ENV_CC) \
 	$(CROSS_ENV_CPP) \

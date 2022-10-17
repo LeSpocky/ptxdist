@@ -28,7 +28,6 @@ CLASSPATH_DIR		:= $(BUILDDIR)/$(CLASSPATH)
 # Prepare
 # ----------------------------------------------------------------------------
 
-CLASSPATH_PATH	:= PATH=$(CROSS_PATH)
 CLASSPATH_ENV 	:= \
 	$(CROSS_ENV) \
 	JAVAC=$(PTXCONF_SETUP_JAVA_SDK)/bin/javac \

@@ -31,8 +31,6 @@ NETKIT_FTP_LICENSE	:= BSD
 # Prepare
 # ----------------------------------------------------------------------------
 
-NETKIT_FTP_PATH	:= PATH=$(CROSS_PATH)
-
 #
 # autoconf
 #

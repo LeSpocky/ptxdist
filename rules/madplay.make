@@ -28,9 +28,6 @@ MADPLAY_DIR	:= $(BUILDDIR)/$(MADPLAY)
 # Prepare
 # ----------------------------------------------------------------------------
 
-MADPLAY_PATH	:= PATH=$(CROSS_PATH)
-MADPLAY_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

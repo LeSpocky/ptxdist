@@ -29,9 +29,6 @@ XTERM_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-XTERM_PATH	:= PATH=$(CROSS_PATH)
-XTERM_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

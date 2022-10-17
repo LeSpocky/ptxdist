@@ -26,9 +26,6 @@ XORG_APP_XSETROOT_DIR		:= $(BUILDDIR)/$(XORG_APP_XSETROOT)
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_APP_XSETROOT_PATH	:= PATH=$(CROSS_PATH)
-XORG_APP_XSETROOT_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

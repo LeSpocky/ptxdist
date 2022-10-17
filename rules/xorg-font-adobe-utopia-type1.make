@@ -31,9 +31,6 @@ endif
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_FONT_ADOBE_UTOPIA_TYPE1_PATH	:= PATH=$(CROSS_PATH)
-XORG_FONT_ADOBE_UTOPIA_TYPE1_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

@@ -32,9 +32,6 @@ LIBCGICC_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBCGICC_PATH	:= PATH=$(CROSS_PATH)
-LIBCGICC_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

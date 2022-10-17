@@ -28,9 +28,6 @@ SDL_MIXER_LICENSE	:= LGPL-2.1-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-SDL_MIXER_PATH	:= PATH=$(CROSS_PATH)
-SDL_MIXER_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

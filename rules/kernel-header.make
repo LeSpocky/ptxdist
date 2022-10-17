@@ -34,8 +34,6 @@ KERNEL_HEADER_BUILD_OOT	:= KEEP
 # Prepare
 # ----------------------------------------------------------------------------
 
-KERNEL_HEADER_CONF_ENV		:= $(CROSS_ENV)
-KERNEL_HEADER_PATH		:= PATH=$(CROSS_PATH)
 KERNEL_HEADER_CONF_TOOL		:= NO
 
 # ----------------------------------------------------------------------------

@@ -28,9 +28,6 @@ LIBGD_LICENSE_FILES	:= file://COPYING;md5=07384b3aa2e0d39afca0d6c40286f545
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBGD_PATH	:= PATH=$(CROSS_PATH)
-LIBGD_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

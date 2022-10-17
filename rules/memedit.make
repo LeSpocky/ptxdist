@@ -29,9 +29,6 @@ MEMEDIT_DIR	:= $(BUILDDIR)/$(MEMEDIT)
 # Prepare
 # ----------------------------------------------------------------------------
 
-MEMEDIT_PATH	:= PATH=$(CROSS_PATH)
-MEMEDIT_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

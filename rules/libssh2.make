@@ -26,9 +26,6 @@ LIBSSH2_DIR	:= $(BUILDDIR)/$(LIBSSH2)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBSSH2_PATH	:= PATH=$(CROSS_PATH)
-LIBSSH2_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

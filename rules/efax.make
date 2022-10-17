@@ -28,7 +28,6 @@ EFAX_LICENSE	:= unknown
 # Compile
 # ----------------------------------------------------------------------------
 
-EFAX_PATH	:= PATH=$(CROSS_PATH)
 EFAX_MAKE_ENV	:= $(CROSS_ENV)
 EFAX_MAKE_OPT	:= CC=$(CROSS_CC)
 

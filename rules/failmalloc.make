@@ -30,9 +30,6 @@ FAILMALLOC_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-FAILMALLOC_PATH	:= PATH=$(CROSS_PATH)
-FAILMALLOC_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

@@ -28,9 +28,6 @@ LIBXMLCONFIG_DIR	:= $(BUILDDIR)/$(LIBXMLCONFIG)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBXMLCONFIG_PATH	:= PATH=$(CROSS_PATH)
-LIBXMLCONFIG_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

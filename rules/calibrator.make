@@ -28,7 +28,6 @@ CALIBRATOR_LICENSE_FILES	:= file://calibrator.c;md5=8f7790f3cb58345fcb862c4ceab8
 # Compile
 # ----------------------------------------------------------------------------
 
-CALIBRATOR_PATH		:= PATH=$(CROSS_PATH)
 CALIBRATOR_MAKE_ENV	:= $(CROSS_ENV) LDLIBS=-lm
 CALIBRATOR_MAKE_OPT	:= calibrator
 

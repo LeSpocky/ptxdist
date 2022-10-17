@@ -27,9 +27,6 @@ LIBRSVG_DIR	:= $(BUILDDIR)/$(LIBRSVG)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBRSVG_PATH	:= PATH=$(CROSS_PATH)
-LIBRSVG_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

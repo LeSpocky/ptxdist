@@ -49,8 +49,6 @@ REDIS_MAKE_OPT := \
 	uname_S=Linux \
 	all
 
-REDIS_PATH := PATH=$(CROSS_PATH)
-
 REDIS_INSTALL_OPT := \
 	PREFIX=$(REDIS_PKGDIR)/usr \
 	install

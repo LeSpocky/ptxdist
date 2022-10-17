@@ -30,9 +30,6 @@ GNUPLOT_LICENSE_FILES	:= file://Copyright;md5=243a186fc2fd3b992125d60d5b1bab8f
 # Prepare
 # ----------------------------------------------------------------------------
 
-GNUPLOT_PATH	:= PATH=$(CROSS_PATH)
-GNUPLOT_ENV	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

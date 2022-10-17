@@ -62,7 +62,6 @@ $(STATEDIR)/host-tz-database.extract:
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_TZ_DATABASE_PATH		:= PATH=$(HOST_PATH)
 HOST_TZ_DATABASE_CONF_TOOL	:= NO
 HOST_TZ_DATABASE_MAKE_OPT	:= \
 	zic TZDIR=/usr/share/zoneinfo CFLAGS=-DSTD_INSPIRED

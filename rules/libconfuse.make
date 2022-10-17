@@ -27,9 +27,6 @@ LIBCONFUSE_LICENSE	:= ISC
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBCONFUSE_PATH	:= PATH=$(CROSS_PATH)
-LIBCONFUSE_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

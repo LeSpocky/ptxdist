@@ -31,9 +31,6 @@ endif
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_FONT_SCHUMACHER_MISC_PATH	:= PATH=$(CROSS_PATH)
-XORG_FONT_SCHUMACHER_MISC_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

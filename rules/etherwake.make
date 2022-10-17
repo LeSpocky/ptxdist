@@ -29,9 +29,6 @@ ETHERWAKE_LICENSE	:= GPL
 # Prepare
 # ----------------------------------------------------------------------------
 
-ETHERWAKE_PATH	:= PATH=$(CROSS_PATH)
-ETHERWAKE_ENV 	:= $(CROSS_ENV)
-
 ETHERWAKE_MAKEVARS := CC=$(CROSS_CC)
 
 # ----------------------------------------------------------------------------

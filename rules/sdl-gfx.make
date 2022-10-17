@@ -26,9 +26,6 @@ SDL_GFX_DIR	:= $(BUILDDIR)/$(SDL_GFX)
 # Prepare
 # ----------------------------------------------------------------------------
 
-SDL_GFX_PATH	:= PATH=$(CROSS_PATH)
-SDL_GFX_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

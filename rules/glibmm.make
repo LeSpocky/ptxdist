@@ -31,9 +31,6 @@ GLIBMM_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-GLIBMM_PATH	:= PATH=$(CROSS_PATH)
-GLIBMM_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

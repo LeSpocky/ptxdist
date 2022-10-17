@@ -27,9 +27,6 @@ IPERF_LICENSE	:= BSD
 # Prepare
 # ----------------------------------------------------------------------------
 
-IPERF_PATH	:= PATH=$(CROSS_PATH)
-IPERF_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

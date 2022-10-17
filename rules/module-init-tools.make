@@ -28,8 +28,6 @@ MODULE_INIT_TOOLS_LICENSE	:= GPL-2.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-MODULE_INIT_TOOLS_PATH	:= PATH=$(CROSS_PATH)
-MODULE_INIT_TOOLS_ENV 	:= $(CROSS_ENV)
 MODULE_INIT_TOOLS_MAKEVARS := MAN5="" MAN8=""
 
 #

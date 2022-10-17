@@ -30,9 +30,6 @@ LIBID3TAG_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBID3TAG_PATH	:= PATH=$(CROSS_PATH)
-LIBID3TAG_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

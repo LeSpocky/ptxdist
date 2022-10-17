@@ -28,7 +28,6 @@ HEIRLOOM_MAILX_LICENSE	:= unknown
 # ----------------------------------------------------------------------------
 
 HEIRLOOM_MAILX_CONF_ENV	:= $(CROSS_ENV)
-HEIRLOOM_MAILX_PATH	:= PATH=$(CROSS_PATH)
 
 HEIRLOOM_MAILX_DISABLE := \
 	USE_SSL \

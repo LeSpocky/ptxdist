@@ -27,7 +27,6 @@ SDL_TTF_LICENSE := zlib
 # Prepare
 # ----------------------------------------------------------------------------
 
-SDL_TTF_PATH	:= PATH=$(CROSS_PATH)
 SDL_TTF_ENV 	:= \
 	$(CROSS_ENV) \
 	sdl_cv_lib_opengl=no

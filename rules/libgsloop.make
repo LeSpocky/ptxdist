@@ -26,9 +26,6 @@ LIBGSLOOP_DIR		:= $(BUILDDIR)/$(LIBGSLOOP)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBGSLOOP_PATH	:= PATH=$(CROSS_PATH)
-LIBGSLOOP_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

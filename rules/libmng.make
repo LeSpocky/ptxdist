@@ -28,9 +28,6 @@ LIBMNG_LICENSE_FILES	:= file://LICENSE;md5=32becdb8930f90eab219a8021130ec09
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBMNG_PATH	:= PATH=$(CROSS_PATH)
-LIBMNG_ENV	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

@@ -27,9 +27,6 @@ URSHD_LICENSE	:= BSD-4-Clause
 # Prepare
 # ----------------------------------------------------------------------------
 
-URSHD_PATH	:= PATH=$(CROSS_PATH)
-URSHD_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

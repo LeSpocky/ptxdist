@@ -27,7 +27,6 @@ FBUTILS_LICENSE := GPL-3.0-only
 # Compile
 # ----------------------------------------------------------------------------
 
-FBUTILS_PATH		:= PATH=$(CROSS_PATH)
 FBUTILS_MAKE_ENV	:= $(CROSS_ENV)
 FBUTILS_MAKE_PAR	:= NO
 

@@ -35,9 +35,6 @@ LIBXML2_URL := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBXML2_PATH	:= PATH=$(CROSS_PATH)
-LIBXML2_ENV	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

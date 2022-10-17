@@ -26,7 +26,6 @@ RSYNC_DIR	:= $(BUILDDIR)/$(RSYNC)
 # Prepare
 # ----------------------------------------------------------------------------
 
-RSYNC_PATH	:= PATH=$(CROSS_PATH)
 RSYNC_ENV 	:= \
 	$(CROSS_ENV) \
 	rsync_cv_HAVE_GETTIMEOFDAY_TZ=yes 

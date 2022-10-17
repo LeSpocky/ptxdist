@@ -29,9 +29,6 @@ JOE_LICENSE_FILES	:= file://COPYING;md5=da10ed7cf8038981c580e11c1d3e8fb6
 # Prepare
 # ----------------------------------------------------------------------------
 
-JOE_PATH	:= PATH=$(CROSS_PATH)
-JOE_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

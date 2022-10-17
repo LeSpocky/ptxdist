@@ -27,9 +27,6 @@ LIBMAD_LICENSE	:= GPL-2.0-or-later
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBMAD_PATH	:= PATH=$(CROSS_PATH)
-LIBMAD_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

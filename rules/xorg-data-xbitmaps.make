@@ -27,9 +27,6 @@ XORG_DATA_XBITMAPS_DIR		:= $(BUILDDIR)/$(XORG_DATA_XBITMAPS)
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_DATA_XBITMAPS_PATH	:= PATH=$(CROSS_PATH)
-XORG_DATA_XBITMAPS_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

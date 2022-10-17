@@ -27,9 +27,6 @@ LTT_CONTROL_DIR		:= $(BUILDDIR)/$(LTT_CONTROL)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LTT_CONTROL_PATH	:= PATH=$(CROSS_PATH)
-LTT_CONTROL_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

@@ -27,9 +27,6 @@ LIBSIGCPP_DIR		:= $(BUILDDIR)/$(LIBSIGCPP)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBSIGCPP_PATH	:= PATH=$(CROSS_PATH)
-LIBSIGCPP_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

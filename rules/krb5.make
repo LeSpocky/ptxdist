@@ -31,7 +31,6 @@ KRB5_SUBDIR	:= src
 
 # keyutils is only useful for the client case
 
-KRB5_PATH	:= PATH=$(CROSS_PATH)
 KRB5_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	krb5_cv_attr_constructor_destructor=yes,yes \

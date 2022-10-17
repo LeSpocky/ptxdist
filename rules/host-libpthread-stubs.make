@@ -20,9 +20,6 @@ HOST_LIBPTHREAD_STUBS_DIR	= $(HOST_BUILDDIR)/$(LIBPTHREAD_STUBS)
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_LIBPTHREAD_STUBS_PATH	:= PATH=$(HOST_PATH)
-HOST_LIBPTHREAD_STUBS_ENV 	:= $(HOST_ENV)
-
 #
 # autoconf
 #

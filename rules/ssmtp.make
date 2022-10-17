@@ -29,9 +29,6 @@ SSMTP_LICENSE		:= GPL-2.0-or-later
 # Prepare
 # ----------------------------------------------------------------------------
 
-SSMTP_PATH := PATH=$(CROSS_PATH)
-SSMTP_CONF_ENV := $(CROSS_ENV)
-
 #
 # autoconf
 #

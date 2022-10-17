@@ -29,7 +29,6 @@ BASH_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-BASH_PATH	:= PATH=$(CROSS_PATH)
 BASH_ENV	:= \
 	$(CROSS_ENV) \
 	bash_cv_job_control_missing=$(call ptx/ifdef, PTXCONF_BASH_JOBS, present, missing) \

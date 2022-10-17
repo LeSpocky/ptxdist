@@ -31,9 +31,6 @@ DASH_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-DASH_PATH	:= PATH=$(CROSS_PATH)
-DASH_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

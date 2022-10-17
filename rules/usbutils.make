@@ -28,9 +28,6 @@ USBUTILS_LICENSE	:= GPL-2.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-USBUTILS_PATH	:= PATH=$(CROSS_PATH)
-USBUTILS_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

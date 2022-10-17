@@ -27,9 +27,6 @@ XORG_LIB_XKBUI_DIR	:= $(BUILDDIR)/$(XORG_LIB_XKBUI)
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_LIB_XKBUI_PATH	:= PATH=$(CROSS_PATH)
-XORG_LIB_XKBUI_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

@@ -32,7 +32,6 @@ JED_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-JED_PATH	:= PATH=$(CROSS_PATH)
 JED_ENV 	:= \
 	$(CROSS_ENV) \
 	JED_ROOT=/usr/share/jed

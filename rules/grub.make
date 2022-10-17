@@ -24,8 +24,6 @@ GRUB_DIR		:= $(BUILDDIR)/$(GRUB)
 # Prepare
 # ----------------------------------------------------------------------------
 
-GRUB_PATH	:= PATH=$(CROSS_PATH)
-
 # RSC: grub 0.93 decides to build without optimization when it detects
 # non-standard CFLAGS. We can unset them here as grub is compiled
 # standalone anyway (without Linux/glibc includes)

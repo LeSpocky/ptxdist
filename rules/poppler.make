@@ -36,9 +36,6 @@ POPPLER_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-POPPLER_PATH	:= PATH=$(CROSS_PATH)
-POPPLER_ENV 	:= $(CROSS_ENV)
-
 #
 # CMake
 #

@@ -27,9 +27,6 @@ PROFTPD_DIR		:= $(BUILDDIR)/$(PROFTPD)
 # Prepare
 # ----------------------------------------------------------------------------
 
-PROFTPD_PATH		:= PATH=$(CROSS_PATH)
-PROFTPD_ENV		:= $(CROSS_ENV)
-
 PROFTPD_COMPILE_ENV	:= $(CROSS_ENV_CC_FOR_BUILD)
 
 #

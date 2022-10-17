@@ -30,9 +30,6 @@ SED_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-SED_PATH	:= PATH=$(CROSS_PATH)
-SED_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

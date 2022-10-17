@@ -27,9 +27,6 @@ XORG_LIB_XXF86MISC_DIR		:= $(BUILDDIR)/$(XORG_LIB_XXF86MISC)
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_LIB_XXF86MISC_PATH	:= PATH=$(CROSS_PATH)
-XORG_LIB_XXF86MISC_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

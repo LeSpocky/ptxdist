@@ -27,7 +27,6 @@ RAWREC_DIR		:= $(BUILDDIR)/$(RAWREC)
 # Compile
 # ----------------------------------------------------------------------------
 
-RAWREC_PATH	:= PATH=$(CROSS_PATH)
 RAWREC_MAKE_ENV	:= $(CROSS_ENV)
 RAWREC_MAKE_OPT	:= CC=$(CROSS_CC)
 RAWREC_SUBDIR	:= src

@@ -27,7 +27,6 @@ BUSTLE_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
 # Prepare
 # ----------------------------------------------------------------------------
 
-BUSTLE_PATH	:= PATH=$(CROSS_PATH)
 BUSTLE_MAKE_ENV := $(CROSS_ENV)
 
 $(STATEDIR)/bustle.prepare:

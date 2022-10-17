@@ -28,9 +28,6 @@ LIBFTDI_LICENSE	:= LGPL-2.1-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBFTDI_PATH	:= PATH=$(CROSS_PATH)
-LIBFTDI_ENV	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

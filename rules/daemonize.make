@@ -29,9 +29,6 @@ DAEMONIZE_LICENSE_FILES	:= file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f
 # Prepare
 # ----------------------------------------------------------------------------
 
-DAEMONIZE_PATH	:= PATH=$(CROSS_PATH)
-DAEMONIZE_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

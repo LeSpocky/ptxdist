@@ -27,9 +27,6 @@ TERMCAP_LICENSE	:= GPL-2.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-TERMCAP_PATH	:= PATH=$(CROSS_PATH)
-TERMCAP_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

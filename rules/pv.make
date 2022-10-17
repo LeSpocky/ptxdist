@@ -26,8 +26,6 @@ PV_DIR		:= $(BUILDDIR)/$(PV)
 # Prepare
 # ----------------------------------------------------------------------------
 
-PV_PATH	:= PATH=$(CROSS_PATH)
-PV_ENV 	:= $(CROSS_ENV)
 PV_MAKEVARS := $(CROSS_ENV_LD)
 
 #

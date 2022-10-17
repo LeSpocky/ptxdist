@@ -27,9 +27,6 @@ LIBUSB_COMPAT_LICENSE	:= LGPL-2.1-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBUSB_COMPAT_PATH	:= PATH=$(CROSS_PATH)
-LIBUSB_COMPAT_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

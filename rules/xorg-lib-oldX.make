@@ -27,9 +27,6 @@ XORG_LIB_OLDX_DIR	:= $(BUILDDIR)/$(XORG_LIB_OLDX)
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_LIB_OLDX_PATH	:= PATH=$(CROSS_PATH)
-XORG_LIB_OLDX_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

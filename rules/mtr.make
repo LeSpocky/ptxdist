@@ -27,9 +27,6 @@ MTR_LICENSE	:= GPL-2.0-or-later
 # Prepare
 # ----------------------------------------------------------------------------
 
-MTR_PATH	:= PATH=$(CROSS_PATH)
-MTR_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

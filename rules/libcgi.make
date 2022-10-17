@@ -28,9 +28,6 @@ LIBCGI_LICENSE	:= LGPL-2.1-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBCGI_PATH	:= PATH=$(CROSS_PATH)
-LIBCGI_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

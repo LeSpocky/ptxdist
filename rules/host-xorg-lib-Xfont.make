@@ -28,9 +28,6 @@ HOST_XORG_LIB_XFONT_LICENSE	:= MIT
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_XORG_LIB_XFONT_PATH	:= PATH=$(HOST_PATH)
-HOST_XORG_LIB_XFONT_ENV		:= $(HOST_ENV)
-
 #
 # autoconf
 #

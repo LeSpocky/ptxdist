@@ -29,9 +29,6 @@ LIBLIST_LICENSE_FILES	:= file://src/list.c;startline=10;endline=22;md5=5ace59915
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBLIST_PATH	:= PATH=$(CROSS_PATH)
-LIBLIST_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

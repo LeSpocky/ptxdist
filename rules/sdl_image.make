@@ -27,9 +27,6 @@ SDL_IMAGE_LICENSE	:= LGPL-2.1-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-SDL_IMAGE_PATH	:= PATH=$(CROSS_PATH)
-SDL_IMAGE_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

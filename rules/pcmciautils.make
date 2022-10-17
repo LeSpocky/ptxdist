@@ -27,9 +27,6 @@ PCMCIAUTILS_DIR		:= $(BUILDDIR)/$(PCMCIAUTILS)
 # Prepare
 # ----------------------------------------------------------------------------
 
-PCMCIAUTILS_PATH	:= PATH=$(CROSS_PATH)
-PCMCIAUTILS_ENV		:= $(CROSS_ENV)
-
 PCMCIAUTILS_COMPILE_ENV := \
 	$(CROSS_ENV_CFLAGS) \
 	$(CROSS_ENV_CPPFLAGS) \

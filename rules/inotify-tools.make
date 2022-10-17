@@ -28,9 +28,6 @@ INOTIFY_TOOLS_LICENSE_FILES	:= file://COPYING;md5=59530bdf33659b29e73d4adb9f9f65
 # Prepare
 # ----------------------------------------------------------------------------
 
-INOTIFY_TOOLS_PATH	:= PATH=$(CROSS_PATH)
-INOTIFY_TOOLS_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

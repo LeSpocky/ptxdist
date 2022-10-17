@@ -27,9 +27,6 @@ XORG_LIB_WINDOWSWM_DIR		:= $(BUILDDIR)/$(XORG_LIB_WINDOWSWM)
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_LIB_WINDOWSWM_PATH	:= PATH=$(CROSS_PATH)
-XORG_LIB_WINDOWSWM_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

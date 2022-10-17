@@ -28,7 +28,6 @@ MEMTESTER_LICENSE	:= GPL-2.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-MEMTESTER_PATH := PATH=$(CROSS_PATH)
 MEMTESTER_MAKE_ENV := $(CROSS_ENV)
 
 $(STATEDIR)/memtester.prepare:

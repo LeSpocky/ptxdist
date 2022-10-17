@@ -27,9 +27,6 @@ SCREEN_LICENSE	:= GPL-2.0-or-later
 # Prepare
 # ----------------------------------------------------------------------------
 
-SCREEN_PATH	:= PATH=$(CROSS_PATH)
-SCREEN_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

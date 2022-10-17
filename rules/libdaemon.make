@@ -28,9 +28,6 @@ LIBDAEMON_LICENSE	:= LGPL-2.1-or-later
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBDAEMON_PATH	:= PATH=$(CROSS_PATH)
-LIBDAEMON_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

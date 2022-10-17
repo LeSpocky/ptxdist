@@ -31,9 +31,6 @@ endif
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_FONT_SONY_MISC_PATH	:= PATH=$(CROSS_PATH)
-XORG_FONT_SONY_MISC_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

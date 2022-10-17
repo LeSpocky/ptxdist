@@ -30,7 +30,6 @@ DBENCH_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-DBENCH_PATH		:= PATH=$(CROSS_PATH)
 DBENCH_CONV_ENV		:= $(CROSS_ENV)
 DBENCH_MAKE_ENV		:= $(CROSS_ENV)
 DBENCH_INSTALL_OPT	:= prefix=$(PKGDIR)/$(DBENCH)/usr install

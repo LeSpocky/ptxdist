@@ -31,9 +31,6 @@ ARGTABLE2_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-ARGTABLE2_PATH	:= PATH=$(CROSS_PATH)
-ARGTABLE2_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

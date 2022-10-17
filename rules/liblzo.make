@@ -28,9 +28,6 @@ LIBLZO_LICENSE	:= GPL-2.0-or-later
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBLZO_PATH	:= PATH=$(CROSS_PATH)
-LIBLZO_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

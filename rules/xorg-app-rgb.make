@@ -26,9 +26,6 @@ XORG_APP_RGB_DIR	:= $(BUILDDIR)/$(XORG_APP_RGB)
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_APP_RGB_PATH	:= PATH=$(CROSS_PATH)
-XORG_APP_RGB_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 # FIXME: importance of switch

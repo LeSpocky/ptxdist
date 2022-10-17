@@ -27,9 +27,6 @@ EVENTLOG_LICENSE	:= BSD-3-Clause
 # Prepare
 # ----------------------------------------------------------------------------
 
-EVENTLOG_PATH	:= PATH=$(CROSS_PATH)
-EVENTLOG_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

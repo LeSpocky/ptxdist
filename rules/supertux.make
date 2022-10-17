@@ -26,9 +26,6 @@ SUPERTUX_DIR		:= $(BUILDDIR)/$(SUPERTUX)
 # Prepare
 # ----------------------------------------------------------------------------
 
-SUPERTUX_PATH	:= PATH=$(CROSS_PATH)
-SUPERTUX_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

@@ -28,9 +28,6 @@ KILLPROC_LICENSE	:= GPL-2.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-KILLPROC_PATH	:= PATH=$(CROSS_PATH)
-KILLPROC_ENV 	:= $(CROSS_ENV)
-
 KILLPROC_MAKEVARS := \
 	CC=$(CROSS_CC) \
 	SBINDIR=$(KILLPROC_PKGDIR)/usr/sbin \

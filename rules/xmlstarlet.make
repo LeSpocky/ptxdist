@@ -27,9 +27,6 @@ XMLSTARLET_DIR		:= $(BUILDDIR)/$(XMLSTARLET)
 # Prepare
 # ----------------------------------------------------------------------------
 
-XMLSTARLET_PATH := PATH=$(CROSS_PATH)
-XMLSTARLET_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

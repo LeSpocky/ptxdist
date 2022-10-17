@@ -27,9 +27,6 @@ XERCES_DIR	:= $(BUILDDIR)/$(XERCES)
 # Prepare
 # ----------------------------------------------------------------------------
 
-XERCES_PATH	:= PATH=$(CROSS_PATH)
-XERCES_CONF_ENV	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

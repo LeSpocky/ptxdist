@@ -31,9 +31,6 @@ endif
 # Prepare
 # ----------------------------------------------------------------------------
 
-XORG_FONT_BH_100DPI_PATH	:= PATH=$(CROSS_PATH)
-XORG_FONT_BH_100DPI_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

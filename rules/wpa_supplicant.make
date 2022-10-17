@@ -32,7 +32,6 @@ WPA_SUPPLICANT_LICENSE	:= GPL-2.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-WPA_SUPPLICANT_PATH	:= PATH=$(CROSS_PATH)
 WPA_SUPPLICANT_MAKE_ENV	:= \
 	$(CROSS_ENV) \
 	LIBDIR=/usr/lib \

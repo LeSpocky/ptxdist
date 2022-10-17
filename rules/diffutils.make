@@ -31,9 +31,6 @@ DIFFUTILS_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-DIFFUTILS_PATH	:= PATH=$(CROSS_PATH)
-DIFFUTILS_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

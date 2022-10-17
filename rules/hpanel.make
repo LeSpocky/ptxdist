@@ -36,7 +36,6 @@ HPANEL_CONF_TOOL := NO
 # Compile
 # ----------------------------------------------------------------------------
 
-HPANEL_PATH	:= PATH=$(CROSS_PATH)
 HPANEL_MAKE_ENV	:= $(CROSS_ENV)
 # the archive contains the target binary. Remove it with the 'clean' target.
 HPANEL_MAKE_OPT	:= clean hpanel

@@ -26,9 +26,6 @@ SDPARM_DIR	:= $(BUILDDIR)/$(SDPARM)
 # Prepare
 # ----------------------------------------------------------------------------
 
-SDPARM_PATH	:= PATH=$(CROSS_PATH)
-SDPARM_ENV 	:= $(CROSS_ENV)
-
 #
 # autoconf
 #

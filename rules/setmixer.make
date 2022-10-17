@@ -28,7 +28,6 @@ SETMIXER_DIR		:= $(BUILDDIR)/setmixer-27DEC94ds1.orig
 # Prepare
 # ----------------------------------------------------------------------------
 
-SETMIXER_PATH		:= PATH=$(CROSS_PATH)
 SETMIXER_MAKE_ENV	:= $(CROSS_ENV)
 SETMIXER_MAKE_OPT	:= CC=$(CROSS_CC)
 

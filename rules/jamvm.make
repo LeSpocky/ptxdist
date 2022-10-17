@@ -32,9 +32,6 @@ JAMVM_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-JAMVM_PATH	:= PATH=$(CROSS_PATH)
-JAMVM_ENV 	:= $(CROSS_ENV)
-
 JAMVM_CPPFLAGS = -I$(SYSROOT)/usr/lib/libffi-$(LIBFFI_VERSION)/include
 ifdef PTXCONF_ARCH_ARM
 JAMVM_CFLAGS := -marm
