@@ -30,7 +30,7 @@ BSDIFF_LICENSE	:= BSD-2-Clause
 #
 # autoconf
 #
-BSDIFF_AUTOCONF_CONF_TOOL := NO
+BSDIFF_CONF_TOOL := NO
 BSDIFF_MAKE_ENV := $(CROSS_ENV) PREFIX=/usr
 
 # ----------------------------------------------------------------------------
