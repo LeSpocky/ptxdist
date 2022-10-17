@@ -17,8 +17,8 @@ PACKAGES-$(PTXCONF_DHCP) += dhcp
 #
 # Paths and names
 #
-DHCP_VERSION	:= 4.4.2
-DHCP_MD5	:= 2afdaf8498dc1edaf3012efdd589b3e1
+DHCP_VERSION	:= 4.4.3
+DHCP_MD5	:= 9076af4cc1293dde5a7c6cae7de6ab45
 DHCP		:= dhcp-$(DHCP_VERSION)
 DHCP_SUFFIX	:= tar.gz
 DHCP_URL	:= \
@@ -29,9 +29,9 @@ DHCP_SOURCE	:= $(SRCDIR)/$(DHCP).$(DHCP_SUFFIX)
 DHCP_DIR	:= $(BUILDDIR)/$(DHCP)
 DHCP_LICENSE	:= MPL-2.0 AND BSD-3-Clause AND ISC
 DHCP_LICENSE_FILES	:= \
-	file://LICENSE;md5=b9c6e660b3d9260de9a342d2fb77540a \
-	file://server/ldap.c;startline=6;endline=35;md5=8e5f9d2cd6b641d599871fd2430708c4 \
-	file://server/ldap_casa.c;startline=35;endline=48;md5=d2ea64a00aeacb447c6634d984486afe
+	file://LICENSE;md5=c463f4afde26d9eb60f14f50aeb85f8f \
+	file://server/ldap.c;startline=6;endline=35;md5=8d047cff3fcdff1e6df8e3a82aff0f7c \
+	file://server/ldap_casa.c;startline=35;endline=48;md5=d865213e14a02885f25467a709307bf3
 
 # ----------------------------------------------------------------------------
 # Prepare
