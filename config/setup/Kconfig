@@ -304,6 +304,12 @@ config SETUP_CHECK_EXIT_ON_ERROR
 	  quite aggressive error checking. Don't turn this on until
 	  you know what you're doing.
 
+config SETUP_DEPRECATED_FATAL
+	bool "bailout on deprecated variable use"
+	help
+	  Terminate on deprecated variable use. Turn this on only
+          if you are going to hunt for deprecated variables.
+
 config SETUP_ICECC
 	bool "use icecc"
 	depends on !SETUP_CCACHE

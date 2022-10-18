@@ -20,6 +20,15 @@ ptxd_make_world_init_deprecation_check() {
 	pkg_deprecated_compile_env
 	pkg_deprecated_makevars
 	)
+    local -a depname
+    depname=(
+	BUILDDIR
+	ENV
+	AUTOCONF
+	CMAKE
+	COMPILE_ENV
+	MAKEVARS
+	)
     local i
 
     for ((i = 0; i < ${#dep[@]}; i++)); do
@@ -28,8 +37,12 @@ ptxd_make_world_init_deprecation_check() {
 
 	[ -z "${val}" ] && continue
 
-	echo "${var}=\"${val}\""
+	echo "<PKG>_${depname[i]}: ${var}=\"${val}\""
 	echo
+
+	if [ "${PTXCONF_SETUP_DEPRECATED_FATAL}" = "y" ]; then
+	    ptxd_bailout "${FUNCNAME}: deprecated variable <PKG>_${depname[i]} detected!"
+	fi
     done
 
 }
