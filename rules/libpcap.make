@@ -31,7 +31,7 @@ LIBPCAP_CONF_ENV  := \
 	$(CROSS_ENV) \
 	ac_cv_lbl_hci_channel_monitor_is_defined=no
 
-LIBPCAP_COMPILE_ENV := \
+LIBPCAP_MAKE_ENV := \
 	$(CROSS_ENV_CFLAGS) \
 	$(CROSS_ENV_CPPFLAGS) \
 	$(CROSS_ENV_LDFLAGS) \

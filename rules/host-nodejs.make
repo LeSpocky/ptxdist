@@ -13,7 +13,7 @@
 HOST_PACKAGES-$(PTXCONF_HOST_NODEJS) += host-nodejs
 
 # Always run the preprocessor locally.
-HOST_NODEJS_COMPILE_ENV	:= \
+HOST_NODEJS_MAKE_ENV	:= \
 	ICECC_REMOTE_CPP=0
 
 # ----------------------------------------------------------------------------
