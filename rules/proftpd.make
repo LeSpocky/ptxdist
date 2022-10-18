@@ -27,39 +27,20 @@ PROFTPD_DIR		:= $(BUILDDIR)/$(PROFTPD)
 # Prepare
 # ----------------------------------------------------------------------------
 
-PROFTPD_COMPILE_ENV	:= $(CROSS_ENV_CC_FOR_BUILD)
+PROFTPD_MAKE_ENV	:= $(CROSS_ENV_CC_FOR_BUILD)
 
 #
 # autoconf
 #
-PROFTPD_AUTOCONF	:= \
+PROFTPD_CONF_TOOL	:= autoconf
+PROFTPD_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_IPV6_OPTION) \
-	--disable-cap
-
-ifdef PTXCONF_PROFTPD_PAM
-PROFTPD_AUTOCONF += --enable-auth-pam
-else
-PROFTPD_AUTOCONF += --disable-auth-pam
-endif
-
-ifdef PTXCONF_PROFTPD_SENDFILE
-PROFTPD_AUTOCONF += --enable-sendfile
-else
-PROFTPD_AUTOCONF += --disable-sendfile
-endif
-
-ifdef PTXCONF_PROFTPD_SHADOW
-PROFTPD_AUTOCONF += --enable-shadow
-else
-PROFTPD_AUTOCONF += --disable-shadow
-endif
-
-ifdef PTXCONF_PROFTPD_AUTOSHADOW
-PROFTPD_AUTOCONF += --enable-autoshadow
-else
-PROFTPD_AUTOCONF += --disable-autoshadow
-endif
+	--disable-cap \
+	--$(call ptx/endis, PTXCONF_PROFTPD_PAM)-auth-pam \
+	--$(call ptx/endis, PTXCONF_PROFTPD_SENDFILE)-sendfile \
+	--$(call ptx/endis, PTXCONF_PROFTPD_SHADOW)-shadow \
+	--$(call ptx/endis, PTXCONF_PROFTPD_AUTOSHADOW)-autoshadow
 
 PROFTPD_MAKE_PAR := NO
 
