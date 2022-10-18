@@ -22,7 +22,7 @@ TF_A_SUFFIX	:= tar.gz
 TF_A_URL	:= $(call remove_quotes, $(PTXCONF_TF_A_URL))/$(TF_A_VERSION).$(TF_A_SUFFIX)
 TF_A_SOURCE	:= $(SRCDIR)/$(TF_A).$(TF_A_SUFFIX)
 TF_A_DIR	:= $(BUILDDIR)/$(TF_A)
-TF_A_BUILDDIR	:= $(TF_A_DIR)/build
+TF_A_BUILD_DIR	:= $(TF_A_DIR)/build
 TF_A_BUILD_OOT	:= YES
 TF_A_LICENSE	:= BSD-3-Clause AND BSD-2-Clause \
 		   AND (GPL-2.0-or-later OR BSD-2-Clause) \
@@ -41,7 +41,7 @@ TF_A_WRAPPER_BLACKLIST	:= \
 	$(PTXDIST_LOWLEVEL_WRAPPER_BLACKLIST)
 
 TF_A_EXTRA_ARGS		:= $(call remove_quotes,$(PTXCONF_TF_A_EXTRA_ARGS))
-TF_A_BINDIR		 = $(TF_A_BUILDDIR)/$(1)/$(if $(filter DEBUG=1,$(TF_A_EXTRA_ARGS)),debug,release)
+TF_A_BINDIR		 = $(TF_A_BUILD_DIR)/$(1)/$(if $(filter DEBUG=1,$(TF_A_EXTRA_ARGS)),debug,release)
 TF_A_MAKE_OPT	:= \
 	-C $(TF_A_DIR) \
 	CROSS_COMPILE=$(BOOTLOADER_CROSS_COMPILE) \

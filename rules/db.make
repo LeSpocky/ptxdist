@@ -25,7 +25,7 @@ DB_URL		:= http://download.oracle.com/berkeley-db/$(DB).$(DB_SUFFIX)
 DB_SOURCE	:= $(SRCDIR)/$(DB).$(DB_SUFFIX)
 DB_DIR		:= $(BUILDDIR)/$(DB)
 DB_SUBDIR	:= dist
-DB_BUILDDIR	:= $(DB_DIR)/build_unix
+DB_BUILD_DIR	:= $(DB_DIR)/build_unix
 DB_LICENCE	:= Sleepycat
 
 # ----------------------------------------------------------------------------
@@ -35,7 +35,7 @@ DB_LICENCE	:= Sleepycat
 #
 # autoconf
 #
-DB_CONF_TOOL := autoconf
+DB_CONF_TOOL	:= autoconf
 DB_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-smallbuild \
