@@ -34,7 +34,8 @@ DIFFUTILS_LICENSE_FILES	:= \
 #
 # autoconf
 #
-DIFFUTILS_AUTOCONF :=  $(CROSS_AUTOCONF_USR)
+DIFFUTILS_CONF_TOOL	:= autoconf
+DIFFUTILS_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

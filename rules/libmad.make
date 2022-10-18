@@ -30,17 +30,18 @@ LIBMAD_LICENSE	:= GPL-2.0-or-later
 #
 # autoconf
 #
-LIBMAD_AUTOCONF := \
+LIBMAD_CONF_TOOL := autoconf
+LIBMAD_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-debugging \
 	--disable-profiling \
 	--disable-experimental
 
 ifdef PTXCONF_LIBMAD__OPT_SPEED
-LIBMAD_AUTOCONF += --enable-speed
+LIBMAD_CONF_OPT += --enable-speed
 endif
 ifdef PTXCONF_LIBMAD__OPT_ACCURACY
-LIBMAD_AUTOCONF += --enable-accuracy
+LIBMAD_CONF_OPT += --enable-accuracy
 endif
 
 # ----------------------------------------------------------------------------

@@ -31,7 +31,8 @@ XORG_APP_RGB_DIR	:= $(BUILDDIR)/$(XORG_APP_RGB)
 # FIXME: importance of switch
 #   --with-rgb-db-type=(text|dbm|ndbm) rgb database type (default is text)
 #
-XORG_APP_RGB_AUTOCONF := \
+XORG_APP_RGB_CONF_TOOL := autoconf
+XORG_APP_RGB_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--datadir=$(XORG_DATADIR)
 

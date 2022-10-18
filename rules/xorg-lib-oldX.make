@@ -30,7 +30,9 @@ XORG_LIB_OLDX_DIR	:= $(BUILDDIR)/$(XORG_LIB_OLDX)
 #
 # autoconf
 #
-XORG_LIB_OLDX_AUTOCONF := $(CROSS_AUTOCONF_USR) \
+XORG_LIB_OLDX_CONF_TOOL := autoconf
+XORG_LIB_OLDX_CONF_OPT := \
+	$(CROSS_AUTOCONF_USR) \
 	--disable-malloc0returnsnull
 
 # ----------------------------------------------------------------------------

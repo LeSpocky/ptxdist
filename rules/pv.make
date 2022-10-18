@@ -31,7 +31,8 @@ PV_MAKEVARS := $(CROSS_ENV_LD)
 #
 # autoconf
 #
-PV_AUTOCONF := \
+PV_CONF_TOOL	:= autoconf
+PV_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-nls \
 	--disable-splice \

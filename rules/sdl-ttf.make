@@ -27,14 +27,15 @@ SDL_TTF_LICENSE := zlib
 # Prepare
 # ----------------------------------------------------------------------------
 
-SDL_TTF_ENV 	:= \
+SDL_TTF_CONF_ENV := \
 	$(CROSS_ENV) \
 	sdl_cv_lib_opengl=no
 
 #
 # autoconf
 #
-SDL_TTF_AUTOCONF := \
+SDL_TTF_CONF_TOOL := autoconf
+SDL_TTF_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--with-sdl-prefix=$(SYSROOT)/usr \
 	--disable-sdltest \

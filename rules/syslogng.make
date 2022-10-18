@@ -30,7 +30,7 @@ SYSLOGNG_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-SYSLOGNG_ENV 	= \
+SYSLOGNG_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	ac_cv_lib_nsl_gethostbyname=no \
 	am_cv_python_version=$(PYTHON3_MAJORMINOR) \
@@ -39,7 +39,8 @@ SYSLOGNG_ENV 	= \
 #
 # autoconf
 #
-SYSLOGNG_AUTOCONF = \
+SYSLOGNG_CONF_TOOL	:= autoconf
+SYSLOGNG_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--localstatedir=/var/run \
 	--with-module-dir=/usr/$(CROSS_LIB_DIR)/syslog-ng \

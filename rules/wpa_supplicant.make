@@ -40,7 +40,8 @@ WPA_SUPPLICANT_MAKE_ENV	:= \
 #
 # autoconf
 #
-WPA_SUPPLICANT_AUTOCONF := $(CROSS_AUTOCONF_USR)
+WPA_SUPPLICANT_CONF_TOOL := autoconf
+WPA_SUPPLICANT_CONF_OPT := $(CROSS_AUTOCONF_USR)
 
 $(STATEDIR)/wpa_supplicant.prepare:
 	@$(call targetinfo)

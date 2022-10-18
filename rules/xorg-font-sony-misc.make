@@ -34,7 +34,8 @@ endif
 #
 # autoconf
 #
-XORG_FONT_SONY_MISC_AUTOCONF := \
+XORG_FONT_SONY_MISC_CONF_TOOL	:= autoconf
+XORG_FONT_SONY_MISC_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--with-fontdir=$(XORG_FONTDIR)/misc
 

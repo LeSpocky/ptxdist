@@ -33,7 +33,8 @@ endif
 #
 # autoconf
 #
-XORG_FONT_ENCODINGS_AUTOCONF := \
+XORG_FONT_ENCODINGS_CONF_TOOL	:= autoconf
+XORG_FONT_ENCODINGS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--with-encodingsdir=$(XORG_FONTDIR)/encodings
 

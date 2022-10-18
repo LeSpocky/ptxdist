@@ -35,7 +35,8 @@ LIBLOCKFILE_MAKEVARS	:= ROOT=$(PKGDIR)/$(LIBLOCKFILE) $(CROSS_ENV_AR)
 #
 # autoconf
 #
-LIBLOCKFILE_AUTOCONF	:= $(CROSS_AUTOCONF_USR)
+LIBLOCKFILE_CONF_TOOL	:= autoconf
+LIBLOCKFILE_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

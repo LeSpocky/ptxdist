@@ -36,7 +36,8 @@ LIBKSBA_LICENSE_FILES := \
 #
 # autoconf
 #
-LIBKSBA_AUTOCONF := \
+LIBKSBA_CONF_TOOL := autoconf
+LIBKSBA_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-gcov \
 	--enable-build-timestamp="$(PTXDIST_BUILD_TIMESTAMP)" \

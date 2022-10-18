@@ -42,6 +42,6 @@ $(STATEDIR)/host-xorg-app-bdftopcf.extract:
 #
 # autoconf
 #
-HOST_XORG_APP_BDFTOPCF_AUTOCONF	:= $(HOST_AUTOCONF)
+HOST_XORG_APP_BDFTOPCF_CONF_TOOL := autoconf
 
 # vim: syntax=make

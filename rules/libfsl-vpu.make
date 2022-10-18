@@ -31,7 +31,8 @@ LIBFSL_VPU_LICENSE_FILES	:= file://src/vpu_lib.c;md5=58db5f82e0a28dfe42bf9885eb4
 #
 # autoconf
 #
-LIBFSL_VPU_AUTOCONF := \
+LIBFSL_VPU_CONF_TOOL := autoconf
+LIBFSL_VPU_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-debug
 

@@ -30,7 +30,8 @@ URSHD_LICENSE	:= BSD-4-Clause
 #
 # autoconf
 #
-URSHD_AUTOCONF := $(CROSS_AUTOCONF_USR)
+URSHD_CONF_TOOL	:= autoconf
+URSHD_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

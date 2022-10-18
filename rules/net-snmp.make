@@ -39,19 +39,20 @@ NET_SNMP_MIB_MODULES-$(PTXCONF_NET_SNMP_MIB_MODULES_UCD_SNMP) += ucd_snmp
 NET_SNMP_MIB_MODULES-$(PTXCONF_NET_SNMP_MIB_MODULES_LM_SENSORS) += ucd-snmp/lmsensorsMib
 
 
-NET_SNMP_ENV := \
+NET_SNMP_CONF_ENV := \
 	$(CROSS_ENV) \
 	ac_cv_header_pcre_h=no
 
 ifndef PTXCONF_NET_SNMP_PCI
-NET_SNMP_ENV += \
+NET_SNMP_CONF_ENV += \
 	netsnmp_cv_func_pci_lookup_name_LMIBLIBS=no
 endif
 
 #
 # autoconf
 #
-NET_SNMP_AUTOCONF := \
+NET_SNMP_CONF_TOOL := autoconf
+NET_SNMP_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_NET_SNMP_AGENT)-agent \
 	--$(call ptx/endis, PTXCONF_NET_SNMP_APPLICATIONS)-applications \

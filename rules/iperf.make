@@ -30,7 +30,8 @@ IPERF_LICENSE	:= BSD
 #
 # autoconf
 #
-IPERF_AUTOCONF := \
+IPERF_CONF_TOOL := autoconf
+IPERF_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_IPV6_OPTION) \
 	--enable-multicast \

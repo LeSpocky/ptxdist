@@ -26,7 +26,8 @@ FCGI_LICENSE_FILES	:= file://LICENSE.TERMS;md5=e3aacac3a647af6e7e31f181cda0a06a
 # Prepare
 # ----------------------------------------------------------------------------
 
-FCGI_AUTOCONF := $(CROSS_AUTOCONF_USR)
+FCGI_CONF_TOOL	:= autoconf
+FCGI_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

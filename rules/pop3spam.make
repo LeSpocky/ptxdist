@@ -31,7 +31,8 @@ POP3SPAM_DIR		:= $(BUILDDIR)/$(POP3SPAM)
 #
 # autoconf
 #
-POP3SPAM_AUTOCONF := $(CROSS_AUTOCONF_USR)
+POP3SPAM_CONF_TOOL	:= autoconf
+POP3SPAM_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

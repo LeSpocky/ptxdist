@@ -30,15 +30,16 @@ LIBCONFUSE_LICENSE	:= ISC
 #
 # autoconf
 #
-LIBCONFUSE_AUTOCONF := \
+LIBCONFUSE_CONF_TOOL	:= autoconf
+LIBCONFUSE_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-examples \
 	--disable-nls
 
 ifdef PTXCONF_LIBCONFUSE_STATIC
-LIBCONFUSE_AUTOCONF += --enable-shared=no
+LIBCONFUSE_CONF_OPT += --enable-shared=no
 else
-LIBCONFUSE_AUTOCONF += --enable-shared
+LIBCONFUSE_CONF_OPT += --enable-shared
 endif
 
 # ----------------------------------------------------------------------------

@@ -40,7 +40,8 @@ endif
 #
 # autoconf
 #
-JAMVM_AUTOCONF := \
+JAMVM_CONF_TOOL := autoconf
+JAMVM_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-int-threading \
 	--enable-int-direct \
@@ -53,49 +54,49 @@ JAMVM_AUTOCONF := \
 	--with-classpath-install-dir=/usr
 
 ifdef PTXCONF_JAMVM_USE_LIBFFI
-JAMVM_AUTOCONF += --enable-ffi
+JAMVM_CONF_OPT += --enable-ffi
 else
-JAMVM_AUTOCONF += --disable-ffi
+JAMVM_CONF_OPT += --disable-ffi
 endif
 
 ifndef PTXCONF_JAMVM_TRACE
-JAMVM_AUTOCONF += --disable-trace
+JAMVM_CONF_OPT += --disable-trace
 endif
 
 ifdef PTXCONF_JAMVM_TRACE_ALL
-JAMVM_AUTOCONF += --enable-trace
+JAMVM_CONF_OPT += --enable-trace
 endif
 
 ifdef PTXCONF_JAMVM_TRACE_GC
-JAMVM_AUTOCONF += --enable-tracegc
+JAMVM_CONF_OPT += --enable-tracegc
 endif
 
 ifdef PTXCONF_JAMVM_TRACE_ALLOC
-JAMVM_AUTOCONF += --enable-tracealloc
+JAMVM_CONF_OPT += --enable-tracealloc
 endif
 
 ifdef PTXCONF_JAMVM_TRACE_FNLZ
-JAMVM_AUTOCONF += --enable-tracefnlz
+JAMVM_CONF_OPT += --enable-tracefnlz
 endif
 
 ifdef PTXCONF_JAMVM_TRACE_DLL
-JAMVM_AUTOCONF += --enable-tracedll
+JAMVM_CONF_OPT += --enable-tracedll
 endif
 
 ifdef PTXCONF_JAMVM_TRACE_LOCK
-JAMVM_AUTOCONF += --enable-tracelock
+JAMVM_CONF_OPT += --enable-tracelock
 endif
 
 ifdef PTXCONF_JAMVM_TRACE_THREAD
-JAMVM_AUTOCONF += --enable-tracethread
+JAMVM_CONF_OPT += --enable-tracethread
 endif
 
 ifdef PTXCONF_JAMVM_TRACE_DIRECT
-JAMVM_AUTOCONF += --enable-tracedirect
+JAMVM_CONF_OPT += --enable-tracedirect
 endif
 
 ifdef PTXCONF_JAMVM_TRACE_INLINING
-JAMVM_AUTOCONF += --enable-traceinlining
+JAMVM_CONF_OPT += --enable-traceinlining
 endif
 
 # FIXME:

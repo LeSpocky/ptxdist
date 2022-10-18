@@ -30,12 +30,13 @@ LIBLTDL_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBLTDL_ENV 	:= $(CROSS_ENV) HELP2MAN=:
+LIBLTDL_CONF_ENV := $(CROSS_ENV) HELP2MAN=:
 
 #
 # autoconf
 #
-LIBLTDL_AUTOCONF := $(CROSS_AUTOCONF_USR)
+LIBLTDL_CONF_TOOL := autoconf
+LIBLTDL_CONF_OPT := $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

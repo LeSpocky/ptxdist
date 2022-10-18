@@ -26,7 +26,7 @@ LIBMEMCACHE_DIR		:= $(BUILDDIR)/$(LIBMEMCACHE)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBMEMCACHE_ENV := \
+LIBMEMCACHE_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	ac_cv_setsockopt_SO_RCVTIMEO=no \
 	ac_cv_setsockopt_SO_SNDTIMEO=no
@@ -34,9 +34,10 @@ LIBMEMCACHE_ENV := \
 #
 # autoconf
 #
-LIBMEMCACHE_AUTOCONF := $(CROSS_AUTOCONF_USR)
+LIBMEMCACHE_CONF_TOOL	:= autoconf
+LIBMEMCACHE_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
-LIBMEMCACHE_CFLAGS := -D_XOPEN_SOURCE=600
+LIBMEMCACHE_CFLAGS	:= -D_XOPEN_SOURCE=600
 
 # ----------------------------------------------------------------------------
 # Target-Install

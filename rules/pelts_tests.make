@@ -30,7 +30,8 @@ PELTS_TESTS_DIR		:= $(BUILDDIR)/$(PELTS_TESTS)
 #
 # autoconf
 #
-PELTS_TESTS_AUTOCONF := $(CROSS_AUTOCONF_USR)
+PELTS_TESTS_CONF_TOOL	:= autoconf
+PELTS_TESTS_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

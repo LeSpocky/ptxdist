@@ -29,12 +29,13 @@ BASH_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-BASH_ENV	:= \
+BASH_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	bash_cv_job_control_missing=$(call ptx/ifdef, PTXCONF_BASH_JOBS, present, missing) \
 	bash_cv_termcap_lib=$(call ptx/ifdef, PTXCONF_BASH_CURSES, libncurses, libtermcap)
 
-BASH_AUTOCONF	:= \
+BASH_CONF_TOOL	:= autoconf
+BASH_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--without-bash-malloc \

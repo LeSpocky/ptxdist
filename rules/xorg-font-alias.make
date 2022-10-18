@@ -30,7 +30,8 @@ XORG_FONT_ALIAS_LICENSE	:= Vakulenko
 #
 # autoconf
 #
-XORG_FONT_ALIAS_AUTOCONF := \
+XORG_FONT_ALIAS_CONF_TOOL := autoconf
+XORG_FONT_ALIAS_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--with-fontrootdir=$(XORG_FONTDIR)
 

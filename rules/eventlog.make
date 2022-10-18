@@ -30,7 +30,8 @@ EVENTLOG_LICENSE	:= BSD-3-Clause
 #
 # autoconf
 #
-EVENTLOG_AUTOCONF := $(CROSS_AUTOCONF_USR)
+EVENTLOG_CONF_TOOL	:= autoconf
+EVENTLOG_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

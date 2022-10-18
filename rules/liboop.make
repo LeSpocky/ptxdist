@@ -29,7 +29,8 @@ LIBOOP_DIR	:= $(BUILDDIR)/$(LIBOOP)
 #
 # autoconf
 #
-LIBOOP_AUTOCONF := \
+LIBOOP_CONF_TOOL := autoconf
+LIBOOP_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-shared \
 	--enable-static \

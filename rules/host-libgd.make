@@ -23,7 +23,8 @@ HOST_LIBGD_DIR	= $(HOST_BUILDDIR)/$(LIBGD)
 #
 # autoconf
 #
-HOST_LIBGD_AUTOCONF	:= \
+HOST_LIBGD_CONF_TOOL	:= autoconf
+HOST_LIBGD_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--without-x \
 	--without-jpeg \

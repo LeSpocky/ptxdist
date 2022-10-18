@@ -16,7 +16,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_EGGDBUS) += host-eggdbus
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_EGGDBUS_AUTOCONF := \
+HOST_EGGDBUS_CONF_TOOL	:= autoconf
+HOST_EGGDBUS_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-static \
 	--disable-man-pages \

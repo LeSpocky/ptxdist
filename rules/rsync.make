@@ -26,14 +26,15 @@ RSYNC_DIR	:= $(BUILDDIR)/$(RSYNC)
 # Prepare
 # ----------------------------------------------------------------------------
 
-RSYNC_ENV 	:= \
+RSYNC_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	rsync_cv_HAVE_GETTIMEOFDAY_TZ=yes 
 
 #
 # autoconf
 #
-RSYNC_AUTOCONF := \
+RSYNC_CONF_TOOL	:= autoconf
+RSYNC_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_IPV6_OPTION) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
@@ -43,7 +44,7 @@ RSYNC_AUTOCONF := \
 	--disable-locale
 
 ifneq ($(call remove_quotes,$(PTXCONF_RSYNC_CONFIG_FILE)),)
-RSYNC_AUTOCONF += --with-rsyncd-conf=$(PTXCONF_RSYNC_CONFIG_FILE)
+RSYNC_CONF_OPT	+= --with-rsyncd-conf=$(PTXCONF_RSYNC_CONFIG_FILE)
 endif
 
 # ----------------------------------------------------------------------------

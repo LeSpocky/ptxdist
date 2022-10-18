@@ -33,7 +33,8 @@ MODULE_INIT_TOOLS_MAKEVARS := MAN5="" MAN8=""
 #
 # autoconf
 #
-MODULE_INIT_TOOLS_AUTOCONF := $(CROSS_AUTOCONF_USR)
+MODULE_INIT_TOOLS_CONF_TOOL := autoconf
+MODULE_INIT_TOOLS_CONF_OPT := $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

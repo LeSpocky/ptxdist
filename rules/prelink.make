@@ -31,7 +31,8 @@ PRELINK_LICENSE	:= GPL-2.0-only
 #
 # autoconf
 #
-PRELINK_AUTOCONF := $(CROSS_AUTOCONF_USR)
+PRELINK_CONF_TOOL := autoconf
+PRELINK_CONF_OPT := $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

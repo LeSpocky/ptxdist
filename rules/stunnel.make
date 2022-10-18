@@ -33,7 +33,7 @@ STUNNEL_LICENSE	:= stunnel (GPL2 or later with openssl exception)
 # autoconf
 #
 STUNNEL_CONF_TOOL	:= autoconf
-STUNNEL_AUTOCONF	:= \
+STUNNEL_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	$(GLOBAL_IPV6_OPTION) \

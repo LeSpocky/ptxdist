@@ -34,7 +34,8 @@ RSYNC3_CONF_ENV	:= \
 #
 # autoconf
 #
-RSYNC3_AUTOCONF  := \
+RSYNC3_CONF_TOOL := autoconf
+RSYNC3_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-debug \
 	--disable-profile \

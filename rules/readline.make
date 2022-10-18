@@ -29,7 +29,8 @@ READLINE_LICENSE_FILES	:= file://COPYING;md5=d32239bcb673463ab874e80d47fae504
 # Prepare
 # ----------------------------------------------------------------------------
 
-READLINE_AUTOCONF := \
+READLINE_CONF_TOOL	:= autoconf
+READLINE_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-multibyte \
 	--enable-shared \

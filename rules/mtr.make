@@ -30,7 +30,8 @@ MTR_LICENSE	:= GPL-2.0-or-later
 #
 # autoconf
 #
-MTR_AUTOCONF := \
+MTR_CONF_TOOL := autoconf
+MTR_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_IPV6_OPTION) \
 	--without-gtk

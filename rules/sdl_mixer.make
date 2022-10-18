@@ -31,57 +31,23 @@ SDL_MIXER_LICENSE	:= LGPL-2.1-only
 #
 # autoconf
 #
-SDL_MIXER_AUTOCONF := \
+SDL_MIXER_CONF_TOOL := autoconf
+SDL_MIXER_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--with-sdl-prefix=$(SYSROOT)/usr \
-	--disable-music-mp3
-
-ifdef PTXCONF_SDL_MIXER_WAVE
-SDL_MIXER_AUTOCONF += --enable-music-wave
-else
-SDL_MIXER_AUTOCONF += --disable-music-wave
-endif
-
-ifdef PTXCONF_SDL_MIXER_MOD
-SDL_MIXER_AUTOCONF += --enable-music-mod
-else
-SDL_MIXER_AUTOCONF += --disable-music-mod
-endif
+	--disable-music-mp3 \
+	--$(call ptx/endis, PTXCONF_SDL_MIXER_WAVE)-music-wave \
+	--$(call ptx/endis, PTXCONF_SDL_MIXER_MOD)-music-mod \
+	--$(call ptx/endis, PTXCONF_SDL_MIXER_MIDI_TIMIDITY)-music-timidity-midi \
+	--$(call ptx/endis, PTXCONF_SDL_MIXER_MIDI_NATIVE)-music-native-midi-gpl \
+	--$(call ptx/endis, PTXCONF_SDL_MIXER_OGG)-music-ogg \
+	--$(call ptx/endis, PTXCONF_SDL_MIXER_FLAC)-music-flac \
+	--$(call ptx/endis, PTXCONF_SDL_MIXER_MP3)-music-mp3-mad-gpl
 
 ifneq ($(PTXCONF_SDL_MIXER_MIDI_TIMIDITY)$(PTXCONF_SDL_MIXER_MIDI_NATIVE),)
-SDL_MIXER_AUTOCONF += --enable-music-midi
+SDL_MIXER_CONF_OPT += --enable-music-midi
 else
-SDL_MIXER_AUTOCONF += --disable-music-midi
-endif
-
-ifdef PTXCONF_SDL_MIXER_MIDI_TIMIDITY
-SDL_MIXER_AUTOCONF += --enable-music-timidity-midi
-else
-SDL_MIXER_AUTOCONF += --disable-music-timidity-midi
-endif
-
-ifdef PTXCONF_SDL_MIXER_MIDI_NATIVE
-SDL_MIXER_AUTOCONF += --enable-music-native-midi-gpl
-else
-SDL_MIXER_AUTOCONF += --disable-music-native-midi-gpl
-endif
-
-ifdef PTXCONF_SDL_MIXER_OGG
-SDL_MIXER_AUTOCONF += --enable-music-ogg
-else
-SDL_MIXER_AUTOCONF += --disable-music-ogg
-endif
-
-ifdef PTXCONF_SDL_MIXER_FLAC
-SDL_MIXER_AUTOCONF += --enable-music-flac
-else
-SDL_MIXER_AUTOCONF += --disable-music-flac
-endif
-
-ifdef PTXCONF_SDL_MIXER_MP3
-SDL_MIXER_AUTOCONF += --enable-music-mp3-mad-gpl
-else
-SDL_MIXER_AUTOCONF += --disable-music-mp3-mad-gpl
+SDL_MIXER_CONF_OPT += --disable-music-midi
 endif
 
 # ----------------------------------------------------------------------------

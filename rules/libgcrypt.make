@@ -36,18 +36,19 @@ ifneq ($(PTXCONF_ARCH_M68K)$(PTXCONF_ARCH_PPC),)
 LIBGCRYPT_ASM :=
 endif
 
-LIBGCRYPT_ENV := \
+LIBGCRYPT_CONF_ENV := \
 	$(CROSS_ENV) \
 	ac_cv_path_GPGRT_CONFIG=$(PTXDIST_SYSROOT_CROSS)/bin/gpgrt-config
 
 ifdef PTXCONF_ARCH_X86
-LIBGCRYPT_ENV += ac_cv_sys_symbol_underscore=no
+LIBGCRYPT_CONF_ENV += ac_cv_sys_symbol_underscore=no
 endif
 
 #
 # autoconf
 #
-LIBGCRYPT_AUTOCONF := \
+LIBGCRYPT_CONF_TOOL := autoconf
+LIBGCRYPT_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-static \
 	--enable-shared \

@@ -33,7 +33,8 @@ GNUPLOT_LICENSE_FILES	:= file://Copyright;md5=243a186fc2fd3b992125d60d5b1bab8f
 #
 # autoconf
 #
-GNUPLOT_AUTOCONF = \
+GNUPLOT_CONF_TOOL := autoconf
+GNUPLOT_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-history-file \
 	--$(call ptx/endis, PTXCONF_GNUPLOT_X)-mouse \

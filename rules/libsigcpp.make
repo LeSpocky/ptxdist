@@ -30,7 +30,8 @@ LIBSIGCPP_DIR		:= $(BUILDDIR)/$(LIBSIGCPP)
 #
 # autoconf
 #
-LIBSIGCPP_AUTOCONF := \
+LIBSIGCPP_CONF_TOOL	:= autoconf
+LIBSIGCPP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-documentation
 

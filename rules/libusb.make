@@ -33,7 +33,8 @@ LIBUSB_LICENSE_FILES := \
 #
 # autoconf
 #
-LIBUSB_AUTOCONF := \
+LIBUSB_CONF_TOOL := autoconf
+LIBUSB_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-shared \
 	--disable-static \

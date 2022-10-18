@@ -30,14 +30,17 @@ DBENCH_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-DBENCH_CONV_ENV		:= $(CROSS_ENV)
-DBENCH_MAKE_ENV		:= $(CROSS_ENV)
-DBENCH_INSTALL_OPT	:= prefix=$(PKGDIR)/$(DBENCH)/usr install
-
 #
 # autoconf
 #
-DBENCH_AUTOCONF := $(CROSS_AUTOCONF_USR)
+DBENCH_CONF_TOOL	:= autoconf
+DBENCH_CONF_OPT		:= $(CROSS_AUTOCONF_USR)
+
+# ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+
+DBENCH_INSTALL_OPT	:= prefix=$(PKGDIR)/$(DBENCH)/usr install
 
 # ----------------------------------------------------------------------------
 # Target-Install

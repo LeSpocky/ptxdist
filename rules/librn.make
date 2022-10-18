@@ -30,7 +30,8 @@ LIBRN_DIR	:= $(BUILDDIR)/$(LIBRN)
 #
 # autoconf
 #
-LIBRN_AUTOCONF := \
+LIBRN_CONF_TOOL	:= autoconf
+LIBRN_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-debug
 

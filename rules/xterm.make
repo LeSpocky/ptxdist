@@ -32,7 +32,8 @@ XTERM_LICENSE_FILES := \
 #
 # autoconf
 #
-XTERM_AUTOCONF := \
+XTERM_CONF_TOOL	:= autoconf
+XTERM_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-freetype \
 	--disable-rpath-hack \

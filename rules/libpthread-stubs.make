@@ -30,8 +30,8 @@ LIBPTHREAD_STUBS_LICENSE	:= MIT
 #
 # autoconf
 #
-LIBPTHREAD_STUBS_AUTOCONF := \
-	$(CROSS_AUTOCONF_USR)
+LIBPTHREAD_CONF_TOOL := autoconf
+LIBPTHREAD_CONF_OPT := $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

@@ -33,7 +33,8 @@ SED_LICENSE_FILES := \
 #
 # autoconf
 #
-SED_AUTOCONF := \
+SED_CONF_TOOL	:= autoconf
+SED_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-acl \

@@ -31,7 +31,8 @@ INOTIFY_TOOLS_LICENSE_FILES	:= file://COPYING;md5=59530bdf33659b29e73d4adb9f9f65
 #
 # autoconf
 #
-INOTIFY_TOOLS_AUTOCONF := $(CROSS_AUTOCONF_USR)
+INOTIFY_TOOLS_CONF_TOOL	:= autoconf
+INOTIFY_TOOLS_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

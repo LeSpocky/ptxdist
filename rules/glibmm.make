@@ -34,7 +34,8 @@ GLIBMM_LICENSE_FILES	:= \
 #
 # autoconf
 #
-GLIBMM_AUTOCONF := \
+GLIBMM_CONF_TOOL := autoconf
+GLIBMM_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-documentation
 

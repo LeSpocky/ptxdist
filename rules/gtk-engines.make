@@ -31,7 +31,8 @@ GTK_ENGINES_DIR		:= $(BUILDDIR)/$(GTK_ENGINES)
 #
 # autoconf
 #
-GTK_ENGINES_AUTOCONF := \
+GTK_ENGINES_CONF_TOOL := autoconf
+GTK_ENGINES_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-schemas
 

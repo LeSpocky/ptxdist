@@ -32,7 +32,8 @@ LIBASSUAN_LICENSE_FILES	:= \
 #
 # autoconf
 #
-LIBASSUAN_AUTOCONF := \
+LIBASSUAN_CONF_TOOL := autoconf
+LIBASSUAN_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-build-timestamp="$(PTXDIST_BUILD_TIMESTAMP)" \
 	--disable-doc

@@ -35,7 +35,8 @@ GRUB_CFLAGS	:= -fgnu89-inline
 GRUB_WRAPPER_BLACKLIST := \
 	$(PTXDIST_LOWLEVEL_WRAPPER_BLACKLIST)
 
-GRUB_AUTOCONF := \
+GRUB_CONF_TOOL := autoconf
+GRUB_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--without-curses \
 	--target=$(PTXCONF_GNU_TARGET) \
@@ -95,31 +96,31 @@ GRUB_AUTOCONF := \
 	--$(call ptx/endis, PTXCONF_GRUB_AUTO_LINUX_MEM_OPT)-auto-linux-mem-opt
 
 ifneq ("$(PTXCONF_GRUB_SMC9000_SCAN)","")
-GRUB_AUTOCONF += --enable-smc9000-scan=$(PTXCONF_GRUB_SMC9000_SCAN)
+GRUB_CONF_OPT += --enable-smc9000-scan=$(PTXCONF_GRUB_SMC9000_SCAN)
 else
-GRUB_AUTOCONF += --disable-smc9000-scan
+GRUB_CONF_OPT += --disable-smc9000-scan
 endif
 
 ifneq ($(strip $(call remove_quotes,$(PTXCONF_GRUB_NE_SCAN))),)
-GRUB_AUTOCONF += --enable-ne-scan=$(PTXCONF_GRUB_NE_SCAN)
+GRUB_CONF_OPT += --enable-ne-scan=$(PTXCONF_GRUB_NE_SCAN)
 endif
 
 ifneq ("$(PTXCONF_GRUB_WD_DEFAULT_MEM)","")
-GRUB_AUTOCONF += --enable-wd-default-mem=$(PTXCONF_GRUB_WD_DEFAULT_MEM)
+GRUB_CONF_OPT += --enable-wd-default-mem=$(PTXCONF_GRUB_WD_DEFAULT_MEM)
 else
-GRUB_AUTOCONF += --disable-wd-default-mem
+GRUB_CONF_OPT += --disable-wd-default-mem
 endif
 
 ifneq ("$(PTXCONF_GRUB_CS_SCAN)","")
-GRUB_AUTOCONF += --enable-cs-scan=$(PTXCONF_GRUB_CS_SCAN)
+GRUB_CONF_OPT += --enable-cs-scan=$(PTXCONF_GRUB_CS_SCAN)
 else
-GRUB_AUTOCONF += --disable-cs-scan
+GRUB_CONF_OPT += --disable-cs-scan
 endif
 
 ifneq ("$(PTXCONF_GRUB_PRESET_MENU)","")
-GRUB_AUTOCONF += --enable-preset-menu=$(PTXCONF_GRUB_PRESET_MENU)
+GRUB_CONF_OPT += --enable-preset-menu=$(PTXCONF_GRUB_PRESET_MENU)
 else
-GRUB_AUTOCONF += --disable-preset-menu
+GRUB_CONF_OPT += --disable-preset-menu
 endif
 
 # ----------------------------------------------------------------------------

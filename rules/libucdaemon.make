@@ -29,7 +29,8 @@ LIBUCDAEMON_DIR		:= $(BUILDDIR)/$(LIBUCDAEMON)
 #
 # autoconf
 #
-LIBUCDAEMON_AUTOCONF := $(CROSS_AUTOCONF_USR)
+LIBUCDAEMON_CONF_TOOL	:= autoconf
+LIBUCDAEMON_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

@@ -31,7 +31,8 @@ LIBMNG_LICENSE_FILES	:= file://LICENSE;md5=32becdb8930f90eab219a8021130ec09
 #
 # autoconf
 #
-LIBMNG_AUTOCONF := \
+LIBMNG_CONF_TOOL := autoconf
+LIBMNG_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--with-jpeg \
 	--$(call ptx/wwo, PTXCONF_LIBMNG_LCMS)-lcms

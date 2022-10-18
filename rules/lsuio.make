@@ -31,7 +31,8 @@ LSUIO_LICENSE_FILES := file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f
 #
 # autoconf
 #
-LSUIO_AUTOCONF := $(CROSS_AUTOCONF_USR)
+LSUIO_CONF_TOOL	:= autoconf
+LSUIO_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

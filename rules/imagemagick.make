@@ -50,7 +50,8 @@ IMAGEMAGICK_QUANTUM_DEPTH := 8
 #   supported configure options. Just ignore the generated delegates.xml
 #   file.
 #
-IMAGEMAGICK_AUTOCONF := \
+IMAGEMAGICK_CONF_TOOL := autoconf
+IMAGEMAGICK_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-openmp \
 	--enable-shared \
@@ -90,7 +91,6 @@ IMAGEMAGICK_AUTOCONF := \
 	--$(call ptx/wwo, PTXCONF_IMAGEMAGICK_USE_LIBWEBP)-webp \
 	--without-wmf \
 	--without-xml
-
 
 # ----------------------------------------------------------------------------
 # Target-Install

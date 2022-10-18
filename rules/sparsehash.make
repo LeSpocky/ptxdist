@@ -22,7 +22,8 @@ SPARSEHASH_DIR		:= $(BUILDDIR)/$(SPARSEHASH)
 #
 # autoconf
 #
-SPARSEHASH_AUTOCONF := $(CROSS_AUTOCONF_USR)
+SPARSEHASH_CONF_TOOL	:= autoconf
+SPARSEHASH_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

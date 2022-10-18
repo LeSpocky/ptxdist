@@ -33,7 +33,8 @@ LIBID3TAG_LICENSE_FILES	:= \
 #
 # autoconf
 #
-LIBID3TAG_AUTOCONF := \
+LIBID3TAG_CONF_TOOL	:= autoconf
+LIBID3TAG_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-debugging \
 	--disable-profiling

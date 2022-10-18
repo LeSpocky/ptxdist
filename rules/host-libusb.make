@@ -22,7 +22,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBUSB) += host-libusb
 #
 # autoconf
 #
-HOST_LIBUSB_AUTOCONF := \
+HOST_LIBUSB_CONF_TOOL := autoconf
+HOST_LIBUSB_CONF_OPT := \
 	$(HOST_AUTOCONF) \
 	--enable-shared \
 	--disable-static \

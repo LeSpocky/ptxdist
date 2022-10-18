@@ -19,7 +19,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_GETTEXT) += host-gettext
 #
 # autoconf
 #
-HOST_GETTEXT_AUTOCONF := \
+HOST_GETTEXT_CONF_TOOL := autoconf
+HOST_GETTEXT_CONF_OPT := \
 	$(HOST_AUTOCONF) \
 	--disable-java \
 	--disable-csharp \

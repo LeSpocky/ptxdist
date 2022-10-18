@@ -31,7 +31,8 @@ LIBSOCKETCAN_LICENSE_FILES := file://LICENSE;md5=4fbd65380cdd255951079008b364516
 #
 # autoconf
 #
-LIBSOCKETCAN_AUTOCONF := $(CROSS_AUTOCONF_USR)
+LIBSOCKETCAN_CONF_TOOL	:= autoconf
+LIBSOCKETCAN_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

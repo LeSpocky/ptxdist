@@ -33,14 +33,15 @@ LIBXSLT_URL	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBXSLT_ENV	:= \
+LIBXSLT_CONF_ENV := \
 	$(CROSS_ENV) \
 	ac_cv_path_XML_CONFIG=xml2-config
 
 #
 # autoconf
 #
-LIBXSLT_AUTOCONF := \
+LIBXSLT_CONF_TOOL := autoconf
+LIBXSLT_CONF_OPT := \
 	 $(CROSS_AUTOCONF_USR) \
 	--disable-rebuild-docs \
 	--disable-static \

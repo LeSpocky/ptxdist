@@ -38,7 +38,8 @@ endif
 # autoconf
 #
 # Note: --without-gamecube is explicitly omitted. The option is broken.
-KEXEC_TOOLS_AUTOCONF := \
+KEXEC_TOOLS_CONF_TOOL := autoconf
+KEXEC_TOOLS_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--$(call ptx/wwo, PTXCONF_KEXEC_TOOLS_ZLIB)-zlib \
 	--without-lzma \

@@ -29,7 +29,8 @@ PANGOMM_DIR	:= $(BUILDDIR)/$(PANGOMM)
 #
 # autoconf
 #
-PANGOMM_AUTOCONF := \
+PANGOMM_CONF_TOOL := autoconf
+PANGOMM_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-documentation
 

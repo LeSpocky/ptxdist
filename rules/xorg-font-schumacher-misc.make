@@ -34,7 +34,8 @@ endif
 #
 # autoconf
 #
-XORG_FONT_SCHUMACHER_MISC_AUTOCONF := $(CROSS_AUTOCONF_USR)
+XORG_FONT_SCHUMACHER_MISC_CONF_TOOL	:= autoconf
+XORG_FONT_SCHUMACHER_MISC_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Install

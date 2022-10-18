@@ -35,7 +35,8 @@ LIBCGICC_LICENSE_FILES	:= \
 #
 # autoconf
 #
-LIBCGICC_AUTOCONF := $(CROSS_AUTOCONF_USR)
+LIBCGICC_CONF_TOOL	:= autoconf
+LIBCGICC_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

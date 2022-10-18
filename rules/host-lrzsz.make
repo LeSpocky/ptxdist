@@ -18,7 +18,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_LRZSZ) += host-lrzsz
 #
 # autoconf
 #
-HOST_LRZSZ_AUTOCONF	:= \
+HOST_LRZSZ_CONF_TOOL	:= autoconf
+HOST_LRZSZ_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-nls
 

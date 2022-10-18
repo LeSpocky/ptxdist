@@ -33,7 +33,8 @@ LIBIODBC_MAKE_PAR	:= NO
 #
 # autoconf
 #
-LIBIODBC_AUTOCONF := \
+LIBIODBC_CONF_TOOL	:= autoconf
+LIBIODBC_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-libodbc \
 	--enable-pthreads \

@@ -28,7 +28,7 @@ CLASSPATH_DIR		:= $(BUILDDIR)/$(CLASSPATH)
 # Prepare
 # ----------------------------------------------------------------------------
 
-CLASSPATH_ENV 	:= \
+CLASSPATH_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	JAVAC=$(PTXCONF_SETUP_JAVA_SDK)/bin/javac \
 	JAVA=jamvm \
@@ -43,7 +43,8 @@ CLASSPATH_ENV 	:= \
 #
 # autoconf
 #
-CLASSPATH_AUTOCONF := \
+CLASSPATH_CONF_TOOL	:= autoconf
+CLASSPATH_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-option-checking \
 	--disable-collections \

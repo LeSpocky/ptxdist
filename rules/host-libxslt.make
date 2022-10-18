@@ -24,7 +24,8 @@ HOST_LIBXSLT_DIR	= $(HOST_BUILDDIR)/$(LIBXSLT)
 #
 # autoconf
 #
-HOST_LIBXSLT_AUTOCONF := \
+HOST_LIBXSLT_CONF_TOOL	:= autoconf
+HOST_LIBXSLT_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-static \
 	--without-crypto \

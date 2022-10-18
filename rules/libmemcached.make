@@ -28,17 +28,17 @@ LIBMEMCACHED_LICENSE_FILES	:= file://COPYING;md5=0b0ea33346dc4b11e1f4d1d7a698201
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBMEMCACHED_ENV := \
-	$(CROSS_ENV)
-
-#We have libevent but disable it so clients/memslap doesn't build. 
-#It fails to link because __sync_fetch_and_sub_4 is missing.
-LIBMEMCACHED_ENV += ac_cv_libevent=no
+# We have libevent but disable it so clients/memslap doesn't build. 
+# It fails to link because __sync_fetch_and_sub_4 is missing.
+LIBMEMCACHED_CONF_ENV := \
+	$(CROSS_ENV) \
+	ac_cv_libevent=no
 
 #
 # autoconf
 #
-LIBMEMCACHED_AUTOCONF := \
+LIBMEMCACHED_CONF_TOOL := autoconf
+LIBMEMCACHED_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-fat-binaries \
 	--disable-64bit \
@@ -62,6 +62,7 @@ LIBMEMCACHED_AUTOCONF := \
 	--without-debug \
 	--without-memcached \
 	--without-docs
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------

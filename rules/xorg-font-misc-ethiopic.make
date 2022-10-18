@@ -34,7 +34,8 @@ endif
 #
 # autoconf
 #
-XORG_FONT_MISC_ETHIOPIC_AUTOCONF := \
+XORG_FONT_MISC_ETHIOPIC_CONF_TOOL := autoconf
+XORG_FONT_MISC_ETHIOPIC_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--with-ttf-fontdir=$(XORG_FONTDIR)/truetype \
 	--with-otf-fontdir=$(XORG_FONTDIR)/opentype

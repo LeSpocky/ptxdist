@@ -30,7 +30,8 @@ PS3_UTILS_DIR		:= $(BUILDDIR)/$(PS3_UTILS)
 #
 # autoconf
 #
-PS3_UTILS_AUTOCONF := $(CROSS_AUTOCONF_USR)
+PS3_UTILS_CONF_TOOL	:= autoconf
+PS3_UTILS_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

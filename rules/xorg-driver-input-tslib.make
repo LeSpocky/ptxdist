@@ -29,7 +29,8 @@ XORG_DRIVER_INPUT_TSLIB_DIR	:= $(BUILDDIR)/$(XORG_DRIVER_INPUT_TSLIB)
 #
 # autoconf
 #
-XORG_DRIVER_INPUT_TSLIB_AUTOCONF := $(CROSS_AUTOCONF_USR)
+XORG_DRIVER_INPUT_TSLIB_CONF_TOOL := autoconf
+XORG_DRIVER_INPUT_TSLIB_CONF_OPT := $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

@@ -34,12 +34,12 @@ FRODO_CONF_ENV	+= ac_cv_lib_vga_vga_setmode=yes SDL_CONFIG=no
 endif
 FRODO_MAKE_ENV	:= $(CROSS_ENV)
 FRODO_SUBDIR	:= Src
-FRODO_CONF_TOOL	:= autoconf
 
 #
 # autoconf
 #
-FRODO_AUTOCONF := \
+FRODO_CONF_TOOL	:= autoconf
+FRODO_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--without-x
 

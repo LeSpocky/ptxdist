@@ -31,7 +31,8 @@ LIBDAEMON_LICENSE	:= LGPL-2.1-or-later
 #
 # autoconf
 #
-LIBDAEMON_AUTOCONF := \
+LIBDAEMON_CONF_TOOL	:= autoconf
+LIBDAEMON_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-lynx
 

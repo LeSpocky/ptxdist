@@ -31,11 +31,10 @@ HOST_GENEXT2FS_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_GENEXT2FS_ENV 	:= $(HOST_ENV)
-
 #
 # autoconf
 #
-HOST_GENEXT2FS_AUTOCONF := $(HOST_AUTOCONF)
+HOST_GENEXT2FS_CONF_TOOL := autoconf
+HOST_GENEXT2FS_CONF_OPT := $(HOST_AUTOCONF)
 
 # vim: syntax=make

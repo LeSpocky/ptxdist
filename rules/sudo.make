@@ -31,7 +31,7 @@ SUDO_LICENSE_FILES := file://doc/LICENSE;md5=fdff64d4fd19126330aa81b94d167173
 # Prepare
 # ----------------------------------------------------------------------------
 
-SUDO_ENV 	:= \
+SUDO_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	sudo_cv_func_fnmatch=yes \
 	sudo_cv_func_unsetenv_void=no \
@@ -41,7 +41,8 @@ SUDO_ENV 	:= \
 #
 # autoconf
 #
-SUDO_AUTOCONF = \
+SUDO_CONF_TOOL	:= autoconf
+SUDO_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-authentication \
 	--disable-root-mailer \
@@ -93,21 +94,21 @@ SUDO_AUTOCONF = \
 	--without-pam
 
 ifdef PTXCONF_SUDO_USE_SENDMAIL
-SUDO_AUTOCONF += --with-sendmail
+SUDO_CONF_OPT += --with-sendmail
 else
-SUDO_AUTOCONF += --without-sendmail
+SUDO_CONF_OPT += --without-sendmail
 endif
 
 ifdef PTXCONF_SUDO_INSTALL_VISUDO
 ifneq ($(PTXCONF_SUDO_DEFAULT_EDITOR),"")
-SUDO_AUTOCONF += --with-editor=$(PTXCONF_SUDO_DEFAULT_EDITOR)
+SUDO_CONF_OPT += --with-editor=$(PTXCONF_SUDO_DEFAULT_EDITOR)
 endif
 endif
 
 ifdef PTXCONF_SUDO_USE_ENV_EDITOR
-SUDO_AUTOCONF += --with-env-editor
+SUDO_CONF_OPT += --with-env-editor
 else
-SUDO_AUTOCONF += --without-env-editor
+SUDO_CONF_OPT += --without-env-editor
 endif
 
 # ----------------------------------------------------------------------------

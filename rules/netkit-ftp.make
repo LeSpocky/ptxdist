@@ -34,7 +34,8 @@ NETKIT_FTP_LICENSE	:= BSD
 #
 # autoconf
 #
-NETKIT_FTP_AUTOCONF := $(CROSS_AUTOCONF_USR)
+NETKIT_FTP_CONF_TOOL	:= autoconf
+NETKIT_FTP_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 $(STATEDIR)/netkit-ftp.prepare:
 	@$(call targetinfo)

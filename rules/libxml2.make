@@ -38,7 +38,8 @@ LIBXML2_URL := \
 #
 # autoconf
 #
-LIBXML2_AUTOCONF := \
+LIBXML2_CONF_TOOL := autoconf
+LIBXML2_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-static \
 	$(GLOBAL_IPV6_OPTION) \
@@ -80,15 +81,15 @@ LIBXML2_AUTOCONF := \
 
 ifdef PTXCONF_ICONV
 # --with-iconv=yes -> does the right thing for libc-iconv
-LIBXML2_AUTOCONF += --with-iconv=yes
+LIBXML2_CONF_OPT += --with-iconv=yes
 else
-LIBXML2_AUTOCONF += --with-iconv=no
+LIBXML2_CONF_OPT += --with-iconv=no
 endif
 
 ifdef PTXCONF_LIBXML2_ZLIB
-LIBXML2_AUTOCONF += --with-zlib=$(SYSROOT)/usr
+LIBXML2_CONF_OPT += --with-zlib=$(SYSROOT)/usr
 else
-LIBXML2_AUTOCONF += --without-zlib
+LIBXML2_CONF_OPT += --without-zlib
 endif
 
 # ----------------------------------------------------------------------------

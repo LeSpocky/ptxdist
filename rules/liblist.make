@@ -32,7 +32,8 @@ LIBLIST_LICENSE_FILES	:= file://src/list.c;startline=10;endline=22;md5=5ace59915
 #
 # autoconf
 #
-LIBLIST_AUTOCONF := $(CROSS_AUTOCONF_USR)
+LIBLIST_CONF_TOOL := autoconf
+LIBLIST_CONF_OPT := $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

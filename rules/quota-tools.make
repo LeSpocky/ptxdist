@@ -27,8 +27,7 @@ QUOTA_TOOLS_LICENSE	:= GPL-2.0-only
 # autoconf
 #
 QUOTA_TOOLS_CONF_TOOL	:= autoconf
-
-QUOTA_TOOLS_AUTOCONF := \
+QUOTA_TOOLS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-nls \

@@ -34,7 +34,8 @@ DASH_LICENSE_FILES	:= \
 #
 # autoconf
 #
-DASH_AUTOCONF := \
+DASH_CONF_TOOL	:= autoconf
+DASH_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--with-libedit=no
 

@@ -31,7 +31,8 @@ LIBGD_LICENSE_FILES	:= file://COPYING;md5=07384b3aa2e0d39afca0d6c40286f545
 #
 # autoconf
 #
-LIBGD_AUTOCONF  := \
+LIBGD_CONF_TOOL	:= autoconf
+LIBGD_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-rpath \
 	--disable-werror \

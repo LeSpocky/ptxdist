@@ -34,7 +34,8 @@ endif
 #
 # autoconf
 #
-XORG_FONT_BH_75DPI_AUTOCONF := \
+XORG_FONT_BH_75DPI_CONF_TOOL	:= autoconf
+XORG_FONT_BH_75DPI_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--with-fontdir=$(XORG_FONTDIR)/75dpi
 

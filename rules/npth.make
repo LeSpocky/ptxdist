@@ -34,7 +34,8 @@ NPTH_LICENSE_FILES	:= \
 #
 # autoconf
 #
-NPTH_AUTOCONF := \
+NPTH_CONF_TOOL := autoconf
+NPTH_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-tests \
 	--enable-build-timestamp="$(PTXDIST_BUILD_TIMESTAMP)"

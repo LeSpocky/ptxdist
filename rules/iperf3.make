@@ -30,7 +30,8 @@ IPERF3_LICENSE	:= BSD
 #
 # autoconf
 #
-IPERF3_AUTOCONF := \
+IPERF3_CONF_TOOL := autoconf
+IPERF3_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--with-openssl=$(PTXDIST_SYSROOT_TARGET)/usr
 

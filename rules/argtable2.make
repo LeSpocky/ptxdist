@@ -34,7 +34,8 @@ ARGTABLE2_LICENSE_FILES	:= \
 #
 # autoconf
 #
-ARGTABLE2_AUTOCONF := \
+ARGTABLE2_CONF_TOOL	:= autoconf
+ARGTABLE2_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-debug
 

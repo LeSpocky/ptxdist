@@ -31,7 +31,8 @@ LIBXMLCONFIG_DIR	:= $(BUILDDIR)/$(LIBXMLCONFIG)
 #
 # autoconf
 #
-LIBXMLCONFIG_AUTOCONF := $(CROSS_AUTOCONF_USR)
+LIBXMLCONFIG_CONF_TOOL	:= autoconf
+LIBXMLCONFIG_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

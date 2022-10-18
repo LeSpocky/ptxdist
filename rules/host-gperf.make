@@ -27,11 +27,9 @@ HOST_GPERF_LICENSE	:= GPL-3.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_GPERF_ENV 	:= $(HOST_ENV)
-
 #
 # autoconf
 #
-HOST_GPERF_AUTOCONF	:= $(HOST_AUTOCONF)
+HOST_GPERF_CONF_TOOL	:= autoconf
 
 # vim: syntax=make

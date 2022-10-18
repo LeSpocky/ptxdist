@@ -38,8 +38,8 @@ IMA_EVM_UTILS_CONF_ENV := \
 	ac_cv_lib_tss2_rc_Tss2_RC_Decode=no \
 	ac_cv_path_XMLCATALOG=
 
-IMA_EVM_UTILS_CONF_TOOL := autoconf
-IMA_EVM_UTILS_AUTOCONF := \
+IMA_EVM_UTILS_CONF_TOOL	:= autoconf
+IMA_EVM_UTILS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-openssl-conf \
 	--disable-debug

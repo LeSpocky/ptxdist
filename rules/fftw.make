@@ -36,7 +36,8 @@ FFTW_LICENSE_FILES	:= \
 #
 # autoconf
 #
-FFTW_AUTOCONF := \
+FFTW_CONF_TOOL	:= autoconf
+FFTW_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-shared
 

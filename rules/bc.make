@@ -34,7 +34,8 @@ BC_LICENSE_FILES	:= \
 #
 # autoconf
 #
-BC_AUTOCONF := $(CROSS_AUTOCONF_USR)
+BC_CONF_TOOL	:= autoconf
+BC_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

@@ -31,7 +31,9 @@ MADPLAY_DIR	:= $(BUILDDIR)/$(MADPLAY)
 #
 # autoconf
 #
-MADPLAY_AUTOCONF := $(CROSS_AUTOCONF_USR) \
+MADPLAY_CONF_TOOL := autoconf
+MADPLAY_CONF_OPT := \
+	$(CROSS_AUTOCONF_USR) \
 	--disable-debugging \
 	--disable-profiling \
 	--disable-nls \

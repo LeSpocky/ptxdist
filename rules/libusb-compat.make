@@ -30,7 +30,8 @@ LIBUSB_COMPAT_LICENSE	:= LGPL-2.1-only
 #
 # autoconf
 #
-LIBUSB_COMPAT_AUTOCONF := $(CROSS_AUTOCONF_USR)
+LIBUSB_COMPAT_CONF_TOOL	:= autoconf
+LIBUSB_COMPAT_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

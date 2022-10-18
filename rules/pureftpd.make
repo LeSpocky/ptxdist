@@ -30,7 +30,8 @@ PUREFTPD_DIR		:= $(BUILDDIR)/$(PUREFTPD)
 #
 # autoconf
 #
-PUREFTPD_AUTOCONF := \
+PUREFTPD_CONF_TOOL	:= autoconf
+PUREFTPD_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--without-dmalloc \
 	--with-standalone \

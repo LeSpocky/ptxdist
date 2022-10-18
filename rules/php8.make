@@ -43,7 +43,8 @@ PHP8_URL := \
 #
 # autoconf
 #
-PHP8_AUTOCONF := \
+PHP8_CONF_TOOL := autoconf
+PHP8_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-rpath \
 	--disable-re2c-cgoto \

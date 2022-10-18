@@ -30,7 +30,8 @@ XORG_LIB_XKBUI_DIR	:= $(BUILDDIR)/$(XORG_LIB_XKBUI)
 #
 # autoconf
 #
-XORG_LIB_XKBUI_AUTOCONF := $(CROSS_AUTOCONF_USR)
+XORG_LIB_XKBUI_CONF_TOOL := autoconf
+XORG_LIB_XKBUI_CONF_OPT := $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

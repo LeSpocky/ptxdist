@@ -30,7 +30,8 @@ XORG_DATA_XBITMAPS_DIR		:= $(BUILDDIR)/$(XORG_DATA_XBITMAPS)
 #
 # autoconf
 #
-XORG_DATA_XBITMAPS_AUTOCONF := $(CROSS_AUTOCONF_USR)
+XORG_DATA_XBITMAPS_CONF_TOOL	:= autoconf
+XORG_DATA_XBITMAPS_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install

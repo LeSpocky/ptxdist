@@ -33,7 +33,8 @@ FAILMALLOC_LICENSE_FILES	:= \
 #
 # autoconf
 #
-FAILMALLOC_AUTOCONF := \
+FAILMALLOC_CONF_TOOL	:= autoconf
+FAILMALLOC_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-static=no
 

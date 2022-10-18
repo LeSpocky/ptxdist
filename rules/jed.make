@@ -32,14 +32,15 @@ JED_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-JED_ENV 	:= \
+JED_CONF_ENV 	:= \
 	$(CROSS_ENV) \
 	JED_ROOT=/usr/share/jed
 
 #
 # autoconf
 #
-JED_AUTOCONF := \
+JED_CONF_TOOL	:= autoconf
+JED_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--with-slang=$(SYSROOT)/usr \
 	--without-x

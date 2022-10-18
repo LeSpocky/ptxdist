@@ -30,7 +30,8 @@ SCREEN_LICENSE	:= GPL-2.0-or-later
 #
 # autoconf
 #
-SCREEN_AUTOCONF := \
+SCREEN_CONF_TOOL := autoconf
+SCREEN_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-use-locale \
 	--with-sys-screenrc=/etc/screenrc

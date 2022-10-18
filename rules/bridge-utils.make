@@ -36,7 +36,7 @@ BRIDGE_UTILS_CONF_TOOL	:= autoconf
 
 # Set with-linux-headers to something that doesn't exist to avoid the default
 # path picking up a path from the build host.
-BRIDGE_UTILS_AUTOCONF := \
+BRIDGE_UTILS_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--with-linux-headers=/this/path/must/not/exist
 

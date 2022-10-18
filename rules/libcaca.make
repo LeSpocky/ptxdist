@@ -26,16 +26,16 @@ LIBCACA_DIR	:= $(BUILDDIR)/$(LIBCACA)
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBCACA_ENV 	:= \
+LIBCACA_CONF_ENV := \
 	$(CROSS_ENV) \
 	CONFIG_SHELL=bash
 
 #
 # autoconf
 #
-LIBCACA_AUTOCONF := \
+LIBCACA_CONF_TOOL := autoconf
+LIBCACA_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
-	\
 	--disable-doc \
 	--disable-slang \
 	--disable-conio \
@@ -49,7 +49,6 @@ LIBCACA_AUTOCONF := \
 	--disable-plugins \
 	--disable-cppunit \
 	--disable-zzuf \
-	\
 	--$(call ptx/endis, PTXCONF_LIBCACA_NCURSES)-ncurses \
 	--$(call ptx/endis, PTXCONF_LIBCACA_X11)-x11 \
 	--disable-gl \

@@ -30,7 +30,8 @@ LIBRSVG_DIR	:= $(BUILDDIR)/$(LIBRSVG)
 #
 # autoconf
 #
-LIBRSVG_AUTOCONF := \
+LIBRSVG_CONF_TOOL := autoconf
+LIBRSVG_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-gtk-theme  \
 	--$(call ptx/endis, PTXCONF_LIBRSVG_PIXBUF_LOADER)-pixbuf-loader \

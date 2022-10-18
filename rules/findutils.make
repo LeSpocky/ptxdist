@@ -39,7 +39,8 @@ FINDUTILS_DBASE_PATH := /var/lib/locate
 #
 # autoconf
 #
-FINDUTILS_AUTOCONF := \
+FINDUTILS_CONF_TOOL := autoconf
+FINDUTILS_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--libexecdir=/usr/bin \
 	--localstatedir=$(FINDUTILS_DBASE_PATH) \

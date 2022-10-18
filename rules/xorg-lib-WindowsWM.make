@@ -30,7 +30,9 @@ XORG_LIB_WINDOWSWM_DIR		:= $(BUILDDIR)/$(XORG_LIB_WINDOWSWM)
 #
 # autoconf
 #
-XORG_LIB_WINDOWSWM_AUTOCONF := $(CROSS_AUTOCONF_USR) \
+XORG_LIB_WINDOWSWM_CONF_TOOL	:= autoconf
+XORG_LIB_WINDOWSWM_CONF_OPT	:= \
+	$(CROSS_AUTOCONF_USR) \
 	--disable-malloc0returnsnull
 
 # ----------------------------------------------------------------------------

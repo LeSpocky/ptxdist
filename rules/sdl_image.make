@@ -30,7 +30,8 @@ SDL_IMAGE_LICENSE	:= LGPL-2.1-only
 #
 # autoconf
 #
-SDL_IMAGE_AUTOCONF := \
+SDL_IMAGE_CONF_TOOL	:= autoconf
+SDL_IMAGE_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--with-sdl-prefix=$(SYSROOT)/usr \
 	--disable-sdltest \

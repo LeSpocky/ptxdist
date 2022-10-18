@@ -19,6 +19,6 @@ HOST_PACKAGES-$(PTXCONF_HOST_XORG_LIB_XAU) += host-xorg-lib-xau
 #
 # autoconf
 #
-HOST_XORG_LIB_XAU_AUTOCONF	:= $(HOST_AUTOCONF)
+HOST_XORG_LIB_XAU_CONF_TOOL := autoconf
 
 # vim: syntax=make
