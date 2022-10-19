@@ -30,7 +30,7 @@ BONNIEXX_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-BONNIEXX_ENV	:= \
+BONNIEXX_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	bonnie_cv_sys_largefile=$(call ptx/yesno, PTXCONF_GLOBAL_LARGE_FILE)
 

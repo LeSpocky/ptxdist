@@ -24,7 +24,7 @@ HOSTPYTHON3		= $(PTXDIST_SYSROOT_HOST)/bin/python$(PYTHON3_MAJORMINOR)
 # ----------------------------------------------------------------------------
 
 # Note: the LDFLAGS are used by setup.py for manual searches
-HOST_PYTHON3_ENV	:= \
+HOST_PYTHON3_CONF_ENV	:= \
 	$(HOST_ENV) \
 	ac_sys_system=Linux \
 	ac_sys_release=2 \

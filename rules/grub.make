@@ -28,7 +28,7 @@ GRUB_DIR		:= $(BUILDDIR)/$(GRUB)
 # non-standard CFLAGS. We can unset them here as grub is compiled
 # standalone anyway (without Linux/glibc includes)
 
-GRUB_ENV	:= $(CROSS_ENV) CFLAGS=''
+GRUB_CONF_ENV	:= $(CROSS_ENV) CFLAGS=''
 
 GRUB_CFLAGS	:= -fgnu89-inline
 

@@ -15,8 +15,6 @@ HOST_PACKAGES-$(PTXCONF_HOST_POSTGRESQL) += host-postgresql
 # Prepare
 # ----------------------------------------------------------------------------
 
-#HOST_POSTGRESQL_CONF_ENV	:= $(HOST_ENV)
-
 #
 # autoconf
 #

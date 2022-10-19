@@ -23,8 +23,6 @@ HOST_OPENSSL_DIR	= $(HOST_BUILDDIR)/$(HOST_OPENSSL)
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_OPENSSL_CONF_ENV	:= $(HOST_ENV)
-
 #
 # autoconf
 #

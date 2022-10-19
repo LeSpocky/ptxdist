@@ -22,8 +22,6 @@ HOST_OPKG_DIR	= $(HOST_BUILDDIR)/$(HOST_OPKG)
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_OPKG_ENV	:= $(HOST_ENV)
-
 #
 # autoconf
 #

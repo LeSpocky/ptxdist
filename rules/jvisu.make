@@ -29,7 +29,7 @@ JVISU_DIR	:= $(BUILDDIR)/$(JVISU)
 
 
 JVISU_PATH	:= PATH=$(PTXCONF_SETUP_JAVA_SDK)/bin:$(CROSS_PATH)
-JVISU_ENV 	:= \
+JVISU_MAKE_ENV	:= \
 	$(CROSS_ENV) \
 	ANT_OPTS="-Dfile.encoding=iso-8859-1" \
 	JAVA_HOME=$(PTXCONF_SETUP_JAVA_SDK)
@@ -44,7 +44,7 @@ $(STATEDIR)/jvisu.prepare:
 
 $(STATEDIR)/jvisu.compile:
 	@$(call targetinfo)
-	cd $(JVISU_DIR) && $(JVISU_ENV) $(JVISU_PATH) /bin/bash ./build.sh jar
+	@$(call world/execute, JVISU, $(SHELL) ./build.sh jar)
 	@$(call touch)
 
 # ----------------------------------------------------------------------------

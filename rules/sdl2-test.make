@@ -28,7 +28,7 @@ SDL2_TESTS_LICENSE	:= zlib
 # Prepare
 # ----------------------------------------------------------------------------
 
-SDL2_TEST_ENV		:= \
+SDL2_TEST_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	SDL_LIBS="-lSDL2 -lunwind -lunwind-generic"
 

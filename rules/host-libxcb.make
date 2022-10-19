@@ -15,7 +15,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBXCB) += host-libxcb
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_LIBXCB_ENV	:= \
+HOST_LIBXCB_CONF_ENV	:= \
 	$(HOST_ENV) \
 	ac_cv_prog_BUILD_DOCS=no \
 	ac_cv_lib_Xdmcp_XdmcpWrap=no

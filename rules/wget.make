@@ -30,7 +30,7 @@ WGET_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-WGET_ENV := \
+WGET_CONF_ENV := \
 	$(CROSS_ENV) \
 	ac_cv_prog_MAKEINFO=: \
 	ac_cv_path_PERL=: \

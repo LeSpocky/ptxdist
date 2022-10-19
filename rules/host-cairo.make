@@ -15,8 +15,6 @@ HOST_PACKAGES-$(PTXCONF_HOST_CAIRO) += host-cairo
 # Prepare
 # ----------------------------------------------------------------------------
 
-#HOST_CAIRO_CONF_ENV	:= $(HOST_ENV)
-
 #
 # autoconf
 #

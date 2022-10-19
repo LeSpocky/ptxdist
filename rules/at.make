@@ -31,7 +31,7 @@ AT_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-AT_ENV	:= \
+AT_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	ac_cv_header_security_pam_appl_h=$(call ptx/yesno, PTXCONF_GLOBAL_PAM)
 

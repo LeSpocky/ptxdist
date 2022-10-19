@@ -33,7 +33,7 @@ FONTCONFIG_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-FONTCONFIG_ENV	:=  \
+FONTCONFIG_CONF_ENV	:=  \
 	$(CROSS_ENV) \
 	ac_cv_prog_HASDOCBOOK=no
 
