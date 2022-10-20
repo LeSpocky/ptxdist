@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIXMAN) += pixman
 #
 # Paths and names
 #
-PIXMAN_VERSION	:= 0.40.0
-PIXMAN_MD5	:= ee642c14f4f18934246c57a440da9ca2
+PIXMAN_VERSION	:= 0.42.0
+PIXMAN_MD5	:= 7330a91505c123c09163d211cb285e88
 PIXMAN		:= pixman-$(PIXMAN_VERSION)
 PIXMAN_SUFFIX	:= tar.xz
 PIXMAN_URL	:= $(call ptx/mirror, XORG, individual/lib/$(PIXMAN).$(PIXMAN_SUFFIX))
@@ -48,7 +48,8 @@ PIXMAN_CONF_OPT		:= \
 	-Dsse2=$(call ptx/endis, PTXCONF_ARCH_X86)d \
 	-Dssse3=$(call ptx/endis, PTXCONF_ARCH_X86)d \
 	-Dtimers=false \
-	-Dvmx=disabled
+	-Dvmx=disabled \
+	-Dtests=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
