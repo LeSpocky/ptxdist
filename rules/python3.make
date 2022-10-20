@@ -26,7 +26,7 @@ PYTHON3_DIR		:= $(BUILDDIR)/$(PYTHON3)
 PYTHON3_DEVPKG		:= NO
 
 PYTHON3_URL		:= \
-	http://python.org/ftp/python/$(PYTHON3_VERSION)/$(PYTHON3).$(PYTHON3_SUFFIX) \
+	https://www.python.org/ftp/python/$(PYTHON3_VERSION)/$(PYTHON3).$(PYTHON3_SUFFIX) \
 	http://python.org/ftp/python/$(PYTHON3_MAJORMINOR)/$(PYTHON3).$(PYTHON3_SUFFIX)
 
 CROSS_PYTHON3		:= $(PTXDIST_SYSROOT_CROSS)/bin/python$(PYTHON3_MAJORMINOR)
