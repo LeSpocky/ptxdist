@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20220913
-LINUX_FIRMWARE_MD5	:= 1ea1f09e040b8c86d4bc4a4e41acffc5
+LINUX_FIRMWARE_VERSION	:= 20221012
+LINUX_FIRMWARE_MD5	:= 50fa95d6dc86758089df2981d704f36e
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -31,7 +31,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENSE.dib0700;md5=f7411825c8a555a1a3e5eab9ca773431 \
 	file://LICENCE.adsp_sst;md5=615c45b91a5a4a9fe046d6ab9a2df728 \
 	file://LICENCE.cadence;md5=009f46816f6956cfb75ede13d3e1cee0 \
-	file://LICENSE.amd-ucode;md5=3c5399dc9148d7f0e1f41e34b69cf14f \
+	file://LICENSE.amd-ucode;md5=6ca90c57f7b248de1e25c7f68ffc4698 \
 	file://LICENSE.atmel;md5=aa74ac0c60595dee4d4e239107ea77a3 \
 	file://LICENCE.fw_sst_0f28;md5=6353931c988ad52818ae733ac61cd293 \
 	file://LICENSE.amphion_vpu;md5=2bcdc00527b2d0542bd92b52aaec2b60 \
