@@ -444,14 +444,18 @@ ptxd_install_file_strip() {
 	    <("${CROSS_NM}" "${src}" --format=posix --defined-only \
 		| awk '{ if ($2 == "T" || $2 == "t" || $2 == "D") print $1 }' | sort) \
 	    > "${keep_symbols}" &&
-	"${CROSS_OBJCOPY}" --only-keep-debug "${src}" "${debug}" &&
-	"${CROSS_OBJCOPY}" -S --remove-section .gdb_index --remove-section .comment \
-	    --keep-symbols="${keep_symbols}" "${debug}" "${mini_debug}" &&
-	rm "${keep_symbols}" "${debug}" &&
-	xz "${mini_debug}"
+	# only create the section if there are symbols to add
+	if [ -s "${keep_symbols}" ]; then
+	    "${CROSS_OBJCOPY}" --only-keep-debug "${src}" "${debug}" &&
+	    "${CROSS_OBJCOPY}" -S --remove-section .gdb_index --remove-section .comment \
+		--keep-symbols="${keep_symbols}" "${debug}" "${mini_debug}" &&
+	    rm "${debug}" &&
+	    xz "${mini_debug}"
+	fi &&
+	rm "${keep_symbols}"
     fi &&
     "${strip_cmd[@]}" -o "${files[0]}" "${src}" &&
-    if [ "${target_mini_debuginfo}" = "y" ]; then
+    if [ "${target_mini_debuginfo}" = "y" -a -e "${mini_debug}.xz" ]; then
 	"${CROSS_OBJCOPY}" --add-section .gnu_debugdata="${mini_debug}.xz" "${files[0]}" &&
 	rm "${mini_debug}.xz"
     fi &&
