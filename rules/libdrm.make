@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBDRM) += libdrm
 #
 # Paths and names
 #
-LIBDRM_VERSION	:= 2.4.112
-LIBDRM_MD5	:= 2db7e05df012cab16d6c547317407ff2
+LIBDRM_VERSION	:= 2.4.113
+LIBDRM_MD5	:= 34a4dcf7eaf0c771b3b0757b5fd5f803
 LIBDRM		:= libdrm-$(LIBDRM_VERSION)
 LIBDRM_SUFFIX	:= tar.xz
 LIBDRM_URL	:= http://dri.freedesktop.org/libdrm/$(LIBDRM).$(LIBDRM_SUFFIX)
@@ -39,7 +39,6 @@ LIBDRM_BACKENDS-$(PTXCONF_LIBDRM_RADEON) += radeon
 LIBDRM_BACKENDS-$(PTXCONF_LIBDRM_AMDGPU) += amdgpu
 LIBDRM_BACKENDS-$(PTXCONF_LIBDRM_NOUVEAU) += nouveau
 LIBDRM_BACKENDS-$(PTXCONF_LIBDRM_FREEDRENO) += freedreno
-LIBDRM_BACKENDS- += freedreno-kgsl
 LIBDRM_BACKENDSC-$(PTXCONF_LIBDRM_VMWGFX) += vmwgfx
 LIBDRM_BACKENDS-$(PTXCONF_LIBDRM_OMAP) += omap
 LIBDRM_BACKENDS-$(PTXCONF_LIBDRM_EXYNOS) += exynos
@@ -58,12 +57,14 @@ LIBDRM_BACKENDSL-y += $(LIBDRM_BACKENDS-y)
 LIBDRM_CONF_TOOL := meson
 LIBDRM_CONF_OPT := \
 	$(CROSS_MESON_USR) \
-	$(patsubst %,-D%=true,$(LIBDRM_BACKENDSC-y)) \
-	$(patsubst %,-D%=false,$(LIBDRM_BACKENDSC-)) \
-	-Dcairo-tests=false \
-	-Dman-pages=false \
-	-Dvalgrind=false \
+	$(patsubst %,-D%=enabled,$(LIBDRM_BACKENDSC-y)) \
+	$(patsubst %,-D%=disabled,$(LIBDRM_BACKENDSC-)) \
+	-Dcairo-tests=disabled \
+	-Dfreedreno-kgsl=false \
+	-Dman-pages=disabled \
+	-Dvalgrind=disabled \
 	-Dinstall-test-programs=$(call ptx/truefalse, PTXCONF_LIBDRM_TESTS) \
+	-Dtests=true \
 	-Dudev=true
 
 
