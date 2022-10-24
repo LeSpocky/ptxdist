@@ -92,6 +92,12 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 	,$(MESALIB_GALLIUM_DRIVERS-y) \
 	))))
 
+MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_VC1DEC)	+= vc1dec
+MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_H264DEC)	+= h264dec
+MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_H264ENC)	+= h264enc
+MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_H265DEC)	+= h265dec
+MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_H265ENC)	+= h265enc
+
 ifdef PTXCONF_ARCH_X86
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_AMD)		+= amd
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_INTEL)		+= intel
@@ -203,7 +209,7 @@ MESALIB_CONF_OPT	:= \
 	-Dva-libs-path=/usr/lib/dri \
 	-Dvalgrind=disabled \
 	-Dvdpau-libs-path=/usr/lib/vdpau \
-	-Dvideo-codecs=[] \
+	-Dvideo-codecs=$(subst $(space),$(comma),$(MESALIB_VIDEO_CODECS-y)) \
 	-Dvmware-mks-stats=false \
 	-Dvulkan-beta=false \
 	-Dvulkan-drivers=$(subst $(space),$(comma),$(MESALIB_VULKAN_DRIVERS-y)) \
