@@ -28,9 +28,8 @@ NETCAT_LICENSE	:= BSD
 # Prepare
 # ----------------------------------------------------------------------------
 
-NETCAT_CONF_TOOL	:= NO
-NETCAT_MAKEVARS		:= \
-	$(CROSS_ENV)
+NETCAT_CONF_TOOL := NO
+NETCAT_MAKE_ENV  := $(CROSS_ENV)
 
 # ----------------------------------------------------------------------------
 # Install

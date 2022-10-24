@@ -26,7 +26,7 @@ PV_DIR		:= $(BUILDDIR)/$(PV)
 # Prepare
 # ----------------------------------------------------------------------------
 
-PV_MAKEVARS := $(CROSS_ENV_LD)
+PV_MAKE_OPT	:= $(CROSS_ENV_LD)
 
 #
 # autoconf

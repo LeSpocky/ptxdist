@@ -54,12 +54,13 @@ GDB_CONF_ENV		:= \
 	host_configargs='$(GDB_CONF_OPT_HOST)'
 
 ifndef PTXCONF_GDB_SHARED
-GDB_MAKEVARS := LDFLAGS=-static
+GDB_MAKE_OPT := LDFLAGS=-static
 endif
 
 #
 # autoconf
 #
+GDB_CONF_TOOL		:= autoconf
 GDB_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
 	--target=$(PTXCONF_GNU_TARGET) \

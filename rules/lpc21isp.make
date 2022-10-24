@@ -30,7 +30,7 @@ LPC21ISP_LICENSE	:= GPL-3.0-or-later
 
 LPC21ISP_CONF_TOOL	:= NO
 LPC21ISP_MAKE_ENV	:= $(CROSS_ENV)
-LPC21ISP_MAKEVARS	:= $(CROSS_ENV)
+LPC21ISP_MAKE_OPT	:= CC=$(CROSS_CC)
 
 # ----------------------------------------------------------------------------
 # Install

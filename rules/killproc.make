@@ -25,14 +25,17 @@ KILLPROC_DIR		:= $(BUILDDIR)/$(KILLPROC)
 KILLPROC_LICENSE	:= GPL-2.0-only
 
 # ----------------------------------------------------------------------------
-# Prepare
+# Prepare + Compile + Install
 # ----------------------------------------------------------------------------
 
-KILLPROC_MAKEVARS := \
-	CC=$(CROSS_CC) \
+KILLPROC_CONF_TOOL	:= NO
+KILLPROC_MAKE_OPT	:= \
+	CC=$(CROSS_CC)
+KILLPROC_INSTALL_OPT	:= \
 	SBINDIR=$(KILLPROC_PKGDIR)/usr/sbin \
 	UBINDIR=$(KILLPROC_PKGDIR)/usr/bin \
-	INSTBINFLAGS="-m 0755"
+	INSTBINFLAGS="-m 0755" \
+	install
 
 # ----------------------------------------------------------------------------
 # Target-Install

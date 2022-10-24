@@ -35,7 +35,7 @@ CKERMIT_CONF_TOOL	:= NO
 # Compile
 # ----------------------------------------------------------------------------
 
-CKERMIT_MAKEVARS := \
+CKERMIT_MAKE_OPT := \
 	xermit \
 	KTARGET=linuxa  \
 	prefix=/usr \
@@ -45,6 +45,14 @@ CKERMIT_MAKEVARS := \
 	CFLAGS='$(CROSS_CPPFLAGS) $(CROSS_CFLAGS) -O2 -g -DLINUX -DFNFLOAT -DCK_POSIX_SIG -DCK_NEWTERM -DTCPSOCKET -DLINUXFSSTND -DNOCOTFMC -DPOSIX -DUSE_STRERROR -DCK_NCURSES -DHAVE_PTMX' \
 	LNKFLAGS='$(CROSS_LDFLAGS)' \
 	LIBS='-lncurses -lutil -lresolv -lcrypt -lm'
+
+# ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+
+CKERMIT_INSTALL_OPT := \
+	prefix=/usr \
+	install
 
 # ----------------------------------------------------------------------------
 # Target-Install

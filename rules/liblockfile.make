@@ -30,7 +30,8 @@ LIBLOCKFILE_LICENSE_FILES := file://COPYRIGHT;md5=35127b30003a121544b5d13a2ac868
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBLOCKFILE_MAKEVARS	:= ROOT=$(PKGDIR)/$(LIBLOCKFILE) $(CROSS_ENV_AR)
+LIBLOCKFILE_MAKE_OPT	:= $(CROSS_ENV_AR)
+LIBLOCKFILE_INSTALL_OPT	:= ROOT=$(PKGDIR)/$(LIBLOCKFILE) install
 
 #
 # autoconf
