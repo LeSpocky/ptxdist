@@ -213,6 +213,7 @@ cs_import_cert_from_pem() {
 	"${openssl_keyopt[@]}" \
 	-in "${pem}" -inform pem -outform der |
     softhsm_pkcs11_tool --type cert --write-object /dev/stdin --label "${role}"
+    check_pipe_status
 }
 export -f cs_import_cert_from_pem
 
