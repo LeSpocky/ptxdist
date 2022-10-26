@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 7.85.0
-LIBCURL_MD5	:= 131f76c84016c45806b902330a74164f
+LIBCURL_VERSION	:= 7.86.0
+LIBCURL_MD5	:= 19a2165f37941a6f412afc924e750568
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -90,6 +90,7 @@ LIBCURL_CONF_OPT	:= \
 	--enable-get-easy-options \
 	--disable-alt-svc \
 	--enable-hsts \
+	--disable-websockets \
 	--without-schannel \
 	--without-secure-transport \
 	--without-amissl \
