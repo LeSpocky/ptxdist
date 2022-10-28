@@ -2,7 +2,8 @@
 
 menuconfig MODEMMANAGER
 	tristate
-	select DBUS		if MODEMMANAGER_ALLOW_DBUS_AT_CMDS && RUNTIME
+	select HOST_MESON
+	select DBUS
 	select GLIB
 	select UDEV
 	select LIBGUDEV
