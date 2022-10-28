@@ -2,7 +2,7 @@
 
 menuconfig LIBQMI
 	tristate
-	select HOST_SYSTEM_PYTHON3
+	select HOST_MESON
 	select GLIB
 	select LIBMBIM if LIBQMI_MBIM_QMUX
 	prompt "libqmi                        "

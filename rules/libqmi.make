@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_LIBQMI) += libqmi
 #
 # Paths and names
 #
-LIBQMI_VERSION	:= 1.30.8
-LIBQMI_MD5	:= 5ec8838914f80e1dfa4d2fa8cc2f186d
+LIBQMI_VERSION	:= 1.32.0
+LIBQMI_MD5	:= c3a279461dc71ebc596c1cbae4bad19c
 LIBQMI		:= libqmi-$(LIBQMI_VERSION)
-LIBQMI_SUFFIX	:= tar.xz
-LIBQMI_URL	:= http://www.freedesktop.org/software/libqmi/$(LIBQMI).$(LIBQMI_SUFFIX)
+LIBQMI_SUFFIX	:= tar.bz2
+LIBQMI_URL	:= https://gitlab.freedesktop.org/mobile-broadband/libqmi/-/archive/$(LIBQMI_VERSION)/$(LIBQMI).$(LIBQMI_SUFFIX)
 LIBQMI_SOURCE	:= $(SRCDIR)/$(LIBQMI).$(LIBQMI_SUFFIX)
 LIBQMI_DIR	:= $(BUILDDIR)/$(LIBQMI)
 LIBQMI_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
@@ -31,25 +31,23 @@ LIBQMI_LICENSE_FILES := \
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-LIBQMI_CONF_TOOL	:= autoconf
+LIBQMI_CONF_TOOL	:= meson
 LIBQMI_CONF_OPT		:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-compile-warnings \
-	--disable-Werror \
-	--disable-introspection \
-	--enable-collection=full \
-	--disable-firmware-update \
-	--disable-mm-runtime-check \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf \
-	--disable-qmi-username \
-	--$(call ptx/endis, PTXCONF_LIBQMI_MBIM_QMUX)-mbim-qmux \
-	--disable-qrtr \
-	--without-udev \
-	--with-udev-base-dir=/usr/lib/udev
+	$(CROSS_MESON_USR) \
+	-Dfirmware_update=false \
+	-Dcollection=full \
+	-Dmbim_qmux=$(call ptx/truefalse, PTXCONF_LIBQMI_MBIM_QMUX) \
+	-Dmm_runtime_check=false \
+	-Dqrtr=false \
+	-Drmnet=false \
+	-Dudev=false \
+	-Dudevdir=/usr/lib/udev \
+	-Dintrospection=false \
+	-Dgtk_doc=false \
+	-Dman=false \
+	-Dbash_completion=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
