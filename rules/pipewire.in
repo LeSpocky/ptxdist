@@ -11,6 +11,7 @@ menuconfig PIPEWIRE
 	select GLIB			if PIPEWIRE_GSTREAMER
 	select GSTREAMER1		if PIPEWIRE_GSTREAMER
 	select GST_PLUGINS_BASE1	if PIPEWIRE_GSTREAMER
+	select LIBCAMERA		if PIPEWIRE_LIBCAMERA
 	select LIBSNDFILE
 	select READLINE			if PIPEWIRE_PW_CTL
 	select NCURSES			if PIPEWIRE_PW_TOP
@@ -48,6 +49,10 @@ config PIPEWIRE_SYSTEMD
 config PIPEWIRE_PULSEAUDIO
 	bool
 	prompt "install pulseaudio compatibility service"
+
+config PIPEWIRE_LIBCAMERA
+	bool
+	prompt "build and install libcamera plugin"
 
 config PIPEWIRE_RAOP
 	bool

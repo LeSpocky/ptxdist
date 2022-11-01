@@ -71,7 +71,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Djack=disabled \
 	-Djack-devel=false \
 	-Dlegacy-rtkit=false \
-	-Dlibcamera=disabled \
+	-Dlibcamera=$(call ptx/endis,PTXCONF_PIPEWIRE_LIBCAMERA)d \
 	-Dlibcanberra=disabled \
 	-Dlibjack-path= \
 	-Dlibpulse=disabled \
@@ -145,6 +145,7 @@ PIPEWIRE_SPA_MODULES := \
 	audiomixer/libspa-audiomixer \
 	audiotestsrc/libspa-audiotestsrc \
 	control/libspa-control \
+	$(call ptx/ifdef,PTXCONF_PIPEWIRE_LIBCAMERA,libcamera/libspa-libcamera) \
 	support/libspa-dbus \
 	$(call ptx/ifdef,PTXCONF_PIPEWIRE_SYSTEMD,support/libspa-journal) \
 	support/libspa-support \
