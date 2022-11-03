@@ -7,6 +7,7 @@ menuconfig GDB
 	select LIBC_DL
 	select GCCLIBS_GCC_S
 	select NCURSES
+	select LIBGMP		if GDB_11_1
 	help
 	  The GNU Debugger
 
@@ -24,6 +25,13 @@ config GDB_SHARED
 	help
 	  If not set, the build option
 	  LDFLAGS=-static will be activated.
+
+config GDB_11_1
+	bool
+	prompt "gdb-11.1 or later"
+	help
+	  Since gdb-11.1, GMP is a required dependency. Enable this option
+	  if your toolchain gdb version is 11.1 or later.
 
 endif
 
