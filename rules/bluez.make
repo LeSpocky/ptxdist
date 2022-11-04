@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_BLUEZ) += bluez
 #
 # Paths and names
 #
-BLUEZ_VERSION	:= 5.58
-BLUEZ_MD5	:= cee47c57675be451dc37af73caa9fbe6
+BLUEZ_VERSION	:= 5.65
+BLUEZ_MD5	:= 1ee8ab6873413e52c9b36107e4256b80
 BLUEZ		:= bluez-$(BLUEZ_VERSION)
 BLUEZ_SUFFIX	:= tar.gz
 BLUEZ_URL	:= $(call ptx/mirror, KERNEL, bluetooth/$(BLUEZ).$(BLUEZ_SUFFIX))
