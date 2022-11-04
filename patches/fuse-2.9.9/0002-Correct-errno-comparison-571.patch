@@ -1,0 +1,21 @@
+From: Andrew Gaul <gaul@google.com>
+Date: Mon, 14 Dec 2020 19:16:05 +0900
+Subject: [PATCH] Correct errno comparison (#571)
+
+---
+ lib/fuse.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/lib/fuse.c b/lib/fuse.c
+index d1d873a37018..1ee0ef47945d 100644
+--- a/lib/fuse.c
++++ b/lib/fuse.c
+@@ -4350,7 +4350,7 @@ static int fuse_session_loop_remember(struct fuse *f)
+ 
+ 		res = poll(&fds, 1, timeout * 1000);
+ 		if (res == -1) {
+-			if (errno == -EINTR)
++			if (errno == EINTR)
+ 				continue;
+ 			else
+ 				break;
