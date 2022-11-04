@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_VULKAN_TOOLS) += vulkan-tools
 #
 # Paths and names
 #
-VULKAN_TOOLS_VERSION	:= 1.3.224.1
-VULKAN_TOOLS_MD5	:= 1e0751827d92fbd715687bdce6d374f4
+VULKAN_TOOLS_VERSION	:= 1.3.231.1
+VULKAN_TOOLS_MD5	:= 927ccb38f18bc0af35742e81ba68b9d3
 VULKAN_TOOLS		:= vulkan-tools-$(VULKAN_TOOLS_VERSION)
 VULKAN_TOOLS_SUFFIX	:= tar.gz
 VULKAN_TOOLS_URL	:= https://github.com/KhronosGroup/Vulkan-Tools/archive/sdk-$(VULKAN_TOOLS_VERSION).$(VULKAN_TOOLS_SUFFIX)
@@ -43,7 +43,7 @@ VULKAN_TOOLS_CONF_OPT	:= \
 	-DUSE_CCACHE=OFF \
 	-DVulkanRegistry_DIR=$(SYSROOT)/usr/share/vulkan
 
-ifdef VULKAN_TOOLS_CUBE
+ifdef PTXCONF_VULKAN_TOOLS_CUBE
 VULKAN_TOOLS_CONF_OPT	+= \
 	-DCUBE_WSI_SELECTION=$(call ptx/ifdef, PTXCONF_VULKAN_TOOLS_WAYLAND, WAYLAND, \
 			$(call ptx/ifdef, PTXCONF_VULKAN_TOOLS_XCB, XCB, DISPLAY)) \
@@ -63,7 +63,7 @@ $(STATEDIR)/vulkan-tools.targetinstall:
 	@$(call install_fixup, vulkan-tools, AUTHOR, "Philipp Zabel <p.zabel@pengutronix.de>")
 	@$(call install_fixup, vulkan-tools, DESCRIPTION, Vulkan Utilities and Tools)
 
-ifdef VULKAN_TOOLS_CUBE
+ifdef PTXCONF_VULKAN_TOOLS_CUBE
 	@$(call install_copy, vulkan-tools, 0, 0, 0755, -, /usr/bin/vkcube)
 	@$(call install_copy, vulkan-tools, 0, 0, 0755, -, /usr/bin/vkcubepp)
 endif
