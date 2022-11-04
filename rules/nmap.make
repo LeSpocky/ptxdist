@@ -15,11 +15,11 @@ PACKAGES-$(PTXCONF_NMAP) += nmap
 #
 # Paths and names
 #
-NMAP_VERSION	:= 7.70
-NMAP_MD5	:= 84eb6fbe788e0d4918c2b1e39421bf79
+NMAP_VERSION	:= 7.93
+NMAP_MD5	:= 9027eac4b8ca57574012cb061ba9ce4d
 NMAP		:= nmap-$(NMAP_VERSION)
 NMAP_SUFFIX	:= tar.bz2
-NMAP_URL	:= http://nmap.org/dist/$(NMAP).$(NMAP_SUFFIX)
+NMAP_URL	:= https://nmap.org/dist/$(NMAP).$(NMAP_SUFFIX)
 NMAP_SOURCE	:= $(SRCDIR)/$(NMAP).$(NMAP_SUFFIX)
 NMAP_DIR	:= $(BUILDDIR)/$(NMAP)
 
@@ -44,9 +44,7 @@ NMAP_CONF_OPT := \
 	--with-libdnet=included \
 	--without-liblua \
 	--with-liblinear=included \
-	--without-ncat \
-	--without-nmap-update \
-	--without-subversion \
+	--without-ncat
 
 
 # ----------------------------------------------------------------------------
