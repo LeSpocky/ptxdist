@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GTK) += gtk
 #
 # Paths and names
 #
-GTK_VERSION	:= 3.24.30
-GTK_MD5		:= 1cfb66b3460ae5a62f964a5cc14c66b6
+GTK_VERSION	:= 3.24.34
+GTK_MD5		:= 7e024190949d9071f9d72b0d559379e1
 GTK		:= gtk+-$(GTK_VERSION)
 GTK_SUFFIX	:= tar.xz
 GTK_URL		:= $(call ptx/mirror, GNOME, gtk+/$(basename $(GTK_VERSION))/$(GTK).$(GTK_SUFFIX))
