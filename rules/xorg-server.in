@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg
 
 menuconfig XORG_SERVER
 	tristate
@@ -110,6 +112,10 @@ menuconfig XORG_SERVER
 	# are enabled.
 	select XORG_LIB_XFONT2_FONTSERVER
 
+	help
+	  STAGING: remove in PTXdist 2023.12.0
+	  Not really maintained any more in PTXdist. Fails to build with gcc 12.
+	  The whole Xorg ecosystem needs updating and cleanup.
 
 if XORG_SERVER
 

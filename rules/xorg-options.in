@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg
 
 menu "options                       "
 

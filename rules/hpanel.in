@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_app
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_app
 
 config HPANEL
 	tristate
@@ -11,3 +13,6 @@ config HPANEL
 	  and allows you to switch workspaces. Works with
 	  pekwm.
 
+	  STAGING: remove in PTXdist 2023.12.0
+	  Not really maintained any more in PTXdist. Moved with the xorg server.
+	  The whole Xorg ecosystem needs updating and cleanup.

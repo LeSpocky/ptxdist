@@ -1,4 +1,6 @@
-## SECTION=x_windowmanagers
+## SECTION=staging
+## old section:
+### SECTION=x_windowmanagers
 
 menuconfig FLUXBOX
 	tristate
@@ -18,6 +20,10 @@ menuconfig FLUXBOX
 	  different goals.
 	  For more information and extensive documentation go to:
 	        http://fluxbox.org/version-0.9.php
+
+	  STAGING: remove in PTXdist 2023.12.0
+	  Not really maintained any more in PTXdist. Moved with the xorg server.
+	  The whole Xorg ecosystem needs updating and cleanup.
 
 if FLUXBOX
 config FLUXBOX_IMLIB2

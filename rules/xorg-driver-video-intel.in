@@ -29,6 +29,10 @@ menuconfig XORG_DRIVER_VIDEO_INTEL
 	help
 	  This is the video driver for Intel cards for the modular Xorg server.
 
+	  STAGING: remove in PTXdist 2023.12.0
+	  Not really maintained any more in PTXdist. Moved with the xorg server.
+	  The whole Xorg ecosystem needs updating and cleanup.
+
 if XORG_DRIVER_VIDEO_INTEL
 
 comment "X.org Intel Driver"
