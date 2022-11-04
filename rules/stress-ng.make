@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_STRESS_NG) += stress-ng
 #
 # Paths and names
 #
-STRESS_NG_VERSION	:= 0.11.15
-STRESS_NG_MD5		:= 1a716cde5a5a063fa3caa9b7d8aa1e70
+STRESS_NG_VERSION	:= 0.14.06
+STRESS_NG_MD5		:= 641d3be771a0350d0234d89cbab8834d
 STRESS_NG		:= stress-ng-$(STRESS_NG_VERSION)
 STRESS_NG_SUFFIX	:= tar.gz
 STRESS_NG_URL		:= https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V$(STRESS_NG_VERSION).$(STRESS_NG_SUFFIX)
@@ -28,6 +28,14 @@ STRESS_NG_LICENSE	:= GPL-2.0-or-later
 # ----------------------------------------------------------------------------
 
 STRESS_NG_CONF_TOOL	:= NO
+
+$(STATEDIR)/stress-ng.prepare:
+	@$(call targetinfo)
+	@mkdir -p $(STRESS_NG_DIR)/configs
+	@: > $(STRESS_NG_DIR)/configs/HAVE_LIB_KMOD
+	@: > $(STRESS_NG_DIR)/configs/HAVE_LIB_EGL
+	@$(call touch)
+
 
 # ----------------------------------------------------------------------------
 # Compile
