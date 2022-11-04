@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FIO) += fio
 #
 # Paths and names
 #
-FIO_VERSION		:= 3.23
-FIO_MD5			:= 497f8bad953723a8c4c46f2a58a13b24
+FIO_VERSION		:= 3.32
+FIO_MD5			:= 505dd0fea0850cc90c994c65133407e1
 FIO			:= fio-$(FIO_VERSION)
 FIO_SUFFIX		:= tar.gz
 FIO_URL			:= https://brick.kernel.dk/snaps/$(FIO).$(FIO_SUFFIX)
@@ -40,11 +40,14 @@ FIO_CONF_OPT	:= \
 	--disable-rbd \
 	--disable-http \
 	--disable-gfapi \
+	--disable-libnfs \
 	--disable-lex \
 	--disable-pmem \
 	--disable-native \
+	--disable-xnvme \
 	--disable-libzbc \
 	--disable-tcmalloc \
+	--disable-dfs
 
 FIO_FLAGS_BLACKLIST := \
 	-lz \
