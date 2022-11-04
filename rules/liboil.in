@@ -1,4 +1,7 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
+
 config LIBOIL
 	tristate
 	prompt "liboil"
@@ -11,3 +14,5 @@ config LIBOIL
 
 	  http://liboil.freedesktop.org/wiki/
 
+	  STAGING: remove in PTXdist 2023.12.0
+	  Upstream dead and no longer used (it was replaced by orc in GStreamer).
