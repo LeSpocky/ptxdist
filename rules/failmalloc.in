@@ -1,4 +1,7 @@
-## SECTION=debug_tools
+## SECTION=staging
+## old section:
+### SECTION=debug_tools
+
 config FAILMALLOC
 	tristate
 	prompt "failmalloc"
@@ -8,3 +11,5 @@ config FAILMALLOC
 	  further details and how to use it. This library can be used on demand
 	  with the LD_PRELOAD mechanism.
 
+	  STAGING: remove in PTXdist 2023.11.0
+	  Upstream dead and fails to build with current glibc.
