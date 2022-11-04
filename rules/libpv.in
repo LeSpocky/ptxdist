@@ -1,4 +1,6 @@
-## SECTION=scientific
+## SECTION=staging
+## old section:
+### SECTION=scientific
 
 menuconfig LIBPV
 	tristate
@@ -16,6 +18,8 @@ menuconfig LIBPV
 	  on a persistent storage or on a RAM disc.
 
 	  The library has also an integrated JVisu socket server.
+	  STAGING: remove in PTXdist 2023.12.0
+	  Upstream dead and fails to build with new toolchain.
 
 if LIBPV
 
