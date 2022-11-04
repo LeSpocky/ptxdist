@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_ORC) += orc
 #
 # Paths and names
 #
-ORC_VERSION	:= 0.4.32
-ORC_MD5		:= 4fd61be43bb222fac1ecc486f4d055db
+ORC_VERSION	:= 0.4.33
+ORC_MD5		:= c8f62426f8fb89981b462fcaee7cc951
 ORC		:= orc-$(ORC_VERSION)
 ORC_SUFFIX	:= tar.xz
 ORC_URL		:= http://gstreamer.freedesktop.org/data/src/orc/$(ORC).$(ORC_SUFFIX)
