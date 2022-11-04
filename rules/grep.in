@@ -6,7 +6,7 @@ menuconfig GREP
 	tristate
 	depends on !BUSYBOX_GREP || ALLYES
 	select GCCLIBS_GCC_S
-	select LIBPCRE if GREP_PCRE
+	select PCRE2 if GREP_PCRE
 	prompt "grep                          "
 	help
 	  GNUgrep searches one or more input files for lines
