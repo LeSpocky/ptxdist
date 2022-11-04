@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_CATCH2) += catch2
 #
 # Paths and names
 #
-CATCH2_VERSION	:= 2.13.4
-CATCH2_MD5	:= bd2deea6e8580c2f55feb325419ee107
+CATCH2_VERSION	:= 2.13.10
+CATCH2_MD5	:= 7a4dd2fd14fb9f46198eb670ac7834b7
 CATCH2		:= Catch2-$(CATCH2_VERSION)
 CATCH2_SUFFIX	:= tar.gz
 CATCH2_URL	:= https://github.com/catchorg/Catch2/archive/v$(CATCH2_VERSION).$(CATCH2_SUFFIX)
