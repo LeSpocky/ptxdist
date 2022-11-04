@@ -133,7 +133,7 @@ $(STATEDIR)/perl.targetinstall:
 		$(call install_copy, perl, 0, 0, 0755, -, \
 			/usr/bin/$(prog))$(ptx/nl))
 
-	@$(call install_tree, perl, 0, 0, -, /usr/lib/perl5)
+	@$(call install_glob, perl, 0, 0, -, /usr/lib/perl5,, */CORE)
 
 	@$(call install_finish, perl)
 
