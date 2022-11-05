@@ -2493,6 +2493,8 @@ endif
 endif
 ifneq ($(strip $(PTXCONF_QT5_MODULE_QTREMOTEOBJECTS)),)
 ifdef PTXCONF_QT5_EXAMPLES_REMOTEOBJECTS_SSL_SSLSERVER
+	@$(call install_copy, qt5-examples, 0, 0, 0644, -, \
+		/usr/lib/qt5/examples/remoteobjects/ssl/sslserver/cert/readme)
 	@$(call install_copy, qt5-examples, 0, 0, 0755, -, \
 		/usr/lib/qt5/examples/remoteobjects/ssl/sslserver/sslserver)
 endif
