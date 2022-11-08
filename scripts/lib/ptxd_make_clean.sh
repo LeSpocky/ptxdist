@@ -18,7 +18,7 @@ ptxd_make_clean() {
 	    if [ -z "${PTXCONF_SETUP_AUTO_EXTRACT}" ]; then
 		ptxd_bailout "Refusing to delete existing source" \
 		    "$(ptxd_print_path "${directory}")" \
-		    "Delete anyways with --force or  skip extract with --dirty."
+		    "Delete anyways with --force or skip extract with --dirty."
 	    elif [ -z "${PTXDIST_FORCE}" -a -d "${directory}/.git" ]; then
 		ptxd_bailout "Refusing to delete existing source with git" \
 		    "$(ptxd_print_path "${directory}")" \
