@@ -15,14 +15,13 @@ PACKAGES-$(PTXCONF_LIBXSLT) += libxslt
 #
 # Paths and names
 #
-LIBXSLT_VERSION	:= 1.1.35
-LIBXSLT_MD5	:= 5b3a634b77effd8a6268c21173575053
+LIBXSLT_VERSION	:= 1.1.37
+LIBXSLT_MD5	:= 84e86fc8a1b7495674016e05e4c5da44
 LIBXSLT		:= libxslt-$(LIBXSLT_VERSION)
 LIBXSLT_SUFFIX	:= tar.xz
 LIBXSLT_SOURCE	:= $(SRCDIR)/$(LIBXSLT).$(LIBXSLT_SUFFIX)
 LIBXSLT_DIR	:= $(BUILDDIR)/$(LIBXSLT)
 LIBXSLT_LICENSE	:= MIT
-# The file 'COPYING' is just a symlink on the file 'Copyright'
 LIBXSLT_LICENSE_FILES := \
 	file://Copyright;md5=0cd9a07afbeb24026c9b03aecfeba458
 
@@ -43,7 +42,6 @@ LIBXSLT_CONF_ENV := \
 LIBXSLT_CONF_TOOL := autoconf
 LIBXSLT_CONF_OPT := \
 	 $(CROSS_AUTOCONF_USR) \
-	--disable-rebuild-docs \
 	--disable-static \
 	--without-python \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_CRYPTO)-crypto \
