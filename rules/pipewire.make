@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.59
-PIPEWIRE_MD5		:= d310bf1f3cc5b2b446aecfa97c2cde82
+PIPEWIRE_VERSION	:= 0.3.60
+PIPEWIRE_MD5		:= 3b77c023fef647f848fb4189349bde80
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -49,6 +49,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dbluez5-backend-hfp-native=disabled \
 	-Dbluez5-backend-hsp-native=disabled \
 	-Dbluez5-backend-hsphfpd=disabled \
+	-Dbluez5-backend-native-mm=disabled \
 	-Dbluez5-backend-ofono=disabled \
 	-Dbluez5-codec-aac=disabled \
 	-Dbluez5-codec-aptx=disabled \
@@ -84,6 +85,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dpipewire-v4l2=disabled \
 	-Dpw-cat=enabled \
 	-Draop=$(call ptx/endis,PTXCONF_PIPEWIRE_RAOP)d \
+	-Dreadline=$(call ptx/endis,PIPEWIRE_PW_CTL)d \
 	-Droc=disabled \
 	-Dsdl2=disabled \
 	-Dsession-managers= \
@@ -132,6 +134,8 @@ PIPEWIRE_MODULES-y := \
 	protocol-simple \
 	rt \
 	session-manager \
+	rtp-source \
+	rtp-sink \
 	spa-device \
 	spa-device-factory \
 	spa-node \
