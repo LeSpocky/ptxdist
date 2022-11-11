@@ -435,9 +435,9 @@ export -f ptxd_install_file_extract_debug
 #
 #
 ptxd_install_file_strip() {
-    local -a strip_cmd files
+    local -a strip_cmd
     local dst="${1}"
-    local i target_mini_debuginfo
+    local file file0 target_mini_debuginfo
 
     case "${strip:-y}" in
 	k) strip_cmd=( "${CROSS_STRIP}" --strip-debug -R .GCC.command.line ) ;;
@@ -447,8 +447,10 @@ ptxd_install_file_strip() {
 	;;
     esac
 
-    files=( "${dirs[@]/%/${dst}}" )
-    install -d "${files[0]%/*}" &&
+    file0="${pkg_xpkg_tmp}/${dst}"
+    if [ ! -d "${pkg_xpkg_tmp}" ]; then
+	install -d "${pkg_xpkg_tmp}"
+    fi &&
     if [ "${target_mini_debuginfo}" = "y" ]; then
 	local keep_symbols="$(mktemp -u "${PTXDIST_TEMPDIR}/keep_symbols.XXXXX")"
 	local debug="$(mktemp -u "${PTXDIST_TEMPDIR}/debug.XXXXX")"
@@ -470,14 +472,16 @@ ptxd_install_file_strip() {
 	fi &&
 	rm "${keep_symbols}"
     fi &&
-    "${strip_cmd[@]}" -o "${files[0]}" "${src}" &&
+    "${strip_cmd[@]}" -o "${file0}" "${src}" &&
     if [ "${target_mini_debuginfo}" = "y" -a -e "${mini_debug}.xz" ]; then
-	"${CROSS_OBJCOPY}" --add-section .gnu_debugdata="${mini_debug}.xz" "${files[0]}" &&
+	"${CROSS_OBJCOPY}" --add-section .gnu_debugdata="${mini_debug}.xz" "${file0}" &&
 	rm "${mini_debug}.xz"
     fi &&
-    for (( i=1 ; ${i} < ${#files[@]} ; i=$[i+1] )); do
-	install -m "${mod_rw}" -D "${files[0]}" "${files[${i}]}" || return
+    for file in "${ndirs[@]/%/${dst}}"; do
+	install -m "${mod_nfs}" -o "${usr}" -g "${grp}" -D "${file0}" "${file}" || return
     done &&
+    chmod "${mod}" "${file0}" &&
+    chown "${usr}:${grp}" "${file0}" &&
 
     if [ "${strip}" != "k" ]; then
 	ptxd_install_file_extract_debug "${dst}" || return
@@ -508,7 +512,6 @@ install ${cmd}:
   permissions=${mod}" &&
 
     ptxd_exist "${src}" &&
-    rm -f "${dirs[@]/%/${dst}}" &&
 
     # check if src is a link
     if [ -L "${src}" ]; then
@@ -535,8 +538,11 @@ install ${cmd}:
 
     case "${strip}" in
 	0|n|no|N|NO)
-	    for d in "${dirs[@]/%/${dst}}"; do
-		install -m "${mod_rw}" -D "${src}" "${d}" || return
+	    for d in "${ndirs[@]/%/${dst}}"; do
+		install -m "${mod_nfs}" -o "${usr}" -g "${grp}" -D "${src}" "${d}" || return
+	    done &&
+	    for d in "${pdirs[@]/%/${dst}}"; do
+		install -m "${mod}" -o "${usr}" -g "${grp}" -D "${src}" "${d}" || return
 	    done
 	    ;;
 	y|k)
@@ -566,13 +572,6 @@ Usually, just remove the 6th parameter and everything works fine.
 	done
     fi &&
     echo "" &&
-
-    # now change to requested permissions
-    chmod "${mod_nfs}" "${ndirs[@]/%/${dst}}" &&
-    chmod "${mod}"     "${pdirs[@]/%/${dst}}" &&
-
-    # now change to requested user and group
-    chown "${usr}:${grp}" "${pdirs[@]/%/${dst}}" &&
 
     ptxd_install_virtfs &&
 
