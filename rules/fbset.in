@@ -1,4 +1,6 @@
-## SECTION=multimedia_framebuffer
+## SECTION=staging
+## old section:
+### SECTION=multimedia_framebuffer
 
 menuconfig FBSET
 	tristate
@@ -9,6 +11,9 @@ menuconfig FBSET
 	  of the frame buffer device. The frame buffer device pro-
 	  vides a simple and unique interface to access different
 	  kinds of graphic displays.
+
+	  STAGING: remove in PTXdist 2023.12.0
+	  Obsolete, upstream dead and gone.
 
 if FBSET
 
