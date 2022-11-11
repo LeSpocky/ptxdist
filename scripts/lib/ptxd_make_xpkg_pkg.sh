@@ -131,6 +131,11 @@ export -f ptxd_install_setup_global
 ptxd_install_lock() {
     local lockfile
 
+    # locking is only needed if packages are built in parallel
+    if [ "${PTXDIST_PARALLELMFLAGS_EXTERN}" = "-j1" ]; then
+	return
+    fi
+
     if [ -n "${dst}" ]; then
 	lockfile="${PTXDIST_TEMPDIR}/locks/${dst//\//-}"
     else
@@ -146,6 +151,10 @@ export -f ptxd_install_lock
 
 ptxd_install_unlock() {
     local ret=$?
+
+    if [ "${PTXDIST_PARALLELMFLAGS_EXTERN}" = "-j1" ]; then
+	return "${ret}"
+    fi
 
     if [ -z "${dst_lock}" ]; then
 	ptxd_bailout "dst_lock must be set when ptxd_install_unlock() is called"
