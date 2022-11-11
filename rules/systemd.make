@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 251.4
+SYSTEMD_VERSION		:= 252.1
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_MD5		:= b41f13dff0c56746507d86fab06a4488
+SYSTEMD_MD5		:= 1d1216c02250a05a4585a17fdc2ae7b1
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -118,6 +118,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dlibidn2=false \
 	-Dlibiptc=$(call ptx/truefalse,PTXCONF_SYSTEMD_IPMASQUERADE) \
 	-Dlink-boot-shared=true \
+	-Dlink-journalctl-shared=true \
 	-Dlink-networkd-shared=true \
 	-Dlink-systemctl-shared=true \
 	-Dlink-timesyncd-shared=true \
@@ -185,7 +186,6 @@ SYSTEMD_CONF_OPT	:= \
 	-Dsystem-alloc-uid-min=1 \
 	-Dsystem-gid-max=999 \
 	-Dsystem-uid-max=999 \
-	-Dsysusers=false \
 	-Dsysusers=false \
 	-Dsysvinit-path= \
 	-Dsysvrcnd-path= \
