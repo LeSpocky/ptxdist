@@ -106,9 +106,6 @@ ptxd_install_setup_global() {
     # this goes into the ipkg, thus full file modes here
     pdirs=("${pkg_xpkg_tmp}")
 
-    # strip dirs
-    sdirs=("${nfsroot_dirs[@]}" "${pkg_xpkg_tmp}")
-
     # dirs with separate debug files
     ddirs=()
     if [ "$(ptxd_get_ptxconf PTXCONF_TARGET_DEBUG_OFF)" != "y" ]; then
@@ -421,7 +418,7 @@ export -f ptxd_install_file_extract_debug
 ptxd_install_file_strip() {
     local -a strip_cmd files
     local dst="${1}"
-    local i file target_mini_debuginfo
+    local i target_mini_debuginfo
 
     case "${strip:-y}" in
 	k) strip_cmd=( "${CROSS_STRIP}" --strip-debug -R .GCC.command.line ) ;;
@@ -431,7 +428,7 @@ ptxd_install_file_strip() {
 	;;
     esac
 
-    files=( "${sdirs[@]/%/${dst}}" )
+    files=( "${dirs[@]/%/${dst}}" )
     install -d "${files[0]%/*}" &&
     if [ "${target_mini_debuginfo}" = "y" ]; then
 	local keep_symbols="$(mktemp -u "${PTXDIST_TEMPDIR}/keep_symbols.XXXXX")"
@@ -461,13 +458,6 @@ ptxd_install_file_strip() {
     fi &&
     for (( i=1 ; ${i} < ${#files[@]} ; i=$[i+1] )); do
 	install -m "${mod_rw}" -D "${files[0]}" "${files[${i}]}" || return
-    done &&
-
-    files=( "${dirs[@]/%/${dst}}" ) &&
-    for file in "${files[@]}"; do
-	if [ ! -e "${file}" ]; then
-	    install -m "${mod_rw}" -D "${src}" "${file}" || return
-	fi
     done &&
 
     if [ "${strip}" != "k" ]; then
@@ -1126,7 +1116,7 @@ ptxd_make_xpkg_pkg() {
     local pkg_xpkg_dbg_tmp="$2"
     local pkg_xpkg_cmds="$3"
     local pkg_xpkg_perms="$4"
-    local -a dirs ndirs pdirs sdirs ddirs
+    local -a dirs ndirs pdirs ddirs
 
     ptxd_install_setup_global &&
 
