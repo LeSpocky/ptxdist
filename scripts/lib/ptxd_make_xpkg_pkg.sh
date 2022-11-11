@@ -22,6 +22,17 @@ ptxd_install_error() {
 }
 export -f ptxd_install_error
 
+mkdir_p() {
+    local d
+    for d in "${@}"; do
+	if [ ! -d "${d}" ]; then
+	    mkdir -p "${@}"
+	    return
+	fi
+    done
+}
+export -f mkdir_p
+
 #
 # ptxd_install_getent_id
 #
@@ -119,7 +130,6 @@ export -f ptxd_install_setup_global
 
 ptxd_install_lock() {
     local lockfile
-    mkdir -p "${PTXDIST_TEMPDIR}/locks"
 
     if [ -n "${dst}" ]; then
 	lockfile="${PTXDIST_TEMPDIR}/locks/${dst//\//-}"
@@ -271,7 +281,7 @@ ptxd_install_virtfs() {
     for d in "${ndirs[@]/%/${dst}}"; do
 	dir="${d%/*}/.virtfs_metadata"
 	file="${dir}/${d##*/}"&&
-	mkdir -p "${dir}" &&
+	mkdir_p "${dir}" &&
 	cat <<- EOF > "${file}"
 	virtfs.uid=${usr}
 	virtfs.gid=${grp}
@@ -297,7 +307,7 @@ ptxd_install_dir_impl() {
 	install -m "${mod}" -o "${usr}" -g "${grp}" -d "${pdirs[@]/%/${dst}}"
     else
 	# don't overwrite existing permissions
-	mkdir -p "${dirs[@]/%/${dst}}"
+	mkdir_p "${dirs[@]/%/${dst}}"
     fi &&
 
     ptxd_install_virtfs
@@ -322,7 +332,7 @@ ptxd_ensure_dir() {
     if [ "${no_skip}" != 1 ]; then
 	# just create the rest and continue if virtfs data already exists
 	#  but don't overwrite existing permissions
-	mkdir -p "${dirs[@]/%/${dst}}" &&
+	mkdir_p "${dirs[@]/%/${dst}}" &&
 	return
     fi &&
     ptxd_install_lock &&
@@ -1117,6 +1127,8 @@ ptxd_make_xpkg_pkg() {
     local pkg_xpkg_cmds="$3"
     local pkg_xpkg_perms="$4"
     local -a dirs ndirs pdirs ddirs
+
+    mkdir_p "${PTXDIST_TEMPDIR}/locks" &&
 
     ptxd_install_setup_global &&
 
