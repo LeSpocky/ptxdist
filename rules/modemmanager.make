@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MODEMMANAGER) += modemmanager
 #
 # Paths and names
 #
-MODEMMANAGER_VERSION	:= 1.20.0
-MODEMMANAGER_MD5	:= 900b2e707a2095a4b476b68d1efb1c34
+MODEMMANAGER_VERSION	:= 1.20.2
+MODEMMANAGER_MD5	:= 441b08c34136f3a28d79c7f110b6ee32
 MODEMMANAGER		:= ModemManager-$(MODEMMANAGER_VERSION)
 MODEMMANAGER_SUFFIX	:= tar.bz2
 MODEMMANAGER_URL	:= https://gitlab.freedesktop.org/mobile-broadband/ModemManager/-/archive/$(MODEMMANAGER_VERSION)/$(MODEMMANAGER).$(MODEMMANAGER_SUFFIX)
@@ -38,7 +38,7 @@ MODEMMANAGER_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Dudev=true \
 	-Dudevdir=/usr/lib/udev \
-	-Dtests=true \
+	-Dtests=false \
 	-Ddbus_policy_dir=/usr/share/dbus-1/system.d \
 	-Dsystemdsystemunitdir=/usr/lib/systemd/system \
 	-Dsystemd_suspend_resume=$(call ptx/truefalse, PTXCONF_INITMETHOD_SYSTEMD) \
@@ -54,8 +54,6 @@ MODEMMANAGER_CONF_OPT	:= \
 	-Dgtk_doc=false \
 	-Dman=false \
 	-Dbash_completion=false
-
-# sadly, ModemManager does not build with -Dtests=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
