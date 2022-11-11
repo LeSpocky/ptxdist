@@ -399,13 +399,15 @@ export -f ptxd_get_alternative
 # array "ptxd_reply" containing the found files/dirs
 #
 ptxd_get_path() {
+    local file
     [ -n "${1}" ] || return
 
-    local orig_IFS="${IFS}"
-    IFS="
-"
-    ptxd_reply=( $(command ls -f -d "${@}" 2>/dev/null) )
-    IFS="${orig_IFS}"
+    ptxd_reply=()
+    for file in "${@}"; do
+	if [ -e "${file}" -o -h "${file}" ]; then
+	    ptxd_reply[${#ptxd_reply[*]}]="${file}"
+	fi
+    done
 
     [ ${#ptxd_reply[@]} -ne 0 ]
 }
