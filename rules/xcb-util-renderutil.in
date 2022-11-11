@@ -1,4 +1,4 @@
-## SECTION=multimedia_xorg_app
+## SECTION=multimedia_xorg_lib
 
 config XCB_UTIL_RENDERUTIL
 	tristate
