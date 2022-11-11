@@ -19,10 +19,10 @@ endif
 #
 # Taken from https://hg.beremiz.org/CanFestival-3/rev/8bfe0ac00cdb
 CANFESTIVAL_VERSION	:= 3+hg20180126.794
-CANFESTIVAL_MD5		:= c97bca1c4a81a17b1a75a1f8d068b2b3
+CANFESTIVAL_MD5		:= c97bca1c4a81a17b1a75a1f8d068b2b3 00042e5396db4403b3feb43acc2aa1e5
 CANFESTIVAL		:= canfestival-$(CANFESTIVAL_VERSION)
 CANFESTIVAL_SUFFIX	:= tar.gz
-CANFESTIVAL_URL		:= https://hg.beremiz.org/CanFestival-3/archive/8bfe0ac00cdb.$(CANFESTIVAL_SUFFIX)
+CANFESTIVAL_URL		:= https://hg.beremiz.org/canfestival/archive/8bfe0ac00cdb.$(CANFESTIVAL_SUFFIX)
 CANFESTIVAL_SOURCE	:= $(SRCDIR)/$(CANFESTIVAL).$(CANFESTIVAL_SUFFIX)
 CANFESTIVAL_DIR		:= $(BUILDDIR)/$(CANFESTIVAL)
 CANFESTIVAL_LICENSE	:= LGPL-2.1-or-later
