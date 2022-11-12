@@ -25,6 +25,11 @@ fi
 CMD="${0##*/}"
 FULL_CMD="$(readlink "${0%/*}/real/${CMD}")"
 
+# don't use PTXDIST_FD_LOGFILE if some build tool closed the fd
+if [ ! -e "/proc/self/fd/${PTXDIST_FD_LOGFILE}" ]; then
+	unset PTXDIST_FD_LOGFILE
+fi
+
 wrapper_exec() {
 	PATH="$(echo "${PATH}" | sed "s;${PTXDIST_PATH_SYSROOT_HOST}/lib/wrapper:;;")"
 	if [ -n "${FAKEROOTKEY}" -o -z "${ICECC_VERSION}" -o ! -e "${ICECC_VERSION}" ]; then
