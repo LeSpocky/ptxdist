@@ -30,10 +30,39 @@ wrapper_exec() {
 	if [ -n "${FAKEROOTKEY}" -o -z "${ICECC_VERSION}" -o ! -e "${ICECC_VERSION}" ]; then
 		PTXDIST_ICECC=${PTXDIST_ICERUN}
 	fi
+	if ! ${HOST} && [ -n "${PTXDIST_WORKSPACE}" ]; then
+		IFS="$(printf "\037")"
+		set -- $(filter_args "${@}")
+		unset IFS
+	fi
 	if [ "${PTXDIST_VERBOSE}" = 1 -a -n "${PTXDIST_FD_LOGFILE}" ]; then
 		echo "wrapper: ${PTXDIST_ICECC}${PTXDIST_CCACHE} ${CMD} ${ARG_LIST} $* ${LATE_ARG_LIST}" >&${PTXDIST_FD_LOGFILE}
 	fi
 	exec ${PTXDIST_ICECC}${PTXDIST_CCACHE} "${FULL_CMD}" ${ARG_LIST} "$@" ${LATE_ARG_LIST}
+}
+
+filter_args() {
+	PLATFORM="${PTXDIST_PLATFORMDIR##*/}"
+	# PTXDIST_SYSROOT_TOOLCHAIN may not be defined yet
+	if [ -n "${PTXDIST_SYSROOT_TOOLCHAIN}" ]; then
+		TOOLCHAIN="${PTXDIST_SYSROOT_TOOLCHAIN%/*}"
+	else
+		TOOLCHAIN="/ignore"
+	fi
+	for ARG in "${@}"; do
+		case "${ARG}" in
+		-[IL]/*"/${PLATFORM}/"*|-[IL]"${TOOLCHAIN}"*)
+			;;
+		-L/*|-I/*)
+			# skip all absolute search directories outside the BSP
+			if [ -n "${PTXDIST_FD_LOGFILE}" ]; then
+				echo "wrapper: removing '${ARG}' from the commandline" >&${PTXDIST_FD_LOGFILE}
+			fi
+			continue
+			;;
+		esac
+		printf "%s\037" "${ARG}"
+	done
 }
 
 cc_check_args() {
@@ -70,13 +99,6 @@ cc_check_args() {
 				;;
 			-ggdb3)
 				FULL_DEBUG=true
-				;;
-			-I/usr/include | -L/usr/lib | -L/lib)
-				if ! ${HOST}; then
-					echo "wrapper: Bad search path in:" >&2
-					echo "${CMD} $*" >&2
-					exit 1
-				fi
 				;;
 			-Wl,-rpath,/*build-target*)
 				if ! ${HOST}; then
