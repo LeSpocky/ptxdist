@@ -17,7 +17,7 @@ ARG_LIST=""
 LATE_ARG_LIST=""
 
 if [ -z "${PTXDIST_PLATFORMCONFIG}" ]; then
-	. "$(dirname "$(readlink -f "${0}")")/env" || exit
+	. "${WRAPPER_DIR}/env" || exit
 fi
 
 . ${PTXDIST_PLATFORMCONFIG}
@@ -31,7 +31,15 @@ if [ ! -e "/proc/self/fd/${PTXDIST_FD_LOGFILE}" ]; then
 fi
 
 wrapper_exec() {
-	PATH="$(echo "${PATH}" | sed "s;${PTXDIST_PATH_SYSROOT_HOST}/lib/wrapper:;;")"
+	IFS=:
+	tmp=
+	for P in ${PATH}; do
+		if [ "${P}" != "${PTXDIST_PATH_SYSROOT_HOST}/lib/wrapper" ]; then
+			tmp="${tmp}${tmp:+:}${P}"
+		fi
+	done
+	unset IFS
+	PATH="${tmp}"
 	if [ -n "${FAKEROOTKEY}" -o -z "${ICECC_VERSION}" -o ! -e "${ICECC_VERSION}" ]; then
 		PTXDIST_ICECC=${PTXDIST_ICERUN}
 	fi
@@ -313,7 +321,7 @@ cxx_add_target_extra() {
 
 cc_add_target_reproducible() {
 	add_arg -fdebug-prefix-map="${PTXDIST_PLATFORMDIR%/*}/="
-	add_arg -fdebug-prefix-map="$(readlink -f "${PTXDIST_PLATFORMDIR}")/=${PTXDIST_PLATFORMDIR##*/}/"
+	add_arg -fdebug-prefix-map="${WRAPPER_DIR%/sysroot-host/lib/wrapper}/=${PTXDIST_PLATFORMDIR##*/}/"
 }
 
 cpp_add_host_extra() {
@@ -335,7 +343,6 @@ cxx_add_host_extra() {
 }
 
 cc_add_host_clang() {
-	FULL_CMD=$(readlink "${0%/*}/real/${CMD}")
 	add_arg -gcc-toolchain /usr
 }
 
@@ -389,11 +396,10 @@ cxx_add_host_icecc() {
 
 cc_add_target_clang() {
 	triple="${CMD%-*}"
-	FULL_CMD=$(readlink "${0%/*}/real/${CMD}")
 	if [ -n "${PTXDIST_SYSROOT_TOOLCHAIN}" ]; then
 		add_arg --sysroot="${PTXDIST_SYSROOT_TOOLCHAIN}"
 	fi
-	env="$(dirname "${FULL_CMD}")/.${triple}.flags"
+	env="${FULL_CMD%/*}/.${triple}.flags"
 	if [ -e "${env}" ]; then
 		. "${env}"
 		add_arg ${flags}
