@@ -116,11 +116,16 @@ ptxd_install_toolchain_lib() {
 	    eval $(ptxd_split_lib_prefix_sysroot_eval "${lnk_path}" lnk)
 	    lnk_prefix="${dest:-${lnk_prefix}}"
 
-	    if test -n "${prefix}"; then
-		lnk_prefix="$(ptxd_abs2rel "${prefix}" "${lnk_prefix}")"
-		lnk_prefix="${lnk_prefix}${lnk_prefix:+/}"
-		# now remember that link for later
-		echo "ptxd_install_link \"${lnk_prefix}${lnk}\" \"${prefix}/${lib}\"" >> "${STATEDIR}/${packet}.cmds"
+	    # if the file name of the link target ist the same then skip creating
+	    # the link to avoid a cyclic symlink.
+	    # Happens with crosstool-ng with some libraries.
+	    if [ "${lib}" != "${lnk}" ]; then
+		if test -n "${prefix}"; then
+		    lnk_prefix="$(ptxd_abs2rel "${prefix}" "${lnk_prefix}")"
+		    lnk_prefix="${lnk_prefix}${lnk_prefix:+/}"
+		    # now remember that link for later
+		    echo "ptxd_install_link \"${lnk_prefix}${lnk}\" \"${prefix}/${lib}\"" >> "${STATEDIR}/${packet}.cmds"
+		fi
 	    fi
 
 	    lib_path="${lnk_path}"
