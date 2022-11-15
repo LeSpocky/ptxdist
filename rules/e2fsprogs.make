@@ -69,7 +69,7 @@ E2FSPROGS_CONF_OPT	:= \
 	--disable-nls \
 	--disable-rpath \
 	--disable-fuse2fs \
-	--enable-lto \
+	--disable-lto \
 	--disable-ubsan \
 	--disable-addrsan \
 	--disable-threadsan \
