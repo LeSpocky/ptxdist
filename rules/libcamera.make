@@ -60,6 +60,12 @@ LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_SIMPLE)	+= simple
 LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_UVCVIDEO)	+= uvcvideo
 LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_VIMC)		+= vimc
 
+LIBCAMERA_IPA_PROXIES-y						:=
+LIBCAMERA_IPA_PROXIES-$(PTXCONF_LIBCAMERA_PIPELINE_IPU3)	+= ipu3
+LIBCAMERA_IPA_PROXIES-$(PTXCONF_LIBCAMERA_PIPELINE_RASPBERRYPI)	+= raspberrypi
+LIBCAMERA_IPA_PROXIES-$(PTXCONF_LIBCAMERA_PIPELINE_RKISP1)	+= rkisp1
+LIBCAMERA_IPA_PROXIES-$(PTXCONF_LIBCAMERA_PIPELINE_VIMC)	+= vimc
+
 LIBCAMERA_CONF_TOOL	:= meson
 LIBCAMERA_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
@@ -80,9 +86,12 @@ LIBCAMERA_CONF_OPT	:= \
 # Target-Install
 # ----------------------------------------------------------------------------
 
-define install_ipa
+define install_ipa_proxy
 	@$(call install_copy, libcamera, 0, 0, 0755, -, \
 		/usr/libexec/libcamera/$(strip $(1))_ipa_proxy)
+endef
+
+define install_ipa
 	@$(call install_alternative_tree, libcamera, 0, 0, \
 		/usr/share/libcamera/ipa/$(strip $(1)))
 endef
@@ -112,6 +121,9 @@ $(STATEDIR)/libcamera.targetinstall:
 
 	@$(call install_lib, libcamera, 0, 0, 0644, libcamera)
 	@$(call install_lib, libcamera, 0, 0, 0644, libcamera-base)
+
+	@$(foreach proxy,$(LIBCAMERA_IPA_PROXIES-y), \
+		$(call install_ipa_proxy, $(proxy))$(ptx/nl))
 
 	@$(foreach ipa,$(LIBCAMERA_IPASC-y), \
 		$(call install_ipa, $(ipa))$(ptx/nl))
