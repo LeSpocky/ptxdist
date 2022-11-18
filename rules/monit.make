@@ -29,6 +29,7 @@ MONIT_LICENSE_FILES := file://COPYING;md5=ea116a7defaf0e93b3bb73b2a34a3f51
 # ----------------------------------------------------------------------------
 
 MONIT_CONF_ENV	:= $(CROSS_ENV) \
+	ac_cv_lib_nsl_inet_addr=no \
 	libmonit_cv_setjmp_available=yes \
 	libmonit_cv_vsnprintf_c99_conformant=yes
 
