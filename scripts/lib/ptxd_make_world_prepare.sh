@@ -225,8 +225,8 @@ ptxd_make_world_prepare() {
 	    fi
 	    ;;
 	qmake)
-	    if ! [[ " ${pkg_build_deps} " =~ ' 'qt[45]' ' ]]; then
-		ptxd_bailout "'${pkg_label}' uses 'qmake' but does not select 'qt4' or 'qt5'"
+	    if ! [[ " ${pkg_build_deps} " =~ ' 'qt[56]' ' ]]; then
+		ptxd_bailout "'${pkg_label}' uses 'qmake' but does not select 'qt5' or 'qt6'"
 	    fi
 	    ;;
 	perl)
