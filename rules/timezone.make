@@ -88,7 +88,7 @@ $(STATEDIR)/timezone.install:
 		$(call add_zoneinfo, $$target, $(TIMEZONE_PKGDIR)/usr/share, $(PTXDIST_SYSROOT_HOST)/usr); \
 	done
 # Fix entries in zonetab to match the selected PTXCONF_TIMEZONE_* options.
-	@grep "\($$(find $(TIMEZONE_PKGDIR)/usr/share/zoneinfo -type f -printf '%P\|')#\)" \
+	@grep "\($$(find $(TIMEZONE_PKGDIR)/usr/share/zoneinfo -type f -printf '%P\\|')#\)"  \
 		$(PTXDIST_SYSROOT_HOST)/usr/share/zoneinfo/zone1970.tab > \
 		$(TIMEZONE_PKGDIR)/usr/share/zoneinfo/zone1970.tab
 
