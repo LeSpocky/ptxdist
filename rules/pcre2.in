@@ -11,6 +11,7 @@ if PCRE2
 config PCRE2_8
 	bool
 	prompt "8 bit library"
+	default y
 
 config PCRE2_16
 	bool
