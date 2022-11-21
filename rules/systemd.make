@@ -130,7 +130,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dlog-trace=false \
 	-Dlogind=$(call ptx/truefalse,PTXCONF_SYSTEMD_LOGIND) \
 	-Dlz4=$(call ptx/truefalse,PTXCONF_SYSTEMD_LZ4) \
-	-Dmachined=false \
+	-Dmachined=$(call ptx/truefalse,PTXCONF_SYSTEMD_NSPAWN) \
 	-Dman=false \
 	-Dmemory-accounting-default=true \
 	-Dmicrohttpd=$(call ptx/truefalse,PTXCONF_SYSTEMD_MICROHTTPD) \
@@ -141,7 +141,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dnobody-user=nobody \
 	-Dnscd=false \
 	-Dnss-myhostname=true \
-	-Dnss-mymachines=false \
+	-Dnss-mymachines=$(call ptx/truefalse,PTXCONF_SYSTEMD_NSPAWN) \
 	-Dnss-resolve=$(call ptx/truefalse,PTXCONF_SYSTEMD_NETWORK) \
 	-Dnss-systemd=true \
 	-Dntp-servers= \
@@ -262,6 +262,7 @@ SYSTEMD_HELPER := \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_JOURNAL_REMOTE,systemd-journal-remote) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_LOCALES,systemd-localed) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_LOGIND,systemd-logind) \
+	$(call ptx/ifdef, PTXCONF_SYSTEMD_NSPAWN,systemd-machined) \
 	systemd-makefs \
 	systemd-modules-load \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_NETWORK,systemd-networkd) \
@@ -371,6 +372,12 @@ endif
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-socket-activate)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-stdio-bridge)
 	@$(call install_link, systemd, systemd-mount, /usr/bin/systemd-umount)
+
+ifdef PTXCONF_SYSTEMD_NSPAWN
+	@$(call install_lib, systemd, 0, 0, 0644, libnss_mymachines)
+	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/machinectl)
+	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-nspawn)
+endif
 
 	@$(call install_tree, systemd, 0, 0, -, /usr/lib/systemd/system-generators/)
 	@$(foreach helper, $(SYSTEMD_HELPER), \

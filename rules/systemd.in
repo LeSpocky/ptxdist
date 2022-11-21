@@ -154,6 +154,10 @@ config SYSTEMD_QUOTACHECK
 	help
 	  File system quota checker logic
 
+config SYSTEMD_NSPAWN
+	bool
+	prompt "install systemd-nspawn"
+
 menu "journald                    "
 
 config SYSTEMD_XZ
