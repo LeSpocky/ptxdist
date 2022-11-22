@@ -15,11 +15,11 @@ PACKAGES-$(PTXCONF_PCIUTILS) += pciutils
 #
 # Paths and names
 #
-PCIUTILS_VERSION	:= 3.8.0
-PCIUTILS_MD5		:= 72ba4ca1eed8b2972a785ee5aac0b138
+PCIUTILS_VERSION	:= 3.9.0
+PCIUTILS_MD5		:= 20aaffb48eedae4827ff1dfe9ea26a92
 PCIUTILS		:= pciutils-$(PCIUTILS_VERSION)
-PCIUTILS_SUFFIX		:= tar.xz
-PCIUTILS_URL		:= $(call ptx/mirror, KERNEL, ../software/utils/pciutils/$(PCIUTILS).$(PCIUTILS_SUFFIX))
+PCIUTILS_SUFFIX		:= tar.gz
+PCIUTILS_URL		:= https://github.com/pciutils/pciutils/archive/refs/tags/v$(PCIUTILS_VERSION).$(PCIUTILS_SUFFIX)
 PCIUTILS_SOURCE		:= $(SRCDIR)/$(PCIUTILS).$(PCIUTILS_SUFFIX)
 PCIUTILS_DIR		:= $(BUILDDIR)/$(PCIUTILS)
 PCIUTILS_LICENSE	:= GPL-2.0-or-later
