@@ -74,7 +74,6 @@ $(STATEDIR)/pcre2.targetinstall:
 
 ifdef PTXCONF_PCRE2_8
 	@$(call install_lib, pcre2, 0, 0, 0644, libpcre2-8)
-	@$(call install_lib, pcre2, 0, 0, 0644, libpcre2-posix)
 endif
 ifdef PTXCONF_PCRE2_16
 	@$(call install_lib, pcre2, 0, 0, 0644, libpcre2-16)
