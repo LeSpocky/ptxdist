@@ -8,8 +8,8 @@ menuconfig GLIB
 	select LIBC_PTHREAD
 	select ICONV
 	select LIBFFI
-	select LIBPCRE
-	select LIBPCRE_ENABLE_UTF8
+	select PCRE2
+	select PCRE2_8
 	select UTIL_LINUX		if GLIB_LIBMOUNT
 	select UTIL_LINUX_LIBMOUNT	if GLIB_LIBMOUNT
 	select ZLIB

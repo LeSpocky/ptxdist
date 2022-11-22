@@ -28,7 +28,6 @@ HOST_GLIB_CONF_OPT	:= \
 	$(HOST_MESON_OPT) \
 	-Dbsymbolic_functions=true \
 	-Ddtrace=false \
-	-Dfam=false \
 	-Dforce_posix_threads=true \
 	-Dglib_assert=true \
 	-Dglib_checks=true \
