@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDL2) += sdl2
 #
 # Paths and names
 #
-SDL2_VERSION	:= 2.24.2
-SDL2_MD5	:= 84c71cb2a14aa0d9504513c0b9fcb17c
+SDL2_VERSION	:= 2.26.0
+SDL2_MD5	:= 35bc58cfe41b8fb6c8e6646be26fa47e
 SDL2		:= SDL2-$(SDL2_VERSION)
 SDL2_SUFFIX	:= tar.gz
 SDL2_URL	:= https://www.libsdl.org/release/$(SDL2).$(SDL2_SUFFIX)
@@ -27,12 +27,16 @@ SDL2_LICENSE	:= zlib
 # Prepare
 # ----------------------------------------------------------------------------
 
+# Only x86, not x86-64.
+OLDER_X86	:= $(if $(PTXCONF_ARCH_X86_64),,$(PTXCONF_ARCH_X86))
+
 #
 # autoconf
 #
 SDL2_CONF_TOOL	:= autoconf
 SDL2_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-shared \
 	--disable-static \
 	--enable-libtool-lock \
@@ -55,13 +59,15 @@ SDL2_CONF_OPT	:= \
 	--enable-loadso \
 	--enable-cpuinfo \
 	--enable-assembly \
-	--disable-ssemath \
-	--disable-mmx \
+	--$(call ptx/endis,PTXCONF_ARCH_X86)-ssemath \
+	--$(call ptx/endis,OLDER_X86)-mmx \
 	--disable-3dnow \
-	--disable-sse \
-	--disable-sse2 \
-	--disable-sse3 \
-	--disable-altivec \
+	--$(call ptx/endis,PTXCONF_ARCH_X86)-sse \
+	--$(call ptx/endis,PTXCONF_ARCH_X86_64)-sse2 \
+	--$(call ptx/endis,PTXCONF_ARCH_X86_64)-sse3 \
+	--$(call ptx/endis,PTXCONF_ARCH_PPC_ALTIVEC)-altivec \
+	--disable-lsx \
+	--disable-lasx \
 	--$(call ptx/endis,PTXCONF_SDL2_OSS)-oss \
 	--$(call ptx/endis,PTXCONF_SDL2_ALSA)-alsa \
 	--disable-alsatest \
@@ -100,6 +106,7 @@ SDL2_CONF_OPT	:= \
 	--$(call ptx/endis,PTXCONF_SDL2_XORG)-video-x11-xcursor \
 	--disable-video-x11-xdbe \
 	--$(call ptx/endis,PTXCONF_SDL2_XORG)-video-x11-xinput \
+	--disable-video-x11-xfixes \
 	--$(call ptx/endis,PTXCONF_SDL2_XORG)-video-x11-xrandr \
 	--disable-video-x11-scrnsaver \
 	--disable-video-x11-xshape \
@@ -112,6 +119,7 @@ SDL2_CONF_OPT	:= \
 	--$(call ptx/endis,PTXCONF_SDL2_KMS)-video-kmsdrm \
 	--$(call ptx/endis,PTXCONF_SDL2_KMS)-kmsdrm-shared \
 	--enable-video-dummy \
+	--enable-video-offscreen \
 	--$(call ptx/endis,PTXCONF_SDL2_OPENGL)-video-opengl \
 	--$(call ptx/endis,PTXCONF_SDL2_OPENGLES)-video-opengles \
 	--$(call ptx/endis,PTXCONF_SDL2_OPENGLES1)-video-opengles1 \
