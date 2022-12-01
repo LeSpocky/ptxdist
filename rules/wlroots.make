@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WLROOTS) += wlroots
 #
 # Paths and names
 #
-WLROOTS_VERSION	:= 0.15.1
-WLROOTS_MD5	:= d866abe05ebbcb1611b6273828302e87
+WLROOTS_VERSION	:= 0.16.0
+WLROOTS_MD5	:= 2f9263c6ed2f2da2957988ee3f7bde1f
 WLROOTS		:= wlroots-$(WLROOTS_VERSION)
 WLROOTS_SUFFIX	:= tar.bz2
 WLROOTS_URL	:= https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/$(WLROOTS_VERSION)/$(WLROOTS).$(WLROOTS_SUFFIX)
@@ -30,6 +30,7 @@ WLROOTS_LICENSE	:= MIT
 WLROOTS_CONF_TOOL := meson
 WLROOTS_CONF_OPT := \
 	$(CROSS_MESON_USR) \
+	-Dallocators=gbm \
 	-Dbackends=drm,libinput \
 	-Dexamples=false \
 	-Dicon_directory= \

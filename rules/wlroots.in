@@ -5,6 +5,8 @@ config WLROOTS
 	select HOST_MESON
 	select WAYLAND
 	select WAYLAND_PROTOCOLS
+	select HWDATA
+	select HWDATA_PNP
 	select LIBDRM
 	select MESALIB
 	select MESALIB_EGL
