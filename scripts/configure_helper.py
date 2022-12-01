@@ -149,6 +149,7 @@ meson_blacklist = [
 	"mandir",
 	"optimization",
 	"pkg_config_path",
+	"python.install_env",
 	"python.platlibdir",
 	"python.purelibdir",
 	"sbindir",
