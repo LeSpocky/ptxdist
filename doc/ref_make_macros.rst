@@ -155,7 +155,7 @@ ptx/image-install, ptx/image-install-link, world/image-clean
 
 Usage:
 
-.. code-block:: make
+.. code-block:: none
 
  @$(call world/image-clean, <PKG>)
  @$(call ptx/image-install, <PKG>, $(<PKG>_BUILD_DIR)/<source-image-name>[, <image-name>])
