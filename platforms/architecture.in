@@ -270,6 +270,18 @@ config ARCH_ARMV7_NEON
 	default ARCH_ARM_NEON if ARCH_ARM
 
 #
+# PPC vector instructions
+#
+config ARCH_PPC_ALTIVEC
+	bool
+	prompt "AltiVec/VMX/Velocity Engine"
+	depends on ARCH_PPC
+	help
+	  This enables optimizations corresponding to single precision
+	  floating point and integer SIMD instructions on PPC processors.
+	  This is present on more modern CPUs.
+
+#
 # hardware / software floating point
 #
 config HAS_HARDFLOAT
