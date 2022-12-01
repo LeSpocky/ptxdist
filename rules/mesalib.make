@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 22.2.4
-MESALIB_MD5	:= a258a3d590d76bc1ff89a204f063e3b8
+MESALIB_VERSION	:= 22.3.0
+MESALIB_MD5	:= f44da76e397e35a5dd9b35caa0a09dea
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -152,6 +152,7 @@ MESALIB_CONF_OPT	:= \
 	-Degl=$(call ptx/endis, PTXCONF_MESALIB_EGL)d \
 	-Degl-lib-suffix= \
 	-Degl-native-platform=auto \
+	-Denable-glcpp-tests=false \
 	-Dexecmem=true \
 	-Dfreedreno-kgsl=false \
 	-Dfreedreno-virtio=false \
@@ -162,10 +163,11 @@ MESALIB_CONF_OPT	:= \
 	-Dgallium-nine=false \
 	-Dgallium-omx=disabled \
 	-Dgallium-opencl=disabled \
+	-Dgallium-rusticl=false \
 	-Dgallium-va=$(call ptx/endis, PTXCONF_MESALIB_VA)d \
 	-Dgallium-vdpau=disabled \
+	-Dgallium-windows-dll-name=libgallium_wgl \
 	-Dgallium-xa=disabled \
-	-Dgallium-xvmc=disabled \
 	-Dgbm=$(call ptx/endis, PTXCONF_MESALIB_GBM)d \
 	-Dgbm-backends-path= \
 	-Dgles-lib-suffix= \
@@ -186,7 +188,6 @@ MESALIB_CONF_OPT	:= \
 	-Dmin-windows-version=8 \
 	-Dmoltenvk-dir= \
 	-Domx-libs-path=/usr/lib/dri \
-	-Dopencl-native=false \
 	-Dopencl-spirv=false \
 	-Dopengl=$(call ptx/truefalse, PTXCONF_MESALIB_OPENGL) \
 	-Dosmesa=false \
@@ -216,7 +217,6 @@ MESALIB_CONF_OPT	:= \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-layers=$(subst $(space),$(comma),$(MESALIB_VULKAN_LAYERS-y)) \
 	-Dxlib-lease=$(call ptx/endis, PTXCONF_MESALIB_EGL_X11)d \
-	-Dxvmc-libs-path=/usr/lib \
 	-Dzlib=enabled \
 	-Dzstd=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d
 
