@@ -72,6 +72,11 @@ HOST_MARIADB_CONF_OPT	:= \
 	-DPLUGIN_MROONGA:FORCE=DYNAMIC \
 	-DLZ4_LIBS=undefined
 
+# The check is broken with cmake 3.25.0 so just disable symbol versioning
+# We build everything from source, so it is not actually needed
+HOST_MARIADB_CONF_OPT	+= \
+	-DDISABLE_LIBMYSQLCLIENT_SYMBOL_VERSIONING=ON
+
 HOST_MARIADB_CXXFLAGS := -std=c++98
 
 HOST_MARIADB_MAKE_OPT := \

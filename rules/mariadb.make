@@ -140,6 +140,11 @@ MARIADB_CONF_OPT	:= \
 	-DDEFAULT_CHARSET=latin1 \
 	-DLZ4_LIBS=undefined
 
+# The check is broken with cmake 3.25.0 so just disable symbol versioning
+# We build everything from source, so it is not actually needed
+MARIADB_CONF_OPT	+= \
+	-DDISABLE_LIBMYSQLCLIENT_SYMBOL_VERSIONING=ON
+
 ifneq ($(strip $(MARIADB_PLUGINS_ENABLES-y)),)
 MARIADB_CONF_OPT += $(foreach plugin,$(MARIADB_PLUGINS_ENABLES-y),$(addprefix -DPLUGIN_,$(addsuffix =STATIC, $(plugin))))
 endif
