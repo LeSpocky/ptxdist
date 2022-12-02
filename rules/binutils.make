@@ -29,6 +29,7 @@ BINUTILS_DIR		:= $(BUILDDIR)/$(BINUTILS)
 
 BINUTILS_CONF_ENV := \
 	$(CROSS_ENV) \
+	enable_gprofng=no \
 	host_configargs='$(strip \
 		--enable-targets=$(PTXCONF_GNU_TARGET) \
 		--disable-nls \
