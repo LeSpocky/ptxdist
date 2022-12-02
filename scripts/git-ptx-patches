@@ -33,7 +33,7 @@ if [ ! -L .ptxdist/series ]; then
 fi
 
 remove_old=no
-tag=base
+tag=
 numbered_patches=true
 all_tags=false
 
@@ -72,7 +72,22 @@ while getopts "aft:n" opt; do
 done
 shift $((${OPTIND} - 1))
 
-tag2=$(awk -F "[ :]" "
+
+tags=( $(sed -n 's/^#tag:\([^ ]*\) .*/\1/p' .ptxdist/series .ptxdist/series.append 2>/dev/null) )
+
+# default to the first tag if none was specified,
+# use 'base' if there is no tag at all
+if [ -z "${tag}" ]; then
+	tag="${tags[0]}"
+fi
+if [ -z "${tag}" ]; then
+	tag="base"
+fi
+
+# only look for the second tag if there are tags in the series
+# otherwise assume all commits should be exported
+if [ ${#tags[*]} -gt 0 ]; then
+	tag2=$(awk -F "[ :]" "
 /^#tag:/ {
 	if (state == 1) {
 		print \$2
@@ -87,9 +102,12 @@ END {
 		exit 1
 }" < .ptxdist/series)
 
-if [ $? -ne 0 ]; then
-	echo "Failed to find tag '${tag}' in the series"
-	exit 1
+	if [ $? -ne 0 ]; then
+		echo "Failed to find tag '${tag}' in the series"
+		exit 1
+	fi
+else
+	tag2=""
 fi
 
 range="${tag}..${tag2}"
@@ -102,7 +120,7 @@ if "${all_tags}" ; then
 	if ! "${numbered_patches}"; then
 		args[${#args[*]}]="-n"
 	fi
-	for tag in $(sed -n 's/^#tag:\([^ ]*\) .*/\1/p' .ptxdist/series .ptxdist/series.append); do
+	for tag in "${tags[@]}"; do
 		echo "Updating patches for '${tag}'..."
 		"$0" "${args[@]}" -t "${tag}" || break
 		echo
