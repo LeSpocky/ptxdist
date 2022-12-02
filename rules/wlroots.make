@@ -36,7 +36,7 @@ WLROOTS_CONF_OPT := \
 	-Dicon_directory= \
 	-Drenderers=gles2 \
 	-Dxcb-errors=disabled \
-	-Dxwayland=disabled
+	-Dxwayland=$(call ptx/endis,PTXCONF_WLROOTS_XWAYLAND)d
 
 # ----------------------------------------------------------------------------
 # Target-Install

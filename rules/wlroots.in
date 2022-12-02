@@ -18,8 +18,18 @@ config WLROOTS
 	select UDEV_LIBUDEV
 	select PIXMAN
 	select SEATD
+	select XORG			if WLROOTS_XWAYLAND
+	select XCB_UTIL_WM		if WLROOTS_XWAYLAND
+	select XWAYLAND			if WLROOTS_XWAYLAND
 	prompt "wlroots"
 	help
 	  wlroots provides pluggable, composable, unopinionated modules for
 	  building a Wayland compositor.
 
+if WLROOTS
+
+config WLROOTS_XWAYLAND
+	bool
+	prompt "Xwayland support"
+
+endif
