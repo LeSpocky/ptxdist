@@ -8,10 +8,11 @@
 #tag:no-x11 --start-number 1
 0001-qtwayland-use-QT_EGL_NO_X11-and-qt_egl_p.h-everywher.patch
 0002-videonode-egl-use-QT_EGL_NO_X11-and-qt_egl_p.h.patch
+0003-qtbase-fix-building-with-mesa-22.3.0.patch
 #tag:ptxdist --start-number 1
 0001-ptxdist-qtwebengine-allow-building-with-ptxdist.patch
 0002-ptxdist-qtwebengine-let-ninja-use-the-jobserver.patch
 0003-HACK-qtwebengine-workaround-for-too-long-file-names.patch
 #tag:kms --start-number 1
 0001-eglfs_kms-device-ordering-robustness.patch
-# 60b2068449b4bfb7b9456e7fb6e675a2  - git-ptx-patches magic
+# 9dba9204e3b1ad6eb5d201e4e3aa345a  - git-ptx-patches magic
