@@ -268,7 +268,7 @@ ptxd_make_get_svn() {
 	echo "${PROMPT}svn: last modification time '${lmtime}'" &&
 	GZIP=-n tar --exclude-vcs --show-stored-names ${tarcomp} \
 		--mtime="${lmtime}" --transform "s|^\.|${prefix}|g" \
-		--create --file "${path}" -C "${mirror}" .
+		--create --sort=name --file "${path}" -C "${mirror}" .
 	ptxd_make_serialize_put
 }
 export -f ptxd_make_get_svn
