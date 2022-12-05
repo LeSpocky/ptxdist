@@ -312,7 +312,6 @@ endif
 
 ifdef PTXCONF_STRONGSWAN_SWANCTL
 	@$(call install_lib, strongswan, 0, 0, 0644, libvici)
-	@$(call install_tree, strongswan, 0, 0, -, /etc/strongswan.d)
 	@$(call install_alternative, strongswan, 0, 0, 0644, /etc/swanctl/swanctl.conf)
 	@$(call install_copy, strongswan, 0, 0, 0750, /etc/swanctl/bliss)
 	@$(call install_copy, strongswan, 0, 0, 0750, /etc/swanctl/ecdsa)
@@ -329,6 +328,7 @@ ifdef PTXCONF_STRONGSWAN_SWANCTL
 	@$(call install_copy, strongswan, 0, 0, 0755, /etc/swanctl/x509ocsp)
 endif
 
+	@$(call install_tree, strongswan, 0, 0, -, /etc/strongswan.d)
 	@$(call install_copy, strongswan, 0, 0, 0644, /etc/ipsec.d/aacerts)
 	@$(call install_copy, strongswan, 0, 0, 0644, /etc/ipsec.d/acerts)
 	@$(call install_copy, strongswan, 0, 0, 0644, /etc/ipsec.d/cacerts)
