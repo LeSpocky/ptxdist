@@ -6,4 +6,5 @@
 0200-reactivate-check-for-tty.patch
 0201-build-system-only-pass-real-libs-to-SELINUX_LIBS.patch
 0202-scripts-trylink-honour-SKIP_STRIP-and-don-t-strip-if.patch
-# 9c0cc4baa8090165b429198c9a10e02c  - git-ptx-patches magic
+0203-awk-fix-use-after-free-CVE-2022-30065.patch
+# e8b4a3103390b1bd27c9ce24d1e435d7  - git-ptx-patches magic
