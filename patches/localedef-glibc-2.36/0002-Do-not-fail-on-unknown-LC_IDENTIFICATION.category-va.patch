@@ -14,10 +14,10 @@ Signed-off-by: Ladislav Michl <ladis@linux-mips.org>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/locale/programs/ld-identification.c b/locale/programs/ld-identification.c
-index df0257b6c075..aef618c86363 100644
+index 214b47b396b1..74b51aae2b01 100644
 --- a/locale/programs/ld-identification.c
 +++ b/locale/programs/ld-identification.c
-@@ -194,8 +194,8 @@ No definition for %s category found"), "LC_IDENTIFICATION");
+@@ -193,8 +193,8 @@ No definition for %s category found"), "LC_IDENTIFICATION");
  	      matched = true;
  
  	  if (matched != true)

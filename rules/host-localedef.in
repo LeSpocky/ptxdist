@@ -1,5 +1,6 @@
 ## SECTION=hosttools_noprompt
 
 config HOST_LOCALEDEF
+	select HOST_SYSTEM_PYTHON3
 	tristate
 	default y if ALLYES
