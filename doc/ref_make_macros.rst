@@ -148,8 +148,6 @@ For ``install`` the package directory is deleted.
 When ``--verbose`` is used then the full command is logged. With
 ``--quiet`` both stdout and stderr are redirected to the logfile.
 
-.. _install_copy:
-
 ptx/image-install, ptx/image-install-link, world/image-clean
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -176,6 +174,8 @@ file name is the source file without the path, then this argument can be
 omitted.
 
 ``ptx/image-install-link`` creates a symlink in the image directory.
+
+.. _install_copy:
 
 install_copy
 ~~~~~~~~~~~~~
