@@ -787,10 +787,15 @@ whereas if the respective variable is unset, they would expand to the opposite:
 ptx/get-alternative
 ~~~~~~~~~~~~~~~~~~~
 
+Usage:
+
+.. code-block:: make
+
+ $(call ptx/get-alternative, <prefix>, <file>)
+
 This macro can be used to find files or directories in the BSP and PTXdist.
-There are two arguments, **prefix** and **file**. The search path is very
-similar to :ref:`install_alternative`. The first existing location of the
-following paths is returned:
+The search path is very similar to :ref:`install_alternative`.
+The first existing location of the following paths is returned:
 
 * ``$(PTXDIST_WORKSPACE)/$(prefix)$(PTXDIST_PLATFORMSUFFIX)/$(file)``
 * ``$(PTXDIST_WORKSPACE)/$(prefix)/$(file)$(PTXDIST_PLATFORMSUFFIX)``
@@ -805,9 +810,14 @@ following paths is returned:
 ptx/in-path
 ~~~~~~~~~~~
 
+Usage:
+
+.. code-block:: make
+
+ $(call ptx/in-path, <path>, <file>)
+
 This macro can be used to find files or directories in the BSP and PTXdist.
-There are two arguments, **path variable** and **file**. The **path
-variable** must be a variable name that is available in a shell called by
+The **path** must be a variable name that is available in a shell called by
 **make**. The variable must contain a ``:`` separated list of directories.
 The **file** will be searched in these directories and the first existing
 path is returned. PTXdist defines several variables that can be used here.
@@ -831,8 +841,14 @@ directories for each of these variables.
 ptx/in-platformconfigdir
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-This macro is only useful with multiple layers. It has one argument
-**file**. The **file** is searched for in the platform directory in
+Usage:
+
+.. code-block:: make
+
+ $(call ptx/in-platformconfigdir, <file>)
+
+This macro is only useful with multiple layers.
+The argument **file** is searched for in the platform directory in
 all layers in the usual search order. It returns the first existing file.
 If none exists it returns ``$(PTXDIST_PLATFORMCONFIGDIR)/$(file)``. This
 avoids unexpected errors due to empty variables if a file is missing.
