@@ -345,6 +345,15 @@ Build Environment for all Stages
 Prepare Stage
 ^^^^^^^^^^^^^
 
+``<PKG>_CFGHASH``
+  This variable contains the config hash for the package.
+  If it changes, PTXdist rebuilds the prepare stage of the package (and
+  successively, all following stages).
+
+  You should not need to touch this variable directly.
+  To add content to the config hash, you can use the macros :ref:`ptx/cfghash
+  and ptx/cfghash-file <ptx/cfghash>`.
+
 ``<PKG>_CONF_ENV``
   The environment for the prepare stage. If undefined, PTXdist will use
   ``$(CROSS_ENV)`` for target packages, ``$(HOST_ENV)`` for host packages

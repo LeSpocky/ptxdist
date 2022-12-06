@@ -681,6 +681,24 @@ be installed with some other ``install_*`` command before
    	@$(call install_replace, timezone, /etc/timezone, @TIMEZONE@, \
    		$(PTXCONF_TIMEZONE_LOCALTIME))
 
+.. _ptx/cfghash:
+.. _ptx/cfghash-file:
+
+ptx/cfghash, ptx/cfghash-file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Usage:
+
+.. code-block:: make
+
+ $(call ptx/cfghash, <PKG>, <string>)
+ $(call ptx/cfghash-file, <PKG>, <file>)
+
+Add an arbitrary **<string>** or the content of **<file>** to the config hash
+for **<PKG>**.
+This has the effect that the package will be rebuilt when the string or the
+content of the file changes.
+
 .. _param_macros:
 .. _ptxEndis:
 .. _ptxDisen:
