@@ -62,9 +62,14 @@ filter_args() {
 	else
 		TOOLCHAIN="/ignore"
 	fi
+	if [ -h "${pkg_dir}" ]; then
+		source_dir="$(readlink -f "${pkg_dir}")"
+	else
+		source_dir="${pkg_dir}"
+	fi
 	for ARG in "${@}"; do
 		case "${ARG}" in
-		-[IL]/*"/${PLATFORM}/"*|-[IL]"${TOOLCHAIN}"*)
+		-[IL]/*"/${PLATFORM}/"*|-[IL]"${TOOLCHAIN}"*|-[IL]"${source_dir}"*)
 			;;
 		-L/*|-I/*)
 			# skip all absolute search directories outside the BSP
