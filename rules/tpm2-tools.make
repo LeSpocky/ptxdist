@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_TPM2_TOOLS) += tpm2-tools
 #
 # Paths and names
 #
-TPM2_TOOLS_VERSION		:= 5.3
-TPM2_TOOLS_MD5			:= a319d4623f184b80851780b4e425208f
+TPM2_TOOLS_VERSION		:= 5.4
+TPM2_TOOLS_MD5			:= 3c9daa08786e0464e1b9a2da2dec8460
 TPM2_TOOLS			:= tpm2-tools-$(TPM2_TOOLS_VERSION)
 TPM2_TOOLS_SUFFIX		:= tar.gz
 TPM2_TOOLS_URL			:= https://github.com/tpm2-software/tpm2-tools/releases/download/$(TPM2_TOOLS_VERSION)/$(TPM2_TOOLS).$(TPM2_TOOLS_SUFFIX)
