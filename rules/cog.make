@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_COG) += cog
 #
 # Paths and names
 #
-COG_VERSION		:= 0.16.0
-COG_MD5			:= 2705472ea4f333290973722c0862b21d
+COG_VERSION		:= 0.16.1
+COG_MD5			:= 1489740db6b4ea568578035c30b8b2f4
 COG			:= cog-$(COG_VERSION)
 COG_SUFFIX		:= tar.xz
 COG_URL			:= https://wpewebkit.org/releases/$(COG).$(COG_SUFFIX)
