@@ -109,6 +109,15 @@ config GLIBC_M
 	  If at least one application on your target does any kind of math
 	  calculation, you should install this library.
 
+config GLIBC_MVEC
+	bool
+	depends on GLIBC_M
+	prompt "Install libmvec"
+	help
+	  Libmvec is vector math library. It may be used implicitly as needed.
+	  Whether it is needed depends on the architecture and the glibc
+	  version, among other things.
+
 config GLIBC_ANL
 	bool
 	prompt "Install libanl"

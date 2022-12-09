@@ -71,6 +71,10 @@ ifdef PTXCONF_GLIBC_M
 	@$(call install_copy_toolchain_lib, glibc, libm.so.6)
 endif
 
+ifdef PTXCONF_GLIBC_MVEC
+	@$(call install_copy_toolchain_lib, glibc, libmvec.so.1)
+endif
+
 ifdef PTXCONF_GLIBC_NSS_DNS
 	@$(call install_copy_toolchain_lib, glibc, libnss_dns.so.2)
 endif
