@@ -43,6 +43,7 @@ BINUTILS_CONF_TOOL := autoconf
 BINUTILS_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--target=$(PTXCONF_GNU_TARGET) \
+	--with-system-zlib \
 	--disable-werror
 
 BINUTILS_CFLAGS := \
