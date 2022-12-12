@@ -38,6 +38,7 @@ HOST_LIBARCHIVE_CONF_OPT	:= \
 	--without-bz2lib \
 	--without-iconv \
 	--without-lz4 \
+	--without-zstd \
 	--without-lzma \
 	--without-lzo2 \
 	--without-cng \
