@@ -37,6 +37,13 @@ config PULSEAUDIO_SYSTEMD
 	bool
 	default INITMETHOD_SYSTEMD
 
+config PULSEAUDIO_DAEMON
+	bool
+	default y
+	prompt "install pulseaudio deamon"
+
+if PULSEAUDIO_DAEMON
+
 config PULSEAUDIO_SYSTEMD_UNIT
 	bool
 	default !SYSTEMD_UNITS_USER
@@ -69,4 +76,5 @@ config PULSEAUDIO_WEBRTC_AEC
 	  Use the WebRTC audio processing library for echo cancellation. It
 	  provides better quality than the builtin 'Adrian' echo canceller.
 
+endif
 endif
