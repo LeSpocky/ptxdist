@@ -11,7 +11,7 @@ Welcome to the PTXdist Universe
    :numbered: 2
    :maxdepth: 3
 
-   welcome
+   index-layer*
    environment
    user_manual_section
    dev_manual

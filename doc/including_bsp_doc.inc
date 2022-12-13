@@ -103,3 +103,37 @@ external dependencies.
 
 Refer the PTXdist file ``doc/conf.py`` for more information on variable
 substitution. This PTXdist global file can be superseded by a local copy as well.
+
+Documentation structure for layered BSPs
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+When you call ``ptxdist docs-html`` in a layer, PTXdist will assemble the
+``doc/`` directory from all lower layers in the usual layering fashion,
+and flatten it into a single directory.
+In the highest-level table of contents, PTXdist uses a wildcard match for
+``index-layer*`` files, which is the entry point to integrate documentation for
+your own layers by creating files with that pattern.
+It is advisable to number the index files accordingly so their ordering in the
+documentation reflects the layer order.
+PTXdist itself uses the file ``index-layer-0-ptxdist.rst`` to include the title
+page of the PTXdist manual first, and includes the rest of the PTXdist
+documentation after the layer-specific files.
+
+For example, see the following directory structure::
+
+   my-bsp/
+   ├── common/
+   │   └── doc/
+   │       └── index-layer-1-common.rst
+   └── product-layer
+   .   ├── base/ -> ../common
+   .   └── doc
+   .       └── index-layer-2-product.rst
+
+In this example, the contents of ``index-layer-1-common.rst`` and
+``index-layer-2-product.rst`` would describe some layer-specific content, or
+even have their own table of contents in the usual reStructuredTest fashion to
+include more sub-sections in separate files.
+The documentation built for the *product-layer* will therefore include a
+section each for the *common* layer documentation, then for the *product-layer*
+documentation, and finally the rest of the PTXdist documentation.
