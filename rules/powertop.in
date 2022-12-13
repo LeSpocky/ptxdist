@@ -4,6 +4,7 @@ menuconfig POWERTOP
 	tristate
 	prompt "powertop                      "
 	select HOST_GETTEXT
+	select HOST_AUTOTOOLS_AUTOCONF_ARCHIVE
 	select NCURSES
 	select LIBNL3
 	select LIBC_RESOLV
