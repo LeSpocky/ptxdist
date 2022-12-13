@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PAM) += pam
 #
 # Paths and names
 #
-PAM_VERSION	:= 1.3.1
-PAM_MD5		:= 558ff53b0fc0563ca97f79e911822165
+PAM_VERSION	:= 1.5.2
+PAM_MD5		:= 895e8adfa14af334f679bbeb28503f66
 PAM		:= Linux-PAM-$(PAM_VERSION)
 PAM_SUFFIX	:= tar.xz
 PAM_URL		:= https://github.com/linux-pam/linux-pam/releases/download/v$(PAM_VERSION)/$(PAM).$(PAM_SUFFIX)
@@ -41,15 +41,20 @@ PAM_CONF_TOOL	:= autoconf
 PAM_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-Werror \
+	--disable-doc \
 	--disable-lckpwdf \
-	--disable-cracklib \
 	--disable-audit \
 	--$(call ptx/endis, PTXCONF_PAM_DB)-db \
 	--$(call ptx/endis, PTXCONF_PAM_NIS)-nis \
+	--disable-usergroups \
 	--disable-selinux \
+	--disable-econf \
+	--disable-openssl \
 	--disable-regenerate-docu \
 	--disable-nls \
-	--disable-rpath
+	--disable-rpath \
+	--enable-unix
 
 # ----------------------------------------------------------------------------
 # Target-Install
