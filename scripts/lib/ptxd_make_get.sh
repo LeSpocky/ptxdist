@@ -176,6 +176,7 @@ ptxd_make_get_git() {
 	fi &&
 	# overwrite everything so the git repository is in a defined state
 	git --git-dir="${mirror}" config transfer.fsckObjects true &&
+	git --git-dir="${mirror}" config tar.tar.gz.command "gzip -cn" &&
 	git --git-dir="${mirror}" config tar.tar.bz2.command "bzip2 -c" &&
 	git --git-dir="${mirror}" config tar.tar.xz.command "xz -c" &&
 	git --git-dir="${mirror}" remote add origin "${url}" &&
