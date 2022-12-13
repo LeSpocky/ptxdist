@@ -19,7 +19,7 @@ MMC_UTILS_VERSION	:= 2022-09-27-gdfc3b6ecda84
 MMC_UTILS_MD5		:= 791e4c512cb044045ae34d7f4b781ac1
 MMC_UTILS		:= mmc-utils-$(MMC_UTILS_VERSION)
 MMC_UTILS_SUFFIX	:= tar.gz
-MMC_UTILS_URL		:= https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git;tag=$(MMC_UTILS_VERSION)
+MMC_UTILS_URL		:= https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git/snapshot/$(MMC_UTILS).$(MMC_UTILS_SUFFIX)
 MMC_UTILS_SOURCE	:= $(SRCDIR)/$(MMC_UTILS).$(MMC_UTILS_SUFFIX)
 MMC_UTILS_DIR		:= $(BUILDDIR)/$(MMC_UTILS)
 MMC_UTILS_LICENSE	:= GPL-2.0-only AND BSD-3-Clause
