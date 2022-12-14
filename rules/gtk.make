@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_GTK) += gtk
 #
 # Paths and names
 #
-GTK_VERSION	:= 3.24.34
-GTK_MD5		:= 7e024190949d9071f9d72b0d559379e1
+GTK_VERSION	:= 3.24.35
+GTK_MD5		:= b258062c7960a57c8401fb431890988a
 GTK		:= gtk+-$(GTK_VERSION)
-GTK_SUFFIX	:= tar.xz
-GTK_URL		:= $(call ptx/mirror, GNOME, gtk+/$(basename $(GTK_VERSION))/$(GTK).$(GTK_SUFFIX))
+GTK_SUFFIX	:= tar.bz2
+GTK_URL		:= https://gitlab.gnome.org/GNOME/gtk/-/archive/$(GTK_VERSION)/$(GTK).$(GTK_SUFFIX)
 GTK_SOURCE	:= $(SRCDIR)/$(GTK).$(GTK_SUFFIX)
 GTK_DIR		:= $(BUILDDIR)/$(GTK)
 GTK_LICENSE	:= LGPL-2.0-or-later
