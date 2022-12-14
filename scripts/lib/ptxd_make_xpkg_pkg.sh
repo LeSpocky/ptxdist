@@ -1086,7 +1086,7 @@ ptxd_install_lib() {
 		find "${dir}" -type f -path "${dir}/${lib}.so*" ! -name "*.debug"
 	    fi
 	done | while read f; do
-		grep -q '^INPUT(' "${f}" || echo "${f}"
+		grep -q '^\(INPUT(\|GROUP(\)' "${f}" || echo "${f}"
 	    done)"
 
     if [ ! -f "${file}" ]; then
