@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LCMS) += lcms
 #
 # Paths and names
 #
-LCMS_VERSION		:= 2.12
-LCMS_MD5		:= 8cb583c8447461896320b43ea9a688e0
+LCMS_VERSION		:= 2.13.1
+LCMS_MD5		:= 47a99e781b89c958a773e2012e81ae8c
 LCMS			:= lcms2-$(LCMS_VERSION)
 LCMS_SUFFIX		:= tar.gz
 LCMS_URL		:= $(call ptx/mirror, SF, lcms/$(LCMS).$(LCMS_SUFFIX))
@@ -37,6 +37,7 @@ LCMS_CONF_OPT	:= \
 	--without-jpeg \
 	--without-tiff \
 	--without-zlib \
+	--without-fastfloat \
 	--with-threads
 
 # ----------------------------------------------------------------------------
