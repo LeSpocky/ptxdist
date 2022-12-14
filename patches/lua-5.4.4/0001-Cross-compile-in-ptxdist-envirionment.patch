@@ -9,14 +9,14 @@ Signed-off-by: Denis Osterland <Denis.Osterland@diehl.com>
  2 files changed, 17 insertions(+), 11 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index a2820e04fe24..300b8192c03e 100644
+index fef1af4821e6..3c169540fea4 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -4,13 +4,13 @@
  # == CHANGE THE SETTINGS BELOW TO SUIT YOUR ENVIRONMENT =======================
  
  # Your platform. See PLATS for possible values.
--PLAT= none
+-PLAT= guess
 +PLAT= linux
  
  # Where to install. The installation starts in the src and doc directories,
@@ -28,16 +28,15 @@ index a2820e04fe24..300b8192c03e 100644
  INSTALL_BIN= $(INSTALL_TOP)/bin
  INSTALL_INC= $(INSTALL_TOP)/include
  INSTALL_LIB= $(INSTALL_TOP)/lib
-@@ -52,7 +52,7 @@ R= $V.6
+@@ -52,13 +52,17 @@ R= $V.4
  all:	$(PLAT)
  
- $(PLATS) clean:
--	cd src && $(MAKE) $@
-+	cd src && $(MAKE) $@ R=$R
+ $(PLATS) help test clean:
+-	@cd src && $(MAKE) $@
++	@cd src && $(MAKE) $@ R=$R
  
- test:	dummy
- 	src/lua -v
-@@ -62,6 +62,10 @@ install: dummy
+ install: dummy
+ 	cd src && $(MKDIR) $(INSTALL_BIN) $(INSTALL_INC) $(INSTALL_LIB) $(INSTALL_MAN) $(INSTALL_LMOD) $(INSTALL_CMOD)
  	cd src && $(INSTALL_EXEC) $(TO_BIN) $(INSTALL_BIN)
  	cd src && $(INSTALL_DATA) $(TO_INC) $(INSTALL_INC)
  	cd src && $(INSTALL_DATA) $(TO_LIB) $(INSTALL_LIB)
@@ -49,19 +48,19 @@ index a2820e04fe24..300b8192c03e 100644
  
  uninstall:
 diff --git a/src/Makefile b/src/Makefile
-index a13afb996273..071870ca55a7 100644
+index 1907381fef0a..e53fd31d3383 100644
 --- a/src/Makefile
 +++ b/src/Makefile
 @@ -4,15 +4,13 @@
  # == CHANGE THE SETTINGS BELOW TO SUIT YOUR ENVIRONMENT =======================
  
  # Your platform. See PLATS for possible values.
--PLAT= none
+-PLAT= guess
 +PLAT= linux
  
 -CC= gcc -std=gnu99
--CFLAGS= -O2 -Wall -Wextra -DLUA_COMPAT_5_2 $(SYSCFLAGS) $(MYCFLAGS)
-+CFLAGS= -std=gnu99 -fPIC -O2 -Wall -Wextra -DLUA_COMPAT_5_2 $(SYSCFLAGS) $(MYCFLAGS)
+-CFLAGS= -O2 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
++CFLAGS= -std=gnu99 -fPIC -O2 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
  LDFLAGS= $(SYSLDFLAGS) $(MYLDFLAGS)
  LIBS= -lm $(SYSLIBS) $(MYLIBS)
  
@@ -69,17 +68,17 @@ index a13afb996273..071870ca55a7 100644
 -RANLIB= ranlib
 +ARFLAGS= rcu
  RM= rm -f
+ UNAME= uname
  
- SYSCFLAGS=
-@@ -29,6 +27,7 @@ MYOBJS=
- PLATS= aix bsd c89 freebsd generic linux macosx mingw posix solaris
+@@ -33,6 +31,7 @@ CMCFLAGS=
+ PLATS= guess aix bsd c89 freebsd generic linux linux-readline macosx mingw posix solaris
  
  LUA_A=	liblua.a
 +LUA_SO= liblua.so.$R
- CORE_O=	lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o \
- 	lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o \
- 	ltm.o lundump.o lvm.o lzio.o
-@@ -43,8 +42,8 @@ LUAC_T=	luac
+ CORE_O=	lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o lmem.o lobject.o lopcodes.o lparser.o lstate.o lstring.o ltable.o ltm.o lundump.o lvm.o lzio.o
+ LIB_O=	lauxlib.o lbaselib.o lcorolib.o ldblib.o liolib.o lmathlib.o loadlib.o loslib.o lstrlib.o ltablib.o lutf8lib.o linit.o
+ BASE_O= $(CORE_O) $(LIB_O) $(MYOBJS)
+@@ -44,8 +43,8 @@ LUAC_T=	luac
  LUAC_O=	luac.o
  
  ALL_O= $(BASE_O) $(LUA_O) $(LUAC_O)
@@ -90,7 +89,7 @@ index a13afb996273..071870ca55a7 100644
  
  # Targets start here.
  default: $(PLAT)
-@@ -56,9 +55,12 @@ o:	$(ALL_O)
+@@ -57,9 +56,12 @@ o:	$(ALL_O)
  a:	$(ALL_A)
  
  $(LUA_A): $(BASE_O)

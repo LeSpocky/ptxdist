@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LUA) += lua
 #
 # Paths and names
 #
-LUA_VERSION	:= 5.3.6
-LUA_MD5		:= 83f23dbd5230140a3770d5f54076948d
+LUA_VERSION	:= 5.4.4
+LUA_MD5		:= bd8ce7069ff99a400efd14cf339a727b
 LUA		:= lua-$(LUA_VERSION)
 LUA_SUFFIX	:= tar.gz
 LUA_URL		:= http://www.lua.org/ftp/$(LUA).$(LUA_SUFFIX)

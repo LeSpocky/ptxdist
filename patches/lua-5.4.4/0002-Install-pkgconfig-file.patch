@@ -10,12 +10,12 @@ Signed-off-by: Denis Osterland <Denis.Osterland@diehl.com>
  create mode 100644 lua.pc.in
 
 diff --git a/Makefile b/Makefile
-index 300b8192c03e..b48c0e7eff71 100644
+index 3c169540fea4..cf428cedcff4 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -57,8 +57,8 @@ $(PLATS) clean:
- test:	dummy
- 	src/lua -v
+@@ -54,8 +54,8 @@ all:	$(PLAT)
+ $(PLATS) help test clean:
+ 	@cd src && $(MAKE) $@ R=$R
  
 -install: dummy
 -	cd src && $(MKDIR) $(INSTALL_BIN) $(INSTALL_INC) $(INSTALL_LIB) $(INSTALL_MAN) $(INSTALL_LMOD) $(INSTALL_CMOD)
@@ -24,7 +24,7 @@ index 300b8192c03e..b48c0e7eff71 100644
  	cd src && $(INSTALL_EXEC) $(TO_BIN) $(INSTALL_BIN)
  	cd src && $(INSTALL_DATA) $(TO_INC) $(INSTALL_INC)
  	cd src && $(INSTALL_DATA) $(TO_LIB) $(INSTALL_LIB)
-@@ -66,6 +66,7 @@ install: dummy
+@@ -63,6 +63,7 @@ install: dummy
  	ln -s liblua.so.$R $(INSTALL_LIB)/liblua.so.$V
  	ln -s liblua.so.$R $(INSTALL_LIB)/liblua.so.$(basename $V)
  	ln -s liblua.so.$V $(INSTALL_LIB)/liblua.so
@@ -32,15 +32,15 @@ index 300b8192c03e..b48c0e7eff71 100644
  	cd doc && $(INSTALL_DATA) $(TO_MAN) $(INSTALL_MAN)
  
  uninstall:
-@@ -112,6 +113,9 @@ pc:
+@@ -104,6 +105,9 @@ pc:
  	@echo "libdir=$(INSTALL_LIB)"
  	@echo "includedir=$(INSTALL_INC)"
  
 +lua.pc: lua.pc.in
 +	sed -e "s/@VERSION@/$R/g" $< > $@
 +
- # list targets that do not create files (but not all makes understand .PHONY)
- .PHONY: all $(PLATS) clean test install local none dummy echo pecho lecho
+ # Targets that do not create files (not all makes understand .PHONY).
+ .PHONY: all $(PLATS) help test clean install uninstall local dummy echo pc
  
 diff --git a/lua.pc.in b/lua.pc.in
 new file mode 100644
