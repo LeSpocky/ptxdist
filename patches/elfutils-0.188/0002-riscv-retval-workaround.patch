@@ -10,7 +10,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/backends/riscv_retval.c b/backends/riscv_retval.c
-index 35b6010bf3e3..46d465e913d4 100644
+index 347614862f1b..18ce4a1528bb 100644
 --- a/backends/riscv_retval.c
 +++ b/backends/riscv_retval.c
 @@ -111,7 +111,7 @@ flatten_aggregate_arg (Dwarf_Die *typedie __attribute__ ((unused)),

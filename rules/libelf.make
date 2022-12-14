@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBELF) += libelf
 #
 # Paths and names
 #
-LIBELF_VERSION	:= 0.185
-LIBELF_MD5	:= 2b6e94c2eebc1f2194173e31bca9396e
+LIBELF_VERSION	:= 0.188
+LIBELF_MD5	:= efb25a91873b2eec4df9f31e6a4f4e5c
 LIBELF		:= elfutils-$(LIBELF_VERSION)
 LIBELF_SUFFIX	:= tar.bz2
 LIBELF_URL	:= https://sourceware.org/elfutils/ftp/$(LIBELF_VERSION)/$(LIBELF).$(LIBELF_SUFFIX)
@@ -24,7 +24,7 @@ LIBELF_SOURCE	:= $(SRCDIR)/$(LIBELF).$(LIBELF_SUFFIX)
 LIBELF_DIR	:= $(BUILDDIR)/$(LIBELF)
 LIBELF_LICENSE	:= (LGPL-3.0-or-later OR GPL-2.0-or-later) AND GPL-3.0-or-later
 LIBELF_LICENSE_FILES := \
-	file://src/addr2line.c;startline=1;endline=17;md5=d8d6ae5854abaaf7ef5b1d0b4b8c7712 \
+	file://src/addr2line.c;startline=1;endline=18;md5=bc1eadf5590eef1484b1ee57f4341962 \
 	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
 	file://lib/color.c;startline=1;endline=28;md5=b960585bfffbf9f0df5b8f1af733a03b \
 	file://COPYING-GPLV2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
