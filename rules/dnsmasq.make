@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_DNSMASQ) += dnsmasq
 #
 # Paths and names
 #
-DNSMASQ_VERSION		:= 2.86
-DNSMASQ_MD5		:= 227fd0e81a5ed8134e1f60e175324c99
+DNSMASQ_VERSION		:= 2.88
+DNSMASQ_MD5		:= f5937cdf0d153f177903fcf5f8ca6cc9
 DNSMASQ			:= dnsmasq-$(DNSMASQ_VERSION)
 DNSMASQ_SUFFIX		:= tar.xz
 DNSMASQ_URL		:= http://www.thekelleys.org.uk/dnsmasq/$(DNSMASQ).$(DNSMASQ_SUFFIX)
@@ -24,7 +24,7 @@ DNSMASQ_SOURCE		:= $(SRCDIR)/$(DNSMASQ).$(DNSMASQ_SUFFIX)
 DNSMASQ_DIR		:= $(BUILDDIR)/$(DNSMASQ)
 DNSMASQ_LICENSE	:= GPL-2.0-only OR GPL-3.0-only
 DNSMASQ_LICENSE_FILES	:= \
-	file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3 \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 	file://COPYING-v3;md5=d32239bcb673463ab874e80d47fae504 \
 	file://src/dnsmasq.c;startline=2;endline=15;md5=0da70ade5c9cf3c1edf1f8dc6ab8aa9f
 
