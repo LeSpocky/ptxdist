@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_ATK) += atk
 #
 # Paths and names
 #
-ATK_VERSION	:= 2.36.0
-ATK_MD5		:= 01aa5ec5138f5f8c9b3a4e3196ed2900
+ATK_VERSION	:= 2.38.0
+ATK_MD5		:= 4dcea15cbf166706c166fc4fee05e3f8
 ATK		:= atk-$(ATK_VERSION)
 ATK_SUFFIX	:= tar.xz
 ATK_URL		:= $(call ptx/mirror, GNOME, atk/$(basename $(ATK_VERSION))/$(ATK).$(ATK_SUFFIX))
