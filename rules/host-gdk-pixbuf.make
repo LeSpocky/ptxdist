@@ -27,11 +27,12 @@ HOST_GDK_PIXBUF_CONF_OPT	:=  \
 	-Dgtk_doc=false \
 	-Dinstalled_tests=false \
 	-Dintrospection=disabled \
-	-Djpeg=false \
+	-Djpeg=disabled \
 	-Dman=false \
 	-Dnative_windows_loaders=false \
-	-Dpng=true \
+	-Dpng=enabled \
 	-Drelocatable=false \
-	-Dtiff=false
+	-Dtests=false \
+	-Dtiff=disabled
 
 # vim: syntax=make

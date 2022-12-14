@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GDK_PIXBUF) += gdk-pixbuf
 #
 # Paths and names
 #
-GDK_PIXBUF_VERSION	:= 2.42.6
-GDK_PIXBUF_MD5		:= 7cd2fdaa3c55e2302316fe36968f7425
+GDK_PIXBUF_VERSION	:= 2.42.9
+GDK_PIXBUF_MD5		:= 051599a83f0ae30ee9daeecfdafc765e
 GDK_PIXBUF		:= gdk-pixbuf-$(GDK_PIXBUF_VERSION)
 GDK_PIXBUF_SUFFIX	:= tar.xz
 GDK_PIXBUF_URL		:= $(call ptx/mirror, GNOME, gdk-pixbuf/$(basename $(GDK_PIXBUF_VERSION))/$(GDK_PIXBUF).$(GDK_PIXBUF_SUFFIX))
@@ -46,12 +46,13 @@ GDK_PIXBUF_CONF_OPT	:= \
 	-Dgtk_doc=false \
 	-Dinstalled_tests=false \
 	-Dintrospection=disabled \
-	-Djpeg=$(call ptx/truefalse, PTXCONF_GDK_PIXBUF_LOADER_JPEG) \
+	-Djpeg=$(call ptx/endis, PTXCONF_GDK_PIXBUF_LOADER_JPEG)d \
 	-Dman=false \
 	-Dnative_windows_loaders=false \
-	-Dpng=$(call ptx/truefalse, PTXCONF_GDK_PIXBUF_LOADER_PNG) \
+	-Dpng=$(call ptx/endis, PTXCONF_GDK_PIXBUF_LOADER_PNG)d \
 	-Drelocatable=false \
-	-Dtiff=false
+	-Dtests=false \
+	-Dtiff=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
