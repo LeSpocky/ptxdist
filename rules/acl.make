@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_ACL) += acl
 #
 # Paths and names
 #
-ACL_VERSION	:= 2.2.53
-ACL_MD5		:= 007aabf1dbb550bcddde52a244cd1070
+ACL_VERSION	:= 2.3.1
+ACL_MD5		:= 3cecb80cb0a52a0b273e6698ba642263
 ACL		:= acl-$(ACL_VERSION)
 ACL_SUFFIX	:= tar.gz
 ACL_URL		:= http://download.savannah.gnu.org/releases/acl/$(ACL).$(ACL_SUFFIX)

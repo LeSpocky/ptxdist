@@ -16,11 +16,11 @@ behind.
  create mode 100644 libacl/error_context.h
 
 diff --git a/configure.ac b/configure.ac
-index 92d6faac1913..28ef085f32a0 100644
+index 4abb9933948a..5915ee3e492c 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -46,8 +46,8 @@ dnl Automatically increment the revision for every release.
- LT_REVISION=$(echo "${PACKAGE_VERSION}" | tr -d .)
+@@ -51,8 +51,8 @@ fi
+ LT_REVISION=$(printf "%d%d%02d" "$1" "$2" "$3")
  AC_SUBST(LT_REVISION)
  
 -AC_PACKAGE_NEED_ATTR_ERROR_H
