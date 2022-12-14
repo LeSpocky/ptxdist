@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBMD) += libmd
 #
 # Paths and names
 #
-LIBMD_VERSION		:= 1.0.3
-LIBMD_MD5		:= 58f9a39d0a4296c7d2d59287d4f81cdf
+LIBMD_VERSION		:= 1.0.4
+LIBMD_MD5		:= e8e955f8d53d2c9306b07c90ff6ae395
 LIBMD			:= libmd-$(LIBMD_VERSION)
 LIBMD_SUFFIX		:= tar.xz
 LIBMD_URL		:= https://libbsd.freedesktop.org/releases/$(LIBMD).$(LIBMD_SUFFIX)
