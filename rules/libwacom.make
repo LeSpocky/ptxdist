@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBWACOM) += libwacom
 #
 # Paths and names
 #
-LIBWACOM_VERSION	:= 1.10
-LIBWACOM_MD5		:= 4fe103b05c1a9c7c03a7d6e15f231a80
+LIBWACOM_VERSION	:= 2.5.0
+LIBWACOM_MD5		:= 282333c21fac99a7873811aab89cc078
 LIBWACOM		:= libwacom-$(LIBWACOM_VERSION)
 LIBWACOM_SUFFIX		:= tar.gz
 LIBWACOM_URL		:= https://github.com/linuxwacom/libwacom/archive/$(LIBWACOM).$(LIBWACOM_SUFFIX)
