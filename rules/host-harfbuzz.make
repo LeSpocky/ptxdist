@@ -27,6 +27,7 @@ HOST_HARFBUZZ_CONF_OPT	:=  \
 	--disable-gtk-doc-html \
 	--disable-gtk-doc-pdf \
 	--disable-introspection \
+	--without-libstdc++ \
 	--with-glib \
 	--without-gobject \
 	--without-cairo \

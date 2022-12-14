@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_HARFBUZZ) += harfbuzz
 #
 # Paths and names
 #
-HARFBUZZ_VERSION	:= 5.2.0
-HARFBUZZ_MD5		:= 9e0bd000f1e620cdbd4abd17b4d4beee
+HARFBUZZ_VERSION	:= 5.3.1
+HARFBUZZ_MD5		:= 74dd89b7f394aabb0e318e36d169b77e
 HARFBUZZ		:= harfbuzz-$(HARFBUZZ_VERSION)
 HARFBUZZ_SUFFIX		:= tar.xz
 HARFBUZZ_URL		:= https://github.com/harfbuzz/harfbuzz/releases/download/$(HARFBUZZ_VERSION)/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)
@@ -39,6 +39,7 @@ HARFBUZZ_CONF_OPT	:= \
 	--disable-gtk-doc-html \
 	--disable-gtk-doc-pdf \
 	--$(call ptx/endis, PTXCONF_HARFBUZZ_INTROSPECTION)-introspection \
+	--without-libstdc++ \
 	--with-glib \
 	--$(call ptx/wwo, PTXCONF_HARFBUZZ_INTROSPECTION)-gobject \
 	--without-cairo \
