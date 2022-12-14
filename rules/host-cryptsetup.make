@@ -21,15 +21,18 @@ HOST_PACKAGES-$(PTXCONF_HOST_CRYPTSETUP) += host-cryptsetup
 HOST_CRYPTSETUP_CONF_TOOL	:= autoconf
 HOST_CRYPTSETUP_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
-	--disable-rpath \
+	--disable-asciidoc \
 	--disable-keyring \
+	--disable-external-tokens \
+	--disable-ssh-token \
+	--disable-luks2-reencryption \
 	--disable-nls \
+	--disable-rpath \
 	--disable-fips \
 	--disable-pwquality \
 	--disable-static-cryptsetup \
 	--disable-cryptsetup \
 	--enable-veritysetup \
-	--disable-cryptsetup-reencrypt \
 	--disable-integritysetup \
 	--disable-selinux \
 	--disable-udev \

@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_CRYPTSETUP) += cryptsetup
 #
 # Paths and names
 #
-CRYPTSETUP_VERSION	:= 2.3.6
-CRYPTSETUP_MD5		:= 504d1ab22cbc4d1a59a8d8c7ee5ed3bf
+CRYPTSETUP_VERSION	:= 2.6.0
+CRYPTSETUP_MD5		:= 8b67da403a2515dc75d40c42e8196e4e
 CRYPTSETUP		:= cryptsetup-$(CRYPTSETUP_VERSION)
 CRYPTSETUP_SUFFIX	:= tar.xz
 CRYPTSETUP_URL		:= https://www.kernel.org/pub/linux/utils/cryptsetup/v$(basename $(CRYPTSETUP_VERSION))/$(CRYPTSETUP).$(CRYPTSETUP_SUFFIX)
@@ -34,16 +34,20 @@ CRYPTSETUP_LICENSE	:= GPL-2.0-or-later
 CRYPTSETUP_CONF_TOOL	:= autoconf
 CRYPTSETUP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-rpath \
+	--disable-asciidoc \
 	--enable-keyring \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--$(call ptx/endis, PTXCONF_CRYPTSETUP_CRYPTSETUP)-external-tokens \
+	--disable-ssh-token \
+	--$(call ptx/endis, PTXCONF_CRYPTSETUP_CRYPTSETUP)-luks2-reencryption \
 	--disable-nls \
+	--disable-rpath \
 	--disable-fips \
 	--disable-pwquality \
+	--disable-fuzz-targets \
 	--disable-static-cryptsetup \
 	--$(call ptx/endis, PTXCONF_CRYPTSETUP_CRYPTSETUP)-cryptsetup \
 	--$(call ptx/endis, PTXCONF_CRYPTSETUP_VERITYSETUP)-veritysetup \
-	--$(call ptx/endis, PTXCONF_CRYPTSETUP_CRYPTSETUP)-cryptsetup-reencrypt \
 	--$(call ptx/endis, PTXCONF_CRYPTSETUP_INTEGRITYSETUP)-integritysetup \
 	--disable-selinux \
 	--enable-udev \
