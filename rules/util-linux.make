@@ -116,7 +116,7 @@ UTIL_LINUX_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IPCS)-ipcs \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IRQTOP)-irqtop \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSIRQ)-lsirq \
-	--disable-rfkill \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_RFKILL)-rfkill \
 	--disable-scriptutils \
 	--disable-tunelp \
 	--disable-kill \
@@ -238,6 +238,7 @@ UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_MOUNTPOINT)		+= bin/mountpoint
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_NSENTER)		+= bin/nsenter
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_PIVOT_ROOT)		+= sbin/pivot_root
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_READPROFILE)	+= sbin/readprofile
+UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_RFKILL)		+= sbin/rfkill
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_SWAPON)		+= sbin/swapoff sbin/swapon
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_SWITCH_ROOT)	+= sbin/switch_root
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_UMOUNT)		+= bin/umount

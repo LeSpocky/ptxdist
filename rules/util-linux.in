@@ -468,6 +468,19 @@ config UTIL_LINUX_READPROFILE
 comment "BusyBox' readprofile is selected!"
 	depends on BUSYBOX_READPROFILE
 
+config UTIL_LINUX_RFKILL
+	bool
+	prompt "rfkill"
+	select UTIL_LINUX_LIBSMARTCOLS
+	depends on !BUSYBOX_RFKILL || ALLYES
+	help
+	  rfkill is a simple tool for accessing the Linux rfkill device
+	  interface, which is used to enable and disable wireless networking
+	  devices, typically WLAN, Bluetooth and mobile broadband.
+
+comment "BusyBox' rfkill is selected!"
+	depends on BUSYBOX_RFKILL
+
 config UTIL_LINUX_SWAPON
 	bool
 	prompt "swapon"
