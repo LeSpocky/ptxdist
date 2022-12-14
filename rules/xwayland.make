@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XWAYLAND) += xwayland
 #
 # Paths and names
 #
-XWAYLAND_VERSION	:= 22.1.3
-XWAYLAND_MD5		:= 83849961283e8cea32be6740914822e5
+XWAYLAND_VERSION	:= 22.1.6
+XWAYLAND_MD5		:= 9894362969bcf86f3c0943138f9552cd
 XWAYLAND		:= xwayland-$(XWAYLAND_VERSION)
 XWAYLAND_SUFFIX		:= tar.xz
 XWAYLAND_URL		:= $(call ptx/mirror, XORG, individual/xserver/$(XWAYLAND).$(XWAYLAND_SUFFIX))
@@ -38,8 +38,12 @@ XWAYLAND_CONF_OPT	:= \
 	-Dbuilder_addr=ptxdist@pengutronix.de \
 	-Dbuilder_string=PTXdist \
 	-Ddefault_font_path=$(subst $(space),$(comma),$(addprefix $(XORG_FONTDIR)/,$(XORG_FONT_DIRS))) \
+	-Ddevel-docs=false \
+	-Ddocs=false \
+	-Ddocs-pdf=false \
 	-Ddpms=false \
 	-Ddri3=true \
+	-Ddrm=true \
 	-Ddtrace=false \
 	-Dglamor=$(call ptx/truefalse, PTXCONF_XWAYLAND_GLAMOR) \
 	-Dglx=$(call ptx/truefalse, PTXCONF_XWAYLAND_EXT_GLX) \
