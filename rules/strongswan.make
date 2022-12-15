@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_STRONGSWAN) += strongswan
 #
 # Paths and names
 #
-STRONGSWAN_VERSION	:= 5.9.6
-STRONGSWAN_MD5		:= 0eeb13eda09fb34e9ab5e2bfcfab1211
+STRONGSWAN_VERSION	:= 5.9.8
+STRONGSWAN_MD5		:= f46b0d3e7aed88824650d0721c887443
 STRONGSWAN		:= strongswan-$(STRONGSWAN_VERSION)
 STRONGSWAN_SUFFIX	:= tar.bz2
 STRONGSWAN_URL		:= https://download.strongswan.org/$(STRONGSWAN).$(STRONGSWAN_SUFFIX)
@@ -54,7 +54,7 @@ STRONGSWAN_CONF_OPT	:= \
 	--enable-hmac \
 	--disable-md4 \
 	--disable-md5 \
-	--disable-mgf1 \
+	--enable-mgf1 \
 	--disable-newhope \
 	--enable-nonce \
 	--disable-ntru \
@@ -193,8 +193,7 @@ STRONGSWAN_CONF_OPT	:= \
 	--disable-medcli \
 	--disable-medsrv \
 	--disable-nm \
-	--enable-pki \
-	--$(call ptx/disen, PTXCONF_STRONGSWAN_SWANCTL)-scepclient \
+	--disable-pki \
 	--enable-scripts \
 	--disable-svc \
 	--$(call ptx/endis, PTXCONF_STRONGSWAN_SYSTEMD_UNIT)-systemd \
@@ -224,6 +223,8 @@ STRONGSWAN_CONF_OPT	:= \
 	--enable-kdf \
 	--enable-dependency-tracking \
 	--enable-shared \
+	--disable-warnings \
+	--disable-asan \
 	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--$(call ptx/endis, PTXCONF_STRONGSWAN_SWANCTL)-swanctl \
 	--with-ipseclibdir=/usr/lib \
@@ -236,6 +237,7 @@ STRONGSWAN_LDFLAGS	:= -Wl,-rpath,/usr/lib/plugins
 # ----------------------------------------------------------------------------
 
 STRONGSWAN_PLUGINS := \
+	libstrongswan-acert.so \
 	libstrongswan-aes.so \
 	libstrongswan-attr.so \
 	libstrongswan-cmac.so \
@@ -247,6 +249,7 @@ STRONGSWAN_PLUGINS := \
 	libstrongswan-hmac.so \
 	libstrongswan-kdf.so \
 	libstrongswan-kernel-netlink.so \
+	libstrongswan-mgf1.so \
 	libstrongswan-nonce.so \
 	libstrongswan-pem.so \
 	libstrongswan-pgp.so \
@@ -292,7 +295,6 @@ $(STATEDIR)/strongswan.targetinstall:
 
 	@$(call install_alternative, strongswan, 0, 0, 0644, /etc/strongswan.conf)
 
-	@$(call install_tree, strongswan, 0, 0, -, /usr/bin)
 	@$(call install_tree, strongswan, 0, 0, -, /usr/libexec)
 	@$(call install_tree, strongswan, 0, 0, -, /usr/sbin)
 
