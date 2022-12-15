@@ -26,9 +26,6 @@ HOST_SQLITE_CONF_ENV := \
 	CPPFLAGS=" \
 	-DSQLITE_ENABLE_COLUMN_METADATA=1 \
 	-DSQLITE_ENABLE_FTS3_PARENTHESIS=1 \
-	-DSQLITE_ENABLE_FTS4=1 \
-	-DSQLITE_ENABLE_JSON1=1 \
-	-DSQLITE_ENABLE_RTREE=1 \
 	-DSQLITE_ENABLE_UNLOCK_NOTIFY=1 \
 	-DSQLITE_SOUNDEX=1 \
 	"
@@ -42,9 +39,12 @@ HOST_SQLITE_CONF_OPT	:= \
 	--enable-threadsafe \
 	--disable-dynamic-extensions \
 	--disable-math \
+	--enable-fts4 \
+	--enable-fts3 \
 	--disable-fts5 \
-	--enable-json1 \
+	--enable-rtree \
 	--disable-session \
+	--disable-debug \
 	--disable-static-shell
 
 # vim: syntax=make

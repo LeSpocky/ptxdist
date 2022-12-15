@@ -19,11 +19,11 @@ PACKAGES-$(PTXCONF_SQLITE) += sqlite
 #
 # Paths and names
 #
-SQLITE_VERSION	:= 3360000
-SQLITE_MD5	:= f5752052fc5b8e1b539af86a3671eac7
+SQLITE_VERSION	:= 3400000
+SQLITE_MD5	:= c833d61da768a116fa16d910f43cfd9a
 SQLITE		:= sqlite-autoconf-$(SQLITE_VERSION)
 SQLITE_SUFFIX	:= tar.gz
-SQLITE_URL	:= https://www.sqlite.org/2021/$(SQLITE).$(SQLITE_SUFFIX)
+SQLITE_URL	:= https://www.sqlite.org/2022/$(SQLITE).$(SQLITE_SUFFIX)
 SQLITE_SOURCE	:= $(SRCDIR)/$(SQLITE).$(SQLITE_SUFFIX)
 SQLITE_DIR	:= $(BUILDDIR)/$(SQLITE)
 SQLITE_LICENSE	:= public_domain
@@ -62,7 +62,6 @@ SQLITE_CONF_OPT		:= \
 	--enable-fts4 \
 	--enable-fts3 \
 	--disable-fts5 \
-	--enable-json1 \
 	--enable-rtree \
 	--disable-session \
 	--disable-debug \
