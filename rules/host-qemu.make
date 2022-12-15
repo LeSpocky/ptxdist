@@ -129,6 +129,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-u2f \
 	--disable-usb-redir \
 	--disable-vhost-user-blk-server \
+	--disable-libvduse \
 	--disable-virglrenderer \
 	--$(call ptx/endis, PTXCONF_HOST_QEMU_SYS)-virtfs \
 	--disable-virtiofsd \
