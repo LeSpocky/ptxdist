@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WGET) += wget
 #
 # Paths and names
 #
-WGET_VERSION	:= 1.21.1
-WGET_MD5	:= b939ee54eabc6b9b0a8d5c03ace879c9
+WGET_VERSION	:= 1.21.3
+WGET_MD5	:= e89496b15f8bf039d723926fae4d91f5
 WGET		:= wget-$(WGET_VERSION)
 WGET_SUFFIX	:= tar.gz
 WGET_URL	:= $(call ptx/mirror, GNU, wget/$(WGET).$(WGET_SUFFIX))
@@ -24,7 +24,7 @@ WGET_DIR	:= $(BUILDDIR)/$(WGET)
 WGET_LICENSE	:= GPL-3.0-or-later
 WGET_LICENSE_FILES := \
 	file://COPYING;md5=c678957b0c8e964aa6c70fd77641a71e \
-	file://src/main.c;startline=1;endline=28;md5=d6e80d7f1c0f263a0c8bb406c515a77c
+	file://src/main.c;startline=1;endline=28;md5=369c109d52f213d2396ac45b9d884c39
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -52,6 +52,7 @@ WGET_CONF_OPT := \
 	--enable-threads=posix \
 	--disable-nls \
 	--disable-rpath \
+	--disable-code-coverage \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-iri \
 	--disable-pcre2 \
@@ -65,7 +66,6 @@ WGET_CONF_OPT := \
 	--$(call ptx/wwo, PTXCONF_WGET_SSL_OPENSSL)-openssl \
 	--with-included-libunistring \
 	--without-included-regex \
-	--with-libidn=/usr \
 	--without-libuuid
 
 
