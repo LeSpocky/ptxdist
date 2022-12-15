@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 7.1.0
-QEMU_MD5	:= 3be5458a9171b4ec5220c65d5d52bdcf
+QEMU_VERSION	:= 7.2.0
+QEMU_MD5	:= 7630d6a9eba7ab2bcb9979d6d24c2697
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -128,6 +128,7 @@ QEMU_CONF_OPT	:= \
 	--disable-usb-redir \
 	--disable-vde \
 	--disable-vhost-user-blk-server \
+	--disable-libvduse \
 	--disable-virglrenderer \
 	--$(call ptx/endis, PTXCONF_QEMU_SYS)-virtfs \
 	--disable-virtiofsd \
