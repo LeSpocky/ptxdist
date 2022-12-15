@@ -12,8 +12,8 @@ PACKAGES-$(PTXCONF_LIBMXML) += libmxml
 #
 # Paths and names
 #
-LIBMXML_VERSION	:= 3.2
-LIBMXML_MD5	:= 1befcac3c4b46c48acd9649e4d741fb4
+LIBMXML_VERSION	:= 3.3.1
+LIBMXML_MD5	:= 078dc38807d4f1b9e92c95515ff2aec3
 LIBMXML		:= mxml-$(LIBMXML_VERSION)
 LIBMXML_SUFFIX	:= tar.gz
 LIBMXML_URL	:= https://github.com/michaelrsweet/mxml/releases/download/v$(LIBMXML_VERSION)/$(LIBMXML).$(LIBMXML_SUFFIX)
@@ -22,7 +22,7 @@ LIBMXML_DIR	:= $(BUILDDIR)/mxml-$(LIBMXML_VERSION)
 LIBMXML_LICENSE	:= Apache-2.0 WITH custom-exception
 LIBMXML_LICENSE_FILES := \
 	file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327 \
-	file://NOTICE;md5=12fe9ed8b1ced5a1652811b1b5688ea8
+	file://NOTICE;md5=6fe66de3d1a8a73def255cf8944376f0
 
 # ----------------------------------------------------------------------------
 # Prepare
