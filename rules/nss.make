@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NSS) += nss
 #
 # Paths and names
 #
-NSS_VERSION	:= 3.79
-NSS_MD5		:= 6792cd296a6c2a81fde4962718b6d903
+NSS_VERSION	:= 3.86
+NSS_MD5		:= 1f8cb0771f0ee64a4e891745b37f3098
 NSS		:= nss-$(NSS_VERSION)
 NSS_SUFFIX	:= tar.gz
 NSS_URL		:= https://ftp.mozilla.org/pub/security/nss/releases/NSS_$(subst .,_,$(NSS_VERSION))_RTM/src/$(NSS).$(NSS_SUFFIX)
