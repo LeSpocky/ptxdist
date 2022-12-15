@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SPEEXDSP) += speexdsp
 #
 # Paths and names
 #
-SPEEXDSP_VERSION	:= 1.2.0
-SPEEXDSP_MD5		:= b722df341576dc185d897131321008fc
+SPEEXDSP_VERSION	:= 1.2.1
+SPEEXDSP_MD5		:= e6eb5ddef743a362c8018f260b91dca5
 SPEEXDSP		:= speexdsp-$(SPEEXDSP_VERSION)
 SPEEXDSP_SUFFIX		:= tar.gz
 SPEEXDSP_URL		:= http://downloads.xiph.org/releases/speex//$(SPEEXDSP).$(SPEEXDSP_SUFFIX)
@@ -36,7 +36,6 @@ SPEEXDSP_FFT-$(PTXCONF_SPEEXDSP_FFT_SMALLFT)		+= smallft
 SPEEXDSP_CONF_TOOL	:= autoconf
 SPEEXDSP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-valgrind \
 	--$(call ptx/endis, PTXCONF_ARCH_X86)-sse \
 	--$(call ptx/endis, PTXCONF_ARCH_ARMV7_NEON)-neon \
 	--$(call ptx/endis, PTXCONF_SPEEXDSP_FIXED_POINT)-fixed-point \
