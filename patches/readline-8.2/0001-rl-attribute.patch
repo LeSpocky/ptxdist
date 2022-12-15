@@ -14,11 +14,11 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  2 files changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/readline.h b/readline.h
-index 78fa39d02a1d..62fd3562ccf7 100644
+index cac269f0b433..ec50816f8d39 100644
 --- a/readline.h
 +++ b/readline.h
-@@ -403,7 +403,7 @@ extern void rl_deactivate_mark PARAMS((void));
- extern int rl_mark_active_p PARAMS((void));
+@@ -405,7 +405,7 @@ extern void rl_deactivate_mark (void);
+ extern int rl_mark_active_p (void);
  
  #if defined (USE_VARARGS) && defined (PREFER_STDARG)
 -extern int rl_message (const char *, ...)  __attribute__((__format__ (printf, 1, 2)));
