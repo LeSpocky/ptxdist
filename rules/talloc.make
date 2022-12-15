@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_TALLOC) += talloc
 #
 # Paths and names
 #
-TALLOC_VERSION		:= 2.3.2
-TALLOC_MD5		:= 3376a86bdf9dd4abc6b8d8d645390902
+TALLOC_VERSION		:= 2.3.4
+TALLOC_MD5		:= ffdaf52a6572307cc3b6487b9e99cd61
 TALLOC			:= talloc-$(TALLOC_VERSION)
 TALLOC_SUFFIX		:= tar.gz
 TALLOC_URL		:= https://www.samba.org/ftp/talloc/$(TALLOC).$(TALLOC_SUFFIX)
@@ -30,7 +30,7 @@ TALLOC_CONFIG		 = $(call ptx/get-alternative, config/talloc, cross-answers)
 # Prepare
 # ----------------------------------------------------------------------------
 
-TALLOC_CONF_TOOL	:= NO
+TALLOC_CONF_TOOL	:= autoconf
 TALLOC_CONF_OPT	:=  \
 	--without-gettext \
 	--disable-python \
@@ -59,7 +59,7 @@ $(STATEDIR)/talloc.prepare:
 		UNAME_V=$(if $(KERNEL_HEADER_VERSION),$(KERNEL_HEADER_VERSION),$(KERNEL_VERSION)) \
 		HAS_64BIT=$(call ptx/ifdef,PTXCONF_ARCH_LP64,OK,NO) \
 		ptxd_replace_magic $(TALLOC_CONFIG) > $(TALLOC_DIR)/cross-answers
-	@$(call world/execute, TALLOC, $(SYSTEMPYTHON3) ./buildtools/bin/waf configure $(TALLOC_CONF_OPT))
+	@$(call world/prepare, TALLOC)
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
