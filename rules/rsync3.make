@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_RSYNC3) += rsync3
 #
 # Paths and names
 #
-RSYNC3_VERSION	:= 3.2.3
-RSYNC3_MD5	:= 209f8326f5137d8817a6276d9577a2f1
+RSYNC3_VERSION	:= 3.2.7
+RSYNC3_MD5	:= f216f350ef56b9ba61bc313cb6ec2ed6
 RSYNC3		:= rsync-$(RSYNC3_VERSION)
 RSYNC3_SUFFIX	:= tar.gz
 RSYNC3_URL	:= https://download.samba.org/pub/rsync/src/$(RSYNC3).$(RSYNC3_SUFFIX)
@@ -40,12 +40,13 @@ RSYNC3_CONF_OPT := \
 	--disable-debug \
 	--disable-profile \
 	--disable-md2man \
-	--disable-simd \
-	--disable-asm \
+	--$(call ptx/endis, PTXCONF_ARCH_X86_64)-roll-simd \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-locale \
 	--disable-openssl \
+	--$(call ptx/endis, PTXCONF_ARCH_X86_64)-md5-asm \
+	--$(call ptx/endis, PTXCONF_ARCH_X86_64)-roll-asm \
 	--disable-xxhash \
 	--$(call ptx/endis, PTXCONF_RSYNC3_ZSTD)-zstd \
 	--disable-lz4 \
@@ -55,7 +56,7 @@ RSYNC3_CONF_OPT := \
 	--$(call ptx/endis, PTXCONF_RSYNC3_ATTR)-xattr-support \
 	--with-included-popt \
 	--without-included-zlib \
-	--with-protected-args
+	--with-secluded-args
 
 # ----------------------------------------------------------------------------
 # Target-Install
