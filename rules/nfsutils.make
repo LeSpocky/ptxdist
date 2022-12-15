@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NFSUTILS) += nfsutils
 #
 # Paths and names
 #
-NFSUTILS_VERSION	:= 2.5.4
-NFSUTILS_MD5		:= 10f0f87e6889db976a1db94435af0bca
+NFSUTILS_VERSION	:= 2.6.2
+NFSUTILS_MD5		:= 36cbb17ca1f27d6d351a4f20ad25ba23
 NFSUTILS		:= nfs-utils-$(NFSUTILS_VERSION)
 NFSUTILS_SUFFIX		:= tar.gz
 NFSUTILS_URL		:= $(call ptx/mirror, KERNEL, utils/nfs-utils/$(NFSUTILS_VERSION)/$(NFSUTILS).$(NFSUTILS_SUFFIX))
@@ -53,6 +53,7 @@ NFSUTILS_CONF_OPT	:= \
 	--disable-uuid \
 	--$(call ptx/endis, PTXCONF_NFSUTILS_CLIENT)-mount \
 	--$(call ptx/endis, PTXCONF_NFSUTILS_CLIENT)-libmount-mount \
+	--disable-sbin-override \
 	--disable-junction \
 	--enable-tirpc \
 	$(GLOBAL_IPV6_OPTION) \
