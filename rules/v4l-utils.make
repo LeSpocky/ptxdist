@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_V4L_UTILS) += v4l-utils
 #
 # Paths and names
 #
-V4L_UTILS_VERSION	:= 1.22.0
-V4L_UTILS_MD5		:= da92142cf56210258ab2afd7e2ca1fb8
+V4L_UTILS_VERSION	:= 1.22.1
+V4L_UTILS_MD5		:= 8aa73287320a49e9170a8255d7b2c7e6
 V4L_UTILS		:= v4l-utils-$(V4L_UTILS_VERSION)
 V4L_UTILS_SUFFIX	:= tar.bz2
 V4L_UTILS_URL		:= http://linuxtv.org/downloads/v4l-utils/$(V4L_UTILS).$(V4L_UTILS_SUFFIX)
@@ -59,6 +59,7 @@ V4L_UTILS_CONF_OPT	:= \
 	--disable-gconv \
 	--$(call ptx/endis, PTXCONF_V4L_UTILS_IRKEYTABLE)-bpf \
 	--$(call ptx/wwo, PTXCONF_V4L_UTILS_LIBV4LCONVERT)-jpeg \
+	--$(call ptx/wwo, PTXCONF_V4L_UTILS_MEDIACTL)-libudev \
 	--with-udevdir=/usr/lib/udev \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system
 
