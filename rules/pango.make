@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_PANGO) += pango
 #
 # Paths and names
 #
-PANGO_VERSION	:= 1.48.7
-PANGO_MD5	:= 01b2902c42313032784e1d1f99b0d9be
+PANGO_VERSION	:= 1.50.12
+PANGO_MD5	:= fd4b0b23915d6a0255317f811bea4215
 PANGO		:= pango-$(PANGO_VERSION)
 PANGO_SUFFIX	:= tar.xz
 PANGO_URL	:= $(call ptx/mirror, GNOME, pango/$(basename $(PANGO_VERSION))/$(PANGO).$(PANGO_SUFFIX))
