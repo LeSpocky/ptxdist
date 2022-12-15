@@ -23,7 +23,10 @@ HOST_XZ_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-debug \
 	--disable-external-sha256 \
+	--disable-microlzma \
+	--disable-lzip-decoder \
 	--enable-assembler \
+	--enable-clmul-crc \
 	--disable-small \
 	--enable-threads \
 	--enable-xz \
@@ -33,13 +36,14 @@ HOST_XZ_CONF_OPT	:= \
 	--disable-lzma-links \
 	--disable-scripts \
 	--disable-doc \
-	--enable-symbol-versions \
 	--disable-sandbox \
 	--enable-shared \
 	--disable-static \
+	--enable-symbol-versions \
 	--disable-nls \
 	--enable-rpath \
 	--enable-unaligned-access=auto \
+	--disable-unsafe-type-punning \
 	--disable-werror
 
 # vim: syntax=make

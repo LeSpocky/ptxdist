@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XZ) += xz
 #
 # Paths and names
 #
-XZ_VERSION	:= 5.2.5
-XZ_MD5		:= 33ab3ef79aa1146b83b778210e7b0a54
+XZ_VERSION	:= 5.4.0
+XZ_MD5		:= 2cc95f33fe0527622177b2bb2f5956c8
 XZ		:= xz-$(XZ_VERSION)
 XZ_SUFFIX	:= tar.bz2
 XZ_URL		:= http://tukaani.org/xz/$(XZ).$(XZ_SUFFIX)
@@ -40,7 +40,10 @@ XZ_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-debug \
 	--disable-external-sha256 \
+	--disable-microlzma \
+	--disable-lzip-decoder \
 	--enable-assembler \
+	--enable-clmul-crc \
 	--disable-small \
 	--enable-threads \
 	--$(call ptx/endis,PTXCONF_XZ_TOOLS)-xz \
@@ -50,14 +53,15 @@ XZ_CONF_OPT	:= \
 	--disable-lzma-links \
 	--$(call ptx/endis,PTXCONF_XZ_TOOLS)-scripts \
 	--disable-doc \
-	--enable-symbol-versions \
 	--disable-sandbox \
 	--enable-shared \
 	--disable-static \
+	--enable-symbol-versions \
 	--disable-nls \
 	--disable-rpath \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-unaligned-access=auto \
+	--disable-unsafe-type-punning \
 	--disable-werror
 
 # ----------------------------------------------------------------------------
