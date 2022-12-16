@@ -260,6 +260,11 @@ ptxd_init_host_env() {
 	PTXDIST_HOST_LDFLAGS="${ldflags[*]}"
 }
 
+ptxd_init_readlink() {
+    export PTXDIST_REAL_PLATFORMDIR="$(readlink -f "${PTXDIST_PLATFORMDIR}")"
+    export PTXDIST_REAL_SYSROOT_TOOLCHAIN="$(readlink -f "${PTXDIST_SYSROOT_TOOLCHAIN}")"
+}
+
 ptxd_init_devpkg()
 {
     local prefix
@@ -323,6 +328,8 @@ ptxd_make_init() {
 
     ptxd_init_ptxdist_path_sysroot &&
     ptxd_init_ptxdist_path_sysroot_host &&
+
+    ptxd_init_readlink &&
 
     ptxd_init_devpkg &&
 

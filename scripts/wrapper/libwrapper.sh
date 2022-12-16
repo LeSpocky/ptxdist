@@ -55,12 +55,13 @@ wrapper_exec() {
 }
 
 filter_args() {
-	PLATFORM="${PTXDIST_PLATFORMDIR##*/}"
 	# PTXDIST_SYSROOT_TOOLCHAIN may not be defined yet
 	if [ -n "${PTXDIST_SYSROOT_TOOLCHAIN}" ]; then
-		TOOLCHAIN="${PTXDIST_SYSROOT_TOOLCHAIN%/*}"
+		TOOLCHAIN="${PTXDIST_SYSROOT_TOOLCHAIN}"
+		REAL_TOOLCHAIN="${PTXDIST_REAL_SYSROOT_TOOLCHAIN}"
 	else
 		TOOLCHAIN="/ignore"
+		REAL_TOOLCHAIN="/ignore"
 	fi
 	if [ -h "${pkg_dir}" ]; then
 		source_dir="$(readlink -f "${pkg_dir}")"
@@ -69,7 +70,11 @@ filter_args() {
 	fi
 	for ARG in "${@}"; do
 		case "${ARG}" in
-		-[IL]/*"/${PLATFORM}/"*|-[IL]"${TOOLCHAIN}"*|-[IL]"${source_dir}"*)
+		-[IL]"${PTXDIST_PLATFORMDIR}/"*|-[IL]"${PTXDIST_REAL_PLATFORMDIR}/"*)
+			;;
+		-[IL]"${TOOLCHAIN}/"*|-[IL]"${REAL_TOOLCHAIN}/"*)
+			;;
+		-[IL]"${source_dir}"*)
 			;;
 		-L/*|-I/*)
 			# skip all absolute search directories outside the BSP
