@@ -5,7 +5,7 @@ MYSQLD_OPTS=
 # since mySQL runs as a regular user, we need to give its working directory
 # to it.
 
-chown mysql.mysql "$1"
+chown mysql:mysql "$1"
 chmod 0755 "$1"
 
 # now let mySQL do its initializing job
