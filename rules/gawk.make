@@ -30,6 +30,10 @@ GAWK_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
+GAWK_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	MAKEINFO=true
+
 GAWK_CONF_TOOL	:= autoconf
 GAWK_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
