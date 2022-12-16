@@ -30,6 +30,7 @@ WLROOTS_LICENSE	:= MIT
 WLROOTS_CONF_TOOL := meson
 WLROOTS_CONF_OPT := \
 	$(CROSS_MESON_USR) \
+	-Dwerror=false \
 	-Dallocators=gbm \
 	-Dbackends=drm,libinput \
 	-Dexamples=false \
