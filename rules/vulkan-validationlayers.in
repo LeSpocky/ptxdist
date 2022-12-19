@@ -5,7 +5,7 @@ config VULKAN_VALIDATIONLAYERS
 	prompt "vulkan-validationlayers"
 	select HOST_CMAKE
 	select HOST_GLSLANG
-	select VULKAN_LOADER
+	select VULKAN_HEADERS
 	select GLSLANG		if BUILDTIME
 	select SPIRV_HEADERS	if BUILDTIME
 	select SPIRV_TOOLS	if BUILDTIME
