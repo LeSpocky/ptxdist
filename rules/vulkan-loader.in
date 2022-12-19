@@ -5,6 +5,7 @@ menuconfig VULKAN_LOADER
 	prompt "vulkan-loader                 "
 	select HOST_CMAKE
 	select HOST_QEMU
+	select VULKAN_HEADERS
 	select LIBXCB		if VULKAN_LOADER_XCB
 	select WAYLAND		if VULKAN_LOADER_WAYLAND
 	help
