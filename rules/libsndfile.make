@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBSNDFILE) += libsndfile
 #
 # Paths and names
 #
-LIBSNDFILE_VERSION	:= 1.1.0
-LIBSNDFILE_MD5		:= e63dead2b4f0aaf323687619d007ee6a
+LIBSNDFILE_VERSION	:= 1.2.0
+LIBSNDFILE_MD5		:= 00fbf50ce1d7a67a8e6dc0a04f4d8d2e
 LIBSNDFILE		:= libsndfile-$(LIBSNDFILE_VERSION)
 LIBSNDFILE_SUFFIX	:= tar.xz
 LIBSNDFILE_URL		:= https://github.com/libsndfile/libsndfile/releases/download/$(LIBSNDFILE_VERSION)/$(LIBSNDFILE).$(LIBSNDFILE_SUFFIX)
