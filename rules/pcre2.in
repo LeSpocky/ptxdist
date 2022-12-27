@@ -10,15 +10,15 @@ if PCRE2
 
 config PCRE2_8
 	bool
-	prompt "8 bit library"
+	prompt "enable 8 bit character support"
 	default y
 
 config PCRE2_16
 	bool
-	prompt "16 bit library"
+	prompt "enable 16 bit character support"
 
 config PCRE2_32
 	bool
-	prompt "32 bit library"
+	prompt "enable 32 bit character support"
 
 endif
