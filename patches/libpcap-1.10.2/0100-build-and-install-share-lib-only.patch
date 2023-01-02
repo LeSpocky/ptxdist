@@ -12,19 +12,19 @@ Signed-off-by: Alexander Aring <alex.aring@gmail.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile.in b/Makefile.in
-index 5d88ea713174..2cbcab1a0907 100644
+index 787b18a06a93..dd7870c0475b 100644
 --- a/Makefile.in
 +++ b/Makefile.in
-@@ -415,7 +415,7 @@ EXTRA_DIST = \
- 	Win32/Prj/wpcap.vcxproj \
- 	Win32/Prj/wpcap.vcxproj.filters
+@@ -429,7 +429,7 @@ RELEASE_FILES = $(COMMON_C_SRC) $(HDR) $(MAN1) $(MAN3PCAP_EXPAND) \
+ 	$(MAN3PCAP_NOEXPAND) $(MANFILE) $(MANMISC) $(EXTRA_DIST) \
+ 	$(TEST_DIST)
  
 -all: libpcap.a shared $(BUILD_RPCAPD) libpcap.pc pcap-config
 +all: shared $(BUILD_RPCAPD) libpcap.pc pcap-config
  
  libpcap.a: $(OBJ)
  	@rm -f $@
-@@ -601,7 +601,7 @@ testprogs: FORCE
+@@ -615,7 +615,7 @@ testprogs: FORCE
  
  FORCE:
  
