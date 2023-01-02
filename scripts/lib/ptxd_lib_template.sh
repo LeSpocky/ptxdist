@@ -146,6 +146,7 @@ ptxd_template_read_conf_tool() {
     qmake)
 	CONF_OPT="\$(CROSS_QMAKE_OPT)"
 	SELECT="QT5"
+	ptxd_template_read_qt_version
 	;;
     perl)
 	SELECT="PERL"
@@ -170,6 +171,15 @@ ptxd_template_read_conf_tool() {
     fi
 }
 export -f ptxd_template_read_conf_tool
+
+ptxd_template_read_qt_version() {
+    local qt_version
+    ptxd_template_read_options "Qt version" qt_version "Qt 5" "Qt 6"
+    export QT_VERSION="${qt_version}"
+    PACKAGE_PATH="${PACKAGE}_PATH		:= PATH=\$(PTXDIST_SYSROOT_CROSS)/bin/qt${qt_version}:\$(CROSS_PATH)
+"
+}
+export -f ptxd_template_read_qt_version
 
 ptxd_template_read_basic() {
     ptxd_template_read_name &&
@@ -349,6 +359,7 @@ ptxd_template_new() {
     export action="${1}"
     export template="template-${action}"
     export YEAR="$(date +%Y)"
+    export PACKAGE_PATH=""
 
     local func="ptxd_template_new_${action//-/_}"
     if ! declare -F | grep -q "${func}$"; then
@@ -459,7 +470,10 @@ ptxd_template_help_list[${#ptxd_template_help_list[@]}]="src-cmake-prog"
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create cmake binary"
 
 ptxd_template_new_src_qmake_prog() {
-    ptxd_template_src_base
+    ptxd_template_read_local &&
+    ptxd_template_read_qt_version &&
+    ptxd_template_write_rules &&
+    ptxd_template_write_src
 }
 export -f ptxd_template_new_src_qmake_prog
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="src-qmake-prog"
