@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_DROPBEAR) += dropbear
 #
 # Paths and names
 #
-DROPBEAR_VERSION	:= 2022.82
-DROPBEAR_MD5		:= 7a4a5f2c6d23ff2e6627c97d7c1aeceb
+DROPBEAR_VERSION	:= 2022.83
+DROPBEAR_MD5		:= a75a34bcc03cacf71a2db9da3b7c94a5
 DROPBEAR		:= dropbear-$(DROPBEAR_VERSION)
 DROPBEAR_SUFFIX		:= tar.bz2
 DROPBEAR_URL		:= https://matt.ucc.asn.au/dropbear/releases/$(DROPBEAR).$(DROPBEAR_SUFFIX)
@@ -215,8 +215,7 @@ else
 endif
 
 	@echo "ptxdist: disabling u2f security key support"
-	@echo "#define DROPBEAR_SK_ECDSA 0" >> $(DROPBEAR_LOCALOPTIONS)
-	@echo "#define DROPBEAR_SK_ED25519 0" >> $(DROPBEAR_LOCALOPTIONS)
+	@echo "#define DROPBEAR_SK_KEYS 0" >> $(DROPBEAR_LOCALOPTIONS)
 
 # key exchange algorithm
 ifdef PTXCONF_DROPBEAR_DH_GROUP14_SHA256
