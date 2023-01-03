@@ -28,7 +28,9 @@ ptxd_make_world_package_info() {
     do_echo "image:" "$(ptxd_print_path "${image_image}")"
     echo
 
-    if [ -n "${pkg_config}" ]; then
+    # not all packages with pkg_config set actually use the config diffs
+    # so don't try to determine base/ref configs when ptxd_make_kconfig_init fails
+    if [ -n "${pkg_config}" ] && ( ptxd_make_kconfig_init ) &> /dev/null; then
 	local file_dotconfig="${pkg_config}"
 	local ref_file_dotconfig="${pkg_ref_config}"
 	ptxd_make_kconfig_init
