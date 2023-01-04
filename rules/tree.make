@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_TREE) += tree
 #
 # Paths and names
 #
-TREE_VERSION	:= 1.6.0
-TREE_MD5	:= 04e967a3f4108d50cde3b4b0e89e970a
+TREE_VERSION	:= 2.1.0
+TREE_MD5	:= 50aa5cdb28df6340ef67a3a3ec953ffc
 TREE		:= tree-$(TREE_VERSION)
 TREE_SUFFIX	:= tgz
 TREE_URL	:= http://mama.indstate.edu/users/ice/tree/src/$(TREE).$(TREE_SUFFIX)
@@ -36,7 +36,8 @@ TREE_MAKE_OPT	:= \
 	$(CROSS_ENV_AS)
 
 TREE_INSTALL_OPT := \
-	prefix=$(TREE_PKGDIR)/usr install
+	PREFIX=/usr \
+	install
 
 # ----------------------------------------------------------------------------
 # Target-Install

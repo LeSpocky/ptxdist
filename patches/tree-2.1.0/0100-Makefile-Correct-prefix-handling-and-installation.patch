@@ -1,0 +1,76 @@
+From: Christian Melki <christian.melki@t2data.com>
+Date: Wed, 4 Jan 2023 11:22:17 +0100
+Subject: [PATCH] Makefile: Correct prefix handling and installation
+
+Curly braces won't work.
+Just minimal effort variable handling cleaning.
+
+Signed-off-by: Christian Melki <christian.melki@t2data.com>
+---
+ Makefile | 19 ++++++++-----------
+ 1 file changed, 8 insertions(+), 11 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 752e55002c59..2a8e2a62b068 100644
+--- a/Makefile
++++ b/Makefile
+@@ -23,10 +23,9 @@ INSTALL=install
+ 
+ VERSION=2.1.0
+ TREE_DEST=tree
+-DESTDIR=${PREFIX}/bin
+ MAN=tree.1
+-# Probably needs to be ${PREFIX}/share/man for most systems now
+-MANDIR=${PREFIX}/man
++BINDIR=$(PREFIX)/bin
++MANDIR=$(PREFIX)/man/man1
+ OBJS=tree.o list.o hash.o color.o file.o filter.o info.o unix.o xml.o json.o html.o strverscmp.o
+ 
+ # Uncomment options below for your particular OS:
+@@ -51,7 +50,6 @@ CFLAGS+=-O3 -std=c11 -pedantic -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=6
+ #CC=cc
+ #CFLAGS+=-xO0 -v
+ #LDFLAGS+=
+-#MANDIR=${prefix}/share/man
+ 
+ # Uncomment for Cygwin:
+ #CFLAGS+=-O2 -Wall -fomit-frame-pointer
+@@ -63,22 +61,20 @@ CFLAGS+=-O3 -std=c11 -pedantic -Wall -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=6
+ #CC=cc
+ #CFLAGS+=-O2 -Wall -fomit-frame-pointer -no-cpp-precomp
+ #LDFLAGS+=
+-#MANDIR=${PREFIX}/share/man
+ 
+ # Uncomment for HP/UX:
+-#prefix=/opt
++#PREFIX=/opt
+ #CC=cc
+ # manpage of mbsrtowcs() requires C99 and the two defines
+ #CFLAGS+=+w -D_XOPEN_SOURCE=500 -D_POSIX_C_SOURCE=200112 -AC99
+ #LDFLAGS+=
+-#MANDIR=${PREFIX}/share/man
+ 
+ # Uncomment for OS/2:
+ #CFLAGS+=-02 -Wall -fomit-frame-pointer -Zomf -Zsmall-conv
+ #LDFLAGS+=-s -Zomf -Zsmall-conv
+ 
+ # Uncomment for HP NonStop:
+-#prefix = /opt
++#PREFIX=/opt
+ #CC=c89
+ #CFLAGS+=-Wextensions -WIEEE_float -g -Wnowarn=1506 -D_XOPEN_SOURCE_EXTENDED=1 \
+ #	 -Wallow_cplusplus_comments
+@@ -104,9 +100,10 @@ clean:
+ 
+ install: tree
+ 	$(INSTALL) -d $(DESTDIR)
+-	$(INSTALL) -d $(MANDIR)/man1
+-	$(INSTALL) $(TREE_DEST) $(DESTDIR)/$(TREE_DEST); \
+-	$(INSTALL) -m 644 doc/$(MAN) $(MANDIR)/man1/$(MAN)
++	$(INSTALL) -d $(DESTDIR)$(BINDIR)
++	$(INSTALL) -d $(DESTDIR)$(MANDIR)
++	$(INSTALL) $(TREE_DEST) $(DESTDIR)$(BINDIR)/$(TREE_DEST)
++	$(INSTALL) -m 644 doc/$(MAN) $(DESTDIR)$(MANDIR)/$(MAN)
+ 
+ distclean:
+ 	rm -f *.o *~

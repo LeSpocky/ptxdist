@@ -4,6 +4,10 @@ config TREE
 	tristate
 	prompt "tree"
 	select GCCLIBS_GCC_S
+	depends on !BUSYBOX_TREE || ALLYES
 	help
 	  A directory listing program displaying a depth indented list of
 	  files.
+
+comment "BusyBox' tree is selected!"
+	depends on BUSYBOX_TREE
