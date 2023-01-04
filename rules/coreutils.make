@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_COREUTILS) += coreutils
 #
 # Paths and names
 #
-COREUTILS_VERSION	:= 8.32
-COREUTILS_MD5		:= 022042695b7d5bcf1a93559a9735e668
+COREUTILS_VERSION	:= 9.1
+COREUTILS_MD5		:= 8b1ca4e018a7dce9bb937faec6618671
 COREUTILS		:= coreutils-$(COREUTILS_VERSION)
 COREUTILS_SUFFIX	:= tar.xz
 COREUTILS_URL		:= $(call ptx/mirror, GNU, coreutils/$(COREUTILS).$(COREUTILS_SUFFIX))
@@ -27,29 +27,6 @@ COREUTILS_LICENSE_FILES	:= file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
-
-#   --enable-install-program=PROG_LIST
-#                           install the programs in PROG_LIST (comma-separated,
-#                           default: none)
-#   --enable-no-install-program=PROG_LIST
-#                           do NOT install the programs in PROG_LIST
-#                           (comma-separated, default: arch,hostname,su)
-#   --with-libiconv-prefix[=DIR]  search for libiconv in DIR/include and DIR/lib
-#   --without-libiconv-prefix     don't search for libiconv in includedir and libdir
-#   --with-libpth-prefix[=DIR]  search for libpth in DIR/include and DIR/lib
-#   --without-libpth-prefix     don't search for libpth in includedir and libdir
-#   --without-included-regex
-#                           don't compile regex; this is the default on systems
-#                           with recent-enough versions of the GNU C Library
-#                           (use with caution on other systems).
-#   --with-packager         String identifying the packager of this software
-#   --with-packager-version Packager-specific version information
-#   --with-packager-bug-reports
-#                           Packager info for bug reports (URL/e-mail/...)
-#   --without-gmp           do not use the GNU MP library for arbitrary
-#                           precision calculation (default: use it if available)
-#   --with-libintl-prefix[=DIR]  search for libintl in DIR/include and DIR/lib
-#   --without-libintl-prefix     don't search for libintl in includedir and libdir
 
 COREUTILS_INST- =
 COREUTILS_INST-y =
@@ -178,7 +155,7 @@ COREUTILS_CONF_OPT	:= \
 	--without-openssl \
 	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--with-tty-group=tty \
-	--without-gmp
+	--without-libgmp
 
 COREUTILS_MAKE_OPT	:= \
 	man1_MANS=

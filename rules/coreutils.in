@@ -302,6 +302,10 @@ comment "busybox' mknod is selected!"
 config COREUTILS_TSORT
 	bool
 	prompt "tsort"
+	depends on !BUSYBOX_TSORT || ALLYES
+
+comment "busybox' tsort is selected!"
+	depends on BUSYBOX_TSORT
 
 config COREUTILS_MKTEMP
 	bool
