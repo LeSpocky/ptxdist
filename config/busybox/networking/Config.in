@@ -959,7 +959,7 @@ config BUSYBOX_TELNETD
 	FEATURE_SUID enabled. And finally, you should make
 	certain that busybox has been installed setuid root:
 
-		chown root:root /bin/busybox
+		chown root.root /bin/busybox
 		chmod 4755 /bin/busybox
 
 	with all that done, telnetd _should_ work....
