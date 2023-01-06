@@ -51,7 +51,14 @@ $(STATEDIR)/paho-mqtt-c.targetinstall:
 	@$(call install_fixup, paho-mqtt-c,AUTHOR,"Marc Kleine-Budde <mkl@pengutronix.de>")
 	@$(call install_fixup, paho-mqtt-c,DESCRIPTION,missing)
 
+#	# async library without ssh
+	@$(call install_lib, paho-mqtt-c, 0, 0, 0644, libpaho-mqtt3a)
+#	# async library with ssh
 	@$(call install_lib, paho-mqtt-c, 0, 0, 0644, libpaho-mqtt3as)
+#	# client library without ssl
+	@$(call install_lib, paho-mqtt-c, 0, 0, 0644, libpaho-mqtt3c)
+#	# client library with ssl
+	@$(call install_lib, paho-mqtt-c, 0, 0, 0644, libpaho-mqtt3cs)
 
 	@$(call install_finish, paho-mqtt-c)
 
