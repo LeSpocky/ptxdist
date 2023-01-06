@@ -7,14 +7,14 @@ The method used here is probably not acceptable upstream.
 Forwarded: not-needed
 Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
 ---
- caca-config.in |    6 +++---
- 1 files changed, 3 insertions(+), 3 deletions(-)
+ caca-config.in | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/caca-config.in b/caca-config.in
-index c768b99..56274e9 100644
+index a54e6e1149ef..4632f14fd7a6 100644
 --- a/caca-config.in
 +++ b/caca-config.in
-@@ -102,18 +102,18 @@ fi
+@@ -101,18 +101,18 @@ fi
  
  if test "$echo_cflags" = "yes"
  then
