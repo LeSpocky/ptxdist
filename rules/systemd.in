@@ -158,6 +158,14 @@ config SYSTEMD_NSPAWN
 	bool
 	prompt "install systemd-nspawn"
 
+config SYSTEMD_DEFAULT_NET_NAMING_SCHEME
+	string
+	prompt "default net.naming-scheme= value"
+	default "latest"
+	help
+	  Preserve the naming scheme for network interfaces of the given
+	  systemd version.
+
 menu "journald                    "
 
 config SYSTEMD_XZ
