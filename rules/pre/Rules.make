@@ -258,6 +258,7 @@ CROSS_MESON_USR := \
 	-Dbackend=ninja \
 	-Dbuildtype=debugoptimized \
 	-Dlibdir=$(CROSS_LIB_DIR) \
+	-Dpkgconfig.relocatable=true \
 	-Dprefix=/usr
 
 CROSS_MESON_ENV = \
