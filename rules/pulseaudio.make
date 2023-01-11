@@ -121,7 +121,7 @@ $(STATEDIR)/pulseaudio.targetinstall:
 	@$(call install_fixup, pulseaudio,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup, pulseaudio,DESCRIPTION,missing)
 
-	@$(call install_alternative, pulseaudio, 0, 0, 0644, /etc/pulse/client.conf)
+ifdef PTXCONF_PULSEAUDIO_DAEMON
 	@$(call install_alternative, pulseaudio, 0, 0, 0644, /etc/pulse/daemon.conf)
 	@$(call install_alternative, pulseaudio, 0, 0, 0644, /etc/pulse/system.pa)
 	@$(call install_alternative, pulseaudio, 0, 0, 0644, /etc/pulse/default.pa)
@@ -147,10 +147,18 @@ ifdef PTXCONF_PULSEAUDIO_SYSTEMD_UNIT_USER
 	@$(call install_link, pulseaudio, ../pulseaudio.socket, \
 		/usr/lib/systemd/user/sockets.target.wants/pulseaudio.socket)
 endif
-
 	@$(call install_copy, pulseaudio, 0, 0, 0755, -, /usr/bin/pulseaudio)
-	@$(call install_copy, pulseaudio, 0, 0, 0755, -, /usr/bin/pactl)
 	@$(call install_copy, pulseaudio, 0, 0, 0755, -, /usr/bin/pacmd)
+
+	@$(call install_lib, pulseaudio, 0, 0, 0644, pulseaudio/libpulsecore-$(PULSEAUDIO_VERSION))
+
+	@$(call install_tree, pulseaudio, 0, 0, -, /usr/lib/pulse-$(PULSEAUDIO_VERSION)/modules)
+	@$(call install_tree, pulseaudio, 0, 0, -, /usr/share/pulseaudio)
+endif
+
+	@$(call install_alternative, pulseaudio, 0, 0, 0644, /etc/pulse/client.conf)
+
+	@$(call install_copy, pulseaudio, 0, 0, 0755, -, /usr/bin/pactl)
 	@$(call install_copy, pulseaudio, 0, 0, 0755, -, /usr/bin/pacat)
 	@$(call install_link, pulseaudio, pacat, /usr/bin/pamon)
 	@$(call install_link, pulseaudio, pacat, /usr/bin/paplay)
@@ -159,11 +167,7 @@ endif
 
 	@$(call install_lib, pulseaudio, 0, 0, 0644, libpulse)
 	@$(call install_lib, pulseaudio, 0, 0, 0644, libpulse-simple)
-	@$(call install_lib, pulseaudio, 0, 0, 0644, pulseaudio/libpulsecore-$(PULSEAUDIO_VERSION))
 	@$(call install_lib, pulseaudio, 0, 0, 0644, pulseaudio/libpulsecommon-$(PULSEAUDIO_VERSION))
-	@$(call install_tree, pulseaudio, 0, 0, -, /usr/lib/pulse-$(PULSEAUDIO_VERSION)/modules)
-
-	@$(call install_tree, pulseaudio, 0, 0, -, /usr/share/pulseaudio)
 
 	@$(call install_finish, pulseaudio)
 
