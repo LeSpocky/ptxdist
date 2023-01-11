@@ -6,14 +6,14 @@ NEON detection is broken, so just skip it for anything that is not ARMv7.
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- mesonbuild/modules/unstable_simd.py | 3 +++
+ mesonbuild/modules/simd.py | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/mesonbuild/modules/unstable_simd.py b/mesonbuild/modules/unstable_simd.py
-index 3339cea5a03f..da2e740d4cd3 100644
---- a/mesonbuild/modules/unstable_simd.py
-+++ b/mesonbuild/modules/unstable_simd.py
-@@ -64,6 +64,9 @@ class SimdModule(ExtensionModule):
+diff --git a/mesonbuild/modules/simd.py b/mesonbuild/modules/simd.py
+index a33022d0435b..d40be3443776 100644
+--- a/mesonbuild/modules/simd.py
++++ b/mesonbuild/modules/simd.py
+@@ -63,6 +63,9 @@ class SimdModule(ExtensionModule):
                  continue
              iset_fname = kwargs[iset] # Might also be an array or Files. static_library will validate.
              args = compiler.get_instruction_set_args(iset)
