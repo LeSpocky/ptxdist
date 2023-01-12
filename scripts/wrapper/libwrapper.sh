@@ -353,7 +353,7 @@ cxx_add_host_extra() {
 }
 
 cc_add_host_clang() {
-	add_arg -gcc-toolchain /usr
+	add_arg --gcc-toolchain=/usr
 }
 
 add_icecc_args() {
