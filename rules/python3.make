@@ -29,7 +29,7 @@ PYTHON3_URL		:= \
 	https://www.python.org/ftp/python/$(PYTHON3_VERSION)/$(PYTHON3).$(PYTHON3_SUFFIX) \
 	http://python.org/ftp/python/$(PYTHON3_MAJORMINOR)/$(PYTHON3).$(PYTHON3_SUFFIX)
 
-CROSS_PYTHON3		:= $(PTXDIST_SYSROOT_CROSS)/bin/python$(PYTHON3_MAJORMINOR)
+CROSS_PYTHON3		:= $(PTXDIST_SYSROOT_CROSS)/usr/bin/python$(PYTHON3_MAJORMINOR)
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -114,7 +114,7 @@ $(STATEDIR)/python3.install.post:
 	@echo '_PYTHON_HOST_PLATFORM=linux-$(PYTHON3_PLATFORM)'	>> "$(CROSS_PYTHON3)"
 	@m=`sed -n 's/^MULTIARCH=[\t ]*\(.*\)/\1/p' $(PYTHON3_DIR)/Makefile` && \
 	 d=`cat $(PYTHON3_DIR)/pybuilddir.txt` && \
-	 cross_dir="$(PTXDIST_SYSROOT_CROSS)/lib/python$(PYTHON3_MAJORMINOR)" && \
+	 cross_dir="$(PTXDIST_SYSROOT_CROSS)/usr/lib/python$(PYTHON3_MAJORMINOR)" && \
 	 mkdir -p "$${cross_dir}" && \
 	 cp "$(PYTHON3_DIR)/$$d/_sysconfigdata__linux_$${m}.py" "$${cross_dir}" && \
 	 echo "_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata__linux_$$m"	>> "$(CROSS_PYTHON3)" && \
@@ -127,8 +127,8 @@ $(STATEDIR)/python3.install.post:
 	@chmod a+x "$(CROSS_PYTHON3)"
 	@sed -e 's;prefix_real=.*;prefix_real=$(SYSROOT)/usr;' \
 		"$(PTXDIST_SYSROOT_TARGET)/usr/bin/python$(PYTHON3_MAJORMINOR)-config" \
-		> "$(PTXDIST_SYSROOT_CROSS)/bin/python$(PYTHON3_MAJORMINOR)-config"
-	@chmod +x "$(PTXDIST_SYSROOT_CROSS)/bin/python$(PYTHON3_MAJORMINOR)-config"
+		> "$(PTXDIST_SYSROOT_CROSS)/usr/bin/python$(PYTHON3_MAJORMINOR)-config"
+	@chmod +x "$(PTXDIST_SYSROOT_CROSS)/usr/bin/python$(PYTHON3_MAJORMINOR)-config"
 
 #	# make sure grammar pickle is generated to avoid parallel building issues
 	@"$(CROSS_PYTHON3)" -c 'from setuptools.command import build_py'
@@ -186,8 +186,8 @@ $(STATEDIR)/python3.clean:
 	@$(call clean_pkg, PYTHON3)
 	@rm -vf \
 		"$(CROSS_PYTHON3)" \
-		"$(PTXDIST_SYSROOT_CROSS)/bin/python3" \
-		"$(PTXDIST_SYSROOT_CROSS)/bin/python$(PYTHON3_MAJORMINOR)-config" \
-		"$(PTXDIST_SYSROOT_CROSS)/lib/python$(PYTHON3_MAJORMINOR)/"_sysconfigdata_m_linux_*.py
+		"$(PTXDIST_SYSROOT_CROSS)/usr/bin/python3" \
+		"$(PTXDIST_SYSROOT_CROSS)/usr/bin/python$(PYTHON3_MAJORMINOR)-config" \
+		"$(PTXDIST_SYSROOT_CROSS)/usr/lib/python$(PYTHON3_MAJORMINOR)/"_sysconfigdata_m_linux_*.py
 
 # vim: syntax=make

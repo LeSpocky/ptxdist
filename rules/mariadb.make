@@ -88,7 +88,7 @@ MARIADB_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
 	-DBUILD_CONFIG=mysql_release \
 	-DSTACK_DIRECTION=1 \
-	-DIMPORT_EXECUTABLES=$(PTXDIST_SYSROOT_HOST)/share/mariadb/import_executables.cmake \
+	-DIMPORT_EXECUTABLES=$(PTXDIST_SYSROOT_HOST)/usr/share/mariadb/import_executables.cmake \
 	-DHAVE_LLVM_LIBCPP_EXITCODE=no \
 	-DCOMMUNITY_BUILD=ON \
 	-DCONNECT_WITH_JDBC=OFF \

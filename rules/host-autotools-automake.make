@@ -44,11 +44,11 @@ HOST_AUTOTOOLS_AUTOMAKE_MAKE_OPT	:= MANS=
 $(STATEDIR)/host-autotools-automake.install.post:
 	@$(call targetinfo)
 	@sed -i \
-		-e "s;'\(/share/automake-[^']*\)';'$(PTXDIST_SYSROOT_HOST)\1';g" \
-		-e "s;'\(/share/aclocal[^']*\)';'$(PTXDIST_SYSROOT_HOST)\1';g" \
-		-e "s;'\(/bin/m4\)';'$(PTXDIST_SYSROOT_HOST)\1';g" \
-		$(HOST_AUTOTOOLS_AUTOMAKE_PKGDIR)/bin/* \
-		$(HOST_AUTOTOOLS_AUTOMAKE_PKGDIR)/share/automake-*/Automake/Config.pm
+		-e "s;'\(/usr/share/automake-[^']*\)';'$(PTXDIST_SYSROOT_HOST)\1';g" \
+		-e "s;'\(/usr/share/aclocal[^']*\)';'$(PTXDIST_SYSROOT_HOST)\1';g" \
+		-e "s;'\(/usr/bin/m4\)';'$(PTXDIST_SYSROOT_HOST)\1';g" \
+		$(HOST_AUTOTOOLS_AUTOMAKE_PKGDIR)/usr/bin/* \
+		$(HOST_AUTOTOOLS_AUTOMAKE_PKGDIR)/usr/share/automake-*/Automake/Config.pm
 	@$(call world/install.post, HOST_AUTOTOOLS_AUTOMAKE)
 	@$(call touch)
 

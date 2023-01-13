@@ -14,7 +14,7 @@ HOST_TF_A_MAKE_OPT = fiptool
 
 $(STATEDIR)/host-tf-a.install:
 	@$(call targetinfo)
-	install -vD -m755 $(HOST_TF_A_DIR)/tools/fiptool/fiptool $(HOST_TF_A_PKGDIR)/bin/fiptool
+	install -vD -m755 $(HOST_TF_A_DIR)/tools/fiptool/fiptool $(HOST_TF_A_PKGDIR)/usr/bin/fiptool
 	@$(call touch)
 
 # vim: syntax=make

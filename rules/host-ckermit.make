@@ -30,7 +30,7 @@ HOST_CKERMIT_CONF_TOOL	:= NO
 
 HOST_CKERMIT_MAKE_OPT := \
 	linuxa \
-	prefix= \
+	prefix=/usr \
 	KFLAGS='-O2 -DCK_NCURSES -DHAVE_PTMX' \
 	LIBS='-lncurses -lutil -lresolv -lcrypt'
 
@@ -39,14 +39,14 @@ HOST_CKERMIT_MAKE_OPT := \
 # ----------------------------------------------------------------------------
 
 HOST_CKERMIT_INSTALL_OPT := \
-	prefix= \
+	prefix=/usr \
 	install
 
 $(STATEDIR)/host-ckermit.install:
 	@$(call targetinfo)
 	@$(call world/install, HOST_CKERMIT)
-	@ln -sf kermit $(HOST_CKERMIT_PKGDIR)/bin/ckermit
-	@install -m755 $(HOST_CKERMIT_DIR)/wart $(HOST_CKERMIT_PKGDIR)/bin/
+	@ln -sf kermit $(HOST_CKERMIT_PKGDIR)/usr/bin/ckermit
+	@install -m755 $(HOST_CKERMIT_DIR)/wart $(HOST_CKERMIT_PKGDIR)/usr/bin/
 	@$(call touch)
 
 # vim: syntax=make

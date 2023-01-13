@@ -30,6 +30,7 @@ LIBSEPOL_LICENSE	:= LGPL-2.1-or-later
 LIBSEPOL_CONF_TOOL := NO
 LIBSEPOL_MAKE_ENV := \
 	$(CROSS_ENV) \
+	SHLIBDIR=$(LIBSEPOL_PKGDIR)/usr/lib \
 	CFLAGS="-O2 -Wall -g"
 
 # ----------------------------------------------------------------------------

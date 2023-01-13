@@ -23,7 +23,7 @@ TALLOC_SOURCE		:= $(SRCDIR)/$(TALLOC).$(TALLOC_SUFFIX)
 TALLOC_DIR		:= $(BUILDDIR)/$(TALLOC)
 TALLOC_LICENSE		:= GPL-3.0-or-later AND LGPL-3.0-or-later
 # cross-compile runtime checks. Initial file generated with
-# --cross-execute=$(PTXDIST_SYSROOT_CROSS)/bin/qemu-cross
+# --cross-execute=$(PTXDIST_SYSROOT_CROSS)/usr/bin/qemu-cross
 TALLOC_CONFIG		 = $(call ptx/get-alternative, config/talloc, cross-answers)
 
 # ----------------------------------------------------------------------------

@@ -69,7 +69,7 @@ NFSUTILS_CONF_OPT	:= \
 	--with-statdpath=/var/lib/nfs \
 	--with-statduser=rpcuser \
 	--with-systemd=/usr/lib/systemd/system \
-	--with-rpcgen=$(PTXDIST_SYSROOT_HOST)/bin/rpcgen \
+	--with-rpcgen=$(PTXDIST_SYSROOT_HOST)/usr/bin/rpcgen \
 	--without-mountfile \
 	--without-tcp-wrappers \
 	--without-krb5 \

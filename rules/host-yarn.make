@@ -56,7 +56,7 @@ $(STATEDIR)/host-yarn.install:
 	@$(call targetinfo)
 	@$(call world/execute, HOST_YARN, \
 		install -vDm 0755 $(HOST_YARN_SOURCE) \
-		$(HOST_YARN_PKGDIR)/bin/yarn)
+		$(HOST_YARN_PKGDIR)/usr/bin/yarn)
 	@$(call touch)
 
 # vim: syntax=make

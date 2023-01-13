@@ -11,7 +11,7 @@
 # Check for a useful icecc version and setup the host environment
 #
 ptxd_lib_setup_host_icecc() {
-    local icecc_dir="${sysroot_host}/lib/icecc"
+    local icecc_dir="${sysroot_host}/usr/lib/icecc"
 
     if [ -z "${PTXDIST_ICECC}" ]; then
 	return
@@ -70,7 +70,7 @@ export -f ptxd_lib_setup_host_icecc
 # Setup the host environment
 #
 ptxd_lib_setup_target_icecc() {
-    local icecc_dir="${sysroot_host}/lib/icecc"
+    local icecc_dir="${sysroot_host}/usr/lib/icecc"
 
     if [ -z "${PTXDIST_ICECC}" ]; then
 	return

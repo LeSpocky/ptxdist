@@ -133,7 +133,7 @@ ptxd_init_sysroot_toolchain() {
 #
 ptxd_init_ptxdist_path_sysroot() {
     local sysroot="$(ptxd_get_ptxconf PTXCONF_SYSROOT_TARGET)"
-    local sysroot_prefix="${sysroot}:${sysroot}/usr"
+    local sysroot_prefix="${sysroot}/usr"
 
     local sysroot_all="${sysroot}"
     local sysroot_prefix_all="${sysroot_prefix}"
@@ -162,7 +162,7 @@ ptxd_init_ptxdist_path_sysroot_host() {
 
     export \
 	PTXDIST_PATH_SYSROOT_HOST="${sysroot}" \
-	PTXDIST_PATH_SYSROOT_HOST_PREFIX="${sysroot}"
+	PTXDIST_PATH_SYSROOT_HOST_PREFIX="${sysroot}/usr"
 }
 
 

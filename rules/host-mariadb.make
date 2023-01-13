@@ -95,14 +95,14 @@ $(STATEDIR)/host-mariadb.install:
 	@rm -rf $(HOST_MARIADB_PKGDIR)
 #	# install helper tools
 	@install -vD -m 644 $(HOST_MARIADB_DIR)-build/import_executables.cmake \
-		$(HOST_MARIADB_PKGDIR)/share/mariadb/import_executables.cmake
-	@sed -i 's;$(HOST_MARIADB_DIR)-build/.*/;@SYSROOT@/bin/mariadb/;' \
-		$(HOST_MARIADB_PKGDIR)/share/mariadb/import_executables.cmake
-	@install -vD -m 755 $(HOST_MARIADB_DIR)-build/extra/comp_err $(HOST_MARIADB_PKGDIR)/bin/mariadb/comp_err
-	@install -vD -m 755 $(HOST_MARIADB_DIR)-build/scripts/comp_sql $(HOST_MARIADB_PKGDIR)/bin/mariadb/comp_sql
-	@install -vD -m 755 $(HOST_MARIADB_DIR)-build/dbug/factorial $(HOST_MARIADB_PKGDIR)/bin/mariadb/factorial
-	@install -vD -m 755 $(HOST_MARIADB_DIR)-build/sql/gen_lex_hash $(HOST_MARIADB_PKGDIR)/bin/mariadb/gen_lex_hash
-	@install -vD -m 755 $(HOST_MARIADB_DIR)-build/sql/gen_lex_token $(HOST_MARIADB_PKGDIR)/bin/mariadb/gen_lex_token
+		$(HOST_MARIADB_PKGDIR)/usr/share/mariadb/import_executables.cmake
+	@sed -i 's;$(HOST_MARIADB_DIR)-build/.*/;@SYSROOT@/usr/bin/mariadb/;' \
+		$(HOST_MARIADB_PKGDIR)/usr/share/mariadb/import_executables.cmake
+	@install -vD -m 755 $(HOST_MARIADB_DIR)-build/extra/comp_err $(HOST_MARIADB_PKGDIR)/usr/bin/mariadb/comp_err
+	@install -vD -m 755 $(HOST_MARIADB_DIR)-build/scripts/comp_sql $(HOST_MARIADB_PKGDIR)/usr/bin/mariadb/comp_sql
+	@install -vD -m 755 $(HOST_MARIADB_DIR)-build/dbug/factorial $(HOST_MARIADB_PKGDIR)/usr/bin/mariadb/factorial
+	@install -vD -m 755 $(HOST_MARIADB_DIR)-build/sql/gen_lex_hash $(HOST_MARIADB_PKGDIR)/usr/bin/mariadb/gen_lex_hash
+	@install -vD -m 755 $(HOST_MARIADB_DIR)-build/sql/gen_lex_token $(HOST_MARIADB_PKGDIR)/usr/bin/mariadb/gen_lex_token
 	@$(call touch)
 
 $(STATEDIR)/host-mariadb.install.post:
@@ -110,7 +110,7 @@ $(STATEDIR)/host-mariadb.install.post:
 	@$(call world/install.post, HOST_MARIADB)
 #	# correct helper tool paths
 	@sed -i 's;@SYSROOT@;$(PTXDIST_SYSROOT_HOST);' \
-		$(PTXDIST_SYSROOT_HOST)/share/mariadb/import_executables.cmake
+		$(PTXDIST_SYSROOT_HOST)/usr/share/mariadb/import_executables.cmake
 	@$(call touch)
 
 # vim: syntax=make

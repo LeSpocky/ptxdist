@@ -46,7 +46,7 @@ GRPC_CONF_OPT	:= \
 	-DgRPC_PROTOBUF_PROVIDER=package \
 	-DgRPC_SSL_PROVIDER=package \
 	-DgRPC_ZLIB_PROVIDER=package \
-	-DPROTOBUF_PROTOC_EXECUTABLE=$(PTXDIST_SYSROOT_HOST)/bin/protoc
+	-DPROTOBUF_PROTOC_EXECUTABLE=$(PTXDIST_SYSROOT_HOST)/usr/bin/protoc
 
 # ----------------------------------------------------------------------------
 # Install

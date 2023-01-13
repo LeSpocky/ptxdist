@@ -32,7 +32,7 @@ TERMCAP_LICENSE	:= GPL-2.0-only
 #
 TERMCAP_CONF_TOOL := autoconf
 TERMCAP_CONF_OPT := \
-	--prefix= \
+	--prefix=/usr \
 	$(CROSS_AUTOCONF_ARCH) \
 	--enable-install-termcap
 

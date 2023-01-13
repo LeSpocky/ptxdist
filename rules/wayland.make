@@ -29,7 +29,7 @@ WAYLAND_LICENSE	:= MIT
 
 WAYLAND_CONF_ENV	:= \
 	$(HOST_ENV) \
-	PKG_CONFIG_FOR_BUILD=$(PTXDIST_SYSROOT_HOST)/bin/pkg-config
+	PKG_CONFIG_FOR_BUILD=$(PTXDIST_SYSROOT_HOST)/usr/bin/pkg-config
 
 #
 # meson
@@ -53,8 +53,8 @@ $(STATEDIR)/wayland.install.post:
 #	# target wayland-scanner is not needed. Make sure nobody tries to use it
 	@rm -f $(WAYLAND_PKGDIR)/usr/bin/wayland-scanner
 	@$(call world/install.post, WAYLAND)
-	@sed 's;^prefix=.*;prefix=$(PTXDIST_SYSROOT_HOST);' \
-		$(PTXDIST_SYSROOT_HOST)/lib/pkgconfig/wayland-scanner.pc \
+	@sed 's;^prefix=.*;prefix=$(PTXDIST_SYSROOT_HOST)/usr;' \
+		$(PTXDIST_SYSROOT_HOST)/usr/lib/pkgconfig/wayland-scanner.pc \
 		> $(PTXDIST_SYSROOT_TARGET)/usr/lib/pkgconfig/wayland-scanner.pc
 	@$(call touch)
 # ----------------------------------------------------------------------------

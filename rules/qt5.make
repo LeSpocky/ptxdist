@@ -371,19 +371,19 @@ $(STATEDIR)/qt5.install.post:
 	@find $(QT5_PKGDIR) -name '*.pri' -o -name '*.cmake' | \
 		xargs sed -i 's;@WORKSPACE@;$(PTXDIST_WORKSPACE);g'
 	@$(call world/install.post, QT5)
-	@echo "[Paths]"						>  $(QT5_QT_CONF)
-	@echo "HostPrefix=$(SYSROOT)/usr"			>> $(QT5_QT_CONF)
-	@echo "HostData=$(SYSROOT)/usr/lib/qt5"			>> $(QT5_QT_CONF)
-	@echo "HostBinaries=$(PTXDIST_SYSROOT_CROSS)/bin/qt5"	>> $(QT5_QT_CONF)
-	@echo "Prefix=/usr"					>> $(QT5_QT_CONF)
-	@echo "Headers=$(SYSROOT)/usr/include/qt5"		>> $(QT5_QT_CONF)
-	@echo "Libraries=$(SYSROOT)/usr/lib"			>> $(QT5_QT_CONF)
-	@echo "Imports=/usr/lib/qt5/imports"			>> $(QT5_QT_CONF)
-	@echo "Qml2Imports=/usr/lib/qt5/qml"			>> $(QT5_QT_CONF)
-	@echo ""						>> $(QT5_QT_CONF)
+	@echo "[Paths]"							>  $(QT5_QT_CONF)
+	@echo "HostPrefix=$(SYSROOT)/usr"				>> $(QT5_QT_CONF)
+	@echo "HostData=$(SYSROOT)/usr/lib/qt5"				>> $(QT5_QT_CONF)
+	@echo "HostBinaries=$(PTXDIST_SYSROOT_CROSS)/usr/bin/qt5"	>> $(QT5_QT_CONF)
+	@echo "Prefix=/usr"						>> $(QT5_QT_CONF)
+	@echo "Headers=$(SYSROOT)/usr/include/qt5"			>> $(QT5_QT_CONF)
+	@echo "Libraries=$(SYSROOT)/usr/lib"				>> $(QT5_QT_CONF)
+	@echo "Imports=/usr/lib/qt5/imports"				>> $(QT5_QT_CONF)
+	@echo "Qml2Imports=/usr/lib/qt5/qml"				>> $(QT5_QT_CONF)
+	@echo ""							>> $(QT5_QT_CONF)
 #	# qmake is found in sysroot-cross (via PATH) and sysroot target (via cmake)
-	@rm -rf $(PTXDIST_SYSROOT_CROSS)/bin/qt5
-	@cp -a $(SYSROOT)/usr/bin/qt5 $(PTXDIST_SYSROOT_CROSS)/bin/qt5
+	@rm -rf $(PTXDIST_SYSROOT_CROSS)/usr/bin/qt5
+	@cp -a $(SYSROOT)/usr/bin/qt5 $(PTXDIST_SYSROOT_CROSS)/usr/bin/qt5
 	@$(call touch)
 
 

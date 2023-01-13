@@ -39,7 +39,7 @@ $(STATEDIR)/host-libgcrypt.compile:
 $(STATEDIR)/host-libgcrypt.install:
 	@$(call targetinfo)
 	install -D -m 644 $(HOST_LIBGCRYPT_DIR)/src/libgcrypt.m4 \
-		$(HOST_LIBGCRYPT_PKGDIR)/share/aclocal/libgcrypt.m4
+		$(HOST_LIBGCRYPT_PKGDIR)/usr/share/aclocal/libgcrypt.m4
 	@$(call touch)
 
 # vim: syntax=make

@@ -36,7 +36,7 @@ PROTOBUF_CONF_OPT	:= \
 	--disable-64bit-solaris \
 	--disable-static \
 	--$(call ptx/wwo, PTXCONF_PROTOBUF_ZLIB)-zlib \
-	--with-protoc=$(PTXDIST_SYSROOT_HOST)/bin/protoc
+	--with-protoc=$(PTXDIST_SYSROOT_HOST)/usr/bin/protoc
 
 # ----------------------------------------------------------------------------
 # Target-Install

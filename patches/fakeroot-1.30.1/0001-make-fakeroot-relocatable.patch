@@ -27,7 +27,7 @@ index 0d6f435af1ed..08d8b27863a8 100755
  USEABSLIBPATH=@LDPRELOADABS@
  FAKEROOT_LIB=lib@fakeroot_transformed@@DLSUFFIX@
 -PATHS=@libdir@:${FAKEROOT_PREFIX}/lib64/libfakeroot:${FAKEROOT_PREFIX}/lib32/libfakeroot
-+PATHS="${FAKEROOT_PREFIX}@libdir@":${FAKEROOT_PREFIX}/lib64/libfakeroot:${FAKEROOT_PREFIX}/lib32/libfakeroot
++PATHS="${FAKEROOT_PREFIX}/lib/fakeroot":${FAKEROOT_PREFIX}/lib64/libfakeroot:${FAKEROOT_PREFIX}/lib32/libfakeroot
  FAKED=${FAKEROOT_BINDIR}/@faked_transformed@
  
  FAKED_MODE="unknown-is-root"

@@ -50,9 +50,9 @@ $(STATEDIR)/host-gtk-doc.compile:
 $(STATEDIR)/host-gtk-doc.install:
 	@$(call targetinfo)
 	@install -vD -m644 "$(HOST_GTK_DOC_DIR)/gtk-doc.m4" \
-		"$(PTXDIST_SYSROOT_HOST)/share/aclocal/gtk-doc.m4"
+		"$(PTXDIST_SYSROOT_HOST)/usr/share/aclocal/gtk-doc.m4"
 	@install -vD -m644 "$(HOST_GTK_DOC_DIR)/gtk-doc.make" \
-		"$(PTXDIST_SYSROOT_HOST)/share/gtk-doc/data/gtk-doc.make"
+		"$(PTXDIST_SYSROOT_HOST)/usr/share/gtk-doc/data/gtk-doc.make"
 	@$(call touch)
 
 # ----------------------------------------------------------------------------

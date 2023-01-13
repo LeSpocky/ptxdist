@@ -168,11 +168,11 @@ HOST_SYSTEMD_MAKE_OPT := systemd-hwdb
 
 $(STATEDIR)/host-systemd.install:
 	@$(call targetinfo)
-	@rm -rf $(HOST_SYSTEMD_PKGDIR)
+	@rm -rf $(HOST_SYSTEMD_PKGDIR)/usr
 	@install -vD -m755 $(HOST_SYSTEMD_DIR)-build/systemd-hwdb \
-		$(HOST_SYSTEMD_PKGDIR)/bin/systemd-hwdb
+		$(HOST_SYSTEMD_PKGDIR)/usr/bin/systemd-hwdb
 	@install -vD -m755 $(HOST_SYSTEMD_DIR)-build/src/shared/libsystemd-shared-$(SYSTEMD_VERSION_MAJOR).so \
-		$(HOST_SYSTEMD_PKGDIR)/lib/libsystemd-shared-$(SYSTEMD_VERSION_MAJOR).so
+		$(HOST_SYSTEMD_PKGDIR)/usr/lib/libsystemd-shared-$(SYSTEMD_VERSION_MAJOR).so
 	@$(call touch)
 
 # vim: syntax=make

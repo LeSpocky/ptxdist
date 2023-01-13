@@ -110,7 +110,7 @@ HOST_LIBCURL_CONF_OPT	:= \
 $(STATEDIR)/host-libcurl.install:
 	@$(call targetinfo)
 	@$(call world/install, HOST_LIBCURL)
-	@rm -v $(HOST_LIBCURL_PKGDIR)/bin/curl
+	@rm -v $(HOST_LIBCURL_PKGDIR)/usr/bin/curl
 	@$(call touch)
 
 # vim: syntax=make

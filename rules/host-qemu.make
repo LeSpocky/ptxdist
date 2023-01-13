@@ -45,7 +45,7 @@ HOST_QEMU_CONF_TOOL	:= autoconf
 # Note: not really autoconf:
 # e.g. there is --enable-debug but not --disable-debug
 HOST_QEMU_CONF_OPT	:= \
-	--prefix=/. \
+	--prefix=/usr \
 	--target-list=" \
 		$(call ptx/ifdef, PTXCONF_HOST_QEMU_SYS,$(HOST_QEMU_SYS_TARGETS),) \
 		$(call ptx/ifdef, PTXCONF_HOST_QEMU_USR,$(HOST_QEMU_USR_TARGETS),) \
@@ -194,7 +194,7 @@ QEMU_CROSS_TOOLEXECLIBDIR = $(shell dirname $$(realpath $$(ptxd_cross_cc -print-
 QEMU_CROSS_LD_LIBRARY_PATH = $(PTXDIST_SYSROOT_TOOLCHAIN)/lib:$(QEMU_CROSS_TOOLEXECLIBDIR):$(SYSROOT)/$(CROSS_LIB_DIR):$(SYSROOT)/usr/$(CROSS_LIB_DIR)
 
 QEMU_CROSS_QEMU_ENV = \
-	QEMU="$(PTXDIST_SYSROOT_HOST)/bin/qemu-$(HOST_QEMU_TARGETS)" \
+	QEMU="$(PTXDIST_SYSROOT_HOST)/usr/bin/qemu-$(HOST_QEMU_TARGETS)" \
 	KERNEL_VERSION="$(KERNEL_VERSION)" \
 	QEMU_LD_PREFIX="$(PTXDIST_SYSROOT_TOOLCHAIN)" \
 	QEMU_LD_LIBRARY_PATH="$(QEMU_CROSS_LD_LIBRARY_PATH)" \
@@ -205,7 +205,7 @@ $(STATEDIR)/host-qemu.install:
 	@$(call world/install, HOST_QEMU)
 ifdef PTXCONF_HOST_QEMU_SYS
 #	# necessary for qemu to find its ROM files
-	@ln -vsf share/qemu $(HOST_QEMU_PKGDIR)/pc-bios
+	@ln -vsf share/qemu $(HOST_QEMU_PKGDIR)/usr/pc-bios
 endif
 	@$(call touch)
 
@@ -213,16 +213,16 @@ $(STATEDIR)/host-qemu.install.post:
 	@$(call targetinfo)
 	@$(call world/install.post, HOST_QEMU)
 ifdef PTXCONF_HOST_QEMU_USR
-	@$(QEMU_CROSS_QEMU_ENV) ptxd_replace_magic $(QEMU_CROSS_QEMU) > $(PTXDIST_SYSROOT_CROSS)/bin/qemu-cross
-	@chmod +x $(PTXDIST_SYSROOT_CROSS)/bin/qemu-cross
-	@install -d -m 755 $(PTXDIST_SYSROOT_CROSS)/bin/qemu/
+	@$(QEMU_CROSS_QEMU_ENV) ptxd_replace_magic $(QEMU_CROSS_QEMU) > $(PTXDIST_SYSROOT_CROSS)/usr/bin/qemu-cross
+	@chmod +x $(PTXDIST_SYSROOT_CROSS)/usr/bin/qemu-cross
+	@install -d -m 755 $(PTXDIST_SYSROOT_CROSS)/usr/bin/qemu/
 	@sed \
 		-e 's|RTLDLIST=.*|RTLDLIST="$(PTXDIST_SYSROOT_TOOLCHAIN)$(QEMU_CROSS_DL)"|' \
-		-e 's|eval $$add_env|eval $(PTXDIST_SYSROOT_CROSS)/bin/qemu-cross -E "$${add_env// /,}"|' \
-		-e 's|verify_out=`|verify_out=`$(PTXDIST_SYSROOT_CROSS)/bin/qemu-cross |' \
+		-e 's|eval $$add_env|eval $(PTXDIST_SYSROOT_CROSS)/usr/bin/qemu-cross -E "$${add_env// /,}"|' \
+		-e 's|verify_out=`|verify_out=`$(PTXDIST_SYSROOT_CROSS)/usr/bin/qemu-cross |' \
 		-e 's|#! */.*$$|#!$(shell readlink $(PTXDIST_TOPDIR)/bin/bash)|' \
-		$(PTXDIST_SYSROOT_TOOLCHAIN)/usr/bin/ldd > $(PTXDIST_SYSROOT_CROSS)/bin/qemu/ldd
-	@chmod +x $(PTXDIST_SYSROOT_CROSS)/bin/qemu/ldd
+		$(PTXDIST_SYSROOT_TOOLCHAIN)/usr/bin/ldd > $(PTXDIST_SYSROOT_CROSS)/usr/bin/qemu/ldd
+	@chmod +x $(PTXDIST_SYSROOT_CROSS)/usr/bin/qemu/ldd
 endif
 	@$(call touch)
 

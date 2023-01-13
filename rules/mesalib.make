@@ -233,7 +233,7 @@ endif
 
 $(STATEDIR)/mesalib.compile:
 	@$(call targetinfo)
-	cp $(PTXDIST_SYSROOT_HOST)/bin/mesa/glsl_compiler $(MESALIB_DIR)/src/compiler/
+	cp $(PTXDIST_SYSROOT_HOST)/usr/bin/mesa/glsl_compiler $(MESALIB_DIR)/src/compiler/
 	@$(call world/compile, MESALIB)
 	@$(call touch)
 

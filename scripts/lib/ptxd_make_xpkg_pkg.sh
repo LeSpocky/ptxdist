@@ -766,7 +766,7 @@ install replace figlet:
     ptxd_figlet_helper() {
 	local value="$1"
 	local escapemode="$2"
-	figlet -d "${PTXDIST_SYSROOT_HOST}/share/figlet" -- "${value}" | \
+	figlet -d "${PTXDIST_SYSROOT_HOST}/usr/share/figlet" -- "${value}" | \
 	case "$escapemode" in
 	    # /etc/issue needs each backslash quoted by another backslash. As
 	    # the string is interpreted by the shell once more below, another

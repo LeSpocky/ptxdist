@@ -34,7 +34,7 @@ BLUEZ_QT_CONF_OPT	:= \
 		-DBUILD_QCH=OFF \
 		-DBUILD_TESTING=OFF \
 		-DECM_MKSPECS_INSTALL_DIR=/usr/lib/qt5/mkspecs \
-		-DECM_DIR=$(PTXDIST_SYSROOT_HOST)/share/ECM/cmake/
+		-DECM_DIR=$(PTXDIST_SYSROOT_HOST)/usr/share/ECM/cmake/
 
 # ----------------------------------------------------------------------------
 # Target-Install

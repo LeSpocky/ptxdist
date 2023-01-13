@@ -35,18 +35,18 @@ Global Variables
   project. All of the project’s packages built for the host to create data
   for the target are searching in this directory tree for their
   dependencies (executables, header and library files). Use
-  ``$(PTXDIST_SYSROOT_CROSS)/bin`` to install executables,
-  ``$(PTXDIST_SYSROOT_CROSS)/include`` for header files and
-  ``$(PTXDIST_SYSROOT_CROSS)/lib`` for libraries.
+  ``$(PTXDIST_SYSROOT_CROSS)/usr/bin`` to install executables,
+  ``$(PTXDIST_SYSROOT_CROSS)/usr/include`` for header files and
+  ``$(PTXDIST_SYSROOT_CROSS)/usr/lib`` for libraries.
 
 ``PTXDIST_SYSROOT_HOST``
   ``PTXDIST_SYSROOT_HOST`` points to a directory tree all host relevant
   executables, libraries and header files are installed to. All project’s
   packages built for the host are searching in this directory tree for
   their dependencies (executables, header and library files). Use
-  ``$(PTXDIST_SYSROOT_HOST)/bin`` to install executables,
-  ``$(PTXDIST_SYSROOT_HOST)/include`` for header files and
-  ``$(PTXDIST_SYSROOT_HOST)/lib`` for libraries.
+  ``$(PTXDIST_SYSROOT_HOST)/usr/bin`` to install executables,
+  ``$(PTXDIST_SYSROOT_HOST)/usr/include`` for header files and
+  ``$(PTXDIST_SYSROOT_HOST)/usr/lib`` for libraries.
 
 ``PTXDIST_SYSROOT_TARGET``
   ``PTXDIST_SYSROOT_TARGET`` points to a directory tree all target
@@ -313,7 +313,7 @@ Build Environment for all Stages
   packages and ``PATH=$(HOST_CROSS_PATH)`` for cross packages. It must be
   set by packages that use the variable locally in the make file or if more
   directories are added, e.g. to
-  ``PATH=$(PTXDIST_SYSROOT_CROSS)/bin/qt5:$(CROSS_PATH)`` for packages that
+  ``PATH=$(PTXDIST_SYSROOT_CROSS)/usr/bin/qt5:$(CROSS_PATH)`` for packages that
   use qmake from Qt5.
 
 ``<PKG>_CFLAGS``, ``<PKG>_CPPFLAGS``, ``<PKG>_LDFLAGS``

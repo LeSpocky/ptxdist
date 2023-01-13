@@ -612,7 +612,7 @@ ptxd_template_new_code_signing_provider() {
     elif [ "$TYPE" = "HSM with OpenSC support" ]; then
 	export EXTRA_DEPENDENCIES="select HOST_OPENSC
 	select HOST_OPENSC_PCSC"
-	export MODULE_PATH="\${PTXDIST_SYSROOT_HOST}/lib/pkcs11/opensc-pkcs11.so"
+	export MODULE_PATH="\${PTXDIST_SYSROOT_HOST}/usr/lib/pkcs11/opensc-pkcs11.so"
 	ptxd_template_filter "${template_file}" "${filename}"
     elif [ "$TYPE" = "other HSM" ]; then
 	export EXTRA_DEPENDENCIES="select FIXME"

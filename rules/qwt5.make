@@ -28,7 +28,7 @@ QWT5_LICENSE	:= LGPL-2.1-only AND QWT-1.0
 # Prepare
 # ----------------------------------------------------------------------------
 
-QWT5_PATH	:= PATH=$(PTXDIST_SYSROOT_CROSS)/bin/qt5:$(CROSS_PATH)
+QWT5_PATH	:= PATH=$(PTXDIST_SYSROOT_CROSS)/usr/bin/qt5:$(CROSS_PATH)
 
 QWT5_CONF_OPT	:= $(CROSS_QMAKE_OPT) TARGET_TEMPLATE=lib
 

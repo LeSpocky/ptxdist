@@ -38,7 +38,7 @@ PERL_DEVPKG		:= NO
 # use by perl modules
 PERL_SITELIB		:= /usr/lib/perl5/site_perl/$(PERL_VERSION)
 
-CROSS_PERL= $(PTXDIST_SYSROOT_CROSS)/bin/cross-perl
+CROSS_PERL= $(PTXDIST_SYSROOT_CROSS)/usr/bin/cross-perl
 
 # ----------------------------------------------------------------------------
 # Extract

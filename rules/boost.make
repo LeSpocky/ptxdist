@@ -128,7 +128,7 @@ ifdef PTXCONF_BOOST_MPI
 endif
 
 ifdef PTXCONF_BOOST_PYTHON3
-	@echo "using python : $(PYTHON3_MAJORMINOR) : $(PTXDIST_SYSROOT_CROSS)/bin/python : $(SYSROOT)/usr/include/python$(PYTHON3_MAJORMINOR) : $(SYSROOT)/usr/lib/python$(PYTHON3_MAJORMINOR) ;" >> $(BOOST_DIR)/user-config.jam
+	@echo "using python : $(PYTHON3_MAJORMINOR) : $(PTXDIST_SYSROOT_CROSS)/usr/bin/python : $(SYSROOT)/usr/include/python$(PYTHON3_MAJORMINOR) : $(SYSROOT)/usr/lib/python$(PYTHON3_MAJORMINOR) ;" >> $(BOOST_DIR)/user-config.jam
 endif
 
 	@echo "all:"					>  $(BOOST_DIR)/Makefile

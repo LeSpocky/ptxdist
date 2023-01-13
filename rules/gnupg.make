@@ -38,7 +38,7 @@ GNUPG_LICENSE_FILES := \
 
 GNUPG_CONF_ENV	:= \
 	$(CROSS_ENV) \
-	ac_cv_path_GPGRT_CONFIG=$(PTXDIST_SYSROOT_CROSS)/bin/gpgrt-config
+	ac_cv_path_GPGRT_CONFIG=$(PTXDIST_SYSROOT_CROSS)/usr/bin/gpgrt-config
 
 GNUPG_CONF_TOOL	:= autoconf
 GNUPG_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \

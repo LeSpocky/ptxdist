@@ -51,7 +51,7 @@ CUPS_FILTERS_CONF_OPT	:= \
 	--disable-werror \
 	--disable-braille \
 	--with-gnu-ld \
-	--with-cups-config=$(PTXDIST_SYSROOT_CROSS)/bin/cups-config \
+	--with-cups-config=$(PTXDIST_SYSROOT_CROSS)/usr/bin/cups-config \
 	--with-apple-raster-filter=rastertopdf \
 	--with-cups-rundir=/run \
 	--with-cups-domainsocket=/run/cups.sock \

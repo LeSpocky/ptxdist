@@ -46,10 +46,10 @@ ptxd_make_cmake_toolchain_host() {
     CC="$(which "${CC}")" \
 	CXX="$(which "${CXX}")" \
 	\
-	PREFIX_PATH="${PTXDIST_SYSROOT_HOST}" \
+	PREFIX_PATH="${PTXDIST_SYSROOT_HOST}/usr" \
 	\
-	INCLUDE_DIRECTORIES="${PTXDIST_SYSROOT_HOST}/include" \
-	LINK_DIRECTORIES="${PTXDIST_SYSROOT_HOST}/lib" \
+	INCLUDE_DIRECTORIES="${PTXDIST_SYSROOT_HOST}/usr/include" \
+	LINK_DIRECTORIES="${PTXDIST_SYSROOT_HOST}/usr/lib" \
 	\
 	ptxd_replace_magic "${PTXDIST_TOPDIR}/config/cmake/toolchain-host.cmake.in" > "${1}"
 }

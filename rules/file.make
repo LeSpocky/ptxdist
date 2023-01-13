@@ -30,7 +30,7 @@ FILE_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-FILE_PATH	:= PATH=$(PTXDIST_SYSROOT_HOST)/bin/file:$(CROSS_PATH)
+FILE_PATH	:= PATH=$(PTXDIST_SYSROOT_HOST)/usr/bin/file:$(CROSS_PATH)
 
 FILE_CONF_TOOL	:= autoconf
 FILE_CONF_OPT	:= \

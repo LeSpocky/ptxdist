@@ -27,12 +27,12 @@ HOST_QT5_CONF_ENV := \
 #
 HOST_QT5_CONF_TOOL	:= autoconf
 HOST_QT5_CONF_OPT	:= \
-	-prefix / \
-	-bindir /bin/qt5 \
-	-headerdir /include/qt5 \
-	-archdatadir /lib/qt5 \
-	-datadir /share/qt5 \
-	-hostbindir /bin/qt5 \
+	-prefix /usr \
+	-bindir /usr/bin/qt5 \
+	-headerdir /usr/include/qt5 \
+	-archdatadir /usr/lib/qt5 \
+	-datadir /usr/share/qt5 \
+	-hostbindir /usr/bin/qt5 \
 	$(if $(filter 1,$(PTXDIST_VERBOSE)),-v) \
 	-opensource \
 	-confirm-license \
@@ -159,7 +159,7 @@ HOST_QT5_CONF_OPT	:= \
 HOST_QT5_CONF_OPT += \
 	--disable-sm
 
-HOST_QT5_QT_CONF := $(PTXDIST_SYSROOT_HOST)/bin/qt5/qt.conf
+HOST_QT5_QT_CONF := $(PTXDIST_SYSROOT_HOST)/usr/bin/qt5/qt.conf
 
 HOST_QT5_MAKE_ENV := \
 	ICECC_REMOTE_CPP=0
@@ -167,15 +167,15 @@ HOST_QT5_MAKE_ENV := \
 $(STATEDIR)/host-qt5.install.post:
 	@$(call targetinfo)
 	@$(call world/install.post, HOST_QT5)
-	@echo "[Paths]"						>  $(HOST_QT5_QT_CONF)
-	@echo "HostPrefix=$(PTXDIST_SYSROOT_HOST)"		>> $(HOST_QT5_QT_CONF)
-	@echo "HostData=$(PTXDIST_SYSROOT_HOST)/lib/qt5"	>> $(HOST_QT5_QT_CONF)
-	@echo "HostBinaries=$(PTXDIST_SYSROOT_HOST)/bin/qt5"	>> $(HOST_QT5_QT_CONF)
-	@echo "Prefix=$(PTXDIST_SYSROOT_HOST)"			>> $(HOST_QT5_QT_CONF)
-	@echo "Headers=$(PTXDIST_SYSROOT_HOST)/include/qt5"	>> $(HOST_QT5_QT_CONF)
-	@echo "Data=$(PTXDIST_SYSROOT_HOST)/share/qt5"		>> $(HOST_QT5_QT_CONF)
-	@echo "Binaries=$(PTXDIST_SYSROOT_HOST)/bin/qt5"	>> $(HOST_QT5_QT_CONF)
-	@echo ""						>> $(HOST_QT5_QT_CONF)
+	@echo "[Paths]"							>  $(HOST_QT5_QT_CONF)
+	@echo "HostPrefix=$(PTXDIST_SYSROOT_HOST)/usr"			>> $(HOST_QT5_QT_CONF)
+	@echo "HostData=$(PTXDIST_SYSROOT_HOST)/usr/lib/qt5"		>> $(HOST_QT5_QT_CONF)
+	@echo "HostBinaries=$(PTXDIST_SYSROOT_HOST)/usr/bin/qt5"	>> $(HOST_QT5_QT_CONF)
+	@echo "Prefix=$(PTXDIST_SYSROOT_HOST)/usr"			>> $(HOST_QT5_QT_CONF)
+	@echo "Headers=$(PTXDIST_SYSROOT_HOST)/usr/include/qt5"		>> $(HOST_QT5_QT_CONF)
+	@echo "Data=$(PTXDIST_SYSROOT_HOST)/usr/share/qt5"		>> $(HOST_QT5_QT_CONF)
+	@echo "Binaries=$(PTXDIST_SYSROOT_HOST)/usr/bin/qt5"		>> $(HOST_QT5_QT_CONF)
+	@echo ""							>> $(HOST_QT5_QT_CONF)
 	@$(call touch)
 
 # vim: syntax=make

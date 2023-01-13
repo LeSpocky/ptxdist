@@ -17,7 +17,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_GPGME) += host-gpgme
 
 HOST_GPGME_CONF_ENV	:= \
 	$(HOST_ENV) \
-	LDFLAGS="-L$(PTXDIST_SYSROOT_HOST)/lib"
+	LDFLAGS="-L$(PTXDIST_SYSROOT_HOST)/usr/lib"
 #
 # autoconf
 #

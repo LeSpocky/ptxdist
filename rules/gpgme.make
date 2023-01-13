@@ -36,7 +36,7 @@ GPGME_LANG := $(subst $(space),$(comma),$(strip $(GPGME_LANG-y)))
 
 GPGME_CONF_ENV	:= \
 	$(CROSS_ENV) \
-	LIBASSUAN_CONFIG="$(PTXDIST_SYSROOT_CROSS)/bin/libassuan-config"
+	LIBASSUAN_CONFIG="$(PTXDIST_SYSROOT_CROSS)/usr/bin/libassuan-config"
 
 #
 # autoconf

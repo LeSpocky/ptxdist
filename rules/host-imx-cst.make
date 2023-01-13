@@ -80,10 +80,10 @@ $(STATEDIR)/host-imx-cst.install:
 	@$(call targetinfo)
 	@$(foreach prog, $(HOST_IMX_CST_PROGS), \
 		install -v -m0755 -D $(HOST_IMX_CST_DIR)/$(HOST_IMX_CST_ARCH)/bin/$(prog) \
-		$(HOST_IMX_CST_PKGDIR)/bin/$(prog)$(ptx/nl))
+		$(HOST_IMX_CST_PKGDIR)/usr/bin/$(prog)$(ptx/nl))
 	@$(foreach lib, $(HOST_IMX_CST_LIBS), \
 		install -v -m0644 -D $(HOST_IMX_CST_DIR)/$(HOST_IMX_CST_ARCH)/lib/$(lib) \
-		$(HOST_IMX_CST_PKGDIR)/lib/imx-cst/$(lib)$(ptx/nl))
+		$(HOST_IMX_CST_PKGDIR)/usr/lib/imx-cst/$(lib)$(ptx/nl))
 	@$(call touch)
 
 # vim: syntax=make

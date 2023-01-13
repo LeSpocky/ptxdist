@@ -102,7 +102,7 @@ like this:
 
     ifdef PTXCONF_CODE_SIGNING_PROVIDER_<NAME>
     CODE_SIGNING_ENV += \
-    	PKCS11_MODULE_PATH="${PTXDIST_SYSROOT_HOST}/lib/pkcs11/opensc-pkcs11.so"
+    	PKCS11_MODULE_PATH="${PTXDIST_SYSROOT_HOST}/usr/lib/pkcs11/opensc-pkcs11.so"
     endif
 
 Note that the module is built in the BSP in this case.

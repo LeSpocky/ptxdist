@@ -15,7 +15,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_FIGLET) += host-figlet
 # Compile
 # ----------------------------------------------------------------------------
 
-HOST_FIGLET_MAKE_OPT	:= prefix=/
-HOST_FIGLET_INSTALL_OPT	:= prefix=/ install
+HOST_FIGLET_MAKE_OPT	:= prefix=/usr
+HOST_FIGLET_INSTALL_OPT	:= prefix=/usr install
 
 # vim: syntax=make

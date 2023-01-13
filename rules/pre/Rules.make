@@ -14,7 +14,7 @@ GNU_HOST	:= $(call ptx/force-sh, echo $(GNU_BUILD) | sed s/-[a-zA-Z0-9_]*-/-host
 
 INSTALL		:= install
 
-FAKEROOT	:= $(PTXDIST_SYSROOT_HOST)/bin/fakeroot
+FAKEROOT	:= $(PTXDIST_SYSROOT_HOST)/usr/bin/fakeroot
 
 CHECK_PIPE_STATUS := \
 	for i in  "$${PIPESTATUS[@]}"; do [ $$i -gt 0 ] && {			\
@@ -29,7 +29,7 @@ CHECK_PIPE_STATUS := \
 #
 # prepare the search path when cross compiling
 #
-CROSS_PATH := $(PTXDIST_SYSROOT_CROSS)/bin:$(PTXDIST_SYSROOT_CROSS)/sbin:$(PATH)
+CROSS_PATH := $(PTXDIST_SYSROOT_CROSS)/usr/bin:$(PTXDIST_SYSROOT_CROSS)/usr/sbin:$(PATH)
 
 
 # ----------------------------------------------------------------------------
@@ -250,7 +250,7 @@ CROSS_QMAKE_OPT := \
 	$(if $(filter 0,$(PTXDIST_VERBOSE)),CONFIG+=silent)
 
 CROSS_PYTHON_INSTALL := install --prefix=/usr
-HOST_PYTHON_INSTALL := install --prefix=/.
+HOST_PYTHON_INSTALL := install --prefix=/usr
 
 CROSS_MESON_USR := \
 	--cross-file '${PTXDIST_MESON_CROSS_FILE}' \
@@ -320,16 +320,25 @@ HOST_ENV	:= \
 	$(HOST_ENV_PKG_CONFIG)
 
 
-HOST_AUTOCONF  := --prefix=
-HOST_AUTOCONF_SYSROOT := --prefix=$(PTXDIST_SYSROOT_HOST)
+HOST_AUTOCONF  := \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--libdir=/usr/lib
+
+HOST_AUTOCONF_SYSROOT := \
+	--prefix=$(PTXDIST_SYSROOT_HOST)/usr \
+	--sysconfdir=$(PTXDIST_SYSROOT_HOST)/etc \
+	--libdir=$(PTXDIST_SYSROOT_HOST)/usr/lib
 
 HOST_CMAKE_OPT := \
-	-DCMAKE_INSTALL_PREFIX= \
+	-DCMAKE_INSTALL_PREFIX=/usr \
+	-DCMAKE_INSTALL_LIBDIR=lib \
 	-DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo \
 	-DCMAKE_TOOLCHAIN_FILE='${PTXDIST_CMAKE_TOOLCHAIN_HOST}'
 
 HOST_CMAKE_OPT_SYSROOT := \
-	-DCMAKE_INSTALL_PREFIX=$(PTXDIST_SYSROOT_HOST) \
+	-DCMAKE_INSTALL_PREFIX=$(PTXDIST_SYSROOT_HOST)/usr \
+	-DCMAKE_INSTALL_LIBDIR=lib \
 	-DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo \
 	-DCMAKE_TOOLCHAIN_FILE='${PTXDIST_CMAKE_TOOLCHAIN_HOST}'
 
@@ -338,7 +347,7 @@ HOST_MESON_OPT := \
 	-Dbackend=ninja \
 	-Dbuildtype=debugoptimized \
 	-Dlibdir=lib \
-	-Dprefix=/
+	-Dprefix=/usr
 
 HOST_CARGO_OPT := \
 	build \
@@ -356,8 +365,17 @@ HOST_CROSS_ENV := $(HOST_ENV)
 
 HOST_CROSS_AUTOCONF_ARCH := --target=$(PTXCONF_GNU_TARGET)
 
-HOST_CROSS_AUTOCONF := --prefix= $(HOST_CROSS_AUTOCONF_ARCH)
-HOST_CROSS_AUTOCONF_SYSROOT := --prefix=$(PTXDIST_SYSROOT_CROSS) $(HOST_CROSS_AUTOCONF_ARCH)
+HOST_CROSS_AUTOCONF := \
+	--prefix=/usr \
+	--sysconfdir=/etc \
+	--libdir=/usr/lib \
+	$(HOST_CROSS_AUTOCONF_ARCH)
+
+HOST_CROSS_AUTOCONF_SYSROOT := \
+	--prefix=$(PTXDIST_SYSROOT_CROSS)/usr \
+	--sysconfdir=$(PTXDIST_SYSROOT_CROSS)/etc \
+	--libdir=$(PTXDIST_SYSROOT_CROSS)/usr/lib \
+	$(HOST_CROSS_AUTOCONF_ARCH)
 
 # ----------------------------------------------------------------------------
 # Convenience macros
@@ -391,7 +409,7 @@ add_locale =							\
 	fi;							\
 	${CROSS_ENV_CC} $(CROSS_ENV_STRIP)			\
 	$(SCRIPTSDIR)/make_locale.sh 				\
-		-e $(PTXDIST_SYSROOT_HOST)/bin/localedef 	\
+		-e $(PTXDIST_SYSROOT_HOST)/usr/bin/localedef 	\
 		-f $$CHARMAP -i $$LOCALE_DEF 			\
 		-p $$PREF 					\
 		-n $$LOCALE_NAME				\

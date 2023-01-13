@@ -14,6 +14,6 @@ HOST_PACKAGES-$(PTXCONF_HOST_FILE) += host-file
 HOST_FILE_CONF_TOOL	:= autoconf
 HOST_FILE_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
-	--bindir=/bin/file
+	--bindir=/usr/bin/file
 
 # vim: syntax=make

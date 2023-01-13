@@ -22,8 +22,8 @@ HOST_NODEJS_MAKE_ENV	:= \
 
 HOST_NODEJS_CONF_TOOL	:= autoconf
 HOST_NODEJS_CONF_OPT	:= \
-	$(HOST_AUTOCONF) \
-	--prefix=/ \
+	--prefix=/usr \
+	--libdir=lib \
 	--no-cross-compiling \
 	--dest-os=linux \
 	--without-dtrace \
@@ -45,10 +45,10 @@ $(STATEDIR)/host-nodejs.install:
 	@$(call world/install, HOST_NODEJS)
 
 #	# Needed to cross-compile for target.
-	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/bytecode_builtins_list_generator $(HOST_NODEJS_PKGDIR)/bin/
-	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/mkcodecache $(HOST_NODEJS_PKGDIR)/bin/
-	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/node_mksnapshot $(HOST_NODEJS_PKGDIR)/bin/
-	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/torque $(HOST_NODEJS_PKGDIR)/bin/
+	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/bytecode_builtins_list_generator $(HOST_NODEJS_PKGDIR)/usr/bin/
+	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/mkcodecache $(HOST_NODEJS_PKGDIR)/usr/bin/
+	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/node_mksnapshot $(HOST_NODEJS_PKGDIR)/usr/bin/
+	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/torque $(HOST_NODEJS_PKGDIR)/usr/bin/
 
 	@$(call touch)
 

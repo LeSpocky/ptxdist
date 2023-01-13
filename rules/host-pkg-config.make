@@ -48,10 +48,10 @@ HOST_PKG_CONFIG_BINCONFIG_GLOB := does-not-exist
 $(STATEDIR)/host-pkg-config.install:
 	@$(call targetinfo)
 	@$(call world/install, HOST_PKG_CONFIG)
-	@mv $(HOST_PKG_CONFIG_PKGDIR)/bin/pkg-config \
-		$(HOST_PKG_CONFIG_PKGDIR)/bin/pkg-config.real
+	@mv $(HOST_PKG_CONFIG_PKGDIR)/usr/bin/pkg-config \
+		$(HOST_PKG_CONFIG_PKGDIR)/usr/bin/pkg-config.real
 	@ln -sv $(PKG_CONFIG_SCRIPT) \
-		$(HOST_PKG_CONFIG_PKGDIR)/bin/pkg-config
+		$(HOST_PKG_CONFIG_PKGDIR)/usr/bin/pkg-config
 	@$(call touch)
 
 # vim: syntax=make

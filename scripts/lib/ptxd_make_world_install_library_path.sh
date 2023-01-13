@@ -24,7 +24,7 @@ ptxd_make_world_install_library_path_one()
 
 	# if the library exists in sysroot-host, we use that one
 	# using @executable_path even keeps the tree relocatable.
-	installfile="${PTXDIST_SYSROOT_HOST}/lib/${filename}"
+	installfile="${PTXDIST_SYSROOT_HOST}/usr/lib/${filename}"
 	if [ -r "${installfile}" ] ; then
 	    install_name_tool -change \
 		"${used_library}" "${installfile}" \

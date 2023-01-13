@@ -32,7 +32,7 @@ $(STATEDIR)/host-u-boot-tools.install:
 	@$(call targetinfo)
 	@$(foreach prog, $(HOST_U_BOOT_TOOLS_PROGS), \
 		install -vD $(HOST_U_BOOT_TOOLS_DIR)/tools/$(prog) \
-		$(HOST_U_BOOT_TOOLS_PKGDIR)/bin/$(prog)$(ptx/nl))
+		$(HOST_U_BOOT_TOOLS_PKGDIR)/usr/bin/$(prog)$(ptx/nl))
 
 	@$(call touch)
 

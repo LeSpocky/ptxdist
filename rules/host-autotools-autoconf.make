@@ -45,14 +45,14 @@ HOST_AUTOTOOLS_AUTOCONF_CONF_TOOL	:= autoconf
 $(STATEDIR)/host-autotools-autoconf.install.post:
 	@$(call targetinfo)
 	@sed -i \
-		-e "s;'\(/share/autoconf\)';'$(PTXDIST_SYSROOT_HOST)\1';g" \
-		-e "s;'\(/bin/auto[^']*\)';'$(PTXDIST_SYSROOT_HOST)\1';g" \
+		-e "s;'\(/usr/share/autoconf\)';'$(PTXDIST_SYSROOT_HOST)\1';g" \
+		-e "s;'\(/usr/bin/auto[^']*\)';'$(PTXDIST_SYSROOT_HOST)\1';g" \
 		-e "s;'/[^']*/sysroot-host\(/bin/m4\)';'$(PTXDIST_SYSROOT_HOST)\1';g" \
-		$(HOST_AUTOTOOLS_AUTOCONF_PKGDIR)/bin/* \
-		$(HOST_AUTOTOOLS_AUTOCONF_PKGDIR)/share/autoconf/autom4te.cfg
+		$(HOST_AUTOTOOLS_AUTOCONF_PKGDIR)/usr/bin/* \
+		$(HOST_AUTOTOOLS_AUTOCONF_PKGDIR)/usr/share/autoconf/autom4te.cfg
 	@sed -i \
-		-e "s;\(/share/autoconf/\);$(PTXDIST_SYSROOT_HOST)\1;g" \
-		$(HOST_AUTOTOOLS_AUTOCONF_PKGDIR)/bin/autoconf
+		-e "s;\(/usr/share/autoconf/\);$(PTXDIST_SYSROOT_HOST)\1;g" \
+		$(HOST_AUTOTOOLS_AUTOCONF_PKGDIR)/usr/bin/autoconf
 	@$(call world/install.post, HOST_AUTOTOOLS_AUTOCONF)
 	@$(call touch)
 

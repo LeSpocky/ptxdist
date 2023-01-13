@@ -15,6 +15,6 @@ HOST_PACKAGES-$(PTXCONF_HOST_BZIP2) += host-bzip2
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_BZIP2_INSTALL_OPT := install PREFIX=
+HOST_BZIP2_INSTALL_OPT := install PREFIX=/usr
 
 # vim: syntax=make

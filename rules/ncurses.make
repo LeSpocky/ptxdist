@@ -31,7 +31,7 @@ NCURSES_LICENSE_FILES := file://COPYING;md5=afd8d0a6ec9c24941eb06bc5e4017918
 NCURSES_CONF_TOOL := autoconf
 NCURSES_CONF_ENV := \
 	$(CROSS_ENV) \
-	TIC_PATH="$(PTXDIST_SYSROOT_HOST)/bin/tic"
+	TIC_PATH="$(PTXDIST_SYSROOT_HOST)/usr/bin/tic"
 
 NCURSES_SHARED_TARGET	:= y
 NCURSES_SHARED_HOST	:=
@@ -125,9 +125,9 @@ ifdef PTXCONF_NCURSES_WIDE_CHAR
 # For this, the links at runtime are required
 #
 	@for lib in $(NCURSES_LIBRARY_LIST); do \
-		echo "INPUT(-l$${lib}w)" > $(NCURSES_PKGDIR)/$(CROSS_LIB_DIR)/lib$${lib}.so ; \
+		echo "INPUT(-l$${lib}w)" > $(NCURSES_PKGDIR)/usr/$(CROSS_LIB_DIR)/lib$${lib}.so ; \
 	done
-	@echo "INPUT(-lncursesw)" > $(NCURSES_PKGDIR)/$(CROSS_LIB_DIR)/libcurses.so
+	@echo "INPUT(-lncursesw)" > $(NCURSES_PKGDIR)/usr/$(CROSS_LIB_DIR)/libcurses.so
 
 	@ln -sf "ncursesw$(NCURSES_MAJOR)-config" \
 		"$(NCURSES_PKGDIR)/usr/bin/ncurses$(NCURSES_MAJOR)-config"
@@ -142,7 +142,7 @@ endif
 $(STATEDIR)/ncurses.install.post:
 	@$(call targetinfo)
 	@$(call world/install.post, NCURSES)
-	@cp -dp -- "$(NCURSES_PKGDIR)/usr/bin/"*config* "$(PTXDIST_SYSROOT_CROSS)/bin"
+	@cp -dp -- "$(NCURSES_PKGDIR)/usr/bin/"*config* "$(PTXDIST_SYSROOT_CROSS)/usr/bin"
 	@$(call touch)
 
 # ----------------------------------------------------------------------------

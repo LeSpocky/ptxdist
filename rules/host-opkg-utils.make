@@ -28,6 +28,6 @@ HOST_OPKG_UTILS_LICENSE	:= GPL-2.0-only
 # ----------------------------------------------------------------------------
 
 HOST_OPKG_UTILS_CONF_TOOL	:= NO
-HOST_OPKG_UTILS_MAKE_ENV	:= PREFIX=
+HOST_OPKG_UTILS_MAKE_ENV	:= PREFIX=/usr
 
 # vim: syntax=make

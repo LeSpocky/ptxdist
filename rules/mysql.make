@@ -94,12 +94,12 @@ MYSQL_CXXFLAGS := -std=c++98
 $(STATEDIR)/mysql.compile:
 	@$(call targetinfo)
 
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/gen_lex_hash $(MYSQL_DIR)-build/sql/
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/gen_lex_token $(MYSQL_DIR)-build/sql/
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/lz4_decompress $(MYSQL_DIR)-build/extra/
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/zlib_decompress $(MYSQL_DIR)-build/extra/
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/comp_err $(MYSQL_DIR)-build/extra/
-	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/bin/comp_sql $(MYSQL_DIR)-build/scripts/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/usr/bin/gen_lex_hash $(MYSQL_DIR)-build/sql/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/usr/bin/gen_lex_token $(MYSQL_DIR)-build/sql/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/usr/bin/lz4_decompress $(MYSQL_DIR)-build/extra/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/usr/bin/zlib_decompress $(MYSQL_DIR)-build/extra/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/usr/bin/comp_err $(MYSQL_DIR)-build/extra/
+	@install -v -m755  $(PTXDIST_SYSROOT_HOST)/usr/bin/comp_sql $(MYSQL_DIR)-build/scripts/
 
 	@$(call world/compile, MYSQL)
 	@$(call touch)

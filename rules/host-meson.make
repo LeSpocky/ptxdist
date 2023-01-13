@@ -46,18 +46,18 @@ $(STATEDIR)/host-meson.compile:
 # Special dirs to avoid collisions with host-python3
 HOST_MESON_INSTALL_OPT	:= \
 	install \
-	--prefix=/ \
-	--install-lib=/lib/meson \
-	--install-scripts=/lib/meson \
-	--install-data=/lib/meson \
+	--prefix=/usr \
+	--install-lib=/usr/lib/meson \
+	--install-scripts=/usr/lib/meson \
+	--install-data=/usr/lib/meson \
 	--root=$(HOST_MESON_PKGDIR)
 
 $(STATEDIR)/host-meson.install:
 	@$(call targetinfo)
 	@$(call world/execute, HOST_MESON, \
 		$(SYSTEMPYTHON3) setup.py $(HOST_MESON_INSTALL_OPT))
-	@mkdir -vp $(HOST_MESON_PKGDIR)/bin
-	@ln -svf ../lib/meson/meson $(HOST_MESON_PKGDIR)/bin/meson
+	@mkdir -vp $(HOST_MESON_PKGDIR)/usr/bin
+	@ln -svf ../lib/meson/meson $(HOST_MESON_PKGDIR)/usr/bin/meson
 	@$(call touch)
 
 $(STATEDIR)/host-meson.install.post: $(PTXDIST_MESON_CROSS_FILE)

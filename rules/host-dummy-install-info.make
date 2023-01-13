@@ -19,7 +19,7 @@ HOST_DUMMY_INSTALL_INFO_LICENSE := ignore
 
 $(STATEDIR)/host-dummy-install-info.install:
 	@$(call targetinfo)
-	@ln -sfv /bin/true $(PTXDIST_SYSROOT_HOST)/bin/install-info
+	@ln -sfv /bin/true $(PTXDIST_SYSROOT_HOST)/usr/bin/install-info
 	@$(call touch)
 
 # vim: syntax=make

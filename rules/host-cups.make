@@ -29,7 +29,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_CUPS) += host-cups
 HOST_CUPS_CONF_TOOL	:= autoconf
 HOST_CUPS_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
-	--libdir=/lib/ \
+	--libdir=/usr/lib/ \
 	--disable-mallinfo \
 	--disable-libpaper \
 	--disable-libusb \
@@ -86,7 +86,7 @@ $(STATEDIR)/host-cups.install:
 	@$(call compile, HOST_CUPS, -C ${HOST_CUPS_DIR}/ppdc install)
 	@$(call touch)
 
-CROSS_PPDC := $(PTXDIST_SYSROOT_CROSS)/bin/ppdc
+CROSS_PPDC := $(PTXDIST_SYSROOT_CROSS)/usr/bin/ppdc
 
 $(STATEDIR)/host-cups.install.post:
 	@$(call targetinfo)
@@ -94,7 +94,7 @@ $(STATEDIR)/host-cups.install.post:
 
 	@( \
 		echo '#!/bin/sh'; \
-		echo 'CUPS_DATADIR=$(PTXDIST_SYSROOT_HOST)/share/cups $(PTXDIST_SYSROOT_HOST)/bin/ppdc "$$@"'; \
+		echo 'CUPS_DATADIR=$(PTXDIST_SYSROOT_HOST)/usr/share/cups $(PTXDIST_SYSROOT_HOST)/usr/bin/ppdc "$$@"'; \
 	) > $(CROSS_PPDC)
 	@chmod +x $(CROSS_PPDC)
 

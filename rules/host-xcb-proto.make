@@ -24,8 +24,5 @@ HOST_XCB_PROTO_CONF_ENV		:= \
 # autoconf
 #
 HOST_XCB_PROTO_CONF_TOOL	:= autoconf
-# without this special prefix the xcb-proto.pc is broken
-HOST_XCB_PROTO_CONF_OPT		:= \
-	--prefix=/.
 
 # vim: syntax=make

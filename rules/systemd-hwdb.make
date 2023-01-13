@@ -26,7 +26,7 @@ $(STATEDIR)/systemd-hwdb.install:
 	@$(call execute, SYSTEMD_HWDB, \
 		ln -s $(SYSROOT)/usr/lib/udev/hwdb.d $(SYSTEMD_HWDB_PKGDIR)/usr/lib/udev/)
 	@$(call execute, SYSTEMD_HWDB, \
-		$(PTXDIST_SYSROOT_HOST)/bin/systemd-hwdb update --usr --root $(SYSTEMD_HWDB_PKGDIR))
+		$(PTXDIST_SYSROOT_HOST)/usr/bin/systemd-hwdb update --usr --root $(SYSTEMD_HWDB_PKGDIR))
 #	# remove the link again, it conficts with the directory in sysroot
 	@$(call execute, SYSTEMD_HWDB, \
 		rm $(SYSTEMD_HWDB_PKGDIR)/usr/lib/udev/hwdb.d)

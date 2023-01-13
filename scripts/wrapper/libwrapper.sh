@@ -34,7 +34,7 @@ wrapper_exec() {
 	IFS=:
 	tmp=
 	for P in ${PATH}; do
-		if [ "${P}" != "${PTXDIST_PATH_SYSROOT_HOST}/lib/wrapper" ]; then
+		if [ "${P}" != "${PTXDIST_PATH_SYSROOT_HOST}/usr/lib/wrapper" ]; then
 			tmp="${tmp}${tmp:+:}${P}"
 		fi
 	done

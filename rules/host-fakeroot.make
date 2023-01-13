@@ -36,7 +36,7 @@ HOST_FAKEROOT_CONF_ENV	:= \
 HOST_FAKEROOT_CONF_TOOL := autoconf
 HOST_FAKEROOT_CONF_OPT := \
 	$(HOST_AUTOCONF) \
-	--libdir=/lib/fakeroot
+	--libdir=/usr/lib/fakeroot
 
 HOST_FAKEROOT_INSTALL_OPT := \
 	SUBDIRS=scripts \

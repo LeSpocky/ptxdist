@@ -16,9 +16,15 @@ ptxd_make_world_install_prepare() {
     fi &&
     ptxd_make_world_clean_sysroot &&
     rm -rf -- "${pkg_pkg_dir}" &&
-    mkdir -p -- "${pkg_pkg_dir}"/{etc,{,usr/}{lib,{,s}bin,include,{,share/}{man/man{1,2,3,4,5,6,7,8,9},misc}}} &&
-    if [ "${pkg_type}" != "target" ]; then
+    mkdir -p -- "${pkg_pkg_dir}"/{etc,usr/{lib,{,s}bin,include,{,share/}{man/man{1,2,3,4,5,6,7,8,9},misc}}}
+    if [ "${pkg_type}" = "target" ]; then
+	mkdir -p -- "${pkg_pkg_dir}"/{lib,{,s}bin,include,{,share/}man/man{1,2,3,4,5,6,7,8,9}}
+    else
+	for link in bin sbin lib; do
+	    ln -s "usr/${link}" "${pkg_pkg_dir}/${link}"
+	done
 	ln -s "lib" "${pkg_pkg_dir}/lib64"
+	ln -s "lib" "${pkg_pkg_dir}/usr/lib64"
     fi
 }
 export -f ptxd_make_world_install_prepare
@@ -271,7 +277,7 @@ ptxd_make_world_install_post() {
     find "${pkg_pkg_dir}" ! -type d -name "${pkg_binconfig_glob}" | while read config; do
 	sed -i -e "s:@SYSROOT@:${pkg_sysroot_dir}:g" "${config}" &&
 	if [ "${pkg_type}" = "target" ]; then
-	    cp -P -- "${config}" "${PTXDIST_SYSROOT_CROSS}/bin" || return
+	    cp -P -- "${config}" "${PTXDIST_SYSROOT_CROSS}/usr/bin" || return
 	fi
     done &&
 

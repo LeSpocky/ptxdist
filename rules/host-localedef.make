@@ -70,7 +70,7 @@ HOST_LOCALEDEF_INSTALL_OPT	:= locale/install-others
 $(STATEDIR)/host-localedef.install:
 	@$(call targetinfo)
 	@install -vD -m755 $(HOST_LOCALEDEF_DIR)-build/locale/localedef \
-		$(HOST_LOCALEDEF_PKGDIR)/bin/localedef
+		$(HOST_LOCALEDEF_PKGDIR)/usr/bin/localedef
 	@$(call touch)
 
 # vim: syntax=make

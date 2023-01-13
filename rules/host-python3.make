@@ -17,7 +17,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_PYTHON3) += host-python3
 #
 HOST_PYTHON3_DIR	= $(HOST_BUILDDIR)/$(PYTHON3)
 
-HOSTPYTHON3		= $(PTXDIST_SYSROOT_HOST)/bin/python$(PYTHON3_MAJORMINOR)
+HOSTPYTHON3		= $(PTXDIST_SYSROOT_HOST)/usr/bin/python$(PYTHON3_MAJORMINOR)
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -29,7 +29,7 @@ HOST_PYTHON3_CONF_ENV	:= \
 	ac_sys_system=Linux \
 	ac_sys_release=2 \
 	MACHDEP=linux \
-	LDFLAGS="-L$(PTXDIST_SYSROOT_HOST)/lib"
+	LDFLAGS="-L$(PTXDIST_SYSROOT_HOST)/usr/lib"
 
 #
 # autoconf
@@ -39,7 +39,7 @@ HOST_PYTHON3_CONF_TOOL	:= autoconf
 # Needed for setup.py to find things in sysroot-host
 HOST_PYTHON3_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
-	--includedir=$(PTXDIST_SYSROOT_HOST)/include \
+	--includedir=$(PTXDIST_SYSROOT_HOST)/usr/include \
 	--enable-shared \
 	--disable-profiling \
 	--disable-optimizations \
@@ -57,7 +57,7 @@ HOST_PYTHON3_CONF_OPT	:= \
 	--without-dtrace \
 	--with-computed-gotos \
 	--without-ensurepip \
-	--with-openssl=$(PTXDIST_SYSROOT_HOST)
+	--with-openssl=$(PTXDIST_SYSROOT_HOST)/usr
 
 $(STATEDIR)/host-python3.prepare:
 	@$(call targetinfo)
@@ -73,7 +73,7 @@ $(STATEDIR)/host-python3.prepare:
 
 # reset INCLUDEDIR for the installation
 HOST_PYTHON3_INSTALL_OPT := \
-	INCLUDEDIR=/include \
+	INCLUDEDIR=/usr/include \
 	install
 
 $(STATEDIR)/host-python3.install:
@@ -87,15 +87,15 @@ $(STATEDIR)/host-python3.install:
 # python-$(PYTHON3_MAJORMINOR)
 #
 	@rm -v \
-		"$(HOST_PYTHON3_PKGDIR)/bin/python3" \
-		"$(HOST_PYTHON3_PKGDIR)/bin/python3-config"
+		"$(HOST_PYTHON3_PKGDIR)/usr/bin/python3" \
+		"$(HOST_PYTHON3_PKGDIR)/usr/bin/python3-config"
 	@$(call touch)
 
 $(STATEDIR)/host-python3.install.post:
 	@$(call targetinfo)
 	@$(call world/install.post, HOST_PYTHON3)
-	@sed -i 's;prefix_build="";prefix_build="$(PTXDIST_SYSROOT_HOST)";' \
-		$(PTXDIST_SYSROOT_HOST)/bin/python3*-config
+	@sed -i 's;prefix_build="";prefix_build="$(PTXDIST_SYSROOT_HOST)/usr";' \
+		$(PTXDIST_SYSROOT_HOST)/usr/bin/python3*-config
 	@$(call touch)
 
 # vim: syntax=make

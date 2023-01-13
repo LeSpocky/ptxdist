@@ -458,7 +458,7 @@ check_dirs() {
 	ptxconf_sysroot_target="$(ptxd_get_ptxconf PTXCONF_SYSROOT_TARGET)" || return
 
 	# check for r/w and create standard directory layout
-	local dir
+	local dir link
 	for dir in \
 		"${PTXDIST_PLATFORMDIR}" \
 		"${ptxconf_sysroot_host}" \
@@ -484,9 +484,16 @@ check_dirs() {
 		"${ptxconf_sysroot_host}" \
 		"${ptxconf_sysroot_cross}" \
 		"${ptxconf_sysroot_target}" \
-		"${ptxconf_sysroot_target}/usr" \
 		; do
-		install -m755 -d "${dir}"/{etc,lib,{,s}bin,include,{,share/}man/man{1,2,3,4,5,6,7,8,9}}
+		install -m755 -d "${dir}"/{etc,usr/{lib,{,s}bin,include,{,share/}man/man{1,2,3,4,5,6,7,8,9}}}
+	done
+	for dir in \
+		"${ptxconf_sysroot_host}" \
+		"${ptxconf_sysroot_cross}" \
+		; do
+		for link in sbin bin lib; do
+			ptxd_replace_link "usr/${link}" "${dir}/${link}"
+		done
 	done
 
 	# create build and output dirs
@@ -540,7 +547,7 @@ check_compiler() {
     local wrapper_dir sysroot_host
 
     sysroot_host="$(ptxd_get_ptxconf PTXCONF_SYSROOT_HOST)"
-    wrapper_dir="${sysroot_host}/lib/wrapper"
+    wrapper_dir="${sysroot_host}/usr/lib/wrapper"
 
     ptxd_lib_setup_host_wrapper &&
 
@@ -2566,7 +2573,7 @@ setup_path() {
 	local sysroot_host="$(ptxd_get_ptxconf PTXCONF_SYSROOT_HOST)"
 
 	if [ -n "${sysroot_host}" ]; then
-		PATH="${sysroot_host}/bin:${sysroot_host}/sbin:${PATH}"
+		PATH="${sysroot_host}/usr/bin:${sysroot_host}/usr/sbin:${PATH}"
 	fi
 
 	if [ -n "${PTXCONF_SETUP_CCACHE}" ]; then

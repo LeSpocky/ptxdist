@@ -89,7 +89,7 @@ $(STATEDIR)/nodejs.prepare:
 #	# to the pre-built host tool binaries, which are different for
 #	# each individual checkout of a BSP.  -_-
 	$(foreach f,$(NODEJS_HOST_TOOLS), \
-		sed -i -e "s#<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)$(f)<(EXECUTABLE_SUFFIX)#$(PTXDIST_SYSROOT_HOST)/bin/$(f)#" \
+		sed -i -e "s#<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)$(f)<(EXECUTABLE_SUFFIX)#$(PTXDIST_SYSROOT_HOST)/usr/bin/$(f)#" \
 			$(NODEJS_DIR)/node.gyp $(NODEJS_DIR)/tools/v8_gypfiles/v8.gyp $(ptx/nl))
 
 	@$(call world/prepare, NODEJS)

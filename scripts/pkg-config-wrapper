@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
-
-basedir="$(basename "$(dirname "$(dirname "$0")")")"
+sysroot="$(dirname "$(dirname "$(dirname "$0")")")"
+basedir="$(basename "${sysroot}")"
 
 declare -a prefix
 if [ "${basedir}" = "sysroot-cross" ]; then
-    sysroot="$(dirname "$(dirname "$(dirname "$0")")")/sysroot-target"
+    sysroot="$(dirname "${sysroot}")/sysroot-target"
     prefix="${sysroot}/usr"
     whitelist="${PKGCONFIG_WHITELIST_TARGET}"
 elif [ "${basedir}" = "sysroot-host" ]; then
-    sysroot="$(dirname "$(dirname "$0")")"
-    prefix="${sysroot}"
+    prefix="${sysroot}/usr"
     whitelist="${PKGCONFIG_WHITELIST_HOST}"
 else
     echo "$(basename ${0}): failed to determine prefix" >&2

@@ -20,9 +20,11 @@ HOST_KEYUTILS_MAKE_OPT := \
 	$(HOST_ENV_CC) \
 	CFLAGS="-O2 -g3 -Wall" \
 	BUILDFOR="" \
-	LIBDIR=/lib \
-	USRLIBDIR=/lib \
-	INCLUDEDIR=/include
+	BINDIR=/usr/bin \
+	SBINDIR=/usr/bin \
+	LIBDIR=/usr/lib \
+	USRLIBDIR=/usr/lib \
+	INCLUDEDIR=/usr/include
 
 HOST_KEYUTILS_INSTALL_OPT := \
 	$(HOST_KEYUTILS_MAKE_OPT) \

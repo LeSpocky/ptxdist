@@ -45,7 +45,7 @@ ifdef PTXCONF_VULKAN_TOOLS_CUBE
 VULKAN_TOOLS_CONF_OPT	+= \
 	-DCUBE_WSI_SELECTION=$(call ptx/ifdef, PTXCONF_VULKAN_TOOLS_WAYLAND, WAYLAND, \
 			$(call ptx/ifdef, PTXCONF_VULKAN_TOOLS_XCB, XCB, DISPLAY)) \
-	-DGLSLANG_INSTALL_DIR=$(PTXDIST_SYSROOT_HOST)/bin
+	-DGLSLANG_INSTALL_DIR=$(PTXDIST_SYSROOT_HOST)/usr/bin
 endif
 
 # ----------------------------------------------------------------------------
