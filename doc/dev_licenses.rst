@@ -195,7 +195,7 @@ Adding license files to PTXdist packages
 
 The SPDX license identifier of the package goes into the ``<PKG>_LICENSE``
 variable in the respective package rule file.
-All relevant files identified in the steps above are then added to the variable ``<PKG>_LICENSE``,
+All relevant files identified in the steps above are then added to the variable ``<PKG>_LICENSE_FILES``,
 including a checksum so that PTXdist complains when they change.
 
 Example:
