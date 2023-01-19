@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20221214
-LINUX_FIRMWARE_MD5	:= 93ba47547b9c2e538d11de95405939b2
+LINUX_FIRMWARE_VERSION	:= 20230117
+LINUX_FIRMWARE_MD5	:= 0e8cabf84ff6c034113df5816e6d2414
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -62,7 +62,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.ralink_a_mediatek_company_firmware;md5=728f1a85fd53fd67fa8d7afb080bc435 \
 	file://LICENCE.ti-keystone;md5=3a86335d32864b0bef996bee26cc0f2c \
 	file://LICENSE.amd-sev;md5=e750538791a8be0b7249c579edefb035 \
-	file://LICENSE.amdgpu;md5=44c1166d052226cb2d6c8d7400090203 \
+	file://LICENSE.amdgpu;md5=a2589a05ea5b6bd2b7f4f623c7e7a649 \
 	file://LICENSE.nxp;md5=cca321ca1524d6a1e4fed87486cd82dc \
 	file://LICENCE.agere;md5=af0133de6b4a9b2522defd5f188afd31 \
 	file://LICENCE.siano;md5=4556c1bf830067f12ca151ad953ec2a5 \
@@ -82,6 +82,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENSE.Lontium;md5=4ec8dc582ff7295f39e2ca6a7b0be2b6 \
 	file://LICENCE.rockchip;md5=5fd70190c5ed39734baceada8ecced26 \
 	file://LICENCE.it913x;md5=1fbf727bfb6a949810c4dbfa7e6ce4f8 \
+	file://LICENSE.qcom_yamato;md5=d0de0eeccaf1843a850bf7a6777eec5c \
 	file://LICENCE.OLPC;md5=5b917f9d8c061991be4f6f5f108719cd \
 	file://LICENCE.qat_firmware;md5=9e7d8bea77612d7cc7d9e9b54b623062 \
 	file://LICENSE.ice;md5=742ab4850f2670792940e6d15c974b2f \
