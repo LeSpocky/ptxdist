@@ -100,7 +100,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dtest=disabled \
 	-Dtests=disabled \
 	-Dudev=enabled \
-	-Dudevrulesdir= \
+	-Dudevrulesdir=/usr/lib/udev/rules.d \
 	-Dv4l2=enabled \
 	-Dvideoconvert=disabled \
 	-Dvideotestsrc=enabled \
@@ -225,6 +225,8 @@ endif
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/minimal.conf)
 
 	@$(call install_tree, pipewire, 0, 0, -, /usr/share/alsa-card-profile)
+	@$(call install_alternative, pipewire, 0, 0, 644, \
+		/usr/lib/udev/rules.d/90-pipewire-alsa.rules)
 ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire-pulse.conf)
 endif
