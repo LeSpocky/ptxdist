@@ -11,6 +11,7 @@ menuconfig NEATVNC
 	select LIBDRM		if BUILDTIME
 	select MESALIB		if NEATVNC_GBM
 	select MESALIB_GBM	if NEATVNC_GBM
+	select GNUTLS		if NEATVNC_TLS
 	prompt "neatvnc"
 	help
 	  VNC Server library
@@ -30,5 +31,9 @@ config NEATVNC_OPENH264
 	# needs openh264
 	depends on BROKEN
 	prompt "enable open h264 encoding"
+
+config NEATVNC_TLS
+	bool
+	prompt "enable encryption and authentication"
 
 endif

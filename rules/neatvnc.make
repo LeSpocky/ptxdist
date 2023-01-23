@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NEATVNC) += neatvnc
 #
 # Paths and names
 #
-NEATVNC_VERSION	:= 0.5.4
-NEATVNC_MD5	:= 10a3cfdd13ea962b6ca977efa21233d9
+NEATVNC_VERSION	:= 0.6.0
+NEATVNC_MD5	:= 3a43fa75904990c023794b6057006c85
 NEATVNC		:= neatvnc-$(NEATVNC_VERSION)
 NEATVNC_SUFFIX	:= tar.gz
 NEATVNC_URL	:= https://github.com/any1/neatvnc/archive/refs/tags/v$(NEATVNC_VERSION).$(NEATVNC_SUFFIX)
@@ -40,7 +40,7 @@ NEATVNC_CONF_OPT	:=  \
 	-Djpeg=$(call ptx/endis,PTXCONF_NEATVNC_JPEG)d \
 	-Dsystemtap=false \
 	-Dtests=false \
-	-Dtls=disabled
+	-Dtls=$(call ptx/endis,PTXCONF_NEATVNC_TLS)d
 
 # ----------------------------------------------------------------------------
 # Target-Install
