@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_OPENVPN) += openvpn
 #
 # Paths and names
 #
-OPENVPN_VERSION		:= 2.5.6
-OPENVPN_MD5		:= 434f02d3b371bf1dcd1e618e56969a4c
+OPENVPN_VERSION		:= 2.5.8
+OPENVPN_MD5		:= 8c1181a2baaa25b36e4aa67161c2829e
 OPENVPN			:= openvpn-$(OPENVPN_VERSION)
 OPENVPN_SUFFIX		:= tar.gz
 OPENVPN_URL		:= https://swupdate.openvpn.org/community/releases/$(OPENVPN).$(OPENVPN_SUFFIX)
@@ -81,7 +81,9 @@ OPENVPN_CONF_OPT	:= \
 	--disable-selinux \
 	--$(call ptx/endis, PTXCONF_OPENVPN_SYSTEMD)-systemd \
 	--disable-async-push \
-	--with-crypto-library=openssl
+	--disable-unit-tests \
+	--with-crypto-library=openssl \
+	--with-openssl-engine
 
 OPENVPN_INSTALL_SAMPLE_CONFIG_FILES := \
 	client.conf loopback-client loopback-server README server.conf \
