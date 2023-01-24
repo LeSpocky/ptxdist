@@ -14,6 +14,7 @@ menuconfig GST_PLUGINS_BAD1
 	select BZIP2_LIBBZ2		if GST_PLUGINS_BAD1_BZ2
 	select BLUEZ			if GST_PLUGINS_BAD1_BLUEZ
 	select BLUEZ_LIBBLUETOOTH	if GST_PLUGINS_BAD1_BLUEZ
+	select GTK			if GST_PLUGINS_BAD1_GTK3
 	select LCMS			if GST_PLUGINS_BAD1_COLORMANAGEMENT
 	select LIBCURL			if GST_PLUGINS_BAD1_CURL
 	select LIBCURL_LIBSSH2		if GST_PLUGINS_BAD1_CURL_SSH2
@@ -109,6 +110,10 @@ config GST_PLUGINS_BAD1_CAMERABIN2
 config GST_PLUGINS_BAD1_CODECALPHA
 	bool
 	prompt "codecalpha"
+
+config GST_PLUGINS_BAD1_CODECTIMESTAMPER
+	bool
+	prompt "codectimestamper"
 
 config GST_PLUGINS_BAD1_COLOREFFECTS
 	bool
@@ -338,6 +343,14 @@ config GST_PLUGINS_BAD1_AOM
 	help
 	  AOM AV1 video codec plugin
 
+config GST_PLUGINS_BAD1_AMFCODEC
+	bool
+	# needs amf
+	depends on BROKEN
+	prompt "amfcodec"
+	help
+	  AMD AMF codec plugin
+
 config GST_PLUGINS_BAD1_AVTP
 	bool
 	# needs avtp
@@ -516,6 +529,12 @@ config GST_PLUGINS_BAD1_GSM
 	prompt "gsm"
 	help
 	  GSM encoder/decoder plugin
+
+config GST_PLUGINS_BAD1_GTK3
+	bool
+	prompt "gtk3"
+	help
+	  GTK+ video sink plugin
 
 config GST_PLUGINS_BAD1_HLS
 	bool
@@ -712,6 +731,12 @@ config GST_PLUGINS_BAD1_QROVERLAY
 	prompt "qroverlay"
 	help
 	  QR code overlay plugin
+
+config GST_PLUGINS_BAD1_QSV
+	bool
+	prompt "qsv"
+	help
+	  Intel Quick Sync Video plugin
 
 config GST_PLUGINS_BAD1_RESINDVD
 	bool
