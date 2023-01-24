@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GSTREAMER_VAAPI1) += gstreamer-vaapi1
 #
 # Paths and names
 #
-GSTREAMER_VAAPI1_VERSION	:= 1.20.5
-GSTREAMER_VAAPI1_MD5		:= 5d3b1840a6c0a27f3f3e75bfdec9d0b4
+GSTREAMER_VAAPI1_VERSION	:= 1.22.0
+GSTREAMER_VAAPI1_MD5		:= 49857ccda7c14cbb64769a60058708f9
 GSTREAMER_VAAPI1		:= gstreamer-vaapi-$(GSTREAMER_VAAPI1_VERSION)
 GSTREAMER_VAAPI1_SUFFIX		:= tar.xz
 GSTREAMER_VAAPI1_URL		:= http://gstreamer.freedesktop.org/src/gstreamer-vaapi/$(GSTREAMER_VAAPI1).$(GSTREAMER_VAAPI1_SUFFIX)
@@ -34,15 +34,15 @@ GSTREAMER_VAAPI1_CONF_TOOL	:= meson
 GSTREAMER_VAAPI1_CONF_OPT	= \
 	$(CROSS_MESON_USR) \
 	-Ddoc=disabled \
+	-Ddrm=enabled \
+	-Degl=$(call ptx/endis, PTXCONF_GSTREAMER_VAAPI1_OPENGL)d \
+	-Dencoders=enabled \
 	-Dexamples=disabled \
+	-Dglx=$(call ptx/endis, PTXCONF_GSTREAMER_VAAPI1_GLX)d \
 	-Dpackage-origin=PTXdist \
 	-Dtests=disabled \
-	-Dwith_drm=yes \
-	-Dwith_egl=$(call ptx/yesno, PTXCONF_GSTREAMER_VAAPI1_OPENGL) \
-	-Dwith_encoders=yes \
-	-Dwith_glx=$(call ptx/yesno, PTXCONF_GSTREAMER_VAAPI1_GLX) \
-	-Dwith_wayland=$(call ptx/yesno, PTXCONF_GSTREAMER_VAAPI1_WAYLAND) \
-	-Dwith_x11=$(call ptx/yesno, PTXCONF_GSTREAMER_VAAPI1_X11) \
+	-Dwayland=$(call ptx/endis, PTXCONF_GSTREAMER_VAAPI1_WAYLAND)d \
+	-Dx11=$(call ptx/endis, PTXCONF_GSTREAMER_VAAPI1_X11)d
 
 # ----------------------------------------------------------------------------
 # Target-Install
