@@ -27,6 +27,11 @@ menuconfig GST_PLUGINS_GOOD1
 	select QT5_MODULE_QTDECLARATIVE	if GST_PLUGINS_GOOD1_QT5
 	select LIBSHOUT			if GST_PLUGINS_GOOD1_SHOUT2
 	select LIBSOUP			if GST_PLUGINS_GOOD1_SOUP
+	select LIBSOUP			if GST_PLUGINS_GOOD1_ADAPTIVEDEMUX2 && RUNTIME
+	select LIBXML2			if GST_PLUGINS_GOOD1_ADAPTIVEDEMUX2
+	select LIBGCRYPT		if GST_PLUGINS_GOOD1_HLS_CRYPTO_GCRYPT
+	select NETTLE			if GST_PLUGINS_GOOD1_HLS_CRYPTO_NETTLE
+	select OPENSSL			if GST_PLUGINS_GOOD1_HLS_CRYPTO_OPENSSL
 	select SYSTEMD			if GST_PLUGINS_GOOD1_V4L2 && GST_PLUGINS_GOOD1_SYSTEMD && RUNTIME
 	select SYSTEMD_UDEV_PERSISTENT_V4L	if GST_PLUGINS_GOOD1_V4L2 && GST_PLUGINS_GOOD1_SYSTEMD && RUNTIME
 	select SPEEX			if GST_PLUGINS_GOOD1_SPEEX
@@ -224,11 +229,45 @@ config GST_PLUGINS_GOOD1_WAVPARSE
 	bool
 	prompt "wavparse"
 
+config GST_PLUGINS_GOOD1_XINGMUX
+	bool
+	prompt "xingmux"
+
 config GST_PLUGINS_GOOD1_Y4M
 	bool
 	prompt "y4m"
 
 comment "plugins with dependencies"
+
+config GST_PLUGINS_GOOD1_ADAPTIVEDEMUX2
+	bool
+	prompt "adaptivedemux2"
+	help
+	  2nd generation adaptive demuxer plugin
+
+if GST_PLUGINS_GOOD1_ADAPTIVEDEMUX2
+
+choice
+	prompt "Crypto library to use for HLS plugin"
+
+	config GST_PLUGINS_GOOD1_HLS_CRYPTO_NETTLE
+	bool "nettle"
+
+	config GST_PLUGINS_GOOD1_HLS_CRYPTO_GCRYPT
+	bool "gcrypt"
+
+	config GST_PLUGINS_GOOD1_HLS_CRYPTO_OPENSSL
+	bool "openssl"
+endchoice
+
+endif
+
+config GST_PLUGINS_GOOD1_HLS_CRYPTO
+	string
+	default "nettle"	if GST_PLUGINS_GOOD1_HLS_CRYPTO_NETTLE
+	default "gcrypt"	if GST_PLUGINS_GOOD1_HLS_CRYPTO_GCRYPT
+	default "openssl"	if GST_PLUGINS_GOOD1_HLS_CRYPTO_OPENSSL
+	default "auto"
 
 config GST_PLUGINS_GOOD1_AALIB
 	bool
@@ -339,6 +378,14 @@ config GST_PLUGINS_GOOD1_QT5
 	prompt "qt5"
 	help
 	  Qt5 QML video sink plugin
+
+config GST_PLUGINS_GOOD1_QT6
+	bool
+	# needs qt6
+	depends on BROKEN
+	prompt "qt6"
+	help
+	  Qt6 QML video sink plugin
 
 config GST_PLUGINS_GOOD1_SHOUT2
 	bool
