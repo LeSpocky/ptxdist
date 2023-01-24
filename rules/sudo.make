@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_SUDO) += sudo
 #
 # Paths and names
 #
-SUDO_VERSION	:= 1.9.5p2
-SUDO_MD5	:= e6bc4c18c06346e6b3431637a2b5f3d5
+SUDO_VERSION	:= 1.9.12p2
+SUDO_MD5	:= 2c67b10f2aca4698eef0491142653382
 SUDO		:= sudo-$(SUDO_VERSION)
 SUDO_SUFFIX	:= tar.gz
 SUDO_URL	:= \
@@ -25,7 +25,7 @@ SUDO_URL	:= \
 SUDO_SOURCE	:= $(SRCDIR)/$(SUDO).$(SUDO_SUFFIX)
 SUDO_DIR	:= $(BUILDDIR)/$(SUDO)
 SUDO_LICENSE	:= ISC AND BSD-3-Clause AND BSD-2-Clause-NetBSD AND Zlib
-SUDO_LICENSE_FILES := file://doc/LICENSE;md5=fdff64d4fd19126330aa81b94d167173
+SUDO_LICENSE_FILES := file://LICENSE.md;md5=7aacba499777b719416b293d16f29c8c
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -63,7 +63,6 @@ SUDO_CONF_OPT	:= \
 	--disable-gcrypt \
 	--enable-hardening \
 	--enable-pie \
-	--disable-asan \
 	--enable-poll \
 	--disable-admin-flag \
 	--disable-nls \
