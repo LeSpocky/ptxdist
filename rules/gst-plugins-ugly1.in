@@ -38,10 +38,6 @@ config GST_PLUGINS_UGLY1_REALMEDIA
 	bool
 	prompt "realmedia"
 
-config GST_PLUGINS_UGLY1_XINGMUX
-	bool
-	prompt "xingmux"
-
 comment "plugins with dependencies"
 
 config GST_PLUGINS_UGLY1_A52DEC
