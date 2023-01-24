@@ -18,14 +18,14 @@ PACKAGES-$(PTXCONF_PHP8) += php8
 #
 # Paths and names
 #
-PHP8_VERSION	:= 8.1.6
-PHP8_MD5	:= 943eae7f07c2056ce87478e7d6c0cbbb
+PHP8_VERSION	:= 8.2.1
+PHP8_MD5	:= b30961d64b35fe4c6727ee3add54d16e
 PHP8		:= php-$(PHP8_VERSION)
 PHP8_SUFFIX	:= tar.xz
 PHP8_SOURCE	:= $(SRCDIR)/$(PHP8).$(PHP8_SUFFIX)
 PHP8_DIR	:= $(BUILDDIR)/$(PHP8)
 PHP8_LICENSE 	:= PHP-3.01
-PHP8_LICENSE_FILES := file://LICENSE;md5=99532e0f6620bc9bca34f12fadaee33c
+PHP8_LICENSE_FILES := file://LICENSE;md5=5ebd5be8e2a89f634486445bd164bef0
 
 #
 # Note: older releases are moved to the 'museum', but the 'de.php.net'
@@ -51,6 +51,7 @@ PHP8_CONF_OPT := \
 	--disable-gcc-global-regs \
 	--without-apxs2 \
 	--$(call ptx/endis, PTXCONF_PHP8_SAPI_CLI)-cli \
+	--without-pear \
 	--disable-embed \
 	--disable-fpm \
 	--without-fpm-user \
@@ -58,8 +59,8 @@ PHP8_CONF_OPT := \
 	--without-fpm-systemd \
 	--without-fpm-acl \
 	--without-fpm-apparmor \
+	--without-fpm-selinux \
 	--disable-fuzzer \
-	--disable-fuzzer-msan \
 	--disable-litespeed \
 	--disable-phpdbg \
 	--disable-phpdbg-debug \
@@ -113,6 +114,7 @@ PHP8_CONF_OPT := \
 	--without-cdb \
 	--disable-inifile \
 	--disable-flatfile \
+	--disable-dl-test \
 	--disable-dom \
 	--without-enchant \
 	--disable-exif \
