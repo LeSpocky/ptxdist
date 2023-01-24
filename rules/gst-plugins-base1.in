@@ -38,6 +38,7 @@ menuconfig GST_PLUGINS_BASE1
 	# x features need libx11 + Xv
 	select XORG			if GST_PLUGINS_BASE1_X
 	select XORG_LIB_X11		if GST_PLUGINS_BASE1_X
+	select XORG_LIB_XI		if GST_PLUGINS_BASE1_X
 	select XORG_LIB_XV		if GST_PLUGINS_BASE1_X
 	prompt "gst-plugins-base              "
 	help
@@ -125,17 +126,13 @@ config GST_PLUGINS_BASE1_TYPEFIND
 	bool
 	prompt "typefind"
 
-config GST_PLUGINS_BASE1_VIDEOCONVERT
+config GST_PLUGINS_BASE1_VIDEOCONVERTSCALE
 	bool
-	prompt "videoconvert"
+	prompt "videoconvertscale"
 
 config GST_PLUGINS_BASE1_VIDEORATE
 	bool
 	prompt "videorate"
-
-config GST_PLUGINS_BASE1_VIDEOSCALE
-	bool
-	prompt "videoscale"
 
 config GST_PLUGINS_BASE1_VIDEOTESTSRC
 	bool
