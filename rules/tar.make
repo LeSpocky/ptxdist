@@ -14,14 +14,15 @@ PACKAGES-$(PTXCONF_TAR) += tar
 #
 # Paths and names
 #
-TAR_VERSION	:= 1.30
-TAR_MD5		:= 2d01c6cd1387be98f57a0ec4e6e35826
+TAR_VERSION	:= 1.34
+TAR_MD5		:= 9a08d29a9ac4727130b5708347c0f5cf
 TAR		:= tar-$(TAR_VERSION)
 TAR_SUFFIX	:= tar.xz
 TAR_URL		:= $(call ptx/mirror, GNU, tar/$(TAR).$(TAR_SUFFIX))
 TAR_SOURCE	:= $(SRCDIR)/$(TAR).$(TAR_SUFFIX)
 TAR_DIR		:= $(BUILDDIR)/$(TAR)
 TAR_LICENSE	:= GPL-3.0-or-later
+TAR_LICENSE_FILES := file://COPYING;md5=d32239bcb673463ab874e80d47fae504
 
 # ----------------------------------------------------------------------------
 # Prepare
