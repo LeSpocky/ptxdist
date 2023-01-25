@@ -62,7 +62,10 @@ $(STATEDIR)/host-python3.prepare:
 	@$(call targetinfo)
 	@$(call world/prepare, HOST_PYTHON3)
 #	# make sure SOABI for host and target never match
-	@sed -i 's;\(\(EXT_SUFFIX\|SOABI\)=.*\)linux-gnu\>;\1host-gnu;' \
+#	# make sure libffi is detected correctly
+	@sed -i \
+		-e 's;\(\(EXT_SUFFIX\|SOABI\)=.*\)linux-gnu\>;\1host-gnu;' \
+		-e "s;LIBFFI_INCLUDEDIR=*;LIBFFI_INCLUDEDIR=$(PTXDIST_SYSROOT_HOST)/usr/include;" \
 		$(HOST_PYTHON3_DIR)/Makefile
 	@$(call touch)
 
