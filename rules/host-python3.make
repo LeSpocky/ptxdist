@@ -39,7 +39,6 @@ HOST_PYTHON3_CONF_TOOL	:= autoconf
 # Needed for setup.py to find things in sysroot-host
 HOST_PYTHON3_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
-	--includedir=$(PTXDIST_SYSROOT_HOST)/usr/include \
 	--enable-shared \
 	--disable-profiling \
 	--disable-optimizations \
@@ -71,11 +70,6 @@ $(STATEDIR)/host-python3.prepare:
 # Install
 # ----------------------------------------------------------------------------
 
-# reset INCLUDEDIR for the installation
-HOST_PYTHON3_INSTALL_OPT := \
-	INCLUDEDIR=/usr/include \
-	install
-
 $(STATEDIR)/host-python3.install:
 	@$(call targetinfo)
 	@$(call world/install, HOST_PYTHON3)
@@ -89,13 +83,6 @@ $(STATEDIR)/host-python3.install:
 	@rm -v \
 		"$(HOST_PYTHON3_PKGDIR)/usr/bin/python3" \
 		"$(HOST_PYTHON3_PKGDIR)/usr/bin/python3-config"
-	@$(call touch)
-
-$(STATEDIR)/host-python3.install.post:
-	@$(call targetinfo)
-	@$(call world/install.post, HOST_PYTHON3)
-	@sed -i 's;prefix_build="";prefix_build="$(PTXDIST_SYSROOT_HOST)/usr";' \
-		$(PTXDIST_SYSROOT_HOST)/usr/bin/python3*-config
 	@$(call touch)
 
 # vim: syntax=make
