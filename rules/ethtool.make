@@ -36,6 +36,11 @@ ETHTOOL_CONF_OPT  := \
 	--enable-pretty-dump \
 	--enable-netlink
 
+ifdef PTXCONF_KERNEL_HEADER
+ETHTOOL_CPPFLAGS  := \
+	-isystem $(KERNEL_HEADERS_INCLUDE_DIR)
+endif
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
