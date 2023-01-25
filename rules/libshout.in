@@ -4,6 +4,7 @@ menuconfig LIBSHOUT
 	tristate
 	prompt "libshout                      "
 	select LIBVORBIS
+	select OPENSSL
 	select LIBTHEORA	if LIBSHOUT_THEORA
 	select SPEEX		if LIBSHOUT_SPEEX
 	help

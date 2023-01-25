@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBSHOUT) += libshout
 #
 # Paths and names
 #
-LIBSHOUT_VERSION	:= 2.3.1
-LIBSHOUT_MD5		:= 11765b2592e7ea623ccd93d3f8df172c
+LIBSHOUT_VERSION	:= 2.4.6
+LIBSHOUT_MD5		:= 4a66a369a01ce790e578221fa2c8ea60
 LIBSHOUT		:= libshout-$(LIBSHOUT_VERSION)
 LIBSHOUT_SUFFIX		:= tar.gz
 LIBSHOUT_URL		:= http://downloads.xiph.org/releases/libshout/$(LIBSHOUT).$(LIBSHOUT_SUFFIX)
@@ -33,7 +33,10 @@ LIBSHOUT_LICENSE	:= LGPL-2.0-or-later
 LIBSHOUT_CONF_TOOL	:= autoconf
 LIBSHOUT_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-examples \
+	--disable-tools \
 	--enable-thread \
+	--enable-vorbis \
 	--$(call ptx/endis, PTXCONF_LIBSHOUT_THEORA)-theora \
 	--$(call ptx/endis, PTXCONF_LIBSHOUT_SPEEX)-speex
 
