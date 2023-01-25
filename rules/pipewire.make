@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.60
-PIPEWIRE_MD5		:= 3b77c023fef647f848fb4189349bde80
+PIPEWIRE_VERSION	:= 0.3.64
+PIPEWIRE_MD5		:= e37730d11bd0c923e423f0a369826fd4
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -66,6 +66,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dexamples=enabled \
 	-Dffmpeg=disabled \
 	-Dflatpak=disabled \
+	-Dgsettings=disabled \
 	-Dgstreamer=$(call ptx/endis,PTXCONF_PIPEWIRE_GSTREAMER)d \
 	-Dgstreamer-device-provider=$(call ptx/endis,PTXCONF_PIPEWIRE_GSTREAMER)d \
 	-Dinstalled_tests=disabled \
