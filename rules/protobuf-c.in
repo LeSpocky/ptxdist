@@ -1,0 +1,13 @@
+## SECTION=system_libraries
+
+config PROTOBUF_C
+	tristate
+	select HOST_PROTOBUF_C
+	prompt "protobuf-c                    "
+	help
+	  A C implementation of the Protocol Buffers data serialization
+	  format.
+
+	  NOTE: This installs the libprotobuf-c shared library for the
+	  target.  The host package includes the code generator plug-in
+	  for the protoc command.

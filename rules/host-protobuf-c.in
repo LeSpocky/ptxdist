@@ -1,0 +1,6 @@
+## SECTION=hosttools_noprompt
+
+config HOST_PROTOBUF_C
+	tristate
+	select HOST_PROTOBUF
+	default y if ALLYES
