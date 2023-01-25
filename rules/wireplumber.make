@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WIREPLUMBER) += wireplumber
 #
 # Paths and names
 #
-WIREPLUMBER_VERSION		:= 0.4.12
-WIREPLUMBER_MD5			:= 86dacf1649f64e83de99b11b693dee4f
+WIREPLUMBER_VERSION		:= 0.4.13
+WIREPLUMBER_MD5			:= ce7d3c388116ea893790204d3ae9e836
 WIREPLUMBER			:= wireplumber-$(WIREPLUMBER_VERSION)
 WIREPLUMBER_SUFFIX		:= tar.bz2
 WIREPLUMBER_URL			:= https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/$(WIREPLUMBER_VERSION)/$(WIREPLUMBER).$(WIREPLUMBER_SUFFIX)
@@ -34,10 +34,13 @@ WIREPLUMBER_LICENSE_FILES	:= file://LICENSE;md5=17d1fe479cdec331eecbc65d26bc7e77
 WIREPLUMBER_CONF_TOOL	:= meson
 WIREPLUMBER_CONF_OPT	:=  \
 	$(CROSS_MESON_USR) \
+	-Ddaemon=true \
+	-Ddbus-tests=false \
 	-Ddoc=disabled \
 	-Delogind=disabled \
 	-Dglib-supp= \
 	-Dintrospection=disabled \
+	-Dmodules=true \
 	-Dsystem-lua=true \
 	-Dsystem-lua-version=auto \
 	-Dsystemd=$(call ptx/endis,PTXCONF_WIREPLUMBER_SYSTEMD)d \
@@ -45,7 +48,8 @@ WIREPLUMBER_CONF_OPT	:=  \
 	-Dsystemd-system-unit-dir=/usr/lib/systemd/system \
 	-Dsystemd-user-service=$(call ptx/truefalse,PTXCONF_WIREPLUMBER_SYSTEMD_UNIT_USER) \
 	-Dsystemd-user-unit-dir=/usr/lib/systemd/user \
-	-Dtests=false
+	-Dtests=false \
+	-Dtools=true
 
 # ----------------------------------------------------------------------------
 # Target-Install
