@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WAYVNC) += wayvnc
 #
 # Paths and names
 #
-WAYVNC_VERSION	:= 0.5.0
-WAYVNC_MD5	:= 0ae3b19a8354c656f5c96e19f9ccaea5
+WAYVNC_VERSION	:= 0.6.1
+WAYVNC_MD5	:= 96c00a2c18177b3b0a2df07a2303d35c
 WAYVNC		:= wayvnc-$(WAYVNC_VERSION)
 WAYVNC_SUFFIX	:= tar.gz
 WAYVNC_URL	:= https://github.com/any1/wayvnc/archive/refs/tags/v$(WAYVNC_VERSION).$(WAYVNC_SUFFIX)
@@ -36,7 +36,8 @@ WAYVNC_CONF_OPT	:=  \
 	-Dman-pages=disabled \
 	-Dpam=disabled \
 	-Dscreencopy-dmabuf=$(call ptx/endis,PTXCONF_WAYVNC_SCREENCOPY_DMABUF)d \
-	-Dsystemtap=false
+	-Dsystemtap=false \
+	-Dtests=false
 
 # ----------------------------------------------------------------------------
 # Target-Install

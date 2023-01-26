@@ -4,6 +4,7 @@ menuconfig WAYVNC
 	tristate
 	select HOST_MESON
 	select AML
+	select JANSSON
 	select LIBDRM
 	select LIBXKBCOMMON
 	select NEATVNC
