@@ -1,0 +1,24 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 27 Jan 2023 10:02:38 +0100
+Subject: [PATCH] don't try to change ld.so.conf or run ldconfig
+
+It's unnecessary and doesn't work.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ Makefile | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 38a324445c9b..4c32b5046cc5 100644
+--- a/Makefile
++++ b/Makefile
+@@ -99,8 +99,6 @@ installsharedlib: $(SHAREDLIBS) $(SVGALIBSHAREDSTUBS)
+ 		(cd $(sharedlibdir); \
+ 		 ln -sf $$foo `echo $$foo | sed 's/\.so\..*/.so/'` ); \
+ 	done
+-	@./fixldsoconf
+-	-ldconfig
+ 
+ installstaticlib: static
+ 	@echo Installing static libraries in $(libdir).

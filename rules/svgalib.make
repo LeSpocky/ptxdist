@@ -52,23 +52,20 @@ endif
 # Install
 # ----------------------------------------------------------------------------
 
+SVGALIB_INSTALL_OPT	:= \
+	prefix=$(SVGALIB_PKGDIR)/usr \
+	datadir=$(SVGALIB_PKGDIR)/etc/vga \
+	installheaders \
+	installsharedlib \
+	installconfig
+
 $(STATEDIR)/svgalib.install:
 	@$(call targetinfo)
-	mkdir -p $(SVGALIB_PKGDIR)/usr/lib
-	cp "$(SVGALIB_DIR)/sharedlib/libvga.so.$(SVGALIB_VERSION)" "$(SVGALIB_PKGDIR)/usr/lib"
-	ln -sf libvga.so.$(SVGALIB_VERSION) $(SVGALIB_PKGDIR)/usr/lib/libvga.so.1
-	ln -sf libvga.so.$(SVGALIB_VERSION) $(SVGALIB_PKGDIR)/usr/lib/libvga.so
-	cp "$(SVGALIB_DIR)/sharedlib/libvgagl.so.$(SVGALIB_VERSION)" "$(SVGALIB_PKGDIR)/usr/lib"
-	ln -sf libvgagl.so.$(SVGALIB_VERSION) $(SVGALIB_PKGDIR)/usr/lib/libvgagl.so.1
-	ln -sf libvgagl.so.$(SVGALIB_VERSION) $(SVGALIB_PKGDIR)/usr/lib/libvgagl.so
+	@$(call world/install, SVGALIB)
 ifdef PTXCONF_SVGALIB_VGATEST
-	mkdir -p $(SVGALIB_PKGDIR)/usr/bin
-	cp "$(SVGALIB_DIR)/demos/vgatest" "$(SVGALIB_PKGDIR)/usr/bin/vgatest"
+	@install -vd -m755 $(SVGALIB_PKGDIR)/usr/bin
+	install -vD -m755  $(SVGALIB_DIR)/demos/vgatest $(SVGALIB_PKGDIR)/usr/bin/vgatest
 endif
-	install -d $(SYSROOT)/include
-	install $(SVGALIB_DIR)/include/vga.h $(SYSROOT)/include
-	install $(SVGALIB_DIR)/include/vgamouse.h $(SYSROOT)/include
-	install $(SVGALIB_DIR)/include/vgakeyboard.h $(SYSROOT)/include
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
