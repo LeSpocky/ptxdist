@@ -38,6 +38,9 @@ OPTEE_TEST_MAKE_ENV	:= \
 	OPTEE_CLIENT_EXPORT=$(PTXDIST_SYSROOT_TARGET)/usr \
 	COMPILE_NS_USER=32 OPTEE_OPENSSL_EXPORT=$(PTXDIST_SYSROOT_TARGET)/usr/lib
 
+OPTEE_TEST_CFLAGS	:= \
+	-Wno-error=deprecated-declarations
+
 # ----------------------------------------------------------------------------
 # Install
 # ----------------------------------------------------------------------------
