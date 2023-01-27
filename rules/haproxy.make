@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_HAPROXY) += haproxy
 #
 # Paths and names
 #
-HAPROXY_VERSION		:= 2.1.6
-HAPROXY_MD5		:= 95ffd25fc6b57b4f1650322a7587f972
+HAPROXY_VERSION		:= 2.7.2
+HAPROXY_MD5		:= 0b6e16bbc45cb65e7d5b43d6ed1ff071
 HAPROXY			:= haproxy-$(HAPROXY_VERSION)
 HAPROXY_SUFFIX		:= tar.gz
 HAPROXY_URL		:= https://www.haproxy.org/download/$(basename $(HAPROXY_VERSION))/src/$(HAPROXY).$(HAPROXY_SUFFIX)
@@ -60,7 +60,7 @@ HAPROXY_INSTALL_OPT	:= \
 $(STATEDIR)/haproxy.compile:
 	@$(call targetinfo)
 	@$(call world/compile, HAPROXY)
-	@$(call compile, HAPROXY, -C contrib/systemd $(HAPROXY_MAKE_OPT))
+	@$(call compile, HAPROXY, -C admin/systemd $(HAPROXY_MAKE_OPT))
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
@@ -70,7 +70,7 @@ $(STATEDIR)/haproxy.compile:
 $(STATEDIR)/haproxy.install:
 	@$(call targetinfo)
 	@$(call world/install, HAPROXY)
-	@install -v -D -m644 $(HAPROXY_DIR)/contrib/systemd/haproxy.service \
+	@install -v -D -m644 $(HAPROXY_DIR)/admin/systemd/haproxy.service \
 		$(HAPROXY_PKGDIR)/usr/lib/systemd/system/haproxy.service
 	@$(call touch)
 
