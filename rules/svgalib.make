@@ -62,6 +62,8 @@ SVGALIB_INSTALL_OPT	:= \
 $(STATEDIR)/svgalib.install:
 	@$(call targetinfo)
 	@$(call world/install, SVGALIB)
+	@ln -sf libvga.so.$(SVGALIB_VERSION) $(SVGALIB_PKGDIR)/usr/lib/libvga.so.1
+	@ln -sf libvgagl.so.$(SVGALIB_VERSION) $(SVGALIB_PKGDIR)/usr/lib/libvgagl.so.1
 ifdef PTXCONF_SVGALIB_VGATEST
 	@install -vd -m755 $(SVGALIB_PKGDIR)/usr/bin
 	install -vD -m755  $(SVGALIB_DIR)/demos/vgatest $(SVGALIB_PKGDIR)/usr/bin/vgatest
