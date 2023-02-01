@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.64
-PIPEWIRE_MD5		:= e37730d11bd0c923e423f0a369826fd4
+PIPEWIRE_VERSION	:= 0.3.65
+PIPEWIRE_MD5		:= 5c31850705cacd12398da01b9b11cfd0
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -57,6 +57,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dbluez5-codec-lc3plus=disabled \
 	-Dbluez5-codec-ldac=disabled \
 	-Dbluez5-codec-opus=disabled \
+	-Dcompress-offload=disabled \
 	-Dcontrol=enabled \
 	-Ddbus=enabled \
 	-Ddocdir= \
@@ -85,6 +86,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dpipewire-jack=disabled \
 	-Dpipewire-v4l2=disabled \
 	-Dpw-cat=enabled \
+	-Dpw-cat-ffmpeg=disabled \
 	-Draop=$(call ptx/endis,PTXCONF_PIPEWIRE_RAOP)d \
 	-Dreadline=$(call ptx/endis,PIPEWIRE_PW_CTL)d \
 	-Droc=disabled \
