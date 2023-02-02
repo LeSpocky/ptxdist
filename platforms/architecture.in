@@ -249,6 +249,17 @@ config ARCH_ARM_V6
 	  architecture version of ARMv6 or newer. Which is the case
 	  for the ARM11 and Cortex A Cores.
 
+config ARCH_ARM_V7
+	bool "arm architecture version >= ARMv7"
+	depends on ARCH_ARM
+	select ARCH_ARM_V6
+	help
+	  This options enables optimisation for ARMv6 cores.
+
+	  Select this if you have an arm processor with an
+	  architecture version of ARMv7. Which is the case
+	  for the Cortex A8 and later Cores.
+
 config ARCH_ARM_IWMMXT
 	bool "support iwmmxt extension"
 	depends on ARCH_ARM
@@ -267,6 +278,7 @@ config ARCH_ARM_NEON
 
 config ARCH_ARMV7_NEON
 	bool
+	select ARCH_ARM_V7
 	default ARCH_ARM_NEON if ARCH_ARM
 
 #
