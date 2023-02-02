@@ -519,13 +519,23 @@ QT6_CONF_OPT += \
 endif
 
 ifdef PTXCONF_QT6_MODULE_QTDECLARATIVE
+QT6_QML_JIT := ON
+ifdef PTXCONF_ARCH_ARM
+ifndef PTXCONF_ARCH_ARM_V7
+QT6_QML_JIT := OFF
+endif
+endif
+ifdef PTXCONF_ARCH_PPC
+QT6_QML_JIT := OFF
+endif
+
 QT6_CONF_OPT += \
 	-DFEATURE_qml_animation=ON \
 	-DFEATURE_qml_debug=ON \
 	-DFEATURE_qml_delegate_model=ON \
 	-DFEATURE_qml_devtools=$(call ptx/onoff,PTXCONF_QT6_MODULE_QTDECLARATIVE_DEBUG) \
 	-DFEATURE_qml_itemmodel=ON \
-	-DFEATURE_qml_jit=ON \
+	-DFEATURE_qml_jit=$(QT6_QML_JIT) \
 	-DFEATURE_qml_list_model=ON \
 	-DFEATURE_qml_locale=ON \
 	-DFEATURE_qml_network=ON \
