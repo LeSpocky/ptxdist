@@ -41,6 +41,31 @@ $(call ptx/error, Qt6 mkspecs are missing)
 endif
 endif
 
+# QtWebengine is not supported on PPC
+ifdef PTXCONF_ARCH_PPC
+PTXCONF_QT6_MODULE_QTWEBENGINE :=
+PTXCONF_QT6_MODULE_QTWEBENGINE_WIDGETS :=
+PTXCONF_QT6_MODULE_QTWEBVIEW :=
+endif
+
+# QtWebengine is not supported on 32-bit x86
+ifdef PTXCONF_ARCH_X86
+ifndef PTXCONF_ARCH_X86_64
+PTXCONF_QT6_MODULE_QTWEBENGINE :=
+PTXCONF_QT6_MODULE_QTWEBENGINE_WIDGETS :=
+PTXCONF_QT6_MODULE_QTWEBVIEW :=
+endif
+endif
+
+# QtWebEngine needs at least ARMv6
+ifdef PTXCONF_ARCH_ARM
+ifndef PTXCONF_ARCH_ARM_V6
+PTXCONF_QT6_MODULE_QTWEBENGINE :=
+PTXCONF_QT6_MODULE_QTWEBENGINE_WIDGETS :=
+PTXCONF_QT6_MODULE_QTWEBVIEW :=
+endif
+endif
+
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
