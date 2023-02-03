@@ -358,6 +358,43 @@ ptxd_make_world_lint_menu() {
 export -f ptxd_make_world_lint_menu
 PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} menu"
 
+ptxd_make_world_lint_arch() {
+
+    echo "Checking that toolchain and architecture settings match ..."
+
+    if echo | ptxd_cross_cc -dM -E - | grep -q __x86_64__; then
+	if ! ptxd_get_ptxconf PTXCONF_ARCH_X86_64; then
+	    ptxd_lint_error "x86-64 toolchain but PTXCONF_ARCH_X86_64 is not set"
+	fi
+	return
+    fi
+    if echo | ptxd_cross_cc -dM -E - | grep -q __i386__; then
+	if ! ptxd_get_ptxconf PTXCONF_ARCH_X86; then
+	    ptxd_lint_error "x86 toolchain but PTXCONF_ARCH_X86 is not set"
+	fi
+	if ptxd_get_ptxconf PTXCONF_ARCH_X86_64; then
+	    ptxd_lint_error "i*86 toolchain but PTXCONF_ARCH_X86_64 is set"
+	fi
+	return
+    fi
+    arm_arch="$(echo | ptxd_cross_cc -dM -E - | sed -n 's/#define __ARM_ARCH \(.*\)/\1/p')"
+    if [ -n "${arm_arch}" ]; then
+	if [ "${arm_arch}" = "7" -a -z "$(ptxd_get_ptxconf PTXCONF_ARCH_ARM_V7)" ]; then
+	    ptxd_lint_error "ARMv7 toolchain but PTXCONF_ARCH_ARM_V7 is not set"
+	elif [ "${arm_arch}" != "7" -a -n "$(ptxd_get_ptxconf PTXCONF_ARCH_ARM_V7)" ]; then
+	    ptxd_lint_error "ARMv${arm_arch} toolchain but PTXCONF_ARCH_ARM_V7 is set"
+	fi
+	if [ "${arm_arch}" = "6" -a -z "$(ptxd_get_ptxconf PTXCONF_ARCH_ARM_V6)" ]; then
+	    ptxd_lint_error "ARMv6 toolchain but PTXCONF_ARCH_ARM_V6 is not set"
+	elif [ "${arm_arch}" -lt 6 -a -n "$(ptxd_get_ptxconf PTXCONF_ARCH_ARM_V6)" ]; then
+	    ptxd_lint_error "ARMv${arm_arch} toolchain but PTXCONF_ARCH_ARM_V6 is set"
+	fi
+	return
+    fi
+}
+export -f ptxd_make_world_lint_arch
+PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} arch"
+
 ptxd_make_world_lint() {
     local command
 
