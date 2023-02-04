@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_C_ARES) += c-ares
 #
 # Paths and names
 #
-C_ARES_VERSION	:= 1.15.0
-C_ARES_MD5	:= d2391da274653f7643270623e822dff7
+C_ARES_VERSION	:= 1.19.0
+C_ARES_MD5	:= 2668790bc92603e292d0fbcb25ded39c
 C_ARES		:= c-ares-$(C_ARES_VERSION)
 C_ARES_SUFFIX	:= tar.gz
 C_ARES_URL	:= http://c-ares.haxx.se/download/$(C_ARES).$(C_ARES_SUFFIX)
@@ -39,7 +39,6 @@ C_ARES_CONF_OPT              := \
 	--enable-optimize \
 	--enable-warnings \
 	--disable-werror \
-	--disable-curldebug \
 	--enable-symbol-hiding \
 	--disable-expose-statics \
 	--disable-code-coverage \

@@ -25,7 +25,6 @@ HOST_C_ARES_CONF_OPT	:= \
 	--enable-optimize \
 	--enable-warnings \
 	--disable-werror \
-	--disable-curldebug \
 	--enable-symbol-hiding \
 	--disable-expose-statics \
 	--disable-code-coverage \
