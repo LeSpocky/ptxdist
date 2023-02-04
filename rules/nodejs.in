@@ -3,8 +3,9 @@
 config NODEJS
 	tristate
 	prompt "Node.js                       "
-	select HOST_SYSTEM_PYTHON
-	select HOST_NODEJS
+	select HOST_SYSTEM_PYTHON3
+	select HOST_QEMU
+	select HOST_QEMU_USR
 	select C_ARES
 	select LIBUV
 	select OPENSSL

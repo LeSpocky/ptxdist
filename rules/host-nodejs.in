@@ -3,7 +3,7 @@
 config HOST_NODEJS
 	tristate
 	default y if ALLYES
-	select HOST_SYSTEM_PYTHON
+	select HOST_SYSTEM_PYTHON3
 	select HOST_C_ARES
 	select HOST_OPENSSL
 	select HOST_ZLIB

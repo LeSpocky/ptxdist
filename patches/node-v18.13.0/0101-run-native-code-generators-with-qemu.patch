@@ -1,0 +1,69 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sat, 4 Feb 2023 16:18:21 +0100
+Subject: [PATCH] run native code generators with qemu
+
+Host tools cannot be used because they would generate code based on
+properties of the host architecture, e.g. pointer size.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ node.gyp                 | 1 +
+ tools/v8_gypfiles/v8.gyp | 5 +++++
+ 2 files changed, 6 insertions(+)
+
+diff --git a/node.gyp b/node.gyp
+index 1885a8d1ecb9..41dd702740c1 100644
+--- a/node.gyp
++++ b/node.gyp
+@@ -319,6 +319,7 @@
+                   'action_name': 'node_mksnapshot',
+                   'process_outputs_as_sources': 1,
+                   'inputs': [
++                    '<(PRODUCT_DIR)/tool-wrapper',
+                     '<(node_mksnapshot_exec)',
+                     '<(node_snapshot_main)',
+                   ],
+diff --git a/tools/v8_gypfiles/v8.gyp b/tools/v8_gypfiles/v8.gyp
+index fe658dbfc1d0..e50287d4c6af 100644
+--- a/tools/v8_gypfiles/v8.gyp
++++ b/tools/v8_gypfiles/v8.gyp
+@@ -68,6 +68,7 @@
+         {
+           'action_name': 'run_torque_action',
+           'inputs': [  # Order matters.
++            '<(PRODUCT_DIR)/tool-wrapper',
+             '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)torque<(EXECUTABLE_SUFFIX)',
+             '<@(torque_files)',
+           ],
+@@ -99,6 +100,7 @@
+             '<@(torque_outputs_inc)',
+           ],
+           'action': [
++            '<(PRODUCT_DIR)/tool-wrapper',
+             '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)torque<(EXECUTABLE_SUFFIX)',
+             '-o', '<(SHARED_INTERMEDIATE_DIR)/torque-generated',
+             '-v8-root', '<(V8_ROOT)',
+@@ -211,6 +213,7 @@
+         {
+           'action_name': 'generate_bytecode_builtins_list_action',
+           'inputs': [
++            '<(PRODUCT_DIR)/tool-wrapper',
+             '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)bytecode_builtins_list_generator<(EXECUTABLE_SUFFIX)',
+           ],
+           'outputs': [
+@@ -400,6 +403,7 @@
+             ],
+           },
+           'inputs': [
++            '<(PRODUCT_DIR)/tool-wrapper',
+             '<(mksnapshot_exec)',
+           ],
+           'outputs': [
+@@ -1537,6 +1541,7 @@
+         {
+           'action_name': 'run_gen-regexp-special-case_action',
+           'inputs': [
++            '<(PRODUCT_DIR)/tool-wrapper',
+             '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)gen-regexp-special-case<(EXECUTABLE_SUFFIX)',
+           ],
+           'outputs': [
