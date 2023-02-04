@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBCAP) += libcap
 #
 # Paths and names
 #
-LIBCAP_VERSION	:= 2.66
-LIBCAP_MD5	:= 00afd6e13bc94b2543b1a70770bdb41f
+LIBCAP_VERSION	:= 2.67
+LIBCAP_MD5	:= 06333f4301657298890fd8d6f1fb4793
 LIBCAP		:= libcap-$(LIBCAP_VERSION)
 LIBCAP_SUFFIX	:= tar.xz
 LIBCAP_URL	:= \
@@ -23,7 +23,7 @@ LIBCAP_URL	:= \
 LIBCAP_SOURCE	:= $(SRCDIR)/$(LIBCAP).$(LIBCAP_SUFFIX)
 LIBCAP_DIR	:= $(BUILDDIR)/$(LIBCAP)
 LIBCAP_LICENSE	:= BSD-3-Clause OR GPL-2.0-only
-LIBCAP_LICENSE_FILES := file://License;md5=e2370ba375efe9e1a095c26d37e483b8
+LIBCAP_LICENSE_FILES := file://License;md5=2965a646645b72ecee859b43c592dcaa
 
 # ----------------------------------------------------------------------------
 # Prepare
