@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_E2FSPROGS) += e2fsprogs
 #
 # Paths and names
 #
-E2FSPROGS_VERSION	:= 1.46.5
-E2FSPROGS_MD5		:= 3da91854c960ad8a819b48b2a404eb43
+E2FSPROGS_VERSION	:= 1.46.6
+E2FSPROGS_MD5		:= ffcc9cbcc9fac7efe3e52d41e36099f3
 E2FSPROGS		:= e2fsprogs-$(E2FSPROGS_VERSION)
 E2FSPROGS_SUFFIX	:= tar.gz
 E2FSPROGS_URL		:= $(call ptx/mirror, SF, e2fsprogs/e2fsprogs/v$(E2FSPROGS_VERSION)/$(E2FSPROGS).$(E2FSPROGS_SUFFIX))
@@ -37,6 +37,7 @@ E2FSPROGS_LICENSE_FILES	:= \
 E2FSPROGS_CONF_TOOL	:= autoconf
 E2FSPROGS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-symlink-install \
 	--disable-relative-symlinks \
 	--disable-symlink-build \
@@ -73,6 +74,7 @@ E2FSPROGS_CONF_OPT	:= \
 	--disable-ubsan \
 	--disable-addrsan \
 	--disable-threadsan \
+	--disable-fuzzing \
 	--with-pthread
 
 E2FSPROGS_MAKE_OPT	:= $(if $(filter 1,$(strip $(PTXDIST_VERBOSE))),V=1)
