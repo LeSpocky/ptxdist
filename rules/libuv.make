@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBUV) += libuv
 #
 # Paths and names
 #
-LIBUV_VERSION	:= 1.42.0
-LIBUV_MD5	:= 484dec4a06e183c20be815019ce9ddd0
+LIBUV_VERSION	:= 1.44.2
+LIBUV_MD5	:= 0addbddcb1098e2c1c99f03f0108e1e7
 LIBUV		:= libuv-v$(LIBUV_VERSION)
 LIBUV_SUFFIX	:= tar.gz
 LIBUV_URL	:= https://dist.libuv.org/dist/v$(LIBUV_VERSION)/$(LIBUV).$(LIBUV_SUFFIX)
