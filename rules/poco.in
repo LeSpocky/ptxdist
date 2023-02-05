@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 menuconfig POCO
 	tristate
@@ -18,6 +20,8 @@ menuconfig POCO
 	  libraries that simplify and accelerate the development of
 	  network-centric, portable applications in C++.
 
+	  STAGING: remove in PTXdist 2024.03.0
+	  Fails to build with OpenSSL 3.x, needs to be updated to a new version.
 
 if POCO
 
