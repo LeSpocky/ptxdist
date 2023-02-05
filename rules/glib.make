@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GLIB) += glib
 #
 # Paths and names
 #
-GLIB_VERSION	:= 2.74.4
-GLIB_MD5	:= a854964bbf295dcfa98afd210d7fbc39
+GLIB_VERSION	:= 2.74.5
+GLIB_MD5	:= 7561501d9f63f3418ddb23d2903cc968
 GLIB		:= glib-$(GLIB_VERSION)
 GLIB_SUFFIX	:= tar.xz
 GLIB_URL	:= $(call ptx/mirror, GNOME, glib/$(basename $(GLIB_VERSION))/$(GLIB).$(GLIB_SUFFIX))
