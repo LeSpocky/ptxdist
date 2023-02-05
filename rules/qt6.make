@@ -834,6 +834,14 @@ endif
 	@+$(call world/prepare, QT6)
 	@$(call touch)
 
+# some macro magic fails with icecc remote cpp on ARM64
+ifdef PTXCONF_ARCH_ARM64
+ifdef PTXCONF_QT6_MODULE_QTWEBENGINE
+QT6_MAKE_ENV := \
+	ICECC_REMOTE_CPP=0
+endif
+endif
+
 # ----------------------------------------------------------------------------
 # Install
 # ----------------------------------------------------------------------------
