@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBCAMERA) += libcamera
 #
 # Paths and names
 #
-LIBCAMERA_VERSION	:= 0.0.1
-LIBCAMERA_MD5		:= d428d7e7455e9cca763d313323043e7b
+LIBCAMERA_VERSION	:= 0.0.4
+LIBCAMERA_MD5		:= c671af5f54528c2dcc73f1c1fa733e50
 LIBCAMERA		:= libcamera-$(LIBCAMERA_VERSION)
 LIBCAMERA_SUFFIX	:= tar.gz
 LIBCAMERA_URL		:= https://git.libcamera.org/libcamera/libcamera.git;tag=v$(LIBCAMERA_VERSION)
