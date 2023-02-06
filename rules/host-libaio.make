@@ -17,6 +17,5 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBAIO) += host-libaio
 
 HOST_LIBAIO_CONF_TOOL	:= NO
 HOST_LIBAIO_MAKE_ENV	:= $(HOST_ENV)
-HOST_LIBAIO_MAKEVARS	:= prefix=/usr
 
 # vim: syntax=make
