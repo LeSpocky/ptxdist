@@ -35,7 +35,7 @@ LSHW_CONF_TOOL		:= NO
 # the "src" subdir avoids this.
 LSHW_SUBDIR		:= src
 
-LSHW_MAKE_ENV		:= $(CROSS_ENV)
+LSHW_MAKE_ENV		:= $(CROSS_ENV) VERSION=$(LSHW_VERSION)
 LSHW_MAKE_OPT		:= all
 LSHW_INSTALL_OPT	:= install
 
