@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FFMPEG) += ffmpeg
 #
 # Paths and names
 #
-FFMPEG_VERSION	:= 4.3.2
-FFMPEG_MD5	:= 29529337d9b8f794a6142db10b717ec5
+FFMPEG_VERSION	:= 5.1.2
+FFMPEG_MD5	:= fa847c43407315c27231b9f883e62c0e
 FFMPEG		:= ffmpeg-$(FFMPEG_VERSION)
 FFMPEG_SUFFIX	:= tar.xz
 FFMPEG_URL	:= https://www.ffmpeg.org/releases/$(FFMPEG).$(FFMPEG_SUFFIX)
@@ -79,7 +79,6 @@ FFMPEG_CONF_OPT		:= \
 	--disable-swscale \
 	--disable-postproc \
 	--enable-avfilter \
-	--disable-avresample \
 	\
 	--enable-pthreads \
 	--disable-network \
@@ -87,7 +86,6 @@ FFMPEG_CONF_OPT		:= \
 	--enable-dwt \
 	--enable-error-resilience \
 	--enable-lsp \
-	--enable-lzo \
 	--enable-mdct \
 	--enable-rdft \
 	--enable-fft \
@@ -121,7 +119,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-iconv \
 	--disable-jni \
 	--disable-ladspa \
-	--disable-large-tests \
+	--disable-lcms2 \
 	--disable-libaom \
 	--disable-libaribb24 \
 	--disable-libass \
@@ -139,12 +137,13 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libfontconfig \
 	--disable-libfreetype \
 	--disable-libfribidi \
-	--disable-libgme \
 	--disable-libglslang \
+	--disable-libgme \
 	--disable-libgsm \
 	--disable-libiec61883 \
 	--disable-libilbc \
 	--disable-libjack \
+	--disable-libjxl \
 	--disable-libklvanc \
 	--disable-libkvazaar \
 	--disable-liblensfun \
@@ -156,12 +155,17 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libopenh264 \
 	--disable-libopenjpeg \
 	--disable-libopenmpt \
+	--disable-libopenvino \
 	--disable-libopus \
+	--disable-libplacebo \
 	--disable-libpulse \
 	--disable-librabbitmq \
+	--disable-librav1e \
+	--disable-librist \
 	--disable-librsvg \
 	--disable-librubberband \
 	--disable-librtmp \
+	--disable-libshaderc \
 	--disable-libshine \
 	--disable-libsmbclient \
 	--disable-libsnappy \
@@ -169,18 +173,19 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libspeex \
 	--disable-libsrt \
 	--disable-libssh \
+	--disable-libsvtav1 \
 	--disable-libtensorflow \
 	--disable-libtesseract \
 	--disable-libtheora \
 	--disable-libtls \
 	--disable-libtwolame \
+	--disable-libuavs3d \
 	--disable-libv4l2 \
 	--disable-libvidstab \
 	--disable-libvmaf \
 	--disable-libvo-amrwbenc \
 	--disable-libvorbis \
 	--disable-libvpx \
-	--disable-libwavpack \
 	--disable-libwebp \
 	--disable-libx264 \
 	--disable-libx265 \
@@ -201,6 +206,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-mbedtls \
 	--disable-mediacodec \
 	--disable-mediafoundation \
+	--disable-metal \
 	--disable-libmysofa \
 	--disable-openal \
 	--disable-opencl \
@@ -212,6 +218,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-sdl2 \
 	--disable-securetransport \
 	--disable-vapoursynth \
+	--disable-vulkan \
 	--disable-xlib \
 	--disable-zlib \
 	--disable-amf \
@@ -235,7 +242,6 @@ FFMPEG_CONF_OPT		:= \
 	--disable-vaapi \
 	--disable-vdpau \
 	--disable-videotoolbox \
-	--disable-vulkan \
 	\
 	--arch=$(PTXCONF_ARCH_STRING) \
 	--cpu=$(FFMPEG_CPU) \
