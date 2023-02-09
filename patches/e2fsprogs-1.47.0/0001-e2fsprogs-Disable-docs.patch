@@ -1,0 +1,37 @@
+From: Christian Melki <christian.melki@t2data.com>
+Date: Thu, 9 Feb 2023 09:41:43 +0100
+Subject: [PATCH] e2fsprogs: Disable docs.
+
+Disable doc building and installing.
+
+Signed-off-by: Christian Melki <christian.melki@t2data.com>
+---
+ Makefile.in | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index 79b71165002d..0b80c20d4858 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -35,7 +35,6 @@ TAR=tar
+ all:: subs
+ 	$(MAKE) libs
+ @ALL_CMT@	$(MAKE) progs
+-@ALL_CMT@	$(MAKE) docs
+ 
+ all-static::
+ 	$(MAKE) libs
+@@ -72,11 +71,11 @@ distclean-doc:
+ 	-test -d doc && cd doc && $(MAKE) distclean
+ 
+ install: subs all-libs-recursive install-progs-recursive \
+-  install-shlibs-libs-recursive install-doc-libs
++  install-shlibs-libs-recursive
+ @SUBSET_CMT@	$(MAKE) install-libs
+ 
+ install-strip: subs all-libs-recursive install-strip-progs-recursive \
+-  install-shlibs-strip-libs-recursive install-doc-libs
++  install-shlibs-strip-libs-recursive
+ 
+ uninstall: uninstall-progs-recursive uninstall-shlibs-libs-recursive uninstall-doc-libs
+ 

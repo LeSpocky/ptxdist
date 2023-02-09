@@ -1,0 +1,29 @@
+From: Christian Melki <christian.melki@t2data.com>
+Date: Thu, 9 Feb 2023 09:42:26 +0100
+Subject: [PATCH] e2fsprogs: Disable ldconfig.
+
+ldconfig on shlibs pokes files which are normally not
+accessible for non-root users.
+There are two ways to deal with this.
+1. Patch it, disabling the call.
+2. point ldconfig to something like ac_cv_path_LDCONFIG=true
+This patch inplements the former.
+
+Signed-off-by: Christian Melki <christian.melki@t2data.com>
+---
+ lib/Makefile.elf-lib | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/lib/Makefile.elf-lib b/lib/Makefile.elf-lib
+index f850f3ddb795..ea0bbde82b2f 100644
+--- a/lib/Makefile.elf-lib
++++ b/lib/Makefile.elf-lib
+@@ -50,8 +50,6 @@ install-shlibs install:: $(ELF_LIB) installdirs-elf-lib $(DEP_INSTALL_SYMLINK)
+ 	$(E) "	SYMLINK $(libdir)/$(ELF_IMAGE).so"
+ 	$(Q) $(INSTALL_SYMLINK) $(ELF_INSTALL_DIR)/$(ELF_SONAME) \
+ 		$(libdir)/$(ELF_IMAGE).so $(DESTDIR)
+-	$(E) "	LDCONFIG"
+-	$(Q) -$(LDCONFIG)
+ 
+ install-strip: install
+ 	$(E) "	STRIP-LIB $(ELF_INSTALL_DIR)/$(ELF_LIB)"
