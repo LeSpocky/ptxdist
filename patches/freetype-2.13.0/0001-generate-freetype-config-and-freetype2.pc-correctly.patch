@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  4 files changed, 18 insertions(+), 26 deletions(-)
 
 diff --git a/builds/unix/configure.ac b/builds/unix/configure.ac
-index 393ec3bb69a7..c58607c69fbd 100644
+index a98865a432d9..45c3bcbcd770 100644
 --- a/builds/unix/configure.ac
 +++ b/builds/unix/configure.ac
-@@ -1147,7 +1147,9 @@ AC_CONFIG_HEADERS([ftconfig.h])
+@@ -1140,7 +1140,9 @@ AC_CONFIG_HEADERS([ftconfig.h])
  # and `builds/unix/unix-cc.mk' that will be used by the build system
  #
  AC_CONFIG_FILES([unix-cc.mk:unix-cc.in
@@ -26,7 +26,7 @@ index 393ec3bb69a7..c58607c69fbd 100644
  AC_OUTPUT
  
 diff --git a/builds/unix/freetype-config.in b/builds/unix/freetype-config.in
-index c076bc1f8222..166afc685009 100644
+index 58561126f2bd..5d7cc4f36dfa 100644
 --- a/builds/unix/freetype-config.in
 +++ b/builds/unix/freetype-config.in
 @@ -16,13 +16,6 @@ export LC_ALL
@@ -96,7 +96,7 @@ index fe389f4b6fef..885444efebf7 100644
 +Libs.private: @PKGCONFIG_LIBS_PRIVATE@
  Cflags: -I${includedir}/freetype2
 diff --git a/builds/unix/unix-def.in b/builds/unix/unix-def.in
-index 8e298ac59107..519d5958dce5 100644
+index d50994f3c928..ba02b00c742d 100644
 --- a/builds/unix/unix-def.in
 +++ b/builds/unix/unix-def.in
 @@ -157,7 +157,4 @@ $(OBJ_BUILD)/freetype2.pc: $(TOP_DIR)/builds/unix/freetype2.in

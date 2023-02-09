@@ -1,9 +1,10 @@
 ## SECTION=multimedia_libs
 
-config FREETYPE
+menuconfig FREETYPE
 	tristate
-	prompt "freetype"
+	prompt "freetype                      "
 	select ZLIB
+	select LIBPNG if FREETYPE_LIBPNG
 	help
 	  The FreeType project is a team of volunteers who develop free,
 	  portable and high-quality software solutions for digital typography.
@@ -13,3 +14,13 @@ config FREETYPE
 	  library only supports true type fonts, since version 2 it supports all
 	  types of scalable fonts. If you intent to use this library in an X
 	  environment, its only needed on client side, not on server side.
+
+if FREETYPE
+
+config FREETYPE_LIBPNG
+	bool
+	prompt "enable png support"
+	help
+	  libpng is optional for freetype.
+
+endif
