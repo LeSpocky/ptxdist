@@ -899,7 +899,7 @@ $(STATEDIR)/qt6.install.post:
 		chmod +x $(PTXDIST_SYSROOT_CROSS)/bin/qt6/$(tool)$(ptx/nl))
 	@$(foreach tool, $(QT6_BUILD_TOOLS), \
 		$(if $(wildcard $(PTXDIST_SYSROOT_HOST)/usr/lib/qt6/libexec/$(tool)), \
-		ln -vsf ../../sysroot-host/lib/qt6/libexec/$(tool) $(PTXDIST_SYSROOT_CROSS)/bin/$(tool)6$(ptx/nl)))
+		ln -vsf ../../../sysroot-host/lib/qt6/libexec/$(tool) $(PTXDIST_SYSROOT_CROSS)/usr/bin/$(tool)6$(ptx/nl)))
 	@$(call touch)
 
 
