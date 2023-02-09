@@ -54,9 +54,11 @@ HOST_E2FSPROGS_CONF_OPT		:= \
 	--disable-nls \
 	--disable-rpath \
 	--disable-fuse2fs \
+	--disable-lto \
 	--disable-ubsan \
 	--disable-addrsan \
 	--disable-threadsan \
+	--disable-fuzzing \
 	--with-pthread
 
 # ----------------------------------------------------------------------------
