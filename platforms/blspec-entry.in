@@ -16,4 +16,12 @@ config BLSPEC_ENTRY_CMDLINE
 	string
 	prompt "kernel command-line"
 
+config BLSPEC_ENTRY_APPENDROOT
+	bool
+	prompt "Add 'linux-appendroot true'"
+	help
+	  If enabled this options adds 'linux-appendroot true' to the blspec
+	  entry. This is a barebox specific blspec option which tells barebox
+	  to add the 'root=' kernel command line automatically if set.
+
 endif

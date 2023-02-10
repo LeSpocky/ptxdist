@@ -35,6 +35,12 @@ else
 BLSPEC_KERNEL_IMAGE	= $(KERNEL_IMAGE)
 endif
 
+ifdef PTXCONF_BLSPEC_ENTRY_APPENDROOT
+BLSPEC_APPENDROOT	= linux-appendroot\ttrue
+else
+BLSPEC_APPENDROOT	=
+endif
+
 $(STATEDIR)/blspec-entry.targetinstall:
 	@$(call targetinfo)
 
@@ -56,7 +62,9 @@ $(STATEDIR)/blspec-entry.targetinstall:
 		$(call install_replace, blspec-entry, /loader/entries/$(name).conf, \
 			@KERNEL@,'/boot/$(BLSPEC_KERNEL_IMAGE)')$(ptx/nl) \
 		$(call install_replace, blspec-entry, /loader/entries/$(name).conf, \
-			@DEVICETREE@,'$(call blspec/devicetree,$(name))')$(ptx/nl))
+			@DEVICETREE@,'$(call blspec/devicetree,$(name))')$(ptx/nl) \
+		$(call install_replace, blspec-entry, /loader/entries/$(name).conf, \
+			@LINUXAPPENDROOT@,'$(BLSPEC_APPENDROOT)')$(ptx/nl))
 
 	@$(call install_finish,blspec-entry)
 
