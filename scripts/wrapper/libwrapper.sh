@@ -57,33 +57,41 @@ wrapper_exec() {
 filter_args() {
 	# PTXDIST_SYSROOT_TOOLCHAIN may not be defined yet
 	if [ -n "${PTXDIST_SYSROOT_TOOLCHAIN}" ]; then
-		TOOLCHAIN="${PTXDIST_SYSROOT_TOOLCHAIN}"
-		REAL_TOOLCHAIN="${PTXDIST_REAL_SYSROOT_TOOLCHAIN}"
-	else
-		TOOLCHAIN="/ignore"
-		REAL_TOOLCHAIN="/ignore"
+		pkg_wrapper_accept_paths="${PTXDIST_SYSROOT_TOOLCHAIN}${IFS}${pkg_wrapper_accept_paths}"
+		if [ "${PTXDIST_SYSROOT_TOOLCHAIN}" != "${PTXDIST_REAL_SYSROOT_TOOLCHAIN}" ]; then
+			pkg_wrapper_accept_paths="${PTXDIST_REAL_SYSROOT_TOOLCHAIN}${IFS}${pkg_wrapper_accept_paths}"
+		fi
 	fi
-	if [ -h "${pkg_dir}" ]; then
-		source_dir="$(readlink -f "${pkg_dir}")"
-	else
-		source_dir="${pkg_dir}"
+	pkg_wrapper_accept_paths="${PTXDIST_PLATFORMDIR}${IFS}${pkg_wrapper_accept_paths}"
+	if [ "${PTXDIST_PLATFORMDIR}" != "${PTXDIST_REAL_PLATFORMDIR}" ]; then
+		pkg_wrapper_accept_paths="${PTXDIST_REAL_PLATFORMDIR}${IFS}${pkg_wrapper_accept_paths}"
 	fi
 	for ARG in "${@}"; do
-		case "${ARG}" in
-		-[IL]"${PTXDIST_PLATFORMDIR}/"*|-[IL]"${PTXDIST_REAL_PLATFORMDIR}/"*)
-			;;
-		-[IL]"${TOOLCHAIN}/"*|-[IL]"${REAL_TOOLCHAIN}/"*)
-			;;
-		-[IL]"${source_dir}"*)
-			;;
-		-L/*|-I/*)
-			# skip all absolute search directories outside the BSP
-			if [ -n "${PTXDIST_FD_LOGFILE}" ]; then
-				echo "wrapper: removing '${ARG}' from the commandline" >&${PTXDIST_FD_LOGFILE}
+		good=false
+		for path in ${pkg_wrapper_accept_paths}; do
+			if [ -z "${path}" ]; then
+				continue
 			fi
-			continue
-			;;
-		esac
+			case "${ARG}" in
+			-[IL]"${path}"*)
+				good=true
+				;;
+			esac
+			if ${good}; then
+				break
+			fi
+		done
+		if ! ${good}; then
+			case "${ARG}" in
+			-L/*|-I/*)
+				# skip all absolute search directories outside the BSP
+				if [ -n "${PTXDIST_FD_LOGFILE}" ]; then
+					echo "wrapper: removing '${ARG}' from the commandline" >&${PTXDIST_FD_LOGFILE}
+				fi
+				continue
+				;;
+			esac
+		fi
 		printf "%s\037" "${ARG}"
 	done
 }

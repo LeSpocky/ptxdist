@@ -543,5 +543,25 @@ ptxd_make_world_init() {
     if [ -n "${PTXDIST_QUIET}" ]; then
 	exec 9>&1
     fi
+
+    local path real_path
+    local -a paths
+    for path in ${pkg_wrapper_accept_paths}; do
+	if [ ! -d "${path}" ]; then
+	    continue
+	fi
+	paths[${#paths[*]}]="${path}"
+	real_path="$(readlink -f "${path}")"
+	if [ "${path}" != "${real_path}" ]; then
+	    paths[${#paths[*]}]="${real_path}"
+	fi
+    done
+    if [ -h "${pkg_dir}" ]; then
+	    paths[${#paths[*]}]="$(readlink -f "${pkg_dir}")"
+    fi
+    local orig_IFS="${IFS}"
+    IFS="$(printf "\037")"
+    pkg_wrapper_accept_paths="${paths[*]}"
+    IFS="${orig_IFS}"
 }
 export -f ptxd_make_world_init

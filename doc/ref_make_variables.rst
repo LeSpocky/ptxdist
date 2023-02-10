@@ -342,6 +342,22 @@ Build Environment for all Stages
   individual options by setting it to a space separated list of the
   corresponding Kconfig symbols (without the ``PTXCONF_`` prefix).
 
+``<PKG>_WRAPPER_ACCEPT_PATHS``
+  By default, the toolchain wrapper scripts will drop any -I and -L paths
+  that point to directories outside the BSP for target packages. This
+  avoids problems with bad search paths due to broken package build
+  systems.
+
+  Sometimes search paths outside the BSP are needed. In this case
+  ``<PKG>_WRAPPER_ACCEPT_PATHS`` can be used. It accepts a space separated
+  list of directories. Those directories (with and without symlinks
+  resolved) will not be dropped when the wrapper filters the search paths.
+
+  For example, external kernel modules need the kernel source tree. If the
+  kernel is built :ref:`using an external source tree<kernel_local_src>`
+  then search paths to that source tree are needed. So external kernel
+  modules should set ``<PKG>_WRAPPER_ACCEPT_PATHS`` to ``$(KERNEL_DIR)``.
+
 Prepare Stage
 ^^^^^^^^^^^^^
 

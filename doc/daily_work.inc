@@ -1,3 +1,5 @@
+.. _kernel_local_src:
+
 Using an External Kernel Source Tree
 ------------------------------------
 
