@@ -1,0 +1,25 @@
+From: =?UTF-8?q?Sven=20P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Date: Wed, 1 Feb 2023 08:54:07 +0000
+Subject: [PATCH] Added missing include for socklen_t check
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+ configure.ac | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/configure.ac b/configure.ac
+index 0f0e54fb2e7d..431d436203fa 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -100,7 +100,7 @@ AC_CHECK_TYPE([uint64],[CFLAGS="${CFLAGS} -DHAVE_uint64"])
+ AC_CHECK_TYPE([uint64_t],[CFLAGS="${CFLAGS} -DHAVE_uint64_t"])
+ AC_CHECK_TYPE([int64],[CFLAGS="${CFLAGS} -DHAVE_int64"])
+ AC_CHECK_TYPE([int64_t],[CFLAGS="${CFLAGS} -DHAVE_int64_t"])
+-AC_CHECK_TYPE([socklen_t],[CFLAGS="${CFLAGS} -DHAVE_socklen_t"])
++AC_CHECK_TYPE([socklen_t],[CFLAGS="${CFLAGS} -DHAVE_socklen_t"], [], [[#include <sys/socket.h>]])
+ AC_CHECK_TYPE([off64_t],[CFLAGS="${CFLAGS} -DHAVE_off64_t"])
+ 
+ AC_COMPILE_IFELSE(

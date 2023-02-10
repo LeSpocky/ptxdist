@@ -1,0 +1,59 @@
+From: =?UTF-8?q?Sven=20P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Date: Wed, 1 Feb 2023 08:17:38 +0000
+Subject: [PATCH] Added libtirpc
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+glibc has removed the SunRPC implementation, therefore it was replaced with libtirpc
+See also https://fedoraproject.org/wiki/Changes/SunRPCRemoval
+
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+ configure.ac | 31 +++++++++++++++++++++++++++++++
+ 1 file changed, 31 insertions(+)
+
+diff --git a/configure.ac b/configure.ac
+index 7fdb476a2510..0f0e54fb2e7d 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -27,8 +27,39 @@ AC_SUBST(LT_AGE)
+ #
+ # Checks for programs.
+ #
++
++# Function copied and modified from http://git.linux-nfs.org/?p=steved/nfs-utils.git;a=blob;f=aclocal/libtirpc.m4;h=bddae022693100c810edff042d51b145c8f411a6;hb=HEAD
++dnl Checks for TI-RPC library and headers
++dnl
++AC_DEFUN([AC_LIBTIRPC], [
++
++  PKG_PROG_PKG_CONFIG([0.9.0])
++  PKG_CHECK_MODULES([TIRPC], [libtirpc],
++                    [LIBS="${LIBS} ${TIRPC_LIBS}"
++                       AM_CFLAGS="${AM_CFLAGS} ${TIRPC_CFLAGS}"
++                       AC_DEFINE([HAVE_LIBTIRPC], [1],
++                                 [Define to 1 if you have and wish to use libtirpc.])])
++
++     AS_IF([test -n "${LIBTIRPC}"],
++           [AC_CHECK_LIB([tirpc], [authgss_free_private_data],
++                         [AC_DEFINE([HAVE_AUTHGSS_FREE_PRIVATE_DATA], [1],
++                                    [Define to 1 if your rpcsec library provides authgss_free_private_data])],,
++                         [${LIBS}])])
++
++     AS_IF([test -n "${LIBTIRPC}"],
++           [AC_CHECK_LIB([tirpc], [libtirpc_set_debug],
++                         [AC_DEFINE([HAVE_LIBTIRPC_SET_DEBUG], [1],
++                                    [Define to 1 if your tirpc library provides libtirpc_set_debug])],,
++                         [${LIBS}])])
++
++  AC_SUBST([AM_CFLAGS])
++  AC_SUBST([LIBS])
++
++])dnl
++
+ AC_PROG_CC
+ AC_PROG_LIBTOOL
++AC_LIBTIRPC
+ 
+ AM_INIT_AUTOMAKE([foreign no-exeext dist-bzip2])
+ 
