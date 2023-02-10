@@ -21,7 +21,7 @@ ptxd_make_world_compile_commands_filter() {
     fi
 
     if [ "${src_cmds}" = "${dst_cmds}" ]; then
-	if [ grep -q "${PTXDIST_CROSS_CPPFLAGS}" "${src_cmds}" ]; then
+	if grep -q -F -e "${PTXDIST_CROSS_CPPFLAGS}" "${src_cmds}"; then
 	    ptxd_warning "compile_commands.json is already up to date!"
 	    return
 	fi
