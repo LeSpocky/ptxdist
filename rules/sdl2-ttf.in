@@ -1,12 +1,24 @@
 ## SECTION=multimedia_sdl
 
-config SDL2_TTF
+menuconfig SDL2_TTF
 	tristate
 	select SDL2
 	select FREETYPE
-	prompt "SDL2 ttf"
+	select HARFBUZZ if SDL2_TTF_HARFBUZZ
+	prompt "SDL2 ttf                      "
 	help
 	  This is a sample library which allows you to use TrueType
 	  fonts in your SDL applications. It comes with an example
 	  program "showfont" which displays an example string for a
 	  given TrueType font file.
+
+if SDL2_TTF
+
+config SDL2_TTF_HARFBUZZ
+	bool
+	prompt "enable harfbuzz support"
+	help
+	  Enable support for Harfbuzz (meaning open type, in Persian),
+	  the open type shaping engine.
+
+endif
