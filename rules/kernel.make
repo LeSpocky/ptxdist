@@ -75,16 +75,6 @@ KERNEL_BASE_OPT		= \
 	$(call kernel-opts, KERNEL,$(KERNEL_CROSS_COMPILE)) \
 	$(call remove_quotes,$(PTXCONF_KERNEL_EXTRA_MAKEVARS))
 
-ifdef PTXCONF_KERNEL_CODE_SIGNING
-KERNEL_BASE_OPT		+= \
-	$(if $(shell cs_get_ca kernel-trusted), \
-		CONFIG_SYSTEM_TRUSTED_KEYS=$(shell cs_get_ca kernel-trusted))
-endif
-ifdef PTXCONF_KERNEL_MODULES_SIGN
-KERNEL_BASE_OPT		+= \
-	CONFIG_MODULE_SIG_KEY='"$(shell cs_get_uri kernel-modules)"'
-endif
-
 # Intermediate option. This will be used by kernel module packages.
 KERNEL_MODULE_OPT	= \
 	-C $(KERNEL_DIR) \
@@ -175,6 +165,16 @@ endif
 ifdef KERNEL_INITRAMFS_SOURCE_y
 	@touch "$(KERNEL_INITRAMFS_SOURCE_y)"
 	@sed -i -e 's,^CONFIG_INITRAMFS_SOURCE.*$$,CONFIG_INITRAMFS_SOURCE=\"$(KERNEL_INITRAMFS_SOURCE_y)\",g' \
+		"$(KERNEL_BUILD_DIR)/.config"
+endif
+ifdef PTXCONF_KERNEL_CODE_SIGNING
+	if [ -n "`cs_get_ca kernel-trusted`" ]; then \
+		sed -i -e "s'^\(CONFIG_SYSTEM_TRUSTED_KEYS\)=.*'\1=\"`cs_get_ca kernel-trusted`\"'" \
+			"$(KERNEL_BUILD_DIR)/.config"; \
+	fi
+endif
+ifdef PTXCONF_KERNEL_MODULES_SIGN
+	sed -i -e "s'^\(CONFIG_MODULE_SIG_KEY\)=.*'\1=\"`cs_get_uri kernel-modules`\"'" \
 		"$(KERNEL_BUILD_DIR)/.config"
 endif
 	@$(call touch)
