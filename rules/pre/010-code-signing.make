@@ -7,9 +7,9 @@
 #
 
 CODE_SIGNING_ENV = \
-	SO_PATH=$(PTXDIST_SYSROOT_HOST)/usr/lib/engines-1.1/pkcs11.so \
+	SO_PATH=$(PTXDIST_SYSROOT_HOST)/usr/lib/engines-3/pkcs11.so \
 	OPENSSL_CONF="$(PTXDIST_SYSROOT_HOST)/usr/ssl/openssl.cnf" \
-	OPENSSL_ENGINES="$(PTXDIST_SYSROOT_HOST)/usr/lib/engines-1.1"
+	OPENSSL_ENGINES="$(PTXDIST_SYSROOT_HOST)/usr/lib/engines-3"
 
 #
 # This macro is used to allow a code signing provider
