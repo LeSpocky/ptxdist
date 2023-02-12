@@ -32,7 +32,7 @@ LIBP11_CONF_OPT		:= \
 	--disable-strict \
 	--disable-pedantic \
 	--disable-api-doc \
-	--with-enginesdir=/usr/lib/engines-1.1 \
+	--with-enginesdir=/usr/lib/engines-3 \
 	--with-pkcs11-module=$(call ptx/ifdef,PTXCONF_LIBP11_PROXY_MODULE,p11-kit-proxy.so)
 
 $(STATEDIR)/libp11.targetinstall:
@@ -46,10 +46,10 @@ $(STATEDIR)/libp11.targetinstall:
 
 	@$(call install_lib,  libp11, 0, 0, 0644, libp11)
 	@$(call install_copy, libp11, 0, 0, 0644, -, \
-		/usr/lib/engines-1.1/pkcs11.so)
+		/usr/lib/engines-3/pkcs11.so)
 
 	@$(call install_link, libp11, pkcs11.so, \
-		/usr/lib/engines-1.1/libpkcs11.so)
+		/usr/lib/engines-3/libpkcs11.so)
 
 	@$(call install_finish, libp11)
 
