@@ -22,7 +22,7 @@ C_ARES_URL	:= http://c-ares.haxx.se/download/$(C_ARES).$(C_ARES_SUFFIX)
 C_ARES_SOURCE	:= $(SRCDIR)/$(C_ARES).$(C_ARES_SUFFIX)
 C_ARES_DIR	:= $(BUILDDIR)/$(C_ARES)
 C_ARES_LICENSE	:= MIT
-C_ARES_LICENSE_MD5	:= file://LICENSE.md;md5=fb997454c8d62aa6a47f07a8cd48b006
+C_ARES_LICENSE_FILES	:= file://LICENSE.md;md5=fb997454c8d62aa6a47f07a8cd48b006
 
 
 # ----------------------------------------------------------------------------
