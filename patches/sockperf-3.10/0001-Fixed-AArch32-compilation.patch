@@ -1,0 +1,69 @@
+From: =?UTF-8?q?Sven=20P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Date: Mon, 13 Feb 2023 10:16:51 +0100
+Subject: [PATCH] Fixed AArch32 compilation
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+sockperf added support for AArch64, but at the same time it broke AArch32 support,
+as this wasn't catched by a compiler macro anymore and resulted in trying to assemble a rdtsc instruction.
+
+See https://github.com/Mellanox/sockperf/commit/d84e8179f8ab007c7a19dfe263691b0429df7565
+and https://github.com/Mellanox/sockperf/pull/187
+
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+ src/sockperf.cpp | 9 +++++++++
+ src/ticks_os.h   | 5 +++++
+ 2 files changed, 14 insertions(+)
+
+diff --git a/src/sockperf.cpp b/src/sockperf.cpp
+index 293d21747592..5d6ee4141b35 100644
+--- a/src/sockperf.cpp
++++ b/src/sockperf.cpp
+@@ -2205,6 +2205,13 @@ static int parse_common_opt(const AOPT_OBJECT *common_obj) {
+ #endif /* DEFINED_TLS */
+     }
+ 
++#if defined(__arm__) && !defined(__aarch64__)
++    if (!s_user_params.b_no_rdtsc) {
++        log_msg("AArch32 target build does not support rdtsc, use --no-rdtsc");
++        rc = SOCKPERF_ERR_BAD_ARGUMENT;
++    }
++#endif
++
+     // resolve address: -i, -p and --tcp options must be processed before
+     if (!rc) {
+         int res = resolve_sockaddr(host_str, port_str, s_user_params.sock_type,
+@@ -3868,6 +3875,7 @@ packet pace limit = %d",
+         log_dbg("+INFO: taking time, using the given settings, consumes %.3lf nsec",
+                 (double)(end - start).toNsec() / SIZE);
+ 
++#if !defined(__arm__) || defined(__aarch64__)
+         ticks_t tstart = 0, tend = 0;
+         tstart = os_gettimeoftsc();
+ 
+@@ -3878,6 +3886,7 @@ packet pace limit = %d",
+         double ticks_per_second = (double)get_tsc_rate_per_second();
+         log_dbg("+INFO: taking rdtsc directly consumes %.3lf nsec",
+                 tdelta / SIZE * 1000 * 1000 * 1000 / ticks_per_second);
++#endif
+ 
+         // step #5: check is user defined a specific SEED value to be used in all rand() calls
+         // if no seed value is provided, the rand() function is automatically seeded with a value of
+diff --git a/src/ticks_os.h b/src/ticks_os.h
+index 0f23b2c6f6f5..8750e0374245 100644
+--- a/src/ticks_os.h
++++ b/src/ticks_os.h
+@@ -99,6 +99,11 @@ inline ticks_t os_gettimeoftsc() {
+     asm volatile("isb" : : : "memory");
+     asm volatile("mrs %0, cntvct_el0" : "=r" (ret));
+     return ret;
++#elif defined(__arm__)
++    // so the compiler will not complain. for
++    // AArch32 compile, this inline is not used
++    // since rdtsc is only supported in an optional timer extension
++    upper_32 = lower_32 = 0;
+ #else
+     // ReaD Time Stamp Counter (RDTCS)
+     __asm__ __volatile__("rdtsc" : "=a"(lower_32), "=d"(upper_32));

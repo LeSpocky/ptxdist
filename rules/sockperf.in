@@ -1,0 +1,8 @@
+## SECTION=test_suites
+
+config SOCKPERF
+	tristate
+	select GCCLIBS_CXX
+	prompt "sockperf"
+	help
+	  Network benchmarking utility over socket API
