@@ -1,0 +1,9 @@
+## SECTION=multimedia_libs
+
+menuconfig LIBDISPLAY_INFO
+	tristate
+	prompt "libdisplay-info               "
+	select HOST_MESON
+	select HWDATA if BUILDTIME
+	help
+	  EDID and DisplayID library
