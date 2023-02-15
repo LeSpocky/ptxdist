@@ -77,7 +77,7 @@ PHP8_CONF_OPT := \
 	--without-config-file-scan-dir \
 	--disable-sigchild \
 	--disable-libgcc \
-	--disable-short-tags \
+	--enable-short-tags \
 	--disable-dmalloc \
 	--$(call ptx/endis, PTXCONF_GLOBAL_IPV6)-ipv6 \
 	--disable-dtrace \
