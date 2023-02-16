@@ -40,7 +40,7 @@ RSYNC3_CONF_OPT := \
 	--disable-debug \
 	--disable-profile \
 	--disable-md2man \
-	--$(call ptx/endis, PTXCONF_ARCH_X86_64)-roll-simd \
+	--disable-roll-simd \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-locale \
