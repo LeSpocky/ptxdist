@@ -41,6 +41,9 @@ CRYPTODEV_CONF_TOOL := NO
 # Compile
 # ----------------------------------------------------------------------------
 
+CRYPTODEV_WRAPPER_ACCEPT_PATHS = \
+	$(KERNEL_DIR)
+
 CRYPTODEV_MAKE_OPT = \
 	$(KERNEL_MODULE_OPT) \
 	KERNEL_DIR=$(KERNEL_DIR) \
