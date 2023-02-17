@@ -37,6 +37,9 @@ endif
 # Compile
 # ----------------------------------------------------------------------------
 
+@PACKAGE@_WRAPPER_ACCEPT_PATHS = \
+	$(KERNEL_DIR)
+
 @PACKAGE@_MAKE_OPT = \
 	$(KERNEL_MODULE_OPT) \
 	-C $(KERNEL_DIR) \
