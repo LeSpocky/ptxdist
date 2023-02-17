@@ -1,0 +1,34 @@
+From 6f70eff53d370b96070d1362ebcd4ce153b2a172 Mon Sep 17 00:00:00 2001
+From: Ian Abbott <abbotti@mev.co.uk>
+Date: Fri, 17 Feb 2023 10:41:20 +0000
+Subject: [PATCH] c/core/Makefile: Fixes for parallel make and make
+ lib/libtahu.so
+
+Change $(TEST) target to depend on the built library files.
+
+Change $(DNAME) target rules to create the lib directory.
+
+Signed-off-by: Ian Abbott <abbotti@mev.co.uk>
+---
+ c/core/Makefile | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/c/core/Makefile b/c/core/Makefile
+index 8243a67..17c5e3d 100644
+--- a/c/core/Makefile
++++ b/c/core/Makefile
+@@ -36,9 +36,10 @@ $(SNAME): $(OBJ)
+ 
+ $(DNAME): LDFLAGS += -shared
+ $(DNAME): $(OBJ)
++	mkdir -p lib
+ 	$(CC) $(LDFLAGS) -o $@ $^ $(LDLIBS)
+ 
+-$(TEST):
++$(TEST): $(SNAME) $(DNAME)
+ 	$(CC) $(CFLAGS) -o test/test_static $(TEST_OBJ) $(SNAME) -lmosquitto
+ 	$(CC) $(CFLAGS) $(LD_TEST) -o test/test_dynamic $(TEST_OBJ) -l$(NAME) -lmosquitto
+ 
+-- 
+2.39.1
+

@@ -1,0 +1,28 @@
+From cff7b099c23937bad205833ea1e4e8278690eb21 Mon Sep 17 00:00:00 2001
+From: Ian Abbott <abbotti@mev.co.uk>
+Date: Fri, 17 Feb 2023 14:40:58 +0000
+Subject: [PATCH] tahu.h: Do not define SPARKPLUG_DEBUG
+
+If SPARKPLUG_DEBUG is defined in tahu.c, the library will write lots of
+debug messages to standard output.  That's OK for experimentation, but
+not for a live system, so comment out the macro definition.
+---
+ c/core/include/tahu.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/c/core/include/tahu.h b/c/core/include/tahu.h
+index e599146..03fbaaa 100644
+--- a/c/core/include/tahu.h
++++ b/c/core/include/tahu.h
+@@ -29,7 +29,7 @@ extern "C" {
+ #endif
+ 
+ // Enable/disable debug messages
+-#define SPARKPLUG_DEBUG 1
++//#define SPARKPLUG_DEBUG 1
+ 
+ #ifdef SPARKPLUG_DEBUG
+ #define DEBUG_PRINT(...) printf(__VA_ARGS__)
+-- 
+2.39.1
+

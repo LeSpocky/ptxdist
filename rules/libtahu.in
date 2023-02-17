@@ -1,0 +1,11 @@
+## SECTION=system_libraries
+
+config LIBTAHU
+	tristate
+	prompt "libtahu"
+	help
+	  Eclipse Tahu C library for encoding and decoding Sparkplug B
+	  messages.
+
+	  A typical application will also require an MQTT library such
+	  as "mosquitto".
