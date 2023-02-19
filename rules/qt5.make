@@ -236,6 +236,13 @@ QT5_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QT5_MODULE_QTBASE_SQL_SQLITE)-sql-sqlite \
 	$(call ptx/qt5-system, PTXCONF_QT5_MODULE_QTBASE_SQL_SQLITE)-sqlite
 
+ifdef PTXCONF_ARCH_X86
+ifndef PTXCONF_ARCH_X86_64
+QT5_CONF_OPT += \
+	--disable-sse2
+endif
+endif
+
 # Note: these options are not listed in '--help' but they exist
 QT5_CONF_OPT += \
 	--disable-sm \
