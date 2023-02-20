@@ -32,7 +32,8 @@ FREETYPE_LICENSE_FILES	:= \
 
 FREETYPE_URL := \
 	https://download.savannah.gnu.org/releases/freetype/$(FREETYPE).$(FREETYPE_SUFFIX) \
-	https://download.savannah.gnu.org/releases/freetype/freetype-old/$(FREETYPE).$(FREETYPE_SUFFIX)
+	https://download.savannah.gnu.org/releases/freetype/freetype-old/$(FREETYPE).$(FREETYPE_SUFFIX) \
+	$(call ptx/mirror, SF, freetype/freetype2/$(FREETYPE_VERSION)/$(FREETYPE).$(FREETYPE_SUFFIX))
 
 # ----------------------------------------------------------------------------
 # Prepare
