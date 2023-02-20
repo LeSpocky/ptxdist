@@ -1757,6 +1757,7 @@ EOF
 		bsp-info)
 			check_config &&
 			check_deps &&
+			PTXDIST_ICECC="" check_compiler &&
 			ptxd_make_log bsp-info
 			;;
 		clean)
@@ -1811,6 +1812,7 @@ EOF
 				exit 1
 			fi
 			check_premake &&
+			PTXDIST_ICECC="" check_compiler &&
 			ptxd_make_log export_src EXPORTDIR="${1}"
 			exit
 			;;
@@ -1846,7 +1848,7 @@ EOF
 			exit
 			;;
 		getdev)
-			check_premake &&
+			check_premake_compiler &&
 			ptxd_make_log getdev
 			exit
 			;;
@@ -1887,8 +1889,9 @@ EOF
 			;;
 		list-packages)
 			check_config &&
-			check_deps || return
-			for i in $(ptxd_make "print-PACKAGES"); do
+			check_deps &&
+			PTXDIST_ICECC="" check_compiler || return
+			for i in $(ptxd_make "/print-PACKAGES"); do
 				echo $i
 			done | sort
 			;;
@@ -1941,6 +1944,7 @@ EOF
 
 			check_config &&
 			check_deps &&
+			PTXDIST_ICECC="" check_compiler &&
 			pkgs=( "${@/#/${STATEDIR}/}" ) &&
 			ptxd_make_log "${pkgs[@]/%/.${cmd}}"
 			exit
@@ -1970,6 +1974,8 @@ EOF
 				local prefix
 				check_config &&
 				check_deps || exit 1
+				# setup toolchain without icecc, but allow failures
+				PTXDIST_ICECC="" check_compiler
 				if [ "${cmd}" = "print" ]; then
 					prefix="/print-"
 				else
