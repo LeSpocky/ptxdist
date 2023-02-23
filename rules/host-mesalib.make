@@ -96,6 +96,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-layers=[] \
 	-Dxlib-lease=disabled \
+	-Dxmlconfig=disabled \
 	-Dzlib=enabled \
 	-Dzstd=disabled
 

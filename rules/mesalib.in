@@ -262,5 +262,9 @@ config MESALIB_SHADER_CACHE
 	bool
 	prompt "enable shader cache"
 
+config MESALIB_XMLCONFIG
+	bool
+	prompt "build custom xmlconfig (driconf) support"
+
 endif
 

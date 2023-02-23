@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 22.3.6
-MESALIB_MD5	:= ed6e3e529f3ec8d802625d19cd44ea07
+MESALIB_VERSION	:= 23.0.0
+MESALIB_MD5	:= 86d15af0f92c5102005e57a28329bcb1
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -217,6 +217,7 @@ MESALIB_CONF_OPT	:= \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-layers=$(subst $(space),$(comma),$(MESALIB_VULKAN_LAYERS-y)) \
 	-Dxlib-lease=$(call ptx/endis, PTXCONF_MESALIB_EGL_X11)d \
+	-Dxmlconfig=$(call ptx/endis, PTXCONF_MESALIB_XMLCONFIG)d \
 	-Dzlib=enabled \
 	-Dzstd=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d
 
