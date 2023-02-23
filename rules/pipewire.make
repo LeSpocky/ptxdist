@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.65
-PIPEWIRE_MD5		:= 5c31850705cacd12398da01b9b11cfd0
+PIPEWIRE_VERSION	:= 0.3.66
+PIPEWIRE_MD5		:= dbcaa4aabf22fa8d34eaa2fd880e831a
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -77,11 +77,14 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dlibcamera=$(call ptx/endis,PTXCONF_PIPEWIRE_LIBCAMERA)d \
 	-Dlibcanberra=disabled \
 	-Dlibjack-path= \
+	-Dlibmysofa=disabled \
 	-Dlibpulse=disabled \
 	-Dlibusb=disabled \
 	-Dlibv4l2-path= \
 	-Dlv2=disabled \
 	-Dman=disabled \
+	-Dpam-defaults-install=false \
+	-Dpam-memlock-default=8192 \
 	-Dpipewire-alsa=enabled \
 	-Dpipewire-jack=disabled \
 	-Dpipewire-v4l2=disabled \
@@ -89,6 +92,11 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dpw-cat-ffmpeg=disabled \
 	-Draop=$(call ptx/endis,PTXCONF_PIPEWIRE_RAOP)d \
 	-Dreadline=$(call ptx/endis,PIPEWIRE_PW_CTL)d \
+	-Drlimits-install=false \
+	-Drlimits-match=@pipewire \
+	-Drlimits-memlock=4194304 \
+	-Drlimits-nice=-19 \
+	-Drlimits-rtprio=95 \
 	-Droc=disabled \
 	-Dsdl2=disabled \
 	-Dsession-managers= \
@@ -123,6 +131,7 @@ PIPEWIRE_MODULES-y := \
 	adapter \
 	client-device \
 	client-node \
+	combine-stream \
 	echo-cancel \
 	fallback-sink \
 	filter-chain \
