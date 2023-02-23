@@ -175,7 +175,7 @@ ptxd_make_world_prepare_cargo() {
 	    tmp=( $(md5sum Cargo.lock 2>/dev/null) )
 	    if [ "${tmp[0]}" != "${cargo_lock_md5}" ]; then
 		ptxd_bailout "Cargo.lock has changed!" \
-		    "Run 'ptxdist cargosync ${pkg_lable}' to regenerate '$(ptxd_print_path ${pkg_makefile_cargo})'."
+		    "Run 'ptxdist cargosync ${pkg_label}' to regenerate '$(ptxd_print_path ${pkg_makefile_cargo})'."
 	    fi
 	    ;;
 	*)
@@ -185,7 +185,7 @@ ptxd_make_world_prepare_cargo() {
     done
     if [ -z "${cargo_lock_md5}" ]; then
 	ptxd_bailout "Cargo dependency config is missing!" \
-	    "Run 'ptxdist cargosync ${pkg_lable}' to generate '$(ptxd_print_path ${pkg_makefile_cargo})'."
+	    "Run 'ptxdist cargosync ${pkg_label}' to generate '$(ptxd_print_path ${pkg_makefile_cargo})'."
     fi
 }
 export -f ptxd_make_world_prepare_cargo
