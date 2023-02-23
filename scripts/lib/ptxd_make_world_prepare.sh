@@ -149,7 +149,7 @@ ptxd_make_world_prepare_meson() {
 	"${pkg_path}" \
 	"${pkg_env}" \
 	"${pkg_conf_env}" \
-	meson \
+	meson setup \
 	"${pkg_conf_opt}" \
 	"${pkg_conf_dir}" &&
     ptxd_make_world_compile_commands_filter
