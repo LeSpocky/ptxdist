@@ -472,11 +472,11 @@ for Cargo packages:
 
     FOO_CONF_TOOL := cargo
 
-Additional *cargo* options can be added to the configuration options like this:
+Additional *cargo* options can be added to the compile options like this:
 
 .. code-block:: make
 
-    FOO_CONF_OPT := \
+    FOO_MAKE_OPT := \
     	$(CROSS_CARGO_OPT) \
     	--features ...
 
