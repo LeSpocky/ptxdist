@@ -16,8 +16,8 @@ endif
 #
 # Paths and names
 #
-OPTEE_TEST_VERSION	:= 3.16.0
-OPTEE_TEST_MD5		:= 04b83cb243bb0f3a8dac1ce07556fced
+OPTEE_TEST_VERSION	:= 3.20.0
+OPTEE_TEST_MD5		:= b0e67556ed928b50424e356e10c79781
 OPTEE_TEST		:= optee-test-$(OPTEE_TEST_VERSION)
 OPTEE_TEST_SUFFIX	:= tar.gz
 OPTEE_TEST_URL		:= https://github.com/OP-TEE/optee_test/archive/$(OPTEE_TEST_VERSION).$(OPTEE_TEST_SUFFIX)
