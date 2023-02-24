@@ -2,6 +2,7 @@
 
 menuconfig OPTEE_CLIENT
 	tristate
+	select LIBUUID
 	prompt "optee-client                  "
 	help
 	  Open Portable Trusted Execution Environment Client API.
