@@ -27,6 +27,10 @@ SOCAT_LICENSE	:= GPL-2.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
+SOCAT_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_lib_bsd_openpty=no
+
 #
 # autoconf
 #
