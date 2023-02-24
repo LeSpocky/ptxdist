@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_V4L_UTILS) += v4l-utils
 #
 # Paths and names
 #
-V4L_UTILS_VERSION	:= 1.22.1
-V4L_UTILS_MD5		:= 8aa73287320a49e9170a8255d7b2c7e6
+V4L_UTILS_VERSION	:= 1.24.1
+V4L_UTILS_MD5		:= 8ba9c73c4319b6afab5fa4358edc43de
 V4L_UTILS		:= v4l-utils-$(V4L_UTILS_VERSION)
 V4L_UTILS_SUFFIX	:= tar.bz2
 V4L_UTILS_URL		:= http://linuxtv.org/downloads/v4l-utils/$(V4L_UTILS).$(V4L_UTILS_SUFFIX)
@@ -51,6 +51,7 @@ V4L_UTILS_CONF_OPT	:= \
 	--enable-v4l-utils \
 	--enable-v4l2-compliance-libv4l \
 	--disable-v4l2-compliance-32 \
+	--$(call ptx/endis, PTXCONF_V4L_UTILS_TRACER)-v4l2-tracer \
 	--enable-v4l2-ctl-libv4l \
 	--enable-v4l2-ctl-stream-to \
 	--disable-v4l2-ctl-32 \
@@ -134,6 +135,9 @@ ifdef PTXCONF_V4L_UTILS_V4L2CTL
 endif
 ifdef PTXCONF_V4L_UTILS_V4L2SYSFSPATH
 	@$(call install_copy, v4l-utils, 0, 0, 0755, -, /usr/bin/v4l2-sysfs-path)
+endif
+ifdef PTXCONF_V4L_UTILS_TRACER
+	@$(call install_copy, v4l-utils, 0, 0, 0755, -, /usr/bin/v4l2-tracer)
 endif
 	@$(call install_finish, v4l-utils)
 

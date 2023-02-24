@@ -12,6 +12,7 @@ menuconfig V4L_UTILS
 	select LIBC_PTHREAD	if V4L_UTILS_LIBV4L2 || V4L_UTILS_MEDIACTL
 	select GCCLIBS_GCC_S	if V4L_UTILS_V4L2CTL || V4L_UTILS_V4L2COMPLIANCE
 	select LIBJPEG		if V4L_UTILS_LIBV4LCONVERT
+	select JSON_C		if V4L_UTILS_TRACER
 	help
 	  Linux V4L2 and DVB API utilities and v4l libraries (libv4l).
 
@@ -87,5 +88,9 @@ config V4L_UTILS_V4L2CTL
 config V4L_UTILS_V4L2SYSFSPATH
 	bool
 	prompt "install v4l2-sysfs-path"
+
+config V4L_UTILS_TRACER
+	bool
+	prompt "install v4l2-tracer"
 
 endif
