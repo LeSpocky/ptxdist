@@ -17,8 +17,8 @@ PACKAGES-$(PTXCONF_PROCPS) += procps
 #
 # Paths and names
 #
-PROCPS_VERSION	:= 3.3.17
-PROCPS_MD5	:= d60613e88c2f442ebd462b5a75313d56
+PROCPS_VERSION	:= 4.0.3
+PROCPS_MD5	:= 22b287bcd758831cbaf3356cd3054fe7
 PROCPS		:= procps-ng-$(PROCPS_VERSION)
 PROCPS_SUFFIX	:= tar.xz
 PROCPS_URL	:= $(call ptx/mirror, SF, procps-ng/Production/$(PROCPS).$(PROCPS_SUFFIX))
@@ -46,8 +46,10 @@ PROCPS_CONF_OPT	:= \
 	--disable-rpath \
 	--disable-watch8bit \
 	--disable-libselinux \
+	--disable-harden-flags \
 	--$(call ptx/endis, PTXCONF_PROCPS_PIDOF)-pidof \
 	--disable-kill \
+	--$(call ptx/endis, PTXCONF_PROCPS_W)-w \
 	--disable-skill \
 	--disable-examples \
 	--disable-sigwinch \
@@ -63,7 +65,6 @@ PROCPS_CONF_OPT	:= \
 	--$(call ptx/wwo, PTXCONF_PROCPS_WITH_SYSTEMD)-systemd \
 	--without-elogind
 
-
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
@@ -77,7 +78,7 @@ $(STATEDIR)/procps.targetinstall:
 	@$(call install_fixup, procps,AUTHOR,"Clemens Gruber <clemens.gruber@pqgruber.com>")
 	@$(call install_fixup, procps,DESCRIPTION,missing)
 
-	@$(call install_lib, procps, 0, 0, 0644, libprocps)
+	@$(call install_lib, procps, 0, 0, 0644, libproc2)
 
 ifdef PTXCONF_PROCPS_FREE
 	@$(call install_copy, procps, 0, 0, 0755, -, /usr/bin/free)
