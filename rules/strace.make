@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_STRACE) += strace
 #
 # Paths and names
 #
-STRACE_VERSION	:= 6.1
-STRACE_MD5	:= cbd758b0545b678cd7ac09c683ade002
+STRACE_VERSION	:= 6.2
+STRACE_MD5	:= da0507c05f3cde62486755172e020f18
 STRACE		:= strace-$(STRACE_VERSION)
 STRACE_SUFFIX	:= tar.xz
 STRACE_URL	:= https://strace.io/files/$(STRACE_VERSION)/$(STRACE).$(STRACE_SUFFIX)
@@ -52,7 +52,6 @@ STRACE_CONF_OPT		:= \
 	--without-libunwind \
 	--without-libiberty \
 	--without-libselinux
-
 
 # ----------------------------------------------------------------------------
 # Target-Install
