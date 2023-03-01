@@ -536,6 +536,11 @@ check_dirs() {
 
 		rm -- "${testfile_lower}" "${testfile_upper}"
 	done
+
+	# make sure that the BSP git dir is ignored
+	if git -C "${PTXDIST_PLATFORMDIR}" rev-parse HEAD &> /dev/null; then
+		touch "${PTXDIST_PLATFORMDIR}/.git"
+	fi
 }
 
 
