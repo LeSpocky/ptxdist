@@ -410,8 +410,8 @@ ptxd_make_world_init() {
 		;;
 	esac
     done
-    whitelist_host="$(echo $(cat "${deps_host[@]}" /dev/null 2>/dev/null))"
-    whitelist_target="$(echo $(cat "${deps_target[@]}" /dev/null 2>/dev/null))"
+    whitelist_host="$(echo $(cat "${deps_host[@]}" /dev/null 2>/dev/null | sort -u))"
+    whitelist_target="$(echo $(cat "${deps_target[@]}" /dev/null 2>/dev/null | sort -u))"
     pkg_env="PKGCONFIG_WHITELIST_HOST='${whitelist_host}' PKGCONFIG_WHITELIST_TARGET='${whitelist_target}' PKGCONFIG_WHITELIST_SRC='${pkg_label}' ${pkg_env}"
 
     #
