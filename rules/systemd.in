@@ -132,6 +132,17 @@ config SYSTEMD_TIMEDATE
 	help
 	  NTP client for time synchronization and local timezone handling.
 
+config SYSTEMD_TIMEDATE_VOLATILE
+	bool
+	prompt "volatile systemd-timesyncd"
+	help
+	  If this option is enabled then ptxdist assumes that
+	  /var/lib/systemd/timesync is not writeable at runtime and
+	  systemd-timesyncd cannot save the synchronized time.
+	  PTXdist will prevent systemd from trying to create this directory.
+	  This helps with nfsroot where incorrect permissions of the directory
+	  prevent systemd-timesyncd from starting.
+
 config SYSTEMD_COREDUMP
 	bool
 	prompt "enable generating coredumps"

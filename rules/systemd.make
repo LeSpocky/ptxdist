@@ -488,8 +488,13 @@ ifdef PTXCONF_SYSTEMD_TIMEDATE
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/timedatectl)
 	@$(call install_alternative, systemd, 0, 0, 0644, \
 		/etc/systemd/timesyncd.conf)
+ifdef PTXCONF_SYSTEMD_TIMEDATE_VOLATILE
+	@$(call install_alternative, systemd, 0, 0, 0644, \
+		/usr/lib/systemd/system/systemd-timesyncd.service.d/volatile.conf)
+else
 	@$(call install_copy, systemd, systemd-timesync, nogroup, 0755, \
 		/var/lib/systemd/timesync)
+endif
 	@$(call install_link, systemd, ../systemd-timesyncd.service,  \
 		/usr/lib/systemd/system/sysinit.target.wants/systemd-timesyncd.service)
 	@$(call install_alternative, systemd, 0, 0, 0664, \
