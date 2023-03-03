@@ -539,6 +539,13 @@ ptxd_make_world_init() {
     local kbuild_date="$(date --utc --date=@${SOURCE_DATE_EPOCH} -Iseconds)"
     pkg_env="${pkg_env} KBUILD_BUILD_TIMESTAMP=${kbuild_date} KBUILD_BUILD_USER=ptxdist KBUILD_BUILD_HOST=ptxdist"
 
+    #
+    # ignore git from 'ptxdist --git extract ...'
+    #
+    if grep -q git-ptx-patches "${pkg_dir}/.git/config" &> /dev/null; then
+	pkg_env="${pkg_env} GIT_DIR=${pkg_dir}/.git-disabled"
+    fi
+
     exec 2>&${PTXDIST_FD_LOGERR}
     if [ -n "${PTXDIST_QUIET}" ]; then
 	exec 9>&1
