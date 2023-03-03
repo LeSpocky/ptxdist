@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 252.5
+SYSTEMD_VERSION		:= 253
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_MD5		:= 31d247df965121f453f1339371cca831
+SYSTEMD_MD5		:= 7cf12ee8a91a04306fc6cf290eed42e8
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -199,6 +199,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dtpm2=false \
 	-Dtranslations=false \
 	-Dtty-gid=112 \
+	-Dukify=false \
 	-Dumount-path=/usr/bin/umount \
 	-Durlify=false \
 	-Duserdb=false \
@@ -209,6 +210,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dversion-tag=$(SYSTEMD_VERSION) \
 	-Dwheel-group=false \
 	-Dxdg-autostart=false \
+	-Dxenctrl=false \
 	-Dxkbcommon=false \
 	-Dxz=$(call ptx/truefalse,PTXCONF_SYSTEMD_XZ) \
 	-Dzlib=false \
@@ -252,7 +254,6 @@ endif
 
 SYSTEMD_HELPER := \
 	systemd \
-	systemd-ac-power \
 	systemd-cgroups-agent \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_COREDUMP,systemd-coredump) \
 	systemd-fsck \
@@ -360,6 +361,7 @@ $(STATEDIR)/systemd.targetinstall:
 ifdef PTXCONF_SYSTEMD_HOSTNAMED
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/hostnamectl)
 endif
+	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-ac-power)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-analyze)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-cat)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-cgls)
