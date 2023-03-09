@@ -127,9 +127,6 @@ and import the package source as the first commit.
 .. note:: Optionally, you can enable the setting *Developer Options →
   use git to apply patches* in `ptxdist setup` to get this behaviour
   as a default for every package.
-  However, note that this setting is meant for development only, and can lead
-  to failures – some packages try to determine if they are being compiled from
-  a Git source tree, and behave differently in that case.
 
 Then you can change into the package build directory
 (``platform-<name>/build-target/foo-1.1.0``),
