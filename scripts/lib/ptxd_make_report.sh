@@ -33,6 +33,8 @@ ptxd_make_bsp_report_header() {
     do_echo "version:" "${PTXDIST_VERSION_FULL}"
     do_echo "path:" "${PTXDIST_TOPDIR}"
     echo "bsp:"
+    do_echo "vendor:" "$(ptxd_get_ptxconf PTXCONF_PROJECT_VENDOR)"
+    do_echo "project:" "$(ptxd_get_ptxconf PTXCONF_PROJECT)"
     do_echo "project-version:" "$(ptxd_get_ptxconf PTXCONF_PROJECT_VERSION)"
     do_echo "platform:" "$(ptxd_get_ptxconf PTXCONF_PLATFORM)"
     do_echo "platform-version:" "$(ptxd_get_ptxconf PTXCONF_PLATFORM_VERSION)"

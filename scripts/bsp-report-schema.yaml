@@ -21,6 +21,8 @@ properties:
   bsp:
     type: object
     required:
+    - vendor
+    - project
     - project-version
     - platform-version
     - ptxconfig
@@ -29,6 +31,10 @@ properties:
     - layers
     additionalProperties: false
     properties:
+      vendor:
+        type: string
+      project:
+        type: string
       project-version:
         $ref: '#/$defs/version'
       platform:
