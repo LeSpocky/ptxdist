@@ -9,6 +9,7 @@ menuconfig QEMU
 	select GCCLIBS_CXX
 	select GLIB
 	select LIBCAP_NG
+	select LIBSLIRP
 	select ZLIB
 	select SDL2		if QEMU_SDL
 	select GTK		if QEMU_GTK

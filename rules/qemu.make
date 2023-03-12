@@ -118,6 +118,7 @@ QEMU_CONF_OPT	:= \
 	--disable-sdl-image \
 	--disable-seccomp \
 	--disable-selinux \
+	--enable-slirp \
 	--disable-smartcard \
 	--disable-snappy \
 	--disable-sparse \
