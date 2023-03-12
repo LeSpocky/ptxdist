@@ -1,0 +1,10 @@
+## SECTION=networking
+
+config LIBSLIRP
+	tristate
+	select HOST_MESON
+	select GLIB
+	prompt "libslirp"
+	help
+	  libslirp is a user-mode networking library used by virtual machines,
+	  containers or various tools, like qemu.

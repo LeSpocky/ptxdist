@@ -1,0 +1,7 @@
+## SECTION=hosttools_noprompt
+
+config HOST_LIBSLIRP
+	tristate
+	select HOST_GLIB
+	select HOST_MESON
+	prompt "libslirp"
