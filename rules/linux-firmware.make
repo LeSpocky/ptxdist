@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20230210
-LINUX_FIRMWARE_MD5	:= 38e4a73423e3dccde38a82cb083afc69
+LINUX_FIRMWARE_VERSION	:= 20230310
+LINUX_FIRMWARE_MD5	:= ea5a10c44a9dd5aba4c79362d16d7f2c
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -50,7 +50,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENSE.ipu3_firmware;md5=38fe8238c06bf7dcfd0eedbebf452c3b \
 	file://LICENCE.go7007;md5=c0bb9f6aaaba55b0529ee9b30aa66beb \
 	file://LICENCE.mediatek;md5=7c1976b63217d76ce47d0a11d8a79cf2 \
-	file://LICENCE.cavium_liquidio;md5=ff2c835a7bb99e8e9048ab13b94e43eb \
+	file://LICENCE.cavium_liquidio;md5=c783d02784e08748de1bf0e543b68212 \
 	file://LICENCE.kaweth;md5=b1d876e562f4b3b8d391ad8395dfe03f \
 	file://LICENCE.Marvell;md5=28b6ed8bd04ba105af6e4dcd6e997772 \
 	file://LICENSE.QualcommAtheros_ar3k;md5=b5fe244fb2b532311de1472a3bc06da5 \
@@ -84,7 +84,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.it913x;md5=1fbf727bfb6a949810c4dbfa7e6ce4f8 \
 	file://LICENSE.qcom_yamato;md5=d0de0eeccaf1843a850bf7a6777eec5c \
 	file://LICENCE.OLPC;md5=5b917f9d8c061991be4f6f5f108719cd \
-	file://LICENCE.qat_firmware;md5=9e7d8bea77612d7cc7d9e9b54b623062 \
+	file://LICENCE.qat_firmware;md5=72de83dfd9b87be7685ed099a39fbea4 \
 	file://LICENSE.ice;md5=742ab4850f2670792940e6d15c974b2f \
 	file://LICENCE.myri10ge_firmware;md5=42e32fb89f6b959ca222e25ac8df8fed \
 	file://LICENCE.Netronome;md5=4add08f2577086d44447996503cddf5f \
