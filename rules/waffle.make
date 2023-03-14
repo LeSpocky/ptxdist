@@ -29,24 +29,21 @@ WAFFLE_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-WAFFLE_CONF_TOOL	:= cmake
+WAFFLE_CONF_TOOL	:= meson
 WAFFLE_CONF_OPT	:= \
-	$(CROSS_CMAKE_USR) \
-	-G Ninja \
-	-DVALGRIND_EXECUTABLE= \
+	$(CROSS_MESON_USR) \
+	-Dbuild-examples=false \
+	-Dbuild-htmldocs=false \
+	-Dbuild-manpages=false \
+	-Dbuild-tests=false \
+	-Dgbm=$(call ptx/endis,PTXCONF_WAFFLE_GBM)d \
+	-Dglx=$(call ptx/endis,PTXCONF_WAFFLE_GLX)d \
+	-Dnacl=false \
 	-Dnacl_sdk_path= \
 	-Dnacl_version= \
-	-Dwaffle_build_examples=OFF \
-	-Dwaffle_build_htmldocs=OFF \
-	-Dwaffle_build_manpages=OFF \
-	-Dwaffle_build_tests=OFF \
-	-Dwaffle_has_gbm=$(call ptx/onoff,PTXCONF_WAFFLE_GBM) \
-	-Dwaffle_has_glx=$(call ptx/onoff,PTXCONF_WAFFLE_GLX) \
-	-Dwaffle_has_nacl=OFF \
-	-Dwaffle_has_surfaceless_egl=OFF \
-	-Dwaffle_has_wayland=$(call ptx/onoff,PTXCONF_WAFFLE_WAYLAND) \
-	-Dwaffle_has_x11_egl=$(call ptx/onoff,PTXCONF_WAFFLE_X11_EGL) \
-	-Dwaffle_xsltproc=
+	-Dsurfaceless_egl=disabled \
+	-Dwayland=$(call ptx/endis,PTXCONF_WAFFLE_WAYLAND)d \
+	-Dx11_egl=$(call ptx/endis,PTXCONF_WAFFLE_X11_EGL)d
 
 # ----------------------------------------------------------------------------
 # Target-Install

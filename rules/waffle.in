@@ -3,8 +3,7 @@
 menuconfig WAFFLE
 	tristate
 	prompt "waffle                        "
-	select HOST_CMAKE
-	select HOST_NINJA
+	select HOST_MESON
 	select MESALIB
 	select LIBXCB		if WAFFLE_GLX || WAFFLE_X11_EGL
 	select XORG_LIB_X11	if WAFFLE_GLX || WAFFLE_X11_EGL
