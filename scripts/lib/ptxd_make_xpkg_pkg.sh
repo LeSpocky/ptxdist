@@ -457,9 +457,9 @@ ptxd_install_file_strip() {
 	local mini_debug="$(mktemp -u "${PTXDIST_TEMPDIR}/mini_debug.XXXXX")"
 
 	comm -13 \
-	    <("${CROSS_NM}" -D "${src}" --format=posix --defined-only \
+	    <("${CROSS_NM}" -D "${src}" --format=posix --defined-only 2>/dev/null \
 		| awk '{ print $1 }' | sort) \
-	    <("${CROSS_NM}" "${src}" --format=posix --defined-only \
+	    <("${CROSS_NM}" "${src}" --format=posix --defined-only 2>/dev/null \
 		| awk '{ if ($2 == "T" || $2 == "t" || $2 == "D") print $1 }' | sort) \
 	    > "${keep_symbols}" &&
 	# only create the section if there are symbols to add
