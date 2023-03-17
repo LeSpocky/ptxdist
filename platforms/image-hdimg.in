@@ -46,4 +46,18 @@ config IMAGE_HDIMG_VFAT
 
 endchoice
 
+if IMAGE_HDIMG_BAREBOX
+
+config IMAGE_HDIMG_BAREBOX_IMAGE
+	string
+	prompt "barebox image name"
+	default "barebox-image"
+	help
+	  If barebox creates multiple images, configure the file name of the
+	  image (relative to $IMAGEDIR) which should be written into hd.img.
+
+	  The default is 'barebox-image', which is a symlink to the last image
+	  installed by the barebox recipe.
+endif
+
 endif
