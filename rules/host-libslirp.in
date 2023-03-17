@@ -2,6 +2,6 @@
 
 config HOST_LIBSLIRP
 	tristate
+	default y if ALLYES
 	select HOST_GLIB
 	select HOST_MESON
-	prompt "libslirp"
