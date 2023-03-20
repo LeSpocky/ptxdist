@@ -73,7 +73,7 @@ $(STATEDIR)/pam.targetinstall:
 	@$(call install_lib, pam, 0, 0, 0644, libpam_misc)
 	@$(call install_lib, pam, 0, 0, 0644, libpam)
 
-	@$(call install_tree, pam, 0, 0, -, /usr/$(CROSS_LIB_DIR)/security)
+	@$(call install_tree, pam, 0, 0, -, /usr/lib/security)
 
 	@$(call install_alternative, pam, 0, 0, 0644, /etc/environment)
 	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/access.conf)
