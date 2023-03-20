@@ -43,7 +43,7 @@ ZLIB_CONF_TOOL := autoconf
 ZLIB_CONF_OPT := \
 	--prefix=/usr \
 	--uname=Linux \
-	--libdir=/usr/$(CROSS_LIB_DIR)
+	--libdir=/usr/lib
 
 # ----------------------------------------------------------------------------
 # Target-Install
