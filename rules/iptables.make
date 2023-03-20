@@ -49,7 +49,7 @@ IPTABLES_CONF_OPT	:= \
 	--disable-connlabel \
 	--disable-profiling \
 	--with-kernel=$(KERNEL_HEADERS_DIR) \
-	--with-xtlibdir=/usr/$(CROSS_LIB_DIR)
+	--with-xtlibdir=/usr/lib
 
 # ----------------------------------------------------------------------------
 # Install
@@ -80,15 +80,15 @@ $(STATEDIR)/iptables.targetinstall:
 ifdef PTXCONF_IPTABLES_LIBIPQ
 	@$(call install_lib, iptables, 0, 0, 0644, libipq)
 endif
-	@$(call install_glob, iptables, 0, 0, -, /usr/$(CROSS_LIB_DIR), */libxt_*.so,)
+	@$(call install_glob, iptables, 0, 0, -, /usr/lib, */libxt_*.so,)
 
 ifdef PTXCONF_IPTABLES_IPV6
-	@$(call install_glob, iptables, 0, 0, -, /usr/$(CROSS_LIB_DIR), */libip6t_*.so,)
+	@$(call install_glob, iptables, 0, 0, -, /usr/lib, */libip6t_*.so,)
 	@$(call install_lib, iptables, 0, 0, 0644, libip6tc)
 endif
 
 ifdef PTXCONF_IPTABLES_IPV4
-	@$(call install_glob, iptables, 0, 0, -, /usr/$(CROSS_LIB_DIR), */libipt_*.so,)
+	@$(call install_glob, iptables, 0, 0, -, /usr/lib, */libipt_*.so,)
 	@$(call install_lib, iptables, 0, 0, 0644, libip4tc)
 endif
 
