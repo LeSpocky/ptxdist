@@ -63,8 +63,8 @@ endif
 #
 OPENSSL_CONF_OPT := \
 	--prefix=/usr \
-	--libdir=/usr/$(CROSS_LIB_DIR) \
-	--openssldir=/usr/$(CROSS_LIB_DIR)/ssl \
+	--libdir=/usr/lib \
+	--openssldir=/usr/lib/ssl \
 	shared \
 	$(call ptx/ifdef, PTXCONF_OPENSSL_CRYPTODEV, enable-devcryptoeng, no-devcryptoeng) \
 	no-idea \
@@ -104,7 +104,7 @@ ifdef PTXCONF_OPENSSL_BIN
 endif
 
 	@$(call install_alternative, openssl, 0, 0, 0644, \
-		/usr/$(CROSS_LIB_DIR)/ssl/openssl.cnf)
+		/usr/lib/ssl/openssl.cnf)
 
 	@$(call install_lib, openssl, 0, 0, 0644, libssl)
 	@$(call install_lib, openssl, 0, 0, 0644, libcrypto)
