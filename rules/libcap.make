@@ -30,7 +30,7 @@ LIBCAP_LICENSE_FILES := file://License;md5=2965a646645b72ecee859b43c592dcaa
 # ----------------------------------------------------------------------------
 
 LIBCAP_MAKE_OPT	:= \
-	prefix=/usr lib=$(CROSS_LIB_DIR) \
+	prefix=/usr lib=lib \
 	CROSS_COMPILE=$(COMPILER_PREFIX) \
 	BUILD_CC=$(HOSTCC) \
 	DYNAMIC=yes \
@@ -61,7 +61,7 @@ $(STATEDIR)/libcap.targetinstall:
 	@$(call install_lib,  libcap, 0, 0, 0644, libcap)
 ifdef PTXCONF_GLOBAL_PAM
 	@$(call install_copy, libcap, 0, 0, 0755, -, \
-		/usr/$(CROSS_LIB_DIR)/security/pam_cap.so)
+		/usr/lib/security/pam_cap.so)
 endif
 ifdef PTXCONF_LIBCAP_SETCAP
 	@$(call install_copy, libcap, 0, 0, 0755, -, /usr/sbin/setcap)
