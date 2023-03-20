@@ -30,10 +30,9 @@ EFIVAR_LICENSE	:= LGPL-2.1-only
 EFIVAR_CONF_TOOL	:= NO
 EFIVAR_MAKE_ENV		:= \
 	$(CROSS_ENV) \
+	LIBDIR=/usr/lib \
 	ERRORS="-Wno-error" \
 	PTXDIST_ICECC=$(PTXDIST_ICERUN)
-
-EFIVAR_INSTALL_OPT	:= libdir="/usr/$(CROSS_LIB_DIR)/" install
 
 EFIVAR_CFLAGS	:= \
 	-flto-partition=none
