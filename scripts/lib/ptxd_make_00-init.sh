@@ -200,9 +200,6 @@ ptxd_init_cross_env() {
     prefix=( ${PTXDIST_PATH_SYSROOT_PREFIX} )
     IFS="${orig_IFS}"
 
-    local -a lib_dir
-    lib_dir=$(ptxd_get_lib_dir)
-
     # add "-isystem <DIR>/include"
     local -a cppflags
     cppflags=( "${prefix[@]/%//include}" )
@@ -210,7 +207,7 @@ ptxd_init_cross_env() {
 
     # add "-L<DIR>/lib -Wl,-rpath-link -Wl,<DIR>"
     local -a ldflags
-    ldflags=( "${prefix[@]/%//${lib_dir}}" )
+    ldflags=( "${prefix[@]/%//lib}" )
     ldflags=( "${ldflags[@]/#/-B}" "${ldflags[@]/#/-L}" "${ldflags[@]/#/-Wl,-rpath-link -Wl,}" )
 
     export \

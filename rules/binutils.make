@@ -49,6 +49,11 @@ BINUTILS_CONF_OPT := \
 BINUTILS_CFLAGS := \
 	-fPIC
 
+# overwrite install dir for libiberty when MULTIOSDIR evaluates to ../lib64
+BINUTILS_INSTALL_OPT := \
+	MAKE="make MULTIOSDIR=." \
+	install
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------

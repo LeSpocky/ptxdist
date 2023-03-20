@@ -136,7 +136,8 @@ CROSS_ENV_PROGS := \
 	$(CROSS_ENV_LINK_FOR_BUILD) \
 	$(CROSS_ENV_PKG_CONFIG)
 
-CROSS_LIB_DIR   := $(shell ptxd_get_lib_dir)
+CROSS_LIB_DIR		:= lib
+CROSS_LINKER_LIB_DIR	:= $(shell ptxd_get_lib_dir)
 
 
 #

@@ -36,6 +36,9 @@ $(STATEDIR)/glibc.targetinstall:
 	@$(call install_fixup, glibc,DESCRIPTION,missing)
 
 ifdef PTXCONF_GLIBC_LD
+ifneq ($(CROSS_LINKER_LIB_DIR),lib)
+	@$(call install_link, glibc, lib, /$(CROSS_LINKER_LIB_DIR))
+endif
 	@$(call install_copy_toolchain_dl, glibc)
 endif
 
