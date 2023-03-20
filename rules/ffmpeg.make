@@ -49,7 +49,6 @@ endif
 FFMPEG_CONF_TOOL	:= autoconf
 FFMPEG_CONF_OPT		:= \
 	--prefix=/usr \
-	--libdir=/usr/$(CROSS_LIB_DIR) \
 	--disable-rpath \
 	--disable-gpl \
 	--disable-version3 \
