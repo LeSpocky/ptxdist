@@ -162,22 +162,22 @@ $(STATEDIR)/ncurses.targetinstall:
 
 ifdef PTXCONF_NCURSES_BACKWARD_COMPATIBLE_NON_WIDE_CHAR
 	@$(call install_link, ncurses, libncursesw.so.$(NCURSES_VERSION), \
-		/lib/libncurses.so.$(NCURSES_VERSION))
+		/usr/lib/libncurses.so.$(NCURSES_VERSION))
 	@$(call install_link, ncurses, libncursesw.so.$(NCURSES_VERSION), \
-		/lib/libncurses.so.$(NCURSES_MAJOR))
+		/usr/lib/libncurses.so.$(NCURSES_MAJOR))
 	@$(call install_link, ncurses, libncursesw.so.$(NCURSES_VERSION), \
-		/lib/libncurses.so)
+		/usr/lib/libncurses.so)
 endif
 
 ifdef PTXCONF_NCURSES_FORM
 	@$(call install_lib, ncurses, 0, 0, 0644, libform$(NCURSES_WIDE))
 ifdef PTXCONF_NCURSES_BACKWARD_COMPATIBLE_NON_WIDE_CHAR
 	@$(call install_link, ncurses, libformw.so.$(NCURSES_VERSION), \
-		/lib/libform.so.$(NCURSES_VERSION))
+		/usr/lib/libform.so.$(NCURSES_VERSION))
 	@$(call install_link, ncurses, libformw.so.$(NCURSES_VERSION), \
-		/lib/libform.so.$(NCURSES_MAJOR))
+		/usr/lib/libform.so.$(NCURSES_MAJOR))
 	@$(call install_link, ncurses, libformw.so.$(NCURSES_VERSION), \
-		/lib/libform.so)
+		/usr/lib/libform.so)
 endif
 endif
 
@@ -186,11 +186,11 @@ ifdef PTXCONF_NCURSES_MENU
 	@$(call install_lib, ncurses, 0, 0, 0644, libmenu$(NCURSES_WIDE))
 ifdef PTXCONF_NCURSES_BACKWARD_COMPATIBLE_NON_WIDE_CHAR
 	@$(call install_link, ncurses, libmenuw.so.$(NCURSES_VERSION), \
-		/lib/libmenu.so.$(NCURSES_VERSION))
+		/usr/lib/libmenu.so.$(NCURSES_VERSION))
 	@$(call install_link, ncurses, libmenuw.so.$(NCURSES_VERSION), \
-		/lib/libmenu.so.$(NCURSES_MAJOR))
+		/usr/lib/libmenu.so.$(NCURSES_MAJOR))
 	@$(call install_link, ncurses, libmenuw.so.$(NCURSES_VERSION), \
-		/lib/libmenu.so)
+		/usr/lib/libmenu.so)
 endif
 endif
 
@@ -199,11 +199,11 @@ ifdef PTXCONF_NCURSES_PANEL
 	@$(call install_lib, ncurses, 0, 0, 0644, libpanel$(NCURSES_WIDE))
 ifdef PTXCONF_NCURSES_BACKWARD_COMPATIBLE_NON_WIDE_CHAR
 	@$(call install_link, ncurses, libpanelw.so.$(NCURSES_VERSION), \
-		/lib/libpanel.so.$(NCURSES_VERSION))
+		/usr/lib/libpanel.so.$(NCURSES_VERSION))
 	@$(call install_link, ncurses, libpanelw.so.$(NCURSES_VERSION), \
-		/lib/libpanel.so.$(NCURSES_MAJOR))
+		/usr/lib/libpanel.so.$(NCURSES_MAJOR))
 	@$(call install_link, ncurses, libpanelw.so.$(NCURSES_VERSION), \
-		/lib/libpanel.so)
+		/usr/lib/libpanel.so)
 endif
 endif
 
