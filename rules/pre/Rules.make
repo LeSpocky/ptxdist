@@ -220,10 +220,10 @@ CROSS_ENV := \
 #
 
 CROSS_AUTOCONF_SYSROOT_USR := \
-	--prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/$(CROSS_LIB_DIR)
+	--prefix=/usr --sysconfdir=/etc --localstatedir=/var --libdir=/usr/lib
 
 CROSS_AUTOCONF_SYSROOT_ROOT := \
-	--libdir=/$(CROSS_LIB_DIR) --prefix=
+	--libdir=/lib --prefix=
 
 CROSS_AUTOCONF_ARCH := \
 	--build=$(GNU_HOST) \
@@ -234,7 +234,6 @@ CROSS_AUTOCONF_ROOT := $(CROSS_AUTOCONF_SYSROOT_ROOT) $(CROSS_AUTOCONF_ARCH)
 
 CROSS_CMAKE_USR	 := \
 	-DCMAKE_INSTALL_PREFIX=/usr \
-	-DCMAKE_INSTALL_LIBDIR=$(CROSS_LIB_DIR) \
 	-DCMAKE_INSTALL_SYSCONFDIR=/etc \
 	-DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo \
 	-DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
@@ -259,7 +258,7 @@ CROSS_MESON_USR := \
 	-Dbackend=ninja \
 	-Dbuildtype=debugoptimized \
 	-Dpkgconfig.relocatable=true \
-	-Dlibdir=$(CROSS_LIB_DIR) \
+	-Dlibdir=lib \
 	-Dprefix=/usr
 
 CROSS_MESON_ENV = \
