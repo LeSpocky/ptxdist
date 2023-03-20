@@ -48,7 +48,7 @@ NCURSES_AUTOCONF_SHARED = \
 	--without-tack \
 	--without-tests \
 	--with-curses-h \
-	--with-pkg-config-libdir=/usr/$(CROSS_LIB_DIR)/pkgconfig \
+	--with-pkg-config-libdir=/usr/lib/pkgconfig \
 	--$(call ptx/endis,$(1))-pc-files \
 	--enable-mixed-case \
 	--without-libtool \
@@ -125,15 +125,15 @@ ifdef PTXCONF_NCURSES_WIDE_CHAR
 # For this, the links at runtime are required
 #
 	@for lib in $(NCURSES_LIBRARY_LIST); do \
-		echo "INPUT(-l$${lib}w)" > $(NCURSES_PKGDIR)/usr/$(CROSS_LIB_DIR)/lib$${lib}.so ; \
+		echo "INPUT(-l$${lib}w)" > $(NCURSES_PKGDIR)/usr/lib/lib$${lib}.so ; \
 	done
-	@echo "INPUT(-lncursesw)" > $(NCURSES_PKGDIR)/usr/$(CROSS_LIB_DIR)/libcurses.so
+	@echo "INPUT(-lncursesw)" > $(NCURSES_PKGDIR)/usr/lib/libcurses.so
 
 	@ln -sf "ncursesw$(NCURSES_MAJOR)-config" \
 		"$(NCURSES_PKGDIR)/usr/bin/ncurses$(NCURSES_MAJOR)-config"
 ifdef PTXCONF_NCURSES_BACKWARD_COMPATIBLE_NON_WIDE_CHAR
 	@for lib in $(NCURSES_LIBRARY_LIST); do \
-		ln -vs "$${lib}w.pc" "$(NCURSES_PKGDIR)/usr/$(CROSS_LIB_DIR)/pkgconfig/$${lib}.pc"; \
+		ln -vs "$${lib}w.pc" "$(NCURSES_PKGDIR)/usr/lib/pkgconfig/$${lib}.pc"; \
 	done
 endif
 endif
@@ -162,22 +162,22 @@ $(STATEDIR)/ncurses.targetinstall:
 
 ifdef PTXCONF_NCURSES_BACKWARD_COMPATIBLE_NON_WIDE_CHAR
 	@$(call install_link, ncurses, libncursesw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libncurses.so.$(NCURSES_VERSION))
+		/lib/libncurses.so.$(NCURSES_VERSION))
 	@$(call install_link, ncurses, libncursesw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libncurses.so.$(NCURSES_MAJOR))
+		/lib/libncurses.so.$(NCURSES_MAJOR))
 	@$(call install_link, ncurses, libncursesw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libncurses.so)
+		/lib/libncurses.so)
 endif
 
 ifdef PTXCONF_NCURSES_FORM
 	@$(call install_lib, ncurses, 0, 0, 0644, libform$(NCURSES_WIDE))
 ifdef PTXCONF_NCURSES_BACKWARD_COMPATIBLE_NON_WIDE_CHAR
 	@$(call install_link, ncurses, libformw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libform.so.$(NCURSES_VERSION))
+		/lib/libform.so.$(NCURSES_VERSION))
 	@$(call install_link, ncurses, libformw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libform.so.$(NCURSES_MAJOR))
+		/lib/libform.so.$(NCURSES_MAJOR))
 	@$(call install_link, ncurses, libformw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libform.so)
+		/lib/libform.so)
 endif
 endif
 
@@ -186,11 +186,11 @@ ifdef PTXCONF_NCURSES_MENU
 	@$(call install_lib, ncurses, 0, 0, 0644, libmenu$(NCURSES_WIDE))
 ifdef PTXCONF_NCURSES_BACKWARD_COMPATIBLE_NON_WIDE_CHAR
 	@$(call install_link, ncurses, libmenuw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libmenu.so.$(NCURSES_VERSION))
+		/lib/libmenu.so.$(NCURSES_VERSION))
 	@$(call install_link, ncurses, libmenuw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libmenu.so.$(NCURSES_MAJOR))
+		/lib/libmenu.so.$(NCURSES_MAJOR))
 	@$(call install_link, ncurses, libmenuw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libmenu.so)
+		/lib/libmenu.so)
 endif
 endif
 
@@ -199,11 +199,11 @@ ifdef PTXCONF_NCURSES_PANEL
 	@$(call install_lib, ncurses, 0, 0, 0644, libpanel$(NCURSES_WIDE))
 ifdef PTXCONF_NCURSES_BACKWARD_COMPATIBLE_NON_WIDE_CHAR
 	@$(call install_link, ncurses, libpanelw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libpanel.so.$(NCURSES_VERSION))
+		/lib/libpanel.so.$(NCURSES_VERSION))
 	@$(call install_link, ncurses, libpanelw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libpanel.so.$(NCURSES_MAJOR))
+		/lib/libpanel.so.$(NCURSES_MAJOR))
 	@$(call install_link, ncurses, libpanelw.so.$(NCURSES_VERSION), \
-		/$(CROSS_LIB_DIR)/libpanel.so)
+		/lib/libpanel.so)
 endif
 endif
 
