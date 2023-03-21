@@ -86,7 +86,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Delfutils=$(call ptx/truefalse,PTXCONF_SYSTEMD_COREDUMP) \
 	-Denvironment-d=false \
 	-Dfallback-hostname=$(call ptx/ifdef,PTXCONF_ROOTFS_ETC_HOSTNAME,$(PTXCONF_ROOTFS_ETC_HOSTNAME),ptxdist) \
-	-Dfdisk=false \
+	-Dfdisk=$(call ptx/truefalse,PTXCONF_SYSTEMD_REPART) \
 	-Dfexecve=false \
 	-Dfirstboot=false \
 	-Dfuzz-tests=false \
@@ -162,7 +162,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dquotaon-path=/usr/sbin/quotaon \
 	-Drandomseed=$(call ptx/falsetrue,PTXCONF_SYSTEMD_DISABLE_RANDOM_SEED) \
 	-Dremote=$(call ptx/ifdef,PTXCONF_SYSTEMD_JOURNAL_REMOTE,auto,false) \
-	-Drepart=false \
+	-Drepart=$(call ptx/truefalse,PTXCONF_SYSTEMD_REPART) \
 	-Dresolve=$(call ptx/truefalse,PTXCONF_SYSTEMD_NETWORK) \
 	-Drfkill=false \
 	-Dseccomp=$(call ptx/truefalse,PTXCONF_SYSTEMD_SECCOMP) \
@@ -379,6 +379,10 @@ ifdef PTXCONF_SYSTEMD_NSPAWN
 	@$(call install_lib, systemd, 0, 0, 0644, libnss_mymachines)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/machinectl)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-nspawn)
+endif
+
+ifdef PTXCONF_SYSTEMD_REPART
+	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-repart)
 endif
 
 	@$(call install_tree, systemd, 0, 0, -, /usr/lib/systemd/system-generators/)
