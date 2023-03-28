@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_PYTHON3) += python3
 #
 # Paths and names
 #
-PYTHON3_VERSION		:= 3.10.4
-PYTHON3_MD5		:= 21f2e113e087083a1e8cf10553d93599
+PYTHON3_VERSION		:= 3.11.2
+PYTHON3_MD5		:= a957cffb58a89303b62124896881950b
 PYTHON3_MAJORMINOR	:= $(basename $(PYTHON3_VERSION))
 PYTHON3_SITEPACKAGES	:= /usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages
 PYTHON3			:= Python-$(PYTHON3_VERSION)
@@ -76,7 +76,8 @@ PYTHON3_CONF_OPT	:= \
 	--without-dtrace \
 	--with-computed-gotos \
 	--without-ensurepip \
-	--with-openssl=$(SYSROOT)/usr
+	--with-openssl=$(SYSROOT)/usr \
+	--with-build-python=python$(PYTHON3_MAJORMINOR)
 
 # Keep dictionary order in .pyc files stable
 PYTHON3_MAKE_ENV := \
