@@ -1,7 +1,11 @@
 ## SECTION=editors
 
+comment "BusyBox' vi and xxd is selected!"
+	depends on BUSYBOX_VI && BUSYBOX_XXD
+
 menuconfig VIM
 	tristate
+	depends on !(BUSYBOX_VI && BUSYBOX_XXD)
 	select LIBC_DL
 	select LIBC_M
 	select GCCLIBS_GCC_S
@@ -14,10 +18,18 @@ menuconfig VIM
 
 if VIM
 
+comment "BusyBox' vi is selected!"
+	depends on BUSYBOX_VI
+
 config VIM_VIM
+	depends on !BUSYBOX_VI
 	bool "Vim Editor"
 
+comment "BusyBox' xxd is selected!"
+	depends on BUSYBOX_XXD
+
 config VIM_XXD
+	depends on !BUSYBOX_XXD
 	bool "XXD"
 
 endif
