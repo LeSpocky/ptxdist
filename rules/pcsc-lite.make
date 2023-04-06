@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_PCSC_LITE) += pcsc-lite
 #
 # Paths and names
 #
-PCSC_LITE_VERSION	:= 1.8.23
-PCSC_LITE_MD5		:= 3ba4b45456a500b5f1f22bf56a2dee38
+PCSC_LITE_VERSION	:= 1.9.8
+PCSC_LITE_MD5		:= d063c6ca17c17fab39a85132811e155d
 PCSC_LITE_SUFFIX	:= tar.bz2
 PCSC_LITE		:= pcsc-lite-$(PCSC_LITE_VERSION)
 PCSC_LITE_URL		:= https://pcsclite.apdu.fr/files/$(PCSC_LITE).$(PCSC_LITE_SUFFIX)
