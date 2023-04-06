@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.67
-PIPEWIRE_MD5		:= 2c9807b2878418be900a220aa4ff6974
+PIPEWIRE_VERSION	:= 0.3.68
+PIPEWIRE_MD5		:= e0572cb5ff19411fb51c88b9b156acca
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -146,6 +146,7 @@ PIPEWIRE_MODULES-y := \
 	protocol-simple \
 	rt \
 	session-manager \
+	rtp-sap \
 	rtp-source \
 	rtp-sink \
 	spa-device \
@@ -182,7 +183,7 @@ $(STATEDIR)/pipewire.targetinstall:
 
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pipewire)
 ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
-	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pipewire-pulse)
+	@$(call install_link, pipewire, pipewire, /usr/bin/pipewire-pulse)
 endif
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-cat)
 ifdef PTXCONF_PIPEWIRE_PW_CTL
