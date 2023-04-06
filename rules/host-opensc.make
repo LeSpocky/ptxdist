@@ -40,7 +40,7 @@ HOST_OPENSC_CONF_OPT	:= \
 	--disable-doc \
 	--disable-dnie-ui \
 	--disable-notify \
-	--enable-tests=no \
+	--disable-cmocka \
 	--disable-static
 
 HOST_OPENSC_CPPFLAGS := -Wno-implicit-fallthrough
