@@ -4,6 +4,7 @@ menuconfig JIMTCL
 	tristate
 	prompt "jimtcl                        "
 	select HOST_JIMTCL
+	select ZLIB
 	select LIBC_M		if JIMTCL_MATH
 	select OPENSSL		if JIMTCL_SSL
 	help
