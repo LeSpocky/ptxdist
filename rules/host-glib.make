@@ -33,7 +33,6 @@ HOST_GLIB_CONF_OPT	:= \
 	-Dglib_checks=true \
 	-Dglib_debug=enabled \
 	-Dgtk_doc=false \
-	-Diconv=libc \
 	-Dinstalled_tests=false \
 	-Dlibelf=disabled \
 	-Dlibmount=disabled \
