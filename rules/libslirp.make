@@ -23,8 +23,8 @@ LIBSLIRP_SOURCE		:= $(SRCDIR)/$(LIBSLIRP).$(LIBSLIRP_SUFFIX)
 LIBSLIRP_DIR		:= $(BUILDDIR)/$(LIBSLIRP)
 LIBSLIRP_LICENSE	:= BSD-3-Clause AND MIT
 LIBSLIRP_LICENSE_FILES	:= \
-	file://src/main.h;endline=4;md5=1e742c49b6e4dd48549742f8727faceb \
-	file://src/slirp.c;endline=24;md5=1e11fddaa17f36215c1697d4bad0e70a \
+	file://src/main.h;startline=1;endline=4;md5=1e742c49b6e4dd48549742f8727faceb \
+	file://src/slirp.c;startline=1;endline=24;md5=1e11fddaa17f36215c1697d4bad0e70a \
 	file://COPYRIGHT;md5=bca0186b14e6b05e338e729f106db727
 
 # ----------------------------------------------------------------------------
