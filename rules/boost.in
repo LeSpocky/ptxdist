@@ -295,6 +295,8 @@ choice
 
 	config BOOST_PYTHON3
 		bool
+		# fails to build with Python 3.11
+		depends on BROKEN
 		prompt "python3"
 		select BOOST_PYTHON
 		help
