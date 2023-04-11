@@ -33,6 +33,7 @@ HOST_JIMTCL_CONF_ENV	:= \
 HOST_JIMTCL_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-lineedit \
+	--disable-ssl \
 	--shared \
 	--disable-docs
 
