@@ -19,6 +19,7 @@ menuconfig BAREBOX
 	select HOST_OPENSSL if BAREBOX_NEEDS_HOST_OPENSSL
 	select HOST_IMX_CST if BAREBOX_NEEDS_HOST_IMX_CST
 	select HOST_LZOP if BAREBOX_NEEDS_HOST_LZOP
+	select HOST_LZ4 if BAREBOX_NEEDS_HOST_LZ4
 	select CODE_SIGNING if BAREBOX_NEEDS_KEYS
 	prompt "barebox                       "
 	bool
@@ -167,6 +168,14 @@ config BAREBOX_NEEDS_HOST_LZOP
 	help
 	  The barebox executable can be compressed. Select this if
 	  lzop is used in order to compile lzop for your development
+	  host.
+
+config BAREBOX_NEEDS_HOST_LZ4
+	prompt "barebox needs lz4"
+	bool
+	help
+	  The barebox executable can be compressed. Select this if
+	  lz4 is used in order to compile lz4 for your development
 	  host.
 
 endif
