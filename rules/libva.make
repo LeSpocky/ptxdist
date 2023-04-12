@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBVA) += libva
 #
 # Paths and names
 #
-LIBVA_VERSION	:= 2.16.0
-LIBVA_MD5	:= 79e44d9705f859e07a3b6a3c80fe772e
+LIBVA_VERSION	:= 2.18.0
+LIBVA_MD5	:= b597a43395daebf65f23872b67bcd794
 LIBVA		:= libva-$(LIBVA_VERSION)
 LIBVA_SUFFIX	:= tar.bz2
 LIBVA_URL	:= https://github.com/intel/libva/releases/download/$(LIBVA_VERSION)/$(LIBVA).$(LIBVA_SUFFIX)
@@ -39,7 +39,6 @@ LIBVA_CONF_OPT	:= \
 	-Ddisable_drm=false \
 	-Ddriverdir='' \
 	-Denable_docs=false \
-	-Denable_va_messaging=true \
 	-Dwith_glx=no \
 	-Dwith_wayland=$(call ptx/yesno, PTXCONF_LIBVA_WAYLAND) \
 	-Dwith_x11=$(call ptx/yesno, PTXCONF_LIBVA_X11)
