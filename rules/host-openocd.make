@@ -25,9 +25,9 @@ HOST_OPENOCD_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--enable-shared \
 	--disable-static \
+	--disable-doxygen-html \
+	--disable-doxygen-pdf \
 	--disable-werror \
-	--disable-internal-jimtcl \
-	--disable-internal-libjaylink \
 	--enable-dummy \
 	--enable-ftdi \
 	--enable-stlink \
@@ -54,8 +54,8 @@ HOST_OPENOCD_CONF_OPT	:= \
 	--disable-parport-giveio \
 	--disable-jtag_vpi \
 	--disable-amtjtagaccel \
-	--disable-zy1000 \
 	--disable-zy1000-master \
+	--disable-zy1000 \
 	--disable-ioutil \
 	--disable-ep93xx \
 	--disable-at91rm9200 \
@@ -66,9 +66,9 @@ HOST_OPENOCD_CONF_OPT	:= \
 	--disable-buspirate \
 	--disable-sysfsgpio \
 	--disable-minidriver-dummy \
-	--disable-target-64 \
-	--disable-remote-bitbang \
-	--disable-doxygen-pdf \
-	--disable-doxygen-html
+	--disable-internal-jimtcl \
+	--disable-internal-libjaylink \
+	--disable-target64 \
+	--disable-remote-bitbang
 
 # vim: syntax=make
