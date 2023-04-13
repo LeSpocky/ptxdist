@@ -37,10 +37,9 @@ HOST_LOCALEDEF_CONF_OPT		:= \
 	--prefix=/usr \
 	--enable-sanity-checks \
 	--disable-profile \
-	--disable-static-pie \
+	--enable-default-pie \
 	--disable-timezone-tools \
 	--disable-hardcoded-path-in-tests \
-	--enable-stackguard-randomization \
 	--enable-hidden-plt \
 	--enable-bind-now \
 	--enable-stack-protector \
@@ -53,8 +52,6 @@ HOST_LOCALEDEF_CONF_OPT		:= \
 	--disable-memory-tagging \
 	--disable-crypt \
 	--disable-nss-crypt \
-	--disable-obsolete-rpc \
-	--disable-obsolete-nsl \
 	--disable-systemtap \
 	--disable-build-nscd \
 	--disable-nscd \
