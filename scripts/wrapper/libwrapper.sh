@@ -40,8 +40,11 @@ wrapper_exec() {
 	done
 	unset IFS
 	PATH="${tmp}"
-	if [ -n "${FAKEROOTKEY}" -o -z "${ICECC_VERSION}" -o ! -e "${ICECC_VERSION}" ]; then
+	if [ -z "${ICECC_VERSION}" -o ! -e "${ICECC_VERSION}" ]; then
 		PTXDIST_ICECC=${PTXDIST_ICERUN}
+	fi
+	if [ -n "${FAKEROOTKEY}" ]; then
+		PTXDIST_ICECC=""
 	fi
 	if ! ${HOST} && [ -n "${PTXDIST_WORKSPACE}" ]; then
 		IFS="$(printf "\037")"
