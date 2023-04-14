@@ -3,7 +3,6 @@
 menuconfig V4L_UTILS
 	tristate
 	prompt "v4l-utils                     "
-	select HOST_GETTEXT
 	select UDEV		if V4L_UTILS_MEDIACTL
 	select UDEV_LIBUDEV	if V4L_UTILS_MEDIACTL
 	select LIBC_DL		if V4L_UTILS_LIBV4L2 || V4L_UTILS_MEDIACTL
