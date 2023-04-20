@@ -11,7 +11,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index a48103cc8a1a..9fbd7b095ca9 100644
+index e421f8a1f4f7..0028d9996cdc 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -145,7 +145,7 @@ MAKE.k = $(findstring k,$(firstword $(filter-out --%,$(MAKEFLAGS))))

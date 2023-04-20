@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 7.2.1
-QEMU_MD5	:= 48ec3eadc151f0eceb641c0c7a13374c
+QEMU_VERSION	:= 8.0.0
+QEMU_MD5	:= f871d2602f5db527533db0f13aa79ab9
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -132,7 +132,6 @@ QEMU_CONF_OPT	:= \
 	--disable-libvduse \
 	--disable-virglrenderer \
 	--$(call ptx/endis, PTXCONF_QEMU_SYS)-virtfs \
-	--disable-virtiofsd \
 	--disable-vnc \
 	--disable-vnc-jpeg \
 	--disable-vnc-sasl \

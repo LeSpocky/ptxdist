@@ -7,11 +7,11 @@ same filesystem with security_model=mapped-file and security_model=none.
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- hw/9pfs/9p-local.c | 44 +++++++++++++++++++++++++++++---------------
- 1 file changed, 29 insertions(+), 15 deletions(-)
+ hw/9pfs/9p-local.c | 40 +++++++++++++++++++++++++++-------------
+ 1 file changed, 27 insertions(+), 13 deletions(-)
 
 diff --git a/hw/9pfs/9p-local.c b/hw/9pfs/9p-local.c
-index d42ce6d8b822..559573008eec 100644
+index 9d07620235c2..376d5b095c76 100644
 --- a/hw/9pfs/9p-local.c
 +++ b/hw/9pfs/9p-local.c
 @@ -462,8 +462,7 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
@@ -24,15 +24,15 @@ index d42ce6d8b822..559573008eec 100644
          int fd;
  
          fd = local_open_nofollow(fs_ctx, fs_path->data, O_RDONLY, 0);
-@@ -475,6 +474,7 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
-         } while (tsize == -1 && errno == EINTR);
+@@ -473,6 +472,7 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
+         tsize = RETRY_ON_EINTR(read(fd, (void *)buf, bufsz));
          close_preserve_errno(fd);
      } else if ((fs_ctx->export_flags & V9FS_SM_PASSTHROUGH) ||
 +               (fs_ctx->export_flags & V9FS_SM_MAPPED_FILE) ||
                 (fs_ctx->export_flags & V9FS_SM_NONE)) {
          char *dirpath = g_path_get_dirname(fs_path->data);
          char *name = g_path_get_basename(fs_path->data);
-@@ -486,6 +486,17 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
+@@ -484,6 +484,17 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
          }
  
          tsize = readlinkat(dirfd, name, buf, bufsz);
@@ -50,7 +50,7 @@ index d42ce6d8b822..559573008eec 100644
          close_preserve_errno(dirfd);
      out:
          g_free(name);
-@@ -901,20 +912,23 @@ static int local_symlink(FsContext *fs_ctx, const char *oldpath,
+@@ -899,18 +910,21 @@ static int local_symlink(FsContext *fs_ctx, const char *oldpath,
          int fd;
          ssize_t oldpath_size, write_size;
  
@@ -61,9 +61,7 @@ index d42ce6d8b822..559573008eec 100644
 -        }
 -        /* Write the oldpath (target) to the file. */
 -        oldpath_size = strlen(oldpath);
--        do {
--            write_size = write(fd, (void *)oldpath, oldpath_size);
--        } while (write_size == -1 && errno == EINTR);
+-        write_size = RETRY_ON_EINTR(write(fd, (void *)oldpath, oldpath_size));
 -        close_preserve_errno(fd);
 +        if (fs_ctx->export_flags & V9FS_SM_MAPPED ||
 +            (symlinkat(oldpath, dirfd, name) != 0)) {
@@ -74,9 +72,7 @@ index d42ce6d8b822..559573008eec 100644
 +            }
 +            /* Write the oldpath (target) to the file. */
 +            oldpath_size = strlen(oldpath);
-+            do {
-+                write_size = write(fd, (void *)oldpath, oldpath_size);
-+            } while (write_size == -1 && errno == EINTR);
++            write_size = RETRY_ON_EINTR(write(fd, (void *)oldpath, oldpath_size));
 +            close_preserve_errno(fd);
  
 -        if (write_size != oldpath_size) {
