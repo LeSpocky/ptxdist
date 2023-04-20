@@ -133,7 +133,6 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-libvduse \
 	--disable-virglrenderer \
 	--$(call ptx/endis, PTXCONF_HOST_QEMU_SYS)-virtfs \
-	--disable-virtiofsd \
 	--disable-vnc \
 	--disable-vnc-jpeg \
 	--disable-vnc-sasl \
