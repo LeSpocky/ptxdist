@@ -32,7 +32,7 @@ export -f ptxd_make_world_install_prepare
 ptxd_make_world_install_python_cleanup() {
     # The full path to the host-python is used as shebang in generated
     # executables, so replace it with the correct path.
-    find "${pkg_pkg_dir}/usr/bin/" -mindepth 1 -maxdepth 1 -print0 | xargs -0 \
+    find "${pkg_pkg_dir}"/usr/{bin,sbin}/ -mindepth 1 -maxdepth 1 -print0 | xargs -0 \
 	sed -i "1s;^#!/.*/\(python[0-9\.]*\);#!/usr/bin/\1;"
     find "${pkg_pkg_dir}" -type f -name "*.so" -print | while read file; do
 	# Python installs shared libraries with executable flags
