@@ -52,6 +52,7 @@ HOST_QEMU_CONF_OPT	:= \
 	" \
 	--meson=meson \
 	--ninja=ninja \
+	--with-git-submodules=ignore \
 	--disable-sanitizers \
 	--disable-tsan \
 	--disable-werror \

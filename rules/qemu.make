@@ -50,6 +50,7 @@ QEMU_CONF_OPT	:= \
 	--cross-prefix=$(CROSS_COMPILE) \
 	--meson=meson \
 	--ninja=ninja \
+	--with-git-submodules=ignore \
 	--disable-sanitizers \
 	--disable-tsan \
 	--disable-werror \
