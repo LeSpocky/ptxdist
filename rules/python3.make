@@ -78,7 +78,7 @@ PYTHON3_CONF_OPT	:= \
 	--with-computed-gotos \
 	--without-ensurepip \
 	--with-openssl=$(SYSROOT)/usr \
-	--with-build-python=python$(PYTHON3_MAJORMINOR)
+	--with-build-python=$(PTXDIST_SYSROOT_HOST)/usr/bin/python$(PYTHON3_MAJORMINOR)
 
 # Keep dictionary order in .pyc files stable
 PYTHON3_MAKE_ENV := \
@@ -96,6 +96,11 @@ $(STATEDIR)/python3.install:
 
 	@$(call world/install, PYTHON3)
 
+#	# grab the host binary modules for cross-building
+	@install -v -m644 -t \
+		$(PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/lib-dynload/ \
+		$(PTXDIST_SYSROOT_HOST)/usr/lib/python$(PYTHON3_MAJORMINOR)/lib-dynload/*-x86_64-host-gnu.so
+
 	@rm -vrf $(PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/config-$(PYTHON3_MAJORMINOR)*
 	@$(call world/env, PYTHON3) ptxd_make_world_install_python_cleanup
 
@@ -111,26 +116,26 @@ $(STATEDIR)/python3.install.post:
 	@$(call world/install.post, PYTHON3)
 
 	@rm -f "$(CROSS_PYTHON3)"
-	@echo '#!/bin/sh'						>> "$(CROSS_PYTHON3)"
-	@echo '_PYTHON_PROJECT_BASE=$(PYTHON3_DIR)'			>> "$(CROSS_PYTHON3)"
+	@echo '#!/bin/sh'										>> "$(CROSS_PYTHON3)"
+	@echo 'PYTHONEXECUTABLE=$(PTXDIST_SYSROOT_TARGET)/usr/bin/python$(PYTHON3_MAJORMINOR)'		>> "$(CROSS_PYTHON3)"
 	@echo '_PYTHON_HOST_PLATFORM=linux-$(PYTHON3_PLATFORM)'	>> "$(CROSS_PYTHON3)"
 	@m=`sed -n 's/^MULTIARCH=[\t ]*\(.*\)/\1/p' $(PYTHON3_DIR)/Makefile` && \
-	 d=`cat $(PYTHON3_DIR)/pybuilddir.txt` && \
-	 cross_dir="$(PTXDIST_SYSROOT_CROSS)/usr/lib/python$(PYTHON3_MAJORMINOR)" && \
-	 mkdir -p "$${cross_dir}" && \
-	 cp "$(PYTHON3_DIR)/$$d/_sysconfigdata__linux_$${m}.py" "$${cross_dir}" && \
-	 echo "_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata__linux_$$m"	>> "$(CROSS_PYTHON3)" && \
-	 echo "PYTHONPATH=$${cross_dir}"				>> "$(CROSS_PYTHON3)"
-	@echo 'PYTHONHASHSEED=0'					>> "$(CROSS_PYTHON3)"
-	@echo 'export _PYTHON_PROJECT_BASE _PYTHON_HOST_PLATFORM'	>> "$(CROSS_PYTHON3)"
-	@echo 'export _PYTHON_SYSCONFIGDATA_NAME PYTHONPATH'		>> "$(CROSS_PYTHON3)"
-	@echo 'export PYTHONHASHSEED'					>> "$(CROSS_PYTHON3)"
-	@echo 'exec $(HOSTPYTHON3) "$${@}"'				>> "$(CROSS_PYTHON3)"
+	 echo "_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata__linux_$$m"					>> "$(CROSS_PYTHON3)"
+	 echo "PYTHONPATH=$(PTXDIST_SYSROOT_HOST)/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages"	>> "$(CROSS_PYTHON3)"
+	@echo 'PYTHONHASHSEED=0'									>> "$(CROSS_PYTHON3)"
+	@echo 'export PYTHONEXECUTABLE  _PYTHON_HOST_PLATFORM'						>> "$(CROSS_PYTHON3)"
+	@echo 'export _PYTHON_SYSCONFIGDATA_NAME PYTHONPATH'						>> "$(CROSS_PYTHON3)"
+	@echo 'export PYTHONHASHSEED'									>> "$(CROSS_PYTHON3)"
+	@echo 'exec $(HOSTPYTHON3) "$${@}"'								>> "$(CROSS_PYTHON3)"
 	@chmod a+x "$(CROSS_PYTHON3)"
 	@sed -e 's;prefix_real=.*;prefix_real=$(SYSROOT)/usr;' \
 		"$(PTXDIST_SYSROOT_TARGET)/usr/bin/python$(PYTHON3_MAJORMINOR)-config" \
 		> "$(PTXDIST_SYSROOT_CROSS)/usr/bin/python$(PYTHON3_MAJORMINOR)-config"
 	@chmod +x "$(PTXDIST_SYSROOT_CROSS)/usr/bin/python$(PYTHON3_MAJORMINOR)-config"
+
+#	# make sure executing $PYTHONEXECUTABLE works
+	@ln -sf ../../../sysroot-cross/usr/bin/python$(PYTHON3_MAJORMINOR) \
+		$(PTXDIST_SYSROOT_TARGET)/usr/bin/python$(PYTHON3_MAJORMINOR)
 
 #	# make sure grammar pickle is generated to avoid parallel building issues
 	@"$(CROSS_PYTHON3)" -c 'from setuptools.command import build_py'
@@ -163,7 +168,7 @@ $(STATEDIR)/python3.targetinstall:
 	@$(call install_fixup, python3,DESCRIPTION,missing)
 
 	@$(call install_glob, python3, 0, 0, -, /usr/lib/python$(PYTHON3_MAJORMINOR), \
-		*.so *.pyc *.whl, */test */tests */__pycache__ $(PYTHON3_SKIP-y))
+		*.so *.pyc *.whl, *-x86_64-host-gnu.so */test */tests */__pycache__ $(PYTHON3_SKIP-y))
 
 	@$(call install_copy, python3, 0, 0, 0755, -, /usr/bin/python$(PYTHON3_MAJORMINOR))
 	@$(call install_link, python3, python$(PYTHON3_MAJORMINOR), /usr/bin/python3)
