@@ -77,10 +77,12 @@ QEMU_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QEMU_ALSA)-alsa \
 	--enable-attr \
 	--disable-auth-pam \
+	--disable-blkio \
 	--disable-bochs \
 	--disable-bpf \
 	--disable-brlapi \
 	--disable-bzip2 \
+	--disable-canokey \
 	--enable-cap-ng \
 	--disable-capstone \
 	--disable-cloop \
@@ -100,6 +102,7 @@ QEMU_CONF_OPT	:= \
 	--disable-glusterfs \
 	--disable-gnutls \
 	--$(call ptx/endis, PTXCONF_QEMU_GTK)-gtk \
+	--enable-gtk-clipboard \
 	--disable-guest-agent \
 	--disable-guest-agent-msi \
 	--disable-hax \
@@ -110,6 +113,7 @@ QEMU_CONF_OPT	:= \
 	--enable-kvm \
 	--disable-l2tpv3 \
 	--disable-libdaxctl \
+	--disable-libdw \
 	--disable-libiscsi \
 	--disable-libnfs \
 	--disable-libpmem \
@@ -134,9 +138,11 @@ QEMU_CONF_OPT	:= \
 	--disable-oss \
 	--$(call ptx/endis, PTXCONF_QEMU_PULSEAUDIO)-pa \
 	--disable-parallels \
+	--disable-png \
 	--disable-pvrdma \
 	--disable-qcow1 \
 	--disable-qed \
+	--disable-qga-vss \
 	--disable-rbd \
 	--disable-rdma \
 	--disable-replication \
@@ -148,6 +154,7 @@ QEMU_CONF_OPT	:= \
 	--disable-slirp-smbd \
 	--disable-smartcard \
 	--disable-snappy \
+	--disable-sndio \
 	--disable-sparse \
 	--disable-spice \
 	--disable-spice-protocol \
@@ -158,6 +165,8 @@ QEMU_CONF_OPT	:= \
 	--disable-usb-redir \
 	--disable-vde \
 	--disable-vdi \
+	--disable-vduse-blk-export \
+	--disable-vfio-user-server \
 	--disable-vhost-crypto \
 	--enable-vhost-kernel \
 	--enable-vhost-net \
@@ -166,6 +175,7 @@ QEMU_CONF_OPT	:= \
 	--disable-vhost-vdpa \
 	--disable-virglrenderer \
 	--$(call ptx/endis, PTXCONF_QEMU_SYS)-virtfs \
+	--disable-vmnet \
 	--disable-vnc \
 	--disable-vnc-jpeg \
 	--disable-vnc-sasl \

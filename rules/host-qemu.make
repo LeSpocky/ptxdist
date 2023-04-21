@@ -79,10 +79,12 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-alsa \
 	--enable-attr \
 	--disable-auth-pam \
+	--disable-blkio \
 	--disable-bochs \
 	--disable-bpf \
 	--disable-brlapi \
 	--disable-bzip2 \
+	--disable-canokey \
 	--enable-cap-ng \
 	--disable-capstone \
 	--disable-cloop \
@@ -102,6 +104,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-glusterfs \
 	--disable-gnutls \
 	--disable-gtk \
+	--disable-gtk-clipboard \
 	--disable-guest-agent \
 	--disable-guest-agent-msi \
 	--disable-hax \
@@ -112,6 +115,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--enable-kvm \
 	--disable-l2tpv3 \
 	--disable-libdaxctl \
+	--disable-libdw \
 	--disable-libiscsi \
 	--disable-libnfs \
 	--disable-libpmem \
@@ -136,9 +140,11 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-oss \
 	--disable-pa \
 	--disable-parallels \
+	--disable-png \
 	--disable-pvrdma \
 	--disable-qcow1 \
 	--disable-qed \
+	--disable-qga-vss \
 	--disable-rbd \
 	--disable-rdma \
 	--disable-replication \
@@ -150,6 +156,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-slirp-smbd \
 	--disable-smartcard \
 	--disable-snappy \
+	--disable-sndio \
 	--disable-sparse \
 	--disable-spice \
 	--disable-spice-protocol \
@@ -159,6 +166,8 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-u2f \
 	--disable-usb-redir \
 	--disable-vdi \
+	--disable-vduse-blk-export \
+	--disable-vfio-user-server \
 	--disable-vhost-crypto \
 	--enable-vhost-kernel \
 	--enable-vhost-net \
@@ -167,6 +176,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-vhost-vdpa \
 	--disable-virglrenderer \
 	--$(call ptx/endis, PTXCONF_HOST_QEMU_SYS)-virtfs \
+	--disable-vmnet \
 	--disable-vnc \
 	--disable-vnc-jpeg \
 	--disable-vnc-sasl \
