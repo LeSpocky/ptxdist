@@ -52,90 +52,124 @@ QEMU_CONF_OPT	:= \
 	--ninja=ninja \
 	--disable-sanitizers \
 	--disable-tsan \
-	--disable-strip \
 	--disable-werror \
 	--enable-stack-protector \
-	--audio-drv-list=$(subst $(space),$(comma),$(strip $(QEMU_AUDIO_DRIVER-y))) \
-	--block-drv-rw-whitelist= \
-	--block-drv-ro-whitelist= \
 	--with-coroutine= \
-	--tls-priority=NORMAL \
 	--disable-plugins \
 	--disable-containers \
-	--disable-capstone \
+	--audio-drv-list=$(subst $(space),$(comma),$(strip $(QEMU_AUDIO_DRIVER-y))) \
+	--block-drv-ro-whitelist= \
+	--block-drv-rw-whitelist= \
+	--enable-coroutine-pool \
 	--disable-cfi \
+	--disable-debug-mutex \
 	--enable-fdt \
 	--disable-fuzzing \
+	--disable-lto \
+	--disable-module-upgrades \
+	--disable-qom-cast-debug \
+	--disable-rng-none \
+	--disable-strip \
 	--disable-tcg-interpreter \
 	--enable-trace-backends=nop \
+	--tls-priority=NORMAL \
 	--$(call ptx/endis, PTXCONF_QEMU_ALSA)-alsa \
 	--enable-attr \
 	--disable-auth-pam \
+	--disable-bochs \
 	--disable-bpf \
 	--disable-brlapi \
 	--disable-bzip2 \
 	--enable-cap-ng \
+	--disable-capstone \
+	--disable-cloop \
 	--disable-cocoa \
 	--disable-coreaudio \
+	--disable-crypto-afalg \
 	--disable-curl \
 	--disable-curses \
+	--disable-dmg \
 	--disable-docs \
 	--disable-dsound \
 	--disable-fuse \
 	--disable-fuse-lseek \
 	--disable-gcrypt \
 	--disable-gettext \
+	--disable-gio \
 	--disable-glusterfs \
 	--disable-gnutls \
 	--$(call ptx/endis, PTXCONF_QEMU_GTK)-gtk \
+	--disable-guest-agent \
 	--disable-guest-agent-msi \
 	--disable-hax \
 	--disable-hvf \
 	--enable-iconv \
 	--disable-jack \
+	--disable-keyring \
 	--enable-kvm \
 	--disable-l2tpv3 \
 	--disable-libdaxctl \
 	--disable-libiscsi \
 	--disable-libnfs \
 	--disable-libpmem \
+	--disable-libssh \
 	--disable-libudev \
 	--$(call ptx/endis, PTXCONF_QEMU_SYS)-libusb \
+	--disable-libvduse \
 	--disable-linux-aio \
 	--disable-linux-io-uring \
+	--disable-live-block-migration \
 	--disable-lzfse \
 	--disable-lzo \
 	--enable-malloc-trim \
+	--enable-membarrier \
 	--disable-mpath \
 	--enable-multiprocess \
 	--disable-netmap \
 	--disable-nettle \
+	--disable-numa \
 	--disable-nvmm \
+	--disable-opengl \
 	--disable-oss \
 	--$(call ptx/endis, PTXCONF_QEMU_PULSEAUDIO)-pa \
+	--disable-parallels \
+	--disable-pvrdma \
+	--disable-qcow1 \
+	--disable-qed \
 	--disable-rbd \
+	--disable-rdma \
+	--disable-replication \
 	--$(call ptx/endis, PTXCONF_QEMU_SDL)-sdl \
 	--disable-sdl-image \
 	--disable-seccomp \
 	--disable-selinux \
 	--enable-slirp \
+	--disable-slirp-smbd \
 	--disable-smartcard \
 	--disable-snappy \
 	--disable-sparse \
 	--disable-spice \
 	--disable-spice-protocol \
 	--enable-tcg \
+	--$(call ptx/endis, PTXCONF_QEMU_TOOLS)-tools \
+	--disable-tpm \
 	--disable-u2f \
 	--disable-usb-redir \
 	--disable-vde \
+	--disable-vdi \
+	--disable-vhost-crypto \
+	--enable-vhost-kernel \
+	--enable-vhost-net \
+	--disable-vhost-user \
 	--disable-vhost-user-blk-server \
-	--disable-libvduse \
+	--disable-vhost-vdpa \
 	--disable-virglrenderer \
 	--$(call ptx/endis, PTXCONF_QEMU_SYS)-virtfs \
 	--disable-vnc \
 	--disable-vnc-jpeg \
 	--disable-vnc-sasl \
 	--disable-vte \
+	--disable-vvfat \
 	--disable-whpx \
 	--disable-xen \
 	--disable-xen-pci-passthrough \
@@ -145,46 +179,11 @@ QEMU_CONF_OPT	:= \
 	--disable-user \
 	--$(call ptx/endis, PTXCONF_QEMU_USR)-linux-user \
 	--disable-bsd-user \
-	--disable-guest-agent \
 	--enable-pie \
 	--disable-modules \
-	--disable-module-upgrades \
 	--disable-debug-tcg \
 	--disable-debug-info \
-	--disable-lto \
-	--disable-safe-stack \
-	--enable-membarrier \
-	--disable-rdma \
-	--disable-pvrdma \
-	--enable-vhost-net \
-	--disable-vhost-crypto \
-	--enable-vhost-kernel \
-	--disable-vhost-user \
-	--disable-vhost-vdpa \
-	--disable-live-block-migration \
-	--enable-coroutine-pool \
-	--disable-tpm \
-	--disable-libssh \
-	--disable-numa \
-	--disable-replication \
-	--disable-opengl \
-	--disable-qom-cast-debug \
-	--$(call ptx/endis, PTXCONF_QEMU_TOOLS)-tools \
-	--disable-bochs \
-	--disable-cloop \
-	--disable-dmg \
-	--disable-qcow1 \
-	--disable-vdi \
-	--disable-vvfat \
-	--disable-qed \
-	--disable-parallels \
-	--disable-crypto-afalg \
-	--disable-debug-mutex \
-	--disable-rng-none \
-	--disable-gio \
-	--disable-slirp-smbd \
-	\
-	--disable-keyring
+	--disable-safe-stack
 
 ifdef PTXCONF_QEMU_PULSEAUDIO
 QEMU_LDFLAGS      := \
