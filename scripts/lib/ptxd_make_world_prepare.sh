@@ -172,9 +172,9 @@ ptxd_make_world_prepare_cargo() {
 	cargo-lock-md5)
 	    cargo_lock_md5="${1}"
 	    shift
-	    tmp=( $(md5sum Cargo.lock 2>/dev/null) )
+	    tmp=( $(md5sum "${pkg_cargo_lock}" 2>/dev/null) )
 	    if [ "${tmp[0]}" != "${cargo_lock_md5}" ]; then
-		ptxd_bailout "Cargo.lock has changed!" \
+		ptxd_bailout "${pkg_cargo_lock} has changed!" \
 		    "Run 'ptxdist cargosync ${pkg_label}' to regenerate '$(ptxd_print_path ${pkg_makefile_cargo})'."
 	    fi
 	    ;;

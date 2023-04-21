@@ -44,7 +44,7 @@ $1 == "source" {
 END {
     dump()
 }
-' Cargo.lock
+' "${pkg_cargo_lock}"
 }
 export -f ptxd_make_world_cargo_sync_parse
 
@@ -93,7 +93,7 @@ ptxd_make_world_cargo_sync() {
     # copy the copyright header from the package rule file
     sed '/^\([^#]\|$\)/Q' ${pkg_makefile} >&${makefilefd}
 
-    set -- $(md5sum "Cargo.lock")
+    set -- $(md5sum "${pkg_cargo_lock}")
     cat << EOF >&${makefilefd}
 
 #
