@@ -122,6 +122,8 @@ $(STATEDIR)/python3.install.post:
 	@echo 'PYTHONEXECUTABLE=$(PTXDIST_SYSROOT_TARGET)/usr/bin/python$(PYTHON3_MAJORMINOR)'		>> "$(CROSS_PYTHON3)"
 	@echo '_PYTHON_HOST_PLATFORM=linux-$(PYTHON3_PLATFORM)'	>> "$(CROSS_PYTHON3)"
 	@m=`sed -n 's/^MULTIARCH=[\t ]*\(.*\)/\1/p' $(PYTHON3_DIR)/Makefile` && \
+	 sed -i "s;'\(/usr/include\);'$(PTXDIST_SYSROOT_TARGET)\1;g" \
+		$(PTXDIST_SYSROOT_TARGET)/usr/lib/python$(PYTHON3_MAJORMINOR)/_sysconfigdata__linux_$$m.py && \
 	 echo "_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata__linux_$$m"					>> "$(CROSS_PYTHON3)"
 	 echo "PYTHONPATH=$(PTXDIST_SYSROOT_HOST)/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages"	>> "$(CROSS_PYTHON3)"
 	@echo 'PYTHONHASHSEED=0'									>> "$(CROSS_PYTHON3)"
