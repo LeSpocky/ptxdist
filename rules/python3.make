@@ -100,6 +100,8 @@ $(STATEDIR)/python3.install:
 	@install -v -m644 -t \
 		$(PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/lib-dynload/ \
 		$(PTXDIST_SYSROOT_HOST)/usr/lib/python$(PYTHON3_MAJORMINOR)/lib-dynload/*-x86_64-host-gnu.so
+	@chrpath -r '$${ORIGIN}/../../../../../sysroot-host/usr/lib' \
+		$(PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/lib-dynload/*-x86_64-host-gnu.so
 
 	@rm -vrf $(PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/config-$(PYTHON3_MAJORMINOR)*
 	@$(call world/env, PYTHON3) ptxd_make_world_install_python_cleanup
