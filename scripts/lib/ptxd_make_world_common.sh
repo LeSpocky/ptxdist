@@ -330,7 +330,7 @@ ptxd_make_world_init() {
 	fi
     fi
 
-    if [[ " ${pkg_build_deps} " =~ " host-python3-setuptools-rust " || "$pkg_conf_tool}" = "cargo" ]]; then
+    if [[ " ${pkg_build_deps} " =~ " host-python3-setuptools-rust " || "${pkg_conf_tool}" = "cargo" ]]; then
 	local make_env_ptr="ptx_make_env_cargo_${pkg_type}"
 	pkg_cargo_home="${pkg_dir}/ptxdist-cargo-home"
 	pkg_make_env_cargo="CARGO_HOME='${pkg_cargo_home}' ${pkg_make_env:-${!make_env_ptr}}"

@@ -129,7 +129,7 @@ export -f ptxd_make_world_extract_cargo
 
 ptxd_make_world_extract() {
     ptxd_make_world_extract_impl &&
-    if [[ " ${pkg_build_deps} " =~ " host-python3-setuptools-rust " || "$pkg_conf_tool}" = "cargo" ]]; then
+    if [[ " ${pkg_build_deps} " =~ " host-python3-setuptools-rust " || "${pkg_conf_tool}" = "cargo" ]]; then
 	ptxd_make_world_extract_cargo
     fi
 }
