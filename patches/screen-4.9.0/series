@@ -3,4 +3,5 @@
 0001-comm.h-now-depends-on-term.h.patch
 0002-comm.h-needed-for-list_-display-generic-.o.patch
 0003-suppress_remap.patch
-# 086ac9b43abed5bb61eef564f1ac00d9  - git-ptx-patches magic
+0004-fix-missing-signal-sending-permission-check-on-faile.patch
+# d9101cb0610499bee9be456b4dc83845  - git-ptx-patches magic
