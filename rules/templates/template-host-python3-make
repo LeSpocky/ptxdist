@@ -1,0 +1,33 @@
+# -*-makefile-*-
+#
+# Copyright (C) @YEAR@ by @AUTHOR@
+#
+# For further information about the PTXdist project and license conditions
+# see the README file.
+#
+
+#
+# We provide this package
+#
+PACKAGES-$(PTXCONF_HOST_PYTHON3_@PACKAGE@) += host-python3-@package@
+
+#
+# Paths and names
+#
+HOST_PYTHON3_@PACKAGE@_VERSION		:= @VERSION@
+HOST_PYTHON3_@PACKAGE@_MD5		:=
+HOST_PYTHON3_@PACKAGE@			:= @package@-$(HOST_PYTHON3_@PACKAGE@_VERSION)
+HOST_PYTHON3_@PACKAGE@_SUFFIX		:= @SUFFIX@
+HOST_PYTHON3_@PACKAGE@_URL		:= @URL@
+HOST_PYTHON3_@PACKAGE@_SOURCE		:= $(SRCDIR)/$(HOST_PYTHON3_@PACKAGE@).$(HOST_PYTHON3_@PACKAGE@_SUFFIX)
+HOST_PYTHON3_@PACKAGE@_DIR		:= $(HOST_BUILDDIR)/$(HOST_PYTHON3_@PACKAGE@)
+HOST_PYTHON3_@PACKAGE@_LICENSE		:= unknown
+HOST_PYTHON3_@PACKAGE@_LICENSE_FILES	:=
+
+# ----------------------------------------------------------------------------
+# Prepare
+# ----------------------------------------------------------------------------
+
+HOST_PYTHON3_@PACKAGE@_CONF_TOOL	:= python3
+
+# vim: syntax=make
