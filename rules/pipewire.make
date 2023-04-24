@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.68
-PIPEWIRE_MD5		:= e0572cb5ff19411fb51c88b9b156acca
+PIPEWIRE_VERSION	:= 0.3.70
+PIPEWIRE_MD5		:= 2f4f2fe2a60b72f3ead5472f9433973c
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -83,6 +83,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dlibv4l2-path= \
 	-Dlv2=disabled \
 	-Dman=disabled \
+	-Dopus=disabled \
 	-Dpam-defaults-install=false \
 	-Dpam-memlock-default=8192 \
 	-Dpipewire-alsa=enabled \
@@ -189,6 +190,7 @@ endif
 ifdef PTXCONF_PIPEWIRE_PW_CTL
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-cli)
 endif
+	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-config)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-dot)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-dump)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-link)
