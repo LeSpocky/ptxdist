@@ -22,6 +22,46 @@ ptxd_make_world_compile_finish() {
 }
 export -f ptxd_make_world_compile_finish
 
+ptxd_make_world_compile_python() {
+    if [ -e "${pkg_dir}/pyproject.toml" -a ! -e "${pkg_dir}/setup.py" ] && \
+	    ! [[ " ${pkg_build_deps_all} " =~ ' host-python3-pybuild ' ]]; then
+	ptxd_eval \
+	    cd "${pkg_build_dir}" '&&' \
+	    "${pkg_path}" \
+	    "${pkg_env}" \
+	    "${pkg_make_env}" \
+	    "${ptx_build_python}" \
+	    -m flit_core.wheel \
+	    --outdir "${pkg_build_dir}" \
+	    "${pkg_dir}"
+    elif [ -e "${pkg_dir}/pyproject.toml" ] &&
+	    [[ " ${pkg_build_deps} " =~ ' host-python3-pybuild ' ]]; then
+	ptxd_eval \
+	    cd "${pkg_build_dir}" '&&' \
+	    "${pkg_path}" \
+	    "${pkg_env}" \
+	    "${pkg_make_env}" \
+	    "${ptx_build_python}" \
+	    -m build \
+	    --skip-dependency-check \
+	    --wheel \
+	    --no-isolation \
+	    --outdir "${pkg_build_dir}" \
+	    "${pkg_dir}"
+    else
+	ptxd_eval \
+	    cd "${pkg_build_dir}" '&&' \
+	    "${pkg_path}" \
+	    "${pkg_env}" \
+	    "${pkg_make_env}" \
+	    "${ptx_build_python}" \
+	    setup.py \
+	    "${pkg_make_opt}" \
+	    "${pkg_make_par}"
+    fi
+}
+export -f ptxd_make_world_compile_python
+
 #
 # call the compiler
 #
@@ -35,15 +75,7 @@ ptxd_make_world_compile() {
     case "${pkg_build_tool}" in
 	python*)
 	(
-	ptxd_eval \
-	    cd "${pkg_build_dir}" '&&' \
-	    "${pkg_path}" \
-	    "${pkg_env}" \
-	    "${pkg_make_env}" \
-	    "${ptx_build_python}" \
-	    setup.py \
-	    "${pkg_make_opt}" \
-	    "${pkg_make_par}"
+	ptxd_make_world_compile_python
 	)
 	;;
 	ninja)

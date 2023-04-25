@@ -52,6 +52,69 @@ ptxd_make_world_install_python_cleanup() {
 }
 export -f ptxd_make_world_install_python_cleanup
 
+ptxd_make_world_install_python_cleanup_host() {
+    if ! [[ " ${pkg_build_deps_all} " =~ ' host-python3 ' ]] && ls "${pkg_pkg_dir}"/usr/lib/python3.* &> /dev/null; then
+	mv "${pkg_pkg_dir}"/usr/lib/python3.* \
+	    "${pkg_pkg_dir}/usr/lib/python3"
+    fi
+}
+export -f ptxd_make_world_install_python_cleanup_host
+
+ptxd_make_world_install_python() {
+    local sitepackages
+
+    if [ -e "${pkg_dir}/pyproject.toml" -a ! -e "${pkg_dir}/setup.py" ] && \
+	    ! [[ " ${pkg_build_deps_all} " =~ ' host-python3-pybuild ' ]]; then
+	if [[ " ${pkg_build_deps_all} " =~ ' host-python3 ' ]]; then
+	    sitepackages="${ptx_python3_sitepackages}"
+	else
+	    # separate path for system Python packages
+	    sitepackages="/usr/lib/python3/site-packages"
+	fi
+	cmd=( \
+	    mkdir -p "${pkg_pkg_dir}${sitepackages}" '&&' \
+	    unzip -d "${pkg_pkg_dir}${sitepackages}" \
+	    "${pkg_build_dir}/*.whl"
+	)
+    elif [ -e "${pkg_dir}/pyproject.toml" ] &&
+	    [[ " ${pkg_build_deps} " =~ ' host-python3-pybuild ' ]]; then
+	cmd=( \
+	    "${pkg_path}" \
+	    "${pkg_env}" \
+	    "${pkg_make_env}" \
+	    "${pkg_install_env}" \
+	    "${ptx_build_python}" \
+	    -m installer \
+	    --prefix=/usr \
+	    "--destdir=${pkg_pkg_dir}" \
+	    "${pkg_build_dir}/*.whl"
+	)
+    else
+	cmd=( \
+	    cd "${pkg_build_dir}" '&&' \
+	    "${pkg_path}" \
+	    "${pkg_env}" \
+	    "${pkg_make_env}" \
+	    "${pkg_install_env}" \
+	    "${ptx_build_python}" \
+	    setup.py \
+	    "${pkg_install_opt}" \
+	)
+    fi
+    if [ "${pkg_type}" = target ]; then
+	cmd+=( \
+	    '&&' \
+	    ptxd_make_world_install_python_cleanup \
+	)
+    else
+	cmd+=( \
+	    '&&' \
+	    ptxd_make_world_install_python_cleanup_host \
+	)
+    fi
+}
+export -f ptxd_make_world_install_python
+
 #
 # FIXME: kick ${pkg_install_env}
 #
@@ -81,20 +144,7 @@ ptxd_make_world_install() {
 
     case "${pkg_build_tool}" in
 	python*)
-	cmd=( \
-	    cd "${pkg_build_dir}" '&&' \
-	    "${pkg_path}" \
-	    "${pkg_env}" \
-	    "${pkg_make_env}" \
-	    "${pkg_install_env}" \
-	    "${ptx_build_python}" \
-	    setup.py \
-	    "${pkg_install_opt}" \
-	)
-	if [ "${pkg_type}" = target ]; then
-	    cmd[${#cmd[@]}]='&&'
-	    cmd[${#cmd[@]}]=ptxd_make_world_install_python_cleanup
-	fi
+	ptxd_make_world_install_python
 	;;
 	ninja)
 	cmd=( \

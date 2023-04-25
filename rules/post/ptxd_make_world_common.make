@@ -43,6 +43,7 @@ ptx/env = \
 	ptx_python_target="$(call ptx/escape,$(CROSS_PYTHON))"			\
 	ptx_python3_target="$(call ptx/escape,$(CROSS_PYTHON3))"		\
 	ptx_install_opt_python_target="$(call ptx/escape,$(CROSS_PYTHON_INSTALL))"\
+	ptx_python3_sitepackages="$(call ptx/escape,$(PYTHON3_SITEPACKAGES))"	\
 										\
 	ptx_python_host="$(call ptx/escape,$(HOSTPYTHON))"			\
 	ptx_python3_host="$(call ptx/escape,$(HOSTPYTHON3))"			\
