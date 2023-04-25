@@ -88,23 +88,57 @@ extract: pkg_extract_dir=$(ptxd_print_path ${pkg_dir})"
 }
 export -f ptxd_make_world_extract_impl
 
+ptxd_make_world_extract_cargo_crate() {
+    local tmp srcdir abs_srcdir dir name
+
+    echo "extract: ${src}"
+    tmp="$(basename ${src%.crate})"
+    srcdir="${tmp%.git}"
+    abs_srcdir="${pkg_cargo_home}/source/${srcdir}"
+    mkdir "${abs_srcdir}" &&
+    tar -C "${abs_srcdir}" --strip-components=1 -xf "${src}" || break
+    if grep -qi '^\[package\]$' "${abs_srcdir}/Cargo.toml"; then
+	if [ "${tmp}" = "${srcdir}" ]; then
+	    # don't set the checksum for crates from git, they would trigger Cargo.lock changes
+	    set -- $(sha256sum "${src}")
+	    printf '{"files": {}, "package": "%s"}' "${1}" > "${abs_srcdir}/.cargo-checksum.json"
+	else
+	    printf '{"files": {}, "package": null}' > "${abs_srcdir}/.cargo-checksum.json"
+	fi
+	return
+    fi
+    mv "${abs_srcdir}" "${pkg_cargo_home}/workspaces/" &&
+    awk '
+/^members = \[$/ {
+    members = 1
+    next
+}
+/\]$/ {
+    members = 0
+}
+{
+    if (members != 1)
+	next
+	dir = gensub(/"(.*)"[,]?/, "\\1", 1, $1)
+	name = gensub(/\//, "-", "g", dir)
+	print dir, name
+}' "${pkg_cargo_home}/workspaces/${srcdir}/Cargo.toml" | while read dir name; do
+	ln -sf "${pkg_cargo_home}/workspaces/${srcdir}/${dir}" "${pkg_cargo_home}/source/${name}"
+	printf '{"files": {}, "package": null}' > "${pkg_cargo_home}/source/${name}/.cargo-checksum.json"
+    done
+}
+export -f ptxd_make_world_extract_cargo_crate
+
 ptxd_make_world_extract_cargo() {
     local src
     echo "extract: cargo dependencies:"
     rm -rf "${pkg_cargo_home}" &&
     mkdir -p "${pkg_cargo_home}/source" &&
-    cd "${pkg_cargo_home}/source" &&
+    mkdir -p "${pkg_cargo_home}/workspaces" &&
     for src in ${pkg_srcs}; do
 	case "${src}" in
 	*.crate)
-	    echo "extract: ${src}"
-	    tar xf "${src}" || break
-	    set -- $(sha256sum "${src}")
-	    srcdir="$(basename ${src%.crate})"
-	    if [ ! -d "${srcdir}" ]; then
-		ptxd_bailout "missing source directory '${srcdir}'"
-	    fi
-	    printf '{"files": {}, "package": "%s"}' "${1}" > "${srcdir}/.cargo-checksum.json"
+	    ptxd_make_world_extract_cargo_crate
 	    ;;
 	*)
 	    ;;
@@ -117,6 +151,16 @@ directory = "${pkg_cargo_home}/source"
 [source.crates-io]
 replace-with = "ptxdist"
 local-registry = "/nonexistant"
+
+EOF
+
+    grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
+	sed -n 's;^source = "git+\(.*://[^?]*\)?branch=\(.*\)#.*;[source."\1"]\ngit = "\1"\nbranch = "\2"\nreplace-with = "ptxdist"\n;p' >> ${pkg_cargo_home}/config
+    grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
+	sed -n 's;^source = "git+\(.*://[^?]*\)?rev=\(.*\)#.*";[source."\1"]\ngit = "\1"\nrev = "\2"\nreplace-with = "ptxdist"\n;p' >> ${pkg_cargo_home}/config
+    grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
+	sed -n 's;^source = "git+\(.*://[^?]*\)#.*";[source."\1"]\ngit = "\1"\nreplace-with = "ptxdist"\n;p' >> ${pkg_cargo_home}/config
+    cat << EOF >> ${pkg_cargo_home}/config
 
 [build]
 target-dir = "${pkg_build_dir}/target"
