@@ -28,37 +28,7 @@ HOST_MESON_LICENSE_FILES	:= file://COPYING;md5=3b83ef96387f14655fc854ddc3c6bd57
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_MESON_CONF_TOOL	:= NO
-
-# ----------------------------------------------------------------------------
-# Compile
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/host-meson.compile:
-	@$(call targetinfo)
-	@$(call world/execute, HOST_MESON, $(SYSTEMPYTHON3) setup.py build)
-	@$(call touch)
-
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-# Special dirs to avoid collisions with host-python3
-HOST_MESON_INSTALL_OPT	:= \
-	install \
-	--prefix=/usr \
-	--install-lib=/usr/lib/meson \
-	--install-scripts=/usr/lib/meson \
-	--install-data=/usr/lib/meson \
-	--root=$(HOST_MESON_PKGDIR)
-
-$(STATEDIR)/host-meson.install:
-	@$(call targetinfo)
-	@$(call world/execute, HOST_MESON, \
-		$(SYSTEMPYTHON3) setup.py $(HOST_MESON_INSTALL_OPT))
-	@mkdir -vp $(HOST_MESON_PKGDIR)/usr/bin
-	@ln -svf ../lib/meson/meson $(HOST_MESON_PKGDIR)/usr/bin/meson
-	@$(call touch)
+HOST_MESON_CONF_TOOL	:= python3
 
 $(STATEDIR)/host-meson.install.post: $(PTXDIST_MESON_CROSS_FILE)
 
