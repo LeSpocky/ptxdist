@@ -32,6 +32,11 @@ case " ${pkg_build_deps} " in
 	;;
 esac
 
+if [[ " ${pkg_build_deps_all} " =~ " host-system-python3 " ]]; then
+	# extra packages for system Python are installed here
+	export PYTHONPATH="$(dirname "$(dirname "$0")")/python3/site-packages:${PYTHONPATH}"
+fi
+
 name="${name}${suffix}"
 skip="$(dirname "${0}")/${name}"
 
