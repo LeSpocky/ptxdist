@@ -101,7 +101,7 @@ ptxd_make_world_cargo_sync() {
 # should not be modified manually!
 #
 
-${PKG}_CONF_OPT += cargo-lock-md5 $1
+${PKG}_CARGO_LOCK_MD5 := $1
 
 EOF
 

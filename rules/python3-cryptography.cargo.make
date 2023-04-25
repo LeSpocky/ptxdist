@@ -11,7 +11,7 @@
 # should not be modified manually!
 #
 
-PYTHON3_CRYPTOGRAPHY_CONF_OPT += cargo-lock-md5 0bd35601df312aa6ae9fb55e9ac95a80
+PYTHON3_CRYPTOGRAPHY_CARGO_LOCK_MD5 := 0bd35601df312aa6ae9fb55e9ac95a80
 
 PYTHON3_CRYPTOGRAPHY_INFLECTOR_0_11_4_MD5		:= b7f1a4cd029f5b6ffbc31b3acd5ae605
 PYTHON3_CRYPTOGRAPHY_INFLECTOR_0_11_4_URL		:= https://crates.io/api/v1/crates/Inflector/0.11.4/download

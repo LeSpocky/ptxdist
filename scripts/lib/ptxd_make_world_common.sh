@@ -330,11 +330,14 @@ ptxd_make_world_init() {
 	fi
     fi
 
-    if [[ " ${pkg_build_deps} " =~ " host-python3-setuptools-rust " || "${pkg_conf_tool}" = "cargo" ]]; then
+    if [ "${pkg_conf_tool}" = "cargo" -o -n "${pkg_cargo_lock}" ]; then
 	local make_env_ptr="ptx_make_env_cargo_${pkg_type}"
 	pkg_cargo_home="${pkg_dir}/ptxdist-cargo-home"
 	pkg_make_env_cargo="CARGO_HOME='${pkg_cargo_home}' ${pkg_make_env:-${!make_env_ptr}}"
 	pkg_cargo_lock="${pkg_cargo_lock:-Cargo.lock}"
+	if [[ " ${pkg_build_deps} " =~ " host-cargo-c " ]]; then
+	    pkg_make_env_cargo="${ptx_conf_env_target} ${pkg_make_env_cargo}"
+	fi
     fi
 
     case "${pkg_conf_tool}" in
@@ -361,7 +364,7 @@ ptxd_make_world_init() {
 	    pkg_make_env="DEB_PYTHON_INSTALL_LAYOUT=deb ${pkg_conf_env:-${!env_ptr}}"
 	    pkg_make_opt="${pkg_make_opt:-build}"
 
-	    if [[ " ${pkg_build_deps} " =~ " host-python3-setuptools-rust " ]]; then
+	    if [ -n "${pkg_cargo_lock}" ]; then
 		pkg_make_env="${pkg_make_env_cargo} ${pkg_make_env}"
 	    fi
 	    ;;
@@ -376,6 +379,9 @@ ptxd_make_world_init() {
 
 	    pkg_conf_opt="${pkg_conf_opt:-${!conf_opt_ptr}}"
 	    pkg_conf_env="PTXDIST_ICECC= CMAKE=false CMAKE_FOR_BUILD=false ${pkg_conf_env:-${!conf_env_ptr}}"
+	    if [ -n "${pkg_cargo_lock}" ]; then
+		pkg_make_env="${pkg_make_env_cargo} ${pkg_make_env}"
+	    fi
 	    ;;
 	cargo)
 	    local make_opt_ptr="ptx_make_opt_${pkg_conf_tool}_${pkg_type}"

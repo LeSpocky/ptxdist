@@ -159,36 +159,27 @@ export -f ptxd_make_world_prepare_meson
 #
 # prepare for cargo based pkgs
 #
-ptxd_make_world_prepare_cargo() {
+ptxd_make_world_prepare_cargo_check() {
     local arg cargo_lock_md5
     local -a tmp
     local pkg_makefile_cargo="${pkg_makefile%.make}.cargo.make"
 
-    set -- ${pkg_conf_opt}
-    while [ $# -gt 0 ]; do
-	arg="${1}"
-	shift
-	case "${arg}" in
-	cargo-lock-md5)
-	    cargo_lock_md5="${1}"
-	    shift
-	    tmp=( $(md5sum "${pkg_cargo_lock}" 2>/dev/null) )
-	    if [ "${tmp[0]}" != "${cargo_lock_md5}" ]; then
-		ptxd_bailout "${pkg_cargo_lock} has changed!" \
-		    "Run 'ptxdist cargosync ${pkg_label}' to regenerate '$(ptxd_print_path ${pkg_makefile_cargo})'."
-	    fi
-	    ;;
-	*)
-	    ptxd_bailout "unknown option '${arg}' in <PKG>_CONF_OPT!"
-	    ;;
-	esac
-    done
-    if [ -z "${cargo_lock_md5}" ]; then
+    if [ -z "${pkg_cargo_lock}" ]; then
+	return
+    fi
+
+    if [ -z "${pkg_cargo_lock_md5}" ]; then
 	ptxd_bailout "Cargo dependency config is missing!" \
 	    "Run 'ptxdist cargosync ${pkg_label}' to generate '$(ptxd_print_path ${pkg_makefile_cargo})'."
     fi
+    tmp=( $(cd "${pkg_dir}" && md5sum "${pkg_cargo_lock}" 2> /dev/null) )
+    if [ "${tmp[0]}" != "${pkg_cargo_lock_md5}" ]; then
+	echo "|${tmp[0]}|${pkg_cargo_lock_md5}|"
+	ptxd_bailout "${pkg_cargo_lock} has changed!" \
+	    "Run 'ptxdist cargosync ${pkg_label}' to regenerate '$(ptxd_print_path ${pkg_makefile_cargo})'."
+    fi
 }
-export -f ptxd_make_world_prepare_cargo
+export -f ptxd_make_world_prepare_cargo_check
 
 ptxd_make_world_prepare_init() {
     # delete existing build_dir
@@ -216,7 +207,8 @@ ptxd_make_world_prepare() {
 	return
     fi
 
-    ptxd_make_world_prepare_init || return
+    ptxd_make_world_prepare_init &&
+    ptxd_make_world_prepare_cargo_check|| return
 
     case "${pkg_conf_tool}" in
 	cmake|meson)
@@ -247,10 +239,10 @@ ptxd_make_world_prepare() {
     esac
 
     case "${pkg_conf_tool}" in
-	autoconf|cmake|qmake|kconfig|perl|meson|cargo)
+	autoconf|cmake|qmake|kconfig|perl|meson)
 	    cd -- "${pkg_build_dir}" &&
 	    ptxd_make_world_prepare_"${pkg_conf_tool}" ;;
-	python|python3|scons)
+	python|python3|scons|cargo)
 	    : ;; # nothing to do
 	"NO") echo "prepare stage disabled." ;;
 	"")   echo "No prepare tool found. Do nothing." ;;
