@@ -40,6 +40,7 @@ menuconfig GST_PLUGINS_BAD1
 	select WAYLAND			if GST_PLUGINS_BAD1_WAYLAND
 	select WAYLAND_PROTOCOLS	if GST_PLUGINS_BAD1_WAYLAND
 	select LIBNICE			if GST_PLUGINS_BAD1_WEBRTC
+	select WEBRTC_AUDIO_PROCESSING	if GST_PLUGINS_BAD1_WEBRTCDSP
 	select ZBAR			if GST_PLUGINS_BAD1_ZBAR
 
 	prompt "gst-plugins-bad               "
@@ -906,8 +907,6 @@ config GST_PLUGINS_BAD1_WEBRTC
 
 config GST_PLUGINS_BAD1_WEBRTCDSP
 	bool
-	# needs webrtc-audio-processing
-	depends on BROKEN
 	prompt "webrtcdsp"
 	help
 	  Plugin with various audio filters provided by the WebRTC audio processing library
