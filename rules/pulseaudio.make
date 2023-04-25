@@ -97,7 +97,11 @@ PULSEAUDIO_CONF_OPT	:= \
 	-Dx11=disabled \
 	-Dzshcompletiondir=
 
+ifdef PTXCONF_PULSEAUDIO_DAEMON
 PULSEAUDIO_LDFLAGS	:= -Wl,-rpath,/usr/lib/pulseaudio:/usr/lib/pulse-$(PULSEAUDIO_VERSION)/modules
+else
+PULSEAUDIO_LDFLAGS	:= -Wl,-rpath,/usr/lib/pulseaudio
+endif
 
 # ----------------------------------------------------------------------------
 # Install
