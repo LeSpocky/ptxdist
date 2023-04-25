@@ -53,6 +53,10 @@ ptxd_make_world_install_python_cleanup() {
 export -f ptxd_make_world_install_python_cleanup
 
 ptxd_make_world_install_python_cleanup_host() {
+    # change shebang to ensure that the python wrapper is used
+    find "${pkg_pkg_dir}"/usr/{bin,sbin}/ -mindepth 1 -maxdepth 1 -print0 | xargs -0 -r \
+	sed -i "1s;^#!/.*/\(python[0-9\.]*\);#!/usr/bin/env python3;"
+
     if ! [[ " ${pkg_build_deps_all} " =~ ' host-python3 ' ]] && ls "${pkg_pkg_dir}"/usr/lib/python3.* &> /dev/null; then
 	mv "${pkg_pkg_dir}"/usr/lib/python3.* \
 	    "${pkg_pkg_dir}/usr/lib/python3"
