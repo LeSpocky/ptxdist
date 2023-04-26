@@ -113,24 +113,29 @@ ifdef PTXCONF_ARCH_ARM64
 PYTHON3_PLATFORM := arm
 endif
 
+define PYTHON3_CROSS_PYTHON_DATA
+#!/bin/sh
+PYTHONEXECUTABLE=$(PTXDIST_SYSROOT_TARGET)/usr/bin/python$(PYTHON3_MAJORMINOR)
+_PYTHON_HOST_PLATFORM=linux-$(PYTHON3_PLATFORM)
+_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata__linux_@arch@
+PYTHONPATH="$(PTXDIST_SYSROOT_HOST)/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages:$(PTXDIST_SYSROOT_HOST)/usr/lib/python3/site-packages"
+PYTHONHASHSEED=0
+export PYTHONEXECUTABLE  _PYTHON_HOST_PLATFORM
+export _PYTHON_SYSCONFIGDATA_NAME PYTHONPATH
+export PYTHONHASHSEED
+exec $(HOSTPYTHON3) "$${@}"
+endef
+
 $(STATEDIR)/python3.install.post:
 	@$(call targetinfo)
 	@$(call world/install.post, PYTHON3)
 
+	@$(file > $(PTXDIST_TEMPDIR)/cross-python,$(PYTHON3_CROSS_PYTHON_DATA))
 	@rm -f "$(CROSS_PYTHON3)"
-	@echo '#!/bin/sh'										>> "$(CROSS_PYTHON3)"
-	@echo 'PYTHONEXECUTABLE=$(PTXDIST_SYSROOT_TARGET)/usr/bin/python$(PYTHON3_MAJORMINOR)'		>> "$(CROSS_PYTHON3)"
-	@echo '_PYTHON_HOST_PLATFORM=linux-$(PYTHON3_PLATFORM)'	>> "$(CROSS_PYTHON3)"
 	@m=`sed -n 's/^MULTIARCH=[\t ]*\(.*\)/\1/p' $(PYTHON3_DIR)/Makefile` && \
 	 sed -i "s;'\(/usr/include\);'$(PTXDIST_SYSROOT_TARGET)\1;g" \
 		$(PTXDIST_SYSROOT_TARGET)/usr/lib/python$(PYTHON3_MAJORMINOR)/_sysconfigdata__linux_$$m.py && \
-	 echo "_PYTHON_SYSCONFIGDATA_NAME=_sysconfigdata__linux_$$m"					>> "$(CROSS_PYTHON3)"
-	 echo "PYTHONPATH=$(PTXDIST_SYSROOT_HOST)/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages"	>> "$(CROSS_PYTHON3)"
-	@echo 'PYTHONHASHSEED=0'									>> "$(CROSS_PYTHON3)"
-	@echo 'export PYTHONEXECUTABLE  _PYTHON_HOST_PLATFORM'						>> "$(CROSS_PYTHON3)"
-	@echo 'export _PYTHON_SYSCONFIGDATA_NAME PYTHONPATH'						>> "$(CROSS_PYTHON3)"
-	@echo 'export PYTHONHASHSEED'									>> "$(CROSS_PYTHON3)"
-	@echo 'exec $(HOSTPYTHON3) "$${@}"'								>> "$(CROSS_PYTHON3)"
+	 sed "s;@arch@;$$m;" $(PTXDIST_TEMPDIR)/cross-python > "$(CROSS_PYTHON3)"
 	@chmod a+x "$(CROSS_PYTHON3)"
 	@sed -e 's;prefix_real=.*;prefix_real=$(SYSROOT)/usr;' \
 		"$(PTXDIST_SYSROOT_TARGET)/usr/bin/python$(PYTHON3_MAJORMINOR)-config" \
