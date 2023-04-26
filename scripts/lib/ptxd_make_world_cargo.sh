@@ -38,7 +38,7 @@ $1 == "source" {
 }
 
 /^source = "git\+http/ {
-    url=gensub(/source = "(git\+http[s]?:\/\/[^\?]*)(\?.*)?#(.*)"/, "\\1;tag=\\3", 1, $0)
+    url=gensub(/source = "(git\+http[s]?:\/\/[^\?]*)(\?.*)?#(.*)"/, "\\1 \\3", 1, $0)
 }
 
 END {
@@ -49,18 +49,28 @@ END {
 export -f ptxd_make_world_cargo_sync_parse
 
 ptxd_make_world_cargo_sync_package() {
-    local path
-    local PACKAGE="$(tr '[a-z]' '[A-Z]' <<< "${package}-${version}" | tr -sc '[:alnum:]' '_')"
-    PACKAGE="${PACKAGE%_}"
+    local path PACKAGE
 
+    if [ -z "${url}" ]; then
+	url="https://crates.io/api/v1/crates/${package}/${version}/download"
+    else
+	package="${url##*/}"
+	package="${package%%.git}"
+	if [ "${workspaces[${hash}]}" = "${package}" ]; then
+	    echo "Skipping duplicate entry for ${package}."
+	    return
+	fi
+	workspaces[${hash}]="${package}"
+	url="${url};tag=${hash}"
+    fi
+    PACKAGE="$(tr '[a-z]' '[A-Z]' <<< "${package}-${version}" | tr -sc '[:alnum:]' '_')"
+    PACKAGE="${PACKAGE%_}"
     if [[ "${url}" =~ ^git ]]; then
 	path="${PTXDIST_SRCDIR}/${package}-${version}.git.crate"
     else
 	path="${PTXDIST_SRCDIR}/${package}-${version}.crate"
     fi
-    if [ -z "${url}" ]; then
-	url="https://crates.io/api/v1/crates/${package}/${version}/download"
-    fi
+
     echo "Processing ${package} ${version} ..."
     if [ ! -e "${path}" ]; then
 	echo "Downloading ${url} ..."
@@ -84,6 +94,7 @@ ptxd_make_world_cargo_sync() {
     local pkg_makefile_cargo package version cargofd
     local PKG
     local -a tmp
+    local -A workspaces
 
     ptxd_make_world_init || return
 
@@ -111,7 +122,7 @@ ${PKG}_CARGO_LOCK_MD5 := $1
 EOF
 
     exec {cargofd}< <(ptxd_make_world_cargo_sync_parse) &&
-    while read package version url <&${cargofd}; do
+    while read package version url hash <&${cargofd}; do
 	if [ "${package}" = "${pkg_label}" ]; then
 	    continue
 	fi
