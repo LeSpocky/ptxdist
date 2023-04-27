@@ -1,5 +1,5 @@
 [Match]
-Name=eth0
+Name=eth0 end0
 KernelCommandLine=!root=/dev/nfs
 
 [Network]
