@@ -91,6 +91,11 @@ ptxd_lib_setup_host_wrapper() {
 	ptxd_replace_link "${tool_abs}" "${wrapper_dir}/${tool}" || \
 	    ptxd_bailout "Unable to create host ${tool} wrapper link"
     done
+    if tool_abs="$(which "python3" 2>/dev/null)"; then
+	ptxd_replace_link "${tool_abs}" "${wrapper_dir}/real/python3" || \
+	    ptxd_bailout "Unable to create host ${tool} wrapper link"
+	touch ${wrapper_dir}/real/pyvenv.cfg
+    fi
 }
 export -f ptxd_lib_setup_host_wrapper
 

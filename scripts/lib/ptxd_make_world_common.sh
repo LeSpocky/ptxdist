@@ -361,7 +361,7 @@ ptxd_make_world_init() {
 	    else
 		ptx_build_python="${!build_python_ptr}"
 	    fi
-	    pkg_make_env="DEB_PYTHON_INSTALL_LAYOUT=deb ${pkg_conf_env:-${!env_ptr}}"
+	    pkg_make_env="${pkg_conf_env:-${!env_ptr}}"
 	    pkg_make_opt="${pkg_make_opt:-build}"
 
 	    if [ -n "${pkg_cargo_lock}" ]; then

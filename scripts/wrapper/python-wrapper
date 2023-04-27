@@ -40,6 +40,11 @@ fi
 name="${name}${suffix}"
 skip="$(dirname "${0}")/${name}"
 
+if [ "${name}" = "python3" -a -z "${host}" ]; then
+	# we fake a venv here to get a consistent install hierarchy with system Python3
+	name="$(dirname "$(dirname "$0")")/wrapper/real/python3"
+fi
+
 for path in $(type -a -P ${name}); do
 	if [ "${path}" = "${skip}" ]; then
 		continue
