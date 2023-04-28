@@ -1,0 +1,10 @@
+## SECTION=python3
+
+config PYTHON3_PYUSB
+	tristate
+	select HOST_PYTHON3_SETUPTOOLS_SCM
+	select PYTHON3
+	select LIBUSB
+	prompt "pyusb"
+	help
+	  Easy USB access for Python
