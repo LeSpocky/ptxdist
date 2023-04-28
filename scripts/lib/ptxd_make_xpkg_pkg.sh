@@ -296,6 +296,10 @@ ptxd_install_virtfs() {
 	virtfs.gid=${grp}
 	virtfs.mode=${mod_virtfs}
 	EOF
+	if [ -z "${dst}" ]; then
+		mkdir_p "${d%/*}/root" &&
+		cp $file "${d%/*}/root/.virtfs_metadata_root"
+	fi &&
 	if [ -n "${major}" -a -n "${minor}" ]; then
 	    local rdev=$[ ${major} << 8 | ${minor} ] &&
 	    echo "virtfs.rdev=${rdev}" >> "${file}"
