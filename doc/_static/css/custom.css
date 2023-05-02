@@ -109,3 +109,8 @@ nav.wy-nav-side #menu-resize .fa:not(:first-child) {
 .note .admonition-title {
 		background-color: #83983e !important;
 }
+
+.wy-table-responsive table.word-wrap td,
+.wy-table-responsive table.word-wrap th {
+    white-space: normal;
+}
