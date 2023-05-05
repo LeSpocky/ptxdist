@@ -35,7 +35,7 @@ ptxd_make_image_fix_permissions_check() {
     ptxd_check_obsolete_perm "${ptxd_reply_perm_files[@]}"
 
     # just care about dev-nodes, for now
-    egrep -h "^[n]${IFS}" "${ptxd_reply_perm_files[@]}" |
+    grep -E -h "^[n]${IFS}" "${ptxd_reply_perm_files[@]}" |
     while read kind file uid_should gid_should prm_should type major_should minor_should; do
 	local fixup=false
 	file="${workdir}/${file#/}"

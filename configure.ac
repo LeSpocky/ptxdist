@@ -172,9 +172,6 @@ GNU_TOOL(tar, tar)
 GNU_TOOL(find, findutils)
 GNU_TOOL(xargs, findutils)
 
-dnl Check for egrep
-AC_PROG_EGREP
-
 dnl Check for awk
 AC_PROG_AWK
 AC_PATH_PROGS(AWK, ${AWK},)

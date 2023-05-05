@@ -134,7 +134,7 @@ create_md5(){
 		debug_out "ROOT Directory is >$(pwd)<"
 		RELEASEDIR=$STORE/$RELEASE
 		mkdir -p "$RELEASEDIR" || my_exit "mkdir $ROOT/$RELEASEDIR failed" 1
-		find . -type f | egrep -v "/sys/|/proc/|/dev/|/mnt|/$STORE" > $RELEASEDIR/files.list
+		find . -type f | grep -E -v "/sys/|/proc/|/dev/|/mnt|/$STORE" > $RELEASEDIR/files.list
 		LC_ALL=C sort -u $RELEASEDIR/files.list > $RELEASEDIR/files.list.tmp && mv $RELEASEDIR/files.list.tmp $RELEASEDIR/files.list
 		while read line ; do 
 			md5sum $line 
@@ -159,14 +159,14 @@ check_md5(){
 		md5sum -c $RELEASEDIR/files.md5 | grep -v OK | sed s/:\ FAILED//g>> $LOCALSTATSDIR/check-md5.status
 		echo "------------ END -------------" >> $LOCALSTATSDIR/check-md5.status
 		#
-		find . -type f | egrep -v "/sys/|/proc/|/dev/|/mnt|/$STORE" > $LOCALSTATSDIR/files.list
+		find . -type f | grep -E -v "/sys/|/proc/|/dev/|/mnt|/$STORE" > $LOCALSTATSDIR/files.list
 		LC_ALL=C sort -u $LOCALSTATSDIR/files.list > $LOCALSTATSDIR/files.list.tmp && mv $LOCALSTATSDIR/files.list.tmp $LOCALSTATSDIR/files.list
 		echo "# $(date)" > $LOCALSTATSDIR/check-files.status
 		echo "# These files do not appear in release $RELEASE, " >> $LOCALSTATSDIR/check-files.status
 		echo "# however - they appear on the system:" >> $LOCALSTATSDIR/check-files.status
 		echo "# " >> $LOCALSTATSDIR/check-files.status
 		echo "----------- START ------------" >> $LOCALSTATSDIR/check-files.status
-		diff $RELEASEDIR/files.list $LOCALSTATSDIR/files.list | egrep "<|>" | sed s/'[><][ ][\.]'//g >> $LOCALSTATSDIR/check-files.status
+		diff $RELEASEDIR/files.list $LOCALSTATSDIR/files.list | grep -E "<|>" | sed s/'[><][ ][\.]'//g >> $LOCALSTATSDIR/check-files.status
 		echo "------------ END -------------" >> $LOCALSTATSDIR/check-files.status
 		#
 		if [ "$REPORT" = "true" ]; then 
@@ -211,7 +211,7 @@ check_ipkglist(){
 		echo "# These package versions differ from release $RELEASE:" >> $LOCALSTATSDIR/check-ipkglist.status
 		echo "# " >> $LOCALSTATSDIR/check-ipkglist.status
 		echo "----------- START ------------" >> $LOCALSTATSDIR/check-ipkglist.status
-		diff $RELEASEDIR/ipkg.list $LOCALSTATSDIR/ipkg.list | egrep ">" | sed s/'[><][ ]'//g >> $LOCALSTATSDIR/check-ipkglist.status
+		diff $RELEASEDIR/ipkg.list $LOCALSTATSDIR/ipkg.list | grep -E ">" | sed s/'[><][ ]'//g >> $LOCALSTATSDIR/check-ipkglist.status
 		echo "------------ END -------------" >> $LOCALSTATSDIR/check-ipkglist.status
 		#
 		if [ "$REPORT" = "true" ]; then 

@@ -1410,7 +1410,7 @@ do_select()
 	fi
 
 	# check if magic is present in config file
-	if ! egrep -q "^${magic}$" "${file}" && [ -z "${PTXDIST_FORCE}" ]; then
+	if ! grep -E -q "^${magic}$" "${file}" && [ -z "${PTXDIST_FORCE}" ]; then
 		ptxd_dialog_msgbox \
 			"error: Couldn't verify that\n" \
 			"	'${file}'\n" \
@@ -2211,7 +2211,7 @@ setup_env() {
 	unset $({
 		export -p  | sed -n 's/^declare -x \([^=]*\).*$/\1/p'
 		export -fp | sed -n 's/^declare -fx \([^=]*\).*$/\1/p'
-		} | egrep -v "^(PTXDIST_PTXRC|PTX_AUTOBUILD_DESTDIR|CCACHE_.*|PWD|HOME|USER|PATH|TERM|COLUMNS|LINES|DISPLAY|TMPDIR|KCONFIG_ALLCONFIG|KCONFIG_SEED|http_proxy|https_proxy|ftp_proxy|no_proxy${whitelist})$")
+		} | grep -E -v "^(PTXDIST_PTXRC|PTX_AUTOBUILD_DESTDIR|CCACHE_.*|PWD|HOME|USER|PATH|TERM|COLUMNS|LINES|DISPLAY|TMPDIR|KCONFIG_ALLCONFIG|KCONFIG_SEED|http_proxy|https_proxy|ftp_proxy|no_proxy${whitelist})$")
 
 	######## the environment is clean now ########
 
@@ -2361,7 +2361,7 @@ setup_parallel() {
 
 	# this one is for Linux
 	if [ -r /proc/cpuinfo ]; then
-		cpus="$(egrep '^(processor|cpu	)' /proc/cpuinfo | wc -l)"
+		cpus="$(grep -E '^(processor|cpu	)' /proc/cpuinfo | wc -l)"
 		if [ ${cpus} -eq 0 ]; then
 			cpus=1
 		fi
