@@ -102,7 +102,7 @@ QEMU_CONF_OPT	:= \
 	--disable-glusterfs \
 	--disable-gnutls \
 	--$(call ptx/endis, PTXCONF_QEMU_GTK)-gtk \
-	--enable-gtk-clipboard \
+	--$(call ptx/endis, PTXCONF_QEMU_GTK)-gtk-clipboard \
 	--disable-guest-agent \
 	--disable-guest-agent-msi \
 	--disable-hax \
