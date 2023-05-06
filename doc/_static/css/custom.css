@@ -97,17 +97,17 @@ nav.wy-nav-side #menu-resize .fa:not(:first-child) {
 }
 
 .important {
-		background-color: #fff4dd !important;
+    background-color: #fff4dd !important;
 }
 .important .admonition-title {
-		background-color: #ff9b00 !important;
+    background-color: #ff9b00 !important;
 }
 
 .note {
-		background-color: #f2f9e5 !important;
+    background-color: #f2f9e5 !important;
 }
 .note .admonition-title {
-		background-color: #83983e !important;
+    background-color: #83983e !important;
 }
 
 .wy-table-responsive table.word-wrap td,
