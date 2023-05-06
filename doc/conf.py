@@ -172,15 +172,16 @@ html_theme = 'sphinx_rtd_theme'
 
 html_static_path = ['_static']
 
-html_context = {
-    'css_files': ['_static/css/custom.css'],
-    'script_files': [
-        '_static/js/jquery-3.1.0.min.js',
-        '_static/underscore.js',
-        '_static/doctools.js',
-        '_static/js/main.js',
-    ],
-}
+html_css_files = [
+        'css/custom.css',
+]
+
+html_js_files = [
+        'js/jquery-3.1.0.min.js',
+        'underscore.js',
+        'doctools.js',
+        'js/main.js',
+]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
