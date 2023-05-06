@@ -12,6 +12,11 @@
     vertical-align: middle;
 }
 
+/* "View Page Source" link */
+.wy-breadcrumbs .wy-breadcrumbs-aside > a {
+    display: inline-block;
+    padding: 7px;
+}
 
 /* links */
 .wy-menu-vertical a:active {
