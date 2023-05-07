@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBEVDEV) += libevdev
 #
 # Paths and names
 #
-LIBEVDEV_VERSION	:= 1.13.0
-LIBEVDEV_MD5		:= 5b15b4cf97c4f9f1393e499526a57665
+LIBEVDEV_VERSION	:= 1.13.1
+LIBEVDEV_MD5		:= 58fe71aa6fd5e80d0928e9b691761311
 LIBEVDEV		:= libevdev-$(LIBEVDEV_VERSION)
 LIBEVDEV_SUFFIX		:= tar.xz
 LIBEVDEV_URL		:= http://www.freedesktop.org/software/libevdev/$(LIBEVDEV).$(LIBEVDEV_SUFFIX)
@@ -39,7 +39,8 @@ LIBEVDEV_CONF_ENV	:= \
 LIBEVDEV_CONF_TOOL	:= autoconf
 LIBEVDEV_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-gcov
+	--disable-gcov \
+	--disable-coverity
 
 # ----------------------------------------------------------------------------
 # Target-Install
