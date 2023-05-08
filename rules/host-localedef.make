@@ -29,6 +29,10 @@ HOST_LOCALEDEF_LICENSE	:= LGPL-2.1-or-later AND GPL-2.0-or-later
 # Prepare
 # ----------------------------------------------------------------------------
 
+HOST_LOCALEDEF_CONF_ENV  := \
+	$(HOST_ENV) \
+	libc_cv_complocaledir='/usr/lib/locale'
+
 #
 # autoconf
 #
