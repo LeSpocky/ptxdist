@@ -71,7 +71,7 @@ ptxd_make_world_patchin_apply_git_init()
 	__git tag "${pkg_pkg//\~/-}" &&
 	__git tag base &&
 	__git config alias.ptx-patches "!${PTXDIST_TOPDIR}/scripts/git-ptx-patches \"\${@}\"" &&
-	__git config core.editor "${PTXDIST_TOPDIR}/scripts/git-ptx-refresh-tags-editor" &&
+	__git config sequence.editor "${PTXDIST_TOPDIR}/scripts/git-ptx-refresh-tags-editor" &&
 	__git config diff.renames false &&
 	__git config core.abbrev 12 &&
 	__git config core.autocrlf false &&

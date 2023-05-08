@@ -50,10 +50,7 @@ filter_rebase() {
 	mv "${tmpfile}" "${file}"
 }
 
-# only do something when rebasing
-if [ "${GIT_REFLOG_ACTION}" = "rebase" ]; then
-	filter_rebase "${1}"
-fi
+filter_rebase "${1}"
 
 # find the editor outside the local repository
 editor="$(cd / && git var GIT_EDITOR)"
