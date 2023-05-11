@@ -6,6 +6,7 @@ menuconfig OPTEE
 	select HOST_SYSTEM_PYTHON3
 	select HOST_SYSTEM_PYTHON3_PYELFTOOLS
 	select HOST_SYSTEM_PYTHON3_CRYPTOGRAPHY
+	select HOST_DTC
 	depends on ARCH_ARM || ARCH_ARM64
 	depends on !ARCH_ARM64 || BROKEN
 	help
