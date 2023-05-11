@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 23.0.2
-MESALIB_MD5	:= ffea65f5dd7f1be1e4f941ad990a3ae7
+MESALIB_VERSION	:= 23.1.0
+MESALIB_MD5	:= 786ef9e01490654da0d4deb0f7a75700
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -101,6 +101,7 @@ MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_H265ENC)	+= h265enc
 ifdef PTXCONF_ARCH_X86
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_AMD)		+= amd
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_INTEL)		+= intel
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_INTEL_HASVK)	+= intel_hasvk
 endif
 ifdef PTXCONF_ARCH_ARM_NEON
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_BROADCOM)	+= broadcom
@@ -138,6 +139,8 @@ endif
 MESALIB_CONF_TOOL	:= meson
 MESALIB_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
+	-Dallow-kcmp=enabled \
+	-Dandroid-libbacktrace=disabled \
 	-Dandroid-stub=false \
 	-Dbuild-aco-tests=false \
 	-Dbuild-tests=false \
@@ -145,7 +148,6 @@ MESALIB_CONF_OPT	:= \
 	-Dd3d-drivers-path=/usr/lib/d3d \
 	-Ddatasources=auto \
 	-Ddraw-use-llvm=true \
-	-Ddri-drivers=[] \
 	-Ddri-drivers-path=/usr/lib/dri \
 	-Ddri-search-path=/usr/lib/dri \
 	-Ddri3=$(call ptx/endis, PTXCONF_MESALIB_DRI3)d \
@@ -154,8 +156,7 @@ MESALIB_CONF_OPT	:= \
 	-Degl-native-platform=auto \
 	-Denable-glcpp-tests=false \
 	-Dexecmem=true \
-	-Dfreedreno-kgsl=false \
-	-Dfreedreno-virtio=false \
+	-Dfreedreno-kmds=msm \
 	-Dgallium-d3d10umd=false \
 	-Dgallium-d3d12-video=disabled \
 	-Dgallium-drivers=$(subst $(space),$(comma),$(MESALIB_GALLIUM_DRIVERS-y)) \
@@ -181,6 +182,7 @@ MESALIB_CONF_OPT	:= \
 	-Dimagination-srv=false \
 	-Dinstall-intel-gpu-tests=false \
 	-Dintel-clc=disabled \
+	-Dintel-xe-kmd=disabled \
 	-Dlibunwind=disabled \
 	-Dllvm=disabled \
 	-Dlmsensors=$(call ptx/endis, PTXCONF_MESALIB_LMSENSORS)d \
@@ -191,7 +193,6 @@ MESALIB_CONF_OPT	:= \
 	-Dopencl-spirv=false \
 	-Dopengl=$(call ptx/truefalse, PTXCONF_MESALIB_OPENGL) \
 	-Dosmesa=false \
-	-Dosmesa-bits=unspecified \
 	-Dperfetto=false \
 	-Dplatform-sdk-version=25 \
 	-Dplatforms=$(subst $(space),$(comma),$(MESALIBS_EGL_PLATFORMS-y)) \

@@ -237,6 +237,11 @@ config MESALIB_VULKAN_INTEL
 	select MESALIB_XMLCONFIG
 	prompt "Intel (Anvil)"
 
+config MESALIB_VULKAN_INTEL_HASVK
+	bool
+	select MESALIB_XMLCONFIG
+	prompt "Intel (hasvk)"
+
 config MESALIB_VULKAN_FREEDRENO
 	bool
 	prompt "Freedreno (Turnip)"
