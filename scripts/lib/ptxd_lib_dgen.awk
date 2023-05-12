@@ -176,7 +176,7 @@ $1 ~ /^PTX_MAP_._DEP/ {
 			base_PKG_to_pkg[this_PKG] = PKG_to_pkg[this_PKG];
 
 			if (dep_type == "R")
-				PKG_to_R_DEP["BASE"] = PKG_to_B_DEP["BASE"] " " this_PKG;
+				PKG_to_R_DEP["BASE"] = PKG_to_R_DEP["BASE"] " " this_PKG;
 			else
 				PKG_to_B_DEP["BASE"] = PKG_to_B_DEP["BASE"] " " this_PKG;
 
