@@ -477,7 +477,6 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
 	print "_tmp :=$(foreach source, $(" this_PKG "_SOURCES),$($($(source))_MD5) $(notdir $(source)))"	> DGEN_DEPS_POST;
 	print "$(file >>" PTXDIST_TEMPDIR "/pkghash-" this_PKG ",$(_tmp))"					> DGEN_DEPS_POST;
-	print "$(file >>" PTXDIST_TEMPDIR "/pkghash-" this_PKG "_EXTRACT,$(_tmp))"				> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
@@ -674,6 +673,8 @@ END {
 		write_deps_pkg_active_cfghash(this_PKG, PKG_to_pkg[this_PKG])
 
 	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
+	for (this_PKG in PKG_to_pkg)
+		print "DEPS: " this_PKG " " PKG_to_B_DEP[this_PKG] > PTXDIST_HASHLIST
 	print "$(call ptx/force-shell, echo -e '$(PTXDIST_HASHLIST_DATA)' >> " PTXDIST_HASHLIST ")"		> DGEN_DEPS_POST;
 	print "$(call ptx/force-sh, $(PTXDIST_LIB_DIR)/ptxd_make_pkghash.awk " PTXDIST_HASHLIST ")"		> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
