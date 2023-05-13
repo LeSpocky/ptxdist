@@ -102,7 +102,6 @@ PERL_PROGRAMS := \
 	instmodsh \
 	json_pp \
 	libnetcfg \
-	perl \
 	perl$(PERL_VERSION) \
 	perlivp \
 	perlthanks \
@@ -132,6 +131,8 @@ $(STATEDIR)/perl.targetinstall:
 	@$(foreach prog, $(PERL_PROGRAMS), \
 		$(call install_copy, perl, 0, 0, 0755, -, \
 			/usr/bin/$(prog))$(ptx/nl))
+
+	@$(call install_link, perl, perl$(PERL_VERSION), /usr/bin/perl)
 
 	@$(call install_glob, perl, 0, 0, -, /usr/lib/perl5,, */CORE)
 
