@@ -84,7 +84,7 @@ $(STATEDIR)/libtiff.targetinstall:
 
 	@$(call install_lib, libtiff, 0, 0, 0644, libtiff)
 
-#ifdef PTXCONF_LIBTIFF_TOOLS
+ifdef PTXCONF_LIBTIFF_TOOLS
 	@$(call install_copy, libtiff, 0, 0, 0755, -, /usr/bin/fax2ps)
 	@$(call install_copy, libtiff, 0, 0, 0755, -, /usr/bin/fax2tiff)
 	@$(call install_copy, libtiff, 0, 0, 0755, -, /usr/bin/pal2rgb)
@@ -103,7 +103,7 @@ $(STATEDIR)/libtiff.targetinstall:
 	@$(call install_copy, libtiff, 0, 0, 0755, -, /usr/bin/tiffmedian)
 	@$(call install_copy, libtiff, 0, 0, 0755, -, /usr/bin/tiffset)
 	@$(call install_copy, libtiff, 0, 0, 0755, -, /usr/bin/tiffsplit)
-#endif
+endif
 
 	@$(call install_finish, libtiff)
 
