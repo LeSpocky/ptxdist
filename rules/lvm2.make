@@ -98,7 +98,6 @@ $(STATEDIR)/lvm2.targetinstall:
 ifdef PTXCONF_LVM2_LVM_TOOLS
 	@$(call install_copy, lvm2, 0, 0, 0755, -, /usr/sbin/fsadm)
 	@$(call install_copy, lvm2, 0, 0, 0755, -, /usr/sbin/lvmdump)
-	@$(call install_copy, lvm2, 0, 0, 0755, -, /usr/sbin/vgimportclone)
 
 	@$(call install_copy, lvm2, 0, 0, 0755, -, /usr/sbin/lvm)
 	@$(call install_link, lvm2, lvm, /usr/sbin/lvchange)
@@ -135,6 +134,7 @@ ifdef PTXCONF_LVM2_LVM_TOOLS
 	@$(call install_link, lvm2, lvm, /usr/sbin/vgexport)
 	@$(call install_link, lvm2, lvm, /usr/sbin/vgextend)
 	@$(call install_link, lvm2, lvm, /usr/sbin/vgimport)
+	@$(call install_link, lvm2, lvm, /usr/sbin/vgimportclone)
 	@$(call install_link, lvm2, lvm, /usr/sbin/vgmerge)
 	@$(call install_link, lvm2, lvm, /usr/sbin/vgmknodes)
 	@$(call install_link, lvm2, lvm, /usr/sbin/vgreduce)
