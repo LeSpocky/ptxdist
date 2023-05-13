@@ -462,7 +462,7 @@ endif
 ifdef PTXCONF_SYSTEMD_NETWORK
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/networkctl)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/resolvectl)
-	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-resolve)
+	@$(call install_link, systemd, resolvectl, /usr/bin/systemd-resolve)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/lib/systemd/systemd-network-generator)
 	@$(call install_lib, systemd, 0, 0, 0644, libnss_resolve)
 	@$(call install_copy, systemd, 0, 0, 0644, -, /usr/lib/systemd/resolv.conf)
