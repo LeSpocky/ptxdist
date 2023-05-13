@@ -1,11 +1,11 @@
 ## SECTION=multimedia_libs
 
-config LIBTIFF
+menuconfig LIBTIFF
 	bool
 	select ZLIB             if LIBTIFF_ZLIB
 	select LIBJPEG		if LIBTIFF_JPEG
 	select LIBWEBP		if LIBTIFF_WEBP
-	prompt "libtiff"
+	prompt "libtiff                       "
 	help
 	  TIFF library
 
