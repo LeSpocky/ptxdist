@@ -2,6 +2,6 @@
 
 config @CLASS@@PACKAGE@
 	tristate
-@SELECT@	prompt "@package@"
+@DEFAULT@@SELECT@	prompt "@package@"
 	help
 	  FIXME

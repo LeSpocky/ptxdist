@@ -398,6 +398,8 @@ export -a ptxd_template_help_list
 
 ptxd_template_new_host() {
     template=template-class
+    export DEFAULT="	default y if ALLYES
+"
     ptxd_template_setup_class HOST_ &&
     ptxd_template_read_remote_existing &&
     ptxd_template_write_rules
