@@ -106,7 +106,12 @@ ptxd_template_read_author() {
 export -f ptxd_template_read_author
 
 ptxd_template_read_section() {
-    local section_name="${1:-project_specific}"
+    local section_name
+    if [ "${action}" = "host" ]; then
+	section_name="${1:-hosttools_noprompt}"
+    else
+	section_name="${1:-project_specific}"
+    fi
     ptxd_template_read "enter package section" section "${section_name}"
 }
 export -f ptxd_template_read_section
