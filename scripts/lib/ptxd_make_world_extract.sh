@@ -34,6 +34,7 @@ ptxd_make_world_extract_impl() {
 		echo "local directory using lndir"
 		mkdir -p "${pkg_dir}"
 		lndir "$(ptxd_abspath "${url}")" "${pkg_dir}"
+		rm -f "${pkg_dir}/compile_commands.json"
 		return
 	    else
 		ptxd_bailout "the URL '${pkg_url}' points to non existing directory."
