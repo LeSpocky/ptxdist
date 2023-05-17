@@ -51,12 +51,16 @@ function read_file(src, data, pkg, tmp) {
 END {
 	for (pkg in rules) {
 		f1 = PTXDIST_TEMPDIR "/pkghash-" pkg
+		f2 = PTXDIST_TEMPDIR "/pkghash-" pkg "_EXTRACT"
 		old_RS = RS
 		RS = "^$"
 		getline tmp < f1
+		data[pkg] = tmp
+		getline tmp < f2
+		extract_data[pkg] = tmp
 		RS = old_RS
 		close(f1)
-		extract_data[pkg] = data[pkg] = tmp
+		close(f2)
 	}
 	for (pkg in rules) {
 		n = split(rules[pkg], cfgs)

@@ -476,7 +476,7 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	print "ifneq ($(" this_PKG "_SOURCE),)"									> DGEN_DEPS_POST;
 	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
 	print "_tmp :=$(foreach source, $(" this_PKG "_SOURCES),$($($(source))_MD5) $(notdir $(source)))"	> DGEN_DEPS_POST;
-	print "$(file >>" PTXDIST_TEMPDIR "/pkghash-" this_PKG ",$(_tmp))"					> DGEN_DEPS_POST;
+	print "$(file >>" PTXDIST_TEMPDIR "/pkghash-" this_PKG "_EXTRACT,$(_tmp))"				> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
