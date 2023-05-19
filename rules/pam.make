@@ -84,6 +84,8 @@ $(STATEDIR)/pam.targetinstall:
 	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/pam_env.conf)
 	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/time.conf)
 
+	@$(call install_alternative, pam, 0, 0, 0755, /sbin/mkhomedir_helper)
+
 	@$(call install_finish, pam)
 
 	@$(call touch)
