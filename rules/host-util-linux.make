@@ -48,7 +48,6 @@ HOST_UTIL_LINUX_CONF_OPT	:= \
 	--disable-libuuid-force-uuidd \
 	--enable-libblkid \
 	--enable-libmount \
-	--disable-libmount-support-mtab \
 	--disable-libsmartcols \
 	--disable-libfdisk \
 	--disable-bash-completion \
