@@ -41,6 +41,9 @@ menuconfig WESTON
 	select GST_PLUGINS_GOOD1_UDP	if WESTON_REMOTING && RUNTIME
 	select PANGO			if WESTON_IVISHELL_EXAMPLE
 	select PIPEWIRE 		if WESTON_PIPEWIRE
+	select PIPEWIRE 		if WESTON_BACKEND_PIPEWIRE
+	select NEATVNC			if WESTON_BACKEND_VNC
+	select PAM			if WESTON_BACKEND_VNC
 	prompt "weston                        "
 	help
 	  Wayland compositor reference implementation
@@ -58,6 +61,14 @@ config WESTON_GL
 config WESTON_HEADLESS_COMPOSITOR
 	bool
 	prompt "headless compositor"
+
+config WESTON_BACKEND_PIPEWIRE
+	bool
+	prompt "PipeWire backend"
+
+config WESTON_BACKEND_VNC
+	bool
+	prompt "VNC backend"
 
 config WESTON_STARTSCRIPT
 	bool

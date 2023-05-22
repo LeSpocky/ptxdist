@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_WESTON) += weston
 #
 # Paths and names
 #
-WESTON_VERSION	:= 11.0.2
-LIBWESTON_MAJOR := 11
-WESTON_MD5	:= a7633c418400c94ecefb9a6f43c1028e
+WESTON_VERSION	:= 12.0.1
+LIBWESTON_MAJOR := 12
+WESTON_MD5	:= 62247c0396a941afd3d649f33d53d09c
 WESTON		:= weston-$(WESTON_VERSION)
 WESTON_SUFFIX	:= tar.gz
 WESTON_URL	:= https://gitlab.freedesktop.org/wayland/weston/-/archive/$(WESTON_VERSION)/$(WESTON).$(WESTON_SUFFIX)
@@ -40,19 +40,21 @@ WESTON_CONF_OPT		:= \
 	-Dbackend-drm=true \
 	-Dbackend-drm-screencast-vaapi=false \
 	-Dbackend-headless=$(call ptx/truefalse,PTXCONF_WESTON_HEADLESS_COMPOSITOR) \
+	-Dbackend-pipewire=$(call ptx/truefalse,PTXCONF_WESTON_BACKEND_PIPEWIRE) \
 	-Dbackend-rdp=false \
+	-Dbackend-vnc=$(call ptx/truefalse,PTXCONF_WESTON_BACKEND_VNC) \
 	-Dbackend-wayland=$(call ptx/truefalse,PTXCONF_WESTON_GL) \
 	-Dbackend-x11=false \
 	-Dcolor-management-lcms=false \
 	-Ddemo-clients=$(call ptx/truefalse,PTXCONF_WESTON_IVISHELL_EXAMPLE) \
 	-Ddeprecated-color-management-colord=false \
 	-Ddeprecated-color-management-static=false \
+	-Ddeprecated-launcher-logind=$(call ptx/truefalse,PTXCONF_WESTON_SYSTEMD_LOGIND) \
 	-Ddesktop-shell-client-default=weston-desktop-shell \
 	-Ddoc=false \
 	-Dimage-jpeg=true \
 	-Dimage-webp=false \
 	-Dlauncher-libseat=$(call ptx/truefalse,PTXCONF_WESTON_SEATD) \
-	-Dlauncher-logind=$(call ptx/truefalse,PTXCONF_WESTON_SYSTEMD_LOGIND) \
 	-Dpipewire=$(call ptx/truefalse,PTXCONF_WESTON_PIPEWIRE) \
 	-Dremoting=$(call ptx/truefalse,PTXCONF_WESTON_REMOTING) \
 	-Drenderer-gl=$(call ptx/truefalse,PTXCONF_WESTON_GL) \
@@ -131,6 +133,12 @@ endif
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/drm-backend)
 ifdef PTXCONF_WESTON_HEADLESS_COMPOSITOR
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/headless-backend)
+endif
+ifdef PTXCONF_WESTON_BACKEND_PIPEWIRE
+	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/pipewire-backend)
+endif
+ifdef PTXCONF_WESTON_BACKEND_VNC
+	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/vnc-backend)
 endif
 ifdef PTXCONF_WESTON_GL
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/wayland-backend)
