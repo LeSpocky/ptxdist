@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_UTIL_LINUX) += util-linux
 #
 # Paths and names
 #
-UTIL_LINUX_VERSION	:= 2.38.1
-UTIL_LINUX_MD5		:= cd11456f4ddd31f7fbfdd9488c0c0d02
+UTIL_LINUX_VERSION	:= 2.39
+UTIL_LINUX_MD5		:= 16579e594a8ef2e6236b38b9ab36cccf
 UTIL_LINUX		:= util-linux-$(UTIL_LINUX_VERSION)
 UTIL_LINUX_SUFFIX	:= tar.xz
 UTIL_LINUX_BASENAME	:= v$(if $(filter 2,$(basename $(UTIL_LINUX_VERSION))),$(UTIL_LINUX_VERSION),$(basename $(UTIL_LINUX_VERSION)))
@@ -72,7 +72,6 @@ UTIL_LINUX_CONF_OPT	:= \
 	--disable-libuuid-force-uuidd \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBBLKID)-libblkid \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBMOUNT)-libmount \
-	--disable-libmount-support-mtab \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBSMARTCOLS)-libsmartcols \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBFDISK)-libfdisk \
 	$(call ptx/ifdef, PTXCONF_UTIL_LINUX_FDISKS,,--disable-fdisks) \
@@ -103,11 +102,13 @@ UTIL_LINUX_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_FSTRIM)-fstrim \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_SWAPON)-swapon \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSCPU)-lscpu \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSFD)-lsfd \
 	--disable-lslogins \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_WDCTL)-wdctl \
 	--disable-cal \
 	--disable-logger \
 	--disable-whereis \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_PIPESZ)-pipesz \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_SWITCH_ROOT)-switch_root \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_PIVOT_ROOT)-pivot_root \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSMEM)-lsmem \
@@ -116,6 +117,7 @@ UTIL_LINUX_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IPCS)-ipcs \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IRQTOP)-irqtop \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSIRQ)-lsirq \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSNS)-lsns \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_RFKILL)-rfkill \
 	--disable-scriptutils \
 	--disable-tunelp \
@@ -231,7 +233,9 @@ UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_IRQTOP)		+= bin/irqtop
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_LDATTACH)		+= sbin/ldattach
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_LOSETUP)		+= sbin/losetup
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_LSCPU)		+= bin/lscpu
+UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_LSFD)		+= bin/lsfd
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_LSIRQ)		+= bin/lsirq
+UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_LSNS)		+= bin/lsns
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_LSMEM)		+= bin/lsmem
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_MOUNT)		+= bin/mount
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_MOUNTPOINT)		+= bin/mountpoint
@@ -240,6 +244,7 @@ UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_PIVOT_ROOT)		+= sbin/pivot_root
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_READPROFILE)	+= sbin/readprofile
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_RFKILL)		+= sbin/rfkill
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_SWAPON)		+= sbin/swapoff sbin/swapon
+UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_PIPESZ)		+= bin/pipesz
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_SWITCH_ROOT)	+= sbin/switch_root
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_UMOUNT)		+= bin/umount
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_WDCTL)		+= bin/wdctl

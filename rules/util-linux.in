@@ -399,11 +399,24 @@ config UTIL_LINUX_LSCPU
 	help
 	  lscpu shows information about the CPU architecture
 
+config UTIL_LINUX_LSFD
+	bool
+	select UTIL_LINUX_LIBSMARTCOLS
+	prompt "lsfd"
+	help
+	  lsfd is like lsof, but specialized for the Linux environment.
+
 config UTIL_LINUX_LSIRQ
 	bool
 	prompt "lsirq"
 	help
 	  lsirq is a tool to list kernel interrupt information.
+
+config UTIL_LINUX_LSNS
+	bool
+	prompt "lsns"
+	help
+	  lsns is a tool to list namespace information.
 
 config UTIL_LINUX_LSMEM
 	bool
@@ -411,6 +424,12 @@ config UTIL_LINUX_LSMEM
 	help
 	  The lsmem command lists the ranges of available memory and
 	  it's online status.
+
+config UTIL_LINUX_PIPESZ
+	bool
+	prompt "pipesz"
+	help
+	  The pipesz command sets or examines pipe and fifo buffer sizes.
 
 config UTIL_LINUX_MOUNT
 	bool
