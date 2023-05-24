@@ -33,6 +33,13 @@ import fileinput
 # ones.
 extensions = []
 
+def add_latex_extensions(app, docname, source):
+    if app.builder.name == 'latex':
+        app.setup_extension('sphinxcontrib.rsvgconverter')
+
+def setup(app):
+    app.connect('source-read', add_latex_extensions)
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
