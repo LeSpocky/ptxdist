@@ -1,0 +1,28 @@
+From: Roland Hieber <rhi@pengutronix.de>
+Date: Sun, 14 May 2023 23:57:58 +0200
+Subject: [PATCH] Makefile: don't build/install docs or desktop files
+
+htmldoc is configured without GUI, so no desktop data is needed.
+Furthermore it will try to call the built binary to build the docs,
+which will not work in cross builds.
+
+Forwarded: not-needed
+---
+ Makefile.in | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile.in b/Makefile.in
+index d846bf7621e5..31211a244b62 100644
+--- a/Makefile.in
++++ b/Makefile.in
+@@ -19,8 +19,8 @@ include Makedefs
+ # Subdirectories...
+ #
+ 
+-DIRS	=	htmldoc doc
+-INSTALLDIRS =	fonts data desktop doc htmldoc
++DIRS	=	htmldoc
++INSTALLDIRS =	fonts data htmldoc
+ 
+ 
+ #

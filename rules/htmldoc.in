@@ -1,0 +1,11 @@
+## SECTION=shell_and_console
+
+config HTMLDOC
+	tristate
+	select LIBJPEG
+	select ZLIB
+	prompt "htmldoc"
+	help
+	  HTMLDOC is a program that reads HTML and Markdown source files
+	  and generates corresponding EPUB, HTML, PostScript, or PDF
+	  files with an optional table of contents.
