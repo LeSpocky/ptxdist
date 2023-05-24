@@ -2,6 +2,4 @@
 
 config @CLASS@@PACKAGE@
 	tristate
-@DEFAULT@@SELECT@	prompt "@package@"
-	help
-	  FIXME
+@DEFAULT@@SELECT@@PROMPT@

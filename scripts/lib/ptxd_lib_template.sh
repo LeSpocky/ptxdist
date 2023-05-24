@@ -113,6 +113,14 @@ ptxd_template_read_section() {
 	section_name="${1:-project_specific}"
     fi
     ptxd_template_read "enter package section" section "${section_name}"
+
+    export PROMPT='	prompt "'${package}'"
+	help
+	  FIXME
+'
+    case "${section}" in
+	hosttools_noprompt*) PROMPT="";;
+    esac
 }
 export -f ptxd_template_read_section
 
