@@ -1,0 +1,9 @@
+## SECTION=system_libraries
+
+config LIBBSON
+	tristate
+	select HOST_CMAKE
+	select GLIBC_RT
+	prompt "libbson"
+	help
+	  Routines related to building, parsing, and iterating BSON documents

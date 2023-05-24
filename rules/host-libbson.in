@@ -1,0 +1,6 @@
+## SECTION=hosttools_noprompt
+
+config HOST_LIBBSON
+	tristate
+	default y if ALLYES
+	select HOST_CMAKE
