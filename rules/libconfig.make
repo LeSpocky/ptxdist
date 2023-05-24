@@ -21,7 +21,10 @@ LIBCONFIG_SUFFIX	:= tar.gz
 LIBCONFIG_URL		:= http://hyperrealm.github.io/libconfig/dist/$(LIBCONFIG).$(LIBCONFIG_SUFFIX)
 LIBCONFIG_SOURCE	:= $(SRCDIR)/$(LIBCONFIG).$(LIBCONFIG_SUFFIX)
 LIBCONFIG_DIR		:= $(BUILDDIR)/$(LIBCONFIG)
-LIBCONFIG_LICENSE	:= LGPL-2.1-only
+LIBCONFIG_LICENSE	:= LGPL-2.1-or-later
+LIBCONFIG_LICENSE_FILES	:= \
+	file://lib/libconfig.c;startline=2;endline=15;md5=6b3d8fd63724d3a674cf2857441b1e70 \
+	file://COPYING.LIB;md5=fad9b3332be894bab9bc501572864b29
 
 # ----------------------------------------------------------------------------
 # Prepare
