@@ -1,0 +1,7 @@
+## SECTION=test_suites
+
+config CPPUTEST
+	tristate
+	prompt "cpputest"
+	help
+	  CppUTest unit test framework
