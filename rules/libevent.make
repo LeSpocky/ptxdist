@@ -22,7 +22,8 @@ LIBEVENT_SUFFIX		:= tar.gz
 LIBEVENT_URL		:= https://github.com/libevent/libevent/releases/download/release-$(LIBEVENT_VERSION)-stable/$(LIBEVENT).$(LIBEVENT_SUFFIX)
 LIBEVENT_SOURCE		:= $(SRCDIR)/$(LIBEVENT).$(LIBEVENT_SUFFIX)
 LIBEVENT_DIR		:= $(BUILDDIR)/$(LIBEVENT)
-LIBEVENT_LICENSE	:= BSD-3-Clause AND 0BSD
+LIBEVENT_LICENSE	:= BSD-3-Clause AND 0BSD AND MIT
+LIBEVENT_LICENSE_FILES	:= file://LICENSE;md5=17f20574c0b154d12236d5fbe964f549
 
 # ----------------------------------------------------------------------------
 # Prepare
