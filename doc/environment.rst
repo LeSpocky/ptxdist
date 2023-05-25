@@ -17,10 +17,13 @@ components which are available to the public).
 In order to build |ptxdistBSPName|, the following source archives have to be available
 on the development host:
 
- * ptxdist-|ptxdistVendorVersion|.tar.bz2
+ * `ptxdist-|ptxdistVendorVersion|.tar.bz2 <https://public.pengutronix.de/software/ptxdist/ptxdist-|ptxdistVendorVersion|.tar.bz2>`_
  * |ptxdistBSPName|.tar.bz2 (or a similar source)
- * ptxdist-|oselasTCNVendorptxdistversion|.tar.bz2
- * OSELAS.Toolchain-|oselasTCNVendorVersion|.tar.bz2
+
+Additionally, these source archives are needed to build the toolchain:
+
+ * `ptxdist-|oselasTCNVendorptxdistversion|.tar.bz2 <https://public.pengutronix.de/software/ptxdist/ptxdist-|oselasTCNVendorptxdistversion|.tar.bz2>`_
+ * `OSELAS.Toolchain-|oselasTCNVendorVersion|.tar.bz2 <https://public.pengutronix.de/oselas/toolchain/OSELAS.Toolchain-|oselasTCNVendorVersion|.tar.bz2>`_
 
 Main Parts of PTXdist
 ~~~~~~~~~~~~~~~~~~~~~
