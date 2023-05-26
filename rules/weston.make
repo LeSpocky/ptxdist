@@ -219,6 +219,7 @@ ifdef PTXCONF_WESTON_GL
 endif
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-shm)
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-smoke)
+	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-tablet)
 endif
 
 	@$(call install_finish, weston)
