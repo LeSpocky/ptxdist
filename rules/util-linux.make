@@ -109,6 +109,7 @@ UTIL_LINUX_CONF_OPT	:= \
 	--disable-logger \
 	--disable-whereis \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_PIPESZ)-pipesz \
+	--disable-waitpid \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_SWITCH_ROOT)-switch_root \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_PIVOT_ROOT)-pivot_root \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSMEM)-lsmem \
