@@ -14,9 +14,9 @@ PACKAGES-$(PTXCONF_GST_PLUGINS_RS) += gst-plugins-rs
 #
 # Paths and names
 #
-GST_PLUGINS_RS_VERSION		:= 1.22.2
+GST_PLUGINS_RS_VERSION		:= 1.22.3
 GST_PLUGINS_RS_TAG		:= gstreamer-$(GST_PLUGINS_RS_VERSION)
-GST_PLUGINS_RS_MD5		:= f821ea8bde86373152eb02953bc4ed56
+GST_PLUGINS_RS_MD5		:= a116daee5f46019b7433f82f63b8c9c6
 GST_PLUGINS_RS			:= gst-plugins-rs-$(GST_PLUGINS_RS_VERSION)
 GST_PLUGINS_RS_SUFFIX		:= tar.bz2
 GST_PLUGINS_RS_URL		:= https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/$(GST_PLUGINS_RS_TAG)/gst-plugins-rs-$(GST_PLUGINS_RS_TAG).$(GST_PLUGINS_RS_SUFFIX)
@@ -97,7 +97,10 @@ GST_PLUGINS_RS_ENABLEP-y	+= $(GST_PLUGINS_RS_ENABLE-y)
 GST_PLUGINS_RS_CONF_TOOL	:= meson
 GST_PLUGINS_RS_CONF_OPT	:=  \
 	$(CROSS_MESON_USR) \
-	-Ddebug=false
+	-Ddebug=false \
+	-Ddoc=disabled \
+	-Dexamples=disabled \
+	-Dfrozen=true
 
 ifneq ($(call remove_quotes,$(GST_PLUGINS_RS_ENABLEC-y)),)
 GST_PLUGINS_RS_CONF_OPT +=  $(addsuffix =enabled, $(addprefix -D, $(GST_PLUGINS_RS_ENABLEC-y)))
