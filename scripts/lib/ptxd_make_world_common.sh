@@ -381,6 +381,7 @@ ptxd_make_world_init() {
 	    pkg_conf_env="PTXDIST_ICECC= CMAKE=false CMAKE_FOR_BUILD=false ${pkg_conf_env:-${!conf_env_ptr}}"
 	    if [ -n "${pkg_cargo_lock}" ]; then
 		pkg_make_env="${pkg_make_env_cargo} ${pkg_make_env}"
+		pkg_conf_env="${pkg_make_env_cargo} ${pkg_conf_env}"
 	    fi
 	    ;;
 	cargo)
