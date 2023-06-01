@@ -23,7 +23,7 @@ ptxd_make_meson_cross_file() {
     esac
     ptxd_get_alternative config meson/cross-file.meson.in &&
     CPU="$(ptxd_cross_cc_v | sed -n -e "s/.*'-march=\([^']*\).*/\1/p" -e "/-march=/q")" \
-    RUSTC="${PTXCONF_COMPILER_PREFIX}rustc" \
+    RUSTC="['rustc', '--target', '${PTXCONF_RUST_TARGET}']" \
 	ptxd_replace_magic "${ptxd_reply}" > "${1}"
 }
 export -f ptxd_make_meson_cross_file
