@@ -17,10 +17,10 @@ Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
  1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/scripts/CMakeLists.txt b/scripts/CMakeLists.txt
-index f3536cc2a05e..a71de73111a2 100644
+index 94c8528c83a4..b8aebdd6eca6 100644
 --- a/scripts/CMakeLists.txt
 +++ b/scripts/CMakeLists.txt
-@@ -127,8 +127,4 @@ if (MIMALLOC_INSTALL_DIR)
+@@ -123,8 +123,4 @@ if (MIMALLOC_INSTALL_DIR)
      list(APPEND CMAKE_PREFIX_PATH ${MIMALLOC_INSTALL_DIR})
  endif()
  
