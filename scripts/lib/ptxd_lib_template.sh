@@ -188,7 +188,7 @@ export -f ptxd_template_read_conf_tool
 ptxd_template_read_qt_version() {
     local qt_version
     ptxd_template_read_options "Qt version" qt_version "Qt 5" "Qt 6"
-    export QT_VERSION="${qt_version}"
+    export QT_VERSION="${qt_version#Qt }"
     PACKAGE_PATH="${PACKAGE}_PATH		:= PATH=\$(PTXDIST_SYSROOT_CROSS)/bin/qt${qt_version}:\$(CROSS_PATH)
 "
 }
