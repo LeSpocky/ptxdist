@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GLSLANG) += glslang
 #
 # Paths and names
 #
-GLSLANG_VERSION		:= 1.3.246.1
-GLSLANG_MD5		:= b55b5074e5d3e587b564d9159a1551a1
+GLSLANG_VERSION		:= 1.3.250.0
+GLSLANG_MD5		:= e95504d25ed260c439f8031cc1d498e0
 GLSLANG			:= glslang-$(GLSLANG_VERSION)
 GLSLANG_SUFFIX		:= tar.gz
 GLSLANG_URL		:= https://github.com/KhronosGroup/glslang/archive/sdk-$(GLSLANG_VERSION).$(GLSLANG_SUFFIX)
@@ -43,8 +43,7 @@ GLSLANG_CONF_OPT	:= \
 	-DENABLE_PCH=ON \
 	-DENABLE_RTTI=OFF \
 	-DENABLE_SPVREMAPPER=ON \
-	-DSKIP_GLSLANG_INSTALL=OFF \
-	-DUSE_CCACHE=OFF
+	-DSKIP_GLSLANG_INSTALL=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install
