@@ -1,6 +1,6 @@
 ## SECTION=multimedia_libs
 
-menuconfig VULKAN_HEADERS
+config VULKAN_HEADERS
 	tristate
 	prompt "vulkan-headers"
 	select HOST_CMAKE

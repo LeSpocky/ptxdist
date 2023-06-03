@@ -1,6 +1,6 @@
 ## SECTION=multimedia_gstreamer1
 
-config GST_PLUGINS_RS
+menuconfig GST_PLUGINS_RS
 	tristate
 	select HOST_MESON
 	select HOST_CARGO_C
@@ -13,7 +13,7 @@ config GST_PLUGINS_RS
 	select LIBWEBP			if GST_PLUGINS_RS_WEBP
 	select LIBWEBP_DEMUX		if GST_PLUGINS_RS_WEBP
 	select PANGO
-	prompt "gst-plugins-rs"
+	prompt "gst-plugins-rs                "
 	help
 	  GStreamer plugins written in Rust.
 

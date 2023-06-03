@@ -2,7 +2,7 @@
 
 menuconfig SPIRV_TOOLS
 	tristate
-	prompt "spirv-tools"
+	prompt "spirv-tools                   "
 	select HOST_CMAKE
 	select HOST_SYSTEM_PYTHON3
 	help

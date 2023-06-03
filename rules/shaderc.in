@@ -2,7 +2,7 @@
 
 menuconfig SHADERC
 	tristate
-	prompt "shaderc"
+	prompt "shaderc                       "
 	select HOST_CMAKE
 	select HOST_SYSTEM_PYTHON3
 	help

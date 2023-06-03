@@ -1,9 +1,9 @@
 ## SECTION=multimedia_xorg_lib
 
-config LIBXCVT
+menuconfig LIBXCVT
 	tristate
 	select HOST_MESON
-	prompt "libxcvt"
+	prompt "libxcvt                       "
 	help
 	  libxcvt is a library providing a standalone version of the X server
 	  implementation of the VESA CVT standard timing modelines generator.

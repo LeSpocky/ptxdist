@@ -2,7 +2,7 @@
 
 menuconfig LIBRTLSDR
 	tristate
-	prompt "librtlsdr		      "
+	prompt "librtlsdr                     "
 	select HOST_CMAKE
 	select LIBUSB
 	help

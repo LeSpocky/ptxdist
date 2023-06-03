@@ -6,7 +6,7 @@ menuconfig XORG_APP_XINIT
 	select XORG_APP_XAUTH		if XORG_APP_XINIT_STARTX && RUNTIME
 	select UTIL_LINUX		if XORG_APP_XINIT_STARTX && RUNTIME
 	select UTIL_LINUX_MCOOKIE	if XORG_APP_XINIT_STARTX
-	prompt "xorg xinit"
+	prompt "xorg xinit                    "
 	help
 	  This package provides 'xinit' and 'startx', utilities for starting
 	  the X Window System server. This is from the modular X.org.

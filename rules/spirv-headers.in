@@ -1,6 +1,6 @@
 ## SECTION=multimedia_libs
 
-menuconfig SPIRV_HEADERS
+config SPIRV_HEADERS
 	tristate
 	prompt "spirv-headers"
 	select HOST_CMAKE

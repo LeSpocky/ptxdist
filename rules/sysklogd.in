@@ -10,12 +10,6 @@ menuconfig SYSKLOGD
 	  The venerable BSD syslogd and klogd rolled into one syslogd.
 	  This is a maintained and updated variant of the same.
 
-comment "BusyBox' syslogd is selected!"
-	depends on BUSYBOX_SYSLOGD
-
-comment "BusyBox' logger is selected!"
-	depends on BUSYBOX_LOGGER
-
 if SYSKLOGD
 
 comment "runtime options   ---"
@@ -40,3 +34,9 @@ config SYSKLOGD_STARTSCRIPT
 	  installation ("<PTXDIST>/projectroot/etc/init.d/syslogd").
 
 endif
+
+comment "BusyBox' syslogd is selected!"
+	depends on BUSYBOX_SYSLOGD
+
+comment "BusyBox' logger is selected!"
+	depends on BUSYBOX_LOGGER

@@ -1,6 +1,6 @@
 ## SECTION=multimedia_wayland
 
-config WLROOTS
+menuconfig WLROOTS
 	tristate
 	select HOST_MESON
 	select WAYLAND
@@ -21,7 +21,7 @@ config WLROOTS
 	select XORG			if WLROOTS_XWAYLAND
 	select XCB_UTIL_WM		if WLROOTS_XWAYLAND
 	select XWAYLAND			if WLROOTS_XWAYLAND
-	prompt "wlroots"
+	prompt "wlroots                       "
 	help
 	  wlroots provides pluggable, composable, unopinionated modules for
 	  building a Wayland compositor.

@@ -12,7 +12,7 @@ menuconfig NEATVNC
 	select MESALIB		if NEATVNC_GBM
 	select MESALIB_GBM	if NEATVNC_GBM
 	select GNUTLS		if NEATVNC_TLS
-	prompt "neatvnc"
+	prompt "neatvnc                       "
 	help
 	  VNC Server library
 

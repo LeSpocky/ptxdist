@@ -2,7 +2,7 @@
 
 menuconfig GLSLANG
 	tristate
-	prompt "glslang"
+	prompt "glslang                       "
 	select HOST_CMAKE
 	select HOST_SYSTEM_PYTHON3
 	help

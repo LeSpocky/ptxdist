@@ -2,7 +2,7 @@
 
 menuconfig XWAYLAND
 	tristate
-	prompt "XWayland"
+	prompt "XWayland                      "
 	select HOST_MESON
 	select LIBC_M
 	select LIBDRM

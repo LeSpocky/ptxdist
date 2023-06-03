@@ -1,6 +1,6 @@
 ## SECTION=multimedia_pipewire
 
-menuconfig MEDIA_SESSION
+config MEDIA_SESSION
 	tristate
 	select HOST_MESON
 	select DBUS
@@ -10,7 +10,7 @@ menuconfig MEDIA_SESSION
 	select ALSA_LIB_SEQ
 	select PIPEWIRE
 	select SYSTEMD				if MEDIA_SESSION_SYSTEMD
-	prompt "media-session                 "
+	prompt "media-session"
 	help
 	  Example session manager for PipeWire
 

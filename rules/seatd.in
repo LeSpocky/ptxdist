@@ -5,7 +5,7 @@ menuconfig SEATD
 	select HOST_MESON
 	select SYSTEMD			if SEATD_SYSTEMD_LOGIND
 	select SYSTEMD_LOGIND		if SEATD_SYSTEMD_LOGIND
-	prompt "libseat"
+	prompt "libseat                       "
 	help
 	  A minimal seat management daemon, and a universal seat management library.
 

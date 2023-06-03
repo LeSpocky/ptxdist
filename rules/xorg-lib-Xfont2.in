@@ -5,7 +5,7 @@
 # Requires.private: fontenc
 # Libs.private: -lz -lm
 
-config XORG_LIB_XFONT2
+menuconfig XORG_LIB_XFONT2
 	tristate
 	select LIBC_M
 	select XORGPROTO

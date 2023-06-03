@@ -12,7 +12,7 @@ menuconfig WAYVNC
 	select WAYLAND
 	select MESALIB		if WAYVNC_SCREENCOPY_DMABUF
 	select MESALIB_GBM	if WAYVNC_SCREENCOPY_DMABUF
-	prompt "wayvnc"
+	prompt "wayvnc                        "
 	help
 	  A VNC server for wlroots based Wayland compositors.
 
