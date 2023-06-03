@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QT6) += qt6
 #
 # Paths and names
 #
-QT6_VERSION		:= 6.4.2
-QT6_MD5			:= 15e2530292b65a2b3dc23fc03f140796
+QT6_VERSION		:= 6.5.1
+QT6_MD5			:= 4c1ec00f50833bc3c74d372d2ca6b556
 QT6			:= qt-everywhere-src-$(QT6_VERSION)
 QT6_SUFFIX		:= tar.xz
 QT6_URL			:= \
@@ -95,9 +95,12 @@ QT6_MODULES-$(PTXCONF_QT6_MODULE_QTCOAP)		+= qtcoap
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTCONNECTIVITY)	+= qtconnectivity
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTDATAVIS3D)		+= qtdatavis3d
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTDECLARATIVE)		+= qtdeclarative
+QT6_MODULES-						+= qtgrpc
+QT6_MODULES-$(PTXCONF_QT6_MODULE_QTHTTPSERVER)		+= qthttpserver
 QT6_MODULES-						+= qtdoc
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTIMAGEFORMATS)	+= qtimageformats
 QT6_MODULES-						+= qtlanguageserver
+QT6_MODULES-						+= qtlocation
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTLOTTIE)		+= qtlottie
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTMQTT)		+= qtmqtt
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTMULTIMEDIA)		+= qtmultimedia
@@ -105,6 +108,8 @@ QT6_MODULES-$(PTXCONF_QT6_MODULE_QTNETWORKAUTH)		+= qtnetworkauth
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTOPCUA)		+= qtopcua
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTPOSITIONING)		+= qtpositioning
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTQUICK3D)		+= qtquick3d
+QT6_MODULES-$(PTXCONF_QT6_MODULE_QTQUICK3DPHYSICS)	+= qtquick3dphysics
+QT6_MODULES-						+= qtquickeffectmaker
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTQUICKTIMELINE)	+= qtquicktimeline
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTREMOTEOBJECTS)	+= qtremoteobjects
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTSCXML)		+= qtscxml
@@ -112,6 +117,7 @@ QT6_MODULES-$(PTXCONF_QT6_MODULE_QTSENSORS)		+= qtsensors
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTSERIALBUS)		+= qtserialbus
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTSERIALPORT)		+= qtserialport
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTSHADERTOOLS)		+= qtshadertools
+QT6_MODULES-						+= qtspeech
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTSVG)			+= qtsvg
 QT6_MODULES-						+= qttools
 QT6_MODULES-						+= qttranslations
@@ -277,6 +283,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_optimize_size=OFF \
 	-DFEATURE_pcre2=ON \
 	-DFEATURE_pdf=ON \
+	-DFEATURE_permissions=OFF \
 	-DFEATURE_picture=ON \
 	-DFEATURE_pkg_config=ON \
 	-DFEATURE_png=$(call ptx/onoff,PTXCONF_QT6_LIBPNG) \
@@ -418,6 +425,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_contextmenu=ON \
 	-DFEATURE_cups=OFF \
 	-DFEATURE_cupsjobwidget=OFF \
+	-DFEATURE_cupspassworddialog=OFF \
 	-DFEATURE_datawidgetmapper=ON \
 	-DFEATURE_datetimeedit=ON \
 	-DFEATURE_dial=ON \
@@ -537,12 +545,6 @@ QT6_CONF_OPT += \
 	-DFEATURE_pcsclite=OFF
 endif
 
-ifdef PTXCONF_QT6_MODULE_QTIMAGEFORMATS
-QT6_CONF_OPT += \
-	-DFEATURE_tiff=ON \
-	-DFEATURE_webp=ON
-endif
-
 ifdef PTXCONF_QT6_MODULE_QTDECLARATIVE
 QT6_QML_JIT := ON
 ifdef PTXCONF_ARCH_ARM
@@ -600,6 +602,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_quickcontrols2_basic=ON \
 	-DFEATURE_quickcontrols2_fusion=ON \
 	-DFEATURE_quickcontrols2_imagine=ON \
+	-DFEATURE_quickcontrols2_ios=ON \
 	-DFEATURE_quickcontrols2_macos=ON \
 	-DFEATURE_quickcontrols2_material=ON \
 	-DFEATURE_quickcontrols2_universal=ON \
@@ -613,7 +616,7 @@ endif
 ifdef PTXCONF_QT6_MODULE_QTIMAGEFORMATS
 QT6_CONF_OPT += \
 	-DFEATURE_jasper=OFF \
-	-DFEATURE_mng=$(call ptx/onoff,PTXCONF_QT6_LIBMNG)
+	-DFEATURE_mng=$(call ptx/onoff,PTXCONF_QT6_LIBMNG) \
 	-DFEATURE_system_tiff=ON \
 	-DFEATURE_system_webp=ON \
 	-DFEATURE_tiff=ON \
@@ -641,6 +644,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_spatialaudio=OFF \
 	-DFEATURE_spatialaudio_quick3d=OFF \
 	-DFEATURE_vaapi=OFF \
+	-DFEATURE_videotoolbox=OFF \
 	-DFEATURE_wasm=OFF \
 	-DFEATURE_wmf=OFF \
 	-DFEATURE_wmsdk=OFF
@@ -776,6 +780,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_webengine_system_lcms2=OFF \
 	-DFEATURE_webengine_system_libevent=OFF \
 	-DFEATURE_webengine_system_libjpeg=ON \
+	-DFEATURE_webengine_system_libopenjpeg2=OFF \
 	-DFEATURE_webengine_system_libpci=OFF \
 	-DFEATURE_webengine_system_libpng=ON \
 	-DFEATURE_webengine_system_libvpx=OFF \
@@ -788,7 +793,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_webengine_system_re2=OFF \
 	-DFEATURE_webengine_system_snappy=OFF \
 	-DFEATURE_webengine_system_zlib=ON \
-	-DFEATURE_webengine_v8_snapshot_support=OFF \
+	-DFEATURE_webengine_vulkan=OFF \
 	-DFEATURE_webengine_webchannel=ON \
 	-DFEATURE_webengine_webrtc=OFF \
 	-DFEATURE_webengine_webrtc_pipewire=OFF \
@@ -918,6 +923,8 @@ QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QT3D)				+= geometryloaders/libdefaultgeometryl
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QT3D)				+= geometryloaders/libgltfgeometryloader
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QT3D)				+= sceneparsers/libgltfsceneexport
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QT3D)				+= sceneparsers/libgltfsceneimport
+QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QT3D)				+= renderers/libopenglrenderer
+QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QT3D)				+= renderers/librhirenderer
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QT3D_QUICK)			+= renderplugins/libscene2d
 
 ### QtBase ###
@@ -955,11 +962,18 @@ QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTBASE_GUI)			+= platforms/libqoffscreen
 QT6_PLUGINS-$(PTXCONF_QT6_PLATFORM_EGLFS)			+= egldeviceintegrations/libqeglfs-kms-integration
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTBASE_SQL_MYSQL)		+= sqldrivers/libqsqlmysql
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTBASE_SQL_SQLITE)		+= sqldrivers/libqsqlite
+QT6_PLUGINS-$(PTXCONF_QT6_GLIB)					+= networkinformation/libqglib
+QT6_PLUGINS-$(PTXCONF_QT6_DBUS)					+= networkinformation/libqnetworkmanager
+QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTBASE)			+= tls/libqcertonlybackend
+QT6_PLUGINS-$(PTXCONF_QT6_OPENSSL)				+= tls/libqopensslbackend
 
 ### QtCharts ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTCHARTS)				+= Qt6Charts
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTCHARTS_QUICK)			+= Qt6ChartsQml
 QT6_QML-$(PTXCONF_QT6_MODULE_QTCHARTS_QUICK)			+= QtCharts
+
+### QtCoap ###
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTCOAP)				+= Qt6Coap
 
 ### QtConnectivity ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTCONNECTIVITY)			+= Qt6Bluetooth
@@ -983,6 +997,7 @@ QT6_LIBS-$(PTXCONF_QT6_MODULE_QTDECLARATIVE_QUICK)		+= Qt6QuickControls2Impl
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTDECLARATIVE_QUICK)		+= Qt6QuickDialogs2
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTDECLARATIVE_QUICK)		+= Qt6QuickDialogs2Utils
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTDECLARATIVE_QUICK)		+= Qt6QuickDialogs2QuickImpl
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTDECLARATIVE_QUICK)		+= Qt6QuickEffects
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTDECLARATIVE_QUICK)		+= Qt6QuickLayouts
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTDECLARATIVE_QUICK)		+= Qt6QuickShapes
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTDECLARATIVE_QUICK)		+= Qt6QuickTemplates2
@@ -1010,6 +1025,9 @@ ifdef PTXCONF_QT6_TEST
 QT6_QML-$(PTXCONF_QT6_MODULE_QTDECLARATIVE_QUICK)		+= QtTest
 endif
 
+### QtHttpServer ###
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTHTTPSERVER)			+= Qt6HttpServer
+
 ### QtImageFormats ###
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTIMAGEFORMATS)		+= imageformats/libqicns
 QT6_PLUGINS-$(PTXCONF_QT6_LIBMNG)				+= imageformats/libqmng
@@ -1021,17 +1039,28 @@ QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTIMAGEFORMATS)		+= imageformats/libqwebp
 ### QtLottie ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTLOTTIE)				+= Qt6Bodymovin
 
+### QtMqtt ###
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTMQTT)				+= Qt6Mqtt
+
 ### QtMultimedia ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTMULTIMEDIA)			+= Qt6Multimedia
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTMULTIMEDIA_QUICK)		+= Qt6MultimediaQuick
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTMULTIMEDIA_WIDGETS)		+= Qt6MultimediaWidgets
+QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTMULTIMEDIA_GST)		+= multimedia/libgstreamermediaplugin
 QT6_QML-$(PTXCONF_QT6_MODULE_QTMULTIMEDIA_QUICK)		+= QtMultimedia
 
 ### QtNetworkAuth ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTNETWORKAUTH)			+= Qt6NetworkAuth
 
+### QtOpcua ###
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTOPCUA)				+= Qt6OpcUa
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTOPCUA_QUICK)			+= Qt6DeclarativeOpcua
+QT6_QML-$(PTXCONF_QT6_MODULE_QTOPCUA_QUICK)			+= QtOpcUa
+
 ### QtPositioning ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTPOSITIONING)			+= Qt6Positioning
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTPOSITIONING_QUICK)		+= Qt6PositioningQuick
+QT6_QML-$(PTXCONF_QT6_MODULE_QTPOSITIONING_QUICK)		+= QtPositioning
 
 ### QtQuick3D ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3D)			+= Qt6Quick3D
@@ -1040,12 +1069,17 @@ QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3D)			+= Qt6Quick3DAssetUtils
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3D)			+= Qt6Quick3DEffects
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3D)			+= Qt6Quick3DGlslParser
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3D)			+= Qt6Quick3DHelpers
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3D)			+= Qt6Quick3DHelpersImpl
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3D)			+= Qt6Quick3DIblBaker
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3D)			+= Qt6Quick3DParticleEffects
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3D)			+= Qt6Quick3DParticles
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3D)			+= Qt6Quick3DRuntimeRender
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3D)			+= Qt6Quick3DUtils
 QT6_QML-$(PTXCONF_QT6_MODULE_QTQUICK3D)				+= QtQuick3D
+
+### QtQuick3DPhysics ###
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3DPHYSICS)			+= Qt6Quick3DPhysics
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICK3DPHYSICS)			+= Qt6Quick3DPhysicsHelpers
 
 ### QtQuickTimeline ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTQUICKTIMELINE)			+= Qt6QuickTimeline
@@ -1064,6 +1098,7 @@ QT6_LIBS-$(PTXCONF_QT6_MODULE_QTSCXML)				+= Qt6StateMachine
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTSCXML_QUICK)			+= Qt6StateMachineQml
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTSCXML_QUICK)			+= Qt6ScxmlQml
 QT6_QML-$(PTXCONF_QT6_MODULE_QTSCXML_QUICK)			+= QtScxml
+QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTSCXML)			+= scxmldatamodel/libqscxmlecmascriptdatamodel
 
 ### QtSensors ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTSENSORS)			+= Qt6Sensors
@@ -1083,6 +1118,7 @@ QT6_LIBS-$(PTXCONF_QT6_MODULE_QTSERIALPORT)			+= Qt6SerialPort
 
 ### QtSvg ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTSVG)				+= Qt6Svg
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTSVG_WIDGETS)			+= Qt6SvgWidgets
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTSVG_WIDGETS)			+= iconengines/libqsvgicon
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTSVG)				+= imageformats/libqsvg
 

@@ -16,10 +16,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/qtdeclarative/src/plugins/CMakeLists.txt b/qtdeclarative/src/plugins/CMakeLists.txt
-index 7c2c84723e4a..fd7aee88728d 100644
+index 548ef486f014..54058d431934 100644
 --- a/qtdeclarative/src/plugins/CMakeLists.txt
 +++ b/qtdeclarative/src/plugins/CMakeLists.txt
-@@ -7,4 +7,6 @@ if(TARGET Qt::Quick)
+@@ -10,4 +10,6 @@ if(TARGET Qt::Quick)
      add_subdirectory(scenegraph)
  endif()
  

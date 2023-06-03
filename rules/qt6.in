@@ -278,6 +278,8 @@ config QT6_MODULE_QTBASE_SQL_SQLITE
 
 config QT6_MODULE_QTBASE_SQL_MYSQL
 	bool
+	# fails to build with current MariaDB
+	depends on BROKEN
 	prompt "mySQL backend"
 
 endif
@@ -359,6 +361,10 @@ config QT6_MODULE_QTDECLARATIVE_QUICK_PARTICLES
 endif
 endif
 
+config QT6_MODULE_QTHTTPSERVER
+	bool
+	prompt"QtHttpServer"
+
 config QT6_MODULE_QTIMAGEFORMATS
 	bool
 	prompt "QtImageFormats"
@@ -403,9 +409,19 @@ config QT6_MODULE_QTOPCUA
 	bool
 	prompt "QtOpcua"
 
+config QT6_MODULE_QTOPCUA_QUICK
+	bool
+	depends on QT6_MODULE_QTOPCUA
+	default QT6_MODULE_QTDECLARATIVE
+
 config QT6_MODULE_QTPOSITIONING
 	bool
 	prompt "QtPositioning"
+
+config QT6_MODULE_QTPOSITIONING_QUICK
+	bool
+	depends on QT6_MODULE_QTPOSITIONING
+	default QT6_MODULE_QTDECLARATIVE
 
 config QT6_MODULE_QTQUICK3D
 	bool
@@ -413,6 +429,11 @@ config QT6_MODULE_QTQUICK3D
 	select QT6_MODULE_QTQUICKTIMELINE
 	select QT6_MODULE_QTSHADERTOOLS
 	prompt "QtQuick3D"
+
+config QT6_MODULE_QTQUICK3DPHYSICS
+	bool
+	select QT6_MODULE_QTQUICK3D
+	prompt "QtQuick3DPhysics"
 
 config QT6_MODULE_QTQUICKTIMELINE
 	bool
