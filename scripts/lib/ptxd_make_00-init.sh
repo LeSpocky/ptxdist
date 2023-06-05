@@ -118,6 +118,16 @@ ptxd_init_sysroot_toolchain() {
     export PTXDIST_SYSROOT_TOOLCHAIN
 }
 
+#
+# init Y2038 support
+#
+# out:
+# PTXDIST_Y2038
+#
+ptxd_init_y2028() {
+    PTXDIST_Y2038="$(ptxd_get_ptxconf PTXCONF_GLIBC_Y2038)"
+    export PTXDIST_Y2038
+}
 
 #
 # gather all sysroots
@@ -306,6 +316,7 @@ ptxd_init_save_wrapper_env() {
 	PTXDIST_HOST_LDFLAGS="${PTXDIST_HOST_LDFLAGS}"
 	PTXDIST_PLATFORMDIR="${PTXDIST_PLATFORMDIR}"
 	PTXDIST_SYSROOT_TOOLCHAIN="${PTXDIST_SYSROOT_TOOLCHAIN}"
+	PTXDIST_Y2038="${PTXDIST_Y2038}"
 	PTXDIST_ICECC_DIR="${PTXDIST_ICECC_DIR}"
 	PTXDIST_ICECC_REMOTE_CPP="${PTXDIST_ICECC_REMOTE_CPP}"
 	PTXDIST_ICECC_CLANG="${PTXDIST_ICECC_CLANG}"
@@ -322,6 +333,8 @@ ptxd_make_init() {
 	! ptxd_get_ptxconf PTXCONF_BUILD_TOOLCHAIN > /dev/null; then
 	ptxd_init_sysroot_toolchain || return
     fi &&
+
+    ptxd_init_y2028 &&
 
     ptxd_init_ptxdist_path_sysroot &&
     ptxd_init_ptxdist_path_sysroot_host &&

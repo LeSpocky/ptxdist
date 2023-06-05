@@ -315,6 +315,9 @@ cc_add_optimizations() {
 cpp_add_target_extra() {
 	cc_check_args ${pkg_cppflags}
 	add_opt_arg TARGET_COMPILER_RECORD_SWITCHES "-frecord-gcc-switches"
+	if [ "${PTXDIST_Y2038}" = y ]; then
+		add_arg -D_TIME_BITS=64 -D_FILE_OFFSET_BITS=64
+	fi
 	add_late_arg ${PTXDIST_CROSS_CPPFLAGS}
 	add_arg ${pkg_cppflags}
 	add_opt_arg TARGET_EXTRA_CPPFLAGS ${PTXCONF_TARGET_EXTRA_CPPFLAGS}

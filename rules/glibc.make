@@ -23,6 +23,18 @@ GLIBC_VERSION	:= $(call ptx/config-version, PTXCONF_GLIBC)
 -include $(PTXDIST_PLATFORMDIR)/selected_toolchain/../share/compliance/glibc.make
 
 # ----------------------------------------------------------------------------
+# Prepare
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/glibc.prepare:
+	@$(call targetinfo)
+	@echo Checking Y2038 support...
+	@echo 'static_assert(sizeof(time_t) == 8, "y2038");' | \
+		$(CROSS_CC) -c -x c -include sys/types.h -include assert.h - &>/dev/null || \
+		ptxd_bailout "PTXCONF_GLIBC_Y2038 is enabled but the toolchain has no Y2028 support!"
+	@$(call touch)
+
+# ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
 
