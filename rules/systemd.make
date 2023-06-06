@@ -63,6 +63,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dbump-proc-sys-fs-nr-open=true \
 	-Dbzip2=false \
 	-Dcertificate-root=/etc/ssl \
+	-Dclock-valid-range-usec-max=$(call ptx/ifdef, PTXDIST_Y2038,946728000000000,473364000000000) \
 	-Dcompat-mutable-uid-boundaries=false \
 	-Dcoredump=$(call ptx/truefalse,PTXCONF_SYSTEMD_COREDUMP) \
 	-Dcreate-log-dirs=false \
