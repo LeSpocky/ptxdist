@@ -14,17 +14,17 @@ PACKAGES-$(PTXCONF_DIFFUTILS) += diffutils
 #
 # Paths and names
 #
-DIFFUTILS_VERSION	:= 2.8.1
-DIFFUTILS_MD5		:= 71f9c5ae19b60608f6c7f162da86a428
+DIFFUTILS_VERSION	:= 3.10
+DIFFUTILS_MD5		:= 2745c50f6f4e395e7b7d52f902d075bf
 DIFFUTILS		:= diffutils-$(DIFFUTILS_VERSION)
-DIFFUTILS_SUFFIX	:= tar.gz
+DIFFUTILS_SUFFIX	:= tar.xz
 DIFFUTILS_URL		:= $(call ptx/mirror, GNU, diffutils/$(DIFFUTILS).$(DIFFUTILS_SUFFIX))
 DIFFUTILS_SOURCE	:= $(SRCDIR)/$(DIFFUTILS).$(DIFFUTILS_SUFFIX)
 DIFFUTILS_DIR		:= $(BUILDDIR)/$(DIFFUTILS)
-DIFFUTILS_LICENSE	:= GPL-2.0-or-later
+DIFFUTILS_LICENSE	:= GPL-3.0-or-later
 DIFFUTILS_LICENSE_FILES	:= \
-	file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f \
-	file://src/diff.c;startline=1;endline=21;md5=6300de6fcda19d4ac43bedc776f5b3b7
+	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
+	file://src/diff.c;startline=1;endline=19;md5=22826ba1b6d00ff5a114342e7b46d1aa
 
 
 # ----------------------------------------------------------------------------
@@ -35,7 +35,14 @@ DIFFUTILS_LICENSE_FILES	:= \
 # autoconf
 #
 DIFFUTILS_CONF_TOOL	:= autoconf
-DIFFUTILS_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
+DIFFUTILS_CONF_OPT	:= \
+	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--enable-threads=posix \
+	--disable-rpath \
+	--disable-nls \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
+	--without-libsigsegv
 
 # ----------------------------------------------------------------------------
 # Target-Install
