@@ -29,6 +29,15 @@ VULKAN_LOADER_LICENSE_FILES := file://LICENSE.txt;md5=7dbefed23242760aa3475ee428
 # ----------------------------------------------------------------------------
 
 VULKAN_LOADER_CONF_TOOL	:= cmake
+
+VULKAN_LOADER_USE_GAS := OFF
+ifdef PTXCONF_ARCH_ARM64
+VULKAN_LOADER_USE_GAS := ON
+endif
+ifdef PTXCONF_ARCH_X86_64
+VULKAN_LOADER_USE_GAS := ON
+endif
+
 VULKAN_LOADER_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
 	-DCMAKE_BUILD_TYPE=Release \
@@ -45,7 +54,7 @@ VULKAN_LOADER_CONF_OPT	:= \
 	-DLOADER_ENABLE_THREAD_SANITIZER=OFF \
 	-DSYSCONFDIR= \
 	-DUPDATE_DEPS=OFF \
-	-DUSE_GAS=OFF
+	-DUSE_GAS=$(VULKAN_LOADER_USE_GAS)
 
 # ----------------------------------------------------------------------------
 # Target-Install
