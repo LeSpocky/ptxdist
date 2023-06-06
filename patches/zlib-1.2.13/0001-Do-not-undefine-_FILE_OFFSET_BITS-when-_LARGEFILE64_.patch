@@ -1,0 +1,33 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Mon, 5 Jun 2023 16:19:12 +0200
+Subject: [PATCH] Do not undefine _FILE_OFFSET_BITS when _LARGEFILE64_SOURCE is
+ defined
+
+This ends up causing 64bit time_t to fail the build because it needs 64
+bit off_t.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ gzguts.h | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+diff --git a/gzguts.h b/gzguts.h
+index 57faf37165a3..3747f3c449d2 100644
+--- a/gzguts.h
++++ b/gzguts.h
+@@ -3,15 +3,6 @@
+  * For conditions of distribution and use, see copyright notice in zlib.h
+  */
+ 
+-#ifdef _LARGEFILE64_SOURCE
+-#  ifndef _LARGEFILE_SOURCE
+-#    define _LARGEFILE_SOURCE 1
+-#  endif
+-#  ifdef _FILE_OFFSET_BITS
+-#    undef _FILE_OFFSET_BITS
+-#  endif
+-#endif
+-
+ #ifdef HAVE_HIDDEN
+ #  define ZLIB_INTERNAL __attribute__((visibility ("hidden")))
+ #else
