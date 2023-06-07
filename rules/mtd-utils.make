@@ -205,6 +205,14 @@ endif
 ifdef PTXCONF_MTD_UTILS_UBIHEALTHD
 	@$(call install_copy, mtd-utils, 0, 0, 0755, -, \
 		/usr/sbin/ubihealthd)
+ifdef PTXCONF_MTD_UTILS_UBIHEALTHD_STARTSCRIPT
+	@$(call install_alternative, mtd-utils, 0, 0, 0755, \
+		/etc/init.d/ubihealthd)
+ifneq ($(call remove_quotes,$(PTXCONF_MTD_UTILS_UBIHEALTHD_BBINIT_LINK)),)
+	@$(call install_link, mtd-utils, ../init.d/ubihealthd, \
+		/etc/rc.d/$(PTXCONF_MTD_UTILS_UBIHEALTHD_BBINIT_LINK))
+endif
+endif
 ifdef PTXCONF_MTD_UTILS_UBIHEALTHD_SYSTEMD_UNIT
 	@$(call install_alternative, mtd-utils, 0, 0, 0644, \
 		/usr/lib/systemd/system/ubihealthd@.service)

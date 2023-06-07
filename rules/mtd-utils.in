@@ -303,6 +303,11 @@ menuconfig MTD_UTILS_UBIHEALTHD
 
 if MTD_UTILS_UBIHEALTHD
 
+config MTD_UTILS_UBIHEALTHD_STARTSCRIPT
+	bool
+	prompt "install /etc/init.d/ubihealthd"
+	depends on INITMETHOD_BBINIT
+
 config MTD_UTILS_UBIHEALTHD_SYSTEMD_UNIT
 	bool
 	prompt "install systemd unit files"
