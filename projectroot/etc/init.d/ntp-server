@@ -3,7 +3,7 @@
 # This is a ntp init.d script which ist called by init(1) with [start|stop] as argument
 #
 
-PATH=/sbin:/bin:/usr/bin
+PATH=/usr/sbin:/usr/bin
 BINARY=/usr/sbin/ntpd
 PIDFILE="/var/run/ntpd.pid"
 CONFIG="/etc/ntp-server.conf"

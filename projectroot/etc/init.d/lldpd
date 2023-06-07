@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH=/sbin:/usr/sbin:/bin:/usr/bin
+PATH=/usr/sbin:/usr/bin
 DESC="LLDP daemon"
 NAME=lldpd
 DAEMON=/usr/sbin/$NAME

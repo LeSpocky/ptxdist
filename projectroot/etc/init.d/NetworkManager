@@ -19,7 +19,7 @@ exec_prefix=/usr
 sbindir=${exec_prefix}/sbin
 localstatedir=/var
 
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
 DESC="network connection manager"
 NAME="NetworkManager"
 

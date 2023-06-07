@@ -2,7 +2,7 @@
 # /etc/init.d/sysctl: Set kernel variables from /etc/sysctl.conf
 #
 
-PATH=/sbin:$PATH
+PATH=/usr/sbin:$PATH
 which sysctl > /dev/null || exit 0
 
 case "$1" in

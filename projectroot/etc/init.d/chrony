@@ -7,7 +7,7 @@
 # Last change:  Bjørn Bürger <b.buerger@pengutronix.de>
 # Date:		Tue Mar  6 16:00:30 UTC 2007
 
-PATH=/sbin:/bin:/usr/bin:/usr/sbin
+PATH=/usr/sbin:/usr/bin
 BINARY="/usr/sbin/chronyd"
 CONFIG="/etc/chrony/chrony.conf"
 PREFIX="chrony: "

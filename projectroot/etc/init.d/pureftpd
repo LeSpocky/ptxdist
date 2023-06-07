@@ -3,7 +3,7 @@
 # /etc/init.d/pure-ftpd
 #
 
-PATH=/bin:/usr/bin:/sbin:/usr/sbin
+PATH=/usr/bin:/usr/sbin
 
 # defaults
 DAEMON="pure-ftpd"

@@ -3,7 +3,7 @@
 # This is an inetd init.d script which ist called by init(1) with [start|stop] as argument
 #
 
-PATH=/sbin:/bin:/usr/bin
+PATH=/usr/sbin:/usr/bin
 BINARY=/usr/sbin/inetd
 
 # --- nothing to change after this line ---

@@ -3,7 +3,7 @@
 # This is a zeroconf init.d script which ist called by init(1) with [start|stop] as argument
 # Mi 22. Jul 21:46:28 CEST 2009
 
-PATH=/sbin:/bin:/usr/bin
+PATH=/usr/sbin:/usr/bin
 BINARY=/usr/sbin/avahi-autoipd
 OPTIONS="--force-bind -D"
 INTERFACES="eth0"

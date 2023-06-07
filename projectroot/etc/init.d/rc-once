@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
 
 . /usr/lib/init/initmethod-bbinit-functions.sh
 . /usr/lib/init/rc-once.sh

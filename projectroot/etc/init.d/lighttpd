@@ -3,7 +3,7 @@
 #
 # lighttpd
 #
-PATH=/usr/bin:/usr/sbin:/bin:/sbin
+PATH=/usr/bin:/usr/sbin
 
 PREFIX="lighttpd: "
 LIGHTTPD="/usr/sbin/lighttpd"

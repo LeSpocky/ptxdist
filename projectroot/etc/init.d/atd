@@ -3,7 +3,7 @@
 #
 # atd
 #
-PATH=/usr/bin:/usr/sbin:/bin:/sbin
+PATH=/usr/bin:/usr/sbin
 
 PREFIX="atd: "
 ATD="/usr/sbin/atd"

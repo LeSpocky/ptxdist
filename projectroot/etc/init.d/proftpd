@@ -4,7 +4,7 @@
 # Start the proftpd FTP daemon.
 #
 
-PATH=/bin:/usr/bin:/sbin:/usr/sbin
+PATH=/usr/bin:/usr/sbin
 DAEMON=/usr/sbin/proftpd
 NAME=proftpd
 

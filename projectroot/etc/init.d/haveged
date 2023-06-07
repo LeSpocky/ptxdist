@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH='/sbin:/usr/sbin:/bin:/usr/bin'
+PATH='/usr/sbin:/usr/bin'
 DESC='haveged entropy daemon'
 NAME='haveged'
 DAEMON="/usr/sbin/$NAME"

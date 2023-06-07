@@ -7,7 +7,7 @@
 
 CONF=/etc/nftables.conf
 
-PATH=/sbin:/usr/sbin:/bin:/usr/bin
+PATH=/usr/sbin:/usr/bin
 DESC="firewall service"
 NAME=nftables
 BIN=/usr/sbin/nft

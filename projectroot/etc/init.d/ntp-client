@@ -3,7 +3,7 @@
 # This is a ntp-client init.d script which ist called by init(1) with
 # [start|stop] as argument
 
-PATH=/sbin:/bin:/usr/bin
+PATH=/usr/sbin:/usr/bin
 BINARY=/usr/sbin/ntpdc
 PIDFILE="/var/run/ntpdc.pid"
 CONFIG="/etc/ntp-client.conf"

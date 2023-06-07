@@ -4,7 +4,7 @@
 # Mi 22. Jul 21:46:28 CEST 2009
 
 #set -e
-PATH=/sbin:/bin:/usr/bin
+PATH=/usr/sbin:/usr/bin
 BINARY=/usr/sbin/avahi-daemon
 OPTIONS="-D"
 
