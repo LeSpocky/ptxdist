@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_NTP) += ntp
 #
 # Paths and names
 #
-NTP_VERSION	:= 4.2.8p15
-NTP_MD5		:= e1e6b23d2fc75cced41801dbcd6c2561
+NTP_VERSION	:= 4.2.8p17
+NTP_MD5		:= a15558df580bd1b955a105a8b91c078f
 NTP		:= ntp-$(NTP_VERSION)
 NTP_SUFFIX	:= tar.gz
 NTP_URL		:= http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/$(NTP).$(NTP_SUFFIX)
 NTP_SOURCE	:= $(SRCDIR)/$(NTP).$(NTP_SUFFIX)
 NTP_DIR		:= $(BUILDDIR)/$(NTP)
 NTP_LICENSE	:= ntp
-NTP_LICENSE_FILES	:= file://COPYRIGHT;md5=4190b39435611e92a4da74e682623f19
+NTP_LICENSE_FILES	:= file://COPYRIGHT;md5=3a8ffebbcad335abf2c39fec38671eec
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -136,6 +136,8 @@ NTP_CONF_OPT	:= \
 	--disable-kernel-fll-bug \
 	--enable-bug1243-fix \
 	--enable-bug3020-fix \
+	--enable-bug3527-fix \
+	--enable-bug3767-fix \
 	--$(call ptx/endis, PTXCONF_NTP_IRIG_SAWTOOTH)-irig-sawtooth \
 	--$(call ptx/endis, PTXCONF_NTP_NIST)-nist \
 	--disable-ntp-signd \
@@ -145,7 +147,6 @@ NTP_CONF_OPT	:= \
 	--disable-saveconfig \
 	--disable-leap-smear \
 	--disable-dynamic-interleave \
-	--without-gtest \
 	--disable-problem-tests
 
 # ----------------------------------------------------------------------------
