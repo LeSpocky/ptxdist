@@ -300,6 +300,7 @@ menuconfig MTD_UTILS_UBIHEALTHD
 	help
 	  Daemon that randomly scans each PEB of a UBI device to ensure that
 	  filesystems with little reading do enough wear leveling.
+	  Requires kernel >= 5.1 and glibc >= 2.25.
 
 if MTD_UTILS_UBIHEALTHD
 
