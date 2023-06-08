@@ -37,6 +37,7 @@ ptx/env = \
 										\
 	ptx_path_cross="$(call ptx/escape,$(HOST_CROSS_PATH))"			\
 	ptx_conf_env_cross="$(call ptx/escape,$(HOST_CROSS_ENV))"		\
+	ptx_conf_opt_cmake_cross="$(call ptx/escape,$(HOST_CROSS_CMAKE_OPT))"	\
 	ptx_conf_opt_autoconf_cross="$(call ptx/escape,$(HOST_CROSS_AUTOCONF))"	\
 	ptx_conf_opt_autoconf_cross_sysroot="$(call ptx/escape,$(HOST_CROSS_AUTOCONF_SYSROOT))"\
 										\

@@ -379,6 +379,12 @@ HOST_CROSS_AUTOCONF_SYSROOT := \
 	--libdir=$(PTXDIST_SYSROOT_CROSS)/usr/lib \
 	$(HOST_CROSS_AUTOCONF_ARCH)
 
+HOST_CROSS_CMAKE_OPT := \
+	-DCMAKE_INSTALL_PREFIX=/usr \
+	-DCMAKE_INSTALL_LIBDIR=lib \
+	-DCMAKE_BUILD_TYPE:STRING=RelWithDebInfo \
+	-DCMAKE_TOOLCHAIN_FILE='${PTXDIST_CMAKE_TOOLCHAIN_CROSS}'
+
 # ----------------------------------------------------------------------------
 # Convenience macros
 # ----------------------------------------------------------------------------

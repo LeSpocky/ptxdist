@@ -16,4 +16,9 @@ $(PTXDIST_CMAKE_TOOLCHAIN_HOST):
 		PTXDIST_SYSROOT_HOST="${PTXDIST_SYSROOT_HOST}" \
 		ptxd_make_cmake_toolchain_host "${@}"
 
+$(PTXDIST_CMAKE_TOOLCHAIN_CROSS):
+	@$(HOST_ENV) \
+		PTXDIST_SYSROOT_CROSS="${PTXDIST_SYSROOT_CROSS}" \
+		ptxd_make_cmake_toolchain_cross "${@}"
+
 # vim: syntax=make

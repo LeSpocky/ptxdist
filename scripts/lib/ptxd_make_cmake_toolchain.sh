@@ -12,6 +12,9 @@ export PTXDIST_CMAKE_TOOLCHAIN_TARGET
 PTXDIST_CMAKE_TOOLCHAIN_HOST="${PTXDIST_GEN_CONFIG_DIR}/toolchain-host.cmake"
 export PTXDIST_CMAKE_TOOLCHAIN_HOST
 
+PTXDIST_CMAKE_TOOLCHAIN_CROSS="${PTXDIST_GEN_CONFIG_DIR}/toolchain-cross.cmake"
+export PTXDIST_CMAKE_TOOLCHAIN_CROSS
+
 #
 # generate cmake toolchain file from template
 #
@@ -54,3 +57,20 @@ ptxd_make_cmake_toolchain_host() {
 	ptxd_replace_magic "${PTXDIST_TOPDIR}/config/cmake/toolchain-host.cmake.in" > "${1}"
 }
 export -f ptxd_make_cmake_toolchain_host
+
+
+#
+# generate cmake toolchain file from template
+#
+ptxd_make_cmake_toolchain_cross() {
+    CC="$(which "${CC}")" \
+	CXX="$(which "${CXX}")" \
+	\
+	PREFIX_PATH="${PTXDIST_SYSROOT_CROSS}/usr" \
+	\
+	INCLUDE_DIRECTORIES="${PTXDIST_SYSROOT_CROSS}/usr/include" \
+	LINK_DIRECTORIES="${PTXDIST_SYSROOT_CROSS}/usr/lib" \
+	\
+	ptxd_replace_magic "${PTXDIST_TOPDIR}/config/cmake/toolchain-host.cmake.in" > "${1}"
+}
+export -f ptxd_make_cmake_toolchain_cross
