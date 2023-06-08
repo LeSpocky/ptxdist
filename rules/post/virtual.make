@@ -29,8 +29,8 @@ ifdef PTXCONF_HOST_DUMMY_INSTALL_INFO
 $(STATEDIR)/virtual-host-tools.install: $(STATEDIR)/host-dummy-install-info.install.post
 endif
 
-ifdef PTXCONF_HOST_PKG_CONFIG
-$(STATEDIR)/virtual-host-tools.install: $(STATEDIR)/host-pkg-config.install.post
+ifdef PTXCONF_HOST_PKGCONF
+$(STATEDIR)/virtual-host-tools.install: $(STATEDIR)/host-pkgconf.install.post
 endif
 
 ifdef PTXCONF_HOST_CHRPATH

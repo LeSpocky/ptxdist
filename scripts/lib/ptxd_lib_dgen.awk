@@ -597,7 +597,7 @@ function write_deps_pkg_active(this_PKG, this_pkg, prefix) {
 function write_deps_pkg_active_virtual(this_PKG, this_pkg, prefix) {
 	if (this_pkg ~ /^host-dummy-install-info$/)
 		return;
-	if (this_pkg ~ /^host-pkg-config$/)
+	if (this_pkg ~ /^host-pkgconf$/)
 		return;
 	if (this_pkg ~ /^host-chrpath$/)
 		return;

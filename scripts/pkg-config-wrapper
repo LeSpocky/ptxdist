@@ -83,6 +83,27 @@ check_pipe_status() {
 	done
 }
 
+print_pkg() {
+    args=()
+    while [ $# -gt 0 ]; do
+	case "${1}" in
+	    --variable|--define-variable|--atleast-pkgconfig-version|--*-version)
+		shift
+		;;
+	    --*)
+		;;
+	    *)
+		args[${#args[@]}]="${1}"
+		;;
+	esac
+	shift
+    done
+    if [ ${#args[*]} -ne 0 ]; then
+	pkgconf --print-provides "${args[@]}" 2> "${error}" | awk '{print $1}' &&
+	check_pipe_status
+    fi
+}
+
 #
 # meson suppresses any pkg-config output, so dump it into the logfile instead
 #
@@ -94,7 +115,7 @@ fi
 
 if [ -n "${PKGCONFIG_WHITELIST_SRC}" -a "${1}" != "--version" -a "${1}" != "--help" ]; then
     error="$(mktemp "${PTXDIST_TEMPDIR}/pkg-config.XXXXXX")"
-    pkgs="$(pkg-config.real --print-provides "${@}" 2> "${error}" | awk '{print $1}' && check_pipe_status)"
+    pkgs="$(print_pkg "${@}")"
     if [ $? -ne 0 ]; then
 	if [ "${ERROR_FD}" != "2" ]; then
 	    echo "$(basename ${0}) $*" >&${PTXDIST_FD_LOGFILE}
@@ -111,5 +132,5 @@ if [ -n "${PKGCONFIG_WHITELIST_SRC}" -a "${1}" != "--version" -a "${1}" != "--he
 	fi
     done
 fi
-pkg-config.real "${@}" | sed "${args[@]}"
+pkgconf "${@}" | sed "${args[@]}"
 check_pipe_status

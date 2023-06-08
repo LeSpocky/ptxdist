@@ -1,6 +1,6 @@
 ## SECTION=hosttools_noprompt
 
-config HOST_PKG_CONFIG
+config HOST_PKGCONF
 	tristate
 	default y if ALLYES
 
