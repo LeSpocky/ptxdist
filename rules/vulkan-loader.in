@@ -4,6 +4,7 @@ menuconfig VULKAN_LOADER
 	tristate
 	prompt "vulkan-loader                 "
 	select HOST_CMAKE
+	select HOST_NINJA
 	select HOST_QEMU
 	select VULKAN_HEADERS
 	select LIBXCB		if VULKAN_LOADER_XCB
