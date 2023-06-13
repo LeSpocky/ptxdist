@@ -143,6 +143,10 @@ cc_check_args() {
 				# The plugins are not available on the icecc node
 				PTXDIST_ICECC=${PTXDIST_ICERUN}
 				;;
+			-save-temps*)
+				# only icecc >= 1.4 filters those correctly
+				PTXDIST_ICECC=${PTXDIST_ICERUN}
+				;;
 			-print-file-name=plugin)
 				if [ "${PTXDIST_NO_GCC_PLUGINS}" = "1" ]; then
 					echo "wrapper: gcc plugins disabled" >&2
