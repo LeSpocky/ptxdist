@@ -2,6 +2,7 @@
 
 config GLIBC
 	tristate
+	select GLOBAL_LARGE_FILE if GLIBC_Y2038
 	select BASE if RUNTIME
 
 if GLIBC
@@ -10,7 +11,6 @@ menu "glibc                         "
 
 config GLIBC_Y2038
 	bool
-	select GLOBAL_LARGE_FILE
 	prompt "enable Y2038 support"
 	help
 	  Build the BSP with _TIME_BITS=64 to support dates beyound
