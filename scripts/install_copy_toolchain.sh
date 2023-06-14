@@ -57,6 +57,7 @@ ptxd_split_lib_prefix_sysroot_eval() {
     if [ "${tmp}" == "${prefix}" ]; then
 	prefix="/usr${prefix}"
     fi
+    prefix="${prefix/lib64/lib}"
 
     echo "${pre}sysroot=\"${sysroot}\" ${pre}prefix=\"${prefix}\""
 }
