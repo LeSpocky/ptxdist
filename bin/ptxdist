@@ -2211,10 +2211,11 @@ setup_env() {
 	whitelist="${*}"
 	whitelist="${whitelist:+|}${whitelist// /|}"
 
+	# Any change here should be done in ptxd_make_nested_ptxdist() as well
 	unset $({
 		export -p  | sed -n 's/^declare -x \([^=]*\).*$/\1/p'
 		export -fp | sed -n 's/^declare -fx \([^=]*\).*$/\1/p'
-		} | grep -E -v "^(PTXDIST_PTXRC|PTX_AUTOBUILD_DESTDIR|CCACHE_.*|PWD|HOME|USER|PATH|TERM|COLUMNS|LINES|DISPLAY|TMPDIR|KCONFIG_ALLCONFIG|KCONFIG_SEED|http_proxy|https_proxy|ftp_proxy|no_proxy${whitelist})$")
+		} | grep -E -v "^(PTXDIST_PTXRC|PTX_AUTOBUILD_DESTDIR|PTXDIST_PLATFORMDIR|CCACHE_.*|PWD|HOME|USER|PATH|TERM|COLUMNS|LINES|DISPLAY|TMPDIR|KCONFIG_ALLCONFIG|KCONFIG_SEED|http_proxy|https_proxy|ftp_proxy|no_proxy${whitelist})$")
 
 	######## the environment is clean now ########
 
@@ -2496,7 +2497,7 @@ setup_platform_continue_with_broken_config()
 #      "*DIR"	correct directory definitions
 #
 setup_platform() {
-	local platform platform_version project project_version
+	local platform platform_version project project_version old_platformdir
 
 	# ptxd_get_ptxconf's return value is
 	platform="$(ptxd_get_ptxconf PTXCONF_PLATFORM)"				|| [ ${?} -eq 1 ] &&
@@ -2506,12 +2507,17 @@ setup_platform() {
 	# remove space and "(" ")"
 	project_version="${project_version//[ \(\)]/_}"
 
+	old_platformdir="${PTXDIST_PLATFORMDIR}"
 	if [ -n "${platform}" ]; then
 		PTXDIST_PLATFORMDIR="${PTXDIST_WORKSPACE}/platform-${platform}${platform_version}"
 		PTXDIST_PLATFORMSUFFIX=".${platform}"
 	else
 		PTXDIST_PLATFORMDIR="${PTXDIST_WORKSPACE}/platform"
 		PTXDIST_PLATFORMSUFFIX=""
+	fi
+
+	if [ "${old_platformdir}" = "${PTXDIST_PLATFORMDIR}" ]; then
+		ptxd_bailout "Nested PTXdist execution for the same platform is not allowed!"
 	fi
 
 	# reread vars with correct PTXDIST_PLATFORMDIR
