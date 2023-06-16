@@ -1138,6 +1138,9 @@ parse_first()
 		-j[1-9]*)
 			PTXDIST_PARALLELMFLAGS="-j${arg#*j}"
 			;;
+		--jobserver-auth=*)
+			PTXDIST_JOBSERVER_AUTH="${arg#--jobserver-auth=}"
+			;;
 		-l*)
 			PTXDIST_LOADMFLAGS="-l${arg#*l}"
 			;;
@@ -2374,6 +2377,7 @@ setup_parallel() {
 	if [ -z "${PTXDIST_PARALLELMFLAGS}" ]; then
 		pmf_intern="${pmf_cpus}"
 		pmf_extern="-j1"
+		unset PTXDIST_JOBSERVER_AUTH
 	elif [ "${PTXDIST_PARALLELMFLAGS}" == "-j1" ]; then
 		unset PTXDIST_PARALLELMFLAGS
 		pmf_intern="-j1"
@@ -2694,6 +2698,7 @@ setup_export() {
 		\
 		PTXDIST_PARALLELMFLAGS \
 		PTXDIST_PARALLELMFLAGS_INTERN \
+		PTXDIST_JOBSERVER_AUTH \
 		PTXDIST_LOADMFLAGS \
 		\
 		PTXDIST_CCACHE \

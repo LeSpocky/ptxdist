@@ -45,12 +45,33 @@ ptxd_make_serialize_setup() {
 }
 export -f ptxd_make_serialize_setup
 
+ptxd_make_serialize_import() {
+    local name="${1}"
+    local -a fds
+    local writeptr="ptxd_make_serialize_${name}_writefd"
+    local readptr="ptxd_make_serialize_${name}_readfd"
+
+    IFS="," read -r -a fds <<< "${PTXDIST_JOBSERVER_AUTH}"
+
+    if [ "${#fds[*]}" -ne 2 ]; then
+	ptxd_bailout "invalid argument for --jobserver-auth="
+    fi
+    eval "${readptr}"="${fds[0]}" &&
+    eval "${writeptr}"="${fds[1]}" &&
+    export "${readptr}" "${writeptr}"
+}
+export -f ptxd_make_serialize_import
+
 ptxd_make_serialize_init() {
     local num="${PTXDIST_PARALLELMFLAGS#-j}"
     local sync mflags jobserver
 
     if [ -n "${num}" ]; then
-	ptxd_make_serialize_setup global "${num}" || return
+	if [ -n "${PTXDIST_JOBSERVER_AUTH}" ]; then
+	    ptxd_make_serialize_import global || return
+	else
+	    ptxd_make_serialize_setup global "${num}" || return
+	fi
 	sync="${PTXDIST_OUTPUT_SYNC:+${PTXDIST_OUTPUT_SYNC}recurse}"
 	jobserver="--jobserver-auth"
 	if ! "${PTXCONF_SETUP_HOST_MAKE}" ${jobserver}=42,43 --help >& /dev/null; then
