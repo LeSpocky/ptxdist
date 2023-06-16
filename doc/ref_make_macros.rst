@@ -286,7 +286,7 @@ Usage:
 
 .. code-block:: make
 
- $(call install_tree, <package>, <UID>, <GID>, <source dir>, <destination dir>, <strip>])
+ $(call install_tree, <package>, <UID>, <GID>, <source dir>, <destination dir>[, <strip>])
 
 Installs the whole directory tree with all files from the given directory into:
 
