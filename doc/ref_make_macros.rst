@@ -508,7 +508,7 @@ Usage:
 
 .. code-block:: make
 
- $(call install_archive, <package>, <UID>, <GID>, <archive> , <base path>)
+ $(call install_archive, <package>, <UID>, <GID>, <archive> , <base path>[, <strip>])
 
 Installs archives content into:
 
@@ -531,6 +531,8 @@ All parameters have fixed meanings:
 **<base path>**
   Base path component in the root filesystem the archive should be extracted
   to. Can be just ``/`` for root.
+**<strip>**
+  same as for :ref:`install_copy`.
 
 install_glob
 ~~~~~~~~~~~~
