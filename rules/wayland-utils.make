@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WAYLAND_UTILS) += wayland-utils
 #
 # Paths and names
 #
-WAYLAND_UTILS_VERSION		:= 1.1.0
-WAYLAND_UTILS_MD5		:= 1a398cbb75c3ac1ac231b2a8f84bd6d6
+WAYLAND_UTILS_VERSION		:= 1.2.0
+WAYLAND_UTILS_MD5		:= 736dbcefc534407d4e774087726844a1
 WAYLAND_UTILS			:= wayland-utils-$(WAYLAND_UTILS_VERSION)
 WAYLAND_UTILS_SUFFIX		:= tar.xz
 WAYLAND_UTILS_URL		:= https://gitlab.freedesktop.org/wayland/wayland-utils/-/releases/$(WAYLAND_UTILS_VERSION)/downloads/$(WAYLAND_UTILS).$(WAYLAND_UTILS_SUFFIX)
@@ -33,7 +33,8 @@ WAYLAND_UTILS_LICENSE_FILES	:= file://COPYING;md5=548a66038a77415e1df51118625e83
 #
 WAYLAND_UTILS_CONF_TOOL	:= meson
 WAYLAND_UTILS_CONF_OPT	:=  \
-	$(CROSS_MESON_USR)
+	$(CROSS_MESON_USR) \
+	-Ddrm=enabled
 
 # ----------------------------------------------------------------------------
 # Target-Install

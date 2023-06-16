@@ -3,6 +3,7 @@
 config WAYLAND_UTILS
 	tristate
 	select HOST_MESON
+	select LIBDRM
 	select WAYLAND
 	select WAYLAND_PROTOCOLS
 	prompt "wayland-utils"
