@@ -1,4 +1,6 @@
-## SECTION=editors
+## SECTION=staging
+## old section:
+### SECTION=editors
 config JED
 	tristate
 	select SLANG
@@ -18,4 +20,8 @@ config JED
 	  search replace across multiple files; multiple windows; multiple
 	  buffers; shell modes; directory editor (dired); mail; rmail;
 	  ispell; and much more.
+
+	  STAGING: remove in PTXdist 2023.07.0
+	  URL no longer works and the package has not seen any real update in
+	  more than a decade.
 
