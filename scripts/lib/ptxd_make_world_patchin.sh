@@ -62,6 +62,14 @@ ptxd_make_world_patchin_apply_git_init()
     local git_dir
     git_dir="$(git rev-parse --git-dir 2> /dev/null)" || true
 
+    local git_ptx_patches
+    ptxd_in_path PTXDIST_PATH_SCRIPTS git-ptx-patches
+    git_ptx_patches="${ptxd_reply}"
+
+    local git_ptx_refresh_tags_editor
+    ptxd_in_path PTXDIST_PATH_SCRIPTS git-ptx-refresh-tags-editor
+    git_ptx_refresh_tags_editor="${ptxd_reply}"
+
     # is already git repo?
     if [ "${git_dir}" != ".git" ]; then
 	echo "patchin: git: initializing repository"
@@ -70,8 +78,8 @@ ptxd_make_world_patchin_apply_git_init()
 	__git commit -q -m "initial commit" --author="ptxdist-${PTXDIST_VERSION_FULL} <ptxdist@pengutronix.de>" &&
 	__git tag "${pkg_pkg//\~/-}" &&
 	__git tag base &&
-	__git config alias.ptx-patches "!${PTXDIST_TOPDIR}/scripts/git-ptx-patches \"\${@}\"" &&
-	__git config sequence.editor "${PTXDIST_TOPDIR}/scripts/git-ptx-refresh-tags-editor" &&
+	__git config alias.ptx-patches "!${git_ptx_patches} \"\${@}\"" &&
+	__git config core.editor "${git_ptx_refresh_tags_editor}" &&
 	__git config diff.renames false &&
 	__git config core.abbrev 12 &&
 	__git config core.autocrlf false &&
