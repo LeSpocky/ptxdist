@@ -1,0 +1,34 @@
+## SECTION=shell_and_console
+
+menuconfig NVTOP
+	bool
+	prompt "nvtop"
+	select HOST_CMAKE
+	select NCURSES
+	select LIBDRM		if NVTOP_AMDGPU || NVTOP_MSM
+	select LIBDRM_AMDGPU	if NVTOP_AMDGPU
+	select SYSTEMD		if NVTOP_AMDGPU || NVTOP_INTEL
+	help
+	  Interactive GPU process monitor
+
+if NVTOP
+
+config NVTOP_NVIDIA
+	bool
+	# needs libnvml
+	depends on BROKEN
+	prompt "build support for NVIDIA GPUs"
+
+config NVTOP_AMDGPU
+	bool
+	prompt "build support for AMD GPUs using the amdgpu driver"
+
+config NVTOP_INTEL
+	bool
+	prompt "build support for Intel GPUs using the i915 driver"
+
+config NVTOP_MSM
+	bool
+	prompt "build support for Adreno GPUs using the msm driver"
+
+endif
