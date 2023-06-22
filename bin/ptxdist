@@ -1360,7 +1360,9 @@ do_config()
 		ptxd_kconfig "${config}" "${part}" "${file_dotconfig}"
 		;;
 	*)
-		check_if_selected "${part}" &&
+		if [ "${config}" != "oldconfig" -o "${part}" != "all" ]; then
+			check_if_selected "${part}"
+		fi &&
 
 		ptxd_dialog_infobox "${PTXDIST_LOG_PROMPT}Checking dependencies. This may take some seconds." &&
 

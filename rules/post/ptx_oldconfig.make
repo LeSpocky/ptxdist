@@ -11,4 +11,9 @@ define ptx/oldconfig
 		$(filter-out --output-sync%,$($(strip $(1))_MAKEVARS) $($(strip $(1))_MAKE_OPT)) oldconfig)
 endef
 
+all_oldconfig: $(addsuffix _oldconfig,$(PTX_PACKAGES_SELECTED))
+
+%_oldconfig:
+	@:
+
 # vim: syntax=make
