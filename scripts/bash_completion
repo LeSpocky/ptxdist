@@ -123,7 +123,7 @@ _ptxdist_completion()
 	clean)
 		COMPREPLY=( $( compgen -W root -- $cur ) )
 		;&
-	get|extract|prepare|compile|install|targetinstall|tags|urlcheck|licensecheck|package-info)
+	get|extract|prepare|compile|install|targetinstall|tags|urlcheck|licensecheck|package-info|cargosync)
 		COMPREPLY+=( $( compgen -W "$(__ptxdist_completion_packages)" -- $cur ) )
 		;;
 	drop)
