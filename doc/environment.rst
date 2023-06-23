@@ -14,6 +14,21 @@ http://www.ptxdist.org. This website provides
 all required packages and documentation (at least for software
 components which are available to the public).
 
+.. only:: ptxdistonly
+
+  .. note::
+    The PTXdist documenation can be built for a specific BSP. That makes it
+    possible to add BSP specific chapters to the documentation, the BSP is
+    referenced by its name and the PTXdist and toolchain versions are
+    correctly specified for this BSP.
+
+    This instance of the documentation is built without a BSP. So
+    *|ptxdistBSPName|* is used as a placeholder for the BSP name. There is no
+    *|ptxdistBSPName|* BSP!
+
+    To start experimenting with PTXdist, `DistroKit <https://git.pengutronix.de/cgit/DistroKit/>`_
+    can be used.
+
 In order to build |ptxdistBSPName|, the following source archives have to be available
 on the development host:
 
