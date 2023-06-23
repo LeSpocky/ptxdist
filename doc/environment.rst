@@ -33,7 +33,7 @@ In order to build |ptxdistBSPName|, the following source archives have to be ava
 on the development host:
 
  * `ptxdist-|ptxdistVendorVersion|.tar.bz2 <https://public.pengutronix.de/software/ptxdist/ptxdist-|ptxdistVendorVersion|.tar.bz2>`_
- * |ptxdistBSPName|.tar.bz2 (or a similar source)
+ * |ptxdistBSPSource|
 
 Additionally, these source archives are needed to build the toolchain:
 

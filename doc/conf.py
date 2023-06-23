@@ -17,6 +17,7 @@ import sys
 import os
 import re
 import fileinput
+import subprocess
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -131,6 +132,15 @@ ptxdistPlatformCollection = "\ "
 ptxdistVendorVersion = os.getenv("PTXDIST_VERSION_YEAR") + "." + os.getenv("PTXDIST_VERSION_MONTH") + "." + os.getenv("PTXDIST_VERSION_BUGFIX")
 package = "<package>"
 
+if "ptxdistonly" in tags.tags.keys():
+	ptxdistBSPSource = "The source of the BSP of your choice."
+else:
+	try:
+		url = subprocess.check_output('git -C "${PTXDIST_WORKSPACE}" remote get-url origin', shell=True).decode().strip()
+		ptxdistBSPSource = f"From git: `{url} <{url}>`_"
+	except subprocess.CalledProcessError as e:
+		ptxdistBSPSource = ptxdistBSPName + ".tar.bz2 (or a similar source)" + str(e)
+
 sys.path.append(".")
 try:
 	from replace import *
@@ -148,6 +158,7 @@ replace_dict = {
 	b"|ptxdistHwVendor|": ptxdistHwVendor,
 	b"|ptxdistHwProduct|": ptxdistHwProduct,
 	b"|ptxdistBSPName|": ptxdistBSPName,
+	b"|ptxdistBSPSource|": ptxdistBSPSource,
 	b"|ptxdistBSPRevision|": ptxdistBSPRevision,
 	b"|ptxdistCompilerName|": ptxdistCompilerName,
 	b"|ptxdistCompilerVersion|": ptxdistCompilerVersion,
