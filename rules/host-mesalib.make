@@ -34,6 +34,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Degl-lib-suffix= \
 	-Degl-native-platform=auto \
 	-Dexecmem=true \
+	-Dexpat=disabled \
 	-Dfreedreno-kmds= \
 	-Dgallium-d3d10umd=false \
 	-Dgallium-d3d12-video=disabled \

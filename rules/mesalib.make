@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 23.1.2
-MESALIB_MD5	:= 0e9859110df4425e83186e0645452daa
+MESALIB_VERSION	:= 23.1.3
+MESALIB_MD5	:= 0dce0342dbf08dc5afbaf51e729da1a1
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -156,6 +156,7 @@ MESALIB_CONF_OPT	:= \
 	-Degl-native-platform=auto \
 	-Denable-glcpp-tests=false \
 	-Dexecmem=true \
+	-Dexpat=enabled \
 	-Dfreedreno-kmds=msm \
 	-Dgallium-d3d10umd=false \
 	-Dgallium-d3d12-video=disabled \
