@@ -1683,7 +1683,19 @@ parse_second()
 
 ######## *config, *setup, toolchain
 
-		menuconfig|nconfig|oldconfig|allmodconfig|allyesconfig|allnoconfig|alldefconfig|randconfig)
+		oldconfig)
+			if [ ${#} -eq 1 -a "${1}" = "all" ]; then
+				set -- ptx platform all
+			fi
+			if [ ${#} -eq 0 ]; then
+				set -- "ptx"
+			fi
+			for part in "${@}"; do
+				do_config "${cmd}" "${part}"
+			done
+			exit
+			;;
+		menuconfig|nconfig|allmodconfig|allyesconfig|allnoconfig|alldefconfig|randconfig)
 			do_config "${cmd}" "${@}"
 			exit
 			;;
