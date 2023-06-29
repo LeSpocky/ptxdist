@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_UTIL_LINUX) += util-linux
 #
 # Paths and names
 #
-UTIL_LINUX_VERSION	:= 2.39
-UTIL_LINUX_MD5		:= 16579e594a8ef2e6236b38b9ab36cccf
+UTIL_LINUX_VERSION	:= 2.39.1
+UTIL_LINUX_MD5		:= c542cd7c0726254e4b3006a9b428201a
 UTIL_LINUX		:= util-linux-$(UTIL_LINUX_VERSION)
 UTIL_LINUX_SUFFIX	:= tar.xz
 UTIL_LINUX_BASENAME	:= v$(if $(filter 2,$(basename $(UTIL_LINUX_VERSION))),$(UTIL_LINUX_VERSION),$(basename $(UTIL_LINUX_VERSION)))
@@ -114,6 +114,7 @@ UTIL_LINUX_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_PIVOT_ROOT)-pivot_root \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSMEM)-lsmem \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_CHMEM)-chmem \
+	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IPCMK)-ipcmk \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IPCRM)-ipcrm \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IPCS)-ipcs \
 	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IRQTOP)-irqtop \

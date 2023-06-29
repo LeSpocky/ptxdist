@@ -344,6 +344,12 @@ config UTIL_LINUX_HWCLOCK
 comment "BusyBox' hwclock is selected!"
 	depends on BUSYBOX_HWCLOCK
 
+config UTIL_LINUX_IPCMK
+	bool
+	prompt "ipcmk"
+	help
+	  ipcmk lets you create various SysV IPC objects.
+
 config UTIL_LINUX_IPCRM
 	bool
 	prompt "ipcrm"
