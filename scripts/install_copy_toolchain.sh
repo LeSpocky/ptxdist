@@ -53,13 +53,14 @@ ptxd_split_lib_prefix_sysroot_eval() {
 	fi
     done
     sysroot="${lib_dir%${prefix}}"
+    orig_prefix="${prefix}"
     tmp="${prefix#/usr}"
     if [ "${tmp}" == "${prefix}" ]; then
 	prefix="/usr${prefix}"
     fi
     prefix="${prefix/lib64/lib}"
 
-    echo "${pre}sysroot=\"${sysroot}\" ${pre}prefix=\"${prefix}\""
+    echo "${pre}sysroot=\"${sysroot}\" ${pre}prefix=\"${prefix}\" ${pre}orig_prefix=\"${orig_prefix}\""
 }
 
 
@@ -81,7 +82,7 @@ ptxd_split_lib_prefix_sysroot_eval() {
 #   libs mentioned there
 #
 ptxd_install_toolchain_lib() {
-    local lib_path lib lib_dir sysroot prefix script_lib tmp dir v_full lib_v_major
+    local lib_path lib lib_dir sysroot prefix orig_prefix script_lib tmp dir v_full lib_v_major
     local packet dest strip lnk lnk_path lnk_prefix lnk_sysroot perm
 
     eval "${@}"
@@ -95,6 +96,9 @@ ptxd_install_toolchain_lib() {
 	# if the user has given us a $dest use it
 	prefix="${dest:-${prefix}}"
 
+	if [ "${orig_prefix}" = "/lib64" -a "${lib}" = "libc.so.6" ]; then
+	    echo "ptxd_install_link \"lib\" \"/lib64\"" >> "${STATEDIR}/${packet}.cmds"
+	fi
 	# do sth. with that found lib, action depends on file type (link or regular)
 	if test -h "${lib_path}"; then		# link
 	    echo "link - ${lib_path}"
