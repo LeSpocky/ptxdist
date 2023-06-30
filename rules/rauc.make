@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_RAUC) += rauc
 #
 # Paths and names
 #
-RAUC_VERSION	:= 1.9
-RAUC_MD5	:= 5b6ca0032185828f8f22d9a416319c3a
+RAUC_VERSION	:= 1.10
+RAUC_MD5	:= 28de8bb641402bb77df5d5233925a97d
 RAUC		:= rauc-$(RAUC_VERSION)
 RAUC_SUFFIX	:= tar.xz
 RAUC_URL	:= https://github.com/rauc/rauc/releases/download/v$(RAUC_VERSION)/$(RAUC)-autotools.$(RAUC_SUFFIX)
