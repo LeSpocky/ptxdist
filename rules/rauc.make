@@ -1,6 +1,6 @@
 # -*-makefile-*-
 #
-# Copyright (C) 2015 by Enrico Joerns <e.joerns@pengutronix.de>
+# Copyright (C) 2015-2023 by Enrico Joerns <e.joerns@pengutronix.de>
 #
 # For further information about the PTXdist project and license conditions
 # see the README file.
@@ -15,11 +15,11 @@ PACKAGES-$(PTXCONF_RAUC) += rauc
 # Paths and names
 #
 RAUC_VERSION	:= 1.10
-RAUC_MD5	:= 28de8bb641402bb77df5d5233925a97d
+RAUC_MD5	:= ed1ebd5e0c1081528a3a6f26355cbbcc
 RAUC		:= rauc-$(RAUC_VERSION)
 RAUC_SUFFIX	:= tar.xz
-RAUC_URL	:= https://github.com/rauc/rauc/releases/download/v$(RAUC_VERSION)/$(RAUC)-autotools.$(RAUC_SUFFIX)
-RAUC_SOURCE	:= $(SRCDIR)/$(RAUC).$(RAUC_SUFFIX)
+RAUC_URL	:= https://github.com/rauc/rauc/releases/download/v$(RAUC_VERSION)/$(RAUC).$(RAUC_SUFFIX)
+RAUC_SOURCE	:= $(SRCDIR)/$(RAUC)-meson.$(RAUC_SUFFIX)
 RAUC_DIR	:= $(BUILDDIR)/$(RAUC)
 RAUC_LICENSE	:= LGPL-2.1-only
 
@@ -27,34 +27,24 @@ RAUC_LICENSE	:= LGPL-2.1-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-RAUC_CONF_ENV	:= \
-	$(CROSS_ENV) \
-	PTXDIST_PKG_CONFIG_VAR_NO_SYSROOT=interfaces_dir
-
 #
-# autoconf
+# meson
 #
-RAUC_CONF_TOOL	:= autoconf
+RAUC_CONF_TOOL	:= meson
 RAUC_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--enable-debug=info \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--enable-compile-warnings=yes \
-	--disable-Werror \
-	--disable-code-coverage \
-	--disable-valgrind \
-	--$(call ptx/endis,PTXCONF_RAUC_SERVICE)-service \
-	--$(call ptx/endis,PTXCONF_RAUC_CREATE)-create \
-	--$(call ptx/endis,PTXCONF_RAUC_NETWORK)-network \
-	--$(call ptx/endis,PTXCONF_RAUC_STREAMING)-streaming \
-	--$(call ptx/endis,PTXCONF_RAUC_JSON)-json \
-	--$(call ptx/endis,PTXCONF_RAUC_GPT)-gpt \
-	--with-gcov=gcov \
-	--with-streaming_user=nobody \
-	--with-systemdunitdir=/usr/lib/systemd/system \
-	--with-dbuspolicydir=/usr/share/dbus-1/system.d \
-	--with-dbussystemservicedir=/usr/share/dbus-1/system-services \
-	--with-dbusinterfacesdir=/usr/share/dbus-1/interfaces
+	$(CROSS_MESON_USR) \
+	-Dcreate=$(call ptx/truefalse,PTXCONF_RAUC_CREATE) \
+	-Ddbusinterfacesdir=/usr/share/dbus-1/interfaces \
+	-Ddbuspolicydir=/usr/share/dbus-1/system.d \
+	-Ddbussystemservicedir=/usr/share/dbus-1/system-services \
+	-Dgpt=$(call ptx/endis,PTXCONF_RAUC_GPT)d \
+	-Djson=$(call ptx/endis,PTXCONF_RAUC_JSON)d \
+	-Dnetwork=$(call ptx/truefalse,PTXCONF_RAUC_NETWORK) \
+	-Dservice=$(call ptx/truefalse,PTXCONF_RAUC_SERVICE) \
+	-Dstreaming=$(call ptx/truefalse,PTXCONF_RAUC_STREAMING) \
+	-Dstreaming_user=nobody \
+	-Dsystemdunitdir=/usr/lib/systemd/system \
+	-Dtests=false
 
 $(STATEDIR)/rauc.prepare:
 	@$(call targetinfo)

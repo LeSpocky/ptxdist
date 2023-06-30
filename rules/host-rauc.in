@@ -4,5 +4,6 @@ config HOST_RAUC
 	tristate
 	default y if ALLYES
 	select HOST_GLIB
+	select HOST_MESON
 	select HOST_OPENSSL
 	select HOST_SQUASHFS_TOOLS

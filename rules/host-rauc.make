@@ -18,26 +18,20 @@ HOST_PACKAGES-$(PTXCONF_HOST_RAUC) += host-rauc
 #
 # autoconf
 #
-HOST_RAUC_CONF_TOOL	:= autoconf
+HOST_RAUC_CONF_TOOL	:= meson
 HOST_RAUC_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
-	--enable-debug=info \
-	--enable-largefile \
-	--enable-compile-warnings=yes \
-	--disable-Werror \
-	--disable-code-coverage \
-	--disable-valgrind \
-	--disable-service \
-	--enable-create \
-	--disable-network \
-	--disable-streaming \
-	--disable-json \
-	--disable-gpt \
-	--with-gcov=gcov \
-	--with-streaming-user=nobody \
-	--with-systemdunitdir=/usr/lib/systemd/system \
-	--with-dbuspolicydir=/usr/share/dbus-1/system.d \
-	--with-dbussystemservicedir=/usr/share/dbus-1/system-services \
-	--with-dbusinterfacesdir=/usr/share/dbus-1/interfaces
+	-Dcreate=true \
+	-Ddbusinterfacesdir=/usr/share/dbus-1/interfaces \
+	-Ddbuspolicydir=/usr/share/dbus-1/system.d \
+	-Ddbussystemservicedir=/usr/share/dbus-1/system-services \
+	-Dgpt=disabled \
+	-Djson=disabled \
+	-Dnetwork=false \
+	-Dservice=false \
+	-Dstreaming=false \
+	-Dstreaming_user=nobody \
+	-Dsystemdunitdir=/usr/lib/systemd/system \
+	-Dtests=false
 
 # vim: syntax=make

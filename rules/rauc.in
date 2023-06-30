@@ -3,6 +3,7 @@
 menuconfig RAUC
 	tristate
 	prompt "RAUC Update Tool              "
+	select HOST_MESON
 	select OPENSSL
 	select GLIB
 	select GLIB_LIBMOUNT
