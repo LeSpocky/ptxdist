@@ -45,7 +45,6 @@ RAUC_CONF_OPT	:= \
 	--disable-valgrind \
 	--$(call ptx/endis,PTXCONF_RAUC_CREATE)-create \
 	--$(call ptx/endis,PTXCONF_RAUC_SERVICE)-service \
-	--disable-create \
 	--$(call ptx/endis,PTXCONF_RAUC_NETWORK)-network \
 	--$(call ptx/endis,PTXCONF_RAUC_STREAMING)-streaming \
 	--$(call ptx/endis,PTXCONF_RAUC_JSON)-json \

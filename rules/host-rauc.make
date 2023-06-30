@@ -27,7 +27,6 @@ HOST_RAUC_CONF_OPT	:= \
 	--disable-Werror \
 	--disable-code-coverage \
 	--disable-valgrind \
-	--enable-create \
 	--disable-service \
 	--enable-create \
 	--disable-network \
