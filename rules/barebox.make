@@ -80,6 +80,9 @@ endif
 
 $(STATEDIR)/barebox.prepare:
 	@$(call targetinfo)
+ifdef PTXCONF_BAREBOX_FIRMWARE
+	@$(call world/inject, BAREBOX)
+endif
 	@$(call world/prepare, BAREBOX)
 
 ifdef PTXCONF_BAREBOX_EXTRA_ENV
@@ -95,11 +98,6 @@ ifdef PTXCONF_BAREBOX_EXTRA_ENV
 		fi;)
 	@rm -rf $(BAREBOX_BUILD_DIR)/defaultenv/barebox_default_env
 endif
-
-ifdef PTXCONF_BAREBOX_FIRMWARE
-	@$(call world/inject, BAREBOX)
-endif
-
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
