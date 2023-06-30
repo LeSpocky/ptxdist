@@ -30,9 +30,11 @@ HOST_RAUC_CONF_OPT	:= \
 	--disable-service \
 	--enable-create \
 	--disable-network \
+	--disable-streaming \
 	--disable-json \
 	--disable-gpt \
 	--with-gcov=gcov \
+	--with-streaming-user=nobody \
 	--with-systemdunitdir=/usr/lib/systemd/system \
 	--with-dbuspolicydir=/usr/share/dbus-1/system.d \
 	--with-dbussystemservicedir=/usr/share/dbus-1/system-services \

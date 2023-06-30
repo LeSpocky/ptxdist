@@ -43,13 +43,14 @@ RAUC_CONF_OPT	:= \
 	--disable-Werror \
 	--disable-code-coverage \
 	--disable-valgrind \
-	--$(call ptx/endis,PTXCONF_RAUC_CREATE)-create \
 	--$(call ptx/endis,PTXCONF_RAUC_SERVICE)-service \
+	--$(call ptx/endis,PTXCONF_RAUC_CREATE)-create \
 	--$(call ptx/endis,PTXCONF_RAUC_NETWORK)-network \
 	--$(call ptx/endis,PTXCONF_RAUC_STREAMING)-streaming \
 	--$(call ptx/endis,PTXCONF_RAUC_JSON)-json \
 	--$(call ptx/endis,PTXCONF_RAUC_GPT)-gpt \
 	--with-gcov=gcov \
+	--with-streaming_user=nobody \
 	--with-systemdunitdir=/usr/lib/systemd/system \
 	--with-dbuspolicydir=/usr/share/dbus-1/system.d \
 	--with-dbussystemservicedir=/usr/share/dbus-1/system-services \
