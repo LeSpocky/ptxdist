@@ -19,7 +19,7 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  create mode 100644 images/penguin.c
 
 diff --git a/Makefile b/Makefile
-index 9a0a7ad95d9b..1557199d1fb5 100644
+index 5041f6ca5ca1..512a684f5f32 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -3,7 +3,7 @@ TOPDIR = .

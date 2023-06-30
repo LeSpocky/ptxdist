@@ -9,10 +9,10 @@ Signed-off-by: Markus Niebel <Markus.Niebel@tq-group.com>
  1 file changed, 2 insertions(+)
 
 diff --git a/Makefile b/Makefile
-index 1557199d1fb5..1f926b4cf6be 100644
+index 512a684f5f32..c20376dccf70 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -12,3 +12,5 @@ include $(TOPDIR)/Rules.make
+@@ -13,3 +13,5 @@ include $(TOPDIR)/Rules.make
  
  images:	pnmtohex
  

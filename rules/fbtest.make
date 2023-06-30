@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_FBTEST) += fbtest
 #
 # Paths and names
 #
-FBTEST_VERSION	:= 2014-08-11-g29ab066
-FBTEST_MD5	:= 48d1f4e6450ded48c44733539c1c9614
+FBTEST_VERSION	:= 2023-03-28-g47f6351
+FBTEST_MD5	:= 3523551d53c89c83505cad8d9cbf2bfe
 FBTEST		:= fbtest-$(FBTEST_VERSION)
 FBTEST_SUFFIX	:= tar.gz
 FBTEST_URL	:= https://git.kernel.org/pub/scm/linux/kernel/git/geert/fbtest.git;tag=$(FBTEST_VERSION)

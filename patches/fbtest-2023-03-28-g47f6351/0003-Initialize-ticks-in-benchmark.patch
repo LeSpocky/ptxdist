@@ -1,0 +1,29 @@
+From: Philipp Zabel <p.zabel@pengutronix.de>
+Date: Thu, 29 Jun 2023 10:28:40 +0200
+Subject: [PATCH] Initialize ticks in benchmark()
+
+Fixes a build error with GCC 13:
+
+  util.c: In function 'benchmark':
+  util.c:177:17: error: 'ticks' may be used uninitialized [-Werror=maybe-uninitialized]
+  util.c:161:14: note: 'ticks' was declared here
+
+Link: https://lore.kernel.org/r/20230629082840.888110-1-p.zabel@pengutronix.de
+Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
+---
+ util.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/util.c b/util.c
+index cdf89b38618a..1193523990e7 100644
+--- a/util.c
++++ b/util.c
+@@ -158,7 +158,7 @@ static uint64_t get_ticks(void)
+ 
+ double benchmark(void (*func)(unsigned long n, void *data), void *data)
+ {
+-    uint64_t ticks;
++    uint64_t ticks = 0;
+     unsigned long n = 1;
+ 
+     printf("Benchmarking... ");
