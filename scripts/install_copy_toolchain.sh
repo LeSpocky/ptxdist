@@ -46,7 +46,7 @@ ptxd_split_lib_prefix_sysroot_eval() {
     lib_dir="${lib_path%/${lib}}"		# abs path to that lib
 
     # try to identify sysroot part of that path
-    for prefix in {/usr,}/lib{64,32,}{/tls,/gconv,} ""; do
+    for prefix in {/usr,}/lib{64,32,}{/lp64d,}{/tls,/gconv,} ""; do
 	tmp="${lib_dir%${prefix}}"
 	if test "${lib_dir}" != "${tmp}"; then
 	    break
@@ -58,6 +58,7 @@ ptxd_split_lib_prefix_sysroot_eval() {
     if [ "${tmp}" == "${prefix}" ]; then
 	prefix="/usr${prefix}"
     fi
+    prefix="${prefix/lib64\/lp64d/lib}"
     prefix="${prefix/lib64/lib}"
 
     echo "${pre}sysroot=\"${sysroot}\" ${pre}prefix=\"${prefix}\" ${pre}orig_prefix=\"${orig_prefix}\""
@@ -96,8 +97,8 @@ ptxd_install_toolchain_lib() {
 	# if the user has given us a $dest use it
 	prefix="${dest:-${prefix}}"
 
-	if [ "${orig_prefix}" = "/lib64" -a "${lib}" = "libc.so.6" ]; then
-	    echo "ptxd_install_link \"lib\" \"/lib64\"" >> "${STATEDIR}/${packet}.cmds"
+	if [[ "${orig_prefix}" =~ ^/lib64 ]] && [ "${lib}" = "libc.so.6" ]; then
+	    echo "ptxd_install_link \"/lib\" \"${orig_prefix}\"" >> "${STATEDIR}/${packet}.cmds"
 	fi
 	# do sth. with that found lib, action depends on file type (link or regular)
 	if test -h "${lib_path}"; then		# link
