@@ -603,7 +603,7 @@ install link:
     case "${src}" in
 	/*)
 	    if [ "${PTXCONF_SETUP_NFS_REL_SYMLINK}" = "y" ]; then
-		rel="$(dirname "${dst}" | sed -e 's,/[^/]*,/..,g' -e 's,^/,,')"
+		rel="$(dirname "${dst}" | sed -e 's,/$,,' -e 's,/[^/]*,/..,g' -e 's,^/,,')"
 	    fi
 	    ;;
 	*)  ;;
