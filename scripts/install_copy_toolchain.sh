@@ -98,7 +98,9 @@ ptxd_install_toolchain_lib() {
 	prefix="${dest:-${prefix}}"
 
 	if [[ "${orig_prefix}" =~ ^/lib64 ]] && [ "${lib}" = "libc.so.6" ]; then
-	    echo "ptxd_install_link \"/lib\" \"${orig_prefix}\"" >> "${STATEDIR}/${packet}.cmds"
+	    local rel_lib="$(ptxd_abs2rel "$(dirname "${orig_prefix}")" /lib)"
+	    echo "ptxd_install_link \"${rel_lib}\" \"${orig_prefix}\"" >> "${STATEDIR}/${packet}.cmds"
+	    echo "ptxd_install_link \"${rel_lib}\" \"/usr${orig_prefix}\"" >> "${STATEDIR}/${packet}.cmds"
 	fi
 	# do sth. with that found lib, action depends on file type (link or regular)
 	if test -h "${lib_path}"; then		# link
