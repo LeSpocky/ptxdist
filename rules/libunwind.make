@@ -14,11 +14,12 @@ PACKAGES-$(PTXCONF_LIBUNWIND) += libunwind
 #
 # Paths and names
 #
-LIBUNWIND_VERSION	:= 1.6.2
-LIBUNWIND_MD5		:= f625b6a98ac1976116c71708a73dc44a
+LIBUNWIND_VERSION	:= 1.7.0
+LIBUNWIND_MD5		:= 149e49ae27646e73010df4b76989fbec
 LIBUNWIND		:= libunwind-$(LIBUNWIND_VERSION)
 LIBUNWIND_SUFFIX	:= tar.gz
-LIBUNWIND_URL		:= http://download.savannah.gnu.org/releases/libunwind/$(LIBUNWIND).$(LIBUNWIND_SUFFIX)
+# FIXME: Developers broke tarball name for 1.7.0. Revisit when proper tarballs are available and clean this up.
+LIBUNWIND_URL		:= https://github.com/libunwind/libunwind/releases/download/v1.7.0/libunwind-1.70.$(LIBUNWIND_SUFFIX)
 LIBUNWIND_SOURCE	:= $(SRCDIR)/$(LIBUNWIND).$(LIBUNWIND_SUFFIX)
 LIBUNWIND_DIR		:= $(BUILDDIR)/$(LIBUNWIND)
 LIBUNWIND_LICENSE	:= MIT
@@ -42,6 +43,7 @@ LIBUNWIND_CONF_OPT	:= \
 	--disable-documentation \
 	--disable-tests \
 	--enable-weak-backtrace \
+	--enable-unwind-header \
 	--disable-debug \
 	--disable-cxx-exceptions \
 	--enable-debug-frame \
@@ -50,7 +52,8 @@ LIBUNWIND_CONF_OPT	:= \
 	--disable-msabi-support \
 	--disable-minidebuginfo \
 	--enable-zlibdebuginfo \
-	--disable-per-thread-cache
+	--disable-per-thread-cache \
+	--without-testdriver
 
 # ----------------------------------------------------------------------------
 # Target-Install
