@@ -128,7 +128,7 @@ ifdef PTXCONF_GLIBC_NSL
 	@$(call install_copy_toolchain_lib, glibc, libnsl.so.1)
 endif
 
-ifdef PTXCONF_GLIBC_GCONF_BASE
+ifdef PTXCONF_GLIBC_GCONV_BASE
 	@$(call install_copy_toolchain_lib, glibc, gconv/gconv-modules,, n)
 endif
 
