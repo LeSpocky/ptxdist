@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.71
-PIPEWIRE_MD5		:= 6a40c2b641c7b1c42c508829e619a65e
+PIPEWIRE_VERSION	:= 0.3.72
+PIPEWIRE_MD5		:= 8e84abc4b0ef8fae254916be0f6deef5
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -76,6 +76,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dlegacy-rtkit=false \
 	-Dlibcamera=$(call ptx/endis,PTXCONF_PIPEWIRE_LIBCAMERA)d \
 	-Dlibcanberra=disabled \
+	-Dlibffado=disabled \
 	-Dlibjack-path= \
 	-Dlibmysofa=disabled \
 	-Dlibpulse=disabled \
@@ -134,6 +135,8 @@ PIPEWIRE_MODULES-y := \
 	client-node \
 	combine-stream \
 	echo-cancel \
+	netjack2-driver \
+	netjack2-manager \
 	fallback-sink \
 	filter-chain \
 	link-factory \
