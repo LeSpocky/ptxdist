@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_IMAGEMAGICK) += imagemagick
 #
 # Paths and names
 #
-IMAGEMAGICK_VERSION	:= 7.0.2-10
-IMAGEMAGICK_MD5		:= e1cb23d9c10a8eff228ef30ee281711a
+IMAGEMAGICK_VERSION	:= 7.1.1-12
+IMAGEMAGICK_MD5		:= 7d04ecc28b035922697630c92cdfbfb8
 IMAGEMAGICK		:= ImageMagick-$(IMAGEMAGICK_VERSION)
 IMAGEMAGICK_SUFFIX	:= tar.xz
 IMAGEMAGICK_URL		:= https://imagemagick.org/archive/releases/$(IMAGEMAGICK).$(IMAGEMAGICK_SUFFIX)
@@ -54,18 +54,30 @@ IMAGEMAGICK_CONF_TOOL := autoconf
 IMAGEMAGICK_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-openmp \
+	--disable-opencl \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-shared \
 	--disable-static \
+	--enable-installed \
+	--enable-cipher \
+	--disable-zero-configuration \
 	--disable-hdri \
 	--disable-docs \
+	--without-dmalloc \
 	--without-threads \
 	--without-modules \
+	--with-utilities \
 	--with-quantum-depth=$(IMAGEMAGICK_QUANTUM_DEPTH) \
 	--without-magick-plus-plus \
 	--without-perl \
+	--without-jemalloc \
+	--without-tcmalloc \
+	--without-umem \
 	--without-bzlib \
 	--without-x \
+	--without-zip \
 	--$(call ptx/wwo, PTXCONF_IMAGEMAGICK_USE_ZLIB)-zlib \
+	--without-zstd \
 	--without-autotrace \
 	--without-dps \
 	--without-fftw \
@@ -75,10 +87,14 @@ IMAGEMAGICK_CONF_OPT := \
 	--without-fontconfig \
 	--without-freetype \
 	--without-raqm \
+	--without-gdi32 \
 	--without-gslib \
 	--without-gvc \
+	--without-dmr \
+	--without-heic \
 	--without-jbig \
 	--$(call ptx/wwo, PTXCONF_IMAGEMAGICK_USE_LIBJPEG)-jpeg \
+	--without-jxl \
 	--without-lcms \
 	--without-openjp2 \
 	--without-lqr \
@@ -86,6 +102,7 @@ IMAGEMAGICK_CONF_OPT := \
 	--without-openexr \
 	--without-pango \
 	--$(call ptx/wwo, PTXCONF_IMAGEMAGICK_USE_LIBPNG)-png \
+	--without-raw \
 	--without-rsvg \
 	--without-tiff \
 	--$(call ptx/wwo, PTXCONF_IMAGEMAGICK_USE_LIBWEBP)-webp \
@@ -119,14 +136,19 @@ $(STATEDIR)/imagemagick.targetinstall:
 	@$(call install_link, imagemagick, magick, /usr/bin/montage)
 	@$(call install_link, imagemagick, magick, /usr/bin/stream)
 
-	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/coder.xml)
 	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/colors.xml)
+	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/delegates.xml)
 	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/log.xml)
-	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/magic.xml)
 	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/mime.xml)
 	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/policy.xml)
 	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/quantization-table.xml)
 	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/thresholds.xml)
+	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/type-apple.xml)
+	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/type-dejavu.xml)
+	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/type-ghostscript.xml)
+	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/type-urw-base35.xml)
+	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/type-windows.xml)
+	@$(call install_alternative, imagemagick, 0, 0, 0644, /etc/ImageMagick-7/type.xml)
 
 	@$(call install_finish, imagemagick)
 
