@@ -5,8 +5,8 @@ dnl
 AC_PREREQ([2.69])
 
 AC_INIT([ptxdist],
-	m4_esyscmd([scripts/kernel/setlocalversion .tarball-version]),
-	[ptxdist@pengutronix.de])
+       [m4_esyscmd([scripts/kernel/setlocalversion .tarball-version])],
+       [ptxdist@pengutronix.de])
 AC_CONFIG_AUX_DIR(scripts/autoconf)
 AC_CANONICAL_BUILD
 AC_CANONICAL_HOST
