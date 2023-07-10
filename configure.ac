@@ -2,7 +2,7 @@ dnl
 dnl Process this file with autoconf to produce a configure script.
 dnl Most parts of this configure script have been borrowed from quilt.
 dnl
-AC_PREREQ(2.59)
+AC_PREREQ([2.69])
 
 AC_INIT([ptxdist],
 	m4_esyscmd([scripts/kernel/setlocalversion .tarball-version]),
