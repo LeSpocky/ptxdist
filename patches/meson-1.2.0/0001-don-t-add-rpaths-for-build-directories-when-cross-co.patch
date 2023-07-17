@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/mesonbuild/linkers/linkers.py b/mesonbuild/linkers/linkers.py
-index 5799caf76ee0..f466f4eae88c 100644
+index edd408572be0..409e12a5b0ad 100644
 --- a/mesonbuild/linkers/linkers.py
 +++ b/mesonbuild/linkers/linkers.py
-@@ -673,7 +673,10 @@ class GnuLikeDynamicLinkerMixin:
+@@ -676,7 +676,10 @@ class GnuLikeDynamicLinkerMixin:
          # Need to deduplicate rpaths, as macOS's install_name_tool
          # is *very* allergic to duplicate -delete_rpath arguments
          # when calling depfixer on installation.
@@ -26,7 +26,7 @@ index 5799caf76ee0..f466f4eae88c 100644
          rpath_dirs_to_remove = set()
          for p in all_paths:
              rpath_dirs_to_remove.add(p.encode('utf8'))
-@@ -701,7 +704,8 @@ class GnuLikeDynamicLinkerMixin:
+@@ -704,7 +707,8 @@ class GnuLikeDynamicLinkerMixin:
                  paths = padding
              else:
                  paths = paths + ':' + padding
