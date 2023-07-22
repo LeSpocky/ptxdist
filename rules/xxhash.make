@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XXHASH) += xxhash
 #
 # Paths and names
 #
-XXHASH_VERSION	:= 0.8.1
-XXHASH_MD5	:= b67c587f5ff4894253da0095ba7ea393
+XXHASH_VERSION	:= 0.8.2
+XXHASH_MD5	:= a7628d7a4fd608a7573c5a3e2c856ea5
 XXHASH		:= xxhash-$(XXHASH_VERSION)
 XXHASH_SUFFIX	:= tar.gz
 XXHASH_URL	:= https://github.com/Cyan4973/xxHash/archive/refs/tags/v$(XXHASH_VERSION).$(XXHASH_SUFFIX)
@@ -23,7 +23,7 @@ XXHASH_SOURCE	:= $(SRCDIR)/$(XXHASH).$(XXHASH_SUFFIX)
 XXHASH_DIR	:= $(BUILDDIR)/$(XXHASH)
 XXHASH_LICENSE	:= BSD-2-Clause
 XXHASH_LICENSE_FILES := \
-	file://LICENSE;md5=cdfe7764d5685d8e08b3df302885d7f3
+	file://LICENSE;md5=13be6b481ff5616f77dda971191bb29b
 
 # ----------------------------------------------------------------------------
 # Compile
