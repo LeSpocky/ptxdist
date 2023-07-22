@@ -15,8 +15,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_CMAKE) += host-cmake
 #
 # Paths and names
 #
-HOST_CMAKE_VERSION	:= 3.25.3
-HOST_CMAKE_MD5		:= 8155fe793c468993ae4614f774826466
+HOST_CMAKE_VERSION	:= 3.27.0
+HOST_CMAKE_MD5		:= a3c5655f96d5c66fa2191909399e2216
 HOST_CMAKE		:= cmake-$(HOST_CMAKE_VERSION)
 HOST_CMAKE_SUFFIX	:= tar.gz
 HOST_CMAKE_URL		:= https://cmake.org/files/v$(basename $(HOST_CMAKE_VERSION))/$(HOST_CMAKE).$(HOST_CMAKE_SUFFIX)
@@ -24,11 +24,11 @@ HOST_CMAKE_SOURCE	:= $(SRCDIR)/$(HOST_CMAKE).$(HOST_CMAKE_SUFFIX)
 HOST_CMAKE_DIR		:= $(HOST_BUILDDIR)/$(HOST_CMAKE)
 HOST_CMAKE_LICENSE	:= 0BSD AND BSD-2-clause AND BSD-3-Clause AND Apache-2.0 AND bzip2-1.0.6 AND (MIT OR public_domain) AND MIT AND curl
 HOST_CMAKE_LICENSE_FILES := \
-	file://Copyright.txt;md5=09069e0fffe4e5eaf6dde04c3b1932e5 \
+	file://Copyright.txt;md5=9d3d12c5f3b4c1f83650adcc65b59c06 \
 	file://Source/kwsys/Copyright.txt;md5=64ed5ec90b0f9868cf0b08ea5b954dfe \
 	file://Utilities/KWIML/Copyright.txt;md5=bdc657917a0eec5751b3d5eafd4b413c \
 	file://Utilities/cmbzip2/LICENSE;md5=1e5cffe65fc786f83a11a4b225495c0b \
-	file://Utilities/cmcurl/COPYING;md5=190c514872597083303371684954f238 \
+	file://Utilities/cmcurl/COPYING;md5=db8448a1e43eb2125f7740fc397db1f6 \
 	file://Utilities/cmexpat/COPYING;md5=9e2ce3b3c4c0f2670883a23bbd7c37a9 \
 	file://Utilities/cmjsoncpp/LICENSE;md5=5d73c165a0f9e86a1342f32d19ec5926 \
 	file://Utilities/cmlibarchive/COPYING;md5=d499814247adaee08d88080841cb5665 \
