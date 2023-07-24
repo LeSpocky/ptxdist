@@ -14,12 +14,11 @@ PACKAGES-$(PTXCONF_LIBUNWIND) += libunwind
 #
 # Paths and names
 #
-LIBUNWIND_VERSION	:= 1.7.0
-LIBUNWIND_MD5		:= 149e49ae27646e73010df4b76989fbec
+LIBUNWIND_VERSION	:= 1.7.1
+LIBUNWIND_MD5		:= 31c7a97f88cdbe9fe8f6af93b9e4ba9c
 LIBUNWIND		:= libunwind-$(LIBUNWIND_VERSION)
 LIBUNWIND_SUFFIX	:= tar.gz
-# FIXME: Developers broke tarball name for 1.7.0. Revisit when proper tarballs are available and clean this up.
-LIBUNWIND_URL		:= https://github.com/libunwind/libunwind/releases/download/v1.7.0/libunwind-1.70.$(LIBUNWIND_SUFFIX)
+LIBUNWIND_URL		:= https://github.com/libunwind/libunwind/releases/download/v$(LIBUNWIND_VERSION)/$(LIBUNWIND).$(LIBUNWIND_SUFFIX)
 LIBUNWIND_SOURCE	:= $(SRCDIR)/$(LIBUNWIND).$(LIBUNWIND_SUFFIX)
 LIBUNWIND_DIR		:= $(BUILDDIR)/$(LIBUNWIND)
 LIBUNWIND_LICENSE	:= MIT
