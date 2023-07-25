@@ -30,18 +30,21 @@ HOST_LIBARCHIVE_CONF_OPT	:= \
 	--disable-bsdtar \
 	--disable-bsdcat \
 	--disable-bsdcpio \
+	--disable-bsdunzip \
 	--disable-rpath \
 	--enable-posix-regex-lib=libc \
 	--disable-xattr \
 	--disable-acl \
 	--with-zlib \
 	--without-bz2lib \
+	--without-libb2 \
 	--without-iconv \
 	--without-lz4 \
 	--without-zstd \
 	--without-lzma \
 	--without-lzo2 \
 	--without-cng \
+	--without-mbedtls \
 	--without-nettle \
 	--without-openssl \
 	--without-xml2 \
