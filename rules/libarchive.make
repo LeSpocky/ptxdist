@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBARCHIVE) += libarchive
 #
 # Paths and names
 #
-LIBARCHIVE_VERSION	:= 3.6.2
-LIBARCHIVE_MD5		:= b5b8efa8cba29396816d0dd5f61f3de3
+LIBARCHIVE_VERSION	:= 3.7.0
+LIBARCHIVE_MD5		:= f9a02c33e3de8b02b09f21d139109455
 LIBARCHIVE		:= libarchive-$(LIBARCHIVE_VERSION)
 LIBARCHIVE_SUFFIX	:= tar.gz
 LIBARCHIVE_URL		:= https://www.libarchive.org/downloads/$(LIBARCHIVE).$(LIBARCHIVE_SUFFIX)
@@ -44,6 +44,7 @@ LIBARCHIVE_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBARCHIVE_BSDTAR)-bsdtar \
 	--$(call ptx/endis, PTXCONF_LIBARCHIVE_BSDCAT)-bsdcat \
 	--$(call ptx/endis, PTXCONF_LIBARCHIVE_BSDCPIO)-bsdcpio \
+	--$(call ptx/endis, PTXCONF_LIBARCHIVE_BSDUNZIP)-bsdunzip \
 	--disable-rpath \
 	--enable-posix-regex-lib=libc \
 	--disable-xattr \
@@ -86,6 +87,9 @@ ifdef PTXCONF_LIBARCHIVE_BSDCAT
 endif
 ifdef PTXCONF_LIBARCHIVE_BSDCPIO
 	@$(call install_copy, libarchive, 0, 0, 0755, -, /usr/bin/bsdcpio)
+endif
+ifdef PTXCONF_LIBARCHIVE_BSDUNZIP
+	@$(call install_copy, libarchive, 0, 0, 0755, -, /usr/bin/bsdunzip)
 endif
 
 	@$(call install_finish, libarchive)

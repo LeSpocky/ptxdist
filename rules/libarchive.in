@@ -43,4 +43,8 @@ config LIBARCHIVE_BSDCPIO
 	bool
 	prompt "install bsdcpio"
 
+config LIBARCHIVE_BSDUNZIP
+	bool
+	prompt "install bsdunzip"
+
 endif
