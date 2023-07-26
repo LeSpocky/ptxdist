@@ -1459,6 +1459,7 @@ do_select()
 	# re-read config files and
 	# export changed variables
 	#
+	unset PTXDIST_PLATFORMDIR
 	setup_platform &&
 	setup_path &&
 	setup_export
