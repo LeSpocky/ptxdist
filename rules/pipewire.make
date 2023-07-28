@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.73
-PIPEWIRE_MD5		:= 64c6cfae9c29898133fe650e511b18e6
+PIPEWIRE_VERSION	:= 0.3.76
+PIPEWIRE_MD5		:= 10bf151d8a790f8684c9c85eb18507f9
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -156,7 +156,9 @@ PIPEWIRE_MODULES-y := \
 	spa-device \
 	spa-device-factory \
 	spa-node \
-	spa-node-factory
+	spa-node-factory \
+	vban-send \
+	vban-recv
 
 PIPEWIRE_MODULES-$(PTXCONF_PIPEWIRE_RAOP)	+= raop-sink
 
