@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 253.5
+SYSTEMD_VERSION		:= 254
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_MD5		:= c7f2b9587bc772a0cc211cac3477ed20
+SYSTEMD_MD5		:= 0d266e5361dc72097b6c18cfde1c0001
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -58,6 +58,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dbacklight=false \
 	-Dbinfmt=false \
 	-Dblkid=true \
+	-Dbootloader=false \
 	-Dbpf-framework=false \
 	-Dbump-proc-sys-fs-file-max=true \
 	-Dbump-proc-sys-fs-nr-open=true \
@@ -121,6 +122,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dlink-boot-shared=true \
 	-Dlink-journalctl-shared=true \
 	-Dlink-networkd-shared=true \
+	-Dlink-portabled-shared=true \
 	-Dlink-systemctl-shared=true \
 	-Dlink-timesyncd-shared=true \
 	-Dlink-udev-shared=true \
@@ -152,6 +154,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Doss-fuzz=false \
 	-Dp11kit=false \
 	-Dpam=false \
+	-Dpasswdqc=false \
 	-Dpcre2=$(call ptx/truefalse,PTXCONF_SYSTEMD_PCRE2) \
 	-Dpolkit=$(call ptx/truefalse,PTXCONF_SYSTEMD_POLKIT) \
 	-Dportabled=false \
@@ -206,7 +209,6 @@ SYSTEMD_CONF_OPT	:= \
 	-Duserdb=false \
 	-Dusers-gid=-1 \
 	-Dutmp=false \
-	-Dvalgrind=false \
 	-Dvconsole=$(call ptx/truefalse,PTXCONF_SYSTEMD_VCONSOLE) \
 	-Dversion-tag=$(SYSTEMD_VERSION) \
 	-Dwheel-group=false \
