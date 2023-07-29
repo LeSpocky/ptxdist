@@ -22,14 +22,14 @@ SYSTEMD_HWDB_LICENSE	:= ignore
 $(STATEDIR)/systemd-hwdb.install:
 	@$(call targetinfo)
 	@$(call world/execute, SYSTEMD_HWDB, \
-		install -vd -m 755 $(SYSTEMD_HWDB_PKGDIR)/usr/lib/udev)
+		install -vd -m 755 $(SYSTEMD_HWDB_PKGDIR)/usr/lib/udev/hwdb.d)
 	@$(call execute, SYSTEMD_HWDB, \
-		ln -s $(SYSROOT)/usr/lib/udev/hwdb.d $(SYSTEMD_HWDB_PKGDIR)/usr/lib/udev/)
+		cp $(SYSROOT)/usr/lib/udev/hwdb.d/* $(SYSTEMD_HWDB_PKGDIR)/usr/lib/udev/hwdb.d/)
 	@$(call execute, SYSTEMD_HWDB, \
 		$(PTXDIST_SYSROOT_HOST)/usr/bin/systemd-hwdb update --usr --root $(SYSTEMD_HWDB_PKGDIR))
-#	# remove the link again, it conficts with the directory in sysroot
+#	# remove the files again, they are already in sysroot
 	@$(call execute, SYSTEMD_HWDB, \
-		rm $(SYSTEMD_HWDB_PKGDIR)/usr/lib/udev/hwdb.d)
+		rm -r $(SYSTEMD_HWDB_PKGDIR)/usr/lib/udev/hwdb.d)
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
