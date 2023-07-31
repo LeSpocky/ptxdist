@@ -1,0 +1,56 @@
+From: Sourav Das <souravdas142@gmail.com>
+Date: Sun, 30 Jul 2023 10:23:25 +0530
+Subject: [PATCH] spa: fixes for dereferencing pointer to incomplete type in
+ __typeof__
+
+    before gcc 10 its not supporting pointer dereferencing in __typeof__.
+    so made changes according to that. Fixes #3375
+
+    clang also defines __GNUC__ and resolves '4' along with __clang__ which
+    resolves '1'. On any version of clang, __GNUC__ and resolves '4'.
+    anyway clang has this feature since version 3.
+---
+ spa/include/spa/utils/cleanup.h | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/spa/include/spa/utils/cleanup.h b/spa/include/spa/utils/cleanup.h
+index 04e2bd193f6e..aa3eb2eea71b 100644
+--- a/spa/include/spa/utils/cleanup.h
++++ b/spa/include/spa/utils/cleanup.h
+@@ -40,13 +40,20 @@ __extension__ ({ \
+ 	_old_value; \
+ })
+ 
++#if __GNUC__ > 10 || defined(__clang__)
+ #define spa_steal_ptr(ptr) ((__typeof__(*(ptr)) *) spa_exchange((ptr), NULL))
++#else
++#define spa_steal_ptr(ptr) ((__typeof__(ptr)) spa_exchange((ptr), NULL))
++#endif
++
+ #define spa_steal_fd(fd) spa_exchange((fd), -1)
+ 
+ /* ========================================================================== */
+ 
+ #include <stdlib.h>
+ 
++
++#if __GNUC__ > 10 || defined(__clang__)
+ #define spa_clear_ptr(ptr, destructor) \
+ __extension__ ({ \
+ 	__typeof__(*(ptr)) *_old_value = spa_steal_ptr(ptr); \
+@@ -54,6 +61,15 @@ __extension__ ({ \
+ 		destructor(_old_value); \
+ 	(void) 0; \
+ })
++#else
++#define spa_clear_ptr(ptr, destructor) \
++__extension__ ({ \
++	__typeof__(ptr) _old_value = spa_steal_ptr(ptr); \
++	if (_old_value) \
++		destructor(_old_value); \
++	(void) 0; \
++})
++#endif
+ 
+ static inline void _spa_autofree_cleanup_func(void *p)
+ {
