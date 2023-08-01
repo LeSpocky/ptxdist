@@ -65,11 +65,11 @@ LT_INIT
 
 #
 # Please note: 'configure' defaults the CFLAGS to "-O2 -g" if it detects a
-# GCC. If the user overwrites the CFLAGS externallly, there will be no default!
+# GCC. If the user overwrites the CFLAGS externally, there will be no default!
 # Keep the user informed about this behaviour.
 
 #
-# TODO Check here for mandadory external libraries
+# TODO Check here for mandatory external libraries
 #
 # Rule of thumb: when your library needs an external library, add it
 # to the 'LIBS' variable. Do _not_ add it manually into the Makefile.am files.
@@ -96,7 +96,7 @@ LT_INIT
 # the 'autoscan' tool to get an idea what is still missing in your 'configure.ac'
 #
 
-# where to install pgk info files
+# where to install pkg info files
 PKG_INSTALLDIR
 
 PTX_COMMON_CHECKS
@@ -149,7 +149,7 @@ AC_SUBST(LIBS)
 # add required lib information to the pkg-config file (on demand)
 AC_SUBST(REQUIRES)
 
-# add lib information which may conflicts with this libarry
+# add lib information which may conflict with this library
 AC_SUBST(CONFLICTS)
 
 # add special compile flags on demand
