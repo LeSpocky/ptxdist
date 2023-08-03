@@ -1,6 +1,7 @@
 # -*-makefile-*-
 #
 # Copyright (C) 2013 by Sascha Hauer <s.hauer@pengutronix.de>
+# Copyright (C) 2023 Roland Hieber, Pengutronix <rhi@pengutronix.de>
 #
 # For further information about the PTXdist project and license conditions
 # see the README file.
@@ -14,27 +15,36 @@ PACKAGES-$(PTXCONF_DT_UTILS) += dt-utils
 #
 # Paths and names
 #
-DT_UTILS_VERSION	:= 2021.03.0
-DT_UTILS_MD5		:= acf0b5e3b18e40e6172b67fbad2e52fb
+DT_UTILS_VERSION	:= 2023.08.0
+DT_UTILS_MD5		:= ba7ed63c6e9bfc9c39e090c3bc1fb8c2
 DT_UTILS		:= dt-utils-$(DT_UTILS_VERSION)
 DT_UTILS_SUFFIX		:= tar.xz
 DT_UTILS_URL		:= https://public.pengutronix.de/software/dt-utils/$(DT_UTILS).$(DT_UTILS_SUFFIX)
 DT_UTILS_SOURCE		:= $(SRCDIR)/$(DT_UTILS).$(DT_UTILS_SUFFIX)
 DT_UTILS_DIR		:= $(BUILDDIR)/$(DT_UTILS)
-DT_UTILS_LICENSE	:= GPL-2.0-only
+
+# Note: the source tarball includes files under GPL-3.0-or-later, CC0-1.0 and
+# LicenseRef-DCO too, which don't make it into the compiled code.
+DT_UTILS_LICENSE	:= GPL-2.0-only AND GPL-2.0-or-later AND Zlib
 DT_UTILS_LICENSE_FILES	:= \
-	file://COPYING;md5=9ac2e7cff1ddaf48b6eab6028f23ef88 \
-	file://src/barebox-state.c;startline=6;endline=13;md5=d2a3fab9d93cf1e5a939e59f75cfc921
+	file://README;startline=65;endline=81;md5=ac976dc9413ba8aee0286c950eca0374 \
+	file://LICENSES/GPL-2.0-only.txt;md5=18d902a0242c37a4604224b47d02f802 \
+	file://src/barebox-state/state_variables.c;startline=1;endline=5;md5=48db6eca86398f8f9806370f78598bf4 \
+	file://LICENSES/GPL-2.0-or-later.txt;md5=df0715377b556699ce0837d45cb8bec9 \
+	file://src/crc32.c;startline=1;endline=9;md5=ea2a8d555d3a705de4bdff531a08e257 \
+	file://LICENSES/Zlib.txt;md5=48d37249fc5889f9a914aabb29781276
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-DT_UTILS_CONF_TOOL := autoconf
+DT_UTILS_CONF_TOOL := meson
 DT_UTILS_CONF_OPT  := \
-	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--$(call ptx/endis, PTXCONF_DT_UTILS_STATE_COMPAT)-state-backward-compatibility
+	$(CROSS_MESON_USR) \
+	-Dbarebox-state=true \
+	-Dlock-device=true \
+	-Dstate-backward-compatibility=$(call ptx/truefalse, PTXCONF_DT_UTILS_STATE_COMPAT) \
+	-Dtests=false
 
 # ----------------------------------------------------------------------------
 # Target-Install

@@ -3,6 +3,7 @@
 menuconfig DT_UTILS
 	tristate
 	prompt "dt-utils                      "
+	select HOST_MESON
 	select UDEV
 	help
 	  Utilities to work with device trees in Linux userspace:
