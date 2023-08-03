@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SYSKLOGD) += sysklogd
 #
 # Paths and names
 #
-SYSKLOGD_VERSION	:= 2.5.0
-SYSKLOGD_MD5		:= db7afc3400fd56fcb0618fc50a9750fb
+SYSKLOGD_VERSION	:= 2.5.1
+SYSKLOGD_MD5		:= 8193220708cc348e0cc919227ff0b7fe
 SYSKLOGD		:= sysklogd-$(SYSKLOGD_VERSION)
 SYSKLOGD_SUFFIX		:= tar.gz
 SYSKLOGD_URL		:= https://github.com/troglobit/sysklogd/releases/download/v$(SYSKLOGD_VERSION)/$(SYSKLOGD).$(SYSKLOGD_SUFFIX)
@@ -32,7 +32,8 @@ SYSKLOGD_LICENSE	:= BSD-3-Clause
 #
 SYSKLOGD_CONF_TOOL = autoconf
 SYSKLOGD_CONF_OPT = \
-	$(CROSS_AUTOCONF_USR)
+	$(CROSS_AUTOCONF_USR) \
+	--with-logger
 
 # ----------------------------------------------------------------------------
 # Install
