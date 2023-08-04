@@ -66,7 +66,7 @@ ptxd_make_world_cargo_sync_package() {
     PACKAGE="$(tr '[a-z]' '[A-Z]' <<< "${package}-${version}" | tr -sc '[:alnum:]' '_')"
     PACKAGE="${PACKAGE%_}"
     if [[ "${url}" =~ ^git ]]; then
-	path="${PTXDIST_SRCDIR}/${package}-${version}.git.crate"
+	path="${PTXDIST_SRCDIR}/${package}-${version}+${hash:0:12}.git.crate"
     else
 	path="${PTXDIST_SRCDIR}/${package}-${version}.crate"
     fi
