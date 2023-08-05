@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XZ) += xz
 #
 # Paths and names
 #
-XZ_VERSION	:= 5.4.3
-XZ_MD5		:= 34d2f33c2ac51390fc5d0a9c179e8345
+XZ_VERSION	:= 5.4.4
+XZ_MD5		:= fbb849a27e266964aefe26bad508144f
 XZ		:= xz-$(XZ_VERSION)
 XZ_SUFFIX	:= tar.bz2
 XZ_URL		:= https://tukaani.org/xz/$(XZ).$(XZ_SUFFIX)
