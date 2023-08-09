@@ -1,0 +1,8 @@
+## SECTION=networking
+
+config WEBSOCAT
+	tristate
+	prompt "websocat"
+	select OPENSSL
+	help
+	  Netcat, curl and socat for WebSockets
