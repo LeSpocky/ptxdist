@@ -36,7 +36,8 @@ WEBSOCAT_MAKE_ENV	:= \
 $(STATEDIR)/websocat.install:
 	@$(call targetinfo)
 	@$(call world/execute, WEBSOCAT, \
-		install -v -m755 -t $(WEBSOCAT_PKGDIR)/bin $(WEBSOCAT_DIR)/target/$(PTXCONF_GNU_TARGET)/release/websocat)
+		install -v -m755 -t $(WEBSOCAT_PKGDIR)/bin \
+			$(WEBSOCAT_DIR)/target/$(PTXCONF_RUST_TARGET)/release/websocat)
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
