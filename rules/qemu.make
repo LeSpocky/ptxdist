@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 8.0.3
-QEMU_MD5	:= d41853bffb18878dd1ff7afc2eb41f1a
+QEMU_VERSION	:= 8.0.4
+QEMU_MD5	:= 8f840abde4713da2a50e041cc07a9409
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
