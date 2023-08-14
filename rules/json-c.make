@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_JSON_C) += json-c
 #
 # Paths and names
 #
-JSON_C_VERSION		:= 0.16
-JSON_C_MD5		:= 8110782cb2a996da5517f1f27a4bed8e
+JSON_C_VERSION		:= 0.17
+JSON_C_MD5		:= bad8f5e91b7b2563ee2d507054c70eb2
 JSON_C			:= json-c-$(JSON_C_VERSION)
 JSON_C_SUFFIX		:= tar.gz
 JSON_C_URL		:= https://s3.amazonaws.com/json-c_releases/releases/$(JSON_C).$(JSON_C_SUFFIX)
