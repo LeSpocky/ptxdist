@@ -16,7 +16,7 @@ Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile.in b/Makefile.in
-index 53a8c874fdae..398539feba41 100644
+index 4bc364671904..8bfcac6f8412 100644
 --- a/Makefile.in
 +++ b/Makefile.in
 @@ -350,7 +350,7 @@ layout.o: layout.h viewport.h canvas.h layout.c config.h screen.h os.h osdef.h a
