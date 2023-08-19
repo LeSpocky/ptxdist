@@ -15,13 +15,14 @@ PACKAGES-$(PTXCONF_ZLIB) += zlib
 #
 # Paths and names
 #
-ZLIB_VERSION	:= 1.2.13
-ZLIB_MD5	:= 7d9fc1d78ae2fa3e84fe98b77d006c63
+
+ZLIB_VERSION	:= 1.3
+ZLIB_MD5	:= b49e70aacafacfceb1107943497f5545
 ZLIB		:= zlib-$(ZLIB_VERSION)
 ZLIB_SUFFIX	:= tar.xz
 ZLIB_URL	:= \
-	http://zlib.net/$(ZLIB).$(ZLIB_SUFFIX) \
-	$(call ptx/mirror, SF, libpng/$(ZLIB).$(ZLIB_SUFFIX))
+	http://zlib.net/fossils/$(ZLIB).$(ZLIB_SUFFIX) \
+	https://github.com/madler/zlib/releases/download/v$(ZLIB_VERSION)/$(ZLIB).$(ZLIB_SUFFIX)
 ZLIB_SOURCE	:= $(SRCDIR)/$(ZLIB).$(ZLIB_SUFFIX)
 ZLIB_DIR	:= $(BUILDDIR)/$(ZLIB)
 ZLIB_LICENSE	:= Zlib
