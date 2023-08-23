@@ -50,14 +50,13 @@ HOST_QEMU_CONF_OPT	:= \
 		$(call ptx/ifdef, PTXCONF_HOST_QEMU_SYS,$(HOST_QEMU_SYS_TARGETS),) \
 		$(call ptx/ifdef, PTXCONF_HOST_QEMU_USR,$(HOST_QEMU_USR_TARGETS),) \
 	" \
-	--meson=meson \
 	--ninja=ninja \
-	--with-git-submodules=ignore \
+	--disable-download \
 	--disable-sanitizers \
 	--disable-tsan \
 	--disable-werror \
 	--enable-stack-protector \
-	--with-coroutine= \
+	--with-coroutine=auto \
 	--disable-plugins \
 	--disable-containers \
 	--audio-drv-list= \
@@ -139,6 +138,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-opengl \
 	--disable-oss \
 	--disable-pa \
+	--disable-pipewire \
 	--disable-parallels \
 	--disable-png \
 	--disable-pvrdma \
