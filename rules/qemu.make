@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 8.0.4
-QEMU_MD5	:= 8f840abde4713da2a50e041cc07a9409
+QEMU_VERSION	:= 8.1.0
+QEMU_MD5	:= 7dd9ff5a92cf81cfce6cda1f6e271f3a
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -38,6 +38,7 @@ QEMU_USR_TARGETS	:= $(foreach target, $(QEMU_TARGETS), $(patsubst %,%-linux-user
 QEMU_AUDIO_DRIVER-y				:=
 QEMU_AUDIO_DRIVER-$(PTXCONF_QEMU_ALSA)		+= alsa
 QEMU_AUDIO_DRIVER-$(PTXCONF_QEMU_PULSEAUDIO)	+= pa
+QEMU_AUDIO_DRIVER-$(PTXCONF_QEMU_PIPEWIRE)	+= pipewire
 
 QEMU_CONF_TOOL	:= autoconf
 # Note: not really autoconf:
@@ -48,14 +49,13 @@ QEMU_CONF_OPT	:= \
 		$(call ptx/ifdef, PTXCONF_QEMU_SYS,$(QEMU_SYS_TARGETS),) \
 		$(call ptx/ifdef, PTXCONF_QEMU_USR,$(QEMU_USR_TARGETS),))) \
 	--cross-prefix=$(CROSS_COMPILE) \
-	--meson=meson \
 	--ninja=ninja \
-	--with-git-submodules=ignore \
+	--disable-download \
 	--disable-sanitizers \
 	--disable-tsan \
 	--disable-werror \
 	--enable-stack-protector \
-	--with-coroutine= \
+	--with-coroutine=auto \
 	--disable-plugins \
 	--disable-containers \
 	--audio-drv-list=$(subst $(space),$(comma),$(strip $(QEMU_AUDIO_DRIVER-y))) \
@@ -137,6 +137,7 @@ QEMU_CONF_OPT	:= \
 	--disable-opengl \
 	--disable-oss \
 	--$(call ptx/endis, PTXCONF_QEMU_PULSEAUDIO)-pa \
+	--$(call ptx/endis, PTXCONF_QEMU_PIPEWIRE)-pipewire \
 	--disable-parallels \
 	--disable-png \
 	--disable-pvrdma \

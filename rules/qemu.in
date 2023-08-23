@@ -17,6 +17,7 @@ menuconfig QEMU
 	select PIXMAN		if QEMU_SYS
 	select PULSEAUDIO	if QEMU_PULSEAUDIO
 	select ALSA_LIB 	if QEMU_ALSA
+	select PIPEWIRE		if QEMU_PIPEWIRE
 	help
 	  QEMU is a generic and open source machine emulator and
 	  virtualizer.
@@ -55,6 +56,12 @@ config QEMU_ALSA
 	prompt "Enable alsa audio output support."
 	help
 	  Say y to build with alsa support.
+
+config QEMU_PIPEWIRE
+	bool
+	prompt "Enable pipewire audio output support."
+	help
+	  Say y to build with pipewire support.
 
 config QEMU_TOOLS
 	bool
