@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_COREUTILS) += coreutils
 #
 # Paths and names
 #
-COREUTILS_VERSION	:= 9.1
-COREUTILS_MD5		:= 8b1ca4e018a7dce9bb937faec6618671
+COREUTILS_VERSION	:= 9.4
+COREUTILS_MD5		:= 459e9546074db2834eefe5421f250025
 COREUTILS		:= coreutils-$(COREUTILS_VERSION)
 COREUTILS_SUFFIX	:= tar.xz
 COREUTILS_URL		:= $(call ptx/mirror, GNU, coreutils/$(COREUTILS).$(COREUTILS_SUFFIX))
@@ -154,6 +154,7 @@ COREUTILS_CONF_OPT	:= \
 	--without-linux-crypto \
 	--without-openssl \
 	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
+	--$(call ptx/endis, PTXCONF_INITMETHOD_SYSTEMD)-systemd \
 	--with-tty-group=tty \
 	--without-libgmp
 
