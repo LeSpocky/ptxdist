@@ -31,7 +31,7 @@ Signed-off-by: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
  1 file changed, 10 insertions(+), 4 deletions(-)
 
 diff --git a/alsactl/info.c b/alsactl/info.c
-index 3e4b9486d720..af55206b8484 100644
+index 1d648d870381..aeff16babb19 100644
 --- a/alsactl/info.c
 +++ b/alsactl/info.c
 @@ -22,9 +22,9 @@
@@ -94,9 +94,9 @@ index 3e4b9486d720..af55206b8484 100644
 +#ifdef __ALSA_RAWMIDI_H
  	first = true;
  	if (err >= 0)
- 		err = rawmidi_device_list(ctl, SND_PCM_STREAM_PLAYBACK, &first);
+ 		err = rawmidi_device_list(ctl, SND_RAWMIDI_STREAM_INPUT, &first);
  	if (err >= 0)
- 		err = rawmidi_device_list(ctl, SND_PCM_STREAM_CAPTURE, &first);
+ 		err = rawmidi_device_list(ctl, SND_RAWMIDI_STREAM_OUTPUT, &first);
 +#endif
  
  	if (err >= 0)
