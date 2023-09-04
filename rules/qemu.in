@@ -6,6 +6,7 @@ menuconfig QEMU
 	select HOST_MESON
 	select HOST_NINJA
 	select HOST_SYSTEM_PYTHON3
+	select HOST_SYSTEM_PYTHON3_ENSUREPIP
 	select GCCLIBS_CXX
 	select GLIB
 	select LIBCAP_NG
