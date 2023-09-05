@@ -143,20 +143,20 @@ COREUTILS_CONF_OPT	:= \
 	--disable-acl \
 	--disable-assert \
 	--disable-rpath \
-	--disable-libsmack \
 	--disable-xattr \
+	--$(call ptx/endis, PTXCONF_INITMETHOD_SYSTEMD)-systemd \
+	--disable-libsmack \
 	--disable-libcap \
-	--disable-gcc-warnings \
 	--disable-single-binary \
 	--disable-single-binary-exceptions \
+	--disable-gcc-warnings \
 	--enable-no-install-program=$(subst $(space),$(comma),$(strip $(COREUTILS_INST-))) \
 	--disable-nls \
 	--without-linux-crypto \
 	--without-openssl \
+	--without-libgmp \
 	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
-	--$(call ptx/endis, PTXCONF_INITMETHOD_SYSTEMD)-systemd \
-	--with-tty-group=tty \
-	--without-libgmp
+	--with-tty-group=tty
 
 COREUTILS_MAKE_OPT	:= \
 	man1_MANS=
