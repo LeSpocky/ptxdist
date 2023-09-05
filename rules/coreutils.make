@@ -152,6 +152,7 @@ COREUTILS_CONF_OPT	:= \
 	--disable-gcc-warnings \
 	--enable-no-install-program=$(subst $(space),$(comma),$(strip $(COREUTILS_INST-))) \
 	--disable-nls \
+	--$(call ptx/endis, PTXCONF_GLIBC_Y2038)-year2038 \
 	--without-linux-crypto \
 	--without-openssl \
 	--without-libgmp \
