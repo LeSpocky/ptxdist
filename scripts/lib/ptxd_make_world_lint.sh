@@ -287,6 +287,7 @@ ptxd_make_world_lint_cross_whitelist+="INITMETHOD_BBINIT INITMETHOD_SYSTEMD "
 # used to add the include path for the kernel headers
 ptxd_make_world_lint_cross_whitelist+="KERNEL_HEADER "
 # basically global stuff
+ptxd_make_world_lint_cross_whitelist+="GLIBC_Y2038 "
 ptxd_make_world_lint_cross_whitelist+="LOCALES "
 ptxd_make_world_lint_cross_whitelist+="PRELINK "
 ptxd_make_world_lint_cross_whitelist+="ROOTFS_ETC_HOSTNAME "
