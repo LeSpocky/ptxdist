@@ -26,7 +26,6 @@ ptxd_make_cmake_toolchain_target() {
     local sysroot_prefix="${PTXDIST_PATH_SYSROOT_PREFIX}:"
 
     case "${PTXCONF_ARCH_STRING}" in
-	i386) CMAKE_ARCH_STRING=x86 ;;
 	arm64) CMAKE_ARCH_STRING=aarch64 ;;
 	riscv) CMAKE_ARCH_STRING=riscv64 ;;
 	*) CMAKE_ARCH_STRING=${PTXCONF_ARCH_STRING} ;;
