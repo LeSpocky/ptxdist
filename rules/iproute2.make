@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_IPROUTE2) += iproute2
 #
 # Paths and names
 #
-IPROUTE2_VERSION	:= 6.4.0
-IPROUTE2_MD5		:= 90ce0eb84a8f1e2b14ffa77e8eb3f5ed
+IPROUTE2_VERSION	:= 6.5.0
+IPROUTE2_MD5		:= ae811fc51b3a2c9c7701be308152c45a
 IPROUTE2		:= iproute2-$(IPROUTE2_VERSION)
 IPROUTE2_SUFFIX		:= tar.xz
 IPROUTE2_URL		:= $(call ptx/mirror, KERNEL, utils/net/iproute2/$(IPROUTE2).$(IPROUTE2_SUFFIX))
