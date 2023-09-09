@@ -3,6 +3,7 @@
 config HOST_DBUS
 	tristate
 	select HOST_EXPAT
+	select HOST_MESON
 	default y if ALLYES
 	help
 	  D-Bus is a message bus system, a simple way

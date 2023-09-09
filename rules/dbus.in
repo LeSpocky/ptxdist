@@ -3,7 +3,7 @@
 menuconfig DBUS
 	tristate
 	prompt "dbus                          "
-	select HOST_AUTOTOOLS_AUTOCONF_ARCHIVE
+	select HOST_MESON
 	select EXPAT
 	select XORG_LIB_X11	if DBUS_X
 	select MACHINE_ID	if RUNTIME
