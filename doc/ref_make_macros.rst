@@ -175,6 +175,44 @@ omitted.
 
 ``ptx/image-install-link`` creates a symlink in the image directory.
 
+.. _world_image_fit:
+
+world/image-fit
+~~~~~~~~~~~~~~~
+
+.. code-block:: none
+
+ @$(call world/image-fit, <PKG>)
+
+Build a FIT image containing a kernel, optionally an initial ramdisk, and one or
+multiple device trees. For each device tree, a configuration node is generated.
+
+.. note:: You can generate a template for a new FIT image recipe by
+   calling ``ptxdist newpackage image-fit``.
+
+The following variables are respected:
+
+``<PKG>_IMAGE``
+   The output file, usually something like ``$(IMAGEDIR)/pkg.fit``.
+
+``<PKG>_KERNEL``
+   The kernel image to package into the FIT image.
+
+``<PKG>_DTB``
+   One or more device trees that should be included in the FIT image.
+
+``<PKG>_INITRAMFS``
+   If the FIT image should contain an initial ramdisk, this variable determines
+   the initrd file name that is included. Otherwise it can be left empty.
+
+``<PKG>_SIGN_ROLE``
+   If the FIT image should be signed, this variable determines the role name
+   used for the signature. It is passed to :ref:`cs_get_uri`.
+
+``<PKG>_KEY_NAME_HINT``
+   If the FIT image should be signed, this variable determines the
+   *key-name-hint* property of the signature node.
+
 .. _install_copy:
 
 install_copy
