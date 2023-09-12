@@ -106,6 +106,10 @@ $(STATEDIR)/kernel-@package@.install:
 # Target-Install
 # ----------------------------------------------------------------------------
 
+ifneq ($(KERNEL_@PACKAGE@_DTB_FILES),)
+$(addprefix $(IMAGEDIR)/,$(KERNEL_@PACKAGE@_DTB_FILES)): $(STATEDIR)/kernel-@package@.targetinstall
+endif
+
 $(STATEDIR)/kernel-@package@.targetinstall:
 	@$(call targetinfo)
 

@@ -283,6 +283,10 @@ endif
 # Target-Install
 # ----------------------------------------------------------------------------
 
+ifneq ($(KERNEL_DTB_FILES),)
+$(addprefix $(IMAGEDIR)/,$(KERNEL_DTB_FILES)): $(STATEDIR)/kernel.targetinstall
+endif
+
 $(STATEDIR)/kernel.targetinstall:
 	@$(call targetinfo)
 
