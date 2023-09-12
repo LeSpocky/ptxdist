@@ -1,0 +1,10 @@
+## SECTION=image
+
+config IMAGE_@PACKAGE@
+	tristate
+	select HOST_U_BOOT_TOOLS
+	@select_CODE_SIGNING@select IMAGE_KERNEL
+	select IMAGE_ROOT_CPIO
+	prompt "Generate images/@package@.fit"
+	help
+	  FIXME

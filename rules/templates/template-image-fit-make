@@ -1,0 +1,34 @@
+# -*-makefile-*-
+#
+# Copyright (C) @YEAR@ by @AUTHOR@
+#
+# For further information about the PTXdist project and license conditions
+# see the README file.
+#
+
+#
+# We provide this package
+#
+IMAGE_PACKAGES-$(PTXCONF_IMAGE_@PACKAGE@) += image-@package@
+
+#
+# Paths and names
+#
+IMAGE_@PACKAGE@			:= image-@package@
+IMAGE_@PACKAGE@_DIR		:= $(BUILDDIR)/$(IMAGE_@PACKAGE@)
+IMAGE_@PACKAGE@_IMAGE		:= $(IMAGEDIR)/@package@.fit
+IMAGE_@PACKAGE@_VERSION		:= ${PTXCONF_PROJECT_VERSION}
+IMAGE_@PACKAGE@_KERNEL		= $(IMAGE_KERNEL_IMAGE)
+IMAGE_@PACKAGE@_DTB		= # TODO: $(IMAGEDIR)/your-board.dtb
+IMAGE_@PACKAGE@_INITRAMFS	= $(IMAGE_ROOT_CPIO_IMAGE)
+@CODE_SIGNING_VARS@
+# ----------------------------------------------------------------------------
+# Image
+# ----------------------------------------------------------------------------
+
+$(IMAGE_@PACKAGE@_IMAGE): $(IMAGE_@PACKAGE@_KERNEL) $(IMAGE_@PACKAGE@_INITRAMFS) $(IMAGE_@PACKAGE@_DTB)
+	@$(call targetinfo)
+	@$(call world/image-fit, IMAGE_@PACKAGE@)
+	@$(call finish)
+
+# vim: syntax=make

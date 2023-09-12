@@ -598,6 +598,31 @@ export -f ptxd_template_new_image_tgz
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="image-tgz"
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create package for a tgz image"
 
+ptxd_template_new_image_fit() {
+    export class="image-"
+    ptxd_template_read_name &&
+    ptxd_template_read_author &&
+    ptxd_template_read "sign FIT image? (y/N)" SIGN
+    case "$SIGN" in
+	y*|Y*)
+	    export select_CODE_SIGNING="select CODE_SIGNING
+	"
+	    export CODE_SIGNING_VARS="
+IMAGE_@PACKAGE@_SIGN_ROLE	:= # TODO: role name of the code signing provider, passed to cs_get_uri
+IMAGE_@PACKAGE@_KEY_NAME_HINT	:= # TODO: key-name-hint property in the signature node of the FIT image
+"
+	;;
+	*)
+	    export select_CODE_SIGNING=""
+	    export CODE_SIGNING_VARS=""
+	;;
+    esac
+    ptxd_template_write_platform_rules
+}
+export -f ptxd_template_new_image_fit
+ptxd_template_help_list[${#ptxd_template_help_list[@]}]="image-fit"
+ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create package for a FIT image"
+
 ptxd_template_new_image_genimage() {
     export class="image-"
     ptxd_template_read_name &&
