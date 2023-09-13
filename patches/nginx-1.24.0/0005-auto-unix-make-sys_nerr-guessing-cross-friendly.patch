@@ -14,10 +14,12 @@ Signed-off-by: Samuel Martin <s.martin49@gmail.com>
 Refresh for 1.8.0.
 
 Signed-off-by: Danomi Manchego <danomimanchego123@gmail.com>
+[rebased against v1.20.1]
+Signed-off-by: Adam Duskett <Aduskett@gmail.com>
 ---
  auto/os/sys_nerr | 78 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- auto/unix        | 10 ++++++++
- 2 files changed, 88 insertions(+)
+ auto/unix        |  8 ++++++
+ 2 files changed, 86 insertions(+)
  create mode 100644 auto/os/sys_nerr
 
 diff --git a/auto/os/sys_nerr b/auto/os/sys_nerr
@@ -105,21 +107,16 @@ index 000000000000..8970f5f6ec73
 +
 +echo " $ngx_sys_nerr"
 diff --git a/auto/unix b/auto/unix
-index 3da005375cf5..a67ee3e2939c 100644
+index 679e21213879..12059a2301f2 100644
 --- a/auto/unix
 +++ b/auto/unix
-@@ -736,6 +736,10 @@ ngx_feature_incs='#include <errno.h>
-                   #include <stdio.h>'
- ngx_feature_path=
- ngx_feature_libs=
-+
-+if false ; then
-+# Disabled because only valid for native build.
-+
- ngx_feature_test='printf("%d", sys_nerr);'
- . auto/feature
- 
-@@ -784,6 +788,12 @@ if [ $ngx_found = no ]; then
+@@ -744,10 +744,18 @@ if [ $ngx_found = no ]; then
+                       #include <stdio.h>'
+     ngx_feature_path=
+     ngx_feature_libs=
++    if false ; then
++    # Disabled because only valid for native build.
+     ngx_feature_test='printf("%d", _sys_nerr);'
      . auto/feature
  fi
  

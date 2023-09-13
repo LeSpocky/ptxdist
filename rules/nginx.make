@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_NGINX) += nginx
 #
 # Paths and names
 #
-NGINX_VERSION	:= 1.18.0
-NGINX_MD5	:= b2d33d24d89b8b1f87ff5d251aa27eb8
+NGINX_VERSION	:= 1.24.0
+NGINX_MD5	:= f95835b55b3cbf05a4368e7bccbb8a46
 NGINX		:= nginx-$(NGINX_VERSION)
 NGINX_SUFFIX	:= tar.gz
 NGINX_URL	:= https://nginx.org/download/$(NGINX).$(NGINX_SUFFIX)
 NGINX_SOURCE	:= $(SRCDIR)/$(NGINX).$(NGINX_SUFFIX)
 NGINX_DIR	:= $(BUILDDIR)/$(NGINX)
 NGINX_LICENSE	:= BSD-2-Clause
-NGINX_LICENSE_FILES	:= file://LICENSE;md5=52e384aaac868b755b93ad5535e2d075
+NGINX_LICENSE_FILES	:= file://LICENSE;md5=175abb631c799f54573dc481454c8632
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -44,86 +44,81 @@ NGINX_CONF_ENV := \
 	ngx_force_have_map_devzero=yes \
 	ngx_force_have_sysvshm=yes \
 	ngx_force_have_posix_sem=yes \
+	\
 	ngx_force_ipv6=$(call ptx/yesno, PTXCONF_GLOBAL_IPV6)
-
-ifdef PTXCONF_ENDIAN_LITTLE
-NGINX_CONF_ENV += ngx_force_have_little_endian=yes
-endif
-
-NGINX_CONF_TOOL := autoconf
-NGINX_CONF_OPT := \
-	--crossbuild=Linux::$(PTXCONF_ARCH_STRING) \
-	--with-cc=$(CROSS_CC) \
-	--with-cpp=$(CROSS_CC) \
-	--with-cc-opt="-O2 -Wno-error" \
-	--prefix=/usr/share/nginx \
-	--conf-path=/etc/nginx/nginx.conf \
-	--sbin-path=/usr/sbin/nginx \
-	--pid-path=/run/nginx.pid \
-	--lock-path=/var/lock/nginx.lock \
-	--user=www \
-	--group=www \
-	--error-log-path=stderr \
-	--http-log-path=/var/log/nginx \
-	--http-client-body-temp-path=/var/tmp/nginx/client-body \
-	--http-proxy-temp-path=/var/tmp/nginx/proxy \
-	--http-fastcgi-temp-path=/var/tmp/nginx/fastcgi \
-	--http-scgi-temp-path=/var/tmp/nginx/scgi \
-	--http-uwsgi-temp-path=/var/tmp/nginx/uwsgi \
-	--$(call ptx/wwo, PTXCONF_NGINX_PCRE)-pcre \
-	--without-http_browser_module \
-	--without-http_charset_module \
-	--without-http_empty_gif_module \
-	--without-http_geo_module \
-	--without-http_limit_conn_module \
-	--without-http_limit_req_module \
-	--without-http_map_module \
-	--without-http_memcached_module \
-	--without-http_mirror_module \
-	--without-http_referer_module \
-	--without-http_split_clients_module \
-	--without-http_ssi_module \
-	--without-http_upstream_hash_module \
-	--without-http_upstream_ip_hash_module \
-	--without-http_upstream_keepalive_module \
-	--without-http_upstream_least_conn_module \
-	--without-http_upstream_zone_module \
-	--without-http_userid_module \
-	--without-mail_imap_module \
-	--without-mail_pop3_module \
-	--without-mail_smtp_module \
-	--without-stream_access_module \
-	--without-stream_geo_module \
-	--without-stream_limit_conn_module \
-	--without-stream_map_module \
-	--without-stream_return_module \
-	--without-stream_split_clients_module \
-	--without-stream_upstream_hash_module \
-	--without-stream_upstream_least_conn_module \
-	--without-stream_upstream_zone_module
 
 # Note: Settings and module options are *not* symmetric.
 #       If a module is on by default, a without option exists.
 #       If it is off by default, a with option exists.
 
-# Opt-in
-NGINX_CONF_OPTIN-$(PTXCONF_NGINX_HTTP_GZIP_STATIC_MODULE)	:= http_gzip_static_module
-NGINX_CONF_OPTIN-$(PTXCONF_NGINX_HTTP_SSL_MODULE)		+= http_ssl_module
-NGINX_CONF_OPTIN-$(PTXCONF_NGINX_HTTP_V2_MODULE)		+= http_v2_module
-NGINX_CONF_OPTIN-$(PTXCONF_NGINX_PCRE_JIT)			+= pcre-jit
-NGINX_CONF_OPTIN-$(PTXCONF_NGINX_THREADS)			+= threads
-
-# Opt-out
-NGINX_CONF_OPTOUT-$(PTXCONF_NGINX_HTTP_ACCESS_MODULE)		:= http_access_module
-NGINX_CONF_OPTOUT-$(PTXCONF_NGINX_HTTP_AUTH_BASIC_MODULE)	+= http_auth_basic_module
-NGINX_CONF_OPTOUT-$(PTXCONF_NGINX_HTTP_AUTOINDEX_MODULE)	+= http_autoindex_module
-NGINX_CONF_OPTOUT-$(PTXCONF_NGINX_HTTP_FASTCGI_MODULE)		+= http_fastcgi_module
-NGINX_CONF_OPTOUT-$(PTXCONF_NGINX_HTTP_GRPC_MODULE)		+= http_grpc_module
-NGINX_CONF_OPTOUT-$(PTXCONF_NGINX_HTTP_GZIP_MODULE)		+= http_gzip_module
-NGINX_CONF_OPTOUT-$(PTXCONF_NGINX_HTTP_PROXY_MODULE)		+= http_proxy_module
-NGINX_CONF_OPTOUT-$(PTXCONF_NGINX_HTTP_REWRITE_MODULE)		+= http_rewrite_module
-NGINX_CONF_OPTOUT-$(PTXCONF_NGINX_HTTP_SCGI_MODULE)		+= http_scgi_module
-NGINX_CONF_OPTOUT-$(PTXCONF_NGINX_HTTP_UWSGI_MODULE)		+= http_uwsgi_module
+NGINX_CONF_TOOL := autoconf
+NGINX_CONF_OPT := \
+	--crossbuild=Linux::$(PTXCONF_ARCH_STRING) \
+	--prefix=/usr/share/nginx \
+	--sbin-path=/usr/sbin/nginx \
+	--conf-path=/etc/nginx/nginx.conf \
+	--error-log-path=stderr \
+	--pid-path=/run/nginx.pid \
+	--lock-path=/var/lock/nginx.lock \
+	--user=www \
+	--group=www \
+	--force-endianness=$(call ptx/ifdef,PTXCONF_ENDIAN_LITTLE,little,big) \
+	$(call ptx/ifdef, PTXCONF_NGINX_THREADS,--with-threads) \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_SSL_MODULE,--with-http_ssl_module) \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_V2_MODULE,--with-http_v2_module) \
+	--with-http_sub_module \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_GZIP_STATIC_MODULE,--with-http_gzip_static_module) \
+	--without-http_charset_module \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_GZIP_MODULE,,--without-http_gzip_module) \
+	--without-http_ssi_module \
+	--without-http_userid_module \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_ACCESS_MODULE,,--without-http_access_module) \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_AUTH_BASIC_MODULE,,--without-http_auth_basic_module) \
+	--without-http_mirror_module \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_AUTOINDEX_MODULE,,--without-http_autoindex_module) \
+	--without-http_geo_module \
+	--without-http_split_clients_module \
+	--without-http_referer_module \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_REWRITE_MODULE,,--without-http_rewrite_module) \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_PROXY_MODULE,,--without-http_proxy_module) \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_FASTCGI_MODULE,,--without-http_fastcgi_module) \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_UWSGI_MODULE,,--without-http_uwsgi_module) \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_SCGI_MODULE,,--without-http_scgi_module) \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_GRPC_MODULE,,--without-http_grpc_module) \
+	--without-http_memcached_module \
+	--without-http_limit_conn_module \
+	--without-http_limit_req_module \
+	--without-http_empty_gif_module \
+	--without-http_browser_module \
+	--without-http_upstream_hash_module \
+	--without-http_upstream_ip_hash_module \
+	--without-http_upstream_least_conn_module \
+	--without-http_upstream_keepalive_module \
+	--without-http_upstream_zone_module \
+	--http-log-path=/var/log/nginx \
+	--http-client-body-temp-path=/var/tmp/nginx/client-body \
+	--http-proxy-temp-path=/var/tmp/nginx/proxy \
+	--http-fastcgi-temp-path=/var/tmp/nginx/fastcgi \
+	--http-uwsgi-temp-path=/var/tmp/nginx/uwsgi \
+	--http-scgi-temp-path=/var/tmp/nginx/scgi \
+	--without-mail_pop3_module \
+	--without-mail_imap_module \
+	--without-mail_smtp_module \
+	--without-stream_limit_conn_module \
+	--without-stream_access_module \
+	--without-stream_geo_module \
+	--without-stream_map_module \
+	--without-stream_split_clients_module \
+	--without-stream_return_module \
+	--without-stream_upstream_hash_module \
+	--without-stream_upstream_least_conn_module \
+	--without-stream_upstream_zone_module \
+	--with-cc=$(CROSS_CC) \
+	--with-cpp=$(CROSS_CC) \
+	--with-cc-opt="-O2 -Wno-error" \
+	--$(call ptx/wwo, PTXCONF_NGINX_PCRE)-pcre \
+	$(call ptx/ifdef, PTXCONF_NGINX_PCRE_JIT,--with-pcre-jit) \
+	--without-pcre2
 
 NGINX_CONF_OPT += \
 	$(addprefix --with-,$(NGINX_CONF_OPTIN-y)) \

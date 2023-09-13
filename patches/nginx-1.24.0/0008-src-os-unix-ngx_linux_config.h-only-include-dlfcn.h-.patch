@@ -9,7 +9,7 @@ Signed-off-by: Martin Bark <martin@barkynet.com>
  1 file changed, 4 insertions(+), 2 deletions(-)
 
 diff --git a/src/os/unix/ngx_linux_config.h b/src/os/unix/ngx_linux_config.h
-index 3036caebf630..e282a1f7533c 100644
+index 88fef47cefeb..ceb2f6175bf5 100644
 --- a/src/os/unix/ngx_linux_config.h
 +++ b/src/os/unix/ngx_linux_config.h
 @@ -55,10 +55,12 @@

@@ -9,7 +9,8 @@
 0006-auto-lib-openssl-conf-use-pkg-config.patch
 0007-auto-lib-libgd-conf-use-pkg-config.patch
 0008-src-os-unix-ngx_linux_config.h-only-include-dlfcn.h-.patch
+0009-auto-os-linux-fix-build-with-libxcrypt.patch
+0010-Allow-forcing-of-endianness-for-cross-compilation.patch
 #tag:ptxdist --start-number 100
-0100-auto-endianness-add-mechanism-allowing-to-force-resu.patch
-0101-auto-unix-allow-overriding-the-IPv6-build-tests.patch
-# 2d82d97a87698e491d40c417a32a8a6b  - git-ptx-patches magic
+0100-auto-unix-allow-overriding-the-IPv6-build-tests.patch
+# 8b3a0cda12fc98d0ea43c37b609327f9  - git-ptx-patches magic
