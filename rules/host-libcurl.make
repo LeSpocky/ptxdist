@@ -57,7 +57,12 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--enable-pthreads \
 	--disable-verbose \
 	--disable-sspi \
-	--disable-crypto-auth \
+	--enable-basic-auth \
+	--disable-bearer-auth \
+	--disable-digest-auth \
+	--disable-kerberos-auth \
+	--disable-negotiate-auth \
+	--disable-aws \
 	--disable-ntlm \
 	--disable-ntlm-wb \
 	--disable-tls-srp \
@@ -67,23 +72,27 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--disable-http-auth \
 	--disable-doh \
 	--disable-mime \
+	--enable-bindlocal \
+	--disable-form-api \
 	--enable-dateparse \
 	--disable-netrc \
 	--enable-progress-meter \
 	--disable-dnsshuffle \
 	--enable-get-easy-options \
 	--disable-alt-svc \
+	--disable-headers-api \
 	--enable-hsts \
+	--disable-websockets \
 	--without-schannel \
 	--without-secure-transport \
 	--without-amissl \
+	--with-ssl \
 	--with-openssl=$(PTXDIST_SYSROOT_HOST) \
 	--without-gnutls \
 	--without-mbedtls \
 	--without-wolfssl \
 	--without-bearssl \
 	--without-rustls \
-	--without-nss \
 	--without-hyper \
 	--without-zlib \
 	--without-brotli \
@@ -104,6 +113,7 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--without-ngtcp2 \
 	--without-nghttp3 \
 	--without-quiche \
+	--without-msh3 \
 	--without-zsh-functions-dir \
 	--without-fish-functions-dir
 
