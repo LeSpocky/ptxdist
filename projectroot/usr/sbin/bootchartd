@@ -32,8 +32,8 @@ mount proc /proc -t proc
 
 {
     mount -n -t tmpfs -o size=8M none "$LOG_DIR"
-    /lib/bootchart/collector ${HZ} "${LOG_DIR}"
-    /lib/bootchart/gather "${OUT_DIR}/bootchart.tgz" "${LOG_DIR}"
+    /usr/lib/bootchart/collector ${HZ} "${LOG_DIR}"
+    /usr/lib/bootchart/gather "${OUT_DIR}/bootchart.tgz" "${LOG_DIR}"
 } &
 
 # from kernel:/init/main.c
