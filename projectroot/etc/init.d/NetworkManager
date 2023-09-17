@@ -43,7 +43,7 @@ test -f /etc/default/NetworkManager && . /etc/default/NetworkManager
 #	Function that starts the daemon/service.
 #
 d_start() {
-	/lib/init/nm-unmanage.sh
+	/usr/lib/init/nm-unmanage.sh
 
 	start-stop-daemon --start --quiet --pidfile $PIDFILE \
 		--oknodo --user $USER --exec $DAEMON -- $DAEMON_OPTS --pid-file $PIDFILE
