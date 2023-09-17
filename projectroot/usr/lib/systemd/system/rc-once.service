@@ -9,5 +9,5 @@ Before=system-update.target
 [Service]
 Type=oneshot
 RemainAfterExit=no
-ExecStart=/lib/systemd/systemd-rc-once
+ExecStart=/usr/lib/systemd/systemd-rc-once
 StandardOutput=journal+console
