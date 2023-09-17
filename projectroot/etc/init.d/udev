@@ -1,7 +1,7 @@
 #!/bin/sh
 
 udev_root="/dev"
-udev_rules="/lib/udev/rules.d"
+udev_rules="/usr/lib/udev/rules.d"
 udev_log="err"
 
 # for new udevd
