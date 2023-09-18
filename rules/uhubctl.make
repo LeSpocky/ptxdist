@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_UHUBCTL) += uhubctl
 #
 # Paths and names
 #
-UHUBCTL_VERSION	:= 2.4.0
-UHUBCTL_MD5	:= 9bdf73940881df02574a94703ad8b582
+UHUBCTL_VERSION	:= 2.5.0
+UHUBCTL_MD5	:= e4e66d445ba8fda181ce4aa4abcd4247
 UHUBCTL		:= uhubctl-$(UHUBCTL_VERSION)
 UHUBCTL_SUFFIX	:= tar.gz
 UHUBCTL_URL	:= https://github.com/mvp/uhubctl/archive/v$(UHUBCTL_VERSION).$(UHUBCTL_SUFFIX)
@@ -23,7 +23,7 @@ UHUBCTL_SOURCE	:= $(SRCDIR)/$(UHUBCTL).$(UHUBCTL_SUFFIX)
 UHUBCTL_DIR	:= $(BUILDDIR)/$(UHUBCTL)
 UHUBCTL_LICENSE	:= GPL-2.0-only
 UHUBCTL_LICENSE_FILES := \
-	file://LICENSE;md5=a79e6a142b69522fe7757fe7313895eb
+	file://LICENSE;md5=1e7b16e6ef7cd15d58b0f1c58dbf9817
 
 # ----------------------------------------------------------------------------
 # Prepare
