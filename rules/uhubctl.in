@@ -1,8 +1,8 @@
 ## SECTION=shell_and_console
 
 config UHUBCTL
-	bool
+	tristate
 	select LIBUSB
 	prompt "uhubctl"
 	help
-		Utility to control USB power per-port on smart USB hubs.
+	  Utility to control USB power per-port on smart USB hubs.

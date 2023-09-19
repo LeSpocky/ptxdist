@@ -30,7 +30,7 @@ UHUBCTL_LICENSE_FILES := \
 # ----------------------------------------------------------------------------
 
 UHUBCTL_CONF_TOOL	:= NO
-UHUBCTL_MAKE_ENV 	:= $(CROSS_ENV)
+UHUBCTL_MAKE_ENV	:= $(CROSS_ENV)
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -45,7 +45,7 @@ $(STATEDIR)/uhubctl.targetinstall:
 	@$(call install_fixup, uhubctl,AUTHOR,"Lars Pedersen <lapeddk@gmail.com>")
 	@$(call install_fixup, uhubctl,DESCRIPTION,missing)
 
-	@$(call install_copy, uhubctl, 0, 0, 0755, $(UHUBCTL_DIR)/uhubctl, /usr/bin/uhubctl)
+	@$(call install_copy, uhubctl, 0, 0, 0755, -, /usr/sbin/uhubctl)
 
 	@$(call install_finish, uhubctl)
 
