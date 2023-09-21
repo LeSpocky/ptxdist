@@ -1,0 +1,22 @@
+## SECTION=networking
+
+config SSHPASS
+	tristate
+	prompt "sshpass"
+	help
+	  Sshpass is a tool for non-interactivly performing password
+	  authentication with SSH's so called "interactive keyboard
+	  password authentication".
+	  Most user should use SSH's more secure public key
+	  authentiaction instead.
+
+	  SECURITY NOTE: There is a reason openssh insists that
+	  passwords be typed interactively.
+	  Passwords are harder to store securely and to pass around
+	  securely between programs.
+	  If you have not looked into solving your needs using SSH's
+	  "public key authentication", perhaps in conjunction with the
+	  ssh agent (RTFM ssh-add), please do so before being tempted
+	  into using this package.
+
+# vim: ft=kconfig noet tw=72 ts=8 sw=8
