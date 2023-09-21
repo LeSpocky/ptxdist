@@ -10,18 +10,18 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  3 files changed, 10 insertions(+)
 
 diff --git a/cargo_wrapper.py b/cargo_wrapper.py
-index c13a7b05e943..80960dc167ce 100644
+index 0b7353c234b6..e87cd511552d 100644
 --- a/cargo_wrapper.py
 +++ b/cargo_wrapper.py
-@@ -27,6 +27,7 @@ PARSER.add_argument('--lib-suffixes', nargs="+", default=[])
+@@ -28,6 +28,7 @@ PARSER.add_argument('--lib-suffixes', nargs="+", default=[])
  PARSER.add_argument('--exe-suffix')
  PARSER.add_argument('--depfile')
  PARSER.add_argument('--disable-doc', action="store_true", default=False)
 +PARSER.add_argument('--frozen', action="store_true", default=False)
  
  
- def generate_depfile_for(fpath):
-@@ -110,6 +111,9 @@ if __name__ == "__main__":
+ def shlex_join(args):
+@@ -119,6 +120,9 @@ if __name__ == "__main__":
          print("Unknown command:", opts.command, file=logfile)
          sys.exit(1)
  
@@ -32,10 +32,10 @@ index c13a7b05e943..80960dc167ce 100644
          cargo_cmd += ['--target', rustc_target]
      if features:
 diff --git a/meson.build b/meson.build
-index d50ce316a42c..e293c6ed11f8 100644
+index 04ea2e94b914..12aa93b0802c 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -367,6 +367,10 @@ if get_option('doc').disabled()
+@@ -405,6 +405,10 @@ if get_option('doc').disabled()
    extra_args += ['--disable-doc']
  endif
  
@@ -44,15 +44,15 @@ index d50ce316a42c..e293c6ed11f8 100644
 +endif
 +
  # 'pkgconfig' is the entry in the machine file, if specified
- pkg_config = find_program('pkgconfig', required: false)
+ pkg_config = find_program('pkgconfig', 'pkg-config', required: false)
  if pkg_config.found()
 diff --git a/meson_options.txt b/meson_options.txt
-index 033e586c6ed6..549e0167bfc0 100644
+index 82df6c194ff1..b85e3b7f5687 100644
 --- a/meson_options.txt
 +++ b/meson_options.txt
-@@ -62,3 +62,5 @@ option('doc', type: 'feature', value: 'auto', yield: true,
-        description: 'Enable documentation')
- option('examples', type: 'feature', value: 'disabled', yield: true,
+@@ -64,3 +64,5 @@ option('examples', type: 'feature', value: 'disabled', yield: true,
         description: 'Build examples')
+ option('tests', type : 'feature', value : 'auto', yield : true,
+        description : 'Build and enable unit tests')
 +option('frozen', type: 'boolean', value: false,
 +       description: 'Run cargo with --frozen')
