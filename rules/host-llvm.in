@@ -1,0 +1,8 @@
+## SECTION=hosttools_noprompt
+
+config HOST_LLVM
+	tristate
+	select HOST_CMAKE
+	select HOST_NINJA
+	select HOST_SYSTEM_PYTHON3
+	default y if ALLYES
