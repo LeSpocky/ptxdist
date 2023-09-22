@@ -136,6 +136,8 @@ endif
 MESALIB_DRI_VA_LIBS-$(PTXCONF_MESALIB_DRI_NOUVEAU)	+= nouveau
 endif
 
+MESALIB_MESON_CROSS_FILE := $(PTXDIST_GEN_CONFIG_DIR)/mesalib-cross-file.meson
+
 MESALIB_CONF_TOOL	:= meson
 MESALIB_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
@@ -185,7 +187,7 @@ MESALIB_CONF_OPT	:= \
 	-Dintel-clc=disabled \
 	-Dintel-xe-kmd=disabled \
 	-Dlibunwind=disabled \
-	-Dllvm=disabled \
+	-Dllvm=$(call ptx/endis, PTXCONF_MESALIB_LLVM)d \
 	-Dlmsensors=$(call ptx/endis, PTXCONF_MESALIB_LMSENSORS)d \
 	-Dmicrosoft-clc=disabled \
 	-Dmin-windows-version=8 \
@@ -204,7 +206,7 @@ MESALIB_CONF_OPT	:= \
 	-Dshader-cache-default=true \
 	-Dshader-cache-max-size=1G \
 	-Dshared-glapi=enabled \
-	-Dshared-llvm=disabled \
+	-Dshared-llvm=enabled \
 	-Dspirv-to-dxil=false \
 	-Dsse2=true \
 	-Dstatic-libclc=[] \
@@ -221,7 +223,17 @@ MESALIB_CONF_OPT	:= \
 	-Dxlib-lease=$(call ptx/endis, PTXCONF_MESALIB_EGL_X11)d \
 	-Dxmlconfig=$(call ptx/endis, PTXCONF_MESALIB_XMLCONFIG)d \
 	-Dzlib=enabled \
-	-Dzstd=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d
+	-Dzstd=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d \
+	\
+	--cross-file $(MESALIB_MESON_CROSS_FILE)
+
+$(STATEDIR)/mesalib.prepare:
+	@$(call targetinfo)
+	@sed -e "/pkgconfig/a llvm-config = '$(PTXDIST_SYSROOT_CROSS)/bin/llvm-config'" \
+		< $(PTXDIST_MESON_CROSS_FILE) \
+		> $(MESALIB_MESON_CROSS_FILE)
+	@$(call world/prepare, MESALIB)
+	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Compile
