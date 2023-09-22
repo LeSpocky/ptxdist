@@ -423,6 +423,9 @@ function write_vars_pkg_all(this_PKG, this_pkg, prefix) {
 		print this_PKG "_URL = $(" target_PKG "_URL)"		> DGEN_DEPS_PRE;
 		print this_PKG "_DIR = $(addprefix $(" PREFIX \
 			"BUILDDIR)/,$(" target_PKG "))"			> DGEN_DEPS_PRE;
+		print this_PKG "_SUBDIR = $(" target_PKG "_SUBDIR)"	> DGEN_DEPS_PRE;
+		print this_PKG "_STRIP_LEVEL = $(" target_PKG \
+			"_STRIP_LEVEL)"					> DGEN_DEPS_PRE;
 		print this_PKG "_LICENSE = $(" target_PKG "_LICENSE)"	> DGEN_DEPS_PRE;
 		print this_PKG "_LICENSE_FILES = $(" target_PKG \
 			"_LICENSE_FILES)"				> DGEN_DEPS_PRE;
