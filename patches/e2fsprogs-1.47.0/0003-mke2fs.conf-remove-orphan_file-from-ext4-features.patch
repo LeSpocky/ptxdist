@@ -1,0 +1,39 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 22 Sep 2023 10:18:04 +0200
+Subject: [PATCH] mke2fs.conf: remove orphan_file from ext4 features
+
+It's a performance optimization for deleting files. This is usually not
+that important for embedded and the option causes problems during
+up/downgrading:
+
+If an ext4 image with orphan_file is installed in a system with an older
+e2fsprogs version, then resizing the filesystem to fill the partition
+will fail.
+
+If, during a downgrade, rootfs is created with orphan_file and then
+filled from a tarball, then booting into that system can fail because
+fsck does not work.
+
+So remove orphan_file from the config. With host-e2fsprogs, this file is
+used to generate images at build-time. With the target e2fsprogs package
+this file is installed. So in both cases above the filesystems are
+generated without orphan_file.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ misc/mke2fs.conf.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/misc/mke2fs.conf.in b/misc/mke2fs.conf.in
+index b7fc95df7acf..d1637f854e57 100644
+--- a/misc/mke2fs.conf.in
++++ b/misc/mke2fs.conf.in
+@@ -11,7 +11,7 @@
+ 		features = has_journal
+ 	}
+ 	ext4 = {
+-		features = has_journal,extent,huge_file,flex_bg,metadata_csum,metadata_csum_seed,64bit,dir_nlink,extra_isize,orphan_file
++		features = has_journal,extent,huge_file,flex_bg,metadata_csum,metadata_csum_seed,64bit,dir_nlink,extra_isize
+ 	}
+ 	small = {
+ 		blocksize = 1024
