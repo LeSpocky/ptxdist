@@ -8,10 +8,10 @@ Origin: Debian, https://sources.debian.org/patches/minicom/2.8-1/04reproducible.
  1 file changed, 6 deletions(-)
 
 diff --git a/src/minicom.c b/src/minicom.c
-index cfdb76396968..bf3ad17ca089 100644
+index c9ce75c223be..8a006a3e039f 100644
 --- a/src/minicom.c
 +++ b/src/minicom.c
-@@ -1248,9 +1248,6 @@ int main(int argc, char **argv)
+@@ -1323,9 +1323,6 @@ int main(int argc, char **argv)
        switch(c) {
          case 'v':
            printf(_("%s version %s"), PACKAGE, VERSION);
@@ -21,7 +21,7 @@ index cfdb76396968..bf3ad17ca089 100644
            printf("\n");
            printf(_("Copyright (C) Miquel van Smoorenburg.\n\n"));
            printf(_("This program is free software; you can redistribute it and/or\n"
-@@ -1580,9 +1577,6 @@ int main(int argc, char **argv)
+@@ -1659,9 +1656,6 @@ int main(int argc, char **argv)
  
    mc_wprintf(us, "\n%s %s\r\n", _("Welcome to minicom"), VERSION);
    mc_wprintf(us, "\n%s: %s\r\n", _("OPTIONS"), option_string);

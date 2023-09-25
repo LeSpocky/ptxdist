@@ -16,12 +16,11 @@ PACKAGES-$(PTXCONF_MINICOM) += minicom
 #
 # Paths and names
 #
-MINICOM_VERSION	:= 2.8
-MINICOM_MD5	:= d32eb2e615f286611c4d1877a25939be
+MINICOM_VERSION	:= 2.9
+MINICOM_MD5	:= e61ea3d07e73e245513c119e91989254
 MINICOM_SUFFIX	:= tar.bz2
 MINICOM		:= minicom-$(MINICOM_VERSION)
-MINICOM_TARBALL	:= minicom_$(MINICOM_VERSION).orig.$(MINICOM_SUFFIX)
-MINICOM_URL	:= http://snapshot.debian.org/archive/debian/20210524T032801Z/pool/main/m/minicom/$(MINICOM_TARBALL)
+MINICOM_URL	:= https://salsa.debian.org/minicom-team/minicom/-/archive/$(MINICOM_VERSION)/$(MINICOM).$(MINICOM_SUFFIX)
 MINICOM_SOURCE	:= $(SRCDIR)/$(MINICOM).$(MINICOM_SUFFIX)
 MINICOM_DIR	:= $(BUILDDIR)/$(MINICOM)
 MINICOM_LICENSE	:= LGPL-2.0-or-later AND xinetd AND GPL-2.0-or-later
@@ -41,9 +40,11 @@ MINICOM_LICENSE_FILES	:= \
 MINICOM_CONF_TOOL	:= autoconf
 MINICOM_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-rpath \
 	--disable-music \
 	--enable-socket \
+	--enable-lockdev \
 	--enable-lock-dir=/var/lock \
 	--enable-dfl-port=/dev/modem \
 	--enable-dfl-baud=115200 \
