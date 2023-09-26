@@ -16,58 +16,26 @@ HOST_PACKAGES-$(PTXCONF_HOST_CAIRO) += host-cairo
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-HOST_CAIRO_CONF_TOOL	:= autoconf
+HOST_CAIRO_CONF_TOOL	:= meson
 HOST_CAIRO_CONF_OPT	:= \
-	$(HOST_AUTOCONF) \
-	--enable-shared \
-	--disable-static \
-	--disable-gtk-doc \
-	--enable-atomic \
-	--disable-gcov \
-	--disable-valgrind \
-	--disable-xlib \
-	--disable-xlib-xrender \
-	--disable-xcb \
-	--disable-xlib-xcb \
-	--disable-xcb-shm \
-	--disable-qt \
-	--disable-quartz \
-	--disable-quartz-font \
-	--disable-quartz-image \
-	--disable-win32 \
-	--disable-win32-font \
-	--disable-os2 \
-	--disable-beos \
-	--disable-drm \
-	--disable-gallium \
-	--disable-png \
-	--disable-gl \
-	--disable-glesv2 \
-	--disable-glesv3 \
-	--disable-cogl \
-	--disable-directfb \
-	--disable-vg \
-	--disable-egl \
-	--disable-glx \
-	--disable-wgl \
-	--disable-script \
-	--enable-ft \
-	--enable-fc \
-	--disable-ps \
-	--disable-pdf \
-	--disable-svg \
-	--disable-test-surfaces \
-	--disable-tee \
-	--disable-xml \
-	--enable-pthread \
-	--disable-gobject \
-	--disable-full-testing \
-	--disable-trace \
-	--disable-interpreter \
-	--disable-symbol-lookup \
-	--disable-some-floating-point \
-	--without-x
+	$(HOST_MESON_OPT) \
+	-Ddwrite=disabled \
+	-Dfontconfig=enabled \
+	-Dfreetype=enabled \
+	-Dglib=disabled \
+	-Dgtk2-utils=disabled \
+	-Dgtk_doc=false \
+	-Dpng=disabled \
+	-Dquartz=disabled \
+	-Dspectre=disabled \
+	-Dsymbol-lookup=disabled \
+	-Dtee=disabled \
+	-Dtests=disabled \
+	-Dxcb=disabled \
+	-Dxlib=disabled \
+	-Dxlib-xcb=disabled \
+	-Dzlib=disabled
 
 # vim: syntax=make

@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_CAIRO) += cairo
 #
 # Paths and names
 #
-CAIRO_VERSION	:= 1.16.0
-CAIRO_MD5	:= f19e0353828269c22bd72e271243a552
+CAIRO_VERSION	:= 1.18.0
+CAIRO_MD5	:= 3f0685fbadc530606f965b9645bb51d9
 CAIRO		:= cairo-$(CAIRO_VERSION)
 CAIRO_SUFFIX	:= tar.xz
 CAIRO_URL	:= http://cairographics.org/releases/cairo-$(CAIRO_VERSION).$(CAIRO_SUFFIX)
@@ -31,63 +31,40 @@ CAIRO_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
+CAIRO_MESON_CROSS_FILE := $(PTXDIST_GEN_CONFIG_DIR)/cairo-cross-file.meson
+
 #
-# autoconf
+# meson
 #
-CAIRO_CONF_TOOL	:= autoconf
+CAIRO_CONF_TOOL	:= meson
 CAIRO_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--enable-shared \
-	--disable-static \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--enable-atomic \
-	--disable-gcov \
-	--disable-valgrind \
-	--$(call ptx/endis, PTXCONF_CAIRO_XLIB)-xlib \
-	--$(call ptx/endis, PTXCONF_CAIRO_XLIB)-xlib-xrender \
-	--$(call ptx/endis, PTXCONF_CAIRO_XCB)-xcb \
-	--disable-xlib-xcb \
-	--$(call ptx/endis, PTXCONF_CAIRO_XCB)-xcb-shm \
-	--disable-qt \
-	--disable-quartz \
-	--disable-quartz-font \
-	--disable-quartz-image \
-	--disable-win32 \
-	--disable-win32-font \
-	--disable-os2 \
-	--disable-beos \
-	--disable-drm \
-	--disable-gallium \
-	--$(call ptx/endis, PTXCONF_CAIRO_PNG)-png \
-	--$(call ptx/endis, PTXCONF_CAIRO_GL)-gl \
-	--$(call ptx/endis, PTXCONF_CAIRO_GLES2)-glesv2 \
-	--disable-glesv3 \
-	--disable-cogl \
-	--disable-directfb \
-	--disable-vg \
-	--$(call ptx/endis, PTXCONF_CAIRO_EGL)-egl \
-	--$(call ptx/endis, PTXCONF_CAIRO_GLX)-glx \
-	--disable-wgl \
-	--$(call ptx/endis, PTXCONF_CAIRO_SCRIPT)-script \
-	--$(call ptx/endis, PTXCONF_CAIRO_FREETYPE)-ft \
-	--$(call ptx/endis, PTXCONF_CAIRO_FREETYPE)-fc \
-	--$(call ptx/endis, PTXCONF_CAIRO_PS)-ps \
-	--$(call ptx/endis, PTXCONF_CAIRO_PDF)-pdf \
-	--$(call ptx/endis, PTXCONF_CAIRO_SVG)-svg \
-	--disable-test-surfaces \
-	--disable-tee \
-	--disable-xml \
-	--enable-pthread \
-	--$(call ptx/endis, PTXCONF_CAIRO_GOBJECT)-gobject \
-	--disable-full-testing \
-	--disable-trace \
-	--disable-interpreter \
-	--disable-symbol-lookup \
-	--$(call ptx/endis, PTXCONF_HAS_HARDFLOAT)-some-floating-point \
-	--$(call ptx/wwo, PTXCONF_CAIRO_XLIB)-x
+	$(CROSS_MESON_USR) \
+	-Ddwrite=disabled \
+	-Dfontconfig=$(call ptx/endis, PTXCONF_CAIRO_FREETYPE)d \
+	-Dfreetype=$(call ptx/endis, PTXCONF_CAIRO_FREETYPE)d \
+	-Dglib=$(call ptx/endis, PTXCONF_CAIRO_GOBJECT)d \
+	-Dgtk2-utils=disabled \
+	-Dgtk_doc=false \
+	-Dpng=$(call ptx/endis, PTXCONF_CAIRO_PNG)d \
+	-Dquartz=disabled \
+	-Dspectre=disabled \
+	-Dsymbol-lookup=disabled \
+	-Dtee=disabled \
+	-Dtests=disabled \
+	-Dxcb=$(call ptx/endis, PTXCONF_CAIRO_XCB)d \
+	-Dxlib=$(call ptx/endis, PTXCONF_CAIRO_XLIB)d \
+	-Dxlib-xcb=disabled \
+	-Dzlib=$(call ptx/endis, PTXCONF_CAIRO_ZLIB)d \
+	\
+	--cross-file $(CAIRO_MESON_CROSS_FILE)
+
+$(STATEDIR)/cairo.prepare:
+	@$(call targetinfo)
+	@sed -e "/needs_exe_wrapper/a ipc_rmid_deferred_release = 'true'" \
+		< $(PTXDIST_MESON_CROSS_FILE) \
+		> $(CAIRO_MESON_CROSS_FILE)
+	@$(call world/prepare, CAIRO)
+	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Target-Install

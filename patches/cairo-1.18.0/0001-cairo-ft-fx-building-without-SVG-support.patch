@@ -1,0 +1,35 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Wed, 27 Sep 2023 09:56:56 +0200
+Subject: [PATCH] cairo-ft: fx building without SVG support
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Without SVG support, FT_Color is not defined and building fails with:
+
+../cairo-1.18.0/src/cairo-ft-private.h:87:30: error: unknown type name ‘FT_Color’
+
+Fix this by defining FT_Color unconditionally.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ src/cairo-ft-private.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/cairo-ft-private.h b/src/cairo-ft-private.h
+index 836f7e523e59..399d0d046094 100644
+--- a/src/cairo-ft-private.h
++++ b/src/cairo-ft-private.h
+@@ -63,10 +63,10 @@ cairo_private cairo_status_t
+ _cairo_ft_face_decompose_glyph_outline (FT_Face		     face,
+ 					cairo_path_fixed_t **pathp);
+ 
+-#if HAVE_FT_SVG_DOCUMENT
+-
+ typedef struct FT_Color_ FT_Color;
+ 
++#if HAVE_FT_SVG_DOCUMENT
++
+ cairo_private cairo_status_t
+ _cairo_render_svg_glyph (const char           *svg_document,
+                          unsigned long         first_glyph,

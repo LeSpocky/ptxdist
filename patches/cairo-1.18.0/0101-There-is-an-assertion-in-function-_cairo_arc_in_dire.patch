@@ -14,11 +14,11 @@ Signed-off-by: Christian Melki <christian.melki@t2data.com>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/src/cairo-arc.c b/src/cairo-arc.c
-index f9249dbeb3c8..1bde774a418d 100644
+index 010b9c1a7a18..4516c00e2602 100644
 --- a/src/cairo-arc.c
 +++ b/src/cairo-arc.c
-@@ -186,7 +186,8 @@ _cairo_arc_in_direction (cairo_t	  *cr,
-     if (cairo_status (cr))
+@@ -191,7 +191,8 @@ _cairo_arc_in_direction (cairo_t	  *cr,
+     if (! ISFINITE (angle_max) || ! ISFINITE (angle_min))
          return;
  
 -    assert (angle_max >= angle_min);

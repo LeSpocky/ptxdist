@@ -13,9 +13,7 @@ menuconfig WPEWEBKIT
 	select GLIB
 	select LIBWPE
 	select CAIRO
-	select CAIRO_EGL
 	select CAIRO_FREETYPE
-	select CAIRO_GLES2
 	select CAIRO_PNG
 	select FONTCONFIG
 	select FREETYPE

@@ -2,19 +2,15 @@
 
 menuconfig CAIRO
 	tristate
+	select HOST_MESON
 	select GCCLIBS_GCC_S
 	select XORG_LIB_XEXT	if CAIRO_XLIB
 	select XORG_LIB_XRENDER	if CAIRO_XLIB
-	select ZLIB		if CAIRO_PS || CAIRO_PDF
+	select ZLIB		if CAIRO_ZLIB
 	select GLIB		if CAIRO_GOBJECT
 	select FREETYPE		if CAIRO_FREETYPE
 	select FONTCONFIG	if CAIRO_FREETYPE
 	select LIBPNG		if CAIRO_PNG
-	select MESALIB		if CAIRO_GL || CAIRO_GLES2
-	select MESALIB_OPENGL	if CAIRO_GL
-	select MESALIB_GLES2	if CAIRO_GLES2
-	select MESALIB_GLX	if CAIRO_GLX
-	select MESALIB_EGL	if CAIRO_EGL
 	select LIBXCB		if CAIRO_XCB
 
 	select PIXMAN
@@ -30,6 +26,9 @@ if CAIRO
 config CAIRO_GOBJECT
 	bool
 
+config CAIRO_ZLIB
+	bool
+
 comment "surface backends"
 
 config CAIRO_XLIB
@@ -40,21 +39,14 @@ config CAIRO_XCB
 	bool
 	prompt "xcb"
 
-config CAIRO_GL
-	bool
-	depends on !CAIRO_GLES2
-	prompt "OpenGL"
-
-config CAIRO_GLES2
-	bool
-	prompt "OpenGLESv2"
-
 config CAIRO_PS
 	bool
+	select CAIRO_ZLIB
 	prompt "PostScript"
 
 config CAIRO_PDF
 	bool
+	select CAIRO_ZLIB
 	prompt "PDF"
 
 config CAIRO_SVG
@@ -74,20 +66,7 @@ config CAIRO_PNG
 
 config CAIRO_SCRIPT
 	bool
+	select CAIRO_ZLIB
 	prompt "script surface"
-
-if CAIRO_GL || CAIRO_GLES2
-
-config CAIRO_GLX
-	bool
-	depends on !CAIRO_EGL && CAIRO_GL
-	prompt "GLX support"
-
-config CAIRO_EGL
-	bool
-	depends on CAIRO_GL || CAIRO_GLES2
-	prompt "EGL support"
-
-endif
 
 endif
