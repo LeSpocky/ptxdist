@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_PAHO_MQTT
+	tristate
+	select PYTHON3
+	prompt "paho-mqtt"
+	help
+	  Eclipse Paho MQTT Python client library, which implements
+	  versions 5.0, 3.1.1, and 3.1 of the MQTT protocol.
