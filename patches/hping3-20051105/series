@@ -1,3 +1,0 @@
-clean_makefile.diff -p0
-remove_pcap_header.diff -p0
-host_vs_target.diff -p0
