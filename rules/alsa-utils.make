@@ -33,6 +33,12 @@ ALSA_UTILS_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
+
+ALSA_UTILS_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_header_alsa_mixer_h=$(call ptx/yesno, PTXCONF_ALSA_UTILS_ALSAMIXER) \
+	ac_cv_header_alsa_rawmidi_h=$(call ptx/yesno, PTXCONF_ALSA_UTILS_RAW_MIDI)
+
 #
 # autoconf
 #

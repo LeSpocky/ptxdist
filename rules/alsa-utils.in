@@ -15,9 +15,8 @@ menuconfig ALSA_UTILS
 	select NCURSES_FORM	if ALSA_UTILS_ALSAMIXER
 	select NCURSES_MENU	if ALSA_UTILS_ALSAMIXER
 	select NCURSES_PANEL	if ALSA_UTILS_ALSAMIXER
+	# needed for minimum systemd version check
 	select SYSTEMD		if ALSA_UTILS_SYSTEMD_UNIT
-	# to detect where to install its udev rules
-	select UDEV
 	help
 	  Some utils to handle the Advanced Linux Sound Architecture.
 	  With these utils you can control your sound device, for
