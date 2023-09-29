@@ -15,15 +15,6 @@ menuconfig CUPS_FILTERS
 	select FONTCONFIG
 	select QPDF
 
-	# Note: configure does not check for these poppler options:
-	select POPPLER			if CUPS_FILTERS_POPPLER
-	select POPPLER_BIN		if CUPS_FILTERS_POPPLER # for pdftops
-	select POPPLER_CPP		if CUPS_FILTERS_POPPLER
-	select POPPLER_CMS		if CUPS_FILTERS_POPPLER
-	select POPPLER_SPLASH		if CUPS_FILTERS_POPPLER
-	select POPPLER_SPLASH_DOUBLE	if CUPS_FILTERS_POPPLER
-	select POPPLER_XPDF		if CUPS_FILTERS_POPPLER
-
 	select LIBJPEG			if CUPS_FILTERS_JPEG
 	select LIBPNG			if CUPS_FILTERS_PNG
 
@@ -39,7 +30,7 @@ menuconfig CUPS_FILTERS
 if CUPS_FILTERS
 
 config CUPS_FILTERS_POPPLER
-	depends on STAGING
+	depends on BROKEN
 	bool "build with poppler support"
 	help
 	  Build with poppler support, needed for pdfto* filters and banners.
