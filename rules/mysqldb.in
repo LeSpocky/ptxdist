@@ -3,7 +3,6 @@
 menuconfig MYSQLDB
 	tristate
 	select VIRTUAL
-	select MYSQL	if MYSQLDB_MYSQL
 	select MARIADB	if MYSQLDB_MARIADB
 	prompt "mysql/mariadb                 "
 
@@ -14,7 +13,7 @@ choice
 
 config MYSQLDB_MYSQL
 	bool
-	depends on STAGING
+	depends on BROKEN
 	prompt "mysql                  "
 
 config MYSQLDB_MARIADB
