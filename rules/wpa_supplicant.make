@@ -47,8 +47,7 @@ $(STATEDIR)/wpa_supplicant.prepare:
 	@$(call targetinfo)
 
 #	# run 'make clean' as wpa_supplicant's build system does not recognize config changes
-	@-cd $(WPA_SUPPLICANT_DIR)/$(WPA_SUPPLICANT_SUBDIR) && \
-		$(WPA_SUPPLICANT_MAKE_ENV) $(WPA_SUPPLICANT_PATH) $(MAKE) clean
+	@-$(call compile, WPA_SUPPLICANT, clean)
 
 	@cp $(WPA_SUPPLICANT_CONFIG) $(WPA_SUPPLICANT_DOTCONFIG)
 	@$(call enable_sh,$(WPA_SUPPLICANT_DOTCONFIG),CC=$(CROSS_CC))
