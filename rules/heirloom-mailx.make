@@ -27,8 +27,6 @@ HEIRLOOM_MAILX_LICENSE	:= unknown
 # Prepare
 # ----------------------------------------------------------------------------
 
-HEIRLOOM_MAILX_CONF_ENV	:= $(CROSS_ENV)
-
 HEIRLOOM_MAILX_DISABLE := \
 	USE_SSL \
 	USE_NSS \
@@ -39,9 +37,8 @@ HEIRLOOM_MAILX_DISABLE := \
 $(STATEDIR)/heirloom-mailx.prepare:
 	@$(call targetinfo)
 	@$(call clean, $(HEIRLOOM_MAILX_DIR)/config.cache)
-	@cd $(HEIRLOOM_MAILX_DIR) && \
-		$(HEIRLOOM_MAILX_PATH) $(HEIRLOOM_MAILX_CONF_ENV) \
-		sh makeconfig
+	@$(call world/execute, HEIRLOOM_MAILX, \
+		sh makeconfig)
 #	# disable ssl options
 	@$(foreach def,$(HEIRLOOM_MAILX_DISABLE), \
 		sed -i 's;^\(#define $(def)\)$$;/*\1*/;' $(HEIRLOOM_MAILX_DIR)/config.h;)
