@@ -4,6 +4,7 @@ menuconfig UTIL_LINUX
 	tristate
 	prompt "util-linux                    "
 	select GCCLIBS_GCC_S
+	select HOST_MESON
 	select UTIL_LINUX_LIBBLKID
 	select UTIL_LINUX_LIBUUID		if UTIL_LINUX_MKSWAP_UUID
 	select NCURSES				if UTIL_LINUX_USES_NCURSES
@@ -32,6 +33,11 @@ config UTIL_LINUX_FDISKS
 
 config UTIL_LINUX_USES_NCURSES
 	bool
+
+config UTIL_LINUX_USES_NCURSESW
+	bool
+	depends on UTIL_LINUX_USES_NCURSES
+	default NCURSES_WIDE_CHAR
 
 config UTIL_LINUX_USES_PAM
 	bool

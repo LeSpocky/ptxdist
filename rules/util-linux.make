@@ -34,153 +34,123 @@ UTIL_LINUX_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-UTIL_LINUX_CONF_ENV	:= \
-	$(CROSS_ENV) \
-	$(call ptx/ncurses, PTXCONF_UTIL_LINUX_USES_NCURSES) \
-	scanf_cv_type_modifier=as \
-	ac_cv_path_BLKID=no \
-	ac_cv_path_PERL=no \
-	ac_cv_path_VOLID=no
+# only one of -Dncurses= and -Dncursesw= can be enabled.
+ifndef PTXCONF_UTIL_LINUX_USES_NCURSESW
+UTIL_LINUX_USES_NCURSES := $(PTXCONF_UTIL_LINUX_USES_NCURSES)
+else
+UTIL_LINUX_USES_NCURSES :=
+endif
 
 #
-# autoconf
+# meson
 #
-UTIL_LINUX_CONF_TOOL	:= autoconf
+UTIL_LINUX_CONF_TOOL	:= meson
 UTIL_LINUX_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--bindir=/usr/bin \
-	--sbindir=/usr/sbin \
-	--disable-werror \
-	--disable-asan \
-	--disable-ubsan \
-	--disable-fuzzing-engine \
-	--enable-shared \
-	--disable-static \
-	--enable-symvers \
-	--disable-gtk-doc \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--enable-assert \
-	--disable-nls \
-	--disable-rpath \
-	--disable-static-programs \
-	--enable-all-programs=undefined \
-	--disable-asciidoc \
-	--disable-poman \
-	--enable-tls \
-	--disable-widechar \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBUUID)-libuuid \
-	--disable-libuuid-force-uuidd \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBBLKID)-libblkid \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBMOUNT)-libmount \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBSMARTCOLS)-libsmartcols \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBFDISK)-libfdisk \
-	$(call ptx/ifdef, PTXCONF_UTIL_LINUX_FDISKS,,--disable-fdisks) \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_MOUNT)-mount \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LOSETUP)-losetup \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_ZRAMCTL)-zramctl \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_FSCK)-fsck \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_PARTX_TOOLS)-partx \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_UUIDD)-uuidd \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_UUIDGEN)-uuidgen \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_BLKID)-blkid \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_WIPEFS)-wipefs \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_MOUNTPOINT)-mountpoint \
-	--disable-fallocate \
-	--disable-unshare \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_NSENTER)-nsenter \
-	--disable-setpriv \
-	--disable-hardlink \
-	--disable-eject \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_AGETTY)-agetty \
-	--disable-plymouth_support \
-	--disable-cramfs \
-	--disable-bfs \
-	--disable-minix \
-	--disable-fdformat \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_HWCLOCK)-hwclock \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_MKFS)-mkfs \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_FSTRIM)-fstrim \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_SWAPON)-swapon \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSCPU)-lscpu \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSFD)-lsfd \
-	--disable-lslogins \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_WDCTL)-wdctl \
-	--disable-cal \
-	--disable-logger \
-	--disable-whereis \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_PIPESZ)-pipesz \
-	--disable-waitpid \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_SWITCH_ROOT)-switch_root \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_PIVOT_ROOT)-pivot_root \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSMEM)-lsmem \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_CHMEM)-chmem \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IPCMK)-ipcmk \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IPCRM)-ipcrm \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IPCS)-ipcs \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_IRQTOP)-irqtop \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSIRQ)-lsirq \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LSNS)-lsns \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_RFKILL)-rfkill \
-	--disable-scriptutils \
-	--disable-tunelp \
-	--disable-kill \
-	--disable-last \
-	--disable-utmpdump \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LINE)-line \
-	--disable-mesg \
-	--disable-raw \
-	--disable-rename \
-	--disable-vipw \
-	--disable-newgrp \
-	--disable-chfn-chsh-password \
-	--disable-chfn-chsh \
-	--disable-chsh-only-listed \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_LOGIN)-login \
-	--disable-login-chown-vcs \
-	--disable-login-stat-mail \
-	--disable-nologin \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_SULOGIN)-sulogin \
-	--disable-su \
-	--disable-runuser \
-	--disable-ul \
-	--disable-more \
-	--disable-pg \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_SETTERM)-setterm \
-	--$(call ptx/endis, PTXCONF_UTIL_LINUX_SCHEDUTILS)-schedutils \
-	--disable-wall \
-	--disable-write \
-	--disable-bash-completion \
-	--disable-pylibmount \
-	--disable-pg-bell \
-	--disable-use-tty-group \
-	--disable-sulogin-emergency-mount \
-	--disable-usrdir-path \
-	--disable-makeinstall-chown \
-	--disable-makeinstall-setuid \
-	--disable-colors-default \
-	--without-libiconv-prefix \
-	--without-libintl-prefix \
-	--with-util \
-	--without-selinux \
-	--without-audit \
-	--without-udev \
-	--without-ncursesw \
-	--$(call ptx/wwo, PTXCONF_UTIL_LINUX_USES_NCURSES)-ncurses \
-	--without-slang \
-	--without-tinfo \
-	--without-readline \
-	--without-utempter \
-	--without-cap-ng \
-	--without-libz \
-	--without-libmagic \
-	--without-user \
-	--without-btrfs \
-	--without-systemd \
-	--with-systemdsystemunitdir=/usr/lib/systemd/system \
-	--without-smack \
-	--without-econf \
-	--without-python \
-	--without-cryptsetup
+	$(CROSS_MESON_USR) \
+	-Daudit=disabled \
+	-Dbtrfs=disabled \
+	-Dbuild-agetty=$(call ptx/endis, PTXCONF_UTIL_LINUX_AGETTY)d \
+	-Dbuild-bash-completion=disabled \
+	-Dbuild-bfs=disabled \
+	-Dbuild-cal=disabled \
+	-Dbuild-chfn-chsh=disabled \
+	-Dbuild-chmem=$(call ptx/endis, PTXCONF_UTIL_LINUX_CHMEM)d \
+	-Dbuild-cramfs=disabled \
+	-Dbuild-eject=disabled \
+	-Dbuild-fallocate=disabled \
+	-Dbuild-fdformat=disabled \
+	-Dbuild-fdisks=$(call ptx/endis, PTXCONF_UTIL_LINUX_FDISKS)d \
+	-Dbuild-fsck=$(call ptx/endis, PTXCONF_UTIL_LINUX_FSCK)d \
+	-Dbuild-hardlink=disabled \
+	-Dbuild-hwclock=$(call ptx/endis, PTXCONF_UTIL_LINUX_HWCLOCK)d \
+	-Dbuild-ipcrm=$(call ptx/endis, PTXCONF_UTIL_LINUX_IPCRM)d \
+	-Dbuild-ipcs=$(call ptx/endis, PTXCONF_UTIL_LINUX_IPCS)d \
+	-Dbuild-irqtop=$(call ptx/endis, PTXCONF_UTIL_LINUX_IRQTOP)d \
+	-Dbuild-kill=disabled \
+	-Dbuild-last=disabled \
+	-Dbuild-libblkid=$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBBLKID)d \
+	-Dbuild-libfdisk=$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBFDISK)d \
+	-Dbuild-libmount=$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBMOUNT)d \
+	-Dbuild-libsmartcols=$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBSMARTCOLS)d \
+	-Dbuild-libuuid=$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBUUID)d \
+	-Dbuild-line=$(call ptx/endis, PTXCONF_UTIL_LINUX_LINE)d \
+	-Dbuild-logger=disabled \
+	-Dbuild-login=$(call ptx/endis, PTXCONF_UTIL_LINUX_LOGIN)d \
+	-Dbuild-losetup=$(call ptx/endis, PTXCONF_UTIL_LINUX_LOSETUP)d \
+	-Dbuild-lsirq=$(call ptx/endis, PTXCONF_UTIL_LINUX_LSIRQ)d \
+	-Dbuild-lslogins=disabled \
+	-Dbuild-lsmem=$(call ptx/endis, PTXCONF_UTIL_LINUX_LSMEM)d \
+	-Dbuild-mesg=disabled \
+	-Dbuild-minix=disabled \
+	-Dbuild-more=disabled \
+	-Dbuild-mount=$(call ptx/endis, PTXCONF_UTIL_LINUX_MOUNT)d \
+	-Dbuild-mountpoint=$(call ptx/endis, PTXCONF_UTIL_LINUX_MOUNTPOINT)d \
+	-Dbuild-newgrp=disabled \
+	-Dbuild-nologin=disabled \
+	-Dbuild-nsenter=$(call ptx/endis, PTXCONF_UTIL_LINUX_NSENTER)d \
+	-Dbuild-partx=$(call ptx/endis, PTXCONF_UTIL_LINUX_PARTX_TOOLS)d \
+	-Dbuild-pg=disabled \
+	-Dbuild-pipesz=$(call ptx/endis, PTXCONF_UTIL_LINUX_PIPESZ)d \
+	-Dbuild-pivot_root=$(call ptx/endis, PTXCONF_UTIL_LINUX_PIVOT_ROOT)d \
+	-Dbuild-plymouth-support=disabled \
+	-Dbuild-pylibmount=disabled \
+	-Dbuild-python=disabled \
+	-Dbuild-raw=disabled \
+	-Dbuild-rename=disabled \
+	-Dbuild-rfkill=$(call ptx/endis, PTXCONF_UTIL_LINUX_RFKILL)d \
+	-Dbuild-runuser=disabled \
+	-Dbuild-schedutils=$(call ptx/endis, PTXCONF_UTIL_LINUX_SCHEDUTILS)d \
+	-Dbuild-setpriv=disabled \
+	-Dbuild-setterm=$(call ptx/endis, PTXCONF_UTIL_LINUX_SETTERM)d \
+	-Dbuild-su=disabled \
+	-Dbuild-sulogin=$(call ptx/endis, PTXCONF_UTIL_LINUX_SULOGIN)d \
+	-Dbuild-switch_root=$(call ptx/endis, PTXCONF_UTIL_LINUX_SWITCH_ROOT)d \
+	-Dbuild-tunelp=disabled \
+	-Dbuild-ul=disabled \
+	-Dbuild-unshare=disabled \
+	-Dbuild-utmpdump=disabled \
+	-Dbuild-uuidd=$(call ptx/endis, PTXCONF_UTIL_LINUX_UUIDD)d \
+	-Dbuild-vipw=disabled \
+	-Dbuild-wall=disabled \
+	-Dbuild-wdctl=$(call ptx/endis, PTXCONF_UTIL_LINUX_WDCTL)d \
+	-Dbuild-wipefs=$(call ptx/endis, PTXCONF_UTIL_LINUX_WIPEFS)d \
+	-Dbuild-write=disabled \
+	-Dbuild-zramctl=$(call ptx/endis, PTXCONF_UTIL_LINUX_ZRAMCTL)d \
+	-Dchfn-chsh-password=true \
+	-Dchsh-only-listed=true \
+	-Dcolors-default=true \
+	-Dcryptsetup=disabled \
+	-Dcryptsetup-dlopen=disabled \
+	-Deconf=disabled \
+	-Dfs-search-path=/usr/sbin \
+	-Dfs-search-path-extra= \
+	-Dlibpcre2-posix=disabled \
+	-Dlibuser=disabled \
+	-Dlibutempter=disabled \
+	-Dlibutil=disabled \
+	-Dmagic=disabled \
+	-Dncurses=$(call ptx/endis, UTIL_LINUX_USES_NCURSES)d \
+	-Dncursesw=$(call ptx/endis, PTXCONF_UTIL_LINUX_USES_NCURSESW)d \
+	-Dnls=disabled \
+	-Dpg-bell=false \
+	-Dpython=false \
+	-Dreadline=disabled \
+	-Dselinux=disabled \
+	-Dslang=disabled \
+	-Dsmack=disabled \
+	-Dstatic-programs= \
+	-Dsystemd=disabled \
+	-Dsysvinit=disabled \
+	-Dtinfo=disabled \
+	-Duse-tls=true \
+	-Duse-tty-group=false \
+	-Dvendordir= \
+	-Dwidechar=$(call ptx/disen, UTIL_LINUX_USES_NCURSES)d \
+	-Dzlib=disabled
+
+ifndef PTXCONF_GLIBC_2_34
+UTIL_LINUX_LDFLAGS := -lutil
+endif
 
 # ----------------------------------------------------------------------------
 # Target-Install
