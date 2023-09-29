@@ -64,8 +64,8 @@ HOST_PYTHON3_BABEL_CONF_TOOL    := python3
 
 $(STATEDIR)/host-python3-babel.prepare:
 	@$(call targetinfo)
-	@cd $(HOST_PYTHON3_BABEL_DIR) && \
-		python$(PYTHON3_MAJORMINOR) scripts/import_cldr.py $(HOST_PYTHON3_BABEL_CLDR_DIR)
+	@$(call world/execute, HOST_PYTHON3_BABEL, \
+		$(HOSTPYTHON3) scripts/import_cldr.py $(HOST_PYTHON3_BABEL_CLDR_DIR))
 	@$(call world/prepare, HOST_PYTHON3_BABEL)
 	@$(call touch)
 
