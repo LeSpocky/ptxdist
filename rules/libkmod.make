@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBKMOD) += libkmod
 #
 # Paths and names
 #
-LIBKMOD_VERSION	:= 30
-LIBKMOD_MD5	:= 85202f0740a75eb52f2163c776f9b564
+LIBKMOD_VERSION	:= 31
+LIBKMOD_MD5	:= 6165867e1836d51795a11ea4762ff66a
 LIBKMOD		:= kmod-$(LIBKMOD_VERSION)
 LIBKMOD_SUFFIX	:= tar.xz
 LIBKMOD_URL	:= $(call ptx/mirror, KERNEL, utils/kernel/kmod/$(LIBKMOD).$(LIBKMOD_SUFFIX))
@@ -43,6 +43,9 @@ LIBKMOD_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBKMOD_DEBUG)-debug \
 	--disable-python \
 	--disable-coverage \
+	--disable-gtk-doc \
+	--disable-gtk-doc-html \
+	--disable-gtk-doc-pdf \
 	--$(call ptx/wwo, PTXCONF_LIBKMOD_ZSTD)-zstd \
 	--without-xz \
 	--$(call ptx/wwo, PTXCONF_LIBKMOD_ZLIB)-zlib \
