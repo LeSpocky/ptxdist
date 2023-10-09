@@ -38,6 +38,11 @@ endif
 ifdef PTXCONF_ARCH_ARM64
 HOST_QEMU_TARGETS	:= aarch64
 endif
+ifdef PTXCONF_ARCH_MIPS
+ifdef PTXCONF_ENDIAN_LITTLE
+HOST_QEMU_TARGETS	:= mipsel
+endif
+endif
 HOST_QEMU_SYS_TARGETS	:= $(patsubst %,%-softmmu,$(HOST_QEMU_TARGETS))
 HOST_QEMU_USR_TARGETS	:= $(patsubst %,%-linux-user,$(HOST_QEMU_TARGETS))
 
