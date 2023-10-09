@@ -447,6 +447,7 @@ config UTIL_LINUX_MOUNT
 	bool
 	prompt "mount"
 	select UTIL_LINUX_LIBMOUNT
+	select UTIL_LINUX_LIBSMARTCOLS
 	depends on !BUSYBOX_MOUNT || ALLYES
 	help
 	  The mount command serves to attach the file system
