@@ -29,6 +29,9 @@ config UTIL_LINUX_LIBFDISK
 	bool
 
 config UTIL_LINUX_FDISKS
+	select UTIL_LINUX_LIBFDISK
+	select UTIL_LINUX_LIBSMARTCOLS
+	select UTIL_LINUX_USES_NCURSES
 	bool
 
 config UTIL_LINUX_USES_NCURSES
@@ -61,10 +64,7 @@ config UTIL_LINUX_ADDPART
 
 config UTIL_LINUX_CFDISK
 	bool
-	select UTIL_LINUX_LIBFDISK
-	select UTIL_LINUX_LIBSMARTCOLS
 	select UTIL_LINUX_FDISKS
-	select UTIL_LINUX_USES_NCURSES
 	prompt "cfdisk"
 	help
 	  cfdisk is a curses based program for partitioning any hard disk drive.
@@ -79,8 +79,6 @@ config UTIL_LINUX_DELPART
 config UTIL_LINUX_FDISK
 	bool
 	prompt "fdisk"
-	select UTIL_LINUX_LIBFDISK
-	select UTIL_LINUX_LIBSMARTCOLS
 	select UTIL_LINUX_FDISKS
 	depends on !BUSYBOX_FDISK || ALLYES
 	help
@@ -137,8 +135,6 @@ config UTIL_LINUX_PARTX
 config UTIL_LINUX_SFDISK
 	bool
 	prompt "sfdisk"
-	select UTIL_LINUX_LIBFDISK
-	select UTIL_LINUX_LIBSMARTCOLS
 	select UTIL_LINUX_FDISKS
 	help
 	  sfdisk - Partition table manipulator for Linux,
