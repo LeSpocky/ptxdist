@@ -1,0 +1,11 @@
+## SECTION=system_libraries
+
+config LIBATOMIC_OPS
+	tristate
+	prompt "libatomic_ops"
+	help
+	  Semi-portable access to hardware-provided atomic memory update
+	  operations on a number of architectures.
+	  IN NEW CODE, PLEASE USE C11 OR C++14 STANDARD ATOMICS INSTEAD!
+
+# vim: ft=kconfig noet tw=72 ts=8 sw=8
