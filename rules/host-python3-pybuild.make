@@ -9,7 +9,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_HOST_PYTHON3_PYBUILD) += host-python3-pybuild
+HOST_PACKAGES-$(PTXCONF_HOST_PYTHON3_PYBUILD) += host-python3-pybuild
 
 #
 # Paths and names

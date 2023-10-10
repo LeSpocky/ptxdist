@@ -9,7 +9,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_HOST_ZSTD) += host-zstd
+HOST_PACKAGES-$(PTXCONF_HOST_ZSTD) += host-zstd
 
 #
 # Paths and names

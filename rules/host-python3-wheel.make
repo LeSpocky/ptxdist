@@ -9,7 +9,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_HOST_PYTHON3_WHEEL) += host-python3-wheel
+HOST_PACKAGES-$(PTXCONF_HOST_PYTHON3_WHEEL) += host-python3-wheel
 
 #
 # Paths and names

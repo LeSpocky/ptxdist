@@ -9,7 +9,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_HOST_PYTHON3_TOML) += host-python3-toml
+HOST_PACKAGES-$(PTXCONF_HOST_PYTHON3_TOML) += host-python3-toml
 
 #
 # Paths and names

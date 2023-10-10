@@ -9,7 +9,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_HOST_PYTHON3_INSTALLER) += host-python3-installer
+HOST_PACKAGES-$(PTXCONF_HOST_PYTHON3_INSTALLER) += host-python3-installer
 
 #
 # Paths and names

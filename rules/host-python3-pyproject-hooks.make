@@ -9,7 +9,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_HOST_PYTHON3_PYPROJECT_HOOKS) += host-python3-pyproject-hooks
+HOST_PACKAGES-$(PTXCONF_HOST_PYTHON3_PYPROJECT_HOOKS) += host-python3-pyproject-hooks
 
 #
 # Paths and names

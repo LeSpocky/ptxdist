@@ -9,7 +9,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_HOST_PYTHON3_FLIT_CORE) += host-python3-flit-core
+HOST_PACKAGES-$(PTXCONF_HOST_PYTHON3_FLIT_CORE) += host-python3-flit-core
 
 #
 # Paths and names
