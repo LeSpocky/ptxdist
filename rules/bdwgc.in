@@ -1,0 +1,11 @@
+## SECTION=system_libraries
+
+config BDWGC
+	tristate
+	prompt "bdwgc"
+	select LIBATOMIC_OPS
+	help
+	  A garbage collector for C and C++.
+	  https://www.hboehm.info/gc/
+
+# vim: ft=kconfig noet tw=72 ts=8 sw=8
