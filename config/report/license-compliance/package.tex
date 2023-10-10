@@ -1,0 +1,23 @@
+{% macro package(pkg) %}
+\chapter{ {{- build_chapter(pkg) }} \label{ {{- pkg.name }}}}
+
+\begin{description}
+\item[Package:] {{ escape(pkg.name) }} {{ escape(pkg.get('version', '')) }}
+\item[License:] {{ escape(pkg.licenses) }}
+\end{description}
+
+{%- if pkg.get('license-files') %}
+{%- for name, license in pkg.get('license-files').items() %}
+\section{ {{- escape(name)}}}
+{%- if name.endswith('.pdf') %}
+\includepdf[pages=-]{ {{- license.file}}}
+{% else %}
+\begin{small}
+\begin{spverbatim}
+{{ source_file(license.file) }}
+\end{spverbatim}
+\end{small}
+{% endif %}
+{%- endfor %}
+{% endif %}
+{% endmacro %}

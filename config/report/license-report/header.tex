@@ -1,0 +1,57 @@
+\documentclass[pointlessnumbers,bibtotocnumbered,openany,DIV14,paper=a4,twoside=false,listof=totoc]{scrbook}
+
+\usepackage{graphicx}
+\usepackage{imakeidx}
+\usepackage[xetex]{hyperref}
+\usepackage{scrtime}
+\usepackage{tikz}
+\usepackage{adjustbox}
+\usepackage{spverbatim}
+\usepackage{pdfpages}
+\usepackage{tocloft}
+\usepackage{placeins}
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue}
+
+%% Something like this may be needed depending on the package list
+%\usepackage[CJK]{ucharclasses}
+%\usepackage{fontspec}
+%\newfontfamily\mycjk{VL-Gothic-Regular}
+%\setTransitionsForCJK{\mycjk}{}
+
+\makeindex[name=attribution,intoc,title=attribution Package Index]
+\makeindex[name=choice,intoc,title=choice Package Index]
+\makeindex[name=nosource,intoc,title=nosource Package Index]
+\makeindex[name=nopatches,intoc,title=nopatches Package Index]
+
+\begin{document}
+
+\thispagestyle{empty}
+\begin{titlepage}
+\null
+\vfill
+\begin{center}
+
+\includegraphics[width=4cm]{ {{- find_file("logo.png") }} }
+\vskip 1cm
+{\Huge \textbf{License Report}}
+{\huge \vfill for project \vfill {{ bsp.vendor }}-{{ bsp.project }}{{ bsp.get('project-version') }}}
+{\LARGE \vfill created \today, \thistime}
+
+\vskip 5cm
+
+{\huge !Attention!}
+\end{center}
+\vskip 0.5cm
+
+This list of licenses is automatically generated and asserts no claims to
+completeness or correctness. It is not legally binding, and comes without
+warranty of any kind. We advise a manual counter-check before
+publication or legal use.
+\vfill
+\vfill
+\end{titlepage}
+
+\phantomsection
+\pdfbookmark[1]{Contents}{toc}
+\setlength{\cftchapnumwidth}{\widthof{\large\bfseries{}888}}
+\tableofcontents

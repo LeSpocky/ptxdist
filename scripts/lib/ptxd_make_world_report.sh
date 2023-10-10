@@ -108,3 +108,32 @@ ptxd_make_world_fast_report() {
     ptxd_make_world_report_yaml fast > "${ptx_report_dir}/fast/${pkg_label}.yaml"
 }
 export -f ptxd_make_world_fast_report
+
+ptxd_make_image_reports() {
+    local generate_report report
+    local -a verbose
+
+    ptxd_make_image_init || return
+
+    ptxd_in_path PTXDIST_PATH_SCRIPTS generate-report.py &&
+    generate_report="${ptxd_reply}" &&
+
+    if [ "${PTXDIST_VERBOSE}" = "1" ]; then
+	verbose=( --verbose )
+    fi
+
+    for report in ${image_reports}; do
+	ptxd_eval \
+	    pkg_stamp= \
+	    PYTHONUNBUFFERED=1 \
+	    "${generate_report}" \
+	    "${verbose[@]}" \
+	    --path "${PTXDIST_PATH//://config/report:}" \
+	    --template "${report}" \
+	    --input "${ptx_release_dir}/full-bsp-report.yaml"  \
+	    --output "${ptx_release_dir}/${pkg_pkg}-${report}" \
+	    --env target="${pkg_pkg}" || return
+    done
+    echo
+}
+export -f ptxd_make_image_reports

@@ -81,6 +81,15 @@ config PROJECT_CHECK_LICENSES
 	  process. As a result all specified md5 sums for license files are
 	  verified.
 
+config PROJECT_GENERATE_REPORTS
+	bool
+	prompt "generate reports with all relevant images"
+	help
+	  If this es enabled <image>.reports is build before the
+	  coresponding image. This is only relevant for images that are
+	  build from packages since the document covers all packages that
+	  are part of the image.
+
 comment "------------------------------------"
 comment "reproducible builds"
 comment "------------------------------------"

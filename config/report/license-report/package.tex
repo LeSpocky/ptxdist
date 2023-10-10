@@ -1,0 +1,40 @@
+{% macro package(pkg) %}
+\chapter{ {{- build_chapter(pkg) }} \label{ {{- pkg.name }}}}
+
+\begin{description}
+\item[Package:] {{ escape(pkg.name) }} {{ escape(pkg.get('version', '')) }}
+\item[License:] {{ escape(pkg.licenses) }}
+{% for flag in pkg.get('license-flags') or [] %}
+\index[{{ flag }}]{ {{- pkg.name }}}
+{%- endfor %}
+\item[Flags:]{% for flag in pkg.get('license-flags') or [] %} \nameref{ {{- escape(flag) }}}{% endfor %}
+\item[URL:]\begin{flushleft}{% for url in pkg.url %}{{ escape(url)}}\\ {% endfor %}\end{flushleft}
+\item[MD5:] {\ttfamily {{ escape(pkg.get('md5', ''))}}}
+\end{description}
+{% if dot(pkg.name) %}
+\begin{figure}[!ht]
+\centering
+\hspace*{-0.5in}\maxsizebox{0.9\paperwidth}{!}{
+{{ dot(pkg.name) }}
+}
+\caption{Dependency tree for {{ escape(pkg.name)}}}
+\label{ {{- pkg.name }}-deps}
+\end{figure}
+\FloatBarrier
+{% endif %}
+
+{%- if pkg.get('license-files') %}
+{%- for name, license in pkg.get('license-files').items() %}
+\section{ {{- escape(name) }}{% if license.guessed %} [automatically found]{% endif %}}
+{%- if name.endswith('.pdf') %}
+\includepdf[pages=-]{ {{- license.file}}}
+{% else %}
+\begin{small}
+\begin{spverbatim}
+{{ source_file(license.file) }}
+\end{spverbatim}
+\end{small}
+{% endif %}
+{%- endfor %}
+{% endif %}
+{% endmacro %}

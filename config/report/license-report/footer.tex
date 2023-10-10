@@ -1,0 +1,37 @@
+\appendix
+\chapter{Flags\label{Flags}}
+Note: This list of tags and the packages marked with them is meant
+as a starting point for further work. It is by no means complete.
+There are most likely packages that e.g. require attribution but
+are missing the corresponding flag.
+
+For individual packages, adding the flag name to
+\textless{}PKG\textgreater\_LICENSE
+sets the corresponding flag. To add flags to groups of packages,
+e.g. based on the package license,
+\emph{ptxd\_make\_world\_license\_expand()} can be overwritten and
+expanded.
+\section{nosource\label{nosource}}
+For packages marked with the {\it nosource} flag, the source
+archive(s) will not be part of the license compliance package.
+\section{nopatches\label{nopatches}}
+For packages marked with the {\it nopatches} flag, the patches
+for this package will not be part of the license compliance
+package.
+\section{attribution\label{attribution}}
+Packages marked with the {\it attribution} flag require some sort
+of attribution. Please refer to the package license for further
+details.
+\section{choice\label{choice}}
+Packages marked with the {\it choice} flag require the licensee to
+make some kind of license choice. Please refer to the package
+license for further details.
+
+\printindex[attribution]
+\printindex[choice]
+\printindex[nosource]
+\printindex[nopatches]
+
+\listoffigures
+
+\end{document}

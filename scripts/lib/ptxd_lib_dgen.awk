@@ -26,6 +26,7 @@ BEGIN {
 	DEP			= DIRTY == "true" ? "|" : ""
 	PTXDIST_HASHLIST	= PTXDIST_TEMPDIR "/pkghash.list"
 	CHECK_LICENSES		= 0
+	GENERATE_REPORTS	= 0
 }
 
 #
@@ -252,6 +253,9 @@ $1 ~ /^PTXCONF_/ {
 
 	if (this_PKG == "PROJECT_CHECK_LICENSES")
 		CHECK_LICENSES = 1;
+
+	if (this_PKG == "PROJECT_GENERATE_REPORTS")
+		GENERATE_REPORTS = 1;
 
 	do {
 		if (this_PKG in PKG_to_pkg || this_PKG in virtual_pkg) {
@@ -650,6 +654,8 @@ function write_deps_pkg_active_image(this_PKG, this_pkg, prefix) {
 	print "$(" this_PKG "_IMAGE): " \
 		"$(STATEDIR)/" this_pkg ".$(" this_PKG "_CFGHASH).cfghash"					> DGEN_DEPS_POST;
 	print "$(" this_PKG "_IMAGE): "                               "$(" this_PKG "_FILES)"			> DGEN_DEPS_POST;
+	if (GENERATE_REPORTS)
+		print "$(" this_PKG "_IMAGE): $(STATEDIR)/" this_pkg ".reports"					> DGEN_DEPS_POST
 	print "$(STATEDIR)/" this_pkg ".install.post: "               "$(" this_PKG "_IMAGE)"			> DGEN_DEPS_POST;
 	print "images: "                                              "$(" this_PKG "_IMAGE)"			> DGEN_DEPS_POST;
 	#
