@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.3.0
-LIBCURL_MD5	:= 2fc6cf5cefa8b73e3826aa24befdccff
+LIBCURL_VERSION	:= 8.4.0
+LIBCURL_MD5	:= 8424597f247da68b6041dd7f9ca367fe
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
