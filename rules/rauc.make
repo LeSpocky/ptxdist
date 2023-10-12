@@ -85,7 +85,6 @@ ifdef PTXCONF_RAUC_SERVICE
 		/usr/share/dbus-1/system-services/de.pengutronix.rauc.service)
 	@$(call install_copy, rauc, 0, 0, 0644, -, \
 		/usr/share/dbus-1/system.d/de.pengutronix.rauc.conf)
-endif
 
 ifdef PTXCONF_INITMETHOD_SYSTEMD
 	@$(call install_alternative, rauc, 0, 0, 0644, \
@@ -98,6 +97,7 @@ ifdef PTXCONF_INITMETHOD_SYSTEMD
 else
 	@$(call install_copy, rauc, 0, 0, 0755, -, \
 		/usr/libexec/rauc-service.sh)
+endif
 endif
 
 	@$(call install_finish, rauc)
