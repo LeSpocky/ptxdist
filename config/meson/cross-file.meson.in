@@ -1,6 +1,7 @@
 [binaries]
 c = '@CC@'
 cpp = '@CXX@'
+fortran = '@FC@'
 ar = '@AR@'
 strip = '@STRIP@'
 pkgconfig = '@PKG_CONFIG@'
