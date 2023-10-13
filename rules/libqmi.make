@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBQMI) += libqmi
 #
 # Paths and names
 #
-LIBQMI_VERSION	:= 1.33.2
-LIBQMI_MD5	:= bd820881969d20b88a0742e36b89f542
+LIBQMI_VERSION	:= 1.34.0
+LIBQMI_MD5	:= 677b5d1ab763a7b7285b82d1798ff93d
 LIBQMI		:= libqmi-$(LIBQMI_VERSION)
 LIBQMI_SUFFIX	:= tar.bz2
 LIBQMI_URL	:= https://gitlab.freedesktop.org/mobile-broadband/libqmi/-/archive/$(LIBQMI_VERSION)/$(LIBQMI).$(LIBQMI_SUFFIX)
