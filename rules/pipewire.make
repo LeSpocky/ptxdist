@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 0.3.81
-PIPEWIRE_MD5		:= 2cfeee4091cf989c327f5b0be0fe7e8e
+PIPEWIRE_VERSION	:= 0.3.82
+PIPEWIRE_MD5		:= 6e6f9b373f8ee358d781e662ad64c85e
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -101,6 +101,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Drlimits-rtprio=95 \
 	-Droc=disabled \
 	-Dsdl2=disabled \
+	-Dselinux=disabled \
 	-Dsession-managers= \
 	-Dsndfile=enabled \
 	-Dspa-plugins=enabled \
