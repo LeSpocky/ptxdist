@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_THREADPOOLCTL
+	tristate
+	select PYTHON3
+	select HOST_PYTHON3_PYBUILD
+	prompt "threadpoolctl"
+	help
+	  FIXME
