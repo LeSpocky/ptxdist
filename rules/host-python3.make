@@ -86,6 +86,9 @@ $(STATEDIR)/host-python3.install:
 	@rm -v \
 		"$(HOST_PYTHON3_PKGDIR)/usr/bin/python3" \
 		"$(HOST_PYTHON3_PKGDIR)/usr/bin/python3-config"
+	@sed -i \
+		-e "s;\([' ]\)\(/usr/include\);\1$(PTXDIST_SYSROOT_HOST)\2;g" \
+		$(HOST_PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/_sysconfigdata_*-linux-gnu.py
 	@$(call touch)
 
 # vim: syntax=make
