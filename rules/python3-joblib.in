@@ -1,0 +1,10 @@
+## SECTION=python3
+
+config PYTHON3_JOBLIB
+	tristate
+	select PYTHON3
+	select PYTHON3_NUMPY
+	prompt "joblib"
+	help
+	  Joblib is a set of tools to provide lightweight pipelining in
+	  Python.
