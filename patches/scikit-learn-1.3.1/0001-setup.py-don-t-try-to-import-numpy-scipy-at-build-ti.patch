@@ -1,0 +1,28 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Mon, 20 Nov 2023 12:58:14 +0100
+Subject: [PATCH] setup.py: don't try to import numpy & scipy at build time
+ when cross-compiling
+
+It will fail because of binary plugins that are built for the target.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ setup.py | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index f78b7ec3545a..2b8a20ae4013 100755
+--- a/setup.py
++++ b/setup.py
+@@ -619,8 +619,9 @@ def setup_package():
+                 % (required_version, platform.python_version(), sys.executable)
+             )
+ 
+-        check_package_status("numpy", min_deps.NUMPY_MIN_VERSION)
+-        check_package_status("scipy", min_deps.SCIPY_MIN_VERSION)
++        if "PYTHON_CROSSENV" not in os.environ:
++            check_package_status("numpy", min_deps.NUMPY_MIN_VERSION)
++            check_package_status("scipy", min_deps.SCIPY_MIN_VERSION)
+ 
+         _check_cython_version()
+         metadata["ext_modules"] = configure_extension_modules()

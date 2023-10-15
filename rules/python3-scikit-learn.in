@@ -1,0 +1,14 @@
+## SECTION=python3
+
+config PYTHON3_SCIKIT_LEARN
+	tristate
+	select GCCLIBS_CXX
+	select GCCLIBS_GOMP
+	select PYTHON3
+	select PYTHON3_JOBLIB
+	select PYTHON3_THREADPOOLCTL
+	select PYTHON3_SCIPY
+	prompt "scikit-learn"
+	help
+	  scikit-learn is a Python module for machine learning built on
+	  top of SciPy.
