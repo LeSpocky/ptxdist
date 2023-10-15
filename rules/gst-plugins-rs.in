@@ -4,7 +4,7 @@ menuconfig GST_PLUGINS_RS
 	tristate
 	select HOST_MESON
 	select HOST_CARGO_C
-	select HOST_PYTHON3
+	select HOST_SYSTEM_PYTHON3
 	select HOST_PYTHON3_TOMLI
 	select GSTREAMER1
 	select GST_PLUGINS_BASE1
