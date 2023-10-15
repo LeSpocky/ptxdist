@@ -1,0 +1,13 @@
+## SECTION=python3
+
+config PYTHON3_PYBIND11
+	tristate
+	select HOST_CMAKE
+	select PYTHON3
+	prompt "pybind11"
+	help
+	  pybind11 is a lightweight header-only library that exposes C++
+	  types in Python and vice versa, mainly to create Python bindings
+	  of existing C++ code.
+
+
