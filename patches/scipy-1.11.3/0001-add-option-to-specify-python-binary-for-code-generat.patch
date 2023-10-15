@@ -1,0 +1,43 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Mon, 20 Nov 2023 12:48:45 +0100
+Subject: [PATCH] add option to specify python binary for code generators
+
+The code generators need Cython and that is only available with
+cross-python3.
+By default find_installation() returns the Python that is used to run
+meson. In PTXdist that is the system Python, so add an option to allow
+another Python to be used.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ meson.build       | 7 ++++++-
+ meson_options.txt | 1 +
+ 2 files changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index e2b5672b7cc3..14f2ec3c919b 100644
+--- a/meson.build
++++ b/meson.build
+@@ -20,7 +20,12 @@ project(
+ 
+ # https://mesonbuild.com/Python-module.html
+ py_mod = import('python')
+-py3 = py_mod.find_installation(pure: false)
++python = get_option('python3')
++if python != ''
++  py3 = py_mod.find_installation(python, pure: false)
++else
++  py3 = py_mod.find_installation(pure: false)
++endif
+ py3_dep = py3.dependency()
+ 
+ # Emit a warning for 32-bit Python installs on Windows; users are getting
+diff --git a/meson_options.txt b/meson_options.txt
+index 3257cb8a8ff5..ba1dc5a2b5d9 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -10,3 +10,4 @@ option('use-pythran', type: 'boolean', value: true,
+         description: 'If set to false, disables using Pythran (it falls back ' +
+                      'to either pure Python code or Cython code, depending on ' +
+                      'the implementation).')
++option('python3', type: 'string', description: 'Python binary for code generators')

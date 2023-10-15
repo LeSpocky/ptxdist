@@ -1,0 +1,19 @@
+## SECTION=python3
+
+config PYTHON3_SCIPY
+	tristate
+	select HOST_MESON
+	select HOST_CYTHON3
+	select HOST_PYTHON3_NUMPY
+	select GCCLIBS_CXX
+	select GCCLIBS_GFORTRAN
+	select OPENBLAS
+	select PYTHON3
+	select PYTHON3_NUMPY
+	select PYTHON3_PYBIND11
+	prompt "scipy"
+	help
+	  SciPy (pronounced “Sigh Pie”) is an open-source software for
+	  mathematics, science, and engineering. It includes modules for
+	  statistics, optimization, integration, linear algebra, Fourier
+	  transforms, signal and image processing, ODE solvers, and more.

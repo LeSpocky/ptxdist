@@ -1,0 +1,2 @@
+[properties]
+numpy-include-dir = platformdir + 'sysroot-target/usr/lib/python3.11/site-packages/numpy/core/include'
