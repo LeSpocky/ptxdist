@@ -1,0 +1,19 @@
+## SECTION=system_libraries
+
+menuconfig OPENBLAS
+	tristate
+	select HOST_CMAKE
+	select HOST_NINJA
+	select GCCLIBS_GFORTRAN		if !OPENBLAS_C_LAPACK
+	prompt "OpenBLAS                      "
+	help
+	  OpenBLAS is an optimized BLAS (Basic Linear Algebra Subprograms)
+	  library based on GotoBLAS2 1.13 BSD version.
+
+if OPENBLAS
+
+config OPENBLAS_C_LAPACK
+	bool
+	prompt "Build LAPACK from C instead of Fortran"
+
+endif
