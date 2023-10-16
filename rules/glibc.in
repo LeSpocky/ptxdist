@@ -28,6 +28,13 @@ config GLIBC_2_34
 	  libraries can still be selected explicitly here if necessary.
 	  For example if legacy binaries link to such a library.
 
+config GLIBC_2_38
+	bool
+	prompt "glibc-2.38 or later"
+	help
+	  In glibc-2.38 libcrypt was deprecated and removed afterwards.
+	  So libxcrypt is needed to provide the libcrypt implmentation.
+
 config GLIBC_LD
 	bool
 	help
@@ -99,6 +106,7 @@ config GLIBC_DL
 
 config GLIBC_CRYPT
 	bool
+	depends on !GLIBC_2_38
 	prompt "Install libcrypt"
 	help
 	  The encryption/decryption library

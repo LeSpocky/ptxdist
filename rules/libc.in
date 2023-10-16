@@ -59,7 +59,10 @@ config LIBC_DL
 
 config LIBC_CRYPT
 	bool
-	select GLIBC_CRYPT		if LIBC_GLIBC
+	select GLIBC_CRYPT		if LIBC_GLIBC && !GLIBC_2_38
+	select LIBXCRYPT		if LIBC_GLIBC && GLIBC_2_38
+	# use virtual here to propagate the dependency
+	select VIRTUAL			if LIBC_GLIBC && GLIBC_2_38
 	select UCLIBC_CRYPT		if LIBC_UCLIBC
 
 config LIBC_UTIL
