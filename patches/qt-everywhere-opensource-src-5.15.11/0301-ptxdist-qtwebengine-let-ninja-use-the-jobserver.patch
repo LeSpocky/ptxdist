@@ -10,15 +10,15 @@ Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/qtwebengine/src/core/gn_run.pro b/qtwebengine/src/core/gn_run.pro
-index 3d6fda80eaa3..73b15dd15731 100644
+index 9f6e64504ef1..b7e082ebd193 100644
 --- a/qtwebengine/src/core/gn_run.pro
 +++ b/qtwebengine/src/core/gn_run.pro
-@@ -51,7 +51,7 @@ build_pass|!debug_and_release {
-     ninjaflags = $$(NINJAFLAGS)
-     isEmpty(ninjaflags):!silent: ninjaflags = "-v"
+@@ -75,7 +75,7 @@ build_pass|!debug_and_release {
+         !system($$gn_run) {
+             error("GN run error!")
+         }
+-        runninja.commands = $$NINJA $$ninjaflags \$\(NINJAJOBS\) -C $$gn_build_root QtWebEngineCore
++        runninja.commands = +$$NINJA $$ninjaflags \$\(NINJAJOBS\) -C $$gn_build_root QtWebEngineCore
+     }
+ }
  
--    runninja.commands = $$NINJA $$ninjaflags \$\(NINJAJOBS\) -C $$gn_build_root QtWebEngineCore
-+    runninja.commands = +$$NINJA $$ninjaflags \$\(NINJAJOBS\) -C $$gn_build_root QtWebEngineCore
-     QMAKE_EXTRA_TARGETS += runninja
- 
-     build_pass:build_all: default_target.target = all
