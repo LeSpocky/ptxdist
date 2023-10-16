@@ -18,8 +18,8 @@ PACKAGES-$(PTXCONF_PHP8) += php8
 #
 # Paths and names
 #
-PHP8_VERSION	:= 8.2.1
-PHP8_MD5	:= b30961d64b35fe4c6727ee3add54d16e
+PHP8_VERSION	:= 8.2.11
+PHP8_MD5	:= 8e7f61ff53fd36be68643080c5114df9
 PHP8		:= php-$(PHP8_VERSION)
 PHP8_SUFFIX	:= tar.xz
 PHP8_SOURCE	:= $(SRCDIR)/$(PHP8).$(PHP8_SUFFIX)
@@ -202,7 +202,8 @@ PHP8_CONF_OPT := \
 	--disable-mysqlnd-compression-support \
 	--without-pear \
 	--disable-fiber-asm \
-	--disable-zend-signals
+	--disable-zend-signals \
+	--disable-zend-max-execution-timers
 
 # ----------------------------------------------------------------------------
 # Install
