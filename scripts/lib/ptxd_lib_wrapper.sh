@@ -197,7 +197,7 @@ ptxd_lib_setup_toolchain() {
 export -f ptxd_lib_setup_toolchain
 
 ptxd_lib_setup_target_wrapper() {
-    for cc in gcc g++ cpp ld gdb; do
+    for cc in gcc g++ cpp gfortran ld gdb; do
 	if [ ! -e "${toolchain}/${compiler_prefix}${cc}" ]; then
 	    rm -f "${wrapper_dir}/real/${compiler_prefix}${cc}" \
 		"${wrapper_dir}/${compiler_prefix}${cc}"
