@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WAFFLE) += waffle
 #
 # Paths and names
 #
-WAFFLE_VERSION	:= 1.7.2
-WAFFLE_MD5	:= e5e9772fe2c1e6267794f7aba08637c8
+WAFFLE_VERSION	:= 1.8.0
+WAFFLE_MD5	:= e4b3a5f28e4db517349631ef54e5f2a0
 WAFFLE		:= waffle-$(WAFFLE_VERSION)
 WAFFLE_SUFFIX	:= tar.xz
 WAFFLE_URL	:= https://mesa.pages.freedesktop.org/waffle/files/release/$(WAFFLE)/$(WAFFLE).$(WAFFLE_SUFFIX)
@@ -39,8 +39,6 @@ WAFFLE_CONF_OPT	:= \
 	-Dgbm=$(call ptx/endis,PTXCONF_WAFFLE_GBM)d \
 	-Dglx=$(call ptx/endis,PTXCONF_WAFFLE_GLX)d \
 	-Dnacl=false \
-	-Dnacl_sdk_path= \
-	-Dnacl_version= \
 	-Dsurfaceless_egl=disabled \
 	-Dwayland=$(call ptx/endis,PTXCONF_WAFFLE_WAYLAND)d \
 	-Dx11_egl=$(call ptx/endis,PTXCONF_WAFFLE_X11_EGL)d
