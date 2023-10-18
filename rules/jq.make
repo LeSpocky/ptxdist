@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_JQ) += jq
 #
 # Paths and names
 #
-JQ_VERSION	:= 1.6
-JQ_MD5		:= e68fbd6a992e36f1ac48c99bbf825d6b
+JQ_VERSION	:= 1.7
+JQ_MD5		:= 4662fd45f0b5622382fc85c1249739d5
 JQ		:= jq-$(JQ_VERSION)
 JQ_SUFFIX	:= tar.gz
 JQ_URL		:= https://github.com/stedolan/jq/releases/download/$(JQ)/$(JQ).$(JQ_SUFFIX)
 JQ_SOURCE	:= $(SRCDIR)/$(JQ).$(JQ_SUFFIX)
 JQ_DIR		:= $(BUILDDIR)/$(JQ)
-JQ_LICENSE	:= MIT AND CC-BY-3.0
-JQ_LICENSE_FILES := file://COPYING;md5=15d03e360fa7399f76d5a4359fc72cbf
+JQ_LICENSE	:= MIT AND CC-BY-3.0 AND ICU
+JQ_LICENSE_FILES := file://COPYING;md5=488f4e0b04c0456337fb70d1ac1758ba
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -34,14 +34,15 @@ JQ_LICENSE_FILES := file://COPYING;md5=15d03e360fa7399f76d5a4359fc72cbf
 JQ_CONF_TOOL	:= autoconf
 JQ_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-maintainer-mode \
+	--disable-largefile \
 	--disable-valgrind \
+	--disable-asan \
+	--disable-ubsan \
 	--disable-gcov \
 	--disable-docs \
 	--disable-error-injection \
 	--disable-all-static \
-	--enable-pthread-tls \
-	--without-oniguruma
+	--disable-decnum
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -57,6 +58,7 @@ $(STATEDIR)/jq.targetinstall:
 	@$(call install_fixup, jq,DESCRIPTION,missing)
 
 	@$(call install_lib, jq, 0, 0, 0644, libjq)
+	@$(call install_lib, jq, 0, 0, 0644, libonig)
 	@$(call install_copy, jq, 0, 0, 0755, -, /usr/bin/jq)
 
 	@$(call install_finish, jq)
