@@ -221,7 +221,7 @@ LLVM_CONF_OPT	:= \
 # Install
 # ----------------------------------------------------------------------------
 
-CROSS_LLVM_CONFIG := $(PTXDIST_SYSROOT_CROSS)/bin/llvm-config
+CROSS_LLVM_CONFIG := $(PTXDIST_SYSROOT_CROSS)/usr/bin/llvm-config
 
 $(STATEDIR)/llvm.install.post:
 	@$(call targetinfo)
