@@ -58,15 +58,13 @@ $(STATEDIR)/glslang.targetinstall:
 	@$(call install_fixup, glslang, AUTHOR, "Philipp Zabel <p.zabel@pengutronix.de>")
 	@$(call install_fixup, glslang, DESCRIPTION, Khronos-reference SPIR-V generator)
 
-ifdef GLSLANG_TOOLS
+ifdef PTXCONF_GLSLANG_TOOLS
 	@$(call install_copy, glslang, 0, 0, 0755, -, /usr/bin/glslangValidator)
 	@$(call install_copy, glslang, 0, 0, 0755, -, /usr/bin/spirv-remap)
 endif
 
-ifdef GLSLANG_LIBS
-	@$(call install_lib, glslang, 0, 0, 0644, libglslang-default-resource-limits)
+ifdef PTXCONF_GLSLANG_LIBS
 	@$(call install_lib, glslang, 0, 0, 0644, libglslang)
-	@$(call install_lib, glslang, 0, 0, 0644, libHLSL)
 	@$(call install_lib, glslang, 0, 0, 0644, libSPIRV)
 	@$(call install_lib, glslang, 0, 0, 0644, libSPVRemapper)
 endif

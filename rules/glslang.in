@@ -13,6 +13,7 @@ if GLSLANG
 config GLSLANG_TOOLS
 	bool
 	prompt "install tools"
+	select GLSLANG_LIBS
 	help
 	  Install glslangValidator and spirv-remap tools.
 
