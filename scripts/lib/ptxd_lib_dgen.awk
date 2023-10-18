@@ -447,6 +447,8 @@ function write_deps_pkg_all(this_PKG, this_pkg) {
 }
 
 function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
+	this_pkg_prefix = gensub(/^(host-|cross-|image-|).*/, "\\1", 1, this_pkg)
+
 	if (this_PKG in PKG_to_infile)
 		print "RULES: " this_PKG " " PKG_to_infile[this_PKG]						> PTXDIST_HASHLIST;
 	if (this_PKG in PKG_to_makefile)
@@ -498,7 +500,26 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 		print "$(" this_PKG "_IMAGE): "                       "$(" this_PKG "_CONFIG)"			> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
+	if (this_pkg_prefix == "image-") {
+		print "ifneq ($(" this_PKG "_PKGS),)"								> DGEN_DEPS_POST;
+		print "$(file >>" PTXDIST_TEMPDIR "/pkghash-" this_PKG "," this_PKG "_PKGS = $(" this_PKG "_PKGS))" \
+														> DGEN_DEPS_POST;
+		print "endif"											> DGEN_DEPS_POST;
+		print "ifneq ($(" this_PKG "_FILES),)"								> DGEN_DEPS_POST;
+		print "$(file >>" PTXDIST_TEMPDIR "/pkghash-" this_PKG "," this_PKG "_FILES = $(" this_PKG "_FILES))" \
+														> DGEN_DEPS_POST;
+		print "endif"											> DGEN_DEPS_POST;
+	}
 	print "endif"												> DGEN_DEPS_POST;
+}
+
+function write_deps_all_active(this_PKG, this_pkg, prefix) {
+	if (DIRTY != "true") {
+		print "$(STATEDIR)/" this_pkg ".report: " \
+						"$(STATEDIR)/" this_pkg ".$(" this_PKG "_CFGHASH).cfghash"	> DGEN_DEPS_POST;
+		print "$(STATEDIR)/" this_pkg ".fast-report: " \
+						"$(STATEDIR)/" this_pkg ".$(" this_PKG "_CFGHASH).cfghash"	> DGEN_DEPS_POST;
+	}
 }
 
 function write_deps_pkg_active(this_PKG, this_pkg, prefix) {
@@ -520,10 +541,6 @@ function write_deps_pkg_active(this_PKG, this_pkg, prefix) {
 	print "$(STATEDIR)/" this_pkg ".prepare: "                    "$(STATEDIR)/" this_pkg ".extract.post"	> DGEN_DEPS_POST;
 	if (DIRTY != "true") {
 		print "$(STATEDIR)/" this_pkg ".prepare: " \
-						"$(STATEDIR)/" this_pkg ".$(" this_PKG "_CFGHASH).cfghash"	> DGEN_DEPS_POST;
-		print "$(STATEDIR)/" this_pkg ".report: " \
-						"$(STATEDIR)/" this_pkg ".$(" this_PKG "_CFGHASH).cfghash"	> DGEN_DEPS_POST;
-		print "$(STATEDIR)/" this_pkg ".fast-report: " \
 						"$(STATEDIR)/" this_pkg ".$(" this_PKG "_CFGHASH).cfghash"	> DGEN_DEPS_POST;
 	}
 	print "$(STATEDIR)/" this_pkg ".tags: "                       "$(STATEDIR)/" this_pkg ".prepare"	> DGEN_DEPS_POST;
@@ -715,6 +732,7 @@ END {
 		this_pkg = PKG_to_pkg[this_PKG];
 		this_pkg_prefix = gensub(/^(host-|cross-|image-|).*/, "\\1", 1, this_pkg)
 
+		write_deps_all_active(this_PKG, this_pkg, this_pkg_prefix)
 		if (this_pkg_prefix != "image-") {
 			write_deps_pkg_active(this_PKG, this_pkg, this_pkg_prefix)
 			write_deps_pkg_active_virtual(this_PKG, this_pkg, this_pkg_prefix)
