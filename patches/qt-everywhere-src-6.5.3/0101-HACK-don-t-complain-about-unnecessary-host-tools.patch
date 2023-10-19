@@ -14,10 +14,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  2 files changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/qtdeclarative/tools/CMakeLists.txt b/qtdeclarative/tools/CMakeLists.txt
-index a99cd33c24ef..3c895e7fe3d1 100644
+index 75b240aeea52..bce551a9b8f0 100644
 --- a/qtdeclarative/tools/CMakeLists.txt
 +++ b/qtdeclarative/tools/CMakeLists.txt
-@@ -40,9 +40,12 @@ if(QT_FEATURE_qml_preview AND QT_FEATURE_thread AND NOT ANDROID AND NOT WASM AND
+@@ -38,9 +38,12 @@ if(QT_FEATURE_qml_preview AND QT_FEATURE_thread AND NOT ANDROID AND NOT WASM AND
  endif()
  if(QT_BUILD_SHARED_LIBS AND QT_FEATURE_thread AND TARGET Qt::Quick AND NOT ANDROID AND NOT WASM AND NOT IOS AND NOT rtems)
      add_subdirectory(qmlscene)
@@ -31,7 +31,7 @@ index a99cd33c24ef..3c895e7fe3d1 100644
          AND QT_FEATURE_process
          AND QT_FEATURE_regularexpression
          AND QT_FEATURE_thread
-@@ -70,7 +73,7 @@ if(TARGET Qt::Quick
+@@ -68,7 +71,7 @@ if(TARGET Qt::Quick
          AND NOT rtems)
      add_subdirectory(qmleasing)
  endif()
