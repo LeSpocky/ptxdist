@@ -3,6 +3,7 @@
 config WIREPLUMBER
 	tristate
 	select HOST_MESON
+	select GLIB
 	select PIPEWIRE
 	select LUA
 	select LUA_INSTALL_LIBLUA
