@@ -352,6 +352,11 @@ ptxd_make_world_lint_menu() {
 	if grep -q "^  *[^ ]" "${file}"; then
 	    ptxd_lint_error "'$(ptxd_print_path "${file}")' uses spaces instead of tabs."
 	fi
+	if grep -q "## SECTION=project_specific" "${file}" && \
+	    [[ "${file}" =~ ^"${PTXDIST_TOPDIR}" ]] && \
+	    [ "${file}" != "${PTXDIST_TOPDIR}/rules/project_specific.in" ]; then
+	    ptxd_lint_error "'$(ptxd_print_path "${file}")' uses the section 'project_specific'."
+	fi
     done
     exec {filefd}<&-
     echo
