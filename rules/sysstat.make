@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_SYSSTAT) += sysstat
 #
 # Paths and names
 #
-SYSSTAT_VERSION	:= 12.0.4
-SYSSTAT_MD5	:= 237ae1ba7a2073628b2cd7444ae3aed8
+SYSSTAT_VERSION	:= 12.7.4
+SYSSTAT_MD5	:= db7efd76e0d0b2bf120ba7b92594eddd
 SYSSTAT		:= sysstat-$(SYSSTAT_VERSION)
-SYSSTAT_SUFFIX	:= tar.xz
-SYSSTAT_URL	:= http://pagesperso-orange.fr/sebastien.godard/$(SYSSTAT).$(SYSSTAT_SUFFIX)
+SYSSTAT_SUFFIX	:= tar.gz
+SYSSTAT_URL	:= https://github.com/sysstat/sysstat/archive/refs/tags/v$(SYSSTAT_VERSION).$(SYSSTAT_SUFFIX)
 SYSSTAT_SOURCE	:= $(SRCDIR)/$(SYSSTAT).$(SYSSTAT_SUFFIX)
 SYSSTAT_DIR	:= $(BUILDDIR)/$(SYSSTAT)
 SYSSTAT_LICENSE	:= GPL-2.0-or-later
