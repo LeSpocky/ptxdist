@@ -69,25 +69,12 @@ endmenu
 
 menu "modules                     "
 
-config LIGHTTPD_MOD_ACCESS
-	bool
-	prompt "mod_access"
-	default y
-	help
-	  Deny access to some files.
-
 config LIGHTTPD_MOD_ACCESSLOG
 	bool
 	prompt "mod_accesslog"
 	default y
 	help
 	  flexible logging of requests served
-
-config LIGHTTPD_MOD_ALIAS
-	bool
-	prompt "mod_alias"
-	help
-	  Specify a special document-root for a given url-subset.
 
 config LIGHTTPD_MOD_AUTH
 	bool
@@ -123,11 +110,12 @@ config LIGHTTPD_BZ2LIB
 	  Enable bzip2 support for mod_deflate.
 endif
 
-config LIGHTTPD_MOD_FASTCGI
+config LIGHTTPD_MOD_DIRLISTING
 	bool
-	prompt "mod_fastcgi"
-
-if LIGHTTPD_MOD_FASTCGI
+	prompt "mod_dirlisting"
+	default y
+	help
+	  Creates an HTML page listing the contents of the target directory.
 
 config LIGHTTPD_MOD_FASTCGI_PHP
 	bool
@@ -140,7 +128,14 @@ config LIGHTTPD_MOD_FASTCGI_PHP
 comment "PHP CGI SAPI must be enabled"
 	depends on !PHP8_SAPI_CGI
 
-endif
+config LIGHTTPD_MOD_H2
+	bool
+	prompt "mod_h2"
+	default y
+	help
+	  HTTP/2 support
+	  To use lighttpd without HTTP/2 you need to disable it in the configuration file:
+	     server.feature-flags += ( "server.h2proto" => "disable" )
 
 config LIGHTTPD_MOD_MAGNET
 	bool
@@ -148,12 +143,6 @@ config LIGHTTPD_MOD_MAGNET
 	prompt "mod_magnet"
 	help
 	  A module to control the request handling
-
-config LIGHTTPD_MOD_REWRITE
-	bool
-	prompt "mod_rewrite"
-	help
-	  Module for URL rewriting
 
 config LIGHTTPD_MOD_WEBDAV
 	bool

@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIGHTTPD) += lighttpd
 #
 # Paths and names
 #
-LIGHTTPD_VERSION	:= 1.4.67
-LIGHTTPD_MD5		:= 64822c5061001673162cf9775d91a80b
+LIGHTTPD_VERSION	:= 1.4.72
+LIGHTTPD_MD5		:= 466f9fe131cd7d38d0fe47d2e6a2939d
 LIGHTTPD		:= lighttpd-$(LIGHTTPD_VERSION)
 LIGHTTPD_SUFFIX		:= tar.xz
 LIGHTTPD_URL		:= http://download.lighttpd.net/lighttpd/releases-1.4.x/$(LIGHTTPD).$(LIGHTTPD_SUFFIX)
@@ -93,23 +93,18 @@ $(STATEDIR)/lighttpd.install:
 # ----------------------------------------------------------------------------
 
 LIGHTTPD_MODULES-y :=
-LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_ACCESS)		+= mod_access
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_ACCESSLOG)	+= mod_accesslog
-LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_ALIAS)		+= mod_alias
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_AUTH)		+= mod_auth
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_AUTH)		+= mod_authn_file
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_DEFLATE)	+= mod_deflate
-LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_FASTCGI)	+= mod_fastcgi
+LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_DIRLISTING)	+= mod_dirlisting
+LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_H2)			+= mod_h2
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_MAGNET)		+= mod_magnet
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_OPENSSL)		+= mod_openssl
-LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_REWRITE)	+= mod_rewrite
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_WEBDAV)		+= mod_webdav
 LIGHTTPD_MODULES-y += $(call remove_quotes,$(PTXCONF_LIGHTTPD_MOD_EXTRA))
 
 LIGHTTPD_MODULE_STRING := $(subst $(space),$(comma),$(addsuffix \",$(addprefix \",$(LIGHTTPD_MODULES-y))))
-
-# add modules that are always loaded
-LIGHTTPD_MODULES_INSTALL := mod_indexfile mod_dirlisting mod_staticfile $(LIGHTTPD_MODULES-y)
 
 $(STATEDIR)/lighttpd.targetinstall:
 	@$(call targetinfo)
@@ -127,7 +122,7 @@ $(STATEDIR)/lighttpd.targetinstall:
 		/usr/sbin/lighttpd-angel)
 
 ifdef PTXCONF_LIGHTTPD_INSTALL_SELECTED_MODULES
-	@$(foreach mod,$(LIGHTTPD_MODULES_INSTALL), \
+	@$(foreach mod,$(LIGHTTPD_MODULES-y), \
 		$(call install_lib, lighttpd, 0, 0, 0644, lighttpd/$(mod))$(ptx/nl))
 else
 #	# modules
@@ -142,6 +137,8 @@ endif
 	@$(call install_copy, lighttpd, 0, 0, 0755, /etc/lighttpd/conf.d)
 	@$(call install_replace, lighttpd, /etc/lighttpd/lighttpd.conf, \
 		@MODULES@, $(LIGHTTPD_MODULE_STRING))
+	@$(call install_replace, lighttpd, /etc/lighttpd/lighttpd.conf, \
+		@NOH2@, $(call ptx/ifdef, PTXCONF_LIGHTTPD_MOD_H2,"#",))
 	@$(call install_alternative, lighttpd, 0, 0, 0644, \
 		/etc/lighttpd/conf.d/mime.conf)
 
