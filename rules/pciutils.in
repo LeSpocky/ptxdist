@@ -1,8 +1,9 @@
 ## SECTION=shell_and_console
 menuconfig PCIUTILS
 	select LIBKMOD		if PCIUTILS_LIBKMOD
-	select HWDATA		if !SYSTEMD_HWDB
-	select HWDATA_PCI	if !SYSTEMD_HWDB
+	select HWDATA		if !PCIUTILS_HWDB
+	select HWDATA_PCI	if !PCIUTILS_HWDB
+	select SYSTEMD		if PCIUTILS_HWDB
 	tristate
 	prompt "pciutils                      "
 	help
@@ -11,6 +12,10 @@ menuconfig PCIUTILS
 	  this library.
 
 if PCIUTILS
+
+config PCIUTILS_HWDB
+	bool
+	default SYSTEMD_HWDB
 
 config PCIUTILS_TOOLS
 	bool
