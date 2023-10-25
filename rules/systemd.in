@@ -1,8 +1,15 @@
 ## SECTION=shell_and_console
 
-menuconfig SYSTEMD
+menuconfig SYSTEMD_HELPER
+	tristate
+	prompt "systemd                       "
+
+if SYSTEMD_HELPER
+
+config SYSTEMD
 	tristate
 	depends on INITMETHOD_SYSTEMD
+	default SYSTEMD_HELPER
 	select HOST_SYSTEM_PYTHON3
 	select HOST_SYSTEM_PYTHON3_JINJA2
 	select HOST_MESON
@@ -37,7 +44,6 @@ menuconfig SYSTEMD
 	select ROOTFS_VAR_LIB	if RUNTIME
 	select ROOTFS_VAR_CACHE	if RUNTIME
 	select ROOTFS_VAR_SPOOL if RUNTIME
-	prompt "systemd                       "
 	help
 	  systemd is a system and session manager for Linux, compatible with SysV
 	  and LSB init scripts. systemd provides aggressive parallelization
@@ -52,8 +58,6 @@ menuconfig SYSTEMD
 
 	  Note: on a read-only root filesystem this package still requires a
 	  writable '/var/lib' and '/var/cache' for its run-time information.
-
-if SYSTEMD
 
 comment "D-Bus is needed for the enabled features"
 	depends on SYSTEMD_DBUS && !DBUS

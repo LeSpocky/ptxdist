@@ -460,3 +460,11 @@ s/^\(\(# \)\?PTXCONF_LIGHTTPD_MOD_\)COMPRESS\>/\1DEFLATE/
 # reason : upstream util-linux-ng fork was renamed back to util-linux over a decade ago
 #
 s/^\(\(# \)\?PTXCONF_UTIL_LINUX\)_NG/\1/
+
+# from   : ptxdist-2023.10.0
+# to     : ptxdist-2023.11.0
+# symbol : SYSTEMD -> SYSTEMD + SYSTEMD_HELPER
+# reason : SYSTEMD_HELPER was added as indirection to avoid cyclic dependencies
+#
+s/^\(# \)\?\(PTXCONF_SYSTEMD_HELPER\>\)\(.*\)//
+s/^\(# \)\?\(PTXCONF_SYSTEMD\>\)\(.*\)/\1\2_HELPER\3\n\1\2\3/
