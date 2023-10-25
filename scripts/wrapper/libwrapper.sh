@@ -186,16 +186,16 @@ add_late_arg() {
 }
 
 test_opt() {
-	local opt="${1}"
+	local opt="${1}" popt
 
 	for item in ${pkg_wrapper_blacklist}; do
 		if [ "${item}" = "${opt}" ]; then
 			return 1
 		fi
 	done
-	opt="PTXCONF_${opt}"
-	eval "opt=\$${opt}"
-	if [ -z "${opt}" ]; then
+	popt="PTXCONF_${opt}"
+	eval "popt=\$${popt} opt=\$${opt}"
+	if [ -z "${opt}" -a -z "${popt}" ]; then
 		return 1
 	fi
 	return 0
@@ -319,9 +319,7 @@ cc_add_optimizations() {
 cpp_add_target_extra() {
 	cc_check_args ${pkg_cppflags}
 	add_opt_arg TARGET_COMPILER_RECORD_SWITCHES "-frecord-gcc-switches"
-	if [ "${PTXDIST_Y2038}" = y ]; then
-		add_arg -D_TIME_BITS=64 -D_FILE_OFFSET_BITS=64
-	fi
+	add_opt_arg PTXDIST_Y2038 "-D_TIME_BITS=64 -D_FILE_OFFSET_BITS=64"
 	add_late_arg ${PTXDIST_CROSS_CPPFLAGS}
 	add_arg ${pkg_cppflags}
 	add_opt_arg TARGET_EXTRA_CPPFLAGS ${PTXCONF_TARGET_EXTRA_CPPFLAGS}
