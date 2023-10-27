@@ -15,14 +15,15 @@
 #
 ptxd_kconfig_migrate() {
     local part="${1}"
+    local config="${2-.config}"
     local assistant="${PTX_MIGRATEDIR}/migrate_${part}"
 
     if [ \! -f "${assistant}" ]; then
 	return 0
     fi
 
-    cp -- ".config" ".config.old" || return
-    sed -f "${assistant}" ".config.old" > ".config"
+    cp -- "${config}" "${config}.old" || return
+    sed -f "${assistant}" "${config}.old" > "${config}"
     retval=$?
 
     if [ $retval -ne 0 ]; then
@@ -30,7 +31,7 @@ ptxd_kconfig_migrate() {
 	return ${retval}
     fi
 
-    if ! diff -u ".config.old" ".config" >/dev/null; then
+    if ! diff -u "${config}.old" "${config}" >/dev/null; then
 	ptxd_dialog_msgbox "info: successfully migrated '${file_dotconfig}'"
     fi
 
@@ -700,6 +701,9 @@ ptxd_kconfig_update() {
 	    ptxd_kconfig_run_conf --oldconfig "${file_kconfig}" < /dev/null > /dev/null
 	    ;;
 	all*config|randconfig)
+	    if [ "$(realpath "${KCONFIG_ALLCONFIG}")" = "$(realpath "${file_dotconfig}")" ]; then
+		ptxd_kconfig_migrate "${part}" "${file_dotconfig}"
+	    fi &&
 	    ptxd_kconfig_run_conf --${config} "${file_kconfig}"
 	    ;;
 	dep)
