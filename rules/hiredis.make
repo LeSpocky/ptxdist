@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_HIREDIS) += hiredis
 #
 # Paths and names
 #
-HIREDIS_VERSION		:= 1.0.2
-HIREDIS_MD5		:= 58e8313188f66ed1be1c220d14a7752e
+HIREDIS_VERSION		:= 1.2.0
+HIREDIS_MD5		:= 119767d178cfa79718a80c83e0d0e849
 HIREDIS			:= hiredis-$(HIREDIS_VERSION)
 HIREDIS_SUFFIX		:= tar.gz
 HIREDIS_URL		:= https://github.com/redis/hiredis/archive/v$(HIREDIS_VERSION).$(HIREDIS_SUFFIX)
