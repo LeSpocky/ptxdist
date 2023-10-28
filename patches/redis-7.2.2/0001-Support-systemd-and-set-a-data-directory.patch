@@ -7,10 +7,10 @@ Subject: [PATCH] Support systemd and set a data directory
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/redis.conf b/redis.conf
-index e8eff2774981..8f76ea1c84e4 100644
+index 97f077b0d0aa..abc03980de3e 100644
 --- a/redis.conf
 +++ b/redis.conf
-@@ -272,7 +272,7 @@ daemonize no
+@@ -324,7 +324,7 @@ daemonize no
  # The default is "no". To run under upstart/systemd, you can simply uncomment
  # the line below:
  #
@@ -19,7 +19,7 @@ index e8eff2774981..8f76ea1c84e4 100644
  
  # If a pid file is specified, Redis writes it where specified at startup
  # and removes it at exit.
-@@ -451,7 +451,7 @@ rdb-del-sync-files no
+@@ -507,7 +507,7 @@ rdb-del-sync-files no
  # The Append Only File will also be created inside this directory.
  #
  # Note that you must specify a directory here, not a file name.
