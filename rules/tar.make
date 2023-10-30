@@ -40,7 +40,7 @@ TAR_CONF_OPT	:= \
 	--disable-rpath \
 	--disable-nls \
 	--disable-backup-scripts \
-	--enable-year2038 \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--with-posix-acls \
 	--with-included-regex \
 	--without-selinux \
