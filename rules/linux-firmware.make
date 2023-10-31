@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20230919
-LINUX_FIRMWARE_MD5	:= 43ee40da3bdb0f396416e7162bad681f
+LINUX_FIRMWARE_VERSION	:= 20231030
+LINUX_FIRMWARE_MD5	:= db9f452bd4073ae2c2d353048cef9ae5
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -72,6 +72,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.ralink-firmware.txt;md5=ab2c269277c45476fb449673911a2dfd \
 	file://LICENSE.QualcommAtheros_ath10k;md5=cb42b686ee5f5cb890275e4321db60a8 \
 	file://LICENCE.cavium;md5=c37aaffb1ebe5939b2580d073a95daea \
+	file://LICENSE.amd_pmf;md5=a2589a05ea5b6bd2b7f4f623c7e7a649 \
 	file://LICENSE.amlogic_vdec;md5=dc44f59bf64a81643e500ad3f39a468a \
 	file://LICENCE.microchip;md5=db753b00305675dfbf120e3f24a47277 \
 	file://LICENSE.radeon;md5=68ec28bacb3613200bca44f404c69b16 \
@@ -95,6 +96,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.Abilis;md5=b5ee3f410780e56711ad48eadc22b8bc \
 	file://LICENCE.atheros_firmware;md5=30a14c7823beedac9fa39c64fdd01a13 \
 	file://LICENCE.ti-connectivity;md5=c5e02be633f1499c109d1652514d85ec \
+	file://LICENSE.amlogic;md5=80e4e3f27def8bc4b232009c3a587c07 \
 	file://LICENCE.r8a779x_usb3;md5=4c1671656153025d7076105a5da7e498 \
 	file://LICENCE.cypress;md5=48cd9436c763bf873961f9ed7b5c147b \
 	file://wfx/LICENCE.wf200;md5=4d1beff00d902c05c9c7e95a5d8eb52d \
