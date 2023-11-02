@@ -14,20 +14,21 @@ PACKAGES-$(PTXCONF_OPENVPN) += openvpn
 #
 # Paths and names
 #
-OPENVPN_VERSION		:= 2.5.8
-OPENVPN_MD5		:= 8c1181a2baaa25b36e4aa67161c2829e
+OPENVPN_VERSION		:= 2.6.6
+OPENVPN_MD5		:= 660e71db3ed3161e33b4b649855c2477
 OPENVPN			:= openvpn-$(OPENVPN_VERSION)
 OPENVPN_SUFFIX		:= tar.gz
-OPENVPN_URL		:= https://swupdate.openvpn.org/community/releases/$(OPENVPN).$(OPENVPN_SUFFIX)
+OPENVPN_URL		:= https://github.com/OpenVPN/openvpn/releases/download/v$(OPENVPN_VERSION)/$(OPENVPN).$(OPENVPN_SUFFIX)
 OPENVPN_SOURCE		:= $(SRCDIR)/$(OPENVPN).$(OPENVPN_SUFFIX)
 OPENVPN_DIR		:= $(BUILDDIR)/$(OPENVPN)
-OPENVPN_LICENSE		:= GPL-2.0-only WITH openvpn-openssl-exception AND BSD-2-Clause AND BSD-3-Clause
+OPENVPN_LICENSE		:= GPL-2.0-only WITH (openvpn-openssl-exception AND custom-exception) AND BSD-2-Clause AND BSD-3-Clause AND ((GPL-2.0-only WITH Linux-syscall-note) OR MIT)
 OPENVPN_LICENSE_FILES := \
-	file://COPYING;md5=b76abd82c14ee01cc34c4ff5e3627b89 \
+	file://COPYING;md5=d8d34ce6390552676e4ce8279f13c48a \
 	file://COPYRIGHT.GPL;md5=52cadf4008002e3c314a47a54fa7306c \
-	file://src/openvpn/openvpn.c;startline=2;endline=21;md5=82f794c2390084d34cb32d871c17b4be \
+	file://src/openvpn/openvpn.c;startline=2;endline=21;md5=b9fb1976bc6d8ad5e02a251351dc58f2 \
 	file://src/openvpn/base64.c;startline=2;endline=31;md5=f4debd767645b13107fc5912faf2ad8f \
-	file://src/compat/compat-lz4.c;startline=13;endline=38;md5=5163f975ae122fe0c260002537edab22
+	file://src/openvpn/ovpn_dco_linux.h;startline=1;endline=1;md5=b317f96dbe63f35baef28266acb68512 \
+	file://src/openvpn/ovpn_dco_freebsd.h;startline=1;endline=1;md5=a7ba62aad20f9685c53b0565a263af30
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -64,13 +65,11 @@ OPENVPN_CONF_OPT	:= \
 	--enable-management \
 	--disable-pkcs11 \
 	--enable-fragment \
-	--enable-multihome \
 	--enable-port-share \
 	--disable-debug \
 	--$(call ptx/endis, PTXCONF_OPENVPN_SMALL)-small \
+	--disable-dco \
 	--enable-iproute2 \
-	--enable-def-auth \
-	--enable-pf \
 	--disable-plugin-auth-pam \
 	--enable-plugin-down-root \
 	--disable-pam-dlopen \
@@ -81,13 +80,14 @@ OPENVPN_CONF_OPT	:= \
 	--disable-selinux \
 	--$(call ptx/endis, PTXCONF_OPENVPN_SYSTEMD)-systemd \
 	--disable-async-push \
+	--disable-wolfssl-options-h \
 	--disable-unit-tests \
 	--with-crypto-library=openssl \
 	--with-openssl-engine
 
 OPENVPN_INSTALL_SAMPLE_CONFIG_FILES := \
 	client.conf loopback-client loopback-server README server.conf \
-	tls-home.conf tls-office.conf xinetd-client-config xinetd-server-config
+	tls-home.conf tls-office.conf
 
 OPENVPN_INSTALL_SAMPLE_CONFIG_SCRIPTS := \
 	firewall.sh home.up office.up openvpn-shutdown.sh openvpn-startup.sh

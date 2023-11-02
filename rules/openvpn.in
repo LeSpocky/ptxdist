@@ -4,6 +4,7 @@ menuconfig OPENVPN
 	tristate
 	prompt "openvpn                       "
 	select OPENSSL
+	select LIBCAP_NG
 	select LIBLZO			if OPENVPN_LZO
 	select SYSTEMD			if OPENVPN_SYSTEMD
 	select IPTABLES			if OPENVPN_INSTALL_SAMPLE_CONFIGS && RUNTIME
