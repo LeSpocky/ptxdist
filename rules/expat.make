@@ -16,15 +16,17 @@ PACKAGES-$(PTXCONF_EXPAT) += expat
 #
 # Paths and names
 #
-EXPAT_VERSION	:= 2.5.0
-EXPAT_MD5	:= 5e9974d422dc4b157f300568ad28ebf6
-EXPAT		:= expat-$(EXPAT_VERSION)
-EXPAT_SUFFIX	:= tar.bz2
-EXPAT_RELEASE	:= R_$(subst .,_,$(EXPAT_VERSION))
-EXPAT_URL	:= https://github.com/libexpat/libexpat/releases/download/$(EXPAT_RELEASE)/$(EXPAT).$(EXPAT_SUFFIX)
-EXPAT_SOURCE	:= $(SRCDIR)/$(EXPAT).$(EXPAT_SUFFIX)
-EXPAT_DIR	:= $(BUILDDIR)/$(EXPAT)
-EXPAT_LICENSE	:= MIT
+EXPAT_VERSION		:= 2.5.0
+EXPAT_MD5		:= 5e9974d422dc4b157f300568ad28ebf6
+EXPAT			:= expat-$(EXPAT_VERSION)
+EXPAT_SUFFIX		:= tar.bz2
+EXPAT_RELEASE		:= R_$(subst .,_,$(EXPAT_VERSION))
+EXPAT_URL		:= https://github.com/libexpat/libexpat/releases/download/$(EXPAT_RELEASE)/$(EXPAT).$(EXPAT_SUFFIX)
+EXPAT_SOURCE		:= $(SRCDIR)/$(EXPAT).$(EXPAT_SUFFIX)
+EXPAT_DIR		:= $(BUILDDIR)/$(EXPAT)
+EXPAT_LICENSE		:= MIT
+EXPAT_LICENSE_FILES	:= \
+	file://COPYING;md5=7b3b078238d0901d3b339289117cb7fb
 
 # ----------------------------------------------------------------------------
 # Prepare
