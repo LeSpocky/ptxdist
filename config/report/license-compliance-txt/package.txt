@@ -1,0 +1,15 @@
+{% macro package(pkg) %}
+{{ build_chapter(pkg) }}
+{{ build_chapter(pkg)|regex_replace('.', '-') }}
+
+Package: {{ pkg.name }} {{ pkg.get('version', '') }}
+License: {{ pkg.licenses }}
+{% if pkg.get('license-files') %}
+{%- for name, license in pkg.get('license-files').items() %}
+{{ name }}
+{{ name|regex_replace('.', '~') }}
+
+{{ source_file(license.file) }}
+{%- endfor %}
+{%- endif %}
+{% endmacro %}

@@ -1,0 +1,11 @@
+{% from "package.txt" import package %}
+{{- raise("Invalid image name '" + target + "'!") if not target in images }}
+{{- raise("Image '" + target + "' has no packages!") if not images.get(target).pkgs }}
+{%- if target %}
+{%- set pkgs = images.get(target).pkgs|sort %}
+{% else %}
+{%- set pkgs = packages.keys()|sort %}
+{% endif %}
+{%- for pkg in pkgs if not packages.get(pkg).licenses in ('ignore', 'proprietary') +%}
+{{- package(packages.get(pkg)) }}
+{%- endfor %}

@@ -1,0 +1,15 @@
+License Report
+==============
+
+{{ bsp.vendor }}-{{ bsp.project }}{{ bsp.get('project-version') }}
+
+created {{ now }}
+
+!Attention!
+-----------
+
+This list of licenses is automatically generated and asserts no claims to
+completeness or correctness. It is not legally binding, and comes without
+warranty of any kind. We advise a manual counter-check before
+publication or legal use.
+

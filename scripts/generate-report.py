@@ -9,10 +9,12 @@
 
 from os import path, environ, makedirs
 from chardet.universaldetector import UniversalDetector
+from datetime import datetime
 from multiprocessing import Pool
 from dot2tex import dot2tex
 import argparse
 import jinja2
+import re
 import yaml
 import subprocess
 import hashlib
@@ -133,11 +135,16 @@ node [ shape=point fixedsize=true width=0.1 ];
         def _find_file(name):
             return find_file(self.path, name)
 
+        def regex_replace(s, find, replace):
+            return re.sub(find, replace, s)
+
         env.globals['find_file'] = _find_file
         env.globals['source_file'] = self.source_file
         env.globals['escape'] = self.escape
         env.globals['raise'] = self.raise_exception
         env.globals['build_chapter'] = self.build_chapter
+        env.globals['now'] = datetime.now().strftime('%c')
+        env.filters['regex_replace'] = regex_replace
         for tmp in self.__env:
             tmp = tmp.split('=', 2)
             env.globals[tmp[0]] = tmp[1]
