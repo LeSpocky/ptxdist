@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_GLSLANG) += glslang
 #
 # Paths and names
 #
-GLSLANG_VERSION		:= 1.3.261.1
-GLSLANG_MD5		:= a2d585f532f08ff1402984577aa095a8
+GLSLANG_VERSION		:= 1.3.268.0
+GLSLANG_MD5		:= 3e32bb2d667ed3330d05ac513de31bb5
 GLSLANG			:= glslang-$(GLSLANG_VERSION)
 GLSLANG_SUFFIX		:= tar.gz
-GLSLANG_URL		:= https://github.com/KhronosGroup/glslang/archive/sdk-$(GLSLANG_VERSION).$(GLSLANG_SUFFIX)
+GLSLANG_URL		:= https://github.com/KhronosGroup/glslang/archive/vulkan-sdk-$(GLSLANG_VERSION).$(GLSLANG_SUFFIX)
 GLSLANG_SOURCE		:= $(SRCDIR)/$(GLSLANG).$(GLSLANG_SUFFIX)
 GLSLANG_DIR		:= $(BUILDDIR)/$(GLSLANG)
 GLSLANG_LICENSE		:= BSD-3-clause AND BSD-2-clause AND MIT AND Apple-MIT-License AND Apache-2.0 AND (GPL-3.0-or-later WITH Bison-exception-2.2) AND custom
@@ -32,6 +32,7 @@ GLSLANG_CONF_TOOL	:= cmake
 GLSLANG_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
 	-DCMAKE_BUILD_TYPE=Release \
+	-DALLOW_EXTERNAL_SPIRV_TOOLS=ON \
 	-DBUILD_EXTERNAL=OFF \
 	-DBUILD_SHARED_LIBS=ON \
 	-DENABLE_CTEST=OFF \
@@ -64,6 +65,7 @@ ifdef PTXCONF_GLSLANG_TOOLS
 endif
 
 ifdef PTXCONF_GLSLANG_LIBS
+	@$(call install_lib, glslang, 0, 0, 0644, libglslang-default-resource-limits)
 	@$(call install_lib, glslang, 0, 0, 0644, libglslang)
 	@$(call install_lib, glslang, 0, 0, 0644, libSPIRV)
 	@$(call install_lib, glslang, 0, 0, 0644, libSPVRemapper)
