@@ -23,7 +23,9 @@ FIGLET_SUFFIX		:= tar.gz
 FIGLET_URL		:= ftp://ftp.figlet.org/pub/figlet/program/unix/$(FIGLET).$(FIGLET_SUFFIX)
 FIGLET_SOURCE		:= $(SRCDIR)/$(FIGLET).$(FIGLET_SUFFIX)
 FIGLET_DIR		:= $(BUILDDIR)/$(FIGLET)
-FIGLET_LICENSE		:= figlet
+FIGLET_LICENSE		:= BSD-3-clause
+FIGLET_LICENSE_FILES	:= \
+	file://LICENSE;md5=1688bcd97b27704f1afcac7336409857
 
 # ----------------------------------------------------------------------------
 # Compile
