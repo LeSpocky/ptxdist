@@ -1,0 +1,10 @@
+## SECTION=multimedia_libs
+
+config VULKAN_UTILITY_LIBRARIES
+	tristate
+	prompt "vulkan-utilty-libraries"
+	select HOST_CMAKE
+	select HOST_GLSLANG
+	select VULKAN_HEADERS
+	help
+	  Vulkan Utility Libraries
