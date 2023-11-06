@@ -235,8 +235,10 @@ ifdef PTXCONF_QEMU_SYS
 	@$(foreach target, $(QEMU_TARGETS), \
 		@$(call install_copy, qemu, 0, 0, 0755, -, /usr/bin/qemu-system-$(target))$(ptx/nl))
 
+ifdef PTXCONF_QEMU_TOOLS
 	@$(call install_copy, qemu, 0, 0, 0755, -, /usr/libexec/virtfs-proxy-helper)
 	@$(call install_copy, qemu, 0, 0, 0755, -, /usr/libexec/qemu-bridge-helper)
+endif
 
 ifneq ($(filter i386 x86_64,$(QEMU_TARGETS)),)
 	@$(call install_copy, qemu, 0, 0, 0644, -, /usr/share/qemu/bios-256k.bin)
