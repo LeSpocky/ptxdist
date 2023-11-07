@@ -4,6 +4,7 @@ menuconfig OPENLDAP
 	tristate
 	prompt "openldap                      "
 	select ZLIB
+	select LIBC_CRYPT	if OPENLDAP_SLAPD
 	select LIBC_RESOLV
 	select LIBC_PTHREAD
 	select OPENSSL		if OPENLDAP_TLS_OPENSSL
