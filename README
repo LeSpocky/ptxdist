@@ -42,6 +42,11 @@ All magic necessary to do these things in a cross enviroment are written
 into "recipes", living in rules/*.make, and config menues in
 rules/*.in.
 
+Contributing
+------------
+
+See doc/contributing.rst for the contribution guidelines.
+
 Documentation
 -------------
 
