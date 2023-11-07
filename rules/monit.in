@@ -3,6 +3,7 @@
 menuconfig MONIT
 	tristate
 	prompt "monit                         "
+	select LIBC_CRYPT
 	select OPENSSL if MONIT_SSL
 	select ZLIB if MONIT_ZLIB
 	select BUSYBOX_START_STOP_DAEMON if MONIT_STARTSCRIPT
