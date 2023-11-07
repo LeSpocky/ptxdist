@@ -4,6 +4,7 @@ config STRESS_NG
 	tristate
 	prompt "stress-ng"
 	select GCCLIBS_ATOMIC
+	select LIBC_CRYPT
 	select LIBAIO
 	select LIBBSD
 	select LIBJPEG
