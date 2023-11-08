@@ -14,15 +14,18 @@ PACKAGES-$(PTXCONF_ZSTD) += zstd
 #
 # Paths and names
 #
-ZSTD_VERSION	:= 1.5.5
-ZSTD_MD5	:= 4ff0ee1965ab161bc55be7c9dcd1f7f9
-ZSTD		:= zstd-$(ZSTD_VERSION)
-ZSTD_SUFFIX	:= tar.gz
-ZSTD_URL	:= https://github.com/facebook/zstd/archive/v$(ZSTD_VERSION).$(ZSTD_SUFFIX)
-ZSTD_SOURCE	:= $(SRCDIR)/$(ZSTD).$(ZSTD_SUFFIX)
-ZSTD_DIR	:= $(BUILDDIR)/$(ZSTD)
-ZSTD_SUBDIR	:= build/cmake
-ZSTD_LICENSE	:= BSD-3-clause
+ZSTD_VERSION		:= 1.5.5
+ZSTD_MD5		:= 4ff0ee1965ab161bc55be7c9dcd1f7f9
+ZSTD			:= zstd-$(ZSTD_VERSION)
+ZSTD_SUFFIX		:= tar.gz
+ZSTD_URL		:= https://github.com/facebook/zstd/archive/v$(ZSTD_VERSION).$(ZSTD_SUFFIX)
+ZSTD_SOURCE		:= $(SRCDIR)/$(ZSTD).$(ZSTD_SUFFIX)
+ZSTD_DIR		:= $(BUILDDIR)/$(ZSTD)
+ZSTD_SUBDIR		:= build/cmake
+ZSTD_LICENSE		:= BSD-3-clause OR GPL-2.0-only
+ZSTD_LICENSE_FILES	:= \
+	file://LICENSE;md5=0822a32f7acdbe013606746641746ee8 \
+	file://COPYING;md5=39bba7d2cf0ba1036f2a6e2be52fe3f0
 
 # ----------------------------------------------------------------------------
 # Prepare
