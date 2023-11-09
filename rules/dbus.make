@@ -16,14 +16,19 @@ PACKAGES-$(PTXCONF_DBUS) += dbus
 #
 # Paths and names
 #
-DBUS_VERSION	:= 1.15.8
-DBUS_MD5	:= 66a38f65320762e0734340fb6facdcce
-DBUS		:= dbus-$(DBUS_VERSION)
-DBUS_SUFFIX	:= tar.xz
-DBUS_URL	:= https://dbus.freedesktop.org/releases/dbus/$(DBUS).$(DBUS_SUFFIX)
-DBUS_SOURCE	:= $(SRCDIR)/$(DBUS).$(DBUS_SUFFIX)
-DBUS_DIR	:= $(BUILDDIR)/$(DBUS)
-DBUS_LICENSE	:= AFL-2.1 AND GPL-2.0-or-later
+DBUS_VERSION		:= 1.15.8
+DBUS_MD5		:= 66a38f65320762e0734340fb6facdcce
+DBUS			:= dbus-$(DBUS_VERSION)
+DBUS_SUFFIX		:= tar.xz
+DBUS_URL		:= https://dbus.freedesktop.org/releases/dbus/$(DBUS).$(DBUS_SUFFIX)
+DBUS_SOURCE		:= $(SRCDIR)/$(DBUS).$(DBUS_SUFFIX)
+DBUS_DIR		:= $(BUILDDIR)/$(DBUS)
+DBUS_LICENSE		:= (AFL-2.1 OR GPL-2.0-or-later) AND MIT
+DBUS_LICENSE_FILES	:= \
+	file://COPYING;md5=eb0ffc69a965797a3d6686baa153ef05 \
+	file://LICENSES/AFL-2.1.txt;md5=f3ad2f482ec639b440413665cfb9e714 \
+	file://LICENSES/GPL-2.0-or-later.txt;md5=3d26203303a722dedc6bf909d95ba815 \
+	file://LICENSES/MIT.txt;md5=7dda4e90ded66ab88b86f76169f28663
 
 # ----------------------------------------------------------------------------
 # Prepare
