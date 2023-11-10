@@ -46,13 +46,13 @@ ptxd_make_nested_ptxdist() {
     fi
     args=( "cd" "${pkg_workspace}" "&&" "${PTXDIST_TOPDIR}/bin/ptxdist" )
 
-    if [ "${PTXDIST_DIRTY}" = 1 ]; then
+    if [ "${PTXDIST_DIRTY}" = true ]; then
 	args[${#args[*]}]="--dirty"
     fi
-    if [ "${PTXDIST_FORCE}" = 1 ]; then
+    if [ "${PTXDIST_FORCE}" = true ]; then
 	args[${#args[*]}]="--force"
     fi
-    if [ "${PTXDIST_PEDANTIC}" = 1 ]; then
+    if [ "${PTXDIST_PEDANTIC}" = true ]; then
 	args[${#args[*]}]="--pedantic"
     fi
     if [ "${PTXDIST_QUIET}" = 1 ]; then
