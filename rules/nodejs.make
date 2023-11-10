@@ -83,7 +83,8 @@ endif
 $(STATEDIR)/nodejs.prepare:
 	@$(call targetinfo)
 
-	@$(call world/prepare, NODEJS)
+	@$(call world/execute, NODEJS, \
+		python3 ./configure $(NODEJS_CONF_OPT))
 	@mkdir -p $(NODEJS_DIR)/out/Release/
 	@ ln -svf $(PTXDIST_SYSROOT_CROSS)/usr/bin/qemu-cross \
 		$(NODEJS_DIR)/out/Release/tool-wrapper
