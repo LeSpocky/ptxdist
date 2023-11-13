@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SSHFS) += sshfs
 #
 # Paths and names
 #
-SSHFS_VERSION	:= 3.7.2
-SSHFS_MD5	:= 86dcc81a1381c3e6863c97e684501bb6
+SSHFS_VERSION	:= 3.7.3
+SSHFS_MD5	:= f704f0d1800bdb5214030a1603e8c6d6
 SSHFS		:= sshfs-$(SSHFS_VERSION)
 SSHFS_SUFFIX	:= tar.xz
 SSHFS_URL	:= https://github.com/libfuse/sshfs/releases/download/$(SSHFS)/$(SSHFS).$(SSHFS_SUFFIX)
