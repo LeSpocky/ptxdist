@@ -3,8 +3,7 @@
 config NTFS_3G
 	tristate
 	prompt "ntfs-3g"
-	select FUSE
-	select FUSE_LIB
+	select FUSE3		if RUNTIME
 	select LIBUUID
 	help
 	  The NTFS-3G driver is an open source, freely available NTFS driver

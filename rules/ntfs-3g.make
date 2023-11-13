@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NTFS_3G) += ntfs-3g
 #
 # Paths and names
 #
-NTFS_3G_VERSION	:= 2017.3.23AR.6
-NTFS_3G_MD5	:= d4a69fec34150f8f4a59e7c65be8c48c
+NTFS_3G_VERSION	:= 2022.10.3
+NTFS_3G_MD5	:= a038af61be7584b79f8922ff11244090
 NTFS_3G		:= ntfs-3g_ntfsprogs-$(NTFS_3G_VERSION)
 NTFS_3G_SUFFIX	:= tgz
 NTFS_3G_URL	:= https://tuxera.com/opensource/$(NTFS_3G).$(NTFS_3G_SUFFIX)
@@ -23,7 +23,7 @@ NTFS_3G_SOURCE	:= $(SRCDIR)/$(NTFS_3G).$(NTFS_3G_SUFFIX)
 NTFS_3G_DIR	:= $(BUILDDIR)/$(NTFS_3G)
 NTFS_3G_LICENSE	:= GPL-2.0-or-later AND LGPL-2.0-only
 NTFS_3G_LICENSE_FILES	:= \
-	file://README;startline=39;endline=46;md5=a3204cfad57631a62a347096d10f3498 \
+	file://README;startline=37;endline=44;md5=692018652fb43fb27bfde6a919c68388 \
 	file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552 \
 	file://COPYING.LIB;md5=f30a9716ef3762e3467a2f62bf790f0a
 
@@ -58,7 +58,7 @@ NTFS_3G_CONF_OPT	:= \
 	--disable-quarantined \
 	--disable-nfconv \
 	$(GLOBAL_LARGE_FILE_OPTION) \
-	--with-fuse=external \
+	--with-fuse=internal \
 	--with-uuid \
 	--without-hd
 
