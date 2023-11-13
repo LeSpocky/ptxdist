@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_BOOST) += boost
 #
 # Paths and names
 #
-BOOST_VERSION	:= 1_67_0
-BOOST_MD5	:= ced776cb19428ab8488774e1415535ab
+BOOST_VERSION	:= 1_83_0
+BOOST_MD5	:= 406f0b870182b4eb17a23a9d8fce967d
 BOOST		:= boost_$(BOOST_VERSION)
 BOOST_SUFFIX	:= tar.bz2
 BOOST_URL	:= $(call ptx/mirror, SF, boost/$(BOOST).$(BOOST_SUFFIX))
@@ -46,23 +46,26 @@ BOOST_LIBRARIES-$(PTXCONF_BOOST_FIBER)		+= fiber
 BOOST_LIBRARIES-$(PTXCONF_BOOST_FILESYSTEM)	+= filesystem
 BOOST_LIBRARIES-$(PTXCONF_BOOST_GRAPH)		+= graph
 BOOST_LIBRARIES-$(PTXCONF_BOOST_GRAPH_PARALLEL)	+= graph_parallel
+BOOST_LIBRARIES-$(PTXCONF_BOOST_HEADERS)	+= headers
 BOOST_LIBRARIES-$(PTXCONF_BOOST_IOSTREAMS)	+= iostreams
+BOOST_LIBRARIES-$(PTXCONF_BOOST_JSON)		+= json
 BOOST_LIBRARIES-$(PTXCONF_BOOST_LOCALE)		+= locale
 BOOST_LIBRARIES-$(PTXCONF_BOOST_LOG)		+= log
 BOOST_LIBRARIES-$(PTXCONF_BOOST_MATH)		+= math
 BOOST_LIBRARIES-$(PTXCONF_BOOST_MPI)		+= mpi
+BOOST_LIBRARIES-$(PTXCONF_BOOST_NOWIDE)		+= nowide
 BOOST_LIBRARIES-$(PTXCONF_BOOST_PROGRAM_OPTIONS)+= program_options
 BOOST_LIBRARIES-$(PTXCONF_BOOST_PYTHON)		+= python
 BOOST_LIBRARIES-$(PTXCONF_BOOST_RANDOM)		+= random
 BOOST_LIBRARIES-$(PTXCONF_BOOST_REGEX)		+= regex
 BOOST_LIBRARIES-$(PTXCONF_BOOST_SERIALIZATION)	+= serialization
-BOOST_LIBRARIES-$(PTXCONF_BOOST_SIGNALS)	+= signals
 BOOST_LIBRARIES-$(PTXCONF_BOOST_STACKTRACE)	+= stacktrace
 BOOST_LIBRARIES-$(PTXCONF_BOOST_SYSTEM)		+= system
 BOOST_LIBRARIES-$(PTXCONF_BOOST_TEST)		+= test
 BOOST_LIBRARIES-$(PTXCONF_BOOST_THREAD)		+= thread
 BOOST_LIBRARIES-$(PTXCONF_BOOST_TIMER)		+= timer
 BOOST_LIBRARIES-$(PTXCONF_BOOST_TYPE_ERASURE)	+= type_erasure
+BOOST_LIBRARIES-$(PTXCONF_BOOST_URL)		+= url
 BOOST_LIBRARIES-$(PTXCONF_BOOST_WAVE)		+= wave
 
 BOOST_CONF_TOOL	:= NO
@@ -90,7 +93,7 @@ BOOST_JAM	:= \
 	--ignore-site-config \
 	--user-config=user-config.jam \
 	-q \
-	$$(if $$(filter 0,$$(PTXDIST_VERBOSE)),-d0) \
+	$(if $(filter 0,$(PTXDIST_VERBOSE)),-d0) \
 	--layout=system \
 	-sNO_BZIP2=0 \
 	-sZLIB_INCLUDE=$(SYSROOT)/usr/include \
@@ -130,11 +133,24 @@ endif
 ifdef PTXCONF_BOOST_PYTHON3
 	@echo "using python : $(PYTHON3_MAJORMINOR) : $(PTXDIST_SYSROOT_CROSS)/usr/bin/python : $(SYSROOT)/usr/include/python$(PYTHON3_MAJORMINOR) : $(SYSROOT)/usr/lib/python$(PYTHON3_MAJORMINOR) ;" >> $(BOOST_DIR)/user-config.jam
 endif
+	@$(call touch)
 
-	@echo "all:"					>  $(BOOST_DIR)/Makefile
-	@echo '	@$(BOOST_JAM) $(JAM_MAKE_OPT)'		>> $(BOOST_DIR)/Makefile
-	@echo "install:"				>> $(BOOST_DIR)/Makefile
-	@echo '	@$(BOOST_JAM) $(JAM_INSTALL_OPT)'	>> $(BOOST_DIR)/Makefile
+# ----------------------------------------------------------------------------
+# Compile
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/boost.compile:
+	@$(call targetinfo)
+	@$(call world/execute, BOOST, $(BOOST_JAM) $(JAM_MAKE_OPT))
+	@$(call touch)
+
+# ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/boost.install:
+	@$(call targetinfo)
+	@$(call world/execute, BOOST, $(BOOST_JAM) $(JAM_INSTALL_OPT))
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
@@ -148,6 +164,7 @@ BOOST_INST_LIBRARIES := $(filter-out date_time,$(BOOST_LIBRARIES-y))
 else
 BOOST_INST_LIBRARIES := $(BOOST_LIBRARIES-y)
 endif
+BOOST_INST_LIBRARIES := $(addsuffix *.so*,$(addprefix */libboost_,$(BOOST_INST_LIBRARIES)))
 
 $(STATEDIR)/boost.targetinstall:
 	@$(call targetinfo)
@@ -159,7 +176,7 @@ ifdef PTXCONF_BOOST_LIBS
 	@$(call install_fixup, boost,AUTHOR,"Robert Schwebel <r.schwebel@pengutronix.de>")
 	@$(call install_fixup, boost,DESCRIPTION,missing)
 
-	@$(call install_glob, boost, 0, 0, -, /usr/lib, */libboost*.so*)
+	@$(call install_glob, boost, 0, 0, -, /usr/lib, $(BOOST_INST_LIBRARIES))
 
 	@$(call install_finish, boost)
 endif

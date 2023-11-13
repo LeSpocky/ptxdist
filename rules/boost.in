@@ -12,6 +12,7 @@ menuconfig BOOST
 	select BZIP2		if BOOST_IOSTREAMS
 	select BZIP2_LIBBZ2	if BOOST_IOSTREAMS
 	select XZ		if BOOST_IOSTREAMS
+	select ZSTD		if BOOST_IOSTREAMS
 	select PYTHON3		if BOOST_PYTHON3
 	prompt "boost                         "
 	help
@@ -113,7 +114,6 @@ config BOOST_FIBER
 config BOOST_FILESYSTEM
 	bool
 	select BOOST_LIBS
-	select BOOST_SYSTEM
 	prompt "filesystem"
 	help
 	  Boost filesystem library
@@ -137,6 +137,12 @@ config BOOST_GRAPH_PARALLEL
 	help
 	  Boost graph_parallel library
 
+config BOOST_HEADERS
+	bool
+	prompt "headers"
+	help
+	  boost headers library
+
 config BOOST_IOSTREAMS
 	bool
 	select BOOST_LIBS
@@ -144,10 +150,15 @@ config BOOST_IOSTREAMS
 	help
 	  Boost iostream library
 
+config BOOST_JSON
+	bool
+	prompt "json"
+	help
+	  boost json library
+
 config BOOST_LOCALE
 	bool
 	select BOOST_LIBS
-	select BOOST_SYSTEM
 	prompt "locale"
 	help
 	  Boost locale library
@@ -183,6 +194,12 @@ config BOOST_MPI
 	help
 	  Boost MPI library
 
+config BOOST_NOWIDE
+	bool
+	prompt "nowide"
+	help
+	  boost nowide library
+
 config BOOST_PROGRAM_OPTIONS
 	bool
 	select BOOST_LIBS
@@ -211,13 +228,6 @@ config BOOST_SERIALIZATION
 	prompt "serialization"
 	help
 	  Boost serialization library
-
-config BOOST_SIGNALS
-	bool
-	select BOOST_LIBS
-	prompt "signals"
-	help
-	  Boost signals library
 
 config BOOST_STACKTRACE
 	bool
@@ -266,6 +276,14 @@ config BOOST_TYPE_ERASURE
 	select BOOST_SYSTEM
 	select BOOST_THREAD
 	prompt "type_erasure"
+	help
+	  boost type_erasure library
+
+config BOOST_URL
+	bool
+	prompt "url"
+	help
+	  boost url library
 
 config BOOST_WAVE
 	bool
