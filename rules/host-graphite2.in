@@ -1,0 +1,7 @@
+## SECTION=hosttools_noprompt
+
+config HOST_GRAPHITE2
+	tristate
+	default y if ALLYES
+	select HOST_CMAKE
+
