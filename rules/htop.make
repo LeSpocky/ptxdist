@@ -15,14 +15,16 @@ PACKAGES-$(PTXCONF_HTOP) += htop
 #
 # Paths and names
 #
-HTOP_VERSION	:= 3.0.1
-HTOP_MD5	:= c09908bacb5e22454715547aed88c3af
-HTOP		:= htop-$(HTOP_VERSION)
-HTOP_SUFFIX	:= tar.gz
-HTOP_URL	:= https://github.com/htop-dev/htop/archive/$(HTOP_VERSION).$(HTOP_SUFFIX)
-HTOP_SOURCE	:= $(SRCDIR)/$(HTOP).$(HTOP_SUFFIX)
-HTOP_DIR	:= $(BUILDDIR)/$(HTOP)
-HTOP_LICENSE	:= GPL-2.0-only
+HTOP_VERSION		:= 3.0.1
+HTOP_MD5		:= c09908bacb5e22454715547aed88c3af
+HTOP			:= htop-$(HTOP_VERSION)
+HTOP_SUFFIX		:= tar.gz
+HTOP_URL		:= https://github.com/htop-dev/htop/archive/$(HTOP_VERSION).$(HTOP_SUFFIX)
+HTOP_SOURCE		:= $(SRCDIR)/$(HTOP).$(HTOP_SUFFIX)
+HTOP_DIR		:= $(BUILDDIR)/$(HTOP)
+HTOP_LICENSE		:= GPL-2.0-only
+HTOP_LICENSE_FILES	:= \
+	file://COPYING;md5=4099d367cd5e59b6d4fc1ee33accb891
 
 # ----------------------------------------------------------------------------
 # Prepare
