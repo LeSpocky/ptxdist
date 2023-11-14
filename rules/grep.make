@@ -15,13 +15,16 @@ PACKAGES-$(PTXCONF_GREP) += grep
 #
 # Paths and names
 #
-GREP_VERSION	:= 3.8
-GREP_MD5	:= dc6e4d18d4659e6e7552fc4a183c8ac9
-GREP		:= grep-$(GREP_VERSION)
-GREP_SUFFIX	:= tar.xz
-GREP_URL	:= $(call ptx/mirror, GNU, grep/$(GREP).$(GREP_SUFFIX))
-GREP_SOURCE	:= $(SRCDIR)/$(GREP).$(GREP_SUFFIX)
-GREP_DIR	:= $(BUILDDIR)/$(GREP)
+GREP_VERSION		:= 3.8
+GREP_MD5		:= dc6e4d18d4659e6e7552fc4a183c8ac9
+GREP			:= grep-$(GREP_VERSION)
+GREP_SUFFIX		:= tar.xz
+GREP_URL		:= $(call ptx/mirror, GNU, grep/$(GREP).$(GREP_SUFFIX))
+GREP_SOURCE		:= $(SRCDIR)/$(GREP).$(GREP_SUFFIX)
+GREP_DIR		:= $(BUILDDIR)/$(GREP)
+GREP_LICENSE		:= GPL-3.0-or-later
+GREP_LICENSE_FILES	:= \
+	file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
 
 # ----------------------------------------------------------------------------
 # Prepare
