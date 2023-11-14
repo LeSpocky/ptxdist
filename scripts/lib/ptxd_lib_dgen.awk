@@ -504,6 +504,9 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 		print "$(" this_PKG "_IMAGE): "                       "$(" this_PKG "_CONFIG)"			> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
+	print "ifneq ($(wildcard $(" this_PKG "_MESON_CROSS_FILE)),)"						> DGEN_DEPS_POST;
+	print "PTXDIST_HASHLIST_DATA += CONFIG: " this_PKG " $(" this_PKG "_MESON_CROSS_FILE)\\n"		> DGEN_DEPS_POST;
+	print "endif"												> DGEN_DEPS_POST;
 	if (this_pkg_prefix == "image-") {
 		print "ifneq ($(" this_PKG "_PKGS),)"								> DGEN_DEPS_POST;
 		print "$(file >>" PTXDIST_TEMPDIR "/pkghash-" this_PKG "," this_PKG "_PKGS = $(" this_PKG "_PKGS))" \

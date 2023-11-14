@@ -136,7 +136,7 @@ endif
 MESALIB_DRI_VA_LIBS-$(PTXCONF_MESALIB_DRI_NOUVEAU)	+= nouveau
 endif
 
-MESALIB_MESON_CROSS_FILE := $(PTXDIST_GEN_CONFIG_DIR)/mesalib-cross-file.meson
+MESALIB_MESON_CROSS_FILE := $(call ptx/get-alternative, config/meson, mesalib-cross-file.meson)
 
 MESALIB_CONF_TOOL	:= meson
 MESALIB_CONF_OPT	:= \
@@ -226,14 +226,6 @@ MESALIB_CONF_OPT	:= \
 	-Dzstd=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d \
 	\
 	--cross-file $(MESALIB_MESON_CROSS_FILE)
-
-$(STATEDIR)/mesalib.prepare:
-	@$(call targetinfo)
-	@sed -e "/pkgconfig/a llvm-config = '$(PTXDIST_SYSROOT_CROSS)/bin/llvm-config'" \
-		< $(PTXDIST_MESON_CROSS_FILE) \
-		> $(MESALIB_MESON_CROSS_FILE)
-	@$(call world/prepare, MESALIB)
-	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Compile

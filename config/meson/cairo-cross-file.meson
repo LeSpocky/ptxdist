@@ -1,0 +1,2 @@
+[properties]
+ipc_rmid_deferred_release = true

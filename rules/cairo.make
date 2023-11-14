@@ -31,7 +31,7 @@ CAIRO_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-CAIRO_MESON_CROSS_FILE := $(PTXDIST_GEN_CONFIG_DIR)/cairo-cross-file.meson
+CAIRO_MESON_CROSS_FILE := $(call ptx/get-alternative, config/meson, cairo-cross-file.meson)
 
 #
 # meson
@@ -57,14 +57,6 @@ CAIRO_CONF_OPT	:= \
 	-Dzlib=$(call ptx/endis, PTXCONF_CAIRO_ZLIB)d \
 	\
 	--cross-file $(CAIRO_MESON_CROSS_FILE)
-
-$(STATEDIR)/cairo.prepare:
-	@$(call targetinfo)
-	@sed -e "/needs_exe_wrapper/a ipc_rmid_deferred_release = 'true'" \
-		< $(PTXDIST_MESON_CROSS_FILE) \
-		> $(CAIRO_MESON_CROSS_FILE)
-	@$(call world/prepare, CAIRO)
-	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Target-Install
