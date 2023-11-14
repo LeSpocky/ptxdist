@@ -27,6 +27,8 @@ IPTABLES_URL		:= http://ftp.netfilter.org/pub/iptables/$(IPTABLES).$(IPTABLES_SU
 IPTABLES_SOURCE		:= $(SRCDIR)/$(IPTABLES).$(IPTABLES_SUFFIX)
 IPTABLES_DIR		:= $(BUILDDIR)/$(IPTABLES)
 IPTABLES_LICENSE	:= GPL-2.0-only
+IPTABLES_LICENSE_FILES	:= \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
 
 # ----------------------------------------------------------------------------
 # Prepare
