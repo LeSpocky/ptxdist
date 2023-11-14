@@ -22,6 +22,8 @@ JSON_GLIB_URL		:= $(call ptx/mirror, GNOME, json-glib/$(basename $(JSON_GLIB_VER
 JSON_GLIB_SOURCE	:= $(SRCDIR)/$(JSON_GLIB).$(JSON_GLIB_SUFFIX)
 JSON_GLIB_DIR		:= $(BUILDDIR)/$(JSON_GLIB)
 JSON_GLIB_LICENSE	:= LGPL-2.1-only
+JSON_GLIB_LICENSE_FILES	:= \
+	file://COPYING;md5=7fbc338309ac38fefcd64b04bb903e34
 
 # ----------------------------------------------------------------------------
 # Prepare
