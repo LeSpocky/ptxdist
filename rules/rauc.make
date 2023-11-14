@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_RAUC) += rauc
 #
 # Paths and names
 #
-RAUC_VERSION	:= 1.10.1
-RAUC_MD5	:= 610621cc062d2fba41754335c7faee35
-RAUC		:= rauc-$(RAUC_VERSION)
-RAUC_SUFFIX	:= tar.xz
-RAUC_URL	:= https://github.com/rauc/rauc/releases/download/v$(RAUC_VERSION)/$(RAUC).$(RAUC_SUFFIX)
-RAUC_SOURCE	:= $(SRCDIR)/$(RAUC)-meson.$(RAUC_SUFFIX)
-RAUC_DIR	:= $(BUILDDIR)/$(RAUC)
-RAUC_LICENSE	:= LGPL-2.1-only
+RAUC_VERSION		:= 1.10.1
+RAUC_MD5		:= 610621cc062d2fba41754335c7faee35
+RAUC			:= rauc-$(RAUC_VERSION)
+RAUC_SUFFIX		:= tar.xz
+RAUC_URL		:= https://github.com/rauc/rauc/releases/download/v$(RAUC_VERSION)/$(RAUC).$(RAUC_SUFFIX)
+RAUC_SOURCE		:= $(SRCDIR)/$(RAUC)-meson.$(RAUC_SUFFIX)
+RAUC_DIR		:= $(BUILDDIR)/$(RAUC)
+RAUC_LICENSE		:= LGPL-2.1-only
+RAUC_LICENSE_FILES	:= \
+	file://COPYING;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
 # Prepare
