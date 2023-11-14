@@ -32,8 +32,8 @@ HOST_HARFBUZZ_CONF_OPT	:=  \
 	--without-gobject \
 	--without-cairo \
 	--without-chafa \
-	--without-icu \
-	--without-graphite2 \
+	--$(call ptx/wwo, PTXCONF_HOST_HARFBUZZ_ICU)-icu \
+	--$(call ptx/wwo, PTXCONF_HOST_HARFBUZZ_GRAPHITE)-graphite2 \
 	--with-freetype \
 	--without-uniscribe \
 	--without-gdi \

@@ -4,4 +4,16 @@ config HOST_HARFBUZZ
 	tristate
 	select HOST_FREETYPE
 	select HOST_GLIB
+	select HOST_GRAPHITE2		if HOST_HARFBUZZ_GRAPHITE
+	select HOST_ICU			if HOST_HARFBUZZ_ICU
 	default y if ALLYES
+
+if HOST_HARFBUZZ
+
+config HOST_HARFBUZZ_GRAPHITE
+	bool
+
+config HOST_HARFBUZZ_ICU
+	bool
+
+endif
