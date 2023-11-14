@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_GNUTLS) += gnutls
 #
 # Paths and names
 #
-GNUTLS_VERSION	:= 3.7.7
-GNUTLS_MD5	:= 39e5c71af7f444bdf175094a787843a2
-GNUTLS		:= gnutls-$(GNUTLS_VERSION)
-GNUTLS_SUFFIX	:= tar.xz
-GNUTLS_URL	:= https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/$(GNUTLS).$(GNUTLS_SUFFIX)
-GNUTLS_SOURCE	:= $(SRCDIR)/$(GNUTLS).$(GNUTLS_SUFFIX)
-GNUTLS_DIR	:= $(BUILDDIR)/$(GNUTLS)
-GNUTLS_LICENSE	:= LGPL-3.0-or-later
+GNUTLS_VERSION		:= 3.7.7
+GNUTLS_MD5		:= 39e5c71af7f444bdf175094a787843a2
+GNUTLS			:= gnutls-$(GNUTLS_VERSION)
+GNUTLS_SUFFIX		:= tar.xz
+GNUTLS_URL		:= https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/$(GNUTLS).$(GNUTLS_SUFFIX)
+GNUTLS_SOURCE		:= $(SRCDIR)/$(GNUTLS).$(GNUTLS_SUFFIX)
+GNUTLS_DIR		:= $(BUILDDIR)/$(GNUTLS)
+GNUTLS_LICENSE		:= LGPL-3.0-or-later
+GNUTLS_LICENSE_FILES	:= \
+	file://LICENSE;md5=71391c8e0c1cfe68077e7fce3b586283
 
 # ----------------------------------------------------------------------------
 # Prepare
