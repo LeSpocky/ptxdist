@@ -19,6 +19,10 @@ IMAGE_RAUC		:= image-rauc
 IMAGE_RAUC_DIR		:= $(BUILDDIR)/$(IMAGE_RAUC)
 IMAGE_RAUC_IMAGE	:= $(IMAGEDIR)/update.raucb
 IMAGE_RAUC_CONFIG	:= rauc.config
+IMAGE_RAUC_HOOK_FILE	:= $(call ptx/in-path, PTXDIST_PATH, config/images/rauc-hooks.sh)
+
+$(call ptx/cfghash, IMAGE_RAUC, $(IMAGE_RAUC_HOOK_FILE))
+$(call ptx/cfghash-file, IMAGE_RAUC, $(IMAGE_RAUC_HOOK_FILE))
 
 # ----------------------------------------------------------------------------
 # Image
@@ -36,6 +40,16 @@ ifdef PTXCONF_IMAGE_RAUC_BUNDLE_FORMAT_CRYPT
 IMAGE_RAUC_BUNDLE_FORMAT := "crypt"
 endif
 
+ifdef PTXCONF_IMAGE_RAUC_HOOK
+IMAGE_RAUC_ENV_HOOK = \
+	RAUC_HOOK_FILE="file hooks.sh { image = \\"$(IMAGE_RAUC_HOOK_FILE)\\" }" \
+	RAUC_HOOK_MANIFEST="filename=hooks.sh"
+else
+IMAGE_RAUC_ENV_HOOK = \
+	RAUC_HOOK_FILE="" \
+	RAUC_HOOK_MANIFEST=""
+endif
+
 IMAGE_RAUC_ENV	= \
 	$(CODE_SIGNING_ENV) \
 	RAUC_BUNDLE_COMPATIBLE="$(call remove_quotes,$(PTXCONF_RAUC_COMPATIBLE))" \
@@ -43,6 +57,7 @@ IMAGE_RAUC_ENV	= \
 	RAUC_BUNDLE_VERSION="$(call remove_quotes, $(PTXCONF_RAUC_BUNDLE_VERSION))" \
 	RAUC_BUNDLE_BUILD=$(call ptx/sh, date +%FT%T%z) \
 	RAUC_BUNDLE_DESCRIPTION=$(PTXCONF_IMAGE_RAUC_DESCRIPTION) \
+	$(IMAGE_RAUC_ENV_HOOK) \
 	RAUC_KEY="$(shell cs_get_uri update)" \
 	RAUC_CERT="$(shell cs_get_uri update)" \
 	RAUC_KEYRING="$(shell cs_get_ca update)" \

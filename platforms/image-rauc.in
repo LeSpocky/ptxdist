@@ -58,4 +58,13 @@ config IMAGE_RAUC_INTERMEDIATE
 	  verification. The certificates must be stored in the CA of the
 	  "update-intermediate" role of the code signing provider.
 
+config IMAGE_RAUC_HOOK
+	bool "include hook script"
+	help
+	  If you enable this option and create a file named
+	  config/images/rauc-hooks.sh in any PTXDIST_PATH component, it will be
+	  included in the bundle and declared as a hook script in the manifest.
+	  Note that you still need to define the respective install or slot
+	  hooks in the manifest so that RAUC calls them.
+
 endif
