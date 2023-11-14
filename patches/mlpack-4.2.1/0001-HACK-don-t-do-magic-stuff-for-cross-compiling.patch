@@ -1,0 +1,67 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Mon, 20 Nov 2023 10:09:15 +0100
+Subject: [PATCH] HACK: don't do magic stuff for cross-compiling
+
+ - PTXdist handles sysroot & toolchain prefix
+ - don't link to arbitrary libraries just for cross-compiling
+ - don't force downloading dependencies
+ - the toolchain will set all necessary compiler optimizations
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ CMake/ConfigureCrossCompile.cmake | 9 +--------
+ CMakeLists.txt                    | 2 +-
+ board/flags-config.cmake          | 2 ++
+ 3 files changed, 4 insertions(+), 9 deletions(-)
+
+diff --git a/CMake/ConfigureCrossCompile.cmake b/CMake/ConfigureCrossCompile.cmake
+index a320d32932be..6f8fb74e28cf 100644
+--- a/CMake/ConfigureCrossCompile.cmake
++++ b/CMake/ConfigureCrossCompile.cmake
+@@ -9,13 +9,6 @@
+ 
+ if (CMAKE_CROSSCOMPILING)
+   include(board/flags-config.cmake)
+-  if (NOT CMAKE_SYSROOT AND (NOT TOOLCHAIN_PREFIX))
+-    message(FATAL_ERROR "Neither CMAKE_SYSROOT nor TOOLCHAIN_PREFIX are set; please set both of them and try again.")
+-  elseif(NOT CMAKE_SYSROOT)
+-    message(FATAL_ERROR "Cannot configure: CMAKE_SYSROOT must be set when performing cross-compiling!")
+-  elseif(NOT TOOLCHAIN_PREFIX)
+-    message(FATAL_ERROR "Cannot configure: TOOLCHAIN_PREFIX must be set when performing cross-compiling!")
+-  endif()
+ endif()
+ 
+ macro(search_openblas version)
+@@ -40,5 +33,5 @@ macro(search_openblas version)
+   endif()
+   find_library(GFORTRAN NAMES libgfortran.a)
+   find_library(PTHREAD NAMES libpthread.a)
+-  set(CROSS_COMPILE_SUPPORT_LIBRARIES ${GFORTRAN} ${PTHREAD})
++  #set(CROSS_COMPILE_SUPPORT_LIBRARIES ${GFORTRAN} ${PTHREAD})
+ endmacro()
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index cc826923286e..71801a8587b5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -45,7 +45,7 @@ endif()
+ 
+ # Enable auto-download if we are cross compiling.
+ if (CMAKE_CROSSCOMPILING)
+-  set(DOWNLOAD_DEPENDENCIES ON)
++  set(DOWNLOAD_DEPENDENCIES OFF)
+ endif()
+ 
+ # Support preference of static libs by adjusting CMAKE_FIND_LIBRARY_SUFFIXES.
+diff --git a/board/flags-config.cmake b/board/flags-config.cmake
+index 06dfecd5cfc9..ddde5bca5826 100644
+--- a/board/flags-config.cmake
++++ b/board/flags-config.cmake
+@@ -63,6 +63,8 @@ elseif(BOARD MATCHES "NORTHWOOD")
+   set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,--gc-sections")
+   set(OPENBLAS_TARGET "NORTHWOOD")
+   set(OPENBLAS_BINARY "32")
++elseif(BOARD MATCHES "PTX")
++  ## BSP toolchain will set the correct optimizations
+ elseif(BOARD)
+   ## TODO: update documentation with a list of the supported boards.
+   message(FATAL_ERROR "Given BOARD_NAME is not known; please choose a supported board from the list")

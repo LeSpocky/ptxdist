@@ -1,0 +1,26 @@
+## SECTION=system_libraries
+
+menuconfig MLPACK
+	tristate
+	select HOST_CMAKE
+	select GCCLIBS_CXX
+	select GCCLIBS_GOMP
+	select ARMADILLO
+	select CEREAL
+	select ENSMALLEN
+	select OPENBLAS
+	prompt "mlpack                        "
+	help
+	  Machine Learning Pack (mlpack) is an intuitive, fast, scalable C++
+	  machine learning library, meant to be a machine learning analog to
+	  LAPACK.  It aims to implement a wide array of machine learning
+	  methods and function as a “swiss army knife” for machine learning
+	  researchers.
+
+if MLPACK
+
+config MLPACK_TOOLS
+	bool
+	prompt "install tools"
+
+endif
