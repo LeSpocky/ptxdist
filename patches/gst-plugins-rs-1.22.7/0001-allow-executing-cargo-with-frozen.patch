@@ -32,7 +32,7 @@ index 0b7353c234b6..e87cd511552d 100644
          cargo_cmd += ['--target', rustc_target]
      if features:
 diff --git a/meson.build b/meson.build
-index 04ea2e94b914..12aa93b0802c 100644
+index 8b64cd383279..fa1169107606 100644
 --- a/meson.build
 +++ b/meson.build
 @@ -405,6 +405,10 @@ if get_option('doc').disabled()
