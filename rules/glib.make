@@ -31,6 +31,7 @@ GLIB_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
+GLIB_MESON_CROSS_FILE := $(call ptx/get-alternative, config/meson, glib-cross-file.meson)
 #
 # meson
 #
@@ -54,7 +55,9 @@ GLIB_CONF_OPT	:= \
 	-Dsysprof=disabled \
 	-Dsystemtap=false \
 	-Dtests=false \
-	-Dxattr=false
+	-Dxattr=false \
+	\
+	--cross-file $(GLIB_MESON_CROSS_FILE)
 
 # ----------------------------------------------------------------------------
 # Install
