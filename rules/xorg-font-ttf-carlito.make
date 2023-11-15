@@ -15,14 +15,16 @@ PACKAGES-$(PTXCONF_XORG_FONT_TTF_CARLITO) += xorg-font-ttf-carlito
 #
 # Paths and names
 #
-XORG_FONT_TTF_CARLITO_VERSION	:= 20130920
-XORG_FONT_TTF_CARLITO_MD5	:= c74b7223abe75949b4af367942d96c7a
+XORG_FONT_TTF_CARLITO_VERSION	:= 2023-03-09-g3a810cab78eb
+XORG_FONT_TTF_CARLITO_MD5	:= 84f54c77587771f93ffd4917636c65d7
 XORG_FONT_TTF_CARLITO		:= crosextrafonts-carlito-$(XORG_FONT_TTF_CARLITO_VERSION)
 XORG_FONT_TTF_CARLITO_SUFFIX	:= tar.gz
-XORG_FONT_TTF_CARLITO_URL	:= http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/$(XORG_FONT_TTF_CARLITO).$(XORG_FONT_TTF_CARLITO_SUFFIX)
+XORG_FONT_TTF_CARLITO_URL	:= https://github.com/googlefonts/carlito/archive/$(XORG_FONT_TTF_CARLITO).$(XORG_FONT_TTF_CARLITO_SUFFIX)
 XORG_FONT_TTF_CARLITO_SOURCE	:= $(SRCDIR)/$(XORG_FONT_TTF_CARLITO).$(XORG_FONT_TTF_CARLITO_SUFFIX)
 XORG_FONT_TTF_CARLITO_DIR	:= $(BUILDDIR)/$(XORG_FONT_TTF_CARLITO)
 XORG_FONT_TTF_CARLITO_LICENSE	:= OFL-1.1
+XORG_FONT_TTF_CARLITO_LICENSE_FILES := \
+	file://OFL.txt;md5=267b84c986def0f4a0ae41adfa791261
 
 XORG_FONT_TTF_CARLITO_CONF_TOOL	:= NO
 XORG_FONT_TTF_CARLITO_FONTDIR	:= $(XORG_FONTDIR)/truetype/carlito
@@ -55,11 +57,6 @@ $(STATEDIR)/xorg-font-ttf-carlito.targetinstall:
 	@$(call install_fixup, xorg-font-ttf-carlito,SECTION,base)
 	@$(call install_fixup, xorg-font-ttf-carlito,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup, xorg-font-ttf-carlito,DESCRIPTION,missing)
-
-	@$(call install_alternative, xorg-font-ttf-carlito, 0, 0, 0644, \
-		/etc/fonts/conf.d/30-0-google-crosextra-carlito-fontconfig.conf)
-	@$(call install_alternative, xorg-font-ttf-carlito, 0, 0, 0644, \
-		/etc/fonts/conf.d/62-google-crosextra-carlito-fontconfig.conf)
 
 	@$(call install_tree, xorg-font-ttf-carlito, 0, 0, -, /usr)
 
