@@ -15,14 +15,16 @@ PACKAGES-$(PTXCONF_XORG_FONT_TTF_CALADEA) += xorg-font-ttf-caladea
 #
 # Paths and names
 #
-XORG_FONT_TTF_CALADEA_VERSION	:= 20130214
-XORG_FONT_TTF_CALADEA_MD5	:= 368f114c078f94214a308a74c7e991bc
+XORG_FONT_TTF_CALADEA_VERSION	:= 2020-02-11-g336a529cfad3
+XORG_FONT_TTF_CALADEA_MD5	:= 6cec7803159f59d9723463463e49e660
 XORG_FONT_TTF_CALADEA		:= crosextrafonts-$(XORG_FONT_TTF_CALADEA_VERSION)
 XORG_FONT_TTF_CALADEA_SUFFIX	:= tar.gz
-XORG_FONT_TTF_CALADEA_URL	:= http://commondatastorage.googleapis.com/chromeos-localmirror/distfiles/$(XORG_FONT_TTF_CALADEA).$(XORG_FONT_TTF_CALADEA_SUFFIX)
+XORG_FONT_TTF_CALADEA_URL	:= https://github.com/huertatipografica/Caladea/archive/$(XORG_FONT_TTF_CALADEA_VERSION).$(XORG_FONT_TTF_CALADEA_SUFFIX)
 XORG_FONT_TTF_CALADEA_SOURCE	:= $(SRCDIR)/$(XORG_FONT_TTF_CALADEA).$(XORG_FONT_TTF_CALADEA_SUFFIX)
 XORG_FONT_TTF_CALADEA_DIR	:= $(BUILDDIR)/$(XORG_FONT_TTF_CALADEA)
-XORG_FONT_TTF_CALADEA_LICENSE	:= Apache-2.0
+XORG_FONT_TTF_CALADEA_LICENSE	:= OFL-1.1
+XORG_FONT_TTF_CALADEA_LICENSE_FILES := \
+	file://OFL.txt;md5=ea7e02ef358611c66c1b152bd1c981c4
 
 XORG_FONT_TTF_CALADEA_CONF_TOOL	:= NO
 XORG_FONT_TTF_CALADEA_FONTDIR	:= $(XORG_FONTDIR)/truetype/caladea
@@ -55,11 +57,6 @@ $(STATEDIR)/xorg-font-ttf-caladea.targetinstall:
 	@$(call install_fixup, xorg-font-ttf-caladea,SECTION,base)
 	@$(call install_fixup, xorg-font-ttf-caladea,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup, xorg-font-ttf-caladea,DESCRIPTION,missing)
-
-	@$(call install_alternative, xorg-font-ttf-caladea, 0, 0, 0644, \
-		/etc/fonts/conf.d/30-0-google-crosextra-caladea-fontconfig.conf)
-	@$(call install_alternative, xorg-font-ttf-caladea, 0, 0, 0644, \
-		/etc/fonts/conf.d/62-google-crosextra-caladea-fontconfig.conf)
 
 	@$(call install_tree, xorg-font-ttf-caladea, 0, 0, -, /usr)
 
