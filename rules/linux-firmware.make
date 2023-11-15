@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20231030
-LINUX_FIRMWARE_MD5	:= db9f452bd4073ae2c2d353048cef9ae5
+LINUX_FIRMWARE_VERSION	:= 20231111
+LINUX_FIRMWARE_MD5	:= 4e1b62642d8882781d66847133d2f0f0
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -83,6 +83,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENSE.hfi1_firmware;md5=5e7b6e586ce7339d12689e49931ad444 \
 	file://LICENSE.Lontium;md5=4ec8dc582ff7295f39e2ca6a7b0be2b6 \
 	file://LICENCE.rockchip;md5=5fd70190c5ed39734baceada8ecced26 \
+	file://LICENSE.ixp4xx;md5=ddc5cd6cbc6745343926fe7ecc2cdeb2 \
 	file://LICENCE.it913x;md5=1fbf727bfb6a949810c4dbfa7e6ce4f8 \
 	file://LICENSE.qcom_yamato;md5=d0de0eeccaf1843a850bf7a6777eec5c \
 	file://LICENCE.OLPC;md5=5b917f9d8c061991be4f6f5f108719cd \
