@@ -23,43 +23,45 @@ HOST_LVM2_CONF_TOOL	:= autoconf
 HOST_LVM2_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-static_link \
-	--disable-lvm1_fallback \
 	--disable-thin_check_needs_check \
 	--disable-cache_check_needs_check \
 	--disable-readline \
+	--disable-editline \
 	--enable-realtime \
 	--disable-ocf \
 	--disable-cmirrord \
 	--disable-debug \
 	--disable-profiling \
-	--disable-testing \
 	--disable-valgrind-pool \
 	--enable-devmapper \
-	--disable-lvmetad \
 	--disable-lvmpolld \
 	--disable-lvmlockd-sanlock \
 	--disable-lvmlockd-dlm \
+	--disable-lvmlockd-dlmcontrol \
+	--disable-lvmlockd-idm \
 	--disable-use-lvmlockd \
-	--disable-use-lvmetad \
 	--disable-use-lvmpolld \
-	--disable-dmfilemapd \
 	--disable-notify-dbus \
+	--disable-systemd-journal \
+	--disable-app-machineid \
 	--disable-blkid_wiping \
-	--disable-compat \
+	--disable-udev_sync \
+	--disable-udev_rules \
+	--disable-udev-rule-exec-detection \
 	--disable-units-compat \
 	--disable-ioctl \
 	--enable-o_direct \
-	--disable-applib \
 	--disable-cmdlib \
-	--disable-python_bindings \
-	--disable-python2_bindings \
-	--disable-python3_bindings \
+	--disable-dbus-service \
 	--disable-pkgconfig \
 	--disable-write_install \
 	--disable-fsadm \
+	--disable-lvmimportvdo \
 	--disable-blkdeactivate \
 	--disable-dmeventd \
+	--disable-dmfilemapd \
 	--disable-selinux \
+	--enable-blkzeroout \
 	--disable-nls
 
 # vim: syntax=make

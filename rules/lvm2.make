@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LVM2) += lvm2
 #
 # Paths and names
 #
-LVM2_VERSION	:= 2.02.177
-LVM2_MD5	:= ee6cfbc5a0c5696ffae79dac04ee7a2b
+LVM2_VERSION	:= 2.03.22
+LVM2_MD5	:= a97cf533222a5760225dbd26c3982ca6
 LVM2		:= LVM2.$(LVM2_VERSION)
 LVM2_SUFFIX	:= tgz
 LVM2_URL	:= \
@@ -24,6 +24,10 @@ LVM2_URL	:= \
 LVM2_SOURCE	:= $(SRCDIR)/$(LVM2).$(LVM2_SUFFIX)
 LVM2_DIR	:= $(BUILDDIR)/$(LVM2)
 LVM2_LICENSE	:= GPL-2.0-only, LGPL-2.1-only
+LVM2_LICENSE_FILES := \
+	file://COPYING;md5=12713b4d9386533feeb07d6e4831765a \
+	file://COPYING.LIB;md5=fbc093901857fcd118f065f900982c24
+
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -36,45 +40,45 @@ LVM2_CONF_TOOL	:= autoconf
 LVM2_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-static_link \
-	--disable-lvm1_fallback \
 	--disable-thin_check_needs_check \
 	--disable-cache_check_needs_check \
 	--enable-readline \
+	--disable-editline \
 	--enable-realtime \
 	--disable-ocf \
 	--disable-cmirrord \
 	--disable-debug \
 	--disable-profiling \
-	--disable-testing \
 	--disable-valgrind-pool \
 	--enable-devmapper \
-	--disable-lvmetad \
 	--disable-lvmpolld \
 	--disable-lvmlockd-sanlock \
 	--disable-lvmlockd-dlm \
+	--disable-lvmlockd-dlmcontrol \
+	--disable-lvmlockd-idm \
 	--disable-use-lvmlockd \
-	--disable-use-lvmetad \
 	--disable-use-lvmpolld \
-	--disable-dmfilemapd \
 	--disable-notify-dbus \
+	--$(call ptx/endis, PTXCONF_LVM2_SYSTEMD)-systemd-journal \
+	--$(call ptx/endis, PTXCONF_LVM2_SYSTEMD)-app-machineid \
 	--disable-blkid_wiping \
 	--$(call ptx/endis, PTXCONF_LVM2_SYSTEMD)-udev_sync \
 	--$(call ptx/endis, PTXCONF_LVM2_SYSTEMD)-udev_rules \
-	--disable-compat \
+	--disable-udev-rule-exec-detection \
 	--disable-units-compat \
 	--enable-ioctl \
 	--enable-o_direct \
-	--enable-applib \
 	--enable-cmdlib \
-	--disable-python_bindings \
-	--disable-python2_bindings \
-	--disable-python3_bindings \
+	--disable-dbus-service \
 	--enable-pkgconfig \
 	--enable-write_install \
 	--enable-fsadm \
+	--disable-lvmimportvdo \
 	--enable-blkdeactivate \
 	--enable-dmeventd \
+	--disable-dmfilemapd \
 	--disable-selinux \
+	--enable-blkzeroout \
 	--disable-nls \
 	--with-device-uid=$(PTXCONF_LVM2_DEVICE_UID) \
 	--with-device-gid=$(PTXCONF_LVM2_DEVICE_GID) \

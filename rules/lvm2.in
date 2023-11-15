@@ -4,6 +4,7 @@ menuconfig LVM2
 	tristate
 	select LIBC_DL
 	select GCCLIBS_GCC_S
+	select LIBAIO
 	select READLINE
 	select NCURSES
 	select SYSTEMD if LVM2_SYSTEMD
