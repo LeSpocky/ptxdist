@@ -8,7 +8,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index 0cd592e91fa6..5bb2b42b5982 100644
+index 48e8d3b40ee4..5c0e748280c7 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -60,8 +60,8 @@ idn2_cflags =   `echo $(COPTS) | $(top)/bld/pkg-wrapper HAVE_LIBIDN2 $(PKG_CONFI
