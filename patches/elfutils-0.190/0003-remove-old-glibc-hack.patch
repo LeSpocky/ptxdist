@@ -1,8 +1,8 @@
 From: Michael Olbrich <m.olbrich@pengutronix.de>
-Date: Tue, 13 Jul 2021 13:26:37 +0200
+Date: Wed, 15 Nov 2023 13:00:19 +0100
 Subject: [PATCH] remove old glibc hack
 
-Imported from elfutils_0.185-1.debian.tar.xz
+Imported from elfutils_0.189-4.debian.tar.xz
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---

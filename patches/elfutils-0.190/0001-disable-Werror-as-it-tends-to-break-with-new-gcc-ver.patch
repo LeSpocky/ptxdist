@@ -1,8 +1,8 @@
 From: Helmut Grohne <helmut@subdivi.de>
-Date: Tue, 13 Jul 2021 13:26:37 +0200
+Date: Wed, 15 Nov 2023 13:00:19 +0100
 Subject: [PATCH] disable -Werror as it tends to break with new gcc versions
 
-Imported from elfutils_0.185-1.debian.tar.xz
+Imported from elfutils_0.189-4.debian.tar.xz
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
@@ -10,18 +10,18 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 deletions(-)
 
 diff --git a/config/eu.am b/config/eu.am
-index c3cefe7e1e7e..d1a663bd3367 100644
+index e6c241f9d88a..4136e7cd538a 100644
 --- a/config/eu.am
 +++ b/config/eu.am
-@@ -91,7 +91,6 @@ AM_CFLAGS = -std=gnu99 -Wall -Wshadow -Wformat=2 \
- 	    -Wold-style-definition -Wstrict-prototypes $(TRAMPOLINES_WARNING) \
+@@ -99,7 +99,6 @@ AM_CFLAGS = -std=gnu99 -Wall -Wshadow -Wformat=2 \
  	    $(LOGICAL_OP_WARNING) $(DUPLICATED_COND_WARNING) \
  	    $(NULL_DEREFERENCE_WARNING) $(IMPLICIT_FALLTHROUGH_WARNING) \
+ 	    $(USE_AFTER_FREE3_WARNING) \
 -	    $(if $($(*F)_no_Werror),,-Werror) \
  	    $(if $($(*F)_no_Wunused),,-Wunused -Wextra) \
  	    $(if $($(*F)_no_Wstack_usage),,$(STACK_USAGE_WARNING)) \
  	    $(if $($(*F)_no_Wpacked_not_aligned),$(NO_PACKED_NOT_ALIGNED_WARNING),) \
-@@ -101,7 +100,6 @@ AM_CXXFLAGS = -std=c++11 -Wall -Wshadow \
+@@ -109,7 +108,6 @@ AM_CXXFLAGS = -std=c++11 -Wall -Wshadow \
  	   $(TRAMPOLINES_WARNING) \
  	   $(LOGICAL_OP_WARNING) $(DUPLICATED_COND_WARNING) \
  	   $(NULL_DEREFERENCE_WARNING) $(IMPLICIT_FALLTHROUGH_WARNING) \
