@@ -14,20 +14,19 @@ PACKAGES-$(PTXCONF_FONTCONFIG) += fontconfig
 #
 # Paths and names
 #
-FONTCONFIG_VERSION	:= 2.13.1
-FONTCONFIG_MD5		:= 690c6cb840a92fa8908cdf462d19ec66
+FONTCONFIG_VERSION	:= 2.14.2
+FONTCONFIG_MD5		:= c5536d897c5d52422a00ecee742ccf47
 FONTCONFIG		:= fontconfig-$(FONTCONFIG_VERSION)
 FONTCONFIG_SUFFIX	:= tar.gz
 FONTCONFIG_URL		:= http://fontconfig.org/release/$(FONTCONFIG).$(FONTCONFIG_SUFFIX)
 FONTCONFIG_SOURCE	:= $(SRCDIR)/$(FONTCONFIG).$(FONTCONFIG_SUFFIX)
 FONTCONFIG_DIR		:= $(BUILDDIR)/$(FONTCONFIG)
-FONTCONFIG_LICENSE	:= HPND-sell-variant AND MIT AND custom AND MIT-Modern-Variant AND Unicode-TOU
+FONTCONFIG_LICENSE	:= HPND-sell-variant AND MIT AND custom AND MIT-Modern-Variant AND Unicode-TOU and public_domain
 FONTCONFIG_LICENSE_FILES	:= \
-	file://COPYING;md5=7a0449e9bc5370402a94c00204beca3d \
-	file://src/fcfreetype.c;startline=26;endline=44;md5=44e5309810857e7964a78e3381fa2910 \
+	file://COPYING;md5=00252fd272bf2e722925613ad74cb6c7 \
 	file://src/ftglue.c;startline=1;endline=8;md5=789386c3d7c853bbce055520a11aaeb9 \
 	file://src/fcatomic.h;startline=4;endline=24;md5=89c79dedb0fb324bfa2fae6b7bf7f673 \
-	file://fc-case/CaseFolding.txt;startline=3;endline=6;md5=c6e05768ea162f646ae2e29667c48b2e
+	file://fc-case/CaseFolding.txt;startline=3;endline=6;md5=22a71642d1bac5fcefffd1f9f35cdf27
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -48,7 +47,9 @@ FONTCONFIG_CONF_OPT	:= \
 	--disable-rpath \
 	--$(call ptx/endis, PTXCONF_ICONV)-iconv \
 	--disable-libxml2 \
+	--disable-docbook \
 	--disable-docs \
+	--disable-cache-build \
 	--with-arch=$(PTXCONF_ARCH_STRING) \
 	--with-default-hinting=slight \
 	--with-default-fonts=$(XORG_FONTDIR) \
