@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GLIB_NETWORKING) += glib-networking
 #
 # Paths and names
 #
-GLIB_NETWORKING_VERSION	:= 2.74.0
-GLIB_NETWORKING_MD5	:= 7fc6ca153af0833fdf5c65044a3f7c42
+GLIB_NETWORKING_VERSION	:= 2.78.0
+GLIB_NETWORKING_MD5	:= 402ff1e8f24dafb02354d9b66ffa11df
 GLIB_NETWORKING		:= glib-networking-$(GLIB_NETWORKING_VERSION)
 GLIB_NETWORKING_SUFFIX	:= tar.xz
 GLIB_NETWORKING_URL	:= $(call ptx/mirror, GNOME, glib-networking/$(basename $(GLIB_NETWORKING_VERSION))/$(GLIB_NETWORKING).$(GLIB_NETWORKING_SUFFIX))
@@ -43,8 +43,7 @@ GLIB_NETWORKING_CONF_OPT	:= \
 	-Dgnutls=enabled \
 	-Dinstalled_tests=false \
 	-Dlibproxy=disabled \
-	-Dopenssl=disabled \
-	-Dstatic_modules=false
+	-Dopenssl=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
