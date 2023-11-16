@@ -267,9 +267,48 @@ ptxd_init_host_env() {
 	PTXDIST_HOST_LDFLAGS="${ldflags[*]}"
 }
 
+ptxd_partial_readlink() {
+    local last_path last_other
+    local original="${1}"
+    local path="${original}"
+    local other="$(realpath "${path}")"
+    local path_real="${other}"
+    local path_real_saved="${other}"
+
+    if [ "${path}" = "${other}" ]; then
+	return
+    fi
+
+    while [ "${other}" = "${path_real}" -a "${path}" != "${other}" ]; do
+	last_path="${path}"
+	last_other="${other}"
+	path="${path%/*}"
+	other="${other%/*}"
+	path_real="$(realpath "${path}")"
+    done
+    path="${last_path}${path_real_saved#${last_other}}"
+    if [ "${path}" != "${original}" ]; then
+	echo "${path}"
+    fi
+}
+
 ptxd_init_readlink() {
-    export PTXDIST_REAL_PLATFORMDIR="$(readlink -f "${PTXDIST_PLATFORMDIR}")"
-    export PTXDIST_REAL_SYSROOT_TOOLCHAIN="$(readlink -f "${PTXDIST_SYSROOT_TOOLCHAIN}")"
+    local delim="$(printf "\037")"
+    local tmp
+
+    # guess possible variants of the platformdir depending on how symlinks are resolved
+    # cmake has its own magic that is recreated in ptxd_partial_readlink
+    PTXDIST_REAL_PLATFORMDIR="$(readlink -f "${PTXDIST_PLATFORMDIR}")"
+    tmp="$(ptxd_partial_readlink "${PTXDIST_PLATFORMDIR}")"
+    if [ -n "${tmp}" ]; then
+	PTXDIST_REAL_PLATFORMDIR="${PTXDIST_REAL_PLATFORMDIR}${delim}${tmp}"
+    fi
+    PTXDIST_REAL_SYSROOT_TOOLCHAIN="$(readlink -f "${PTXDIST_SYSROOT_TOOLCHAIN}")"
+    tmp="$(ptxd_partial_readlink "${PTXDIST_SYSROOT_TOOLCHAIN}")"
+    if [ -n "${tmp}" ]; then
+	PTXDIST_REAL_SYSROOT_TOOLCHAIN="${PTXDIST_REAL_SYSROOT_TOOLCHAIN}${delim}${tmp}"
+    fi
+    export PTXDIST_REAL_PLATFORMDIR PTXDIST_REAL_SYSROOT_TOOLCHAIN
 }
 
 ptxd_init_devpkg()
