@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_IGT_GPU_TOOLS) += igt-gpu-tools
 #
 # Paths and names
 #
-IGT_GPU_TOOLS_VERSION	:= 1.27.1
-IGT_GPU_TOOLS_MD5	:= 62135c26178dc8121e619c4c19d7edcb
+IGT_GPU_TOOLS_VERSION	:= 1.28
+IGT_GPU_TOOLS_MD5	:= 5c11ed8a9698df5fd6663b027168ab1f
 IGT_GPU_TOOLS		:= igt-gpu-tools-$(IGT_GPU_TOOLS_VERSION)
 IGT_GPU_TOOLS_SUFFIX	:= tar.xz
 IGT_GPU_TOOLS_URL	:= $(call ptx/mirror, XORG, individual/app/$(IGT_GPU_TOOLS).$(IGT_GPU_TOOLS_SUFFIX))
@@ -53,9 +53,14 @@ IGT_GPU_TOOLS_CONF_OPT	:= \
 	-Doverlay=disabled \
 	-Doverlay_backends=auto \
 	-Drunner=$(call ptx/endis,PTXCONF_IGT_GPU_TOOLS_TEST_RUNNER)d \
+	-Dsphinx=disabled \
+	-Dsrcdir=$(notdir $(IGT_GPU_TOOLS_DIR)) \
+	-Dtestplan=disabled \
 	-Dtests=$(call ptx/endis,PTXCONF_IGT_GPU_TOOLS_TESTS)d \
 	-Duse_rpath=false \
-	-Dvalgrind=disabled
+	-Dvalgrind=disabled \
+	-Dversion_hash=NO-GIT \
+	-Dxe_driver=disabled
 
 ifdef PTXCONF_KERNEL_HEADER
 IGT_GPU_TOOLS_CPPFLAGS	:= \
