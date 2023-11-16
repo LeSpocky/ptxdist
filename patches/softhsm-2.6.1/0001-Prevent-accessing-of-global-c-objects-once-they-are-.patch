@@ -2,14 +2,22 @@ From: Neil Horman <nhorman@openssl.org>
 Date: Fri, 27 Oct 2023 14:57:37 -0400
 Subject: [PATCH] Prevent accessing of global c++ objects once they are deleted
 
-Fixes (Maybe) #729
+Use the global integer objects_deleted to detect when SoftHSM instance is gone.
+The destruction of the std::unique_ptr object cannot be modified directly
+so use the SoftHSM destructor instead.
+
+The destructor is also called in C_Finalize() when the global object is
+reset, so clear objects_deleted in this case. Otherwice C_Initialize()
+after C_Finalize() will fail.
+
+Fixes (Maybe) #729.
 ---
- src/lib/SoftHSM.cpp |   3 ++
+ src/lib/SoftHSM.cpp |   5 ++
  src/lib/main.cpp    | 138 ++++++++++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 141 insertions(+)
+ 2 files changed, 143 insertions(+)
 
 diff --git a/src/lib/SoftHSM.cpp b/src/lib/SoftHSM.cpp
-index 0a0c32cc68dc..0b64344e9d3e 100644
+index 0a0c32cc68dc..384bd4336b44 100644
 --- a/src/lib/SoftHSM.cpp
 +++ b/src/lib/SoftHSM.cpp
 @@ -88,6 +88,8 @@
@@ -21,7 +29,16 @@ index 0a0c32cc68dc..0b64344e9d3e 100644
  #ifdef HAVE_CXX11
  
  std::unique_ptr<MutexFactory> MutexFactory::instance(nullptr);
-@@ -406,6 +408,7 @@ SoftHSM::~SoftHSM()
+@@ -367,6 +369,8 @@ void SoftHSM::reset()
+ {
+ 	if (instance.get())
+ 		instance.reset();
++
++	objects_deleted = 0;
+ }
+ 
+ // Constructor
+@@ -406,6 +410,7 @@ SoftHSM::~SoftHSM()
  
  	isInitialised = false;
  
