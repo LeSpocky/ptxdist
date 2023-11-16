@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GDK_PIXBUF) += gdk-pixbuf
 #
 # Paths and names
 #
-GDK_PIXBUF_VERSION	:= 2.42.9
-GDK_PIXBUF_MD5		:= 051599a83f0ae30ee9daeecfdafc765e
+GDK_PIXBUF_VERSION	:= 2.42.10
+GDK_PIXBUF_MD5		:= 4a62f339cb1424693fba9bb7ffef8150
 GDK_PIXBUF		:= gdk-pixbuf-$(GDK_PIXBUF_VERSION)
 GDK_PIXBUF_SUFFIX	:= tar.xz
 GDK_PIXBUF_URL		:= $(call ptx/mirror, GNOME, gdk-pixbuf/$(basename $(GDK_PIXBUF_VERSION))/$(GDK_PIXBUF).$(GDK_PIXBUF_SUFFIX))
