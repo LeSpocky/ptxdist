@@ -4,13 +4,13 @@ config SSHPASS
 	tristate
 	prompt "sshpass"
 	help
-	  Sshpass is a tool for non-interactivly performing password
+	  sshpass is a tool for non-interactively performing password
 	  authentication with SSH's so called "interactive keyboard
 	  password authentication".
 	  Most user should use SSH's more secure public key
-	  authentiaction instead.
+	  authentication instead.
 
-	  SECURITY NOTE: There is a reason openssh insists that
+	  SECURITY NOTE: There is a reason OpenSSH insists that
 	  passwords be typed interactively.
 	  Passwords are harder to store securely and to pass around
 	  securely between programs.
