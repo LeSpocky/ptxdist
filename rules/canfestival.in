@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 config CANFESTIVAL
 	tristate
@@ -10,3 +12,5 @@ config CANFESTIVAL
 
 	  http://www.canfestival.org/
 
+	  STAGING: remove in PTXdist 2024.12.0
+	  Upstream is dead and needs Python 2 to build, which is also dead.
