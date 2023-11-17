@@ -15,14 +15,19 @@
 #tag:build --start-number 100
 0100-qtwebengine-chromium-skia-Fix-build-with-gcc-12.patch
 0101-qt3d-link-with-latomic-if-necessary.patch
-#tag:no-x11 --start-number 200
-0200-qtwayland-use-QT_EGL_NO_X11-and-qt_egl_p.h-everywher.patch
-0201-videonode-egl-use-QT_EGL_NO_X11-and-qt_egl_p.h.patch
-0202-qtbase-fix-building-with-mesa-22.3.0.patch
-#tag:ptxdist --start-number 300
-0300-ptxdist-qtwebengine-allow-building-with-ptxdist.patch
-0301-ptxdist-qtwebengine-let-ninja-use-the-jobserver.patch
-0302-HACK-qtwebengine-workaround-for-too-long-file-names.patch
-#tag:kms --start-number 400
-0400-eglfs_kms-device-ordering-robustness.patch
-# 01e7d0d369fff7b48d1b87793dc452d5  - git-ptx-patches magic
+#tag:python3 --start-number 200
+0200-replace-Python-2-with-Python-3-in-the-build-system.patch
+0201-update-Chromium-code-for-compatibility-with-Python-3.patch
+0202-fix-build-with-Python-3.11.patch
+0203-remove-dependencies-on-third_party-catapult.patch
+#tag:no-x11 --start-number 300
+0300-qtwayland-use-QT_EGL_NO_X11-and-qt_egl_p.h-everywher.patch
+0301-videonode-egl-use-QT_EGL_NO_X11-and-qt_egl_p.h.patch
+0302-qtbase-fix-building-with-mesa-22.3.0.patch
+#tag:ptxdist --start-number 400
+0400-ptxdist-qtwebengine-allow-building-with-ptxdist.patch
+0401-ptxdist-qtwebengine-let-ninja-use-the-jobserver.patch
+0402-HACK-qtwebengine-workaround-for-too-long-file-names.patch
+#tag:kms --start-number 500
+0500-eglfs_kms-device-ordering-robustness.patch
+# c9ac4e4caaee7f59e4a9de293fbd89af  - git-ptx-patches magic
