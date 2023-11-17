@@ -342,7 +342,7 @@ ifdef PTXCONF_QT5_MODULE_QTWEBENGINE
 ifndef PTXCONF_ARCH_LP64
 	@echo "Checking for 32bit g++ host compiler ..."
 	@$(call world/execute, QT5, \
-		echo -e '#include <list>\n int main() { std::list<int> a; return 0; }' | \
+		echo -e '#include <list>\n#include <errno.h>\n int main() { std::list<int> a; return 0; }' | \
 		g++ -x c++  - -o /dev/null -m32 &> /dev/null || \
 		ptxd_bailout "32bit g++ host compiler is missing (needed for QtWebengine)." \
 			"Please install g++-multilib (debian)")
