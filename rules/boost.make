@@ -71,6 +71,7 @@ BOOST_LIBRARIES-$(PTXCONF_BOOST_WAVE)		+= wave
 BOOST_CONF_TOOL	:= NO
 BOOST_CONF_OPT	:= \
 	--with-toolset=gcc \
+	--without-icu \
 	--prefix="$(PKGDIR)/$(BOOST)/usr"
 
 BOOST_ABI	:= sysv
