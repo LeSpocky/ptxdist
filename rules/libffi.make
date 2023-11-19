@@ -15,16 +15,18 @@ PACKAGES-$(PTXCONF_LIBFFI) += libffi
 #
 # Paths and names
 #
-LIBFFI_VERSION	:= 3.4.4
-LIBFFI_MD5	:= 0da1a5ed7786ac12dcbaf0d499d8a049
-LIBFFI		:= libffi-$(LIBFFI_VERSION)
-LIBFFI_SUFFIX	:= tar.gz
-LIBFFI_SOURCE	:= $(SRCDIR)/$(LIBFFI).$(LIBFFI_SUFFIX)
-LIBFFI_DIR	:= $(BUILDDIR)/$(LIBFFI)
-LIBFFI_URL	:= \
+LIBFFI_VERSION		:= 3.4.4
+LIBFFI_MD5		:= 0da1a5ed7786ac12dcbaf0d499d8a049
+LIBFFI			:= libffi-$(LIBFFI_VERSION)
+LIBFFI_SUFFIX		:= tar.gz
+LIBFFI_SOURCE		:= $(SRCDIR)/$(LIBFFI).$(LIBFFI_SUFFIX)
+LIBFFI_DIR		:= $(BUILDDIR)/$(LIBFFI)
+LIBFFI_URL		:= \
 	https://github.com/libffi/libffi/releases/download/v$(LIBFFI_VERSION)/$(LIBFFI).$(LIBFFI_SUFFIX) \
 	ftp://sourceware.org/pub/libffi/$(LIBFFI).$(LIBFFI_SUFFIX)
-LIBFFI_LICENSE	:= MIT
+LIBFFI_LICENSE		:= MIT
+LIBFFI_LICENSE_FILES	:= \
+	file://LICENSE;md5=32c0d09a0641daf4903e5d61cc8f23a8
 
 # ----------------------------------------------------------------------------
 # Prepare
