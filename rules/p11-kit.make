@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_P11_KIT) += p11-kit
 #
 # Paths and names
 #
-P11_KIT_VERSION	:= 0.23.15
-P11_KIT_MD5	:= c4c3eecfe6bd6e62e436f62b51980749
-P11_KIT		:= p11-kit-$(P11_KIT_VERSION)
-P11_KIT_SUFFIX	:= tar.gz
-P11_KIT_URL	:= https://github.com/p11-glue/p11-kit/releases/download/$(P11_KIT_VERSION)/$(P11_KIT).$(P11_KIT_SUFFIX)
-P11_KIT_SOURCE	:= $(SRCDIR)/$(P11_KIT).$(P11_KIT_SUFFIX)
-P11_KIT_DIR	:= $(BUILDDIR)/$(P11_KIT)
-P11_KIT_LICENSE	:= BSD-3-Clause
+P11_KIT_VERSION		:= 0.23.15
+P11_KIT_MD5		:= c4c3eecfe6bd6e62e436f62b51980749
+P11_KIT			:= p11-kit-$(P11_KIT_VERSION)
+P11_KIT_SUFFIX		:= tar.gz
+P11_KIT_URL		:= https://github.com/p11-glue/p11-kit/releases/download/$(P11_KIT_VERSION)/$(P11_KIT).$(P11_KIT_SUFFIX)
+P11_KIT_SOURCE		:= $(SRCDIR)/$(P11_KIT).$(P11_KIT_SUFFIX)
+P11_KIT_DIR		:= $(BUILDDIR)/$(P11_KIT)
+P11_KIT_LICENSE		:= BSD-3-Clause
+P11_KIT_LICENSE_FILES	:= \
+	file://COPYING;md5=02933887f609807fbb57aa4237d14a50
 
 #
 # autoconf
