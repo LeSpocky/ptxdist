@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_LIBNDP) += libndp
 #
 # Paths and names
 #
-LIBNDP_VERSION	:= 1.7
-LIBNDP_MD5	:= ea4a2a3351991c1d561623772364ae14
-LIBNDP		:= libndp-$(LIBNDP_VERSION)
-LIBNDP_SUFFIX	:= tar.gz
-LIBNDP_URL	:= http://libndp.org/files/$(LIBNDP).$(LIBNDP_SUFFIX)
-LIBNDP_SOURCE	:= $(SRCDIR)/$(LIBNDP).$(LIBNDP_SUFFIX)
-LIBNDP_DIR	:= $(BUILDDIR)/$(LIBNDP)
-LIBNDP_LICENSE	:= LGPL-2.1-only
+LIBNDP_VERSION		:= 1.7
+LIBNDP_MD5		:= ea4a2a3351991c1d561623772364ae14
+LIBNDP			:= libndp-$(LIBNDP_VERSION)
+LIBNDP_SUFFIX		:= tar.gz
+LIBNDP_URL		:= http://libndp.org/files/$(LIBNDP).$(LIBNDP_SUFFIX)
+LIBNDP_SOURCE		:= $(SRCDIR)/$(LIBNDP).$(LIBNDP_SUFFIX)
+LIBNDP_DIR		:= $(BUILDDIR)/$(LIBNDP)
+LIBNDP_LICENSE		:= LGPL-2.1-only
+LIBNDP_LICENSE_FILES	:= \
+	file://COPYING;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
 # Prepare
