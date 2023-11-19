@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_LIBMBIM) += libmbim
 #
 # Paths and names
 #
-LIBMBIM_VERSION	:= 1.30.0
-LIBMBIM_MD5	:= dcfb85bd4338f0aa8a851d5d80d123f7
-LIBMBIM		:= libmbim-$(LIBMBIM_VERSION)
-LIBMBIM_SUFFIX	:= tar.bz2
-LIBMBIM_URL	:= https://gitlab.freedesktop.org/mobile-broadband/libmbim/-/archive/$(LIBMBIM_VERSION)/$(LIBMBIM).$(LIBMBIM_SUFFIX)
-LIBMBIM_SOURCE	:= $(SRCDIR)/$(LIBMBIM).$(LIBMBIM_SUFFIX)
-LIBMBIM_DIR	:= $(BUILDDIR)/$(LIBMBIM)
-LIBMBIM_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
+LIBMBIM_VERSION		:= 1.30.0
+LIBMBIM_MD5		:= dcfb85bd4338f0aa8a851d5d80d123f7
+LIBMBIM			:= libmbim-$(LIBMBIM_VERSION)
+LIBMBIM_SUFFIX		:= tar.bz2
+LIBMBIM_URL		:= https://gitlab.freedesktop.org/mobile-broadband/libmbim/-/archive/$(LIBMBIM_VERSION)/$(LIBMBIM).$(LIBMBIM_SUFFIX)
+LIBMBIM_SOURCE		:= $(SRCDIR)/$(LIBMBIM).$(LIBMBIM_SUFFIX)
+LIBMBIM_DIR		:= $(BUILDDIR)/$(LIBMBIM)
+LIBMBIM_LICENSE		:= GPL-2.0-or-later AND LGPL-2.1-or-later
+LIBMBIM_LICENSE_FILES	:= \
+	file://LICENSES/GPL-2.0-or-later.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://LICENSES/LGPL-2.1-or-later.txt;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
 # Prepare
