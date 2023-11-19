@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_LIBESTR) += libestr
 #
 # Paths and names
 #
-LIBESTR_VERSION	:= 0.1.10
-LIBESTR_MD5	:= f4c9165a23587e77f7efe65d676d5e8e
-LIBESTR		:= libestr-$(LIBESTR_VERSION)
-LIBESTR_SUFFIX	:= tar.gz
-LIBESTR_URL	:= http://libestr.adiscon.com/files/download/$(LIBESTR).$(LIBESTR_SUFFIX)
-LIBESTR_SOURCE	:= $(SRCDIR)/$(LIBESTR).$(LIBESTR_SUFFIX)
-LIBESTR_DIR	:= $(BUILDDIR)/$(LIBESTR)
-LIBESTR_LICENSE	:= LGPL-2.1-or-later
+LIBESTR_VERSION		:= 0.1.10
+LIBESTR_MD5		:= f4c9165a23587e77f7efe65d676d5e8e
+LIBESTR			:= libestr-$(LIBESTR_VERSION)
+LIBESTR_SUFFIX		:= tar.gz
+LIBESTR_URL		:= http://libestr.adiscon.com/files/download/$(LIBESTR).$(LIBESTR_SUFFIX)
+LIBESTR_SOURCE		:= $(SRCDIR)/$(LIBESTR).$(LIBESTR_SUFFIX)
+LIBESTR_DIR		:= $(BUILDDIR)/$(LIBESTR)
+LIBESTR_LICENSE		:= LGPL-2.1-or-later
+LIBESTR_LICENSE_FILES	:= \
+	file://COPYING;md5=9d6c993486c18262afba4ca5bcb894d0
 
 # ----------------------------------------------------------------------------
 # Prepare
