@@ -42,6 +42,11 @@ config GCCLIBS_GCJ
 	  Installs the GNU Java Library
 	  libgcj
 
+config GCCLIBS_GFORTRAN
+	bool "libgfortran"
+	help
+	  Installs the libgfortran Library
+
 config GCCLIBS_GOMP
 	bool "libgomp"
 	help

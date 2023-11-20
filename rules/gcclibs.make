@@ -49,6 +49,10 @@ ifdef PTXCONF_GCCLIBS_GCJ
 	@$(call install_copy_toolchain_lib, gcclibs, libgcj.so)
 endif
 
+ifdef PTXCONF_GCCLIBS_GFORTRAN
+	@$(call install_copy_toolchain_lib, gcclibs, libgfortran.so)
+endif
+
 ifdef PTXCONF_GCCLIBS_GOMP
 	@$(call install_copy_toolchain_lib, gcclibs, libgomp.so)
 endif
