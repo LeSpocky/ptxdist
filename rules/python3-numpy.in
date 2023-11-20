@@ -3,7 +3,9 @@
 config PYTHON3_NUMPY
 	tristate
 	select HOST_CYTHON3
+	select GCCLIBS_CXX
 	select PYTHON3
+	select PYTHON3_SSL
 	prompt "python3-numpy"
 	help
 	  NumPy is the fundamental package for scientific computing with
