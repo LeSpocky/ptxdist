@@ -1,0 +1,9 @@
+## SECTION=system_libraries
+
+config ENSMALLEN
+	tristate
+	select HOST_CMAKE
+	select ARMADILLO
+	prompt "ensmallen"
+	help
+	  C++ header-only library for mathematical optimization
