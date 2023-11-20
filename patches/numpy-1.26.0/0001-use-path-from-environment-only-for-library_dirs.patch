@@ -1,0 +1,25 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Tue, 21 Nov 2023 12:06:35 +0100
+Subject: [PATCH] use path from environment only for 'library_dirs'
+
+The environment variable is needed for openblas to be found but it should
+not be used exdend the rpath.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ numpy/distutils/system_info.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/numpy/distutils/system_info.py b/numpy/distutils/system_info.py
+index edf56909ab5d..2b43b450a417 100644
+--- a/numpy/distutils/system_info.py
++++ b/numpy/distutils/system_info.py
+@@ -890,7 +890,7 @@ def get_paths(self, section, key):
+                 if not env_var[0] == e0:
+                     log.info('Setting %s=%s' % (env_var[0], e0))
+                 env_var = e0
+-        if env_var and env_var in os.environ:
++        if env_var and env_var in os.environ and key == 'library_dirs':
+             d = os.environ[env_var]
+             if d == 'None':
+                 log.info('Disabled %s: %s',
