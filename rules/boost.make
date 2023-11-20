@@ -93,6 +93,7 @@ BOOST_JAM	:= \
 	$(BOOST_DIR)/b2 \
 	--ignore-site-config \
 	--user-config=user-config.jam \
+	--disable-icu \
 	-q \
 	$(if $(filter 0,$(PTXDIST_VERBOSE)),-d0) \
 	--layout=system \
