@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_NBD) += nbd
 #
 # Paths and names
 #
-NBD_VERSION	:= 3.21
-NBD_MD5		:= c51c4c500fe1ed84c3d5d5dd2ca71d23
+NBD_VERSION	:= 3.25
+NBD_MD5		:= fc885361c00ac4de2c45d651c48bd937
 NBD		:= nbd-$(NBD_VERSION)
 NBD_SUFFIX	:= tar.xz
-NBD_URL		:= $(call ptx/mirror, SF, nbd/$(NBD).$(NBD_SUFFIX))
+NBD_URL		:= https://github.com/NetworkBlockDevice/nbd/releases/download/$(NBD)/$(NBD).$(NBD_SUFFIX)
 NBD_SOURCE	:= $(SRCDIR)/$(NBD).$(NBD_SUFFIX)
 NBD_DIR		:= $(BUILDDIR)/$(NBD)
 NBD_LICENSE	:= GPL-2.0-only
@@ -34,7 +34,6 @@ NBD_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_GLOBAL_LARGE_FILE)-lfs \
 	--disable-syslog \
 	--disable-debug \
-	--disable-sdp \
 	--disable-gznbd \
 	--disable-manpages \
 	--without-gnutls \
