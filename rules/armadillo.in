@@ -1,0 +1,10 @@
+## SECTION=system_libraries
+
+config ARMADILLO
+	tristate
+	select HOST_CMAKE
+	select GCCLIBS_CXX
+	select OPENBLAS
+	prompt "armadillo"
+	help
+	  streamlined C++ linear algebra library
