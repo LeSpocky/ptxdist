@@ -92,8 +92,7 @@ $(STATEDIR)/@package@.targetinstall:
 
 $(STATEDIR)/@package@.clean:
 	@$(call targetinfo)
-	@-cd $(@PACKAGE@_DIR) && \
-		$(@PACKAGE@_ENV) $(@PACKAGE@_PATH) $(MAKE) clean
+	@-$(call execute, @PACKAGE@, $(MAKE) clean)
 	@$(call clean_pkg, @PACKAGE@)
 
 # vim: syntax=make
