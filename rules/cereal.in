@@ -1,0 +1,8 @@
+## SECTION=system_libraries
+
+config CEREAL
+	tristate
+	select HOST_CMAKE
+	prompt "cereal"
+	help
+	  C++11 library for serialization
