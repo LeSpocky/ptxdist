@@ -1,3 +1,6 @@
+[constants]
+platformdir = '@PTXDIST_PLATFORMDIR@/'
+
 [binaries]
 c = '@CC@'
 cpp = '@CXX@'
