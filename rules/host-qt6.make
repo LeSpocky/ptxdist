@@ -20,6 +20,7 @@ HOST_QT6_BUILD_OOT	:= YES
 
 HOST_QT6_MODULES-y					:= qtbase
 HOST_QT6_MODULES-					:=
+HOST_QT6_MODULES-$(PTXCONF_HOST_QT6_QTTOOLS)		+= qttools
 HOST_QT6_MODULES-$(PTXCONF_HOST_QT6_QTDECLARATIVE)	+= qtdeclarative
 HOST_QT6_MODULES-					+= qtimageformats
 HOST_QT6_MODULES-					+= qtlanguageserver
@@ -142,7 +143,7 @@ HOST_QT6_CONF_OPT	+= \
 	-DFEATURE_textdate=ON \
 	-DFEATURE_thread=ON \
 	-DFEATURE_timezone=ON \
-	-DFEATURE_translation=OFF \
+	-DFEATURE_translation=$(call ptx/onoff,PTXCONF_HOST_QT6_QTTOOLS)  \
 	-DFEATURE_transposeproxymodel=ON \
 	-DFEATURE_valgrind=OFF \
 	-DFEATURE_widgets=OFF \
@@ -300,6 +301,25 @@ HOST_QT6_CONF_OPT	+= \
 	-DFEATURE_system_proxies=ON \
 	-DFEATURE_topleveldomain=OFF \
 	-DFEATURE_udpsocket=OFF
+endif
+
+ifdef PTXCONF_HOST_QT6_QTTOOLS
+HOST_QT6_CONF_OPT	+= \
+	-DFEATURE_assistant=OFF \
+	-DFEATURE_clang=OFF \
+	-DFEATURE_clangcpp=OFF \
+	-DFEATURE_designer=OFF \
+	-DFEATURE_distancefieldgenerator=OFF \
+	-DFEATURE_kmap2qmap=OFF \
+	-DFEATURE_linguist=ON \
+	-DFEATURE_pixeltool=OFF \
+	-DFEATURE_qdbus=OFF \
+	-DFEATURE_qev=OFF \
+	-DFEATURE_qtattributionsscanner=OFF \
+	-DFEATURE_qtdiag=OFF \
+	-DFEATURE_qtplugininfo=OFF \
+	\
+	-DCMAKE_DISABLE_FIND_PACKAGE_Clang=ON
 endif
 
 ifdef PTXCONF_HOST_QT6_QTDECLARATIVE

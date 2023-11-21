@@ -21,6 +21,10 @@ config HOST_QT6_NETWORK
 config HOST_QT6_DBUS
 	bool
 
+config HOST_QT6_QTTOOLS
+	default y if  ALLYES
+	bool
+
 config HOST_QT6_QTDECLARATIVE
 	bool
 	select HOST_QT6_NETWORK
