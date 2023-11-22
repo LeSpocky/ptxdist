@@ -73,6 +73,7 @@ config V4L_UTILS_RDSCTL
 
 config V4L_UTILS_V4L2COMPLIANCE
 	bool
+	select V4L_UTILS_LIBV4L2
 	prompt "install v4l2-compliance"
 
 config V4L_UTILS_V4L2DBG
@@ -82,6 +83,7 @@ config V4L_UTILS_V4L2DBG
 
 config V4L_UTILS_V4L2CTL
 	bool
+	select V4L_UTILS_LIBV4L2
 	prompt "install v4l2-ctl"
 
 config V4L_UTILS_V4L2SYSFSPATH
