@@ -28,6 +28,7 @@
 0400-ptxdist-qtwebengine-allow-building-with-ptxdist.patch
 0401-ptxdist-qtwebengine-let-ninja-use-the-jobserver.patch
 0402-HACK-qtwebengine-workaround-for-too-long-file-names.patch
+0403-qtwebengine-fix-gcc13-error.patch
 #tag:kms --start-number 500
 0500-eglfs_kms-device-ordering-robustness.patch
 # c9ac4e4caaee7f59e4a9de293fbd89af  - git-ptx-patches magic
