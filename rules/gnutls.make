@@ -23,7 +23,15 @@ GNUTLS_SOURCE		:= $(SRCDIR)/$(GNUTLS).$(GNUTLS_SUFFIX)
 GNUTLS_DIR		:= $(BUILDDIR)/$(GNUTLS)
 GNUTLS_LICENSE		:= LGPL-3.0-or-later
 GNUTLS_LICENSE_FILES	:= \
+	file://doc/COPYING.LESSER;md5=a6f89e2100d9b6cdffcea4f398e37343 \
 	file://LICENSE;md5=71391c8e0c1cfe68077e7fce3b586283
+
+ifdef PTXCONF_GNUTLS_OPENSSL
+GNUTLS_LICENSE 		+= AND GPL-3.0-or-later
+GNUTLS_LICENSE_FILES	+= \
+	file://extra/gnutls_openssl.c;startline=1;endline=19;md5=b8b99cb92b0fbb522912f20e3359913c \
+	file://doc/COPYING;md5=c678957b0c8e964aa6c70fd77641a71e
+endif
 
 # ----------------------------------------------------------------------------
 # Prepare
