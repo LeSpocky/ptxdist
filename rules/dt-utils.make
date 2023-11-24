@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_DT_UTILS) += dt-utils
 #
 # Paths and names
 #
-DT_UTILS_VERSION	:= 2023.08.0
-DT_UTILS_MD5		:= ba7ed63c6e9bfc9c39e090c3bc1fb8c2
+DT_UTILS_VERSION	:= 2023.11.0
+DT_UTILS_MD5		:= 4aa4ef310c76a2baa5df62254f0b7453
 DT_UTILS		:= dt-utils-$(DT_UTILS_VERSION)
 DT_UTILS_SUFFIX		:= tar.xz
 DT_UTILS_URL		:= https://public.pengutronix.de/software/dt-utils/$(DT_UTILS).$(DT_UTILS_SUFFIX)
@@ -27,7 +27,7 @@ DT_UTILS_DIR		:= $(BUILDDIR)/$(DT_UTILS)
 # LicenseRef-DCO too, which don't make it into the compiled code.
 DT_UTILS_LICENSE	:= GPL-2.0-only AND GPL-2.0-or-later AND Zlib
 DT_UTILS_LICENSE_FILES	:= \
-	file://README;startline=65;endline=81;md5=ac976dc9413ba8aee0286c950eca0374 \
+	file://README;startline=67;endline=83;md5=ac976dc9413ba8aee0286c950eca0374 \
 	file://LICENSES/GPL-2.0-only.txt;md5=18d902a0242c37a4604224b47d02f802 \
 	file://src/barebox-state/state_variables.c;startline=1;endline=5;md5=48db6eca86398f8f9806370f78598bf4 \
 	file://LICENSES/GPL-2.0-or-later.txt;md5=df0715377b556699ce0837d45cb8bec9 \
