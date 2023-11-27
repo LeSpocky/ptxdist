@@ -14,10 +14,10 @@ PACKAGES-$(PTXCONF_V4L_UTILS) += v4l-utils
 #
 # Paths and names
 #
-V4L_UTILS_VERSION	:= 1.24.1
-V4L_UTILS_MD5		:= 8ba9c73c4319b6afab5fa4358edc43de
+V4L_UTILS_VERSION	:= 1.26.0
+V4L_UTILS_MD5		:= 0ccb2a18e1d3a3b2986591753a2b3a7f
 V4L_UTILS		:= v4l-utils-$(V4L_UTILS_VERSION)
-V4L_UTILS_SUFFIX	:= tar.bz2
+V4L_UTILS_SUFFIX	:= tar.xz
 V4L_UTILS_URL		:= http://linuxtv.org/downloads/v4l-utils/$(V4L_UTILS).$(V4L_UTILS_SUFFIX)
 V4L_UTILS_SOURCE	:= $(SRCDIR)/$(V4L_UTILS).$(V4L_UTILS_SUFFIX)
 V4L_UTILS_DIR		:= $(BUILDDIR)/$(V4L_UTILS)
@@ -31,38 +31,33 @@ V4L_UTILS_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-V4L_UTILS_CONF_TOOL	:= autoconf
+V4L_UTILS_CONF_TOOL	:= meson
 V4L_UTILS_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-doxygen-doc \
-	--disable-doxygen-dot \
-	--disable-doxygen-man \
-	--disable-doxygen-rtf \
-	--disable-doxygen-xml \
-	--disable-doxygen-chm \
-	--disable-doxygen-chi \
-	--disable-doxygen-html \
-	--disable-doxygen-ps \
-	--disable-doxygen-pdf \
-	--disable-nls \
-	--disable-rpath \
-	--disable-libdvbv5 \
-	--enable-dyn-libv4l \
-	--enable-v4l-utils \
-	--enable-v4l2-compliance-libv4l \
-	--disable-v4l2-compliance-32 \
-	--$(call ptx/endis, PTXCONF_V4L_UTILS_TRACER)-v4l2-tracer \
-	--enable-v4l2-ctl-libv4l \
-	--enable-v4l2-ctl-stream-to \
-	--disable-v4l2-ctl-32 \
-	--disable-qv4l2 \
-	--disable-qvidcap \
-	--disable-gconv \
-	--$(call ptx/endis, PTXCONF_V4L_UTILS_IRKEYTABLE)-bpf \
-	--$(call ptx/wwo, PTXCONF_V4L_UTILS_LIBV4LCONVERT)-jpeg \
-	--$(call ptx/wwo, PTXCONF_V4L_UTILS_MEDIACTL)-libudev \
-	--with-udevdir=/usr/lib/udev \
-	--with-systemdsystemunitdir=/usr/lib/systemd/system
+	$(CROSS_MESON_USR) \
+	-Dbpf=disabled \
+	-Ddoxygen-doc=disabled \
+	-Ddoxygen-html=false \
+	-Ddoxygen-man=false \
+	-Dgconv=disabled \
+	-Dgconvsysdir= \
+	-Djpeg=$(call ptx/endis, PTXCONF_V4L_UTILS_LIBV4LCONVERT)d \
+	-Dlibdvbv5=disabled \
+	-Dlibv4l1subdir=libv4l \
+	-Dlibv4l2subdir=libv4l \
+	-Dlibv4lconvertsubdir=libv4l \
+	-Dqv4l2=disabled \
+	-Dqvidcap=disabled \
+	-Dsystemdsystemunitdir=/usr/lib/systemd/system \
+	-Dudevdir=/usr/lib/udev \
+	-Dv4l-plugins=true \
+	-Dv4l-utils=true \
+	-Dv4l-wrappers=true \
+	-Dv4l2-compliance-32=false \
+	-Dv4l2-compliance-libv4l=true \
+	-Dv4l2-ctl-32=false \
+	-Dv4l2-ctl-libv4l=true \
+	-Dv4l2-ctl-stream-to=true \
+	-Dv4l2-tracer=$(call ptx/endis, PTXCONF_V4L_UTILS_TRACER)d
 
 ifdef PTXCONF_KERNEL_HEADER
 V4L_UTILS_CPPFLAGS	:= \
