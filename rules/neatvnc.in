@@ -12,6 +12,7 @@ menuconfig NEATVNC
 	select MESALIB		if NEATVNC_GBM
 	select MESALIB_GBM	if NEATVNC_GBM
 	select GNUTLS		if NEATVNC_TLS
+	select NETTLE		if NEATVNC_NETTLE
 	prompt "neatvnc                       "
 	help
 	  VNC Server library
@@ -35,5 +36,9 @@ config NEATVNC_OPENH264
 config NEATVNC_TLS
 	bool
 	prompt "enable encryption and authentication"
+
+config NEATVNC_NETTLE
+	bool
+	prompt "enable websocket support"
 
 endif

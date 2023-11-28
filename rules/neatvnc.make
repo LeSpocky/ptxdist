@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NEATVNC) += neatvnc
 #
 # Paths and names
 #
-NEATVNC_VERSION	:= 0.6.0
-NEATVNC_MD5	:= 3a43fa75904990c023794b6057006c85
+NEATVNC_VERSION	:= 0.7.1
+NEATVNC_MD5	:= 230c9d236686d79d9f72e96c9842b70a
 NEATVNC		:= neatvnc-$(NEATVNC_VERSION)
 NEATVNC_SUFFIX	:= tar.gz
 NEATVNC_URL	:= https://github.com/any1/neatvnc/archive/refs/tags/v$(NEATVNC_VERSION).$(NEATVNC_SUFFIX)
@@ -38,6 +38,7 @@ NEATVNC_CONF_OPT	:=  \
 	-Dgbm=$(call ptx/endis,PTXCONF_NEATVNC_GBM)d \
 	-Dh264=$(call ptx/endis,PTXCONF_NEATVNC_OPENH264)d \
 	-Djpeg=$(call ptx/endis,PTXCONF_NEATVNC_JPEG)d \
+	-Dnettle=$(call ptx/endis,PTXCONF_NEATVNC_NETTLE)d \
 	-Dsystemtap=false \
 	-Dtests=false \
 	-Dtls=$(call ptx/endis,PTXCONF_NEATVNC_TLS)d
