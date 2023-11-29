@@ -221,6 +221,13 @@ cat .ptxdist/series | _md5sum >> .ptxdist/series
 
 # The first line of the patch is 'From <some-git-hash> ...'
 # remove it to avoid unnecessary changes in the patch files.
+while read patch para; do
+	# There are no comments or empty lines in series.auto, so no need to
+	# handle these. Also be a bit cautious to only remove lines matching
+	# "^From ".
+	sed -i '1{/^From /d}' ".ptxdist/patches/$patch"
+done < .ptxdist/series.auto
+
 find .ptxdist/patches/ ! -type d | sed -e 's,^.ptxdist/patches/,,' | \
 while read patch para; do
 	case "$patch" in
@@ -228,9 +235,8 @@ while read patch para; do
 		*) ;;
 	esac
 	if grep -q "$patch" .ptxdist/series.auto; then
-		p=".ptxdist/patches/$patch"
-		tail -n+2 "$p" > ".$patch.ptx-patches"
-		mv ".$patch.ptx-patches" "$p"
+		# ok, this is one of the patches we just touched
+		:
 	else
 		if grep -q "$patch" .ptxdist/series.{0,1}; then
 			echo "Base patch \"$patch\"!"
