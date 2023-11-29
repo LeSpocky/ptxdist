@@ -235,11 +235,9 @@ while read patch para; do
 	if grep -q "$patch" .ptxdist/series.auto; then
 		# ok, this is one of the patches we just touched
 		:
+	elif grep -q "$patch" .ptxdist/series.{0,1}; then
+		echo "Base patch \"$patch\"!"
 	else
-		if grep -q "$patch" .ptxdist/series.{0,1}; then
-			echo "Base patch \"$patch\"!"
-		else
-			echo "Old patch \"$patch\"!"
-		fi
+		echo "Old patch \"$patch\"!"
 	fi
 done | sort
