@@ -257,10 +257,13 @@ config MESALIB_VULKAN_PANFROST
 
 config MESALIB_VULKAN_SWRAST
 	bool
-	# needs LLVM
-	depends on BROKEN
 	select MESALIB_DRI_SWRAST
 	prompt "Software Rasterizer"
+
+config MESALIB_VULKAN_VIRTIO
+	bool
+	select MESALIB_XMLCONFIG
+	prompt "Virtio-GPU Venus"
 
 comment "Vulkan layers"
 

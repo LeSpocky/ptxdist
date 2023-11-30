@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 23.1.9
-MESALIB_MD5	:= 85e088185a4b751fcb9d4f1fb1f0028e
+MESALIB_VERSION	:= 23.3.0
+MESALIB_MD5	:= 30e60f8c466fee52034f303f1afeece2
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -111,6 +111,7 @@ MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_FREEDRENO)	+= freedreno
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_PANFROST)	+= panfrost
 endif
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_SWRAST)		+= swrast
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_VIRTIO)		+= virtio
 
 MESALIB_VULKAN_LIBS-y = $(subst amd,radeon,$(subst swrast,lvp,$(MESALIB_VULKAN_DRIVERS-y)))
 
@@ -182,6 +183,7 @@ MESALIB_CONF_OPT	:= \
 	-Dglx=$(call ptx/ifdef, PTXCONF_MESALIB_GLX, dri, disabled) \
 	-Dglx-direct=true \
 	-Dglx-read-only-text=false \
+	-Dgpuvis=false \
 	-Dimagination-srv=false \
 	-Dinstall-intel-gpu-tests=false \
 	-Dintel-clc=disabled \
@@ -193,6 +195,7 @@ MESALIB_CONF_OPT	:= \
 	-Dmin-windows-version=8 \
 	-Dmoltenvk-dir= \
 	-Domx-libs-path=/usr/lib/dri \
+	-Dopencl-external-clang-headers=disabled \
 	-Dopencl-spirv=false \
 	-Dopengl=$(call ptx/truefalse, PTXCONF_MESALIB_OPENGL) \
 	-Dosmesa=false \
