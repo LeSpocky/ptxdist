@@ -10,16 +10,16 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 3 insertions(+)
 
 diff --git a/mesonbuild/modules/simd.py b/mesonbuild/modules/simd.py
-index 3ee0858b3287..25add8aec18e 100644
+index b8baf39ef34a..2ce09b20d2f9 100644
 --- a/mesonbuild/modules/simd.py
 +++ b/mesonbuild/modules/simd.py
-@@ -64,6 +64,9 @@ class SimdModule(ExtensionModule):
+@@ -94,6 +94,9 @@ class SimdModule(ExtensionModule):
                  continue
-             iset_fname = kwargs[iset] # Might also be an array or Files. static_library will validate.
-             args = compiler.get_instruction_set_args(iset)
+ 
+             compile_args = compiler.get_instruction_set_args(iset)
 +            cpu = state.environment.machines.host.cpu
 +            if iset == 'neon' and not cpu.startswith('armv7'):
-+                args = None
-             if args is None:
-                 mlog.log('Compiler supports %s:' % iset, mlog.red('NO'))
++                compile_args = None
+             if compile_args is None:
+                 mlog.log(f'Compiler supports {iset}:', mlog.red('NO'))
                  continue
