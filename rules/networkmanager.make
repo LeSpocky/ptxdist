@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_NETWORKMANAGER) += networkmanager
 #
 # Paths and names
 #
-NETWORKMANAGER_VERSION	:= 1.30.4
-NETWORKMANAGER_MD5	:= 8ce53a38356864832f7f10ad46fcde27
+NETWORKMANAGER_VERSION	:= 1.44.2
+NETWORKMANAGER_MD5	:= bd6c9cb0ecd0fb7f516cde7bf4dee3fb
 NETWORKMANAGER		:= NetworkManager-$(NETWORKMANAGER_VERSION)
 NETWORKMANAGER_SUFFIX	:= tar.xz
 NETWORKMANAGER_URL	:= $(call ptx/mirror, GNOME, NetworkManager/$(basename $(NETWORKMANAGER_VERSION))/$(NETWORKMANAGER).$(NETWORKMANAGER_SUFFIX))
@@ -47,7 +47,6 @@ NETWORKMANAGER_CONF_OPT = \
 	-Ddhcpcanon=false \
 	-Ddhcpcd=false \
 	-Ddnsmasq=/usr/sbin/dnsmasq \
-	-Ddnssec_trigger=/bin/true \
 	-Ddocs=false \
 	-Debpf=false \
 	-Dfirewalld_zone=false \
@@ -55,7 +54,6 @@ NETWORKMANAGER_CONF_OPT = \
 	-Difcfg_rh=false \
 	-Difupdown=true \
 	-Dintrospection=$(call ptx/truefalse,PTXCONF_NETWORKMANAGER_INTROSPECTION) \
-	-Diptables=/usr/sbin/iptables \
 	-Diwd=false \
 	-Dkernel_firmware_dir=/lib/firmware \
 	-Dld_gc=true \
