@@ -17,6 +17,7 @@ menuconfig IGT_GPU_TOOLS
 	select UDEV_LIBUDEV
 	select ZLIB
 	select JSON_C		if IGT_GPU_TOOLS_TEST_RUNNER
+	select PERL		if IGT_GPU_TOOLS_TESTS && RUNTIME
 	prompt "igt-gpu-tools                 "
 	help
 	  igt-gpu-tools is a package of tools for debugging the Intel
@@ -37,6 +38,10 @@ config IGT_GPU_TOOLS_AMDGPU
 config IGT_GPU_TOOLS_NOUVEAU
 	bool
 	default LIBDRM_NOUVEAU
+
+config IGT_GPU_TOOLS_FREEDRENO
+	bool
+	default LIBDRM_FREEDRENO
 
 config IGT_GPU_TOOLS_TESTS
 	bool

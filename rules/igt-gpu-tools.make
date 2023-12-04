@@ -86,10 +86,79 @@ $(STATEDIR)/igt-gpu-tools.targetinstall:
 	@$(call install_fixup, igt-gpu-tools,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup, igt-gpu-tools,DESCRIPTION,missing)
 
-	@$(call install_tree, igt-gpu-tools, 0, 0, -, /usr/lib)
-	@$(call install_tree, igt-gpu-tools, 0, 0, -, /usr/bin)
-	@$(call install_tree, igt-gpu-tools, 0, 0, -, /usr/share/igt-gpu-tools)
+	@$(call install_lib, igt-gpu-tools, 0, 0, 0644, libigt)
+
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/amd_hdmi_compliance)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/dpcd_reg)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/gputop)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/lsgpu)
+
+ifdef PTXCONF_IGT_GPU_TOOLS_INTEL
+	@$(call install_lib, igt-gpu-tools, 0, 0, 0644, libi915_perf)
+
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/i915-perf-configs)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/i915-perf-control)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/i915-perf-reader)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/i915-perf-recorder)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_audio_dump)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_backlight)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_bios_dumper)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_display_crc)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_display_poller)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_dp_compliance)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_dump_decode)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_error_decode)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_firmware_decode)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_forcewaked)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_framebuffer_dump)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_gem_info)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel-gfx-fw-info)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_gpu_abrt)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_gpu_frequency)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_gpu_time)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_gpu_top)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_gtt)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_guc_logger)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_gvtg_test)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_infoframes)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_l3_parity)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_lid)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_opregion_decode)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_panel_fitter)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_perf_counters)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_pm_rpm)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_reg)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_reg_checker)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_residency)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_stepping)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_vbt_decode)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_watermark)
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/xe_reg)
+
+	@$(call install_tree, igt-gpu-tools, 0, 0, -, /usr/share/igt-gpu-tools/registers)
+endif
+
+ifdef PTXCONF_IGT_GPU_TOOLS_FREEDRENO
+	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/msm_dp_compliance)
+endif
+
+ifdef PTXCONF_IGT_GPU_TOOLS_TESTS
+	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/code_cov_capture)
+	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/code_cov_gather_on_build)
+	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/code_cov_gather_on_test)
+	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/code_cov_gen_report)
+	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/code_cov_parse_info)
+
 	@$(call install_tree, igt-gpu-tools, 0, 0, -, /usr/libexec/igt-gpu-tools)
+	@$(call install_glob, igt-gpu-tools, 0, 0, -, /usr/share/igt-gpu-tools, *.png,)
+endif
+
+ifdef PTXCONF_IGT_GPU_TOOLS_TEST_RUNNER
+	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/igt_comms_decoder)
+	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/igt_results)
+	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/igt_resume)
+	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/igt_runner)
+endif
 
 	@$(call install_finish, igt-gpu-tools)
 
