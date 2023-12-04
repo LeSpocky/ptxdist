@@ -16,6 +16,7 @@ menuconfig WESTON
 	select LIBDRM
 	select UDEV
 	select UDEV_LIBUDEV
+	select SEATD
 	select MESALIB			if WESTON_GL
 	select MESALIB_GBM		if WESTON_GL
 	select MESALIB_EGL		if WESTON_GL
@@ -26,10 +27,7 @@ menuconfig WESTON
 	select LIBXCB			if WESTON_XWAYLAND
 	select XORG_LIB_XCURSOR		if WESTON_XWAYLAND
 	select XWAYLAND			if WESTON_XWAYLAND && RUNTIME
-	select SEATD			if WESTON_SEATD
 	select SYSTEMD			if WESTON_SYSTEMD
-	select SYSTEMD_LOGIND		if WESTON_SYSTEMD_LOGIND
-	select DBUS			if WESTON_SYSTEMD_LOGIND
 	select GSTREAMER1		if WESTON_REMOTING
 	select GST_PLUGINS_BASE1	if WESTON_REMOTING
 	select GST_PLUGINS_BASE1_APP	if WESTON_REMOTING
@@ -74,19 +72,9 @@ config WESTON_STARTSCRIPT
 	depends on INITMETHOD_BBINIT
 	prompt "install /etc/init.d/weston-init"
 
-config WESTON_SEATD
-	bool
-	default y
-	prompt "libseat backend"
-
 config WESTON_SYSTEMD
 	bool
 	default INITMETHOD_SYSTEMD
-
-config WESTON_SYSTEMD_LOGIND
-	bool
-	depends on WESTON_SYSTEMD
-	prompt "logind support"
 
 config WESTON_WCAP_TOOLS
 	bool

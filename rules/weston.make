@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_WESTON) += weston
 #
 # Paths and names
 #
-WESTON_VERSION	:= 12.0.2
-LIBWESTON_MAJOR := 12
-WESTON_MD5	:= aa03d8bff7163c258c86551c183cb937
+WESTON_VERSION	:= 13.0.0
+LIBWESTON_MAJOR := 13
+WESTON_MD5	:= f5d8614664a26211621910d310b42890
 WESTON		:= weston-$(WESTON_VERSION)
 WESTON_SUFFIX	:= tar.gz
 WESTON_URL	:= https://gitlab.freedesktop.org/wayland/weston/-/archive/$(WESTON_VERSION)/$(WESTON).$(WESTON_SUFFIX)
@@ -49,12 +49,10 @@ WESTON_CONF_OPT		:= \
 	-Ddemo-clients=$(call ptx/truefalse,PTXCONF_WESTON_IVISHELL_EXAMPLE) \
 	-Ddeprecated-color-management-colord=false \
 	-Ddeprecated-color-management-static=false \
-	-Ddeprecated-launcher-logind=$(call ptx/truefalse,PTXCONF_WESTON_SYSTEMD_LOGIND) \
 	-Ddesktop-shell-client-default=weston-desktop-shell \
 	-Ddoc=false \
 	-Dimage-jpeg=true \
 	-Dimage-webp=false \
-	-Dlauncher-libseat=$(call ptx/truefalse,PTXCONF_WESTON_SEATD) \
 	-Dpipewire=$(call ptx/truefalse,PTXCONF_WESTON_PIPEWIRE) \
 	-Dremoting=$(call ptx/truefalse,PTXCONF_WESTON_REMOTING) \
 	-Drenderer-gl=$(call ptx/truefalse,PTXCONF_WESTON_GL) \
