@@ -29,10 +29,16 @@ IGT_GPU_TOOLS_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-# For some reason, intel_gpu_frequency and other segfault immediately if
-# built with -Wl,-z,now.
+# On x86 systems, libigt resolves igt_half_to_float and igt_float_to_half as
+# indirect functions at runtime by checking CPU features with igt_x86_features.
+# The igt_x86_features function is implemented is a different object and the
+# call uses the PLT itself. If lazy binding is disabled, this causes a segfault
+# while resolving the symbols for libigt on x64 systems. Disable BINDNOW on X86
+# systems to prevent the segfaults.
+ifdef PTXCONF_ARCH_X86
 IGT_GPU_TOOLS_WRAPPER_BLACKLIST := \
 	TARGET_HARDEN_BINDNOW
+endif
 
 IGT_GPU_TOOLS_LIBDRM-y					:=
 ifdef PTXCONF_ARCH_X86
