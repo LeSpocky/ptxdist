@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBNL3) += libnl3
 #
 # Paths and names
 #
-LIBNL3_VERSION	:= 3.8.0
-LIBNL3_MD5	:= 86a4245274aae0a1cfdbd85ce88eede9
+LIBNL3_VERSION	:= 3.9.0
+LIBNL3_MD5	:= 27bffaccbb22ab9d8cff377b320f6014
 LIBNL3		:= libnl-$(LIBNL3_VERSION)
 LIBNL3_RELEASE	:= libnl$(subst .,_,$(LIBNL3_VERSION))
 LIBNL3_SUFFIX	:= tar.gz
