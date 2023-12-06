@@ -76,6 +76,13 @@ config UTIL_LINUX_DELPART
 	help
 	  The delpart utility.
 
+config UTIL_LINUX_RESIZEPART
+	bool
+	select UTIL_LINUX_PARTX_TOOLS
+	prompt "resizepart"
+	help
+	  The resizepart utility.
+
 config UTIL_LINUX_FDISK
 	bool
 	prompt "fdisk"
@@ -521,6 +528,16 @@ config UTIL_LINUX_SWAPON
 
 comment "BusyBox' swapon is selected!"
 	depends on BUSYBOX_SWAPON
+
+config UTIL_LINUX_SETSID
+	bool
+	depends on !BUSYBOX_SETSID
+	prompt "setsid"
+	help
+	  Set sessionid.
+
+comment "BusyBox' setsid is selected!"
+	depends on BUSYBOX_SETSID
 
 config UTIL_LINUX_SWITCH_ROOT
 	bool
