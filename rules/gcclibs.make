@@ -57,6 +57,13 @@ ifdef PTXCONF_GCCLIBS_GOMP
 	@$(call install_copy_toolchain_lib, gcclibs, libgomp.so)
 endif
 
+ifdef PTXCONF_ARCH_X86
+# the libarary does not exist on other architectures
+ifdef PTXCONF_GCCLIBS_QUADMATH
+	@$(call install_copy_toolchain_lib, gcclibs, libquadmath.so)
+endif
+endif
+
 ifdef PTXCONF_GCCLIBS_LIBASAN
 	@$(call install_copy_toolchain_lib, gcclibs, libasan.so)
 endif
