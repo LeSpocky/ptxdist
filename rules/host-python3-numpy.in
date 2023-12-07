@@ -4,4 +4,5 @@ config HOST_PYTHON3_NUMPY
 	tristate
 	default y if ALLYES
 	select HOST_PYTHON3
+	select HOST_PYTHON3_SETUPTOOLS
 	select HOST_CYTHON3
