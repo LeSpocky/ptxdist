@@ -21,9 +21,13 @@ HOST_SYSTEM_PYTHON3_LICENSE := ignore
 $(STATEDIR)/host-system-python3.prepare:
 	@$(call targetinfo)
 	@echo "Checking for Python 3 ..."
-	@$(SYSTEMPYTHON3) -V >/dev/null 2>&1 || \
+	@HOST_SYSTEM_PYTHON3_SETUP=1 $(SYSTEMPYTHON3) -V || \
 		ptxd_bailout "'python3' not found! Please install.";
 	@echo
+	@HOST_SYSTEM_PYTHON3_SETUP=1 $(SYSTEMPYTHON3) -m venv \
+		--system-site-packages \
+		$(PTXDIST_SYSROOT_HOST)/usr/lib/system-python3
+
 ifdef PTXCONF_HOST_SYSTEM_PYTHON3_CRYPTOGRAPHY
 	@echo "Checking for Python Cryptography ..."
 	@$(SYSTEMPYTHON3) -c 'import cryptography' 2>/dev/null || \
@@ -84,6 +88,7 @@ ifdef PTXCONF_HOST_SYSTEM_PYTHON3_PYYAML
 		ptxd_bailout "Python pyyaml module not found! \
 	Please install python3-yaml (debian)";
 endif
+
 	@$(call touch)
 
 # vim: syntax=make

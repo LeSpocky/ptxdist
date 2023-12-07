@@ -35,7 +35,8 @@ ptxd_make_world_compile_python() {
 	    --outdir "${pkg_build_dir}" \
 	    "${pkg_dir}"
     elif [ -e "${pkg_dir}/pyproject.toml" ] &&
-	    [[ " ${pkg_build_deps} " =~ ' host-python3-pybuild ' ]]; then
+	    ( [[ " ${pkg_build_deps} " =~ ' host-python3-pybuild ' ]] ||
+	    [[ " ${pkg_build_deps} " =~ ' host-system-python3-pybuild ' ]] ) ; then
 	ptxd_eval \
 	    cd "${pkg_build_dir}" '&&' \
 	    "${pkg_path}" \

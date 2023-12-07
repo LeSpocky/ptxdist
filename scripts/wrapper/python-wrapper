@@ -32,17 +32,12 @@ case " ${pkg_build_deps} " in
 	;;
 esac
 
-if [[ " ${pkg_build_deps_all} " =~ " host-system-python3 " ]]; then
-	# extra packages for system Python are installed here
-	export PYTHONPATH="$(dirname "$(dirname "$0")")/python3/site-packages:${PYTHONPATH}"
-fi
-
 name="${name}${suffix}"
 skip="$(dirname "${0}")/${name}"
 
-if [ "${name}" = "python3" -a -z "${host}" ]; then
-	# we fake a venv here to get a consistent install hierarchy with system Python3
-	name="$(dirname "$(dirname "$0")")/wrapper/real/python3"
+if [ "${name}" = "python3" -a -z "${host}" -a -z "${HOST_SYSTEM_PYTHON3_SETUP}" ]; then
+	# use the venv
+	name="$(dirname "$(dirname "$0")")/system-python3/bin/python3"
 fi
 
 for path in $(type -a -P ${name}); do

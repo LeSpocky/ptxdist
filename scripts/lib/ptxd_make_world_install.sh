@@ -56,21 +56,18 @@ ptxd_make_world_install_python_cleanup_host() {
     # change shebang to ensure that the python wrapper is used
     if [[ " ${pkg_build_deps_all} " =~ ' host-python3 ' ]]; then
 	python="$(basename "${ptx_python3_host}")"
-    else
-	python="python3"
+	find "${pkg_pkg_dir}"/usr/{bin,sbin}/ -mindepth 1 -maxdepth 1 -print0 | xargs -0 -r \
+	    sed -i "1s;^#!/.*/\(python[0-9\.]*\);#!/usr/bin/env ${python};"
     fi
-    find "${pkg_pkg_dir}"/usr/{bin,sbin}/ -mindepth 1 -maxdepth 1 -print0 | xargs -0 -r \
-	sed -i "1s;^#!/.*/\(python[0-9\.]*\);#!/usr/bin/env ${python};"
-
-    if ! [[ " ${pkg_build_deps_all} " =~ ' host-python3 ' ]] && ls "${pkg_pkg_dir}"/usr/lib/python3.* &> /dev/null; then
-	mv "${pkg_pkg_dir}"/usr/lib/python3.* \
-	    "${pkg_pkg_dir}/usr/lib/python3"
+    if ! [[ " ${pkg_build_deps_all} " =~ ' host-python3 ' ]] && ls "${pkg_pkg_dir}"/usr/lib/system-python3/bin/* &> /dev/null; then
+	mv "${pkg_pkg_dir}"/usr/lib/system-python3/bin/* \
+	    "${pkg_pkg_dir}/usr/bin/"
     fi
 }
 export -f ptxd_make_world_install_python_cleanup_host
 
 ptxd_make_world_install_python() {
-    local sitepackages
+    local sitepackages python_prefix
 
     if [ -e "${pkg_dir}/pyproject.toml" -a ! -e "${pkg_dir}/setup.py" ] && \
 	    ! [[ " ${pkg_build_deps_all} " =~ ' host-python3-pybuild ' ]]; then
@@ -78,7 +75,8 @@ ptxd_make_world_install_python() {
 	    sitepackages="${ptx_python3_sitepackages}"
 	else
 	    # separate path for system Python packages
-	    sitepackages="/usr/lib/python3/site-packages"
+	    system_python_major_minor="$(python3 -c 'import sys; print("{}.{}".format(sys.version_info.major, sys.version_info.minor))')"
+	    sitepackages="/usr/lib/system-python3/lib/python${system_python_major_minor}/site-packages"
 	fi
 	cmd=( \
 	    mkdir -p "${pkg_pkg_dir}${sitepackages}" '&&' \
@@ -86,7 +84,13 @@ ptxd_make_world_install_python() {
 	    "${pkg_build_dir}/*.whl"
 	)
     elif [ -e "${pkg_dir}/pyproject.toml" ] &&
-	    [[ " ${pkg_build_deps} " =~ ' host-python3-pybuild ' ]]; then
+	    ( [[ " ${pkg_build_deps} " =~ ' host-python3-pybuild ' ]] ||
+	    [[ " ${pkg_build_deps} " =~ ' host-system-python3-pybuild ' ]] ) ; then
+	if [[ " ${pkg_build_deps_all} " =~ ' host-python3 ' ]]; then
+	    python_prefix=/usr
+	else
+	    python_prefix=/usr/lib/system-python3
+	fi
 	cmd=( \
 	    "${pkg_path}" \
 	    "${pkg_env}" \
@@ -94,7 +98,7 @@ ptxd_make_world_install_python() {
 	    "${pkg_install_env}" \
 	    "${ptx_build_python}" \
 	    -m installer \
-	    --prefix=/usr \
+	    --prefix="${python_prefix}" \
 	    "--destdir=${pkg_pkg_dir}" \
 	    "${pkg_build_dir}/*.whl"
 	)
