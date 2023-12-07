@@ -3,4 +3,4 @@
 config HOST_PYTHON3_FLIT_CORE
 	tristate
 	default y if ALLYES
-	select HOST_SYSTEM_PYTHON3
+	select HOST_PYTHON3
