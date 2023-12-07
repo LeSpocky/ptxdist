@@ -12,10 +12,10 @@ Signed-off-by: Bruno Thomsen <bruno.thomsen@gmail.com>
  1 file changed, 1 insertion(+)
 
 diff --git a/configure b/configure
-index 323f5743cd57..080f7bce746d 100755
+index eefe5de82cb6..000021624709 100755
 --- a/configure
 +++ b/configure
-@@ -388,6 +388,7 @@ do
+@@ -410,6 +410,7 @@ do
      ;;
      * )
      echo "Unrecognized option : " $option
