@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MODEMMANAGER) += modemmanager
 #
 # Paths and names
 #
-MODEMMANAGER_VERSION	:= 1.20.2
-MODEMMANAGER_MD5	:= 441b08c34136f3a28d79c7f110b6ee32
+MODEMMANAGER_VERSION	:= 1.20.6
+MODEMMANAGER_MD5	:= 1c4554dd34a5ae7d02e7cb36cc9e2ec4
 MODEMMANAGER		:= ModemManager-$(MODEMMANAGER_VERSION)
 MODEMMANAGER_SUFFIX	:= tar.bz2
 MODEMMANAGER_URL	:= https://gitlab.freedesktop.org/mobile-broadband/ModemManager/-/archive/$(MODEMMANAGER_VERSION)/$(MODEMMANAGER).$(MODEMMANAGER_SUFFIX)
@@ -53,7 +53,8 @@ MODEMMANAGER_CONF_OPT	:= \
 	-Dvapi=false \
 	-Dgtk_doc=false \
 	-Dman=false \
-	-Dbash_completion=false
+	-Dbash_completion=false \
+	-Dexamples=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
