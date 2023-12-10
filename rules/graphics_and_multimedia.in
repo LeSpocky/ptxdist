@@ -3,8 +3,6 @@
 menuconfig MENU_XORG_FONTS
 	bool
 	prompt "fonts                         "
-	select XORG_LIB_XFONT2_PCF_FONTS if XORG_SERVER
-	default y if XORG_SERVER
 	help
 	  These fonts can be used with an x-server, standalone directfb or
 	  gtk ontop of directfb.
