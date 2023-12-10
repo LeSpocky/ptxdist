@@ -1,0 +1,8 @@
+## SECTION=system_libraries
+
+config BROTLI
+	tristate
+	select HOST_CMAKE
+	prompt "brotli"
+	help
+	  library implementing brotli encoder and decoder
