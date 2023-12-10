@@ -1,0 +1,25 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 8 Dec 2023 18:12:20 +0100
+Subject: [PATCH] HACK: meson_post_install.py: don't try to change
+ owner/permissions for dbus-daemon-launch-helper
+
+This tries to get the uid from the build host. This can fail if the user
+is missing or produces an incorrect uid.
+This is not needed here anyways because ptxdist explicitly sets the
+correct owner/permissions during targetinstall.
+So just skip this during install.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ meson_post_install.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/meson_post_install.py b/meson_post_install.py
+index cfc03b2219ff..1d007ad65e6e 100755
+--- a/meson_post_install.py
++++ b/meson_post_install.py
+@@ -103,4 +103,3 @@ def post_install_exe():
+ 
+ if __name__ == "__main__":
+     post_install_relocation()
+-    post_install_exe()
