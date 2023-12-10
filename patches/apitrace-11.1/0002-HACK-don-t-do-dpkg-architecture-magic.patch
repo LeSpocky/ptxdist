@@ -1,0 +1,32 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Tue, 28 Nov 2023 18:15:18 +0100
+Subject: [PATCH] HACK: don't do dpkg-architecture magic
+
+We don't want any architecture specific subdir and dpkg-architecture may
+not be available, so this is not deterministic anyways.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ CMakeLists.txt | 9 ---------
+ 1 file changed, 9 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index a863b47cabcf..3d8b5811ebe2 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -425,15 +425,6 @@ endif ()
+ ##############################################################################
+ # Installation directories
+ 
+-if (CMAKE_SYSTEM_NAME STREQUAL "Linux")
+-    # Debian multiarch support
+-    execute_process(COMMAND dpkg-architecture -qDEB_HOST_MULTIARCH
+-        OUTPUT_VARIABLE ARCH_SUBDIR
+-        ERROR_QUIET
+-        OUTPUT_STRIP_TRAILING_WHITESPACE
+-    )
+-endif()
+-
+ if (WIN32 OR APPLE)
+     # On Windows/MacOSX, applications are usually installed on a directory of
+     # their own

@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=debug_tools
+## SECTION=debug_tools
 
 config APITRACE
 	tristate
@@ -8,10 +6,8 @@ config APITRACE
 	select HOST_SYSTEM_PYTHON3
 	select ZLIB
 	select LIBPNG
+	select BROTLI
+	select GOOGLETEST
 	prompt "apitrace"
 	help
 	  Tools for tracing OpenGL, Direct3D, and other graphics APIs.
-
-	  STAGING: remove in PTXdist 2023.12.0
-	  Old version and fails to build with gcc 12. Needs updating to a
-	  new version.
