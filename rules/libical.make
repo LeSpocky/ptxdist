@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBICAL) += libical
 #
 # Paths and names
 #
-LIBICAL_VERSION	:= 3.0.10
-LIBICAL_MD5	:= 0992e55d8408783a3c63d6000ed802d2
+LIBICAL_VERSION	:= 3.0.17
+LIBICAL_MD5	:= aab3e2c80a5a61c744204675bff19ae0
 LIBICAL		:= libical-$(LIBICAL_VERSION)
 LIBICAL_SUFFIX	:= tar.gz
 LIBICAL_URL	:= https://github.com/libical/libical/releases/download/v$(LIBICAL_VERSION)/$(LIBICAL).$(LIBICAL_SUFFIX)
