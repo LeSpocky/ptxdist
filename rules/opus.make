@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_OPUS) += opus
 #
 # Paths and names
 #
-OPUS_VERSION	:= 1.3.1
-OPUS_MD5	:= d7c07db796d21c9cf1861e0c2b0c0617
+OPUS_VERSION	:= 1.4
+OPUS_MD5	:= 0d89c15268c5c5984f583d7997d2a148
 OPUS		:= opus-$(OPUS_VERSION)
 OPUS_SUFFIX	:= tar.gz
 OPUS_URL	:= http://downloads.xiph.org/releases/opus/$(OPUS).$(OPUS_SUFFIX)
