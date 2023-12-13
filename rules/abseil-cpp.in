@@ -1,0 +1,10 @@
+## SECTION=system_libraries
+
+config ABSEIL_CPP
+	tristate
+	select HOST_CMAKE
+	select HOST_NINJA
+	prompt "abseil-cpp"
+	help
+	   Abseil is an open-source collection of C++ library code designed
+	   to augment the C++ standard library.
