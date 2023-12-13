@@ -7,7 +7,7 @@ cpp = '@CXX@'
 fortran = '@FC@'
 ar = '@AR@'
 strip = '@STRIP@'
-pkgconfig = '@PKG_CONFIG@'
+pkg-config = '@PKG_CONFIG@'
 rust = @RUSTC@
 
 [properties]
