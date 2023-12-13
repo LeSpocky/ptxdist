@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_ATTR) += attr
 #
 # Paths and names
 #
-ATTR_VERSION	:= 2.4.48
-ATTR_MD5	:= bc1e5cb5c96d99b24886f1f527d3bb3d
+ATTR_VERSION	:= 2.5.1
+ATTR_MD5	:= ac1c5a7a084f0f83b8cace34211f64d8
 ATTR		:= attr-$(ATTR_VERSION)
 ATTR_SUFFIX	:= tar.gz
 ATTR_SOURCE	:= $(SRCDIR)/$(ATTR).$(ATTR_SUFFIX)
@@ -39,6 +39,7 @@ ATTR_URL	:= \
 ATTR_CONF_TOOL	:= autoconf
 ATTR_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-nls \
 	--disable-rpath \
 	--disable-debug
