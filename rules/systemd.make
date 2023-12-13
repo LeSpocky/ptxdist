@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 254.7
+SYSTEMD_VERSION		:= 255
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_MD5		:= 743d70c4b1c64417871baba168b1e0dc
+SYSTEMD_MD5		:= 521cda27409a9edf0370c128fae3e690
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -50,26 +50,26 @@ endif
 SYSTEMD_CONF_TOOL	:= meson
 SYSTEMD_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dacl=$(call ptx/truefalse,PTXCONF_SYSTEMD_UNITS_USER) \
+	-Dacl=$(call ptx/endis,PTXCONF_SYSTEMD_UNITS_USER)d \
 	-Dadm-group=true \
 	-Danalyze=true \
-	-Dapparmor=false \
-	-Daudit=false \
+	-Dapparmor=disabled \
+	-Daudit=disabled \
 	-Dbacklight=false \
 	-Dbinfmt=false \
-	-Dblkid=true \
-	-Dbootloader=false \
-	-Dbpf-framework=false \
+	-Dblkid=enabled \
+	-Dbootloader=disabled \
+	-Dbpf-framework=disabled \
 	-Dbump-proc-sys-fs-file-max=true \
 	-Dbump-proc-sys-fs-nr-open=true \
-	-Dbzip2=false \
+	-Dbzip2=disabled \
 	-Dcertificate-root=/etc/ssl \
 	-Dclock-valid-range-usec-max=$(call ptx/ifdef, PTXDIST_Y2038,946728000000000,473364000000000) \
 	-Dcompat-mutable-uid-boundaries=false \
 	-Dcoredump=$(call ptx/truefalse,PTXCONF_SYSTEMD_COREDUMP) \
 	-Dcreate-log-dirs=false \
 	-Dcryptolib=auto \
-	-Ddbus=false \
+	-Ddbus=disabled \
 	-Ddbuspolicydir=/usr/share/dbus-1/system.d \
 	-Ddbussessionservicedir=/usr/share/dbus-1/services \
 	-Ddbussystemservicedir=/usr/share/dbus-1/system-services \
@@ -81,44 +81,45 @@ SYSTEMD_CONF_OPT	:= \
 	-Ddefault-locale=C \
 	-Ddefault-mdns=yes \
 	-Ddefault-net-naming-scheme=$(call remove_quotes,$(PTXCONF_SYSTEMD_DEFAULT_NET_NAMING_SCHEME)) \
+	-Ddefault-network=false \
 	-Ddev-kvm-mode=0660 \
 	-Ddns-over-tls=false \
 	-Ddns-servers= \
 	-Defi=false \
-	-Delfutils=$(call ptx/truefalse,PTXCONF_SYSTEMD_COREDUMP) \
+	-Delfutils=$(call ptx/endis,PTXCONF_SYSTEMD_COREDUMP)d \
 	-Denvironment-d=false \
 	-Dfallback-hostname=$(call ptx/ifdef,PTXCONF_ROOTFS_ETC_HOSTNAME,$(PTXCONF_ROOTFS_ETC_HOSTNAME),ptxdist) \
-	-Dfdisk=$(call ptx/truefalse,PTXCONF_SYSTEMD_REPART) \
+	-Dfdisk=$(call ptx/endis,PTXCONF_SYSTEMD_REPART)d \
 	-Dfexecve=false \
 	-Dfirstboot=false \
 	-Dfuzz-tests=false \
-	-Dgcrypt=false \
-	-Dglib=false \
-	-Dgnutls=false \
+	-Dgcrypt=disabled \
+	-Dglib=disabled \
+	-Dgnutls=disabled \
 	-Dgroup-render-mode=0666 \
 	-Dgshadow=false \
 	-Dhibernate=false \
-	-Dhomed=false \
+	-Dhomed=disabled \
 	-Dhostnamed=$(call ptx/truefalse,PTXCONF_SYSTEMD_HOSTNAMED) \
-	-Dhtml=false \
+	-Dhtml=disabled \
 	-Dhwdb=$(call ptx/truefalse,PTXCONF_SYSTEMD_UDEV_HWDB) \
 	-Didn=false \
 	-Dima=false \
-	-Dimportd=false \
+	-Dimportd=disabled \
 	-Dinitrd=false \
 	-Dinstall-sysconfdir=true \
 	-Dinstall-tests=false \
 	-Dkernel-install=false \
 	-Dkexec-path=/usr/sbin/kexec \
-	-Dkmod=true \
+	-Dkmod=enabled \
 	-Dkmod-path=/usr/bin/kmod \
 	-Dldconfig=false \
-	-Dlibcryptsetup=false \
-	-Dlibcurl=false \
-	-Dlibfido2=false \
-	-Dlibidn=false \
-	-Dlibidn2=false \
-	-Dlibiptc=$(call ptx/truefalse,PTXCONF_SYSTEMD_IPMASQUERADE) \
+	-Dlibcryptsetup=disabled \
+	-Dlibcurl=disabled \
+	-Dlibfido2=disabled \
+	-Dlibidn=disabled \
+	-Dlibidn2=disabled \
+	-Dlibiptc=$(call ptx/endis,PTXCONF_SYSTEMD_IPMASQUERADE)d \
 	-Dlink-boot-shared=true \
 	-Dlink-journalctl-shared=true \
 	-Dlink-networkd-shared=true \
@@ -129,14 +130,14 @@ SYSTEMD_CONF_OPT	:= \
 	-Dllvm-fuzz=false \
 	-Dloadkeys-path=/usr/bin/loadkeys \
 	-Dlocaled=$(call ptx/truefalse,PTXCONF_SYSTEMD_LOCALES) \
-	-Dlog-message-verification=false \
+	-Dlog-message-verification=disabled \
 	-Dlog-trace=false \
 	-Dlogind=$(call ptx/truefalse,PTXCONF_SYSTEMD_LOGIND) \
-	-Dlz4=$(call ptx/truefalse,PTXCONF_SYSTEMD_LZ4) \
+	-Dlz4=$(call ptx/endis,PTXCONF_SYSTEMD_LZ4)d \
 	-Dmachined=$(call ptx/truefalse,PTXCONF_SYSTEMD_NSPAWN) \
-	-Dman=false \
+	-Dman=disabled \
 	-Dmemory-accounting-default=true \
-	-Dmicrohttpd=$(call ptx/truefalse,PTXCONF_SYSTEMD_MICROHTTPD) \
+	-Dmicrohttpd=$(call ptx/endis,PTXCONF_SYSTEMD_MICROHTTPD)d \
 	-Dmode=release \
 	-Dmount-path=/usr/bin/mount \
 	-Dnetworkd=$(call ptx/truefalse,PTXCONF_SYSTEMD_NETWORK) \
@@ -144,45 +145,44 @@ SYSTEMD_CONF_OPT	:= \
 	-Dnobody-user=nobody \
 	-Dnscd=false \
 	-Dnss-myhostname=true \
-	-Dnss-mymachines=$(call ptx/truefalse,PTXCONF_SYSTEMD_NSPAWN) \
-	-Dnss-resolve=$(call ptx/truefalse,PTXCONF_SYSTEMD_NETWORK) \
+	-Dnss-mymachines=$(call ptx/endis,PTXCONF_SYSTEMD_NSPAWN)d \
+	-Dnss-resolve=$(call ptx/endis,PTXCONF_SYSTEMD_NETWORK)d \
 	-Dnss-systemd=true \
 	-Dntp-servers= \
 	-Dok-color=green \
 	-Doomd=false \
-	-Dopenssl=$(call ptx/truefalse,PTXCONF_SYSTEMD_OPENSSL) \
+	-Dopenssl=$(call ptx/endis,PTXCONF_SYSTEMD_OPENSSL)d \
 	-Doss-fuzz=false \
-	-Dp11kit=false \
-	-Dpam=false \
-	-Dpasswdqc=false \
-	-Dpcre2=$(call ptx/truefalse,PTXCONF_SYSTEMD_PCRE2) \
-	-Dpolkit=$(call ptx/truefalse,PTXCONF_SYSTEMD_POLKIT) \
+	-Dp11kit=disabled \
+	-Dpam=disabled \
+	-Dpasswdqc=disabled \
+	-Dpcre2=$(call ptx/endis,PTXCONF_SYSTEMD_PCRE2)d \
+	-Dpolkit=$(call ptx/endis,PTXCONF_SYSTEMD_POLKIT)d \
 	-Dportabled=false \
 	-Dpstore=false \
-	-Dpwquality=false \
-	-Dqrencode=false \
+	-Dpwquality=disabled \
+	-Dqrencode=disabled \
 	-Dquotacheck=$(call ptx/truefalse,PTXCONF_SYSTEMD_QUOTACHECK) \
 	-Dquotacheck-path=/usr/sbin/quotacheck \
 	-Dquotaon-path=/usr/sbin/quotaon \
 	-Drandomseed=$(call ptx/falsetrue,PTXCONF_SYSTEMD_DISABLE_RANDOM_SEED) \
 	-Dremote=$(call ptx/ifdef,PTXCONF_SYSTEMD_JOURNAL_REMOTE,auto,false) \
-	-Drepart=$(call ptx/truefalse,PTXCONF_SYSTEMD_REPART) \
+	-Drepart=$(call ptx/endis,PTXCONF_SYSTEMD_REPART)d \
 	-Dresolve=$(call ptx/truefalse,PTXCONF_SYSTEMD_NETWORK) \
 	-Drfkill=false \
-	-Dseccomp=$(call ptx/truefalse,PTXCONF_SYSTEMD_SECCOMP) \
-	-Dselinux=$(call ptx/truefalse,PTXCONF_GLOBAL_SELINUX) \
+	-Dseccomp=$(call ptx/endis,PTXCONF_SYSTEMD_SECCOMP)d \
+	-Dselinux=$(call ptx/endis,PTXCONF_GLOBAL_SELINUX)d \
 	-Dservice-watchdog=3min \
 	-Dsetfont-path=/usr/bin/setfont \
 	-Dshared-lib-tag=$(SYSTEMD_VERSION_MAJOR) \
-	-Dskip-deps=false \
 	-Dslow-tests=false \
 	-Dsmack=false \
 	-Dsplit-bin=true \
-	-Dsplit-usr=false \
 	-Dstandalone-binaries=false \
 	-Dstatic-libsystemd=false \
 	-Dstatic-libudev=false \
 	-Dstatus-unit-format-default=name \
+	-Dstoragetm=false \
 	-Dsulogin-path=/sbin/sulogin \
 	-Dsupport-url=https://www.ptxdist.org/ \
 	-Dsysext=false \
@@ -200,24 +200,25 @@ SYSTEMD_CONF_OPT	:= \
 	-Dtimesyncd=$(call ptx/truefalse,PTXCONF_SYSTEMD_TIMEDATE) \
 	-Dtmpfiles=true \
 	-Dtpm=false \
-	-Dtpm2=false \
+	-Dtpm2=disabled \
 	-Dtranslations=false \
 	-Dtty-gid=112 \
-	-Dukify=false \
+	-Dukify=disabled \
 	-Dumount-path=/usr/bin/umount \
 	-Durlify=false \
 	-Duserdb=false \
 	-Dusers-gid=-1 \
 	-Dutmp=false \
 	-Dvconsole=$(call ptx/truefalse,PTXCONF_SYSTEMD_VCONSOLE) \
+	-Dvmspawn=$(call ptx/endis,PTXCONF_SYSTEMD_NSPAWN)d \
 	-Dversion-tag=$(SYSTEMD_VERSION) \
 	-Dwheel-group=false \
 	-Dxdg-autostart=false \
-	-Dxenctrl=false \
-	-Dxkbcommon=false \
-	-Dxz=$(call ptx/truefalse,PTXCONF_SYSTEMD_XZ) \
-	-Dzlib=false \
-	-Dzstd=$(call ptx/truefalse,PTXCONF_SYSTEMD_ZSTD)
+	-Dxenctrl=disabled \
+	-Dxkbcommon=disabled \
+	-Dxz=$(call ptx/endis,PTXCONF_SYSTEMD_XZ)d \
+	-Dzlib=disabled \
+	-Dzstd=$(call ptx/endis,PTXCONF_SYSTEMD_ZSTD)d
 
 # FIXME kernel from systemd README:
 # - devtmpfs, cgroups are mandatory.
@@ -259,6 +260,7 @@ SYSTEMD_HELPER := \
 	systemd \
 	systemd-cgroups-agent \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_COREDUMP,systemd-coredump) \
+	systemd-executor \
 	systemd-fsck \
 	systemd-growfs \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_HOSTNAMED,systemd-hostnamed) \
@@ -302,6 +304,7 @@ SYSTEMD_UDEV_RULES-y := \
 	50-udev-default.rules \
 	60-persistent-alsa.rules \
 	60-persistent-input.rules \
+	60-persistent-storage-mtd.rules \
 	60-persistent-storage-tape.rules \
 	60-persistent-storage.rules \
 	60-block.rules \
@@ -361,6 +364,7 @@ $(STATEDIR)/systemd.targetinstall:
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-notify)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-tmpfiles)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/busctl)
+	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/varlinkctl)
 ifdef PTXCONF_SYSTEMD_HOSTNAMED
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/hostnamectl)
 endif
@@ -382,6 +386,7 @@ ifdef PTXCONF_SYSTEMD_NSPAWN
 	@$(call install_lib, systemd, 0, 0, 0644, libnss_mymachines)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/machinectl)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-nspawn)
+	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-vmspawn)
 endif
 
 ifdef PTXCONF_SYSTEMD_REPART
@@ -466,6 +471,7 @@ ifdef PTXCONF_SYSTEMD_NETWORK
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/networkctl)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/resolvectl)
 	@$(call install_link, systemd, resolvectl, /usr/bin/systemd-resolve)
+	@$(call install_link, systemd, ../bin/resolvectl, /usr/sbin/resolvconf)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/lib/systemd/systemd-network-generator)
 	@$(call install_lib, systemd, 0, 0, 0644, libnss_resolve)
 	@$(call install_copy, systemd, 0, 0, 0644, -, /usr/lib/systemd/resolv.conf)
