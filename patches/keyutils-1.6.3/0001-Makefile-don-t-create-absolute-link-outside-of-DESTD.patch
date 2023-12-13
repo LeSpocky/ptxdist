@@ -8,10 +8,10 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 5f8b16321c57..943f2ca77200 100644
+index 599b1452a05a..0a2bacacfb88 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -184,7 +184,7 @@ ifeq ($(NO_SOLIB),0)
+@@ -200,7 +200,7 @@ ifeq ($(NO_SOLIB),0)
  	$(INSTALL) -D $(LIBNAME) $(DESTDIR)$(LIBDIR)/$(LIBNAME)
  	$(LNS) $(LIBNAME) $(DESTDIR)$(LIBDIR)/$(SONAME)
  	mkdir -p $(DESTDIR)$(USRLIBDIR)

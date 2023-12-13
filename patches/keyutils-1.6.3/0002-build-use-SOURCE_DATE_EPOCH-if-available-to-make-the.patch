@@ -16,10 +16,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile b/Makefile
-index 943f2ca77200..071bafa79743 100644
+index 0a2bacacfb88..163dfd8dc565 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -108,7 +108,7 @@ all: keyctl request-key key.dns_resolver
+@@ -109,7 +109,7 @@ all: keyctl request-key key.dns_resolver cxx
  ###############################################################################
  #RPATH = -Wl,-rpath,$(LIBDIR)
  

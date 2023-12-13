@@ -11,11 +11,11 @@ PACKAGES-$(PTXCONF_KEYUTILS) += keyutils
 #
 # Paths and names
 #
-KEYUTILS_VERSION	:= 1.6.1
-KEYUTILS_MD5		:= 919af7f33576816b423d537f8a8692e8
+KEYUTILS_VERSION	:= 1.6.3
+KEYUTILS_MD5		:= 6b70b2b381c1b6d9adfaf66d5d3e7c00
 KEYUTILS		:= keyutils-$(KEYUTILS_VERSION)
-KEYUTILS_SUFFIX		:= tar.bz2
-KEYUTILS_URL		:= http://people.redhat.com/~dhowells/keyutils/$(KEYUTILS).$(KEYUTILS_SUFFIX)
+KEYUTILS_SUFFIX		:= tar.gz
+KEYUTILS_URL		:= https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/snapshot/$(KEYUTILS).$(KEYUTILS_SUFFIX)
 KEYUTILS_SOURCE		:= $(SRCDIR)/$(KEYUTILS).$(KEYUTILS_SUFFIX)
 KEYUTILS_DIR		:= $(BUILDDIR)/$(KEYUTILS)
 KEYUTILS_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
