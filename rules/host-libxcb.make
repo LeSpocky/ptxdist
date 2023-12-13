@@ -17,8 +17,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBXCB) += host-libxcb
 
 HOST_LIBXCB_CONF_ENV	:= \
 	$(HOST_ENV) \
-	ac_cv_prog_BUILD_DOCS=no \
-	ac_cv_lib_Xdmcp_XdmcpWrap=no
+	ac_cv_prog_BUILD_DOCS=no
 
 #
 # autoconf
@@ -32,6 +31,7 @@ HOST_LIBXCB_CONF_OPT	:= \
 	--disable-devel-docs \
 	--enable-composite \
 	--enable-damage \
+	--enable-dbe \
 	--enable-dpms \
 	--enable-dri2 \
 	--enable-dri3 \
@@ -58,6 +58,6 @@ HOST_LIBXCB_CONF_OPT	:= \
 	--enable-xv \
 	--enable-xvmc \
 	--without-doxygen \
-	--without-launchd
+	--without-serverside-support
 
 # vim: syntax=make

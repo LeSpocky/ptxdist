@@ -14,20 +14,24 @@ PACKAGES-$(PTXCONF_LIBXCB) += libxcb
 #
 # Paths and names
 #
-LIBXCB_VERSION		:= 1.13.1
-LIBXCB_MD5		:= f33cdfc67346f7217a9326c0d8679975
+LIBXCB_VERSION		:= 1.16
+LIBXCB_MD5		:= c769f93c254263077df62404661b710d
 LIBXCB			:= libxcb-$(LIBXCB_VERSION)
-LIBXCB_SUFFIX		:= tar.bz2
+LIBXCB_SUFFIX		:= tar.xz
 LIBXCB_URL		:= http://xcb.freedesktop.org/dist/$(LIBXCB).$(LIBXCB_SUFFIX)
 LIBXCB_SOURCE		:= $(SRCDIR)/$(LIBXCB).$(LIBXCB_SUFFIX)
 LIBXCB_DIR		:= $(BUILDDIR)/$(LIBXCB)
 LIBXCB_LICENSE		:= MIT
+LIBXCB_LICENSE_FILES	:= \
+	file://COPYING;md5=d763b081cb10c223435b01e00dc0aba7
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBXCB_CONF_ENV := $(CROSS_ENV) ac_cv_prog_BUILD_DOCS=no
+LIBXCB_CONF_ENV := \
+	$(CROSS_ENV) \
+	ac_cv_prog_BUILD_DOCS=no
 
 #
 # autoconf
@@ -41,6 +45,7 @@ LIBXCB_CONF_OPT		:= \
 	--disable-devel-docs \
 	--enable-composite \
 	--enable-damage \
+	--enable-dbe \
 	--enable-dpms \
 	--enable-dri2 \
 	--enable-dri3 \
@@ -67,7 +72,7 @@ LIBXCB_CONF_OPT		:= \
 	--enable-xv \
 	--enable-xvmc \
 	--without-doxygen \
-	--without-launchd
+	--without-serverside-support
 
 # ----------------------------------------------------------------------------
 # Target-Install
