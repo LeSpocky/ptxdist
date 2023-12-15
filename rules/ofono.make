@@ -58,7 +58,8 @@ OFONO_CONF_OPT	:= \
 	--disable-provision \
 	--disable-upower \
 	--disable-external-ell \
-	--enable-datafiles
+	--enable-datafiles \
+	--with-systemdunitdir=/usr/lib/systemd/system
 
 # ----------------------------------------------------------------------------
 # Target-Install
