@@ -33,6 +33,8 @@ SYSKLOGD_LICENSE	:= BSD-3-Clause
 SYSKLOGD_CONF_TOOL = autoconf
 SYSKLOGD_CONF_OPT = \
 	$(CROSS_AUTOCONF_USR) \
+	--without-suspend-time \
+	--with-systemd=/usr/lib/systemd/system \
 	--with-logger
 
 # ----------------------------------------------------------------------------

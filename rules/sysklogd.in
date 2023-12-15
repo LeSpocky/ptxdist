@@ -5,7 +5,6 @@ menuconfig SYSKLOGD
 	prompt "sysklogd                      "
 	depends on !BUSYBOX_SYSLOGD || ALLYES
 	depends on !BUSYBOX_LOGGER || ALLYES
-	select SYSTEMD		if SYSKLOGD_SYSTEMD
 	help
 	  The venerable BSD syslogd and klogd rolled into one syslogd.
 	  This is a maintained and updated variant of the same.
