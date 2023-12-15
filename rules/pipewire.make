@@ -30,9 +30,6 @@ PIPEWIRE_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-PIPEWIRE_CONF_ENV := \
-	PTXDIST_PKG_CONFIG_VAR_NO_SYSROOT=systemduserunitdir
-
 #
 # meson
 #
@@ -108,9 +105,9 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dsupport=enabled \
 	-Dsystemd=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD)d \
 	-Dsystemd-system-service=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD_UNIT)d \
-	-Dsystemd-system-unit-dir= \
+	-Dsystemd-system-unit-dir=/usr/lib/systemd/system \
 	-Dsystemd-user-service=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD_UNIT_USER)d \
-	-Dsystemd-user-unit-dir= \
+	-Dsystemd-user-unit-dir=/usr/lib/systemd/user \
 	-Dtest=disabled \
 	-Dtests=disabled \
 	-Dudev=enabled \
