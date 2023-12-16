@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDL2_IMAGE) += sdl2-image
 #
 # Paths and names
 #
-SDL2_IMAGE_VERSION	:= 2.8.0
-SDL2_IMAGE_MD5		:= 7af4d39a5e6579715a996fd0dbd4b910
+SDL2_IMAGE_VERSION	:= 2.8.1
+SDL2_IMAGE_MD5		:= 1cebd21fc421eabd6aebb687dbac6b2a
 SDL2_IMAGE		:= SDL2_image-$(SDL2_IMAGE_VERSION)
 SDL2_IMAGE_SUFFIX	:= tar.gz
 SDL2_IMAGE_URL		:= https://github.com/libsdl-org/SDL_image/releases/download/release-$(SDL2_IMAGE_VERSION)/$(SDL2_IMAGE).$(SDL2_IMAGE_SUFFIX)
