@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GNUPG) += gnupg
 #
 # Paths and names
 #
-GNUPG_VERSION	:= 2.3.7
-GNUPG_MD5	:= 1c6a6722b9cececcf10ca4e24106e34b
+GNUPG_VERSION	:= 2.4.3
+GNUPG_MD5	:= e21ab42c629af80f19f813eeb61aa939
 GNUPG		:= gnupg-$(GNUPG_VERSION)
 GNUPG_SUFFIX	:= tar.bz2
 GNUPG_URL	:= \
