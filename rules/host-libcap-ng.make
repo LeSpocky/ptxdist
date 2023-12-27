@@ -23,7 +23,6 @@ HOST_LIBCAP_NG_CONF_OPT := \
 	$(HOST_AUTOCONF) \
 	--without-debug \
 	--without-warn \
-	--without-python \
 	--without-python3
 
 # needed for old glibc versions
