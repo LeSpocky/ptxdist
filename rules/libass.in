@@ -1,0 +1,12 @@
+## SECTION=multimedia_libs
+
+config LIBASS
+	tristate
+	prompt "libass"
+	select FONTCONFIG
+	select FREETYPE
+	select FRIBIDI
+	select HARFBUZZ
+	help
+	  Portable subtitle renderer for the ASS/SSA (Advanced Substation
+	  Alpha/Substation Alpha) subtitle format.
