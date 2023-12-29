@@ -8,6 +8,7 @@ menuconfig GST_PLUGINS_UGLY1
 	select GSTREAMER1
 	select GST_PLUGINS_BASE1
 	select ORC			if GST_PLUGINS_UGLY1_A52DEC
+	select LIBCDIO			if GST_PLUGINS_UGLY1_CDIO
 	select LIBMPEG2			if GST_PLUGINS_UGLY1_MPEG2DEC
 	prompt "gst-plugins-ugly              "
 	help
@@ -66,8 +67,6 @@ config GST_PLUGINS_UGLY1_AMRWBDEC
 
 config GST_PLUGINS_UGLY1_CDIO
 	bool
-	# needs libcdio
-	depends on BROKEN
 	prompt "cdio"
 	help
 	  CD audio source plugin
