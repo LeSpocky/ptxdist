@@ -1,0 +1,16 @@
+## SECTION=multimedia_libs
+
+menuconfig LIBCDIO
+	tristate
+	prompt "libcdio                       "
+	select GCCLIBS_CXX	if LIBCDIO_CXX
+	help
+	  A library for CD-ROM and CD image access.
+
+if LIBCDIO
+
+config LIBCDIO_CXX
+	bool
+	prompt "install c++ bindings"
+
+endif
