@@ -1,0 +1,8 @@
+## SECTION=multimedia_libs
+
+config LIBDVDCSS
+	tristate
+	prompt "libdvdcss"
+	help
+	  A simple library designed for accessing DVDs like a block device
+	  without having to bother about the decryption.
