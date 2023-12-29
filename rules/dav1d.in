@@ -1,0 +1,8 @@
+## SECTION=multimedia_libs
+
+config DAV1D
+	tristate
+	prompt "dav1d"
+	select HOST_MESON
+	help
+	  AV1 cross-platform decoder.
