@@ -1,0 +1,18 @@
+## SECTION=multimedia_libs
+
+menuconfig LIBTAG
+	tristate
+	prompt "libtag                        "
+	select HOST_CMAKE
+	select ZLIB	if LIBTAG_ZLIB
+	help
+	  A library for reading and editing the meta-data of several
+	  popular audio formats.
+
+if LIBTAG
+
+config LIBTAG_ZLIB
+	bool
+	prompt "zlib support"
+
+endif
