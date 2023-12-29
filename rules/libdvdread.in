@@ -1,0 +1,7 @@
+## SECTION=multimedia_libs
+
+config LIBDVDREAD
+	tristate
+	prompt "libdvdread"
+	help
+	  libdvdread is a library for simpler navigation (DVDs without menus).
