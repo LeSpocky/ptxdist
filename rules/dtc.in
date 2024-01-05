@@ -1,0 +1,37 @@
+## SECTION=system_libraries
+menuconfig DTC
+	tristate
+	prompt "dtc                           "
+	select HOST_FLEX
+	help
+	  Device Tree Compiler (dtc) toolchain. While dtc itself is
+	  occasionally needed for device tree manipulaton on the
+	  target, libfdt may be required.
+
+if DTC
+
+config DTC_DTC
+	bool
+	prompt "dtc"
+
+config DTC_DTDIFF
+	bool
+	prompt "dtdiff"
+
+config DTC_FDTDUMP
+	bool
+	prompt "fdtdump"
+
+config DTC_FDTGET
+	bool
+	prompt "fdtget"
+
+config DTC_FDTOVERLAY
+	bool
+	prompt "fdtoverlay"
+
+config DTC_FDTPUT
+	bool
+	prompt "fdtput"
+
+endif
