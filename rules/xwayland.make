@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XWAYLAND) += xwayland
 #
 # Paths and names
 #
-XWAYLAND_VERSION	:= 22.1.6
-XWAYLAND_MD5		:= 9894362969bcf86f3c0943138f9552cd
+XWAYLAND_VERSION	:= 23.2.3
+XWAYLAND_MD5		:= 5f2effd2dd2433d8a7cdc05f8feadfb9
 XWAYLAND		:= xwayland-$(XWAYLAND_VERSION)
 XWAYLAND_SUFFIX		:= tar.xz
 XWAYLAND_URL		:= $(call ptx/mirror, XORG, individual/xserver/$(XWAYLAND).$(XWAYLAND_SUFFIX))
@@ -45,10 +45,12 @@ XWAYLAND_CONF_OPT	:= \
 	-Ddri3=true \
 	-Ddrm=true \
 	-Ddtrace=false \
+	-Dfontrootdir= \
 	-Dglamor=$(call ptx/truefalse, PTXCONF_XWAYLAND_GLAMOR) \
 	-Dglx=$(call ptx/truefalse, PTXCONF_XWAYLAND_EXT_GLX) \
 	-Dinput_thread=auto \
 	-Dipv6=$(call ptx/truefalse, PTXCONF_GLOBAL_IPV6) \
+	-Dlibdecor=false \
 	-Dlibunwind=false \
 	-Dlisten_local=true \
 	-Dlisten_tcp=false \
@@ -56,6 +58,7 @@ XWAYLAND_CONF_OPT	:= \
 	-Dmitshm=$(call ptx/truefalse, PTXCONF_XWAYLAND_EXT_SHM) \
 	-Dscreensaver=false \
 	-Dsecure-rpc=false \
+	-Dserverconfigdir= \
 	-Dsha1=libnettle \
 	-Dvendor_name=PTXdist \
 	-Dvendor_name_short=PTXdist \
@@ -79,7 +82,8 @@ XWAYLAND_CONF_OPT	:= \
 	-Dxv=$(call ptx/truefalse, PTXCONF_XWAYLAND_EXT_XV) \
 	-Dxvfb=false \
 	-Dxwayland-path= \
-	-Dxwayland_eglstream=false
+	-Dxwayland_eglstream=false \
+	-Dxwayland_ei=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
