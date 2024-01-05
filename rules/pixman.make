@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIXMAN) += pixman
 #
 # Paths and names
 #
-PIXMAN_VERSION	:= 0.42.2
-PIXMAN_MD5	:= dec5dd93a3e95c80162515b7209ef0d5
+PIXMAN_VERSION	:= 0.43.0
+PIXMAN_MD5	:= 312210ec53ad070abd0b43a836807f14
 PIXMAN		:= pixman-$(PIXMAN_VERSION)
 PIXMAN_SUFFIX	:= tar.xz
 PIXMAN_URL	:= $(call ptx/mirror, XORG, individual/lib/$(PIXMAN).$(PIXMAN_SUFFIX))
@@ -33,7 +33,10 @@ PIXMAN_LICENSE	:= MIT
 PIXMAN_CONF_TOOL	:= meson
 PIXMAN_CONF_OPT		:= \
 	$(CROSS_MESON_USR) \
+	-Da64-neon=$(call ptx/endis, PTXCONF_ARCH_ARM64)d \
 	-Darm-simd=$(call ptx/endis, PTXCONF_ARCH_ARM_V6)d \
+	-Dcpu-features-path= \
+	-Ddemos=disabled \
 	-Dgnu-inline-asm=disabled \
 	-Dgnuplot=false \
 	-Dgtk=disabled \
@@ -47,9 +50,9 @@ PIXMAN_CONF_OPT		:= \
 	-Dopenmp=disabled \
 	-Dsse2=$(call ptx/endis, PTXCONF_ARCH_X86)d \
 	-Dssse3=$(call ptx/endis, PTXCONF_ARCH_X86)d \
+	-Dtests=disabled \
 	-Dtimers=false \
-	-Dvmx=disabled \
-	-Dtests=disabled
+	-Dvmx=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install

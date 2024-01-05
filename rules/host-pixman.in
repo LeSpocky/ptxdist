@@ -3,3 +3,4 @@
 config HOST_PIXMAN
 	tristate
 	default y if ALLYES
+	select HOST_MESON
