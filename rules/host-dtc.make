@@ -28,15 +28,17 @@ HOST_DTC_LICENSE	:= GPL-2.0-only
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_DTC_CONF_TOOL := NO
-HOST_DTC_MAKE_OPT := \
+HOST_DTC_CONF_TOOL	:= NO
+
+HOST_DTC_MAKE_ENV	:= $(HOST_ENV)
+
+HOST_DTC_MAKE_OPT	:= \
 	PREFIX=/usr \
 	NO_PYTHON=1 \
 	NO_VALGRIND=1 \
-	NO_YAML=1 \
-	$(HOST_ENV_CC)
+	NO_YAML=1
 
-HOST_DTC_INSTALL_OPT := \
+HOST_DTC_INSTALL_OPT	:= \
 	$(HOST_DTC_MAKE_OPT) \
 	install-bin \
 	install-lib
