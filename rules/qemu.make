@@ -64,7 +64,7 @@ QEMU_CONF_OPT	:= \
 	--enable-coroutine-pool \
 	--disable-cfi \
 	--disable-debug-mutex \
-	--enable-fdt \
+	--enable-fdt=system \
 	--disable-fuzzing \
 	--disable-lto \
 	--disable-module-upgrades \

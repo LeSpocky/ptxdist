@@ -7,6 +7,7 @@ menuconfig QEMU
 	select HOST_NINJA
 	select HOST_SYSTEM_PYTHON3
 	select GCCLIBS_CXX
+	select DTC
 	select GLIB
 	select LIBCAP_NG
 	select LIBSLIRP
