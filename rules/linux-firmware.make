@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20231111
-LINUX_FIRMWARE_MD5	:= 4e1b62642d8882781d66847133d2f0f0
+LINUX_FIRMWARE_VERSION	:= 20231211
+LINUX_FIRMWARE_MD5	:= 0c9906948cf993762233fe01cb112048
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -59,12 +59,14 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.xc5000;md5=1e170c13175323c32c7f4d0998d53f66 \
 	file://LICENCE.open-ath9k-htc-firmware;md5=1b33c9f4d17bc4d457bdb23727046837 \
 	file://LICENCE.nvidia;md5=4428a922ed3ba2ceec95f076a488ce07 \
+	file://LICENSE.powervr;md5=83045ed2a2cda15b4eaff682c98c9533 \
 	file://LICENCE.e100;md5=ec0f84136766df159a3ae6d02acdf5a8 \
 	file://LICENCE.ralink_a_mediatek_company_firmware;md5=728f1a85fd53fd67fa8d7afb080bc435 \
 	file://LICENCE.ti-keystone;md5=3a86335d32864b0bef996bee26cc0f2c \
 	file://LICENSE.amd-sev;md5=e750538791a8be0b7249c579edefb035 \
 	file://LICENSE.amdgpu;md5=a2589a05ea5b6bd2b7f4f623c7e7a649 \
 	file://LICENSE.nxp;md5=cca321ca1524d6a1e4fed87486cd82dc \
+	file://LICENSE.airoha;md5=fa3dedb960e2673aea51aa509f7b537d \
 	file://LICENCE.agere;md5=af0133de6b4a9b2522defd5f188afd31 \
 	file://LICENCE.siano;md5=4556c1bf830067f12ca151ad953ec2a5 \
 	file://LICENCE.broadcom_bcm43xx;md5=3160c14df7228891b868060e1951dfbc \
@@ -111,6 +113,13 @@ LINUX_FIRMWARE_LICENSE_FILES := $(filter $(addsuffix %,$(addprefix file://,$(LIN
 endif
 
 LINUX_FIRMWARE_SELECTED_FIRMWARES = $(call remove_quotes, $(PTXCONF_LINUX_FIRMWARE_SELECTED_FIRMWARES))
+
+# ----------------------------------------------------------------------------
+# Prepare
+# ----------------------------------------------------------------------------
+
+LINUX_FIRMWARE_INSTALL_OPT := \
+	install-nodedup
 
 # ----------------------------------------------------------------------------
 # Compile
