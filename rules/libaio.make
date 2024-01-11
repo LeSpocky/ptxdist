@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_LIBAIO) += libaio
 #
 # Paths and names
 #
-LIBAIO_VERSION	:= 0.3.110
-LIBAIO_MD5	:= 2a35602e43778383e2f4907a4ca39ab8
+LIBAIO_VERSION	:= 0.3.113
+LIBAIO_MD5	:= 4422d9f1655f358d74ff48af2a3b9f49
 LIBAIO		:= libaio-$(LIBAIO_VERSION)
 LIBAIO_SUFFIX	:= tar.gz
-LIBAIO_URL	:= http://pkgs.fedoraproject.org/repo/pkgs/libaio/libaio-0.3.110.tar.gz/2a35602e43778383e2f4907a4ca39ab8/$(LIBAIO).$(LIBAIO_SUFFIX)
+LIBAIO_URL	:= https://pagure.io/libaio/archive/$(LIBAIO)/libaio-$(LIBAIO).$(LIBAIO_SUFFIX)
 LIBAIO_SOURCE	:= $(SRCDIR)/$(LIBAIO).$(LIBAIO_SUFFIX)
 LIBAIO_DIR	:= $(BUILDDIR)/$(LIBAIO)
 LIBAIO_LICENSE	:= LGPL-2.1-only
