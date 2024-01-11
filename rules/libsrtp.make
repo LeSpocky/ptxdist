@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBSRTP) += libsrtp
 #
 # Paths and names
 #
-LIBSRTP_VERSION	:= 2.4.2
-LIBSRTP_MD5	:= 253ededcbfad5335efc0825f7ef0c6cc
+LIBSRTP_VERSION	:= 2.5.0
+LIBSRTP_MD5	:= 740557a07928be1886822ce307736e89
 LIBSRTP		:= libsrtp-$(LIBSRTP_VERSION)
 LIBSRTP_SUFFIX	:= tar.gz
 LIBSRTP_URL	:= https://github.com/cisco/libsrtp/archive/v$(LIBSRTP_VERSION).$(LIBSRTP_SUFFIX)
