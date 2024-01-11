@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBWEBP) += libwebp
 #
 # Paths and names
 #
-LIBWEBP_VERSION		:= 1.0.2
-LIBWEBP_MD5		:= 02c0c55f1dd8612cd4d462e3409ad35d
+LIBWEBP_VERSION		:= 1.3.2
+LIBWEBP_MD5		:= 34869086761c0e2da6361035f7b64771
 LIBWEBP			:= libwebp-$(LIBWEBP_VERSION)
 LIBWEBP_SUFFIX		:= tar.gz
 LIBWEBP_URL		:= http://downloads.webmproject.org/releases/webp/$(LIBWEBP).$(LIBWEBP_SUFFIX)
@@ -34,6 +34,11 @@ LIBWEBP_LICENSE_FILES	:= file://COPYING;md5=6e8dee932c26f2dab503abf70c96d8bb
 LIBWEBP_CONF_TOOL	:= autoconf
 LIBWEBP_CONF_OPT 	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-everything \
+	--$(call ptx/endis, PTXCONF_LIBWEBP_MUX)-libwebpmux \
+	--$(call ptx/endis, PTXCONF_LIBWEBP_DEMUX)-libwebpdemux \
+	--$(call ptx/endis, PTXCONF_LIBWEBP_DECODER)-libwebpdecoder \
+	--disable-libwebpextras \
 	--disable-asserts \
 	--$(call ptx/endis, PTXCONF_ARCH_X86)-sse4.1 \
 	--$(call ptx/endis, PTXCONF_ARCH_X86)-sse2 \
@@ -48,11 +53,7 @@ LIBWEBP_CONF_OPT 	:= \
 	--disable-gif \
 	--disable-wic \
 	--enable-swap-16bit-csp \
-	--enable-near-lossless \
-	--$(call ptx/endis, PTXCONF_LIBWEBP_MUX)-libwebpmux \
-	--$(call ptx/endis, PTXCONF_LIBWEBP_DEMUX)-libwebpdemux \
-	--$(call ptx/endis, PTXCONF_LIBWEBP_DECODER)-libwebpdecoder \
-	--disable-libwebpextras
+	--enable-near-lossless
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -71,6 +72,7 @@ $(STATEDIR)/libwebp.targetinstall:
 	@$(call install_fixup, libwebp,AUTHOR,"Steffen Trumtrar <s.trumtrar@pengutronix.de>")
 	@$(call install_fixup, libwebp,DESCRIPTION,missing)
 
+	@$(call install_lib, libwebp, 0, 0, 0644, libsharpyuv)
 	@$(call install_lib, libwebp, 0, 0, 0644, libwebp)
 ifdef PTXCONF_LIBWEBP_DEMUX
 	@$(call install_lib, libwebp, 0, 0, 0644, libwebpdemux)
