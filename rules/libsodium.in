@@ -1,7 +1,7 @@
 ## SECTION=system_libraries
 
 config LIBSODIUM
-	bool
+	tristate
 	select LIBC_PTHREAD
 	prompt "libsodium"
 	help
