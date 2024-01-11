@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_JSON_GLIB) += json-glib
 #
 # Paths and names
 #
-JSON_GLIB_VERSION	:= 1.6.6
-JSON_GLIB_MD5		:= 9c40fcd8cdbf484dd1704480afefae14
+JSON_GLIB_VERSION	:= 1.8.0
+JSON_GLIB_MD5		:= f1aac2b8a17fd68646653cc4d8426486
 JSON_GLIB		:= json-glib-$(JSON_GLIB_VERSION)
 JSON_GLIB_SUFFIX	:= tar.xz
 JSON_GLIB_URL		:= $(call ptx/mirror, GNOME, json-glib/$(basename $(JSON_GLIB_VERSION))/$(JSON_GLIB).$(JSON_GLIB_SUFFIX))
@@ -35,9 +35,10 @@ JSON_GLIB_LICENSE_FILES	:= \
 JSON_GLIB_CONF_TOOL	:= meson
 JSON_GLIB_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dintrospection=$(call ptx/endis, PTXCONF_JSON_GLIB_INTROSPECTION)d \
 	-Dgtk_doc=disabled \
+	-Dintrospection=$(call ptx/endis, PTXCONF_JSON_GLIB_INTROSPECTION)d \
 	-Dman=false \
+	-Dnls=disabled \
 	-Dtests=false
 
 # ----------------------------------------------------------------------------
