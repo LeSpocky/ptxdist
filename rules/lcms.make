@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_LCMS) += lcms
 #
 # Paths and names
 #
-LCMS_VERSION		:= 2.13.1
-LCMS_MD5		:= 47a99e781b89c958a773e2012e81ae8c
+LCMS_VERSION		:= 2.16
+LCMS_MD5		:= f219d87c247957c97020a3859d8d6fa8
 LCMS			:= lcms2-$(LCMS_VERSION)
 LCMS_SUFFIX		:= tar.gz
 LCMS_URL		:= $(call ptx/mirror, SF, lcms/$(LCMS).$(LCMS_SUFFIX))
 LCMS_SOURCE		:= $(SRCDIR)/$(LCMS).$(LCMS_SUFFIX)
 LCMS_DIR		:= $(BUILDDIR)/$(LCMS)
 LCMS_LICENSE		:= MIT
-LCMS_LICENSE_FILES	:= file://COPYING;md5=ac638b4bc6b67582a11379cfbaeb93dd
+LCMS_LICENSE_FILES	:= file://LICENSE;md5=e9ce323c4b71c943a785db90142b228a
 
 # ----------------------------------------------------------------------------
 # Prepare
