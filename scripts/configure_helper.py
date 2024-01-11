@@ -152,6 +152,7 @@ meson_blacklist = [
 	"optimization",
 	"pkg_config_path",
 	"prefer_static",
+	"python.allow_limited_api",
 	"python.bytecompile",
 	"python.install_env",
 	"python.platlibdir",
