@@ -3,6 +3,7 @@
 config LIBWACOM
 	tristate
 	select HOST_MESON
+	select LIBEVDEV
 	select UDEV
 	select UDEV_LIBUDEV
 	select LIBGUDEV
