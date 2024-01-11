@@ -36,7 +36,8 @@ SUDO_CONF_ENV	:= \
 	sudo_cv_func_fnmatch=yes \
 	sudo_cv_func_unsetenv_void=no \
 	ac_cv_have_working_snprintf=yes \
-	ac_cv_have_working_vsnprintf=yes
+	ac_cv_have_working_vsnprintf=yes \
+	ac_cv_lib_md_SHA224Update=no
 
 #
 # autoconf
