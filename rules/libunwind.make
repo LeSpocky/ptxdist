@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBUNWIND) += libunwind
 #
 # Paths and names
 #
-LIBUNWIND_VERSION	:= 1.7.2
-LIBUNWIND_MD5		:= 35799cd8e475d3e157230ad2590c10f1
+LIBUNWIND_VERSION	:= 1.8.0
+LIBUNWIND_MD5		:= c66dabc3d032eee8f4053595af7c31cb
 LIBUNWIND		:= libunwind-$(LIBUNWIND_VERSION)
 LIBUNWIND_SUFFIX	:= tar.gz
 LIBUNWIND_URL		:= https://github.com/libunwind/libunwind/releases/download/v$(LIBUNWIND_VERSION)/$(LIBUNWIND).$(LIBUNWIND_SUFFIX)
@@ -38,20 +38,21 @@ LIBUNWIND_CONF_OPT	:= \
 	--includedir=/usr/include/libunwind \
 	--$(call ptx/disen, PTXCONF_ARCH_PPC)-coredump \
 	--enable-ptrace \
+	--disable-nto \
 	--enable-setjmp \
-	--disable-documentation \
-	--disable-tests \
 	--enable-weak-backtrace \
 	--enable-unwind-header \
+	--disable-per-thread-cache \
+	--disable-tests \
 	--disable-debug \
 	--disable-cxx-exceptions \
+	--disable-documentation \
 	--enable-debug-frame \
 	--enable-block-signals \
 	--enable-conservative-checks \
 	--disable-msabi-support \
 	--disable-minidebuginfo \
 	--enable-zlibdebuginfo \
-	--disable-per-thread-cache \
 	--without-testdriver
 
 # ----------------------------------------------------------------------------
