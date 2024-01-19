@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XWAYLAND) += xwayland
 #
 # Paths and names
 #
-XWAYLAND_VERSION	:= 23.2.3
-XWAYLAND_MD5		:= 5f2effd2dd2433d8a7cdc05f8feadfb9
+XWAYLAND_VERSION	:= 23.2.4
+XWAYLAND_MD5		:= 9d04fbe9c3a531c9cd08d38f51788ae6
 XWAYLAND		:= xwayland-$(XWAYLAND_VERSION)
 XWAYLAND_SUFFIX		:= tar.xz
 XWAYLAND_URL		:= $(call ptx/mirror, XORG, individual/xserver/$(XWAYLAND).$(XWAYLAND_SUFFIX))
