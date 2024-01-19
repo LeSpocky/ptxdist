@@ -5,6 +5,7 @@ menuconfig GLSLANG
 	prompt "glslang                       "
 	select HOST_CMAKE
 	select HOST_SYSTEM_PYTHON3
+	select SPIRV_TOOLS
 	help
 	  Khronos-reference SPIR-V generator
 
