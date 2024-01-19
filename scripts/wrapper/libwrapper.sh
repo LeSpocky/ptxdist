@@ -88,9 +88,7 @@ filter_args() {
 			case "${ARG}" in
 			-L/*|-I/*)
 				# skip all absolute search directories outside the BSP
-				if [ -n "${PTXDIST_FD_LOGFILE}" ]; then
-					echo "wrapper: removing '${ARG}' from the commandline" >&${PTXDIST_FD_LOGFILE}
-				fi
+				echo "wrapper: removing '${ARG}' from the commandline" >&2
 				continue
 				;;
 			esac
