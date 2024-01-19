@@ -1,0 +1,10 @@
+## SECTION=multimedia_libs
+
+config VOLK
+	tristate
+	prompt "volk"
+	select HOST_CMAKE
+	select HOST_NINJA
+	select VULKAN_HEADERS
+	help
+	  Meta loader for Vulkan API
