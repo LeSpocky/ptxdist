@@ -1,0 +1,6 @@
+## SECTION=hosttools_noprompt
+
+config HOST_DTC
+	tristate
+	select HOST_FLEX
+	default y if ALLYES
