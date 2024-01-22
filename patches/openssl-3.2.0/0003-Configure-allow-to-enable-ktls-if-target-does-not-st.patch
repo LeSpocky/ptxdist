@@ -28,10 +28,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Configurations/10-main.conf b/Configurations/10-main.conf
-index aedfa370ca15..dfc3a431559a 100644
+index d1a15a115274..d15d28499a21 100644
 --- a/Configurations/10-main.conf
 +++ b/Configurations/10-main.conf
-@@ -700,7 +700,7 @@ my %targets = (
+@@ -693,7 +693,7 @@ my %targets = (
          shared_target    => "linux-shared",
          shared_cflag     => "-fPIC",
          shared_ldflag    => sub { $disabled{pinshared} ? () : "-Wl,-znodelete" },
@@ -41,10 +41,10 @@ index aedfa370ca15..dfc3a431559a 100644
      "linux-latomic" => {
          inherit_from     => [ "linux-generic32" ],
 diff --git a/Configure b/Configure
-index 227e5daea228..e1531d59e517 100755
+index cbba1749b5a3..a69068121949 100755
 --- a/Configure
 +++ b/Configure
-@@ -1699,7 +1699,7 @@ unless ($disabled{devcryptoeng}) {
+@@ -1765,7 +1765,7 @@ unless ($disabled{devcryptoeng}) {
  unless ($disabled{ktls}) {
      $config{ktls}="";
      my $cc = $config{CROSS_COMPILE}.$config{CC};
