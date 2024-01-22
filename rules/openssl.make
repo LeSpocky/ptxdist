@@ -67,6 +67,7 @@ OPENSSL_CONF_OPT := \
 	--openssldir=/usr/lib/ssl \
 	shared \
 	$(call ptx/ifdef, PTXCONF_OPENSSL_CRYPTODEV, enable-devcryptoeng, no-devcryptoeng) \
+	$(call ptx/ifdef, PTXCONF_OPENSSL_KTLS, enable-ktls, no-ktls) \
 	no-idea \
 	no-mdc2 \
 	no-rc5 \
