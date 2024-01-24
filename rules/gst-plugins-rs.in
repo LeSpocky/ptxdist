@@ -12,7 +12,7 @@ menuconfig GST_PLUGINS_RS
 	select GST_PLUGINS_BAD1_WEBRTC	if GST_PLUGINS_RS_WEBRTC || GST_PLUGINS_RS_WEBRTCHTTP
 	select LIBWEBP			if GST_PLUGINS_RS_WEBP
 	select LIBWEBP_DEMUX		if GST_PLUGINS_RS_WEBP
-	select PANGO
+	select PANGO			if GST_PLUGINS_RS_ONVIF || GST_PLUGINS_RS_CLOSEDCAPTION
 	prompt "gst-plugins-rs                "
 	help
 	  GStreamer plugins written in Rust.
