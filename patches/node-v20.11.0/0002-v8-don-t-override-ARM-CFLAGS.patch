@@ -27,7 +27,7 @@ Signed-off-by: André Draszik <git@andred.net>
  1 file changed, 2 insertions(+), 50 deletions(-)
 
 diff --git a/tools/v8_gypfiles/toolchain.gypi b/tools/v8_gypfiles/toolchain.gypi
-index 05295e945ab1..6fb0199c05c9 100644
+index f53644502a2d..f01f45af8534 100644
 --- a/tools/v8_gypfiles/toolchain.gypi
 +++ b/tools/v8_gypfiles/toolchain.gypi
 @@ -177,31 +177,7 @@

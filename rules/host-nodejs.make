@@ -26,14 +26,10 @@ HOST_NODEJS_CONF_OPT	:= \
 	--libdir=lib \
 	--no-cross-compiling \
 	--dest-os=linux \
-	--without-dtrace \
-	--without-etw \
-	--without-npm \
 	--shared \
 	--shared-openssl \
 	--shared-zlib \
-	--shared-cares \
-	--with-intl=none
+	--shared-cares
 
 $(STATEDIR)/host-nodejs.prepare:
 	@$(call targetinfo)

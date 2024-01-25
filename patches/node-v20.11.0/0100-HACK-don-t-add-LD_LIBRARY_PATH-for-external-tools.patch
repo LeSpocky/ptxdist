@@ -18,10 +18,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 10 insertions(+), 6 deletions(-)
 
 diff --git a/tools/gyp/pylib/gyp/generator/make.py b/tools/gyp/pylib/gyp/generator/make.py
-index e225326e1d09..50307d82f7c1 100644
+index 1b9974948e4d..d6f7097dd6bf 100644
 --- a/tools/gyp/pylib/gyp/generator/make.py
 +++ b/tools/gyp/pylib/gyp/generator/make.py
-@@ -1062,12 +1062,16 @@ $(obj).$(TOOLSET)/$(TARGET)/%%.o: $(obj)/%%%s FORCE_DO_CMD
+@@ -1071,12 +1071,16 @@ $(obj).$(TOOLSET)/$(TARGET)/%%.o: $(obj)/%%%s FORCE_DO_CMD
                      "%s%s" % (name, cd_action, command)
                  )
              else:

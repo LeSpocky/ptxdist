@@ -7,15 +7,15 @@ properties of the host architecture, e.g. pointer size.
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- node.gyp                 | 1 +
+ node.gyp                 | 3 +++
  tools/v8_gypfiles/v8.gyp | 5 +++++
- 2 files changed, 6 insertions(+)
+ 2 files changed, 8 insertions(+)
 
 diff --git a/node.gyp b/node.gyp
-index 1885a8d1ecb9..41dd702740c1 100644
+index aa98fe4c2fae..5ebc27d92de4 100644
 --- a/node.gyp
 +++ b/node.gyp
-@@ -319,6 +319,7 @@
+@@ -662,6 +662,7 @@
                    'action_name': 'node_mksnapshot',
                    'process_outputs_as_sources': 1,
                    'inputs': [
@@ -23,11 +23,27 @@ index 1885a8d1ecb9..41dd702740c1 100644
                      '<(node_mksnapshot_exec)',
                      '<(node_snapshot_main)',
                    ],
+@@ -966,6 +967,7 @@
+           'action_name': 'node_js2c',
+           'process_outputs_as_sources': 1,
+           'inputs': [
++            '<(PRODUCT_DIR)/tool-wrapper',
+             '<(node_js2c_exec)',
+             '<@(library_files)',
+             '<@(deps_files)',
+@@ -975,6 +977,7 @@
+             '<(SHARED_INTERMEDIATE_DIR)/node_javascript.cc',
+           ],
+           'action': [
++            '<(PRODUCT_DIR)/tool-wrapper',
+             '<(node_js2c_exec)',
+             '<@(_outputs)',
+             'lib',
 diff --git a/tools/v8_gypfiles/v8.gyp b/tools/v8_gypfiles/v8.gyp
-index fe658dbfc1d0..e50287d4c6af 100644
+index adfc3f6e1095..f4c472a08d23 100644
 --- a/tools/v8_gypfiles/v8.gyp
 +++ b/tools/v8_gypfiles/v8.gyp
-@@ -68,6 +68,7 @@
+@@ -81,6 +81,7 @@
          {
            'action_name': 'run_torque_action',
            'inputs': [  # Order matters.
@@ -35,7 +51,7 @@ index fe658dbfc1d0..e50287d4c6af 100644
              '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)torque<(EXECUTABLE_SUFFIX)',
              '<@(torque_files)',
            ],
-@@ -99,6 +100,7 @@
+@@ -112,6 +113,7 @@
              '<@(torque_outputs_inc)',
            ],
            'action': [
@@ -43,7 +59,7 @@ index fe658dbfc1d0..e50287d4c6af 100644
              '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)torque<(EXECUTABLE_SUFFIX)',
              '-o', '<(SHARED_INTERMEDIATE_DIR)/torque-generated',
              '-v8-root', '<(V8_ROOT)',
-@@ -211,6 +213,7 @@
+@@ -224,6 +226,7 @@
          {
            'action_name': 'generate_bytecode_builtins_list_action',
            'inputs': [
@@ -51,7 +67,7 @@ index fe658dbfc1d0..e50287d4c6af 100644
              '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)bytecode_builtins_list_generator<(EXECUTABLE_SUFFIX)',
            ],
            'outputs': [
-@@ -400,6 +403,7 @@
+@@ -401,6 +404,7 @@
              ],
            },
            'inputs': [
@@ -59,7 +75,7 @@ index fe658dbfc1d0..e50287d4c6af 100644
              '<(mksnapshot_exec)',
            ],
            'outputs': [
-@@ -1537,6 +1541,7 @@
+@@ -1670,6 +1674,7 @@
          {
            'action_name': 'run_gen-regexp-special-case_action',
            'inputs': [
