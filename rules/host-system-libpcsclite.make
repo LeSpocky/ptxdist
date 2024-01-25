@@ -22,7 +22,7 @@ HOST_SYSTEM_LIBPCSCLITE_LICENSE	:= ignore
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_SYSTEM_LIBPCSCLITE_PATH	:= PATH=$(subst $(PTXDIST_SYSROOT_HOST)/bin:,,$(HOST_PATH))
+HOST_SYSTEM_LIBPCSCLITE_PATH	:= PATH=$(subst $(PTXDIST_SYSROOT_HOST)/usr/bin:,,$(HOST_PATH))
 
 $(STATEDIR)/host-system-libpcsclite.prepare:
 	@$(call targetinfo)
