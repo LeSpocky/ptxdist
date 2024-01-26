@@ -9,6 +9,7 @@ config PYTHON3_ASYNCUA
 	select PYTHON3_PYTZ			if RUNTIME
 	select PYTHON3_CRYPTOGRAPHY		if RUNTIME
 	select PYTHON3_SORTEDCONTAINERS		if RUNTIME
+	select PYTHON3_PYOPENSSL		if RUNTIME
 	prompt "asyncua"
 	help
 	  OPC UA / IEC 62541 Client and Server for Python
