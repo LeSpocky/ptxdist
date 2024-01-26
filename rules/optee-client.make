@@ -49,6 +49,7 @@ $(STATEDIR)/optee-client.targetinstall:
 	@$(call install_fixup, optee-client,DESCRIPTION,missing)
 
 	@$(call install_lib, optee-client, 0, 0, 0644, libteec)
+	@$(call install_lib, optee-client, 0, 0, 0644, libckteec)
 	@$(call install_copy, optee-client, 0, 0, 0755, -, /usr/sbin/tee-supplicant)
 ifdef PTXCONF_OPTEE_CLIENT_SYSTEMD_UNIT
 	@$(call install_alternative, optee-client, 0, 0, 0644, \
