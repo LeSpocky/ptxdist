@@ -8,10 +8,10 @@ Signed-off-by: Michael Grzeschik <m.grzeschik@pengutronix.de>
  1 file changed, 7 insertions(+)
 
 diff --git a/configure.ac b/configure.ac
-index 9b1c36358d41..640a4e228706 100644
+index f0612a4be057..b12cab96de56 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -304,6 +304,12 @@ AM_CONDITIONAL(USE_BUILTIN_HARFBUZZ, test x$enable_harfbuzz_builtin = xyes)
+@@ -308,6 +308,12 @@ AM_CONDITIONAL(USE_BUILTIN_HARFBUZZ, test x$enable_harfbuzz_builtin = xyes)
  dnl check for LD --no-undefined option
  CheckNoUndef
  
@@ -24,7 +24,7 @@ index 9b1c36358d41..640a4e228706 100644
  dnl Check for OpenGL
  case "$host" in
      *-*-cygwin* | *-*-mingw*)
-@@ -354,6 +360,7 @@ else
+@@ -358,6 +364,7 @@ else
      GL_LIBS=""
  fi
  AC_SUBST([GL_LIBS])
