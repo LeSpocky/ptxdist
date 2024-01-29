@@ -3,6 +3,7 @@
 menuconfig HARFBUZZ
 	tristate
 	prompt "harfbuzz                      "
+	select HOST_MESON
 	select FREETYPE
 	select GLIB
 	select GRAPHITE2		if HARFBUZZ_GRAPHITE

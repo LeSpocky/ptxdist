@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_HARFBUZZ) += harfbuzz
 #
 # Paths and names
 #
-HARFBUZZ_VERSION	:= 5.3.1
-HARFBUZZ_MD5		:= 74dd89b7f394aabb0e318e36d169b77e
+HARFBUZZ_VERSION	:= 8.3.0
+HARFBUZZ_MD5		:= 7bf11a21c51a4f3ce0728decc4c557d4
 HARFBUZZ		:= harfbuzz-$(HARFBUZZ_VERSION)
 HARFBUZZ_SUFFIX		:= tar.xz
 HARFBUZZ_URL		:= https://github.com/harfbuzz/harfbuzz/releases/download/$(HARFBUZZ_VERSION)/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)
@@ -23,34 +23,37 @@ HARFBUZZ_SOURCE		:= $(SRCDIR)/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)
 HARFBUZZ_DIR		:= $(BUILDDIR)/$(HARFBUZZ)
 HARFBUZZ_LICENSE	:= MIT
 HARFBUZZ_LICENSE_FILES	:= \
-	file://COPYING;md5=6ee0f16281694fb6aa689cca1e0fb3da
+	file://COPYING;md5=b98429b8e8e3c2a67cfef01e99e4893d
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-HARFBUZZ_CONF_TOOL	:= autoconf
+HARFBUZZ_CONF_TOOL	:= meson
 HARFBUZZ_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-code-coverage \
-	--disable-static \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf \
-	--$(call ptx/endis, PTXCONF_HARFBUZZ_INTROSPECTION)-introspection \
-	--without-libstdc++ \
-	--with-glib \
-	--$(call ptx/wwo, PTXCONF_HARFBUZZ_INTROSPECTION)-gobject \
-	--without-cairo \
-	--without-chafa \
-	--$(call ptx/wwo, PTXCONF_HARFBUZZ_ICU)-icu \
-	--$(call ptx/wwo, PTXCONF_HARFBUZZ_GRAPHITE)-graphite2 \
-	--with-freetype \
-	--without-uniscribe \
-	--without-gdi \
-	--without-directwrite \
-	--without-coretext
+	$(CROSS_MESON_USR) \
+	-Dbenchmark=disabled \
+	-Dcairo=disabled \
+	-Dchafa=disabled \
+	-Dcoretext=disabled \
+	-Ddirectwrite=disabled \
+	-Ddoc_tests=false \
+	-Ddocs=disabled \
+	-Dexperimental_api=false \
+	-Dfreetype=enabled \
+	-Dfuzzer_ldflags="" \
+	-Dgdi=disabled \
+	-Dglib=enabled \
+	-Dgobject=$(call ptx/endis, PTXCONF_HARFBUZZ_INTROSPECTION)d \
+	-Dgraphite=disabled \
+	-Dgraphite2=$(call ptx/endis, PTXCONF_HARFBUZZ_GRAPHITE)d \
+	-Dicu=$(call ptx/endis, PTXCONF_HARFBUZZ_ICU)d \
+	-Dicu_builtin=false \
+	-Dintrospection=$(call ptx/endis, PTXCONF_HARFBUZZ_INTROSPECTION)d \
+	-Dragel_subproject=false \
+	-Dtests=disabled \
+	-Dutilities=disabled
+	-Dwasm=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
