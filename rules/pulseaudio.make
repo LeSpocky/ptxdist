@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PULSEAUDIO) += pulseaudio
 #
 # Paths and names
 #
-PULSEAUDIO_VERSION	:= 16.1
-PULSEAUDIO_MD5		:= 2c7b8ceb5d7337565c7314b4d6087ca8
+PULSEAUDIO_VERSION	:= 17.0
+PULSEAUDIO_MD5		:= c4a3596a26ff4b9dcd0c394dd1d4f8ee
 PULSEAUDIO		:= pulseaudio-$(PULSEAUDIO_VERSION)
 PULSEAUDIO_SUFFIX	:= tar.xz
 PULSEAUDIO_URL		:= http://freedesktop.org/software/pulseaudio/releases/$(PULSEAUDIO).$(PULSEAUDIO_SUFFIX)
@@ -37,9 +37,6 @@ PULSEAUDIO_CONF_ENV	:= \
 	$(CROSS_MESON_ENV) \
 	ORCC=orcc
 
-#
-# autoconf
-#
 PULSEAUDIO_CONF_TOOL	:= meson
 PULSEAUDIO_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
@@ -132,7 +129,7 @@ ifdef PTXCONF_PULSEAUDIO_DAEMON
 
 ifdef PTXCONF_PULSEAUDIO_BLUETOOTH
 	@$(call install_alternative, pulseaudio, 0, 0, 0644, \
-		/etc/dbus-1/system.d/pulseaudio-system.conf)
+		/usr/share/dbus-1/system.d/pulseaudio-system.conf)
 endif
 
 ifdef PTXCONF_PULSEAUDIO_SYSTEMD_UNIT
