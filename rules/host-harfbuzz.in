@@ -2,6 +2,7 @@
 
 config HOST_HARFBUZZ
 	tristate
+	select HOST_MESON
 	select HOST_FREETYPE
 	select HOST_GLIB
 	select HOST_GRAPHITE2		if HOST_HARFBUZZ_GRAPHITE

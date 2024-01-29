@@ -15,29 +15,30 @@ HOST_PACKAGES-$(PTXCONF_HOST_HARFBUZZ) += host-harfbuzz
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
-HOST_HARFBUZZ_CONF_TOOL	:= autoconf
+HOST_HARFBUZZ_CONF_TOOL	:= meson
 HOST_HARFBUZZ_CONF_OPT	:=  \
-	$(HOST_AUTOCONF) \
-	--disable-code-coverage \
-	--disable-static \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf \
-	--disable-introspection \
-	--without-libstdc++ \
-	--with-glib \
-	--without-gobject \
-	--without-cairo \
-	--without-chafa \
-	--$(call ptx/wwo, PTXCONF_HOST_HARFBUZZ_ICU)-icu \
-	--$(call ptx/wwo, PTXCONF_HOST_HARFBUZZ_GRAPHITE)-graphite2 \
-	--with-freetype \
-	--without-uniscribe \
-	--without-gdi \
-	--without-directwrite \
-	--without-coretext
+	 $(HOST_MESON_OPT) \
+	-Dbenchmark=disabled \
+	-Dcairo=disabled \
+	-Dchafa=disabled \
+	-Dcoretext=disabled \
+	-Ddirectwrite=disabled \
+	-Ddoc_tests=false \
+	-Ddocs=disabled \
+	-Dexperimental_api=false \
+	-Dfreetype=enabled \
+	-Dfuzzer_ldflags="" \
+	-Dgdi=disabled \
+	-Dglib=enabled \
+	-Dgobject=disabled \
+	-Dgraphite=disabled \
+	-Dgraphite2=$(call ptx/endis, PTXCONF_HOST_HARFBUZZ_GRAPHITE)d \
+	-Dicu=$(call ptx/endis, PTXCONF_HOST_HARFBUZZ_ICU)d \
+	-Dicu_builtin=false \
+	-Dintrospection=disabled \
+	-Dragel_subproject=false \
+	-Dtests=disabled \
+	-Dutilities=disabled \
+	-Dwasm=disabled
 
 # vim: syntax=make
