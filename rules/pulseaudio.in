@@ -11,9 +11,9 @@ menuconfig PULSEAUDIO
 	select ALSA_LIB_MIXER
 	select ALSA_LIB_UCM
 	select LIBCAP
-	select LIBLTDL
 	select LIBSNDFILE
 	select ORC
+	select LIBLTDL			if PULSEAUDIO_DAEMON
 	select SYSTEMD			if PULSEAUDIO_SYSTEMD
 	select SBC			if PULSEAUDIO_BLUETOOTH
 	select DBUS			if PULSEAUDIO_BLUETOOTH
