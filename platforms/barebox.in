@@ -135,16 +135,17 @@ config BAREBOX_NEEDS_HOST_IMX_CST
 	prompt "barebox needs imx-cst"
 	bool
 	help
-	  The imx "CST" is the propretary "Code Signing Tool" by
+	  The imx "CST" is the proprietary "Code Signing Tool" by
 	  freescale, that is needed to sign the bootloader with a
-	  cryptographic signature. This part of freescale's high
+	  cryptographic signature. This is part of freescale's high
 	  assurance boot (HAB) scenario where only correctly signed
 	  images can be started.
-	  Barebox currently supports HABv4 for i.MX6 only.
+	  Barebox currently supports HABv4 for i.MX6, i.MX8MM, 8MN,
+	  8MQ & 8MP.
 
-	  This options does not do the signing, it just creates the
-	  correct dependencies so that the proprieraty "cst" program
-	  is installed before barebox is compiled. THe signing is done
+	  This option does not do the signing, it just creates the
+	  correct dependencies so that the proprietary "cst" program
+	  is installed before barebox is compiled. The signing is done
 	  in barebox and needs special configuration for your board.
 
 config BAREBOX_NEEDS_KEYS
