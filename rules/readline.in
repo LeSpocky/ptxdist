@@ -2,6 +2,7 @@
 menuconfig READLINE
 	tristate
 	select NCURSES if READLINE_NCURSES
+	select NCURSES_BACKWARD_COMPATIBLE_NON_WIDE_CHAR if READLINE_NCURSES && NCURSES_WIDE_CHAR
 	select TERMCAP if READLINE_TERMCAP
 	select GCCLIBS_GCC_S
 	prompt "readline                      "
