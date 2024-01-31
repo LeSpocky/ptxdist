@@ -14,8 +14,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_CARGO_C) += host-cargo-c
 #
 # Paths and names
 #
-HOST_CARGO_C_VERSION		:= 0.9.12+cargo-0.64
-HOST_CARGO_C_MD5		:= 621dde74255805a5beeade4921e90343
+HOST_CARGO_C_VERSION		:= 0.9.27+cargo-0.74.0
+HOST_CARGO_C_MD5		:= 690da03174eac0b0b38b3fccc40f0289
 HOST_CARGO_C			:= cargo-c-$(HOST_CARGO_C_VERSION)
 HOST_CARGO_C_SUFFIX		:= tar.gz
 HOST_CARGO_C_URL		:= https://crates.io/api/v1/crates/cargo-c/$(HOST_CARGO_C_VERSION)/download
