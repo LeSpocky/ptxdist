@@ -111,7 +111,6 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-gtk-clipboard \
 	--disable-guest-agent \
 	--disable-guest-agent-msi \
-	--disable-hax \
 	--disable-hvf \
 	--enable-iconv \
 	--disable-jack \
