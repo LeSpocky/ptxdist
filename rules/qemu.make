@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 8.1.4
-QEMU_MD5	:= d5cf54ace6aabd619e89df301aed66e2
+QEMU_VERSION	:= 8.2.1
+QEMU_MD5	:= bda54248d773be2599df66f8995f10e1
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -105,7 +105,6 @@ QEMU_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QEMU_GTK)-gtk-clipboard \
 	--disable-guest-agent \
 	--disable-guest-agent-msi \
-	--disable-hax \
 	--disable-hvf \
 	--enable-iconv \
 	--disable-jack \
