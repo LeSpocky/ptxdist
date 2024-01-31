@@ -5,4 +5,4 @@ config LIBUSB_COMPAT
 	select LIBUSB
 	prompt "libusb-compat"
 	help
-	  libusb-0.1 compatibility layer ontop of libusb-1
+	  libusb-0.1 compatibility layer on top of libusb-1

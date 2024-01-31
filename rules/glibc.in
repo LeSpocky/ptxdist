@@ -13,7 +13,7 @@ config GLIBC_Y2038
 	bool
 	prompt "enable Y2038 support"
 	help
-	  Build the BSP with _TIME_BITS=64 to support dates beyound
+	  Build the BSP with _TIME_BITS=64 to support dates beyond
 	  2038-01-19 03:14:07.
 
 comment	"Install options"
@@ -33,7 +33,7 @@ config GLIBC_2_38
 	prompt "glibc-2.38 or later"
 	help
 	  In glibc-2.38 libcrypt was deprecated and removed afterwards.
-	  So libxcrypt is needed to provide the libcrypt implmentation.
+	  So libxcrypt is needed to provide the libcrypt implementation.
 
 config GLIBC_LD
 	bool

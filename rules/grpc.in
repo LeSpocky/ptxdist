@@ -22,7 +22,7 @@ menuconfig GRPC
 	  call (RPC) framework.
 
 	  STAGING: remove in PTXdist 2024.03.0
-	  Not realy maintained in PTXdist, fails to build on some
+	  Not really maintained in PTXdist, fails to build on some
 	  architectures and with gcc 12 and
 	  TARGET_HARDEN_GLIBCXX_ASSERTIONS. Needs updating to new version.
 

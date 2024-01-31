@@ -26,7 +26,7 @@ config LINUX_FIRMWARE_SELECTED_FIRMWARES
 	  Since the firmware files can be large, this makes
 	  it possible to do a fine grained copy.
 	  Multiple firmware files are separated by space.
-	  Rembember that the glob MUST match the full path.
+	  Remember that the glob MUST match the full path.
 	  For example "*amd-ucode/* *amdgpu/*raven_* *amdgpu/*raven2*
 
 endif

@@ -181,7 +181,7 @@ config SYSTEMD_REPART
 	help
 	  systemd-repart repartitions the disk on system boot if configuration
 	  files are present. You should install these files in a separate
-	  PTXdist package, or call systemd-repart explicitely.
+	  PTXdist package, or call systemd-repart explicitly.
 
 config SYSTEMD_DEFAULT_NET_NAMING_SCHEME
 	string

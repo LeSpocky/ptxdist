@@ -18,7 +18,7 @@ menuconfig AT91BOOTSTRAP
 	  then jumps to it.
 
 	  It is required for these microcontrollers, because the bootROM of some
-	  of these cores can only handle a miximum of 4kB of the 1st stage
+	  of these cores can only handle a maximum of 4kB of the 1st stage
 	  bootloader (e.g. SRAM limits). U-boot is usually much larger
 	  than this.
 

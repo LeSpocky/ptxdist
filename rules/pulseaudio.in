@@ -40,7 +40,7 @@ config PULSEAUDIO_SYSTEMD
 config PULSEAUDIO_DAEMON
 	bool
 	default y
-	prompt "install pulseaudio deamon"
+	prompt "install pulseaudio daemon"
 
 if PULSEAUDIO_DAEMON
 

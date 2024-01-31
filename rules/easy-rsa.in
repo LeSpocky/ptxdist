@@ -14,4 +14,4 @@ config EASY_RSA
 	  lists (CRL). This is for people which don't know how to generate
 	  all PKI files with openssl tool. Additional this is for people which
 	  have a enough less paranoia to generate keys on an embedded device.
-	  The easy-rsa scripts will be placed at /usr/share/easy-rsa aferwards.
+	  The easy-rsa scripts will be placed at /usr/share/easy-rsa afterwards.

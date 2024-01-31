@@ -5,7 +5,7 @@ menuconfig DTC
 	select HOST_FLEX
 	help
 	  Device Tree Compiler (dtc) toolchain. While dtc itself is
-	  occasionally needed for device tree manipulaton on the
+	  occasionally needed for device tree manipulation on the
 	  target, libfdt may be required.
 
 if DTC

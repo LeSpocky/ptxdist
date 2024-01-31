@@ -170,7 +170,7 @@ config GRUB_3C503_SHMEM
 
 config GRUB_3C503_AUI
 	bool
-	prompt "use AUI by deault"
+	prompt "use AUI by default"
 	depends on GRUB_3C503
 	help
 	  use AUI by default on 3c503 cards

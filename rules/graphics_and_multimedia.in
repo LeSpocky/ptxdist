@@ -5,7 +5,7 @@ menuconfig MENU_XORG_FONTS
 	prompt "fonts                         "
 	help
 	  These fonts can be used with an x-server, standalone directfb or
-	  gtk ontop of directfb.
+	  gtk on top of directfb.
 
 if MENU_XORG_FONTS
 
