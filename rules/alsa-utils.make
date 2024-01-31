@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_ALSA_UTILS) += alsa-utils
 #
 # Paths and names
 #
-ALSA_UTILS_VERSION	:= 1.2.10
-ALSA_UTILS_MD5		:= 4fc281a85abb74d6c29363fb0ba2c7b8
+ALSA_UTILS_VERSION	:= 1.2.11
+ALSA_UTILS_MD5		:= 36676025301315789306e99e39154732
 ALSA_UTILS		:= alsa-utils-$(ALSA_UTILS_VERSION)
 ALSA_UTILS_SUFFIX	:= tar.bz2
 ALSA_UTILS_URL		:= \
@@ -55,6 +55,7 @@ ALSA_UTILS_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_ALSA_UTILS_ALSAMIXER)-alsamixer \
 	--enable-alsaconf \
 	--$(call ptx/endis, PTXCONF_ALSA_UTILS_ALSALOOP)-alsaloop \
+	--disable-nhlt \
 	--disable-xmlto \
 	--disable-rst2man \
 	$(GLOBAL_LARGE_FILE_OPTION) \
