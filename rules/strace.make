@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_STRACE) += strace
 #
 # Paths and names
 #
-STRACE_VERSION	:= 6.6
-STRACE_MD5	:= e1e791635e89113a78e889bfe070c111
+STRACE_VERSION	:= 6.7
+STRACE_MD5	:= 8eb0aa75111a8e66cc14176159cc8ee9
 STRACE		:= strace-$(STRACE_VERSION)
 STRACE_SUFFIX	:= tar.xz
 STRACE_URL	:= https://strace.io/files/$(STRACE_VERSION)/$(STRACE).$(STRACE_SUFFIX)
@@ -25,7 +25,7 @@ STRACE_SOURCE	:= $(SRCDIR)/$(STRACE).$(STRACE_SUFFIX)
 STRACE_DIR	:= $(BUILDDIR)/$(STRACE)
 STRACE_LICENSE	:= LGPL-2.1-or-later AND GPL-2.0-only WITH Linux-syscall-note
 STRACE_LICENSE_FILES := \
-	file://COPYING;md5=63c8c3eb5c71b4362edac1397f40bdc7 \
+	file://COPYING;md5=2433d82e1432a76dc3eadd9002bfe304\
 	file://bundled/linux/COPYING;md5=391c7a5bbfb151ad3dbe0a7fb5791a46 \
 	file://bundled/linux/GPL-2.0;md5=e6a75371ba4d16749254a51215d13f97 \
 	file://LGPL-2.1-or-later;md5=9e4c7a7a5be83d7f3da645ac5d466052
