@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.5.0
-LIBCURL_MD5	:= 3e9e5c2db494e7dbd4e7024b149021c9
+LIBCURL_VERSION	:= 8.6.0
+LIBCURL_MD5	:= 8f28f7e08c91cc679a45fccf66184fbc
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_SOURCE	:= $(SRCDIR)/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_DIR	:= $(BUILDDIR)/$(LIBCURL)
 LIBCURL_LICENSE	:= curl
-LIBCURL_LICENSE_FILES := file://COPYING;md5=db8448a1e43eb2125f7740fc397db1f6
+LIBCURL_LICENSE_FILES := file://COPYING;md5=eed2e5088e1ac619c9a1c747da291d75
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -128,6 +128,7 @@ LIBCURL_CONF_OPT	:= \
 	--without-libidn2 \
 	--without-nghttp2 \
 	--without-ngtcp2 \
+	--without-openssl-quic \
 	--without-nghttp3 \
 	--without-quiche \
 	--without-msh3 \
