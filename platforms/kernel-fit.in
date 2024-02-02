@@ -17,14 +17,31 @@ menuconfig KERNEL_FIT
 
 if KERNEL_FIT
 
+config KERNEL_FIT_NOLOAD
+	bool
+	prompt "Sub-image type 'kernel_noload'"
+	help
+	  Use 'kernel_noload' as sub-image type for the kernel, setting
+	  the load address and entry address to dummy values as required
+	  by the FIT image specification.
+	  Useful for booting kernels supporting multiple boards with
+	  U-Boot, e.g. the platform-v7a kernel of DistroKit.
+	  U-Boot supports this since release v2011.12.
+
+	  Note: barebox added support with release v2024.01.0.
+	  You can leave this option disabled if you only use barebox.
+	  You should not enable this if you use older barebox versions.
+
 config KERNEL_FIT_LOAD
 	string
+	depends on !KERNEL_FIT_NOLOAD
 	prompt "Kernel load address (optional)"
 	help
 	  Required by most bootloaders. Optional for Barebox.
 
 config KERNEL_FIT_ENTRY
 	string
+	depends on !KERNEL_FIT_NOLOAD
 	prompt "Kernel entry address (optional)"
 	help
 	  Required by most bootloaders. Optional for Barebox.

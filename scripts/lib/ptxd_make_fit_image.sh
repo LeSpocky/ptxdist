@@ -19,20 +19,30 @@ ptxd_make_image_fit_its() {
 		kernel {
 			description = "kernel";
 			data = /incbin/("${image_kernel}");
-			type = "kernel";
 			arch = "$(ptxd_get_ptxconf PTXCONF_ARCH_STRING)";
 			os = "linux";
 			compression = "none";
 EOF
-    if [ -n "$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_LOAD)" ]; then
+    if [ -n "$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_NOLOAD)" ]; then
         cat << EOF
+			type = "kernel_noload";
+			load = <0x00000000>;
+			entry = <0x00000000>;
+EOF
+    else
+        cat << EOF
+			type = "kernel";
+EOF
+        if [ -n "$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_LOAD)" ]; then
+            cat << EOF
 			load = <$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_LOAD)>;
 EOF
-    fi
-    if [ -n "$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_ENTRY)" ]; then
-        cat << EOF
+        fi
+        if [ -n "$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_ENTRY)" ]; then
+            cat << EOF
 			entry = <$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_ENTRY)>;
 EOF
+        fi
     fi
     cat << EOF
 			hash-1 {
