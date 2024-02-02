@@ -5,6 +5,74 @@
 # see the README file.
 #
 
+ptxd_make_world_compile_commands_parse_single() {
+    local IFS arg output input compile_only
+    local -a inputs
+
+    set -- ${command}
+    while [ "${#}" -gt 0 ]; do
+	arg="${1}"
+	shift
+	case "${arg}" in
+	    -o)
+		if [ "${1}" = "/dev/null" ]; then
+		    # ignore compiler checks etc.
+		    return
+		fi
+		if [[ "${1}" =~ ^/ ]]; then
+		    output="${1}"
+		else
+		    output="${directory}/${1}"
+		fi
+		if [ ! -f "${output}" ]; then
+		    # probably a temporary file for some kind of check
+		    return
+		fi
+		shift
+		;;
+	    *.c|*.cc|*.cp|*.cxx|*.cpp|*.CPP|*.c++|*.C|*.s|*.S|*.sx)
+		if [[ "${arg}" =~ ^/ ]]; then
+		    input="${arg}"
+		else
+		    input="${directory}/${arg}"
+		fi
+		if [ ! -f "${input}" ]; then
+		    # probably a temporary file for some kind of check
+		    return
+		fi
+		inputs+=( "${input}" )
+		;;
+	    -c)
+		compile_only=1
+		;;
+	    -)
+		return
+		;;
+	esac
+    done
+    if [ -z "${output}" -a -n "${compile_only}" -a "${#inputs[*]}" -eq 1 ]; then
+	# derive the output file-name from the input file-name if possible
+	output="${inputs[0]%.*}.o"
+    fi
+    if [ -z "${compile_only}" -a "${#inputs[*]}" -eq 0 ]; then
+	# just linking
+	return
+    fi
+    if [ -z "${output}" -o "${#inputs[*]}" -eq 0 ]; then
+	return 1
+    fi
+    for input in "${inputs[@]}"; do
+	output_file="${ptxdist_compile_commands_dir}/${input//\//_}.json"
+	printf '  {
+    "directory": "%s",
+    "command": "%s",
+    "file": "%s",
+    "output": "%s"
+  }' "${directory}" "${command//\"/\\\"}" "${input}" "${output}" > "${output_file}"
+    done
+}
+export -f ptxd_make_world_compile_commands_parse_single
+
 ptxd_make_world_compile_finish() {
     if [ "${pkg_build_tool}" = "kconfig" ]; then
 	if [ -x "${pkg_dir}/scripts/clang-tools/gen_compile_commands.py" ]; then
@@ -18,6 +86,46 @@ ptxd_make_world_compile_finish() {
 		ptxd_make_world_compile_commands_filter
 	    fi
 	fi
+    fi
+    if [ -n "${PTXDIST_COMPILE_COMMANDS}" -a -e "${PTXDIST_COMPILE_COMMANDS}" ]; then
+	local ptxdist_compile_commands_dir="${pkg_build_dir}/.ptxdist-compile-commands-cache"
+	local orig_IFS="${IFS}"
+	IFS="$(echo -e "\x1F")"
+
+	mkdir -p "${ptxdist_compile_commands_dir}" &&
+	exec {data}< "${PTXDIST_COMPILE_COMMANDS}" &&
+	while read directory command  <&${data}; do
+	    if ! ptxd_make_world_compile_commands_parse_single; then
+		echo "${command}" >> "${PTXDIST_COMPILE_COMMANDS}.failed"
+	    fi
+	done &&
+	rm "${PTXDIST_COMPILE_COMMANDS}" &&
+	IFS="${orig_IFS}" &&
+	exec {data}<&- &&
+	{
+	    find "${ptxdist_compile_commands_dir}" -name "*.json" | awk '
+		BEGIN {
+		    print "["
+		}
+		function dump(file) {
+		    old_RS = RS
+		    RS = "^$"
+		    getline tmp < file
+		    RS = old_RS
+		    close(src)
+		    printf "%s", tmp
+		}
+		{
+		    if (start > 0)
+			print ","
+		    start = 1
+		    dump($0)
+		}
+		END {
+		    print "\n]"
+		}'
+	} > "${pkg_dir}/compile_commands.json" &&
+	ptxd_make_world_compile_commands_cleanup
     fi
 }
 export -f ptxd_make_world_compile_finish
@@ -73,6 +181,13 @@ ptxd_make_world_compile() {
 	# no build dir -> assume the package has nothing to build.
 	return
     fi &&
+    case "${pkg_conf_tool}" in
+	cmake|meson|kconfig)
+	    ;;
+	*)
+	    export PTXDIST_COMPILE_COMMANDS="${pkg_build_dir}/.ptxdist-compile-commands"
+	    ;;
+    esac &&
     case "${pkg_build_tool}" in
 	python*)
 	(

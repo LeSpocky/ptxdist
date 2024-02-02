@@ -51,6 +51,9 @@ wrapper_exec() {
 		set -- $(filter_args "${@}")
 		unset IFS
 	fi
+	if $COMPILING && [ -n "${PTXDIST_COMPILE_COMMANDS}" ]; then
+		printf "%s\037%s\n" "${PWD}" "${CMD} ${ARG_LIST} $* ${LATE_ARG_LIST}" >> "${PTXDIST_COMPILE_COMMANDS}"
+	fi
 	if [ "${PTXDIST_VERBOSE}" = 1 -a -n "${PTXDIST_FD_LOGFILE}" ]; then
 		echo "wrapper: ${PTXDIST_ICECC}${PTXDIST_CCACHE} ${CMD} ${ARG_LIST} $* ${LATE_ARG_LIST}" >&${PTXDIST_FD_LOGFILE}
 	fi
