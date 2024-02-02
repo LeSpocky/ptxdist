@@ -30,7 +30,7 @@ endif
 BLSPEC_ENTRY_LICENSE	= ignore
 
 ifdef PTXCONF_KERNEL_FIT
-BLSPEC_KERNEL_IMAGE	= /boot/linux.fit
+BLSPEC_KERNEL_IMAGE	= linux.fit
 else
 BLSPEC_KERNEL_IMAGE	= $(KERNEL_IMAGE)
 endif
