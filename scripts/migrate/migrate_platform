@@ -46,7 +46,7 @@ s/^\(\(# \)\?PTXCONF_TF_A_PLATFORM\>\)\(.*$\)/\1S\3/
 # from   : ptxdist-2020.07.0
 # to     : ptxdist-2020.08.0
 # symbol : PTXCONF_DTC -> PTXCONF_KERNEL_DTB
-# symbol : PTXCONF_DTC_OFTREE_DTS{,_PATH} -> PTXCONF_KERNEL__DTS{,_PATH}
+# symbol : PTXCONF_DTC_OFTREE_DTS{,_PATH} -> PTXCONF_KERNEL_DTS{,_PATH}
 # reason : dtc package removed. Devicetrees are built and installed with the kernel
 #
 s/^\(\(# \)\?PTXCONF\)_DTC\>\(.*$\)/\1_KERNEL_DTB\3/

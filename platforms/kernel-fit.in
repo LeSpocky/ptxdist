@@ -9,10 +9,11 @@ menuconfig KERNEL_FIT
 	select IMAGE_ROOT_CPIO	if KERNEL_FIT_INITRAMFS
 	prompt "Generate images/linuximage.fit"
 	help
-	  Generate a FIT image from the kernel image. This will contain
-	  the Kernel image and all device trees in PTXCONF_DTC_OFTREE_DTS.
-	  Configurations are provided for each device tree together witt
-	  the Kernel image.
+	  Generate a FIT image from the kernel image.
+	  This will contain the kernel image and all device trees in
+	  PTXCONF_KERNEL_DTS.
+	  Configurations are provided for each device tree together with
+	  the kernel image.
 
 if KERNEL_FIT
 
