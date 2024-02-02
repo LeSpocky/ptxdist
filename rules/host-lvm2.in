@@ -2,3 +2,5 @@
 
 config HOST_LVM2
 	tristate
+	select HOST_LIBAIO
+	default y if ALLYES
