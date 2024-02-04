@@ -46,14 +46,6 @@ endif
 	M=$(@PACKAGE@_DIR) \
 	modules
 
-$(STATEDIR)/@package@.compile:
-	@$(call targetinfo)
-	@$(call world/compile, @PACKAGE@)
-	@$(call world/execute, @PACKAGE@, \
-		$(KERNEL_DIR)/scripts/clang-tools/gen_compile_commands.py)
-	@$(call world/compile-commands, @PACKAGE@)
-	@$(call touch)
-
 # ----------------------------------------------------------------------------
 # Install
 # ----------------------------------------------------------------------------

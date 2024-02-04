@@ -73,20 +73,54 @@ ptxd_make_world_compile_commands_parse_single() {
 }
 export -f ptxd_make_world_compile_commands_parse_single
 
-ptxd_make_world_compile_finish() {
+ptxd_make_world_compile_commands_kconfig() {
+    local generator fixup_dir
+
     if [ "${pkg_build_tool}" = "kconfig" ]; then
-	if [ -x "${pkg_dir}/scripts/clang-tools/gen_compile_commands.py" ]; then
-	    # fake dependency for python wrapper
-	    pkg_build_deps=host-system-python3 \
-	    "${pkg_dir}/scripts/clang-tools/gen_compile_commands.py" \
-		-d "${pkg_build_dir}" -o "${pkg_build_dir}/compile_commands.json"
-	    if [ $? -ne 0 ]; then
-		ptxd_warning "Ignoring failed scripts/clang-tools/gen_compile_commands.py"
-	    else
-		ptxd_make_world_compile_commands_filter
-	    fi
+	generator="${pkg_dir}/scripts/clang-tools/gen_compile_commands.py"
+    elif [[ " ${pkg_build_deps} " =~ ' kernel ' ]]; then
+	set -- ${pkg_make_opt}
+	while [ $# -gt 0 ]; do
+	    opt="$1"
+	    shift
+	    case "${opt}" in
+		O=*)
+		    fixup_dir="${opt#O=}"
+		    ;;
+		-C)
+		    generator="${1}/scripts/clang-tools/gen_compile_commands.py"
+		    shift
+		    ;;
+	    esac
+	done
+	if [ -z "${fixup_dir}" ]; then
+	    return
 	fi
     fi
+    if [ ! -x "${generator}" ]; then
+	return
+    fi
+
+    # fake dependency for python wrapper
+    pkg_build_deps=host-system-python3 \
+    "${generator}" \
+	-d "${pkg_build_dir}" -o "${pkg_build_dir}/compile_commands.json"
+    if [ $? -ne 0 ]; then
+	ptxd_warning "Ignoring failed scripts/clang-tools/gen_compile_commands.py"
+    else
+	if [ -d "${fixup_dir}" ]; then
+	    # gen_compile_commands.py sets the wrong directory for external kernel
+	    # modules. It must be the kernel build tree, so fix this here
+	    sed -i "s;\(\"directory\":\).*;\1 \"${fixup_dir}\",;" "${pkg_build_dir}/compile_commands.json"
+	fi &&
+	ptxd_make_world_compile_commands_filter
+    fi
+}
+export -f ptxd_make_world_compile_commands_kconfig
+
+ptxd_make_world_compile_finish() {
+    ptxd_make_world_compile_commands_kconfig &&
+
     if [ -n "${PTXDIST_COMPILE_COMMANDS}" -a -e "${PTXDIST_COMPILE_COMMANDS}" ]; then
 	local ptxdist_compile_commands_dir="${pkg_build_dir}/.ptxdist-compile-commands-cache"
 	local orig_IFS="${IFS}"
