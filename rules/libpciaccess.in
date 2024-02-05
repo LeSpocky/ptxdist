@@ -3,20 +3,8 @@
 menuconfig LIBPCIACCESS
 	tristate
 	prompt "libpciaccess                  "
+	select HOST_MESON
+	select HWDATA
 	help
 	  libpciaccess contains low level access functions to be used by
 	  the xorg servers and video drivers.
-
-if LIBPCIACCESS
-
-config LIBPCIACCESS_MTRR
-	bool
-	prompt "MTRR support"
-	help
-	  You should carefully check if your x86 target CPU supports MTRRs,
-	  and if so enable this menuentry.
-	  BTW: MTRR stands for "memory type range registers" and its used to
-	  optimize accesses to various memory types, like main memory
-	  or memory accessible via buses like video memory on PCI cards.
-
-endif

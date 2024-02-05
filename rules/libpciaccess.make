@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBPCIACCESS) += libpciaccess
 #
 # Paths and names
 #
-LIBPCIACCESS_VERSION	:= 0.17
-LIBPCIACCESS_MD5	:= 1466cf950c914ad2db1dbb76c9a724db
+LIBPCIACCESS_VERSION	:= 0.18
+LIBPCIACCESS_MD5	:= 54f48367e37666f9e0f12571d1ee3620
 LIBPCIACCESS		:= libpciaccess-$(LIBPCIACCESS_VERSION)
 LIBPCIACCESS_SUFFIX	:= tar.xz
 LIBPCIACCESS_URL	:= $(call ptx/mirror, XORG, individual/lib/$(LIBPCIACCESS).$(LIBPCIACCESS_SUFFIX))
@@ -27,26 +27,15 @@ LIBPCIACCESS_LICENSE	:= MIT
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBPCIACCESS_CONF_ENV	:= $(CROSS_ENV)
-
-ifdef PTXCONF_LIBPCIACCESS_MTRR
-LIBPCIACCESS_CONF_ENV += ac_cv_file__usr_include_asm_mtrr_h=yes
-else
-LIBPCIACCESS_CONF_ENV += ac_cv_file__usr_include_asm_mtrr_h=no
-endif
-
 #
-# autoconf
+# meson
 #
-LIBPCIACCESS_CONF_TOOL	:= autoconf
+LIBPCIACCESS_CONF_TOOL	:= meson
 LIBPCIACCESS_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-selective-werror \
-	--disable-strict-compilation \
-	--disable-linux-rom-fallback \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--with-pciids-path=/usr/share \
-	--without-zlib
+	$(CROSS_MESON_USR) \
+	-Dlinux-rom-fallback=false \
+	-Dpci-ids=/usr/share \
+	-Dzlib=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
