@@ -100,7 +100,8 @@ GST_PLUGINS_RS_CONF_OPT	:=  \
 	-Ddebug=false \
 	-Ddoc=disabled \
 	-Dexamples=disabled \
-	-Dfrozen=true
+	-Dfrozen=true \
+	-Dtests=disabled
 
 ifneq ($(call remove_quotes,$(GST_PLUGINS_RS_ENABLEC-y)),)
 GST_PLUGINS_RS_CONF_OPT +=  $(addsuffix =enabled, $(addprefix -D, $(GST_PLUGINS_RS_ENABLEC-y)))
