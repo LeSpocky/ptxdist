@@ -21,21 +21,12 @@ $(call remove_quotes, $(PTXCONF_PROJECT_DEVPKGDIR))/%-dev.tar.gz:
 	@$(call getdev, $@)
 endif
 
-#
-# Use the current package for the primary source file.
-# This avoids strange effects when multiple packages share a source file.
-# For anything else $($(src)) is special and must be used.
-#
-define _ptx_source_to_pkg
-$(if $(filter $($(PTX_MAP_TO_PACKAGE_$(1))_SOURCE),$(2)),$(PTX_MAP_TO_PACKAGE_$(1)),$($(2)))
-endef
-
 $(STATEDIR)/%.get:
 	@$(call targetinfo)
-	@$(foreach src,$($(PTX_MAP_TO_PACKAGE_$(*))_SOURCES), \
-		$(call world/get, $(call _ptx_source_to_pkg,$(*),$(src)))$(ptx/nl))
-	@$(foreach src,$($(PTX_MAP_TO_PACKAGE_$(*))_SOURCES), \
-		$(call world/check_src, $(call _ptx_source_to_pkg,$(*),$(src)))$(ptx/nl))
+	@$(foreach part,$($(PTX_MAP_TO_PACKAGE_$(*))_PARTS), \
+		$(call world/get, $(part))$(ptx/nl))
+	@$(foreach part,$($(PTX_MAP_TO_PACKAGE_$(*))_PARTS), \
+		$(call world/check_src, $(part))$(ptx/nl))
 	@$(call touch)
 
 world/get = \
@@ -49,8 +40,8 @@ world/check_src = \
 
 $(STATEDIR)/%.urlcheck:
 	@$(call targetinfo)
-	@$(foreach src,$($(PTX_MAP_TO_PACKAGE_$(*))_SOURCES), \
-		$(call world/urlcheck, $(call _ptx_source_to_pkg,$(*),$(src)))$(ptx/nl))
+	@$(foreach part,$($(PTX_MAP_TO_PACKAGE_$(*))_PARTS), \
+		$(call world/urlcheck, $(part))$(ptx/nl))
 	@$(call touch)
 
 world/urlcheck = \

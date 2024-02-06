@@ -409,11 +409,11 @@ function write_vars_pkg_all(this_PKG, this_pkg, prefix) {
 	this_devpkg = "$(" this_PKG ")-$(PTXCONF_ARCH_STRING)-$(" this_PKG "_CFGHASH)-dev.tar.gz"
 
 	#
-	# define ${PKG}_PKGDIR, ${PKG}_DEVPKG & ${PKG}_SOURCES
+	# define ${PKG}_PKGDIR, ${PKG}_DEVPKG & ${PKG}_PARTS
 	#
 	print this_PKG "_PKGDIR = $(PKGDIR)/" prefix "$(" this_PKG ")"	> DGEN_DEPS_PRE;
 	print this_PKG "_DEVPKG = " prefix this_devpkg			> DGEN_DEPS_PRE;
-	print this_PKG "_SOURCES = $(" this_PKG "_SOURCE)"		> DGEN_DEPS_PRE
+	print this_PKG "_PARTS = " this_PKG				> DGEN_DEPS_PRE;
 
 	target_PKG = gensub(/^HOST_|^CROSS_/, "", 1, this_PKG);
 	PREFIX = gensub(/^(HOST_|CROSS_).*/, "\\1", 1, this_PKG);
@@ -434,6 +434,15 @@ function write_vars_pkg_all(this_PKG, this_pkg, prefix) {
 		print this_PKG "_LICENSE_FILES = $(" target_PKG \
 			"_LICENSE_FILES)"				> DGEN_DEPS_PRE;
 	}
+}
+
+function write_sources(this_PKG) {
+	print "ifneq ($(" this_PKG "_SOURCES),)"								> DGEN_DEPS_POST;
+	print this_PKG "_PARTS := $(" this_PKG "_PARTS) $(foreach source,$(" this_PKG "_SOURCES),$($(source)))"	> DGEN_DEPS_POST;
+	print this_PKG "_SOURCES := $(" this_PKG "_SOURCE) $(" this_PKG "_SOURCES)"				> DGEN_DEPS_POST;
+	print "else"												> DGEN_DEPS_POST;
+	print this_PKG "_SOURCES += $(foreach part,$(" this_PKG "_PARTS),$($(part)_SOURCE))"			> DGEN_DEPS_POST;
+	print "endif"												> DGEN_DEPS_POST;
 }
 
 function write_deps_pkg_all(this_PKG, this_pkg) {
@@ -464,7 +473,8 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	target_PKG = gensub(/^HOST_|^CROSS_/, "", 1, this_PKG);
 	if (prefix != "" && target_PKG in active_PKG_to_pkg)
 		print "ifneq ($(" this_PKG "_SOURCE),$(" target_PKG "_SOURCE))"					> DGEN_DEPS_POST;
-	print "$(if $(" this_PKG "_SOURCE),$(eval $(" this_PKG "_SOURCE) := " this_PKG "))"			> DGEN_DEPS_POST;
+	print "$(foreach part,$(" this_PKG "_PARTS), $(eval " \
+			"$(if $($(part)_SOURCE),$(eval $($(part)_SOURCE) := $(part)))))"			> DGEN_DEPS_POST;
 	if (prefix != "" && target_PKG in active_PKG_to_pkg)
 		print "endif"											> DGEN_DEPS_POST;
 
@@ -484,7 +494,7 @@ function write_deps_pkg_active_cfghash(this_PKG, this_pkg) {
 	print "endif"												> DGEN_DEPS_POST;
 	print "ifneq ($(" this_PKG "_SOURCE),)"									> DGEN_DEPS_POST;
 	print "ifdef PTXDIST_SETUP_ONCE"									> DGEN_DEPS_POST;
-	print "_tmp :=$(foreach source, $(" this_PKG "_SOURCES),$($($(source))_MD5) $(notdir $(source)))"	> DGEN_DEPS_POST;
+	print "_tmp :=$(foreach part, $(" this_PKG "_PARTS),$($(part)_MD5) $(notdir $($(part)_SOURCE)))"	> DGEN_DEPS_POST;
 	print "$(file >>" PTXDIST_TEMPDIR "/pkghash-" this_PKG "_EXTRACT,$(_tmp))"				> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
@@ -696,6 +706,7 @@ END {
 		this_pkg = PKG_to_pkg[this_PKG];
 		write_maps(this_PKG, "R")
 		write_maps(this_PKG, "B")
+		write_sources(this_PKG)
 	}
 	# extend pkghash files fist
 	for (this_PKG in active_PKG_to_pkg)

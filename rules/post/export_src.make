@@ -3,17 +3,17 @@
 # input: source=PACKAGE_NAME_SOURCE, output: full path to the source archive
 # [HOST|CROSS]_FOO_SOURCE may be empty; try FOO_SOURCE in that case
 define ptx/export/get_source
-$(if $($(source)),$($(source)),$($(subst CROSS_,,$(subst HOST_,,$(source)))))
+$(if $($(1)),$($(1)),$($(subst CROSS_,,$(subst HOST_,,$(1)))))
 endef
 
 # iterate over $(PACKAGES_SELECTED) "bash busybox" ->
-# convert to "BASH_SOURCE BUSYBOX_SOURCE"
-_ptx_export_packages := $(foreach source,$(PTX_PACKAGES_SELECTED),$(PTX_MAP_TO_PACKAGE_$(source))_SOURCES)
+# convert to "BASH BUSYBOX" including all sub-packages
+_ptx_export_packages := $(foreach pkg,$(PTX_PACKAGES_SELECTED),$($(PTX_MAP_TO_PACKAGE_$(pkg))_PARTS))
 
-# iterate over $(_ptx_export_packages) "BASH_SOURCES BUSYBOX_SOURCES" ->
+# iterate over $(_ptx_export_packages) "BASH BUSYBOX" ->
 # convert to "/path/to/bash.tar.bz2 /path/to/busybox.tar.bz2"
 # remove duplicates
-_ptx_export_packages_src := $(sort $(foreach source,$(_ptx_export_packages),$(ptx/export/get_source)))
+_ptx_export_packages_src := $(sort $(foreach source,$(_ptx_export_packages),$(call ptx/export/get_source,$(source)_SOURCE)))
 
 # iterate over $(_ptx_export_packages_src) "/path/to/bash.tar.bz2 /path/to/busybox.tar.bz2" ->
 # convert to "/export/bash.tar.bz2 /export/busybox.tar.bz2"
