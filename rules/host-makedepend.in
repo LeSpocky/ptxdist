@@ -2,5 +2,4 @@
 
 config HOST_MAKEDEPEND
 	tristate
-	select HOST_XORGPROTO
 	default y if ALLYES
