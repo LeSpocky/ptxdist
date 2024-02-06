@@ -18,8 +18,41 @@ ptxd_make_world_report_init() {
 }
 export -f ptxd_make_world_report_init
 
+ptxd_make_world_report_yaml_fragment() {
+    local pkg tmp_report
+
+    do_echo() {
+	if [ -n "${2}" ]; then
+	    echo "${1} '${2}'"
+	fi
+    }
+    do_list() {
+	if [ -n "${2}" ]; then
+	    echo "${1}"
+	    awk "BEGIN { RS=\" \" } { if (\$1) print \"  - '\" \$1 \"'\" }" <<<"${2}"
+	fi
+    }
+
+    ptxd_make_world_report_init || return
+
+    tmp_report="${PTXDIST_TEMPDIR}/${pkg_label}-source-packages.yaml"
+
+    pkg="${pkg_PKG,,}"
+    pkg="${pkg//_/-}"
+
+    {
+	do_echo "- name:" "${pkg}"
+	do_echo "  version:" "${pkg_version}"
+	do_list "  url:" "${pkg_url}"
+	do_list "  md5:" "${pkg_md5}"
+	do_echo "  source:" "${pkg_src}"
+    } >> "${tmp_report}"
+}
+export -f ptxd_make_world_report_yaml_fragment
+
 
 ptxd_make_world_report_yaml() {
+    local tmp_report="${PTXDIST_TEMPDIR}/${pkg_label}-source-packages.yaml"
     do_echo() {
 	if [ -n "${2}" ]; then
 	    echo "${1} '${2}'"
@@ -47,6 +80,10 @@ ptxd_make_world_report_yaml() {
 	awk "BEGIN { RS=\" *:\\\\s*\"; FS=\":\" } { if (\$1) print \"- '\" \$1 \"'\" }" <<<"${pkg_md5s}"
     fi
     do_list "sources:" "${pkg_srcs}"
+    if [ -e "${tmp_report}" ]; then
+	echo "source-packages:"
+	cat "${tmp_report}"
+    fi
     do_echo "patches:" "${pkg_patch_dir}"
     if [ "${pkg_patch_series}" != "series" -a -n "${pkg_patch_dir}" ]; then
 	do_echo "series:" "${pkg_patch_series}"

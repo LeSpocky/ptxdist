@@ -6,10 +6,15 @@
 # see the README file.
 #
 
+world/license-part = \
+	$(call world/env, $(1)) \
+	ptxd_make_world_report_yaml_fragment
+
 #
 # world/license
 #
 world/license = \
+	$(foreach part, $($(strip $(1))_PARTS),$(call world/license-part $(part))$(ptx/nl)) \
 	$(call world/env, $(1)) \
 	ptxd_make_world_license
 
