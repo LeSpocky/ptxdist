@@ -28,10 +28,9 @@ PERLCROSS_VERSION	:= 5.18.2-cross-0.8.5
 PERLCROSS_MD5		:= 4744dbfd87bc1a694bc6f17ad4c2414f
 PERLCROSS_URL		:= https://raw.github.com/arsv/perl-cross/releases/perl-$(PERLCROSS_VERSION).tar.gz
 PERLCROSS_SOURCE	:= $(SRCDIR)/perlcross-$(PERLCROSS_VERSION).tar.gz
-$(PERLCROSS_SOURCE)	:= PERLCROSS
 PERLCROSS_DIR		:= $(PERL_DIR)
 
-PERL_SOURCES		:= $(PERL_SOURCE) $(PERLCROSS_SOURCE)
+PERL_PARTS		+= PERLCROSS
 
 # cross perl need the source dir
 PERL_DEVPKG		:= NO
