@@ -20,19 +20,7 @@ HOST_LLVM_CMAKE_URL		 = $(LLVM_CMAKE_URL)
 HOST_LLVM_CMAKE_SOURCE		 = $(LLVM_CMAKE_SOURCE)
 HOST_LLVM_CMAKE_DIR		 = $(HOST_BUILDDIR)/$(HOST_LLVM)/cmake
 
-HOST_LLVM_SOURCES		:= $(HOST_LLVM_SOURCE) $(HOST_LLVM_CMAKE_SOURCE)
-
-# ----------------------------------------------------------------------------
-# Extract
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/host-llvm.extract:
-	@$(call targetinfo)
-	@$(call clean, $(HOST_LLVM_DIR))
-	@$(call extract, HOST_LLVM)
-	@$(call extract, HOST_LLVM_CMAKE)
-	@$(call patchin, HOST_LLVM)
-	@$(call touch)
+HOST_LLVM_PARTS			+= HOST_LLVM_CMAKE
 
 # ----------------------------------------------------------------------------
 # Prepare
