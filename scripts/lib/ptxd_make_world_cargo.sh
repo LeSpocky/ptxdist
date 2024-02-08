@@ -83,8 +83,7 @@ ptxd_make_world_cargo_sync_package() {
 ${PKG}_${PACKAGE}_MD5		:= ${md5}
 ${PKG}_${PACKAGE}_URL		:= ${url}
 ${PKG}_${PACKAGE}_SOURCE	:= \$(SRCDIR)${path#${PTXDIST_SRCDIR}}
-\$(${PKG}_${PACKAGE}_SOURCE)	:= ${PKG}_${PACKAGE}
-${PKG}_SOURCES			+= \$(${PKG}_${PACKAGE}_SOURCE)
+${PKG}_PARTS			+= ${PKG}_${PACKAGE}
 
 EOF
 }
