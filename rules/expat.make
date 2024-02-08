@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_EXPAT) += expat
 #
 # Paths and names
 #
-EXPAT_VERSION		:= 2.5.0
-EXPAT_MD5		:= 5e9974d422dc4b157f300568ad28ebf6
+EXPAT_VERSION		:= 2.6.0
+EXPAT_MD5		:= eeb1cf76f51dadebff73fe6aa317ba37
 EXPAT			:= expat-$(EXPAT_VERSION)
 EXPAT_SUFFIX		:= tar.bz2
 EXPAT_RELEASE		:= R_$(subst .,_,$(EXPAT_VERSION))
@@ -45,6 +45,8 @@ EXPAT_CONF_OPT	:= \
 	--without-examples \
 	--without-tests \
 	--without-libbsd \
+	--with-getrandom \
+	--without-sys-getrandom \
 	--without-docbook
 
 # ----------------------------------------------------------------------------
