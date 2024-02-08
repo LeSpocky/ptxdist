@@ -139,6 +139,13 @@ in mind:
 -  Run ``ptxdist licensecheck [<pkg>]`` to make sure that the checksum of
    pinned-down license files haven't changed.
 
+   If the license file has changed, look at the difference between the old and
+   the new version of the file (e.g. by comparing the two versioned build
+   folders in ``platform-nnn/build-target/``), and update the package's
+   ``_LICENSE`` variable if necessary.
+   Often the difference is only in the copyright year, but in any case, describe
+   the changes in the license file when sending your patch!
+
 Misc
 ~~~~
 
