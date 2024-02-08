@@ -26,7 +26,6 @@ TZCODE_SUFFIX		:= tar.gz
 TZCODE_URL		:= \
 	http://www.iana.org/time-zones/repository/releases/$(TZCODE).$(TZCODE_SUFFIX)
 TZCODE_SOURCE		:= $(SRCDIR)/$(TZCODE).$(TZCODE_SUFFIX)
-$(TZCODE_SOURCE)	:= TZCODE
 TZCODE_DIR		:= $(HOST_TZ_DATABASE_DIR)
 TZCODE_STRIP_LEVEL	:= 0
 
@@ -37,26 +36,14 @@ TZDATA_SUFFIX		:= tar.gz
 TZDATA_URL		:= \
 	http://www.iana.org/time-zones/repository/releases/$(TZDATA).$(TZDATA_SUFFIX)
 TZDATA_SOURCE		:= $(SRCDIR)/$(TZDATA).$(TZDATA_SUFFIX)
-$(TZDATA_SOURCE)	:= TZDATA
 TZDATA_DIR		:= $(HOST_TZ_DATABASE_DIR)
 TZDATA_STRIP_LEVEL	:= 0
 
-HOST_TZ_DATABASE_SOURCES := $(TZCODE_SOURCE) $(TZDATA_SOURCE)
+HOST_TZ_DATABASE_PARTS	:= TZCODE TZDATA
 HOST_TZ_DATABASE_LICENSE := public_domain AND BSD-3-Clause
 HOST_TZ_DATABASE_LICENSE_FILES := \
 	file://LICENSE;md5=c679c9d6b02bc2757b3eaf8f53c43fba \
 	file://date.c;startline=3;endline=28;md5=0b516100709f6de9dc65257bf91e6dd0
-
-# ----------------------------------------------------------------------------
-# Extract
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/host-tz-database.extract:
-	@$(call targetinfo)
-	@$(call clean, $(HOST_TZ_DATABASE_DIR))
-	@$(call extract, TZCODE)
-	@$(call extract, TZDATA)
-	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Prepare
