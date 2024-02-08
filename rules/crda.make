@@ -33,23 +33,10 @@ CRDA_REGDB_SUFFIX	:= tar.gz
 CRDA_REGDB_URL		:= \
 	https://www.kernel.org/pub/software/network/wireless-regdb/$(CRDA_REGDB).$(CRDA_REGDB_SUFFIX)
 CRDA_REGDB_SOURCE	:= $(SRCDIR)/$(CRDA_REGDB).$(CRDA_REGDB_SUFFIX)
-$(CRDA_REGDB_SOURCE)	:= CRDA_REGDB
 CRDA_REGDB_DIR		:= $(CRDA_DIR)
 CRDA_REGDB_STRIP_LEVEL	:= 0
 
-CRDA_SOURCES		+= $(CRDA_REGDB_SOURCE)
-
-# ----------------------------------------------------------------------------
-# Extract
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/crda.extract:
-	@$(call targetinfo)
-	@$(call clean, $(CRDA_DIR))
-	@$(call extract, CRDA)
-	@$(call extract, CRDA_REGDB)
-	@$(call patchin, CRDA)
-	@$(call touch)
+CRDA_PARTS		+= CRDA_REGDB
 
 # ----------------------------------------------------------------------------
 # Compile
