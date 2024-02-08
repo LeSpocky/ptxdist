@@ -26,25 +26,10 @@ HOST_SHADERC_SPIRV_HEADERS_URL		= $(SHADERC_SPIRV_HEADERS_URL)
 HOST_SHADERC_SPIRV_HEADERS_SOURCE	= $(SHADERC_SPIRV_HEADERS_SOURCE)
 HOST_SHADERC_SPIRV_HEADERS_DIR		= $(HOST_SHADERC_DIR)/third_party/spirv-tools/external/spirv-headers
 
-HOST_SHADERC_SOURCES			= \
-	$(HOST_SHADERC_SOURCE) \
-	$(HOST_SHADERC_GLSLANG_SOURCE) \
-	$(HOST_SHADERC_SPIRV_TOOLS_SOURCE) \
-	$(HOST_SHADERC_SPIRV_HEADERS_SOURCE)
-
-# ----------------------------------------------------------------------------
-# Extract
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/host-shaderc.extract:
-	@$(call targetinfo)
-	@$(call clean, $(HOST_SHADERC_DIR))
-	@$(call extract, HOST_SHADERC)
-	@$(call extract, HOST_SHADERC_GLSLANG)
-	@$(call extract, HOST_SHADERC_SPIRV_TOOLS)
-	@$(call extract, HOST_SHADERC_SPIRV_HEADERS)
-	@$(call patchin, HOST_SHADERC)
-	@$(call touch)
+HOST_SHADERC_PARTS			+= \
+	HOST_SHADERC_GLSLANG \
+	HOST_SHADERC_SPIRV_TOOLS \
+	HOST_SHADERC_SPIRV_HEADERS
 
 # ----------------------------------------------------------------------------
 # Prepare
