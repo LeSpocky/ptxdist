@@ -31,22 +31,9 @@ LLVM_CMAKE_MD5		:= d24373e1c78f3f1275b6150a0b748c1c
 LLVM_CMAKE_URL		:= \
 	https://github.com/llvm/llvm-project/releases/download/llvmorg-$(LLVM_VERSION)/cmake-$(LLVM_VERSION).$(LLVM_SUFFIX)
 LLVM_CMAKE_SOURCE	:= $(SRCDIR)/cmake-$(LLVM_VERSION).$(LLVM_SUFFIX)
-$(LLVM_CMAKE_SOURCE)	:= LLVM_CMAKE
 LLVM_CMAKE_DIR		:= $(BUILDDIR)/$(LLVM)/cmake
 
-LLVM_SOURCES		:= $(LLVM_SOURCE) $(LLVM_CMAKE_SOURCE)
-
-# ----------------------------------------------------------------------------
-# Extract
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/llvm.extract:
-	@$(call targetinfo)
-	@$(call clean, $(LLVM_DIR))
-	@$(call extract, LLVM)
-	@$(call extract, LLVM_CMAKE)
-	@$(call patchin, LLVM)
-	@$(call touch)
+LLVM_PARTS		+= LLVM_CMAKE
 
 # ----------------------------------------------------------------------------
 # Prepare
