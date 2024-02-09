@@ -3,7 +3,9 @@ PS1="\\u@\\h:\\w "
 PS2=" >"
 PS4="+ "
 
-alias vim='vi'
+if ! type -P vim >& /dev/null && type -P vi >& /dev/null; then
+	alias vim='vi'
+fi
 alias l='ls -l'
 alias ll='ls -al'
 alias ..='cd ..'
