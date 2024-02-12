@@ -26,7 +26,7 @@ push_tags() {
 
 filter_rebase() {
 	file="${1}"
-	tmpfile="$(tempfile -d "$(dirname "${file}")" -p "$(basename ${file}).")"
+	tmpfile="$(mktemp "${file}.XXXXX")"
 	tags=
 	cat "${file}" | while read cmd commitish subject; do
 		case "${cmd}" in
