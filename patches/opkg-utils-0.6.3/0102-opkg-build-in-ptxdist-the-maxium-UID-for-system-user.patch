@@ -8,11 +8,11 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/opkg-build b/opkg-build
-index eca1ee2fa42c..6d6f7e92b919 100755
+index ef2fbfa42c09..6a1b631fc5d5 100755
 --- a/opkg-build
 +++ b/opkg-build
 @@ -69,14 +69,14 @@ You probably want to remove them: " >&2
- 	    fi
+ 		fi
  	fi
  
 -	large_uid_files=`find . -uid +99 -ls -printf '\\\n' || true`

@@ -5,6 +5,5 @@
 0100-opkg-build-use-CROSS_COMPILE-ar.patch
 0101-Update-Installed-Size-properly.patch
 0102-opkg-build-in-ptxdist-the-maxium-UID-for-system-user.patch
-0103-Revert-opkg-build-clamp-mtimes-to-SOURCE_DATE_EPOCH.patch
-0104-opkg-build-fix-typo-in-compressorargs.patch
-# 5dc8ab865b0d2f99f1b9b711848d5ae2  - git-ptx-patches magic
+0103-opkg-build-fix-typo-in-compressorargs.patch
+# 6c399b3d39fd841e35a006cd4534b2eb  - git-ptx-patches magic

@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/opkg-build b/opkg-build
-index 2fb6216104b6..7e1a1af99948 100755
+index 6a1b631fc5d5..c609249190f4 100755
 --- a/opkg-build
 +++ b/opkg-build
-@@ -236,7 +236,7 @@ if gzip --help 2>&1 | grep -- "-T" > /dev/null; then
+@@ -252,7 +252,7 @@ if gzip --help 2>&1 | grep -- "-T" > /dev/null; then
  	zipargs="-9nT"
  fi
  

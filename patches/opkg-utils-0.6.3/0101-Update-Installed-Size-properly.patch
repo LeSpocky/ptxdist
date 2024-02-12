@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/opkg.py b/opkg.py
-index ba947c2e887b..7b7e216419a1 100644
+index e5a65dd1ae8f..ec77c147156c 100644
 --- a/opkg.py
 +++ b/opkg.py
-@@ -248,7 +248,7 @@ class Package(object):
+@@ -276,7 +276,7 @@ class Package(object):
              lineparts = re.match(r'([\w-]*?):\s*(.*)', line)
              if lineparts:
                  name = lineparts.group(1)
@@ -23,7 +23,7 @@ index ba947c2e887b..7b7e216419a1 100644
                  value = lineparts.group(2)
                  while 1:
                      line = control.readline().rstrip()
-@@ -510,7 +510,7 @@ class Package(object):
+@@ -538,7 +538,7 @@ class Package(object):
          if 'sha256' in checksum:
              if self.sha256: out = out + "SHA256sum: %s\n" % (self.sha256)
          if self.size: out = out + "Size: %d\n" % int(self.size)
