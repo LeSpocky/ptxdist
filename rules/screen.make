@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_SCREEN) += screen
 #
 # Paths and names
 #
-SCREEN_VERSION	:= 4.9.1
-SCREEN_MD5	:= 9a9bdc956bd93e4f0cb9e48678889e26
-SCREEN		:= screen-$(SCREEN_VERSION)
-SCREEN_SUFFIX	:= tar.gz
-SCREEN_URL	:= $(call ptx/mirror, GNU, screen/$(SCREEN).$(SCREEN_SUFFIX))
-SCREEN_SOURCE	:= $(SRCDIR)/$(SCREEN).$(SCREEN_SUFFIX)
-SCREEN_DIR	:= $(BUILDDIR)/$(SCREEN)
-SCREEN_LICENSE	:= GPL-2.0-or-later
+SCREEN_VERSION		:= 4.9.1
+SCREEN_MD5		:= 9a9bdc956bd93e4f0cb9e48678889e26
+SCREEN			:= screen-$(SCREEN_VERSION)
+SCREEN_SUFFIX		:= tar.gz
+SCREEN_URL		:= $(call ptx/mirror, GNU, screen/$(SCREEN).$(SCREEN_SUFFIX))
+SCREEN_SOURCE		:= $(SRCDIR)/$(SCREEN).$(SCREEN_SUFFIX)
+SCREEN_DIR		:= $(BUILDDIR)/$(SCREEN)
+SCREEN_LICENSE		:= GPL-2.0-or-later
+SCREEN_LICENSE_FILES	:= \
+	file://COPYING;md5=d32239bcb673463ab874e80d47fae504
 
 # ----------------------------------------------------------------------------
 # Prepare
