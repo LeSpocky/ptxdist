@@ -15,8 +15,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_CMAKE) += host-cmake
 #
 # Paths and names
 #
-HOST_CMAKE_VERSION	:= 3.27.4
-HOST_CMAKE_MD5		:= 91639a7c786f33340f07a6e0b2a85ee1
+HOST_CMAKE_VERSION	:= 3.28.3
+HOST_CMAKE_MD5		:= 6b16c82b81e1fd80b63bee9696846b21
 HOST_CMAKE		:= cmake-$(HOST_CMAKE_VERSION)
 HOST_CMAKE_SUFFIX	:= tar.gz
 HOST_CMAKE_URL		:= https://cmake.org/files/v$(basename $(HOST_CMAKE_VERSION))/$(HOST_CMAKE).$(HOST_CMAKE_SUFFIX)
@@ -35,7 +35,7 @@ HOST_CMAKE_LICENSE_FILES := \
 	file://Utilities/cmlibrhash/COPYING;md5=a8c2a557a5c53b1c12cddbee98c099af \
 	file://Utilities/cmlibuv/LICENSE;md5=ad93ca1fffe931537fcf64f6fcce084d \
 	file://Utilities/cmnghttp2/COPYING;md5=764abdf30b2eadd37ce47dcbce0ea1ec \
-	file://Utilities/cmzlib/Copyright.txt;md5=e08ebeaec41728215e9137e1d2b4d7cd \
+	file://Utilities/cmzlib/Copyright.txt;md5=952d96c4fe88e5ceb8b3a1f9d47b9ec1 \
 	file://Utilities/cmzstd/LICENSE;md5=c7f0b161edbe52f5f345a3d1311d0b32
 
 
