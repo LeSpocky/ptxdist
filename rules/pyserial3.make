@@ -22,7 +22,9 @@ PYSERIAL3_SUFFIX	:= tar.gz
 PYSERIAL3_URL		:= https://github.com/pyserial/pyserial/archive/v$(PYSERIAL3_VERSION).$(PYSERIAL3_SUFFIX)
 PYSERIAL3_SOURCE	:= $(SRCDIR)/$(PYSERIAL3).$(PYSERIAL3_SUFFIX)
 PYSERIAL3_DIR		:= $(BUILDDIR)/$(PYSERIAL3)
-PYSERIAL3_LICENSE	:= BSD
+PYSERIAL3_LICENSE	:= BSD-3-Clause
+PYSERIAL3_LICENSE_FILES	:= \
+	file://LICENSE.txt;md5=d476d94926db6e0008a5b3860d1f5c0d
 
 # ----------------------------------------------------------------------------
 # Extract
