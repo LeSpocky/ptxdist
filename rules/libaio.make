@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_LIBAIO) += libaio
 #
 # Paths and names
 #
-LIBAIO_VERSION	:= 0.3.113
-LIBAIO_MD5	:= 4422d9f1655f358d74ff48af2a3b9f49
-LIBAIO		:= libaio-$(LIBAIO_VERSION)
-LIBAIO_SUFFIX	:= tar.gz
-LIBAIO_URL	:= https://pagure.io/libaio/archive/$(LIBAIO)/libaio-$(LIBAIO).$(LIBAIO_SUFFIX)
-LIBAIO_SOURCE	:= $(SRCDIR)/$(LIBAIO).$(LIBAIO_SUFFIX)
-LIBAIO_DIR	:= $(BUILDDIR)/$(LIBAIO)
-LIBAIO_LICENSE	:= LGPL-2.1-only
+LIBAIO_VERSION		:= 0.3.113
+LIBAIO_MD5		:= 4422d9f1655f358d74ff48af2a3b9f49
+LIBAIO			:= libaio-$(LIBAIO_VERSION)
+LIBAIO_SUFFIX		:= tar.gz
+LIBAIO_URL		:= https://pagure.io/libaio/archive/$(LIBAIO)/libaio-$(LIBAIO).$(LIBAIO_SUFFIX)
+LIBAIO_SOURCE		:= $(SRCDIR)/$(LIBAIO).$(LIBAIO_SUFFIX)
+LIBAIO_DIR		:= $(BUILDDIR)/$(LIBAIO)
+LIBAIO_LICENSE		:= LGPL-2.1-only
+LIBAIO_LICENSE_FILES	:= \
+	file://COPYING;md5=d8045f3b8f929c1cb29a1e3fd737b499
 
 # ----------------------------------------------------------------------------
 # Prepare + Compile
