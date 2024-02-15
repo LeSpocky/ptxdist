@@ -125,6 +125,8 @@ config MESALIB_DRI_ZINK
 
 config MESALIB_DRI_ASAHI
 	bool
+	# needs libclc
+	depends on BROKEN
 	prompt "asahi"
 
 config MESALIB_DRI_CROCUS
@@ -191,6 +193,18 @@ config MESALIB_VIDEO_H265DEC
 config MESALIB_VIDEO_H265ENC
 	bool
 	prompt "H.265 encoding"
+
+config MESALIB_VIDEO_AV1DEC
+	bool
+	prompt "AV1 decoding"
+
+config MESALIB_VIDEO_AV1ENC
+	bool
+	prompt "AV1 encoding"
+
+config MESALIB_VIDEO_VP9DEC
+	bool
+	prompt "VP9 decoding"
 
 endmenu
 

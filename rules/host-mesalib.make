@@ -20,6 +20,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	$(HOST_MESON_OPT) \
 	-Dallow-kcmp=enabled \
 	-Dandroid-libbacktrace=disabled \
+	-Dandroid-strict=true \
 	-Dandroid-stub=false \
 	-Dbuild-aco-tests=false \
 	-Dbuild-tests=false \
