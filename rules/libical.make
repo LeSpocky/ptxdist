@@ -47,10 +47,8 @@ LIBICAL_CONF_OPT := \
 	-DSTATIC_ONLY=OFF \
 	-DWITH_CXX_BINDINGS=$(call ptx/onoff,PTXCONF_LIBICAL_CXX) \
 	\
-	-DICU_INCLUDE_DIR=NO \
-	-DICU_LIBRARY=NO \
-	-DBDB_INCLUDE_DIR=NO \
-	-DBDB_LIBRARY=NO
+	-DCMAKE_DISABLE_FIND_PACKAGE_BerkeleyDB=ON \
+	-DCMAKE_DISABLE_FIND_PACKAGE_ICU=ON
 
 # ----------------------------------------------------------------------------
 # Target-Install
