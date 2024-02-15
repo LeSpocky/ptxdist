@@ -119,20 +119,14 @@ config GST_PLUGINS_RS_TEXTWRAP
 
 config GST_PLUGINS_RS_FALLBACKSWITCH
 	bool
-	# needs gtk4
-	depends on BROKEN
 	prompt "fallbackswitch"
 
 config GST_PLUGINS_RS_LIVESYNC
 	bool
-	# needs gtk4
-	depends on BROKEN
 	prompt "livesync"
 
 config GST_PLUGINS_RS_TOGGLERECORD
 	bool
-	# needs gtk4
-	depends on BROKEN
 	prompt "togglerecord"
 
 config GST_PLUGINS_RS_TRACERS
