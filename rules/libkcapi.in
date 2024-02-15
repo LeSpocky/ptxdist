@@ -11,39 +11,42 @@ if LIBKCAPI
 
 config LIBKCAPI_MD5SUM
 	bool
-	depends on !COREUTILS_MD5SUM
-	depends on !BUSYBOX_MD5SUM
+	depends on !COREUTILS_MD5SUM && !BUSYBOX_MD5SUM || ALLYES
 	prompt "md5sum"
 	help
 	  support md5sum cmdline util
 
 config LIBKCAPI_SHA1SUM
 	bool
-	depends on !COREUTILS_SHA1SUM
-	depends on !BUSYBOX_SHA1SUM
+	depends on !COREUTILS_SHA1SUM && !BUSYBOX_SHA1SUM || ALLYES
 	prompt "sha1sum"
 	help
 	  support sha1sum cmdline util
 
+config LIBKCAPI_SHA224SUM
+	bool
+	depends on !COREUTILS_SHA224SUM || ALLYES
+	prompt "sha224sum"
+	help
+	  support sha224sum cmdline util
+
 config LIBKCAPI_SHA256SUM
 	bool
-	depends on !COREUTILS_SHA256SUM
-	depends on !BUSYBOX_SHA256SUM
+	depends on !COREUTILS_SHA256SUM && !BUSYBOX_SHA256SUM || ALLYES
 	prompt "sha256sum"
 	help
 	  support sha256sum cmdline util
 
 config LIBKCAPI_SHA384SUM
 	bool
-	depends on !COREUTILS_SHA384SUM
+	depends on !COREUTILS_SHA384SUM || ALLYES
 	prompt "sha384sum"
 	help
 	  support sha384sum cmdline util
 
 config LIBKCAPI_SHA512SUM
 	bool
-	depends on !COREUTILS_SHA512SUM
-	depends on !BUSYBOX_SHA512SUM
+	depends on !COREUTILS_SHA256SUM && !BUSYBOX_SHA256SUM || ALLYES
 	prompt "sha512sum"
 	help
 	  support sha512sum cmdline util
