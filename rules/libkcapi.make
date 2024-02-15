@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_LIBKCAPI) += libkcapi
 #
 # Paths and names
 #
-LIBKCAPI_VERSION	:= 1.3.1
-LIBKCAPI_MD5		:= d65056b8eff5e570cc8d0750d29ea48c
+LIBKCAPI_VERSION	:= 1.5.0
+LIBKCAPI_MD5		:= 1114dc32e6055f09076ca04b7e0c93e2
 LIBKCAPI		:= libkcapi-$(LIBKCAPI_VERSION)
-LIBKCAPI_SUFFIX		:= tar.xz
-LIBKCAPI_URL		:= http://www.chronox.de/libkcapi//$(LIBKCAPI).$(LIBKCAPI_SUFFIX)
+LIBKCAPI_SUFFIX		:= tar.gz
+LIBKCAPI_URL		:= https://github.com/smuellerDD/libkcapi/archive/refs/tags/v$(LIBKCAPI_VERSION).$(LIBKCAPI_SUFFIX)
 LIBKCAPI_SOURCE		:= $(SRCDIR)/$(LIBKCAPI).$(LIBKCAPI_SUFFIX)
 LIBKCAPI_DIR		:= $(BUILDDIR)/$(LIBKCAPI)
 LIBKCAPI_LICENSE	:= GPLv2+
@@ -37,12 +37,18 @@ LIBKCAPI_CONF_ENV	:= \
 LIBKCAPI_CONF_TOOL	:= autoconf
 LIBKCAPI_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-werror \
+	--$(call ptx/endis, PTXCONF_LIBKCAPI_TEST)-kcapi-test \
+	--enable-kcapi-speed \
 	--enable-kcapi-hasher \
 	--enable-kcapi-rngapp \
-	--enable-kcapi-speed \
-	--$(call ptx/endis, PTXCONF_LIBKCAPI_TEST)-kcapi-test \
 	--enable-kcapi-encapp \
 	--enable-kcapi-dgstapp \
+	--enable-lib-kdf \
+	--enable-lib-sym \
+	--enable-lib-md \
+	--enable-lib-aead \
+	--enable-lib-rng \
 	--disable-lib-asym \
 	--disable-lib-kpp
 
@@ -66,7 +72,7 @@ $(STATEDIR)/libkcapi.targetinstall:
 	@$(call install_copy, libkcapi, 0, 0, 0755, -, /usr/bin/kcapi-enc);
 	@$(call install_copy, libkcapi, 0, 0, 0755, -, /usr/bin/kcapi-dgst);
 
-	@$(call install_copy, libkcapi, 0, 0, 0755, $(LIBKCAPI_PKGDIR)/usr/bin/fipscheck, /usr/bin/kcapi-hasher);
+	@$(call install_copy, libkcapi, 0, 0, 0755, -, /usr/bin/kcapi-hasher);
 	@$(call install_link, libkcapi, /usr/bin/kcapi-hasher, /usr/bin/fipscheck);
 	@$(call install_link, libkcapi, /usr/bin/kcapi-hasher, /usr/bin/fipshmac);
 	@$(call install_link, libkcapi, /usr/bin/kcapi-hasher, /usr/bin/sha1hmac);
