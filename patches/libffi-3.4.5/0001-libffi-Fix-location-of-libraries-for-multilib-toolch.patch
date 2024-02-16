@@ -10,7 +10,7 @@ Signed-off-by: Christian Melki <christian.melki@t2data.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile.am b/Makefile.am
-index a4a4887cbb62..cb457fec24db 100644
+index 3de0bea4737d..55b507e021aa 100644
 --- a/Makefile.am
 +++ b/Makefile.am
 @@ -35,7 +35,7 @@ MAKEOVERRIDES=
