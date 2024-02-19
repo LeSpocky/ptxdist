@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_PCRE2) += pcre2
 #
 # Paths and names
 #
-PCRE2_VERSION		:= 10.42
-PCRE2_MD5		:= a8e9ab2935d428a4807461f183034abe
+PCRE2_VERSION		:= 10.43
+PCRE2_MD5		:= c8e2043cbc4abb80e76dba323f7c409f
 PCRE2			:= pcre2-$(PCRE2_VERSION)
 PCRE2_SUFFIX		:= tar.bz2
 PCRE2_URL		:= https://github.com/PCRE2Project/pcre2/releases/download/$(PCRE2)/$(PCRE2).$(PCRE2_SUFFIX)
 PCRE2_SOURCE		:= $(SRCDIR)/$(PCRE2).$(PCRE2_SUFFIX)
 PCRE2_DIR		:= $(BUILDDIR)/$(PCRE2)
 PCRE2_LICENSE		:= BSD-3-Clause
-PCRE2_LICENSE_FILES	:= file://LICENCE;md5=41bfb977e4933c506588724ce69bf5d2
+PCRE2_LICENSE_FILES	:= file://LICENCE;md5=321a5eb46acae6b6c1ff2c7a866d836a
 
 # ----------------------------------------------------------------------------
 # Prepare
