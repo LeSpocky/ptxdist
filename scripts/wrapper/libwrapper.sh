@@ -96,6 +96,15 @@ filter_args() {
 				;;
 			esac
 		fi
+		case "${ARG}" in
+			-isystem)
+				;;
+			-isystem*)
+				# not detected correctly without space by icecc so split it
+				printf "%s\037" "-isystem"
+				ARG="${ARG#-isystem}"
+				;;
+		esac
 		printf "%s\037" "${ARG}"
 	done
 }
