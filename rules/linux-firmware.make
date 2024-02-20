@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20240115
-LINUX_FIRMWARE_MD5	:= c361d22d6eae6325fc163c2589eab427
+LINUX_FIRMWARE_VERSION	:= 20240220
+LINUX_FIRMWARE_MD5	:= cf98535691464e21bb27acff2989cc6f
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -28,6 +28,7 @@ LINUX_FIRMWARE_LICENSE	:= proprietary
 LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.xc4000;md5=0ff51d2dc49fce04814c9155081092f0 \
 	file://LICENCE.iwlwifi_firmware;md5=2ce6786e0fc11ac6e36b54bb9b799f1b \
+	file://LICENCE.mali_csffw;md5=e064aaec4d21ef856e1b76a6f5dc435f \
 	file://LICENSE.dib0700;md5=f7411825c8a555a1a3e5eab9ca773431 \
 	file://LICENCE.linaro;md5=936d91e71cf9cd30e733db4bf11661cc \
 	file://LICENCE.adsp_sst;md5=615c45b91a5a4a9fe046d6ab9a2df728 \
@@ -38,6 +39,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENSE.amphion_vpu;md5=2bcdc00527b2d0542bd92b52aaec2b60 \
 	file://LICENSE.ivsc;md5=4f1f696a12c18dd058d3cc51006c640d \
 	file://LICENCE.cw1200;md5=f0f770864e7a8444a5c5aa9d12a3a7ed \
+	file://LICENSE.montage;md5=12a9f2b351f60fc9374da61c8b2f11ed \
 	file://LICENCE.moxa;md5=1086614767d8ccf744a923289d3d4261 \
 	file://LICENCE.NXP;md5=58bb8ba632cd729b9ba6183bc6aed36f \
 	file://LICENSE.i915;md5=2b0b2e0d20984affd4490ba2cba02570 \
@@ -101,6 +103,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.atheros_firmware;md5=30a14c7823beedac9fa39c64fdd01a13 \
 	file://LICENCE.ti-connectivity;md5=c5e02be633f1499c109d1652514d85ec \
 	file://LICENSE.amlogic;md5=80e4e3f27def8bc4b232009c3a587c07 \
+	file://LICENSE.xe;md5=c674d38774242bc0c528214721488118 \
 	file://LICENCE.r8a779x_usb3;md5=4c1671656153025d7076105a5da7e498 \
 	file://LICENCE.cypress;md5=48cd9436c763bf873961f9ed7b5c147b \
 	file://wfx/LICENCE.wf200;md5=4d1beff00d902c05c9c7e95a5d8eb52d \
