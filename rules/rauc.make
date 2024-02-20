@@ -14,15 +14,16 @@ PACKAGES-$(PTXCONF_RAUC) += rauc
 #
 # Paths and names
 #
-RAUC_VERSION		:= 1.10.1
-RAUC_MD5		:= 610621cc062d2fba41754335c7faee35
+RAUC_VERSION		:= 1.11.1
+RAUC_MD5		:= 16e193e5e396a419a7ceee5777e7c077
 RAUC			:= rauc-$(RAUC_VERSION)
 RAUC_SUFFIX		:= tar.xz
 RAUC_URL		:= https://github.com/rauc/rauc/releases/download/v$(RAUC_VERSION)/$(RAUC).$(RAUC_SUFFIX)
-RAUC_SOURCE		:= $(SRCDIR)/$(RAUC)-meson.$(RAUC_SUFFIX)
+RAUC_SOURCE		:= $(SRCDIR)/$(RAUC).$(RAUC_SUFFIX)
 RAUC_DIR		:= $(BUILDDIR)/$(RAUC)
-RAUC_LICENSE		:= LGPL-2.1-only
+RAUC_LICENSE		:= LGPL-2.1-or-later
 RAUC_LICENSE_FILES	:= \
+	file://README.rst;startline=281;endline=294;md5=d98e15259a1a004b59d4701b3d49cf44 \
 	file://COPYING;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
@@ -39,7 +40,9 @@ RAUC_CONF_OPT	:= \
 	-Ddbusinterfacesdir=/usr/share/dbus-1/interfaces \
 	-Ddbuspolicydir=/usr/share/dbus-1/system.d \
 	-Ddbussystemservicedir=/usr/share/dbus-1/system-services \
+	-Dfuzzing=false \
 	-Dgpt=$(call ptx/endis,PTXCONF_RAUC_GPT)d \
+	-Dhtmldocs=false \
 	-Djson=$(call ptx/endis,PTXCONF_RAUC_JSON)d \
 	-Dnetwork=$(call ptx/truefalse,PTXCONF_RAUC_NETWORK) \
 	-Dservice=$(call ptx/truefalse,PTXCONF_RAUC_SERVICE) \
