@@ -41,6 +41,10 @@ IMAGE_RAUC_BUNDLE_FORMAT := "crypt"
 endif
 
 ifdef PTXCONF_IMAGE_RAUC_HOOK
+ifndef IMAGE_RAUC_HOOK_FILE
+$(error IMAGE_RAUC_HOOK is enabled, but config/images/rauc-hooks.sh was not \
+	found in any component of PTXDIST_PATH)
+endif
 IMAGE_RAUC_ENV_HOOK = \
 	RAUC_HOOK_FILE="file hooks.sh { image = \\"$(IMAGE_RAUC_HOOK_FILE)\\" }" \
 	RAUC_HOOK_MANIFEST="filename=hooks.sh"
