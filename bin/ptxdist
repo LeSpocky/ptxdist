@@ -2143,7 +2143,7 @@ ensure_ptxrc() {
 	local include
 
 	# ptxd_source_kconfig is not defined during early bootstrap
-	if [ "$(type -t ptxd_source_kconfig)" = function ]; then
+	if [ "${1}" != "early" ]; then
 		include=ptxd_source_kconfig
 	else
 		include=source
@@ -2201,7 +2201,7 @@ ensure_ptxrc() {
 		"${include}" "${PTXDIST_LOCAL_PTXRC}"
 	fi
 
-	if [ "$(type -t ptxd_source_kconfig)" = function ]; then
+	if [ "${1}" = "final" ]; then
 		PTXDIST_PTXRC="${ptxrc}"
 		if [ ! -e "${ptxrc}" ]; then
 			mkdir -p -- "$(dirname "${ptxrc}")" &&
@@ -2221,7 +2221,7 @@ setup_env() {
 	source "${PTXDIST_TOPDIR}/scripts/ptxdist_version.sh" || return
 
 	# needed for PTXCONF_SETUP_ENV_WHITELIST
-	ensure_ptxrc || return
+	ensure_ptxrc early || return
 
 	# let shell split by IFS
 	set -- ${PTXCONF_SETUP_ENV_WHITELIST} ${PTXDIST_ENV_WHITELIST} PTXDIST_ENV_WHITELIST
@@ -2322,7 +2322,7 @@ setup_libs_early() {
 #      PTXDIST_PTXRC
 #
 setup_config() {
-	ensure_ptxrc || return
+	ensure_ptxrc final || return
 
 	#
 	# enable or disable errexit
