@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBUNWIND) += libunwind
 #
 # Paths and names
 #
-LIBUNWIND_VERSION	:= 1.8.0
-LIBUNWIND_MD5		:= c66dabc3d032eee8f4053595af7c31cb
+LIBUNWIND_VERSION	:= 1.8.1
+LIBUNWIND_MD5		:= 10c96118ff30b88c9eeb6eac8e75599d
 LIBUNWIND		:= libunwind-$(LIBUNWIND_VERSION)
 LIBUNWIND_SUFFIX	:= tar.gz
 LIBUNWIND_URL		:= https://github.com/libunwind/libunwind/releases/download/v$(LIBUNWIND_VERSION)/$(LIBUNWIND).$(LIBUNWIND_SUFFIX)
