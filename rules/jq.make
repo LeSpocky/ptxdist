@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_JQ) += jq
 #
 # Paths and names
 #
-JQ_VERSION	:= 1.7
-JQ_MD5		:= 4662fd45f0b5622382fc85c1249739d5
+JQ_VERSION	:= 1.7.1
+JQ_MD5		:= 974a340105ecb43add8c55601525f9fc
 JQ		:= jq-$(JQ_VERSION)
 JQ_SUFFIX	:= tar.gz
 JQ_URL		:= https://github.com/jqlang/jq/releases/download/$(JQ)/$(JQ).$(JQ_SUFFIX)
@@ -42,7 +42,8 @@ JQ_CONF_OPT	:= \
 	--disable-docs \
 	--disable-error-injection \
 	--disable-all-static \
-	--disable-decnum
+	--disable-decnum \
+	--with-oniguruma=prefix
 
 # ----------------------------------------------------------------------------
 # Target-Install
