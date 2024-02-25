@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_OPENVPN) += openvpn
 #
 # Paths and names
 #
-OPENVPN_VERSION		:= 2.6.6
-OPENVPN_MD5		:= 660e71db3ed3161e33b4b649855c2477
+OPENVPN_VERSION		:= 2.6.9
+OPENVPN_MD5		:= e5beda906a40e997e26766f0de09ecbf
 OPENVPN			:= openvpn-$(OPENVPN_VERSION)
 OPENVPN_SUFFIX		:= tar.gz
 OPENVPN_URL		:= https://github.com/OpenVPN/openvpn/releases/download/v$(OPENVPN_VERSION)/$(OPENVPN).$(OPENVPN_SUFFIX)
@@ -23,7 +23,7 @@ OPENVPN_SOURCE		:= $(SRCDIR)/$(OPENVPN).$(OPENVPN_SUFFIX)
 OPENVPN_DIR		:= $(BUILDDIR)/$(OPENVPN)
 OPENVPN_LICENSE		:= GPL-2.0-only WITH (openvpn-openssl-exception AND custom-exception) AND BSD-2-Clause AND BSD-3-Clause AND ((GPL-2.0-only WITH Linux-syscall-note) OR MIT)
 OPENVPN_LICENSE_FILES := \
-	file://COPYING;md5=d8d34ce6390552676e4ce8279f13c48a \
+	file://COPYING;md5=4b34e946059f80dcfd811e8dd471b5ed \
 	file://COPYRIGHT.GPL;md5=52cadf4008002e3c314a47a54fa7306c \
 	file://src/openvpn/openvpn.c;startline=2;endline=21;md5=b9fb1976bc6d8ad5e02a251351dc58f2 \
 	file://src/openvpn/base64.c;startline=2;endline=31;md5=f4debd767645b13107fc5912faf2ad8f \
