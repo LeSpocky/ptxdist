@@ -18,14 +18,14 @@ PACKAGES-$(PTXCONF_PHP8) += php8
 #
 # Paths and names
 #
-PHP8_VERSION	:= 8.2.11
-PHP8_MD5	:= 8e7f61ff53fd36be68643080c5114df9
+PHP8_VERSION	:= 8.3.3
+PHP8_MD5	:= f8e821c23e4da0cd52710181532cb853
 PHP8		:= php-$(PHP8_VERSION)
 PHP8_SUFFIX	:= tar.xz
 PHP8_SOURCE	:= $(SRCDIR)/$(PHP8).$(PHP8_SUFFIX)
 PHP8_DIR	:= $(BUILDDIR)/$(PHP8)
 PHP8_LICENSE 	:= PHP-3.01
-PHP8_LICENSE_FILES := file://LICENSE;md5=5ebd5be8e2a89f634486445bd164bef0
+PHP8_LICENSE_FILES := file://LICENSE;md5=fd469cce1a919f0cc95bab7afb28d19d
 
 #
 # Note: older releases are moved to the 'museum', but the 'de.php.net'
@@ -160,6 +160,7 @@ PHP8_CONF_OPT := \
 	--disable-opcache \
 	--disable-huge-code-pages \
 	--disable-opcache-jit \
+	--without-capstone \
 	--disable-pcntl \
 	--disable-pdo \
 	--without-pdo-dblib \
