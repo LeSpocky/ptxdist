@@ -14,16 +14,16 @@ PACKAGES-$(PTXCONF_XZ) += xz
 #
 # Paths and names
 #
-XZ_VERSION	:= 5.4.4
-XZ_MD5		:= fbb849a27e266964aefe26bad508144f
+XZ_VERSION	:= 5.6.0
+XZ_MD5		:= cfb1afdfcfeca02f7677b1b401bc536e
 XZ		:= xz-$(XZ_VERSION)
-XZ_SUFFIX	:= tar.bz2
-XZ_URL		:= https://tukaani.org/xz/$(XZ).$(XZ_SUFFIX)
+XZ_SUFFIX	:= tar.xz
+XZ_URL		:= https://github.com/tukaani-project/xz/releases/download/v$(XZ_VERSION)/$(XZ).$(XZ_SUFFIX)
 XZ_SOURCE	:= $(SRCDIR)/$(XZ).$(XZ_SUFFIX)
 XZ_DIR		:= $(BUILDDIR)/$(XZ)
-XZ_LICENSE	:= public_domain AND LGPL-2.1-or-later AND GPL-2.0-or-later AND GPL-3.0-or-later
+XZ_LICENSE	:= public_domain AND 0BSD AND LGPL-2.1-or-later AND GPL-2.0-or-later AND GPL-3.0-or-later
 XZ_LICENSE_FILES := \
-	file://COPYING;md5=c8ea84ebe7b93cce676b54355dc6b2c0 \
+	file://COPYING;md5=3ef4de063517b8d33e97bbb87a3339ee \
 	file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 	file://COPYING.GPLv3;md5=1ebbd3e34237af26da5dc08a4e440464 \
 	file://COPYING.LGPLv2.1;md5=4fbd65380cdd255951079008b364516c
@@ -44,6 +44,7 @@ XZ_CONF_OPT	:= \
 	--disable-lzip-decoder \
 	--enable-assembler \
 	--enable-clmul-crc \
+	--enable-arm64-crc32 \
 	--disable-small \
 	--enable-threads \
 	--$(call ptx/endis,PTXCONF_XZ_TOOLS)-xz \
@@ -60,9 +61,11 @@ XZ_CONF_OPT	:= \
 	--disable-nls \
 	--disable-rpath \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--enable-ifunc \
 	--enable-unaligned-access=auto \
 	--disable-unsafe-type-punning \
-	--disable-werror
+	--disable-werror \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038
 
 # ----------------------------------------------------------------------------
 # Target-Install
