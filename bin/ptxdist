@@ -443,6 +443,7 @@ check_dirs_mkdir() {
 	fi
 
 	rm -- "${testfile}"
+	chmod ug-s "${dir}"
 }
 
 
