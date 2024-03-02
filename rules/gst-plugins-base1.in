@@ -8,6 +8,7 @@ menuconfig GST_PLUGINS_BASE1
 
 	select GLIB
 	select GSTREAMER1
+	select LIBDRM
 	select ORC
 	select ALSA_LIB			if GST_PLUGINS_BASE1_ALSA
 	select ALSA_LIB_PCM		if GST_PLUGINS_BASE1_ALSA
@@ -88,6 +89,14 @@ config GST_PLUGINS_BASE1_AUDIOTESTSRC
 config GST_PLUGINS_BASE1_COMPOSITOR
 	bool
 	prompt "compositor"
+
+config GST_PLUGINS_BASE1_DEBUGUTILS
+	bool
+	prompt "debugutils"
+
+config GST_PLUGINS_BASE1_DSD
+	bool
+	prompt "dsd"
 
 config GST_PLUGINS_BASE1_ENCODING
 	bool
