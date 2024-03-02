@@ -1,0 +1,55 @@
+#!/usr/bin/env python3
+
+import argparse
+import toml
+from copy import deepcopy
+from os.path import dirname, join, relpath
+
+parser = argparse.ArgumentParser(description='vendor cargo workspace package')
+parser.add_argument('--input')
+parser.add_argument('--output')
+parser.add_argument('--workspace')
+args = parser.parse_args()
+
+pkg_input = toml.load(args.input)
+pkg_output = deepcopy(pkg_input)
+workspace = toml.load(args.workspace)
+
+rel = relpath(dirname(args.workspace), dirname(args.input))
+
+for section, data in pkg_input.items():
+    if not isinstance(data, dict):
+        continue
+    for key, value in data.items():
+        if not isinstance(value, dict):
+            continue
+        if not 'workspace' in value:
+            continue
+        if not value['workspace']:
+            continue
+        if not 'workspace' in workspace:
+            print(f'missing section "workspace" {args.workspace}')
+            exit(1)
+        if section in workspace['workspace']:
+            wsection = section
+        else:
+            wsection = section.removeprefix('dev-')
+            if not wsection in workspace['workspace']:
+                print(f'missing section "workspace.{section}" in {args.workspace} for {args.input}')
+                exit(1)
+        try:
+            copy = deepcopy(workspace['workspace'][wsection][key])
+        except KeyError:
+            print(f'missing "workspace.{section}.{key}" in {args.workspace} for {args.input}')
+            exit(1)
+        if isinstance(copy, dict):
+            if 'path' in copy:
+                copy['path'] = join(rel, copy['path'])
+            pkg_output[section][key].pop('workspace')
+            pkg_output[section][key].update(copy)
+        else:
+            pkg_output[section][key] = copy
+
+
+with open(args.output, 'w') as f:
+    toml.dump(pkg_output, f)
