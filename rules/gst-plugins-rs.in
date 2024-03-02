@@ -5,7 +5,8 @@ menuconfig GST_PLUGINS_RS
 	select HOST_MESON
 	select HOST_CARGO_C
 	select HOST_SYSTEM_PYTHON3
-	select HOST_PYTHON3_TOMLI
+	select HOST_SYSTEM_PYTHON3_TOML
+	select HOST_SYSTEM_PYTHON3_TOMLI
 	select GSTREAMER1
 	select GST_PLUGINS_BASE1
 	select GST_PLUGINS_BAD1		if GST_PLUGINS_RS_WEBRTC || GST_PLUGINS_RS_WEBRTCHTTP
@@ -13,6 +14,8 @@ menuconfig GST_PLUGINS_RS
 	select LIBWEBP			if GST_PLUGINS_RS_WEBP
 	select LIBWEBP_DEMUX		if GST_PLUGINS_RS_WEBP
 	select PANGO			if GST_PLUGINS_RS_ONVIF || GST_PLUGINS_RS_CLOSEDCAPTION
+	select CAIRO			if GST_PLUGINS_RS_CLOSEDCAPTION || GST_PLUGINS_RS_VIDEOFX
+	select CAIRO_GOBJECT		if GST_PLUGINS_RS_CLOSEDCAPTION || GST_PLUGINS_RS_VIDEOFX
 	prompt "gst-plugins-rs                "
 	help
 	  GStreamer plugins written in Rust.
@@ -53,6 +56,10 @@ config GST_PLUGINS_RS_THREADSHARE
 	bool
 	prompt "threadshare"
 
+config GST_PLUGINS_RS_INTER
+	bool
+	prompt "inter"
+
 config GST_PLUGINS_RS_FLAVORS
 	bool
 	prompt "flavors"
@@ -88,6 +95,10 @@ config GST_PLUGINS_RS_RAPTORQ
 config GST_PLUGINS_RS_REQWEST
 	bool
 	prompt "reqwest"
+
+config GST_PLUGINS_RS_RTSP
+	bool
+	prompt "rtsp"
 
 config GST_PLUGINS_RS_RTP
 	bool
