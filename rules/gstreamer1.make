@@ -15,18 +15,27 @@ PACKAGES-$(PTXCONF_GSTREAMER1) += gstreamer1
 #
 # Paths and names
 #
-GSTREAMER1_VERSION	:= 1.22.10
-GSTREAMER1_MD5		:= 5ed8db5299e580678e350fae5f0a56e1
+GSTREAMER1_VERSION	:= 1.24.0
+GSTREAMER1_MD5		:= 058ed34c39c7db77b9031be0eba6bdde
 GSTREAMER1		:= gstreamer-$(GSTREAMER1_VERSION)
 GSTREAMER1_SUFFIX	:= tar.xz
 GSTREAMER1_URL		:= http://gstreamer.freedesktop.org/src/gstreamer/$(GSTREAMER1).$(GSTREAMER1_SUFFIX)
 GSTREAMER1_SOURCE	:= $(SRCDIR)/$(GSTREAMER1).$(GSTREAMER1_SUFFIX)
 GSTREAMER1_DIR		:= $(BUILDDIR)/$(GSTREAMER1)
 GSTREAMER1_LICENSE	:= LGPL-2.1-or-later
+GSTREAMER1_LICENSE_FILES:= \
+	file://COPYING;md5=69333daa044cb77e486cc36129f7a770
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
+
+GSTREAMER1_CONF_ENV := \
+	$(CROSS_ENV) \
+	$(CROSS_CARGO_ENV)
+
+GSTREAMER1_MAKE_ENV := \
+	$(CROSS_CARGO_ENV)
 
 #
 # meson
@@ -53,6 +62,7 @@ GSTREAMER1_CONF_OPT	:= \
 	-Dextra-checks=disabled \
 	-Dgst_debug=$(call ptx/truefalse,PTXCONF_GSTREAMER1_DEBUG) \
 	-Dgst_parse=true \
+	-Dgstreamer-static-full=false \
 	-Dintrospection=$(call ptx/endis,PTXCONF_GSTREAMER1_INTROSPECTION)d \
 	-Dlibdw=disabled \
 	-Dlibunwind=enabled \
@@ -60,6 +70,7 @@ GSTREAMER1_CONF_OPT	:= \
 	-Dnls=disabled \
 	-Doption-parsing=true \
 	-Dpoisoning=false \
+	-Dptp-helper=enabled \
 	-Dptp-helper-permissions=setuid-root \
 	-Dptp-helper-setuid-group=nogroup \
 	-Dptp-helper-setuid-user=nobody \
