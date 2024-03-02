@@ -446,9 +446,24 @@ endif
 
 HOST_QT6_QT_CONF := $(HOST_QT6_PKGDIR)/usr/bin/qt6/qt.conf
 
+HOST_QT6_TOOLS := \
+	lconvert \
+	lrelease \
+	lupdate \
+	qdbuscpp2xml \
+	qdbusxml2cpp \
+	qmake \
+	qmldom \
+	qmlformat \
+	qmllint \
+	qmltc \
+	qsb
+
 $(STATEDIR)/host-qt6.install:
 	@$(call targetinfo)
 	@$(call world/install, HOST_QT6)
+	@$(foreach tool, $(HOST_QT6_TOOLS), \
+		ln -vsf qt6/$(tool) $(HOST_QT6_PKGDIR)/usr/bin/$(tool)-qt6$(ptx/nl))
 ifdef PTXCONF_HOST_QT6_QTWEBENGINE
 	@install -vD -m755 $(HOST_QT6_DIR)-build/qtwebengine/gn/gn \
 		$(HOST_QT6_PKGDIR)/usr/lib/qt6/libexec/gn
