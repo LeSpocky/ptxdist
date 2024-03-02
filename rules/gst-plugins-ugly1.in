@@ -49,22 +49,6 @@ config GST_PLUGINS_UGLY1_A52DEC
 	help
 	  Dolby Digital (AC-3) audio decoder plugin
 
-config GST_PLUGINS_UGLY1_AMRNB
-	bool
-	# needs opencore-amrnb
-	depends on BROKEN
-	prompt "amrnb"
-	help
-	  Adaptive Multi-Rate Narrow-Band audio codec plugin
-
-config GST_PLUGINS_UGLY1_AMRWBDEC
-	bool
-	# needs opencore-amrwb
-	depends on BROKEN
-	prompt "amrwbdec"
-	help
-	  Adaptive Multi-Rate Wide-Band audio decoder plugin
-
 config GST_PLUGINS_UGLY1_CDIO
 	bool
 	prompt "cdio"
