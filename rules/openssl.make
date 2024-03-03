@@ -16,16 +16,18 @@ PACKAGES-$(PTXCONF_OPENSSL) += openssl
 #
 # Paths and names
 #
-OPENSSL_VERSION	:= 3.2.1
-OPENSSL_MD5	:= c239213887804ba00654884918b37441
-OPENSSL		:= openssl-$(OPENSSL_VERSION)
-OPENSSL_SUFFIX	:= tar.gz
-OPENSSL_URL	:= \
+OPENSSL_VERSION		:= 3.2.1
+OPENSSL_MD5		:= c239213887804ba00654884918b37441
+OPENSSL			:= openssl-$(OPENSSL_VERSION)
+OPENSSL_SUFFIX		:= tar.gz
+OPENSSL_URL		:= \
 	https://www.openssl.org/source/$(OPENSSL).$(OPENSSL_SUFFIX) \
 	https://www.openssl.org/source/old/$(basename $(OPENSSL_VERSION))/$(OPENSSL).$(OPENSSL_SUFFIX)
-OPENSSL_SOURCE	:= $(SRCDIR)/$(OPENSSL).$(OPENSSL_SUFFIX)
-OPENSSL_DIR	:= $(BUILDDIR)/$(OPENSSL)
-OPENSSL_LICENSE	:= OpenSSL
+OPENSSL_SOURCE		:= $(SRCDIR)/$(OPENSSL).$(OPENSSL_SUFFIX)
+OPENSSL_DIR		:= $(BUILDDIR)/$(OPENSSL)
+OPENSSL_LICENSE		:= Apache-2.0
+OPENSSL_LICENSE_FILES	:= \
+	file://LICENSE.txt;md5=c75985e733726beaba57bc5253e96d04
 
 # ----------------------------------------------------------------------------
 # Prepare
