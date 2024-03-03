@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QT6) += qt6
 #
 # Paths and names
 #
-QT6_VERSION		:= 6.5.3
-QT6_MD5			:= 755db0527410df135609b51defa1a689
+QT6_VERSION		:= 6.6.2
+QT6_MD5			:= b92112e12298f4b27050ef7060658191
 QT6			:= qt-everywhere-src-$(QT6_VERSION)
 QT6_SUFFIX		:= tar.xz
 QT6_URL			:= \
@@ -96,6 +96,7 @@ QT6_MODULES-$(PTXCONF_QT6_MODULE_QTCONNECTIVITY)	+= qtconnectivity
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTDATAVIS3D)		+= qtdatavis3d
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTDECLARATIVE)		+= qtdeclarative
 QT6_MODULES-						+= qtgrpc
+QT6_MODULES-$(PTXCONF_QT6_MODULE_QTGRAPHS)		+= qtgraphs
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTHTTPSERVER)		+= qthttpserver
 QT6_MODULES-						+= qtdoc
 QT6_MODULES-$(PTXCONF_QT6_MODULE_QTIMAGEFORMATS)	+= qtimageformats
@@ -275,8 +276,11 @@ QT6_CONF_OPT += \
 	-DFEATURE_opengles31=OFF \
 	-DFEATURE_opengles32=OFF \
 	-DFEATURE_openssl=$(call ptx/onoff,PTXCONF_QT6_OPENSSL) \
+	-DFEATURE_openssl_hash=$(call ptx/onoff,PTXCONF_QT6_OPENSSL) \
 	-DFEATURE_openssl_linked=$(call ptx/onoff,PTXCONF_QT6_OPENSSL) \
 	-DFEATURE_openssl_runtime=OFF \
+	-DFEATURE_opensslv11=OFF \
+	-DFEATURE_opensslv30=$(call ptx/onoff,PTXCONF_QT6_OPENSSL) \
 	-DFEATURE_openvg=OFF \
 	-DFEATURE_optimize_debug=OFF \
 	-DFEATURE_optimize_full=OFF \
@@ -325,6 +329,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_sql=$(call ptx/onoff,PTXCONF_QT6_MODULE_QTBASE_SQL) \
 	-DFEATURE_sql_db2=OFF \
 	-DFEATURE_sql_ibase=OFF \
+	-DFEATURE_sql_mimer=OFF \
 	-DFEATURE_sql_mysql=$(call ptx/onoff,PTXCONF_QT6_MODULE_QTBASE_SQL_MYSQL) \
 	-DFEATURE_sql_oci=OFF \
 	-DFEATURE_sql_odbc=OFF \
@@ -393,10 +398,11 @@ QT6_CONF_OPT += \
 	-DFEATURE_xmlstreamreader=ON \
 	-DFEATURE_xmlstreamwriter=ON \
 	-DFEATURE_zstd=OFF \
+	-DQT_ALLOW_DOWNLOAD=OFF \
 	-DQT_BUILD_BENCHMARKS=OFF \
-	-DQT_BUILD_EXAMPLES=$(call ptx/onoff,PTXCONF_QT6_PREPARE_EXAMPLES) \
+	-DQT_BUILD_EXAMPLES=OFF \
 	-DQT_BUILD_EXAMPLES_AS_EXTERNAL=OFF \
-	-DQT_BUILD_EXAMPLES_BY_DEFAULT=$(call ptx/onoff,PTXCONF_QT6_PREPARE_EXAMPLES) \
+	-DQT_BUILD_EXAMPLES_BY_DEFAULT=OFF \
 	-DQT_BUILD_MANUAL_TESTS=OFF \
 	-DQT_BUILD_MINIMAL_STATIC_TESTS=OFF \
 	-DQT_BUILD_TESTS=OFF \
@@ -560,7 +566,6 @@ QT6_CONF_OPT += \
 	-DFEATURE_qml_animation=ON \
 	-DFEATURE_qml_debug=ON \
 	-DFEATURE_qml_delegate_model=ON \
-	-DFEATURE_qml_devtools=$(call ptx/onoff,PTXCONF_QT6_MODULE_QTDECLARATIVE_DEBUG) \
 	-DFEATURE_qml_itemmodel=ON \
 	-DFEATURE_qml_jit=$(QT6_QML_JIT) \
 	-DFEATURE_qml_list_model=ON \
@@ -592,6 +597,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_quick_particles=ON \
 	-DFEATURE_quick_path=ON \
 	-DFEATURE_quick_pathview=ON \
+	-DFEATURE_quick_pixmap_cache_threaded_download=ON \
 	-DFEATURE_quick_positioners=ON \
 	-DFEATURE_quick_repeater=ON \
 	-DFEATURE_quick_shadereffect=ON \
@@ -602,11 +608,11 @@ QT6_CONF_OPT += \
 	-DFEATURE_quickcontrols2_basic=ON \
 	-DFEATURE_quickcontrols2_fusion=ON \
 	-DFEATURE_quickcontrols2_imagine=ON \
-	-DFEATURE_quickcontrols2_ios=ON \
-	-DFEATURE_quickcontrols2_macos=ON \
+	-DFEATURE_quickcontrols2_ios=OFF \
+	-DFEATURE_quickcontrols2_macos=OFF \
 	-DFEATURE_quickcontrols2_material=ON \
 	-DFEATURE_quickcontrols2_universal=ON \
-	-DFEATURE_quickcontrols2_windows=ON \
+	-DFEATURE_quickcontrols2_windows=OFF \
 	-DFEATURE_quicktemplates2_calendar=ON \
 	-DFEATURE_quicktemplates2_hover=ON \
 	-DFEATURE_quicktemplates2_multitouch=ON
@@ -701,6 +707,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_cerence_hwr_cjk=OFF \
 	-DFEATURE_cerence_sdk=OFF \
 	-DFEATURE_cerence_xt9=OFF \
+	-DFEATURE_example_hwr=OFF \
 	-DFEATURE_hangul=ON \
 	-DFEATURE_hunspell=OFF \
 	-DFEATURE_myscript=OFF \
@@ -783,6 +790,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_webengine_system_libopenjpeg2=OFF \
 	-DFEATURE_webengine_system_libpci=OFF \
 	-DFEATURE_webengine_system_libpng=ON \
+	-DFEATURE_webengine_system_libtiff=ON \
 	-DFEATURE_webengine_system_libvpx=OFF \
 	-DFEATURE_webengine_system_libwebp=ON \
 	-DFEATURE_webengine_system_libxml=OFF \
@@ -793,6 +801,8 @@ QT6_CONF_OPT += \
 	-DFEATURE_webengine_system_re2=OFF \
 	-DFEATURE_webengine_system_snappy=OFF \
 	-DFEATURE_webengine_system_zlib=ON \
+	-DFEATURE_webengine_v8_context_snapshot=OFF \
+	-DFEATURE_webengine_vaapi=OFF \
 	-DFEATURE_webengine_vulkan=OFF \
 	-DFEATURE_webengine_webchannel=ON \
 	-DFEATURE_webengine_webrtc=OFF \
@@ -805,7 +815,7 @@ QT6_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
 	-G Ninja \
 	--log-level=$(if $(filter 1,$(PTXDIST_VERBOSE)),TRACE,STATUS) \
-	-DPython_EXECUTABLE=$(PTXDIST_SYSROOT_HOST)/usr/lib/wrapper/$(SYSTEMPYTHON3) \
+	-DPython3_EXECUTABLE=$(PTXDIST_SYSROOT_HOST)/usr/lib/wrapper/$(SYSTEMPYTHON3) \
 	$(sort $(QT6_CONF_OPT))
 
 ifdef PTXCONF_QT6_GUI
@@ -839,8 +849,8 @@ endif
 	@+$(call world/prepare, QT6)
 	@$(call touch)
 
-# some macro magic fails with icecc remote cpp on ARM64
-ifdef PTXCONF_ARCH_ARM64
+# some macro magic fails with icecc remote cpp on ARM/ARM64
+ifneq ($(PTXCONF_ARCH_ARM64)$(PTXCONF_ARCH_ARM),)
 ifdef PTXCONF_QT6_MODULE_QTWEBENGINE
 QT6_MAKE_ENV := \
 	ICECC_REMOTE_CPP=0
@@ -926,6 +936,10 @@ QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QT3D)				+= sceneparsers/libgltfsceneimport
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QT3D)				+= renderers/libopenglrenderer
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QT3D)				+= renderers/librhirenderer
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QT3D_QUICK)			+= renderplugins/libscene2d
+
+### Qt5Compat ###
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QT5COMPAT)			+= Qt6Core5Compat
+QT6_QML-$(PTXCONF_QT6_MODULE_QT5COMPAT_QUICK)			+= Qt5Compat
 
 ### QtBase ###
 QT6_LIBS-y							+= Qt6Core
@@ -1024,6 +1038,10 @@ QT6_QML-$(PTXCONF_QT6_MODULE_QTDECLARATIVE)			+= QtQuick
 ifdef PTXCONF_QT6_TEST
 QT6_QML-$(PTXCONF_QT6_MODULE_QTDECLARATIVE_QUICK)		+= QtTest
 endif
+
+### QtGraphs ###
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTGRAPHS)				+= Qt6Graphs
+QT6_QML-$(PTXCONF_QT6_MODULE_QTGRAPHS_QUICK)			+= QtGraphs
 
 ### QtHttpServer ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTHTTPSERVER)			+= Qt6HttpServer
@@ -1143,6 +1161,7 @@ QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTWAYLAND)			+= wayland-decoration-client/libbr
 
 ### QtWebChannel ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTWEBCHANNEL)			+= Qt6WebChannel
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTWEBCHANNEL_QUICK)		+= Qt6WebChannelQuick
 QT6_QML-$(PTXCONF_QT6_MODULE_QTWEBCHANNEL_QUICK)		+= QtWebChannel
 
 ### QtWebEngine ###

@@ -417,6 +417,7 @@ ifdef PTXCONF_HOST_QT6_QTWEBENGINE
 	@$(call execute, HOST_QT6, \
 		$(SYSTEMPYTHON3) \
 		$(HOST_QT6_DIR)/qtwebengine/src/3rdparty/gn/build/gen.py \
+		--allow-warnings \
 		--no-last-commit-position \
 		--no-static-libstdc++ \
 		--out-path $(HOST_QT6_DIR)-build/qtwebengine/gn \

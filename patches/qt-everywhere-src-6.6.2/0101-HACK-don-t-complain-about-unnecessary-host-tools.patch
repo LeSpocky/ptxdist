@@ -14,7 +14,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  2 files changed, 7 insertions(+), 2 deletions(-)
 
 diff --git a/qtdeclarative/tools/CMakeLists.txt b/qtdeclarative/tools/CMakeLists.txt
-index 75b240aeea52..bce551a9b8f0 100644
+index b86d3251a3ad..2dbbdc1e0caf 100644
 --- a/qtdeclarative/tools/CMakeLists.txt
 +++ b/qtdeclarative/tools/CMakeLists.txt
 @@ -38,9 +38,12 @@ if(QT_FEATURE_qml_preview AND QT_FEATURE_thread AND NOT ANDROID AND NOT WASM AND
