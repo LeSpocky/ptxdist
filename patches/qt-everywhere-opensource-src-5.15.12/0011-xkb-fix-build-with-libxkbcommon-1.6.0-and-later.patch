@@ -18,7 +18,7 @@ Reviewed-by: Tor Arne Vestbø <tor.arne.vestbo@qt.io>
  1 file changed, 4 insertions(+)
 
 diff --git a/qtbase/src/platformsupport/input/xkbcommon/qxkbcommon.cpp b/qtbase/src/platformsupport/input/xkbcommon/qxkbcommon.cpp
-index 9aa8f10c5735..b6f480684b39 100644
+index 7bfacf4abe16..cc46275dce39 100644
 --- a/qtbase/src/platformsupport/input/xkbcommon/qxkbcommon.cpp
 +++ b/qtbase/src/platformsupport/input/xkbcommon/qxkbcommon.cpp
 @@ -273,10 +273,14 @@ static constexpr const auto KeyTbl = qMakeArray(

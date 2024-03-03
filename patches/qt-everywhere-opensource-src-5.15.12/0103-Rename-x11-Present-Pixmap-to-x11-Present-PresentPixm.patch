@@ -1,0 +1,31 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sun, 3 Mar 2024 22:45:12 +0100
+Subject: [PATCH] Rename x11::Present::Pixmap to x11::Present::PresentPixmap to
+ work around a name conflict
+
+Taken from Chromium upstream commit
+d930397e823acc642ab532f490fe17a7a0099554 ("[XProto] Add simplified
+request syntax").
+
+Without this, building may fail with:
+
+gen/ui/gfx/x/present.h:223:16: error: declaration of 'x11::Future<void> x11::Present::Pixmap(const PixmapRequest&)' changes meaning of 'Pixmap' [-Wchanges-meaning]                  gen/ui/gfx/x/present.h:205:5: note: used here to mean 'enum class x11::Pixmap'
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ .../src/3rdparty/chromium/third_party/xcbproto/src/src/present.xml      | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/qtwebengine/src/3rdparty/chromium/third_party/xcbproto/src/src/present.xml b/qtwebengine/src/3rdparty/chromium/third_party/xcbproto/src/src/present.xml
+index fb06e73f02fc..f20c11eb2c02 100644
+--- a/qtwebengine/src/3rdparty/chromium/third_party/xcbproto/src/src/present.xml
++++ b/qtwebengine/src/3rdparty/chromium/third_party/xcbproto/src/src/present.xml
+@@ -89,7 +89,7 @@ OF THIS SOFTWARE.
+     </reply>
+   </request>
+ 
+-  <request name="Pixmap" opcode="1">
++  <request name="PresentPixmap" opcode="1">
+     <required_start_align align="8" />
+     <field type="WINDOW" name="window" />
+     <field type="PIXMAP" name="pixmap" />

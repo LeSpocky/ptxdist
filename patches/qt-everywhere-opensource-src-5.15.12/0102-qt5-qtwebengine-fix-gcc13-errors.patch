@@ -1,4 +1,3 @@
-From a27662110afa1c227fc3e31cccd47d62cdd1d897 Mon Sep 17 00:00:00 2001
 From: Fabian Pfitzner <f.pfitzner@pengutronix.de>
 Date: Tue, 7 Nov 2023 15:22:29 +0100
 Subject: [PATCH] qt5 qtwebengine: fix gcc13 errors
@@ -16,25 +15,25 @@ where needed.
 
 Signed-off-by: Fabian Pfitzner <f.pfitzner@pengutronix.de>
 ---
- qtwebengine/src/3rdparty/chromium/base/debug/profiler.h         | 1 +
- .../content/public/browser/browsing_data_remover_delegate.h     | 1 +
- .../chromium/device/base/synchronization/one_writer_seqlock.cc  | 2 ++
- .../chromium/device/bluetooth/public/cpp/bluetooth_uuid.h       | 1 +
- .../chromium/gpu/command_buffer/common/webgpu_cmd_enums.h       | 2 ++
- qtwebengine/src/3rdparty/chromium/gpu/config/device_perf_info.h | 1 +
- qtwebengine/src/3rdparty/chromium/gpu/config/gpu_feature_info.h | 1 +
- qtwebengine/src/3rdparty/chromium/gpu/config/gpu_preferences.h  | 1 +
- .../src/3rdparty/chromium/net/cookies/cookie_inclusion_status.h | 1 +
- .../abseil-cpp/absl/strings/internal/str_format/extension.h     | 1 +
- .../chromium/third_party/angle/include/GLSLANG/ShaderVars.h     | 1 +
- .../3rdparty/chromium/third_party/angle/src/common/angleutils.h | 1 +
- .../breakpad/src/client/linux/handler/minidump_descriptor.h     | 1 +
- .../third_party/perfetto/include/perfetto/ext/base/uuid.h       | 1 +
- .../src/3rdparty/chromium/third_party/webrtc/call/rtp_demuxer.h | 1 +
- .../third_party/webrtc/rtc_base/third_party/base64/base64.h     | 1 +
- qtwebengine/src/3rdparty/chromium/v8/src/base/logging.h         | 1 +
- qtwebengine/src/3rdparty/chromium/v8/src/base/macros.h          | 1 +
- .../3rdparty/chromium/v8/src/inspector/v8-string-conversions.h  | 1 +
+ qtwebengine/src/3rdparty/chromium/base/debug/profiler.h                 | 1 +
+ .../chromium/content/public/browser/browsing_data_remover_delegate.h    | 1 +
+ .../3rdparty/chromium/device/base/synchronization/one_writer_seqlock.cc | 2 ++
+ .../src/3rdparty/chromium/device/bluetooth/public/cpp/bluetooth_uuid.h  | 1 +
+ .../src/3rdparty/chromium/gpu/command_buffer/common/webgpu_cmd_enums.h  | 2 ++
+ qtwebengine/src/3rdparty/chromium/gpu/config/device_perf_info.h         | 1 +
+ qtwebengine/src/3rdparty/chromium/gpu/config/gpu_feature_info.h         | 1 +
+ qtwebengine/src/3rdparty/chromium/gpu/config/gpu_preferences.h          | 1 +
+ qtwebengine/src/3rdparty/chromium/net/cookies/cookie_inclusion_status.h | 1 +
+ .../third_party/abseil-cpp/absl/strings/internal/str_format/extension.h | 1 +
+ .../3rdparty/chromium/third_party/angle/include/GLSLANG/ShaderVars.h    | 1 +
+ .../src/3rdparty/chromium/third_party/angle/src/common/angleutils.h     | 1 +
+ .../breakpad/breakpad/src/client/linux/handler/minidump_descriptor.h    | 1 +
+ .../chromium/third_party/perfetto/include/perfetto/ext/base/uuid.h      | 1 +
+ qtwebengine/src/3rdparty/chromium/third_party/webrtc/call/rtp_demuxer.h | 1 +
+ .../chromium/third_party/webrtc/rtc_base/third_party/base64/base64.h    | 1 +
+ qtwebengine/src/3rdparty/chromium/v8/src/base/logging.h                 | 1 +
+ qtwebengine/src/3rdparty/chromium/v8/src/base/macros.h                  | 1 +
+ .../src/3rdparty/chromium/v8/src/inspector/v8-string-conversions.h      | 1 +
  19 files changed, 21 insertions(+)
 
 diff --git a/qtwebengine/src/3rdparty/chromium/base/debug/profiler.h b/qtwebengine/src/3rdparty/chromium/base/debug/profiler.h
@@ -267,6 +266,3 @@ index c1d69c18f0a8..eb33c6816a58 100644
  #include <string>
  
  // Conversion routines between UT8 and UTF16, used by string-16.{h,cc}. You may
--- 
-2.39.2
-

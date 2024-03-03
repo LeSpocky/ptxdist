@@ -374,6 +374,8 @@ config QT5_MODULE_QTBASE_SQL_SQLITE
 
 config QT5_MODULE_QTBASE_SQL_MYSQL
 	bool
+	# fails to build with current MariaDB
+	depends on BROKEN
 	prompt "mySQL backend"
 
 endif

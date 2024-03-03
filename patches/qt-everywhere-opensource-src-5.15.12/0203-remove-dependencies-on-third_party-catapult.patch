@@ -9711,10 +9711,10 @@ index 5b158ac41c9a..de4259e40479 100644
  
  # Local variables:
 diff --git a/qtwebengine/src/3rdparty/chromium/third_party/sqlite/src/configure b/qtwebengine/src/3rdparty/chromium/third_party/sqlite/src/configure
-index 64ee8f7c1645..83f4eb0acd2a 100755
+index 367b1485f20a..4665b719dfa8 100755
 --- a/qtwebengine/src/3rdparty/chromium/third_party/sqlite/src/configure
 +++ b/qtwebengine/src/3rdparty/chromium/third_party/sqlite/src/configure
-@@ -7449,7 +7449,7 @@ _LT_EOF
+@@ -7450,7 +7450,7 @@ _LT_EOF
  
          if test "x$supports_anon_versioning" = xyes; then
            archive_expsym_cmds='echo "{ global:" > $output_objdir/$libname.ver~
@@ -9723,7 +9723,7 @@ index 64ee8f7c1645..83f4eb0acd2a 100755
  	    echo "local: *; };" >> $output_objdir/$libname.ver~
  	    $CC '"$tmp_sharedflag""$tmp_addflag"' $libobjs $deplibs $compiler_flags ${wl}-soname $wl$soname ${wl}-version-script ${wl}$output_objdir/$libname.ver -o $lib'
          fi
-@@ -7463,7 +7463,7 @@ _LT_EOF
+@@ -7464,7 +7464,7 @@ _LT_EOF
  	  archive_cmds='$LD -shared $libobjs $deplibs $compiler_flags -soname $soname -o $lib'
  	  if test "x$supports_anon_versioning" = xyes; then
  	    archive_expsym_cmds='echo "{ global:" > $output_objdir/$libname.ver~
@@ -9732,7 +9732,7 @@ index 64ee8f7c1645..83f4eb0acd2a 100755
  	      echo "local: *; };" >> $output_objdir/$libname.ver~
  	      $LD -shared $libobjs $deplibs $compiler_flags -soname $soname -version-script $output_objdir/$libname.ver -o $lib'
  	  fi
-@@ -8525,7 +8525,7 @@ version_type=none
+@@ -8526,7 +8526,7 @@ version_type=none
  dynamic_linker="$host_os ld.so"
  sys_lib_dlsearch_path_spec="/lib /usr/lib"
  need_lib_prefix=unknown
@@ -9741,7 +9741,7 @@ index 64ee8f7c1645..83f4eb0acd2a 100755
  
  # when you set need_version to no, make sure it does not cause -set_version
  # flags to be left without arguments
-@@ -12648,8 +12648,8 @@ module_expsym_cmds='`$ECHO "X$module_expsym_cmds" | $Xsed -e "$delay_single_quot
+@@ -12660,8 +12660,8 @@ module_expsym_cmds='`$ECHO "X$module_expsym_cmds" | $Xsed -e "$delay_single_quot
  with_gnu_ld='`$ECHO "X$with_gnu_ld" | $Xsed -e "$delay_single_quote_subst"`'
  allow_undefined_flag='`$ECHO "X$allow_undefined_flag" | $Xsed -e "$delay_single_quote_subst"`'
  no_undefined_flag='`$ECHO "X$no_undefined_flag" | $Xsed -e "$delay_single_quote_subst"`'
@@ -9752,7 +9752,7 @@ index 64ee8f7c1645..83f4eb0acd2a 100755
  hardcode_libdir_separator='`$ECHO "X$hardcode_libdir_separator" | $Xsed -e "$delay_single_quote_subst"`'
  hardcode_direct='`$ECHO "X$hardcode_direct" | $Xsed -e "$delay_single_quote_subst"`'
  hardcode_direct_absolute='`$ECHO "X$hardcode_direct_absolute" | $Xsed -e "$delay_single_quote_subst"`'
-@@ -12679,7 +12679,7 @@ postinstall_cmds='`$ECHO "X$postinstall_cmds" | $Xsed -e "$delay_single_quote_su
+@@ -12691,7 +12691,7 @@ postinstall_cmds='`$ECHO "X$postinstall_cmds" | $Xsed -e "$delay_single_quote_su
  postuninstall_cmds='`$ECHO "X$postuninstall_cmds" | $Xsed -e "$delay_single_quote_subst"`'
  finish_cmds='`$ECHO "X$finish_cmds" | $Xsed -e "$delay_single_quote_subst"`'
  finish_eval='`$ECHO "X$finish_eval" | $Xsed -e "$delay_single_quote_subst"`'
@@ -9761,7 +9761,7 @@ index 64ee8f7c1645..83f4eb0acd2a 100755
  sys_lib_search_path_spec='`$ECHO "X$sys_lib_search_path_spec" | $Xsed -e "$delay_single_quote_subst"`'
  sys_lib_dlsearch_path_spec='`$ECHO "X$sys_lib_dlsearch_path_spec" | $Xsed -e "$delay_single_quote_subst"`'
  hardcode_action='`$ECHO "X$hardcode_action" | $Xsed -e "$delay_single_quote_subst"`'
-@@ -13630,7 +13630,7 @@ finish_cmds=$lt_finish_cmds
+@@ -13642,7 +13642,7 @@ finish_cmds=$lt_finish_cmds
  finish_eval=$lt_finish_eval
  
  # Whether we should hardcode library paths into libraries.
@@ -9770,7 +9770,7 @@ index 64ee8f7c1645..83f4eb0acd2a 100755
  
  # Compile-time system search path for libraries.
  sys_lib_search_path_spec=$lt_sys_lib_search_path_spec
-@@ -13720,11 +13720,11 @@ no_undefined_flag=$lt_no_undefined_flag
+@@ -13732,11 +13732,11 @@ no_undefined_flag=$lt_no_undefined_flag
  
  # Flag to hardcode \$libdir into a binary during linking.
  # This must work even if \$libdir does not exist

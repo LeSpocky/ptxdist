@@ -15,6 +15,8 @@
 #tag:build --start-number 100
 0100-qtwebengine-chromium-skia-Fix-build-with-gcc-12.patch
 0101-qt3d-link-with-latomic-if-necessary.patch
+0102-qt5-qtwebengine-fix-gcc13-errors.patch
+0103-Rename-x11-Present-Pixmap-to-x11-Present-PresentPixm.patch
 #tag:python3 --start-number 200
 0200-replace-Python-2-with-Python-3-in-the-build-system.patch
 0201-update-Chromium-code-for-compatibility-with-Python-3.patch
@@ -28,7 +30,6 @@
 0400-ptxdist-qtwebengine-allow-building-with-ptxdist.patch
 0401-ptxdist-qtwebengine-let-ninja-use-the-jobserver.patch
 0402-HACK-qtwebengine-workaround-for-too-long-file-names.patch
-0403-qtwebengine-fix-gcc13-error.patch
 #tag:kms --start-number 500
 0500-eglfs_kms-device-ordering-robustness.patch
-# c9ac4e4caaee7f59e4a9de293fbd89af  - git-ptx-patches magic
+# 8476be8c0300ddf6ed6fd7e18b43decb  - git-ptx-patches magic
