@@ -14,9 +14,9 @@ PACKAGES-$(PTXCONF_LIBWPE) += libwpe
 #
 # Paths and names
 #
-LIBWPE_VERSION		:= 1.14.1
+LIBWPE_VERSION		:= 1.14.2
 LIBWPE_LIBRARY_VERSION	:= 1.0
-LIBWPE_MD5		:= d834d70a6b3afb24a05ec188df248e52
+LIBWPE_MD5		:= 61840e24ba0a0f5828194dff28db92ee
 LIBWPE			:= libwpe-$(LIBWPE_VERSION)
 LIBWPE_SUFFIX		:= tar.xz
 LIBWPE_URL		:= https://wpewebkit.org/releases/$(LIBWPE).$(LIBWPE_SUFFIX)
