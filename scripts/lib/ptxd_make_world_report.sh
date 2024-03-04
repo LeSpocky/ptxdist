@@ -118,6 +118,15 @@ ptxd_make_world_report_yaml() {
     md5: '$(sed -n "s/\(.*\)  $(basename "${license}")\$/\1/p" "${pkg_license_dir}/license/MD5SUM")'
 EOF
 	done
+	if [[ " ${pkg_build_deps} " =~ " host-nodejs " ]] && [ -e "${pkg_dir}/package-lock.json" ]; then
+	    (
+	    cd "${pkg_dir}" &&
+	    npm sbom --sbom-format spdx > "${pkg_license_dir}/spdx-sbom.json" &&
+	    npm sbom --sbom-format cyclonedx > "${pkg_license_dir}/cyclonedx-sbom.json"
+	    ) || return
+	    do_echo "spdx-sbom:" "${pkg_license_dir}/spdx-sbom.json"
+	    do_echo "cyclonedx-sbom:" "${pkg_license_dir}/cyclonedx-sbom.json"
+	fi
     else
 	# license files have not been extracted, so just add the string from the rule
 	do_list "license-files:" "${pkg_license_files}"

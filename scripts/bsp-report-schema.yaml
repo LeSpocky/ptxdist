@@ -232,6 +232,10 @@ $defs:
         $ref: '#/$defs/md5'
       devpkg:
         $ref: '#/$defs/path'
+      spdx-sbom:
+        $ref: '#/$defs/path'
+      cyclonedx-sbom:
+        $ref: '#/$defs/path'
       license-section:
         enum:
         - deprecated
