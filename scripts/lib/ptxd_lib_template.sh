@@ -107,7 +107,7 @@ export -f ptxd_template_read_author
 
 ptxd_template_read_section() {
     local section_name
-    if [ "${action}" = "host" ]; then
+    if [ "${action}" = "host" -o "${action}" = "host-existing-target" ]; then
 	section_name="${1:-hosttools_noprompt}"
     else
 	section_name="${1:-project_specific}"
