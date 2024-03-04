@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_COG) += cog
 #
 # Paths and names
 #
-COG_VERSION		:= 0.16.1
-COG_MD5			:= 1489740db6b4ea568578035c30b8b2f4
+COG_VERSION		:= 0.18.3
+COG_MD5			:= e457de5b5ac8994ae9971c0a5a22b8a2
 COG			:= cog-$(COG_VERSION)
 COG_SUFFIX		:= tar.xz
 COG_URL			:= https://wpewebkit.org/releases/$(COG).$(COG_SUFFIX)
@@ -43,9 +43,9 @@ COG_CONF_OPT	:= \
 	-Dplatforms=wayland \
 	-Dplugin_path=/usr/lib/cog/modules \
 	-Dprograms=true \
-	-Dsoup2=disabled \
 	-Dwayland_weston_content_protection=false \
-	-Dwayland_weston_direct_display=false
+	-Dwayland_weston_direct_display=false \
+	-Dwpe_api=2.0
 
 # ----------------------------------------------------------------------------
 # Target-Install
