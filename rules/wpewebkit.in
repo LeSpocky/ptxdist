@@ -6,8 +6,10 @@ menuconfig WPEWEBKIT
 	select HOST_CMAKE
 	select HOST_GPERF
 	select HOST_NINJA
+	select HOST_UNIFDEF
 	select HOST_SYSTEM_PERL
 	select HOST_SYSTEM_PERL_JSON
+	select HOST_SYSTEM_PYTHON3
 	select HOST_SYSTEM_RUBY
 	select ALSA_LIB				if WPEWEBKIT_WEBRTC
 	select GLIB
