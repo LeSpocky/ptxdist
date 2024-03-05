@@ -9,25 +9,25 @@
 #
 # We provide this package
 #
-HOST_PACKAGES-$(PTXCONF_HOST_PYTHON3_@PACKAGE@) += host-python3-@package@
+HOST_PACKAGES-$(PTXCONF_@PREFIX@_@PACKAGE@) += @prefix@-@package@
 
 #
 # Paths and names
 #
-HOST_PYTHON3_@PACKAGE@_VERSION		:= @VERSION@
-HOST_PYTHON3_@PACKAGE@_MD5		:=
-HOST_PYTHON3_@PACKAGE@			:= @package@-$(HOST_PYTHON3_@PACKAGE@_VERSION)
-HOST_PYTHON3_@PACKAGE@_SUFFIX		:= @SUFFIX@
-HOST_PYTHON3_@PACKAGE@_URL		:= @URL@
-HOST_PYTHON3_@PACKAGE@_SOURCE		:= $(SRCDIR)/$(HOST_PYTHON3_@PACKAGE@).$(HOST_PYTHON3_@PACKAGE@_SUFFIX)
-HOST_PYTHON3_@PACKAGE@_DIR		:= $(HOST_BUILDDIR)/$(HOST_PYTHON3_@PACKAGE@)
-HOST_PYTHON3_@PACKAGE@_LICENSE		:= unknown
-HOST_PYTHON3_@PACKAGE@_LICENSE_FILES	:=
+@PREFIX@_@PACKAGE@_VERSION		:= @VERSION@
+@PREFIX@_@PACKAGE@_MD5		:=
+@PREFIX@_@PACKAGE@			:= @package@-$(@PREFIX@_@PACKAGE@_VERSION)
+@PREFIX@_@PACKAGE@_SUFFIX		:= @SUFFIX@
+@PREFIX@_@PACKAGE@_URL		:= @URL@
+@PREFIX@_@PACKAGE@_SOURCE		:= $(SRCDIR)/$(@PREFIX@_@PACKAGE@).$(@PREFIX@_@PACKAGE@_SUFFIX)
+@PREFIX@_@PACKAGE@_DIR		:= $(HOST_BUILDDIR)/$(@PREFIX@_@PACKAGE@)
+@PREFIX@_@PACKAGE@_LICENSE		:= unknown
+@PREFIX@_@PACKAGE@_LICENSE_FILES	:=
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_PYTHON3_@PACKAGE@_CONF_TOOL	:= python3
+@PREFIX@_@PACKAGE@_CONF_TOOL	:= python3
 
 # vim: syntax=make

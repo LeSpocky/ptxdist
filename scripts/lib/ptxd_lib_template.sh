@@ -440,37 +440,44 @@ export -f ptxd_template_new_cross
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="cross"
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create cross development package"
 
-ptxd_template_new_python3() {
+ptxd_template_new_python3_all() {
+    export prefix="${action}"
+    export PREFIX=${prefix^^}
+    PREFIX=${PREFIX//-/_}
     ptxd_template_read_basic &&
     ptxd_template_read_author &&
     ptxd_template_read_url \
-	"\$(call ptx/mirror-pypi, ${package}, \$(PYTHON3_${PACKAGE}).\$(PYTHON3_${PACKAGE}_SUFFIX))" \
+	"\$(call ptx/mirror-pypi, ${package}, \$(${PREFIX}_${PACKAGE}).\$(${PREFIX}_${PACKAGE}_SUFFIX))" \
 	"tar.gz"
     # turn URL of basedir into complete URL
     [[ "$URL" != "\$(call ptx/mirror"* ]] \
 	&& URL="$URL/\$(${PACKAGE}).\$(${PACKAGE}_SUFFIX)"
-    package_filename="python3-${package_filename}"
+    package_filename="${prefix}-${package_filename}"
     ptxd_template_write_rules
+}
+export -f ptxd_template_new_python3_all
+
+ptxd_template_new_python3() {
+    ptxd_template_new_python3_all
 }
 export -f ptxd_template_new_python3
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="python3"
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create python3 package for embedded target"
 
 ptxd_template_new_host_python3() {
-    ptxd_template_read_basic &&
-    ptxd_template_read_author &&
-    ptxd_template_read_url \
-	"\$(call ptx/mirror-pypi, ${package}, \$(HOST_PYTHON3_${PACKAGE}).\$(HOST_PYTHON3_${PACKAGE}_SUFFIX))" \
-	"tar.gz"
-    # turn URL of basedir into complete URL
-    [[ "$URL" != "\$(call ptx/mirror"* ]] \
-	&& URL="$URL/\$(${PACKAGE}).\$(${PACKAGE}_SUFFIX)"
-    package_filename="host-python3-${package_filename}"
-    ptxd_template_write_rules
+    ptxd_template_new_python3_all
 }
 export -f ptxd_template_new_host_python3
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="host-python3"
 ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create python3 host package"
+
+ptxd_template_new_host_system_python3() {
+    template="template-host-python3"
+    ptxd_template_new_python3_all
+}
+export -f ptxd_template_new_host_system_python3
+ptxd_template_help_list[${#ptxd_template_help_list[@]}]="host-system-python3"
+ptxd_template_help_list[${#ptxd_template_help_list[@]}]="create system-python3 host package"
 
 ptxd_template_new_src_autoconf_lib() {
     ptxd_template_autoconf_base
