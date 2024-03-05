@@ -119,7 +119,11 @@ ptxd_make_world_init_compat() {
 
     # install_opt
     if [[ -z "${pkg_install_opt}" && "${pkg_conf_tool}" =~ "python" ]]; then
-	local install_opt_ptr="ptx_install_opt_python_${pkg_type}"
+	local suffix=""
+	if [[ " ${pkg_build_deps} " =~ ' host-system-python3 ' ]]; then
+	    suffix="_system"
+	fi
+	local install_opt_ptr="ptx_install_opt_python_${pkg_type}${suffix}"
 	pkg_install_opt="${!install_opt_ptr}"
     fi
     if [ -z "${pkg_install_opt}" ]; then

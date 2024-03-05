@@ -49,6 +49,7 @@ ptx/env = \
 	ptx_python_host="$(call ptx/escape,$(HOSTPYTHON))"			\
 	ptx_python3_host="$(call ptx/escape,$(HOSTPYTHON3))"			\
 	ptx_install_opt_python_host="$(call ptx/escape,$(HOST_PYTHON_INSTALL))"	\
+	ptx_install_opt_python_host_system="$(call ptx/escape,$(HOST_SYSTEM_PYTHON_INSTALL))"\
 										\
 	ptx_conf_opt_meson_target="$(call ptx/escape,$(CROSS_MESON_USR))"	\
 	ptx_conf_env_meson_target="$(call ptx/escape,$(CROSS_MESON_ENV))"	\

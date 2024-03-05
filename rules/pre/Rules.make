@@ -254,6 +254,7 @@ CROSS_QMAKE_OPT := \
 
 CROSS_PYTHON_INSTALL := install --prefix=/usr
 HOST_PYTHON_INSTALL := install --prefix=/usr
+HOST_SYSTEM_PYTHON_INSTALL := install --prefix=/usr/lib/system-python3
 
 CROSS_MESON_USR := \
 	--cross-file '${PTXDIST_MESON_CROSS_FILE}' \
