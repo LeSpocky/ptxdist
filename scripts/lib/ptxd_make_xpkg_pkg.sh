@@ -396,7 +396,7 @@ ptxd_install_file_extract_debug() {
 	return
     fi
 
-    if [ -z "${bid}" ]; then
+    if [ -z "${bid}" -o ${#bid} -ne 40 ]; then
 	dbg="${dst%/*}/.debug/.${dst##*/}.dbg"
     else
 	local path_component=${bid::-38}
