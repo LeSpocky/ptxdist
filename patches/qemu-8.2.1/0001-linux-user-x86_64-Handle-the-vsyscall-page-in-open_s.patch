@@ -1,0 +1,57 @@
+From 4ef1f559f270c66b3ffc23f6c845ff3d008c6356 Mon Sep 17 00:00:00 2001
+From: Richard Henderson <richard.henderson@linaro.org>
+Date: Sat, 24 Feb 2024 02:29:41 +0000
+Subject: [PATCH] linux-user/x86_64: Handle the vsyscall page in
+ open_self_maps_{2,4}
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This is the only case in which we expect to have no host memory backing
+for a guest memory page, because in general linux user processes cannot
+map any pages in the top half of the 64-bit address space.
+
+Resolves: https://gitlab.com/qemu-project/qemu/-/issues/2170
+Reviewed-by: Philippe Mathieu-Daudé <philmd@linaro.org>
+Signed-off-by: Richard Henderson <richard.henderson@linaro.org>
+---
+ linux-user/syscall.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/linux-user/syscall.c b/linux-user/syscall.c
+index e384e1424890..bc8c06522f88 100644
+--- a/linux-user/syscall.c
++++ b/linux-user/syscall.c
+@@ -7994,6 +7994,10 @@ static void open_self_maps_4(const struct open_self_maps_data *d,
+         path = "[heap]";
+     } else if (start == info->vdso) {
+         path = "[vdso]";
++#ifdef TARGET_X86_64
++    } else if (start == TARGET_VSYSCALL_PAGE) {
++        path = "[vsyscall]";
++#endif
+     }
+ 
+     /* Except null device (MAP_ANON), adjust offset for this fragment. */
+@@ -8082,6 +8086,18 @@ static int open_self_maps_2(void *opaque, target_ulong guest_start,
+     uintptr_t host_start = (uintptr_t)g2h_untagged(guest_start);
+     uintptr_t host_last = (uintptr_t)g2h_untagged(guest_end - 1);
+ 
++#ifdef TARGET_X86_64
++    /*
++     * Because of the extremely high position of the page within the guest
++     * virtual address space, this is not backed by host memory at all.
++     * Therefore the loop below would fail.  This is the only instance
++     * of not having host backing memory.
++     */
++    if (guest_start == TARGET_VSYSCALL_PAGE) {
++        return open_self_maps_3(opaque, guest_start, guest_end, flags);
++    }
++#endif
++
+     while (1) {
+         IntervalTreeNode *n =
+             interval_tree_iter_first(d->host_maps, host_start, host_start);
+-- 
+2.39.2
+
