@@ -37,4 +37,5 @@ redis:x:213:
 sgx:x:214:
 seat:x:215:
 pipewire:x:216:
+mongodb:x:217:
 nogroup:x:65534:

@@ -1,0 +1,24 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Tue, 5 Mar 2024 09:54:42 +0100
+Subject: [PATCH] HACK: SConstruct: keep environment
+
+Without this $PATH is sometimes lost and the compiler may not be found.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ SConstruct | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/SConstruct b/SConstruct
+index 7f0415775fbe..efe13094e2bc 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -1687,7 +1687,7 @@ envDict = dict(
+ if get_option('build-tools') == 'next':
+     SCons.Tool.DefaultToolpath.insert(0, os.path.abspath('site_scons/site_tools/next'))
+ 
+-env = Environment(variables=env_vars, **envDict)
++env = Environment(ENV=os.environ, variables=env_vars, **envDict)
+ del envDict
+ env.AddMethod(lambda env, name, **kwargs: add_option(name, **kwargs), 'AddOption')
+ 

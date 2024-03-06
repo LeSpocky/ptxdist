@@ -1,0 +1,15 @@
+## SECTION=applications
+
+config MONGODB
+	tristate
+	select HOST_PYTHON3_SCONS
+	select HOST_SYSTEM_PYTHON3_CHEETAH3
+	#select HOST_SYSTEM_PYTHON3_GITPYTHON
+	select HOST_SYSTEM_PYTHON3_PSUTIL
+	select HOST_SYSTEM_PYTHON3_PYMONGO
+	select PCRE2
+	select OPENSSL
+	select XZ
+	prompt "mongodb"
+	help
+	  FIXME
