@@ -61,26 +61,7 @@ ptxd_make_get_http() {
     rm -f -- "${path}."$p$p$p$p$p$p$p$p$p$p
 
     ptxd_make_serialize_take
-    if [ "${ptxd_make_get_dryrun}" != "y" ]; then
-	temp_file="$(mktemp "${path}.XXXXXXXXXX")" || ptxd_bailout "failed to create tempfile"
-	wget \
-	--passive-ftp \
-	--progress=bar:force \
-	--timeout=30 \
-	--tries=5 \
-	--user-agent="PTXdist ${PTXDIST_VERSION_FULL}" \
-	${PTXDIST_QUIET:+--quiet} \
-	"${opts[@]}" \
-	-O "${temp_file}" \
-	"${url}" && {
-	    chmod 644 -- "${temp_file}" &&
-	    file "${temp_file}" | grep -vq " HTML " &&
-	    touch -- "${temp_file}" &&
-	    mv -- "${temp_file}" "${path}"
-	    ptxd_make_serialize_put
-	    return
-	}
-    else
+    if [ "${ptxd_make_get_dryrun}" = "y" ]; then
 	echo "Checking URL '${url}'..."
 	temp_header="$(mktemp "${PTXDIST_TEMPDIR}/urlcheck.XXXXXX")" || ptxd_bailout "failed to create tempfile"
 	curl \
@@ -102,13 +83,28 @@ ptxd_make_get_http() {
 	fi
 	ptxd_make_serialize_put
 	return
-    fi &&
+    else
+	temp_file="$(mktemp "${path}.XXXXXXXXXX")" || ptxd_bailout "failed to create tempfile"
+	wget \
+	--passive-ftp \
+	--progress=bar:force \
+	--timeout=30 \
+	--tries=5 \
+	--user-agent="PTXdist ${PTXDIST_VERSION_FULL}" \
+	${PTXDIST_QUIET:+--quiet} \
+	"${opts[@]}" \
+	-O "${temp_file}" \
+	"${url}" || {
+	    ptxd_make_serialize_put
+	    rm -f -- "${temp_file}"
+	    return 1
+	}
+	chmod 644 -- "${temp_file}" &&
+	file "${temp_file}" | grep -vq " HTML " &&
+	touch -- "${temp_file}" &&
+	mv -- "${temp_file}" "${path}"
+    fi
     ptxd_make_serialize_put
-
-    rm -f -- "${temp_file}"
-
-    # return with failure, we didn't manage to download the file
-    return 1
 }
 export -f ptxd_make_get_http
 
