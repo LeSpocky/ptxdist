@@ -127,9 +127,6 @@ properties:
             - sources
             - md5s
             - url
-            url:
-            - srcdir
-            - builddir
         - if:
             properties:
               license-section:
