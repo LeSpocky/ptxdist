@@ -162,7 +162,7 @@ $defs:
     pattern: '^([a-f0-9]{32}( [a-f0-9]{32})*|none)$'
   url:
     type: string
-    pattern: '^(file|ftp|git|git+file|https?|lndir|ssh|svn)://[^\s]+$'
+    pattern: '^(file|ftp|git|git\+file|https?|git\+https?|lndir|ssh|svn)://[^\s]+$'
   version:
     type: string
     pattern: '^[^\s]+'
