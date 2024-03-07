@@ -48,19 +48,6 @@ APITRACE_LICENSE_FILES		+= \
 APITRACE_PARTS			+= APITRACE_BACKTRACE APITRACE_SNAPPY
 
 # ----------------------------------------------------------------------------
-# Extract
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/apitrace.extract:
-	@$(call targetinfo)
-	@$(call clean, $(APITRACE_DIR))
-	@$(call extract, APITRACE)
-	@$(call extract, APITRACE_BACKTRACE)
-	@$(call extract, APITRACE_SNAPPY)
-	@$(call patchin, APITRACE)
-	@$(call touch)
-
-# ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
