@@ -166,15 +166,13 @@ $defs:
   version:
     type: string
     pattern: '^[^\s]+'
-  pkg:
+  git-hash:
+    type: string
+    pattern: '^[a-f0-9]{40}$'
+  simple-pkg:
     type: object
     required:
     - name
-    - rulefile
-    - menufile
-    - cfghash
-    - license-section
-    - licenses
     additionalProperties: false
     properties:
       name:
@@ -215,6 +213,12 @@ $defs:
         type: array
         items:
           $ref: '#/$defs/path'
+      git-commit:
+        $ref: '#/$defs/git-hash'
+      source-packages:
+        type: array
+        items:
+          $ref: '#/$defs/simple-pkg'
       patches:
         $ref: '#/$defs/path'
       series:
@@ -288,3 +292,12 @@ $defs:
         type: array
         items:
           $ref: '#/$defs/path'
+  pkg:
+    allOf:
+    - $ref: '#/$defs/simple-pkg'
+    required:
+    - rulefile
+    - menufile
+    - cfghash
+    - license-section
+    - licenses
