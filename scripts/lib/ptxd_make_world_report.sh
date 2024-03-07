@@ -44,7 +44,7 @@ ptxd_make_world_report_yaml_fragment() {
 	do_echo "- name:" "${pkg}"
 	do_echo "  version:" "${pkg_version}"
 	do_list "  url:" "${pkg_url}"
-	do_list "  md5:" "${pkg_md5}"
+	do_echo "  md5:" "${pkg_md5}"
 	do_echo "  source:" "${pkg_src}"
     } >> "${tmp_report}"
 }
