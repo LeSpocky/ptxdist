@@ -75,7 +75,7 @@ ptxd_make_world_report_yaml() {
     do_list "url:" "${pkg_url}"
     do_echo "md5:" "${pkg_md5}"
     do_echo "source:" "${pkg_src}"
-    if [ -n "${pkg_md5s}" ]; then
+    if [ -n "${pkg_md5s}" -a "${pkg_md5s}" != ":" ]; then
 	echo "md5s:"
 	awk "BEGIN { RS=\" *:\\\\s*\"; FS=\":\" } { if (\$1) print \"- '\" \$1 \"'\" }" <<<"${pkg_md5s}"
     fi
