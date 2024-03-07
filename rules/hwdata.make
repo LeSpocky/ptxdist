@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_HWDATA) += hwdata
 #
 # Paths and names
 #
-HWDATA_VERSION		:= 0.379
-HWDATA_MD5		:= 2d8d413696545fd889ca3d32b78f64b5
+HWDATA_VERSION		:= 0.380
+HWDATA_MD5		:= 65d190da425b4fc9a38f4fb96b21f56f
 HWDATA			:= hwdata-$(HWDATA_VERSION)
 HWDATA_SUFFIX		:= tar.gz
 HWDATA_URL		:= https://github.com/vcrhonek/hwdata/archive/refs/tags/v$(HWDATA_VERSION).$(HWDATA_SUFFIX)
