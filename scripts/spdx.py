@@ -20,7 +20,7 @@ import hashlib
 import itertools
 import json
 
-SPDX_VERSION = "2.2"
+SPDX_VERSION = "2.3"
 
 
 #
