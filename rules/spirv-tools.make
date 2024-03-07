@@ -33,18 +33,6 @@ SPIRV_TOOLS_SPIRV_HEADERS_DIR		= $(SPIRV_TOOLS_DIR)/external/spirv-headers
 SPIRV_TOOLS_PARTS	+= SPIRV_TOOLS_SPIRV_HEADERS
 
 # ----------------------------------------------------------------------------
-# Extract
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/spirv-tools.extract:
-	@$(call targetinfo)
-	@$(call clean, $(SPIRV_TOOLS_DIR))
-	@$(call extract, SPIRV_TOOLS)
-	@$(call extract, SPIRV_TOOLS_SPIRV_HEADERS)
-	@$(call patchin, SPIRV_TOOLS)
-	@$(call touch)
-
-# ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
