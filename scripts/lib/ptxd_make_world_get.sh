@@ -19,7 +19,7 @@ ptxd_make_world_get() {
 	    ;;
     esac
 
-    if [ -n "${pkg_src}" -a \( \! -e "${pkg_src}" -o "${ptxd_make_get_dryrun}" = "y" \) ]; then
+    if [ -n "${pkg_src}" ]; then
 	ptxd_make_get "${pkg_src}" "${pkg_url}"
     fi
 }

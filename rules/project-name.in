@@ -90,6 +90,16 @@ config PROJECT_GENERATE_REPORTS
 	  build from packages since the document covers all packages that
 	  are part of the image.
 
+config PROJECT_STORE_SOURCE_GIT_COMMITS
+	bool
+	prompt "query and store git commits for source archives"
+	help
+	  PTXdist usually downloads source archives. But if that comes from a
+	  git server then it can be possible to determine the corresponding git
+	  commit.
+	  If enabled, the git commit will be determined if possible and stored
+	  with the source archive.
+
 comment "------------------------------------"
 comment "reproducible builds"
 comment "------------------------------------"

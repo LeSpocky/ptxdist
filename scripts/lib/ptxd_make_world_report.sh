@@ -18,8 +18,18 @@ ptxd_make_world_report_init() {
 }
 export -f ptxd_make_world_report_init
 
+ptxd_make_world_report_commit() {
+    if [ "$(ptxd_get_ptxconf PTXCONF_PROJECT_STORE_SOURCE_GIT_COMMITS)" != "y" ]; then
+	return
+    fi
+    if [ -e "${pkg_src}.commit" ]; then
+	pkg_commit="$(<"${pkg_src}.commit")"
+    fi
+}
+export -f ptxd_make_world_report_commit
+
 ptxd_make_world_report_yaml_fragment() {
-    local pkg tmp_report
+    local pkg tmp_report pkg_commit
 
     do_echo() {
 	if [ -n "${2}" ]; then
@@ -46,6 +56,8 @@ ptxd_make_world_report_yaml_fragment() {
 	do_list "  url:" "${pkg_url}"
 	do_echo "  md5:" "${pkg_md5}"
 	do_echo "  source:" "${pkg_src}"
+	ptxd_make_world_report_commit
+	do_echo "  git-commit:" "${pkg_commit}"
     } >> "${tmp_report}"
 }
 export -f ptxd_make_world_report_yaml_fragment

@@ -6,6 +6,16 @@
 # see the README file.
 #
 
+ptxd_make_get_need_commit() {
+    if [ -e "${path}.commit" ]; then
+	return 1
+    fi
+    if [ "$(ptxd_get_ptxconf PTXCONF_PROJECT_STORE_SOURCE_GIT_COMMITS)" != "y" ]; then
+	return 1
+    fi
+}
+export -f ptxd_make_get_need_commit
+
 #
 # in env:
 #
@@ -15,7 +25,7 @@
 #
 ptxd_make_get_http() {
     local -a curl_opts
-    local temp_file temp_header
+    local temp_file temp_header repo tag tmp
     set -- "${opts[@]}"
     unset opts
 
@@ -83,7 +93,7 @@ ptxd_make_get_http() {
 	fi
 	ptxd_make_serialize_put
 	return
-    else
+    elif [ ! -e "${path}" ]; then
 	temp_file="$(mktemp "${path}.XXXXXXXXXX")" || ptxd_bailout "failed to create tempfile"
 	if [ -n "${PTXDIST_QUIET}" ]; then
 	    progress=dot
@@ -109,6 +119,43 @@ ptxd_make_get_http() {
 	mv -- "${temp_file}" "${path}"
     fi
     ptxd_make_serialize_put
+
+    if ! ptxd_make_get_need_commit; then
+	return
+    fi
+    case "${url}" in
+	https://github.com/*/*/archive/*)
+	    repo=${url%%/archive/*}
+	    tag=${url##*/}
+	    tag=${tag%.tar.gz}
+	    tag=${tag%.zip}
+	    ;;
+	https://github.com/*/*/releases/download/*)
+	    repo=${url%%/releases/download/*}
+	    tag=${url##*/releases/download/}
+	    tag=${tag%%/*}
+	    ;;
+	https://*gitlab*/*/*/-/archive/*)
+	    repo=${url%%/-/archive/*}
+	    tag=${url##*/-/archive/}
+	    tag=${tag%%/*}
+	    ;;
+	https://*gitlab*/*/*/-/releases/*)
+	    repo=${url%%/-/releases/*}
+	    tag=${url##*/-/releases/}
+	    tag=${tag%%/*}
+	    ;;
+    esac
+    if [ -n "${repo}" -a -n "${tag}" ]; then
+	# try to get the commit for an annotated tag first
+	tmp="$(git ls-remote "${repo}" "refs/tags/${tag}^{}" 2>/dev/null | awk '{ print $1 }')"
+	if [ -z "${tmp}" ]; then
+	    tmp="$(git ls-remote --tags "${repo}" "refs/tags/${tag}" 2>/dev/null | awk '{ print $1 }')"
+	fi
+	if [ -n "${tmp}" ]; then
+	    echo "${tmp%% *}" > "${path}.commit"
+	fi
+    fi
 }
 export -f ptxd_make_get_http
 
@@ -123,7 +170,7 @@ export -f ptxd_make_get_http
 ptxd_make_get_git() {
     set -- "${opts[@]}"
     unset opts
-    local tag archive_args
+    local tag archive_args commit
     local mirror="${url#[a-z]*//}"
     mirror="$(dirname "${path}")/${mirror//\//.}"
     local prefix="$(basename "${path}")"
@@ -168,32 +215,40 @@ ptxd_make_get_git() {
 	git ls-remote --quiet "${url}" HEAD > /dev/null
 	ptxd_make_serialize_put
 	return
+    elif [ ! -e "${path}" ]; then
+	echo "${PROMPT}git: fetching '${url} into '${mirror}'..."
+	if [ ! -d "${mirror}" ]; then
+	    git init --bare --shared "${mirror}"
+	else
+	    git --git-dir="${mirror}" remote rm origin
+	fi &&
+	# overwrite everything so the git repository is in a defined state
+	git --git-dir="${mirror}" config transfer.fsckObjects true &&
+	git --git-dir="${mirror}" config tar.tar.gz.command "gzip -cn" &&
+	git --git-dir="${mirror}" config tar.tar.bz2.command "bzip2 -c" &&
+	git --git-dir="${mirror}" config tar.tar.xz.command "xz -c" &&
+	git --git-dir="${mirror}" remote add origin "${url}" &&
+	git --git-dir="${mirror}" fetch --progress -pf origin "+refs/*:refs/*"  &&
+	# at least for some git versions this is not group writeable for shared repos
+	if [ "$(stat -c '%A' "${mirror}/FETCH_HEAD" | cut -c 6)" != "w" ]; then
+	    chmod g+w "${mirror}/FETCH_HEAD"
+	fi &&
+
+	if ! git --git-dir="${mirror}" rev-parse --verify -q "${tag}" > /dev/null; then
+	    ptxd_make_serialize_put
+	    ptxd_bailout "git: tag '${tag}' not found in '${url}'"
+	fi &&
+
+	git --git-dir="${mirror}" archive ${archive_args} --prefix="${prefix}" -o "${path}" "${tag}"
     fi
-    echo "${PROMPT}git: fetching '${url} into '${mirror}'..."
-    if [ ! -d "${mirror}" ]; then
-	git init --bare --shared "${mirror}"
-    else
-	git --git-dir="${mirror}" remote rm origin
-    fi &&
-    # overwrite everything so the git repository is in a defined state
-    git --git-dir="${mirror}" config transfer.fsckObjects true &&
-    git --git-dir="${mirror}" config tar.tar.gz.command "gzip -cn" &&
-    git --git-dir="${mirror}" config tar.tar.bz2.command "bzip2 -c" &&
-    git --git-dir="${mirror}" config tar.tar.xz.command "xz -c" &&
-    git --git-dir="${mirror}" remote add origin "${url}" &&
-    git --git-dir="${mirror}" fetch --progress -pf origin "+refs/*:refs/*"  &&
-    # at least for some git versions this is not group writeable for shared repos
-    if [ "$(stat -c '%A' "${mirror}/FETCH_HEAD" | cut -c 6)" != "w" ]; then
-	chmod g+w "${mirror}/FETCH_HEAD"
-    fi &&
-
-    if ! git --git-dir="${mirror}" rev-parse --verify -q "${tag}" > /dev/null; then
-	ptxd_make_serialize_put
-	ptxd_bailout "git: tag '${tag}' not found in '${url}'"
-    fi &&
-
-    git --git-dir="${mirror}" archive ${archive_args} --prefix="${prefix}" -o "${path}" "${tag}"
     ptxd_make_serialize_put
+    if ! ptxd_make_get_need_commit; then
+	set +x
+	return
+    fi
+    if commit="$(git --git-dir="${mirror}" rev-parse "${tag}^{}" 2>/dev/null)"; then
+	echo "${commit}" > "${path}.commit"
+    fi
 }
 export -f ptxd_make_get_git
 
@@ -259,6 +314,9 @@ ptxd_make_get_svn() {
 	ptxd_make_serialize_put
 	return
     fi
+    if [ -e "${path}" ]; then
+	return
+    fi
     echo "${PROMPT}svn: fetching '${url} into '${mirror}'..."
     if [ ! -d "${mirror}" ]; then
 	svn checkout -r ${rev} "${url}" "${mirror}"
@@ -288,6 +346,9 @@ ptxd_make_get_s3() {
     unset opts
 
     if [ "${ptxd_make_get_dryrun}" = "y" ]; then
+	return
+    fi
+    if [ -e "${path}" ]; then
 	return
     fi
     ptxd_make_serialize_take
