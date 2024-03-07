@@ -353,6 +353,9 @@ ptxd_make_get() {
     local -a argv
     local ptxmirror_url
 
+    # needed when called from the source archive target
+    pkg_stage="${pkg_stage:-get}"
+
     exec 2>&${PTXDIST_FD_LOGERR}
     if [ -n "${PTXDIST_QUIET}" ]; then
 	exec 9>&1
