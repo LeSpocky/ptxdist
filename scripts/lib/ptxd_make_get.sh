@@ -57,7 +57,8 @@ ptxd_make_get_http() {
     local file="${url##*/}"
 
     # remove any pending or half downloaded files
-    rm -f -- "${path}."*
+    p="[a-zA-Z0-9]"
+    rm -f -- "${path}."$p$p$p$p$p$p$p$p$p$p
 
     ptxd_make_serialize_take
     if [ "${ptxd_make_get_dryrun}" != "y" ]; then
@@ -287,7 +288,8 @@ ptxd_make_get_s3() {
     unset opts
 
     # remove any pending or half downloaded files
-    rm -f -- "${path}."*
+    p="[a-zA-Z0-9]"
+    rm -f -- "${path}."$p$p$p$p$p$p$p$p$p$p
 
     temp_file="$(mktemp "${path}.XXXXXXXXXX")" || ptxd_bailout "failed to create tempfile"
 
