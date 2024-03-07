@@ -287,6 +287,10 @@ ptxd_make_get_s3() {
     set -- "${opts[@]}"
     unset opts
 
+    if [ "${ptxd_make_get_dryrun}" = "y" ]; then
+	return
+    fi
+    ptxd_make_serialize_take
     # remove any pending or half downloaded files
     p="[a-zA-Z0-9]"
     rm -f -- "${path}."$p$p$p$p$p$p$p$p$p$p
