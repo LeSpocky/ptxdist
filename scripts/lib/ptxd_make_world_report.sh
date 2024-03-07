@@ -95,7 +95,7 @@ ptxd_make_world_report_yaml() {
     do_echo "srchash:" "${pkg_srchash}"
     if [ "$(ptxd_get_ptxconf PTXCONF_PROJECT_CREATE_DEVPKGS)" == "y" -o \
 	 "$(ptxd_get_ptxconf PTXCONF_PROJECT_USE_DEVPKGS)" == "y" ]; then
-	do_echo "devpkg:" "${pkg_pkg_dev}"
+	do_echo "devpkg:" "${ptx_pkg_dir}/${pkg_pkg_dev}"
     fi
     do_echo "license-section:" "${pkg_section}"
     do_echo "licenses:" "${pkg_license}"
