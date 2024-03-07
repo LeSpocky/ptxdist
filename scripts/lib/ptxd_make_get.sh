@@ -85,13 +85,17 @@ ptxd_make_get_http() {
 	return
     else
 	temp_file="$(mktemp "${path}.XXXXXXXXXX")" || ptxd_bailout "failed to create tempfile"
+	if [ -n "${PTXDIST_QUIET}" ]; then
+	    progress=dot
+	else
+	    progress=bar:force
+	fi
 	wget \
 	--passive-ftp \
-	--progress=bar:force \
+	--progress="${progress}" \
 	--timeout=30 \
 	--tries=5 \
 	--user-agent="PTXdist ${PTXDIST_VERSION_FULL}" \
-	${PTXDIST_QUIET:+--quiet} \
 	"${opts[@]}" \
 	-O "${temp_file}" \
 	"${url}" || {
@@ -348,6 +352,11 @@ export -f ptxd_make_get_download_permitted
 ptxd_make_get() {
     local -a argv
     local ptxmirror_url
+
+    exec 2>&${PTXDIST_FD_LOGERR}
+    if [ -n "${PTXDIST_QUIET}" ]; then
+	exec 9>&1
+    fi
 
     local path="${1}"
     shift
