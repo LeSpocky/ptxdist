@@ -51,7 +51,7 @@ LIBCURL_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBCURL_FILE)-file \
 	--disable-ldap \
 	--disable-ldaps \
-	--disable-rtsp \
+	--$(call ptx/endis, PTXCONF_LIBCURL_RTSP)-rtsp \
 	--enable-proxy \
 	--disable-dict \
 	--disable-telnet \
