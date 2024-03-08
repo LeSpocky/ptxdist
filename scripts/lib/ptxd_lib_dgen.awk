@@ -395,7 +395,7 @@ function write_all_deps(dep_type, PKG_to_dep_all) {
 	}
 }
 
-function write_vars_pkg_all(this_PKG, this_pkg, prefix) {
+function write_vars_pkg_all(this_PKG, this_pkg, prefix, dir_prefix) {
 	#
 	# post install hooks
 	#
@@ -415,18 +415,26 @@ function write_vars_pkg_all(this_PKG, this_pkg, prefix) {
 	print this_PKG "_DEVPKG = " prefix this_devpkg			> DGEN_DEPS_PRE;
 	print this_PKG "_PARTS = " this_PKG				> DGEN_DEPS_PRE;
 
-	target_PKG = gensub(/^HOST_|^CROSS_/, "", 1, this_PKG);
-	PREFIX = gensub(/^(HOST_|CROSS_).*/, "\\1", 1, this_PKG);
+	if (this_PKG ~ /^HOST_SYSTEM_PYTHON3_/) {
+		target_PKG = gensub(/^HOST_SYSTEM_/, "", 1, this_PKG);
+		PREFIX = "HOST_"
+		dir_prefix = "system-"
+		if (!(target_PKG in PKG_to_pkg))
+			target_PKG = "HOST_" target_PKG
+	} else {
+		target_PKG = gensub(/^HOST_|^CROSS_/, "", 1, this_PKG);
+		PREFIX = gensub(/^(HOST_|CROSS_).*/, "\\1", 1, this_PKG);
+	}
 
 	# define default ${PKG}, ${PKG}_SOURCE, ${PKG}_DIR
-	if ((prefix != "") && (target_PKG in PKG_to_pkg)) {
-		print this_PKG " = $(" target_PKG ")"			> DGEN_DEPS_PRE;
+	if ((PREFIX != this_PKG) && (target_PKG in PKG_to_pkg)) {
+		print this_PKG " = " dir_prefix "$(" target_PKG ")"	> DGEN_DEPS_PRE;
 		print this_PKG "_VERSION = $(" target_PKG "_VERSION)"	> DGEN_DEPS_PRE;
 		print this_PKG "_MD5 = $(" target_PKG "_MD5)"		> DGEN_DEPS_PRE;
 		print this_PKG "_SOURCE = $(" target_PKG "_SOURCE)"	> DGEN_DEPS_PRE;
 		print this_PKG "_URL = $(" target_PKG "_URL)"		> DGEN_DEPS_PRE;
 		print this_PKG "_DIR = $(addprefix $(" PREFIX \
-			"BUILDDIR)/,$(" target_PKG "))"			> DGEN_DEPS_PRE;
+			"BUILDDIR)/,$(" this_PKG "))"			> DGEN_DEPS_PRE;
 		print this_PKG "_SUBDIR = $(" target_PKG "_SUBDIR)"	> DGEN_DEPS_PRE;
 		print this_PKG "_STRIP_LEVEL = $(" target_PKG \
 			"_STRIP_LEVEL)"					> DGEN_DEPS_PRE;
