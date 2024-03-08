@@ -1,0 +1,10 @@
+## SECTION=test_suites
+
+config VKRUNNER
+	bool
+	prompt "vkrunner"
+	select VULKAN_LOADER
+	select GLSLANG			if RUNTIME
+	select GLSLANG_TOOLS		if RUNTIME
+	help
+	  VkRunner is a Vulkan shader tester based on shader_runner in Piglit.
