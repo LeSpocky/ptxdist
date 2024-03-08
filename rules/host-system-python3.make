@@ -46,12 +46,6 @@ ifdef PTXCONF_HOST_SYSTEM_PYTHON3_NUMPY
 		ptxd_bailout "Python numpy module not found! \
 	Please install python3-numpy (debian)";
 endif
-ifdef PTXCONF_HOST_SYSTEM_PYTHON3_PYELFTOOLS
-	@echo "Checking for Python Pyelftools ..."
-	@$(SYSTEMPYTHON3) -c 'import elftools' 2>/dev/null || \
-		ptxd_bailout "Python elftools module not found! \
-	Please install python3-pyelftools (debian)";
-endif
 ifdef PTXCONF_HOST_SYSTEM_PYTHON3_PYYAML
 	@echo "Checking for Python pyyaml ..."
 	@$(SYSTEMPYTHON3) -c 'import yaml' 2>/dev/null || \

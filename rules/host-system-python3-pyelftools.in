@@ -1,0 +1,8 @@
+## SECTION=hosttools_noprompt
+
+config HOST_SYSTEM_PYTHON3_PYELFTOOLS
+	tristate
+	default y if ALLYES
+	select HOST_SYSTEM_PYTHON3
+	select HOST_SYSTEM_PYTHON3_PYBUILD
+	select HOST_SYSTEM_PYTHON3_WHEEL
