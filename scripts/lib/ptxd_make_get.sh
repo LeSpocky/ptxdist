@@ -364,6 +364,11 @@ ptxd_make_get() {
     local path="${1}"
     shift
 
+    # skip nested archives
+    if [[ "${path}" =~ ^"${PTXDIST_PLATFORMDIR}" ]]; then
+	return
+    fi
+
     local -a orig_argv
     orig_argv=( "${@}" )
 

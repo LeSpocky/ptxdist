@@ -449,7 +449,8 @@ function write_sources(this_PKG) {
 	print this_PKG "_PARTS := $(" this_PKG "_PARTS) $(foreach source,$(" this_PKG "_SOURCES),$($(source)))"	> DGEN_DEPS_POST;
 	print this_PKG "_SOURCES := $(" this_PKG "_SOURCE) $(" this_PKG "_SOURCES)"				> DGEN_DEPS_POST;
 	print "else"												> DGEN_DEPS_POST;
-	print this_PKG "_SOURCES += $(foreach part,$(" this_PKG "_PARTS),$($(part)_SOURCE))"			> DGEN_DEPS_POST;
+	print this_PKG "_SOURCES += $(filter-out $(if $(" this_PKG "_DIR),$(" this_PKG "_DIR)%,)," \
+			"$(foreach part,$(" this_PKG "_PARTS),$($(part)_SOURCE)))"				> DGEN_DEPS_POST;
 	print "endif"												> DGEN_DEPS_POST;
 }
 

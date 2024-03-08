@@ -18,6 +18,10 @@ ptxd_make_check_src_impl() {
     if [ -z "${src}" ]; then
 	ptxd_bailout "ptxd_make_check_src called without source file."
     fi
+    # skip nested archives
+    if [[ "${src}" =~ ^"${PTXDIST_PLATFORMDIR}" ]]; then
+	return
+    fi
     case "${PTXCONF_SETUP_CHECK}" in
     never)
 	return
