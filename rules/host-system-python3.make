@@ -40,12 +40,6 @@ ifdef PTXCONF_HOST_SYSTEM_PYTHON3_DEV
 		ptxd_bailout "Python development files module not found! \
 	Please install python3-dev (debian)";
 endif
-ifdef PTXCONF_HOST_SYSTEM_PYTHON3_MAKO
-	@echo "Checking for Python Mako ..."
-	@$(SYSTEMPYTHON3) -c 'import mako' 2>/dev/null || \
-		ptxd_bailout "Python mako module not found! \
-	Please install python3-mako (debian)";
-endif
 ifdef PTXCONF_HOST_SYSTEM_PYTHON3_NUMPY
 	@echo "Checking for Python Numpy ..."
 	@$(SYSTEMPYTHON3) -c 'import numpy' 2>/dev/null || \
