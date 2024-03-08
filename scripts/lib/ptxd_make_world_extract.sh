@@ -66,7 +66,7 @@ extract: pkg_extract_dir=$(ptxd_print_path ${pkg_dir})"
 
     local tmpdir
     tmpdir="$(mktemp -d "${pkg_dir}.XXXXXX")"
-    if ! ptxd_make_extract_archive "${pkg_src}" "${tmpdir}"; then
+    if ! ptxd_make_extract_archive "${pkg_src}" "${tmpdir}" "${pkg_src_filter}"; then
 	rm -rf "${tmpdir}"
 	ptxd_make_serialize_put
 	ptxd_bailout "failed to extract '${pkg_src}'."

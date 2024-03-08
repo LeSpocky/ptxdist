@@ -100,6 +100,7 @@ world/env/impl = \
 	pkg_dir="$(call ptx/escape,$($(1)_DIR))"				\
 	pkg_subdir="$(call ptx/escape,$($(1)_SUBDIR))"				\
 	pkg_strip_level="$(call ptx/escape,$($(1)_STRIP_LEVEL))"		\
+	pkg_src_filter="$(call ptx/escape,$($(1)_SRC_FILTER))"			\
 										\
 	pkg_tags_opt="$(call ptx/escape,$($(1)_TAGS_OPT))"			\
 										\

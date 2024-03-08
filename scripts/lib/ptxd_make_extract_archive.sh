@@ -3,7 +3,9 @@
 ptxd_make_extract_archive() {
     local archive="$1"
     local dest="$2"
+    local src_filter="$3"
     local filter
+    local -a args
 
     case "${archive}" in
 	*gz)
@@ -38,7 +40,11 @@ EOF
 	    ;;
     esac
 
-    tar -C "${dest}" "${filter}" -x -f "${archive}" || {
+    if [ -n "${src_filter}" ]; then
+	args=( "${src_filter}" )
+    fi
+
+    tar --wildcards -C "${dest}" "${filter}" -x -f "${archive}" "${args[@]}" || {
 	cat >&2 <<EOF
 
 error: extracting '${archive}' failed
