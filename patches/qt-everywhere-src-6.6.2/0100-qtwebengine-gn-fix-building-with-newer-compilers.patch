@@ -1,0 +1,47 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sat, 9 Mar 2024 10:03:58 +0100
+Subject: [PATCH] qtwebengine: gn: fix building with newer compilers
+
+Without this, uint8_t is not defined with newer compilers and building
+fails with:
+
+.../gn/src/base/containers/span.h:393:12: error: ISO C++ forbids declaration of 'type name' with no type [-fpermissive]
+.../gn/src/base/containers/span.h:393:75: error: template argument 1 is invalid
+.../gn/src/base/containers/span.h: In function 'int base::as_bytes(span<T, Extent>)':
+.../gn/src/base/containers/span.h:395:34: error: ISO C++ forbids declaration of 'type name' with no type [-fpermissive]
+.../gn/src/base/containers/span.h:395:34: error: expected '>' before 'uint8_t'
+.../gn/src/base/containers/span.h:395:34: error: expected '(' before 'uint8_t'
+.../gn/src/base/containers/span.h:395:34: error: 'uint8_t' was not declared in this scope
+.../gn/src/base/containers/span.h:395:34: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+.../gn/src/base/containers/span.h:395:42: error: expected primary-expression before '>' token
+.../gn/src/base/containers/span.h:395:69: error: expected ')' before '}' token
+.../gn/src/base/containers/span.h: At global scope:
+.../gn/src/base/containers/span.h:401:6: error: 'uint8_t' was not declared in this scope
+.../gn/src/base/containers/span.h:401:6: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+.../gn/src/base/containers/span.h:401:69: error: template argument 1 is invalid
+.../gn/src/base/containers/span.h: In function 'int base::as_writable_bytes(span<T, Extent>)':
+.../gn/src/base/containers/span.h:403:28: error: 'uint8_t' does not name a type
+.../gn/src/base/containers/span.h:403:28: note: 'uint8_t' is defined in header '<cstdint>'; did you forget to '#include <cstdint>'?
+.../gn/src/base/containers/span.h:403:35: error: expected '>' before '*' token
+.../gn/src/base/containers/span.h:403:35: error: expected '(' before '*' token
+.../gn/src/base/containers/span.h:403:36: error: expected primary-expression before '>' token
+.../gn/src/base/containers/span.h:403:63: error: expected ')' before '}' token
+.../gn/src/base/containers/span.h:403:63: error: cannot convert '<brace-enclosed initializer list>' to 'int' in return
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ qtwebengine/src/3rdparty/gn/src/base/containers/span.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/qtwebengine/src/3rdparty/gn/src/base/containers/span.h b/qtwebengine/src/3rdparty/gn/src/base/containers/span.h
+index 4af83b44bcb4..8fc90e189709 100644
+--- a/qtwebengine/src/3rdparty/gn/src/base/containers/span.h
++++ b/qtwebengine/src/3rdparty/gn/src/base/containers/span.h
+@@ -9,6 +9,7 @@
+ 
+ #include <algorithm>
+ #include <array>
++#include <cstdint>
+ #include <iterator>
+ #include <string_view>
+ #include <type_traits>
