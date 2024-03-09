@@ -24,8 +24,9 @@ MONGODB_URL		:= https://github.com/mongodb/mongo/archive/refs/tags/r$(MONGODB_VE
 MONGODB_SOURCE		:= $(SRCDIR)/$(MONGODB).$(MONGODB_SUFFIX)
 MONGODB_DIR		:= $(BUILDDIR)/$(MONGODB)
 MONGODB_BUILD_OOT	:= YES
-MONGODB_LICENSE		:= unknown
-MONGODB_LICENSE_FILES	:=
+MONGODB_LICENSE		:= SSPL-1.0
+MONGODB_LICENSE_FILES	:= \
+	file://LICENSE-Community.txt;md5=3a865f27f11f43ecbe542d9ea387dcf1
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -61,7 +62,6 @@ MONGODB_CONF_OPT	:=  \
 	--separate-debug=off \
 	--build-dir=$(MONGODB_DIR)-build \
 	--use-system-pcre2 \
-	--use-system-protobuf \
 	--use-system-zlib \
 	--use-system-zstd \
 	--disable-warnings-as-errors \

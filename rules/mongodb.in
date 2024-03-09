@@ -4,12 +4,13 @@ config MONGODB
 	tristate
 	select HOST_PYTHON3_SCONS
 	select HOST_SYSTEM_PYTHON3_CHEETAH3
-	#select HOST_SYSTEM_PYTHON3_GITPYTHON
 	select HOST_SYSTEM_PYTHON3_PSUTIL
 	select HOST_SYSTEM_PYTHON3_PYMONGO
 	select PCRE2
 	select OPENSSL
-	select XZ
+	select ZLIB
+	select ZSTD
 	prompt "mongodb"
 	help
-	  FIXME
+	  MongoDB is a document database designed for ease of application
+	  development and scaling.
