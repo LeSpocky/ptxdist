@@ -1,4 +1,6 @@
-## SECTION=debug_tools
+## SECTION=staging
+## old section:
+### SECTION=debug_tools
 
 menuconfig OPROFILE
 	tristate
@@ -21,6 +23,10 @@ menuconfig OPROFILE
 	prompt "oprofile                      "
 	help
 	  oprofile user space executables including opcontrol, opreport and others
+
+	  STAGING: remove in PTXdist 2025.04.0
+	  Upstream is dead, unmaintained in ptxdist and fails to build with newer
+	  toolchains.
 
 if OPROFILE
 
