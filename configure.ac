@@ -238,7 +238,7 @@ if test -z "$GUNZIP"; then
 fi
 
 dnl Check for unzip
-AC_PATH_PROGS(UNZIP, gunzip,, $PATH)
+AC_PATH_PROGS(UNZIP, unzip,, $PATH)
 if test -z "$UNZIP"; then
 	AC_MSG_ERROR([unzip could not be found, please install])
 fi
