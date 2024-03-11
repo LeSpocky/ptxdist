@@ -1,0 +1,7 @@
+## SECTION=hosttools_noprompt
+
+config HOST_GNUTLS
+	tristate
+	default y if ALLYES
+	select HOST_LIBTASN1
+	select HOST_NETTLE
