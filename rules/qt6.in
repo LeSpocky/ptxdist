@@ -366,15 +366,9 @@ endif
 
 config QT6_MODULE_QTGRAPHS
 	bool
+	select QT6_GUI
+	select QT6_MODULE_QTDECLARATIVE
 	prompt"QtGraphs"
-
-if QT6_MODULE_QTGRAPHS
-
-config QT6_MODULE_QTGRAPHS_QUICK
-	bool
-	default QT6_MODULE_QTDECLARATIVE_QUICK
-
-endif
 
 config QT6_MODULE_QTHTTPSERVER
 	bool
@@ -386,6 +380,7 @@ config QT6_MODULE_QTIMAGEFORMATS
 
 config QT6_MODULE_QTLOTTIE
 	bool
+	select QT6_MODULE_QTDECLARATIVE
 	prompt "QtLottie"
 
 config QT6_MODULE_QTMQTT
@@ -422,6 +417,7 @@ config QT6_MODULE_QTNETWORKAUTH
 
 config QT6_MODULE_QTOPCUA
 	bool
+	select QT6_MODULE_QTDECLARATIVE
 	prompt "QtOpcua"
 
 config QT6_MODULE_QTOPCUA_QUICK

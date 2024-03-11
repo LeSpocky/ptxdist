@@ -689,7 +689,7 @@ endif
 ifdef PTXCONF_QT6_MODULE_QTSCXML
 QT6_CONF_OPT += \
 	-DFEATURE_qeventtransition=$(call ptx/onoff,PTXCONF_QT6_GUI) \
-	-DFEATURE_scxml_ecmascriptdatamodel=ON \
+	-DFEATURE_scxml_ecmascriptdatamodel=$(call ptx/onoff,PTXCONF_QT6_MODULE_QTSCXML_QUICK) \
 	-DFEATURE_statemachine=ON
 endif
 
@@ -1041,7 +1041,7 @@ endif
 
 ### QtGraphs ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTGRAPHS)				+= Qt6Graphs
-QT6_QML-$(PTXCONF_QT6_MODULE_QTGRAPHS_QUICK)			+= QtGraphs
+QT6_QML-$(PTXCONF_QT6_MODULE_QTGRAPHS)				+= QtGraphs
 
 ### QtHttpServer ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTHTTPSERVER)			+= Qt6HttpServer
@@ -1116,7 +1116,7 @@ QT6_LIBS-$(PTXCONF_QT6_MODULE_QTSCXML)				+= Qt6StateMachine
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTSCXML_QUICK)			+= Qt6StateMachineQml
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTSCXML_QUICK)			+= Qt6ScxmlQml
 QT6_QML-$(PTXCONF_QT6_MODULE_QTSCXML_QUICK)			+= QtScxml
-QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTSCXML)			+= scxmldatamodel/libqscxmlecmascriptdatamodel
+QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTSCXML_QUICK)			+= scxmldatamodel/libqscxmlecmascriptdatamodel
 
 ### QtSensors ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTSENSORS)			+= Qt6Sensors
