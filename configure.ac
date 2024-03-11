@@ -243,6 +243,12 @@ if test -z "$UNZIP"; then
 	AC_MSG_ERROR([unzip could not be found, please install])
 fi
 
+dnl Check for xz
+AC_PATH_PROGS(XZ, xz,, $PATH)
+if test -z "$XZ"; then
+	AC_MSG_ERROR([xz could not be found, please install])
+fi
+
 dnl Check for wget
 AC_PATH_PROGS(WGET, wget,, $PATH)
 if test -z "$WGET"; then
