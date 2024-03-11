@@ -4,6 +4,8 @@ menuconfig U_BOOT
 	select BOOTLOADER
 	select HOST_SYSTEM_PYTHON3
 	select HOST_OPENSSL		if U_BOOT_NEEDS_HOST_OPENSSL
+	select HOST_GNUTLS		if U_BOOT_NEEDS_HOST_GNUTLS
+	select HOST_LIBUUID		if U_BOOT_NEEDS_HOST_LIBUUID
 	prompt "U-Boot                        "
 	bool
 
@@ -286,5 +288,23 @@ config U_BOOT_NEEDS_HOST_OPENSSL
 	  It might just increase the build time, if no other package has
 	  host openssl selected.
 
-endif
+config U_BOOT_NEEDS_HOST_GNUTLS
+	prompt "needs host GnuTLS"
+	bool
+	help
+	  U-Boot from version 2022.04 includes host tools using GnuTLS for
+	  image signing.
 
+	  Select this if your board config enables such tools, e.g. with
+	  CONFIG_TOOLS_MKEFICAPSULE.
+
+config U_BOOT_NEEDS_HOST_LIBUUID
+	prompt "needs host libuuid"
+	bool
+	help
+	  U-Boot from version 2022.04 includes host tools using libuuid.
+
+	  Select this if your board config enables such tools, e.g. with
+	  CONFIG_TOOLS_MKEFICAPSULE or CONFIG_TOOLS_MKFWUMDATA.
+
+endif
