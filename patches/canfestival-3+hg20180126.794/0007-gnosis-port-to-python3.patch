@@ -1,0 +1,1912 @@
+From: Roland Hieber <rhi@pengutronix.de>
+Date: Sun, 11 Feb 2024 22:51:48 +0100
+Subject: [PATCH] gnosis: port to python3
+
+Not all of the code was ported, only enough to make objdictgen calls in
+the Makefile work enough to generate the code in examples/.
+---
+ objdictgen/gnosis/__init__.py                      |  7 +-
+ objdictgen/gnosis/doc/xml_matters_39.txt           |  2 +-
+ objdictgen/gnosis/indexer.py                       |  2 +-
+ objdictgen/gnosis/magic/dtdgenerator.py            |  2 +-
+ objdictgen/gnosis/magic/multimethods.py            |  4 +-
+ objdictgen/gnosis/pyconfig.py                      | 34 ++++-----
+ objdictgen/gnosis/trigramlib.py                    |  2 +-
+ objdictgen/gnosis/util/XtoY.py                     | 22 +++---
+ objdictgen/gnosis/util/introspect.py               | 30 ++++----
+ objdictgen/gnosis/util/test/__init__.py            |  0
+ objdictgen/gnosis/util/test/funcs.py               |  2 +-
+ objdictgen/gnosis/util/test/test_data2attr.py      | 16 ++---
+ objdictgen/gnosis/util/test/test_introspect.py     | 39 +++++-----
+ objdictgen/gnosis/util/test/test_noinit.py         | 43 ++++++------
+ .../gnosis/util/test/test_variants_noinit.py       | 53 +++++++++-----
+ objdictgen/gnosis/util/xml2sql.py                  |  2 +-
+ objdictgen/gnosis/xml/indexer.py                   | 14 ++--
+ objdictgen/gnosis/xml/objectify/_objectify.py      | 14 ++--
+ objdictgen/gnosis/xml/objectify/utils.py           |  4 +-
+ objdictgen/gnosis/xml/pickle/__init__.py           |  4 +-
+ objdictgen/gnosis/xml/pickle/_pickle.py            | 82 ++++++++++------------
+ objdictgen/gnosis/xml/pickle/doc/HOWTO.extensions  |  6 +-
+ objdictgen/gnosis/xml/pickle/exception.py          |  2 +
+ objdictgen/gnosis/xml/pickle/ext/__init__.py       |  2 +-
+ objdictgen/gnosis/xml/pickle/ext/_mutate.py        | 17 +++--
+ objdictgen/gnosis/xml/pickle/ext/_mutators.py      | 14 ++--
+ objdictgen/gnosis/xml/pickle/parsers/_dom.py       | 34 ++++-----
+ objdictgen/gnosis/xml/pickle/parsers/_sax.py       | 41 ++++++-----
+ objdictgen/gnosis/xml/pickle/test/test_all.py      |  6 +-
+ .../gnosis/xml/pickle/test/test_badstring.py       |  2 +-
+ objdictgen/gnosis/xml/pickle/test/test_bltin.py    |  2 +-
+ objdictgen/gnosis/xml/pickle/test/test_mutators.py | 18 ++---
+ objdictgen/gnosis/xml/pickle/test/test_unicode.py  | 31 ++++----
+ objdictgen/gnosis/xml/pickle/util/__init__.py      |  4 +-
+ objdictgen/gnosis/xml/pickle/util/_flags.py        | 11 ++-
+ objdictgen/gnosis/xml/pickle/util/_util.py         | 20 +++---
+ objdictgen/gnosis/xml/relax/lex.py                 | 12 ++--
+ objdictgen/gnosis/xml/relax/rnctree.py             |  2 +-
+ objdictgen/gnosis/xml/xmlmap.py                    | 32 ++++-----
+ 39 files changed, 322 insertions(+), 312 deletions(-)
+ create mode 100644 objdictgen/gnosis/util/test/__init__.py
+ create mode 100644 objdictgen/gnosis/xml/pickle/exception.py
+
+diff --git a/objdictgen/gnosis/__init__.py b/objdictgen/gnosis/__init__.py
+index ec2768738626..8d7bc5a5a467 100644
+--- a/objdictgen/gnosis/__init__.py
++++ b/objdictgen/gnosis/__init__.py
+@@ -1,9 +1,8 @@
+ import string
+ from os import sep
+-s = string
+-d = s.join(s.split(__file__, sep)[:-1], sep)+sep
+-_ = lambda f: s.rstrip(open(d+f).read())
+-l = lambda f: s.split(_(f),'\n')
++d = sep.join(__file__.split(sep)[:-1])+sep
++_ = lambda f: open(d+f).read().rstrip()
++l = lambda f: _(f).split('\n')
+ 
+ try:
+     __doc__ = _('README')
+diff --git a/objdictgen/gnosis/doc/xml_matters_39.txt b/objdictgen/gnosis/doc/xml_matters_39.txt
+index 136c20a6ae95..b2db8b83fd92 100644
+--- a/objdictgen/gnosis/doc/xml_matters_39.txt
++++ b/objdictgen/gnosis/doc/xml_matters_39.txt
+@@ -273,7 +273,7 @@ SERIALIZING TO XML
+               out.write(' %s=%s' % attr)
+           out.write('>')
+           for node in content(o):
+-              if type(node) in StringTypes:
++              if type(node) == str:
+                   out.write(node)
+               else:
+                   write_xml(node, out=out)
+diff --git a/objdictgen/gnosis/indexer.py b/objdictgen/gnosis/indexer.py
+index e975afd5aeb6..60f1b742ec94 100644
+--- a/objdictgen/gnosis/indexer.py
++++ b/objdictgen/gnosis/indexer.py
+@@ -182,7 +182,7 @@ def recurse_files(curdir, pattern, exclusions, func=echo_fname, *args, **kw):
+         elif type(pattern)==type(re.compile('')):
+             if pattern.match(name):
+                 files.append(fname)
+-        elif type(pattern) is StringType:
++        elif type(pattern) is str:
+             if fnmatch.fnmatch(name, pattern):
+                 files.append(fname)
+ 
+diff --git a/objdictgen/gnosis/magic/dtdgenerator.py b/objdictgen/gnosis/magic/dtdgenerator.py
+index 9f6368f4c0df..d06f80364616 100644
+--- a/objdictgen/gnosis/magic/dtdgenerator.py
++++ b/objdictgen/gnosis/magic/dtdgenerator.py
+@@ -83,7 +83,7 @@ class DTDGenerator(type):
+         map(lambda x: expand(x, subs), subs.keys())
+ 
+         # On final pass, substitute-in to the declarations
+-        for decl, i in zip(decl_list, xrange(maxint)):
++        for decl, i in zip(decl_list, range(maxint)):
+             for name, sub in subs.items():
+                 decl = decl.replace(name, sub)
+             decl_list[i] = decl
+diff --git a/objdictgen/gnosis/magic/multimethods.py b/objdictgen/gnosis/magic/multimethods.py
+index 699f4ffb5bbe..d1fe0302e631 100644
+--- a/objdictgen/gnosis/magic/multimethods.py
++++ b/objdictgen/gnosis/magic/multimethods.py
+@@ -59,7 +59,7 @@ def lexicographic_mro(signature, matches):
+     # Schwartzian transform to weight match sigs, left-to-right"
+     proximity = lambda klass, mro: mro.index(klass)
+     mros = [klass.mro() for klass in signature]
+-    for (sig,func,nm),i in zip(matches,xrange(1000)):
++    for (sig,func,nm),i in zip(matches,range(1000)):
+         matches[i] = (map(proximity, sig, mros), matches[i])
+     matches.sort()
+     return map(lambda t:t[1], matches)
+@@ -71,7 +71,7 @@ def weighted_mro(signature, matches):
+     proximity = lambda klass, mro: mro.index(klass)
+     sum = lambda lst: reduce(add, lst)
+     mros = [klass.mro() for klass in signature]
+-    for (sig,func,nm),i in zip(matches,xrange(1000)):
++    for (sig,func,nm),i in zip(matches,range(1000)):
+         matches[i] = (sum(map(proximity,sig,mros)), matches[i])
+     matches.sort()
+     return map(lambda t:t[1], matches)
+diff --git a/objdictgen/gnosis/pyconfig.py b/objdictgen/gnosis/pyconfig.py
+index b2419f2c4ba3..255fe42f9a1f 100644
+--- a/objdictgen/gnosis/pyconfig.py
++++ b/objdictgen/gnosis/pyconfig.py
+@@ -45,7 +45,7 @@
+ #				   just that each testcase compiles & runs OK.
+ 
+ # Note: Compatibility with Python 1.5 is required here.
+-import __builtin__, string
++import string
+ 
+ # FYI, there are tests for these PEPs:
+ #
+@@ -105,15 +105,15 @@ def compile_code( codestr ):
+     if codestr and codestr[-1] != '\n':
+         codestr = codestr + '\n'
+ 
+-    return __builtin__.compile(codestr, 'dummyname', 'exec')
++    return compile(codestr, 'dummyname', 'exec')
+ 
+ def can_run_code( codestr ):
+     try:
+         eval( compile_code(codestr) )
+         return 1
+-    except Exception,exc:
++    except Exception as exc:
+         if SHOW_DEBUG_INFO:
+-            print "RUN EXC ",str(exc)
++            print("RUN EXC ",str(exc))
+             
+         return 0
+ 
+@@ -359,11 +359,11 @@ def Can_AssignDoc():
+ 
+ def runtest(msg, test):
+     r = test()
+-    print "%-40s %s" % (msg,['no','yes'][r])
++    print("%-40s %s" % (msg,['no','yes'][r]))
+ 
+ def runtest_1arg(msg, test, arg):
+     r = test(arg)
+-    print "%-40s %s" % (msg,['no','yes'][r])
++    print("%-40s %s" % (msg,['no','yes'][r]))
+ 
+ if __name__ == '__main__':
+ 
+@@ -372,37 +372,37 @@ if __name__ == '__main__':
+     # show banner w/version
+     try:
+         v = sys.version_info
+-        print "Python %d.%d.%d-%s [%s, %s]" % (v[0],v[1],v[2],str(v[3]),
+-                                               os.name,sys.platform)
++        print("Python %d.%d.%d-%s [%s, %s]" % (v[0],v[1],v[2],str(v[3]),
++                                               os.name,sys.platform))
+     except:
+         # Python 1.5 lacks sys.version_info
+-        print "Python %s [%s, %s]" % (string.split(sys.version)[0],
+-                                      os.name,sys.platform)
++        print("Python %s [%s, %s]" % (string.split(sys.version)[0],
++                                      os.name,sys.platform))
+ 
+     # Python 1.5
+-    print "			** Python 1.5 features **"
++    print("			** Python 1.5 features **")
+     runtest("Can assign to __doc__?", Can_AssignDoc)
+     
+     # Python 1.6
+-    print "			** Python 1.6 features **"
++    print("			** Python 1.6 features **")
+     runtest("Have Unicode?", Have_Unicode)
+     runtest("Have string methods?", Have_StringMethods)
+ 
+     # Python 2.0
+-    print "			** Python 2.0 features **"	
++    print("			** Python 2.0 features **"	)
+     runtest("Have augmented assignment?", Have_AugmentedAssignment)
+     runtest("Have list comprehensions?", Have_ListComprehensions)
+     runtest("Have 'import module AS ...'?", Have_ImportAs)
+ 
+     # Python 2.1
+-    print "			** Python 2.1 features **"	
++    print("			** Python 2.1 features **"	)
+     runtest("Have __future__?", Have_Future)
+     runtest("Have rich comparison?", Have_RichComparison)
+     runtest("Have function attributes?", Have_FunctionAttributes)
+     runtest("Have nested scopes?", Have_NestedScopes)
+ 
+     # Python 2.2
+-    print "			** Python 2.2 features **"		
++    print("			** Python 2.2 features **"		)
+     runtest("Have True/False?", Have_TrueFalse)	
+     runtest("Have 'object' type?", Have_ObjectClass)
+     runtest("Have __slots__?", Have_Slots)
+@@ -415,7 +415,7 @@ if __name__ == '__main__':
+     runtest("Unified longs/ints?", Have_UnifiedLongInts)
+     
+     # Python 2.3
+-    print "		   ** Python 2.3 features **"		
++    print("		   ** Python 2.3 features **"		)
+     runtest("Have enumerate()?", Have_Enumerate)
+     runtest("Have basestring?", Have_Basestring)
+     runtest("Longs > maxint in range()?", Have_LongRanges)
+@@ -425,7 +425,7 @@ if __name__ == '__main__':
+         runtest_1arg("bool is a baseclass [expect 'no']?", IsLegal_BaseClass, 'bool')
+     
+     # Python 2.4
+-    print "		   ** Python 2.4 features **"		
++    print("		   ** Python 2.4 features **"		)
+     runtest("Have builtin sets?", Have_BuiltinSets)
+     runtest("Have function/method decorators?", Have_Decorators)
+     runtest("Have multiline imports?", Have_MultilineImports)
+diff --git a/objdictgen/gnosis/trigramlib.py b/objdictgen/gnosis/trigramlib.py
+index 3127638e22a0..3dc75ef16f49 100644
+--- a/objdictgen/gnosis/trigramlib.py
++++ b/objdictgen/gnosis/trigramlib.py
+@@ -23,7 +23,7 @@ def simplify_null(text):
+ def generate_trigrams(text, simplify=simplify):
+     "Iterator on trigrams in (simplified) text"
+     text = simplify(text)
+-    for i in xrange(len(text)-3):
++    for i in range(len(text)-3):
+         yield text[i:i+3]
+ 
+ def read_trigrams(fname):
+diff --git a/objdictgen/gnosis/util/XtoY.py b/objdictgen/gnosis/util/XtoY.py
+index 9e2816216488..fc252b5d3dd0 100644
+--- a/objdictgen/gnosis/util/XtoY.py
++++ b/objdictgen/gnosis/util/XtoY.py
+@@ -27,20 +27,20 @@ def aton(s):
+ 
+     if re.match(re_float, s): return float(s)
+ 
+-    if re.match(re_long, s): return long(s)
++    if re.match(re_long, s): return int(s[:-1])  # remove 'L' postfix
+ 
+     if re.match(re_int, s): return int(s)
+ 
+     m = re.match(re_hex, s)
+     if m:
+-        n = long(m.group(3),16)
++        n = int(m.group(3),16)
+         if n < sys.maxint: n = int(n)
+         if m.group(1)=='-': n = n * (-1)
+         return n
+ 
+     m = re.match(re_oct, s)
+     if m:
+-        n = long(m.group(3),8)
++        n = int(m.group(3),8)
+         if n < sys.maxint: n = int(n)
+         if m.group(1)=='-': n = n * (-1)
+         return n
+@@ -51,28 +51,26 @@ def aton(s):
+         r, i = s.split(':')
+         return complex(float(r), float(i))
+ 
+-    raise SecurityError, \
+-          "Malicious string '%s' passed to to_number()'d" % s
++    raise SecurityError( \
++          "Malicious string '%s' passed to to_number()'d" % s)
+ 
+ # we use ntoa() instead of repr() to ensure we have a known output format
+ def ntoa(n):
+     "Convert a number to a string without calling repr()"
+-    if isinstance(n,IntType):
+-        s = "%d" % n
+-    elif isinstance(n,LongType):
++    if isinstance(n,int):
+         s = "%ldL" % n
+-    elif isinstance(n,FloatType):
++    elif isinstance(n,float):
+         s = "%.17g" % n
+         # ensure a '.', adding if needed (unless in scientific notation)
+         if '.' not in s and 'e' not in s:
+             s = s + '.'
+-    elif isinstance(n,ComplexType):
++    elif isinstance(n,complex):
+         # these are always used as doubles, so it doesn't
+         # matter if the '.' shows up
+         s = "%.17g:%.17g" % (n.real,n.imag)
+     else:
+-        raise ValueError, \
+-              "Unknown numeric type: %s" % repr(n)
++        raise ValueError( \
++              "Unknown numeric type: %s" % repr(n))
+     return s
+ 
+ def to_number(s):
+diff --git a/objdictgen/gnosis/util/introspect.py b/objdictgen/gnosis/util/introspect.py
+index 2eef3679211e..bf7425277d17 100644
+--- a/objdictgen/gnosis/util/introspect.py
++++ b/objdictgen/gnosis/util/introspect.py
+@@ -18,12 +18,10 @@ from types import *
+ from operator import add
+ from gnosis.util.combinators import or_, not_, and_, lazy_any
+ 
+-containers = (ListType, TupleType, DictType)
+-simpletypes = (IntType, LongType, FloatType, ComplexType, StringType)
+-if gnosis.pyconfig.Have_Unicode():
+-    simpletypes = simpletypes + (UnicodeType,)
++containers = (list, tuple, dict)
++simpletypes = (int, float, complex, str)
+ datatypes = simpletypes+containers
+-immutabletypes = simpletypes+(TupleType,)
++immutabletypes = simpletypes+(tuple,)
+ 
+ class undef: pass
+ 
+@@ -34,15 +32,13 @@ def isinstance_any(o, types):
+ 
+ isContainer	 = lambda o: isinstance_any(o, containers)
+ isSimpleType = lambda o: isinstance_any(o, simpletypes)
+-isInstance	 = lambda o: type(o) is InstanceType
++isInstance	 = lambda o: isinstance(o, object)
+ isImmutable	 = lambda o: isinstance_any(o, immutabletypes)
+ 
+-if gnosis.pyconfig.Have_ObjectClass():	
+-    isNewStyleInstance = lambda o: issubclass(o.__class__,object) and \
+-                                not type(o) in datatypes
+-else:
+-    isNewStyleInstance = lambda o: 0
+-isOldStyleInstance = lambda o: isinstance(o, ClassType)
++# Python 3 only has new-style classes
++import inspect
++isNewStyleInstance = lambda o: inspect.isclass(o)
++isOldStyleInstance = lambda o: False
+ isClass			= or_(isOldStyleInstance, isNewStyleInstance)
+ 
+ if gnosis.pyconfig.Have_ObjectClass():
+@@ -95,7 +91,7 @@ def attr_dict(o, fillslots=0):
+                 dct[attr] = getattr(o,attr)
+         return dct
+     else:
+-        raise TypeError, "Object has neither __dict__ nor __slots__"
++        raise TypeError("Object has neither __dict__ nor __slots__")
+ 
+ attr_keys = lambda o: attr_dict(o).keys()
+ attr_vals = lambda o: attr_dict(o).values()
+@@ -129,10 +125,10 @@ def setCoreData(o, data, force=0):
+         new = o.__class__(data)
+         attr_update(new, attr_dict(o))	# __slots__ safe attr_dict()
+         o = new
+-    elif isinstance(o, DictType):
++    elif isinstance(o, dict):
+         o.clear()
+         o.update(data)
+-    elif isinstance(o, ListType):
++    elif isinstance(o, list):
+         o[:] = data
+     return o
+ 
+@@ -141,7 +137,7 @@ def getCoreData(o):
+     if hasCoreData(o):
+         return isinstance_any(o, datatypes)(o)
+     else:
+-        raise TypeError, "Unhandled type in getCoreData for: ", o
++        raise TypeError("Unhandled type in getCoreData for: ", o)
+ 
+ def instance_noinit(C):
+     """Create an instance of class C without calling __init__
+@@ -166,7 +162,7 @@ def instance_noinit(C):
+     elif isNewStyleInstance(C):
+         return C.__new__(C)
+     else:
+-        raise TypeError, "You must specify a class to create instance of."
++        raise TypeError("You must specify a class to create instance of.")
+ 
+ if __name__ == '__main__':
+     "We could use some could self-tests (see test/ subdir though)"
+diff --git a/objdictgen/gnosis/util/test/__init__.py b/objdictgen/gnosis/util/test/__init__.py
+new file mode 100644
+index 000000000000..e69de29bb2d1
+diff --git a/objdictgen/gnosis/util/test/funcs.py b/objdictgen/gnosis/util/test/funcs.py
+index 5d39d80bc3d4..28647fa14da0 100644
+--- a/objdictgen/gnosis/util/test/funcs.py
++++ b/objdictgen/gnosis/util/test/funcs.py
+@@ -1,4 +1,4 @@
+ import os, sys, string
+ 
+ def pyver():
+-    return string.split(sys.version)[0] 
++    return sys.version.split()[0]
+diff --git a/objdictgen/gnosis/util/test/test_data2attr.py b/objdictgen/gnosis/util/test/test_data2attr.py
+index fb5b9cd5cff4..24281a5ed761 100644
+--- a/objdictgen/gnosis/util/test/test_data2attr.py
++++ b/objdictgen/gnosis/util/test/test_data2attr.py
+@@ -1,5 +1,5 @@
+ from sys import version
+-from gnosis.util.introspect import data2attr, attr2data
++from ..introspect import data2attr, attr2data
+ 
+ if version >= '2.2':
+     class NewList(list): pass
+@@ -14,20 +14,20 @@ if version >= '2.2':
+     nd.attr = 'spam'
+ 
+     nl = data2attr(nl)
+-    print nl, getattr(nl, '__coredata__', 'No __coredata__')
++    print(nl, getattr(nl, '__coredata__', 'No __coredata__'))
+     nl = attr2data(nl)
+-    print nl, getattr(nl, '__coredata__', 'No __coredata__')
++    print(nl, getattr(nl, '__coredata__', 'No __coredata__'))
+ 
+     nt = data2attr(nt)
+-    print nt, getattr(nt, '__coredata__', 'No __coredata__')
++    print(nt, getattr(nt, '__coredata__', 'No __coredata__'))
+     nt = attr2data(nt)
+-    print nt, getattr(nt, '__coreData__', 'No __coreData__')
++    print(nt, getattr(nt, '__coreData__', 'No __coreData__'))
+ 
+     nd = data2attr(nd)
+-    print nd, getattr(nd, '__coredata__', 'No __coredata__')
++    print(nd, getattr(nd, '__coredata__', 'No __coredata__'))
+     nd = attr2data(nd)
+-    print nd, getattr(nd, '__coredata__', 'No __coredata__')
++    print(nd, getattr(nd, '__coredata__', 'No __coredata__'))
+ else:
+-    print "data2attr() and attr2data() only work on 2.2+ new-style objects"
++    print("data2attr() and attr2data() only work on 2.2+ new-style objects")
+ 
+ 
+diff --git a/objdictgen/gnosis/util/test/test_introspect.py b/objdictgen/gnosis/util/test/test_introspect.py
+index 57e78ba2d88b..42aa10037570 100644
+--- a/objdictgen/gnosis/util/test/test_introspect.py
++++ b/objdictgen/gnosis/util/test/test_introspect.py
+@@ -1,7 +1,7 @@
+ 
+-import gnosis.util.introspect as insp
++from .. import introspect as insp
+ import sys
+-from funcs import pyver
++from .funcs import pyver
+ 
+ def test_list( ovlist, tname, test ):
+ 
+@@ -9,9 +9,9 @@ def test_list( ovlist, tname, test ):
+         sys.stdout.write('OBJ %s ' % str(o))
+ 
+         if (v and test(o)) or (not v and not test(o)):
+-            print "%s = %d .. OK" % (tname,v)
++            print("%s = %d .. OK" % (tname,v))
+         else:
+-            raise "ERROR - Wrong answer to test."
++            raise Exception("ERROR - Wrong answer to test.")
+         
+ # isContainer
+ ol = [ ([], 1),
+@@ -40,30 +40,35 @@ ol = [ (foo1(), 1),
+        (foo2(), 1),
+        (foo3(), 0) ]
+ 
+-test_list( ol, 'isInstance', insp.isInstance)
++if pyver()[0] <= "2":
++    # in python >= 3, all variables are instances of object
++    test_list( ol, 'isInstance', insp.isInstance)
+ 
+ # isInstanceLike
+ ol = [ (foo1(), 1),
+        (foo2(), 1),
+        (foo3(), 0)]
+ 
+-test_list( ol, 'isInstanceLike', insp.isInstanceLike)
++if pyver()[0] <= "2":
++    # in python >= 3, all variables are instances of object
++    test_list( ol, 'isInstanceLike', insp.isInstanceLike)
+ 
+-from types import *
++if pyver()[0] <= "2":
++    from types import *
+ 
+-def is_oldclass(o):
+-    if isinstance(o,ClassType):
+-        return 1
+-    else:
+-        return 0
++    def is_oldclass(o):
++        if isinstance(o,ClassType):
++            return 1
++        else:
++            return 0
+ 
+-ol = [ (foo1,1),
+-       (foo2,1),
+-       (foo3,0)]
++    ol = [ (foo1,1),
++           (foo2,1),
++           (foo3,0)]
+ 
+-test_list(ol,'is_oldclass',is_oldclass)
++    test_list(ol,'is_oldclass',is_oldclass)
+ 
+-if pyver() >= '2.2':
++if pyver()[0] <= "2" and pyver() >= '2.2':
+     # isNewStyleClass
+     ol = [ (foo1,0),
+            (foo2,0),
+diff --git a/objdictgen/gnosis/util/test/test_noinit.py b/objdictgen/gnosis/util/test/test_noinit.py
+index a057133f2c0d..e027ce2390c6 100644
+--- a/objdictgen/gnosis/util/test/test_noinit.py
++++ b/objdictgen/gnosis/util/test/test_noinit.py
+@@ -1,28 +1,31 @@
+-from gnosis.util.introspect import instance_noinit
++from ..introspect import instance_noinit
++from .funcs import pyver
+ 
+-class Old_noinit: pass
++if pyver()[0] <= "2":
++    class Old_noinit: pass
+ 
+-class Old_init:
+-    def __init__(self): print "Init in Old"
++    class Old_init:
++        def __init__(self): print("Init in Old")
+ 
+-class New_slots_and_init(int):
+-    __slots__ = ('this','that')
+-    def __init__(self): print "Init in New w/ slots"
++    class New_slots_and_init(int):
++        __slots__ = ('this','that')
++        def __init__(self): print("Init in New w/ slots")
+ 
+-class New_init_no_slots(int):
+-    def __init__(self): print "Init in New w/o slots"
++    class New_init_no_slots(int):
++        def __init__(self): print("Init in New w/o slots")
+ 
+-class New_slots_no_init(int):
+-    __slots__ = ('this','that')
++    class New_slots_no_init(int):
++        __slots__ = ('this','that')
+ 
+-class New_no_slots_no_init(int):
+-    pass
++    class New_no_slots_no_init(int):
++        pass
+ 
+-print "----- This should be the only line -----"
+-instance_noinit(Old_noinit)
+-instance_noinit(Old_init)
+-instance_noinit(New_slots_and_init)
+-instance_noinit(New_slots_no_init)
+-instance_noinit(New_init_no_slots)
+-instance_noinit(New_no_slots_no_init)
+ 
++    instance_noinit(Old_noinit)
++    instance_noinit(Old_init)
++    instance_noinit(New_slots_and_init)
++    instance_noinit(New_slots_no_init)
++    instance_noinit(New_init_no_slots)
++    instance_noinit(New_no_slots_no_init)
++
++print("----- This should be the only line -----")
+diff --git a/objdictgen/gnosis/util/test/test_variants_noinit.py b/objdictgen/gnosis/util/test/test_variants_noinit.py
+index d2ea9a4fc46f..758a89d13660 100644
+--- a/objdictgen/gnosis/util/test/test_variants_noinit.py
++++ b/objdictgen/gnosis/util/test/test_variants_noinit.py
+@@ -1,25 +1,46 @@
+-from gnosis.util.introspect import hasSlots, hasInit
++from ..introspect import hasSlots, hasInit
+ from types import *
++from .funcs import pyver
+ 
+ class Old_noinit: pass
+ 
+ class Old_init:
+-    def __init__(self): print "Init in Old"
++    def __init__(self): print("Init in Old")
+ 
+-class New_slots_and_init(int):
+-    __slots__ = ('this','that')
+-    def __init__(self): print "Init in New w/ slots"
++if pyver()[0] <= "2":
++    class New_slots_and_init(int):
++        __slots__ = ('this','that')
++        def __init__(self): print("Init in New w/ slots")
+ 
+-class New_init_no_slots(int):
+-    def __init__(self): print "Init in New w/o slots"
++    class New_init_no_slots(int):
++        def __init__(self): print("Init in New w/o slots")
+ 
+-class New_slots_no_init(int):
+-    __slots__ = ('this','that')
++    class New_slots_no_init(int):
++        __slots__ = ('this','that')
+ 
+-class New_no_slots_no_init(int):
+-    pass
++    class New_no_slots_no_init(int):
++        pass
++
++else:
++    # nonempty __slots__ not supported for subtype of 'int' in Python 3
++    class New_slots_and_init:
++        __slots__ = ('this','that')
++        def __init__(self): print("Init in New w/ slots")
++
++    class New_init_no_slots:
++        def __init__(self): print("Init in New w/o slots")
++
++    class New_slots_no_init:
++        __slots__ = ('this','that')
++
++    class New_no_slots_no_init:
++        pass
++
++if pyver()[0] <= "2":
++    from UserDict import UserDict
++else:
++    from collections import UserDict
+ 
+-from UserDict import UserDict
+ class MyDict(UserDict):
+     pass
+ 
+@@ -43,7 +64,7 @@ def one():
+             obj.__class__ = C
+         return obj
+ 
+-    print "----- This should be the only line -----"
++    print("----- This should be the only line -----")
+     instance_noinit(MyDict)
+     instance_noinit(Old_noinit)
+     instance_noinit(Old_init)
+@@ -75,7 +96,7 @@ def two():
+             obj = C()
+       return obj
+ 
+-    print "----- Same test, fpm version of instance_noinit() -----"
++    print("----- Same test, fpm version of instance_noinit() -----")
+     instance_noinit(MyDict)
+     instance_noinit(Old_noinit)
+     instance_noinit(Old_init)
+@@ -90,7 +111,7 @@ def three():
+         if hasattr(C,'__init__') and isinstance(C.__init__,MethodType):
+             # the class defined init - remove it temporarily
+             _init = C.__init__
+-            print _init
++            print(_init)
+             del C.__init__
+             obj = C()
+             C.__init__ = _init
+@@ -99,7 +120,7 @@ def three():
+             obj = C()
+         return obj
+ 
+-    print "----- Same test, dqm version of instance_noinit() -----"
++    print("----- Same test, dqm version of instance_noinit() -----")
+     instance_noinit(MyDict)
+     instance_noinit(Old_noinit)
+     instance_noinit(Old_init)
+diff --git a/objdictgen/gnosis/util/xml2sql.py b/objdictgen/gnosis/util/xml2sql.py
+index 818661321db0..751985d88f23 100644
+--- a/objdictgen/gnosis/util/xml2sql.py
++++ b/objdictgen/gnosis/util/xml2sql.py
+@@ -77,7 +77,7 @@ def walkNodes(py_obj, parent_info=('',''), seq=0):
+         member = getattr(py_obj,colname)
+         if type(member) == InstanceType:
+             walkNodes(member, self_info)
+-        elif type(member) == ListType:
++        elif type(member) == list:
+             for memitem in member:
+                 if isinstance(memitem,_XO_):
+                     seq += 1
+diff --git a/objdictgen/gnosis/xml/indexer.py b/objdictgen/gnosis/xml/indexer.py
+index 6e7f6941b506..45638b6d04ff 100644
+--- a/objdictgen/gnosis/xml/indexer.py
++++ b/objdictgen/gnosis/xml/indexer.py
+@@ -87,17 +87,11 @@ class XML_Indexer(indexer.PreferredIndexer, indexer.TextSplitter):
+                 if type(member) is InstanceType:
+                     xpath = xpath_suffix+'/'+membname
+                     self.recurse_nodes(member, xpath.encode('UTF-8'))
+-                elif type(member) is ListType:
++                elif type(member) is list:
+                     for i in range(len(member)):
+                         xpath = xpath_suffix+'/'+membname+'['+str(i+1)+']'
+                         self.recurse_nodes(member[i], xpath.encode('UTF-8'))
+-                elif type(member) is StringType:
+-                    if membname != 'PCDATA':
+-                        xpath = xpath_suffix+'/@'+membname
+-                        self.add_nodetext(member, xpath.encode('UTF-8'))
+-                    else:
+-                        self.add_nodetext(member, xpath_suffix.encode('UTF-8'))
+-                elif type(member) is UnicodeType:
++                elif type(member) is str:
+                     if membname != 'PCDATA':
+                         xpath = xpath_suffix+'/@'+membname
+                         self.add_nodetext(member.encode('UTF-8'),
+@@ -122,11 +116,11 @@ class XML_Indexer(indexer.PreferredIndexer, indexer.TextSplitter):
+         self.fileids[node_index] = node_id
+ 
+         for word in words:
+-            if self.words.has_key(word):
++            if word in self.words.keys():
+                 entry = self.words[word]
+             else:
+                 entry = {}
+-            if entry.has_key(node_index):
++            if node_index in entry.keys():
+                 entry[node_index] = entry[node_index]+1
+             else:
+                 entry[node_index] = 1
+diff --git a/objdictgen/gnosis/xml/objectify/_objectify.py b/objdictgen/gnosis/xml/objectify/_objectify.py
+index 27da2e451417..476dd9cd6245 100644
+--- a/objdictgen/gnosis/xml/objectify/_objectify.py
++++ b/objdictgen/gnosis/xml/objectify/_objectify.py
+@@ -43,10 +43,10 @@ def content(o):
+     return o._seq or []
+ def children(o):
+     "The child nodes (not PCDATA) of o"
+-    return [x for x in content(o) if type(x) not in StringTypes]
++    return [x for x in content(o) if type(x) is not str]
+ def text(o):
+     "List of textual children"
+-    return [x for x in content(o) if type(x) in StringTypes]
++    return [x for x in content(o) if type(x) is not str]
+ def dumps(o):
+     "The PCDATA in o (preserves whitespace)"
+     return "".join(text(o))
+@@ -59,7 +59,7 @@ def tagname(o):
+ def attributes(o):
+     "List of (XML) attributes of o"
+     return [(k,v) for k,v in o.__dict__.items()
+-                  if k!='PCDATA' and type(v) in StringTypes]
++                  if k!='PCDATA' and type(v) is not str]
+ 
+ #-- Base class for objectified XML nodes
+ class _XO_:
+@@ -95,7 +95,7 @@ def _makeAttrDict(attr):
+     if not attr:
+         return {}
+     try:
+-        attr.has_key('dummy')
++        'dummy' in attr.keys()
+     except AttributeError:
+         # assume a W3C NamedNodeMap
+         attr_dict = {}
+@@ -116,7 +116,7 @@ class XML_Objectify:
+                             or hasattr(xml_src,'childNodes')):
+             self._dom = xml_src
+             self._fh = None
+-        elif type(xml_src) in (StringType, UnicodeType):
++        elif type(xml_src) is str:
+             if xml_src[0]=='<':     # looks like XML
+                 from cStringIO import StringIO
+                 self._fh = StringIO(xml_src)
+@@ -210,7 +210,7 @@ class ExpatFactory:
+         # Does our current object have a child of this type already?
+         if hasattr(self._current, pyname):
+             # Convert a single child object into a list of children
+-            if type(getattr(self._current, pyname)) is not ListType:
++            if type(getattr(self._current, pyname)) is not list:
+                 setattr(self._current, pyname, [getattr(self._current, pyname)])
+             # Add the new subtag to the list of children
+             getattr(self._current, pyname).append(py_obj)
+@@ -290,7 +290,7 @@ def pyobj_from_dom(dom_node):
+         # does a py_obj attribute corresponding to the subtag already exist?
+         elif hasattr(py_obj, node_name):
+             # convert a single child object into a list of children
+-            if type(getattr(py_obj, node_name)) is not ListType:
++            if type(getattr(py_obj, node_name)) is not list:
+                 setattr(py_obj, node_name, [getattr(py_obj, node_name)])
+             # add the new subtag to the list of children
+             getattr(py_obj, node_name).append(pyobj_from_dom(node))
+diff --git a/objdictgen/gnosis/xml/objectify/utils.py b/objdictgen/gnosis/xml/objectify/utils.py
+index 781a189d2f04..431d9a0220da 100644
+--- a/objdictgen/gnosis/xml/objectify/utils.py
++++ b/objdictgen/gnosis/xml/objectify/utils.py
+@@ -39,7 +39,7 @@ def write_xml(o, out=stdout):
+         out.write(' %s=%s' % attr)
+     out.write('>')
+     for node in content(o):
+-        if type(node) in StringTypes:
++        if type(node) is str:
+             out.write(node)
+         else:
+             write_xml(node, out=out)
+@@ -119,7 +119,7 @@ def pyobj_printer(py_obj, level=0):
+             if type(member) == InstanceType:
+                 descript += '\n'+(' '*level)+'{'+membname+'}\n'
+                 descript += pyobj_printer(member, level+3)
+-            elif type(member) == ListType:
++            elif type(member) == list:
+                 for i in range(len(member)):
+                     descript += '\n'+(' '*level)+'['+membname+'] #'+str(i+1)
+                     descript += (' '*level)+'\n'+pyobj_printer(member[i],level+3)
+diff --git a/objdictgen/gnosis/xml/pickle/__init__.py b/objdictgen/gnosis/xml/pickle/__init__.py
+index 34f90e50acba..4031142776c6 100644
+--- a/objdictgen/gnosis/xml/pickle/__init__.py
++++ b/objdictgen/gnosis/xml/pickle/__init__.py
+@@ -4,7 +4,7 @@ Please see the information at gnosis.xml.pickle.doc for
+ explanation of usage, design, license, and other details
+ """
+ from gnosis.xml.pickle._pickle import \
+-     XML_Pickler, XMLPicklingError, XMLUnpicklingError, \
++     XML_Pickler, \
+      dump, dumps, load, loads
+ 
+ from gnosis.xml.pickle.util import \
+@@ -13,3 +13,5 @@ from gnosis.xml.pickle.util import \
+      setParser, setVerbose, enumParsers
+ 
+ from gnosis.xml.pickle.ext import *
++
++from gnosis.xml.pickle.exception import XMLPicklingError, XMLUnpicklingError
+diff --git a/objdictgen/gnosis/xml/pickle/_pickle.py b/objdictgen/gnosis/xml/pickle/_pickle.py
+index a5275e4830f6..5e1fa1c609f5 100644
+--- a/objdictgen/gnosis/xml/pickle/_pickle.py
++++ b/objdictgen/gnosis/xml/pickle/_pickle.py
+@@ -29,24 +29,17 @@ import gnosis.pyconfig
+ 
+ from types import *
+ 
+-try:		# Get a usable StringIO
+-    from cStringIO import StringIO
+-except:
+-    from StringIO import StringIO
++from io import StringIO
+ 
+ # default settings
+-setInBody(IntType,0)
+-setInBody(FloatType,0)
+-setInBody(LongType,0)
+-setInBody(ComplexType,0)
+-setInBody(StringType,0)
++setInBody(int,0)
++setInBody(float,0)
++setInBody(complex,0)
+ # our unicode vs. "regular string" scheme relies on unicode
+ # strings only being in the body, so this is hardcoded.
+-setInBody(UnicodeType,1)
++setInBody(str,1)
+ 
+-# Define exceptions and flags
+-XMLPicklingError = "gnosis.xml.pickle.XMLPicklingError"
+-XMLUnpicklingError = "gnosis.xml.pickle.XMLUnpicklingError"
++from gnosis.xml.pickle.exception import XMLPicklingError, XMLUnpicklingError
+ 
+ # Maintain list of object identities for multiple and cyclical references
+ # (also to keep temporary objects alive)
+@@ -79,7 +72,7 @@ class StreamWriter:
+             self.iohandle = gzip.GzipFile(None,'wb',9,self.iohandle)
+ 
+     def append(self,item):
+-        if type(item) in (ListType, TupleType): item = ''.join(item)
++        if type(item) in (list, tuple): item = ''.join(item)
+         self.iohandle.write(item)
+ 
+     def getvalue(self):
+@@ -102,7 +95,7 @@ def StreamReader( stream ):
+     appropriate for reading the stream."""
+ 
+     # turn strings into stream
+-    if type(stream) in [StringType,UnicodeType]:
++    if type(stream) is str:
+         stream = StringIO(stream)
+ 
+     # determine if we have a gzipped stream by checking magic
+@@ -128,8 +121,8 @@ class XML_Pickler:
+             if isInstanceLike(py_obj):
+                 self.to_pickle = py_obj
+             else:
+-                raise XMLPicklingError, \
+-                      "XML_Pickler must be initialized with Instance (or None)"
++                raise XMLPicklingError( \
++                      "XML_Pickler must be initialized with Instance (or None)")
+ 
+     def dump(self, iohandle, obj=None, binary=0, deepcopy=None):
+         "Write the XML representation of obj to iohandle."
+@@ -151,7 +144,8 @@ class XML_Pickler:
+         if parser:
+             return parser(fh, paranoia=paranoia)
+         else:
+-            raise XMLUnpicklingError, "Unknown parser %s" % getParser()
++            raise XMLUnpicklingError("Unknown parser %s. Available parsers: %r" %
++                                     (getParser(), enumParsers()))
+ 
+     def dumps(self, obj=None, binary=0, deepcopy=None, iohandle=None):
+         "Create the XML representation as a string."
+@@ -159,15 +153,15 @@ class XML_Pickler:
+         if deepcopy is None: deepcopy = getDeepCopy()
+ 
+         # write to a file or string, either compressed or not
+-        list = StreamWriter(iohandle,binary)
++        list_ = StreamWriter(iohandle,binary)
+ 
+         # here are our three forms:
+         if obj is not None:				# XML_Pickler().dumps(obj)
+-            return _pickle_toplevel_obj(list,obj, deepcopy)
++            return _pickle_toplevel_obj(list_,obj, deepcopy)
+         elif hasattr(self,'to_pickle'): # XML_Pickler(obj).dumps()
+-            return _pickle_toplevel_obj(list,self.to_pickle, deepcopy)
++            return _pickle_toplevel_obj(list_,self.to_pickle, deepcopy)
+         else:							# myXML_Pickler().dumps()
+-            return _pickle_toplevel_obj(list,self, deepcopy)
++            return _pickle_toplevel_obj(list_,self, deepcopy)
+ 
+     def loads(self, xml_str, paranoia=None):
+         "Load a pickled object from the given XML string."
+@@ -221,8 +215,8 @@ def _pickle_toplevel_obj(xml_list, py_obj, deepcopy):
+             # sanity check until/if we eventually support these
+             # at the toplevel
+             if in_body or extra:
+-                raise XMLPicklingError, \
+-                      "Sorry, mutators can't set in_body and/or extra at the toplevel."
++                raise XMLPicklingError( \
++                      "Sorry, mutators can't set in_body and/or extra at the toplevel.")
+             famtype = famtype + 'family="obj" type="%s" ' % mtype
+ 
+         module = _module(py_obj)
+@@ -250,10 +244,10 @@ def _pickle_toplevel_obj(xml_list, py_obj, deepcopy):
+     # know that (or not care)
+     return xml_list.getvalue()
+ 
+-def pickle_instance(obj, list, level=0, deepcopy=0):
++def pickle_instance(obj, list_, level=0, deepcopy=0):
+     """Pickle the given object into a <PyObject>
+ 
+-    Add XML tags to list. Level is indentation (for aesthetic reasons)
++    Add XML tags to list_. Level is indentation (for aesthetic reasons)
+     """
+     # concept: to pickle an object, we pickle two things:
+     #
+@@ -278,8 +272,8 @@ def pickle_instance(obj, list, level=0, deepcopy=0):
+         try:
+             len(args)  # must be a sequence, from pickle.py
+         except:
+-            raise XMLPicklingError, \
+-                  "__getinitargs__() must return a sequence"
++            raise XMLPicklingError( \
++                  "__getinitargs__() must return a sequence")
+     except:
+         args = None
+ 
+@@ -293,22 +287,22 @@ def pickle_instance(obj, list, level=0, deepcopy=0):
+     # save initargs, if we have them
+     if args is not None:
+         # put them in an <attr name="__getinitargs__" ...> container
+-        list.append(_attr_tag('__getinitargs__', args, level, deepcopy))
++        list_.append(_attr_tag('__getinitargs__', args, level, deepcopy))
+ 
+     # decide how to save the "stuff", depending on whether we need
+     # to later grab it back as a single object
+     if not hasattr(obj,'__setstate__'):
+-        if type(stuff) is DictType:
++        if type(stuff) is dict:
+             # don't need it as a single object - save keys/vals as
+             # first-level attributes
+             for key,val in stuff.items():
+-                list.append(_attr_tag(key, val, level, deepcopy))
++                list_.append(_attr_tag(key, val, level, deepcopy))
+         else:
+-            raise XMLPicklingError, \
+-                  "__getstate__ must return a DictType here"
++            raise XMLPicklingError( \
++                  "__getstate__ must return a dict here")
+     else:
+         # else, encapsulate the "stuff" in an <attr name="__getstate__" ...>
+-        list.append(_attr_tag('__getstate__', stuff, level, deepcopy))
++        list_.append(_attr_tag('__getstate__', stuff, level, deepcopy))
+ 
+ #--- Functions to create XML output tags ---
+ def _attr_tag(name, thing, level=0, deepcopy=0):
+@@ -395,8 +389,8 @@ def _family_type(family,typename,mtype,mextra):
+ 
+ # sanity in case Python changes ...
+ if gnosis.pyconfig.Have_BoolClass() and gnosis.pyconfig.IsLegal_BaseClass('bool'):
+-    raise XMLPicklingError, \
+-          "Assumption broken - can now use bool as baseclass!"
++    raise XMLPicklingError( \
++          "Assumption broken - can now use bool as baseclass!")
+ 
+ Have_BoolClass = gnosis.pyconfig.Have_BoolClass()
+ 
+@@ -459,7 +453,7 @@ def _tag_completer(start_tag, orig_thing, close_tag, level, deepcopy):
+             pickle_instance(thing, tag_body, level+1, deepcopy)
+         else:
+             close_tag = ''
+-    elif isinstance_any(thing, (IntType, LongType, FloatType, ComplexType)):
++    elif isinstance_any(thing, (int, float, complex)):
+         #thing_str = repr(thing)
+         thing_str = ntoa(thing)
+ 
+@@ -476,13 +470,13 @@ def _tag_completer(start_tag, orig_thing, close_tag, level, deepcopy):
+             start_tag = start_tag + '%s value="%s" />\n' % \
+                       (_family_type('atom','numeric',mtag,mextra),thing_str)
+             close_tag = ''
+-    elif isinstance_any(thing, (StringType,UnicodeType)):
++    elif isinstance_any(thing, str):
+         #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+         # special check for now - this will be fixed in the next major
+         # gnosis release, so I don't care that the code is inline & gross
+         # for now
+         #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX       
+-        if isinstance(thing,UnicodeType):
++        if isinstance(thing,str):
+             # can't pickle unicode containing the special "escape" sequence
+             # we use for putting strings in the XML body (they'll be unpickled
+             # as strings, not unicode, if we do!)
+@@ -493,7 +487,7 @@ def _tag_completer(start_tag, orig_thing, close_tag, level, deepcopy):
+             if not is_legal_xml(thing):
+                 raise Exception("Unpickleable Unicode value. To be fixed in next major Gnosis release.")
+ 
+-        if isinstance(thing,StringType) and getInBody(StringType):
++        if isinstance(thing,str) and getInBody(str):
+             # technically, this will crash safe_content(), but I prefer to
+             # have the test here for clarity
+             try:
+@@ -525,7 +519,7 @@ def _tag_completer(start_tag, orig_thing, close_tag, level, deepcopy):
+     #	   before pickling subitems, in case it contains self-references
+     #	   (we CANNOT just move the visited{} update to the top of this
+     #	   function, since that would screw up every _family_type() call)
+-    elif type(thing) is TupleType:
++    elif type(thing) is tuple:
+         start_tag, do_copy = \
+                    _tag_compound(start_tag,_family_type('seq','tuple',mtag,mextra),
+                                  orig_thing,deepcopy)
+@@ -534,7 +528,7 @@ def _tag_completer(start_tag, orig_thing, close_tag, level, deepcopy):
+                 tag_body.append(_item_tag(item, level+1, deepcopy))
+         else:
+             close_tag = ''
+-    elif type(thing) is ListType:
++    elif type(thing) is list:
+         start_tag, do_copy = \
+                    _tag_compound(start_tag,_family_type('seq','list',mtag,mextra),
+                                  orig_thing,deepcopy)
+@@ -545,7 +539,7 @@ def _tag_completer(start_tag, orig_thing, close_tag, level, deepcopy):
+                 tag_body.append(_item_tag(item, level+1, deepcopy))
+         else:
+             close_tag = ''
+-    elif type(thing) in [DictType]:
++    elif type(thing) in [dict]:
+         start_tag, do_copy = \
+                    _tag_compound(start_tag,_family_type('map','dict',mtag,mextra),
+                                  orig_thing,deepcopy)
+@@ -583,7 +577,7 @@ def _tag_completer(start_tag, orig_thing, close_tag, level, deepcopy):
+                                    thing)
+             close_tag = close_tag.lstrip()
+         except:
+-            raise XMLPicklingError, "non-handled type %s" % type(thing)
++            raise XMLPicklingError("non-handled type %s" % type(thing))
+ 
+     # need to keep a ref to the object for two reasons -
+     #  1. we can ref it later instead of copying it into the XML stream
+diff --git a/objdictgen/gnosis/xml/pickle/doc/HOWTO.extensions b/objdictgen/gnosis/xml/pickle/doc/HOWTO.extensions
+index e0bf7a253c48..13c320aafa21 100644
+--- a/objdictgen/gnosis/xml/pickle/doc/HOWTO.extensions
++++ b/objdictgen/gnosis/xml/pickle/doc/HOWTO.extensions
+@@ -51,11 +51,11 @@ integers into strings:
+ 
+ Now, to add silly_mutator to xml_pickle, you do:
+ 
+-    m = silly_mutator( IntType, "silly_string", in_body=1 )
++    m = silly_mutator( int, "silly_string", in_body=1 )
+     mutate.add_mutator( m )
+ 
+     Explanation:
+-       The parameter "IntType" says that we want to catch integers.
++       The parameter "int" says that we want to catch integers.
+        "silly_string" will be the typename in the XML stream.
+        "in_body=1" tells xml_pickle to place the value string in the body
+         of the tag.
+@@ -79,7 +79,7 @@ Mutator can define two additional functions:
+            # return 1 if we can unmutate mobj, 0 if not
+ 
+ By default, a Mutator will be asked to mutate/unmutate all objects of
+-the type it registered ("IntType", in our silly example). You would
++the type it registered ("int", in our silly example). You would
+ only need to override wants_obj/wants_mutated to provide specialized
+ sub-type handling (based on content, for example). test_mutators.py
+ shows examples of how to do this.
+diff --git a/objdictgen/gnosis/xml/pickle/exception.py b/objdictgen/gnosis/xml/pickle/exception.py
+new file mode 100644
+index 000000000000..a19e257bd8d8
+--- /dev/null
++++ b/objdictgen/gnosis/xml/pickle/exception.py
+@@ -0,0 +1,2 @@
++class XMLPicklingError(Exception): pass
++class XMLUnpicklingError(Exception): pass
+diff --git a/objdictgen/gnosis/xml/pickle/ext/__init__.py b/objdictgen/gnosis/xml/pickle/ext/__init__.py
+index df60171f5229..3833065f7750 100644
+--- a/objdictgen/gnosis/xml/pickle/ext/__init__.py
++++ b/objdictgen/gnosis/xml/pickle/ext/__init__.py
+@@ -6,7 +6,7 @@ __author__ = ["Frank McIngvale (frankm@hiwaay.net)",
+               "David Mertz (mertz@gnosis.cx)",
+              ]
+ 
+-from _mutate import \
++from ._mutate import \
+      can_mutate,mutate,can_unmutate,unmutate,\
+      add_mutator,remove_mutator,XMLP_Mutator, XMLP_Mutated, \
+      get_unmutator, try_mutate
+diff --git a/objdictgen/gnosis/xml/pickle/ext/_mutate.py b/objdictgen/gnosis/xml/pickle/ext/_mutate.py
+index aa8da4f87d62..43481a8c5331 100644
+--- a/objdictgen/gnosis/xml/pickle/ext/_mutate.py
++++ b/objdictgen/gnosis/xml/pickle/ext/_mutate.py
+@@ -3,8 +3,7 @@ from types import *
+ from gnosis.util.introspect import isInstanceLike, hasCoreData
+ import gnosis.pyconfig
+ 
+-XMLPicklingError = "gnosis.xml.pickle.XMLPicklingError"
+-XMLUnpicklingError = "gnosis.xml.pickle.XMLUnpicklingError"
++from gnosis.xml.pickle.exception import XMLPicklingError, XMLUnpicklingError
+ 
+ # hooks for adding mutators
+ # each dict entry is a list of chained mutators
+@@ -25,8 +24,8 @@ _has_coredata_cache = {}
+ 
+ # sanity in case Python changes ...
+ if gnosis.pyconfig.Have_BoolClass() and gnosis.pyconfig.IsLegal_BaseClass('bool'):
+-    raise XMLPicklingError, \
+-        "Assumption broken - can now use bool as baseclass!"
++    raise XMLPicklingError( \
++        "Assumption broken - can now use bool as baseclass!")
+ 
+ Have_BoolClass = gnosis.pyconfig.Have_BoolClass()
+ 
+@@ -54,7 +53,7 @@ def get_mutator(obj):
+     if not hasattr(obj,'__class__'):
+         return None
+ 
+-    if _has_coredata_cache.has_key(obj.__class__):
++    if obj.__class__ in _has_coredata_cache.keys():
+         return _has_coredata_cache[obj.__class__]
+ 
+     if hasCoreData(obj):
+@@ -76,8 +75,8 @@ def mutate(obj):
+     tobj = mutator.mutate(obj)
+ 
+     if not isinstance(tobj,XMLP_Mutated):
+-        raise XMLPicklingError, \
+-              "Bad type returned from mutator %s" % mutator
++        raise XMLPicklingError( \
++              "Bad type returned from mutator %s" % mutator)
+     
+     return (mutator.tag,tobj.obj,mutator.in_body,tobj.extra)
+ 
+@@ -96,8 +95,8 @@ def try_mutate(obj,alt_tag,alt_in_body,alt_extra):
+     tobj = mutator.mutate(obj)
+ 
+     if not isinstance(tobj,XMLP_Mutated):
+-        raise XMLPicklingError, \
+-              "Bad type returned from mutator %s" % mutator
++        raise XMLPicklingError( \
++              "Bad type returned from mutator %s" % mutator)
+     
+     return (mutator.tag,tobj.obj,mutator.in_body,tobj.extra)
+ 
+diff --git a/objdictgen/gnosis/xml/pickle/ext/_mutators.py b/objdictgen/gnosis/xml/pickle/ext/_mutators.py
+index 142f611ea7b4..645dc4e64eed 100644
+--- a/objdictgen/gnosis/xml/pickle/ext/_mutators.py
++++ b/objdictgen/gnosis/xml/pickle/ext/_mutators.py
+@@ -1,5 +1,5 @@
+-from _mutate import XMLP_Mutator, XMLP_Mutated
+-import _mutate
++from gnosis.xml.pickle.ext._mutate import XMLP_Mutator, XMLP_Mutated
++import gnosis.xml.pickle.ext._mutate as _mutate
+ import sys, string
+ from types import *
+ from gnosis.util.introspect import isInstanceLike, attr_update, \
+@@ -176,16 +176,16 @@ def olddata_to_newdata(data,extra,paranoia):
+     (module,klass) = extra.split()
+     o = obj_from_name(klass,module,paranoia)
+ 
+-    #if isinstance(o,ComplexType) and \
+-    #	   type(data) in [StringType,UnicodeType]:
++    #if isinstance(o,complex) and \
++    #	   type(data) is str:
+     #	# yuck ... have to strip () from complex data before
+     #	# passing to __init__ (ran into this also in one of the
+     #	# parsers ... maybe the () shouldn't be in the XML at all?)
+     #	if data[0] == '(' and data[-1] == ')':
+     #		data = data[1:-1]
+ 
+-    if isinstance_any(o,(IntType,FloatType,ComplexType,LongType)) and \
+-                      type(data) in [StringType,UnicodeType]:
++    if isinstance_any(o,(int,float,complex)) and \
++                      type(data) is str:
+         data = aton(data)
+ 
+     o = setCoreData(o,data)
+@@ -208,7 +208,7 @@ class mutate_bltin_instances(XMLP_Mutator):
+ 
+     def mutate(self,obj):
+ 
+-        if isinstance(obj,UnicodeType):
++        if isinstance(obj,str):
+             # unicode strings are required to be placed in the body
+             # (by our encoding scheme)
+             self.in_body = 1
+diff --git a/objdictgen/gnosis/xml/pickle/parsers/_dom.py b/objdictgen/gnosis/xml/pickle/parsers/_dom.py
+index 0703331b8e48..8582f5c8f1a7 100644
+--- a/objdictgen/gnosis/xml/pickle/parsers/_dom.py
++++ b/objdictgen/gnosis/xml/pickle/parsers/_dom.py
+@@ -17,8 +17,7 @@ except ImportError:
+     array_type = 'array'
+ 
+ # Define exceptions and flags
+-XMLPicklingError = "gnosis.xml.pickle.XMLPicklingError"
+-XMLUnpicklingError = "gnosis.xml.pickle.XMLUnpicklingError"
++from gnosis.xml.pickle.exception import XMLPicklingError, XMLUnpicklingError
+ 
+ # Define our own TRUE/FALSE syms, based on Python version.
+ if pyconfig.Have_TrueFalse():
+@@ -70,7 +69,10 @@ def unpickle_instance(node, paranoia):
+ 
+     # next, decide what "stuff" is supposed to go into pyobj
+     if hasattr(raw,'__getstate__'):
+-        stuff = raw.__getstate__
++        # Note: this code path was apparently never taken in Python 2, but
++        # __getstate__ is a function, and it makes no sense below to call
++        # __setstate__ or attr_update() with a function instead of a dict.
++        stuff = raw.__getstate__()
+     else:
+         stuff = raw.__dict__
+ 
+@@ -78,7 +80,7 @@ def unpickle_instance(node, paranoia):
+     if hasattr(pyobj,'__setstate__'):
+         pyobj.__setstate__(stuff)
+     else:
+-        if type(stuff) is DictType:	 # must be a Dict if no __setstate__
++        if type(stuff) is dict:	 # must be a Dict if no __setstate__
+             # see note in pickle.py/load_build() about restricted
+             # execution -- do the same thing here
+             #try:
+@@ -92,9 +94,9 @@ def unpickle_instance(node, paranoia):
+             # does violate the pickle protocol, or because PARANOIA was
+             # set too high, and we couldn't create the real class, so
+             # __setstate__ is missing (and __stateinfo__ isn't a dict)
+-            raise XMLUnpicklingError, \
+-                  "Non-DictType without setstate violates pickle protocol."+\
+-                  "(PARANOIA setting may be too high)"
++            raise XMLUnpicklingError( \
++                  "Non-dict without setstate violates pickle protocol."+\
++                  "(PARANOIA setting may be too high)")
+ 
+     return pyobj
+ 
+@@ -120,7 +122,7 @@ def get_node_valuetext(node):
+     # a value= attribute. ie. pickler can place it in either
+     # place (based on user preference) and unpickler doesn't care
+ 
+-    if node._attrs.has_key('value'):
++    if 'value' in node._attrs.keys():
+         # text in tag
+         ttext = node.getAttribute('value')
+         return unsafe_string(ttext)
+@@ -165,8 +167,8 @@ def _fix_family(family,typename):
+     elif typename == 'False':
+         return 'uniq'
+     else:
+-        raise XMLUnpicklingError, \
+-              "family= must be given for unknown type %s" % typename
++        raise XMLUnpicklingError( \
++              "family= must be given for unknown type %s" % typename)
+ 
+ def _thing_from_dom(dom_node, container=None, paranoia=1):
+     "Converts an [xml_pickle] DOM tree to a 'native' Python object"
+@@ -248,7 +250,7 @@ def _thing_from_dom(dom_node, container=None, paranoia=1):
+                                                    node.getAttribute('module'),
+                                                    paranoia)
+                 else:
+-                    raise XMLUnpicklingError, "Unknown lang type %s" % node_type					
++                    raise XMLUnpicklingError("Unknown lang type %s" % node_type)
+             elif node_family == 'uniq':
+                 # uniq is another special type that is handled here instead
+                 # of below.
+@@ -268,9 +270,9 @@ def _thing_from_dom(dom_node, container=None, paranoia=1):
+                 elif node_type == 'False':
+                     node_val = FALSE_VALUE
+                 else:
+-                    raise XMLUnpicklingError, "Unknown uniq type %s" % node_type
++                    raise XMLUnpicklingError("Unknown uniq type %s" % node_type)
+             else:
+-                raise XMLUnpicklingError, "UNKNOWN family %s,%s,%s" % (node_family,node_type,node_name)
++                raise XMLUnpicklingError("UNKNOWN family %s,%s,%s" % (node_family,node_type,node_name))
+ 
+             # step 2 - take basic thing and make exact thing
+             # Note there are several NOPs here since node_val has been decided
+@@ -313,7 +315,7 @@ def _thing_from_dom(dom_node, container=None, paranoia=1):
+             #elif ext.can_handle_xml(node_type,node_valuetext):
+             #	node_val = ext.xml_to_obj(node_type, node_valuetext, paranoia)
+             else:
+-                raise XMLUnpicklingError, "Unknown type %s,%s" % (node,node_type)
++                raise XMLUnpicklingError("Unknown type %s,%s" % (node,node_type))
+ 
+             if node.nodeName == 'attr':
+                 setattr(container,node_name,node_val)
+@@ -329,8 +331,8 @@ def _thing_from_dom(dom_node, container=None, paranoia=1):
+             # <entry> has no id for refchecking
+ 
+         else:
+-            raise XMLUnpicklingError, \
+-                  "element %s is not in PyObjects.dtd" % node.nodeName
++            raise XMLUnpicklingError( \
++                  "element %s is not in PyObjects.dtd" % node.nodeName)
+ 
+     return container
+ 
+diff --git a/objdictgen/gnosis/xml/pickle/parsers/_sax.py b/objdictgen/gnosis/xml/pickle/parsers/_sax.py
+index 4a6b42ad5858..6810135a52de 100644
+--- a/objdictgen/gnosis/xml/pickle/parsers/_sax.py
++++ b/objdictgen/gnosis/xml/pickle/parsers/_sax.py
+@@ -19,17 +19,16 @@ from gnosis.util.XtoY import to_number
+ 
+ import sys, os, string
+ from types import *
+-from StringIO import StringIO
++from io import StringIO
+ 
+ # Define exceptions and flags
+-XMLPicklingError = "gnosis.xml.pickle.XMLPicklingError"
+-XMLUnpicklingError = "gnosis.xml.pickle.XMLUnpicklingError"
++from gnosis.xml.pickle.exception import XMLPicklingError, XMLUnpicklingError
+ 
+ DEBUG = 0
+ 
+ def dbg(msg,force=0):
+     if DEBUG or force:
+-        print msg
++        print(msg)
+ 
+ class _EmptyClass: pass
+ 
+@@ -64,12 +63,12 @@ class xmlpickle_handler(ContentHandler):
+     def prstk(self,force=0):
+         if DEBUG == 0 and not force:
+             return
+-        print "**ELEM STACK**"
++        print("**ELEM STACK**")
+         for i in self.elem_stk:
+-            print str(i)
+-        print "**VALUE STACK**"
++            print(str(i))
++        print("**VALUE STACK**")
+         for i in self.val_stk:
+-            print str(i)
++            print(str(i))
+ 
+     def save_obj_id(self,obj,elem):
+ 
+@@ -201,8 +200,8 @@ class xmlpickle_handler(ContentHandler):
+                                               elem[4].get('module'),
+                                               self.paranoia)
+                 else:
+-                    raise XMLUnpicklingError, \
+-                          "Unknown lang type %s" % elem[2]
++                    raise XMLUnpicklingError( \
++                          "Unknown lang type %s" % elem[2])
+                 
+             elif family == 'uniq':
+                 # uniq is a special type - we don't know how to unpickle
+@@ -225,12 +224,12 @@ class xmlpickle_handler(ContentHandler):
+                 elif elem[2] == 'False':
+                     obj = FALSE_VALUE
+                 else:
+-                    raise XMLUnpicklingError, \
+-                          "Unknown uniq type %s" % elem[2]
++                    raise XMLUnpicklingError( \
++                          "Unknown uniq type %s" % elem[2])
+             else:
+-                raise XMLUnpicklingError, \
++                raise XMLUnpicklingError( \
+                       "UNKNOWN family %s,%s,%s" % \
+-                      (family,elem[2],elem[3])
++                      (family,elem[2],elem[3]))
+ 
+             # step 2 -- convert basic -> specific type
+             # (many of these are NOPs, but included for clarity)
+@@ -286,8 +285,8 @@ class xmlpickle_handler(ContentHandler):
+ 
+             else:
+                 self.prstk(1)
+-                raise XMLUnpicklingError, \
+-                      "UNHANDLED elem %s"%elem[2]
++                raise XMLUnpicklingError( \
++                      "UNHANDLED elem %s"%elem[2])
+ 
+             # push on stack and save obj ref
+             self.val_stk.append((elem[0],elem[3],obj))
+@@ -328,7 +327,7 @@ class xmlpickle_handler(ContentHandler):
+ 
+     def endDocument(self):
+         if DEBUG == 1:
+-            print "NROBJS "+str(self.nr_objs)
++            print("NROBJS "+str(self.nr_objs))
+ 
+     def startElement(self,name,attrs):
+         dbg("** START ELEM %s,%s"%(name,attrs._attrs))
+@@ -406,17 +405,17 @@ class xmlpickle_handler(ContentHandler):
+ 
+     # implement the ErrorHandler interface here as well
+     def error(self,exception):
+-        print "** ERROR - dumping stacks"
++        print("** ERROR - dumping stacks")
+         self.prstk(1)
+         raise exception
+ 
+     def fatalError(self,exception):
+-        print "** FATAL ERROR - dumping stacks"
++        print("** FATAL ERROR - dumping stacks")
+         self.prstk(1)
+         raise exception
+ 
+     def warning(self,exception):
+-        print "WARNING"
++        print("WARNING")
+         raise exception
+ 
+     # Implement EntityResolver interface (called when the parser runs
+@@ -435,7 +434,7 @@ class xmlpickle_handler(ContentHandler):
+ def thing_from_sax(filehandle=None,paranoia=1):
+ 
+     if DEBUG == 1:
+-        print "**** SAX PARSER ****"
++        print("**** SAX PARSER ****")
+ 
+     e = ExpatParser()
+     m = xmlpickle_handler(paranoia)
+diff --git a/objdictgen/gnosis/xml/pickle/test/test_all.py b/objdictgen/gnosis/xml/pickle/test/test_all.py
+index 916dfa168806..a3f931621280 100644
+--- a/objdictgen/gnosis/xml/pickle/test/test_all.py
++++ b/objdictgen/gnosis/xml/pickle/test/test_all.py
+@@ -178,7 +178,7 @@ pechof(tout,"Sanity check: OK")
+ parser_dict = enumParsers()
+ 
+ # test with DOM parser, if available
+-if parser_dict.has_key('DOM'):
++if 'DOM' in parser_dict.keys():
+ 
+     # make sure the USE_.. files are gone
+     unlink("USE_SAX")
+@@ -199,7 +199,7 @@ else:
+     pechof(tout,"** SKIPPING DOM parser **")
+ 
+ # test with SAX parser, if available
+-if parser_dict.has_key("SAX"):
++if "SAX" in parser_dict.keys():
+ 
+     touch("USE_SAX")
+ 
+@@ -220,7 +220,7 @@ else:
+     pechof(tout,"** SKIPPING SAX parser **")
+ 
+ # test with cEXPAT parser, if available
+-if parser_dict.has_key("cEXPAT"):
++if "cEXPAT" in parser_dict.keys():
+ 
+     touch("USE_CEXPAT");
+ 
+diff --git a/objdictgen/gnosis/xml/pickle/test/test_badstring.py b/objdictgen/gnosis/xml/pickle/test/test_badstring.py
+index 837154f99a77..e8452e6c3857 100644
+--- a/objdictgen/gnosis/xml/pickle/test/test_badstring.py
++++ b/objdictgen/gnosis/xml/pickle/test/test_badstring.py
+@@ -88,7 +88,7 @@ try:
+     # safe_content assumes it can always convert the string
+     # to unicode, which isn't true
+     # ex: pickling a UTF-8 encoded value
+-    setInBody(StringType, 1)
++    setInBody(str, 1)
+     f = Foo('\xed\xa0\x80')
+     x = xml_pickle.dumps(f)
+     print "************* ERROR *************"
+diff --git a/objdictgen/gnosis/xml/pickle/test/test_bltin.py b/objdictgen/gnosis/xml/pickle/test/test_bltin.py
+index c23c14785dc8..bd1e4afca149 100644
+--- a/objdictgen/gnosis/xml/pickle/test/test_bltin.py
++++ b/objdictgen/gnosis/xml/pickle/test/test_bltin.py
+@@ -48,7 +48,7 @@ foo = foo_class()
+ 
+ # try putting numeric content in body (doesn't matter which
+ # numeric type)
+-setInBody(ComplexType,1)
++setInBody(complex,1)
+ 
+ # test both code paths
+ 
+diff --git a/objdictgen/gnosis/xml/pickle/test/test_mutators.py b/objdictgen/gnosis/xml/pickle/test/test_mutators.py
+index ea049cf6421a..d8e531629d39 100644
+--- a/objdictgen/gnosis/xml/pickle/test/test_mutators.py
++++ b/objdictgen/gnosis/xml/pickle/test/test_mutators.py
+@@ -27,8 +27,8 @@ class mystring(XMLP_Mutator):
+ # (here we fold two types to a single tagname)
+ 
+ print "*** TEST 1 ***"
+-my1 = mystring(StringType,"MyString",in_body=1)
+-my2 = mystring(UnicodeType,"MyString",in_body=1)
++my1 = mystring(str,"MyString",in_body=1)
++my2 = mystring(str,"MyString",in_body=1)
+ 
+ mutate.add_mutator(my1)
+ mutate.add_mutator(my2)
+@@ -57,8 +57,8 @@ mutate.remove_mutator(my2)
+ 
+ print "*** TEST 2 ***"
+ 
+-my1 = mystring(StringType,"string",in_body=1)
+-my2 = mystring(UnicodeType,"string",in_body=1)
++my1 = mystring(str,"string",in_body=1)
++my2 = mystring(str,"string",in_body=1)
+ 
+ mutate.add_mutator(my1)
+ mutate.add_mutator(my2)
+@@ -86,14 +86,14 @@ print z
+ # mynumlist handles lists of integers and pickles them as "n,n,n,n"
+ # mycharlist does the same for single-char strings
+ #
+-# otherwise, the ListType builtin handles the list
++# otherwise, the list builtin handles the list
+ 
+ class mynumlist(XMLP_Mutator):
+ 
+     def wants_obj(self,obj):
+         # I only want lists of integers
+         for i in obj:
+-            if type(i) is not IntType:
++            if type(i) is not int:
+                 return 0
+ 
+         return 1
+@@ -113,7 +113,7 @@ class mycharlist(XMLP_Mutator):
+     def wants_obj(self,obj):
+         # I only want lists of single chars
+         for i in obj:
+-            if type(i) is not StringType or \
++            if type(i) is not str or \
+                len(i) != 1:
+                 return 0
+ 
+@@ -135,8 +135,8 @@ class mycharlist(XMLP_Mutator):
+ 
+ print "*** TEST 3 ***"
+ 
+-my1 = mynumlist(ListType,"NumList",in_body=1)
+-my2 = mycharlist(ListType,"CharList",in_body=1)
++my1 = mynumlist(list,"NumList",in_body=1)
++my2 = mycharlist(list,"CharList",in_body=1)
+ 
+ mutate.add_mutator(my1)
+ mutate.add_mutator(my2)
+diff --git a/objdictgen/gnosis/xml/pickle/test/test_unicode.py b/objdictgen/gnosis/xml/pickle/test/test_unicode.py
+index 2ab724664348..cf22ef6ad57b 100644
+--- a/objdictgen/gnosis/xml/pickle/test/test_unicode.py
++++ b/objdictgen/gnosis/xml/pickle/test/test_unicode.py
+@@ -2,13 +2,12 @@
+ 
+ from gnosis.xml.pickle import loads,dumps
+ from gnosis.xml.pickle.util import setInBody
+-from types import StringType, UnicodeType
+ import funcs
+ 
+ funcs.set_parser()
+ 
+ #-- Create some unicode and python strings (and an object that contains them)
+-ustring = u"Alef: %s, Omega: %s" % (unichr(1488), unichr(969))
++ustring = u"Alef: %s, Omega: %s" % (chr(1488), chr(969))
+ pstring = "Only US-ASCII characters"
+ estring = "Only US-ASCII with line breaks\n\tthat was a tab"
+ class C:
+@@ -25,12 +24,12 @@ xml = dumps(o)
+ #print '------------* Restored attributes from different strings *--------------'
+ o2 = loads(xml)
+ # check types explicitly, since comparison will coerce types
+-if not isinstance(o2.ustring,UnicodeType):
+-    raise "AAGH! Didn't get UnicodeType"
+-if not isinstance(o2.pstring,StringType):
+-    raise "AAGH! Didn't get StringType for pstring"
+-if not isinstance(o2.estring,StringType):
+-    raise "AAGH! Didn't get StringType for estring"
++if not isinstance(o2.ustring,str):
++    raise "AAGH! Didn't get str"
++if not isinstance(o2.pstring,str):
++    raise "AAGH! Didn't get str for pstring"
++if not isinstance(o2.estring,str):
++    raise "AAGH! Didn't get str for estring"
+ 
+ #print "UNICODE:", `o2.ustring`, type(o2.ustring)
+ #print "PLAIN:  ", o2.pstring, type(o2.pstring)
+@@ -43,18 +42,18 @@ if o.ustring != o2.ustring or \
+ 
+ #-- Pickle with Python strings in body
+ #print '\n------------* Pickle with Python strings in body *----------------------'
+-setInBody(StringType, 1)
++setInBody(str, 1)
+ xml = dumps(o)
+ #print xml,
+ #print '------------* Restored attributes from different strings *--------------'
+ o2 = loads(xml)
+ # check types explicitly, since comparison will coerce types
+-if not isinstance(o2.ustring,UnicodeType):
+-    raise "AAGH! Didn't get UnicodeType"
+-if not isinstance(o2.pstring,StringType):
+-    raise "AAGH! Didn't get StringType for pstring"
+-if not isinstance(o2.estring,StringType):
+-    raise "AAGH! Didn't get StringType for estring"
++if not isinstance(o2.ustring,str):
++    raise "AAGH! Didn't get str"
++if not isinstance(o2.pstring,str):
++    raise "AAGH! Didn't get str for pstring"
++if not isinstance(o2.estring,str):
++    raise "AAGH! Didn't get str for estring"
+ 
+ #print "UNICODE:", `o2.ustring`, type(o2.ustring)
+ #print "PLAIN:  ", o2.pstring, type(o2.pstring)
+@@ -67,7 +66,7 @@ if o.ustring != o2.ustring or \
+ 
+ #-- Pickle with Unicode strings in attributes (FAIL)
+ #print '\n------------* Pickle with Unicode strings in XML attrs *----------------'
+-setInBody(UnicodeType, 0)
++setInBody(str, 0)
+ try:
+     xml = dumps(o)
+     raise "FAIL: We should not be allowed to put Unicode in attrs"
+diff --git a/objdictgen/gnosis/xml/pickle/util/__init__.py b/objdictgen/gnosis/xml/pickle/util/__init__.py
+index 3eb05ee45b5e..46771ba97622 100644
+--- a/objdictgen/gnosis/xml/pickle/util/__init__.py
++++ b/objdictgen/gnosis/xml/pickle/util/__init__.py
+@@ -1,5 +1,5 @@
+-from _flags import *
+-from _util import \
++from gnosis.xml.pickle.util._flags import *
++from gnosis.xml.pickle.util._util import \
+      _klass, _module, _EmptyClass, subnodes, \
+      safe_eval, safe_string, unsafe_string, safe_content, unsafe_content, \
+      _mini_getstack, _mini_currentframe, \
+diff --git a/objdictgen/gnosis/xml/pickle/util/_flags.py b/objdictgen/gnosis/xml/pickle/util/_flags.py
+index 3555b0123251..969acd316e5f 100644
+--- a/objdictgen/gnosis/xml/pickle/util/_flags.py
++++ b/objdictgen/gnosis/xml/pickle/util/_flags.py
+@@ -32,17 +32,22 @@ def enumParsers():
+     try:
+         from gnosis.xml.pickle.parsers._dom import thing_from_dom
+         dict['DOM'] = thing_from_dom
+-    except: pass
++    except:
++        print("Notice: no DOM parser available")
++        raise
+ 
+     try:
+         from gnosis.xml.pickle.parsers._sax import thing_from_sax
+         dict['SAX'] = thing_from_sax
+-    except: pass
++    except:
++        print("Notice: no SAX parser available")
++        raise
+ 
+     try:
+         from gnosis.xml.pickle.parsers._cexpat import thing_from_cexpat
+         dict['cEXPAT'] = thing_from_cexpat
+-    except: pass
++    except:
++        print("Notice: no cEXPAT parser available")
+ 
+     return dict
+ 
+diff --git a/objdictgen/gnosis/xml/pickle/util/_util.py b/objdictgen/gnosis/xml/pickle/util/_util.py
+index 86e7339a9090..46d99eb1f9bc 100644
+--- a/objdictgen/gnosis/xml/pickle/util/_util.py
++++ b/objdictgen/gnosis/xml/pickle/util/_util.py
+@@ -158,8 +158,8 @@ def get_class_from_name(classname, modname=None, paranoia=1):
+     dbg("**ERROR - couldn't get class - paranoia = %s" % str(paranoia))
+ 
+     # *should* only be for paranoia == 2, but a good failsafe anyways ...
+-    raise XMLUnpicklingError, \
+-          "Cannot create class under current PARANOIA setting!"
++    raise XMLUnpicklingError( \
++          "Cannot create class under current PARANOIA setting!")
+ 
+ def obj_from_name(classname, modname=None, paranoia=1):
+     """Given a classname, optional module name, return an object
+@@ -192,14 +192,14 @@ def _module(thing):
+ 
+ def safe_eval(s):
+     if 0:   # Condition for malicious string in eval() block
+-        raise "SecurityError", \
+-              "Malicious string '%s' should not be eval()'d" % s
++        raise SecurityError( \
++              "Malicious string '%s' should not be eval()'d" % s)
+     else:
+         return eval(s)
+ 
+ def safe_string(s):
+-    if isinstance(s, UnicodeType):
+-        raise TypeError, "Unicode strings may not be stored in XML attributes"
++    if isinstance(s, str):
++        raise TypeError("Unicode strings may not be stored in XML attributes")
+ 
+     # markup XML entities
+     s = s.replace('&', '&amp;')
+@@ -215,7 +215,7 @@ def unsafe_string(s):
+     # for Python escapes, exec the string
+     # (niggle w/ literalizing apostrophe)
+     s = s.replace("'", r"\047")
+-    exec "s='"+s+"'"
++    exec("s='"+s+"'")
+     # XML entities (DOM does it for us)
+     return s
+ 
+@@ -226,7 +226,7 @@ def safe_content(s):
+     s = s.replace('>', '&gt;')
+ 
+     # wrap "regular" python strings as unicode
+-    if isinstance(s, StringType):
++    if isinstance(s, str):
+         s = u"\xbb\xbb%s\xab\xab" % s
+ 
+     return s.encode('utf-8')
+@@ -237,7 +237,7 @@ def unsafe_content(s):
+     # don't have to "unescape" XML entities (parser does it for us)
+ 
+     # unwrap python strings from unicode wrapper
+-    if s[:2]==unichr(187)*2 and s[-2:]==unichr(171)*2:
++    if s[:2]==chr(187)*2 and s[-2:]==chr(171)*2:
+         s = s[2:-2].encode('us-ascii')
+ 
+     return s
+@@ -248,7 +248,7 @@ def subnodes(node):
+     # for PyXML > 0.8, childNodes includes both <DOM Elements> and
+     # DocumentType objects, so we have to separate them.
+     return filter(lambda n: hasattr(n,'_attrs') and \
+-                  n.nodeName<>'#text', node.childNodes)
++                  n.nodeName!='#text', node.childNodes)
+ 
+ #-------------------------------------------------------------------
+ # Python 2.0 doesn't have the inspect module, so we provide
+diff --git a/objdictgen/gnosis/xml/relax/lex.py b/objdictgen/gnosis/xml/relax/lex.py
+index 833213c3887f..59b0c6ba5851 100644
+--- a/objdictgen/gnosis/xml/relax/lex.py
++++ b/objdictgen/gnosis/xml/relax/lex.py
+@@ -252,7 +252,7 @@ class Lexer:
+     # input() - Push a new string into the lexer
+     # ------------------------------------------------------------
+     def input(self,s):
+-        if not isinstance(s,types.StringType):
++        if not isinstance(s,str):
+             raise ValueError, "Expected a string"
+         self.lexdata = s
+         self.lexpos = 0
+@@ -314,7 +314,7 @@ class Lexer:
+                 
+                 # Verify type of the token.  If not in the token map, raise an error
+                 if not self.optimize:
+-                    if not self.lextokens.has_key(newtok.type):
++                    if not newtok.type in self.lextokens.keys():
+                         raise LexError, ("%s:%d: Rule '%s' returned an unknown token type '%s'" % (
+                             func.func_code.co_filename, func.func_code.co_firstlineno,
+                             func.__name__, newtok.type),lexdata[lexpos:])
+@@ -453,7 +453,7 @@ def lex(module=None,debug=0,optimize=0,lextab="lextab"):
+     tokens = ldict.get("tokens",None)
+     if not tokens:
+         raise SyntaxError,"lex: module does not define 'tokens'"
+-    if not (isinstance(tokens,types.ListType) or isinstance(tokens,types.TupleType)):
++    if not (isinstance(tokens,list) or isinstance(tokens,tuple)):
+         raise SyntaxError,"lex: tokens must be a list or tuple."
+ 
+     # Build a dictionary of valid token names
+@@ -470,7 +470,7 @@ def lex(module=None,debug=0,optimize=0,lextab="lextab"):
+             if not is_identifier(n):
+                 print "lex: Bad token name '%s'" % n
+                 error = 1
+-            if lexer.lextokens.has_key(n):
++            if n in lexer.lextokens.keys():
+                 print "lex: Warning. Token '%s' multiply defined." % n
+             lexer.lextokens[n] = None
+     else:
+@@ -489,7 +489,7 @@ def lex(module=None,debug=0,optimize=0,lextab="lextab"):
+     for f in tsymbols:
+         if isinstance(ldict[f],types.FunctionType):
+             fsymbols.append(ldict[f])
+-        elif isinstance(ldict[f],types.StringType):
++        elif isinstance(ldict[f],str):
+             ssymbols.append((f,ldict[f]))
+         else:
+             print "lex: %s not defined as a function or string" % f
+@@ -565,7 +565,7 @@ def lex(module=None,debug=0,optimize=0,lextab="lextab"):
+                 error = 1
+                 continue
+         
+-            if not lexer.lextokens.has_key(name[2:]):
++            if not name[2:] in lexer.lextokens.keys():
+                 print "lex: Rule '%s' defined for an unspecified token %s." % (name,name[2:])
+                 error = 1
+                 continue
+diff --git a/objdictgen/gnosis/xml/relax/rnctree.py b/objdictgen/gnosis/xml/relax/rnctree.py
+index 5430d858f012..2eee519828f9 100644
+--- a/objdictgen/gnosis/xml/relax/rnctree.py
++++ b/objdictgen/gnosis/xml/relax/rnctree.py
+@@ -290,7 +290,7 @@ def scan_NS(nodes):
+         elif node.type == NS:
+             ns, url = map(str.strip, node.value.split('='))
+             OTHER_NAMESPACE[ns] = url
+-        elif node.type == ANNOTATION and not OTHER_NAMESPACE.has_key('a'):
++        elif node.type == ANNOTATION and not 'a' in OTHER_NAMESPACE.keys():
+             OTHER_NAMESPACE['a'] =\
+               '"http://relaxng.org/ns/compatibility/annotations/1.0"'
+         elif node.type == DATATYPES:
+diff --git a/objdictgen/gnosis/xml/xmlmap.py b/objdictgen/gnosis/xml/xmlmap.py
+index 5f37cab24395..8103e902ae29 100644
+--- a/objdictgen/gnosis/xml/xmlmap.py
++++ b/objdictgen/gnosis/xml/xmlmap.py
+@@ -17,7 +17,7 @@
+ #	 codes. Anyways, Python 2.2 and up have fixed this bug, but
+ #	 I have used workarounds in the code here for compatibility.
+ #
+-#	 So, in several places you'll see I've used unichr() instead of
++#	 So, in several places you'll see I've used chr() instead of
+ #	 coding the u'' directly due to this bug. I'm guessing that
+ #	 might be a little slower.
+ #
+@@ -26,18 +26,10 @@ __all__ = ['usplit','is_legal_xml','is_legal_xml_char']
+ 
+ import re
+ 
+-# define True/False if this Python doesn't have them (only
+-# used in this file)
+-try:
+-    a = True
+-except:
+-    True = 1
+-    False = 0
+-
+ def usplit( uval ):
+     """
+     Split Unicode string into a sequence of characters.
+-    \U sequences are considered to be a single character.
++    \\U sequences are considered to be a single character.
+ 
+     You should assume you will get a sequence, and not assume
+     anything about the type of sequence (i.e. list vs. tuple vs. string).
+@@ -65,8 +57,8 @@ def usplit( uval ):
+         # the second character is in range (0xdc00 - 0xdfff), then
+         # it is a 2-character encoding
+         if len(uval[i:]) > 1 and \
+-               uval[i] >= unichr(0xD800) and uval[i] <= unichr(0xDBFF) and \
+-               uval[i+1] >= unichr(0xDC00) and uval[i+1] <= unichr(0xDFFF):
++               uval[i] >= chr(0xD800) and uval[i] <= chr(0xDBFF) and \
++               uval[i+1] >= chr(0xDC00) and uval[i+1] <= chr(0xDFFF):
+                
+             # it's a two character encoding
+             clist.append( uval[i:i+2] )
+@@ -106,10 +98,10 @@ def make_illegal_xml_regex():
+        using the codes (D800-DBFF),(DC00-DFFF), which are both illegal
+        when used as single chars, from above.
+     
+-       Python won't let you define \U character ranges, so you can't
+-       just say '\U00010000-\U0010FFFF'. However, you can take advantage
++       Python won't let you define \\U character ranges, so you can't
++       just say '\\U00010000-\\U0010FFFF'. However, you can take advantage
+        of the fact that (D800-DBFF) and (DC00-DFFF) are illegal, unless
+-       part of a 2-character sequence, to match for the \U characters.
++       part of a 2-character sequence, to match for the \\U characters.
+     """
+ 
+     # First, add a group for all the basic illegal areas above
+@@ -124,9 +116,9 @@ def make_illegal_xml_regex():
+ 
+     # I've defined this oddly due to the bug mentioned at the top of this file
+     re_xml_illegal += u'([%s-%s][^%s-%s])|([^%s-%s][%s-%s])|([%s-%s]$)|(^[%s-%s])' % \
+-                      (unichr(0xd800),unichr(0xdbff),unichr(0xdc00),unichr(0xdfff),
+-                       unichr(0xd800),unichr(0xdbff),unichr(0xdc00),unichr(0xdfff),
+-                       unichr(0xd800),unichr(0xdbff),unichr(0xdc00),unichr(0xdfff))
++                      (chr(0xd800),chr(0xdbff),chr(0xdc00),chr(0xdfff),
++                       chr(0xd800),chr(0xdbff),chr(0xdc00),chr(0xdfff),
++                       chr(0xd800),chr(0xdbff),chr(0xdc00),chr(0xdfff))
+ 
+     return re.compile( re_xml_illegal )
+ 
+@@ -156,7 +148,7 @@ def is_legal_xml_char( uchar ):
+ 
+        Otherwise, the first char of a legal 2-character
+        sequence will be incorrectly tagged as illegal, on
+-       Pythons where \U is stored as 2-chars.
++       Pythons where \\U is stored as 2-chars.
+     """
+ 
+     # due to inconsistencies in how \U is handled (based on
+@@ -175,7 +167,7 @@ def is_legal_xml_char( uchar ):
+                (uchar >= u'\u000b' and uchar <= u'\u000c') or \
+                (uchar >= u'\u000e' and uchar <= u'\u0019') or \
+                # always illegal as single chars
+-               (uchar >= unichr(0xd800) and uchar <= unichr(0xdfff)) or \
++               (uchar >= chr(0xd800) and uchar <= chr(0xdfff)) or \
+                (uchar >= u'\ufffe' and uchar <= u'\uffff')
+                )
+     elif len(uchar) == 2:

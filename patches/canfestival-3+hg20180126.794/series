@@ -5,4 +5,6 @@
 0003-Makefile.in-fix-suffix-rules.patch
 0004-let-canfestival.h-include-config.h.patch
 0005-Use-include-.-instead-of-include-.-for-own-files.patch
-# 3c7ac338090e2d1acca872cb33f8371f  - git-ptx-patches magic
+0007-gnosis-port-to-python3.patch
+0008-port-to-python3.patch
+# c4e00d98381c6fe694a31333755e24e4  - git-ptx-patches magic

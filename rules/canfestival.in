@@ -1,16 +1,11 @@
-## SECTION=staging
-## old section:
-### SECTION=networking
+## SECTION=networking
 
 config CANFESTIVAL
 	tristate
-	select HOST_SYSTEM_PYTHON
+	select HOST_SYSTEM_PYTHON3
 	prompt "canfestival"
 	help
 	  CanFestival is an OpenSource CANOpen framework, licensed with GPLv2 and
 	  LGPLv2. For details, see the project web page:
 
 	  http://www.canfestival.org/
-
-	  STAGING: remove in PTXdist 2024.12.0
-	  Upstream is dead and needs Python 2 to build, which is also dead.
