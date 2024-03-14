@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_EXPAT) += expat
 #
 # Paths and names
 #
-EXPAT_VERSION		:= 2.6.1
-EXPAT_MD5		:= d83bb2458956aeed4236cf45bff6eccd
+EXPAT_VERSION		:= 2.6.2
+EXPAT_MD5		:= b246f58b25a7629fca6cbd1429400cdf
 EXPAT			:= expat-$(EXPAT_VERSION)
 EXPAT_SUFFIX		:= tar.bz2
 EXPAT_RELEASE		:= R_$(subst .,_,$(EXPAT_VERSION))
