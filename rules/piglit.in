@@ -24,6 +24,8 @@ menuconfig PIGLIT
 	select XORG if PIGLIT_TESTS_OPENGL
 	select MESALIB_GLES1 if PIGLIT_TESTS_OPENGLES1
 	select MESALIB_GLES2 if PIGLIT_TESTS_OPENGLES2 || PIGLIT_TESTS_OPENGLES3
+	select VULKAN_LOADER if PIGLIT_TESTS_VULKAN
+	select VKRUNNER if PIGLIT_TESTS_VULKAN && RUNTIME
 	help
 	  Piglit is the opensource OpenGL/OpenCL test suite.
 
@@ -50,5 +52,9 @@ config PIGLIT_TESTS_OPENGLES2
 config PIGLIT_TESTS_OPENGLES3
 	bool
 	prompt "build OpenGL ES3 tests"
+
+config PIGLIT_TESTS_VULKAN
+	bool
+	prompt "build Vulkan tests"
 
 endif
