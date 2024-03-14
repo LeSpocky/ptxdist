@@ -1,10 +1,15 @@
-## SECTION=debug_tools
+## SECTION=staging
+## old section:
+### SECTION=debug_tools
 
 menuconfig MEMTEST86P
 	tristate
 	prompt "memtest86+                    "
 	help
 	  Memory tester based on memtest86
+
+	  STAGING: remove in PTXdist 2025.04.0
+	  Unmaintained in PTXdist and fails to build with current toolchains. Needs updating.
 
 if MEMTEST86P
 
