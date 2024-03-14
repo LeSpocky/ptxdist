@@ -382,9 +382,9 @@ config ROOTFS_MODPROBE_CONF
 config ROOTFS_NSSWITCH_CONF
 	bool
 	default y
-	prompt "install /etc/nsswitch"
+	prompt "install /etc/nsswitch.conf"
 	help
-	  If enabled, it installs the "./projectroot/etc/nsswitch" file if
+	  If enabled, it installs the "./projectroot/etc/nsswitch.conf" file if
 	  present, else a generic one from the ptxdist directory.
 
 config ROOTFS_PROFILE
