@@ -489,12 +489,14 @@ ptxd_make_world_init() {
 		pkg_build_tool=ninja
 	    fi
     esac
-    if [ "${pkg_build_tool}" = "ninja" ]; then
-	if [ "${PTXDIST_VERBOSE}" = "1" ]; then
-	    pkg_make_opt="-v ${pkg_make_opt}"
-	    pkg_install_opt="-v ${pkg_install_opt}"
-	fi
-    fi
+    case "${pkg_build_tool}" in
+	ninja|cargo)
+	    if [ "${PTXDIST_VERBOSE}" = "1" ]; then
+		pkg_make_opt="-v ${pkg_make_opt}"
+		pkg_install_opt="-v ${pkg_install_opt}"
+	    fi
+	    ;;
+    esac
 
     # DESTDIR
     if [[ "${pkg_stage}" =~ "install" ]]; then
