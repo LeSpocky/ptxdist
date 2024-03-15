@@ -27,6 +27,8 @@ $(STATEDIR)/host-system-python3.prepare:
 	@HOST_SYSTEM_PYTHON3_SETUP=1 $(SYSTEMPYTHON3) -m venv \
 		--system-site-packages \
 		$(PTXDIST_SYSROOT_HOST)/usr/lib/system-python3
+	@$(PTXDIST_SYSROOT_HOST)/usr/lib/system-python3/bin/pip3 \
+		uninstall --yes setuptools
 
 ifdef PTXCONF_HOST_SYSTEM_PYTHON3_CRYPTOGRAPHY
 	@echo "Checking for Python Cryptography ..."
