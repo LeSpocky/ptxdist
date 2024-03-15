@@ -21,22 +21,22 @@ menuconfig GSTREAMER1
 
 if GSTREAMER1
 
-	config GSTREAMER1_INTROSPECTION
-		bool
-		default GOBJECT_INTROSPECTION_HELPER
+config GSTREAMER1_INTROSPECTION
+	bool
+	default GOBJECT_INTROSPECTION_HELPER
 
-	config GSTREAMER1_DEBUG
-		bool
-		default y
-		prompt "enable debug support"
+config GSTREAMER1_DEBUG
+	bool
+	default y
+	prompt "enable debug support"
 
-	config GSTREAMER1_CHECK
-		bool
-		prompt "install gst-check library"
+config GSTREAMER1_CHECK
+	bool
+	prompt "install gst-check library"
 
-	config GSTREAMER1_INSTALL_TOOLS
-		bool
-		default y
-		prompt "install tools"
+config GSTREAMER1_INSTALL_TOOLS
+	bool
+	default y
+	prompt "install tools"
 endif
 
