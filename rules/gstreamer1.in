@@ -25,6 +25,12 @@ config GSTREAMER1_INTROSPECTION
 	bool
 	default GOBJECT_INTROSPECTION_HELPER
 
+config GSTREAMER1_PTP
+	bool
+	prompt "enable ptp support"
+	help
+	  Note: The ptp helper requires a working rust compiler
+
 config GSTREAMER1_DEBUG
 	bool
 	default y

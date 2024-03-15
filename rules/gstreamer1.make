@@ -70,7 +70,7 @@ GSTREAMER1_CONF_OPT	:= \
 	-Dnls=disabled \
 	-Doption-parsing=true \
 	-Dpoisoning=false \
-	-Dptp-helper=enabled \
+	-Dptp-helper=$(call ptx/endis,PTXCONF_GSTREAMER1_PTP)d \
 	-Dptp-helper-permissions=setuid-root \
 	-Dptp-helper-setuid-group=nogroup \
 	-Dptp-helper-setuid-user=nobody \
@@ -130,8 +130,10 @@ endif
 
 	@$(call install_copy, gstreamer1, 0, 0, 0755, -, \
 		/usr/libexec/gstreamer-1.0/gst-plugin-scanner)
+ifdef PTXCONF_GSTREAMER1_PTP
 	@$(call install_copy, gstreamer1, 0, 0, 4755, -, \
 		/usr/libexec/gstreamer-1.0/gst-ptp-helper)
+endif
 
 ifdef PTXCONF_GSTREAMER1_INTROSPECTION
 	@$(call install_tree, gstreamer1, 0, 0, -, \
