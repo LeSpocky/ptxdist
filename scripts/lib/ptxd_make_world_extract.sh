@@ -152,31 +152,7 @@ ptxd_make_world_extract_cargo() {
 	*)
 	    ;;
 	esac
-    done &&
-    cat << EOF > ${pkg_cargo_home}/config
-[source.ptxdist]
-directory = "${pkg_cargo_home}/source"
-
-[source.crates-io]
-replace-with = "ptxdist"
-local-registry = "/nonexistant"
-
-EOF
-
-    grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
-	sed -n 's;^source = "git+\(.*://[^?]*\)?branch=\(.*\)#.*;[source."\1"]\ngit = "\1"\nbranch = "\2"\nreplace-with = "ptxdist"\n;p' >> ${pkg_cargo_home}/config
-    grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
-	sed -n 's;^source = "git+\(.*://[^?]*\)?rev=\(.*\)#.*";[source."\1"]\ngit = "\1"\nrev = "\2"\nreplace-with = "ptxdist"\n;p' >> ${pkg_cargo_home}/config
-    grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
-	sed -n 's;^source = "git+\(.*://[^?]*\)#.*";[source."\1"]\ngit = "\1"\nreplace-with = "ptxdist"\n;p' >> ${pkg_cargo_home}/config
-    cat << EOF >> ${pkg_cargo_home}/config
-
-[build]
-target-dir = "${pkg_build_dir}/target"
-
-[net]
-offline = true
-EOF
+    done
 }
 export -f ptxd_make_world_extract_cargo
 
