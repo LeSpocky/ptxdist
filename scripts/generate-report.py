@@ -96,13 +96,13 @@ class Generator:
         data = """"%s" [ shape=box style="rounded corners" fixedsize=false texlbl="\\small\\begin{tabular}{c}{\\Large\\hyperref[%s]{%s}}\\\\%s\\end{tabular}" ];
 """ % (pkg['name'], pkg['name'], self.escape(pkg['name']), licenses)
 
-        if not 'builddeps' in pkg:
+        if 'builddeps' not in pkg:
             return data
 
         for dep in pkg['builddeps']:
             if f'{pkg["name"]} {dep}' in hit_deps:
                 continue
-            if not dep in pkgs:
+            if dep not in pkgs:
                 continue
             hit_deps.add(f'{pkg["name"]} {dep}')
             data += """"%s" -> "%s"[dir=back];
