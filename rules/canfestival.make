@@ -30,22 +30,11 @@ CANFESTIVAL_LICENSE_FILES	:= \
 	file://COPYING;startline=17;endline=25;md5=2964e968dd34832b27b656f9a0ca2dbf
 
 CANFESTIVAL_GNOSIS_SOURCE	:= $(CANFESTIVAL_DIR)/objdictgen/Gnosis_Utils-current.tar.gz
-CANFESTIVAL_GNOSIS_DIR    	:= $(CANFESTIVAL_DIR)/objdictgen/gnosis-tar-gz
+CANFESTIVAL_GNOSIS_DIR		:= $(CANFESTIVAL_DIR)/objdictgen/gnosis
+CANFESTIVAL_GNOSIS_STRIP_LEVEL	:= 2
+CANFESTIVAL_GNOSIS_SRC_FILTER	:= */gnosis
 
-# ----------------------------------------------------------------------------
-# Extract
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/canfestival.extract:
-	@$(call targetinfo)
-	@$(call clean, $(CANFESTIVAL_DIR))
-	@$(call extract, CANFESTIVAL)
-	@# this is what objdictgen/Makfile does, but we want to patch gnosis
-	@$(call extract, CANFESTIVAL_GNOSIS)
-	@mv $(CANFESTIVAL_DIR)/objdictgen/gnosis-tar-gz/gnosis \
-		$(CANFESTIVAL_DIR)/objdictgen/gnosis
-	@$(call patchin, CANFESTIVAL)
-	@$(call touch)
+CANFESTIVAL_PARTS		+= CANFESTIVAL_GNOSIS
 
 # ----------------------------------------------------------------------------
 # Prepare
