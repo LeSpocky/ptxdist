@@ -33,7 +33,7 @@ for section, data in pkg_input.items():
         if section in workspace['workspace']:
             wsection = section
         else:
-            wsection = section.removeprefix('dev-')
+            wsection = section[4:] if section.startswith('dev-') else section
             if not wsection in workspace['workspace']:
                 print(f'missing section "workspace.{section}" in {args.workspace} for {args.input}')
                 exit(1)
