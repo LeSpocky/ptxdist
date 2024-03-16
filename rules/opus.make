@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_OPUS) += opus
 #
 # Paths and names
 #
-OPUS_VERSION	:= 1.4
-OPUS_MD5	:= 0d89c15268c5c5984f583d7997d2a148
+OPUS_VERSION	:= 1.5.1
+OPUS_MD5	:= 06c0e626ea3ad72f7b006e9130c8b15d
 OPUS		:= opus-$(OPUS_VERSION)
 OPUS_SUFFIX	:= tar.gz
 OPUS_URL	:= http://downloads.xiph.org/releases/opus/$(OPUS).$(OPUS_SUFFIX)
@@ -38,6 +38,9 @@ OPUS_CONF_OPT	:= \
 	--disable-fixed-point-debug \
 	--enable-float-api \
 	--disable-custom-modes \
+	--disable-dred \
+	--disable-deep-plc \
+	--disable-lossgen \
 	--enable-float-approx \
 	--enable-asm \
 	--enable-rtcd \
@@ -47,6 +50,10 @@ OPUS_CONF_OPT	:= \
 	--disable-fuzzing \
 	--disable-check-asm \
 	--disable-doc \
+	--disable-dot-product \
+	--disable-dnn-debug-float \
+	--disable-osce-training-data \
+	--disable-osce \
 	--disable-extra-programs \
 	--enable-rfc8251
 
