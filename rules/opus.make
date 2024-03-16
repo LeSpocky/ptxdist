@@ -27,35 +27,29 @@ OPUS_LICENSE	:= BSD-3-Clause
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
-OPUS_CONF_TOOL	:= autoconf
+OPUS_CONF_TOOL	:= meson
 OPUS_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-static \
-	--$(call ptx/disen, PTXCONF_HAS_HARDFLOAT)-fixed-point \
-	--disable-fixed-point-debug \
-	--enable-float-api \
-	--disable-custom-modes \
-	--disable-dred \
-	--disable-deep-plc \
-	--disable-lossgen \
-	--enable-float-approx \
-	--enable-asm \
-	--enable-rtcd \
-	--enable-intrinsics \
-	--disable-assertions \
-	--enable-hardening \
-	--disable-fuzzing \
-	--disable-check-asm \
-	--disable-doc \
-	--disable-dot-product \
-	--disable-dnn-debug-float \
-	--disable-osce-training-data \
-	--disable-osce \
-	--disable-extra-programs \
-	--enable-rfc8251
+	$(CROSS_MESON_USR) \
+	-Dasm=$(call ptx/disen, PTXCONF_HAS_HARDFLOAT)d \
+	-Dassertions=false \
+	-Dcheck-asm=false \
+	-Dcustom-modes=false \
+	-Ddocdir=doc/opus \
+	-Ddocs=disabled \
+	-Denable-deep-plc=false \
+	-Denable-dnn-debug-float=false \
+	-Denable-dred=false \
+	-Denable-osce=false \
+	-Dextra-programs=disabled \
+	-Dfixed-point=$(call ptx/falsetrue, PTXCONF_HAS_HARDFLOAT) \
+	-Dfixed-point-debug=false \
+	-Dfloat-api=true \
+	-Dfloat-approx=true \
+	-Dfuzzing=false \
+	-Dhardening=true \
+	-Dintrinsics=enabled \
+	-Drtcd=enabled \
+	-Dtests=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
