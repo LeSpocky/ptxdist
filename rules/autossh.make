@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_AUTOSSH) += autossh
 #
 # Paths and names
 #
-AUTOSSH_VERSION	:= 1.4c
-AUTOSSH_MD5	:= 26520eea934f296be0783dabe7fcfd28
-AUTOSSH		:= autossh-$(AUTOSSH_VERSION)
-AUTOSSH_SUFFIX	:= tgz
-AUTOSSH_URL	:= https://www.harding.motd.ca/autossh/$(AUTOSSH).$(AUTOSSH_SUFFIX)
-AUTOSSH_SOURCE	:= $(SRCDIR)/$(AUTOSSH).$(AUTOSSH_SUFFIX)
-AUTOSSH_DIR	:= $(BUILDDIR)/$(AUTOSSH)
-AUTOSSH_LICENSE	:= unknown
+AUTOSSH_VERSION		:= 1.4g
+AUTOSSH_MD5		:= 2b804bc1bf6d2f2afaa526d02df7c0a2
+AUTOSSH			:= autossh-$(AUTOSSH_VERSION)
+AUTOSSH_SUFFIX		:= tgz
+AUTOSSH_URL		:= https://www.harding.motd.ca/autossh/$(AUTOSSH).$(AUTOSSH_SUFFIX)
+AUTOSSH_SOURCE		:= $(SRCDIR)/$(AUTOSSH).$(AUTOSSH_SUFFIX)
+AUTOSSH_DIR		:= $(BUILDDIR)/$(AUTOSSH)
+AUTOSSH_LICENSE		:= custom
+AUTOSSH_LICENSE_FILES	:= \
+	file://autossh.c;startline=7;endline=22;md5=9ae0c9b04856148d77984ef58536732b
 
 # ----------------------------------------------------------------------------
 # Prepare
