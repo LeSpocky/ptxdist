@@ -353,6 +353,9 @@ ptxd_make_world_init() {
 	    pkg_conf_env="PTXDIST_ICECC= ${pkg_conf_env:-${!conf_env_ptr}}"
 
 	    unset conf_opt_ptr conf_env_ptr
+	    if [ -n "${pkg_cargo_lock}" ]; then
+		pkg_make_env="${pkg_make_env_cargo} ${pkg_make_env}"
+	    fi
 	    ;;
 	python|python3)
 	    local build_python_ptr="ptx_${pkg_conf_tool}_${pkg_type}"
