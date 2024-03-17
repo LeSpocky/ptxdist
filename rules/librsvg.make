@@ -15,13 +15,17 @@ PACKAGES-$(PTXCONF_LIBRSVG) += librsvg
 #
 # Paths and names
 #
-LIBRSVG_VERSION	:= 2.26.3
-LIBRSVG_MD5	:= 8df68c2c02cdf2a96a92b43bf737bf9c
-LIBRSVG		:= librsvg-$(LIBRSVG_VERSION)
-LIBRSVG_SUFFIX	:= tar.bz2
-LIBRSVG_URL	:= $(call ptx/mirror, GNOME, librsvg/$(basename $(LIBRSVG_VERSION))/$(LIBRSVG).$(LIBRSVG_SUFFIX))
-LIBRSVG_SOURCE	:= $(SRCDIR)/$(LIBRSVG).$(LIBRSVG_SUFFIX)
-LIBRSVG_DIR	:= $(BUILDDIR)/$(LIBRSVG)
+LIBRSVG_VERSION		:= 2.57.2
+LIBRSVG_MD5		:= 2f7db11bc9736c07775cf97f40b01784
+LIBRSVG			:= librsvg-$(LIBRSVG_VERSION)
+LIBRSVG_SUFFIX		:= tar.xz
+LIBRSVG_URL		:= $(call ptx/mirror, GNOME, librsvg/$(basename $(LIBRSVG_VERSION))/$(LIBRSVG).$(LIBRSVG_SUFFIX))
+LIBRSVG_SOURCE		:= $(SRCDIR)/$(LIBRSVG).$(LIBRSVG_SUFFIX)
+LIBRSVG_DIR		:= $(BUILDDIR)/$(LIBRSVG)
+LIBRSVG_CARGO_LOCK	:= Cargo.lock
+LIBRSVG_LICENSE		:= LGPL-2.1-or-later AND unknown
+LIBRSVG_LICENSE_FILES	:= \
+	file://COPYING.LIB;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -30,16 +34,19 @@ LIBRSVG_DIR	:= $(BUILDDIR)/$(LIBRSVG)
 #
 # autoconf
 #
-LIBRSVG_CONF_TOOL := autoconf
-LIBRSVG_CONF_OPT := \
+LIBRSVG_CONF_TOOL	:= autoconf
+LIBRSVG_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-gtk-theme  \
-	--$(call ptx/endis, PTXCONF_LIBRSVG_PIXBUF_LOADER)-pixbuf-loader \
 	--disable-gtk-doc \
-	--disable-tools \
-	--$(call ptx/wwo, PTXCONF_LIBRSVG_SVGZ)-svgz \
-	--$(call ptx/wwo, PTXCONF_LIBRSVG_CROCO)-croco \
-	--without-x
+	--disable-installed-tests \
+	--disable-always-build-tests \
+	--$(call ptx/endis, PTXCONF_LIBRSVG_PIXBUF_LOADER)-pixbuf-loader \
+	--disable-debug \
+	--disable-introspection \
+	--disable-vala
+
+LIBRSVG_MAKE_ENV	:= \
+	$(CROSS_CARGO_ENV)
 
 # ----------------------------------------------------------------------------
 # Target-Install
