@@ -812,6 +812,12 @@ ptxd_install_generic() {
 
     case "${type}" in
 	"directory")
+	    # drop the sticky bits if the group is overwritten. It is probably
+	    # inherited anyways and keeping it for a different group than what
+	    # is was meant for makes no sense
+	    if [ -n "${grp}" ]; then
+		mod="$(printf "0%o" $(( ${mod} & ~02000 )))"
+	    fi &&
 	    ptxd_install_dir "${dst}" "${usr}" "${grp}" "${mod}"
 	    ;;
 	"character special file")
