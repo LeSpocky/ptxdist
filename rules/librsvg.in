@@ -3,9 +3,12 @@
 menuconfig LIBRSVG
 	tristate
 	prompt "librsvg                       "
-	select GTK
+	select CAIRO
+	select CAIRO_GOBJECT
+	select GDK_PIXBUF
 	select LIBXML2
 	select LIBXML2_PUSH
+	select PANGO
 	select LIBGSF	if LIBRSVG_SVGZ
 	help
 	  AX-based renderer library for SVG files

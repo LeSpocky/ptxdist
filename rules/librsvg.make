@@ -31,6 +31,11 @@ LIBRSVG_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
+LIBRSVG_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_path_GDK_PIXBUF_QUERYLOADERS=: \
+	ac_cv_prog_RST2MAN=no
+
 #
 # autoconf
 #
