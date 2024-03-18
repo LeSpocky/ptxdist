@@ -18,7 +18,9 @@ BLUEZ_QT_VERSION	:= 5.56.0
 BLUEZ_QT_MD5		:= 2e2a7b4b5a2efbb2acc9c48f9111291f
 BLUEZ_QT		:= bluez-qt-$(BLUEZ_QT_VERSION)
 BLUEZ_QT_SUFFIX		:= tar.xz
-BLUEZ_QT_URL		:= https://download.kde.org/stable/frameworks/$(basename $(BLUEZ_QT_VERSION))/$(BLUEZ_QT).$(BLUEZ_QT_SUFFIX)
+BLUEZ_QT_URL		:= \
+	https://download.kde.org/stable/frameworks/$(basename $(BLUEZ_QT_VERSION))/$(BLUEZ_QT).$(BLUEZ_QT_SUFFIX) \
+	https://download.kde.org/Attic/frameworks/$(basename $(BLUEZ_QT_VERSION))/$(BLUEZ_QT).$(BLUEZ_QT_SUFFIX)
 BLUEZ_QT_SOURCE		:= $(SRCDIR)/$(BLUEZ_QT).$(BLUEZ_QT_SUFFIX)
 BLUEZ_QT_DIR		:= $(BUILDDIR)/$(BLUEZ_QT)
 BLUEZ_QT_LICENSE	:= LGPL-2.1-or-later
