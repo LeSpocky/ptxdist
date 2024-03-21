@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_STRACE) += strace
 #
 # Paths and names
 #
-STRACE_VERSION	:= 6.7
-STRACE_MD5	:= 8eb0aa75111a8e66cc14176159cc8ee9
+STRACE_VERSION	:= 6.8
+STRACE_MD5	:= 1c7aca3fad1f309fdb54031866fad6d9
 STRACE		:= strace-$(STRACE_VERSION)
 STRACE_SUFFIX	:= tar.xz
 STRACE_URL	:= https://strace.io/files/$(STRACE_VERSION)/$(STRACE).$(STRACE_SUFFIX)
