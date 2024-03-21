@@ -15,4 +15,7 @@ config LIBQMI_MBIM_QMUX
 	bool "enable mbim-qmux support"
 	default y if MODEMMANAGER
 
+config LIBQMI_FIRMWARE_UPDATE
+	bool "Add firmware update tool for QMI devices"
+
 endif

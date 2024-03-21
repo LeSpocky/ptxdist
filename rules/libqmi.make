@@ -36,7 +36,7 @@ LIBQMI_LICENSE_FILES := \
 LIBQMI_CONF_TOOL	:= meson
 LIBQMI_CONF_OPT		:= \
 	$(CROSS_MESON_USR) \
-	-Dfirmware_update=false \
+	-Dfirmware_update=$(call ptx/truefalse, PTXCONF_LIBQMI_FIRMWARE_UPDATE) \
 	-Dcollection=full \
 	-Dmbim_qmux=$(call ptx/truefalse, PTXCONF_LIBQMI_MBIM_QMUX) \
 	-Dmm_runtime_check=false \
@@ -64,6 +64,10 @@ $(STATEDIR)/libqmi.targetinstall:
 
 	@$(call install_copy, libqmi, 0, 0, 0755, -, /usr/bin/qmicli)
 	@$(call install_copy, libqmi, 0, 0, 0755, -, /usr/bin/qmi-network)
+
+ifdef PTXCONF_LIBQMI_FIRMWARE_UPDATE
+	@$(call install_copy, libqmi, 0, 0, 0755, -, /usr/bin/qmi-firmware-update)
+endif
 
 	@$(call install_copy, libqmi, 0, 0, 0755, -, /usr/libexec/qmi-proxy)
 	@$(call install_lib, libqmi, 0, 0, 0644, libqmi-glib)
