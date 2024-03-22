@@ -8,13 +8,13 @@ toolchain.
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- ptxdist-cargo-home/source/ahash-0.8.9/src/lib.rs | 1 +
+ ptxdist-cargo-home/source/ahash-0.8.11/src/lib.rs | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/ptxdist-cargo-home/source/ahash-0.8.9/src/lib.rs b/ptxdist-cargo-home/source/ahash-0.8.9/src/lib.rs
-index 653c3bc1e88a..edb2eebc9d26 100644
---- a/ptxdist-cargo-home/source/ahash-0.8.9/src/lib.rs
-+++ b/ptxdist-cargo-home/source/ahash-0.8.9/src/lib.rs
+diff --git a/ptxdist-cargo-home/source/ahash-0.8.11/src/lib.rs b/ptxdist-cargo-home/source/ahash-0.8.11/src/lib.rs
+index 69fb2ca2371f..e93e20b816c8 100644
+--- a/ptxdist-cargo-home/source/ahash-0.8.11/src/lib.rs
++++ b/ptxdist-cargo-home/source/ahash-0.8.11/src/lib.rs
 @@ -12,6 +12,7 @@
  //! Because aHash does not have a fixed standard for its output, it is able to improve over time.
  //! But this also means that different computers or computers using different versions of ahash may observe different
