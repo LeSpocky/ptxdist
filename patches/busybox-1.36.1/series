@@ -6,4 +6,5 @@
 0200-reactivate-check-for-tty.patch
 0201-build-system-only-pass-real-libs-to-SELINUX_LIBS.patch
 0202-scripts-trylink-honour-SKIP_STRIP-and-don-t-strip-if.patch
-# 9c0cc4baa8090165b429198c9a10e02c  - git-ptx-patches magic
+0203-tc-Fix-compilation-with-Linux-v6.8-rc1.patch
+# e781b8c6838e27fd021f9c1a9f87654d  - git-ptx-patches magic
