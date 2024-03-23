@@ -466,5 +466,14 @@ s/^\(\(# \)\?PTXCONF_UTIL_LINUX\)_NG/\1/
 # symbol : SYSTEMD -> SYSTEMD + SYSTEMD_HELPER
 # reason : SYSTEMD_HELPER was added as indirection to avoid cyclic dependencies
 #
-s/^\(# \)\?\(PTXCONF_SYSTEMD_HELPER\>\)\(.*\)//
+/^\(PTXCONF_SYSTEMD_HELPER\>\)\(.*\)/!bnot_systemd_helper
+# add the next line
+/^\(PTXCONF_SYSTEMD_HELPER\>\)\(.*\)/N
+# print SYSTEMD_HELPER + SYSTEMD and restart
+/^\(PTXCONF_SYSTEMD_HELPER\>\)\(.*\)\<PTXCONF_SYSTEMD\>/{p;d}
+# print SYSTEMD_HELPER and restart with the next line that is not SYSTEMD
+P
+D
+:not_systemd_helper
+# SYSTEMD without SYSTEMD_HELPER so add it
 s/^\(# \)\?\(PTXCONF_SYSTEMD\>\)\(.*\)/\1\2_HELPER\3\n\1\2\3/
