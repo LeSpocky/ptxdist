@@ -693,7 +693,9 @@ ptxd_kconfig_update() {
 	    if [ "${part}" = ptx -o "${part}" = platform ]; then
 		ptxd_kconfig_migrate "${part}" &&
 		# migrate touches the config, so update the timestamp
-		stat -c '%y' ".config" > ".config.stamp"
+		if cmp --quiet ".config" ".config.old"; then
+		    stat -c '%y' ".config" > ".config.stamp"
+		fi
 	    fi &&
 	    ptxd_kconfig_run_conf --oldconfig "${file_kconfig}"
 	    ;;
