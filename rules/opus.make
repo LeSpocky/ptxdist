@@ -27,10 +27,27 @@ OPUS_LICENSE	:= BSD-3-Clause
 # Prepare
 # ----------------------------------------------------------------------------
 
+OPUS_INTRINSICS	:= y
+ifdef PTXCONF_ARCH_PPC
+OPUS_INTRINSICS	:=
+endif
+ifdef PTXCONF_ARCH_ARM
+ifndef PTXCONF_ARCH_ARM_NEON
+OPUS_INTRINSICS	:=
+endif
+endif
+ifeq ($(OPUS_INTRINSICS),)
+OPUS_ASM	:= y
+endif
+ifdef PTXCONF_ARCH_PPC
+OPUS_ASM	:=
+endif
+OPUS_RTCD	:= $(if $(OPUS_INTRINSICS)$(OPUS_ASM),y)
+
 OPUS_CONF_TOOL	:= meson
 OPUS_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dasm=$(call ptx/disen, PTXCONF_HAS_HARDFLOAT)d \
+	-Dasm=$(call ptx/endis, OPUS_ASM)d \
 	-Dassertions=false \
 	-Dcheck-asm=false \
 	-Dcustom-modes=false \
@@ -47,8 +64,8 @@ OPUS_CONF_OPT	:= \
 	-Dfloat-approx=true \
 	-Dfuzzing=false \
 	-Dhardening=true \
-	-Dintrinsics=enabled \
-	-Drtcd=enabled \
+	-Dintrinsics=$(call ptx/endis, OPUS_INTRINSICS)d \
+	-Drtcd=$(call ptx/endis, OPUS_RTCD)d \
 	-Dtests=disabled
 
 # ----------------------------------------------------------------------------

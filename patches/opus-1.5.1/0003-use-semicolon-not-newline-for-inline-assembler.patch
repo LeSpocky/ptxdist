@@ -1,0 +1,47 @@
+From: Rudi Heitbaum <rudi@heitbaum.com>
+Date: Sat, 9 Mar 2024 17:58:18 +0000
+Subject: [PATCH] use semicolon not newline for inline assembler
+
+fixes:
+
+testfile.c:3:11: warning: missing terminating " character
+    3 |   __asm__(".arch armv5te
+      |           ^
+testfile.c:4:1: error: expected string literal before '.' token
+    4 | .object_arch armv4t
+      | ^
+testfile.c:5:14: warning: missing terminating " character
+    5 | qadd r3,r3,r3");
+      |              ^
+
+Signed-off-by: Rudi Heitbaum <rudi@heitbaum.com>
+Signed-off-by: Jean-Marc Valin <jmvalin@jmvalin.ca>
+---
+ meson.build | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 1b16b08f662a..bd23744cadb1 100644
+--- a/meson.build
++++ b/meson.build
+@@ -277,17 +277,17 @@ if not opt_asm.disabled()
+         if not opus_arm_may_have_edsp
+           message('Trying to force-enable armv5e EDSP instructions...')
+           # AS_ASM_ARM_EDSP_FORCE
+-          opus_arm_may_have_edsp = cc.compiles(asm_tmpl.format('.arch armv5te\n.object_arch armv4t\nqadd r3,r3,r3'),
++          opus_arm_may_have_edsp = cc.compiles(asm_tmpl.format('.arch armv5te;.object_arch armv4t;qadd r3,r3,r3'),
+                                                name : 'Assembler supports EDSP instructions on ARM (forced)')
+         endif
+         if not opus_arm_may_have_media
+           message('Trying to force-enable ARMv6 media instructions...')
+-          opus_arm_may_have_media = cc.compiles(asm_tmpl.format('.arch armv6\n.object_arch armv4t\nshadd8 r3,r3,r3'),
++          opus_arm_may_have_media = cc.compiles(asm_tmpl.format('.arch armv6;.object_arch armv4t;shadd8 r3,r3,r3'),
+                                                 name : 'Assembler supports ARMv6 media instructions on ARM (forced)')
+         endif
+         if not opus_arm_may_have_neon
+           message('Trying to force-enable NEON instructions...')
+-          opus_arm_may_have_neon = cc.compiles(asm_tmpl.format('.arch armv7-a\n.fpu neon\n.object_arch armv4t\nvorr d0,d0,d0'),
++          opus_arm_may_have_neon = cc.compiles(asm_tmpl.format('.arch armv7-a;.fpu neon;.object_arch armv4t;vorr d0,d0,d0'),
+                                                name : 'Assembler supports NEON instructions on ARM (forced)')
+         endif
+       endif

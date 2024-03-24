@@ -1,0 +1,25 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sun, 24 Mar 2024 15:59:29 +0100
+Subject: [PATCH] ptxdist: get-version.py: don't detect 'extract --git' as git
+ checkout
+
+Otherwise building fails because the relevant tags are missing.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ meson/get-version.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/meson/get-version.py b/meson/get-version.py
+index d3835f134c81..96a275f15af8 100755
+--- a/meson/get-version.py
++++ b/meson/get-version.py
+@@ -31,7 +31,7 @@ if __name__ == '__main__':
+ 
+         # check if git checkout
+         git_dir = os.path.join(srcroot, '.git')
+-        is_git = os.path.isdir(git_dir) or os.path.isfile(git_dir)
++        is_git = (os.path.isdir(git_dir) or os.path.isfile(git_dir)) and not os.path.isdir(os.path.join(srcroot, '.ptxdist/git-patches'))
+         have_git = shutil.which('git') is not None
+ 
+         if is_git and have_git:

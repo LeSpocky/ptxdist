@@ -3,6 +3,7 @@
 config OPUS
 	tristate
 	prompt "opus"
+	select HOST_SYSTEM_PERL
 	select HOST_MESON
 	help
 	  Opus is a totally open, royalty-free, highly versatile audio codec.
