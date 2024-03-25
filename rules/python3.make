@@ -166,6 +166,7 @@ PYTHON3_SKIP-$(call ptx/opt-dis, PTXCONF_PYTHON3_READLINE)	+= */readline*so
 PYTHON3_SKIP-$(call ptx/opt-dis, PTXCONF_PYTHON3_SQLITE)	+= */sqlite3 */_sqlite3*.so
 PYTHON3_SKIP-$(call ptx/opt-dis, PTXCONF_PYTHON3_SSL)		+= */ssl.pyc */_ssl*.so */hashlib.pyc */_hashlib*.so
 PYTHON3_SKIP-$(call ptx/opt-dis, PTXCONF_PYTHON3_DISTUTILS)	+= */distutils
+PYTHON3_SKIP-$(call ptx/opt-dis, PTXCONF_PYTHON3_ENSUREPIP)	+= */ensurepip
 
 $(STATEDIR)/python3.targetinstall:
 	@$(call targetinfo)
