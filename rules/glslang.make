@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GLSLANG) += glslang
 #
 # Paths and names
 #
-GLSLANG_VERSION		:= 1.3.275.0
-GLSLANG_MD5		:= 017c759481a055f5eee91c74adc7d4cd
+GLSLANG_VERSION		:= 1.3.280.0
+GLSLANG_MD5		:= e6105068a700cdeb6d498bb982dcc570
 GLSLANG			:= glslang-$(GLSLANG_VERSION)
 GLSLANG_SUFFIX		:= tar.gz
 GLSLANG_URL		:= https://github.com/KhronosGroup/glslang/archive/vulkan-sdk-$(GLSLANG_VERSION).$(GLSLANG_SUFFIX)
@@ -44,6 +44,7 @@ GLSLANG_CONF_OPT	:= \
 	-DENABLE_PCH=ON \
 	-DENABLE_RTTI=OFF \
 	-DENABLE_SPVREMAPPER=ON \
+	-DGLSLANG_ENABLE_INSTALL=ON \
 	-DGLSLANG_TESTS=OFF
 
 # ----------------------------------------------------------------------------
