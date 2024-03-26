@@ -62,7 +62,7 @@ config PYTHON3_DISTUTILS
 	bool
 	prompt "Include distutils packages"
 
-config PYTHON3_ENSUREPIP
+config PYTHON3_KEEP_ENSUREPIP
 	bool
 	prompt "Include ensurepip module"
 
