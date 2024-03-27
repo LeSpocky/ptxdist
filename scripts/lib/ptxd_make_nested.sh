@@ -9,8 +9,10 @@
 ptxd_make_nested_ptxdist_impl() {
     # close all unneeded fds. The nested PTXdist will open its own fds.
     exec 9>&-
-    exec {PTXDIST_FD_STDOUT}>&-
-    exec {PTXDIST_FD_STDERR}>&-
+    if [ -n "${PTXDIST_FD_STDOUT}" ]; then
+	exec {PTXDIST_FD_STDOUT}>&-
+	exec {PTXDIST_FD_STDERR}>&-
+    fi
     exec {ptxd_make_serialize_get_writefd}>&-
     exec {ptxd_make_serialize_get_readfd}>&-
     exec {ptxd_make_serialize_extract_writefd}>&-
@@ -73,8 +75,10 @@ ptxd_make_nested_ptxdist() {
 
     # run ptxdist but don't log it. It has it's on logfile
     (
-	exec 1> >(sed "s/^/${pkg_label}: /" >&${PTXDIST_FD_STDOUT})
-	exec 2> >(sed "s/^/${pkg_label}: /" >&${PTXDIST_FD_STDERR})
+	if [ -n "${PTXDIST_FD_STDOUT}" ]; then
+	    exec 1> >(sed "s/^/${pkg_label}: /" >&${PTXDIST_FD_STDOUT})
+	    exec 2> >(sed "s/^/${pkg_label}: /" >&${PTXDIST_FD_STDERR})
+	fi
 	ptxd_make_nested_ptxdist_impl
     )
 }
