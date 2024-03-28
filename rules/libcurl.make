@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.6.0
-LIBCURL_MD5	:= 8f28f7e08c91cc679a45fccf66184fbc
+LIBCURL_VERSION	:= 8.7.1
+LIBCURL_MD5	:= f4f37253c5f1ad9ee85fa6215fdfeb42
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -62,6 +62,7 @@ LIBCURL_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBCURL_SMTP)-smtp \
 	--disable-gopher \
 	--disable-mqtt \
+	--disable-docs \
 	--disable-manual \
 	--enable-libcurl-option \
 	--disable-libgcc \
