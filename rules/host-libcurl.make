@@ -46,6 +46,7 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--disable-smb \
 	--disable-smtp \
 	--disable-gopher \
+	--disable-docs \
 	--disable-mqtt \
 	--disable-manual \
 	--enable-libcurl-option \
