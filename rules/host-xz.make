@@ -27,7 +27,6 @@ HOST_XZ_CONF_OPT	:= \
 	--disable-lzip-decoder \
 	--enable-assembler \
 	--enable-clmul-crc \
-	--enable-arm64-crc32 \
 	--disable-small \
 	--enable-threads \
 	--enable-xz \
@@ -43,10 +42,8 @@ HOST_XZ_CONF_OPT	:= \
 	--enable-symbol-versions \
 	--disable-nls \
 	--enable-rpath \
-	--enable-ifunc \
 	--enable-unaligned-access=auto \
 	--disable-unsafe-type-punning \
-	--disable-werror \
-	--enable-year2038
+	--disable-werror
 
 # vim: syntax=make
