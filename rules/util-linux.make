@@ -15,12 +15,11 @@ PACKAGES-$(PTXCONF_UTIL_LINUX) += util-linux
 #
 # Paths and names
 #
-UTIL_LINUX_VERSION	:= 2.39.3
-UTIL_LINUX_MD5		:= f3591e6970c017bb4bcd24ae762a98f5
+UTIL_LINUX_VERSION	:= 2.40
+UTIL_LINUX_MD5		:= bc4272a7821bb12c68c441d23b8eaa89
 UTIL_LINUX		:= util-linux-$(UTIL_LINUX_VERSION)
-UTIL_LINUX_SUFFIX	:= tar.xz
-UTIL_LINUX_BASENAME	:= v$(if $(filter 2,$(basename $(UTIL_LINUX_VERSION))),$(UTIL_LINUX_VERSION),$(basename $(UTIL_LINUX_VERSION)))
-UTIL_LINUX_URL		:= $(call ptx/mirror, KERNEL, utils/util-linux/$(UTIL_LINUX_BASENAME)/$(UTIL_LINUX).$(UTIL_LINUX_SUFFIX))
+UTIL_LINUX_SUFFIX	:= tar.gz
+UTIL_LINUX_URL		:= https://git.kernel.org/pub/scm/utils/util-linux/util-linux.git/snapshot/$(UTIL_LINUX).$(UTIL_LINUX_SUFFIX)
 UTIL_LINUX_SOURCE	:= $(SRCDIR)/$(UTIL_LINUX).$(UTIL_LINUX_SUFFIX)
 UTIL_LINUX_DIR		:= $(BUILDDIR)/$(UTIL_LINUX)
 UTIL_LINUX_LICENSE	:= GPL-2.0-only AND GPL-2.0-or-later AND LGPL-2.0-or-later AND BSD-3-Clause AND BSD-4-Clause AND public_domain
@@ -70,6 +69,7 @@ UTIL_LINUX_CONF_OPT	:= \
 	-Dbuild-last=disabled \
 	-Dbuild-libblkid=$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBBLKID)d \
 	-Dbuild-libfdisk=$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBFDISK)d \
+	-Dbuild-liblastlog2=disabled \
 	-Dbuild-libmount=$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBMOUNT)d \
 	-Dbuild-libsmartcols=$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBSMARTCOLS)d \
 	-Dbuild-libuuid=$(call ptx/endis, PTXCONF_UTIL_LINUX_LIBUUID)d \
@@ -88,6 +88,7 @@ UTIL_LINUX_CONF_OPT	:= \
 	-Dbuild-newgrp=disabled \
 	-Dbuild-nologin=disabled \
 	-Dbuild-nsenter=$(call ptx/endis, PTXCONF_UTIL_LINUX_NSENTER)d \
+	-Dbuild-pam-lastlog2=disabled \
 	-Dbuild-partx=$(call ptx/endis, PTXCONF_UTIL_LINUX_PARTX_TOOLS)d \
 	-Dbuild-pg=disabled \
 	-Dbuild-pipesz=$(call ptx/endis, PTXCONF_UTIL_LINUX_PIPESZ)d \
