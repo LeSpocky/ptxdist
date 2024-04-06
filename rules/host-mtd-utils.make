@@ -24,9 +24,9 @@ HOST_MTD_UTILS_CONF_OPT		:= \
 	$(HOST_AUTOCONF) \
 	--disable-unit-tests \
 	--enable-largefile \
-	--disable-tests \
+	--without-tests \
 	--disable-ubihealthd \
-	--disable-lsmtd \
+	--without-lsmtd \
 	--without-jffs \
 	--with-ubifs \
 	--with-xattr \
