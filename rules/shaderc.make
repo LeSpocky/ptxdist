@@ -93,7 +93,10 @@ SHADERC_CONF_OPT	:= \
 	-DSPIRV_TOOLS_BUILD_STATIC=ON \
 	-DSPIRV_TOOLS_INSTALL_EMACS_HELPERS=OFF \
 	-DSPIRV_WARN_EVERYTHING=OFF \
-	-DSPIRV_WERROR=ON
+	-DSPIRV_WERROR=ON \
+	\
+	-DPython_EXECUTABLE=$(PTXDIST_SYSROOT_HOST)/usr/lib/wrapper/$(SYSTEMPYTHON3) \
+	-DPython3_EXECUTABLE=$(PTXDIST_SYSROOT_HOST)/usr/lib/wrapper/$(SYSTEMPYTHON3)
 
 # ----------------------------------------------------------------------------
 # Target-Install
