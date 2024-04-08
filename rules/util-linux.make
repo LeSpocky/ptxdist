@@ -46,6 +46,7 @@ endif
 UTIL_LINUX_CONF_TOOL	:= meson
 UTIL_LINUX_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
+	-Dallow-32bit-time=$(call ptx/falsetrue, PTXDIST_Y2038) \
 	-Daudit=disabled \
 	-Dbtrfs=disabled \
 	-Dbuild-agetty=$(call ptx/endis, PTXCONF_UTIL_LINUX_AGETTY)d \
