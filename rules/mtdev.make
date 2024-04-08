@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MTDEV) += mtdev
 #
 # Paths and names
 #
-MTDEV_VERSION	:= 1.1.6
-MTDEV_MD5	:= bf8ef2482e84a00b5db8fbd3ce00e249
+MTDEV_VERSION	:= 1.1.7
+MTDEV_MD5	:= 483ed7fdf7c1e7b7375c05a62848cce7
 MTDEV		:= mtdev-$(MTDEV_VERSION)
 MTDEV_SUFFIX	:= tar.bz2
 MTDEV_URL	:= http://bitmath.org/code/mtdev/$(MTDEV).$(MTDEV_SUFFIX)
