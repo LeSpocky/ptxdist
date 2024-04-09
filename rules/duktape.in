@@ -1,0 +1,8 @@
+## SECTION=system_libraries
+
+config DUKTAPE
+	tristate
+	prompt "duktape"
+	help
+	  Duktape is an embeddable Javascript engine, with a focus on
+	  portability and compact footprint.
