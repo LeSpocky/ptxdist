@@ -494,7 +494,7 @@ else
 endif
 
 ifdef PTXCONF_SYSTEMD_POLKIT
-	@$(call install_alternative_tree, systemd, 0, 0, /usr/share/polkit-1)
+	@$(call install_tree, systemd, 0, 0, -, /usr/share/polkit-1)
 endif
 
 ifdef PTXCONF_SYSTEMD_TIMEDATE
