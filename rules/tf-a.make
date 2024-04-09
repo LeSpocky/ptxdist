@@ -74,8 +74,6 @@ TF_A_CONF_TOOL	:= NO
 # Compile
 # ----------------------------------------------------------------------------
 
-TF_A_MAKE_ENV	:= $(CROSS_ENV)
-
 $(STATEDIR)/tf-a.compile:
 	@$(call targetinfo)
 
