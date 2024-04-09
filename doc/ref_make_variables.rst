@@ -478,7 +478,7 @@ different.
   package then this package should be selected in the menu file.
 
 ``<PKG>_PKGS``
-  This is another mechanism to add files to the image. It can be uses
+  This is another mechanism to add files to the image. It can be used
   instead of or in addition to ``<PKG>_FILES``. It must be set to a list of
   ptxdist packages (the lowercase name of the packages). PTXdist will add
   the necessary dependencies.
@@ -486,9 +486,9 @@ different.
   Note that this will not ensure that the packages are enabled or that all
   all package dependencies are satisfied. ``$(PTX_PACKAGES_INSTALL)`` can
   be used to specify all enabled packages. Or ``$(call ptx/collection,
-  $(PTXDIST_WORKSPACE)/configs/<collection-file-name>)`` can be uses to to
+  $(PTXDIST_WORKSPACE)/configs/<collection-file-name>)`` can be used to to
   specify the packages enabled by this collection. In both cases ``=`` must
-  be uses instead of ``:=`` due to the makefile include order.
+  be used instead of ``:=`` due to the makefile include order.
 
 ``<PKG>_CONFIG``
   ``genimage`` packages use this to specify the ``genimage`` configuration

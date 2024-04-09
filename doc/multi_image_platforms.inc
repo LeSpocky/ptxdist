@@ -26,7 +26,7 @@ package rules manually. See :ref:`adding_new_packages` for more details one
 how to create a new package.
 
 .. note:: PTXdist looks in ``patches/$(<PKG>)`` for the patches. Symlinks
-  can be uses to share the patch stack across multiple bootloader packages.
+  can be used to share the patch stack across multiple bootloader packages.
 
 .. _multi_image_individual_root_filesystems:
 
@@ -46,7 +46,7 @@ There are two ways to mange the package list for the image:
    Manually create the package list by listing package names or using **make**
    macros to manipulate the default package list ``$(PTX_PACKAGES_INSTALL)``.
 
-   To add a single custom package, extra packages can be uses. An extra package
+   To add a single custom package, extra packages can be used. An extra package
    is not added to ``$(PTX_PACKAGES_INSTALL)``. It is created by modifying the
    package rule like this:
 
@@ -93,7 +93,7 @@ The final steps are highly hardware dependent. In some cases a bootloader
 image and a rootfs are all that is needed.
 
 To boot from SD-Card a disk image including bootloader, partition table and
-rootfs is needed. The ``image-genimage`` template can be uses again to
+rootfs is needed. The ``image-genimage`` template can be used again to
 create such an image for each variant.
 
 .. note:: The genimage config files in ``config/images/`` are good examples

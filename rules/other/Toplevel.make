@@ -203,7 +203,7 @@ endif
 #
 # Pattern target to allow printing variable
 # $(filter ..) is used to match against all existing variables so patterns
-# containing '%' can be uses to print multiple variables.
+# containing '%' can be used to print multiple variables.
 # In verbose mode, '<name>=<value>' is printed.
 # Trying to print undefined variables results in an error unless '-k' is
 # used. In this case an empty value is printed.
