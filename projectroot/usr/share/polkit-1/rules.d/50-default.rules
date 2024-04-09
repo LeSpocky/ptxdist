@@ -1,0 +1,7 @@
+/* -*- mode: js; js-indent-level: 4; indent-tabs-mode: nil -*- */
+
+// only root is admin by default in PTXdist
+
+polkit.addAdminRule(function(action, subject) {
+    return ["unix-user:root"];
+});

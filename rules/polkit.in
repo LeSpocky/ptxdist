@@ -3,13 +3,12 @@
 menuconfig POLKIT
 	tristate
 	prompt "policykit-1                   "
-	select LIBC_CRYPT
+	select HOST_MESON
 	select HOST_GETTEXT
-	select HOST_INTLTOOL
-	select HOST_GTK_DOC
+	select LIBC_CRYPT
+	select DUKTAPE
 	select EXPAT
 	select GLIB
-	select HOST_GLIB
 	select SYSTEMD		if POLKIT_SYSTEMD
 	select SYSTEMD_LOGIND	if POLKIT_SYSTEMD
 	select ROOTFS_VAR_LIB	if RUNTIME
