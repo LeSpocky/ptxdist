@@ -1,0 +1,24 @@
+## SECTION=system_libraries
+
+config LIBBLOCKDEV
+	tristate
+	select CRYPTSETUP
+	select E2FSPROGS
+	select E2FSPROGS_LIBE2P
+	select E2FSPROGS_LIBEXT2FS
+	select GLIB
+	select KEYUTILS
+	select LIBBYTESIZE
+	select LIBKMOD
+	select LIBNVME
+	select UDEV
+	select UDEV_LIBUDEV
+	select UTIL_LINUX
+	select UTIL_LINUX_LIBBLKID
+	select UTIL_LINUX_LIBFDISK
+	select UTIL_LINUX_LIBMOUNT
+	select UTIL_LINUX_LIBUUID
+	prompt "libblockdev"
+	help
+	  libblockdev is a C library supporting GObject introspection for
+	  manipulation of block devices.
