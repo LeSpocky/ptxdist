@@ -1,0 +1,11 @@
+## SECTION=system_libraries
+
+config LIBBYTESIZE
+	tristate
+	select HOST_SYSTEM_PYTHON3
+	select LIBGMP
+	select MPFR
+	select PCRE2
+	prompt "libbytesize"
+	help
+	  library for common operations with sizes in bytes
