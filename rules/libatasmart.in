@@ -1,0 +1,11 @@
+## SECTION=system_libraries
+
+config LIBATASMART
+	tristate
+	select UDEV
+	select UDEV_LIBUDEV
+	prompt "libatasmart"
+	help
+	  A small and lightweight parser library for ATA S.M.A.R.T. hard disk
+	  health monitoring.
+
