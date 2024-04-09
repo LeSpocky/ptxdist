@@ -486,7 +486,7 @@ different.
   Note that this will not ensure that the packages are enabled or that all
   all package dependencies are satisfied. ``$(PTX_PACKAGES_INSTALL)`` can
   be used to specify all enabled packages. Or ``$(call ptx/collection,
-  $(PTXDIST_WORKSPACE)/configs/<collection-file-name>)`` can be used to to
+  $(PTXDIST_WORKSPACE)/configs/<collection-file-name>)`` can be used to
   specify the packages enabled by this collection. In both cases ``=`` must
   be used instead of ``:=`` due to the makefile include order.
 

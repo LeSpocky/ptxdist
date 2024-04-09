@@ -30,7 +30,7 @@ menuconfig IMAGE_IPKG_SIGN_OPENSSL
 	select HOST_OPENSSL
 	prompt "sign ipkg-repository with openssl"
 	help
-	  Use openssl to to sign the Packages file in the package
+	  Use openssl to sign the Packages file in the package
 	  repository.
 
 
