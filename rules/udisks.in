@@ -1,0 +1,23 @@
+## SECTION=shell_and_console
+
+menuconfig UDISKS
+	tristate
+	select GLIB
+	select LIBATASMART
+	select LIBBLOCKDEV
+	select LIBGUDEV
+	select POLKIT
+	prompt "udisks"
+	help
+	  The UDisks project provides a daemon, tools and libraries to access
+	  and manipulate disks, storage devices and technologies.
+
+if UDISKS
+
+config UDISKS_SYSTEMD_UNIT
+	bool
+	default y
+	depends on INITMETHOD_SYSTEMD
+	prompt "install systemd unit file"
+
+endif
