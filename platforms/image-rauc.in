@@ -19,6 +19,13 @@ menuconfig IMAGE_RAUC
 
 if IMAGE_RAUC
 
+config IMAGE_RAUC_BUNDLE_VERSION
+	string
+	prompt "RAUC Bundle Version"
+	default "${PTXDIST_BSP_AUTOVERSION}"
+	help
+	  Version that will be placed in the bundle's metadata.
+
 config IMAGE_RAUC_DESCRIPTION
 	prompt "RAUC Bundle Description"
 	string

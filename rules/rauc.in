@@ -105,13 +105,6 @@ config RAUC_COMPATIBLE
 	  Only if the compatible in the targets RAUC system.conf file and those
 	  in the Bundle's manifest match exactly, an update will be performed
 
-config RAUC_BUNDLE_VERSION
-	string
-	prompt "RAUC Bundle Version"
-	default "${PTXDIST_BSP_AUTOVERSION}"
-	help
-	  Overwrite the bundle version if needed.
-
 endif
 
 config RAUC_BAREBOX
