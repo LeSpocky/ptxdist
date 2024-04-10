@@ -43,7 +43,7 @@ POLKIT_CONF_OPT		:= \
 	-Dgtk_doc=false \
 	-Dintrospection=false \
 	-Djs_engine=duktape \
-	-Dlibs-only=false \
+	-Dlibs-only=$(call ptx/falsetrue,PTXCONF_POLKIT_POLKITD) \
 	-Dman=false \
 	-Dos_type=redhat \
 	-Dpam_include=no-pam \
@@ -68,13 +68,15 @@ $(STATEDIR)/polkit.targetinstall:
 	@$(call install_fixup, polkit,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup, polkit,DESCRIPTION,missing)
 
-# dbus
+	@$(call install_lib, polkit, 0, 0, 0644, libpolkit-gobject-1)
+	@$(call install_lib, polkit, 0, 0, 0644, libpolkit-agent-1)
+
+ifdef PTXCONF_POLKIT_POLKITD
 	@$(call install_copy, polkit, 0, 0, 0644, -, \
 		/usr/share/dbus-1/system.d/org.freedesktop.PolicyKit1.conf)
 	@$(call install_copy, polkit, 0, 0, 0644, -, \
 		/usr/share/dbus-1/system-services/org.freedesktop.PolicyKit1.service)
 
-# config
 	@$(call install_copy, polkit, 0, 0, 0644, -, \
 		/usr/share/polkit-1/actions/org.freedesktop.policykit.policy)
 	@$(call install_alternative, polkit, 0, 0, 0644, \
@@ -85,22 +87,17 @@ ifdef PTXCONF_POLKIT_SYSTEMD
 		/usr/lib/systemd/system/polkit.service)
 endif
 
-# libs
-	@$(call install_lib, polkit, 0, 0, 0644, libpolkit-agent-1)
-	@$(call install_lib, polkit, 0, 0, 0644, libpolkit-gobject-1)
-
-# binaries
 	@$(call install_copy, polkit, 0, 0, 0755, -, /usr/bin/pkaction)
 	@$(call install_copy, polkit, 0, 0, 0755, -, /usr/bin/pkcheck)
 
 	@$(call install_copy, polkit, 0, 0, 0755, -, /usr/lib/polkit-1/polkitd)
 
-# binaries with suid
 ifdef PTXCONF_POLKIT_PKEXEC
 	@$(call install_copy, polkit, 0, 0, 4755, -, /usr/bin/pkexec)
 endif
 	@$(call install_copy, polkit, 0, 0, 4755, -, \
 		/usr/lib/polkit-1/polkit-agent-helper-1)
+endif
 
 	@$(call install_finish, polkit)
 

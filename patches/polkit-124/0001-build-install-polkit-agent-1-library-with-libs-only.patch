@@ -1,0 +1,65 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Wed, 10 Apr 2024 16:53:02 +0200
+Subject: [PATCH] build: install polkit-agent-1 library with libs-only
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ src/meson.build             |  2 +-
+ src/polkitagent/meson.build | 30 ++++++++++++++++--------------
+ 2 files changed, 17 insertions(+), 15 deletions(-)
+
+diff --git a/src/meson.build b/src/meson.build
+index 985d0b08a729..f584e9e0d074 100644
+--- a/src/meson.build
++++ b/src/meson.build
+@@ -4,9 +4,9 @@ symbol_map = meson.current_source_dir() / 'symbol.map'
+ ldflags = cc.get_supported_link_arguments('-Wl,--version-script,@0@'.format(symbol_map))
+ 
+ subdir('polkit')
++subdir('polkitagent')
+ if not get_option('libs-only')
+   subdir('polkitbackend')
+-  subdir('polkitagent')
+   subdir('programs')
+ endif
+ 
+diff --git a/src/polkitagent/meson.build b/src/polkitagent/meson.build
+index bee38201d53e..a69e96b6c265 100644
+--- a/src/polkitagent/meson.build
++++ b/src/polkitagent/meson.build
+@@ -101,19 +101,21 @@ if enable_introspection
+   )
+ endif
+ 
+-sources = files(
+-  'polkitagenthelperprivate.c',
+-  'polkitagenthelper-@0@.c'.format(auth_fw),
+-)
++if not get_option('libs-only')
++  sources = files(
++    'polkitagenthelperprivate.c',
++    'polkitagenthelper-@0@.c'.format(auth_fw),
++  )
+ 
+-deps = auth_deps + [libpolkit_gobject_dep]
++  deps = auth_deps + [libpolkit_gobject_dep]
+ 
+-executable(
+-  '@0@-agent-helper-@1@'.format(meson.project_name(), pk_api_version),
+-  sources,
+-  include_directories: top_inc,
+-  dependencies: deps,
+-  c_args: '-D_POLKIT_COMPILATION',
+-  install: true,
+-  install_dir: pk_libprivdir,
+-)
++  executable(
++    '@0@-agent-helper-@1@'.format(meson.project_name(), pk_api_version),
++    sources,
++    include_directories: top_inc,
++    dependencies: deps,
++    c_args: '-D_POLKIT_COMPILATION',
++    install: true,
++    install_dir: pk_libprivdir,
++  )
++endif

@@ -1,0 +1,21 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Wed, 10 Apr 2024 17:16:11 +0200
+Subject: [PATCH] build: libpolkit-agent-1 does not use expat
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ src/polkitagent/meson.build | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/polkitagent/meson.build b/src/polkitagent/meson.build
+index a69e96b6c265..c6f9758588da 100644
+--- a/src/polkitagent/meson.build
++++ b/src/polkitagent/meson.build
+@@ -36,7 +36,6 @@ sources = enum_sources + marshal_sources + files(
+ )
+ 
+ deps = [
+-  expat_dep,
+   gio_unix_dep,
+   libpolkit_gobject_dep,
+ ]

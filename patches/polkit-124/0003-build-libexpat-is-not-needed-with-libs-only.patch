@@ -1,0 +1,34 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Wed, 10 Apr 2024 17:20:16 +0200
+Subject: [PATCH] build: libexpat is not needed with libs-only
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ meson.build | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 2f81c907d81b..c1cff386bd2d 100644
+--- a/meson.build
++++ b/meson.build
+@@ -130,16 +130,16 @@ gio_unix_dep = dependency('gio-unix-2.0', version: glib_req_version)
+ glib_dep = dependency('glib-2.0', version: glib_req_version)
+ gobject_dep = dependency('gobject-2.0', version: glib_req_version)
+ 
+-expat_dep = dependency('expat')
+-assert(cc.has_header('expat.h', dependencies: expat_dep), 'Can\'t find expat.h. Please install expat.')
+-assert(cc.has_function('XML_ParserCreate', dependencies: expat_dep), 'Can\'t find expat library. Please install expat.')
+-
+ duktape_req_version = '>= 2.2.0'
+ 
+ js_engine = get_option('js_engine')
+ libs_only = get_option('libs-only')
+ if libs_only
+   js_engine = ''
++else
++  expat_dep = dependency('expat')
++  assert(cc.has_header('expat.h', dependencies: expat_dep), 'Can\'t find expat.h. Please install expat.')
++  assert(cc.has_function('XML_ParserCreate', dependencies: expat_dep), 'Can\'t find expat library. Please install expat.')
+ endif
+ 
+ if js_engine == 'duktape'

@@ -162,7 +162,7 @@ config SYSTEMD_SECCOMP
 
 config SYSTEMD_POLKIT
 	bool
-	default POLKIT
+	default POLKIT_POLKITD
 
 config SYSTEMD_QUOTACHECK
 	bool

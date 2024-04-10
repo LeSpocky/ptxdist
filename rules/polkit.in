@@ -6,8 +6,8 @@ menuconfig POLKIT
 	select HOST_MESON
 	select HOST_GETTEXT
 	select LIBC_CRYPT
-	select DUKTAPE
-	select EXPAT
+	select DUKTAPE		if POLKIT_POLKITD
+	select EXPAT		if POLKIT_POLKITD
 	select GLIB
 	select SYSTEMD		if POLKIT_SYSTEMD
 	select SYSTEMD_LOGIND	if POLKIT_SYSTEMD
@@ -20,6 +20,17 @@ menuconfig POLKIT
 	  writable '/var/lib' for its run-time information.
 
 if POLKIT
+
+config POLKIT_POLKITD
+	bool
+	default y
+	prompt "install polkitd"
+	help
+	  Installthe daemon and helper tools and not just the libraries.
+	  This is optional for use-cases with packages where the PolicyKit
+	  cannot be disabled but PolicyKit is not actually used at runtime.
+
+if POLKIT_POLKITD
 
 config POLKIT_SYSTEMD
 	bool "systemd based session tracking"
@@ -38,4 +49,5 @@ config POLKIT_PKEXEC
 
 	  Old and obsolete tool. Use 'sudo' for this kind of task.
 
+endif
 endif
