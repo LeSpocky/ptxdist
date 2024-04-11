@@ -40,7 +40,8 @@ endif
 GDB_CONF_OPT_HOST	:= \
 	--disable-tui \
 	--disable-rpath \
-	--without-expat
+	--without-expat \
+	--without-mpfr
 
 ifneq ($(filter 1%,$(GDBSERVER_VERSION)),)
 # version >= 10
