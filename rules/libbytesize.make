@@ -46,6 +46,13 @@ LIBBYTESIZE_CONF_OPT	:=  \
 	--without-gtk-doc \
 	--without-tools
 
+LIBBYTESIZE_MAKE_OPT	:= \
+	-C src
+
+LIBBYTESIZE_INSTALL_OPT	:= \
+	-C src \
+	install
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
