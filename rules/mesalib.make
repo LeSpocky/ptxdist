@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 24.0.4
-MESALIB_MD5	:= de4661e901f2dfb194e6b1bf04dc2171
+MESALIB_VERSION	:= 24.0.5
+MESALIB_MD5	:= 8d8c4bb8d938adcf1aaaaa9381570d45
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -191,7 +191,6 @@ MESALIB_CONF_OPT	:= \
 	-Dimagination-srv=false \
 	-Dinstall-intel-gpu-tests=false \
 	-Dintel-clc=disabled \
-	-Dintel-xe-kmd=disabled \
 	-Dlibunwind=disabled \
 	-Dllvm=$(call ptx/endis, PTXCONF_MESALIB_LLVM)d \
 	-Dlmsensors=$(call ptx/endis, PTXCONF_MESALIB_LMSENSORS)d \

@@ -64,7 +64,6 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dimagination-srv=false \
 	-Dinstall-intel-gpu-tests=false \
 	-Dintel-clc=disabled \
-	-Dintel-xe-kmd=disabled \
 	-Dlibunwind=disabled \
 	-Dllvm=disabled \
 	-Dlmsensors=disabled \
