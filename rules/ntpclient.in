@@ -1,4 +1,7 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
+
 menuconfig NTPCLIENT
 	tristate
 	prompt "ntpclient                     "
@@ -18,6 +21,9 @@ menuconfig NTPCLIENT
 	  GNU General Public License, version 2.
 
 	  See http://doolittle.icarus.com/ntpclient/ for details.
+
+	  STAGING: remove in PTXdist 2025.05.0
+	  Unmaintained in PTXdist. Upstream and URL are dead.
 
 
 if NTPCLIENT
