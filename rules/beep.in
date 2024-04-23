@@ -1,12 +1,7 @@
-## SECTION=staging
-## old section:
-### SECTION=multimedia_sound
+## SECTION=multimedia_sound
 
 config BEEP
 	tristate
 	prompt "beep"
 	help
 	  Extended beep utility
-
-	  STAGING: remove in PTXdist 2025.05.0
-	  Unmaintained in PTXdist. Original upstream and URL are dead.
