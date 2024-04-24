@@ -1,6 +1,6 @@
 # -*-makefile-*-
 #
-# Copyright (C) 2015-2023 by Enrico Joerns <e.joerns@pengutronix.de>
+# Copyright (C) 2015-2024 by Enrico Joerns <e.joerns@pengutronix.de>
 #
 # For further information about the PTXdist project and license conditions
 # see the README file.
@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_RAUC) += rauc
 #
 # Paths and names
 #
-RAUC_VERSION		:= 1.11.1
-RAUC_MD5		:= 16e193e5e396a419a7ceee5777e7c077
+RAUC_VERSION		:= 1.11.3
+RAUC_MD5		:= f6822268230e50efb6b2fe3a4db28e2b
 RAUC			:= rauc-$(RAUC_VERSION)
 RAUC_SUFFIX		:= tar.xz
 RAUC_URL		:= https://github.com/rauc/rauc/releases/download/v$(RAUC_VERSION)/$(RAUC).$(RAUC_SUFFIX)
