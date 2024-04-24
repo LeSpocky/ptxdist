@@ -11,14 +11,14 @@ if TF_A
 
 config TF_A_URL
 	string
-	default "https://git.trustedfirmware.org/TF-A/trusted-firmware-a.git/snapshot"
+	default "https://github.com/ARM-software/arm-trusted-firmware/archive/refs/tags"
 	prompt "TF-A URL"
 	help
 	  Enter the TF-A URL you want to use.
 
 config TF_A_VERSION
 	string
-	default "v2.2"
+	default "v2.10"
 	prompt "TF-A version"
 	help
 	  Enter the TF-A git commit-ish you want to build. Usually a tagged
@@ -26,7 +26,7 @@ config TF_A_VERSION
 
 config TF_A_MD5
 	string
-	default "bb300e5a62c911e189c80d935d497a4b"
+	default "179042745d57dc03cb44063d43dc5301"
 	prompt "TF-A source md5"
 
 config TF_A_ARCH_STRING
