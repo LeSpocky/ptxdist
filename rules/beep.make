@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_BEEP) += beep
 #
 # Paths and names
 #
-BEEP_VERSION	:= 1.3
-BEEP_MD5	:= 49c340ceb95dbda3f97b2daafac7892a
+BEEP_VERSION	:= 1.4.12
+BEEP_MD5	:= a817f05c5473a23d700778b2c0108cc4
 BEEP		:= beep-$(BEEP_VERSION)
 BEEP_SUFFIX	:= tar.gz
-BEEP_URL	:= http://www.johnath.com/beep/$(BEEP).$(BEEP_SUFFIX)
+BEEP_URL	:= https://github.com/spkr-beep/beep/archive/refs/tags/v$(BEEP_VERSION).$(BEEP_SUFFIX)
 BEEP_SOURCE	:= $(SRCDIR)/$(BEEP).$(BEEP_SUFFIX)
 BEEP_DIR	:= $(BUILDDIR)/$(BEEP)
 BEEP_LICENSE	:= GPL-2.0-only
@@ -28,7 +28,25 @@ BEEP_LICENSE	:= GPL-2.0-only
 # ----------------------------------------------------------------------------
 
 BEEP_CONF_TOOL	:= NO
-BEEP_MAKE_OPT	:= CC=$(CROSS_CC)
+BEEP_MAKE_OPT	:= \
+	CC=$(CROSS_CC) \
+	prefix=/usr
+
+$(STATEDIR)/beep.prepare:
+	@$(call targetinfo)
+	# Override detected CFLAGS as some of them may require linking
+	# with additional libraries (-lubsan and -latomic)
+	@echo "common_CFLAGS = -std=gnu99 -pedantic"	>  $(BEEP_DIR)/local.mk
+	@echo "CFLAGS = -O2 -g -save-temps=obj"		>> $(BEEP_DIR)/local.mk
+	@$(call touch)
+
+# ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+
+BEEP_INSTALL_OPT	:= \
+	prefix=/usr \
+	install
 
 # ----------------------------------------------------------------------------
 # Target-Install
