@@ -1,14 +1,8 @@
 ## SECTION=editors
 
-comment "BusyBox' vi and xxd is selected!"
-	depends on BUSYBOX_VI && BUSYBOX_XXD
-
 menuconfig VIM
 	tristate
-	depends on !(BUSYBOX_VI && BUSYBOX_XXD)
-	select LIBC_DL
-	select LIBC_M
-	select GCCLIBS_GCC_S
+	select LIBC_M	if VIM_VIM
 	select NCURSES
 	prompt "vim                           "
 	help
@@ -18,18 +12,22 @@ menuconfig VIM
 
 if VIM
 
-comment "BusyBox' vi is selected!"
-	depends on BUSYBOX_VI
-
 config VIM_VIM
-	depends on !BUSYBOX_VI
 	bool "Vim Editor"
+
+comment "BusyBox' vi is selected!"
+	depends on VIM_VIM && BUSYBOX_VI
+
+config VIM_VI_SYMLINK
+	depends on VIM_VIM && !BUSYBOX_VI || ALLYES
+	bool "install symbolic link /usr/bin/vi"
+	default y
 
 comment "BusyBox' xxd is selected!"
 	depends on BUSYBOX_XXD
 
 config VIM_XXD
-	depends on !BUSYBOX_XXD
+	depends on !BUSYBOX_XXD || ALLYES
 	bool "XXD"
 
 endif

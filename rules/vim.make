@@ -103,6 +103,10 @@ VIM_INSTALL_OPT := \
 
 VIM_LINKS := ex rview rvim view vimdiff
 
+ifdef PTXCONF_VIM_VI_SYMLINK
+VIM_LINKS += vi
+endif
+
 $(STATEDIR)/vim.targetinstall:
 	@$(call targetinfo)
 
