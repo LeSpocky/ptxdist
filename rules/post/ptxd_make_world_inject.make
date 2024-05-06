@@ -8,8 +8,8 @@
 
 world/inject/env = \
 	$(call world/env, $(1)) \
-	pkg_inject_path="$($(1)_INJECT_PATH)" \
-	pkg_inject_files="$($(1)_INJECT_FILES)"
+	pkg_inject_path="$(call ptx/escape,$($(1)_INJECT_PATH))" \
+	pkg_inject_files="$(call ptx/escape,$($(1)_INJECT_FILES))"
 
 world/inject = \
 	$(call world/inject/env,$(strip $(1))) \
