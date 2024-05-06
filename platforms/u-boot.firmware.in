@@ -1,0 +1,7 @@
+## SECTION=u_boot_firmware
+
+#
+# This file does only exist to create a defined entry in the "u_boot_firmware"
+# section, so that the toplevel Kconfig can include generated/u_boot_firmware.in
+# even if no package is in that category.
+#

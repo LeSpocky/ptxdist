@@ -90,6 +90,14 @@ config U_BOOT_CONFIG
 
 endif
 
+menuconfig U_BOOT_FIRMWARE
+	bool
+	prompt "integrate firmware blobs      "
+
+if U_BOOT_FIRMWARE
+source "generated/u_boot_firmware.in"
+endif
+
 config U_BOOT_CUSTOM_MAKE_ENV
 	prompt "Custom (additional) make environment"
 	string

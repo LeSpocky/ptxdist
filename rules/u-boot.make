@@ -36,6 +36,9 @@ endif
 # Prepare
 # ----------------------------------------------------------------------------
 
+U_BOOT_INJECT_PATH	:= ${PTXDIST_SYSROOT_TARGET}/usr/lib/firmware
+U_BOOT_INJECT_OOT	:= $(call ptx/ifdef, PTXCONF_U_BOOT_BUILD_OOT,YES,NO)
+
 ifdef PTXCONF_U_BOOT_BOOT_SCRIPT
 U_BOOT_BOOT_SCRIPT_TXT := $(call ptx/in-platformconfigdir, uboot.scr)
 U_BOOT_BOOT_SCRIPT_BIN := $(call remove_quotes, \
@@ -93,13 +96,22 @@ $(U_BOOT_CONFIG):
 	@exit 1
 endif
 
-
-ifdef PTXCONF_U_BOOT_CONFIGSYSTEM_LEGACY
 $(STATEDIR)/u-boot.prepare:
 	@$(call targetinfo)
-	$(U_BOOT_CONF_ENV) $(MAKE) $(U_BOOT_CONF_OPT)
-	@$(call touch)
+
+ifdef PTXCONF_U_BOOT_CONFIGSYSTEM_KCONFIG
+	@$(call world/prepare, U_BOOT)
 endif
+
+ifdef PTXCONF_U_BOOT_CONFIGSYSTEM_LEGACY
+	$(U_BOOT_CONF_ENV) $(MAKE) $(U_BOOT_CONF_OPT)
+endif
+
+ifdef PTXCONF_U_BOOT_FIRMWARE
+	@$(call world/inject, U_BOOT)
+endif
+
+	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Compile
