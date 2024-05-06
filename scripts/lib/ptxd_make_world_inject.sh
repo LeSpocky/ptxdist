@@ -10,7 +10,7 @@ ptxd_make_inject() {
     local source target
 
     source="$(echo ${inject_file} | cut -d ":" -f 1)"
-    target="${pkg_source}/$(echo ${inject_file} | cut -d ":" -f 2)"
+    target="${pkg_dir}/$(echo ${inject_file} | cut -d ":" -f 2)"
 
     if [[ "${source}" =~ ^/.* ]]; then
 	ptxd_bailout "'${source}' must not be an absolute path!" \
@@ -31,6 +31,10 @@ export -f ptxd_make_inject
 
 ptxd_make_world_inject() {
     ptxd_make_world_init || return
+
+    if [ -z "${pkg_dir}" ]; then
+	ptxd_bailout "<PKG>_DIR empty, no destination to inject to."
+    fi
 
     for inject_file in ${pkg_inject_files}; do
 	ptxd_make_inject || return

@@ -9,8 +9,7 @@
 world/inject/env = \
 	$(call world/env, $(1)) \
 	pkg_inject_path="$($(1)_INJECT_PATH)" \
-	pkg_inject_files="$($(1)_INJECT_FILES)" \
-	pkg_source="$($(1)_DIR)"
+	pkg_inject_files="$($(1)_INJECT_FILES)"
 
 world/inject = \
 	$(call world/inject/env,$(strip $(1))) \
