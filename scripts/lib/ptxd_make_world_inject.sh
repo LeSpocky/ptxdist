@@ -11,9 +11,6 @@ ptxd_make_inject() {
 
     source="$(echo ${inject_file} | cut -d ":" -f 1)"
     target="${pkg_source}/$(echo ${inject_file} | cut -d ":" -f 2)"
-    if [ -z "${target}" ]; then
-	target="${source}"
-    fi
 
     if [[ "${source}" =~ ^/.* ]]; then
 	ptxd_bailout "'${source}' must not be an absolute path!" \
