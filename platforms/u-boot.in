@@ -1,6 +1,11 @@
 ## SECTION=bootloader
 
+config U_BOOT_DEPENDENCIES
+	tristate
+	select VIRTUAL
+
 menuconfig U_BOOT
+	select U_BOOT_DEPENDENCIES
 	select BOOTLOADER
 	select HOST_SYSTEM_PYTHON3
 	select HOST_OPENSSL		if U_BOOT_NEEDS_HOST_OPENSSL
