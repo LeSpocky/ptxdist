@@ -85,6 +85,15 @@ config U_BOOT_CONFIG
 
 endif
 
+config U_BOOT_CUSTOM_MAKE_ENV
+	prompt "Custom (additional) make environment"
+	string
+	help
+	  List of additional env variables set for make at build time.
+	  Can be used for example to set BINMAN_INDIRS= to a path
+	  containing firmware files (preferably somewhere in
+	  sysroot-target).
+
 config U_BOOT_CUSTOM_MAKE_OPTS
 	prompt "Custom make options"
 	string
