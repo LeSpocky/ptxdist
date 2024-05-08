@@ -40,10 +40,12 @@ endif
 GDB_CONF_OPT_HOST	:= \
 	--disable-tui \
 	--disable-rpath \
+	--with-lzma=$(call ptx/yesno, PTXCONF_GDB_DEBUGINFO_SUPPORT) \
 	--without-expat \
-	--without-mpfr
+	--without-mpfr \
+	--without-python
 
-ifneq ($(filter 1%,$(GDBSERVER_VERSION)),)
+ifneq ($(filter 1%,$(GDB_VERSION)),)
 # version >= 10
 GDB_CONF_OPT_HOST	+= \
 	--without-xxhash
@@ -72,7 +74,8 @@ GDB_BUILD_OOT := YES
 
 # for gdb subdir configure
 GDB_MAKE_ENV		:= \
-	with_libgmp_prefix=no
+	with_libgmp_prefix=no \
+	with_liblzma_prefix=no
 
 # ----------------------------------------------------------------------------
 # Install

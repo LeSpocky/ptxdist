@@ -8,6 +8,7 @@ menuconfig GDB
 	select GCCLIBS_GCC_S
 	select NCURSES
 	select LIBGMP		if GDB_11_1
+	select XZ		if GDB_DEBUGINFO_SUPPORT
 	help
 	  The GNU Debugger
 
@@ -25,6 +26,17 @@ config GDB_SHARED
 	help
 	  If not set, the build option
 	  LDFLAGS=-static will be activated.
+
+config GDB_DEBUGINFO_SUPPORT
+	bool
+	prompt "support reading .gnu_debuginfo sections"
+	help
+	  Configures whether to link with liblzma to support reading the
+	  .gnu_debuginfo sections in binaries.
+
+	  Note: This is useful if TARGET_MINI_DEBUGINFO has been enabled
+	  in the platform configuration to add .gnu_debuginfo sections
+	  to all the binaries.
 
 config GDB_11_1
 	bool
