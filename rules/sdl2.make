@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDL2) += sdl2
 #
 # Paths and names
 #
-SDL2_VERSION	:= 2.30.2
-SDL2_MD5	:= 08667937c83fada423dacc7cd90f3ec8
+SDL2_VERSION	:= 2.30.3
+SDL2_MD5	:= 85ceed58290332fa4ef75a3dabfa1b89
 SDL2		:= SDL2-$(SDL2_VERSION)
 SDL2_SUFFIX	:= tar.gz
 SDL2_URL	:= https://www.libsdl.org/release/$(SDL2).$(SDL2_SUFFIX)
@@ -67,7 +67,6 @@ SDL2_CONF_OPT	:= \
 	--$(call ptx/endis,PTXCONF_ARCH_X86_64)-sse3 \
 	--$(call ptx/endis,PTXCONF_ARCH_PPC_ALTIVEC)-altivec \
 	--disable-lsx \
-	--disable-lasx \
 	--$(call ptx/endis,PTXCONF_SDL2_OSS)-oss \
 	--$(call ptx/endis,PTXCONF_SDL2_ALSA)-alsa \
 	--disable-alsatest \
