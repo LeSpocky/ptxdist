@@ -6,20 +6,22 @@ When cross-compiling, looking in the root filesystem of the build host to find
 the Python library makes no sense. Instead, assume that the directory and file
 name provided by Python are correct and use those without checking.
 ---
- meson.build | 20 ++++++++++++--------
- 1 file changed, 12 insertions(+), 8 deletions(-)
+ meson.build | 24 ++++++++++++++----------
+ 1 file changed, 14 insertions(+), 10 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index 5cccbcc3b6a5..6bf006367450 100644
+index f7efd4552db4..006b396bcd13 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -70,15 +70,19 @@ else
-   ]
+@@ -87,17 +87,21 @@ else
+   endif
  endif
  pylib_fname = ''
 -foreach loc: pylib_locs
 -  foreach fname: pylib_fnames
--    if fsmod.exists(loc / fname)
+-    fpath = loc / fname
+-    debug(f'Looking for Python library at: @fpath@')
+-    if fsmod.exists(fpath)
 -      pylib_fname = fname
 -      message(f'PY_LIB_FNAME = @fname@ (@loc@)')
 -      break
@@ -29,7 +31,9 @@ index 5cccbcc3b6a5..6bf006367450 100644
 +else
 +  foreach loc: pylib_locs
 +    foreach fname: pylib_fnames
-+      if fsmod.exists(loc / fname)
++      fpath = loc / fname
++      debug(f'Looking for Python library at: @fpath@')
++      if fsmod.exists(fpath)
 +        pylib_fname = fname
 +        message(f'PY_LIB_FNAME = @fname@ (@loc@)')
 +        break
@@ -39,5 +43,5 @@ index 5cccbcc3b6a5..6bf006367450 100644
 -endforeach
 +endif
  if pylib_fname == ''
-   error_msg = 'Could not find python library to load'
-   if python_opt.enabled()
+   message('Could not find python library to load, will try loading at runtime')
+ endif
