@@ -36,7 +36,7 @@ GST_PYTHON1_CONF_OPT	= \
 	$(CROSS_MESON_USR) \
 	-Dlibpython-dir=/usr/lib \
 	-Dplugin=enabled \
-	-Dpygi-overrides-dir=$(PYTHON3_SITEPACKAGES)/gi \
+	-Dpygi-overrides-dir=$(PYTHON3_SITEPACKAGES)/gi/overrides \
 	-Dpython=$(CROSS_PYTHON3) \
 	-Dtests=disabled
 
