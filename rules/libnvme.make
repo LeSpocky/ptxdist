@@ -35,7 +35,7 @@ LIBNVME_LICENSE_FILES	:= \
 #
 LIBNVME_CONF_TOOL	:= meson
 LIBNVME_CONF_OPT	:=  \
-	$(CROSS_MESON_USR)
+	$(CROSS_MESON_USR) \
 	-Ddocs=false \
 	-Ddocs-build=false \
 	-Djson-c=disabled \
