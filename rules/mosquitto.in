@@ -4,9 +4,11 @@ menuconfig MOSQUITTO
 	tristate
 	prompt "mosquitto                     "
 	select HOST_CMAKE
-	select OPENSSL	if MOSQUITTO_TLS
-	select C_ARES	if MOSQUITTO_SRV
-	select SYSTEMD	if MOSQUITTO_SYSTEMD_UNIT
+	select OPENSSL			if MOSQUITTO_TLS
+	select C_ARES			if MOSQUITTO_SRV
+	select SYSTEMD			if MOSQUITTO_SYSTEMD_UNIT
+	select LIBWEBSOCKETS		if MOSQUITTO_WEBSOCKETS
+	select LIBWEBSOCKETS_TLS	if MOSQUITTO_WEBSOCKETS && MOSQUITTO_TLS
 	help
 	  Open source MQTT message broker, library, and client.
 
@@ -34,6 +36,11 @@ config MOSQUITTO_TLS
 config MOSQUITTO_SRV
 	bool
 	prompt "SRV lookup support"
+
+config MOSQUITTO_WEBSOCKETS
+	bool
+	depends on MOSQUITTO_BROKER
+	prompt "Websockets support"
 
 endif
 

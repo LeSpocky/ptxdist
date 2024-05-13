@@ -60,7 +60,7 @@ MOSQUITTO_CONF_OPT	:= \
 	-DWITH_TLS=$(call ptx/onoff, PTXCONF_MOSQUITTO_TLS) \
 	-DWITH_TLS_PSK=$(call ptx/onoff, PTXCONF_MOSQUITTO_TLS) \
 	-DWITH_UNIX_SOCKETS=ON \
-	-DWITH_WEBSOCKETS=OFF
+	-DWITH_WEBSOCKETS=$(call ptx/onoff, PTXCONF_MOSQUITTO_WEBSOCKETS)
 
 # ----------------------------------------------------------------------------
 # Install
