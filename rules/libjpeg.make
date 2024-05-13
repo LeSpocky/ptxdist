@@ -16,17 +16,17 @@ PACKAGES-$(PTXCONF_LIBJPEG) += libjpeg
 #
 # Paths and names
 #
-LIBJPEG_VERSION	:= 3.0.2
-LIBJPEG_MD5	:= 94756db95bc2477f7f7dad1c2590b51f
+LIBJPEG_VERSION	:= 3.0.3
+LIBJPEG_MD5	:= 081269bd1f35eaadb7ce2e3b4f03aebb
 LIBJPEG_SUFFIX	:= tar.gz
 LIBJPEG		:= libjpeg-turbo-$(LIBJPEG_VERSION)
 LIBJPEG_TARBALL	:= $(LIBJPEG).$(LIBJPEG_SUFFIX)
 LIBJPEG_URL	:= https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/$(LIBJPEG_VERSION)/$(LIBJPEG_TARBALL)
 LIBJPEG_SOURCE	:= $(SRCDIR)/$(LIBJPEG_TARBALL)
 LIBJPEG_DIR	:= $(BUILDDIR)/$(LIBJPEG)
-LIBJPEG_LICENSE	:= IJG, BSD-3-Clause, Zlib
+LIBJPEG_LICENSE	:= IJG, BSD-3-Clause
 LIBJPEG_LICENSE_FILES := \
-	file://LICENSE.md;md5=2a8e0d8226a102f07ab63ed7fd6ce155 \
+	file://LICENSE.md;md5=2badff2388880cc27e58977d8bc1d494 \
 	file://README.ijg;startline=112;endline=174;md5=9fcb5339d9de46b31309aeef52d7deb1 \
 	file://simd/nasm/jsimdext.inc;startline=13;endline=28;md5=100ad877b6a14ec137afd49a6e109624
 
