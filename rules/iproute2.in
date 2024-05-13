@@ -10,7 +10,7 @@ menuconfig IPROUTE2
 	select LIBC_M
 	select LIBC_PTHREAD	if IPROUTE2_ARPD
 	select LIBC_RESOLV
-	select LIBMNL		if IPROUTE2_DEVLINK
+	select LIBMNL		if IPROUTE2_DEVLINK || IPROUTE2_DCB
 	select PYTHON3		if IPROUTE2_ROUTEL && RUNTIME
 	help
 	  Networking and traffic control tools
@@ -43,6 +43,12 @@ config IPROUTE2_CTSTAT
 	prompt "ctstat"
 	help
 	  The connection status utility. Maybe linked to lnstat.
+
+config IPROUTE2_DCB
+	bool
+	prompt "dcb"
+	help
+	  The dcb utility.
 
 config IPROUTE2_DEVLINK
 	bool
