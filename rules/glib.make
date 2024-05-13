@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GLIB) += glib
 #
 # Paths and names
 #
-GLIB_VERSION	:= 2.80.0
-GLIB_MD5	:= 3a51e2803ecd22c2dadcd07d9475ebe3
+GLIB_VERSION	:= 2.80.2
+GLIB_MD5	:= 399162c4e5f46e3f331a1f9c7478e4c5
 GLIB		:= glib-$(GLIB_VERSION)
 GLIB_SUFFIX	:= tar.xz
 GLIB_URL	:= $(call ptx/mirror, GNOME, glib/$(basename $(GLIB_VERSION))/$(GLIB).$(GLIB_SUFFIX))
@@ -39,12 +39,12 @@ GLIB_CONF_TOOL	:= meson
 GLIB_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Dbsymbolic_functions=true \
+	-Ddocumentation=false \
 	-Ddtrace=false \
 	-Dforce_posix_threads=true \
 	-Dglib_assert=true \
 	-Dglib_checks=true \
 	-Dglib_debug=enabled \
-	-Ddocumentation=false \
 	-Dinstalled_tests=false \
 	-Dintrospection=disabled \
 	-Dlibelf=disabled \
