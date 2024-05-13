@@ -262,8 +262,20 @@ config BASH_CURSES
 	bool
 	prompt "Use libcurses instead of libtermcap"
 
+comment "BusyBox sh is selected"
+	depends on BUSYBOX && !BUSYBOX_SH_IS_NONE
+
+comment "Dash sh is selected"
+	depends on DASH_LINK_SH
+
 config BASH_SH
 	bool
-	default BUSYBOX = n || BUSYBOX_SH_IS_NONE
+	depends on (!BUSYBOX || BUSYBOX_SH_IS_NONE) && !DASH_LINK_SH || ALLYES
+	default y
+	prompt "link to /bin/sh"
+	help
+	  Create a link symbolic link "/usr/bin/sh" ("/bin/sh") to
+	  "bash".  Select this to use bash as the interpreter for Bourne
+	  shell scripts using the canonical "#!/bin/sh" shebang line.
 
 endif
