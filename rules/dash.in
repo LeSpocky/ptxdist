@@ -11,8 +11,13 @@ menuconfig DASH
 
 if DASH
 
+comment "BusyBox sh is selected"
+	depends on BUSYBOX && !BUSYBOX_SH_IS_NONE
+
 config DASH_LINK_SH
 	bool
+	depends on !BUSYBOX || BUSYBOX_SH_IS_NONE || ALLYES
+	default y
 	prompt "link to /bin/sh"
 	help
 	  Create a link "/bin/sh" that points to "/bin/dash". Select
