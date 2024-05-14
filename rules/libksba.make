@@ -18,9 +18,7 @@ LIBKSBA_VERSION	:= 1.6.5
 LIBKSBA_MD5	:= 57b88e5d24c8705d9a3ba3832140d188
 LIBKSBA		:= libksba-$(LIBKSBA_VERSION)
 LIBKSBA_SUFFIX	:= tar.bz2
-LIBKSBA_URL	:= \
-	https://www.gnupg.org/ftp/gcrypt/libksba/$(LIBKSBA).$(LIBKSBA_SUFFIX) \
-	ftp://ftp.gnupg.org/gcrypt/libksba/$(LIBKSBA).$(LIBKSBA_SUFFIX)
+LIBKSBA_URL	:= https://www.gnupg.org/ftp/gcrypt/libksba/$(LIBKSBA).$(LIBKSBA_SUFFIX)
 LIBKSBA_SOURCE	:= $(SRCDIR)/$(LIBKSBA).$(LIBKSBA_SUFFIX)
 LIBKSBA_DIR	:= $(BUILDDIR)/$(LIBKSBA)
 LIBKSBA_LICENSE	:= GPL-2.0-only AND GPL-3.0-only AND LGPL-3.0-only
