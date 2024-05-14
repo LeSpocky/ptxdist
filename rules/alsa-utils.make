@@ -19,9 +19,7 @@ ALSA_UTILS_VERSION	:= 1.2.11
 ALSA_UTILS_MD5		:= 36676025301315789306e99e39154732
 ALSA_UTILS		:= alsa-utils-$(ALSA_UTILS_VERSION)
 ALSA_UTILS_SUFFIX	:= tar.bz2
-ALSA_UTILS_URL		:= \
-	https://www.alsa-project.org/files/pub/utils/$(ALSA_UTILS).$(ALSA_UTILS_SUFFIX) \
-	ftp://ftp.alsa-project.org/pub/utils/$(ALSA_UTILS).$(ALSA_UTILS_SUFFIX)
+ALSA_UTILS_URL		:= https://www.alsa-project.org/files/pub/utils/$(ALSA_UTILS).$(ALSA_UTILS_SUFFIX)
 ALSA_UTILS_SOURCE	:= $(SRCDIR)/$(ALSA_UTILS).$(ALSA_UTILS_SUFFIX)
 ALSA_UTILS_DIR		:= $(BUILDDIR)/$(ALSA_UTILS)
 ALSA_UTILS_LICENSE	:= GPL-2.0-or-later
