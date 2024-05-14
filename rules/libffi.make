@@ -21,9 +21,7 @@ LIBFFI			:= libffi-$(LIBFFI_VERSION)
 LIBFFI_SUFFIX		:= tar.gz
 LIBFFI_SOURCE		:= $(SRCDIR)/$(LIBFFI).$(LIBFFI_SUFFIX)
 LIBFFI_DIR		:= $(BUILDDIR)/$(LIBFFI)
-LIBFFI_URL		:= \
-	https://github.com/libffi/libffi/releases/download/v$(LIBFFI_VERSION)/$(LIBFFI).$(LIBFFI_SUFFIX) \
-	ftp://sourceware.org/pub/libffi/$(LIBFFI).$(LIBFFI_SUFFIX)
+LIBFFI_URL		:= https://github.com/libffi/libffi/releases/download/v$(LIBFFI_VERSION)/$(LIBFFI).$(LIBFFI_SUFFIX)
 LIBFFI_LICENSE		:= MIT
 LIBFFI_LICENSE_FILES	:= \
 	file://LICENSE;md5=1db54c9fd307a12218766c3c7f650ca7
