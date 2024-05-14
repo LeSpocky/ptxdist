@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_NVMETCLI) += nvmetcli
 #
 # Paths and names
 #
-NVMETCLI_VERSION	:= 0.7
-NVMETCLI_MD5		:= eed70ef32d327c814345178dd35d088b
+NVMETCLI_VERSION	:= 0.8
+NVMETCLI_MD5		:= acc0b236485f1a08ce9a70113abe55cc
 NVMETCLI		:= nvmetcli-$(NVMETCLI_VERSION)
 NVMETCLI_SUFFIX		:= tar.gz
-NVMETCLI_URL		:= ftp://ftp.infradead.org/pub/nvmetcli/$(NVMETCLI).$(NVMETCLI_SUFFIX)
+NVMETCLI_URL		:= git://git.infradead.org/users/hch/nvmetcli.git;tag=v$(NVMETCLI_VERSION)
 NVMETCLI_SOURCE		:= $(SRCDIR)/$(NVMETCLI).$(NVMETCLI_SUFFIX)
 NVMETCLI_DIR		:= $(BUILDDIR)/$(NVMETCLI)
 NVMETCLI_LICENSE	:= Apache-2.0
