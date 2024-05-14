@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 menuconfig PROFTPD
 	tristate
 	prompt "proftpd                       "
@@ -22,6 +24,9 @@ menuconfig PROFTPD
 	  special files are not needed). Advanced features such as
 	  multiple password files and upload/download ratios are also
 	  supported.
+
+	  STAGING: remove in PTXdist 2025.06.0
+	  Package is unmaintained in PTXdist.
 
 if PROFTPD
 
