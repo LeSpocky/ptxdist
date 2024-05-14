@@ -21,8 +21,7 @@ LIBGPG_ERROR		:= libgpg-error-$(LIBGPG_ERROR_VERSION)
 LIBGPG_ERROR_SUFFIX	:= tar.bz2
 LIBGPG_ERROR_URL	:= \
 	http://artfiles.org/gnupg.org/libgpg-error/$(LIBGPG_ERROR).$(LIBGPG_ERROR_SUFFIX) \
-	https://www.gnupg.org/ftp/gcrypt/libgpg-error/$(LIBGPG_ERROR).$(LIBGPG_ERROR_SUFFIX) \
-	ftp://ftp.gnupg.org/gcrypt/libgpg-error/$(LIBGPG_ERROR).$(LIBGPG_ERROR_SUFFIX)
+	https://www.gnupg.org/ftp/gcrypt/libgpg-error/$(LIBGPG_ERROR).$(LIBGPG_ERROR_SUFFIX)
 LIBGPG_ERROR_SOURCE	:= $(SRCDIR)/$(LIBGPG_ERROR).$(LIBGPG_ERROR_SUFFIX)
 LIBGPG_ERROR_DIR	:= $(BUILDDIR)/$(LIBGPG_ERROR)
 LIBGPG_ERROR_LICENSE	:= GPL-2.0-only AND LGPL-2.0-only
