@@ -1,0 +1,8 @@
+## SECTION=system_libraries
+
+config LIBTRACEEVENT
+	bool
+	prompt "libtraceevent"
+	select HOST_MESON
+	help
+	  FIXME
