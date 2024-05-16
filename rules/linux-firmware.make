@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20240410
-LINUX_FIRMWARE_MD5	:= 62c5622044539ca0a431a19d7c57bc02
+LINUX_FIRMWARE_VERSION	:= 20240513
+LINUX_FIRMWARE_MD5	:= 3c54e7d6d2d39e68870875b93aeb654c
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -67,7 +67,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.ralink_a_mediatek_company_firmware;md5=728f1a85fd53fd67fa8d7afb080bc435 \
 	file://LICENCE.ti-keystone;md5=3a86335d32864b0bef996bee26cc0f2c \
 	file://LICENSE.amd-sev;md5=e750538791a8be0b7249c579edefb035 \
-	file://LICENSE.amdgpu;md5=a2589a05ea5b6bd2b7f4f623c7e7a649 \
+	file://LICENSE.amdgpu;md5=1433dfea38c97a2e563a248a863dcb94 \
 	file://LICENSE.nxp;md5=cca321ca1524d6a1e4fed87486cd82dc \
 	file://LICENSE.airoha;md5=fa3dedb960e2673aea51aa509f7b537d \
 	file://LICENCE.agere;md5=af0133de6b4a9b2522defd5f188afd31 \
