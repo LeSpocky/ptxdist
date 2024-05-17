@@ -291,6 +291,7 @@ config MTD_UTILS_UBIFORMAT
 config MTD_UTILS_UBIFS_MOUNTHELPER
 	bool
 	prompt "mount.ubifs"
+	select MTD_UTILS_UBIFS
 	help
 	  Simplifies attaching an ubi and mounting an ubifs via /etc/fstab.
 
