@@ -1,0 +1,57 @@
+## SECTION=disk_and_file
+
+menuconfig EXFATPROGS
+	tristate
+	prompt "exfatprogs                    "
+	help
+	  exFAT (Extensible File Allocation Table) is a filesystem
+	  introduced by Microsoft in 2006 commonly used on USB flash
+	  drives and SDXC cards.  It was proprietary until 2019 when
+	  Microsoft published the exFAT specification and released the
+	  patent to the Open Invention Network.
+
+	  The exfatprogs package provides the filesystem utilities for
+	  use with the exFAT filesystem.
+
+if EXFATPROGS
+
+config EXFATPROGS_DUMP_EXFAT
+	bool
+	prompt "dump.exfat"
+	help
+	  Show on-disk information of an exFAT filesystem.
+
+config EXFATPROGS_EXFAT2IMG
+	bool
+	prompt "exfat2img"
+	help
+	  Dump metadata of an exFAT filesystem.
+
+config EXFATPROGS_EXFATLABEL
+	bool
+	prompt "exfatlabel"
+	help
+	  Get or set volume label or volume serial of an exFAT
+	  filesystem.
+
+config EXFATPROGS_FSCK_EXFAT
+	bool
+	prompt "fsck.exfat"
+	help
+	  Check an exFAT filesystem.
+
+config EXFATPROGS_MKFS_EXFAT
+	bool
+	prompt "mkfs.exfat"
+	help
+	  Create an exFAT filesystem.
+
+config EXFATPROGS_TUNE_EXFAT
+	bool
+	prompt "tune.exfat"
+	help
+	  Adjust tunable filesystem parameters on an exFAT filesystem.
+
+endif
+
+# vim: ft=kconfig noet tw=72 ts=8 sw=8
