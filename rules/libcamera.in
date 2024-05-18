@@ -52,6 +52,10 @@ config LIBCAMERA_BACKTRACE
 
 menu "Platforms"
 
+config LIBCAMERA_PIPELINE_IMX8ISI
+	bool
+	prompt "imx8-isi pipeline"
+
 config LIBCAMERA_PIPELINE_IPU3
 	bool
 	prompt "ipu3 pipeline"
