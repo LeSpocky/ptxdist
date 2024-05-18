@@ -77,12 +77,12 @@ LIBCAMERA_CONF_OPT	:= \
 	-Dipas=$(subst $(ptx/def/space),$(ptx/def/comma),$(strip $(LIBCAMERA_IPASC-y))) \
 	-Dlc-compliance=disabled \
 	-Dpipelines=$(subst $(ptx/def/space),$(ptx/def/comma),$(strip $(LIBCAMERA_PIPELINES-y))) \
+	-Dpycamera=disabled \
 	-Dqcam=$(call ptx/endis,PTXCONF_LIBCAMERA_QCAM)d \
 	-Dtest=false \
 	-Dtracing=disabled \
 	-Dudev=enabled \
-	-Dv4l2=false \
-	-Dpycamera=disabled
+	-Dv4l2=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
