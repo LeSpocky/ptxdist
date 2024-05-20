@@ -2,4 +2,5 @@
 #tag:base --start-number 1
 0001-add-variable-to-allow-external-wart.patch
 0002-Fix-build-with-glibc-2.28.patch
-# 86a9b3d8158aaa73154db330e5778b0f  - git-ptx-patches magic
+0003-add-missing-includes.patch
+# 16d28b3b3d5e29b754d8d2052762c514  - git-ptx-patches magic

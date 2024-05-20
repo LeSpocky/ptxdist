@@ -1,0 +1,73 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Mon, 20 May 2024 16:09:59 +0200
+Subject: [PATCH] add missing includes
+
+Taken from Fedora.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ ckcmai.c | 4 ++++
+ ckupty.c | 4 ++++
+ ckutio.c | 4 ++++
+ ckuusx.c | 3 +++
+ 4 files changed, 15 insertions(+)
+
+diff --git a/ckcmai.c b/ckcmai.c
+index a5640e511584..f65d0a095a7a 100644
+--- a/ckcmai.c
++++ b/ckcmai.c
+@@ -1581,6 +1581,10 @@ _PROTOTYP( int getiobs, (VOID) );
+ 
+ #include <signal.h>
+ 
++#ifndef VMS
++#include <time.h>
++#endif
++
+ #ifndef NOCCTRAP
+ #include <setjmp.h>
+ #include "ckcsig.h"
+diff --git a/ckupty.c b/ckupty.c
+index 9906555a7ff6..8e0476ba6603 100644
+--- a/ckupty.c
++++ b/ckupty.c
+@@ -384,6 +384,10 @@ struct termbuf {
+ 
+ #endif /* TCSANOW */
+ 
++#ifdef HAVE_OPENPTY
++#include <pty.h>
++#endif
++
+ struct termios termbuf, termbuf2;       /* pty control structure */
+ 
+ #ifdef INIT_SPTY
+diff --git a/ckutio.c b/ckutio.c
+index 05564deab32a..0d79e0cae3b4 100644
+--- a/ckutio.c
++++ b/ckutio.c
+@@ -14129,6 +14129,10 @@ extern int exp_handler, exp_stderr, exp_timo;
+ #endif /* USE_CKUPTY_C */
+ #endif /* HAVE_OPENPTY */
+ 
++#ifdef HAVE_OPENPTY
++#include <pty.h>
++#endif
++
+ VOID
+ pty_make_raw(fd) int fd; {
+     int x = -23, i;
+diff --git a/ckuusx.c b/ckuusx.c
+index d332bed813b7..82c1c9cc674a 100644
+--- a/ckuusx.c
++++ b/ckuusx.c
+@@ -5883,6 +5883,9 @@ _PROTOTYP(char *tgetstr,(char *, char **));
+ _PROTOTYP(int tputs,(char *, int, int (*)()));
+ _PROTOTYP(char *tgoto,(const char *, int, int));
+ #endif	/* BUG999 */
++#ifdef linux
++#include <term.h>
++#endif
+ 
+ #endif /* CK_CURSES */
+ 

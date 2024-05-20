@@ -31,7 +31,7 @@ HOST_CKERMIT_CONF_TOOL	:= NO
 HOST_CKERMIT_MAKE_OPT := \
 	linuxa \
 	prefix=/usr \
-	KFLAGS='-O2 -DCK_NCURSES -DHAVE_PTMX' \
+	KFLAGS='-O2 -DCK_NCURSES -DHAVE_PTMX -DHAVE_OPENPTY -DMAINTYPE=int' \
 	LIBS='-lncurses -lutil -lresolv -lcrypt'
 
 # ----------------------------------------------------------------------------
