@@ -24,7 +24,7 @@ LIBJPEG_TARBALL	:= $(LIBJPEG).$(LIBJPEG_SUFFIX)
 LIBJPEG_URL	:= https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/$(LIBJPEG_VERSION)/$(LIBJPEG_TARBALL)
 LIBJPEG_SOURCE	:= $(SRCDIR)/$(LIBJPEG_TARBALL)
 LIBJPEG_DIR	:= $(BUILDDIR)/$(LIBJPEG)
-LIBJPEG_LICENSE	:= IJG, BSD-3-Clause
+LIBJPEG_LICENSE	:= IJG AND BSD-3-Clause
 LIBJPEG_LICENSE_FILES := \
 	file://LICENSE.md;md5=2badff2388880cc27e58977d8bc1d494 \
 	file://README.ijg;startline=112;endline=174;md5=9fcb5339d9de46b31309aeef52d7deb1 \
