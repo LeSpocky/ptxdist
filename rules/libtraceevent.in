@@ -5,4 +5,4 @@ config LIBTRACEEVENT
 	prompt "libtraceevent"
 	select HOST_MESON
 	help
-	  FIXME
+	  Linux kernel trace event library
