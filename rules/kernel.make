@@ -207,6 +207,7 @@ KERNEL_TOOL_PERF_OPTS	:= \
 	-C $(KERNEL_DIR)/tools/perf \
 	O=$(KERNEL_BUILD_DIR)/tools/perf \
 	$(KERNEL_BASE_OPT) \
+	prefix=/usr \
 	WERROR=0 \
 	NO_LIBPERL=1 \
 	NO_LIBPYTHON=1 \
