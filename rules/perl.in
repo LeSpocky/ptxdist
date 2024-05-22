@@ -1,4 +1,6 @@
-## SECTION=scripting_languages
+## SECTION=staging
+## old section:
+### SECTION=scripting_languages
 
 config PERL
 	tristate
@@ -12,6 +14,10 @@ config PERL
 	  Larry Wall's Practical Extraction and Report Language
 	  An interpreted scripting language, known among some as
 	  "Unix's Swiss Army Chainsaw".
+
+	  STAGING: remove in PTXdist 2025.06.0
+	  Unmaintained in PTXdist and fails to build with host gcc 14.
+	  Needs updating to new version.
 
 menu "perl Extra Modules            "
 source "generated/perl.in"

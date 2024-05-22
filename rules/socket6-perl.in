@@ -6,3 +6,6 @@ config SOCKET6_PERL
 	prompt "Socket6"
 	help
 	  FIXME
+
+	  STAGING: remove in PTXdist 2025.06.0
+	  Moved to staging with perl.

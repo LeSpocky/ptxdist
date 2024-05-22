@@ -53,6 +53,7 @@ config CUPS_JAVA_PATH
 endif
 
 config CUPS_PERL
+	depends on STAGING
 	bool "enable Perl support for web interface"
 
 config CUPS_PHP

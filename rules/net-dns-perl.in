@@ -11,3 +11,6 @@ config NET_DNS_PERL
 	  Net::DNS is a DNS resolver implemented in Perl supporting IPv6.
 	  It allows the  programmer to perform nearly any type of DNS query
 	  from a Perl script.
+
+	  STAGING: remove in PTXdist 2025.06.0
+	  Moved to staging with perl.

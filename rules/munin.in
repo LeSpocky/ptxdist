@@ -15,6 +15,9 @@ menuconfig MUNIN
 	  A default installation provides a lot of graphs with almost no
 	  work.
 
+	  STAGING: remove in PTXdist 2025.06.0
+	  Moved to staging with perl.
+
 if MUNIN
 
 config MUNIN_MASTER

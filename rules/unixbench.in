@@ -1,4 +1,6 @@
-## SECTION=test_suites
+## SECTION=staging
+## old section:
+### SECTION=test_suites
 
 config UNIXBENCH
 	tristate
@@ -7,3 +9,6 @@ config UNIXBENCH
 	help
 	  UnixBench is the original BYTE UNIX benchmark suite, updated
 	  and revised by many people over the years.
+
+	  STAGING: remove in PTXdist 2025.06.0
+	  Moved to staging with perl.

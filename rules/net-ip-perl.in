@@ -10,3 +10,6 @@ config NET_IP_PERL
 	  objects, which can be single IP addresses, prefixes, or ranges of addresses.
 	  There is also a procedural way of accessing most of the functions. Most
 	  subroutines can take either IPv4 or IPv6 addresses transparently.
+
+	  STAGING: remove in PTXdist 2025.06.0
+	  Moved to staging with perl.

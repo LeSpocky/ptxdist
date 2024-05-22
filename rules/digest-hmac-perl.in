@@ -9,3 +9,6 @@ config DIGEST_HMAC_PERL
 	  that share a secret key, and works in combination with some other
 	  Digest algorithm, usually MD5 or SHA-1.  The HMAC mechanism
 	  is described in RFC 2104.
+
+	  STAGING: remove in PTXdist 2025.06.0
+	  Moved to staging with perl.

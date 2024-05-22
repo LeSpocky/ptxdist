@@ -9,3 +9,6 @@ config IO_SOCKET_INET6_PERL
 	  IO::Socket::INET6 provides an object interface to create and use sockets
 	  in the AF_INET6 domain. It is built upon the IO::Socket interface and
 	  inherits all the methods defined by IO::Socket.
+
+	  STAGING: remove in PTXdist 2025.06.0
+	  Moved to staging with perl.

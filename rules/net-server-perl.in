@@ -9,3 +9,5 @@ config NET_SERVER_PERL
 	  good properties from Net::Daemon, NetServer::Generic, and Net::FTPServer;
 	  and borrows various concepts from the Apache webserver.
 
+	  STAGING: remove in PTXdist 2025.06.0
+	  Moved to staging with perl.
