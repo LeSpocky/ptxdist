@@ -1,4 +1,6 @@
-## SECTION=hosttools_noprompt
+## SECTION=staging
+## old section:
+### SECTION=hosttools_noprompt
 
 config HOST_CDRKIT
 	tristate
@@ -9,3 +11,6 @@ config HOST_CDRKIT
 	default y if ALLYES
 	help
 	  command-line CD/DVD recorder software
+
+	  STAGING: remove in PTXdist 2025.06.0
+	  Upstream is dead, unmaintained in ptxdist and fails to build with gcc 14.
