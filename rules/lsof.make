@@ -14,49 +14,30 @@ PACKAGES-$(PTXCONF_LSOF) += lsof
 #
 # Paths and names
 #
-LSOF_VERSION	:= 4.93.2+dfsg
-LSOF_MD5	:= c58f7c40631ebc666f04e944f35db9a5
-LSOF_SUFFIX	:= tar.xz
+LSOF_VERSION	:= 4.99.3
+LSOF_MD5	:= 0fa5cfcaaca77a2fb3579c17de016353
+LSOF_SUFFIX	:= tar.gz
 LSOF		:= lsof-$(LSOF_VERSION)
-LSOF_TARBALL	:= lsof_$(LSOF_VERSION).orig.$(LSOF_SUFFIX)
-LSOF_URL	:= https://snapshot.debian.org/archive/debian/20190908T172415Z/pool/main/l/lsof/$(LSOF_TARBALL)
-LSOF_SOURCE	:= $(SRCDIR)/$(LSOF_TARBALL)
+LSOF_URL	:= https://github.com/lsof-org/lsof/releases/download/$(LSOF_VERSION)/$(LSOF).$(LSOF_SUFFIX)
+LSOF_SOURCE	:= $(SRCDIR)/$(LSOF).$(LSOF_SUFFIX)
 LSOF_DIR	:= $(BUILDDIR)/$(LSOF)
 LSOF_LICENSE	:= custom
-LSOF_LICENSE_FILES	:= file://00README;startline=645;endline=676;md5=3161a245910921b0f58644299e268d39
+LSOF_LICENSE_FILES	:= file://00README;startline=633;endline=664;md5=3161a245910921b0f58644299e268d39
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-LSOF_CONF_ENV	:= \
-	$(CROSS_ENV) \
-	LSOF_INCLUDE=$(PTXDIST_SYSROOT_TARGET)/usr/include \
-	LINUX_HASSELINUX=N \
-	LSOF_AR="$(CROSS_AR) cr"
+LSOF_CONF_TOOL	:= autoconf
+LSOF_CONF_OPT	:= \
+	$(CROSS_AUTOCONF_USR) \
+	--disable-liblsof \
+	--enable-security \
+	--disable-no-sock-security \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--with-libtirpc  \
+	--without-selinux
 
-LSOF_CONF_OPT := \
-	-n linux
-
-$(STATEDIR)/lsof.prepare:
-	@$(call targetinfo)
-	@$(call world/execute, LSOF, ./Configure $(LSOF_CONF_OPT))
-	@$(call touch)
-
-LSOF_MAKE_OPT	:= \
-	$(CROSS_ENV_CC) \
-	LSOF_USER=none \
-	DEBUG=-O2 \
-	RANLIB="$(CROSS_RANLIB) liblsof.a"
-
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/lsof.install:
-	@$(call targetinfo)
-	install -D -m 755 "$(LSOF_DIR)/lsof" "$(LSOF_PKGDIR)/usr/bin/lsof"
-	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Target-Install
