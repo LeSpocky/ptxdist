@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.7.1
-LIBCURL_MD5	:= f4f37253c5f1ad9ee85fa6215fdfeb42
+LIBCURL_VERSION	:= 8.8.0
+LIBCURL_MD5	:= e1062de8a9b252a75fc42e2252746bd8
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -80,7 +80,6 @@ LIBCURL_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBCURL_CRYPTO_AUTH)-negotiate-auth \
 	--$(call ptx/endis, PTXCONF_LIBCURL_CRYPTO_AUTH)-aws \
 	--$(call ptx/endis, PTXCONF_LIBCURL_CRYPTO_AUTH)-ntlm \
-	--disable-ntlm-wb \
 	--enable-tls-srp \
 	--enable-unix-sockets \
 	--$(call ptx/endis, PTXCONF_LIBCURL_COOKIES)-cookies \
