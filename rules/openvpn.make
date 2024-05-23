@@ -92,8 +92,10 @@ OPENVPN_INSTALL_SAMPLE_CONFIG_FILES := \
 OPENVPN_INSTALL_SAMPLE_CONFIG_SCRIPTS := \
 	firewall.sh home.up office.up openvpn-shutdown.sh openvpn-startup.sh
 
-OPENVPN_INSTALL_SAMPLE_SCRIPTS := auth-pam.pl bridge-start bridge-stop ucn.pl \
-	verify-cn
+OPENVPN_INSTALL_SAMPLE_SCRIPTS := bridge-start bridge-stop
+ifdef PTXCONF_OPENVPN_INSTALL_SAMPLE_SCRIPTS_PERL
+OPENVPN_INSTALL_SAMPLE_SCRIPTS += auth-pam.pl ucn.pl verify-cn
+endif
 
 # ----------------------------------------------------------------------------
 # Target-Install
