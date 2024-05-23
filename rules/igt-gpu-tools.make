@@ -147,7 +147,9 @@ ifdef PTXCONF_IGT_GPU_TOOLS_TESTS
 	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/code_cov_gather_on_build)
 	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/code_cov_gather_on_test)
 	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/code_cov_gen_report)
+ifdef PTXCONF_IGT_GPU_TOOLS_TESTS_PERL
 	$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/code_cov_parse_info)
+endif
 
 	@$(call install_tree, igt-gpu-tools, 0, 0, -, /usr/libexec/igt-gpu-tools)
 	@$(call install_glob, igt-gpu-tools, 0, 0, -, /usr/share/igt-gpu-tools, *.png,)
