@@ -65,7 +65,6 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--disable-negotiate-auth \
 	--disable-aws \
 	--disable-ntlm \
-	--disable-ntlm-wb \
 	--disable-tls-srp \
 	--enable-unix-sockets \
 	--disable-cookies \
