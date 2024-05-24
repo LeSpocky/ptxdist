@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 3 insertions(+)
 
 diff --git a/mesonbuild/modules/qt.py b/mesonbuild/modules/qt.py
-index 83dcf31bdfb3..b3242ceaf167 100644
+index 7effa1f58401..c16d8c603ce7 100644
 --- a/mesonbuild/modules/qt.py
 +++ b/mesonbuild/modules/qt.py
-@@ -278,6 +278,9 @@ class QtBaseModule(ExtensionModule):
+@@ -271,6 +271,9 @@ class QtBaseModule(ExtensionModule):
          self._detect_tools(state, method, required=False)
          for tool in self.tools.values():
              if not tool.found():
