@@ -75,7 +75,6 @@ ptxd_make_get_http() {
 	echo "Checking URL '${url}'..."
 	temp_header="$(mktemp "${PTXDIST_TEMPDIR}/urlcheck.XXXXXX")" || ptxd_bailout "failed to create tempfile"
 	curl \
-	--ftp-pasv \
 	--connect-timeout 30 \
 	--retry 5 \
 	--user-agent "PTXdist ${PTXDIST_VERSION_FULL}" \
@@ -101,7 +100,6 @@ ptxd_make_get_http() {
 	    progress=bar:force
 	fi
 	wget \
-	--passive-ftp \
 	--progress="${progress}" \
 	--timeout=30 \
 	--tries=5 \
