@@ -281,6 +281,23 @@ ptxd_make_world_lint_credits() {
 export -f ptxd_make_world_lint_credits
 PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} credits"
 
+ptxd_make_world_lint_ftp() {
+    local filefd file
+
+    echo "Checking for deprecated FTP protocol use in package URL ..."
+
+    exec {filefd}< <(ptxd_make_world_lint_makefiles)
+    while read file <&${filefd}; do
+	if grep -q "URL.*ftp://" "${file}"; then
+	    ptxd_lint_error "'$(ptxd_print_path "${file}")' contains deprecated FTP URL."
+	fi
+    done
+    exec {filefd}<&-
+    echo
+}
+export -f ptxd_make_world_lint_ftp
+PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} ftp"
+
 unset ptxd_make_world_lint_cross_whitelist
 # we don't care about the initmethod
 ptxd_make_world_lint_cross_whitelist+="INITMETHOD_BBINIT INITMETHOD_SYSTEMD "
