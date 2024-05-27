@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_E2FSPROGS) += e2fsprogs
 #
 # Paths and names
 #
-E2FSPROGS_VERSION	:= 1.47.0
-E2FSPROGS_MD5		:= 6b4f18a33873623041857b4963641ee9
+E2FSPROGS_VERSION	:= 1.47.1
+E2FSPROGS_MD5		:= 75e6d1353cbe6d5728a98fb0267206cb
 E2FSPROGS		:= e2fsprogs-$(E2FSPROGS_VERSION)
 E2FSPROGS_SUFFIX	:= tar.gz
 E2FSPROGS_URL		:= $(call ptx/mirror, SF, e2fsprogs/e2fsprogs/v$(E2FSPROGS_VERSION)/$(E2FSPROGS).$(E2FSPROGS_SUFFIX))
@@ -75,7 +75,8 @@ E2FSPROGS_CONF_OPT	:= \
 	--disable-addrsan \
 	--disable-threadsan \
 	--disable-fuzzing \
-	--with-pthread
+	--with-pthread \
+	--without-libarchive
 
 E2FSPROGS_MAKE_OPT	:= $(if $(filter 1,$(strip $(PTXDIST_VERBOSE))),V=1)
 E2FSPROGS_INSTALL_OPT	:= install install-libs
