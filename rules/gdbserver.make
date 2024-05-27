@@ -29,7 +29,7 @@ GDBSERVER_LICENSE_FILES	:= \
 
 GDBSERVER_URL := \
 	$(call ptx/mirror, GNU, gdb/$(GDBSERVER).$(GDBSERVER_SUFFIX)) \
-	ftp://sourceware.org/pub/gdb/snapshots/current/$(GDBSERVER).$(GDBSERVER_SUFFIX)
+	https://sourceware.org/pub/gdb/snapshots/current/$(GDBSERVER).$(GDBSERVER_SUFFIX)
 
 # ----------------------------------------------------------------------------
 # Prepare
