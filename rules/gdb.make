@@ -26,7 +26,7 @@ GDB_LICENSE	:= GPL-3.0-or-later
 
 GDB_URL := \
 	$(call ptx/mirror, GNU, gdb/$(GDB).$(GDB_SUFFIX)) \
-	ftp://sourceware.org/pub/gdb/snapshots/current/$(GDB).$(GDB_SUFFIX)
+	https://sourceware.org/pub/gdb/snapshots/current/$(GDB).$(GDB_SUFFIX)
 
 # ----------------------------------------------------------------------------
 # Prepare
