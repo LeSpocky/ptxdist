@@ -6,11 +6,11 @@ menuconfig XWAYLAND
 	select HOST_MESON
 	select LIBC_M
 	select LIBDRM
-	select LIBEPOXY
 	select LIBXCVT
 	select NETTLE
 	select PIXMAN
 	select WAYLAND
+	select WAYLAND_PROTOCOLS
 	select XORGPROTO
 	select XORG_LIB_FONTENC
 	select XORG_LIB_XAU
@@ -19,6 +19,7 @@ menuconfig XWAYLAND
 	select XORG_LIB_XKBFILE
 	select XORG_LIB_XSHMFENCE
 	select XORG_LIB_XTRANS
+	select LIBEPOXY			if XWAYLAND_GLAMOR
 	select MESALIB			if XWAYLAND_GLAMOR
 	select MESALIB_GBM		if XWAYLAND_GLAMOR
 	select MESALIB_GLX		if XWAYLAND_EXT_GLX
