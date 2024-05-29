@@ -1,0 +1,60 @@
+From: Brent Spillner <spillner@acm.org>
+Date: Sat, 23 Sep 2023 00:07:25 +1000
+Subject: [PATCH] Allow building without GTest when BUILD_TESTING is not set
+
+Link: https://github.com/apitrace/apitrace/pull/894
+---
+ CMakeLists.txt            | 19 ++++++++++++-------
+ thirdparty/CMakeLists.txt |  2 +-
+ 2 files changed, 13 insertions(+), 8 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 3d8b5811ebe2..ecdf8a0f0b0b 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -483,7 +483,9 @@ if (NOT WIN32 AND NOT ENABLE_STATIC_EXE)
+         pkg_check_modules (BROTLIENC IMPORTED_TARGET libbrotlienc>=1.0.7)
+     endif ()
+ 
+-    find_package (GTest)
++    if (BUILD_TESTING)
++        find_package (GTest)
++    endif ()
+ endif ()
+ 
+ add_subdirectory (thirdparty)
+@@ -495,12 +497,15 @@ add_subdirectory (thirdparty)
+ include_directories (BEFORE ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/khronos)
+ 
+ # Convenience macro for adding unit tests
+-macro (add_gtest)
+-    add_executable (${ARGV})
+-    target_link_libraries (${ARGV0} GTest::GTest)
+-    add_dependencies (check ${ARGV0})
+-    add_test (NAME ${ARGV0} COMMAND ${ARGV0})
+-endmacro ()
++# Should only be invoked when BUILD_TESTING is enabled
++if (BUILD_TESTING)
++  macro (add_gtest)
++      add_executable (${ARGV})
++      target_link_libraries (${ARGV0} GTest::GTest)
++      add_dependencies (check ${ARGV0})
++      add_test (NAME ${ARGV0} COMMAND ${ARGV0})
++  endmacro ()
++endif ()
+ 
+ 
+ ##############################################################################
+diff --git a/thirdparty/CMakeLists.txt b/thirdparty/CMakeLists.txt
+index ceb9305b44a4..4aca96c7e860 100644
+--- a/thirdparty/CMakeLists.txt
++++ b/thirdparty/CMakeLists.txt
+@@ -52,7 +52,7 @@ if (CMAKE_EXECUTABLE_FORMAT STREQUAL "ELF")
+ endif ()
+ 
+ # We use non-standard C++ flags, so we can't just use GTest's CMakeLists.txt
+-if (NOT GTEST_FOUND)
++if (BUILD_TESTING AND NOT GTEST_FOUND)
+     message (STATUS "Using bundled GTest")
+     include_with_scope (gtest.cmake)
+ endif ()

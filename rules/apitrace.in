@@ -7,7 +7,6 @@ config APITRACE
 	select ZLIB
 	select LIBPNG
 	select BROTLI
-	select GOOGLETEST
 	prompt "apitrace"
 	help
 	  Tools for tracing OpenGL, Direct3D, and other graphics APIs.
