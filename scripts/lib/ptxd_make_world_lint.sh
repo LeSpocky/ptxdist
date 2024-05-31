@@ -288,8 +288,10 @@ ptxd_make_world_lint_ftp() {
 
     exec {filefd}< <(ptxd_make_world_lint_makefiles)
     while read file <&${filefd}; do
-	if grep -q "URL.*ftp://" "${file}"; then
-	    ptxd_lint_error "'$(ptxd_print_path "${file}")' contains deprecated FTP URL."
+	if grep -qzP '_URL\b.*=(.*\\\n)*.*\bftp://' "${file}"; then
+	    if ! grep -q '^## SECTION=staging' "${file%.make}.in" 2>/dev/null; then
+		ptxd_lint_error "'$(ptxd_print_path "${file}")' contains deprecated FTP URL."
+	    fi
 	fi
     done
     exec {filefd}<&-
