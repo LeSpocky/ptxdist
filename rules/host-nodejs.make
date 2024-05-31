@@ -34,7 +34,7 @@ HOST_NODEJS_CONF_OPT	:= \
 $(STATEDIR)/host-nodejs.prepare:
 	@$(call targetinfo)
 
-	@$(call world/prepare, HOST_NODEJS)
+	@$(call world/execute, HOST_NODEJS, python3 $(HOST_NODEJS_DIR)/configure $(HOST_NODEJS_CONF_OPT))
 	@mkdir -p $(HOST_NODEJS_DIR)/out/Release/
 	@echo -e '#!/bin/sh\nexec "$${@}"' > \
 		$(HOST_NODEJS_DIR)/out/Release/tool-wrapper
