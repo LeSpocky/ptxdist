@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_NTP) += ntp
 #
 # Paths and names
 #
-NTP_VERSION	:= 4.2.8p17
-NTP_MD5		:= a15558df580bd1b955a105a8b91c078f
+NTP_VERSION	:= 4.2.8p18
+NTP_MD5		:= 516bdabd94ab7c824e9771390761a46c
 NTP		:= ntp-$(NTP_VERSION)
 NTP_SUFFIX	:= tar.gz
 NTP_URL		:= http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/$(NTP).$(NTP_SUFFIX)
 NTP_SOURCE	:= $(SRCDIR)/$(NTP).$(NTP_SUFFIX)
 NTP_DIR		:= $(BUILDDIR)/$(NTP)
 NTP_LICENSE	:= ntp
-NTP_LICENSE_FILES	:= file://COPYRIGHT;md5=3a8ffebbcad335abf2c39fec38671eec
+NTP_LICENSE_FILES	:= file://COPYRIGHT;md5=2311915f6d5142b06395231b0ffeaf29
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -32,6 +32,7 @@ NTP_LICENSE_FILES	:= file://COPYRIGHT;md5=3a8ffebbcad335abf2c39fec38671eec
 NTP_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	ac_cv_search_MD5Init=no \
+	ol_cv_func_pthread_detach=yes \
 	libopts_cv_test_dev_zero=yes \
 	ntp_cv_vsnprintf_percent_m=yes
 
@@ -60,7 +61,6 @@ NTP_CONF_OPT	:= \
 	--enable-linuxcaps \
 	--disable-solarisprivs \
 	--disable-trustedbsd-mac \
-	--without-arlib \
 	--without-net-snmp-config \
 	--disable-libseccomp \
 	--disable-debug-timing \
@@ -121,7 +121,6 @@ NTP_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_NTP_VARITEXT)-VARITEXT \
 	--$(call ptx/endis, PTXCONF_NTP_SEL240X)-SEL240X \
 	--$(call ptx/wwo, PTXCONF_NTP_CRYPTO)-crypto \
-	--without-rpath \
 	--$(call ptx/endis, PTXCONF_NTP_CRYPTO)-openssl-random \
 	--$(call ptx/endis, PTXCONF_NTP_CRYPTO)-autokey \
 	--disable-kmem \
