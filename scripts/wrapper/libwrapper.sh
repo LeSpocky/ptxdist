@@ -97,6 +97,11 @@ filter_args() {
 			esac
 		fi
 		case "${ARG}" in
+			-I/*/sysroot-host/*|-I/*/sysroot-cross/*|-I/*/sysroot-target/*)
+				# turn include paths in sysroot into system includes
+				printf "%s\037" "-isystem"
+				ARG="${ARG#-I}"
+				;;
 			-isystem)
 				;;
 			-isystem*)
