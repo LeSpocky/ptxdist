@@ -166,12 +166,17 @@ comment "supported plugins"
 config QT6_PLATFORM_DEFAULT
 	string
 	default "eglfs"		if QT6_PLATFORM_DEFAULT_EGLFS
+	default "linuxfb"	if QT6_PLATFORM_DEFAULT_LINUXFB
 	default "wayland"	if QT6_PLATFORM_DEFAULT_WAYLAND
 
 config QT6_PLATFORM_EGLFS
 	bool
 	prompt "eglfs"
 	select QT6_OPENGL
+
+config QT6_PLATFORM_LINUXFB
+	bool
+	prompt "linuxfb"
 
 comment "default plugin"
 
@@ -185,12 +190,18 @@ config QT6_PLATFORM_DEFAULT_MISSING
 	bool
 	prompt "--nothing--"
 	depends on !QT6_PLATFORM_EGLFS
+	depends on !QT6_PLATFORM_LINUXFB
 	depends on !QT6_MODULE_QTWAYLAND
 
 config QT6_PLATFORM_DEFAULT_EGLFS
 	bool
 	depends on QT6_PLATFORM_EGLFS
 	prompt "eglfs"
+
+config QT6_PLATFORM_DEFAULT_LINUXFB
+	bool
+	depends on QT6_PLATFORM_LINUXFB
+	prompt "linuxfb"
 
 config QT6_PLATFORM_DEFAULT_WAYLAND
 	bool
