@@ -100,7 +100,7 @@ $0 ~ /^include[[:space:]]+\/.*\.make$/ {
 $1 ~ /^\$\(STATEDIR\)\/(image-.*|host-.*|cross-.*)\.targetinstall(.post)?:/ {
 	match($0, /\$\(STATEDIR\)\/((image-.*|host-.*|cross-.*)\.targetinstall(.post)?):/, m);
 	print "\nError in " old_filename " line " lineno ":\n" \
-		"  '" m[1] "' stage will be ignored.\n" \
+		"  '" m[1] "' stage in host/cross/image rule will be ignored.\n" \
 		"  See section 'Rule File Layout' in the PTXdist reference for more info:\n" \
 		"  https://www.ptxdist.org/doc/ref_manual.html#rule-file-layout"
 	exit 1;
