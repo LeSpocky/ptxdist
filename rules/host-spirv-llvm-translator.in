@@ -1,0 +1,14 @@
+## SECTION=hosttools_noprompt
+
+config HOST_SPIRV_LLVM_TRANSLATOR
+	tristate
+	select HOST_CMAKE
+	select HOST_LLVM
+	select HOST_SPIRV_HEADERS
+	select HOST_SPIRV_TOOLS
+	select HOST_SHADERC
+	help
+	  A tool and a library for bi-directional translation between
+	  SPIR-V and LLVM IR.
+
+# vim: syntax=make
