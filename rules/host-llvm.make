@@ -32,7 +32,7 @@ HOST_LLVM_PARTS			+= HOST_LLVM_CMAKE
 HOST_LLVM_CONF_TOOL	:= cmake
 HOST_LLVM_CONF_OPT	 = \
         $(HOST_CMAKE_OPT) \
-	-DCMAKE_INSTALL_PREFIX=/ \
+	-DCMAKE_INSTALL_PREFIX=/usr \
 	-G Ninja \
 	-DLLVM_BUILD_BENCHMARKS=OFF \
 	-DLLVM_BUILD_DOCS=OFF \
@@ -153,15 +153,6 @@ HOST_LLVM_CONF_OPT	 = \
 	-DLLVM_USE_SYMLINKS=ON \
 	-DLLVM_VERSION_PRINTER_SHOW_HOST_TARGET_INFO=ON \
 	-DLLVM_WINDOWS_PREFER_FORWARD_SLASH=OFF
-
-HOST_LLVM_MAKE_OPT	:= \
-	llvm-config \
-	llvm-libraries \
-	llvm-tblgen
-
-HOST_LLVM_INSTALL_OPT	:= \
-	install-llvm-libraries \
-	install-llvm-config
 
 # ----------------------------------------------------------------------------
 # Install
