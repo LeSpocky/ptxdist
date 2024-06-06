@@ -1,0 +1,7 @@
+## SECTION=hosttools_noprompt
+
+config HOST_CLANG
+	bool
+	select HOST_CMAKE
+	select HOST_NINJA
+	select HOST_LLVM
