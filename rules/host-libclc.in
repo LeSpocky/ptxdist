@@ -1,0 +1,7 @@
+## SECTION=hosttools_noprompt
+
+config HOST_LIBCLC
+	tristate
+	select HOST_CMAKE
+	select HOST_SPIRV_LLVM_TRANSLATOR
+	default y if ALLYES
