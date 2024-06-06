@@ -1,0 +1,6 @@
+## SECTION=hosttools_noprompt
+
+config HOST_SPIRV_TOOLS
+	tristate
+	select HOST_CMAKE
+	select HOST_SYSTEM_PYTHON3
