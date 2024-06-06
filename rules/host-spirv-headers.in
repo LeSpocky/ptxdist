@@ -1,0 +1,5 @@
+## SECTION=hosttools_noprompt
+
+config HOST_SPIRV_HEADERS
+	tristate
+	select HOST_CMAKE
