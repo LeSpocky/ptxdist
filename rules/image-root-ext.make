@@ -20,6 +20,7 @@ IMAGE_ROOT_EXT_IMAGE	:= $(IMAGEDIR)/root.ext2
 IMAGE_ROOT_EXT_FILES	:= $(IMAGEDIR)/root.tgz
 IMAGE_ROOT_EXT_CONFIG	:= ext.config
 IMAGE_ROOT_EXT_SIZE	:= $(call remove_quotes,$(PTXCONF_IMAGE_ROOT_EXT_SIZE))
+IMAGE_ROOT_EXT_LABEL	:= $(call remove_quotes,$(PTXCONF_IMAGE_ROOT_EXT_LABEL))
 
 # ----------------------------------------------------------------------------
 # Image
@@ -35,6 +36,7 @@ IMAGE_ROOT_EXT_SCALE	:= $(subst %,,$(IMAGE_ROOT_EXT_SIZE))/80/1024/1024
 IMAGE_ROOT_EXT_ENV	+= \
 	SIZE="$(shell echo $$(($(IMAGE_ROOT_EXT_BASE)*$(IMAGE_ROOT_EXT_SCALE)+1))M)"
 endif
+IMAGE_ROOT_EXT_ENV	+= LABEL="$(IMAGE_ROOT_EXT_LABEL)"
 
 ifdef PTXCONF_IMAGE_ROOT_EXT
 $(IMAGE_ROOT_EXT_IMAGE):

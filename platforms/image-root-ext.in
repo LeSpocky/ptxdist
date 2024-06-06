@@ -44,4 +44,12 @@ config IMAGE_ROOT_EXT_TYPE
 	default "ext3" if IMAGE_ROOT_EXT_EXT3
 	default "ext4" if IMAGE_ROOT_EXT_EXT4
 
+config IMAGE_ROOT_EXT_LABEL
+	string
+	default ""
+	prompt "volume label"
+	help
+	  Set a volume label for the file system if the specified label
+	  is non-empty.  The maximum length of the label is 16 bytes.
+
 endif
