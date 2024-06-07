@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NVTOP) += nvtop
 #
 # Paths and names
 #
-NVTOP_VERSION	:= 3.0.2
-NVTOP_MD5	:= fdf9bc33c2240ba99cee0d726d267427
+NVTOP_VERSION	:= 3.1.0
+NVTOP_MD5	:= bdf8217412aa12f54448f14bb49bb164
 NVTOP		:= nvtop-$(NVTOP_VERSION)
 NVTOP_SUFFIX	:= tar.gz
 NVTOP_URL	:= https://github.com/Syllo/nvtop/archive/refs/tags/$(NVTOP_VERSION).$(NVTOP_SUFFIX)
@@ -38,7 +38,11 @@ NVTOP_CONF_OPT	:= \
 	-DNVIDIA_SUPPORT=$(call ptx/onoff, PTXCONF_NVTOP_NVIDIA) \
 	-DAMDGPU_SUPPORT=$(call ptx/onoff, PTXCONF_NVTOP_AMDGPU) \
 	-DINTEL_SUPPORT=$(call ptx/onoff, PTXCONF_NVTOP_INTEL) \
-	-DMSM_SUPPORT=$(call ptx/onoff, PTXCONF_NVTOP_MSM)
+	-DMSM_SUPPORT=$(call ptx/onoff, PTXCONF_NVTOP_MSM) \
+	-DAPPLE_SUPPORT=off \
+	-DPANFROST_SUPPORT=$(call ptx/onoff, PTXCONF_NVTOP_PANFROST) \
+	-DPANTHOR_SUPPORT=$(call ptx/onoff, PTXCONF_NVTOP_PANTHOR) \
+	-DASCEND_SUPPORT=off
 
 # ----------------------------------------------------------------------------
 # Target-Install

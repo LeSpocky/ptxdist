@@ -31,4 +31,12 @@ config NVTOP_MSM
 	bool
 	prompt "build support for Adreno GPUs using the msm driver"
 
+config NVTOP_PANFROST
+	bool
+	prompt "build support for Mali GPUs using the panfrost driver"
+
+config NVTOP_PANTHOR
+	bool
+	prompt "build support for Mali GPUs using the panthor driver"
+
 endif
