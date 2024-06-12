@@ -90,9 +90,6 @@ ptxd_make_get_http() {
 	if grep -i "content-type:" "${temp_header}" | tail -n 1 | grep -q "text/html"; then
 	    ptxd_bailout "Got HTML file"
 	fi
-	if [[ "${path}" =~ '.tar.'|'.zip'$ ]] && grep -i "content-type:" "${temp_header}" | tail -n 1 | grep -q "text/plain"; then
-	    ptxd_bailout "Got text file"
-	fi
 	ptxd_make_serialize_put
 	return
     elif [ ! -e "${path}" ]; then
