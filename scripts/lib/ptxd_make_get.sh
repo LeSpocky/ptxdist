@@ -90,6 +90,9 @@ ptxd_make_get_http() {
 	if grep -i "content-type:" "${temp_header}" | tail -n 1 | grep -q "text/html"; then
 	    ptxd_bailout "Got HTML file"
 	fi
+	if [[ "${path}" =~ '.tar.'|'.zip'$ ]] && grep -i "content-type:" "${temp_header}" | tail -n 1 | grep -q "text/plain"; then
+	    ptxd_bailout "Got text file"
+	fi
 	ptxd_make_serialize_put
 	return
     elif [ ! -e "${path}" ]; then
@@ -112,7 +115,16 @@ ptxd_make_get_http() {
 	    return 1
 	}
 	chmod 644 -- "${temp_file}" &&
-	file "${temp_file}" | grep -vq " HTML " &&
+	if file "${temp_file}" | grep -q " HTML "; then
+	    ptxd_warning "Got HTML file"
+	    echo
+	    return 1
+	fi &&
+	if [[ "${path}" =~ '.tar.'|'.zip'$ ]] && file "${temp_file}" | tee /tmp/mol | grep -q " ASCII text"; then
+	    ptxd_warning "Got text file"
+	    echo
+	    return 1
+	fi &&
 	touch -- "${temp_file}" &&
 	mv -- "${temp_file}" "${path}"
     fi
