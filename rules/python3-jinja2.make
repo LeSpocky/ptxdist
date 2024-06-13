@@ -19,6 +19,9 @@ PYTHON3_JINJA2_URL	:= $(call ptx/mirror-pypi, jinja2, $(PYTHON3_JINJA2).$(PYTHON
 PYTHON3_JINJA2_SOURCE	:= $(SRCDIR)/$(PYTHON3_JINJA2).$(PYTHON3_JINJA2_SUFFIX)
 PYTHON3_JINJA2_DIR	:= $(BUILDDIR)/$(PYTHON3_JINJA2)
 PYTHON3_JINJA2_LICENSE	:= BSD-3-Clause
+PYTHON3_JINJA2_LICENSE_FILES	:= \
+	file://PKG-INFO;startline=6;endline=8;md5=9756d487e0b816adb26f07c9c1eea379 \
+	file://LICENSE.rst;md5=5dc88300786f1c214c1e9827a5229462
 
 # ----------------------------------------------------------------------------
 # Prepare
