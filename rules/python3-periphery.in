@@ -1,0 +1,9 @@
+## SECTION=python3
+
+config PYTHON3_PERIPHERY
+	tristate
+	select PYTHON3
+	prompt "periphery"
+	help
+	  A pure Python library for peripheral I/O (GPIO, LED, PWM, SPI, I2C,
+	  MMIO, Serial) in Linux.
