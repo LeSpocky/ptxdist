@@ -477,3 +477,12 @@ D
 :not_systemd_helper
 # SYSTEMD without SYSTEMD_HELPER so add it
 s/^\(# \)\?\(PTXCONF_SYSTEMD\>\)\(.*\)/\1\2_HELPER\3\n\1\2\3/
+
+# from   : ptxdist-2024.05.0
+# to     : ptxdist-2024.06.0
+# symbol : ATK               -> AT_SPI2_CORE
+# symbol : ATK_INTROSPECTION -> AT_SPI2_CORE_INTROSPECTION
+# reason : libatk was merged into at-spi2-core
+#
+s/^\(\(# \)\?PTXCONF_\)ATK/\1AT_SPI2_CORE/
+s/^\(\(# \)\?PTXCONF_\)ATK_INTROSPECTION/\1AT_SPI2_CORE_INTROSPECTION/

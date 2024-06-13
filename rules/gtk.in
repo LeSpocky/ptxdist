@@ -8,7 +8,7 @@ menuconfig GTK
 	select HOST_GDK_PIXBUF
 
 	# core dependencies
-	select ATK
+	select AT_SPI2_CORE
 	select CAIRO
 	select CAIRO_GOBJECT
 	select CAIRO_PDF

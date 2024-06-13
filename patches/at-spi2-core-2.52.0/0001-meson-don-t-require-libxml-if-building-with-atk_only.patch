@@ -1,0 +1,23 @@
+From: Roland Hieber <rhi@pengutronix.de>
+Date: Fri, 24 May 2024 11:35:30 +0200
+Subject: [PATCH] meson: don't require libxml if building with atk_only
+
+libxml is only used for the at-spi2-atk tests, which are not built with
+atk_only=true.
+---
+ meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index 4943b25ea926..57b07c2702fa 100644
+--- a/meson.build
++++ b/meson.build
+@@ -146,7 +146,7 @@ if not get_option('atk_only')
+   endif
+ endif
+ gmodule_dep = dependency('gmodule-2.0', version: gmodule_req_version)
+-libxml_dep = dependency('libxml-2.0', version: libxml_req_version)
++libxml_dep = dependency('libxml-2.0', version: libxml_req_version, required: not get_option('atk_only'))
+ 
+ x11_deps = []
+ x11_dep = dependency('x11', required: get_option('x11'))
