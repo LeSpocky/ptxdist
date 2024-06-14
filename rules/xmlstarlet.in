@@ -1,4 +1,7 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
+
 config XMLSTARLET
 	tristate
 	select LIBC_PTHREAD
@@ -17,4 +20,6 @@ config XMLSTARLET
 
 		http://xmlstar.sourceforge.net/
 
-
+	  STAGING: remove in PTXdist 2025.07.0
+	  Upstream is dead, unmaintained in ptxdist and fails to build with
+	  libxml2 >= 1.12.
