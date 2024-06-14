@@ -1,4 +1,7 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
+
 config LIBXMLCONFIG
 	tristate
 	prompt "libxmlconfig"
@@ -13,3 +16,6 @@ config LIBXMLCONFIG
 
 	  	http://www.pengutronix.de/software/libxmlconfig/
 
+	  STAGING: remove in PTXdist 2025.07.0
+	  Upstream is dead, unmaintained in ptxdist and fails to build with
+	  libxml2 >= 1.12.
