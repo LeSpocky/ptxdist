@@ -104,23 +104,17 @@ print_pkg() {
     fi
 }
 
-#
-# meson suppresses any pkg-config output, so dump it into the logfile instead
-#
-if [ "${pkg_conf_tool}" = "meson" -a -n "${PTXDIST_FD_LOGFILE}" ]; then
-    ERROR_FD=${PTXDIST_FD_LOGFILE}
-else
-    ERROR_FD=2
-fi
-
 if [ -n "${PKGCONFIG_WHITELIST_SRC}" -a "${1}" != "--version" -a "${1}" != "--help" ]; then
     error="$(mktemp "${PTXDIST_TEMPDIR}/pkg-config.XXXXXX")"
     pkgs="$(print_pkg "${@}")"
     if [ $? -ne 0 ]; then
-	if [ "${ERROR_FD}" != "2" ]; then
-	    echo "$(basename ${0}) $*" >&${PTXDIST_FD_LOGFILE}
+	# meson suppresses any pkg-config output, so dump it into the logfile instead
+	if [ "${pkg_conf_tool}" = "meson" -a -n "${PTXDIST_LOGFILE_PATH}" ]; then
+	    echo "$(basename ${0}) $*" >>"${PTXDIST_LOGFILE_PATH}"
+	    cat "${error}" >>"${PTXDIST_LOGFILE_PATH}"
+	else
+	    cat "${error}" >&2
 	fi
-	cat "${error}" >&${ERROR_FD}
 	rm "${error}"
 	exit 1
     fi

@@ -187,6 +187,7 @@ ptxd_make_log() {(
 	export PTXDIST_FD_STDOUT
 	export PTXDIST_FD_STDERR
 	export PTXDIST_FD_LOGFILE=9
+	export PTXDIST_LOGFILE_PATH="/proc/${BASHPID}/fd/${PTXDIST_FD_LOGFILE}"
 
 	if [ -z "${PTXDIST_QUIET}" ]; then
 		# stdout and logfile

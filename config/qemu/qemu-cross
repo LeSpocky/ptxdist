@@ -48,7 +48,7 @@ if [ "${cmd}" != "${linker}" ]; then
 	args[${#args[@]}]="${cmd}"
 fi
 shift
-if [ "${PTXDIST_VERBOSE}" = 1 -a -n "${PTXDIST_FD_LOGFILE}" ]; then
-	echo "qemu: ${args[@]} ${@}" >&${PTXDIST_FD_LOGFILE}
+if [ "${PTXDIST_VERBOSE}" = 1 -a -n "${PTXDIST_LOGFILE_PATH}" ]; then
+	echo "qemu: ${args[*]} ${*}" >>"${PTXDIST_LOGFILE_PATH}"
 fi
 exec "${args[@]}" "${@}"
