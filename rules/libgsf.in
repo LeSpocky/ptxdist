@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 menuconfig LIBGSF
 	tristate
@@ -18,6 +20,9 @@ menuconfig LIBGSF
 	  The GNOME Structured File Library library aims to provide an
 	  efficient extensible I/O abstraction for dealing with
 	  different structured file formats.
+
+	  STAGING: remove in PTXdist 2025.07.0
+	  Unmaintained in ptxdist and fails to build with libxml2 >= 1.12.
 
 if LIBGSF
 

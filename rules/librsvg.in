@@ -26,6 +26,7 @@ config LIBRSVG_PIXBUF_LOADER
 
 config LIBRSVG_SVGZ
 	bool
+	depends on STAGING
 	prompt "svgz support"
 	help
 	  Adds support for the ompressed Scalable Vector Graphics
