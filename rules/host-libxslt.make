@@ -28,7 +28,11 @@ HOST_LIBXSLT_CONF_TOOL	:= autoconf
 HOST_LIBXSLT_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-static \
+	--without-python \
 	--without-crypto \
-	--without-python
+	--without-debug \
+	--without-debugger \
+	--without-profiler \
+	--without-plugins
 
 # vim: syntax=make

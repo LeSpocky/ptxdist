@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBXSLT) += libxslt
 #
 # Paths and names
 #
-LIBXSLT_VERSION	:= 1.1.39
-LIBXSLT_MD5	:= 22e9eb7c23825124e786611b3760a3c7
+LIBXSLT_VERSION	:= 1.1.40
+LIBXSLT_MD5	:= d9f936c2d94cbb229b504d48b2649376
 LIBXSLT		:= libxslt-$(LIBXSLT_VERSION)
 LIBXSLT_SUFFIX	:= tar.xz
 LIBXSLT_SOURCE	:= $(SRCDIR)/$(LIBXSLT).$(LIBXSLT_SUFFIX)
@@ -46,7 +46,6 @@ LIBXSLT_CONF_OPT := \
 	--without-python \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_CRYPTO)-crypto \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_DEBUG)-debug \
-	--$(call ptx/wwo, PTXCONF_LIBXSLT_DEBUG)-mem-debug \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_DEBUG)-debugger \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_PROFILER)-profiler \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_PLUGINS)-plugins
