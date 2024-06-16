@@ -38,6 +38,7 @@ config SYSTEMD
 	select LIBELF		if SYSTEMD_COREDUMP
 	select LIBELF_LIBDW	if SYSTEMD_COREDUMP
 	select OPENSSL		if SYSTEMD_OPENSSL
+	select LIBCURL		if SYSTEMD_LIBCURL
 	# for udev:
 	select ROOTFS_DEV
 	select LIBBLKID
@@ -69,6 +70,9 @@ config SYSTEMD_DBUS_SERVICES
 	bool
 
 config SYSTEMD_MICROHTTPD
+	bool
+
+config SYSTEMD_LIBCURL
 	bool
 
 config SYSTEMD_LOCALES
@@ -212,6 +216,7 @@ config SYSTEMD_PCRE2
 config SYSTEMD_JOURNAL_REMOTE
 	bool
 	select SYSTEMD_MICROHTTPD
+	select SYSTEMD_LIBCURL
 	prompt "install systemd-journal-remote"
 	help
 	  systemd-journal-remote is a command to receive serialized
