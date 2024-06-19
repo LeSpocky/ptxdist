@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDL2) += sdl2
 #
 # Paths and names
 #
-SDL2_VERSION	:= 2.30.3
-SDL2_MD5	:= 85ceed58290332fa4ef75a3dabfa1b89
+SDL2_VERSION	:= 2.30.4
+SDL2_MD5	:= 89166c920ab657476bf80f6112cd7028
 SDL2		:= SDL2-$(SDL2_VERSION)
 SDL2_SUFFIX	:= tar.gz
 SDL2_URL	:= https://www.libsdl.org/release/$(SDL2).$(SDL2_SUFFIX)
