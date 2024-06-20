@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBRTLSDR) += librtlsdr
 #
 # Paths and names
 #
-LIBRTLSDR_VERSION	:= 0.8.0
-LIBRTLSDR_MD5		:= 64f31f30f79cd91e4cd70b0a8edcff4e
+LIBRTLSDR_VERSION	:= 0.9.0
+LIBRTLSDR_MD5		:= 18169e5e6a9980bb102c6d61fc36e12e
 LIBRTLSDR		:= librtlsdr-$(LIBRTLSDR_VERSION)
 LIBRTLSDR_SUFFIX	:= tar.gz
 LIBRTLSDR_URL		:= https://github.com/librtlsdr/librtlsdr/archive/refs/tags/v$(LIBRTLSDR_VERSION).$(LIBRTLSDR_SUFFIX)
