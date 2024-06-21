@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 config CXXTOOLS
 	tristate
@@ -12,3 +14,6 @@ config CXXTOOLS
 	  serialization, unicode text, multi threading,
 	  networking, rpc, http client and server, xml,
 	  logging and many more.
+
+	  STAGING: remove in PTXdist 2025.07.0
+	  Unmaintained in ptxdist and fails to build with gcc 14.
