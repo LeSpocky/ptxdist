@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 menuconfig TNTNET
 	tristate
@@ -13,6 +15,10 @@ menuconfig TNTNET
 	select GNUTLS if TNTNET_SSL_GNUTLS
 	help
 	  web application server for C++
+
+	  STAGING: remove in PTXdist 2025.07.0
+	  Unmaintained in ptxdist and depends on cxxtools with fails to
+	  build with gcc 14.
 
 if TNTNET
 
