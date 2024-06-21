@@ -3,5 +3,6 @@
 config HOST_TESTFRAMEWORK
 	tristate
 	prompt "host-side testing framework   "
+	depends on STAGING
 	select HOST_LRZSZ
 	select HOST_CKERMIT
