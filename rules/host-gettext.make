@@ -24,11 +24,12 @@ HOST_GETTEXT_CONF_OPT := \
 	$(HOST_AUTOCONF) \
 	--disable-java \
 	--disable-csharp \
+	--disable-c++ \
 	--enable-threads=posix \
+	--disable-more-warnings \
 	--disable-static \
 	--disable-nls \
 	--disable-rpath \
-	--disable-c++ \
 	--enable-cross-guesses=conservative \
 	--enable-relocatable \
 	--disable-libasprintf \
@@ -36,10 +37,13 @@ HOST_GETTEXT_CONF_OPT := \
 	--enable-namespacing \
 	--disable-openmp \
 	--disable-acl \
+	--disable-xattr \
+	--without-included-gettext \
 	--with-included-libunistring \
 	--with-included-libxml \
 	--with-included-regex \
 	--without-emacs \
+	--without-lispdir \
 	--without-git \
 	--without-cvs \
 	--without-bzip2 \
