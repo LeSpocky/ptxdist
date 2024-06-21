@@ -69,6 +69,10 @@ export -f ptxd_make_world_install_python_cleanup_host
 ptxd_make_world_install_python() {
     local sitepackages python_prefix
 
+    if [[ " ${pkg_build_deps} " =~ ' host-system-python3 ' ]]; then
+	mkdir -p "${pkg_pkg_dir}/usr/lib/system-python3/lib"
+	ln -s lib "${pkg_pkg_dir}/usr/lib/system-python3/lib64"
+    fi
     if [ -e "${pkg_dir}/pyproject.toml" -a ! -e "${pkg_dir}/setup.py" ] && \
 	    ! [[ " ${pkg_build_deps_all} " =~ ' host-python3-pybuild ' ]]; then
 	if [[ " ${pkg_build_deps_all} " =~ ' host-python3 ' ]]; then
@@ -86,10 +90,10 @@ ptxd_make_world_install_python() {
     elif [ -e "${pkg_dir}/pyproject.toml" ] &&
 	    ( [[ " ${pkg_build_deps} " =~ ' host-python3-pybuild ' ]] ||
 	    [[ " ${pkg_build_deps} " =~ ' host-system-python3-pybuild ' ]] ) ; then
-	if [[ " ${pkg_build_deps_all} " =~ ' host-python3 ' ]]; then
-	    python_prefix=/usr
-	else
+	if [[ " ${pkg_build_deps} " =~ ' host-system-python3 ' ]]; then
 	    python_prefix=/usr/lib/system-python3
+	else
+	    python_prefix=/usr
 	fi
 	cmd=( \
 	    "${pkg_path}" \
