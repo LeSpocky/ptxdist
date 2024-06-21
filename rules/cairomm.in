@@ -1,4 +1,6 @@
-## SECTION=multimedia_gtk
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gtk
 
 config CAIROMM
 	tristate
@@ -13,3 +15,6 @@ config CAIROMM
 	  the power of cairo with an interface familiar to C++ developers,
 	  including use of the Standard Template Library where it makes sense.
 
+	  STAGING: remove in PTXdist 2025.07.0
+	  Unmaintained in ptxdist and dependency libsigc++ fails to build with gcc 14.
+	  Needs updating to a new version.
