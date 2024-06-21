@@ -36,23 +36,29 @@ LIBCACA_CONF_ENV := \
 LIBCACA_CONF_TOOL := autoconf
 LIBCACA_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-doc \
+	--disable-kernel \
 	--disable-slang \
+	--$(call ptx/endis, PTXCONF_LIBCACA_NCURSES)-ncurses \
+	--disable-win32 \
 	--disable-conio \
+	--$(call ptx/endis, PTXCONF_LIBCACA_X11)-x11 \
+	--disable-gl \
 	--disable-cocoa \
 	--disable-network \
 	--disable-vga \
 	--disable-csharp \
+	--disable-java \
+	--$(call ptx/endis, PTXCONF_LIBCACA_CXX)-cxx \
+	--disable-python \
 	--disable-ruby \
 	--disable-imlib2 \
 	--disable-debug \
+	--disable-profiling \
 	--disable-plugins \
+	--disable-doc \
 	--disable-cppunit \
 	--disable-zzuf \
-	--$(call ptx/endis, PTXCONF_LIBCACA_NCURSES)-ncurses \
-	--$(call ptx/endis, PTXCONF_LIBCACA_X11)-x11 \
-	--disable-gl \
-	--$(call ptx/endis, PTXCONF_LIBCACA_CXX)-cxx
+	--$(call ptx/wwo, PTXCONF_LIBCACA_X11)-x
 
 # ----------------------------------------------------------------------------
 # Target-Install
