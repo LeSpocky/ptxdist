@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_NTPCLIENT) += ntpclient
 #
 # Paths and names
 #
-NTPCLIENT_VERSION	:= 2015_365
-NTPCLIENT_MD5		:= e0d0e6089dd3300b6958055340a7796f
+NTPCLIENT_VERSION	:= 2024_132
+NTPCLIENT_MD5		:= 847a3941a1b7218d6e73c44825c40138
 NTPCLIENT_SUFFIX	:= tar.gz
 NTPCLIENT		:= ntpclient_$(NTPCLIENT_VERSION)
 NTPCLIENT_TARBALL	:= $(NTPCLIENT).$(NTPCLIENT_SUFFIX)
@@ -25,7 +25,7 @@ NTPCLIENT_SOURCE	:= $(SRCDIR)/$(NTPCLIENT_TARBALL)
 NTPCLIENT_DIR		:= $(BUILDDIR)/$(NTPCLIENT)
 NTPCLIENT_LICENSE	:= GPL-2.0-only
 NTPCLIENT_LICENSE_FILES	:= \
-	file://ntpclient.c;startline=6;endline=16;md5=3c2ff3dfb1e4846d1a114bd3b2e9fdbd
+	file://ntpclient.c;startline=6;endline=16;md5=aaa51db4d92042ba01b32afb583c7809
 
 # ----------------------------------------------------------------------------
 # Prepare
