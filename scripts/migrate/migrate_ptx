@@ -486,3 +486,10 @@ s/^\(# \)\?\(PTXCONF_SYSTEMD\>\)\(.*\)/\1\2_HELPER\3\n\1\2\3/
 #
 s/^\(\(# \)\?PTXCONF_\)ATK/\1AT_SPI2_CORE/
 s/^\(\(# \)\?PTXCONF_\)ATK_INTROSPECTION/\1AT_SPI2_CORE_INTROSPECTION/
+
+# from   : ptxdist-2024.06.0
+# to     : ptxdist-2024.07.0
+# symbol : LIGHTTPD_PCRE -> LIGHTTPD_PCRE2
+# reason : switch to pcre2 in lighttpd
+#
+s/^\(\(# \)\?PTXCONF_LIGHTTPD_PCRE\)\>/\12/

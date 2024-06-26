@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIGHTTPD) += lighttpd
 #
 # Paths and names
 #
-LIGHTTPD_VERSION	:= 1.4.74
-LIGHTTPD_MD5		:= f38c400232151c69cc608fca35e593a9
+LIGHTTPD_VERSION	:= 1.4.76
+LIGHTTPD_MD5		:= f9018cda389b1aa6dae4c5f962c20825
 LIGHTTPD		:= lighttpd-$(LIGHTTPD_VERSION)
 LIGHTTPD_SUFFIX		:= tar.xz
 LIGHTTPD_URL		:= http://download.lighttpd.net/lighttpd/releases-1.4.x/$(LIGHTTPD).$(LIGHTTPD_SUFFIX)
@@ -33,49 +33,41 @@ LIGHTTPD_LICENSE_FILES	:= \
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-LIGHTTPD_CONF_TOOL	:= autoconf
+LIGHTTPD_CONF_TOOL	:= meson
 LIGHTTPD_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--libdir=/usr/lib/lighttpd \
-	--$(call ptx/endis, PTXCONF_GLOBAL_LARGE_FILE)-lfs \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	$(GLOBAL_IPV6_OPTION) \
-	--disable-mmap \
-	--enable-extra-warnings \
-	--without-libev \
-	--without-mysql \
-	--without-pgsql \
-	--without-dbi \
-	--without-sasl \
-	--without-ldap \
-	--without-pam \
-	--$(call ptx/wwo, PTXCONF_LIGHTTPD_ATTR)-attr \
-	--without-valgrind \
-	--without-libunwind \
-	--without-krb5 \
-	--$(call ptx/wwo, PTXCONF_LIGHTTPD_OPENSSL)-openssl \
-	--without-wolfssl \
-	--without-mbedtls \
-	--without-nettle \
-	--without-gnutls \
-	--without-nss \
-	--$(call ptx/wwo, PTXCONF_LIGHTTPD_PCRE)-pcre \
-	--without-pcre2 \
-	--$(call ptx/wwo, PTXCONF_LIGHTTPD_ZLIB)-zlib \
-	--$(call ptx/wwo, PTXCONF_LIGHTTPD_ZSTD)-zstd \
-	--$(call ptx/wwo, PTXCONF_LIGHTTPD_BZ2LIB)-bzip2 \
-	--without-brotli \
-	--without-libdeflate \
-	--without-fam \
-	--$(call ptx/wwo, PTXCONF_LIGHTTPD_WEBDAV_PROPS)-webdav-props \
-	--$(call ptx/wwo, PTXCONF_LIGHTTPD_WEBDAV_PROPS)-libxml \
-	--$(call ptx/wwo, PTXCONF_LIGHTTPD_WEBDAV_PROPS)-sqlite \
-	--without-webdav-locks \
-	--without-xxhash \
-	--without-maxminddb \
-	--$(call ptx/wwo, PTXCONF_LIGHTTPD_LUA)-lua
+	$(CROSS_MESON_USR) \
+	-Dwith_brotli=disabled \
+	-Dwith_bzip=$(call ptx/endis,PTXCONF_LIGHTTPD_BZ2LIB)d \
+	-Dwith_dbi=disabled \
+	-Dwith_libdeflate=disabled \
+	-Dwith_fam=disabled \
+	-Dwith_gnutls=false \
+	-Dwith_krb5=disabled \
+	-Dwith_ldap=disabled \
+	-Dwith_libev=disabled \
+	-Dwith_libunwind=disabled \
+	-Dwith_lua=$(call ptx/truefalse,PTXCONF_LIGHTTPD_LUA) \
+	-Dwith_maxminddb=disabled \
+	-Dwith_mbedtls=false \
+	-Dwith_mysql=disabled \
+	-Dwith_nettle=false \
+	-Dwith_nss=false \
+	-Dwith_openssl=$(call ptx/truefalse,PTXCONF_LIGHTTPD_OPENSSL) \
+	-Dwith_pam=disabled \
+	-Dwith_pcre2=$(call ptx/truefalse,PTXCONF_LIGHTTPD_PCRE2) \
+	-Dwith_pcre=$(call ptx/ifdef,PTXCONF_LIGHTTPD_PCRE2, pcre2, disabled) \
+	-Dwith_pgsql=disabled \
+	-Dwith_sasl=disabled \
+	-Dwith_webdav_locks=disabled \
+	-Dwith_webdav_props=$(call ptx/endis,PTXCONF_LIGHTTPD_WEBDAV_PROPS)d \
+	-Dwith_wolfssl=false \
+	-Dwith_xattr=$(call ptx/truefalse,PTXCONF_LIGHTTPD_ATTR) \
+	-Dwith_xxhash=disabled \
+	-Dwith_zlib=$(call ptx/endis,PTXCONF_LIGHTTPD_ZLIB)d \
+	-Dwith_zstd=$(call ptx/endis,PTXCONF_LIGHTTPD_ZSTD)d
+
 
 # ----------------------------------------------------------------------------
 # Install
@@ -97,7 +89,7 @@ LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_AUTH)		+= mod_auth
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_AUTH)		+= mod_authn_file
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_DEFLATE)	+= mod_deflate
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_DIRLISTING)	+= mod_dirlisting
-LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_H2)			+= mod_h2
+LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_H2)		+= mod_h2
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_MAGNET)		+= mod_magnet
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_OPENSSL)		+= mod_openssl
 LIGHTTPD_MODULES-$(PTXCONF_LIGHTTPD_MOD_WEBDAV)		+= mod_webdav

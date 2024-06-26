@@ -2,6 +2,7 @@
 menuconfig LIGHTTPD
 	tristate
 	prompt "lighttpd                      "
+	select HOST_MESON
 	select LIBC_M
 	select LIBC_DL
 	select LIBC_CRYPT
@@ -9,8 +10,8 @@ menuconfig LIGHTTPD
 	select ZSTD			if LIGHTTPD_ZSTD
 	select BZIP2			if LIGHTTPD_BZ2LIB
 	select BZIP2_LIBBZ2		if LIGHTTPD_BZ2LIB
-	select ATTR			if LIGHTTPD_ATTR
-	select LIBPCRE			if LIGHTTPD_PCRE
+	select ATTR				if LIGHTTPD_ATTR
+	select PCRE2			if LIGHTTPD_PCRE2
 	select LIBXML2			if LIGHTTPD_WEBDAV_PROPS
 	select SQLITE			if LIGHTTPD_WEBDAV_PROPS
 	select OPENSSL			if LIGHTTPD_OPENSSL
@@ -42,7 +43,7 @@ config LIGHTTPD_ATTR
 	bool
 	prompt "extended attribute support"
 	help
-	  Enable extended attribute support.
+	  with xattr-support for the stat-cache
 
 config LIGHTTPD_LUA
 	bool
@@ -56,13 +57,11 @@ config LIGHTTPD_OPENSSL
 	help
 	  Include openssl support.
 
-config LIGHTTPD_PCRE
+config LIGHTTPD_PCRE2
 	bool
-	prompt "pcre support"
+	prompt "pcre2 support"
 	help
-	  Enable pcre support.
-
-	  WARNING: pcre is no longer maintained. Please move to pcre2 instead!
+	  Enable pcre2 support.
 
 endmenu
 
