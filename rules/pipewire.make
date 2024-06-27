@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 1.0.7
-PIPEWIRE_MD5		:= 31cede8c6394ae41e3195175f08be598
+PIPEWIRE_VERSION	:= 1.2.0
+PIPEWIRE_MD5		:= 5aa49aee429d3e23dc4844b26bd87d43
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -57,6 +57,8 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dcompress-offload=disabled \
 	-Dcontrol=enabled \
 	-Ddbus=enabled \
+	-Ddoc-prefix-value= \
+	-Ddoc-sysconfdir-value= \
 	-Ddocdir= \
 	-Ddocs=disabled \
 	-Decho-cancel-webrtc=disabled \
@@ -65,6 +67,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dffmpeg=disabled \
 	-Dflatpak=disabled \
 	-Dgsettings=disabled \
+	-Dgsettings-pulse-schema=disabled \
 	-Dgstreamer=$(call ptx/endis,PTXCONF_PIPEWIRE_GSTREAMER)d \
 	-Dgstreamer-device-provider=$(call ptx/endis,PTXCONF_PIPEWIRE_GSTREAMER)d \
 	-Dinstalled_tests=disabled \
@@ -102,6 +105,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dsdl2=disabled \
 	-Dselinux=disabled \
 	-Dsession-managers= \
+	-Dsnap=disabled \
 	-Dsndfile=enabled \
 	-Dspa-plugins=enabled \
 	-Dsupport=enabled \
@@ -137,6 +141,7 @@ PIPEWIRE_MODULES-y := \
 	echo-cancel \
 	netjack2-driver \
 	netjack2-manager \
+	parametric-equalizer \
 	fallback-sink \
 	filter-chain \
 	link-factory \
@@ -196,6 +201,7 @@ ifdef PTXCONF_PIPEWIRE_PW_CTL
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-cli)
 endif
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-config)
+	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-container)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-dot)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-dump)
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pw-link)
