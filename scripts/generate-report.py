@@ -300,9 +300,8 @@ class SpdxSbomGenerator(SbomGenerator):
             return None
 
         if 'source-packages' in pkg:
-            self_pkg = pkg['source-packages'].pop(0)
-            assert self_pkg['name'] == pkg_name
-            pkg.update(self_pkg)
+            if pkg['source-packages'][0]['name'] == pkg_name:
+                pkg.update(pkg['source-packages'].pop(0))
 
         self.add_packages(pkg.get('builddeps', []))
         self.add_packages(pkg.get('rundeps', []))
