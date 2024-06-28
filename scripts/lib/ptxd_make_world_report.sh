@@ -47,8 +47,12 @@ ptxd_make_world_report_yaml_fragment() {
 
     tmp_report="${PTXDIST_TEMPDIR}/${pkg_label}-source-packages.yaml"
 
-    pkg="${pkg_PKG,,}"
-    pkg="${pkg//_/-}"
+    if [ "${pkg_PKG}" = "${pkg_main_PKG}" ]; then
+	pkg="${pkg_label}"
+    else
+	pkg="${pkg_PKG,,}"
+	pkg="${pkg//_/-}"
+    fi
 
     {
 	do_echo "- name:" "${pkg}"
