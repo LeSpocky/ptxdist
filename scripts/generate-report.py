@@ -317,10 +317,11 @@ class SpdxSbomGenerator(SbomGenerator):
             spdx_pkg.licenseDeclared = pkg['licenses']
         if 'source' in pkg:
             spdx_pkg.packageFileName = path.basename(pkg['source'])
-            checksum = spdx.SPDXChecksum()
-            checksum.algorithm = 'MD5'
-            checksum.checksumValue = pkg['md5'].split(maxsplit=1)[0]
-            spdx_pkg.checksums.append(checksum)
+            if 'md5' in pkg:
+                checksum = spdx.SPDXChecksum()
+                checksum.algorithm = 'MD5'
+                checksum.checksumValue = pkg['md5'].split(maxsplit=1)[0]
+                spdx_pkg.checksums.append(checksum)
 
         document.packages.append(spdx_pkg)
         self.spdx_pkgs[pkg_name] = spdx_pkg
