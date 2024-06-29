@@ -273,9 +273,9 @@ class SbomGenerator(Generator):
 class SpdxSbomGenerator(SbomGenerator):
 
     PYPI_RELEASE = re.compile(
-        'https://files.pythonhosted.org/packages/source/./([^/]*)/.*-([^-]*).(tar\..*|zip)')
+        'https://files.pythonhosted.org/packages/source/./([^/]*)/.*-([^-]*).(tar\\..*|zip)')
     GITHUB_TAG = re.compile(
-        'https://github.com/([^/]*)/([^/]*)/archive/(refs/tags/)?([^/]*).tar.gz')
+        'https://github.com/([^/]*)/([^/]*)/archive/(refs/tags/)?([^/]*).(tar\\..*|zip)')
     GITHUB_RELEASE = re.compile(
         'https://github.com/([^/]*)/([^/]*)/releases/download/([^/]*)/.*')
     CARGO_RELEASE = re.compile(
