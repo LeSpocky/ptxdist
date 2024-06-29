@@ -18,7 +18,7 @@ HOST_UA_NODESET_VERSION	:= 1.04.4-2020-01-08
 HOST_UA_NODESET_MD5	:= ce7b39c7f2d65617f76e0301f654a9ea
 HOST_UA_NODESET		:= ua-nodeset-$(HOST_UA_NODESET_VERSION)
 HOST_UA_NODESET_SUFFIX	:= tar.gz
-HOST_UA_NODESET_URL	:= https://github.com/OPCFoundation/UA-Nodeset/archive/UA-$(HOST_UA_NODESET_VERSION)/$(HOST_UA_NODESET).$(HOST_UA_NODESET_SUFFIX)
+HOST_UA_NODESET_URL	:= https://github.com/OPCFoundation/UA-Nodeset/archive/refs/tags/UA-$(HOST_UA_NODESET_VERSION).$(HOST_UA_NODESET_SUFFIX)
 HOST_UA_NODESET_SOURCE	:= $(SRCDIR)/$(HOST_UA_NODESET).$(HOST_UA_NODESET_SUFFIX)
 HOST_UA_NODESET_DIR	:= $(HOST_BUILDDIR)/$(HOST_UA_NODESET)
 
@@ -44,3 +44,5 @@ $(STATEDIR)/host-ua-nodeset.install:
 			$(HOST_UA_NODESET_PKGDIR)/usr/share/ua-nodeset)
 
 	@$(call touch)
+
+# vim: syntax=make
