@@ -18,10 +18,8 @@ LIBUSBGX_VERSION	:= 0.2.0
 LIBUSBGX_MD5		:= a8ea2234c6355ac8ad2ca86c453297bd
 LIBUSBGX		:= libusbgx-$(LIBUSBGX_VERSION)
 LIBUSBGX_SUFFIX		:= zip
-LIBUSBGX_URL		:= \
-	https://github.com/libusbgx/libusbgx/archive/libusbgx-v$(LIBUSBGX_VERSION).zip
-LIBUSBGX_SOURCE	:= \
-	$(SRCDIR)/$(LIBUSBGX).$(LIBUSBGX_SUFFIX)
+LIBUSBGX_URL		:= https://github.com/libusbgx/libusbgx/archive/refs/tags/libusbgx-v$(LIBUSBGX_VERSION).zip
+LIBUSBGX_SOURCE		:= $(SRCDIR)/$(LIBUSBGX).$(LIBUSBGX_SUFFIX)
 LIBUSBGX_DIR		:= $(BUILDDIR)/$(LIBUSBGX)
 LIBUSBGX_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
 LIBUSBGX_LICENSE_FILES	:= \
