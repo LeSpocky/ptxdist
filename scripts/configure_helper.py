@@ -332,6 +332,7 @@ def handle_dir(d, subdir):
 	if not d:
 		return (None, None, None)
 
+	builddir = d + "-build"
 	if subdir:
 		d = os.path.join(d, subdir)
 
@@ -345,9 +346,9 @@ def handle_dir(d, subdir):
 	if os.path.exists(configure) and tool in ("autoconf", ""):
 		return handle_dir_configure(d, configure)
 	elif os.path.exists(meson_build) and tool in ("meson", ""):
-		return handle_dir_meson(d)
+		return handle_dir_meson(d, builddir)
 	elif os.path.exists(cmakelists) and tool in ("cmake", ""):
-		return handle_dir_cmake(d)
+		return handle_dir_cmake(d, builddir)
 	else:
 		abort("not a autoconf/meson/cmake package: configure script / meson.build / CMakeLists.txt file not found in '%s'" % d)
 		exit(1)
@@ -375,8 +376,7 @@ def handle_dir_configure(d, configure):
 	label = os.path.basename(d)
 	return (parsed, args, label)
 
-def handle_dir_meson(d):
-	meson_builddir = d + "-build"
+def handle_dir_meson(d, meson_builddir):
 	if not os.path.exists(meson_builddir):
 		abort("package must be configured")
 		exit(1)
@@ -405,8 +405,7 @@ def handle_dir_meson(d):
 	label = os.path.basename(d)
 	return (options, args, label)
 
-def handle_dir_cmake(d):
-	cmake_builddir = d + "-build"
+def handle_dir_cmake(d, cmake_builddir):
 	if not os.path.exists(cmake_builddir):
 		abort("package must be configured")
 		exit(1)
