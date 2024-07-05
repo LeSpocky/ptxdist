@@ -87,7 +87,7 @@ ptxd_make_get_http() {
 	--request GET \
 	--write-out '\n%{url_effective}\n' \
 	"${url}" &&
-	if grep -i "content-type:" "${temp_header}" | tail -n 1 | grep -q "text/html"; then
+	if sed -n -r '/200 OK/,/content-type/I s/content-type:/\0/pI' "${temp_header}" | grep -q "text/html"; then
 	    ptxd_bailout "Got HTML file"
 	fi
 	ptxd_make_serialize_put
