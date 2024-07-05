@@ -105,6 +105,8 @@ ifdef PTXCONF_OPENSSH_SSHD
 		/etc/ssh/moduli)
 	@$(call install_copy, openssh, 0, 0, 0755, -, \
 		/usr/sbin/sshd)
+	@$(call install_copy, openssh, 0, 0, 0755, -, \
+		/usr/sbin/sshd-session)
 ifdef PTXCONF_OPENSSH_SSHD_GENKEYS
 	@$(call install_alternative, openssh, 0, 0, 0755, /etc/rc.once.d/openssh)
 endif
