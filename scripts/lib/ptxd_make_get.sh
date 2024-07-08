@@ -117,7 +117,7 @@ ptxd_make_get_http() {
 	    echo
 	    return 1
 	fi &&
-	if [[ "${path}" =~ '.tar.'|'.zip'$ ]] && file "${temp_file}" | tee /tmp/mol | grep -q " ASCII text"; then
+	if [[ "${path}" =~ '.tar.'|'.zip'$ ]] && file "${temp_file}" | grep -q " ASCII text"; then
 	    ptxd_warning "Got text file"
 	    echo
 	    return 1
