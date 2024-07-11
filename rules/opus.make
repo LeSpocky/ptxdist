@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_OPUS) += opus
 #
 # Paths and names
 #
-OPUS_VERSION	:= 1.5.1
-OPUS_MD5	:= 06c0e626ea3ad72f7b006e9130c8b15d
+OPUS_VERSION	:= 1.5.2
+OPUS_MD5	:= c40b3a1fbdbb9a7aa178600b88200c76
 OPUS		:= opus-$(OPUS_VERSION)
 OPUS_SUFFIX	:= tar.gz
 OPUS_URL	:= http://downloads.xiph.org/releases/opus/$(OPUS).$(OPUS_SUFFIX)
@@ -51,12 +51,11 @@ OPUS_CONF_OPT	:= \
 	-Dassertions=false \
 	-Dcheck-asm=false \
 	-Dcustom-modes=false \
+	-Ddeep-plc=$(call ptx/endis, PTXCONF_OPUS_DEEP_PLC)d \
+	-Ddnn-debug-float=disabled \
+	-Ddred=disabled \
 	-Ddocdir=doc/opus \
 	-Ddocs=disabled \
-	-Denable-deep-plc=$(call ptx/truefalse, PTXCONF_OPUS_DEEP_PLC) \
-	-Denable-dnn-debug-float=false \
-	-Denable-dred=false \
-	-Denable-osce=$(call ptx/truefalse, PTXCONF_OPUS_OSCE) \
 	-Dextra-programs=disabled \
 	-Dfixed-point=$(call ptx/falsetrue, PTXCONF_HAS_HARDFLOAT) \
 	-Dfixed-point-debug=false \
@@ -65,6 +64,7 @@ OPUS_CONF_OPT	:= \
 	-Dfuzzing=false \
 	-Dhardening=true \
 	-Dintrinsics=$(call ptx/endis, OPUS_INTRINSICS)d \
+	-Dosce=$(call ptx/endis, PTXCONF_OPUS_OSCE)d \
 	-Drtcd=$(call ptx/endis, OPUS_RTCD)d \
 	-Dtests=disabled
 
