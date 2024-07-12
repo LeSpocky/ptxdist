@@ -388,16 +388,16 @@ ptxd_make_world_lint_arch() {
     echo "Checking that toolchain and architecture settings match ..."
 
     if echo | ptxd_cross_cc -dM -E - | grep -q __x86_64__; then
-	if ! ptxd_get_ptxconf PTXCONF_ARCH_X86_64; then
+	if ! ptxd_get_ptxconf PTXCONF_ARCH_X86_64 >/dev/null; then
 	    ptxd_lint_error "x86-64 toolchain but PTXCONF_ARCH_X86_64 is not set"
 	fi
 	return
     fi
     if echo | ptxd_cross_cc -dM -E - | grep -q __i386__; then
-	if ! ptxd_get_ptxconf PTXCONF_ARCH_X86; then
+	if ! ptxd_get_ptxconf PTXCONF_ARCH_X86 >/dev/null; then
 	    ptxd_lint_error "x86 toolchain but PTXCONF_ARCH_X86 is not set"
 	fi
-	if ptxd_get_ptxconf PTXCONF_ARCH_X86_64; then
+	if ptxd_get_ptxconf PTXCONF_ARCH_X86_64 >/dev/null; then
 	    ptxd_lint_error "i*86 toolchain but PTXCONF_ARCH_X86_64 is set"
 	fi
 	return
