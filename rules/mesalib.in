@@ -4,10 +4,12 @@ menuconfig MESALIB
 	tristate
 	prompt "mesa                          "
 	select HOST_MESALIB
+	select HOST_MESALIB_INTEL_CLC	if MESALIB_INTEL_CLC
 	select HOST_MESON
 	select HOST_MAKEDEPEND
 	select HOST_SYSTEM_PYTHON3
 	select HOST_SYSTEM_PYTHON3_MAKO
+	select HOST_SYSTEM_PYTHON3_PYCPARSER	if MESALIB_DRI_ETNAVIV
 	select HOST_GLSLANG		if MESALIB_VULKAN_AMD
 	select HOST_GLSLANG		if MESALIB_VULKAN_INTEL
 	select HOST_GLSLANG		if MESALIB_VULKAN_OVERLAY
@@ -47,6 +49,9 @@ menuconfig MESALIB
 if MESALIB
 
 config MESALIB_DRI3
+	bool
+
+config MESALIB_INTEL_CLC
 	bool
 
 config MESALIB_LLVM
@@ -112,6 +117,7 @@ config MESALIB_DRI_PANFROST
 
 config MESALIB_DRI_IRIS
 	bool
+	select MESALIB_INTEL_CLC
 	select MESALIB_XMLCONFIG
 	prompt "iris"
 
@@ -253,6 +259,7 @@ config MESALIB_VULKAN_BROADCOM
 
 config MESALIB_VULKAN_INTEL
 	bool
+	select MESALIB_INTEL_CLC
 	select MESALIB_XMLCONFIG
 	prompt "Intel (Anvil)"
 
@@ -296,6 +303,10 @@ config MESALIB_VULKAN_OVERLAY
 config MESALIB_SHADER_CACHE
 	bool
 	prompt "enable shader cache"
+
+config MESALIB_TEFLON
+	bool
+	prompt "enable TensorFlow Lite delegate"
 
 config MESALIB_XMLCONFIG
 	bool

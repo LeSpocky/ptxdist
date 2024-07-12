@@ -38,7 +38,9 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dexecmem=true \
 	-Dexpat=disabled \
 	-Dfreedreno-kmds= \
+	-Dgallium-d3d10-dll-name=libgallium_d3d10 \
 	-Dgallium-d3d10umd=false \
+	-Dgallium-d3d12-graphics=disabled \
 	-Dgallium-d3d12-video=disabled \
 	-Dgallium-drivers=swrast \
 	-Dgallium-extra-hud=false \
@@ -48,30 +50,31 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dgallium-rusticl=false \
 	-Dgallium-va=disabled \
 	-Dgallium-vdpau=disabled \
-	-Dgallium-windows-dll-name=libgallium_wgl \
+	-Dgallium-wgl-dll-name=libgallium_wgl \
 	-Dgallium-xa=disabled \
 	-Dgbm=disabled \
 	-Dgbm-backends-path= \
 	-Dgles-lib-suffix= \
 	-Dgles1=disabled \
 	-Dgles2=disabled \
-	-Dglvnd=false \
+	-Dglvnd=disabled \
 	-Dglvnd-vendor-name= \
 	-Dglx=disabled \
 	-Dglx-direct=false \
 	-Dglx-read-only-text=false \
 	-Dgpuvis=false \
 	-Dimagination-srv=false \
+	-Dinstall-intel-clc=$(call ptx/truefalse, PTXCONF_HOST_MESALIB_INTEL_CLC) \
 	-Dinstall-intel-gpu-tests=false \
-	-Dintel-clc=disabled \
+	-Dintel-clc=$(call ptx/ifdef, PTXCONF_HOST_MESALIB_INTEL_CLC,enabled,system) \
+	-Dintel-rt=disabled \
 	-Dlibunwind=disabled \
-	-Dllvm=disabled \
+	-Dllvm=$(call ptx/endis, PTXCONF_HOST_MESALIB_INTEL_CLC)d \
 	-Dlmsensors=disabled \
 	-Dmicrosoft-clc=disabled \
 	-Dmin-windows-version=8 \
 	-Dmoltenvk-dir= \
 	-Domx-libs-path=/usr/lib/dri \
-	-Dopencl-external-clang-headers=disabled \
 	-Dopencl-spirv=false \
 	-Dopengl=true \
 	-Dosmesa=false \
@@ -89,6 +92,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dspirv-to-dxil=false \
 	-Dsse2=true \
 	-Dstatic-libclc=[] \
+	-Dteflon=false \
 	-Dtools=glsl \
 	-Dva-libs-path=/usr/lib/dri \
 	-Dvalgrind=disabled \
@@ -106,10 +110,17 @@ HOST_MESALIB_CONF_OPT	:= \
 
 HOST_MESALIB_MAKE_OPT	:= \
 	src/compiler/glsl/glsl_compiler
+ifdef PTXCONF_HOST_MESALIB_INTEL_CLC
+HOST_MESALIB_MAKE_OPT	+= \
+	src/intel/compiler/intel_clc
+endif
 
 $(STATEDIR)/host-mesalib.install:
 	@$(call targetinfo)
 	install -D -m755 $(HOST_MESALIB_DIR)-build/src/compiler/glsl/glsl_compiler $(HOST_MESALIB_PKGDIR)/usr/bin/mesa/glsl_compiler
+ifdef PTXCONF_HOST_MESALIB_INTEL_CLC
+	install -D -m755 $(HOST_MESALIB_DIR)-build/src/intel/compiler/intel_clc $(HOST_MESALIB_PKGDIR)/usr/bin/intel_clc
+endif
 	@$(call touch)
 
 # vim: syntax=make
