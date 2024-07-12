@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20240610
-LINUX_FIRMWARE_MD5	:= 577c758ab55571a10993e1371ec5970e
+LINUX_FIRMWARE_VERSION	:= 20240709
+LINUX_FIRMWARE_MD5	:= 5eaf37155286d28e7741ad2b56ba45a2
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -27,6 +27,7 @@ LINUX_FIRMWARE_LICENSE	:= proprietary
 # Order: find -type f \( -name "*LICENSE*" -o -name "*LICENCE*" \)
 LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.xc4000;md5=0ff51d2dc49fce04814c9155081092f0 \
+	file://LICENCE.ish;md5=99d3d0b448f36ac188b896b02ae8f158 \
 	file://LICENCE.iwlwifi_firmware;md5=2ce6786e0fc11ac6e36b54bb9b799f1b \
 	file://LICENCE.mali_csffw;md5=e064aaec4d21ef856e1b76a6f5dc435f \
 	file://LICENSE.dib0700;md5=f7411825c8a555a1a3e5eab9ca773431 \
@@ -102,7 +103,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.ca0132;md5=209b33e66ee5be0461f13d31da392198 \
 	file://LICENCE.Abilis;md5=b5ee3f410780e56711ad48eadc22b8bc \
 	file://LICENCE.atheros_firmware;md5=30a14c7823beedac9fa39c64fdd01a13 \
-	file://LICENCE.ti-connectivity;md5=c5e02be633f1499c109d1652514d85ec \
+	file://LICENCE.ti-connectivity;md5=3b1e9cf54aba8146dad4b735777d406f \
 	file://LICENSE.amlogic;md5=80e4e3f27def8bc4b232009c3a587c07 \
 	file://LICENSE.xe;md5=c674d38774242bc0c528214721488118 \
 	file://LICENCE.r8a779x_usb3;md5=4c1671656153025d7076105a5da7e498 \
