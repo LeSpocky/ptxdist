@@ -22,6 +22,7 @@ config OPUS_DEEP_PLC
 
 config OPUS_OSCE
 	bool
+	select OPUS_DEEP_PLC
 	prompt "enable opus speech coding enhancement (OSCE)"
 	help
 	  Improves voice quality of low-bitrate streams by applying voice
