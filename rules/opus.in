@@ -2,7 +2,7 @@
 
 menuconfig OPUS
 	tristate
-	prompt "opus"
+	prompt "opus                          "
 	select HOST_SYSTEM_PERL
 	select HOST_MESON
 	help

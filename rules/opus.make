@@ -43,6 +43,12 @@ ifdef PTXCONF_ARCH_PPC
 OPUS_ASM	:=
 endif
 OPUS_RTCD	:= $(if $(OPUS_INTRINSICS)$(OPUS_ASM),y)
+OPUS_DEEP_PLC	:= $(PTXCONF_OPUS_DEEP_PLC)
+OPUS_OSCE	:= $(PTXCONF_OPUS_OSCE)
+ifndef PTXCONF_HAS_HARDFLOAT
+OPUS_DEEP_PLC	:=
+OPUS_OSCE	:=
+endif
 
 OPUS_CONF_TOOL	:= meson
 OPUS_CONF_OPT	:= \
@@ -51,7 +57,7 @@ OPUS_CONF_OPT	:= \
 	-Dassertions=false \
 	-Dcheck-asm=false \
 	-Dcustom-modes=false \
-	-Ddeep-plc=$(call ptx/endis, PTXCONF_OPUS_DEEP_PLC)d \
+	-Ddeep-plc=$(call ptx/endis, OPUS_DEEP_PLC)d \
 	-Ddnn-debug-float=disabled \
 	-Ddred=disabled \
 	-Ddocdir=doc/opus \
@@ -64,7 +70,7 @@ OPUS_CONF_OPT	:= \
 	-Dfuzzing=false \
 	-Dhardening=true \
 	-Dintrinsics=$(call ptx/endis, OPUS_INTRINSICS)d \
-	-Dosce=$(call ptx/endis, PTXCONF_OPUS_OSCE)d \
+	-Dosce=$(call ptx/endis, OPUS_OSCE)d \
 	-Drtcd=$(call ptx/endis, OPUS_RTCD)d \
 	-Dtests=disabled
 
