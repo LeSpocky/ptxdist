@@ -1,0 +1,31 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 12 Jul 2024 10:26:47 +0200
+Subject: [PATCH] add missing celt/arm/meson.build
+
+It is missing in the release tarball because it is not listed in
+EXTRA_DIST. See: https://github.com/xiph/opus/pull/358
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ celt/arm/meson.build | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+ create mode 100644 celt/arm/meson.build
+
+diff --git a/celt/arm/meson.build b/celt/arm/meson.build
+new file mode 100644
+index 000000000000..b4dec564fcbe
+--- /dev/null
++++ b/celt/arm/meson.build
+@@ -0,0 +1,12 @@
++arm2gnu = [find_program('arm2gnu.pl')] + arm2gnu_args
++celt_sources_arm_asm = configure_file(input: 'celt_pitch_xcorr_arm.s',
++  output: '@BASENAME@-gnu.S',
++  command: arm2gnu + ['@INPUT@'],
++  capture: true)
++celt_arm_armopts_s_in = configure_file(input: 'armopts.s.in',
++  output: 'armopts.s',
++  configuration: opus_conf)
++celt_arm_armopts_s = configure_file(input: [celt_arm_armopts_s_in],
++  output: '@BASENAME@-gnu.S',
++  command: arm2gnu + ['@INPUT@'],
++  capture: true)
