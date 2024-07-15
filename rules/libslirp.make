@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBSLIRP) += libslirp
 #
 # Paths and names
 #
-LIBSLIRP_VERSION	:= 4.7.0
-LIBSLIRP_MD5		:= b815c4de99265559caf5ef635a213609
+LIBSLIRP_VERSION	:= 4.8.0
+LIBSLIRP_MD5		:= 4f701d26a46fe9bf6db302aef6ed467f
 LIBSLIRP		:= libslirp-v$(LIBSLIRP_VERSION)
 LIBSLIRP_SUFFIX		:= tar.bz2
 LIBSLIRP_URL		:= https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.7.0/$(LIBSLIRP).$(LIBSLIRP_SUFFIX)
