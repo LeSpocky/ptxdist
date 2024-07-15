@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBGCRYPT) += libgcrypt
 #
 # Paths and names
 #
-LIBGCRYPT_VERSION	:= 1.10.3
-LIBGCRYPT_MD5		:= a8cada0b343e10dbee51c9e92d856a94
+LIBGCRYPT_VERSION	:= 1.11.0
+LIBGCRYPT_MD5		:= 321c4975cfd6a496f0530b65a673f9a4
 LIBGCRYPT		:= libgcrypt-$(LIBGCRYPT_VERSION)
 LIBGCRYPT_SUFFIX	:= tar.bz2
 LIBGCRYPT_URL		:= https://www.gnupg.org/ftp/gcrypt/libgcrypt/$(LIBGCRYPT).$(LIBGCRYPT_SUFFIX)
@@ -24,8 +24,8 @@ LIBGCRYPT_SOURCE	:= $(SRCDIR)/$(LIBGCRYPT).$(LIBGCRYPT_SUFFIX)
 LIBGCRYPT_DIR		:= $(BUILDDIR)/$(LIBGCRYPT)
 LIBGCRYPT_LICENSE	:= GPL-2.0-only AND LGPL-2.0-only
 LIBGCRYPT_LICENSE_FILES	:= \
-	file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f \
-	file://COPYING.LIB;md5=bbb461211a33b134d42ed5ee802b37ff
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://COPYING.LIB;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -55,9 +55,7 @@ LIBGCRYPT_CONF_OPT := \
 	--enable-endian-check \
 	--enable-random=linux \
 	--enable-dev-random \
-	--disable-random-daemon \
 	--$(call ptx/endis,LIBGCRYPT_ASM)-asm \
-	--disable-m-guard \
 	--disable-large-data-tests \
 	--disable-force-soft-hwfeatures \
 	--disable-hmac-binary-check \
