@@ -16,10 +16,10 @@ behind.
  create mode 100644 libacl/error_context.h
 
 diff --git a/configure.ac b/configure.ac
-index 4abb9933948a..5915ee3e492c 100644
+index 96fd96a424c5..21694dabefe5 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -51,8 +51,8 @@ fi
+@@ -53,8 +53,8 @@ AS_IF([test $# -ne 3 -o ${#1} -gt 1 -o ${#2} -gt 1 -o ${#3} -gt 2],
  LT_REVISION=$(printf "%d%d%02d" "$1" "$2" "$3")
  AC_SUBST(LT_REVISION)
  
@@ -31,15 +31,15 @@ index 4abb9933948a..5915ee3e492c 100644
  AC_CONFIG_COMMANDS([include/acl],
  	[dnl
 diff --git a/libacl/Makemodule.am b/libacl/Makemodule.am
-index c35214c7d018..64b70b40951a 100644
+index 604f829ac7ce..700581eee84f 100644
 --- a/libacl/Makemodule.am
 +++ b/libacl/Makemodule.am
-@@ -74,8 +74,8 @@ INTERNAL_CFILES = \
- 
- libacl_la_DEPENDENCIES = exports libmisc.la
+@@ -76,8 +76,8 @@ libacl_la_DEPENDENCIES = exports libmisc.la
  libacl_la_SOURCES = $(CFILES) $(HFILES)
--libacl_la_LIBADD = -lattr libmisc.la
-+libacl_la_LIBADD = libmisc.la
+ ## Since libacl translates its error messages, we have to link libintl.
+ ## See the AM_GNU_GETTEXT documentation for details.
+-libacl_la_LIBADD = -lattr libmisc.la $(LTLIBINTL)
++libacl_la_LIBADD = libmisc.la $(LTLIBINTL)
  libacl_la_CFLAGS = $(AM_CFLAGS) -include $(srcdir)/libacl/perm_copy.h
 -libacl_la_LDFLAGS = \
 +libacl_la_LDFLAGS = -no-undefined \
@@ -105,11 +105,11 @@ index 000000000000..fa383f4cb5db
 +
 +#endif  /* __ERROR_CONTEXT_T */
 diff --git a/libacl/perm_copy_fd.c b/libacl/perm_copy_fd.c
-index f9ae690918fa..8e1eb939512b 100644
+index 701bed2532e4..aa4630b798ea 100644
 --- a/libacl/perm_copy_fd.c
 +++ b/libacl/perm_copy_fd.c
-@@ -17,9 +17,8 @@
-   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+@@ -16,9 +16,8 @@
+   License along with this library; if not, see <https://www.gnu.org/licenses/>.
  */
  
 -#if defined (HAVE_CONFIG_H)
@@ -119,7 +119,7 @@ index f9ae690918fa..8e1eb939512b 100644
  #if defined(HAVE_LIBACL_LIBACL_H)
  # include "libacl.h"
  #endif
-@@ -39,11 +38,7 @@
+@@ -38,11 +37,7 @@
  #endif
  
  #define ERROR_CONTEXT_MACROS
@@ -132,11 +132,11 @@ index f9ae690918fa..8e1eb939512b 100644
  #if !defined(ENOTSUP)
  # define ENOTSUP (-1)
 diff --git a/libacl/perm_copy_file.c b/libacl/perm_copy_file.c
-index 023294dc5335..9d314a5c8d36 100644
+index ba59d3647952..1af6a6a7e0f2 100644
 --- a/libacl/perm_copy_file.c
 +++ b/libacl/perm_copy_file.c
-@@ -17,9 +17,8 @@
-   Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+@@ -16,9 +16,8 @@
+   License along with this library; if not, see <https://www.gnu.org/licenses/>.
  */
  
 -#if defined (HAVE_CONFIG_H)
@@ -146,7 +146,7 @@ index 023294dc5335..9d314a5c8d36 100644
  #if defined(HAVE_LIBACL_LIBACL_H)
  # include "libacl.h"
  #endif
-@@ -39,11 +38,7 @@
+@@ -38,11 +37,7 @@
  #endif
  
  #define ERROR_CONTEXT_MACROS
