@@ -11,7 +11,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/src/gpgrt-config.in b/src/gpgrt-config.in
-index 3aaa24329ecf..3bbc9e0e6184 100644
+index 55e0a739dcfe..06275ff88d98 100644
 --- a/src/gpgrt-config.in
 +++ b/src/gpgrt-config.in
 @@ -166,6 +166,7 @@ read_config_file () {
@@ -22,7 +22,7 @@ index 3aaa24329ecf..3bbc9e0e6184 100644
      read_config_from_stdin $RESULT < $RESULT
  }
  
-@@ -522,7 +523,7 @@ output=""
+@@ -595,7 +596,7 @@ output=""
  
  mt="no"
  
