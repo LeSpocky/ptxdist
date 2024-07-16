@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_COREUTILS) += coreutils
 #
 # Paths and names
 #
-COREUTILS_VERSION	:= 9.4
-COREUTILS_MD5		:= 459e9546074db2834eefe5421f250025
+COREUTILS_VERSION	:= 9.5
+COREUTILS_MD5		:= e99adfa059a63db3503cc71f3d151e31
 COREUTILS		:= coreutils-$(COREUTILS_VERSION)
 COREUTILS_SUFFIX	:= tar.xz
 COREUTILS_URL		:= $(call ptx/mirror, GNU, coreutils/$(COREUTILS).$(COREUTILS_SUFFIX))
@@ -149,6 +149,7 @@ COREUTILS_CONF_OPT	:= \
 	--disable-libcap \
 	--disable-single-binary \
 	--disable-single-binary-exceptions \
+	--disable-bold-man-page-references \
 	--disable-gcc-warnings \
 	--enable-no-install-program=$(subst $(space),$(comma),$(strip $(COREUTILS_INST-))) \
 	--disable-nls \
@@ -156,7 +157,11 @@ COREUTILS_CONF_OPT	:= \
 	--without-linux-crypto \
 	--without-openssl \
 	--without-libgmp \
+	--without-included-regex \
 	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
+	--with-packager \
+	--with-packager-version \
+	--with-packager-bug-reports \
 	--with-tty-group=tty
 
 COREUTILS_MAKE_OPT	:= \
