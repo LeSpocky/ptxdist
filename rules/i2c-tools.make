@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_I2C_TOOLS) += i2c-tools
 #
 # Paths and names
 #
-I2C_TOOLS_VERSION	:= 4.1
-I2C_TOOLS_MD5		:= e2981debb4a822a279be7e45a0ede988
+I2C_TOOLS_VERSION	:= 4.3
+I2C_TOOLS_MD5		:= 0c42800f746e064dc40a4dad44ed8a33
 I2C_TOOLS		:= i2c-tools-$(I2C_TOOLS_VERSION)
 I2C_TOOLS_SUFFIX	:= tar.xz
 I2C_TOOLS_URL		:= https://www.kernel.org/pub/software/utils/i2c-tools/$(I2C_TOOLS).$(I2C_TOOLS_SUFFIX)
