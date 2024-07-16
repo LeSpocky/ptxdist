@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_HAVEGED) += haveged
 #
 # Paths and names
 #
-HAVEGED_VERSION	:= 1.9.13
-HAVEGED_MD5	:= 5391978794208b6cca6f53d7a6211c04
+HAVEGED_VERSION	:= 1.9.18
+HAVEGED_MD5	:= 654ed186b6e2ec04d049b3edf4743187
 HAVEGED		:= haveged-$(HAVEGED_VERSION)
 HAVEGED_SUFFIX	:= tar.gz
 HAVEGED_URL	:= \
@@ -25,7 +25,7 @@ HAVEGED_DIR	:= $(BUILDDIR)/$(HAVEGED)
 HAVEGED_LICENSE	:= GPL-3.0-or-later
 HAVEGED_LICENSE_FILES   := \
 	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
-	file://src/haveged.c;startline=1;endline=20;md5=0b45b25b79d4a3b7d800cc2c951429b2
+	file://src/haveged.c;startline=1;endline=20;md5=f825c43c9190a988f49b137884675529
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -40,9 +40,8 @@ HAVEGED_CONF_OPT	:= \
 	--enable-clock_gettime \
 	--enable-daemon \
 	--disable-diagnostic \
-	--enable-init=service.fedora \
-	--enable-initdir=/usr/lib/systemd/system \
 	--disable-nistest \
+	--enable-enttest=no \
 	--disable-olt \
 	--enable-threads \
 	--enable-tune
