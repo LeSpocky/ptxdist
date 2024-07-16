@@ -5,6 +5,7 @@ config ATOP
 	select ZLIB
 	select NCURSES
 	select LIBC_M
+	select GLIB
 	help
 	  Monitor for system resources and process activity
 
