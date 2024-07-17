@@ -33,14 +33,17 @@ LIBFFI_LICENSE_FILES	:= \
 LIBFFI_CONF_TOOL := autoconf
 LIBFFI_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-builddir \
 	--disable-static \
 	--enable-portable-binary \
 	--disable-pax_emutramp \
-	--disable-debug \
 	--disable-docs \
+	--disable-debug \
 	--enable-structs \
 	--enable-raw-api \
+	--enable-exec-static-tramp \
 	--disable-purify-safety \
+	--disable-multi-os-directory \
 	--without-gcc-arch
 
 # ----------------------------------------------------------------------------
