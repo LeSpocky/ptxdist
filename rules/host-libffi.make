@@ -18,6 +18,9 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBFFI) += host-libffi
 HOST_LIBFFI_CONF_TOOL	:= autoconf
 HOST_LIBFFI_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
-	--disable-static
+	--disable-builddir \
+	--disable-static \
+	--disable-docs \
+	--disable-multi-os-directory
 
 # vim: syntax=make
