@@ -1,0 +1,8 @@
+## SECTION=shell_and_console
+config BTOP
+	tristate
+	select HOST_CMAKE
+	prompt "btop"
+	help
+	  Resource monitor that shows usage and stats for processor, memory,
+	  disks, network and processes.
