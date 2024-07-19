@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_TMUX) += tmux
 #
 # Paths and names
 #
-TMUX_VERSION	:= 2.5
-TMUX_MD5	:= 4a5d73d96d8f11b0bdf9b6f15ab76d15
+TMUX_VERSION	:= 3.4
+TMUX_MD5	:= f6e35f957f91af5bb07cb8449228f5cd
 TMUX		:= tmux-$(TMUX_VERSION)
 TMUX_SUFFIX	:= tar.gz
 TMUX_URL	:= https://github.com/tmux/tmux/releases/download/$(TMUX_VERSION)/$(TMUX).$(TMUX_SUFFIX)
@@ -33,10 +33,14 @@ TMUX_LICENSE	:= ISC
 TMUX_CONF_TOOL	:= autoconf
 TMUX_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-fuzzing \
 	--disable-debug \
 	--disable-static \
 	--disable-utempter \
-	--disable-utf8proc
+	--disable-utf8proc \
+	--disable-systemd \
+	--disable-cgroups \
+	--disable-sixel
 
 # ----------------------------------------------------------------------------
 # Target-Install
