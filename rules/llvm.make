@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LLVM) += llvm
 #
 # Paths and names
 #
-LLVM_VERSION		:= 17.0.1
-LLVM_MD5		:= 78e1fbd14517f31f921b3224c0cd4e45
+LLVM_VERSION		:= 17.0.6
+LLVM_MD5		:= fd7fc891907e14f8e0ff7e3f87cc89a4
 LLVM			:= llvm-$(LLVM_VERSION)
 LLVM_SUFFIX		:= src.tar.xz
 LLVM_URL		:= \
@@ -27,7 +27,7 @@ LLVM_STRIP_LEVEL	:= 0
 LLVM_LICENSE		:= Apache-2.0 WITH LLVM-exception AND NCSA
 LLVM_LICENSE_FILES	:= file://$(LLVM_SUBDIR)/LICENSE.TXT;md5=8a15a0759ef07f2682d2ba4b893c9afe
 
-LLVM_CMAKE_MD5		:= d24373e1c78f3f1275b6150a0b748c1c
+LLVM_CMAKE_MD5		:= 4fa291f1b78738808af4f804bb134259
 LLVM_CMAKE_URL		:= \
 	https://github.com/llvm/llvm-project/releases/download/llvmorg-$(LLVM_VERSION)/cmake-$(LLVM_VERSION).$(LLVM_SUFFIX)
 LLVM_CMAKE_SOURCE	:= $(SRCDIR)/cmake-$(LLVM_VERSION).$(LLVM_SUFFIX)
