@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBKSBA) += libksba
 #
 # Paths and names
 #
-LIBKSBA_VERSION	:= 1.6.5
-LIBKSBA_MD5	:= 57b88e5d24c8705d9a3ba3832140d188
+LIBKSBA_VERSION	:= 1.6.7
+LIBKSBA_MD5	:= 7e736de467b67c7ea88de746c31ea12f
 LIBKSBA		:= libksba-$(LIBKSBA_VERSION)
 LIBKSBA_SUFFIX	:= tar.bz2
 LIBKSBA_URL	:= https://www.gnupg.org/ftp/gcrypt/libksba/$(LIBKSBA).$(LIBKSBA_SUFFIX)
@@ -37,7 +37,6 @@ LIBKSBA_LICENSE_FILES := \
 LIBKSBA_CONF_TOOL := autoconf
 LIBKSBA_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-gcov \
 	--enable-build-timestamp="$(PTXDIST_BUILD_TIMESTAMP)" \
 	--disable-doc \
 	--enable-optimization
