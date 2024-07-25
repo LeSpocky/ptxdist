@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.8.0
-LIBCURL_MD5	:= e1062de8a9b252a75fc42e2252746bd8
+LIBCURL_VERSION	:= 8.9.0
+LIBCURL_MD5	:= 6f6d2ff25c2a8fa8602511dc33201cc4
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -43,6 +43,7 @@ LIBCURL_CONF_OPT	:= \
 	--enable-symbol-hiding \
 	--$(call ptx/endis, PTXCONF_LIBCURL_C_ARES)-ares \
 	--enable-rt \
+	--disable-httpsrr \
 	--disable-ech \
 	--disable-code-coverage \
 	$(GLOBAL_LARGE_FILE_OPTION) \
@@ -62,8 +63,8 @@ LIBCURL_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBCURL_SMTP)-smtp \
 	--disable-gopher \
 	--disable-mqtt \
-	--disable-docs \
 	--disable-manual \
+	--disable-docs \
 	--enable-libcurl-option \
 	--disable-libgcc \
 	$(GLOBAL_IPV6_OPTION) \
