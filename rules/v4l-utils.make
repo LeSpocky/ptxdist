@@ -52,7 +52,7 @@ V4L_UTILS_CONF_OPT	:= \
 	-Dudevdir=/usr/lib/udev \
 	-Dv4l-plugins=true \
 	-Dv4l-utils=true \
-	-Dv4l-wrappers=true \
+	-Dv4l-wrappers=$(call ptx/truefalse, PTXCONF_V4L_UTILS_V4L2CONVERT) \
 	-Dv4l2-compliance-32=false \
 	-Dv4l2-compliance-libv4l=true \
 	-Dv4l2-ctl-32=false \
@@ -84,7 +84,9 @@ ifdef PTXCONF_V4L_UTILS_LIBV4L1
 endif
 ifdef PTXCONF_V4L_UTILS_LIBV4L2
 	@$(call install_lib, v4l-utils, 0, 0, 0644, libv4l2)
+ifdef PTXCONF_V4L_UTILS_V4L2CONVERT
 	@$(call install_lib, v4l-utils, 0, 0, 0644, libv4l/v4l2convert)
+endif
 endif
 ifdef PTXCONF_V4L_UTILS_LIBV4LCONVERT
 	@$(call install_lib, v4l-utils, 0, 0, 0644, libv4lconvert)

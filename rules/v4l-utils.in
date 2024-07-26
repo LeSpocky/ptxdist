@@ -25,8 +25,14 @@ config V4L_UTILS_LIBV4L1
 
 config V4L_UTILS_LIBV4L2
 	bool
-	select V4L_UTILS_LIBV4LCONVERT
 	prompt "install libv4l2"
+
+config V4L_UTILS_V4L2CONVERT
+	bool
+	select V4L_UTILS_LIBV4L2
+	select V4L_UTILS_LIBV4LCONVERT
+	depends on !GLIBC_Y2038
+	prompt "install v4l2convert"
 
 config V4L_UTILS_LIBV4LCONVERT
 	bool
@@ -93,6 +99,7 @@ config V4L_UTILS_V4L2SYSFSPATH
 
 config V4L_UTILS_TRACER
 	bool
+	depends on !GLIBC_Y2038
 	prompt "install v4l2-tracer"
 
 endif
