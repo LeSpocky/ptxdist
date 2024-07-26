@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_RSYSLOG) += rsyslog
 #
 # Paths and names
 #
-RSYSLOG_VERSION	:= 8.2012.0
-RSYSLOG_MD5	:= 2a64947e3d157c0198609aabd37be42f
+RSYSLOG_VERSION	:= 8.2406.0
+RSYSLOG_MD5	:= 9bb2673cf15181b16e3f7c7bb5ad23fd
 RSYSLOG		:= rsyslog-$(RSYSLOG_VERSION)
 RSYSLOG_SUFFIX	:= tar.gz
 RSYSLOG_URL	:= https://www.rsyslog.com/files/download/rsyslog/$(RSYSLOG).$(RSYSLOG_SUFFIX)
@@ -42,7 +42,10 @@ RSYSLOG_CONF_OPT	:= \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--$(call ptx/endis, PTXCONF_RSYSLOG_REGEXP)-regexp \
 	--disable-fmhash \
+	--disable-libcap-ng \
 	--disable-fmhash-xxhash \
+	--disable-ffaup \
+	--disable-fmunflatten \
 	--disable-gssapi-krb5 \
 	--disable-root-tests \
 	--$(call ptx/endis, PTXCONF_RSYSLOG_IMKLOG)-klog \
@@ -73,6 +76,7 @@ RSYSLOG_CONF_OPT	:= \
 	--disable-gnutls \
 	--disable-gnutls-tests \
 	--disable-libgcrypt \
+	--disable-libzstd \
 	--enable-rsyslogrt \
 	--enable-rsyslogd \
 	--disable-extended-tests \
@@ -136,13 +140,20 @@ RSYSLOG_CONF_OPT	:= \
 	--disable-omhdfs \
 	--disable-omkafka \
 	--disable-imkafka \
+	--disable-omazureeventhubs-tests \
 	--disable-kafka-tests \
 	--disable-kafka-static \
+	--disable-omazureeventhubs \
+	--disable-qpidproton_static \
 	--disable-ommongodb \
+	--disable-imdtls \
+	--disable-omdtls \
 	--disable-imczmq \
 	--disable-omczmq \
 	--disable-omrabbitmq \
+	--disable-imhiredis \
 	--disable-omhiredis \
+	--disable-redis-tests \
 	--disable-omhttpfs \
 	--disable-omamqp1 \
 	--disable-omtcl \
@@ -151,12 +162,6 @@ RSYSLOG_CONF_OPT	:= \
 	--disable-generate-man-pages \
 	--without-tcl \
 	--disable-distcheck-workaround
-
-ifdef PTXCONF_RSYSLOG_SYSTEMD_UNIT
-RSYSLOG_CONF_OPT += --with-systemdsystemunitdir=/usr/lib/systemd/system
-else
-RSYSLOG_CONF_OPT += --without-systemdsystemunitdir
-endif
 
 RSYSLOG_PLUGINS-$(PTXCONF_RSYSLOG_IMDIAG)	+= imdiag
 RSYSLOG_PLUGINS-$(PTXCONF_RSYSLOG_IMFILE)	+= imfile
