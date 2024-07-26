@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_V4L_UTILS) += v4l-utils
 #
 # Paths and names
 #
-V4L_UTILS_VERSION	:= 1.26.0
-V4L_UTILS_MD5		:= 0ccb2a18e1d3a3b2986591753a2b3a7f
+V4L_UTILS_VERSION	:= 1.28.1
+V4L_UTILS_MD5		:= 6716de513a1fd2e1edb404a46a455855
 V4L_UTILS		:= v4l-utils-$(V4L_UTILS_VERSION)
 V4L_UTILS_SUFFIX	:= tar.xz
 V4L_UTILS_URL		:= http://linuxtv.org/downloads/v4l-utils/$(V4L_UTILS).$(V4L_UTILS_SUFFIX)
@@ -35,6 +35,7 @@ V4L_UTILS_CONF_TOOL	:= meson
 V4L_UTILS_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Dbpf=disabled \
+	-Ddocdir= \
 	-Ddoxygen-doc=disabled \
 	-Ddoxygen-html=false \
 	-Ddoxygen-man=false \
