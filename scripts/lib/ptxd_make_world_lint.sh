@@ -358,7 +358,7 @@ PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} cross"
 ptxd_make_world_lint_menu() {
     local filefd file
 
-    echo "Checking menu file formating and basic syntax ..."
+    echo "Checking menu file formatting and basic syntax ..."
 
     exec {filefd}< <(ptxd_make_world_lint_menu_files)
     while read file <&${filefd}; do
