@@ -75,19 +75,9 @@ $(STATEDIR)/barebox-@package@.install:
 $(STATEDIR)/barebox-@package@.targetinstall:
 	@$(call targetinfo)
 	@$(foreach image, $(BAREBOX_@PACKAGE@_IMAGES), \
-		install -m 644 \
-			$(image) $(IMAGEDIR)/$(notdir $(image))-@package@$(ptx/nl))
+		$(call ptx/image-install, BAREBOX_@PACKAGE@, $(image), \
+			$(notdir $(image))-@package@)$(ptx/nl))
 	@$(call touch)
-
-# ----------------------------------------------------------------------------
-# Clean
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/barebox-@package@.clean:
-	@$(call targetinfo)
-	@$(call clean_pkg, BAREBOX_@PACKAGE@)
-	@$(foreach image, $(BAREBOX_@PACKAGE@_IMAGES), \
-		rm -fv $(IMAGEDIR)/$(notdir $(image))-@package@$(ptx/nl))
 
 # ----------------------------------------------------------------------------
 # oldconfig / menuconfig
