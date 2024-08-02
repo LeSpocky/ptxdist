@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WAFFLE) += waffle
 #
 # Paths and names
 #
-WAFFLE_VERSION	:= 1.8.0
-WAFFLE_MD5	:= e4b3a5f28e4db517349631ef54e5f2a0
+WAFFLE_VERSION	:= 1.8.1
+WAFFLE_MD5	:= 96de2ce2ad25ec0b53a26f4e5665c391
 WAFFLE		:= waffle-$(WAFFLE_VERSION)
 WAFFLE_SUFFIX	:= tar.xz
 WAFFLE_URL	:= https://mesa.pages.freedesktop.org/waffle/files/release/$(WAFFLE)/$(WAFFLE).$(WAFFLE_SUFFIX)
