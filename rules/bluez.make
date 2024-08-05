@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_BLUEZ) += bluez
 #
 # Paths and names
 #
-BLUEZ_VERSION	:= 5.66
-BLUEZ_MD5	:= 077aa6f2ffd5b44e830199d54d71338c
+BLUEZ_VERSION	:= 5.77
+BLUEZ_MD5	:= 7cb07ec3073faa0af8b5c8ec5f080a2c
 BLUEZ		:= bluez-$(BLUEZ_VERSION)
 BLUEZ_SUFFIX	:= tar.gz
 BLUEZ_URL	:= $(call ptx/mirror, KERNEL, bluetooth/$(BLUEZ).$(BLUEZ_SUFFIX))
@@ -38,6 +38,9 @@ BLUEZ_LICENSE_FILES := \
 BLUEZ_CONF_TOOL	:= autoconf
 BLUEZ_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--enable-optimization \
+	--disable-asan \
+	--disable-lsan \
+	--disable-ubsan \
 	--disable-debug \
 	--disable-pie \
 	--enable-threads \
@@ -52,9 +55,16 @@ BLUEZ_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--enable-hid \
 	--enable-hog \
 	--disable-health \
+	--disable-bap \
+	--disable-bass \
+	--disable-mcp \
+	--disable-ccp \
+	--disable-vcp \
+	--disable-micp \
+	--disable-csip \
+	--enable-asha \
 	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-tools \
 	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-monitor \
-	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-hid2hci \
 	--enable-udev \
 	--disable-cups \
 	--disable-mesh \
@@ -69,15 +79,20 @@ BLUEZ_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--disable-testing \
 	--disable-experimental \
 	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS_DEPRECATED)-deprecated \
+	--disable-external-plugins \
 	--disable-sixaxis \
+	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-hid2hci \
 	--disable-logger \
+	--disable-admin \
 	--disable-android \
 	--with-dbusconfdir=/usr/share \
 	--with-dbussystembusdir=/usr/share/dbus-1/system-services \
 	--with-dbussessionbusdir=/usr/share/dbus-1/services \
+	--with-zsh-completion-dir= \
 	--with-udevdir=/usr/lib/udev \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
-	--with-systemduserunitdir=/usr/lib/systemd/user
+	--with-systemduserunitdir=/usr/lib/systemd/user \
+	--with-phonebook=
 
 # ----------------------------------------------------------------------------
 # Target-Install
