@@ -18,6 +18,8 @@ menuconfig PIPEWIRE
 	select NCURSES_WIDE_CHAR	if PIPEWIRE_PW_TOP
 	select OPENSSL			if PIPEWIRE_RAOP
 	select SYSTEMD			if PIPEWIRE_SYSTEMD
+	select BLUEZ			if PIPEWIRE_BLUETOOTH
+	select SBC			if PIPEWIRE_BLUETOOTH
 	select UDEV
 	select UDEV_LIBUDEV
 	prompt "pipewire                      "
@@ -30,6 +32,10 @@ menuconfig PIPEWIRE
 	   - Generating graphs for audio and video processing.
 
 if PIPEWIRE
+
+config PIPEWIRE_BLUETOOTH
+	bool
+	prompt "enable bluetooth options"
 
 config PIPEWIRE_GSTREAMER
 	bool

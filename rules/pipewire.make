@@ -42,7 +42,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Daudiotestsrc=enabled \
 	-Davahi=disabled \
 	-Davb=disabled \
-	-Dbluez5=disabled \
+	-Dbluez5=$(call ptx/endis,PTXCONF_PIPEWIRE_BLUETOOTH)d \
 	-Dbluez5-backend-hfp-native=disabled \
 	-Dbluez5-backend-hsp-native=disabled \
 	-Dbluez5-backend-hsphfpd=disabled \
@@ -173,6 +173,9 @@ PIPEWIRE_SPA_MODULES := \
 	audiomixer/libspa-audiomixer \
 	audiotestsrc/libspa-audiotestsrc \
 	control/libspa-control \
+	$(call ptx/ifdef,PTXCONF_PIPEWIRE_BLUETOOTH,bluez5/libspa-bluez5) \
+	$(call ptx/ifdef,PTXCONF_PIPEWIRE_BLUETOOTH,bluez5/libspa-codec-bluez5-faststream) \
+	$(call ptx/ifdef,PTXCONF_PIPEWIRE_BLUETOOTH,bluez5/libspa-codec-bluez5-sbc) \
 	$(call ptx/ifdef,PTXCONF_PIPEWIRE_LIBCAMERA,libcamera/libspa-libcamera) \
 	support/libspa-dbus \
 	$(call ptx/ifdef,PTXCONF_PIPEWIRE_SYSTEMD,support/libspa-journal) \
