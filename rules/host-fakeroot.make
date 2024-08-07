@@ -38,6 +38,9 @@ HOST_FAKEROOT_CONF_OPT := \
 	$(HOST_AUTOCONF) \
 	--libdir=/usr/lib/fakeroot
 
+HOST_FAKEROOT_CFLAGS := \
+	-fpermissive
+
 HOST_FAKEROOT_INSTALL_OPT := \
 	SUBDIRS=scripts \
 	install
