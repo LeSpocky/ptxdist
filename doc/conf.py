@@ -112,7 +112,7 @@ gnu_target = os.getenv("PTXCONF_GNU_TARGET") or "arm-v7a-linux-gnueabihf"
 try:
 	toolchain = os.readlink(os.path.join(os.getenv("PTXDIST_PLATFORMDIR",""), "selected_toolchain")).split("/")
 except:
-	toolchain = "/opt/OSELAS.Toolchain-2022.10.0/arm-v7a-linux-gnueabihf/gcc-12.2.1-clang-15.0.2-glibc-2.36-binutils-2.39-kernel-6.0.5-sanitized/bin".split("/")
+	toolchain = "/opt/OSELAS.Toolchain-2023.07.1/arm-v7a-linux-gnueabihf/gcc-13.2.1-clang-16.0.6-glibc-2.37-binutils-2.40-kernel-6.3.6-sanitized/bin".split("/")
 
 ptxdistPlatformName = os.getenv("PTXCONF_PLATFORM", "example")
 ptxdistPlatformDir = "platform-" + ptxdistPlatformName
