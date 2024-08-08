@@ -137,6 +137,7 @@ config MESALIB_DRI_ASAHI
 
 config MESALIB_DRI_CROCUS
 	bool
+	select MESALIB_INTEL_CLC
 	select MESALIB_XMLCONFIG
 	prompt "crocus"
 
@@ -265,6 +266,7 @@ config MESALIB_VULKAN_INTEL
 
 config MESALIB_VULKAN_INTEL_HASVK
 	bool
+	select MESALIB_INTEL_CLC
 	select MESALIB_XMLCONFIG
 	prompt "Intel (hasvk)"
 
