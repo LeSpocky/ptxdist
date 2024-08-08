@@ -23,6 +23,8 @@ Each rule file provides PTXdist with the required steps (in PTXdist called
 
    - targetinstall.post
 
+7. clean
+
 .. note::
 
   Host, image and cross packages don't need to install anything in the target file system.
@@ -254,6 +256,41 @@ targetinstall.post Stage Default Rule
 
 The *targetinstall.post* stage does nothing by default. It can be used to
 do some work after the *targetinstall* stage.
+
+clean Stage Default Rule
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The *clean* stage is only executed when calling ``ptxdist clean <package>``.
+
+The default *clean* stage calls the *world/clean* macro:
+
+.. code-block:: make
+
+    $(STATEDIR)/<pkg>.clean:
+    	@$(call targetinfo)
+    	@$(call world/clean, <PKG>)
+
+This will invalidate all stages of the package, and remove all its existing
+build artefacts:
+
+* ``<PKG>_DIR``, and ``$(<PKG>_DIR)-build`` for out-of-tree builds,
+* ``<PKG>_PKGDIR`` (i.e., usually ``$(PKGDIR)/$(<PKG>)``)
+* the pre-built archive in ``PKGDIR`` (if enabled)
+* the files that the package has installed into the respective sysroot folder
+  (``|ptxdistPlatformDir|/sysroot-{target,host,cross}/``),
+* for target packages, any output of the package's *targetinstall* stage built
+  by the following macros:
+
+   - opkg packages defined by *install_init* and *install_finish*,
+   - any files installed into the target root file system
+     (``|ptxdistPlatformDir|/root/``) via *install_copy*, *install_glob*,
+     *install_alternative*, *install_tree* and similar,
+   - images installed to the image directory by *ptx/install-image* and
+     *ptx/install-image-link*
+
+It will not remove any input files like patches or downloaded sources or config
+files, nor will it remove any :ref:`pre-built archives <devpkgs>` from
+``PTXCONF_PROJECT_DEVPKGDIR``.
 
 Skipping a Stage
 ~~~~~~~~~~~~~~~~
