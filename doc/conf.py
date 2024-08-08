@@ -114,7 +114,7 @@ try:
 except:
 	toolchain = "/opt/OSELAS.Toolchain-2022.10.0/arm-v7a-linux-gnueabihf/gcc-12.2.1-clang-15.0.2-glibc-2.36-binutils-2.39-kernel-6.0.5-sanitized/bin".split("/")
 
-ptxdistPlatformName = os.getenv("PTXCONF_PLATFORM", "versatilepb")
+ptxdistPlatformName = os.getenv("PTXCONF_PLATFORM", "example")
 ptxdistPlatformDir = "platform-" + ptxdistPlatformName
 oselasTCNarch = gnu_target.split("-")[0]
 oselasTCNvariant = gnu_target.split("-")[1]
@@ -127,7 +127,7 @@ ptxdistBSPName = "OSELAS.BSP-" + ptxdistHwVendor + "-" + ptxdistHwProduct + os.g
 ptxdistBSPRevision = os.getenv("PTXDIST_BSP_AUTOVERSION", "???")
 ptxdistCompilerName = gnu_target
 ptxdistCompilerVersion = toolchain[-2]
-ptxdistPlatformConfigDir = os.path.basename(os.getenv("PTXDIST_PLATFORMCONFIGDIR")) if os.getenv("PTXDIST_PLATFORMCONFIGDIR") != os.getenv("PTXDIST_TOPDIR") else "platform-versatilepb"
+ptxdistPlatformConfigDir = os.path.basename(os.getenv("PTXDIST_PLATFORMCONFIGDIR")) if os.getenv("PTXDIST_PLATFORMCONFIGDIR") != os.getenv("PTXDIST_TOPDIR") else "platform-<example>"
 ptxdistPlatformCollection = "\ "
 ptxdistVendorVersion = os.getenv("PTXDIST_VERSION_YEAR") + "." + os.getenv("PTXDIST_VERSION_MONTH") + "." + os.getenv("PTXDIST_VERSION_BUGFIX")
 package = "<package>"
