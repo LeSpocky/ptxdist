@@ -155,18 +155,14 @@ Usage:
 
 .. code-block:: none
 
- @$(call world/image-clean, <PKG>)
  @$(call ptx/image-install, <PKG>, $(<PKG>_BUILD_DIR)/<source-image-name>[, <image-name>])
  @$(call ptx/image-install-link, <PKG>, <link-target>, <link-name>)
+ @$(call world/image-clean, <PKG>)
 
 These macros are used to install files to ``|ptxdistPlatformDir|/images``.
 They are only allowed in the *targetinstall* stage. They are used by
 packages that produce files that are not part of a filesystem. Bootloaders
 are typical packages that do this.
-
-``world/image-clean`` will remove the files that were created by the other
-two macros in a previous run of the *targetinstall* stage. This also
-happens implicitly when the package is cleaned.
 
 ``ptx/image-install`` copies a file. The source must be an absolute path.
 The destination must be relative to the image directory. If the destination
@@ -174,6 +170,10 @@ file name is the source file without the path, then this argument can be
 omitted.
 
 ``ptx/image-install-link`` creates a symlink in the image directory.
+
+``world/image-clean`` will remove the files that were created by the other
+two macros in a previous run of the *targetinstall* stage. This macro is also
+called automatically by PTXdist's default *clean* stage.
 
 .. _world_image_fit:
 
