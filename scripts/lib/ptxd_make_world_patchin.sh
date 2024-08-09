@@ -79,7 +79,7 @@ ptxd_make_world_patchin_apply_git_init()
 	__git tag "${pkg_pkg//\~/-}" &&
 	__git tag base &&
 	__git config alias.ptx-patches "!${git_ptx_patches} \"\${@}\"" &&
-	__git config core.editor "${git_ptx_refresh_tags_editor}" &&
+	__git config sequence.editor "${git_ptx_refresh_tags_editor}" &&
 	__git config diff.renames false &&
 	__git config core.abbrev 12 &&
 	__git config core.autocrlf false &&
