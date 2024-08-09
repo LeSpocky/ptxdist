@@ -826,7 +826,7 @@ Options:
   --debug, -d			print out additional info (like make decisions)
   --quiet, -q			suppress output, show only stderr
   --silent, -s			alias for --quiet
-  --verbose, -v			be more verbose, print command before execute them
+  --verbose, -v			be more verbose, print command before execution
   --output-sync			Improve output readability for parallel building.
 				Disabled by default except for quiet builds.
   --no-output-sync		Disable output-sync if enabled by default.

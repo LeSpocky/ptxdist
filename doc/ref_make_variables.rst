@@ -61,7 +61,7 @@ Global Variables
 Other useful variables:
 
 ``CROSS_PATH``
-  Use to find cross tools. This path must be used to create anything that
+  Used to find cross tools. This path must be used to create anything that
   depends on the target’s architecture, but needs something running on the
   host to do the job. Examples:
 
@@ -272,7 +272,7 @@ of the corresponding target package if it exists.
   When PTXdist extracts source archives, it will create ``<PKG>_DIR``
   first and then extracts the archive there. If ``<PKG>_STRIP_LEVEL`` is
   set to 1 (the default) then PTXdist removes the first directory level
-  defined inside the archive. For most packages that this is the same as
+  defined inside the archive. For most packages this is the same as
   just extracting the archive. However, this is useful for packages with
   badly named top-level directories or packages where the directory must be
   renamed to avoid collisions (e.g. gdbserver).
@@ -293,7 +293,7 @@ of the corresponding target package if it exists.
   keep the source tree free of build files.
 
   ``KEEP`` can be used instead of ``YES``. In this case the build tree is
-  not deleted at the beginning of the prepare stage. This make
+  not deleted at the beginning of the prepare stage. This makes
   reconfiguration faster. This should only be used for packages that can
   handle configuration changes correctly and rebuild everything as needed.
 

@@ -109,7 +109,7 @@ choice
 	prompt "SOURCE_DATE_EPOCH timestamps source"
 	default REPRODUCIBLE_TIMESTAMP_PTXDIST
 	help
-	  Use the specifies source to provide a stable SOURCE_DATE_EPOCH.
+	  Use the specified source to provide a stable SOURCE_DATE_EPOCH.
 	  This helps making builds more reproducible. See
 	  https://reproducible-builds.org/specs/source-date-epoch/ for more
 	  details about SOURCE_DATE_EPOCH.

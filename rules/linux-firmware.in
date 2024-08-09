@@ -12,7 +12,7 @@ config LINUX_FIRMWARE_SELECTED_LICENSES
 	string
 	prompt "Linux-firmware license files to include"
 	help
-	  Set the firmware license files use.
+	  Set the firmware license files to use.
 	  Since there is no strict match between firmware files
 	  and license files, this must be provided by the user.
 	  Multiple license files are separated by space.

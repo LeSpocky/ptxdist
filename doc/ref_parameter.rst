@@ -20,7 +20,7 @@ Setup and Project Actions
   *platform*, *boardsetup*, *setup*, *go* and *images*.
 
 ``select <config>``
-  this action will select a user land
+  this action will select a userland
   configuration. This step is only required in projects where no
   ``selected_ptxconfig`` file is present. The <config> argument must point
   to a valid userland configuration file. PTXdist provides this feature
@@ -53,7 +53,7 @@ Setup and Project Actions
 
 ``setup``
   PTXdist uses some global settings, independent from the
-  project it is working on. These settings belong to users preferences or
+  project it is working on. These settings belong to user preferences or
   simply some network settings to permit PTXdist to download required
   packages.
 
@@ -348,7 +348,7 @@ Options
   suppress output, show only stderr
 
 ``--verbose``, ``-v``
-  be more verbose, print command before execute them
+  be more verbose, print command before execution
 
 ``--output-sync``, ``--no-output-sync``
   enable or disable output synchronization. By default output

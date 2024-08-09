@@ -6,7 +6,7 @@
 # behaviour or patch output.
 pristine_git() {
 	# Notes from the git(1) manpage:
-	# - GIT_DIFF_OPTS takes takes precedence over -U command line parameter
+	# - GIT_DIFF_OPTS takes precedence over -U command line parameter
 	HOME=/nonexistent \
 	XDG_CONFIG_HOME=/nonexistent \
 	GIT_CONFIG_NOSYSTEM=true \
