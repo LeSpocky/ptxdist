@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_NANO) += nano
 #
 # Paths and names
 #
-NANO_VERSION		:= 2.9.2
-NANO_MD5		:= 40ac792d28641969ce0be0a4a37df6a0
+NANO_VERSION		:= 8.0
+NANO_MD5		:= e8561ba24e7495b766b1d815cd024e77
 NANO			:= nano-$(NANO_VERSION)
 NANO_SUFFIX		:= tar.gz
 NANO_URL		:= https://www.nano-editor.org/dist/v$(basename $(NANO_VERSION))/$(NANO).$(NANO_SUFFIX)
@@ -38,19 +38,21 @@ NANO_CONF_ENV	:= \
 #
 NANO_CONF_TOOL	:= autoconf
 NANO_CONF_OPT	:= \
+	--$(call ptx/endis,PTXCONF_NANO_HELPTEXT)-help \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-threads=posix \
-	--disable-rpath \
 	--disable-nls \
+	--disable-rpath \
 	--disable-browser \
 	--enable-color \
 	--enable-comment \
 	--disable-extra \
-	--disable-help \
+	--disable-formatter \
 	--enable-histories \
 	--enable-justify \
 	--disable-libmagic \
+	--disable-linter \
 	--enable-linenumbers \
 	--disable-mouse \
 	--enable-multibuffer \
@@ -60,14 +62,12 @@ NANO_CONF_OPT	:= \
 	--enable-tabcomp \
 	--disable-wordcomp \
 	--enable-wrapping \
-	--disable-wrapping-as-root \
 	--disable-debug \
 	--disable-tiny \
 	--disable-utf8 \
 	--disable-altrcname \
-	--without-included-regex \
-	--without-slang \
-	--with-wordbounds
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
+	--without-included-regex
 
 # ----------------------------------------------------------------------------
 # Target-Install
