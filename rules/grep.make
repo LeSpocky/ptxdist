@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GREP) += grep
 #
 # Paths and names
 #
-GREP_VERSION		:= 3.8
-GREP_MD5		:= dc6e4d18d4659e6e7552fc4a183c8ac9
+GREP_VERSION		:= 3.11
+GREP_MD5		:= 7c9bbd74492131245f7cdb291fa142c0
 GREP			:= grep-$(GREP_VERSION)
 GREP_SUFFIX		:= tar.xz
 GREP_URL		:= $(call ptx/mirror, GNU, grep/$(GREP).$(GREP_SUFFIX))
@@ -47,7 +47,14 @@ GREP_CONF_OPT	:= \
 	--disable-assert \
 	--disable-rpath \
 	--disable-nls \
-	--$(call ptx/endis, PTXCONF_GREP_PCRE)-perl-regexp
+	--$(call ptx/endis, PTXCONF_GREP_PCRE)-perl-regexp \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
+	--with-libsigsegv \
+	--without-included-regex \
+	--with-packager \
+	--with-packager-version \
+	--with-packager-bug-reports
+
 
 # ----------------------------------------------------------------------------
 # Target-Install
