@@ -267,6 +267,10 @@ $(STATEDIR)/mesalib.compile:
 # Target-Install
 # ----------------------------------------------------------------------------
 
+# read libgallium version from file, fall back to package version
+MESALIB_LIBGALLIUM_VERSION = \
+	$(if $(wildcard $(MESALIB_DIR)/VERSION),$(file <$(MESALIB_DIR)/VERSION),$(MESALIB_VERSION))
+
 $(STATEDIR)/mesalib.targetinstall:
 	@$(call targetinfo)
 
@@ -277,7 +281,8 @@ $(STATEDIR)/mesalib.targetinstall:
 	@$(call install_fixup, mesalib,DESCRIPTION,missing)
 
 ifneq ($(strip $(MESALIB_DRI_GALLIUM_LIBS-y)),)
-	@$(call install_copy, mesalib, 0, 0, 0644, -, /usr/lib/libgallium-$(MESALIB_VERSION).so)
+	@$(call install_copy, mesalib, 0, 0, 0644, -, \
+		/usr/lib/libgallium-$(MESALIB_LIBGALLIUM_VERSION).so)
 ifdef PTXCONF_MESALIB_EGL_X11
 	@$(call install_copy, mesalib, 0, 0, 0644, -, /usr/lib/dri/libdril_dri.so)
 
