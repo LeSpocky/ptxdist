@@ -59,10 +59,14 @@ config MESALIB_LLVM
 
 comment "Drivers"
 
-config MESALIB_DRI_SWRAST
+config MESALIB_DRI_SOFTPIPE
+	bool
+	prompt "Software Rasterizer (softpipe)"
+
+config MESALIB_DRI_LLVMPIPE
 	bool
 	select MESALIB_LLVM
-	prompt "Software Rasterizer"
+	prompt "Software Rasterizer (llvmpipe)"
 
 config MESALIB_DRI_R300
 	bool
@@ -280,7 +284,7 @@ config MESALIB_VULKAN_PANFROST
 
 config MESALIB_VULKAN_SWRAST
 	bool
-	select MESALIB_DRI_SWRAST
+	select MESALIB_DRI_LLVMPIPE
 	prompt "Software Rasterizer"
 
 config MESALIB_VULKAN_VIRTIO
