@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XWAYLAND) += xwayland
 #
 # Paths and names
 #
-XWAYLAND_VERSION	:= 23.2.4
-XWAYLAND_MD5		:= 9d04fbe9c3a531c9cd08d38f51788ae6
+XWAYLAND_VERSION	:= 24.1.2
+XWAYLAND_MD5		:= 312c5cf17d1b147df1b787fd170958e1
 XWAYLAND		:= xwayland-$(XWAYLAND_VERSION)
 XWAYLAND_SUFFIX		:= tar.xz
 XWAYLAND_URL		:= $(call ptx/mirror, XORG, individual/xserver/$(XWAYLAND).$(XWAYLAND_SUFFIX))
@@ -60,10 +60,11 @@ XWAYLAND_CONF_OPT	:= \
 	-Dsecure-rpc=false \
 	-Dserverconfigdir= \
 	-Dsha1=libnettle \
+	-Dsystemd_notify=false \
 	-Dvendor_name=PTXdist \
 	-Dvendor_name_short=PTXdist \
 	-Dvendor_web=https://www.ptxdist.org/ \
-	-Dxace=false \
+	-Dxace=true \
 	-Dxcsecurity=false \
 	-Dxdm-auth-1=false \
 	-Dxdmcp=false \
@@ -82,7 +83,6 @@ XWAYLAND_CONF_OPT	:= \
 	-Dxv=$(call ptx/truefalse, PTXCONF_XWAYLAND_EXT_XV) \
 	-Dxvfb=false \
 	-Dxwayland-path= \
-	-Dxwayland_eglstream=false \
 	-Dxwayland_ei=false
 
 # ----------------------------------------------------------------------------
