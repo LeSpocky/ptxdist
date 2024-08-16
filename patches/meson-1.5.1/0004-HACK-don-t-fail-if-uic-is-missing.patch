@@ -10,13 +10,13 @@ Ignore uic if it is not found.
 
 Signed-off-by: Michael Tretter <m.tretter@pengutronix.de>
 ---
- mesonbuild/modules/qt.py | 3 +++
+ mesonbuild/modules/_qt.py | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/mesonbuild/modules/qt.py b/mesonbuild/modules/qt.py
-index c16d8c603ce7..20ca4810edc5 100644
---- a/mesonbuild/modules/qt.py
-+++ b/mesonbuild/modules/qt.py
+diff --git a/mesonbuild/modules/_qt.py b/mesonbuild/modules/_qt.py
+index 2fab8d319169..2790fe0e2da6 100644
+--- a/mesonbuild/modules/_qt.py
++++ b/mesonbuild/modules/_qt.py
 @@ -274,6 +274,9 @@ class QtBaseModule(ExtensionModule):
                  if tool.name == 'lrelease':
                      mlog.warning('Ignoring missing lrelease')

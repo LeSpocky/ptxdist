@@ -7,13 +7,13 @@ missing. It's not needed in most cases, so just ignore it.
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- mesonbuild/modules/qt.py | 3 +++
+ mesonbuild/modules/_qt.py | 3 +++
  1 file changed, 3 insertions(+)
 
-diff --git a/mesonbuild/modules/qt.py b/mesonbuild/modules/qt.py
-index 7effa1f58401..c16d8c603ce7 100644
---- a/mesonbuild/modules/qt.py
-+++ b/mesonbuild/modules/qt.py
+diff --git a/mesonbuild/modules/_qt.py b/mesonbuild/modules/_qt.py
+index ebb8a3994097..2fab8d319169 100644
+--- a/mesonbuild/modules/_qt.py
++++ b/mesonbuild/modules/_qt.py
 @@ -271,6 +271,9 @@ class QtBaseModule(ExtensionModule):
          self._detect_tools(state, method, required=False)
          for tool in self.tools.values():
