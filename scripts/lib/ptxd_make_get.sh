@@ -94,7 +94,11 @@ ptxd_make_get_http() {
 	return
     elif [ ! -e "${path}" ]; then
 	temp_file="$(mktemp "${path}.XXXXXXXXXX")" || ptxd_bailout "failed to create tempfile"
-	if [ -n "${PTXDIST_QUIET}" ]; then
+	if [ "${PTXDIST_VERBOSE}" == "1" ]; then
+		if wget --version | grep "GNU Wget2"; then
+		    progress=none
+		fi
+	elif [ -n "${PTXDIST_QUIET}" ]; then
 	    progress=dot
 	else
 	    progress=bar:force
