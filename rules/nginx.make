@@ -68,7 +68,7 @@ NGINX_CONF_OPT := \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_V2_MODULE,--with-http_v2_module) \
 	--with-http_sub_module \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_GZIP_STATIC_MODULE,--with-http_gzip_static_module) \
-	--without-http_charset_module \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_CHARSET_MODULE,,--without-http_charset_module) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_GZIP_MODULE,,--without-http_gzip_module) \
 	--without-http_ssi_module \
 	--without-http_userid_module \

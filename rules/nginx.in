@@ -41,6 +41,14 @@ config NGINX_HTTP_AUTOINDEX_MODULE
 	  ngx_http_autoindex_module processes requests ending with the
 	  slash character and produces a directory listing.
 
+config NGINX_HTTP_CHARSET_MODULE
+	bool
+	prompt "ngx_http_charset_module"
+	help
+	  ngx_http_charset_module adds a charset to the "Content-Type"
+	  response header field. The module can convert data from one
+	  charset to another with some limitations.
+
 config NGINX_HTTP_FASTCGI_MODULE
 	bool
 	prompt "ngx_http_fastcgi_module"
