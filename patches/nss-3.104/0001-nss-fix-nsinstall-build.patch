@@ -24,7 +24,7 @@ Signed-off-by: Wenzong Fan <wenzong.fan@windriver.com>
  1 file changed, 7 insertions(+)
 
 diff --git a/nss/coreconf/nsinstall/Makefile b/nss/coreconf/nsinstall/Makefile
-index 5061789ffebd..4e67f56cf0bc 100644
+index 337cbebd78e9..63a2dc566e9b 100644
 --- a/nss/coreconf/nsinstall/Makefile
 +++ b/nss/coreconf/nsinstall/Makefile
 @@ -18,6 +18,13 @@ INTERNAL_TOOLS  = 1
@@ -38,6 +38,6 @@ index 5061789ffebd..4e67f56cf0bc 100644
 +LDFLAGS =
 +CFLAGS = -DLINUX -Dlinux
 +
- ifeq (,$(filter-out OS2 WIN%,$(OS_TARGET)))
+ ifeq (,$(filter-out WIN%,$(OS_TARGET)))
  PROGRAM		=
  TARGETS		=

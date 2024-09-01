@@ -18,10 +18,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 insertions(+)
 
 diff --git a/nss/coreconf/rules.mk b/nss/coreconf/rules.mk
-index 2c0a7a3f30b1..a188881df94b 100644
+index 6b3862047e62..37c717f506b7 100644
 --- a/nss/coreconf/rules.mk
 +++ b/nss/coreconf/rules.mk
-@@ -191,6 +191,8 @@ ifeq ($(OS_ARCH),WINNT)
+@@ -185,6 +185,8 @@ ifeq ($(OS_ARCH),WINNT)
  $(IMPORT_LIBRARY): $(SHARED_LIBRARY)
  endif
  

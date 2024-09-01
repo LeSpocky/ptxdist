@@ -17,10 +17,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/nss/coreconf/rules.mk b/nss/coreconf/rules.mk
-index a341b8385ae4..2c0a7a3f30b1 100644
+index afd1b75b42d3..6b3862047e62 100644
 --- a/nss/coreconf/rules.mk
 +++ b/nss/coreconf/rules.mk
-@@ -373,8 +373,8 @@ endif
+@@ -367,8 +367,8 @@ endif
  define copy_varlist_into_dir_RULE
  ifdef $(2)
  ifneq (,$$(strip $$($(2))))
