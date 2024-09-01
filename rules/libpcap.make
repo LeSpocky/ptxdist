@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBPCAP) += libpcap
 #
 # Paths and names
 #
-LIBPCAP_VERSION	:= 1.10.4
-LIBPCAP_MD5	:= 0322e28dd76cda8066bb6d00fee5969b
+LIBPCAP_VERSION	:= 1.10.5
+LIBPCAP_MD5	:= 0dc69ed81464e7a255715fa685daf134
 LIBPCAP		:= libpcap-$(LIBPCAP_VERSION)
 LIBPCAP_SUFFIX	:= tar.gz
 LIBPCAP_URL	:= https://www.tcpdump.org/release/$(LIBPCAP).$(LIBPCAP_SUFFIX)
@@ -44,6 +44,7 @@ LIBPCAP_CONF_TOOL	:= autoconf
 LIBPCAP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-instrument-functions \
 	--enable-protochain \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-remote \
