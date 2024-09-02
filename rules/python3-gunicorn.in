@@ -3,6 +3,8 @@
 config PYTHON3_GUNICORN
 	bool
 	select PYTHON3
+	select HOST_PYTHON3_PYBUILD
+	select HOST_PYTHON3_WHEEL
 	prompt "gunicorn"
 	help
 	  Gunicorn 'Green Unicorn' is a Python WSGI HTTP Server for UNIX.
