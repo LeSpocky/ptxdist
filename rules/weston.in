@@ -40,6 +40,7 @@ menuconfig WESTON
 	select PIPEWIRE 		if WESTON_BACKEND_PIPEWIRE
 	select NEATVNC			if WESTON_BACKEND_VNC
 	select PAM			if WESTON_BACKEND_VNC
+	select LCMS			if WESTON_COLOR_MANAGEMENT_LCMS
 	prompt "weston                        "
 	help
 	  Wayland compositor reference implementation
@@ -128,5 +129,9 @@ config WESTON_TOUCH_CALIBRATOR
 	help
 	  Install weston-touch-calibrator tool, interface must be enabled in
 	  weston.ini.
+
+config WESTON_COLOR_MANAGEMENT_LCMS
+	bool
+	prompt "color management module"
 
 endif
