@@ -28,7 +28,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Configurations/10-main.conf b/Configurations/10-main.conf
-index c9db9aac28eb..d5ea4737494f 100644
+index cba57b41273f..7fa3eeae412f 100644
 --- a/Configurations/10-main.conf
 +++ b/Configurations/10-main.conf
 @@ -693,7 +693,7 @@ my %targets = (
@@ -41,10 +41,10 @@ index c9db9aac28eb..d5ea4737494f 100644
      "linux-latomic" => {
          inherit_from     => [ "linux-generic32" ],
 diff --git a/Configure b/Configure
-index 3b6617c17719..eeb36812ae0f 100755
+index 238152b2901b..3c7e04a082eb 100755
 --- a/Configure
 +++ b/Configure
-@@ -1778,7 +1778,7 @@ unless ($disabled{devcryptoeng}) {
+@@ -1777,7 +1777,7 @@ unless ($disabled{devcryptoeng}) {
  unless ($disabled{ktls}) {
      $config{ktls}="";
      my $cc = $config{CROSS_COMPILE}.$config{CC};

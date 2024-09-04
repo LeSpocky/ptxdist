@@ -16,11 +16,12 @@ PACKAGES-$(PTXCONF_OPENSSL) += openssl
 #
 # Paths and names
 #
-OPENSSL_VERSION		:= 3.3.1
-OPENSSL_MD5		:= 8a4342b399c18f870ca6186299195984
+OPENSSL_VERSION		:= 3.3.2
+OPENSSL_MD5		:= 015fca2692596560b6fe8a2d8fecd84b
 OPENSSL			:= openssl-$(OPENSSL_VERSION)
 OPENSSL_SUFFIX		:= tar.gz
 OPENSSL_URL		:= \
+	https://github.com/openssl/openssl/releases/download/$(OPENSSL)/$(OPENSSL).$(OPENSSL_SUFFIX) \
 	https://www.openssl.org/source/$(OPENSSL).$(OPENSSL_SUFFIX) \
 	https://www.openssl.org/source/old/$(basename $(OPENSSL_VERSION))/$(OPENSSL).$(OPENSSL_SUFFIX)
 OPENSSL_SOURCE		:= $(SRCDIR)/$(OPENSSL).$(OPENSSL_SUFFIX)
