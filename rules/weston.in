@@ -8,6 +8,7 @@ menuconfig WESTON
 	select WAYLAND
 	select WAYLAND_PROTOCOLS
 	select LIBXKBCOMMON
+	select LIBDISPLAY_INFO
 	select LIBJPEG
 	select LIBPNG
 	select LIBINPUT

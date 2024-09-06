@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_WESTON) += weston
 #
 # Paths and names
 #
-WESTON_VERSION	:= 13.0.3
-LIBWESTON_MAJOR := 13
-WESTON_MD5	:= 1525ba0696a046381fa499e901c2cd17
+WESTON_VERSION	:= 14.0.0
+LIBWESTON_MAJOR := 14
+WESTON_MD5	:= 21b8a54e29d45b0b93d898e900c2954f
 WESTON		:= weston-$(WESTON_VERSION)
 WESTON_SUFFIX	:= tar.gz
 WESTON_URL	:= https://gitlab.freedesktop.org/wayland/weston/-/archive/$(WESTON_VERSION)/$(WESTON).$(WESTON_SUFFIX)
@@ -47,8 +47,6 @@ WESTON_CONF_OPT		:= \
 	-Dbackend-x11=false \
 	-Dcolor-management-lcms=$(call ptx/truefalse,PTXCONF_WESTON_COLOR_MANAGEMENT_LCMS) \
 	-Ddemo-clients=$(call ptx/truefalse,PTXCONF_WESTON_IVISHELL_EXAMPLE) \
-	-Ddeprecated-color-management-colord=false \
-	-Ddeprecated-color-management-static=false \
 	-Ddesktop-shell-client-default=weston-desktop-shell \
 	-Ddoc=false \
 	-Dimage-jpeg=true \
@@ -66,6 +64,7 @@ WESTON_CONF_OPT		:= \
 	-Dsystemd=$(call ptx/truefalse,PTXCONF_WESTON_SYSTEMD) \
 	-Dtest-junit-xml=false \
 	-Dtest-skip-is-failure=false \
+	-Dtests=false \
 	-Dtools=calibrator,debug,info,terminal,touch-calibrator \
 	-Dwcap-decode=$(call ptx/truefalse,PTXCONF_WESTON_WCAP_TOOLS) \
 	-Dxwayland=$(call ptx/truefalse,PTXCONF_WESTON_XWAYLAND) \
@@ -80,7 +79,7 @@ $(STATEDIR)/weston.install:
 	@$(call world/install, WESTON)
 
 ifndef PTXCONF_WESTON_IVISHELL_EXAMPLE
-	@install -D -m644 $(WESTON_DIR)-build/compositor/weston.ini \
+	@install -D -m644 $(WESTON_DIR)-build/frontend/weston.ini \
 		$(WESTON_PKGDIR)/etc/xdg/weston/weston.ini
 else
 	@install -D -m644 $(WESTON_DIR)-build/ivi-shell/weston.ini \
