@@ -128,7 +128,6 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-libvduse \
 	--disable-linux-aio \
 	--disable-linux-io-uring \
-	--disable-live-block-migration \
 	--disable-lzfse \
 	--disable-lzo \
 	--enable-malloc-trim \
@@ -145,7 +144,6 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-pipewire \
 	--disable-parallels \
 	--disable-png \
-	--disable-pvrdma \
 	--disable-qcow1 \
 	--disable-qed \
 	--disable-qga-vss \
