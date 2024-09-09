@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LESS) += less
 #
 # Paths and names
 #
-LESS_VERSION	:= 590
-LESS_MD5	:= f029087448357812fba450091a1172ab
+LESS_VERSION	:= 661
+LESS_MD5	:= 44f54b6313c5d71fa1ac224d8d84766a
 LESS		:= less-$(LESS_VERSION)
 LESS_SUFFIX	:= tar.gz
 LESS_URL	:= https://greenwoodsoftware.com/less/$(LESS).$(LESS_SUFFIX)
@@ -24,8 +24,8 @@ LESS_DIR	:= $(BUILDDIR)/$(LESS)
 LESS_LICENSE	:= GPL-3.0-or-later OR BSD-2-Clause
 LESS_LICENSE_FILES := \
 	file://README;startline=4;endline=13;md5=be18c1acf45c653f511cb4fd205021d4 \
-	file://LICENSE;md5=ba01d0cab7f62f7f2204c7780ff6a87d \
-	file://COPYING;md5=d32239bcb673463ab874e80d47fae504
+	file://LICENSE;md5=ea7ea443692720f3015859945c0fb65d \
+	file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -47,7 +47,9 @@ LESS_CONF_ENV	:= \
 LESS_CONF_TOOL	:= autoconf
 LESS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION)
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
+
 
 # ----------------------------------------------------------------------------
 # Target-Install
