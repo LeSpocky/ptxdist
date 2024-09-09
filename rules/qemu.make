@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 9.0.2
-QEMU_MD5	:= f7f0462262d2571f146c6a8adda33b29
+QEMU_VERSION	:= 9.1.0
+QEMU_MD5	:= 15c2c59ff05377b60184eb4ae124c698
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -122,7 +122,6 @@ QEMU_CONF_OPT	:= \
 	--disable-libvduse \
 	--disable-linux-aio \
 	--disable-linux-io-uring \
-	--disable-live-block-migration \
 	--disable-lzfse \
 	--disable-lzo \
 	--enable-malloc-trim \
@@ -139,7 +138,6 @@ QEMU_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QEMU_PIPEWIRE)-pipewire \
 	--disable-parallels \
 	--disable-png \
-	--disable-pvrdma \
 	--disable-qcow1 \
 	--disable-qed \
 	--disable-qga-vss \
