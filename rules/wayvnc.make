@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_WAYVNC) += wayvnc
 #
 # Paths and names
 #
-WAYVNC_VERSION	:= 0.7.2
-WAYVNC_MD5	:= 1da42679394021de22c7e5429eae7564
+WAYVNC_VERSION	:= 0.8.0
+WAYVNC_MD5	:= 403b1e45edafa6bf07c9c308639df2b9
 WAYVNC		:= wayvnc-$(WAYVNC_VERSION)
 WAYVNC_SUFFIX	:= tar.gz
 WAYVNC_URL	:= https://github.com/any1/wayvnc/archive/refs/tags/v$(WAYVNC_VERSION).$(WAYVNC_SUFFIX)
