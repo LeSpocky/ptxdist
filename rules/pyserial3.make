@@ -15,16 +15,16 @@ PACKAGES-$(PTXCONF_PYSERIAL3) += pyserial3
 #
 # Paths and names
 #
-PYSERIAL3_VERSION	:= 3.4
-PYSERIAL3_MD5		:= fc00727ed9cf3a31b7a296a4d42f6afc
-PYSERIAL3		:= v$(PYSERIAL3_VERSION)
+PYSERIAL3_VERSION	:= 3.5
+PYSERIAL3_MD5		:= 1cf25a76da59b530dbfc2cf99392dc83
+PYSERIAL3		:= pyserial-$(PYSERIAL3_VERSION)
 PYSERIAL3_SUFFIX	:= tar.gz
-PYSERIAL3_URL		:= https://github.com/pyserial/pyserial/archive/v$(PYSERIAL3_VERSION).$(PYSERIAL3_SUFFIX)
+PYSERIAL3_URL		:= $(call ptx/mirror-pypi, pyserial, $(PYSERIAL3).$(PYSERIAL3_SUFFIX))
 PYSERIAL3_SOURCE	:= $(SRCDIR)/$(PYSERIAL3).$(PYSERIAL3_SUFFIX)
 PYSERIAL3_DIR		:= $(BUILDDIR)/$(PYSERIAL3)
 PYSERIAL3_LICENSE	:= BSD-3-Clause
 PYSERIAL3_LICENSE_FILES	:= \
-	file://LICENSE.txt;md5=d476d94926db6e0008a5b3860d1f5c0d
+	file://LICENSE.txt;md5=520e45e59fc2cf94aa53850f46b86436
 
 # ----------------------------------------------------------------------------
 # Extract
@@ -71,8 +71,8 @@ $(STATEDIR)/pyserial3.targetinstall:
 	done
 
 ifdef PTXCONF_PYSERIAL3_MINITERM
-	$(call install_copy, pyserial3, 0, 0, 0755, \
-		$(PYSERIAL3_PKGDIR)/usr/bin/miniterm.py, /usr/bin/miniterm3.py)
+	$(call install_copy, pyserial3, 0, 0, 0755, -, \
+		/usr/bin/pyserial-miniterm)
 endif
 
 	@$(call install_finish, pyserial3)
