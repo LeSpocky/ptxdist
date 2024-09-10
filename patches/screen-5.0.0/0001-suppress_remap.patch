@@ -10,15 +10,15 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 deletions(-)
 
 diff --git a/termcap.c b/termcap.c
-index 26c8f5a96589..29684cf974f7 100644
+index b49818b1a7ba..12b8b895c041 100644
 --- a/termcap.c
 +++ b/termcap.c
-@@ -553,8 +553,6 @@ int map;
-       else
- 	break;
-     }
--  if (n < KMAP_KEYS)
--    domap = 1;
-   if (map == 0 && domap)
-     return 0;
-   if (map && !domap)
+@@ -449,8 +449,6 @@ int remap(int n, int map)
+ 		} else
+ 			break;
+ 	}
+-	if (n < KMAP_KEYS)
+-		domap = 1;
+ 	if (map == 0 && domap)
+ 		return 0;
+ 	if (map && !domap)

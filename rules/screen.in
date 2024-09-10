@@ -5,6 +5,7 @@ menuconfig SCREEN
 	select LIBC_CRYPT
 	select LIBC_UTIL
 	select NCURSES
+	select PAM		if GLOBAL_PAM
 	help
 	  Screen is a full-screen window manager that multiplexes a physical
 	  terminal between several processes, typically interactive shells.
