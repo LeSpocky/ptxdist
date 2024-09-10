@@ -1,4 +1,6 @@
-## SECTION=debug_tools
+## SECTION=staging
+## old section:
+### SECTION=debug_tools
 
 menuconfig OPENOCD
 	tristate
@@ -20,6 +22,10 @@ menuconfig OPENOCD
 	  It supports JTAG and SWD (direct or via dongle) to access targets.
 	  Flash writing is supported for various internal and external types.
 	  It is controlled with TCL scripts and can act as gdbserver.
+
+	  STAGING: remove in PTXdist 2025.10.0
+	  Unmaintained in ptxdist and fails to build with new jimtcl.
+	  Needs updating to a new version.
 
 if OPENOCD
 
