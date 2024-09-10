@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBIIO) += libiio
 #
 # Paths and names
 #
-LIBIIO_VERSION	:= 0.23
-LIBIIO_MD5	:= d23393bf1eefa0cd6fd4859efc453e95
+LIBIIO_VERSION	:= 0.25
+LIBIIO_MD5	:= c8d5ea5ab44c2e99fab82baea9c92c57
 LIBIIO		:= libiio-$(LIBIIO_VERSION)
 LIBIIO_SUFFIX	:= tar.gz
 LIBIIO_URL	:= https://github.com/analogdevicesinc/libiio/archive/v$(LIBIIO_VERSION).$(LIBIIO_SUFFIX)
@@ -67,7 +67,7 @@ $(STATEDIR)/libiio.targetinstall:
 	@$(call install_lib, libiio, 0, 0, 0644, libiio)
 
 ifdef PTXCONF_LIBIIO_TEST_TOOLS
-	@$(foreach testprog, adi_xflow_check attr genxml info readdev reg writedev, \
+	@$(foreach testprog, attr genxml info readdev reg writedev, \
 		$(call install_copy, libiio, 0, 0, 0755, -, \
 			/usr/bin/iio_$(testprog))$(ptx/nl))
 endif
