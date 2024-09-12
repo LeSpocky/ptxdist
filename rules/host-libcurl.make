@@ -54,6 +54,7 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--enable-ipv6 \
 	--enable-openssl-auto-load-config \
 	--disable-versioned-symbols \
+	--disable-windows-unicode \
 	--disable-threaded-resolver \
 	--enable-pthreads \
 	--disable-verbose \
@@ -77,6 +78,7 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--enable-dateparse \
 	--disable-netrc \
 	--enable-progress-meter \
+	--enable-sha512-256 \
 	--disable-dnsshuffle \
 	--enable-get-easy-options \
 	--disable-alt-svc \
@@ -99,7 +101,6 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--without-zstd \
 	--without-gssapi \
 	--with-default-ssl-backend=openssl \
-	--with-random=/dev/urandom \
 	--without-ca-fallback \
 	--without-libpsl \
 	--without-libgsasl \
@@ -108,6 +109,7 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--without-wolfssh \
 	--without-librtmp \
 	--without-winidn \
+	--without-apple-idn \
 	--without-libidn2 \
 	--without-nghttp2 \
 	--without-ngtcp2 \
