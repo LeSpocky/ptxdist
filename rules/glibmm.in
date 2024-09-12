@@ -1,0 +1,10 @@
+## SECTION=multimedia_gtk
+
+config GLIBMM
+	tristate
+	select HOST_MESON
+	select GLIB
+	select LIBSIGCPP
+	prompt "glibmm"
+	help
+	  C++ wrapper for glib
