@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.9.1
-LIBCURL_MD5	:= 5882f056460240d98cdb5b7f86a06153
+LIBCURL_VERSION	:= 8.10.0
+LIBCURL_MD5	:= 00e41b4c316108ac4ca66c2a6d0bf18a
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -70,6 +70,7 @@ LIBCURL_CONF_OPT	:= \
 	$(GLOBAL_IPV6_OPTION) \
 	--enable-openssl-auto-load-config \
 	--disable-versioned-symbols \
+	--disable-windows-unicode \
 	--$(call ptx/disen, PTXCONF_LIBCURL_C_ARES)-threaded-resolver \
 	--enable-pthreads \
 	--$(call ptx/endis, PTXCONF_LIBCURL_VERBOSE)-verbose \
@@ -93,6 +94,7 @@ LIBCURL_CONF_OPT	:= \
 	--enable-dateparse \
 	--enable-netrc \
 	--enable-progress-meter \
+	--enable-sha512-256 \
 	--disable-dnsshuffle \
 	--enable-get-easy-options \
 	--disable-alt-svc \
@@ -115,7 +117,6 @@ LIBCURL_CONF_OPT	:= \
 	--without-zstd \
 	--without-gssapi \
 	--with-default-ssl-backend=$(PTXCONF_LIBCURL_SSL_DEFAULT_BACKEND) \
-	--with-random=/dev/urandom \
 	--with-ca-bundle=$(PTXCONF_LIBCURL_SSL_CABUNDLE_PATH) \
 	--with-ca-path=$(PTXCONF_LIBCURL_SSL_CAPATH_PATH) \
 	--without-ca-fallback \
@@ -126,6 +127,7 @@ LIBCURL_CONF_OPT	:= \
 	--without-wolfssh \
 	--without-librtmp \
 	--without-winidn \
+	--without-apple-idn \
 	--without-libidn2 \
 	--without-nghttp2 \
 	--without-ngtcp2 \
