@@ -1,10 +1,8 @@
-## SECTION=staging
-## old section:
-### SECTION=system_libraries
-
+## SECTION=system_libraries
 config LIBSIGCPP
 	tristate
 	prompt "libsigc++"
+	select HOST_MESON
 	select LIBC_M
 	select GCCLIBS_CXX
 	select GCCLIBS_GCC_S
@@ -18,7 +16,3 @@ config LIBSIGCPP
 	  and has an ease of use unmatched by other C++ callback libraries.
 	  Libsigc++ is licensed under the GNU Library General Public License,
 	  LGPL.
-
-	  STAGING: remove in PTXdist 2025.07.0
-	  Unmaintained in ptxdist and fails to build with gcc 14. Needs updating
-	  to a new version.
