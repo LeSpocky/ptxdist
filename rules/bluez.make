@@ -88,11 +88,11 @@ BLUEZ_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--with-dbusconfdir=/usr/share \
 	--with-dbussystembusdir=/usr/share/dbus-1/system-services \
 	--with-dbussessionbusdir=/usr/share/dbus-1/services \
-	--with-zsh-completion-dir= \
+	--with-zsh-completion-dir=no \
 	--with-udevdir=/usr/lib/udev \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
 	--with-systemduserunitdir=/usr/lib/systemd/user \
-	--with-phonebook=
+	--with-phonebook=dummy
 
 # ----------------------------------------------------------------------------
 # Target-Install
