@@ -29,6 +29,7 @@ KERNEL_@PACKAGE@_DTS		:= @dts@
 KERNEL_@PACKAGE@_DTB_FILES	:= $(addsuffix .dtb,$(basename $(notdir $(KERNEL_@PACKAGE@_DTS))))
 KERNEL_@PACKAGE@_LICENSE	:= GPL-2.0-only
 KERNEL_@PACKAGE@_LICENSE_FILES	:=
+KERNEL_@PACKAGE@_DEVPKG		:= NO
 KERNEL_@PACKAGE@_BUILD_OOT	:= KEEP
 
 # track changes to devices-trees in the BSP
