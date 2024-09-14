@@ -94,14 +94,14 @@ ifdef PTXCONF_IPROUTE2_TC
 	@$(call install_copy, iproute2, 0, 0, 0644, -, /usr/lib/tc/experimental.dist)
 endif
 
-	@$(call install_alternative, iproute2, 0, 0, 0644, /etc/iproute2/ematch_map)
-	@$(call install_alternative, iproute2, 0, 0, 0644, /etc/iproute2/group)
-	@$(call install_alternative, iproute2, 0, 0, 0644, /etc/iproute2/nl_protos)
-	@$(call install_alternative, iproute2, 0, 0, 0644, /etc/iproute2/rt_dsfield)
-	@$(call install_alternative, iproute2, 0, 0, 0644, /etc/iproute2/rt_protos)
-	@$(call install_alternative, iproute2, 0, 0, 0644, /etc/iproute2/rt_realms)
-	@$(call install_alternative, iproute2, 0, 0, 0644, /etc/iproute2/rt_scopes)
-	@$(call install_alternative, iproute2, 0, 0, 0644, /etc/iproute2/rt_tables)
+	@$(call install_alternative, iproute2, 0, 0, 0644, /usr/share/iproute2/ematch_map)
+	@$(call install_alternative, iproute2, 0, 0, 0644, /usr/share/iproute2/group)
+	@$(call install_alternative, iproute2, 0, 0, 0644, /usr/share/iproute2/nl_protos)
+	@$(call install_alternative, iproute2, 0, 0, 0644, /usr/share/iproute2/rt_dsfield)
+	@$(call install_alternative, iproute2, 0, 0, 0644, /usr/share/iproute2/rt_protos)
+	@$(call install_alternative, iproute2, 0, 0, 0644, /usr/share/iproute2/rt_realms)
+	@$(call install_alternative, iproute2, 0, 0, 0644, /usr/share/iproute2/rt_scopes)
+	@$(call install_alternative, iproute2, 0, 0, 0644, /usr/share/iproute2/rt_tables)
 
 	@$(call install_finish, iproute2)
 
