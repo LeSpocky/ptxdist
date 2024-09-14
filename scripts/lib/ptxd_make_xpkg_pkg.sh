@@ -517,6 +517,12 @@ install ${cmd}:
 
     ptxd_exist "${src}" &&
 
+    if [ "${pkg_pkg_dev}" != "NO" -a -n "${pkg_pkg_dir}" -a -d "${pkg_pkg_dir}" -a -n "${pkg_dir}" ]; then
+	if [[ "${src}" =~ "${pkg_dir}" ]] || [[ "${src}" =~ "${pkg_build_dir}" ]]; then
+	    ptxd_bailout "<PKG>_DEVPKG must be set to 'NO' when installing from build or source tree!"
+	fi
+    fi
+
     # check if src is a link
     if [ -L "${src}" ]; then
 	local old="${src}"
