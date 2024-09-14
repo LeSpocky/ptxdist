@@ -98,6 +98,18 @@ VIM_INSTALL_OPT := \
 	installspell
 
 # ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/vim.install:
+	@$(call targetinfo)
+	@$(call world/install, VIM)
+ifdef PTXCONF_VIM_XXD
+	install -vD -m755 $(VIM_DIR)/$(VIM_SUBDIR)/xxd/xxd \
+		$(VIM_PKGDIR)/usr/bin/xxd
+endif
+	@$(call touch)
+# ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
 
@@ -126,7 +138,7 @@ ifdef PTXCONF_VIM_VIM
 endif
 
 ifdef PTXCONF_VIM_XXD
-	@$(call install_copy, vim, 0, 0, 0755, $(VIM_DIR)/$(VIM_SUBDIR)/xxd/xxd, /usr/bin/xxd)
+	@$(call install_copy, vim, 0, 0, 0755, -, /usr/bin/xxd)
 endif
 	@$(call install_finish, vim)
 
