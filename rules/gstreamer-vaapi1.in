@@ -4,6 +4,8 @@ config GSTREAMER_VAAPI1
 	tristate
 	select HOST_MESON
 	select LIBVA
+	select UDEV
+	select UDEV_LIBUDEV
 	select GSTREAMER1
 	select GSTREAMER1_DEBUG
 	select GST_PLUGINS_BAD1
