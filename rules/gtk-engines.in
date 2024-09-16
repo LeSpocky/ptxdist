@@ -3,5 +3,6 @@
 config GTK_ENGINES
 	tristate
 	select GTK
+	select HOST_INTLTOOL
 	prompt "gtk engines"
 
