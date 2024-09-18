@@ -89,6 +89,9 @@ endif
 ifdef PTXCONF_PROCPS_PIDOF
 	@$(call install_copy, procps, 0, 0, 0755, -, /usr/bin/pidof)
 endif
+ifdef PTXCONF_PROCPS_PIDWAIT
+	@$(call install_copy, procps, 0, 0, 0755, -, /usr/bin/pidwait)
+endif
 ifdef PTXCONF_PROCPS_PKILL
 	@$(call install_copy, procps, 0, 0, 0755, -, /usr/bin/pkill)
 endif

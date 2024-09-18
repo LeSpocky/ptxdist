@@ -48,6 +48,12 @@ config PROCPS_PGREP
 comment "busybox' pgrep is selected!"
 	depends on BUSYBOX_PGREP
 
+config PROCPS_PIDWAIT
+	bool
+	prompt "pidwait"
+	help
+	  The pidwait program can wait for running processes.
+
 config PROCPS_PIDOF
 	bool
 	prompt "pidof"
