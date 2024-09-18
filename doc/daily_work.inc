@@ -865,11 +865,11 @@ Sometimes it makes sense to get all required source archives at once.
 For example prior to a shipment we want to also include all source
 archives, to free the user from downloading it by him/herself.
 
-PTXdist supports this requirement by the ``export_src`` parameter. It
+PTXdist supports this requirement by the ``export-src`` parameter. It
 collects all required source archives into one given single directory.
 To do so, the current project must be set up correctly, e.g. the
 ``select`` and ``platform`` commands must be ran prior the
-``export_src`` step.
+``export-src`` step.
 
 If everything is set up correctly we can run the following commands to
 get the full list of required archives to build the project again
@@ -878,7 +878,7 @@ without an internet connection.
 .. code-block:: text
 
     $ mkdir my_archives
-    $ ptxdist export_src my_archives
+    $ ptxdist export-src my_archives
 
 PTXdist will now collect all source archives to the ``my_archives/``
 directory.

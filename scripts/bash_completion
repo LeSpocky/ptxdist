@@ -114,7 +114,7 @@ _ptxdist_completion()
 	clone)
 		[ ${#args[@]} -lt 2 ] && _filedir -d
 		;;
-	toolchain|export_src)
+	toolchain|export_src|export-src)
 		[ ${#args[@]} -lt 1 ] && _filedir -d
 		;;
 	select|platform|collection|gdb)

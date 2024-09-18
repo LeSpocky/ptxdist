@@ -807,7 +807,7 @@ Misc:
   bash <cmd> [args...]		execute <cmd> in ptxdist environment
   docs-html			generate HTML documentation
   docs-latex			generate LaTeX / PDF documentation
-  export_src <target dir>	export all source archives needed for this
+  export-src <target dir>	export all source archives needed for this
 				project to <target dir>
   cargosync <pkg>		create or update the rule file for the cargo package
 				dependencies
@@ -1824,7 +1824,7 @@ EOF
 			create_docs "${cmd#docs-}" &&
 			exit
 			;;
-		export_src)
+		export_src|export-src)
 			if [ -z "${1}" ]; then
 				echo
 				echo "${PTXDIST_LOG_PROMPT}error: Please specify a target directory."

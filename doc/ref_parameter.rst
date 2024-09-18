@@ -303,8 +303,10 @@ Misc Actions
 ``make <target>``
   build specified make target in PTXdist.
 
-``export_src <target-dir>``
+``export-src <target-dir>``
   export all source archives needed for this project to ``<target-dir>``.
+
+  For backwards compatibility, the old syntax ``export_src`` is still accepted.
 
 ``docs-html``
   build HTML documentation for a BSP. The output is written to

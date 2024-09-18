@@ -71,7 +71,7 @@ Answer:
   First build your PTXdist project completely and then run the
   following command::
 
-      $ ptxdist export_src <archive directory>
+      $ ptxdist export-src <archive directory>
 
   It copies all archives from where are your source archives stored to
   the path ``<archive directory>`` which can be on your backup media.
