@@ -1,0 +1,9 @@
+## SECTION=networking
+
+config TCPREPLAY
+	tristate
+	prompt "tcpreplay"
+	select LIBPCAP
+	help
+	  tcpreplay is a suite of free Open Source utilities for editing and
+	  replaying previously captured network traffic.
