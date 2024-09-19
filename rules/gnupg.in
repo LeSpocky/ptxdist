@@ -31,6 +31,10 @@ config GNUPG_GPGV
 	bool
 	prompt "Install gpgv2"
 
+config GNUPG_GPGTAR
+	bool
+	prompt "Install gpgtar"
+
 config GNUPG_GPG_AGENT
 	bool
 	prompt "Install gpg-agent"

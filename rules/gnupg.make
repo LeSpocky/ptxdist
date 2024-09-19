@@ -47,7 +47,7 @@ GNUPG_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--disable-keyboxd \
 	--disable-tpm2d \
 	--disable-doc \
-	--disable-gpgtar \
+	--$(call ptx/endis, PTXCONF_GNUPG_GPGTAR)-gpgtar \
 	--disable-wks-tools \
 	--disable-gpg-is-gpg2 \
 	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux-support \
@@ -124,6 +124,9 @@ ifdef PTXCONF_GNUPG_GPGV
 endif
 ifdef PTXCONF_GNUPG_GPG_AGENT
 	@$(call install_copy, gnupg, 0, 0, 0755, -, /usr/bin/gpg-agent)
+endif
+ifdef PTXCONF_GNUPG_GPGTAR
+	@$(call install_copy, gnupg, 0, 0, 0755, -, /usr/bin/gpgtar)
 endif
 
 	@$(call install_finish, gnupg)
