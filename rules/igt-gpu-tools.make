@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_IGT_GPU_TOOLS) += igt-gpu-tools
 #
 # Paths and names
 #
-IGT_GPU_TOOLS_VERSION	:= 1.28
-IGT_GPU_TOOLS_MD5	:= 5c11ed8a9698df5fd6663b027168ab1f
+IGT_GPU_TOOLS_VERSION	:= 1.29
+IGT_GPU_TOOLS_MD5	:= a38956517259338638cc2e17e3e8720a
 IGT_GPU_TOOLS		:= igt-gpu-tools-$(IGT_GPU_TOOLS_VERSION)
 IGT_GPU_TOOLS_SUFFIX	:= tar.xz
 IGT_GPU_TOOLS_URL	:= $(call ptx/mirror, XORG, individual/app/$(IGT_GPU_TOOLS).$(IGT_GPU_TOOLS_SUFFIX))
@@ -133,7 +133,6 @@ ifdef PTXCONF_IGT_GPU_TOOLS_INTEL
 	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_stepping)
 	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_vbt_decode)
 	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/intel_watermark)
-	@$(call install_copy, igt-gpu-tools, 0, 0, 0755, -, /usr/bin/xe_reg)
 
 	@$(call install_tree, igt-gpu-tools, 0, 0, -, /usr/share/igt-gpu-tools/registers)
 endif
