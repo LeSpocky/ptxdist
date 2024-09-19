@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_TSLIB) += tslib
 #
 # Paths and names
 #
-TSLIB_VERSION	:= 1.21
-TSLIB_MD5	:= 96ada1cf6c69fbd87f3dd1f316c8e140
+TSLIB_VERSION	:= 1.23
+TSLIB_MD5	:= 1e17bfb7346bceeecfa18b7f6c9b05df
 TSLIB		:= tslib-$(TSLIB_VERSION)
 TSLIB_SUFFIX	:= tar.bz2
 TSLIB_URL	:= https://github.com/libts/tslib/releases/download/$(TSLIB_VERSION)/$(TSLIB).$(TSLIB_SUFFIX)
@@ -47,7 +47,7 @@ TSLIB_CONF_OPT	:= \
 	--enable-dmc \
 	--enable-dmc_dus3000 \
 	--enable-evthres \
-	--enable-galax \
+	--disable-galax \
 	--enable-h3600 \
 	--enable-iir \
 	--enable-input \
@@ -59,6 +59,7 @@ TSLIB_CONF_OPT	:= \
 	--enable-mk712 \
 	--enable-one-wire-ts-input \
 	--enable-variance \
+	--enable-crop \
 	--enable-pthres \
 	--enable-skip \
 	--enable-tatung \
