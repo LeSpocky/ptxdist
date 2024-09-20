@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 24.2.2
-MESALIB_MD5	:= 2efcf055c7d48b12cd2c9df2fc41f1b0
+MESALIB_VERSION	:= 24.2.3
+MESALIB_MD5	:= e3a195842c5cfbfb7234ed45f70af787
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -294,12 +294,10 @@ ifdef PTXCONF_MESALIB_EGL_X11
 endif
 endif
 ifneq ($(strip $(MESALIB_DRI_VA_LIBS-y)),)
-	@$(call install_copy, mesalib, 0, 0, 0644, -, /usr/lib/dri/libgallium_drv_video.so)
-
 	@$(foreach lib, $(MESALIB_DRI_VA_LIBS-y), \
 		test -f $(MESALIB_PKGDIR)/usr/lib/dri/$(lib)_drv_video.so || \
 			ptxd_bailout "missing va driver $(lib)_drv_video.so"$(ptx/nl) \
-		$(call install_link, mesalib, libgallium_drv_video.so, \
+		$(call install_link, mesalib, ../libgallium-$(MESALIB_LIBGALLIUM_VERSION).so, \
 		/usr/lib/dri/$(lib)_drv_video.so)$(ptx/nl))
 endif
 
