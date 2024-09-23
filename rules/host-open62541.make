@@ -12,6 +12,10 @@
 #
 HOST_PACKAGES-$(PTXCONF_HOST_OPEN62541) += host-open62541
 
+# host-open62541 doesn't need the mdnsd dependency like open62541, so its license differs
+HOST_OPEN62541_LICENSE		= MPL-2.0
+HOST_OPEN62541_LICENSE_FILES	= file://LICENSE;md5=815ca599c9df247a0c7f619bab123dad
+
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
