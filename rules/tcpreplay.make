@@ -21,9 +21,12 @@ TCPREPLAY_SUFFIX	:= tar.xz
 TCPREPLAY_URL		:= https://github.com/appneta/tcpreplay/releases/download/v$(TCPREPLAY_VERSION)/$(TCPREPLAY).$(TCPREPLAY_SUFFIX)
 TCPREPLAY_SOURCE	:= $(SRCDIR)/$(TCPREPLAY).$(TCPREPLAY_SUFFIX)
 TCPREPLAY_DIR		:= $(BUILDDIR)/$(TCPREPLAY)
-TCPREPLAY_LICENSE	:= GPL-3.0-only
+TCPREPLAY_LICENSE	:= GPL-3.0-only AND BSD-4-Clause-UC AND BSD-3-Clause
 TCPREPLAY_LICENSE_FILES := \
-	file://docs/LICENSE;md5=10f0474a2f0e5dccfca20f69d6598ad8
+	file://docs/LICENSE;md5=10f0474a2f0e5dccfca20f69d6598ad8 \
+	file://src/tcpreplay.c;startline=4;endline=15;md5=9b41c5c891f51dfe9669e794a1d680c7 \
+	file://src/common/err.c;startline=14;endline=43;md5=0fd028531634bf7aba2791035e3c2de4 \
+	file://src/common/fakepoll.c;startline=8;endline=36;md5=903f05912a12e9a01b3018b915a1a7df
 
 # ----------------------------------------------------------------------------
 # Prepare
