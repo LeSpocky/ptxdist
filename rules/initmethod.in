@@ -19,17 +19,17 @@ choice
 		select BUSYBOX_INIT
 		select BUSYBOX_HOSTNAME
 		select BUSYBOX_RUN_PARTS
-		prompt "busybox init    "
+		prompt "busybox init  "
 
 	config INITMETHOD_SYSTEMD
 		bool
 		select SYSTEMD
-		prompt "systemd         "
+		prompt "systemd       "
 
 	config INITMETHOD_INITRAMFS
 		bool
 		select INITRAMFS_TOOLS
-		prompt "initramfs init  "
+		prompt "initramfs init"
 
 endchoice
 
