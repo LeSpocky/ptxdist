@@ -4,7 +4,7 @@ if INITMETHOD_INITRAMFS || ALLYES
 
 menuconfig INITRAMFS_TOOLS
 	bool
-	prompt "initramfs-tools                 "
+	prompt "initramfs-tools             "
 	help
 	  Install initramfs skeleton framework
 
