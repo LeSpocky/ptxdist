@@ -9,7 +9,6 @@ menuconfig LIBGPIOD
 	help
 	  libgpiod is a library accompanied by a set of tools for
 	  interacting with the Linux GPIO character device.
-	  Requires kernel-headers >= 4.8.
 
 if LIBGPIOD
 
@@ -44,19 +43,19 @@ config LIBGPIOD_GPIOSET
 	help
 	  Sets values of specified GPIO lines
 
-config LIBGPIOD_GPIOFIND
-	bool
-	prompt "Install gpiofind"
-	select LIBGPIOD_TOOLS
-	help
-	  Finds the gpiochip given the line name
-
 config LIBGPIOD_GPIOMON
 	bool
 	prompt "Install gpiomon"
 	select LIBGPIOD_TOOLS
 	help
-	  Waits for events on a GPIO line
+	  Waits for events on GPIO lines
+
+config LIBGPIOD_GPIONOTIFY
+	bool
+	prompt "Install gpionotify"
+	select LIBGPIOD_TOOLS
+	help
+	  Waits for info changes on GPIO lines
 
 config LIBGPIOD_CXX
 	bool

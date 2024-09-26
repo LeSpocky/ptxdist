@@ -14,17 +14,24 @@ PACKAGES-$(PTXCONF_LIBGPIOD) += libgpiod
 #
 # Paths and names
 #
-LIBGPIOD_VERSION	:= 1.6.3
-LIBGPIOD_MD5		:= 25b6d8e7ebda37bb9b55aa290af0f062
+LIBGPIOD_VERSION	:= 2.1.3
+LIBGPIOD_MD5		:= dd37487da746569b7311b2c8fd2f907d
 LIBGPIOD		:= libgpiod-$(LIBGPIOD_VERSION)
 LIBGPIOD_SUFFIX		:= tar.gz
 LIBGPIOD_URL		:= https://www.kernel.org/pub/software/libs/libgpiod/$(LIBGPIOD).$(LIBGPIOD_SUFFIX)
 LIBGPIOD_SOURCE		:= $(SRCDIR)/$(LIBGPIOD).$(LIBGPIOD_SUFFIX)
 LIBGPIOD_DIR		:= $(BUILDDIR)/$(LIBGPIOD)
-LIBGPIOD_LICENSE	:= LGPL-2.1-or-later
+LIBGPIOD_LICENSE	:= LGPL-2.1-or-later AND GPL-2.0-only WITH Linux-syscall-note
 LIBGPIOD_LICENSE_FILES	:= \
-	file://COPYING;md5=2caced0b25dfefd4c601d92bd15116de \
-	file://lib/core.c;startline=1;endline=6;md5=d5b8d8a364ceff5e7c59b0638f54028c
+	file://COPYING;md5=7542998a6925b152c16facf9eaf5eb0c \
+	file://LICENSES/LGPL-2.1-or-later.txt;md5=4b54a1fd55a448865a0b32d41598759d \
+	file://LICENSES/GPL-2.0-only.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://LICENSES/Linux-syscall-note.txt;md5=6b0dff741019b948dfe290c05d6f361c
+
+ifdef PTXCONF_LIBGPIOD_TOOLS
+LIBGPIOD_LICENSE	+= AND GPL-2.0-or-later
+LIBGPIOD_LICENSE_FILES	+= file://LICENSES/GPL-2.0-or-later.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263
+endif
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -34,19 +41,17 @@ LIBGPIOD_CONF_TOOL	:= autoconf
 LIBGPIOD_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_LIBGPIOD_TOOLS)-tools \
+	--disable-gpioset-interactive \
 	--disable-tests \
+	--disable-profiling \
+	--disable-examples \
 	--$(call ptx/endis, PTXCONF_LIBGPIOD_CXX)-bindings-cxx \
-	--$(call ptx/endis, PTXCONF_LIBGPIOD_PYTHON3)-bindings-python
+	--$(call ptx/endis, PTXCONF_LIBGPIOD_PYTHON3)-bindings-python \
+	--disable-bindings-rust
 
 LIBGPIOD_CONF_ENV := \
 	$(CROSS_ENV) \
 	$(if $(PTXCONF_LIBGPIOD_PYTHON3), ac_cv_path_PYTHON=$(CROSS_PYTHON3))
-
-# libgpiod requires kernel headers >= 4.8
-ifdef PTXCONF_KERNEL_HEADER
-LIBGPIOD_CPPFLAGS	:= \
-	-isystem $(KERNEL_HEADERS_INCLUDE_DIR)
-endif
 
 LIBGPIOD_LDFLAGS:= -Wl,-rpath-link,$(LIBGPIOD_DIR)/lib/.libs
 
@@ -54,8 +59,8 @@ LIBGPIOD_TOOLS-$(PTXCONF_LIBGPIOD_GPIODETECT)	+= gpiodetect
 LIBGPIOD_TOOLS-$(PTXCONF_LIBGPIOD_GPIOINFO)	+= gpioinfo
 LIBGPIOD_TOOLS-$(PTXCONF_LIBGPIOD_GPIOGET)	+= gpioget
 LIBGPIOD_TOOLS-$(PTXCONF_LIBGPIOD_GPIOSET)	+= gpioset
-LIBGPIOD_TOOLS-$(PTXCONF_LIBGPIOD_GPIOFIND)	+= gpiofind
 LIBGPIOD_TOOLS-$(PTXCONF_LIBGPIOD_GPIOMON)	+= gpiomon
+LIBGPIOD_TOOLS-$(PTXCONF_LIBGPIOD_GPIONOTIFY)	+= gpionotify
 
 # ----------------------------------------------------------------------------
 # Target-Install
