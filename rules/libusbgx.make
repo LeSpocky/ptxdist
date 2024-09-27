@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_LIBUSBGX) += libusbgx
 #
 # Paths and names
 #
-LIBUSBGX_VERSION	:= 0.2.0
-LIBUSBGX_MD5		:= a8ea2234c6355ac8ad2ca86c453297bd
-LIBUSBGX		:= libusbgx-$(LIBUSBGX_VERSION)
-LIBUSBGX_SUFFIX		:= zip
-LIBUSBGX_URL		:= https://github.com/libusbgx/libusbgx/archive/refs/tags/libusbgx-v$(LIBUSBGX_VERSION).zip
+LIBUSBGX_VERSION	:= 0.3.0
+LIBUSBGX_MD5		:= f2ca9c639e6fc6ee9dbecb545fa61637
+LIBUSBGX		:= libusbgx-v$(LIBUSBGX_VERSION)
+LIBUSBGX_SUFFIX		:= tar.gz
+LIBUSBGX_URL		:= https://github.com/linux-usb-gadgets/libusbgx/archive/refs/tags/libusbgx-v$(LIBUSBGX_VERSION).$(LIBUSBGX_SUFFIX)
 LIBUSBGX_SOURCE		:= $(SRCDIR)/$(LIBUSBGX).$(LIBUSBGX_SUFFIX)
 LIBUSBGX_DIR		:= $(BUILDDIR)/$(LIBUSBGX)
 LIBUSBGX_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
@@ -32,18 +32,16 @@ LIBUSBGX_LICENSE_FILES	:= \
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBUSBGX_CONF_ENV	:= $(CROSS_ENV)
-
 #
-# autoconf
+# meson
 #
-LIBUSBGX_CONF_TOOL	:= autoconf
+LIBUSBGX_CONF_TOOL	:= meson
 LIBUSBGX_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--$(call ptx/wwo, PTXCONF_LIBUSBGX_SCHEMES)-libconfig \
-	--enable-examples \
-	--$(call ptx/endis, PTXCONF_LIBUSBGX_SCHEMES)-gadget-schemes \
-	--disable-doxygen-doc
+	$(CROSS_MESON_USR) \
+	-Dexamples=true \
+	-Dtests=disabled \
+	-Dgadget-schemes=$(call ptx/endis, PTXCONF_LIBUSBGX_SCHEMES)d \
+	-Ddoxygen=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
