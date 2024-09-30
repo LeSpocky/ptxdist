@@ -17,12 +17,12 @@ config BUSYBOX_NUKE
 	help
 	Alias to "rm -rf".
 config BUSYBOX_RESUME
-	bool "resume (3.2 kb)"
+	bool "resume (3.6 kb)"
 	default y
 	help
 	Resume from saved "suspend-to-disk" image
 config BUSYBOX_RUN_INIT
-	bool "run-init (7.7 kb)"
+	bool "run-init (8 kb)"
 	default y
 	help
 	The run-init utility is used from initramfs to select a new

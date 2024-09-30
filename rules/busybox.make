@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_BUSYBOX) += busybox
 #
 # Paths and names
 #
-BUSYBOX_VERSION	:= 1.36.1
-BUSYBOX_MD5	:= 0fc591bc9f4e365dfd9ade0014f32561
+BUSYBOX_VERSION	:= 1.37.0
+BUSYBOX_MD5	:= 865b68ab41b923d9cdbebf3f2c8b04ec
 BUSYBOX		:= busybox-$(BUSYBOX_VERSION)
 BUSYBOX_SUFFIX	:= tar.bz2
 BUSYBOX_URL	:= https://www.busybox.net/downloads/$(BUSYBOX).$(BUSYBOX_SUFFIX)
@@ -43,6 +43,12 @@ ifdef PTXCONF_BUSYBOX_NEED_LIBTIRPC
 	@sed -i \
 		-e 's;^\(CONFIG_EXTRA_CFLAGS="\)\(.*"\);\1-I$(PTXDIST_SYSROOT_TARGET)/usr/include/tirpc \2;' \
 		-e 's;^\(CONFIG_EXTRA_LDLIBS="\)\(.*"\);\1tirpc \2;' \
+		$(BUSYBOX_DIR)/.config
+endif
+ifndef ARCH_X86
+#	# SHA1/SHA256 hwaccel is only implemented for x86/x86_64
+	@sed -i \
+		-e 's;\(CONFIG_SHA[0-9]*_HWACCEL\)=y;# \1 is not set;' \
 		$(BUSYBOX_DIR)/.config
 endif
 	@$(call ptx/oldconfig, BUSYBOX)

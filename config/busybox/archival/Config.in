@@ -80,7 +80,7 @@ config BUSYBOX_FEATURE_GUNZIP_LONG_OPTIONS
 	default y
 	depends on (BUSYBOX_GUNZIP || BUSYBOX_ZCAT) && BUSYBOX_LONG_OPTS
 config BUSYBOX_BUNZIP2
-	bool "bunzip2 (8.7 kb)"
+	bool "bunzip2 (9.1 kb)"
 	default y
 	select BUSYBOX_FEATURE_BZIP2_DECOMPRESS
 	help
@@ -94,13 +94,13 @@ config BUSYBOX_BUNZIP2
 	should probably say N here.
 
 config BUSYBOX_BZCAT
-	bool "bzcat (8.7 kb)"
+	bool "bzcat (9 kb)"
 	default y
 	select BUSYBOX_FEATURE_BZIP2_DECOMPRESS
 	help
 	Alias to "bunzip2 -c".
 config BUSYBOX_UNLZMA
-	bool "unlzma (7.5 kb)"
+	bool "unlzma (7.8 kb)"
 	default y
 	help
 	unlzma is a compression utility using the Lempel-Ziv-Markov chain
@@ -109,7 +109,7 @@ config BUSYBOX_UNLZMA
 	compressors.
 
 config BUSYBOX_LZCAT
-	bool "lzcat (7.5 kb)"
+	bool "lzcat (7.8 kb)"
 	default y
 	help
 	Alias to "unlzma -c".
@@ -229,7 +229,7 @@ config BUSYBOX_DPKG
 	This implementation of dpkg has a number of limitations,
 	you should use the official dpkg if possible.
 config BUSYBOX_DPKG_DEB
-	bool "dpkg-deb (30 kb)"
+	bool "dpkg-deb (29 kb)"
 	default y
 	select BUSYBOX_FEATURE_SEAMLESS_GZ
 	help
@@ -282,7 +282,7 @@ config BUSYBOX_FEATURE_GZIP_DECOMPRESS
 	This will be automatically selected if gunzip or zcat is
 	enabled.
 config BUSYBOX_LZOP
-	bool "lzop (12 kb)"
+	bool "lzop (13 kb)"
 	default y
 	help
 	Lzop compression/decompresion.

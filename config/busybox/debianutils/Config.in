@@ -7,12 +7,12 @@
 menu "Debian Utilities"
 
 config BUSYBOX_PIPE_PROGRESS
-	bool "pipe_progress (275 bytes)"
+	bool "pipe_progress (576 bytes)"
 	default y
 	help
 	Display a dot to indicate pipe activity.
 config BUSYBOX_RUN_PARTS
-	bool "run-parts (6.1 kb)"
+	bool "run-parts (6.2 kb)"
 	default y
 	help
 	run-parts is a utility designed to run all the scripts in a directory.
@@ -61,7 +61,7 @@ config BUSYBOX_FEATURE_START_STOP_DAEMON_FANCY
 	-v|--verbose
 	-N|--nicelevel N
 config BUSYBOX_WHICH
-	bool "which (3.8 kb)"
+	bool "which (4 kb)"
 	default y
 	help
 	which is used to find programs in your PATH and
