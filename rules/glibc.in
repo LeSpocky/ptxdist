@@ -2,8 +2,9 @@
 
 config GLIBC
 	tristate
-	select GLOBAL_LARGE_FILE if GLIBC_Y2038
-	select BASE if RUNTIME
+	select GLOBAL_LARGE_FILE	if GLIBC_Y2038
+	select BUSYBOX_TIME64		if GLIBC_Y2038 && BUSYBOX
+	select BASE			if RUNTIME
 
 if GLIBC
 
