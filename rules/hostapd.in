@@ -1,10 +1,10 @@
 ## SECTION=networking
 
-config HOSTAPD
+menuconfig HOSTAPD
 	tristate
 	select OPENSSL
 	select LIBNL3
-	prompt "hostapd"
+	prompt "hostapd                       "
 	help
 	  IEEE 802.11 AP and IEEE 802.1X/WPA/WPA2/EAP Authenticator
 
@@ -21,3 +21,14 @@ config HOSTAPD
 	  authentication without requiring an external RADIUS
 	  authentication server), and RADIUS authentication server for
 	  EAP authentication.
+
+if HOSTAPD
+
+config HOSTAPD_SYSTEMD_UNIT
+	bool
+	prompt "Enable systemd support"
+	depends on INITMETHOD_SYSTEMD
+	help
+	  Install systemd units to start this service on startup.
+
+endif
