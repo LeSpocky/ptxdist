@@ -233,7 +233,7 @@ cs_import_pubkey_from_pem() {
 	openssl_keyopt=( -passin "file:${OPENSSL_KEYPASS}" )
     fi
 
-    openssl rsa \
+    openssl pkey \
 	"${openssl_keyopt[@]}" \
 	-in "${pem}" -inform pem -pubout -outform der |
     softhsm_pkcs11_tool --type pubkey --write-object /dev/stdin --label "${role}"
@@ -257,7 +257,7 @@ cs_import_privkey_from_pem() {
 	openssl_keyopt=( -passin "file:${OPENSSL_KEYPASS}" )
     fi
 
-    openssl rsa \
+    openssl pkey \
 	"${openssl_keyopt[@]}" \
 	-in "${pem}" -inform pem -outform der |
     softhsm_pkcs11_tool --type privkey --write-object /dev/stdin --label "${role}"
