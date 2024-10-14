@@ -11,11 +11,18 @@
 #
 HOST_PACKAGES-$(PTXCONF_HOST_CARGO_C) += host-cargo-c
 
+HOST_CARGO_C_CARGO_VERSION	:= $(word 2, $(subst -,$(space),$(call ptx/force-sh, cargo --version)))
+
 #
 # Paths and names
 #
+ifneq ($(filter 1.7%,$(HOST_CARGO_C_CARGO_VERSION)),)
 HOST_CARGO_C_VERSION		:= 0.9.27+cargo-0.74.0
 HOST_CARGO_C_MD5		:= 690da03174eac0b0b38b3fccc40f0289
+else
+HOST_CARGO_C_VERSION		:= 0.10.4+cargo-0.82.0
+HOST_CARGO_C_MD5		:= 7fef2e83cc04c221f001f6850af32835
+endif
 HOST_CARGO_C			:= cargo-c-$(HOST_CARGO_C_VERSION)
 HOST_CARGO_C_SUFFIX		:= tar.gz
 HOST_CARGO_C_URL		:= https://crates.io/api/v1/crates/cargo-c/$(HOST_CARGO_C_VERSION)/download
