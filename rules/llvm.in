@@ -1,16 +1,27 @@
 ## SECTION=system_libraries
 
-config LLVM
+menuconfig LLVM
 	tristate
 	select HOST_CMAKE
 	select HOST_NINJA
 	select HOST_LLVM
 	select HOST_SYSTEM_PYTHON3
 	select ZLIB
-	prompt "llvm"
+	prompt "llvm                          "
 	help
 	   The Low-Level Virtual Machine (LLVM) is a collection of libraries
 	   and tools that make it easy to build compilers, optimizers,
 	   Just-In-Time code generators, and many other compiler-related
 	   programs.
 
+if LLVM
+
+config LLVM_TARGET_TARGET
+	bool
+	prompt "build LLVM target for the BSP target architecture"
+
+config LLVM_TARGET_AMDGPU
+	bool
+	prompt "build LLVM target for AMDGPU"
+
+endif
