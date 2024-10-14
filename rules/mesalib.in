@@ -256,7 +256,6 @@ comment "Vulkan drivers"
 
 config MESALIB_VULKAN_AMD
 	bool
-	select MESALIB_LLVM
 	prompt "AMD (Radv)"
 
 config MESALIB_VULKAN_BROADCOM
