@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FFMPEG) += ffmpeg
 #
 # Paths and names
 #
-FFMPEG_VERSION	:= 6.1
-FFMPEG_MD5	:= 5898f671dca522f537c3b57d1d6b57a3
+FFMPEG_VERSION	:= 7.1
+FFMPEG_MD5	:= 623aa63a72139a82ccb99cd6ee477b94
 FFMPEG		:= ffmpeg-$(FFMPEG_VERSION)
 FFMPEG_SUFFIX	:= tar.xz
 FFMPEG_URL	:= https://www.ffmpeg.org/releases/$(FFMPEG).$(FFMPEG_SUFFIX)
@@ -85,6 +85,7 @@ FFMPEG_CONF_OPT		:= \
 	--enable-error-resilience \
 	--enable-lsp \
 	--enable-faan \
+	--enable-iamf \
 	--enable-pixelutils \
 	\
 	--enable-encoders \
@@ -128,6 +129,8 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libdav1d \
 	--disable-libdavs2 \
 	--disable-libdc1394 \
+	--disable-libdvdnav \
+	--disable-libdvdread \
 	--disable-libfdk-aac \
 	--disable-libflite \
 	--disable-libfontconfig \
@@ -143,6 +146,8 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libjxl \
 	--disable-libklvanc \
 	--disable-libkvazaar \
+	--disable-liblc3 \
+	--disable-liblcevc-dec \
 	--disable-liblensfun \
 	--disable-libmodplug \
 	--disable-libmp3lame \
@@ -156,6 +161,8 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libopus \
 	--disable-libplacebo \
 	--disable-libpulse \
+	--disable-libqrencode \
+	--disable-libquirc \
 	--disable-librabbitmq \
 	--disable-librav1e \
 	--disable-librist \
@@ -175,6 +182,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libtesseract \
 	--disable-libtheora \
 	--disable-libtls \
+	--disable-libtorch \
 	--disable-libtwolame \
 	--disable-libuavs3d \
 	--disable-libv4l2 \
@@ -183,9 +191,12 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libvo-amrwbenc \
 	--disable-libvorbis \
 	--disable-libvpx \
+	--disable-libvvenc \
 	--disable-libwebp \
 	--disable-libx264 \
 	--disable-libx265 \
+	--disable-libxeve \
+	--disable-libxevd \
 	--disable-libxavs \
 	--disable-libxavs2 \
 	--disable-libxcb \
@@ -223,6 +234,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-cuda-llvm \
 	--disable-cuvid \
 	--disable-d3d11va \
+	--disable-d3d12va \
 	--disable-dxva2 \
 	--disable-ffnvcodec \
 	--disable-libdrm \
