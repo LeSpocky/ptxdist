@@ -304,9 +304,11 @@ ptxd_init_readlink() {
 	PTXDIST_REAL_PLATFORMDIR="${PTXDIST_REAL_PLATFORMDIR}${delim}${tmp}"
     fi
     PTXDIST_REAL_SYSROOT_TOOLCHAIN="$(readlink -f "${PTXDIST_SYSROOT_TOOLCHAIN}")"
-    tmp="$(ptxd_partial_readlink "${PTXDIST_SYSROOT_TOOLCHAIN}")"
-    if [ -n "${tmp}" ]; then
-	PTXDIST_REAL_SYSROOT_TOOLCHAIN="${PTXDIST_REAL_SYSROOT_TOOLCHAIN}${delim}${tmp}"
+    if [ -n "${PTXDIST_SYSROOT_TOOLCHAIN}" ]; then
+	tmp="$(ptxd_partial_readlink "${PTXDIST_SYSROOT_TOOLCHAIN}")"
+	if [ -n "${tmp}" ]; then
+	    PTXDIST_REAL_SYSROOT_TOOLCHAIN="${PTXDIST_REAL_SYSROOT_TOOLCHAIN}${delim}${tmp}"
+	fi
     fi
     export PTXDIST_REAL_PLATFORMDIR PTXDIST_REAL_SYSROOT_TOOLCHAIN
 }
