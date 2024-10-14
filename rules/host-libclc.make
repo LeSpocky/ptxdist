@@ -37,6 +37,6 @@ HOST_LIBCLC_CONF_OPT	:= \
 	$(HOST_CMAKE_OPT) \
 	-DLLVM_CLANG=$(PTXDIST_SYSROOT_HOST)/usr/lib/wrapper/clang \
 	-DLLVM_TOOLS_BINARY_DIR=$(PTXDIST_SYSROOT_HOST)/usr/bin \
-	-DLIBCLC_TARGETS_TO_BUILD="amdgcn--;spirv-mesa3d-"
+	-DLIBCLC_TARGETS_TO_BUILD="spirv-mesa3d-"
 
 # vim: syntax=make
