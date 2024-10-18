@@ -65,7 +65,7 @@ endif
 
 LLVM_TARGETS_TO_BUILD := \
 	$(if $(PTXCONF_LLVM_TARGET_TARGET),$(LLVM_TARGET_ARCH)) \
-	$(if $(LLVM_TARGET_AMDGPU),AMDGPU)
+	$(if $(PTXCONF_LLVM_TARGET_AMDGPU),AMDGPU)
 
 LLVM_CONF_ENV	:= \
 	$(HOST_ENV)
@@ -74,8 +74,8 @@ LLVM_CONF_ENV	:= \
 # cmake
 #
 LLVM_CONF_TOOL	:= cmake
-LLVM_CONF_OPT	:= \
-	$(CROSS_CMAKE_USR) \
+
+define LLVM_SHARED_CONF_OPT
 	-G Ninja \
 	-DBUILD_SHARED_LIBS=OFF \
 	-DLLVM_ABI_BREAKING_CHECKS=WITH_ASSERTS \
@@ -172,7 +172,7 @@ LLVM_CONF_OPT	:= \
 	-DLLVM_PROFDATA_FILE= \
 	-DLLVM_SOURCE_PREFIX= \
 	-DLLVM_STATIC_LINK_CXX_STDLIB=OFF \
-	-DLLVM_TABLEGEN=$(PTXDIST_SYSROOT_HOST)/bin/llvm-tblgen \
+	$(1) \
 	-DLLVM_TARGETS_TO_BUILD="$(subst $(space),;,$(LLVM_TARGETS_TO_BUILD))" \
 	-DLLVM_TEMPORARILY_ALLOW_OLD_TOOLCHAIN=OFF \
 	-DLLVM_TOOL_BOLT_BUILD=OFF \
@@ -203,21 +203,31 @@ LLVM_CONF_OPT	:= \
 	-DLLVM_USE_SYMLINKS=ON \
 	-DLLVM_VERSION_PRINTER_SHOW_HOST_TARGET_INFO=ON \
 	-DLLVM_WINDOWS_PREFER_FORWARD_SLASH=OFF
+endef
+
+LLVM_CONF_OPT	:= \
+	$(CROSS_CMAKE_USR) \
+	$(call LLVM_SHARED_CONF_OPT,-DLLVM_TABLEGEN=$(PTXDIST_SYSROOT_CROSS)/bin/llvm-tblgen)
 
 # ----------------------------------------------------------------------------
 # Install
 # ----------------------------------------------------------------------------
 
-CROSS_LLVM_CONFIG := $(PTXDIST_SYSROOT_CROSS)/usr/bin/llvm-config
+$(STATEDIR)/llvm.install:
+	@$(call targetinfo)
+	@$(call world/install, LLVM)
+#	# llvm-config must be in sysroot-target to generate the correct paths
+	@cp -v $(PTXDIST_SYSROOT_CROSS)/usr/bin/llvm-config.orig $(LLVM_PKGDIR)/usr/bin/llvm-config
+	@$(call touch)
+
+LLVM_CROSS_LLVM_CONFIG := $(PTXDIST_SYSROOT_CROSS)/usr/bin/llvm-config
 
 $(STATEDIR)/llvm.install.post:
 	@$(call targetinfo)
 	@$(call world/install.post, LLVM)
-#	# llvm-config must be in sysroot-target to generate the correct paths
-	@cp $(PTXDIST_SYSROOT_HOST)/usr/bin/llvm-config $(PTXDIST_SYSROOT_TARGET)/usr/bin/llvm-config
-	@echo '#!/bin/sh'						>  $(CROSS_LLVM_CONFIG)
-	@echo 'exec $(PTXDIST_SYSROOT_TARGET)/usr/bin/llvm-config "$${@}"'	>> $(CROSS_LLVM_CONFIG)
-	@chmod +x $(CROSS_LLVM_CONFIG)
+	@echo '#!/bin/sh'							>  $(LLVM_CROSS_LLVM_CONFIG)
+	@echo 'exec $(PTXDIST_SYSROOT_TARGET)/usr/bin/llvm-config "$${@}"'	>> $(LLVM_CROSS_LLVM_CONFIG)
+	@chmod +x $(LLVM_CROSS_LLVM_CONFIG)
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
