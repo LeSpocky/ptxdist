@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/mesonbuild/linkers/linkers.py b/mesonbuild/linkers/linkers.py
-index 4eec82edd177..92ef9669cfeb 100644
+index c4df0fa1d893..50e11175e413 100644
 --- a/mesonbuild/linkers/linkers.py
 +++ b/mesonbuild/linkers/linkers.py
-@@ -674,7 +674,10 @@ class GnuLikeDynamicLinkerMixin(DynamicLinkerBase):
+@@ -677,7 +677,10 @@ class GnuLikeDynamicLinkerMixin(DynamicLinkerBase):
          # Need to deduplicate rpaths, as macOS's install_name_tool
          # is *very* allergic to duplicate -delete_rpath arguments
          # when calling depfixer on installation.
@@ -26,7 +26,7 @@ index 4eec82edd177..92ef9669cfeb 100644
          rpath_dirs_to_remove: T.Set[bytes] = set()
          for p in all_paths:
              rpath_dirs_to_remove.add(p.encode('utf8'))
-@@ -702,7 +705,8 @@ class GnuLikeDynamicLinkerMixin(DynamicLinkerBase):
+@@ -705,7 +708,8 @@ class GnuLikeDynamicLinkerMixin(DynamicLinkerBase):
                  paths = padding
              else:
                  paths = paths + ':' + padding
@@ -35,4 +35,4 @@ index 4eec82edd177..92ef9669cfeb 100644
 +            args.extend(self._apply_prefix('-rpath,' + paths))
  
          # TODO: should this actually be "for solaris/sunos"?
-         if mesonlib.is_sunos():
+         # NOTE: Remove the zigcc check once zig support "-rpath-link"
