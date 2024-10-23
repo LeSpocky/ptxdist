@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20240909
-LINUX_FIRMWARE_MD5	:= 91dce7e5d4a4ce1402d706a2ce30029e
+LINUX_FIRMWARE_VERSION	:= 20241017
+LINUX_FIRMWARE_MD5	:= 4562b39dd76bbdfd1b05fa1b992fac06
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -119,13 +119,6 @@ LINUX_FIRMWARE_LICENSE_FILES := $(filter $(addsuffix %,$(addprefix file://,$(LIN
 endif
 
 LINUX_FIRMWARE_SELECTED_FIRMWARES = $(call remove_quotes, $(PTXCONF_LINUX_FIRMWARE_SELECTED_FIRMWARES))
-
-# ----------------------------------------------------------------------------
-# Prepare
-# ----------------------------------------------------------------------------
-
-LINUX_FIRMWARE_INSTALL_OPT := \
-	install-nodedup
 
 # ----------------------------------------------------------------------------
 # Compile
