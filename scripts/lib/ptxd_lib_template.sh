@@ -615,8 +615,8 @@ ptxd_template_new_image_fit() {
 	    export select_CODE_SIGNING="select CODE_SIGNING
 	"
 	    export CODE_SIGNING_VARS="
-IMAGE_@PACKAGE@_SIGN_ROLE	:= # TODO: role name of the code signing provider, passed to cs_get_uri
-IMAGE_@PACKAGE@_KEY_NAME_HINT	:= # TODO: key-name-hint property in the signature node of the FIT image
+IMAGE_${PACKAGE}_SIGN_ROLE	:= # TODO: role name of the code signing provider, passed to cs_get_uri
+IMAGE_${PACKAGE}_KEY_NAME_HINT	:= # TODO: key-name-hint property in the signature node of the FIT image
 "
 	;;
 	*)
