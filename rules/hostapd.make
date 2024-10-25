@@ -79,8 +79,6 @@ ifdef PTXCONF_HOSTAPD_SYSTEMD_UNIT
 		/usr/lib/systemd/system/hostapd.service)
 	@$(call install_link, hostapd, ../hostapd.service, \
 		/lib/systemd/system/multi-user.target.wants/hostapd.service)
-	@$(call install_alternative, hostapd, 0, 0, 0644, \
-		/etc/hostapd/hostapd.conf)
 endif
 
 	@$(call install_finish, hostapd)
