@@ -1,4 +1,7 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
+
 comment "OpenNTPD conflicts with NTP"
 	depends on NTP && OPENNTPD
 
@@ -15,6 +18,10 @@ menuconfig OPENNTPD
 	  the local clock to remote NTP servers and can act as NTP
 	  server itself, redistributing the local clock.
 	  See http://www.openntpd.org/ for details
+
+	  STAGING: remove in PTXdist 2025.11.0
+	  Unmaintained in ptxdist and fails to build with glibc 2.40. Needs
+	  updating to a new version.
 
 if OPENNTPD
 
