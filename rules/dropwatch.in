@@ -3,7 +3,6 @@
 config DROPWATCH
 	tristate
 	prompt "dropwatch"
-	select BINUTILS
 	select LIBNL3
 	select LIBPCAP
 	select READLINE

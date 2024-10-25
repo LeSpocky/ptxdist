@@ -34,7 +34,7 @@ DROPWATCH_LICENSE_FILES	:= file://COPYING;md5=eb723b61539feef013de476e68b5c50a
 DROPWATCH_CONF_TOOL	:= autoconf
 DROPWATCH_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--with-bfd
+	--without-bfd
 
 # ----------------------------------------------------------------------------
 # Target-Install
