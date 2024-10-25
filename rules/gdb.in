@@ -8,6 +8,7 @@ menuconfig GDB
 	select GCCLIBS_GCC_S
 	select NCURSES
 	select LIBGMP		if GDB_11_1
+	select MPFR		if GDB_14_1
 	select XZ		if GDB_DEBUGINFO_SUPPORT
 	help
 	  The GNU Debugger
@@ -44,6 +45,13 @@ config GDB_11_1
 	help
 	  Since gdb-11.1, GMP is a required dependency. Enable this option
 	  if your toolchain gdb version is 11.1 or later.
+
+config GDB_14_1
+	bool
+	prompt "gdb-14.1 or later"
+	help
+	  Since gdb-14.1, MPFR is a required dependency. Enable this option
+	  if your toolchain gdb version is 14.1 or later.
 
 endif
 
