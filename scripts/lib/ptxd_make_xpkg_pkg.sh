@@ -384,7 +384,18 @@ ptxd_extract_build_id() {
 }
 export -f ptxd_extract_build_id
 
-export ptxd_install_file_objcopy_args="--only-keep-debug --compress-debug-sections"
+ptxd_install_compression_format() {
+    local libc
+    local comp
+
+    libc="$(ptxd_cross_cc -print-file-name=libc.so.6 2> /dev/null)"
+    if [ -n "${libc}" ]; then
+	comp="=$(readelf -t "${libc}" | sed -n -e '/COMPRESSED/{N;s/.*\(ZLIB\|ZSTD\).*/\1/p;q}' | tr '[:upper:]' '[:lower:]')"
+    fi
+    export ptxd_install_file_objcopy_args="--only-keep-debug --compress-debug-sections${comp}"
+}
+
+ptxd_install_compression_format
 
 ptxd_install_file_extract_debug() {
     local dst="${1}"
