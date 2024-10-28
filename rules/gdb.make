@@ -68,7 +68,9 @@ GDB_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
 	--target=$(PTXCONF_GNU_TARGET) \
 	--with-build-sysroot=$(SYSROOT) \
-	--disable-werror
+	--disable-werror \
+	--with-system-zlib \
+	--$(call ptx/wwo, PTXCONF_GDB_ZSTD)-zstd
 
 GDB_BUILD_OOT := YES
 

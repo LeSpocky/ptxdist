@@ -7,6 +7,8 @@ menuconfig GDB
 	select LIBC_DL
 	select GCCLIBS_GCC_S
 	select NCURSES
+	select ZLIB
+	select ZSTD		if GDB_ZSTD
 	select LIBGMP		if GDB_11_1
 	select MPFR		if GDB_14_1
 	select XZ		if GDB_DEBUGINFO_SUPPORT
@@ -20,6 +22,9 @@ menuconfig GDB
 	  any serious programmer.
 
 if GDB
+
+config GDB_ZSTD
+	bool
 
 config GDB_SHARED
 	bool "build shared"
@@ -48,6 +53,7 @@ config GDB_11_1
 
 config GDB_14_1
 	bool
+	select GDB_ZSTD
 	prompt "gdb-14.1 or later"
 	help
 	  Since gdb-14.1, MPFR is a required dependency. Enable this option
