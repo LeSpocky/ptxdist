@@ -2,6 +2,8 @@
 
 config PYTHON3_URLLIB3
 	tristate
+	select HOST_PYTHON3_PYBUILD
+	select HOST_PYTHON3_HATCHLING
 	select PYTHON3
 	prompt "urllib3"
 	help
