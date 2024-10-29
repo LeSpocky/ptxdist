@@ -1,0 +1,10 @@
+## SECTION=hosttools_noprompt
+
+config HOST_PYTHON3_HATCHLING
+	tristate
+	default y if ALLYES
+	select HOST_PYTHON3
+	select HOST_PYTHON3_TROVE_CLASSIFIERS
+	select HOST_PYTHON3_PLUGGY
+	select HOST_PYTHON3_PATHSPEC
+	select HOST_PYTHON3_PYBUILD
