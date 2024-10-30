@@ -15,10 +15,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 deletion(-)
 
 diff --git a/meson_post_install.py b/meson_post_install.py
-index cfc03b2219ff..1d007ad65e6e 100755
+index fe0633458c4f..0f29554921f3 100755
 --- a/meson_post_install.py
 +++ b/meson_post_install.py
-@@ -103,4 +103,3 @@ def post_install_exe():
+@@ -127,4 +127,3 @@ def post_install_exe():
  
  if __name__ == "__main__":
      post_install_relocation()
