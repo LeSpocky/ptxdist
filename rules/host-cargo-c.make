@@ -11,7 +11,9 @@
 #
 HOST_PACKAGES-$(PTXCONF_HOST_CARGO_C) += host-cargo-c
 
+ifdef PTXCONF_HOST_CARGO_C
 HOST_CARGO_C_CARGO_VERSION	:= $(word 2, $(subst -,$(space),$(call ptx/force-sh, cargo --version)))
+endif
 
 #
 # Paths and names
