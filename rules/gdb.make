@@ -70,7 +70,7 @@ GDB_CONF_OPT		:= \
 	--with-build-sysroot=$(SYSROOT) \
 	--disable-werror \
 	--with-system-zlib \
-	--$(call ptx/wwo, PTXCONF_GDB_ZSTD)-zstd
+	$(call ptx/ifdef, PTXCONF_GDB_14_1,--$(call ptx/wwo, PTXCONF_GDB_ZSTD)-zstd,)
 
 GDB_BUILD_OOT := YES
 
