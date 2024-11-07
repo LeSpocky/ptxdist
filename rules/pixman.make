@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIXMAN) += pixman
 #
 # Paths and names
 #
-PIXMAN_VERSION	:= 0.43.4
-PIXMAN_MD5	:= ca6767b8056637d690cd17970daf4b18
+PIXMAN_VERSION	:= 0.44.0
+PIXMAN_MD5	:= cf9628e53e9e5e992997c19908d6031e
 PIXMAN		:= pixman-$(PIXMAN_VERSION)
 PIXMAN_SUFFIX	:= tar.xz
 PIXMAN_URL	:= $(call ptx/mirror, XORG, individual/lib/$(PIXMAN).$(PIXMAN_SUFFIX))
@@ -40,8 +40,6 @@ PIXMAN_CONF_OPT		:= \
 	-Dgnu-inline-asm=disabled \
 	-Dgnuplot=false \
 	-Dgtk=disabled \
-	-Diwmmxt=disabled \
-	-Diwmmxt2=false \
 	-Dlibpng=disabled \
 	-Dloongson-mmi=disabled \
 	-Dmips-dspr2=disabled \
