@@ -31,9 +31,12 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--enable-rt \
 	--disable-ech \
 	--disable-code-coverage \
+	--disable-unity \
+	--disable-test-bundles \
 	--enable-http \
 	--disable-ftp \
 	--disable-file \
+	--disable-ipfs \
 	--disable-ldap \
 	--disable-ldaps \
 	--disable-rtsp \
