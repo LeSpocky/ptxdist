@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.10.1
-LIBCURL_MD5	:= 48adc57e11f543adbbbe86bdea98ca1f
+LIBCURL_VERSION	:= 8.11.0
+LIBCURL_MD5	:= 49dd886ac84ed3de693464f78f1ee926
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -47,9 +47,12 @@ LIBCURL_CONF_OPT	:= \
 	--disable-ech \
 	--disable-code-coverage \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-unity \
+	--disable-test-bundles \
 	--$(call ptx/endis, PTXCONF_LIBCURL_HTTP)-http \
 	--$(call ptx/endis, PTXCONF_LIBCURL_FTP)-ftp \
 	--$(call ptx/endis, PTXCONF_LIBCURL_FILE)-file \
+	--disable-ipfs \
 	--disable-ldap \
 	--disable-ldaps \
 	--$(call ptx/endis, PTXCONF_LIBCURL_RTSP)-rtsp \
