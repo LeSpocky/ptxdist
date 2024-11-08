@@ -413,3 +413,57 @@ config SETUP_HOST_MAKE
 	  Specify the host make programm here.
 
 endmenu
+
+menuconfig SETUP_CONTAINER_ENABLE
+	bool
+	prompt "build in container"
+	help
+	  Build the BSP in a container. PTXdist will not create any container
+	  but it will mount all relevant directories that are needed to build
+	  the BSP.
+
+if SETUP_CONTAINER_ENABLE
+
+choice
+	prompt "container manager"
+
+	config SETUP_CONTAINER_DOCKER
+		bool
+		prompt "docker"
+		help
+		  Use docker as container manager. The provided container image
+		  must be created with a user that has the same uid as the owner
+		  of the BSP repository. It will be explicitly selected with
+		  '--user $uid'
+
+	config SETUP_CONTAINER_PODMAN
+		bool
+		prompt "podman"
+		help
+		  Use podman ad container provider. '--userns=keep-id' will be
+		  used to map calling user into the container.
+
+endchoice
+
+config SETUP_CONTAINER_IMAGE
+	string
+	prompt "image name"
+	help
+	  The name of the container image that should be used.
+
+config SETUP_CONTAINER_ARGS
+	string
+	prompt "extra args"
+	help
+	  Additional arguments for the container manager. The will be inserted
+	  directly before the container image in the docker/podman command-line.
+
+config SETUP_CONTAINER_DEVELOP
+	bool
+	prompt "developer mode"
+	help
+	  In developer mode, additional directories will be mounted into the
+	  container, such at the user global ptxdistrc and sources symlinked in
+	  local_src/.
+
+endif
