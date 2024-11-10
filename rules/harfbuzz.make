@@ -52,7 +52,7 @@ HARFBUZZ_CONF_OPT	:= \
 	-Dintrospection=$(call ptx/endis, PTXCONF_HARFBUZZ_INTROSPECTION)d \
 	-Dragel_subproject=false \
 	-Dtests=disabled \
-	-Dutilities=disabled
+	-Dutilities=disabled \
 	-Dwasm=disabled
 
 # ----------------------------------------------------------------------------
