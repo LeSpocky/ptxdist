@@ -136,6 +136,7 @@ meson_blacklist = [
 	"cpp_std",
 	"datadir",
 	"debug",
+	"default_both_libraries",
 	"default_library",
 	"errorlogs",
 	"force_fallback_for",
