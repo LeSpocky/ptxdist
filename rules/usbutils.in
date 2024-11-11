@@ -1,6 +1,7 @@
 ## SECTION=shell_and_console
 
 menuconfig USBUTILS
+	select HOST_MESON
 	select LIBUSB
 	select UDEV
 	select UDEV_LIBUDEV
