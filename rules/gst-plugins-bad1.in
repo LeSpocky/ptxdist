@@ -968,14 +968,11 @@ config GST_PLUGINS_BAD1_VULKAN
 	help
 	  Vulkan video sink plugin
 
-if GST_PLUGINS_BAD1_VULKAN
-
 config GST_PLUGINS_BAD1_WAYLAND
 	bool
 	prompt "wayland"
 	help
-	  Wayland plugin/library, support in the Vulkan plugin
-endif
+	  Wayland plugin/library and support in the Vulkan plugin
 
 config GST_PLUGINS_BAD1_WEBP
 	bool
