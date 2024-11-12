@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_DTC) += dtc
 #
 # Paths and names
 #
-DTC_VERSION	:= 1.7.0
-DTC_MD5		:= f8b4469ad89f4b882091895ec60dde6b
+DTC_VERSION	:= 1.7.2
+DTC_MD5		:= a35aefd37cab86013a10ebdfc599f0c4
 DTC		:= dtc-$(DTC_VERSION)
 DTC_SUFFIX	:= tar.gz
 DTC_URL		:= https://git.kernel.org/pub/scm/utils/dtc/dtc.git/snapshot/$(DTC).$(DTC_SUFFIX)
@@ -69,7 +69,7 @@ $(STATEDIR)/dtc.targetinstall:
 	@$(call install_fixup, dtc,AUTHOR,"Ladislav Michl <ladis@linux-mips.org>")
 	@$(call install_fixup, dtc,DESCRIPTION,missing)
 
-	@$(call install_lib, dtc, 0, 0, 0644, libfdt-$(DTC_VERSION))
+	@$(call install_lib, dtc, 0, 0, 0644, libfdt)
 
 	@$(foreach tool, $(DTC_BIN-y), \
 		$(call install_copy, dtc, 0, 0, 0755, -, \
