@@ -2455,8 +2455,8 @@ run_in_container()
 	cmd+=( run -t -i "${manager_args[@]}" )
 
 	# forward variables that are exported and whitelisted
-	mapfile -d ":" -t env <<<"${PTXCONF_SETUP_ENV_WHITELIST}:${PTXDIST_ENV_WHITELIST}"
-	unset env[-1]
+	mapfile -d ":" -t env < <(printf "${PTXCONF_SETUP_ENV_WHITELIST}")
+	mapfile -d ":" -O "${#env[*]}" -t env < <(printf "${PTXDIST_ENV_WHITELIST}")
 	env+=( PTXDIST_ENV_WHITELIST PTXDIST_PTXRC TERM COLUMNS LINES KCONFIG_ALLCONFIG KCONFIG_SEED )
 	for tmp in "${env[@]}"; do
 		if [[ "${!tmp@a}" =~ x ]]; then
