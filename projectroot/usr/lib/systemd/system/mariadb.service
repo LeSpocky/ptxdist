@@ -8,7 +8,7 @@ User=mysql
 Group=mysql
 PrivateDevices=true
 
-ExecStart=/usr/bin/mysqld
+ExecStart=/usr/sbin/mariadbd
 
 KillMode=process
 KillSignal=SIGTERM

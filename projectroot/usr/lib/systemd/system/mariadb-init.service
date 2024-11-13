@@ -33,7 +33,7 @@ RemainAfterExit=yes
 ExecStart=/bin/chown -R mysql:mysql /var/lib/mysql
 ExecStart=/bin/chmod 0755 /var/lib/mysql
 
-ExecStart=/usr/scripts/mysql_install_db --basedir=/usr --datadir=/var/lib/mysql/data --user=mysql
+ExecStart=/usr/bin/mariadb-install-db --basedir=/usr --datadir=/var/lib/mysql/data --user=mysql
 
 [Install]
 WantedBy=multi-user.target

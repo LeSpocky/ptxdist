@@ -11,9 +11,11 @@ config MARIADB
 	select LIBC_RT
 	select GCCLIBS_CXX
 	select GCCLIBS_GCC_S
-	select LIBAIO
-	select LIBPCRE
+	select FMT
+	select PCRE2
 	select NCURSES
+	select OPENSSL
+	select LIBAIO
 	select SYSTEMD		if MARIADB_SYSTEMD
 	select ZLIB
 	select ROOTFS_VAR_LIB	if RUNTIME
