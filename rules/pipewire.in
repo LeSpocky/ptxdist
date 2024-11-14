@@ -22,6 +22,7 @@ menuconfig PIPEWIRE
 	select SBC			if PIPEWIRE_BLUETOOTH
 	select UDEV
 	select UDEV_LIBUDEV
+	select WEBRTC_AUDIO_PROCESSING	if PIPEWIRE_ECHO_CANCEL
 	prompt "pipewire                      "
 	help
 	  PipeWire is a server and user space API to deal with multimedia
@@ -36,6 +37,10 @@ if PIPEWIRE
 config PIPEWIRE_BLUETOOTH
 	bool
 	prompt "enable bluetooth options"
+
+config PIPEWIRE_ECHO_CANCEL
+	bool
+	prompt "enable echo canceling"
 
 config PIPEWIRE_GSTREAMER
 	bool

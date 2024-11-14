@@ -61,7 +61,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Ddoc-sysconfdir-value= \
 	-Ddocdir= \
 	-Ddocs=disabled \
-	-Decho-cancel-webrtc=disabled \
+	-Decho-cancel-webrtc=$(call ptx/endis,PTXCONF_PIPEWIRE_ECHO_CANCEL)d \
 	-Devl=disabled \
 	-Dexamples=enabled \
 	-Dffmpeg=disabled \
@@ -168,6 +168,7 @@ PIPEWIRE_MODULES-y := \
 PIPEWIRE_MODULES-$(PTXCONF_PIPEWIRE_RAOP)	+= raop-sink
 
 PIPEWIRE_SPA_MODULES := \
+	$(call ptx/ifdef,PTXCONF_PIPEWIRE_ECHO_CANCEL,aec/libspa-aec-webrtc) \
 	alsa/libspa-alsa \
 	audioconvert/libspa-audioconvert \
 	audiomixer/libspa-audiomixer \
