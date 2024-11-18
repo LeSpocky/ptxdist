@@ -1,0 +1,11 @@
+## SECTION=test_suites
+
+config X11PERF
+	tristate
+	prompt "x11perf"
+	select XORG_LIB_X11
+	select XORG_LIB_XMU
+	select XORG_LIB_XRENDER
+	select XORGPROTO
+	help
+	  X11 server performance test program
