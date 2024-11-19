@@ -167,7 +167,7 @@ In this case, the *extract* stage will throw errors like this::
    -----------------------------
 
    extract: pkg_src=/ptx/src/ima-evm-utils-1.3.2.tar.gz
-   extract: pkg_extract_dir=DistroKit/platform-v7a/build-target/ima-evm-utils-1.3.2
+   extract: pkg_dir=DistroKit/platform-v7a/build-target/ima-evm-utils-1.3.2
    patchin: git: initializing repository
    patchin: git: done
 

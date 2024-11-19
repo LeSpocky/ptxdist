@@ -293,13 +293,6 @@ ptxd_make_world_init() {
     unset wip_sources
 
     #
-    # extract dir
-    #
-    local extract_ptr="ptx_extract_dir_${pkg_type}"
-    pkg_extract_dir="${!extract_ptr}"
-    unset extract_ptr
-
-    #
     # conf dir
     #
     pkg_conf_dir="${pkg_dir}${pkg_subdir:+/}${pkg_subdir}"

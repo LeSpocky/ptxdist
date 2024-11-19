@@ -18,12 +18,6 @@ ptxd_make_world_extract_impl() {
 	return
     fi
 
-    if [ "${pkg_dir%/}" = "${pkg_extract_dir}" ]; then
-	ptxd_bailout "<PKG>_DIR cannot be the $(ptxd_print_path ${pkg_extract_dir}). There is something wrong with the package definition."
-    fi
-
-    pkg_extract_dir="${pkg_deprecated_extract_dir:-${pkg_extract_dir}}"
-
     case "${pkg_url}" in
 	lndir://*)
 	    local url="$(ptxd_file_url_path "${pkg_url}")"
@@ -57,12 +51,12 @@ ptxd_make_world_extract_impl() {
 	    ;;
     esac
 
-    mkdir -p "${pkg_extract_dir}" || return
+    mkdir -p "$(dirname "${pkg_dir}")" || return
 
     ptxd_make_serialize_take
     echo "\
 extract: pkg_src=$(ptxd_print_path ${pkg_src})
-extract: pkg_extract_dir=$(ptxd_print_path ${pkg_dir})"
+extract: pkg_dir=$(ptxd_print_path ${pkg_dir})"
 
     local tmpdir
     tmpdir="$(mktemp -d "${pkg_dir}.XXXXXX")"
