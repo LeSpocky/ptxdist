@@ -467,8 +467,8 @@ ptxd_make_world_patchin_init()
 {
     ptxd_make_world_init || return
 
-    if [ -z "${pkg_url}" -a -z "${pkg_src}" ]; then
-	# no <PKG>_URL and no <PKG>_SOURCE -> assume the package has nothing to patchin.
+    if [ -z "${pkg_url}" -a -z "${pkg_src}" -a "${pkg_parts}" = "${pkg_PKG}" ]; then
+	# no <PKG>_URL, no <PKG>_SOURCE and not other <PKG>_PARTS -> assume the package has nothing to patchin.
 	return
     fi
 
