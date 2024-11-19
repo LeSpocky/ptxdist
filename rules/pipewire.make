@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 1.2.5
-PIPEWIRE_MD5		:= 61f8d627b740e04c8234da6870799673
+PIPEWIRE_VERSION	:= 1.2.6
+PIPEWIRE_MD5		:= 764218c1548250a77221809b7a22f13d
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -82,6 +82,8 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dlibpulse=disabled \
 	-Dlibusb=disabled \
 	-Dlibv4l2-path= \
+	-Dlogind=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD)d \
+	-Dlogind-provider=libsystemd \
 	-Dlv2=disabled \
 	-Dman=disabled \
 	-Dopus=disabled \
