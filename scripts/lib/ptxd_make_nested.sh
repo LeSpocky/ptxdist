@@ -28,8 +28,6 @@ ptxd_make_nested_ptxdist_impl() {
 	export -fp | sed -n 's/^declare -fx \([^=]*\).*$/\1/p'
 	} | grep -E -v "^(args|PTXDIST_PTXRC|PTX_AUTOBUILD_DESTDIR|PTXDIST_PLATFORMDIR|CCACHE_.*|PWD|HOME|USER|PATH|TERM|COLUMNS|LINES|DISPLAY|TMPDIR|http_proxy|https_proxy|ftp_proxy|no_proxy${whitelist})$")
 
-    PATH=$(sed -e 's;[^:]*/sysroot-\(host\|cross\)/[^:]*:;;g' -e "s;${PTXDIST_TOPDIR}/bin:;;" -e "s;${PTXDIST_TOOLCHAIN}:;;" <<< "${PATH}")
-
     eval "${args[@]}"
 }
 export -f ptxd_make_nested_ptxdist_impl
@@ -47,6 +45,9 @@ ptxd_make_nested_ptxdist() {
 	pkg_workspace="${PTXDIST_WORKSPACE}"
     fi
     args=( "cd" "${pkg_workspace}" "&&" "${PTXDIST_TOPDIR}/bin/ptxdist" )
+
+    PTXDIST_TOOLCHAIN="$(readlink "${PTXDIST_PLATFORMDIR}/selected_toolchain")"
+    PATH=$(sed -e 's;[^:]*/sysroot-\(host\|cross\)/[^:]*:;;g' -e "s;${PTXDIST_TOPDIR}/bin:;;" -e "s;${PTXDIST_TOOLCHAIN}:;;" <<< "${PATH}")
 
     if [ "${PTXDIST_DIRTY}" = true ]; then
 	args[${#args[*]}]="--dirty"
