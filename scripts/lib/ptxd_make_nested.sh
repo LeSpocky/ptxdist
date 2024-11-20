@@ -49,6 +49,11 @@ ptxd_make_nested_ptxdist() {
     PTXDIST_TOOLCHAIN="$(readlink "${PTXDIST_PLATFORMDIR}/selected_toolchain")"
     PATH=$(sed -e 's;[^:]*/sysroot-\(host\|cross\)/[^:]*:;;g' -e "s;${PTXDIST_TOPDIR}/bin:;;" -e "s;${PTXDIST_TOOLCHAIN}:;;" <<< "${PATH}")
 
+    if [ "${PTXDIST_WORKSPACE}" != "${pkg_workspace}" ]; then
+	unset PTXDIST_PLATFORMDIR
+	args[${#args[*]}]="--auto-version"
+    fi
+
     if [ "${PTXDIST_DIRTY}" = true ]; then
 	args[${#args[*]}]="--dirty"
     fi
