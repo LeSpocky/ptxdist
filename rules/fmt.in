@@ -1,0 +1,9 @@
+## SECTION=system_libraries
+
+config FMT
+	tristate
+	select HOST_CMAKE
+	prompt "fmt"
+	help
+	  {fmt} is an open-source formatting library providing a fast and safe
+	  alternative to C stdio and C++ iostreams.
