@@ -383,6 +383,7 @@ endif
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-run)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-socket-activate)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-stdio-bridge)
+	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-tty-ask-password-agent)
 	@$(call install_link, systemd, systemd-mount, /usr/bin/systemd-umount)
 
 ifdef PTXCONF_SYSTEMD_NSPAWN
