@@ -4,6 +4,7 @@ config PYTHON3_TABULATE
 	tristate
 	select PYTHON3
 	select HOST_PYTHON3_PYBUILD
+	select HOST_PYTHON3_WHEEL
 	prompt "tabulate"
 	help
 	  Pretty-print tabular data in Python, a library and a command-line utility
