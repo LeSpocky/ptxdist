@@ -166,7 +166,9 @@ export -f ptxd_make_world_compile_finish
 
 ptxd_make_world_compile_python() {
     if [ -e "${pkg_dir}/pyproject.toml" -a ! -e "${pkg_dir}/setup.py" ] && \
-	    ! [[ " ${pkg_build_deps_all} " =~ ' host-python3-pybuild ' ]]; then
+	    ( [[ "${pkg_label}" =~ host-.*python3-flit-core ]] ||
+	    [[ " ${pkg_build_deps} " =~ ' host-python3-flit-core ' && ! "${pkg_label}" =~ ^host-system-python3- ]] ||
+	    [[ " ${pkg_build_deps} " =~ ' host-system-python3-flit-core ' && "${pkg_label}" =~ ^host-system-python3- ]] ) ; then
 	ptxd_eval \
 	    cd "${pkg_build_dir}" '&&' \
 	    "${pkg_path}" \
@@ -191,6 +193,9 @@ ptxd_make_world_compile_python() {
 	    --no-isolation \
 	    --outdir "${pkg_build_dir}" \
 	    "${pkg_dir}"
+    elif [ -e "${pkg_dir}/pyproject.toml" -a ! -e "${pkg_dir}/setup.py" ]; then
+	ptxd_bailout "Missing Python build dependency!" \
+		     "${pkg_label} probably needs to select HOST_PYTHON3_PYBUILD"
     else
 	ptxd_eval \
 	    cd "${pkg_build_dir}" '&&' \
