@@ -45,11 +45,24 @@ config CHRONY_ADVANCED_COMMAND
 	  This allows getting advanced NTP time synchronization
 	  status monitoring from the service.
 
+config CHRONY_REFCLK
+	bool
+	prompt "Enable reference clock support"
+
 config CHRONY_PPS_REFCLK
 	bool
+	select CHRONY_REFCLK
 	prompt "Enable support for PPS devices"
 	help
 	  Pulse per second devices signal the start of every second
+	  with high precision.
+
+config CHRONY_PHC_REFCLK
+	bool
+	select CHRONY_REFCLK
+	prompt "Enable support for PHC devices"
+	help
+	  PTP hardware clock devices signal the start of every second
 	  with high precision.
 
 comment "install options   ---"

@@ -50,8 +50,8 @@ CHRONY_CONF_OPT		:= \
 	--without-tomcrypt \
 	$(call ptx/ifdef, PTXCONF_CHRONY_ADVANCED_COMMAND,,--disable-cmdmon) \
 	$(call ptx/ifdef, PTXCONF_CHRONY_ADVANCED_COMMAND,--enable-debug,) \
-	--disable-refclock \
-	--disable-phc \
+	$(call ptx/ifdef, PTXCONF_CHRONY_REFCLK,,--disable-refclock) \
+	$(call ptx/ifdef, PTXCONF_CHRONY_PHC_REFCLK,,--disable-phc) \
 	$(call ptx/ifdef, PTXCONF_CHRONY_PPS_REFCLK,,--disable-pps) \
 	$(call ptx/ifdef, PTXCONF_GLOBAL_IPV6,,--disable-ipv6) \
 	--with-user=$(call ptx/ifdef, PTXCONF_INITMETHOD_SYSTEMD,chrony,root) \
