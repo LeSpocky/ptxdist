@@ -416,6 +416,8 @@ Options
 ``--git``
   use git to apply patches
 
+.. _ptxdist_parameter_autoversion:
+
 ``--auto-version``
   automatically switch to the correct PTXdist version. This will look for
   the correct PTXdist version in the ptxconfig file and execute it if it
