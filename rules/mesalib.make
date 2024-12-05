@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 24.2.7
-MESALIB_MD5	:= c245ce6fe6ef8db7b5e62eb754c54449
+MESALIB_VERSION	:= 24.3.1
+MESALIB_MD5	:= ab0c9a102e6713fca2b8c955b368fe57
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -123,6 +123,7 @@ MESALIB_VULKAN_LIBS-y = $(subst amd,radeon,$(subst swrast,lvp,$(MESALIB_VULKAN_D
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_DEVICE_SELECT)	+= device-select
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_INTEL_NULLHW)	+= intel-nullhw
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_OVERLAY)		+= overlay
+MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_SCREENSHOT)	+= screenshot
 
 MESALIB_LIBS-y				:= libglapi
 MESALIB_LIBS-$(PTXCONF_MESALIB_GLX)	+= libGL
@@ -160,8 +161,6 @@ MESALIB_CONF_OPT	:= \
 	-Ddatasources=auto \
 	-Ddraw-use-llvm=true \
 	-Ddri-drivers-path=/usr/lib/dri \
-	-Ddri-search-path=/usr/lib/dri \
-	-Ddri3=$(call ptx/endis, PTXCONF_MESALIB_DRI3)d \
 	-Degl=$(call ptx/endis, PTXCONF_MESALIB_EGL)d \
 	-Degl-lib-suffix= \
 	-Degl-native-platform=auto \
@@ -176,9 +175,9 @@ MESALIB_CONF_OPT	:= \
 	-Dgallium-drivers=$(subst $(space),$(comma),$(MESALIB_GALLIUM_DRIVERS-y)) \
 	-Dgallium-extra-hud=$(call ptx/truefalse, PTXCONF_MESALIB_EXTENDED_HUD) \
 	-Dgallium-nine=false \
-	-Dgallium-omx=disabled \
 	-Dgallium-opencl=disabled \
 	-Dgallium-rusticl=false \
+	-Dgallium-rusticl-enable-drivers= \
 	-Dgallium-va=$(call ptx/endis, PTXCONF_MESALIB_VA)d \
 	-Dgallium-vdpau=disabled \
 	-Dgallium-wgl-dll-name=libgallium_wgl \
@@ -201,6 +200,7 @@ MESALIB_CONF_OPT	:= \
 	-Dinstall-intel-gpu-tests=false \
 	-Dintel-clc=system \
 	-Dintel-rt=disabled \
+	-Dlegacy-x11=none \
 	-Dlibunwind=disabled \
 	-Dllvm=$(call ptx/endis, PTXCONF_MESALIB_LLVM)d \
 	-Dllvm-orcjit=false \
@@ -208,7 +208,6 @@ MESALIB_CONF_OPT	:= \
 	-Dmicrosoft-clc=disabled \
 	-Dmin-windows-version=8 \
 	-Dmoltenvk-dir= \
-	-Domx-libs-path=/usr/lib/dri \
 	-Dopencl-spirv=false \
 	-Dopengl=$(call ptx/truefalse, PTXCONF_MESALIB_OPENGL) \
 	-Dosmesa=false \
@@ -217,7 +216,6 @@ MESALIB_CONF_OPT	:= \
 	-Dplatforms=$(subst $(space),$(comma),$(MESALIBS_EGL_PLATFORMS-y)) \
 	-Dpower8=disabled \
 	-Dradv-build-id='' \
-	-Dselinux=false \
 	-Dshader-cache=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d \
 	-Dshader-cache-default=true \
 	-Dshader-cache-max-size=1G \
@@ -311,6 +309,9 @@ endif
 
 	@$(foreach lib, $(MESALIB_LIBS-y), \
 		$(call install_lib, mesalib, 0, 0, 0644, $(lib))$(ptx/nl))
+ifdef PTXCONF_MESALIB_GBM
+	@$(call install_copy, mesalib, 0, 0, 0644, -, /usr/lib/gbm/dri_gbm.so)
+endif
 
 	@$(call install_finish, mesalib)
 
