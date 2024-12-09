@@ -14,10 +14,10 @@ PACKAGES-$(PTXCONF_WIREPLUMBER) += wireplumber
 #
 # Paths and names
 #
-WIREPLUMBER_VERSION		:= 0.4.14
-WIREPLUMBER_MD5			:= 5b1ae97978987f8790587f38a3d2241b
+WIREPLUMBER_VERSION		:= 0.5.7
+WIREPLUMBER_MD5			:= 27942921e44583930e9b30632457750e
 WIREPLUMBER			:= wireplumber-$(WIREPLUMBER_VERSION)
-WIREPLUMBER_SUFFIX		:= tar.bz2
+WIREPLUMBER_SUFFIX		:= tar.gz
 WIREPLUMBER_URL			:= https://gitlab.freedesktop.org/pipewire/wireplumber/-/archive/$(WIREPLUMBER_VERSION)/$(WIREPLUMBER).$(WIREPLUMBER_SUFFIX)
 WIREPLUMBER_SOURCE		:= $(SRCDIR)/$(WIREPLUMBER).$(WIREPLUMBER_SUFFIX)
 WIREPLUMBER_DIR			:= $(BUILDDIR)/$(WIREPLUMBER)
@@ -56,19 +56,20 @@ WIREPLUMBER_CONF_OPT	:=  \
 # ----------------------------------------------------------------------------
 
 WIREPLUMBER_MODULES := \
-	default-nodes \
+	dbus-connection \
 	default-nodes-api \
-	default-profile \
 	file-monitor-api \
+	logind \
+	log-settings \
 	lua-scripting \
-	metadata \
 	mixer-api \
 	portal-permissionstore \
 	reserve-device \
+	settings \
 	si-audio-adapter \
-	si-audio-endpoint \
 	si-node \
-	si-standard-link
+	si-standard-link \
+	standard-event-source
 
 $(STATEDIR)/wireplumber.targetinstall:
 	@$(call targetinfo)
@@ -79,7 +80,7 @@ $(STATEDIR)/wireplumber.targetinstall:
 	@$(call install_fixup, wireplumber,AUTHOR,"Michael Olbrich <m.olbrich@pengutronix.de>")
 	@$(call install_fixup, wireplumber,DESCRIPTION,missing)
 
-	@$(call install_lib, wireplumber, 0, 0, 644, libwireplumber-0.4)
+	@$(call install_lib, wireplumber, 0, 0, 644, libwireplumber-0.5)
 
 	@$(call install_copy, wireplumber, 0, 0, 755, -, /usr/bin/wireplumber)
 	@$(call install_copy, wireplumber, 0, 0, 755, -, /usr/bin/wpctl)
@@ -87,7 +88,7 @@ $(STATEDIR)/wireplumber.targetinstall:
 
 	@$(foreach module, $(WIREPLUMBER_MODULES), \
 		$(call install_lib, wireplumber, 0, 0, 644, \
-			wireplumber-0.4/libwireplumber-module-$(module))$(ptx/nl))
+			wireplumber-0.5/libwireplumber-module-$(module))$(ptx/nl))
 	@$(call install_tree, wireplumber, 0, 0, -, \
 		/usr/share/wireplumber)
 
