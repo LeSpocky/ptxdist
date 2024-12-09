@@ -269,6 +269,7 @@ SYSTEMD_HELPER := \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_HOSTNAMED,systemd-hostnamed) \
 	systemd-journald \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_JOURNAL_REMOTE,systemd-journal-remote) \
+	$(call ptx/ifdef, PTXCONF_SYSTEMD_JOURNAL_REMOTE,systemd-journal-upload) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_LOCALES,systemd-localed) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_LOGIND,systemd-logind) \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_NSPAWN,systemd-machined) \
@@ -457,6 +458,8 @@ endif
 ifdef PTXCONF_SYSTEMD_JOURNAL_REMOTE
 	@$(call install_alternative, systemd, 0, 0, 0644, \
 		/etc/systemd/journal-remote.conf)
+	@$(call install_alternative, systemd, 0, 0, 0644, \
+		/etc/systemd/journal-upload.conf)
 endif
 
 ifdef PTXCONF_SYSTEMD_LOCALES
