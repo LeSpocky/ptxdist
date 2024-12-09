@@ -16,8 +16,8 @@ endif
 #
 # Paths and names
 #
-OPTEE_VERSION	:= 4.0.0
-OPTEE_MD5	:= f7e9e874481dfb6b6b0998e1acb4e215
+OPTEE_VERSION	:= 4.4.0
+OPTEE_MD5	:= 75ee68c7968832fef638932dae666539
 OPTEE		:= optee-$(OPTEE_VERSION)
 OPTEE_SUFFIX	:= tar.gz
 OPTEE_URL	:= https://github.com/OP-TEE/optee_os/archive/$(OPTEE_VERSION).$(OPTEE_SUFFIX)
