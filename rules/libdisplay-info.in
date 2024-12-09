@@ -7,3 +7,13 @@ menuconfig LIBDISPLAY_INFO
 	select HWDATA if BUILDTIME
 	help
 	  EDID and DisplayID library
+
+if LIBDISPLAY_INFO
+
+config LIBDISPLAY_INFO_EDID_DECODE
+	bool
+	prompt "install 'di-edid-decode'"
+	help
+	  di-edid-decode commandline tool to decode EDID with libdisplay-info
+
+endif

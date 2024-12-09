@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBDISPLAY_INFO) += libdisplay-info
 #
 # Paths and names
 #
-LIBDISPLAY_INFO_VERSION		:= 0.1.1
-LIBDISPLAY_INFO_MD5		:= 56e8d2213d2aefd7defaaddfd9cb80e1
+LIBDISPLAY_INFO_VERSION		:= 0.2.0
+LIBDISPLAY_INFO_MD5		:= 160d4159a7805823cf0b3b4f86dfa8d4
 LIBDISPLAY_INFO			:= libdisplay-info-$(LIBDISPLAY_INFO_VERSION)
 LIBDISPLAY_INFO_SUFFIX		:= tar.xz
 LIBDISPLAY_INFO_URL		:= https://gitlab.freedesktop.org/emersion/libdisplay-info/-/releases/$(LIBDISPLAY_INFO_VERSION)/downloads/$(LIBDISPLAY_INFO).$(LIBDISPLAY_INFO_SUFFIX)
@@ -50,6 +50,10 @@ $(STATEDIR)/libdisplay-info.targetinstall:
 	@$(call install_fixup, libdisplay-info,DESCRIPTION,missing)
 
 	@$(call install_lib, libdisplay-info, 0, 0, 0644, libdisplay-info)
+ifdef PTXCONF_LIBDISPLAY_INFO_EDID_DECODE
+	@$(call install_copy, libdisplay-info, 0, 0, 0755, -, \
+		/usr/bin/di-edid-decode)
+endif
 
 	@$(call install_finish, libdisplay-info)
 
