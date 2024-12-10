@@ -1,0 +1,47 @@
+From: Lucas Stach <l.stach@pengutronix.de>
+Date: Tue, 10 Dec 2024 11:45:33 +0100
+Subject: [PATCH] trace-cmd meson: add options for doc and utest build
+
+In some cases building documentation or utest is not desired.
+Add meson options to allow skipping those build targets.
+
+Signed-off-by: Lucas Stach <l.stach@pengutronix.de>
+---
+ meson.build       | 5 ++++-
+ meson_options.txt | 4 ++++
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index 4773f4a941b1..237d9b400ea5 100644
+--- a/meson.build
++++ b/meson.build
+@@ -140,9 +140,11 @@ subdir('lib/trace-cmd')
+ # trace-cmd
+ subdir('tracecmd')
+ subdir('python')
+-if cunit_dep.found()
++if get_option('utest') and cunit_dep.found()
+     subdir('utest')
+ endif
++
++if get_option('doc')
+ subdir('Documentation/trace-cmd')
+ 
+ custom_target(
+@@ -150,3 +152,4 @@ custom_target(
+     output: 'docs',
+     depends: [html, man],
+     command: ['echo'])
++endif
+diff --git a/meson_options.txt b/meson_options.txt
+index 2d5d7457bed5..37d72ff29d87 100644
+--- a/meson_options.txt
++++ b/meson_options.txt
+@@ -21,3 +21,7 @@ option('docbook-suppress-sp', type : 'boolean', value : false,
+        description : 'docbook suppress sp')
+ option('python', type : 'combo', choices : ['auto', 'true', 'false'],
+        description : 'Generate trac-cmd Python bindings')
++option('doc', type : 'boolean', value: true,
++       description : 'produce documentation')
++option('utest', type : 'boolean', value: true,
++       description : 'build utest')
