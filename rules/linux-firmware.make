@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20241110
-LINUX_FIRMWARE_MD5	:= 175bc2b90cb70c462ca4f2b4e550aacf
+LINUX_FIRMWARE_VERSION	:= 20241210
+LINUX_FIRMWARE_MD5	:= 8f2976a94cffc1c606bf66c893302934
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -72,6 +72,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENSE.amdgpu;md5=1433dfea38c97a2e563a248a863dcb94 \
 	file://LICENSE.nxp;md5=cca321ca1524d6a1e4fed87486cd82dc \
 	file://LICENSE.airoha;md5=fa3dedb960e2673aea51aa509f7b537d \
+	file://LICENSE.amdnpu;md5=ea42c0f38f2d42aad08bd50c822460dc \
 	file://LICENCE.agere;md5=af0133de6b4a9b2522defd5f188afd31 \
 	file://LICENCE.siano;md5=4556c1bf830067f12ca151ad953ec2a5 \
 	file://LICENCE.broadcom_bcm43xx;md5=3160c14df7228891b868060e1951dfbc \
@@ -103,6 +104,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.ca0132;md5=209b33e66ee5be0461f13d31da392198 \
 	file://LICENCE.Abilis;md5=b5ee3f410780e56711ad48eadc22b8bc \
 	file://LICENCE.atheros_firmware;md5=30a14c7823beedac9fa39c64fdd01a13 \
+	file://LICENSE;md5=9679923af0484b24318afd718aad7f62 \
 	file://LICENCE.ti-connectivity;md5=3b1e9cf54aba8146dad4b735777d406f \
 	file://LICENSE.amlogic;md5=80e4e3f27def8bc4b232009c3a587c07 \
 	file://LICENSE.xe;md5=c674d38774242bc0c528214721488118 \
