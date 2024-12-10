@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBTRACEEVENT) += libtraceevent
 #
 # Paths and names
 #
-LIBTRACEEVENT_VERSION	:= 1.8.2
-LIBTRACEEVENT_MD5 	:= 671645965e835ef4236b96851fb889c9
+LIBTRACEEVENT_VERSION	:= 1.8.4
+LIBTRACEEVENT_MD5 	:= 2efaa25168e20ad5501393a25ed1cd01
 LIBTRACEEVENT		:= libtraceevent-$(LIBTRACEEVENT_VERSION)
 LIBTRACEEVENT_SUFFIX	:= tar.xz
 LIBTRACEEVENT_URL	:= https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git;tag=libtraceevent-$(LIBTRACEEVENT_VERSION)
@@ -60,7 +60,7 @@ $(STATEDIR)/libtraceevent.targetinstall:
 	@$(call install_lib, libtraceevent, 0, 0, 0644, libtraceevent)
 
 	@for plugin in cfg80211 function futex hrtimer jbd2 kmem kvm mac80211 sched_switch scsi tlb xen; do \
-		$(call install_lib, libtraceevent, 0, 0, 0644, libtraceevent/plugins/plugin_$${plugin}); \
+		$(call install_lib, libtraceevent, 0, 0, 0644, traceevent/plugins/plugin_$${plugin}); \
 	done
 
 	@$(call install_finish, libtraceevent)
