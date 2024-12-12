@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NFTABLES) += nftables
 #
 # Paths and names
 #
-NFTABLES_VERSION	:= 1.1.0
-NFTABLES_MD5		:= 3082f7c9ad4b8dd1c9fb260ad82d1472
+NFTABLES_VERSION	:= 1.1.1
+NFTABLES_MD5		:= f0a71bcd8c112be7594851b39d4a45c3
 NFTABLES		:= nftables-$(NFTABLES_VERSION)
 NFTABLES_SUFFIX		:= tar.xz
 NFTABLES_URL		:= http://ftp.netfilter.org/pub/nftables/$(NFTABLES).$(NFTABLES_SUFFIX)
