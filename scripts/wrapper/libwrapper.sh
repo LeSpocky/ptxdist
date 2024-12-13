@@ -388,9 +388,7 @@ add_icecc_args() {
 			add_late_arg "-fno-diagnostics-show-caret"
 			add_late_arg "-gno-record-gcc-switches"
 		fi
-		if [ "${PTXDIST_ICECC_REMOTE_CPP}" != 1 -o "${ICECC_REMOTE_CPP}" = "0" ]; then
-		    add_late_arg "-Wno-implicit-fallthrough"
-		fi
+		add_late_arg "-Wno-implicit-fallthrough"
 	fi
 }
 
