@@ -4,4 +4,5 @@
 0002-HACK-enable-NEON-only-for-ARMv7.patch
 0003-HACK-don-t-fail-if-lrelease-is-missing.patch
 0004-HACK-don-t-fail-if-uic-is-missing.patch
-# 344e721ffeeec9faa5876797156d7064  - git-ptx-patches magic
+0005-HACK-dependencies-trust-pkgconfig-when-looking-for-z.patch
+# 7455b31e5c3191c20e77f5d5979274c6  - git-ptx-patches magic

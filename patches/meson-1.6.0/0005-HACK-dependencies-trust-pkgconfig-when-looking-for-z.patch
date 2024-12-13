@@ -1,0 +1,24 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 13 Dec 2024 15:52:31 +0100
+Subject: [PATCH] HACK: dependencies: trust pkgconfig when looking for zlib
+
+If it's filtered in pkg-config, don't try to find it in another way.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ mesonbuild/dependencies/dev.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/mesonbuild/dependencies/dev.py b/mesonbuild/dependencies/dev.py
+index 94f51ff69b12..29e3e752882f 100644
+--- a/mesonbuild/dependencies/dev.py
++++ b/mesonbuild/dependencies/dev.py
+@@ -825,7 +825,7 @@ packages['gmock'] = gmock_factory = DependencyFactory(
+ 
+ packages['zlib'] = zlib_factory = DependencyFactory(
+     'zlib',
+-    [DependencyMethods.PKGCONFIG, DependencyMethods.CMAKE, DependencyMethods.SYSTEM],
++    [DependencyMethods.PKGCONFIG],
+     cmake_name='ZLIB',
+     system_class=ZlibSystemDependency,
+ )
