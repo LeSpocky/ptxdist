@@ -17,8 +17,8 @@ PACKAGES-$(PTXCONF_PROCPS) += procps
 #
 # Paths and names
 #
-PROCPS_VERSION	:= 4.0.4
-PROCPS_MD5	:= 2f747fc7df8ccf402d03e375c565cf96
+PROCPS_VERSION	:= 4.0.5
+PROCPS_MD5	:= 90803e64f51f192f3325d25c3335d057
 PROCPS		:= procps-ng-$(PROCPS_VERSION)
 PROCPS_SUFFIX	:= tar.xz
 PROCPS_URL	:= $(call ptx/mirror, SF, procps-ng/Production/$(PROCPS).$(PROCPS_SUFFIX))
@@ -48,6 +48,7 @@ PROCPS_CONF_OPT	:= \
 	--disable-libselinux \
 	--disable-harden-flags \
 	--$(call ptx/endis, PTXCONF_PROCPS_PIDOF)-pidof \
+	--$(call ptx/endis, PTXCONF_PROCPS_PIDWAIT)-pidwait \
 	--disable-kill \
 	--$(call ptx/endis, PTXCONF_PROCPS_W)-w \
 	--disable-skill \
@@ -59,6 +60,7 @@ PROCPS_CONF_OPT	:= \
 	--disable-numa \
 	--disable-w-from \
 	--enable-whining \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--without-libiconv-prefix \
 	--without-libintl-prefix \
 	--$(call ptx/wwo, PTXCONF_PROCPS_USES_NCURSES)-ncurses \
