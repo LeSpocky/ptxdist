@@ -57,7 +57,6 @@ HOST_QEMU_CONF_OPT	:= \
 	" \
 	--ninja=ninja \
 	--disable-download \
-	--disable-sanitizers \
 	--disable-tsan \
 	--disable-werror \
 	--enable-stack-protector \
@@ -93,10 +92,12 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-capstone \
 	--disable-cloop \
 	--disable-cocoa \
+	--disable-colo-proxy \
 	--disable-coreaudio \
 	--disable-crypto-afalg \
 	--disable-curl \
 	--disable-curses \
+	--disable-dbus-display \
 	--disable-dmg \
 	--disable-docs \
 	--disable-dsound \
@@ -111,15 +112,18 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-gtk-clipboard \
 	--disable-guest-agent \
 	--disable-guest-agent-msi \
+	--disable-hv-balloon \
 	--disable-hvf \
 	--enable-iconv \
 	--disable-jack \
 	--disable-keyring \
 	--enable-kvm \
 	--disable-l2tpv3 \
+	--disable-libcbor \
 	--disable-libdaxctl \
 	--disable-libdw \
 	--disable-libiscsi \
+	--disable-libkeyutils \
 	--disable-libnfs \
 	--disable-libpmem \
 	--disable-libssh \
@@ -143,13 +147,18 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-pa \
 	--disable-pipewire \
 	--disable-parallels \
+	--disable-pixman \
 	--disable-png \
 	--disable-qcow1 \
+	--disable-qatzip \
 	--disable-qed \
 	--disable-qga-vss \
+	--disable-qpl \
 	--disable-rbd \
 	--disable-rdma \
 	--disable-replication \
+	--disable-rust \
+	--disable-rutabaga-gfx \
 	--disable-sdl \
 	--disable-sdl-image \
 	--disable-seccomp \
@@ -166,10 +175,12 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-tools \
 	--disable-tpm \
 	--disable-u2f \
+	--disable-uadk \
 	--disable-usb-redir \
 	--disable-vdi \
 	--disable-vduse-blk-export \
 	--disable-vfio-user-server \
+	--disable-vhdx \
 	--disable-vhost-crypto \
 	--enable-vhost-kernel \
 	--enable-vhost-net \
@@ -178,10 +189,12 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-vhost-vdpa \
 	--disable-virglrenderer \
 	--$(call ptx/endis, PTXCONF_HOST_QEMU_SYS)-virtfs \
+	--disable-vmdk \
 	--disable-vmnet \
 	--disable-vnc \
 	--disable-vnc-jpeg \
 	--disable-vnc-sasl \
+	--disable-vpc \
 	--disable-vte \
 	--disable-vvfat \
 	--disable-whpx \
