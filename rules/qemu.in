@@ -14,9 +14,11 @@ menuconfig QEMU
 	select ZLIB
 	select SDL2		if QEMU_SDL
 	select GTK		if QEMU_GTK
+	select PIXMAN		if QEMU_PIXMAN
 	select LIBUSB		if QEMU_SYS
 	select PIXMAN		if QEMU_SYS
 	select PULSEAUDIO	if QEMU_PULSEAUDIO
+	select KEYUTILS		if QEMU_KEYUTILS
 	select ALSA_LIB 	if QEMU_ALSA
 	select PIPEWIRE		if QEMU_PIPEWIRE
 	help
@@ -46,6 +48,12 @@ config QEMU_GTK
 	help
 	  Say y to build with GTK support.
 
+config QEMU_PIXMAN
+	bool
+	prompt "Enable pixman support."
+	help
+	  Say y to build with pixman support.
+
 config QEMU_PULSEAUDIO
 	bool
 	prompt "Enable pulseaudio output support."
@@ -63,6 +71,12 @@ config QEMU_PIPEWIRE
 	prompt "Enable pipewire audio output support."
 	help
 	  Say y to build with pipewire support.
+
+config QEMU_KEYUTILS
+	bool
+	prompt "Enable keyutils library support."
+	help
+	  Say y to build with keyutils.
 
 config QEMU_TOOLS
 	bool

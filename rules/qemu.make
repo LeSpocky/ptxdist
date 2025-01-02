@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 9.1.2
-QEMU_MD5	:= ea4bb735d60ad3392875f7cd48e551af
+QEMU_VERSION	:= 9.2.0
+QEMU_MD5	:= ece615b98642720430236e20237dd936
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -51,7 +51,6 @@ QEMU_CONF_OPT	:= \
 	--cross-prefix=$(CROSS_COMPILE) \
 	--ninja=ninja \
 	--disable-download \
-	--disable-sanitizers \
 	--disable-tsan \
 	--disable-werror \
 	--enable-stack-protector \
@@ -87,10 +86,12 @@ QEMU_CONF_OPT	:= \
 	--disable-capstone \
 	--disable-cloop \
 	--disable-cocoa \
+	--disable-colo-proxy \
 	--disable-coreaudio \
 	--disable-crypto-afalg \
 	--disable-curl \
 	--disable-curses \
+	--disable-dbus-display \
 	--disable-dmg \
 	--disable-docs \
 	--disable-dsound \
@@ -105,15 +106,18 @@ QEMU_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QEMU_GTK)-gtk-clipboard \
 	--disable-guest-agent \
 	--disable-guest-agent-msi \
+	--disable-hv-balloon \
 	--disable-hvf \
 	--enable-iconv \
 	--disable-jack \
 	--disable-keyring \
 	--enable-kvm \
 	--disable-l2tpv3 \
+	--disable-libcbor \
 	--disable-libdaxctl \
 	--disable-libdw \
 	--disable-libiscsi \
+	--$(call ptx/endis, PTXCONF_QEMU_KEYUTILS)-libkeyutils \
 	--disable-libnfs \
 	--disable-libpmem \
 	--disable-libssh \
@@ -135,15 +139,20 @@ QEMU_CONF_OPT	:= \
 	--disable-opengl \
 	--disable-oss \
 	--$(call ptx/endis, PTXCONF_QEMU_PULSEAUDIO)-pa \
-	--$(call ptx/endis, PTXCONF_QEMU_PIPEWIRE)-pipewire \
 	--disable-parallels \
+	--$(call ptx/endis, PTXCONF_QEMU_PIPEWIRE)-pipewire \
+	--$(call ptx/endis, PTXCONF_QEMU_PIXMAN)-pixman \
 	--disable-png \
+	--disable-qatzip \
 	--disable-qcow1 \
 	--disable-qed \
 	--disable-qga-vss \
+	--disable-qpl \
 	--disable-rbd \
 	--disable-rdma \
 	--disable-replication \
+	--disable-rust \
+	--disable-rutabaga-gfx \
 	--$(call ptx/endis, PTXCONF_QEMU_SDL)-sdl \
 	--disable-sdl-image \
 	--disable-seccomp \
@@ -160,11 +169,13 @@ QEMU_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QEMU_TOOLS)-tools \
 	--disable-tpm \
 	--disable-u2f \
+	--disable-uadk \
 	--disable-usb-redir \
 	--disable-vde \
 	--disable-vdi \
 	--disable-vduse-blk-export \
 	--disable-vfio-user-server \
+	--disable-vhdx \
 	--disable-vhost-crypto \
 	--enable-vhost-kernel \
 	--enable-vhost-net \
@@ -173,10 +184,12 @@ QEMU_CONF_OPT	:= \
 	--disable-vhost-vdpa \
 	--disable-virglrenderer \
 	--$(call ptx/endis, PTXCONF_QEMU_SYS)-virtfs \
+	--disable-vmdk \
 	--disable-vmnet \
 	--disable-vnc \
 	--disable-vnc-jpeg \
 	--disable-vnc-sasl \
+	--disable-vpc \
 	--disable-vte \
 	--disable-vvfat \
 	--disable-whpx \
@@ -233,7 +246,6 @@ ifdef PTXCONF_QEMU_SYS
 		@$(call install_copy, qemu, 0, 0, 0755, -, /usr/bin/qemu-system-$(target))$(ptx/nl))
 
 ifdef PTXCONF_QEMU_TOOLS
-	@$(call install_copy, qemu, 0, 0, 0755, -, /usr/libexec/virtfs-proxy-helper)
 	@$(call install_copy, qemu, 0, 0, 0755, -, /usr/libexec/qemu-bridge-helper)
 endif
 
