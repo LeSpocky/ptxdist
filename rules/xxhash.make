@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_XXHASH) += xxhash
 #
 # Paths and names
 #
-XXHASH_VERSION	:= 0.8.2
-XXHASH_MD5	:= a7628d7a4fd608a7573c5a3e2c856ea5
+XXHASH_VERSION	:= 0.8.3
+XXHASH_MD5	:= 599804eb9555e51c05f1b821f9212a07
 XXHASH		:= xxhash-$(XXHASH_VERSION)
 XXHASH_SUFFIX	:= tar.gz
 XXHASH_URL	:= https://github.com/Cyan4973/xxHash/archive/refs/tags/v$(XXHASH_VERSION).$(XXHASH_SUFFIX)
