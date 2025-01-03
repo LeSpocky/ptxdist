@@ -1798,6 +1798,7 @@ EOF
 			exit
 			;;
 		distclean)
+			setup_logfile &&
 			clean
 
 			echo "${PTXDIST_LOG_PROMPT}removing configuration links..."
