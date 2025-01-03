@@ -69,7 +69,7 @@ Or re-build the package with the new settings:
 
 .. code-block:: text
 
-    $ ptxdist drop foo prepare
+    $ ptxdist drop foo.prepare
     $ ptxdist targetinstall foo
 
 Adding Dynamic Configure Parameters

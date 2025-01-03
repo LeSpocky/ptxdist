@@ -117,7 +117,7 @@ To rebuild the kernel:
 
 .. code-block:: text
 
-    jbe@octopus:~/myprj$ ptxdist drop kernel compile
+    jbe@octopus:~/myprj$ ptxdist drop kernel.compile
     jbe@octopus:~/myprj$ ptxdist targetinstall kernel
 
 .. note:: To clean the kernel, change into the local_src directory and call
