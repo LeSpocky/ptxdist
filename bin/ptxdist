@@ -1815,9 +1815,6 @@ EOF
 				fi
 			done
 
-			echo "${PTXDIST_LOG_PROMPT}removing logs..."
-			rm -f -- "${PTX_LOGFILE}" "${PTXDIST_WORKSPACE}/logfile"
-
 			echo
 			exit
 			;;

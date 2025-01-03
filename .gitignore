@@ -13,8 +13,6 @@
 \#*#
 .\#*
 
-logfile
-
 /bin/*
 !/bin/ptxdist
 !/bin/ptxdist-auto-version
