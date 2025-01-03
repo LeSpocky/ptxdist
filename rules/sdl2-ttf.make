@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDL2_TTF) += sdl2-ttf
 #
 # Paths and names
 #
-SDL2_TTF_VERSION	:= 2.22.0
-SDL2_TTF_MD5		:= 686e685caaa215d8fa1ac7bb02b2cf54
+SDL2_TTF_VERSION	:= 2.24.0
+SDL2_TTF_MD5		:= ea660f1b01919998785cffae9fa954b9
 SDL2_TTF		:= SDL2_ttf-$(SDL2_TTF_VERSION)
 SDL2_TTF_SUFFIX		:= tar.gz
 SDL2_TTF_URL		:= https://www.libsdl.org/projects/SDL_ttf/release/$(SDL2_TTF).$(SDL2_TTF_SUFFIX)
@@ -23,7 +23,7 @@ SDL2_TTF_SOURCE		:= $(SRCDIR)/$(SDL2_TTF).$(SDL2_TTF_SUFFIX)
 SDL2_TTF_DIR		:= $(BUILDDIR)/$(SDL2_TTF)
 SDL2_TTF_LICENSE	:= zlib
 SDL2_TTF_LICENSE_FILES	:= \
-	file://LICENSE.txt;md5=2f6d9e01c97958aa851954ed5acf82ee
+	file://LICENSE.txt;md5=fbb0010b2f7cf6e8a13bcac1ef4d2455
 
 # ----------------------------------------------------------------------------
 # Prepare
