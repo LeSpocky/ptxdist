@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_DBUS) += dbus
 #
 # Paths and names
 #
-DBUS_VERSION		:= 1.15.12
-DBUS_MD5		:= cc1a1e2ae4ad166ed3d3da36172bbb8a
+DBUS_VERSION		:= 1.16.0
+DBUS_MD5		:= 66bfcf1f42d4ebc634ca558d14335e92
 DBUS			:= dbus-$(DBUS_VERSION)
 DBUS_SUFFIX		:= tar.xz
 DBUS_URL		:= https://dbus.freedesktop.org/releases/dbus/$(DBUS).$(DBUS_SUFFIX)
@@ -48,14 +48,13 @@ DBUS_CONF_OPT	:= \
 	-Dapparmor=disabled \
 	-Dasserts=false \
 	-Dchecks=false \
-	-Dcontainers=false \
 	-Ddbus_user=messagebus \
 	-Ddoxygen_docs=disabled \
 	-Dducktype_docs=disabled \
-	-Dembedded_tests=false \
 	-Depoll=enabled \
 	-Dinotify=enabled \
 	-Dinstalled_tests=false \
+	-Dintrusive_tests=false \
 	-Dkqueue=disabled \
 	-Dlaunchd=disabled \
 	-Dlibaudit=disabled \
