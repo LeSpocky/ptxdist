@@ -19,7 +19,9 @@ NTP_VERSION	:= 4.2.8p18
 NTP_MD5		:= 516bdabd94ab7c824e9771390761a46c
 NTP		:= ntp-$(NTP_VERSION)
 NTP_SUFFIX	:= tar.gz
-NTP_URL		:= http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/$(NTP).$(NTP_SUFFIX)
+NTP_URL		:= \
+	http://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/$(NTP).$(NTP_SUFFIX) \
+	https://downloads.nwtime.org/ntp/$(NTP).$(NTP_SUFFIX)
 NTP_SOURCE	:= $(SRCDIR)/$(NTP).$(NTP_SUFFIX)
 NTP_DIR		:= $(BUILDDIR)/$(NTP)
 NTP_LICENSE	:= ntp
