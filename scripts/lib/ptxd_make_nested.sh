@@ -79,7 +79,7 @@ ptxd_make_nested_ptxdist() {
 
     ptxd_verbose "executing:" "${args[@]}"
 
-    # run ptxdist but don't log it. It has it's on logfile
+    # run ptxdist but don't log it. It has its own logfile
     (
 	if [ -n "${PTXDIST_FD_STDOUT}" ]; then
 	    exec 1> >(sed "s/^/${pkg_label}: /" >&${PTXDIST_FD_STDOUT})

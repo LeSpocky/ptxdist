@@ -440,7 +440,7 @@ choice
 		bool
 		prompt "podman"
 		help
-		  Use podman ad container provider. '--userns=keep-id' will be
+		  Use podman as container provider. '--userns=keep-id' will be
 		  used to map calling user into the container.
 
 endchoice
@@ -455,7 +455,7 @@ config SETUP_CONTAINER_ARGS
 	string
 	prompt "extra args"
 	help
-	  Additional arguments for the container manager. The will be inserted
+	  Additional arguments for the container manager. They will be inserted
 	  directly before the container image in the docker/podman command-line.
 
 config SETUP_CONTAINER_DEVELOP
@@ -463,7 +463,7 @@ config SETUP_CONTAINER_DEVELOP
 	prompt "developer mode"
 	help
 	  In developer mode, additional directories will be mounted into the
-	  container, such at the user global ptxdistrc and sources symlinked in
+	  container, such as the user global ptxdistrc and sources symlinked in
 	  local_src/.
 
 endif

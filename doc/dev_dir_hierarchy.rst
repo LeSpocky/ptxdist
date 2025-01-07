@@ -51,7 +51,7 @@ Patches are looked for at several locations:
 
 1.  the ``patches/`` folder in your BSP (``${PTXDIST_WORKSPACE}/patches``)
 
-2.  the folder ``patches/`` folder relative to your selected platformconfig
+2.  the ``patches/`` folder relative to your selected platformconfig
     file (``${PTXDIST_PLATFORMCONFIGDIR}/patches``). If your platformconfig
     file is at ``configs/|ptxdistPlatformConfigDir|/platformconfig``, this
     patch folder will be ``configs/|ptxdistPlatformConfigDir|/patches/``.

@@ -225,7 +225,7 @@ Misc Actions
 
 ``bsp-info``
   show some basic information about the BSP. The currently used configs,
-  all layers, the images that are build, etc.
+  all layers, the images that are built, etc.
 
 ``package-info <pkg>``
   show some basic information about the package. This includes the version,

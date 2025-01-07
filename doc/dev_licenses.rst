@@ -221,7 +221,7 @@ For the example above, lines 1 to 16 of main.cc would be::
 Always include the copyright statement ("Copyright YYYY (C) Some Person")
 for the calculation of the checksum, even if it means that the checksum changes
 on package updates when new years are added to the string.
-While it is not is needed for most licenses to be valid, some licenses require
+While it is not needed for most licenses to be valid, some licenses require
 that it must not be removed (e.g. see GPLv2, section 1),
 and it is proper etiquette to give attribution to the maintainers in the
 license report document.
