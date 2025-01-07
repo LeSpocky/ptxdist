@@ -13,16 +13,16 @@ PACKAGES-$(PTXCONF_NCURSES) += ncurses
 #
 # Paths and names
 #
-NCURSES_VERSION	:= 6.4
+NCURSES_VERSION	:= 6.5
 NCURSES_MAJOR	:= $(word 1,$(subst ., ,$(NCURSES_VERSION)))
-NCURSES_MD5	:= 5a62487b5d4ac6b132fe2bf9f8fad29b
+NCURSES_MD5	:= ac2d2629296f04c8537ca706b6977687
 NCURSES		:= ncurses-$(NCURSES_VERSION)
 NCURSES_SUFFIX	:= tar.gz
 NCURSES_URL	:= $(call ptx/mirror, GNU, ncurses/$(NCURSES).$(NCURSES_SUFFIX))
 NCURSES_SOURCE	:= $(SRCDIR)/$(NCURSES).$(NCURSES_SUFFIX)
 NCURSES_DIR	:= $(BUILDDIR)/$(NCURSES)
 NCURSES_LICENSE	:= MIT
-NCURSES_LICENSE_FILES := file://COPYING;md5=afd8d0a6ec9c24941eb06bc5e4017918
+NCURSES_LICENSE_FILES := file://COPYING;md5=7743fde124d1ceeaf6eb1100c49fcf6c
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -80,7 +80,7 @@ NCURSES_AUTOCONF_SHARED = \
 	--disable-ext-putwin \
 	--disable-no-padding \
 	--disable-signed-char \
-	--disable-sigwinch \
+	--enable-sigwinch \
 	--without-pthread \
 	--disable-reentrant \
 	--without-develop \
