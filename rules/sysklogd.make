@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SYSKLOGD) += sysklogd
 #
 # Paths and names
 #
-SYSKLOGD_VERSION	:= 2.6.2
-SYSKLOGD_MD5		:= 9f64535a9a791f20504841b94d194391
+SYSKLOGD_VERSION	:= 2.7.0
+SYSKLOGD_MD5		:= 611c0fa5c138eb7a532f3c13bdf11ebc
 SYSKLOGD		:= sysklogd-$(SYSKLOGD_VERSION)
 SYSKLOGD_SUFFIX		:= tar.gz
 SYSKLOGD_URL		:= https://github.com/troglobit/sysklogd/releases/download/v$(SYSKLOGD_VERSION)/$(SYSKLOGD).$(SYSKLOGD_SUFFIX)
