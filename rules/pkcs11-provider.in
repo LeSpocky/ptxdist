@@ -1,0 +1,11 @@
+## SECTION=security
+
+config PKCS11_PROVIDER
+	tristate
+	select OPENSSL
+	select HOST_MESON
+	default y if ALLYES
+	prompt "PKCS11 Provider               "
+	help
+	  A pkcs#11 provider for OpenSSL 3.0+. This will require adjustments
+	  to the openssl configuration file.
