@@ -14,9 +14,9 @@ PACKAGES-$(PTXCONF_GST_PLUGINS_RS) += gst-plugins-rs
 #
 # Paths and names
 #
-GST_PLUGINS_RS_VERSION		:= 1.24.10
+GST_PLUGINS_RS_VERSION		:= 1.24.11
 GST_PLUGINS_RS_TAG		:= gstreamer-$(GST_PLUGINS_RS_VERSION)
-GST_PLUGINS_RS_MD5		:= 1acdd2737986a8ae26af3808953c9191
+GST_PLUGINS_RS_MD5		:= 9e71daa04ced4c4f3ebcf952b3b30c8f
 GST_PLUGINS_RS			:= gst-plugins-rs-$(GST_PLUGINS_RS_VERSION)
 GST_PLUGINS_RS_SUFFIX		:= tar.bz2
 GST_PLUGINS_RS_URL		:= https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/$(GST_PLUGINS_RS_TAG)/gst-plugins-rs-$(GST_PLUGINS_RS_TAG).$(GST_PLUGINS_RS_SUFFIX)
