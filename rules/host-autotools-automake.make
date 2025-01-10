@@ -23,8 +23,6 @@ HOST_AUTOTOOLS_AUTOMAKE_SOURCE	:= $(SRCDIR)/$(HOST_AUTOTOOLS_AUTOMAKE).$(HOST_AU
 HOST_AUTOTOOLS_AUTOMAKE_DIR	:= $(HOST_BUILDDIR)/$(HOST_AUTOTOOLS_AUTOMAKE)
 HOST_AUTOTOOLS_AUTOMAKE_LICENSE	:= GPL-2.0-only
 
-$(STATEDIR)/autogen-tools: $(STATEDIR)/host-autotools-automake.install.post
-
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------

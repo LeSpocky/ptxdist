@@ -24,8 +24,6 @@ HOST_AUTOTOOLS_LIBTOOL_DIR	:= $(HOST_BUILDDIR)/$(HOST_AUTOTOOLS_LIBTOOL)
 HOST_AUTOTOOLS_LIBTOOL_DEVPKG	:= NO
 HOST_AUTOTOOLS_LIBTOOL_LICENSE	:= GPL-2.0-or-later
 
-$(STATEDIR)/autogen-tools: $(STATEDIR)/host-autotools-libtool.install.post
-
 # ----------------------------------------------------------------------------
 # Extract
 # ----------------------------------------------------------------------------

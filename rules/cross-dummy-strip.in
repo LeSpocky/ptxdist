@@ -2,6 +2,7 @@
 
 config CROSS_DUMMY_STRIP
 	bool
+	select VIRTUAL_CROSS_TOOLS
 	default y
 	help
 	  Dummy, no-op strip to prevent leak-in of the host strip-version.

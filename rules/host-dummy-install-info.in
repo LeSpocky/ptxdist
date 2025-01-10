@@ -2,5 +2,6 @@
 
 config HOST_DUMMY_INSTALL_INFO
 	bool
+	select VIRTUAL_HOST_TOOLS
 	help
 	  Fake install-info that does nothing

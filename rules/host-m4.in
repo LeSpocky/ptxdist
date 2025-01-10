@@ -1,4 +1,6 @@
 ## SECTION=hosttools_noprompt
 
 config HOST_M4
+	select VIRTUAL_AUTOGEN_TOOLS
+	select HOST_PKGCONF
 	bool

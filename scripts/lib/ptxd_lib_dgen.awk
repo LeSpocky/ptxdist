@@ -155,6 +155,12 @@ $1 ~ /^PTX_MAP_._DEP/ {
 	this_PKG = gensub(/PTX_MAP_._DEP_/, "", "g", $1);
 	dep_type = gensub(/PTX_MAP_(.)_DEP_.*/, "\\1", "g", $1);
 
+	if ($2 ~ /\<VIRTUAL_HOST_TOOLS\>/)
+		virtual_host_pkg[this_PKG] = 1
+	if ($2 ~ /\<VIRTUAL_CROSS_TOOLS\>/)
+		virtual_cross_pkg[this_PKG] = 1
+	if ($2 ~ /\<VIRTUAL_AUTOGEN_TOOLS\>/)
+		virtual_autogen_pkg[this_PKG] = 1
 	if ($2 ~ /\<VIRTUAL\>/)
 		virtual_pkg[this_PKG] = 1
 	else if (!(this_PKG in PKG_to_pkg)) # no pkg
@@ -600,7 +606,7 @@ function write_deps_pkg_active(this_PKG, this_pkg, prefix) {
 	print "ifneq ($(" this_PKG "),)"						> DGEN_DEPS_POST;
 	# on autogen script
 	print "ifneq ($(call autogen_dep,$(" this_PKG ")),)"				> DGEN_DEPS_POST;
-	print "$(STATEDIR)/" this_pkg ".extract.post:" DEP " $(STATEDIR)/autogen-tools"	> DGEN_DEPS_POST;
+	print "$(STATEDIR)/" this_pkg ".extract.post:" DEP " $(STATEDIR)/virtual-autogen-tools.install"		> DGEN_DEPS_POST;
 	print "endif"									> DGEN_DEPS_POST;
 	# on lndir
 	print "ifneq ($(findstring lndir://,$(" this_PKG "_URL)),)"			> DGEN_DEPS_POST;
@@ -641,14 +647,19 @@ function write_deps_pkg_active(this_PKG, this_pkg, prefix) {
 # add deps to virtual pkgs
 #
 function write_deps_pkg_active_virtual(this_PKG, this_pkg, prefix) {
-	if (this_pkg ~ /^host-dummy-install-info$/)
-		return;
-	if (this_pkg ~ /^host-pkgconf$/)
-		return;
-	if (this_pkg ~ /^host-chrpath$/)
-		return;
 	if (this_pkg ~ /^host-system-/)
 		return;
+	if (this_PKG in virtual_autogen_pkg) {
+		print "$(STATEDIR)/virtual-autogen-tools.install:"  " $(STATEDIR)/" this_pkg  ".install.post"	> DGEN_DEPS_POST;
+		return;
+	}
+	if (this_PKG in virtual_host_pkg) {
+		print "$(STATEDIR)/virtual-host-tools.install:"     " $(STATEDIR)/" this_pkg  ".install.post"	> DGEN_DEPS_POST;
+		return;
+	}
+	if (this_PKG in virtual_cross_pkg) {
+		print "$(STATEDIR)/virtual-cross-tools.install:"     " $(STATEDIR)/" this_pkg  ".install.post"	> DGEN_DEPS_POST;
+	}
 
 	if (prefix != "")
 		virtual = "virtual-host-tools";

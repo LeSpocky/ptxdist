@@ -10,7 +10,7 @@ autogen_dep = $(strip $(wildcard						\
 	$(foreach dir,$(subst :,/$(strip $(1))$(space),$(PTXDIST_PATH_PATCHES)),\
 		$(dir)/autogen.sh)))
 
-$(STATEDIR)/autogen-tools:
+$(STATEDIR)/virtual-autogen-tools.install:
 	@$(call targetinfo)
 	@$(call touch)
 

@@ -3,5 +3,6 @@
 config HOST_CHRPATH
 	tristate
 	default y
+	select VIRTUAL_HOST_TOOLS
 	help
 	  Tool to change the rpath of an ELF binary.

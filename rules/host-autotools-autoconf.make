@@ -27,8 +27,6 @@ HOST_AUTOTOOLS_AUTOCONF_LICENSE_FILES := \
 	file://COPYINGv3;md5=1ebbd3e34237af26da5dc08a4e440464 \
 	file://COPYING.EXCEPTION;md5=eb129370fe0bb2068cc4e48ff8d31260
 
-$(STATEDIR)/autogen-tools: $(STATEDIR)/host-autotools-autoconf.install.post
-
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------

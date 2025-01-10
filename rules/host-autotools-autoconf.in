@@ -2,6 +2,8 @@
 
 config HOST_AUTOTOOLS_AUTOCONF
 	bool
+	select VIRTUAL_AUTOGEN_TOOLS
 	select HOST_SYSTEM_PERL
+	select HOST_PKGCONF
 	select HOST_M4
 	default y

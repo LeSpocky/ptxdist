@@ -11,3 +11,15 @@ config BUILDTIME
 
 config VIRTUAL
 	bool
+
+config VIRTUAL_HOST_TOOLS
+	bool
+	select VIRTUAL
+
+config VIRTUAL_CROSS_TOOLS
+	bool
+	select VIRTUAL
+
+config VIRTUAL_AUTOGEN_TOOLS
+	bool
+	select VIRTUAL

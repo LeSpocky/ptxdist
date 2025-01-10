@@ -2,5 +2,7 @@
 
 config HOST_AUTOTOOLS_LIBTOOL
 	bool
+	select VIRTUAL_AUTOGEN_TOOLS
+	select HOST_PKGCONF
 	select HOST_M4
 	default y

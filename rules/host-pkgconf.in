@@ -3,4 +3,5 @@
 config HOST_PKGCONF
 	tristate
 	default y if ALLYES
+	select VIRTUAL_HOST_TOOLS
 
