@@ -10,7 +10,6 @@ from datetime import datetime
 from os import path
 from shutil import copy
 import hashlib
-import re
 import uuid
 
 from report.sbom import SbomGenerator
@@ -18,15 +17,6 @@ from report import spdx
 
 
 class SpdxSbomGenerator(SbomGenerator):
-
-    PYPI_RELEASE = re.compile(
-        'https://files.pythonhosted.org/packages/source/./([^/]*)/.*-([^-]*).(tar\\..*|zip)')
-    GITHUB_TAG = re.compile(
-        'https://github.com/([^/]*)/([^/]*)/archive/(refs/tags/)?([^/]*).(tar\\..*|zip)')
-    GITHUB_RELEASE = re.compile(
-        'https://github.com/([^/]*)/([^/]*)/releases/download/([^/]*)/.*')
-    CARGO_RELEASE = re.compile(
-        'https://crates.io/api/v1/crates/([^/]*)/([^/]*)/download')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -103,33 +93,6 @@ class SpdxSbomGenerator(SbomGenerator):
                 raise ReportException(f'Missing packge "{dep}"')
             spdx_dep = self.spdx_pkgs[dep]
             document.add_relationship(spdx_pkg, 'CONTAINS', spdx_dep)
-
-    def generate_purls(self, pkg):
-        purls = []
-        for url in pkg.get('url', []):
-            if m := self.PYPI_RELEASE.match(url):
-                if m.group(2) != pkg['version']:
-                    ReportException(
-                        f'{pkg["name"]}: version mismatch: pkg: {pkg["version"]} url: {m.group(2)}')
-                purls.append(f'pkg:pypi/{m.group(1)}@{m.group(2)}')
-
-            elif m := self.GITHUB_TAG.match(url):
-                purls.append(
-                    f'pkg:github/{m.group(1)}/{m.group(2)}@{m.group(4)}')
-
-            elif m := self.GITHUB_RELEASE.match(url):
-                purls.append(
-                    f'pkg:github/{m.group(1)}/{m.group(2)}@{m.group(3)}')
-
-            elif m := self.CARGO_RELEASE.match(url):
-                purls.append(f'pkg:cargo/{m.group(1)}@{m.group(2)}')
-
-            else:
-                if url.startswith('https://files.pythonhosted.org') or url.startswith('https://github.com') or url.startswith('https://crates.io'):
-                    raise ReportException(
-                        f'{pkg["name"]}: url "{url}" should match purl pattern')
-
-        return purls
 
     def import_pkg_spdx(self, pkg):
         if 'spdx-sbom' not in pkg:
