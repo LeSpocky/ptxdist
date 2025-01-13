@@ -1,0 +1,20 @@
+## SECTION=security
+
+config SOFTHSM
+	tristate
+	select OPENSSL
+	select SQLITE
+	default y if ALLYES
+	prompt "SoftHSMv2                     "
+	help
+	  SoftHSM emulates an HSM (e.g. Hardware Security Module) device and
+	  provides the regular API to be work in conjunction with PKCS#11.
+	  https://www.opendnssec.org/download/
+
+if SOFTHSM
+
+config SOFTHSM_P11_KIT
+	bool
+	default P11_KIT
+
+endif
