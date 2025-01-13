@@ -1,0 +1,33 @@
+# -*-makefile-*-
+#
+# Copyright (C) 2025 by Michael Olbrich <m.olbrich@pengutronix.de>
+#
+# For further information about the PTXdist project and license conditions
+# see the README file.
+#
+
+#
+# We provide this package
+#
+HOST_PACKAGES-$(PTXCONF_HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB) += host-system-python3-cyclonedx-python-lib
+
+#
+# Paths and names
+#
+HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_VERSION	:= 8.5.0
+HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_MD5		:= 88b163d357fc51752b15bf54b1fc1feb
+HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB		:= cyclonedx_python_lib-$(HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_VERSION)
+HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_SUFFIX		:= tar.gz
+HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_URL		:= $(call ptx/mirror-pypi, cyclonedx-python-lib, $(HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB).$(HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_SUFFIX))
+HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_SOURCE		:= $(SRCDIR)/$(HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB).$(HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_SUFFIX)
+HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_DIR		:= $(HOST_BUILDDIR)/$(HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB)
+HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_LICENSE	:= Apache-2.0
+HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_LICENSE_FILES	:= file://LICENSE;md5=86d3f3a95c324c9479bd8986968f4327
+
+# ----------------------------------------------------------------------------
+# Prepare
+# ----------------------------------------------------------------------------
+
+HOST_SYSTEM_PYTHON3_CYCLONEDX_PYTHON_LIB_CONF_TOOL	:= python3
+
+# vim: syntax=make
