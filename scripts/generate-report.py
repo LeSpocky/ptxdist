@@ -11,7 +11,6 @@ from os import path, environ, makedirs
 from chardet.universaldetector import UniversalDetector
 from datetime import datetime
 from multiprocessing import Pool
-from dot2tex import dot2tex
 from shutil import copy
 import argparse
 import jinja2
