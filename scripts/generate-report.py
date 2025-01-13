@@ -33,7 +33,7 @@ def main():
     args.path = [path.abspath(path.join(d, args.template))
                  for d in args.path.split(':')] if args.path else ['']
 
-    if not args.generator and args.template in ('spdx-sbom'):
+    if not args.generator and args.template in ('spdx-sbom', 'cyclonedx-sbom'):
         args.generator = args.template
 
     if not args.output_dir and args.output:
@@ -55,6 +55,9 @@ def main():
     elif args.generator == 'spdx-sbom':
         from report.spdx_sbom import SpdxSbomGenerator
         generator = SpdxSbomGenerator(args)
+    elif args.generator == 'cyclonedx-sbom':
+        from report.cyclonedx_sbom import CycloneDXSbomGenerator
+        generator = CycloneDXSbomGenerator(args)
     else:
         raise ReportException(f'Invalid generator type: "{args.generator}"')
 
