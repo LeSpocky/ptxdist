@@ -6,8 +6,10 @@
 # see the README file.
 #
 
+from os import path
 import re
 
+from report.report import ReportException
 from report.generator import Generator
 
 
@@ -52,6 +54,33 @@ class SbomGenerator(Generator):
                         f'{pkg["name"]}: url "{url}" should match purl pattern')
 
         return purls
+
+    def patches(self, pkg):
+        if 'patches' not in pkg:
+            return []
+        patch_dir = pkg['patches']
+        series = path.join(patch_dir, 'series')
+        if not path.exists(series):
+            return
+
+        patches = []
+        tag = 'base'
+        TAG = re.compile('#tag:([^ ]) .*')
+        with open(series) as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                if m := TAG.match(line):
+                    tag = m.group(1)
+                if line.startswith('#'):
+                    continue
+                patch = path.join(patch_dir, line.rstrip())
+                if not path.exists(patch):
+                    raise ReportException(
+                        f'Patch missing for {pkg["name"]}: {patch}')
+                patches.append((tag, patch))
+        return patches
 
     def setup_env(self):
         env = {}
