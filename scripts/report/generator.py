@@ -113,6 +113,25 @@ node [ shape=point fixedsize=true width=0.1 ];
 """
         return dot
 
+    def get_cve_products(self, pkg):
+        products = pkg.get('cve-product', [pkg['name'].removeprefix(
+            'host-system-').removeprefix('host-').removeprefix('cross-')])
+        cve_products = []
+        for product in products:
+            if ':' in product:
+                vendor, product = product.split(":", 1)
+            else:
+                vendor = '*'
+            cve_products.append((vendor, product))
+        return cve_products
+
+    def create_cpe_ids(self, pkg):
+        # if there is nothing to download then a CPE ID makes no sense
+        if 'url' not in pkg:
+            return []
+        version = pkg.get('cve-version', pkg.get('version', '*'))
+        return [f'cpe:2.3:*:{vendor}:{product}:{version}:*:*:*:*:*:*:*' for vendor, product in self.get_cve_products(pkg)]
+
     def load(self, data):
         return yaml.load(open(data).read(), Loader=yaml.SafeLoader)
 
