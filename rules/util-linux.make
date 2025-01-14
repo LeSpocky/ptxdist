@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_UTIL_LINUX) += util-linux
 #
 # Paths and names
 #
-UTIL_LINUX_VERSION	:= 2.40.2
-UTIL_LINUX_MD5		:= 1044d809128f04048a794d1786491eb4
+UTIL_LINUX_VERSION	:= 2.40.4
+UTIL_LINUX_MD5		:= b7927f7e4b6c29e026ca2bfe0010ea0d
 UTIL_LINUX		:= util-linux-$(UTIL_LINUX_VERSION)
 UTIL_LINUX_SUFFIX	:= tar.gz
 UTIL_LINUX_URL		:= https://git.kernel.org/pub/scm/utils/util-linux/util-linux.git/snapshot/$(UTIL_LINUX).$(UTIL_LINUX_SUFFIX)
@@ -161,6 +161,7 @@ UTIL_LINUX_CONF_OPT	:= \
 	-Dncursesw=$(call ptx/endis, PTXCONF_UTIL_LINUX_USES_NCURSESW)d \
 	-Dnls=disabled \
 	-Dpg-bell=false \
+	-Dprogram-tests=false \
 	-Dpython=false \
 	-Dreadline=disabled \
 	-Dselinux=disabled \
