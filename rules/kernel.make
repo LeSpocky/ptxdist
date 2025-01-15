@@ -38,6 +38,7 @@ KERNEL_LICENSE		:= GPL-2.0-only
 KERNEL_SOURCE		:= $(SRCDIR)/$(KERNEL).$(KERNEL_SUFFIX)
 KERNEL_DEVPKG		:= NO
 KERNEL_BUILD_OOT	:= KEEP
+KERNEL_CVE_PRODUCT	:= linux:linux_kernel
 
 # track changes to devices-trees in the BSP
 $(call world/dts-cfghash-file, KERNEL)
