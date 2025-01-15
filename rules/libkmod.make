@@ -26,6 +26,7 @@ LIBKMOD_LICENSE	:= GPL-2.0-only AND LGPL-2.0-only
 LIBKMOD_LICENSE_FILES := \
 	file://tools/COPYING;md5=751419260aa954499f7abaabaa882bbe \
 	file://libkmod/COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343
+LIBKMOD_CVE_PRODUCT := kernel:kmod
 
 # ----------------------------------------------------------------------------
 # Prepare
