@@ -38,6 +38,12 @@ LSOF_CONF_OPT	:= \
 	--with-libtirpc  \
 	--without-selinux
 
+LSOF_MAKE_OPT	:= \
+	man8_MANS=
+
+LSOF_INSTALL_OPT	:= \
+	$(LSOF_MAKE_OPT) \
+	install
 
 # ----------------------------------------------------------------------------
 # Target-Install
