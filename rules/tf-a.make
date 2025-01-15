@@ -29,6 +29,8 @@ TF_A_LICENSE	:= BSD-3-Clause AND BSD-2-Clause \
 		   AND (NCSA OR MIT) \
 		   AND Zlib \
 		   AND (GPL-2.0-or-later OR BSD-3-Clause)
+TF_A_CVE_PRODUCT:= arm:trusted_firmware-a
+TF_A_CVE_VERSION:= $(patsubst v%,%,$(TF_A_VERSION))
 
 # ----------------------------------------------------------------------------
 # Prepare
