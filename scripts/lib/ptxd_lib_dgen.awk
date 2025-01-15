@@ -447,6 +447,10 @@ function write_vars_pkg_all(this_PKG, this_pkg, prefix, dir_prefix) {
 		print this_PKG "_LICENSE = $(" target_PKG "_LICENSE)"	> DGEN_DEPS_PRE;
 		print this_PKG "_LICENSE_FILES = $(" target_PKG \
 			"_LICENSE_FILES)"				> DGEN_DEPS_PRE;
+		print this_PKG "_CVE_PRODUCT = $(" target_PKG \
+			"_CVE_PRODUCT)"					> DGEN_DEPS_PRE;
+		print this_PKG "_CVE_VERSION = $(" target_PKG \
+			"_CVE_VERSION)"					> DGEN_DEPS_PRE;
 	}
 }
 
