@@ -115,6 +115,13 @@ class SpdxSbomGenerator(SbomGenerator):
             ref.referenceLocator = purl
             spdx_pkg.externalRefs.append(ref)
 
+        for cpe_id in self.create_cpe_ids(pkg):
+            cpe = spdx.SPDXExternalReference()
+            cpe.referenceCategory = 'SECURITY'
+            cpe.referenceType = 'http://spdx.org/rdf/references/cpe23Type'
+            cpe.referenceLocator = cpe_id
+            spdx_pkg.externalRefs.append(cpe)
+
         if 'git-commit' in pkg:
             ref = spdx.SPDXExternalReference()
             ref.referenceCategory = 'PERSISTENT-ID'
