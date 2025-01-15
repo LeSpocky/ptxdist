@@ -423,6 +423,48 @@ ptxd_make_world_lint_arch() {
 export -f ptxd_make_world_lint_arch
 PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} arch"
 
+unset ptxd_make_world_lint_pkg_duplicates_whitelist
+# host and target kernel headers can have different versions
+ptxd_make_world_lint_pkg_duplicates_whitelist+="host-kernel-header.make"
+export ptxd_make_world_lint_pkg_duplicates_whitelist
+
+ptxd_make_world_lint_pkg_duplicates() {
+    local filefd file
+
+    echo "Checking for host-/cross- packages that should inherit from a target package ..."
+
+    exec {filefd}< <(ptxd_make_world_lint_makefiles)
+    while read file <&${filefd}; do
+	filename="${file##*/}"
+	if [[ " ${ptxd_make_world_lint_pkg_duplicates_whitelist} " =~ " ${filename} " ]]; then
+	    continue
+	fi
+	case "${filename}" in
+	    host-*|cross-*) ;;
+	    *) continue ;;
+	esac
+	grep -q '^[^ 	]*_VERSION[ 	:]*=' "${file}" || continue
+	case "${filename}" in
+	    host-system-*)
+		pattern="/${filename#host-system-}"
+		;;
+	    host-*)
+		pattern="/${filename#host-}"
+		;;
+	    cross-*)
+		pattern="/${filename#cross-}"
+		;;
+	esac
+	if found=$(ptxd_make_world_lint_makefiles | grep "${pattern}"); then
+	    ptxd_lint_error "'$(ptxd_print_path "${file}")' should inherit from '$(ptxd_print_path "${found}")'"
+	fi
+    done
+    exec {filefd}<&-
+    echo
+}
+export -f ptxd_make_world_lint_pkg_duplicates
+PTXDIST_LINT_COMMANDS="${PTXDIST_LINT_COMMANDS} pkg_duplicates"
+
 ptxd_make_world_lint() {
     local command
 
