@@ -66,4 +66,15 @@ config PROJECT_CPE_REPORT_DEPS
 	  or <IMAGE>_REPORT, then this option must be enabled to build the
 	  necessary Python dependencies to generate this report.
 
+config PROJECT_CPE_DICTIONARY
+	string
+	default "${PTXDIST_WORKSPACE}/official-cpe-dictionary_v2.3.xml"
+	prompt "official CPE dictionary for the CPE check"
+	help
+	  Path to the official CPE dictionary. It can be found here:
+	  https://nvd.nist.gov/feeds/xml/cpe/dictionary/official-cpe-dictionary_v2.3.xml.gz
+	  The URL always returns the latest version so PTXdist cannot properly
+	  download and cache it. So it must be manually downloaded, extracted
+	  and placed in the location specified here.
+
 endif

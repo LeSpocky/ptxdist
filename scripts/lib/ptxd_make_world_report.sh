@@ -198,6 +198,8 @@ ptxd_make_image_reports() {
 	    --template "${report}" \
 	    --input "${ptx_release_dir}/full-bsp-report.yaml"  \
 	    --output "${ptx_release_dir}/${pkg_pkg}-${report}" \
+	    --env cpe_dictionary="$(ptxd_get_ptxconf PTXCONF_PROJECT_CPE_DICTIONARY)" \
+	    --env cpe_dictionary_cache="${PTXDIST_PLATFORMDIR}/state/cpe_dictionary_cache.pickle" \
 	    --env target="${pkg_pkg}" || return
     done
     echo
