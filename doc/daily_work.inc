@@ -759,7 +759,7 @@ build in the menu:
 
     $ ptxdist menuconfig
 
-        Project Name & Version --->
+        Project Configuration  --->
             [*] create pre-built archives
 
 Now run a regular build of the whole project:
@@ -783,7 +783,7 @@ build in the menu:
 
     $ ptxdist menuconfig
 
-        Project Name & Version --->
+        Project Configuration  --->
             [*] use pre-built archives
             (</some/path/to/the/archives>)
 
