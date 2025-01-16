@@ -185,7 +185,7 @@ class SpdxSbomGenerator(SbomGenerator):
         self.spdx_pkgs = {}
 
         env = self.setup_env()
-        if target := env.get('TARGET'):
+        if target := env.get('target'):
             self.add_packages([target])
         else:
             self.add_packages(data['images'].keys())
