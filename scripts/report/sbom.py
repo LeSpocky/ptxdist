@@ -103,6 +103,7 @@ class SbomGenerator(Generator):
         return env
 
     def run(self):
+        print(f'generating {self.output_name()} ...')
         data = self.load(self._data)
         document = self.build(data)
         return self.finalize(document, self.output_name())
