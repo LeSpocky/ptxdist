@@ -33,7 +33,7 @@ $(foreach image,$(PTX_IMAGES_REPORT), \
 $(eval $(PTX_MAP_TO_PACKAGE_$(image))_REPORTS := $(PTXDIST_OVERRIDE_REPORTS)) \
 ))
 
-PTXDIST_DEFAULT_REPORTS ?= license-compliance
+PTXDIST_DEFAULT_REPORTS ?= $(call remove_quotes, $(PTXCONF_PROJECT_DEFAULT_REPORTS))
 
 $(foreach image,$(PTX_IMAGES_REPORT), \
 $(eval $(PTX_MAP_TO_PACKAGE_$(image))_REPORTS ?= $(PTXDIST_DEFAULT_REPORTS)) \

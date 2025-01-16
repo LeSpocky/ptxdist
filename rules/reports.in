@@ -1,7 +1,7 @@
 ## SECTION=project_config
 
 comment "------------------------------------"
-comment "license information handling"
+comment "license information & SBoMs"
 comment "------------------------------------"
 
 config PROJECT_CHECK_LICENSES
@@ -20,6 +20,15 @@ config PROJECT_GENERATE_REPORTS
 	  corresponding image. This is only relevant for images that are
 	  built from packages since the document covers all packages that
 	  are part of the image.
+
+config PROJECT_DEFAULT_REPORTS
+	string
+	default "license-compliance"
+	prompt "default image reports"
+	help
+	  The reports that are generated for images if the above option is
+	  enabled. This can be overwritten for each image with the
+	  <IMAGE>_REPORT variable.
 
 config PROJECT_STORE_SOURCE_GIT_COMMITS
 	bool
