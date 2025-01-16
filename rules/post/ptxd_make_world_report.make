@@ -13,7 +13,7 @@ image/reports = \
 	$(call world/image/env,$(1)) \
 	ptxd_make_image_reports
 
-$(STATEDIR)/image-%.reports: $(RELEASEDIR)/full-bsp-report.yaml
+$(STATEDIR)/image-%.reports: $(RELEASEDIR)/full-bsp-report.yaml $(STATEDIR)/host-report-tools.install.post
 	@$(call targetinfo)
 	@$(call image/reports, $(PTX_MAP_TO_PACKAGE_image-$(*)))
 	@$(call touch)

@@ -14,6 +14,7 @@ config PROJECT_CHECK_LICENSES
 
 config PROJECT_GENERATE_REPORTS
 	bool
+	select PROJECT_REPORT_DEPS
 	prompt "generate reports with all relevant images"
 	help
 	  If this is enabled <image>.reports is built before the
@@ -39,3 +40,30 @@ config PROJECT_STORE_SOURCE_GIT_COMMITS
 	  commit.
 	  If enabled, the git commit will be determined if possible and stored
 	  with the source archive.
+
+config PROJECT_REPORT_DEPS
+	bool
+	select HOST_REPORT_TOOLS
+	prompt "build depencencies reports"
+	help
+	  Build all generic depencencies needed to generate reports
+
+if PROJECT_REPORT_DEPS
+
+config PROJECT_CYCLONEDX_REPORT_DEPS
+	bool
+	prompt "build depencencies for the CycloneDX SBoM"
+	help
+	  If the cyclonedx-sbom report is listed in PROJECT_DEFAULT_REPORTS
+	  or <IMAGE>_REPORT, then this option must be enabled to build the
+	  necessary Python dependencies to generate this report.
+
+config PROJECT_CPE_REPORT_DEPS
+	bool
+	prompt "build depencencies for the CPE check"
+	help
+	  If the cpe-check report is listed in PROJECT_DEFAULT_REPORTS
+	  or <IMAGE>_REPORT, then this option must be enabled to build the
+	  necessary Python dependencies to generate this report.
+
+endif
