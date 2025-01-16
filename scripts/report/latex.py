@@ -60,7 +60,7 @@ class LatexGenerator(Generator):
         env['max_print_line'] = '1000'
         output_directory = path.dirname(tmp) or '.'
         aux_hash = None
-        print(f'generating {output}...')
+        print(f'generating {output} ...')
         while True:
             ret = subprocess.run(['xelatex', '-halt-on-error', path.basename(tmp)], env=env,
                                  capture_output=not self.verbose, text=True, cwd=path.realpath(output_directory))
