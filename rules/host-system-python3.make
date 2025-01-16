@@ -25,7 +25,7 @@ $(STATEDIR)/host-system-python3.prepare:
 		ptxd_bailout "'python3' not found! Please install.";
 	@echo
 	@HOST_SYSTEM_PYTHON3_SETUP=1 $(SYSTEMPYTHON3) -m venv \
-		--system-site-packages \
+		$(call ptx/ifdef,PTXCONF_HOST_SYSTEM_PYTHON3_SYSTEM_PACKAGES,--system-site-packages) \
 		$(PTXDIST_SYSROOT_HOST)/usr/lib/system-python3
 	@$(PTXDIST_SYSROOT_HOST)/usr/lib/system-python3/bin/pip3 \
 		uninstall --yes setuptools
