@@ -1,0 +1,37 @@
+## SECTION=project_config
+
+comment "------------------------------------"
+comment "pre-built packages"
+comment "------------------------------------"
+
+config PROJECT_CREATE_DEVPKGS
+	bool
+	prompt "create pre-built archives"
+	help
+	  Enable the creation of pre-built package archives. Read the
+	  "How to become a PTXdist Guru" documentation for further details.
+
+config PROJECT_USE_DEVPKGS
+	bool
+	select HOST_CHRPATH
+	prompt "use pre-built archives"
+	help
+	  Use pre-built package archives to build or re-build the project if
+	  corresponding package archives with the same configuration are found.
+
+config PROJECT_DEVPKGDIR
+	string
+	prompt "pre-built archive directory"
+	depends on PROJECT_USE_DEVPKGS
+	default "/opt/OSELAS.BSP/${PTXCONF_PROJECT_VENDOR}/OSELAS.BSP-${PTXCONF_PROJECT_VENDOR}-${PTXCONF_PROJECT}${PTXCONF_PROJECT_VERSION}"
+	help
+	  This entry defines the path to a directory where pre-built archives
+	  are expected.
+
+config PROJECT_DEVMIRROR
+	string
+	prompt "Mirror for pre-built archives"
+	depends on PROJECT_USE_DEVPKGS
+	help
+	  Enter a URL where *-dev.tar.gz packages can be downloaded
+	  Use: ptxdist getdev

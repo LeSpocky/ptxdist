@@ -1,0 +1,32 @@
+## SECTION=project_config
+
+comment "------------------------------------"
+comment "license information handling"
+comment "------------------------------------"
+
+config PROJECT_CHECK_LICENSES
+	bool
+	prompt "check licenses during normal build"
+	help
+	  If this is enabled <pkg>.report is built during the normal build
+	  process. As a result all specified md5 sums for license files are
+	  verified.
+
+config PROJECT_GENERATE_REPORTS
+	bool
+	prompt "generate reports with all relevant images"
+	help
+	  If this is enabled <image>.reports is built before the
+	  corresponding image. This is only relevant for images that are
+	  built from packages since the document covers all packages that
+	  are part of the image.
+
+config PROJECT_STORE_SOURCE_GIT_COMMITS
+	bool
+	prompt "query and store git commits for source archives"
+	help
+	  PTXdist usually downloads source archives. But if that comes from a
+	  git server then it can be possible to determine the corresponding git
+	  commit.
+	  If enabled, the git commit will be determined if possible and stored
+	  with the source archive.
