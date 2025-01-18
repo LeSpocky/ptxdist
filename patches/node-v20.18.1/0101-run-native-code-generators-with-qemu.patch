@@ -12,10 +12,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  2 files changed, 8 insertions(+)
 
 diff --git a/node.gyp b/node.gyp
-index aa98fe4c2fae..5ebc27d92de4 100644
+index 33bc7d985fe2..6a8d488f6068 100644
 --- a/node.gyp
 +++ b/node.gyp
-@@ -662,6 +662,7 @@
+@@ -688,6 +688,7 @@
                    'action_name': 'node_mksnapshot',
                    'process_outputs_as_sources': 1,
                    'inputs': [
@@ -23,7 +23,7 @@ index aa98fe4c2fae..5ebc27d92de4 100644
                      '<(node_mksnapshot_exec)',
                      '<(node_snapshot_main)',
                    ],
-@@ -966,6 +967,7 @@
+@@ -992,6 +993,7 @@
            'action_name': 'node_js2c',
            'process_outputs_as_sources': 1,
            'inputs': [
@@ -31,7 +31,7 @@ index aa98fe4c2fae..5ebc27d92de4 100644
              '<(node_js2c_exec)',
              '<@(library_files)',
              '<@(deps_files)',
-@@ -975,6 +977,7 @@
+@@ -1001,6 +1003,7 @@
              '<(SHARED_INTERMEDIATE_DIR)/node_javascript.cc',
            ],
            'action': [
@@ -40,7 +40,7 @@ index aa98fe4c2fae..5ebc27d92de4 100644
              '<@(_outputs)',
              'lib',
 diff --git a/tools/v8_gypfiles/v8.gyp b/tools/v8_gypfiles/v8.gyp
-index adfc3f6e1095..f4c472a08d23 100644
+index 45f6e0db8654..8724be7ad50d 100644
 --- a/tools/v8_gypfiles/v8.gyp
 +++ b/tools/v8_gypfiles/v8.gyp
 @@ -81,6 +81,7 @@
@@ -75,7 +75,7 @@ index adfc3f6e1095..f4c472a08d23 100644
              '<(mksnapshot_exec)',
            ],
            'outputs': [
-@@ -1670,6 +1674,7 @@
+@@ -1681,6 +1685,7 @@
          {
            'action_name': 'run_gen-regexp-special-case_action',
            'inputs': [
