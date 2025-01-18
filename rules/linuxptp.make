@@ -35,10 +35,10 @@ LINUXPTP_CONF_TOOL	:= NO
 
 LINUXPTP_MAKE_ENV	:= \
 	$(CROSS_ENV) \
-	CROSS_COMPILE=$(COMPILER_PREFIX) \
-	KBUILD_OUTPUT=$(PTXDIST_SYSROOT_TOOLCHAIN)
+	CROSS_COMPILE=$(COMPILER_PREFIX)
 
 LINUXPTP_MAKE_OPT	:= \
+	KBUILD_OUTPUT=$(PTXDIST_SYSROOT_TOOLCHAIN) \
 	prefix=/usr
 
 # ----------------------------------------------------------------------------
@@ -46,7 +46,7 @@ LINUXPTP_MAKE_OPT	:= \
 # ----------------------------------------------------------------------------
 
 LINUXPTP_INSTALL_OPT	:= \
-	prefix=/usr \
+	$(LINUXPTP_MAKE_OPT) \
 	install
 
 # ----------------------------------------------------------------------------
