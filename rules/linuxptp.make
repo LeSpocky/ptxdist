@@ -33,9 +33,15 @@ LINUXPTP_LICENSE_FILES	:= \
 
 LINUXPTP_CONF_TOOL	:= NO
 
+# make >= 4.4 will overwrite KBUILD_OUTPUT from the environment with a value
+# from the Makefile for $(shell).
+# make < 4.4 will keep the environment variable and ignore the values from the
+# Makefile and the commandline.
+# Set both to handle all versions
 LINUXPTP_MAKE_ENV	:= \
 	$(CROSS_ENV) \
-	CROSS_COMPILE=$(COMPILER_PREFIX)
+	CROSS_COMPILE=$(COMPILER_PREFIX) \
+	KBUILD_OUTPUT=$(PTXDIST_SYSROOT_TOOLCHAIN)
 
 LINUXPTP_MAKE_OPT	:= \
 	KBUILD_OUTPUT=$(PTXDIST_SYSROOT_TOOLCHAIN) \
