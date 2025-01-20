@@ -45,11 +45,11 @@ CRYPTODEV_WRAPPER_ACCEPT_PATHS = \
 	$(KERNEL_DIR)
 
 CRYPTODEV_MAKE_OPT = \
-	$(KERNEL_MODULE_OPT) \
+	O=$(KERNEL_BUILD_DIR) \
+	$(KERNEL_BASE_OPT) \
 	KERNEL_DIR=$(KERNEL_DIR) \
 	DESTDIR=$(CRYPTODEV_PKGDIR) \
-	prefix=/usr \
-	-C $(CRYPTODEV_DIR)
+	prefix=/usr
 
 # ----------------------------------------------------------------------------
 # Install
