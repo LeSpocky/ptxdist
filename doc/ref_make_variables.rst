@@ -283,6 +283,44 @@ of the corresponding target package if it exists.
   In theory ``<PKG>_STRIP_LEVEL`` could be set to 2 or more to remove more
   than one directory level.
 
+``<PKG>_PARTS``
+  Sometimes more than one source archive needs to be downloaded to build a
+  single package, e.g. when the project's main source archive comes from a Git
+  repository export, which doesn't include Git submodules. In this case,
+  ``<PKG>_PARTS`` can be set to refer to multiple prefixes of
+  variable names, usually of the form ``<PKG>_<SUBPART>``, which PTXdist's
+  default *get* and *extract* stages will use to resolve additional
+  ``*_VERSION``, ``*_URL``, ``*_MD5`` variables etc. to download and extract
+  multiple source archives.
+
+  For example:
+
+  .. code:: make
+
+      FOO_VERSION		:= 1.0
+      FOO_MD5			:= a38714a1713bfd436564d643e169879e
+      FOO			:= foo-$(FOO_VERSION)
+      FOO_URL			:= https://some-server/path/to/$(FOO).tar.gz
+      FOO_SOURCE		:= $(SRCDIR)/$(FOO).$(FOO_SUFFIX)
+      FOO_DIR			:= $(BUILDDIR)/$(FOO)
+
+      FOO_SUBPART_MD5		:= a38714a1713bfd436564d643e169879e
+      FOO_SUBPART               := subpart-0.9.1
+      FOO_SUBPART_URL		:= https://some-server/path/to/$(FOO_SUBPART).tar.gz
+      FOO_SUBPART_SOURCE	:= $(SRCDIR)/$(FOO_SUBPART).tar.gz
+      FOO_SUBPART_DIR		:= $(BUILDDIR)/$(FOO)/subpart
+
+      FOO_PARTS                 := FOO FOO_SUBPART
+
+  In this example, the *foo.get* stage will download *foo-1.0.tar.gz* and
+  *subpart-0.9.1.tar.gz*.
+  The *foo.extract* stage will first extract *foo-1.0.tar.gz* into its build
+  dir at ``$(BUILDDIR)/$(FOO)`` as usual, and then extract
+  *subpart-0.9.1.tar.gz* into the subfolder ``$(BUILDDIR)/$(FOO)/subpart``.
+
+  ``<PKG>_<SUBPART>_STRIP_LEVEL``, ``<PKG>_<SUBPART>_LICENSE`` and
+  ``<PKG>_<SUBPART>_LICENSE_FILES`` can be used adequately.
+
 ``<PKG>_BUILD_OOT``
   If this is set to ``YES`` then PTXdist will build the package out of
   tree. This is only supported for autoconf, qmake and cmake packages. The
