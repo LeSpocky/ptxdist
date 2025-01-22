@@ -1,0 +1,9 @@
+## SECTION=multimedia_tools
+
+config PLATSCH
+	tristate
+	select HOST_MESON
+	select LIBDRM
+	prompt "platsch"
+	help
+	  Splash Screen Application using libdrm.
