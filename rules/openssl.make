@@ -109,6 +109,10 @@ endif
 
 	@$(call install_alternative, openssl, 0, 0, 0644, \
 		/usr/lib/ssl/openssl.cnf)
+ifdef PTXCONF_OPENSSL_LEGACY
+	@$(call install_alternative, openssl, 0, 0, 0644, \
+		/usr/lib/ossl-modules/legacy.so)
+endif
 
 	@$(call install_lib, openssl, 0, 0, 0644, libssl)
 	@$(call install_lib, openssl, 0, 0, 0644, libcrypto)

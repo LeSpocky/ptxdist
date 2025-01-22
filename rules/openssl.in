@@ -41,4 +41,12 @@ config OPENSSL_KTLS
 	help
 	  Whether to build OpenSSL with kTLS support.
 
+config OPENSSL_LEGACY
+	bool "install OpenSSL legacy provider"
+	help
+	  The OpenSSL legacy provider supplies OpenSSL implementations of
+	  algorithms that have been deemed legacy. Such algorithms have
+	  commonly fallen out of use, have been deemed insecure by the
+	  cryptography community, or something similar.
+
 endif
