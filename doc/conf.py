@@ -195,7 +195,7 @@ html_css_files = [
 ]
 
 html_js_files = [
-        'js/jquery-3.1.0.min.js',
+        'js/jquery-3.7.1.min.js',
         'underscore.js',
         'doctools.js',
         'js/main.js',
