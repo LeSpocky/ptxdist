@@ -26,8 +26,12 @@ MESALIB_LICENSE	:= MIT AND BSL-1.0
 ifdef PTXCONF_MESALIB_GLX
 MESALIB_LICENSE += AND SGI-B-2.0
 endif
+ifdef PTXCONF_MESALIB_VULKAN_SCREENSHOT
+MESALIB_LICENSE += AND Apache-2.0
+endif
 MESALIB_LICENSE_FILES := \
 	file://docs/license.rst;md5=ffe678546d4337b732cfd12262e6af11 \
+	file://licenses/Apache-2.0;md5=db66a99884d6d2bdbd5f9e71e1bffec6 \
 	file://licenses/BSL-1.0;md5=4610c5f00caa47872489c3943d1bacc8 \
 	file://licenses/MIT;md5=e8f57dd048e186199433be2c41bd3d6d \
 	file://licenses/SGI-B-2.0;md5=efe792cf56e83c7aa8470e553faf333f
