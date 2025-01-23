@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 24.3.3
-MESALIB_MD5	:= eadaf9717907e5f92ee7924826f73ab6
+MESALIB_VERSION	:= 24.3.4
+MESALIB_MD5	:= c64b7e2b4f1c7782c41bf022edbb365c
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -24,7 +24,8 @@ MESALIB_SOURCE	:= $(SRCDIR)/$(MESALIB).$(MESALIB_SUFFIX)
 MESALIB_DIR	:= $(BUILDDIR)/$(MESALIB)
 MESALIB_LICENSE	:= MIT
 MESALIB_LICENSE_FILES := \
-	file://docs/license.rst;md5=63779ec98d78d823a9dc533a0735ef10
+	file://docs/license.rst;md5=ffe678546d4337b732cfd12262e6af11 \
+	file://licenses/MIT;md5=e8f57dd048e186199433be2c41bd3d6d
 
 # ----------------------------------------------------------------------------
 # Prepare
