@@ -23,10 +23,14 @@ MESALIB_URL	:= \
 MESALIB_SOURCE	:= $(SRCDIR)/$(MESALIB).$(MESALIB_SUFFIX)
 MESALIB_DIR	:= $(BUILDDIR)/$(MESALIB)
 MESALIB_LICENSE	:= MIT AND BSL-1.0
+ifdef PTXCONF_MESALIB_GLX
+MESALIB_LICENSE += AND SGI-B-2.0
+endif
 MESALIB_LICENSE_FILES := \
 	file://docs/license.rst;md5=ffe678546d4337b732cfd12262e6af11 \
 	file://licenses/BSL-1.0;md5=4610c5f00caa47872489c3943d1bacc8 \
-	file://licenses/MIT;md5=e8f57dd048e186199433be2c41bd3d6d
+	file://licenses/MIT;md5=e8f57dd048e186199433be2c41bd3d6d \
+	file://licenses/SGI-B-2.0;md5=efe792cf56e83c7aa8470e553faf333f
 
 # ----------------------------------------------------------------------------
 # Prepare
