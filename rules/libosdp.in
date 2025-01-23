@@ -1,0 +1,9 @@
+## SECTION=system_libraries
+
+config LIBOSDP
+	bool
+	prompt "libosdp"
+	select HOST_CMAKE
+	select OPENSSL
+	help
+	  OSDP (Open Supervised Device Protocol) library and osdpctl cli.

@@ -1,0 +1,29 @@
+From dbf9ac4f156f545c233e3259995c00413c68ba3f Mon Sep 17 00:00:00 2001
+From: Rouven Czerwinski <r.czerwinski@pengutronix.de>
+Date: Fri, 1 Mar 2024 12:11:20 +0100
+Subject: [PATCH] CMakeLists: build ospdctl in library mode
+
+Also build osdpctl when only the library parts are build.
+
+Signed-off-by: Rouven Czerwinski <r.czerwinski@pengutronix.de>
+---
+ CMakeLists.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1efeb4b..e844b5c 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -40,8 +40,8 @@ option(CONFIG_OSDP_LIB_ONLY "Only build the library" OFF)
+ include(GitSubmodules)
+ add_subdirectory(utils)
+ add_subdirectory(src)
++add_subdirectory(osdpctl)
+ if (NOT CONFIG_OSDP_STATIC_PD AND NOT CONFIG_OSDP_LIB_ONLY)
+-	add_subdirectory(osdpctl)
+ 	add_subdirectory(tests/pytest)
+ 	add_subdirectory(tests/unit-tests)
+ 	add_subdirectory(samples/c)
+-- 
+2.43.1
+
