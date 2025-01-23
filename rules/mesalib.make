@@ -22,9 +22,10 @@ MESALIB_URL	:= \
 	https://mesa.freedesktop.org/archive/$(MESALIB).$(MESALIB_SUFFIX)
 MESALIB_SOURCE	:= $(SRCDIR)/$(MESALIB).$(MESALIB_SUFFIX)
 MESALIB_DIR	:= $(BUILDDIR)/$(MESALIB)
-MESALIB_LICENSE	:= MIT
+MESALIB_LICENSE	:= MIT AND BSL-1.0
 MESALIB_LICENSE_FILES := \
 	file://docs/license.rst;md5=ffe678546d4337b732cfd12262e6af11 \
+	file://licenses/BSL-1.0;md5=4610c5f00caa47872489c3943d1bacc8 \
 	file://licenses/MIT;md5=e8f57dd048e186199433be2c41bd3d6d
 
 # ----------------------------------------------------------------------------
