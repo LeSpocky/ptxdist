@@ -54,7 +54,7 @@ UTIL_LINUX_CONF_OPT	:= \
 	-Dbuild-agetty=$(call ptx/endis, PTXCONF_UTIL_LINUX_AGETTY)d \
 	-Dbuild-bash-completion=disabled \
 	-Dbuild-bfs=disabled \
-	-Dbuild-blkdiscard=disabled \
+	-Dbuild-blkdiscard=$(call ptx/endis, PTXCONF_UTIL_LINUX_BLKDISCARD)d \
 	-Dbuild-blkpr=disabled \
 	-Dbuild-blkzone=disabled \
 	-Dbuild-blockdev=disabled \
@@ -223,6 +223,7 @@ UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_CHRT)		+= bin/chrt
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_IONICE)		+= bin/ionice
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_TASKSET)		+= bin/taskset
 # sys-utils
+UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_BLKDISCARD)		+= sbin/blkdiscard
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_CHMEM)		+= bin/chmem
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_DMESG)		+= bin/dmesg
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_FLOCK)		+= bin/flock

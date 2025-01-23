@@ -290,6 +290,18 @@ comment "BusyBox' taskset is selected!"
 
 comment "sys-utils"
 
+config UTIL_LINUX_BLKDISCARD
+	bool
+	depends on !BUSYBOX_BLKDISCARD || ALLYES
+	prompt "blkdiscard"
+	help
+	  blkdiscard is used to discard device sectors. This is useful for
+	  solid-state drivers (SSDs) and thinly-provisioned storage. Unlike
+	  fstrim, this command is used directly on the block device.
+
+comment "BusyBox' blkdiscard is selected!"
+	depends on BUSYBOX_BLKDISCARD
+
 config UTIL_LINUX_CHMEM
 	bool
 	prompt "chmem"
