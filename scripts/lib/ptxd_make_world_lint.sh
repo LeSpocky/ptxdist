@@ -391,6 +391,7 @@ ptxd_make_world_lint_arch() {
 	if ! ptxd_get_ptxconf PTXCONF_ARCH_X86_64 >/dev/null; then
 	    ptxd_lint_error "x86-64 toolchain but PTXCONF_ARCH_X86_64 is not set"
 	fi
+	echo
 	return
     fi
     if echo | ptxd_cross_cc -dM -E - | grep -q __i386__; then
@@ -400,6 +401,7 @@ ptxd_make_world_lint_arch() {
 	if ptxd_get_ptxconf PTXCONF_ARCH_X86_64 >/dev/null; then
 	    ptxd_lint_error "i*86 toolchain but PTXCONF_ARCH_X86_64 is set"
 	fi
+	echo
 	return
     fi
     arm_arch="$(echo | ptxd_cross_cc -dM -E - | sed -n 's/#define __ARM_ARCH \(.*\)/\1/p')"
@@ -414,6 +416,7 @@ ptxd_make_world_lint_arch() {
 	elif [ "${arm_arch}" -lt 6 -a -n "$(ptxd_get_ptxconf PTXCONF_ARCH_ARM_V6)" ]; then
 	    ptxd_lint_error "ARMv${arm_arch} toolchain but PTXCONF_ARCH_ARM_V6 is set"
 	fi
+	echo
 	return
     fi
 }
