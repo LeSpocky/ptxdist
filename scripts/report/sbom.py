@@ -55,6 +55,19 @@ class SbomGenerator(Generator):
 
         return purls
 
+    def git_blob_prefix(self, pkg):
+        # https://github.com/linux4sam/at91bootstrap/raw/e05486a6d65745cb7a66770c3398186ebb8f71b3/LICENSES/MIT.txt
+        git_commit = pkg.get('git-commit', None)
+
+        for url in pkg.get('url', []):
+            if m := self.GITHUB_TAG.match(url):
+                version = git_commit if git_commit else m.group(4)
+                return f'https://github.com/{m.group(1)}/{m.group(2)}/raw/{version}/'
+            elif m := self.GITHUB_RELEASE.match(url):
+                version = git_commit if git_commit else m.group(3)
+                return f'https://github.com/{m.group(1)}/{m.group(2)}/raw/{version}/'
+        return None
+
     def patches(self, pkg):
         if 'patches' not in pkg:
             return []
