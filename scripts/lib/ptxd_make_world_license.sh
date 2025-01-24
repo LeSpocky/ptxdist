@@ -413,6 +413,7 @@ ptxd_make_world_license() {
     local arg
     local -a pkg_license_texts
     local -a pkg_license_texts_guessed
+    local -A pkg_license_uris
     local pkg_dot
     local pkg_dot="${pkg_license_dir}/graph.dot"
     local pkg_tex="${pkg_license_dir}/graph.tex"
@@ -435,7 +436,8 @@ ptxd_make_world_license() {
 
 	ptxd_make_world_parse_license_files "${arg}" &&
 
-	local lic="${pkg_license_dir}/license/${filename//\//_}" &&
+	local name="${filename//\//_}" &&
+	local lic="${pkg_license_dir}/license/${name}" &&
 	echo " $(ptxd_print_path "${file}")${guess:+ (guessed)}" &&
 	sed -n "${startline},${endline}p" "${file}" > "${lic}" &&
 	if [ -n "${encoding}" ]; then
@@ -454,7 +456,8 @@ changed: ${md5} -> $(md5sum "${lic}" | sed 's/ .*//')
 	    pkg_license_texts[${#pkg_license_texts[@]}]="${lic}"
 	else
 	    pkg_license_texts_guessed[${#pkg_license_texts_guessed[@]}]="${lic}"
-	fi ||
+	fi &&
+	pkg_license_uris[${name}]="${filename}" ||
 	ptxd_bailout "Failed to copy '$(ptxd_print_path "${file}")'"
     done &&
     echo &&

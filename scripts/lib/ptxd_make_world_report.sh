@@ -129,9 +129,11 @@ ptxd_make_world_report_yaml() {
 		guess="true"
 		continue
 	    fi
+	    local name="$(basename "${license}")"
 	    cat << EOF
-  $(basename "${license}"):
+  ${name}:
     guessed: ${guess}
+    path: ${pkg_license_uris[${name}]}
     file: '${license}'
     md5: '$(sed -n "s/\(.*\)  $(basename "${license}")\$/\1/p" "${pkg_license_dir}/license/MD5SUM")'
 EOF
