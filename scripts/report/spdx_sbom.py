@@ -162,9 +162,9 @@ class SpdxSbomGenerator(SbomGenerator):
         pkg_doc, pkg_doc_path, pkg_doc_sha1 = self.import_pkg_spdx(pkg)
         if pkg_doc:
             ref = spdx.SPDXExternalDocumentRef()
-            ref.externalDocumentId = "DocumentRef-package-" + pkg_doc.name
+            ref.externalDocumentId = 'DocumentRef-package-' + pkg_doc.name
             ref.spdxDocument = pkg_doc.documentNamespace
-            ref.checksum.algorithm = "SHA1"
+            ref.checksum.algorithm = 'SHA1'
             ref.checksum.checksumValue = pkg_doc_sha1
             document.externalDocumentRefs.append(ref)
             document.add_relationship(
