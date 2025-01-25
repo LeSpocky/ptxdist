@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBSECCOMP) += libseccomp
 #
 # Paths and names
 #
-LIBSECCOMP_VERSION		:= 2.5.5
-LIBSECCOMP_MD5			:= c27a5e43cae1e89e6ebfedeea734c9b4
+LIBSECCOMP_VERSION		:= 2.6.0
+LIBSECCOMP_MD5			:= 2d42bcde31fd6e994fcf251a1f71d487
 LIBSECCOMP			:= libseccomp-$(LIBSECCOMP_VERSION)
 LIBSECCOMP_SUFFIX		:= tar.gz
 LIBSECCOMP_URL			:= https://github.com/seccomp/libseccomp/releases/download/v$(LIBSECCOMP_VERSION)/$(LIBSECCOMP).$(LIBSECCOMP_SUFFIX)
