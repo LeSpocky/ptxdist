@@ -1,0 +1,9 @@
+## SECTION=multimedia_libs
+
+config GLM
+	tristate
+	prompt "glm"
+	select HOST_CMAKE
+	help
+	  OpenGL Mathematics (GLM) C++ library for graphics software based on
+	  the OpenGL Shading Language (GLSL) specifications.
