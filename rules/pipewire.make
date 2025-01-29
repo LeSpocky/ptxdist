@@ -262,6 +262,9 @@ endif
 ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire-pulse.conf)
 endif
+ifdef PTXCONF_PIPEWIRE_BLUETOOTH
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/spa-0.2/bluez5/bluez-hardware.conf)
+endif
 
 ifdef PTXCONF_PIPEWIRE_GSTREAMER
 	@$(call install_lib, pipewire, 0, 0, 644, gstreamer-1.0/libgstpipewire)
