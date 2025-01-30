@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBCAMERA) += libcamera
 #
 # Paths and names
 #
-LIBCAMERA_VERSION	:= 0.2.0
-LIBCAMERA_MD5		:= 08f0681221c654838e54e6b3a32f89b5
+LIBCAMERA_VERSION	:= 0.4.0
+LIBCAMERA_MD5		:= 286fe1efb70329bcb59a592db06134e3
 LIBCAMERA		:= libcamera-$(LIBCAMERA_VERSION)
 LIBCAMERA_SUFFIX	:= tar.gz
 LIBCAMERA_URL		:= https://gitlab.freedesktop.org/camera/libcamera/-/archive/v$(LIBCAMERA_VERSION)/$(LIBCAMERA).$(LIBCAMERA_SUFFIX)
@@ -72,6 +72,7 @@ LIBCAMERA_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Dandroid=disabled \
 	-Dcam=$(call ptx/endis,PTXCONF_LIBCAMERA_CAM)d \
+	-Ddoc_werror=false \
 	-Ddocumentation=disabled \
 	-Dgstreamer=$(call ptx/endis,PTXCONF_LIBCAMERA_GSTREAMER)d \
 	-Dipas=$(subst $(ptx/def/space),$(ptx/def/comma),$(strip $(LIBCAMERA_IPASC-y))) \

@@ -17,10 +17,11 @@ menuconfig LIBCAMERA
 	select GST_PLUGINS_BASE1		if LIBCAMERA_GSTREAMER
 	select LIBEVENT				if LIBCAMERA_CAM
 	select LIBDRM				if LIBCAMERA_CAM_KMS_SINK
-	select QT5				if LIBCAMERA_QCAM
-	select QT5_MODULE_QTBASE		if LIBCAMERA_QCAM
-	select QT5_MODULE_QTBASE_GUI		if LIBCAMERA_QCAM
-	select QT5_MODULE_QTBASE_WIDGETS	if LIBCAMERA_QCAM
+	select QT6				if LIBCAMERA_QCAM
+	select QT6_MODULE_QTBASE		if LIBCAMERA_QCAM
+	select QT6_MODULE_QTBASE_GUI		if LIBCAMERA_QCAM
+	select QT6_MODULE_QTBASE_WIDGETS	if LIBCAMERA_QCAM
+	select QT6_OPENGL			if LIBCAMERA_QCAM
 	prompt "libcamera                     "
 	help
 	  A complex camera support library for Linux, Android, and ChromeOS.
