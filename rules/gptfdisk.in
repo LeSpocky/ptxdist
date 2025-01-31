@@ -1,0 +1,49 @@
+## SECTION=disk_and_file
+
+menuconfig GPTFDISK
+	tristate
+	prompt "gptfdisk                      "
+	select LIBUUID
+	select LIBPOPT			if GPTFDISK_SGDISK
+	select NCURSES			if GPTFDISK_CGDISK
+	select NCURSES_WIDE_CHAR	if GPTFDISK_CGDISK
+	help
+	  GPT fdisk is a set of text-mode partitioning tools. The gdisk,
+	  cgdisk, and sgdisk programs work on Globally Unique Identifier (GUID)
+	  Partition Table (GPT) disks, rather than on the older (and once more
+	  common) Master Boot Record (MBR) partition tables.
+
+if GPTFDISK
+
+comment "At least one GPTFDISK_* option must be enabled!"
+	depends on \
+		!GPTFDISK_GDISK    && \
+		!GPTFDISK_CGDISK   && \
+		!GPTFDISK_SGDISK   && \
+		!GPTFDISK_FIXPARTS
+
+config GPTFDISK_GDISK
+	bool
+	prompt "gdisk"
+	help
+	  Interactive GUID partition table (GPT) manipulator
+
+config GPTFDISK_CGDISK
+	bool
+	prompt "cgdisk"
+	help
+	  Curses-based GUID partition table (GPT) manipulator
+
+config GPTFDISK_SGDISK
+	bool
+	prompt "sgdisk"
+	help
+	  Command-line GUID partition table (GPT) manipulator for Linux and Unix
+
+config GPTFDISK_FIXPARTS
+	bool
+	prompt "fixparts"
+	help
+	  MBR partition table repair utility
+
+endif

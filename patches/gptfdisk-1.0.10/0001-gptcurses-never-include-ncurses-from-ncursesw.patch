@@ -1,0 +1,24 @@
+From: Jonas Rebmann <jre@pengutronix.de>
+Date: Fri, 24 Jan 2025 15:21:29 +0100
+Subject: [PATCH] gptcurses: never include ncurses from ncursesw
+
+---
+ gptcurses.cc | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/gptcurses.cc b/gptcurses.cc
+index b47670094d73..476fc43d6cdb 100644
+--- a/gptcurses.cc
++++ b/gptcurses.cc
+@@ -23,11 +23,7 @@
+ #include <iostream>
+ #include <string>
+ #include <sstream>
+-#if defined (__APPLE__) || (__FreeBSD__)
+ #include <ncurses.h>
+-#else
+-#include <ncursesw/ncurses.h>
+-#endif
+ #include "gptcurses.h"
+ #include "support.h"
+ 
