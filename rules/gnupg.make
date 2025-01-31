@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GNUPG) += gnupg
 #
 # Paths and names
 #
-GNUPG_VERSION	:= 2.4.5
-GNUPG_MD5	:= 49c3534e87744e994250d37c1b43f928
+GNUPG_VERSION	:= 2.5.3
+GNUPG_MD5	:= 0f6c849e3c7ad7cefd35b54647044348
 GNUPG		:= gnupg-$(GNUPG_VERSION)
 GNUPG_SUFFIX	:= tar.bz2
 GNUPG_URL	:= https://www.gnupg.org/ftp/gcrypt/gnupg/$(GNUPG).$(GNUPG_SUFFIX)
@@ -36,7 +36,8 @@ GNUPG_LICENSE_FILES := \
 
 GNUPG_CONF_ENV	:= \
 	$(CROSS_ENV) \
-	ac_cv_path_GPGRT_CONFIG=$(PTXDIST_SYSROOT_CROSS)/usr/bin/gpgrt-config
+	ac_cv_path_GPGRT_CONFIG=$(PTXDIST_SYSROOT_CROSS)/usr/bin/gpgrt-config \
+	ac_cv_path_GPG_ERROR_CONFIG=$(PTXDIST_SYSROOT_CROSS)/usr/bin/gpg-error-config
 
 GNUPG_CONF_TOOL	:= autoconf
 GNUPG_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
@@ -49,7 +50,6 @@ GNUPG_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--disable-doc \
 	--$(call ptx/endis, PTXCONF_GNUPG_GPGTAR)-gpgtar \
 	--disable-wks-tools \
-	--disable-gpg-is-gpg2 \
 	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux-support \
 	--disable-large-secmem \
 	--enable-trust-models \
@@ -94,6 +94,7 @@ GNUPG_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--disable-log-clock \
 	--disable-werror \
 	--disable-all-tests \
+	--disable-tests \
 	--disable-run-gnupg-user-socket \
 	--enable-build-timestamp="$(PTXDIST_BUILD_TIMESTAMP)"
 

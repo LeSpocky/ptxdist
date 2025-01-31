@@ -6,6 +6,7 @@ menuconfig GNUPG
 	select GCCLIBS_GCC_S
 	select LIBASSUAN
 	select LIBGCRYPT
+	select LIBGPG_ERROR
 	select LIBKSBA
 	select NPTH
 	select READLINE
