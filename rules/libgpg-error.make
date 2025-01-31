@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBGPG_ERROR) += libgpg-error
 #
 # Paths and names
 #
-LIBGPG_ERROR_VERSION	:= 1.50
-LIBGPG_ERROR_MD5	:= 80e905ce798553c766e3384467dc55ea
+LIBGPG_ERROR_VERSION	:= 1.51
+LIBGPG_ERROR_MD5	:= 74b73ea044685ce9fd6043a8cc885eac
 LIBGPG_ERROR		:= libgpg-error-$(LIBGPG_ERROR_VERSION)
 LIBGPG_ERROR_SUFFIX	:= tar.bz2
 LIBGPG_ERROR_URL	:= \
@@ -45,6 +45,7 @@ LIBGPG_ERROR_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-threads=posix \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--enable-install-gpg-error-config \
 	--disable-nls \
 	--disable-rpath \
 	--disable-log-clock \
