@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 256.8
+SYSTEMD_VERSION		:= 257.2
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_MD5		:= 83467e488a47b3d22c5d8d08156da08f
+SYSTEMD_MD5		:= 5d372d00f7cea4a8a2169e0bd749936d
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 #ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -59,6 +59,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dbinfmt=false \
 	-Dblkid=enabled \
 	-Dbootloader=disabled \
+	-Dbpf-compiler=clang \
 	-Dbpf-framework=disabled \
 	-Dbump-proc-sys-fs-file-max=true \
 	-Dbump-proc-sys-fs-nr-open=true \
@@ -76,12 +77,15 @@ SYSTEMD_CONF_OPT	:= \
 	-Ddefault-dns-over-tls=no \
 	-Ddefault-dnssec=no \
 	-Ddefault-hierarchy=unified \
+	-Ddefault-keymap=us \
 	-Ddefault-kill-user-processes=true \
 	-Ddefault-llmnr=yes \
 	-Ddefault-locale=C \
 	-Ddefault-mdns=yes \
+	-Ddefault-mountfsd-trusted-directories=false \
 	-Ddefault-net-naming-scheme=$(call remove_quotes,$(PTXCONF_SYSTEMD_DEFAULT_NET_NAMING_SCHEME)) \
 	-Ddefault-network=false \
+	-Ddefault-user-shell=/bin/sh \
 	-Ddev-kvm-mode=0660 \
 	-Ddns-over-tls=false \
 	-Ddns-servers= \
@@ -91,6 +95,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dfallback-hostname=$(call ptx/ifdef,PTXCONF_ROOTFS_ETC_HOSTNAME,$(PTXCONF_ROOTFS_ETC_HOSTNAME),ptxdist) \
 	-Dfdisk=$(call ptx/endis,PTXCONF_SYSTEMD_REPART)d \
 	-Dfexecve=false \
+	-Dfirst-boot-full-preset=false \
 	-Dfirstboot=false \
 	-Dfuzz-tests=false \
 	-Dgcrypt=disabled \
@@ -110,6 +115,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dinstall-sysconfdir=true \
 	-Dinstall-tests=false \
 	-Dintegration-tests=false \
+	-Dipe=true \
 	-Dkernel-install=false \
 	-Dkexec-path=/usr/sbin/kexec \
 	-Dkmod=enabled \
@@ -123,6 +129,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dlibidn2=disabled \
 	-Dlibiptc=$(call ptx/endis,PTXCONF_SYSTEMD_IPMASQUERADE)d \
 	-Dlink-boot-shared=true \
+	-Dlink-executor-shared=true \
 	-Dlink-journalctl-shared=true \
 	-Dlink-networkd-shared=true \
 	-Dlink-portabled-shared=true \
@@ -213,8 +220,8 @@ SYSTEMD_CONF_OPT	:= \
 	-Dusers-gid=-1 \
 	-Dutmp=false \
 	-Dvconsole=$(call ptx/truefalse,PTXCONF_SYSTEMD_VCONSOLE) \
-	-Dvmspawn=$(call ptx/endis,PTXCONF_SYSTEMD_NSPAWN)d \
 	-Dversion-tag=$(SYSTEMD_VERSION) \
+	-Dvmspawn=$(call ptx/endis,PTXCONF_SYSTEMD_NSPAWN)d \
 	-Dwheel-group=false \
 	-Dxdg-autostart=false \
 	-Dxenctrl=disabled \
@@ -361,6 +368,7 @@ $(STATEDIR)/systemd.targetinstall:
 	@$(call install_lib, systemd, 0, 0, 0644, libnss_systemd)
 
 #	# daemon + tools
+	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/run0)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemctl)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/journalctl)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-escape)
@@ -377,6 +385,7 @@ endif
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-cat)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-cgls)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-cgtop)
+	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-creds)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-delta)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-detect-virt)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/systemd-mount)
@@ -399,6 +408,8 @@ ifdef PTXCONF_SYSTEMD_REPART
 endif
 
 	@$(call install_tree, systemd, 0, 0, -, /usr/lib/systemd/system-generators/)
+	@$(call install_link, systemd, system-generators/systemd-fstab-generator, \
+		/usr/lib/systemd/systemd-sysroot-fstab-check)
 	@$(foreach helper, $(SYSTEMD_HELPER), \
 		$(call install_copy, systemd, 0, 0, 0755, -, \
 			/usr/lib/systemd/$(helper))$(ptx/nl))
