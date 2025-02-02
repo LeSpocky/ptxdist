@@ -1,4 +1,6 @@
-## SECTION=test_suites
+## SECTION=staging
+## old section:
+### SECTION=test_suites
 
 config CALIBRATOR
 	tristate
@@ -8,5 +10,9 @@ config CALIBRATOR
 	  The Calibrator is a Cache-Memory and TLB Calibration Tool
 
 	  See http://homepages.cwi.nl/~manegold/Calibrator/ for details.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
 
 # vim: syntax=kconfig
