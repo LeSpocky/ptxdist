@@ -10,7 +10,7 @@ name provided by Python are correct and use those without checking.
  1 file changed, 14 insertions(+), 10 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index e50f11eeb0b2..dc08d54f355e 100644
+index 5c8ae1165714..43bb6b26c8bd 100644
 --- a/meson.build
 +++ b/meson.build
 @@ -87,17 +87,21 @@ else
