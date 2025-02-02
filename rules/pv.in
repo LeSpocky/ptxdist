@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 config PV
 	tristate
@@ -11,3 +13,7 @@ config PV
 	  quickly data is passing through, how long it has taken, how near to
 	  completion it is, and an estimate of how long it will be until
 	  completion.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, fails to build with current toolchains.
+	  Needs updating to the latest version.
