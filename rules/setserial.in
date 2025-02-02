@@ -1,10 +1,16 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 config SETSERIAL
 	tristate
 	depends on !BUSYBOX_SETSERIAL || ALLYES
 	prompt "setserial"
 	help
 	  setserial - get/set Linux serial port information
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
 
 comment "BusyBox' setserial is selected!"
 	depends on BUSYBOX_SETSERIAL
