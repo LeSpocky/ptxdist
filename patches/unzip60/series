@@ -25,4 +25,6 @@
 0022-Fix-bug-in-UZbunzip2-that-incorrectly-updated-G.incn.patch
 0023-Fix-bug-in-UZinflate-that-incorrectly-updated-G.incn.patch
 0024-Fix-for-CVE-2022-0529-and-CVE-2022-0530.patch
-# 6a6666a7a11b32f03266e64fbc92b7d8  - git-ptx-patches magic
+#tag:ptxdist --start-number 100
+0100-add-include-to-fix-configure-check-for-gcc-14.patch
+# 7170f3222bd72a1d86e4ede726429736  - git-ptx-patches magic

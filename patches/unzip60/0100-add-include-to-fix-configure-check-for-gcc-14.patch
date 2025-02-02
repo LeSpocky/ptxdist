@@ -1,0 +1,23 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sun, 2 Feb 2025 21:39:59 +0100
+Subject: [PATCH] add include to fix configure check for gcc-14
+
+Otherwise the check will always fail with 'implicit declaration' errors.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ unix/configure | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/unix/configure b/unix/configure
+index 785d8dde742b..2de909a2652a 100755
+--- a/unix/configure
++++ b/unix/configure
+@@ -419,6 +419,7 @@ $CC $CFLAGS -c conftest.c >/dev/null 2>/dev/null
+ 
+ echo Check for directory libraries
+ cat > conftest.c << _EOF_
++#include <dirent.h>
+ int main() { return closedir(opendir(".")); }
+ _EOF_
+ 
