@@ -1,4 +1,6 @@
-## SECTION=games
+## SECTION=staging
+## old section:
+### SECTION=games
 config SUPERTUX
 	tristate
 	prompt "supertux"
@@ -18,3 +20,7 @@ config SUPERTUX
 	  software and OpenGL rendering modes, configurable joystick
 	  and keyboard input, new music and completely redone graphics.
 
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, needs LIBMIKMOD (via SDL_MIXER_MOD) which
+	  fails to build with current toolchains.
+	  Needs updating to the latest version.
