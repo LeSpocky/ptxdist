@@ -1,0 +1,34 @@
+From: Petr Stodulka <pstodulk@redhat.com>
+Date: Mon, 14 Sep 2015 18:23:17 +0200
+Subject: [PATCH] Upstream fix for heap overflow
+
+Imported from unzip_6.0-28.debian.tar.xz
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ crypt.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
+
+diff --git a/crypt.c b/crypt.c
+index 784e41146e40..a8975f2113c1 100644
+--- a/crypt.c
++++ b/crypt.c
+@@ -465,7 +465,17 @@ int decrypt(__G__ passwrd)
+     GLOBAL(pInfo->encrypted) = FALSE;
+     defer_leftover_input(__G);
+     for (n = 0; n < RAND_HEAD_LEN; n++) {
+-        b = NEXTBYTE;
++        /* 2012-11-23 SMS.  (OUSPG report.)
++         * Quit early if compressed size < HEAD_LEN.  The resulting
++         * error message ("unable to get password") could be improved,
++         * but it's better than trying to read nonexistent data, and
++         * then continuing with a negative G.csize.  (See
++         * fileio.c:readbyte()).
++         */
++        if ((b = NEXTBYTE) == (ush)EOF)
++        {
++            return PK_ERR;
++        }
+         h[n] = (uch)b;
+         Trace((stdout, " (%02x)", h[n]));
+     }

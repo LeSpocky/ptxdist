@@ -1,0 +1,24 @@
+From: =?UTF-8?q?J=C3=A9r=C3=A9my=20Bobbio?= <lunar@debian.org>
+Date: Sun, 2 Feb 2025 21:34:20 +0100
+Subject: [PATCH] Remove build date
+
+Imported from unzip_6.0-28.debian.tar.xz
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ unix/unix.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/unix/unix.c b/unix/unix.c
+index efa97fc431ce..816e3dada6fe 100644
+--- a/unix/unix.c
++++ b/unix/unix.c
+@@ -1705,7 +1705,7 @@ void version(__G)
+ #endif /* Sun */
+ #endif /* SGI */
+ 
+-#ifdef __DATE__
++#if 0
+       " on ", __DATE__
+ #else
+       "", ""

@@ -1,0 +1,28 @@
+From: Kamil Dudka <kdudka@redhat.com>
+Date: Mon, 14 Sep 2015 18:24:56 +0200
+Subject: [PATCH] fix infinite loop when extracting empty bzip2 data
+
+Imported from unzip_6.0-28.debian.tar.xz
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ extract.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/extract.c b/extract.c
+index f951b9f9d4c4..188f1cf78eb4 100644
+--- a/extract.c
++++ b/extract.c
+@@ -2729,6 +2729,12 @@ __GDEF
+     int repeated_buf_err;
+     bz_stream bstrm;
+ 
++    if (G.incnt <= 0 && G.csize <= 0L) {
++        /* avoid an infinite loop */
++        Trace((stderr, "UZbunzip2() got empty input\n"));
++        return 2;
++    }
++
+ #if (defined(DLL) && !defined(NO_SLIDE_REDIR))
+     if (G.redirect_slide)
+         wsize = G.redirect_size, redirSlide = G.redirect_buffer;
