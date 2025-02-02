@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 config BING
 	tristate
 	prompt "bing"
@@ -17,3 +19,7 @@ config BING
 
 	  See also:
 	  http://fgouget.free.fr/bing/bing_src-readme-1st.shtml
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
