@@ -1,4 +1,6 @@
-## SECTION=disk_and_file
+## SECTION=staging
+## old section:
+### SECTION=disk_and_file
 
 config LIBLOCKFILE
 	tristate
@@ -11,3 +13,6 @@ config LIBLOCKFILE
 	  is only writable by group mail. However, its use is not
 	  restricted to mail
 
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, fails to build with current toolchains.
+	  Needs updating to the latest version.
