@@ -13,17 +13,15 @@ PACKAGES-$(PTXCONF_UNZIP) += unzip
 
 #
 # Paths and names
-# (unzip is packaged a bit unusual way, that's why two version variables exist)
 #
-UNZIP_VERSION	:= 6.00
-UNZIP_MD5	:= 62b490407489521db863b523a7f86375
-UNZIP_AVERSION	:= 60
-UNZIP_ARCHIVE	:= unzip$(UNZIP_AVERSION).tar.gz
-UNZIP		:= unzip-$(UNZIP_VERSION)
-UNZIP_URL	:= $(call ptx/mirror, SF, infozip/$(UNZIP_ARCHIVE))
-UNZIP_SOURCE	:= $(SRCDIR)/$(UNZIP_ARCHIVE)
-UNZIP_DIR	:= $(BUILDDIR)/$(UNZIP)
-UNZIP_LICENSE	:= Info-ZIP
+UNZIP_VERSION		:= 6.0
+UNZIP_MD5		:= 62b490407489521db863b523a7f86375
+UNZIP			:= unzip$(subst .,,$(UNZIP_VERSION))
+UNZIP_SUFFIX		:= tar.gz
+UNZIP_URL		:= $(call ptx/mirror, SF, infozip/$(UNZIP).$(UNZIP_SUFFIX))
+UNZIP_SOURCE		:= $(SRCDIR)/$(UNZIP).$(UNZIP_SUFFIX)
+UNZIP_DIR		:= $(BUILDDIR)/$(UNZIP)
+UNZIP_LICENSE		:= Info-ZIP
 UNZIP_LICENSE_FILES := file://LICENSE;md5=94caec5a51ef55ef711ee4e8b1c69e29
 
 # ----------------------------------------------------------------------------
