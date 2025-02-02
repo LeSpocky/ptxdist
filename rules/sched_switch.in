@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 config SCHED_SWITCH
 	tristate
@@ -10,3 +12,6 @@ config SCHED_SWITCH
 	  visualised with GTK-wave
 	  See http://www.osadl.org/Visualize-the-temporal-relationship-of-L.taks-visualizer.0.html
 
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
