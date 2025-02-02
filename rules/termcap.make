@@ -34,8 +34,7 @@ TERMCAP_LICENSE_FILES	:= \
 #
 TERMCAP_CONF_TOOL := autoconf
 TERMCAP_CONF_OPT := \
-	--prefix=/usr \
-	$(CROSS_AUTOCONF_ARCH) \
+	$(CROSS_AUTOCONF_USR) \
 	--enable-install-termcap
 
 # ----------------------------------------------------------------------------

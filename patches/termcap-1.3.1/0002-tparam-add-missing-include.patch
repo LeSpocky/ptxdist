@@ -1,0 +1,26 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sun, 2 Feb 2025 21:03:10 +0100
+Subject: [PATCH] tparam: add missing include
+
+Needed for write().
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ tparam.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/tparam.c b/tparam.c
+index 5a9809aab47f..9311b5bfd2cd 100644
+--- a/tparam.c
++++ b/tparam.c
+@@ -33,6 +33,10 @@ char *malloc ();
+ char *realloc ();
+ #endif
+ 
++#ifdef HAVE_UNISTD_H
++#include <unistd.h>
++#endif
++
+ /* Do this after the include, in case string.h prototypes bcopy.  */
+ #if (defined(HAVE_STRING_H) || defined(STDC_HEADERS)) && !defined(bcopy)
+ #define bcopy(s, d, n) memcpy ((d), (s), (n))
