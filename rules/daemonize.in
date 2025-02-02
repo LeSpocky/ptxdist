@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 config DAEMONIZE
 	tristate
 	prompt "daemonize"
@@ -8,3 +10,6 @@ config DAEMONIZE
 
 	  http://www.clapper.org/software/daemonize/
 
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
