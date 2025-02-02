@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 # xerces-c configuration
 
 config XERCES
@@ -16,3 +18,6 @@ config XERCES
 
 	  See http://xml.apache.org/xerces-c/ for details.
 
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist and fails to build with current toolchains.
+	  Needs updating to the latest version.
