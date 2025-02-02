@@ -1,4 +1,6 @@
-## SECTION=multimedia_sound
+## SECTION=staging
+## old section:
+### SECTION=multimedia_sound
 
 config LIBMIKMOD
 	tristate
@@ -6,3 +8,7 @@ config LIBMIKMOD
 	help
 	  libmikmod is a module player library supporting many formats,
 	  including mod, s3m, it, and xm.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, fails to build with current toolchains.
+	  Needs updating to the latest version.
