@@ -237,7 +237,7 @@ ptxd_make_get_git() {
 	git --git-dir="${mirror}" config transfer.fsckObjects true &&
 	git --git-dir="${mirror}" config tar.tar.gz.command "gzip -cn" &&
 	git --git-dir="${mirror}" config tar.tar.bz2.command "bzip2 -c" &&
-	git --git-dir="${mirror}" config tar.tar.xz.command "xz -c" &&
+	git --git-dir="${mirror}" config tar.tar.xz.command "xz -T 1 -c" &&
 	git --git-dir="${mirror}" remote add origin "${url}" &&
 	git --git-dir="${mirror}" fetch --progress -pf origin "+refs/*:refs/*"  &&
 	# at least for some git versions this is not group writeable for shared repos
