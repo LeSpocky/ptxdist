@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 config ZSYNC
 	tristate
@@ -17,3 +19,7 @@ config ZSYNC
 	  special server software - just a web server to host the files -
 	  and imposes no extra load on the server, making it ideal for
 	  large scale file distribution.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
