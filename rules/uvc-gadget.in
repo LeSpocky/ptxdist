@@ -2,7 +2,7 @@
 
 config UVC_GADGET
 	tristate
-	select HOST_CMAKE
+	select HOST_MESON
 	prompt "uvc-gadget"
 	help
 	  UVC gadget userspace sample application

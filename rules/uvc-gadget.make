@@ -14,9 +14,8 @@ PACKAGES-$(PTXCONF_UVC_GADGET) += uvc-gadget
 #
 # Paths and names
 #
-# No tags: use a fake descriptive commit-ish to include the date
-UVC_GADGET_VERSION	:= 2019-05-02-g105134f9
-UVC_GADGET_MD5		:= cd61b910844f1d95534a8773bf63f248
+UVC_GADGET_VERSION	:= v0.3.0
+UVC_GADGET_MD5		:= 087c77cbeabf72933ea61021e228aa35
 UVC_GADGET		:= uvc-gadget-$(UVC_GADGET_VERSION)
 UVC_GADGET_SUFFIX	:= tar.xz
 UVC_GADGET_URL		:= \
@@ -30,9 +29,10 @@ UVC_GADGET_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later AND MIT
 # Prepare
 # ----------------------------------------------------------------------------
 
-UVC_GADGET_CONF_TOOL	:= cmake
+UVC_GADGET_CONF_TOOL	:= meson
 UVC_GADGET_CONF_OPT	:= \
-	$(CROSS_CMAKE_USR)
+	$(CROSS_MESON_USR) \
+	-Dwerror=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -47,6 +47,7 @@ $(STATEDIR)/uvc-gadget.targetinstall:
 	@$(call install_fixup, uvc-gadget,AUTHOR,"Michael Tretter <m.tretter@pengutronix.de>")
 	@$(call install_fixup, uvc-gadget,DESCRIPTION,missing)
 
+	@$(call install_lib, uvc-gadget, 0, 0, 0755, libuvcgadget)
 	@$(call install_copy, uvc-gadget, 0, 0, 0755, -, /usr/bin/uvc-gadget)
 
 	@$(call install_finish, uvc-gadget)
