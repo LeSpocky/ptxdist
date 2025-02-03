@@ -1,4 +1,6 @@
-## SECTION=editors
+## SECTION=staging
+## old section:
+### SECTION=editors
 
 config DHEX
 	tristate
@@ -8,3 +10,6 @@ config DHEX
 	  DHEX is a more than just another hex editor. It includes a diff mode,
 	  which can be used to easily and conveniently compare two binary files.
 
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
