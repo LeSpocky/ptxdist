@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 config ARGTABLE2
 	tristate
@@ -11,5 +13,9 @@ config ARGTABLE2
 	  specification and the resulting values stored directly into
 	  user-defined program variables where they are accessible to the main
 	  program.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
 
 # vim: syntax=kconfig
