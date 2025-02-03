@@ -1,6 +1,12 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 config LSUIO
 	tristate
 	prompt "lsuio"
 	help
 	  lists the Userspace IO devices registered in your system.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist and fails to build with current toolchains.
+	  Needs updating to the latest version.
