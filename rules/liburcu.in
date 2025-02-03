@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 menuconfig LIBURCU
 	tristate
@@ -11,6 +13,10 @@ menuconfig LIBURCU
 	  copies of a given data structure to live at the same time, and by
 	  monitoring the data structure accesses to detect grace periods after
 	  which memory reclamation is possible.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist and fails to build with current toolchains.
+	  Needs updating to the latest version.
 
 if LIBURCU
 

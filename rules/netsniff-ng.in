@@ -38,6 +38,7 @@ config NETSNIFF_NG_CURVETUN
 
 config NETSNIFF_NG_FLOWTOP
 	bool
+	depends on STAGING
 	select NETSNIFF_NG_ZLIB
 	prompt "install flowtop"
 
