@@ -1,0 +1,10 @@
+## SECTION=multimedia_libs
+
+config ASSIMP
+	tristate
+	prompt "assimp"
+	select HOST_CMAKE
+	select ZLIB
+	help
+	  Open Asset Import Library (assimp) to load various 3d file formats
+	  into a shared, in-memory format.
