@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 menuconfig LIBIODBC
 	tristate "libiodbc                      "
@@ -19,6 +21,9 @@ menuconfig LIBIODBC
 	  driver manager will be able to simultaneously access
 	  different type of data sources within one process through
 	  suitable iODBC drivers.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist and fails to build with current toolchains.
 
 if LIBIODBC
 
