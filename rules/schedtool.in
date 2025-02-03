@@ -1,7 +1,13 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 config SCHEDTOOL
 	tristate
 	prompt "schedtool"
 	help
 	  schedtool can be used to query or alter a process's scheduling policy under linux
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream gone and fails to build with
+	  current toolchains.
