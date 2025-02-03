@@ -1,10 +1,16 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 menuconfig UTELNETD
 	depends on !BUSYBOX_TELNETD || ALLYES
 	tristate
 	prompt "utelnetd                      "
 	help
 	  utelnet is a very small telnetd implementation.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
 
 if UTELNETD
 
