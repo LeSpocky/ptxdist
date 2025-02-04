@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_OPENLDAP) += openldap
 #
 # Paths and names
 #
-OPENLDAP_VERSION	:= 2.6.3
-OPENLDAP_MD5		:= 6b7229396b335dd5ab2d24841d7f4b53
+OPENLDAP_VERSION	:= 2.6.9
+OPENLDAP_MD5		:= 608973c35cd4924fca0f07d0ea72c016
 OPENLDAP		:= openldap-$(OPENLDAP_VERSION)
 OPENLDAP_SUFFIX		:= tgz
 OPENLDAP_URL		:= https://www.openldap.org/software/download/OpenLDAP/openldap-release/$(OPENLDAP).$(OPENLDAP_SUFFIX)
@@ -23,7 +23,7 @@ OPENLDAP_SOURCE		:= $(SRCDIR)/$(OPENLDAP).$(OPENLDAP_SUFFIX)
 OPENLDAP_DIR		:= $(BUILDDIR)/$(OPENLDAP)
 OPENLDAP_LICENSE	:= OLDAP-2.8
 OPENLDAP_LICENSE_FILES	:= \
-	file://COPYRIGHT;md5=beceb5ac7100b6430640c61655b25c1f \
+	file://COPYRIGHT;md5=3a41b4ed95ab4a20f366a8d82536afe4 \
 	file://LICENSE;md5=153d07ef052c4a37a8fac23bc6031972
 
 # ----------------------------------------------------------------------------
