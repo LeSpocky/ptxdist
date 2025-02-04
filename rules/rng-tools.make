@@ -9,8 +9,8 @@
 
 PACKAGES-$(PTXCONF_RNG_TOOLS) += rng-tools
 
-RNG_TOOLS_VERSION	:= 6.14
-RNG_TOOLS_MD5		:= 917d21dd2b06816b0484e220dfb5ba4b
+RNG_TOOLS_VERSION	:= 6.17
+RNG_TOOLS_MD5		:= 07d548e8b75ffb4eedc0058b3802af0b
 RNG_TOOLS		:= rng-tools-$(RNG_TOOLS_VERSION)
 RNG_TOOLS_SUFFIX	:= tar.gz
 RNG_TOOLS_URL		:= https://github.com/nhorman/rng-tools/archive/v$(RNG_TOOLS_VERSION).$(RNG_TOOLS_SUFFIX)
@@ -31,6 +31,7 @@ RNG_TOOLS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-jitterentropy \
 	--without-nistbeacon \
+	--without-qrypt \
 	--without-pkcs11 \
 	--without-rtlsdr \
 	--without-libargp
