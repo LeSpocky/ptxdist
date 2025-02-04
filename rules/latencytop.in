@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 config LATENCYTOP
 	tristate
@@ -22,3 +24,7 @@ config LATENCYTOP
 	  (and the kernel then blocks the process). This is done both on a system level
 	  and on a per process level, so that you can see what's happening to the system,
 	  and which process is suffering and/or causing the delays.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
