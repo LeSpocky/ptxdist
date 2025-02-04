@@ -1,4 +1,6 @@
-## SECTION=scientific
+## SECTION=staging
+## old section:
+### SECTION=scientific
 menuconfig GNUPLOT
 	tristate
 	prompt "gnuplot                       "
@@ -19,6 +21,10 @@ menuconfig GNUPLOT
 	  Data files and self-defined functions can be manipulated by internal
 	  C-like language.  Can perform smoothing, spline-fitting, or nonlinear
 	  fits. Can work with complex numbers.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist and fails to build with current toolchains.
+	  Needs updating to the latest version.
 
 if GNUPLOT
 
