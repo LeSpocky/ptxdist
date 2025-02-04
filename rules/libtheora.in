@@ -4,7 +4,6 @@ menuconfig LIBTHEORA
 	tristate
 	select LIBOGG
 	select LIBVORBIS	if LIBTHEORA_VORBIS
-	select SDL		if LIBTHEORA_SDL
 	prompt "libtheora                     "
 	help
 	  Theora is an open video codec being developed by the Xiph.org Foundation
@@ -15,10 +14,6 @@ if LIBTHEORA
 config LIBTHEORA_VORBIS
 	bool
 	prompt "vorbis support"
-
-config LIBTHEORA_SDL
-	bool
-	prompt "sdl support"
 
 config LIBTHEORA_FLOAT
 	bool

@@ -52,7 +52,7 @@ LIBTHEORA_CONF_OPT	 := \
 	--disable-examples \
 	--enable-ogg \
 	--$(call ptx/endis, PTXCONF_LIBTHEORA_VORBIS)-vorbis \
-	--$(call ptx/endis, PTXCONF_LIBTHEORA_SDL)-sdl \
+	--disable-sdl \
 	--$(call ptx/endis, PTXCONF_LIBTHEORA_FLOAT)-float \
 	--$(call ptx/endis, PTXCONF_LIBTHEORA_ENCODING)-encode
 
