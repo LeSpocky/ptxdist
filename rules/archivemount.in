@@ -1,4 +1,6 @@
-## SECTION=disk_and_file
+## SECTION=staging
+## old section:
+### SECTION=disk_and_file
 
 config ARCHIVEMOUNT
 	tristate
@@ -17,3 +19,7 @@ config ARCHIVEMOUNT
 	  See "archivemount --help" for more information.
 
 	  To umount, use "fusermount -u" from FUSE utils.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
