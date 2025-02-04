@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 config DIALOG
 	tristate
@@ -12,3 +14,6 @@ config DIALOG
 	  as well as utility functions that are used by the widgets or the main
 	  program.
 
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist and fails to build with current toolchains.
+	  Needs updating to the latest version.
