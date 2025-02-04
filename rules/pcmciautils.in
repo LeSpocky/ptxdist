@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 menuconfig PCMCIAUTILS
 	tristate
@@ -13,6 +15,10 @@ menuconfig PCMCIAUTILS
 	  module-init-tools 3.2-pre4 or later.
 	  (see http://www.kernel.org/pub/linux/utils/kernel/pcmcia/pcmcia.html
 	   and http://www.kernel.org/pub/linux/utils/kernel/pcmcia/howto.html)
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
 
 if PCMCIAUTILS
 
