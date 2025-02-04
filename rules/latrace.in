@@ -1,4 +1,6 @@
-## SECTION=debug_tools
+## SECTION=staging
+## old section:
+### SECTION=debug_tools
 
 menuconfig LATRACE
 	tristate
@@ -8,6 +10,10 @@ menuconfig LATRACE
 	help
 	  A tool to trace library calls and get their statistics in a
 	  manner similar to the strace utility
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
 
 if LATRACE
 
