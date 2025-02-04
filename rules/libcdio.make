@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_LIBCDIO) += libcdio
 #
 # Paths and names
 #
-LIBCDIO_VERSION		:= 2.1.0
-LIBCDIO_MD5		:= aa7629e8f73662a762f64c444b901055
+LIBCDIO_VERSION		:= 2.2.0
+LIBCDIO_MD5		:= 9364577aca7cbcdb5c01b7b1233b9fa4
 LIBCDIO			:= libcdio-$(LIBCDIO_VERSION)
-LIBCDIO_SUFFIX		:= tar.bz2
-LIBCDIO_URL		:= $(call ptx/mirror, GNU, libcdio/$(LIBCDIO).$(LIBCDIO_SUFFIX))
+LIBCDIO_SUFFIX		:= tar.gz
+LIBCDIO_URL		:= https://github.com/libcdio/libcdio/releases/download/$(LIBCDIO_VERSION)/$(LIBCDIO).$(LIBCDIO_SUFFIX)
 LIBCDIO_SOURCE		:= $(SRCDIR)/$(LIBCDIO).$(LIBCDIO_SUFFIX)
 LIBCDIO_DIR		:= $(BUILDDIR)/$(LIBCDIO)
 LIBCDIO_LICENSE		:= GPL-3.0-or-later
@@ -32,15 +32,26 @@ LIBCDIO_LICENSE_FILES	:= \
 LIBCDIO_CONF_TOOL	:= autoconf
 LIBCDIO_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
 	--$(call ptx/endis, PTXCONF_LIBCDIO_CXX)-cxx \
+	--disable-cpp-progs \
 	--disable-example-progs \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-rpath \
+	--enable-joliet \
+	--enable-rock \
+	--disable-cddb \
+	--disable-compatibility \
+	--disable-vcd-info \
 	--without-cd-drive \
 	--without-cd-info \
 	--without-cdda-player \
 	--without-cd-read \
 	--without-iso-info \
-	--without-iso-read
+	--without-iso-read \
+	--with-versioned-libs
+
+# needed for lseek64() to be defined
+LIBCDIO_CFLAGS	:= -D_LARGEFILE64_SOURCE
 
 # ----------------------------------------------------------------------------
 # Target-Install
