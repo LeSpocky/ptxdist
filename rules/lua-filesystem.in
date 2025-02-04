@@ -1,4 +1,6 @@
-## SECTION=scripting_languages
+## SECTION=staging
+## old section:
+### SECTION=scripting_languages
 
 config LUA_FILESYSTEM
 	tristate
@@ -6,3 +8,7 @@ config LUA_FILESYSTEM
 	select LUA
 	help
 	  luafilesystem library for the Lua language
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist and fails to build with current toolchains.
+	  Needs updating to the latest version.
