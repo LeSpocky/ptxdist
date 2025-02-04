@@ -1,4 +1,6 @@
-## SECTION=multimedia_sdl
+## SECTION=staging
+## old section:
+### SECTION=multimedia_sdl
 
 menuconfig SDL
 	tristate
@@ -19,6 +21,9 @@ menuconfig SDL
 	  library designed to provide low level access to audio,
 	  keyboard, mouse, joystick, 3D hardware via OpenGL, and
 	  2D video framebuffer.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Obsolete and replaced by SDL2.
 
 if SDL
 

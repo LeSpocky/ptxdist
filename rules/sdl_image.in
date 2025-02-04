@@ -1,4 +1,6 @@
-## SECTION=multimedia_sdl
+## SECTION=staging
+## old section:
+### SECTION=multimedia_sdl
 
 menuconfig SDL_IMAGE
 	tristate
@@ -11,6 +13,9 @@ menuconfig SDL_IMAGE
 	  This is a simple library to load images of various
 	  formats as SDL surfaces. This library currently supports
 	  BMP, PPM, PCX, GIF, JPEG, PNG, TIFF, and XPM formats.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Obsolete and replaced by SDL2.
 
 if SDL_IMAGE
 

@@ -1,4 +1,6 @@
-## SECTION=multimedia_sdl
+## SECTION=staging
+## old section:
+### SECTION=multimedia_sdl
 
 config SDL_GFX
 	tristate
@@ -9,3 +11,5 @@ config SDL_GFX
 	  in an addon library for the Simple Direct Media (SDL) cross-platform
 	  API layer.
 
+	  STAGING: remove in PTXdist 2026.03.0
+	  Obsolete and replaced by SDL2.

@@ -1,4 +1,6 @@
-## SECTION=multimedia_sdl
+## SECTION=staging
+## old section:
+### SECTION=multimedia_sdl
 
 menuconfig SDL_MIXER
 	tristate
@@ -14,6 +16,9 @@ menuconfig SDL_MIXER
 	  It supports 4 channels of 16 bit stereo audio, plus a single
 	  channel of music, mixed by the popular MikMod MOD, Timidity
 	  MIDI, and SMPEG MP3 libraries.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Obsolete and replaced by SDL2.
 
 if SDL_MIXER
 

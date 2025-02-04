@@ -1,4 +1,6 @@
-## SECTION=multimedia_sdl
+## SECTION=staging
+## old section:
+### SECTION=multimedia_sdl
 
 config SDL_TTF
 	tristate
@@ -14,3 +16,5 @@ config SDL_TTF
 	  antialiasing, high quality text output can be obtained without much
 	  effort.
 
+	  STAGING: remove in PTXdist 2026.03.0
+	  Obsolete and replaced by SDL2.
