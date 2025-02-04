@@ -48,6 +48,7 @@ config NETSNIFF_NG_IFPPS
 
 config NETSNIFF_NG_MAUSEZAHN
 	bool
+	depends on STAGING
 	prompt "install mausezahn"
 
 config NETSNIFF_NG_NETSNIFF_NG
