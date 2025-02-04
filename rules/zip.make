@@ -31,16 +31,21 @@ ZIP_LICENSE_FILES	:= file://LICENSE;md5=04d43c5d70b496c032308106e26ae17d
 # Compile
 # ----------------------------------------------------------------------------
 
-ZIP_MAKE_OPT	:= \
-	$(CROSS_ENV_CC) \
-	$(CROSS_ENV_CPP) \
-	$(CROSS_ENV_AS) \
+ZIP_CONF_TOOL	:= NO
+
+ZIP_COMMON_OPT	:= \
+	$(CROSS_ENV_PROGS) \
 	IZ_BZIP2=missing \
-	-f unix/Makefile generic
+	prefix=$(ZIP_PKGDIR)/usr \
+	-f unix/Makefile
+
+ZIP_MAKE_OPT	:= \
+	$(ZIP_COMMON_OPT) \
+	generic
 
 ZIP_INSTALL_OPT	:= \
-	prefix=$(ZIP_PKGDIR)/usr \
-	-f unix/Makefile install
+	$(ZIP_COMMON_OPT) \
+	install
 
 # ----------------------------------------------------------------------------
 # Target-Install

@@ -1,0 +1,24 @@
+From: Santiago Vila <sanvila@debian.org>
+Date: Tue, 4 Feb 2025 12:28:58 +0100
+Subject: [PATCH] Remove (optional) build date to make the build reproducible
+
+Imported from zip_3.0-14.debian.tar.xz
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ unix/unix.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/unix/unix.c b/unix/unix.c
+index f4d655d3436c..ba87614a147b 100644
+--- a/unix/unix.c
++++ b/unix/unix.c
+@@ -1020,7 +1020,7 @@ void version_local()
+ 
+ 
+ /* Define the compile date string */
+-#ifdef __DATE__
++#if 0
+ #  define COMPILE_DATE " on " __DATE__
+ #else
+ #  define COMPILE_DATE ""

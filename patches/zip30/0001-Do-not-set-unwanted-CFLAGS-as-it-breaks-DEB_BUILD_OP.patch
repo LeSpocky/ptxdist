@@ -1,0 +1,24 @@
+From: Santiago Vila <sanvila@debian.org>
+Date: Tue, 4 Feb 2025 12:28:58 +0100
+Subject: [PATCH] Do not set unwanted CFLAGS, as it breaks DEB_BUILD_OPTIONS
+
+Imported from zip_3.0-14.debian.tar.xz
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ unix/configure | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/unix/configure b/unix/configure
+index 73ba803ba06b..a6d45840b30b 100644
+--- a/unix/configure
++++ b/unix/configure
+@@ -98,7 +98,7 @@ int main()
+ _EOF_
+       $CC $CFLAGS -c conftest.c > /dev/null 2>/dev/null
+       if test $? -eq 0; then
+-        CFLAGS_OPT='-O3'
++        # CFLAGS_OPT='-O3'
+         echo "  GNU C ($CFLAGS_OPT)"
+         # Special Mac OS X shared library "ld" option?
+         if test ` uname -s 2> /dev/null ` = 'Darwin'; then

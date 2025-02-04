@@ -1,0 +1,34 @@
+From: Santiago Vila <sanvila@debian.org>
+Date: Tue, 4 Feb 2025 12:28:58 +0100
+Subject: [PATCH] Use format specifier %s to print strings, not the string
+ itself
+
+Imported from zip_3.0-14.debian.tar.xz
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ zip.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/zip.c b/zip.c
+index 439821f2e967..91ad13b6221c 100644
+--- a/zip.c
++++ b/zip.c
+@@ -1028,7 +1028,7 @@ local void help_extended()
+ 
+   for (i = 0; i < sizeof(text)/sizeof(char *); i++)
+   {
+-    printf(text[i]);
++    printf("%s", text[i]);
+     putchar('\n');
+   }
+ #ifdef DOS
+@@ -1225,7 +1225,7 @@ local void version_info()
+             CR_MAJORVER, CR_MINORVER, CR_BETA_VER, CR_VERSION_DATE);
+   for (i = 0; i < sizeof(cryptnote)/sizeof(char *); i++)
+   {
+-    printf(cryptnote[i]);
++    printf("%s", cryptnote[i]);
+     putchar('\n');
+   }
+   ++i;  /* crypt support means there IS at least one compilation option */
