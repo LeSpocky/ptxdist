@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 menuconfig LINKS
 	tristate
@@ -16,6 +18,11 @@ menuconfig LINKS
 	select XZ		if LINKS_LZMA
 	help
 	  links is a fast lightweight text and graphic web-browser
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, SSL support has been broken for a long time
+	  and SDL is now in staging too.
+	  Needs updating to the latest version.
 
 if LINKS
 
