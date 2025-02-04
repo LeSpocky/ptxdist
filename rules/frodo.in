@@ -1,4 +1,6 @@
-## SECTION=bytecode_engines
+## SECTION=staging
+## old section:
+### SECTION=bytecode_engines
 menuconfig FRODO
 	tristate
 	prompt "frodo                         "
@@ -10,6 +12,10 @@ menuconfig FRODO
 	select GCCLIBS_GCC_S
 	help
 	  A C64 emulator.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist and the old version uses SDL (1.x).
+	  Needs updating to the latest version.
 
 if FRODO
 
