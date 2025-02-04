@@ -1,4 +1,6 @@
-## SECTION=debug_tools
+## SECTION=staging
+## old section:
+### SECTION=debug_tools
 
 config LTT_CONTROL
 	tristate
@@ -6,3 +8,7 @@ config LTT_CONTROL
 	select LIBC_PTHREAD
 	help
 	  Linux Trace Toolkit ltt-control
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
