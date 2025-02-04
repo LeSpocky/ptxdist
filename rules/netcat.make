@@ -14,12 +14,12 @@ PACKAGES-$(PTXCONF_NETCAT) += netcat
 #
 # Paths and names
 #
-NETCAT_VERSION	:= 1.105
-NETCAT_MD5	:= 7e67b22f1ad41a1b7effbb59ff28fca1
+NETCAT_VERSION	:= 1.228
+NETCAT_MD5	:= c30dd048bd65f619f6ed1c9b69255b29
 NETCAT		:= netcat-openbsd-$(NETCAT_VERSION)
 NETCAT_SUFFIX	:= tar.gz
 NETCAT_TARBALL	:= netcat-openbsd_$(NETCAT_VERSION).orig.$(NETCAT_SUFFIX)
-NETCAT_URL	:= $(call ptx/mirror, DEB, pool/main/n/netcat-openbsd/$(NETCAT_TARBALL))
+NETCAT_URL	:= https://snapshot.debian.org/archive/debian/20250106T033111Z/pool/main/n/netcat-openbsd/$(NETCAT_TARBALL)
 NETCAT_SOURCE	:= $(SRCDIR)/$(NETCAT).$(NETCAT_SUFFIX)
 NETCAT_DIR	:= $(BUILDDIR)/$(NETCAT)
 NETCAT_LICENSE	:= BSD
