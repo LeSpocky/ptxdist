@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBSSH2) += libssh2
 #
 # Paths and names
 #
-LIBSSH2_VERSION	:= 1.9.0
-LIBSSH2_MD5	:= 1beefafe8963982adc84b408b2959927
+LIBSSH2_VERSION	:= 1.11.1
+LIBSSH2_MD5	:= 38857d10b5c5deb198d6989dacace2e6
 LIBSSH2		:= libssh2-$(LIBSSH2_VERSION)
 LIBSSH2_SUFFIX	:= tar.gz
 LIBSSH2_URL	:= http://www.libssh2.org/download/$(LIBSSH2).$(LIBSSH2_SUFFIX)
@@ -34,17 +34,20 @@ LIBSSH2_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-rpath \
-	--enable-crypt-none \
-	--enable-mac-none \
-	--disable-gex-new \
+	--disable-ecdsa-wincng \
 	--disable-clear-memory \
+	--disable-werror \
 	--enable-debug \
 	--enable-hidden-symbols \
+	--disable-deprecated \
+	--disable-docker-tests \
+	--disable-sshd-tests \
 	--enable-examples-build \
-	--disable-werror \
+	--disable-ossfuzzers \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--with-crypto=openssl \
-	--with-libz \
 	--with-libssl-prefix=$(SYSROOT)/usr \
+	--with-libz \
 	--with-libz-prefix=$(SYSROOT)/usr
 
 # ----------------------------------------------------------------------------
