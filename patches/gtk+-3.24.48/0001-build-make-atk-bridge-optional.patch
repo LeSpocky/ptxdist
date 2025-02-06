@@ -10,7 +10,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  3 files changed, 9 insertions(+), 5 deletions(-)
 
 diff --git a/gdk/meson.build b/gdk/meson.build
-index 4bb1bf2b6c74..650b2a491bf7 100644
+index 297c38c68e1e..bf75157449ec 100644
 --- a/gdk/meson.build
 +++ b/gdk/meson.build
 @@ -166,6 +166,9 @@ gdkconfig_cdata.set('GDK_WINDOWING_WAYLAND', wayland_enabled)
@@ -24,7 +24,7 @@ index 4bb1bf2b6c74..650b2a491bf7 100644
  gdkconfig = configure_file(
    input  : 'gdkconfig.h.meson',
 diff --git a/gtk/a11y/gtkaccessibility.c b/gtk/a11y/gtkaccessibility.c
-index 7f0e5207d915..81b2ed0d55b3 100644
+index 1b319db35afa..c757d29fde98 100644
 --- a/gtk/a11y/gtkaccessibility.c
 +++ b/gtk/a11y/gtkaccessibility.c
 @@ -37,7 +37,7 @@
@@ -36,7 +36,7 @@ index 7f0e5207d915..81b2ed0d55b3 100644
  #include <atk-bridge.h>
  #endif
  
-@@ -988,7 +988,7 @@ _gtk_accessibility_init (void)
+@@ -986,7 +986,7 @@ _gtk_accessibility_init (void)
    _gtk_accessibility_override_atk_util ();
    do_window_event_initialization ();
  
@@ -46,10 +46,10 @@ index 7f0e5207d915..81b2ed0d55b3 100644
  #endif
  
 diff --git a/meson.build b/meson.build
-index f0b4fabe8b59..b4846b619676 100644
+index 819ff0d80838..10c3dad988d0 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -582,7 +582,7 @@ if x11_enabled
+@@ -565,7 +565,7 @@ if x11_enabled
    xfixes_dep     = dependency('xfixes', required: false)
    xcomposite_dep = dependency('xcomposite', required: false)
    fontconfig_dep = dependency('fontconfig', fallback: ['fontconfig', 'fontconfig_dep'])
@@ -58,7 +58,7 @@ index f0b4fabe8b59..b4846b619676 100644
  
    backend_immodules += ['xim']
  
-@@ -600,8 +600,9 @@ if x11_enabled
+@@ -583,8 +583,9 @@ if x11_enabled
    if xdamage_dep.found()
      x11_pkgs += ['xdamage']
    endif
