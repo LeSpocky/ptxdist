@@ -1,0 +1,25 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 7 Feb 2025 10:47:33 +0100
+Subject: [PATCH] resolv.conf_no_log
+
+Imported from ppp_2.5.1-1+1.debian.tar.xz
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ pppd/ipcp.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/pppd/ipcp.c b/pppd/ipcp.c
+index 83f350584632..5e862108d16f 100644
+--- a/pppd/ipcp.c
++++ b/pppd/ipcp.c
+@@ -2161,7 +2161,9 @@ create_resolv(u_int32_t peerdns1, u_int32_t peerdns2)
+ 
+     f = fopen(PPP_PATH_RESOLV, "w");
+     if (f == NULL) {
++/*
+ 	error("Failed to create %s: %m", PPP_PATH_RESOLV);
++*/
+ 	return;
+     }
+ 

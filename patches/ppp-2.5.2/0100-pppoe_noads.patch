@@ -1,0 +1,25 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 7 Feb 2025 10:47:33 +0100
+Subject: [PATCH] pppoe_noads
+
+Imported from ppp_2.5.1-1+1.debian.tar.xz
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ pppd/plugins/pppoe/plugin.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/pppd/plugins/pppoe/plugin.c b/pppd/plugins/pppoe/plugin.c
+index b429a2fdff71..06ae09567aa1 100644
+--- a/pppd/plugins/pppoe/plugin.c
++++ b/pppd/plugins/pppoe/plugin.c
+@@ -424,7 +424,9 @@ plugin_init(void)
+ 
+     ppp_add_options(Options);
+ 
++/*
+     info("PPPoE plugin from pppd %s", PPPD_VERSION);
++*/
+ }
+ 
+ void pppoe_check_options(void)

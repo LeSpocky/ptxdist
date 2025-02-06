@@ -1,6 +1,6 @@
-From: Alexander Dahl <ada@thorsis.com>
-Date: Wed, 16 Jun 2021 18:22:48 +0200
-Subject: [PATCH] Forwarded: https://github.com/paulusmack/ppp/issues/187
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 7 Feb 2025 10:47:33 +0100
+Subject: [PATCH] Forwarded: https://github.com/ppp-project/ppp/issues/187
 
 Upstream said:
 
@@ -14,21 +14,21 @@ added to demand_rexmit() is doing.
 "
 
 
-Imported from ppp_2.4.9-1+1.debian.tar.xz
+Imported from ppp_2.5.1-1+1.debian.tar.xz
 
-Signed-off-by: Alexander Dahl <ada@thorsis.com>
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- pppd/demand.c | 99 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++-
- pppd/ipcp.c   |  2 +-
- pppd/ipv6cp.c |  2 +-
- pppd/pppd.h   |  2 +-
+ pppd/demand.c       | 99 ++++++++++++++++++++++++++++++++++++++++++++++++++++-
+ pppd/ipcp.c         |  2 +-
+ pppd/ipv6cp.c       |  2 +-
+ pppd/pppd-private.h |  2 +-
  4 files changed, 101 insertions(+), 4 deletions(-)
 
 diff --git a/pppd/demand.c b/pppd/demand.c
-index 289c9f8fdd57..4c61444d3968 100644
+index d8c46fea032b..f54c5ca9407d 100644
 --- a/pppd/demand.c
 +++ b/pppd/demand.c
-@@ -36,6 +36,8 @@
+@@ -34,6 +34,8 @@
  #include <errno.h>
  #include <fcntl.h>
  #include <netdb.h>
@@ -37,16 +37,16 @@ index 289c9f8fdd57..4c61444d3968 100644
  #include <sys/param.h>
  #include <sys/types.h>
  #include <sys/wait.h>
-@@ -43,6 +45,8 @@
+@@ -41,6 +43,8 @@
  #include <sys/resource.h>
  #include <sys/stat.h>
  #include <sys/socket.h>
 +#include <netinet/in.h>
 +#include <arpa/inet.h>
- #ifdef PPP_FILTER
+ #ifdef PPP_WITH_FILTER
  #include <pcap-bpf.h>
  #endif
-@@ -218,6 +222,14 @@ loop_chars(unsigned char *p, int n)
+@@ -217,6 +221,14 @@ loop_chars(unsigned char *p, int n)
      int c, rv;
  
      rv = 0;
@@ -61,7 +61,7 @@ index 289c9f8fdd57..4c61444d3968 100644
      for (; n > 0; --n) {
  	c = *p++;
  	if (c == PPP_FLAG) {
-@@ -294,16 +306,101 @@ loop_frame(unsigned char *frame, int len)
+@@ -293,16 +305,101 @@ loop_frame(unsigned char *frame, int len)
   * loopback, now that the real serial link is up.
   */
  void
@@ -165,10 +165,10 @@ index 289c9f8fdd57..4c61444d3968 100644
  	    free(pkt);
  	} else {
 diff --git a/pppd/ipcp.c b/pppd/ipcp.c
-index 302ca40b4c83..3ac26a08032a 100644
+index ded4370783e3..83f350584632 100644
 --- a/pppd/ipcp.c
 +++ b/pppd/ipcp.c
-@@ -1850,7 +1850,7 @@ ipcp_up(fsm *f)
+@@ -1915,7 +1915,7 @@ ipcp_up(fsm *f)
  		    proxy_arp_set[f->unit] = 1;
  
  	}
@@ -178,10 +178,10 @@ index 302ca40b4c83..3ac26a08032a 100644
  
      } else {
 diff --git a/pppd/ipv6cp.c b/pppd/ipv6cp.c
-index 431cb62211bf..a32b0002e10d 100644
+index a36b1d942be4..1a75f26f9c74 100644
 --- a/pppd/ipv6cp.c
 +++ b/pppd/ipv6cp.c
-@@ -1253,7 +1253,7 @@ ipv6cp_up(fsm *f)
+@@ -1338,7 +1338,7 @@ ipv6cp_up(fsm *f)
  		if (sif6defaultroute(f->unit, go->ourid, ho->hisid))
  		    default_route_set[f->unit] = 1;
  	}
@@ -190,11 +190,11 @@ index 431cb62211bf..a32b0002e10d 100644
  	sifnpmode(f->unit, PPP_IPV6, NPMODE_PASS);
  
      } else {
-diff --git a/pppd/pppd.h b/pppd/pppd.h
-index 612902f55d0d..10a9977598aa 100644
---- a/pppd/pppd.h
-+++ b/pppd/pppd.h
-@@ -598,7 +598,7 @@ void demand_conf(void);	/* config interface(s) for demand-dial */
+diff --git a/pppd/pppd-private.h b/pppd/pppd-private.h
+index d8ec443e6f85..0ebe4fb23f9e 100644
+--- a/pppd/pppd-private.h
++++ b/pppd/pppd-private.h
+@@ -370,7 +370,7 @@ void demand_conf(void);	/* config interface(s) for demand-dial */
  void demand_block(void);	/* set all NPs to queue up packets */
  void demand_unblock(void); /* set all NPs to pass packets */
  void demand_discard(void); /* set all NPs to discard packets */

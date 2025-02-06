@@ -35,13 +35,6 @@ config PPP_SUID
 	  Makes the pppd binary SUID for ruMakes the pppd binary SUID
 	  for Makes the pppd binary SUID for running as a server.
 
-config PPP_IPX
-	bool
-	prompt "support IPX protocol"
-	help
-	  For networking with Novell. Presently only if your kernel has
-	  been configured to include IPX support.
-
 config PPP_FILTER
 	bool
 	prompt "support filter"
@@ -59,45 +52,26 @@ config PPP_SRP
 config PPP_MULTILINK
 	bool
 	prompt "support multilink"
-	select PPP_TDB
 	help
 	  Multilink provides the capability to combine two or more PPP links
 	  between a pair of machines into a single 'bundle', which appears as
 	  a single virtual PPP link which has the combined bandwidth of the
 	  individual links.
 
-config PPP_SHADOW
+config PPP_MICROSOFT
 	bool
-	prompt "ppp server: support for shadow passwords"
+	prompt "Microsoft extensions"
 	help
-	  Used when your pppd runs as a dialin server. Not required if it
-	  is intended to run as client only.
-
-config PPP_MS_CHAP
-	bool
-	prompt "MS-CHAP (Microsoft MS-CHAP authentication protocol)"
-	help
-	  support Micro$oft's MS-CHAP authentication protocol
-
-config PPP_MPPE
-	bool
-	prompt "MPPE (Microsoft Point-to-Point Encryption)"
-	select PPP_MS_CHAP
-	help
-	  support Microsoft Point-to-Point Encryption
-	  for more information see:
-	  RFC 3078 (the protocol)
-	  RFC 3079 (deriving initial session keys)
+	  support various Microsoft extensions
+	  - MS-CHAP authentication protocol
+	  - MPPE Point-to-Point Encryption
+	  - Microsoft LAN Manager support
+	  - PEAP authentication support
 
 config PPP_MS_CBCP
 	bool "CBCP (Microsoft proprietary Callback Control Protocol)"
 	help
 	  Enable Micro$oft proprietary Callback Control Protocol
-
-
-config PPP_TDB
-	bool
-
 
 menuconfig PPP_PLUGINS
 	bool
@@ -155,12 +129,6 @@ config PPP_MINCONN
 	help
 	  pppd plugin to implement a 'minconnect' option
 	  (Set minimum connect time before idle timeout applies)
-
-config PPP_PASSPROMPT
-	bool
-	prompt "passprompt"
-	help
-	  pppd plugin to invoke an external PAP password prompter
 
 config PPP_PASSWORDFD
 	bool

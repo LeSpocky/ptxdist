@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_PPP) += ppp
 #
 # Paths and names
 #
-PPP_VERSION	:= 2.4.9
-PPP_MD5		:= c88153ae3d16ae114152cd3c15c7301d
+PPP_VERSION	:= 2.5.2
+PPP_MD5		:= 28744065f8062622e2ab59901a310b2a
 PPP		:= ppp-$(PPP_VERSION)
 PPP_SUFFIX	:= tar.gz
 PPP_URL		:= https://www.samba.org/ftp/ppp/$(PPP).$(PPP_SUFFIX)
@@ -38,104 +38,26 @@ $(call ptx/error, Define a platform kernel or the kernel headers)
 endif
 endif
 
-PPP_CONF_ENV	:= \
-	TARGET_OS=Linux \
-	TARGET_OS_VER=$(PPP_KERNEL_VERSION) \
-	TARGET_OS_ARCH=$(GENERIC_KERNEL_ARCH)
-
-PPP_MAKE_ENV	:= $(CROSS_ENV)
-PPP_MAKE_PAR	:= NO
-
-#
-# path to where the shared library based plugins get installed
-# (and be searched at runtime)
-#
 PPP_SHARED_INST_PATH := /usr/lib/pppd/$(PPP_VERSION)
 
-$(STATEDIR)/ppp.prepare:
-	@$(call targetinfo)
-	@cd $(PPP_DIR) && $(PPP_PATH) $(PPP_CONF_ENV) \
-		./configure --prefix=/usr --sysconfdir=/etc --cc=$(CROSS_CC)
-
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,USE_PAM=y)
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,SYSTEMD=y)
-
-ifdef PTXCONF_GLOBAL_IPV6
-	@$(call enable_sh,$(PPP_DIR)/pppd/Makefile,HAVE_INET6=y)
-else
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,HAVE_INET6=y)
-endif
-
-ifndef PTXCONF_PPP_IPX
-	@sed -i \
-		-e 's/-DIPX_CHANGE//' \
-		-e 's/ipxcp.o//' \
-		$(PPP_DIR)/pppd/Makefile
-endif
-
-ifdef PTXCONF_PPP_FILTER
-	@$(call enable_sh,$(PPP_DIR)/pppd/Makefile,FILTER=y)
-else
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,FILTER=y)
-endif
-
-ifdef PTXCONF_PPP_SRP
-	@$(call enable_sh,$(PPP_DIR)/pppd/Makefile,USE_SRP=y)
-else
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,USE_SRP=y)
-endif
-
-ifndef PTXCONF_PPP_MULTILINK
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,HAVE_MULTILINK=y)
-	@sed -i \
-		-e 's/-DHAVE_MULTILINK//' \
-		-e 's/multilink.o//' \
-		$(PPP_DIR)/pppd/Makefile
-endif
-
-ifdef PTXCONF_PPP_SHADOW
-	@$(call enable_sh,$(PPP_DIR)/pppd/Makefile,HAS_SHADOW=y)
-else
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,HAS_SHADOW=y)
-endif
-
-ifdef PTXCONF_PPP_MS_CHAP
-	@$(call enable_sh,$(PPP_DIR)/pppd/Makefile,CHAPMS=y)
-else
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,CHAPMS=y)
-endif
-
-ifdef PTXCONF_PPP_MPPE
-	@$(call enable_sh,$(PPP_DIR)/pppd/Makefile,MPPE=y)
-else
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,MPPE=y)
-endif
-
-ifdef PTXCONF_PPP_MS_CBCP
-	@$(call enable_sh,$(PPP_DIR)/pppd/Makefile,CBCP=y)
-else
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,CBCP=y)
-endif
-
-ifdef PTXCONF_PPP_TDB
-	@$(call enable_sh,$(PPP_DIR)/pppd/Makefile,USE_TDB=y)
-else
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,USE_TDB=y)
-endif
-
-ifdef PTXCONF_PPP_PLUGINS
-	@$(call enable_sh,$(PPP_DIR)/pppd/Makefile,PLUGIN=y)
-else
-	@$(call disable_sh,$(PPP_DIR)/pppd/Makefile,PLUGIN=y)
-endif
-
-	@$(call touch)
-
-
-PPP_INSTALL_OPT := \
-	INSTROOT=$(PPP_PKGDIR) \
-	DESTDIR=$(PPP_PKGDIR)/usr \
-	install
+PPP_CONF_OPT	:= \
+	$(CROSS_AUTOCONF_USR) \
+	--disable-systemd \
+	--$(call ptx/endis,PTXCONF_PPP_MS_CBCP)-cbcp \
+	--$(call ptx/endis,PTXCONF_PPP_MICROSOFT)-microsoft-extensions \
+	--$(call ptx/endis,PTXCONF_PPP_MICROSOFT)-mslanman \
+	--$(call ptx/endis,PTXCONF_GLOBAL_IPV6)-ipv6cp \
+	--$(call ptx/endis,PTXCONF_PPP_MULTILINK)-multilink \
+	--$(call ptx/endis,PTXCONF_PPP_PLUGINS)-plugins \
+	--enable-eaptls \
+	--$(call ptx/endis,PTXCONF_PPP_MICROSOFT)-peap \
+	--enable-openssl-engine \
+	--with-plugin-dir=$(PPP_SHARED_INST_PATH) \
+	--with-system-ca-path=/etc/ssl/certs/ \
+	--with-srp=$(call ptx/ifdef,PTXCONF_PPP_SRP,$(SYSROOT),no) \
+	--without-atm \
+	--without-pam \
+	--with-pcap=$(call ptx/ifdef,PTXCONF_PPP_FILTER,$(SYSROOT),no)
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -221,15 +143,11 @@ ifdef PTXCONF_PPP_RADREALMS
 endif
 ifdef PTXCONF_PPP_OE
 	@$(call install_copy, ppp, 0, 0, 0644, -, \
-		$(PPP_SHARED_INST_PATH)/rp-pppoe.so)
+		$(PPP_SHARED_INST_PATH)/pppoe.so)
 endif
 ifdef PTXCONF_PPP_MINCONN
 	@$(call install_copy, ppp, 0, 0, 0644, -, \
 		$(PPP_SHARED_INST_PATH)/minconn.so)
-endif
-ifdef PTXCONF_PPP_PASSPROMPT
-	@$(call install_copy, ppp, 0, 0, 0644, -, \
-		$(PPP_SHARED_INST_PATH)/passprompt.so)
 endif
 ifdef PTXCONF_PPP_PASSWORDFD
 	@$(call install_copy, ppp, 0, 0, 0644, -, \

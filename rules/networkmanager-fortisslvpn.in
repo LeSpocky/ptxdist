@@ -6,4 +6,6 @@ config NETWORKMANAGER_FORTISSLVPN
 	select NETWORKMANAGER
 	select NETWORKMANAGER_PPP
 	select OPENFORTIVPN
+	# fails to build with ppp 2.5.x
+	depends on BROKEN
 	prompt "fortisslvpn"
