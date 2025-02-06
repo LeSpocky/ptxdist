@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_app
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_app
 
 config XTERM
 	tristate
@@ -14,3 +16,7 @@ config XTERM
 	help
 	  The xterm program is the standard terminal emulator for the X
 	  Window System.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist and fails to build with current toolchains.
+	  Needs updating to the latest version.
