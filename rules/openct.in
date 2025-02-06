@@ -1,4 +1,6 @@
-## SECTION=communication
+## SECTION=staging
+## old section:
+### SECTION=communication
 
 menuconfig OPENCT
 	tristate "openct                        "
@@ -13,6 +15,10 @@ menuconfig OPENCT
 	  OpenCT implements drivers for many card terminals, smart card
 	  readers, and usb crypto tokens. OpenCT can be used as CT-API or
 	  PC/SC Ifdhandler driver, but also directly.
+
+	  STAGING: remove in PTXdist 2026.03.0
+	  Unmaintained in PTXdist, upstream dead and fails to build with
+	  current toolchains.
 
 if OPENCT
 
