@@ -19,15 +19,15 @@ PACKAGES-$(PTXCONF_SQLITE) += sqlite
 #
 # Paths and names
 #
-SQLITE_VERSION	:= 3400000
-SQLITE_MD5	:= c833d61da768a116fa16d910f43cfd9a
+SQLITE_VERSION	:= 3480000
+SQLITE_MD5	:= ab4e0652b6dedb075faf7a2781ba2c20
 SQLITE		:= sqlite-autoconf-$(SQLITE_VERSION)
 SQLITE_SUFFIX	:= tar.gz
-SQLITE_URL	:= https://www.sqlite.org/2022/$(SQLITE).$(SQLITE_SUFFIX)
+SQLITE_URL	:= https://www.sqlite.org/2025/$(SQLITE).$(SQLITE_SUFFIX)
 SQLITE_SOURCE	:= $(SRCDIR)/$(SQLITE).$(SQLITE_SUFFIX)
 SQLITE_DIR	:= $(BUILDDIR)/$(SQLITE)
 SQLITE_LICENSE	:= public_domain
-SQLITE_LICENSE_FILES	:= file://sqlite3.c;startline=29;endline=30;md5=43af35cab122fd0eed4d5469d0507788
+SQLITE_LICENSE_FILES	:= file://sqlite3.c;startline=35;endline=36;md5=43af35cab122fd0eed4d5469d0507788
 
 # ----------------------------------------------------------------------------
 # Prepare
