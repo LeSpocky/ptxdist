@@ -1,0 +1,31 @@
+## SECTION=multimedia_libs
+
+config VKMARK
+	bool
+	prompt "vkmark"
+	select HOST_MESON
+	select ASSIMP
+	select GLM
+	select LIBDRM
+	select MESALIB
+	select MESALIB_GBM
+	select VULKAN_LOADER
+	select LIBXCB			if VKMARK_XCB
+	select XCB_UTIL_WM		if VKMARK_XCB
+	select WAYLAND			if VKMARK_WAYLAND
+	select WAYLAND_PROTOCOLS	if VKMARK_WAYLAND
+	help
+	  vkmark is an extensible Vulkan benchmarking suite with targeted,
+	  configurable scenes.
+
+if VKMARK
+
+config VKMARK_XCB
+	bool
+	default y if VULKAN_LOADER_XCB
+
+config VKMARK_WAYLAND
+	bool
+	default y if VULKAN_LOADER_WAYLAND
+
+endif
