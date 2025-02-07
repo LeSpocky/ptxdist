@@ -82,6 +82,7 @@ In PTXdist, we use `SPDX license expressions <https://spdx.org/licenses/>`_.
 
 Either the license identifier is clear, e.g. because the README says "GPL 2.0
 or later" (check the license text to be sure), or you can use tools like
+SPDX's `Check License <https://tools.spdx.org/app/check_license/>`__ online tool,
 `FOSSology <https://www.fossology.org>`__,
 `licensecheck <https://wiki.debian.org/CopyrightReviewTools#Command-line_tools_in_Debian>`_,
 or `spdx-license-match <https://github.com/rohieb/spdx-license-match>`_
