@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=shell_and_console
+## SECTION=shell_and_console
 config BC
 	tristate
 	prompt "bc"
@@ -10,10 +8,6 @@ config BC
 	  similar to C, but differs in many substantial areas. It supports
 	  interactive execution of statements. bc is a utility included in the
 	  POSIX P1003.2/D11 draft standard.
-
-	  STAGING: remove in PTXdist 2026.03.0
-	  Unmaintained in PTXdist, fails to build with current toolchains.
-	  Needs updating to the latest version.
 
 comment "BusyBox' bc is selected!"
 	depends on BUSYBOX_BC
