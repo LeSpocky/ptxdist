@@ -15,17 +15,17 @@ PACKAGES-$(PTXCONF_BC) += bc
 #
 # Paths and names
 #
-BC_VERSION	:= 1.06
-BC_MD5		:= d44b5dddebd8a7a7309aea6c36fda117
+BC_VERSION	:= 1.08.1
+BC_MD5		:= 26c11787a7a1d76de8a2ac3a7ba92098
 BC		:= bc-$(BC_VERSION)
-BC_SUFFIX	:= tar.gz
+BC_SUFFIX	:= tar.xz
 BC_URL		:= $(call ptx/mirror, GNU, bc/$(BC).$(BC_SUFFIX))
 BC_SOURCE	:= $(SRCDIR)/$(BC).$(BC_SUFFIX)
 BC_DIR		:= $(BUILDDIR)/$(BC)
-BC_LICENSE	:= GPL-2.0-or-later
+BC_LICENSE	:= GPL-3.0-or-later
 BC_LICENSE_FILES	:= \
-	file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f \
-	file://bc/bc.c;startline=47;endline=73;md5=944528275142ba90c112735cf0cbc7d1
+	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
+	file://bc/bc.c;startline=3;endline=46;md5=d65c804470e1c96f665f0d07debdbc34
 
 # ----------------------------------------------------------------------------
 # Prepare
