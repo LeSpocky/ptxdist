@@ -14,13 +14,17 @@ PACKAGES-$(PTXCONF_PV) += pv
 #
 # Paths and names
 #
-PV_VERSION	:= 1.4.12
-PV_MD5		:= 605adc0f369496bca92b0656cf86b25e
-PV		:= pv-$(PV_VERSION)
-PV_SUFFIX	:= tar.bz2
-PV_URL		:= http://www.ivarch.com/programs/sources/$(PV).$(PV_SUFFIX)
-PV_SOURCE	:= $(SRCDIR)/$(PV).$(PV_SUFFIX)
-PV_DIR		:= $(BUILDDIR)/$(PV)
+PV_VERSION		:= 1.9.31
+PV_MD5			:= 9ea909b3dade3f3fba407a03c01a9bcf
+PV			:= pv-$(PV_VERSION)
+PV_SUFFIX		:= tar.gz
+PV_URL			:= https://www.ivarch.com/programs/sources/$(PV).$(PV_SUFFIX)
+PV_SOURCE		:= $(SRCDIR)/$(PV).$(PV_SUFFIX)
+PV_DIR			:= $(BUILDDIR)/$(PV)
+PV_LICENSE		:= GPL-3.0-or-later
+PV_LICENSE_FILES	:= \
+	file://docs/COPYING;md5=1ebbd3e34237af26da5dc08a4e440464 \
+	file://README.md;startline=54;endline=70;md5=eb1be9d96c222fb839ee3fc200867c64
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -37,8 +41,9 @@ PV_CONF_OPT	:= \
 	--disable-nls \
 	--disable-splice \
 	--disable-ipc \
-	--$(call ptx/endis, PTXCONF_GLOBAL_LARGE_FILE)-lfs \
-	--enable-debugging
+	--$(call ptx/endis, PTXCONF_GLOBAL_LARGE_FILE)-largefile \
+	--enable-debugging \
+	--without-ncurses
 
 # ----------------------------------------------------------------------------
 # Target-Install
