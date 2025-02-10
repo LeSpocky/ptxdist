@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_VOLK) += volk
 #
 # Paths and names
 #
-VOLK_VERSION		:= 1.4.304.0
-VOLK_MD5		:= b3a038a08223f7393334a610aeea3330
+VOLK_VERSION		:= 1.4.304.1
+VOLK_MD5		:= 077a27d8776bb690890e6946d3273b1e
 VOLK			:= volk-$(VOLK_VERSION)
 VOLK_SUFFIX		:= tar.gz
 VOLK_URL		:= https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-$(VOLK_VERSION).$(VOLK_SUFFIX)
