@@ -256,6 +256,18 @@ Package Definition
   UTF-8 files the encoding can be specified with ``encoding=<enc>``.
   See the section :ref:`licensing_in_packages` for more information.
 
+``<PKG>_CVE_PRODUCT``
+  The product ID in the `CVE Database <https://www.cve.org>`__, used for
+  generating SBoM reports.
+  It can be of the form ``<vendor>:<product>`` and contain multiple values
+  separated by spaces if necessary.
+  If not set, it defaults to ``<PKG>``.
+
+``<PKG>_CVE_VERSION``
+  The version number in the `CVE Database <https://www.cve.org>`__, used for
+  generating SBoM reports.
+  If not set, it defaults to ``$(<PKG>_VERSION)``.
+
 For most packages the variables described above are undefined by default.
 However, for cross and host packages these variables default to the value
 of the corresponding target package if it exists.
