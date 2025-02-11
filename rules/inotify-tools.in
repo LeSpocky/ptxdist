@@ -1,8 +1,40 @@
 ## SECTION=system_libraries
-config INOTIFY_TOOLS
-	tristate
-	prompt "inotify-tools"
-	help
-	  Command line tools for inotify
-	  http://inotify-tools.sourceforge.net/
 
+menuconfig INOTIFY_TOOLS
+	tristate
+	prompt "inotify-tools                 "
+	help
+	  The general purpose of this package is to allow inotify's
+	  features to be used from within shell scripts
+
+if INOTIFY_TOOLS
+
+config INOTIFY_TOOLS_WAIT
+	bool
+	prompt "inotifywait"
+	help
+	  inotifywait efficiently waits for changes to files using Linux's
+	  inotify interface
+
+config INOTIFY_TOOLS_WATCH
+	bool
+	prompt "inotifywatch"
+	help
+	  inotifywatch listens for filesystem events using Linux's
+	  inotify interface
+
+config INOTIFY_TOOLS_FS_WAIT
+	bool
+	prompt "fsnotifywait"
+	help
+	  fsnotifywait is similar to inotifywait but it is using Linux's
+	  fanotify interface by default
+
+config INOTIFY_TOOLS_FS_WATCH
+	bool
+	prompt "fsnotifywatch"
+	help
+	  fsnotifywatch is similar to inotifywatch but it is using Linux's
+	  fanotify interface by default
+
+endif
