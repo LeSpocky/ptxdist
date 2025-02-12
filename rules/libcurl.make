@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.11.1
-LIBCURL_MD5	:= 25e65a5156ca4928060b61cb051813db
+LIBCURL_VERSION	:= 8.12.0
+LIBCURL_MD5	:= 3005f775ce65b301a27f8d43a8c85511
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_SOURCE	:= $(SRCDIR)/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_DIR	:= $(BUILDDIR)/$(LIBCURL)
 LIBCURL_LICENSE	:= curl
-LIBCURL_LICENSE_FILES := file://COPYING;md5=eed2e5088e1ac619c9a1c747da291d75
+LIBCURL_LICENSE_FILES := file://COPYING;md5=72f4e9890e99e68d77b7e40703d789b8
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -75,7 +75,6 @@ LIBCURL_CONF_OPT	:= \
 	--disable-versioned-symbols \
 	--disable-windows-unicode \
 	--$(call ptx/disen, PTXCONF_LIBCURL_C_ARES)-threaded-resolver \
-	--enable-pthreads \
 	--$(call ptx/endis, PTXCONF_LIBCURL_VERBOSE)-verbose \
 	--disable-sspi \
 	--enable-basic-auth \
@@ -114,7 +113,6 @@ LIBCURL_CONF_OPT	:= \
 	--without-wolfssl \
 	--without-bearssl \
 	--without-rustls \
-	--without-hyper \
 	--with-zlib=$(SYSROOT) \
 	--without-brotli \
 	--without-zstd \
