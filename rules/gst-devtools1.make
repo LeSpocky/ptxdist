@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GST_DEVTOOLS1) += gst-devtools1
 #
 # Paths and names
 #
-GST_DEVTOOLS1_VERSION	:= 1.24.12
-GST_DEVTOOLS1_MD5	:= 52be72adda2331d2abeaab99b9b52f01
+GST_DEVTOOLS1_VERSION	:= 1.26.0
+GST_DEVTOOLS1_MD5	:= a99f8fcd8ff7ea239c303423e0894e37
 GST_DEVTOOLS1		:= gst-devtools-$(GST_DEVTOOLS1_VERSION)
 GST_DEVTOOLS1_SUFFIX	:= tar.xz
 GST_DEVTOOLS1_URL	:= http://gstreamer.freedesktop.org/data/src/gst-devtools/$(GST_DEVTOOLS1).$(GST_DEVTOOLS1_SUFFIX)
@@ -36,6 +36,7 @@ GST_DEVTOOLS1_CONF_OPT	:= \
 	-Dcairo=$(call ptx/endis,PTXCONF_GST_DEVTOOLS1_VIDEO)d \
 	-Ddebug_viewer=disabled \
 	-Ddoc=disabled \
+	-Ddots_viewer=disabled \
 	-Dintrospection=$(call ptx/endis,PTXCONF_GSTREAMER1_INTROSPECTION)d \
 	-Dnls=disabled \
 	-Dtests=disabled \
