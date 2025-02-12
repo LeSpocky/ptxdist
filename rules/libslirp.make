@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_LIBSLIRP) += libslirp
 #
 # Paths and names
 #
-LIBSLIRP_VERSION	:= 4.8.0
-LIBSLIRP_MD5		:= 4f701d26a46fe9bf6db302aef6ed467f
+LIBSLIRP_VERSION	:= 4.9.0
+LIBSLIRP_MD5		:= 31dbbfe667297a5931e56ba78f69c64f
 LIBSLIRP		:= libslirp-v$(LIBSLIRP_VERSION)
 LIBSLIRP_SUFFIX		:= tar.bz2
-LIBSLIRP_URL		:= https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v4.7.0/$(LIBSLIRP).$(LIBSLIRP_SUFFIX)
+LIBSLIRP_URL		:= https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v$(LIBSLIRP_VERSION)/$(LIBSLIRP).$(LIBSLIRP_SUFFIX)
 LIBSLIRP_SOURCE		:= $(SRCDIR)/$(LIBSLIRP).$(LIBSLIRP_SUFFIX)
 LIBSLIRP_DIR		:= $(BUILDDIR)/$(LIBSLIRP)
 LIBSLIRP_LICENSE	:= BSD-3-Clause AND MIT
