@@ -3,13 +3,14 @@
 menuconfig GST_PLUGINS_RS
 	tristate
 	select HOST_MESON
+	select HOST_BINDGEN_CLI
 	select HOST_CARGO_C
 	select HOST_SYSTEM_PYTHON3
 	select HOST_SYSTEM_PYTHON3_TOML
 	select HOST_SYSTEM_PYTHON3_TOMLI
 	select GSTREAMER1
 	select GST_PLUGINS_BASE1
-	select GST_PLUGINS_BAD1		if GST_PLUGINS_RS_WEBRTC || GST_PLUGINS_RS_WEBRTCHTTP
+	select GST_PLUGINS_BAD1		if GST_PLUGINS_RS_WEBRTC || GST_PLUGINS_RS_WEBRTCHTTP || GST_PLUGINS_RS_RELATIONMETA
 	select GST_PLUGINS_BAD1_WEBRTC	if GST_PLUGINS_RS_WEBRTC || GST_PLUGINS_RS_WEBRTCHTTP
 	select LIBWEBP			if GST_PLUGINS_RS_WEBP
 	select LIBWEBP_DEMUX		if GST_PLUGINS_RS_WEBP
@@ -78,11 +79,19 @@ config GST_PLUGINS_RS_GIF
 	bool
 	prompt "gif"
 
+config GST_PLUGINS_RS_GOPBUFFER
+	bool
+	prompt "gopbuffer"
+
 config GST_PLUGINS_RS_GTK4
 	bool
 	# needs gtk4
 	depends on BROKEN
 	prompt "gtk4"
+
+config GST_PLUGINS_RS_HLSMULTIVARIANTSINK
+	bool
+	prompt "hlsmultivariantsink"
 
 config GST_PLUGINS_RS_HLSSINK3
 	bool
@@ -108,6 +117,10 @@ config GST_PLUGINS_RS_LIVESYNC
 	bool
 	prompt "livesync"
 
+config GST_PLUGINS_RS_MPEGTSLIVE
+	bool
+	prompt "mpegtslive"
+
 config GST_PLUGINS_RS_MP4
 	bool
 	prompt "mp4"
@@ -120,9 +133,17 @@ config GST_PLUGINS_RS_ONVIF
 	bool
 	prompt "onvif"
 
+config GST_PLUGINS_RS_ORIGINALBUFFER
+	bool
+	prompt "originalbuffer"
+
 config GST_PLUGINS_RS_PNG
 	bool
 	prompt "png"
+
+config GST_PLUGINS_RS_QUINN
+	bool
+	prompt "quinn"
 
 config GST_PLUGINS_RS_RAPTORQ
 	bool
@@ -136,6 +157,10 @@ config GST_PLUGINS_RS_REGEX
 	bool
 	prompt "regex"
 
+config GST_PLUGINS_RS_RELATIONMETA
+	bool
+	prompt "relationmeta"
+
 config GST_PLUGINS_RS_REQWEST
 	bool
 	prompt "reqwest"
@@ -148,6 +173,10 @@ config GST_PLUGINS_RS_RTSP
 	bool
 	prompt "rtsp"
 
+config GST_PLUGINS_RS_SPEECHMATICS
+	bool
+	prompt "speechmatics"
+
 config GST_PLUGINS_RS_SODIUM
 	bool
 	prompt "sodium"
@@ -155,6 +184,10 @@ config GST_PLUGINS_RS_SODIUM
 config GST_PLUGINS_RS_SPOTIFY
 	bool
 	prompt "spotify"
+
+config GST_PLUGINS_RS_STREAMGROUPER
+	bool
+	prompt "streamgrouper"
 
 config GST_PLUGINS_RS_TEXTAHEAD
 	bool
@@ -183,6 +216,12 @@ config GST_PLUGINS_RS_URIPLAYLISTBIN
 config GST_PLUGINS_RS_VIDEOFX
 	bool
 	prompt "videofx"
+
+config GST_PLUGINS_RS_VVDEC
+	bool
+	# needs libvvdec
+	depends on BROKEN
+	prompt "vvdec"
 
 config GST_PLUGINS_RS_WEBP
 	bool

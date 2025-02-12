@@ -10,7 +10,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  3 files changed, 10 insertions(+)
 
 diff --git a/cargo_wrapper.py b/cargo_wrapper.py
-index 183ffcd12acc..f8e063918c71 100644
+index c169045cc13c..8116600ba8d7 100644
 --- a/cargo_wrapper.py
 +++ b/cargo_wrapper.py
 @@ -28,6 +28,7 @@ PARSER.add_argument('--lib-suffixes', nargs="+", default=[])
@@ -32,10 +32,10 @@ index 183ffcd12acc..f8e063918c71 100644
          cargo_cmd += ['--target', rustc_target]
      if features:
 diff --git a/meson.build b/meson.build
-index d6f22b020319..156ff96a6f95 100644
+index f4e69ca1d293..13f7282bb349 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -501,6 +501,10 @@ if get_option('doc').disabled()
+@@ -546,6 +546,10 @@ if get_option('doc').disabled()
    extra_args += ['--disable-doc']
  endif
  
@@ -47,10 +47,10 @@ index d6f22b020319..156ff96a6f95 100644
  pkg_config = find_program('pkgconfig', 'pkg-config')
  if pkg_config.found()
 diff --git a/meson_options.txt b/meson_options.txt
-index 0842a6613211..cf44abae7ce7 100644
+index d75770ee411b..ec17061c8769 100644
 --- a/meson_options.txt
 +++ b/meson_options.txt
-@@ -66,3 +66,5 @@ option('examples', type: 'feature', value: 'disabled', yield: true,
+@@ -77,3 +77,5 @@ option('examples', type: 'feature', value: 'disabled', yield: true,
         description: 'Build examples')
  option('tests', type : 'feature', value : 'auto', yield : true,
         description : 'Build and enable unit tests')
