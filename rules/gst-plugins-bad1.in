@@ -614,6 +614,22 @@ config GST_PLUGINS_BAD1_LC3
 	help
 	  LC3 (Bluetooth) LE audio codec plugin
 
+config GST_PLUGINS_BAD1_LCEVCDECODER
+	bool
+	# needs lcevc_dec
+	depends on BROKEN
+	prompt "lcevcdecoder"
+	help
+	  Low Complexity Enhancement Video Coding decoder plugin
+
+config GST_PLUGINS_BAD1_LCEVCENCODER
+	bool
+	# needs lcevc_enc
+	depends on BROKEN
+	prompt "lcevcencoder"
+	help
+	  Low Complexity Enhancement Video Coding encoder plugin
+
 config GST_PLUGINS_BAD1_LDAC
 	bool
 	# needs ldacBT-enc
@@ -709,6 +725,14 @@ config GST_PLUGINS_BAD1_NVCODEC
 	prompt "nvcodec"
 	help
 	  NVIDIA GPU codec plugin
+
+config GST_PLUGINS_BAD1_NVDSWRAPPER
+	bool
+	# needs deepstream & cuda
+	depends on BROKEN
+	prompt "nvdswrapper"
+	help
+	  NVIDIA DeepStream SDK wrapper plugin
 
 config GST_PLUGINS_BAD1_ONNX
 	bool
@@ -896,6 +920,14 @@ config GST_PLUGINS_BAD1_SVTHEVCENC
 	help
 	  Scalable Video Technology for HEVC encoder plugin
 
+config GST_PLUGINS_BAD1_SVTJPEGXS
+	bool
+	# needs svtjpegxs
+	depends on BROKEN
+	prompt "svtjpegxs"
+	help
+	  Scalable Video Technology for JPEG-XS plugin
+
 config GST_PLUGINS_BAD1_TELETEXT
 	bool
 	# needs zvbi
@@ -903,6 +935,12 @@ config GST_PLUGINS_BAD1_TELETEXT
 	prompt "teletext"
 	help
 	  Teletext plugin
+
+config GST_PLUGINS_BAD1_TENSORDECODERS
+	bool
+	prompt "tensordecoders"
+	help
+	  Tensordecoders plugin
 
 config GST_PLUGINS_BAD1_TINYALSA
 	bool
