@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GSTREAMER1) += gstreamer1
 #
 # Paths and names
 #
-GSTREAMER1_VERSION	:= 1.24.12
-GSTREAMER1_MD5		:= 8bfc0b9b4e2467170a66e256d4846f9c
+GSTREAMER1_VERSION	:= 1.26.0
+GSTREAMER1_MD5		:= 61fa71e6a65f23fbf508422af5096f4a
 GSTREAMER1		:= gstreamer-$(GSTREAMER1_VERSION)
 GSTREAMER1_SUFFIX	:= tar.xz
 GSTREAMER1_URL		:= http://gstreamer.freedesktop.org/src/gstreamer/$(GSTREAMER1).$(GSTREAMER1_SUFFIX)
@@ -43,9 +43,9 @@ GSTREAMER1_MAKE_ENV := \
 #
 GSTREAMER1_GENERIC_CONF_OPT = \
 	-Ddoc=disabled \
-	-Dglib-asserts=$(call ptx/endis,PTXCONF_GSTREAMER1_DEBUG)d \
-	-Dglib-checks=$(call ptx/endis,PTXCONF_GSTREAMER1_DEBUG)d \
-	-Dgobject-cast-checks=$(call ptx/endis,PTXCONF_GSTREAMER1_DEBUG)d \
+	-Dglib_assert=$(call ptx/truefalse,PTXCONF_GSTREAMER1_DEBUG) \
+	-Dglib_checks=$(call ptx/truefalse,PTXCONF_GSTREAMER1_DEBUG) \
+	-Dglib_debug=$(call ptx/endis,PTXCONF_GSTREAMER1_DEBUG)d \
 	-Dpackage-name="$(1) source release" \
 	-Dpackage-origin=PTXdist \
 	-Dtests=disabled
