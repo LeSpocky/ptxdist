@@ -45,6 +45,13 @@ PYTHON3_SCIPY_CONF_OPT	= \
 	\
 	--cross-file $(PYTHON3_SCIPY_MESON_CROSS_FILE)
 
+$(STATEDIR)/python3-scipy.prepare:
+	@$(call targetinfo)
+	@$(call world/prepare, PYTHON3_SCIPY)
+	@sed -i 's;$(PTXDIST_SYSROOT_HOST)/usr/lib/system-python3/bin/python3;$(HOSTPYTHON3);' \
+		$(PYTHON3_SCIPY_DIR)-build/build.ninja
+	@$(call touch)
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
