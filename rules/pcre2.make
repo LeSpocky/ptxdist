@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_PCRE2) += pcre2
 #
 # Paths and names
 #
-PCRE2_VERSION		:= 10.44
-PCRE2_MD5		:= 9d1fe11e2e919c7b395e3e8f0a5c3eec
+PCRE2_VERSION		:= 10.45
+PCRE2_MD5		:= f71abbe1b5adf25cd9af5d26ef223b66
 PCRE2			:= pcre2-$(PCRE2_VERSION)
 PCRE2_SUFFIX		:= tar.bz2
 PCRE2_URL		:= https://github.com/PCRE2Project/pcre2/releases/download/$(PCRE2)/$(PCRE2).$(PCRE2_SUFFIX)
 PCRE2_SOURCE		:= $(SRCDIR)/$(PCRE2).$(PCRE2_SUFFIX)
 PCRE2_DIR		:= $(BUILDDIR)/$(PCRE2)
 PCRE2_LICENSE		:= BSD-3-Clause
-PCRE2_LICENSE_FILES	:= file://LICENCE;md5=321a5eb46acae6b6c1ff2c7a866d836a
+PCRE2_LICENSE_FILES	:= file://LICENCE.md;md5=8446a1fd12e40d9d64c79234fbb1f812
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -34,6 +34,7 @@ PCRE2_LICENSE_FILES	:= file://LICENCE;md5=321a5eb46acae6b6c1ff2c7a866d836a
 PCRE2_CONF_TOOL	:= autoconf
 PCRE2_CONF_OPT	:=  \
 	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--$(call ptx/endis,PTXCONF_PCRE2_8)-pcre2-8 \
 	--$(call ptx/endis,PTXCONF_PCRE2_16)-pcre2-16 \
 	--$(call ptx/endis,PTXCONF_PCRE2_32)-pcre2-32 \
@@ -57,6 +58,7 @@ PCRE2_CONF_OPT	:=  \
 	--disable-valgrind \
 	--disable-coverage \
 	--disable-fuzz-support \
+	--disable-diff-fuzz-support \
 	--enable-percent-zt
 
 # ----------------------------------------------------------------------------
