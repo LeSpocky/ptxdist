@@ -10,10 +10,10 @@ name provided by Python are correct and use those without checking.
  1 file changed, 14 insertions(+), 10 deletions(-)
 
 diff --git a/meson.build b/meson.build
-index 5c8ae1165714..43bb6b26c8bd 100644
+index ef12b3036b3b..c8ff7af50e09 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -87,17 +87,21 @@ else
+@@ -88,17 +88,21 @@ else
    endif
  endif
  pylib_fname = ''
