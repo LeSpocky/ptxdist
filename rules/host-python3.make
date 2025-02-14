@@ -41,16 +41,24 @@ HOST_PYTHON3_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--enable-shared \
 	--disable-profiling \
+	--disable-pystats \
+	--disable-experimental-jit \
 	--disable-optimizations \
+	--disable-bolt \
 	--disable-loadable-sqlite-extensions \
+	--disable-test-modules \
+	--with-pkg-config \
 	--without-pydebug \
+	--without-trace-refs \
 	--without-assertions \
 	--without-lto \
 	--with-system-expat \
 	--without-system-libmpdec \
 	--with-dbmliborder= \
 	--without-doc-strings \
+	--with-mimalloc \
 	--with-pymalloc \
+	--with-freelists \
 	--with-c-locale-coercion \
 	--without-valgrind \
 	--without-dtrace \

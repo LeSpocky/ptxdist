@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_PYTHON3) += python3
 #
 # Paths and names
 #
-PYTHON3_VERSION		:= 3.11.10
-PYTHON3_MD5		:= af59e243df4c7019f941ae51891c10bc
+PYTHON3_VERSION		:= 3.13.2
+PYTHON3_MD5		:= 4c2d9202ab4db02c9d0999b14655dfe5
 PYTHON3_MAJORMINOR	:= $(basename $(PYTHON3_VERSION))
 PYTHON3_SITEPACKAGES	:= /usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages
 PYTHON3			:= Python-$(PYTHON3_VERSION)
@@ -61,24 +61,32 @@ PYTHON3_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-shared \
 	--disable-profiling \
+	--disable-pystats \
+	--disable-experimental-jit \
 	--disable-optimizations \
+	--disable-bolt \
 	--disable-loadable-sqlite-extensions \
 	$(GLOBAL_IPV6_OPTION) \
+	--disable-test-modules \
+	--with-build-python=$(PTXDIST_SYSROOT_HOST)/usr/bin/python$(PYTHON3_MAJORMINOR) \
+	--with-pkg-config \
 	--without-pydebug \
+	--without-trace-refs \
 	--without-assertions \
 	--without-lto \
 	--with-system-expat \
 	--without-system-libmpdec \
 	--with-dbmliborder=$(call ptx/ifdef, PTXCONF_PYTHON3_DB,bdb) \
 	--without-doc-strings \
+	--with-mimalloc \
 	--with-pymalloc \
+	--with-freelists \
 	--with-c-locale-coercion \
 	--without-valgrind \
 	--without-dtrace \
 	--with-computed-gotos \
 	--without-ensurepip \
-	--with-openssl=$(SYSROOT)/usr \
-	--with-build-python=$(PTXDIST_SYSROOT_HOST)/usr/bin/python$(PYTHON3_MAJORMINOR)
+	--with-openssl=$(SYSROOT)/usr
 
 # Keep dictionary order in .pyc files stable
 PYTHON3_MAKE_ENV := \
@@ -102,6 +110,10 @@ $(STATEDIR)/python3.install:
 		$(PTXDIST_SYSROOT_HOST)/usr/lib/python$(PYTHON3_MAJORMINOR)/lib-dynload/*-x86_64-host-gnu.so
 	@chrpath -r '$${ORIGIN}/../../../../../sysroot-host/usr/lib' \
 		$(PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/lib-dynload/*-x86_64-host-gnu.so
+
+#	# make sure distutils from host-python-setuptools is found
+	@cp -v $(PTXDIST_SYSROOT_HOST)/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/distutils-precedence.pth \
+		$(PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/site-packages/
 
 	@rm -vrf $(PYTHON3_PKGDIR)/usr/lib/python$(PYTHON3_MAJORMINOR)/config-$(PYTHON3_MAJORMINOR)*
 	@$(call world/env, PYTHON3) ptxd_make_world_install_python_cleanup
