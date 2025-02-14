@@ -59,7 +59,6 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--disable-versioned-symbols \
 	--disable-windows-unicode \
 	--disable-threaded-resolver \
-	--enable-pthreads \
 	--disable-verbose \
 	--disable-sspi \
 	--enable-basic-auth \
@@ -98,7 +97,6 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--without-wolfssl \
 	--without-bearssl \
 	--without-rustls \
-	--without-hyper \
 	--without-zlib \
 	--without-brotli \
 	--without-zstd \
