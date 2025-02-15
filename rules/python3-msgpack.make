@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_PYTHON3_MSGPACK) += python3-msgpack
 #
 # Paths and names
 #
-PYTHON3_MSGPACK_VERSION	:= 0.4.8
-PYTHON3_MSGPACK_MD5	:= dcd854fb41ee7584ebbf35e049e6be98
-PYTHON3_MSGPACK		:= msgpack-python-$(PYTHON3_MSGPACK_VERSION)
+PYTHON3_MSGPACK_VERSION	:= 1.1.0
+PYTHON3_MSGPACK_MD5	:= e5769d4ab610491ac561c84fde4cf4a7
+PYTHON3_MSGPACK		:= msgpack-$(PYTHON3_MSGPACK_VERSION)
 PYTHON3_MSGPACK_SUFFIX	:= tar.gz
-PYTHON3_MSGPACK_URL	:= $(call ptx/mirror-pypi, msgpack-python, $(PYTHON3_MSGPACK).$(PYTHON3_MSGPACK_SUFFIX))
+PYTHON3_MSGPACK_URL	:= $(call ptx/mirror-pypi, msgpack, $(PYTHON3_MSGPACK).$(PYTHON3_MSGPACK_SUFFIX))
 PYTHON3_MSGPACK_SOURCE	:= $(SRCDIR)/$(PYTHON3_MSGPACK).$(PYTHON3_MSGPACK_SUFFIX)
 PYTHON3_MSGPACK_DIR	:= $(BUILDDIR)/$(PYTHON3_MSGPACK)
 PYTHON3_MSGPACK_LICENSE	:= Apache-2.0
@@ -43,7 +43,7 @@ $(STATEDIR)/python3-msgpack.targetinstall:
 	@$(call install_fixup, python3-msgpack, DESCRIPTION, It`s like JSON. But fast and small.)
 
 	@$(call install_glob, python3-msgpack, 0, 0, -, \
-		$(PYTHON3_SITEPACKAGES)/msgpack,, *.py)
+		$(PYTHON3_SITEPACKAGES),, *.py)
 
 	@$(call install_finish, python3-msgpack)
 
