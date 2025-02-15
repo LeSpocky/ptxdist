@@ -11,7 +11,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/numpy/distutils/system_info.py b/numpy/distutils/system_info.py
-index edf56909ab5d..2b43b450a417 100644
+index feb28f61cf07..a8016ed21edb 100644
 --- a/numpy/distutils/system_info.py
 +++ b/numpy/distutils/system_info.py
 @@ -890,7 +890,7 @@ def get_paths(self, section, key):
