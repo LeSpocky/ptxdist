@@ -4,6 +4,7 @@ config HOST_CYTHON3
 	tristate
 	default y if ALLYES
 	select HOST_PYTHON3
+	select HOST_PYTHON3_SETUPTOOLS
 	help
 	  Cython is an optimising static compiler for both the Python
 	  programming language and the extended Cython programming language
