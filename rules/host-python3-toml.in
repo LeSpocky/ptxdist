@@ -4,3 +4,4 @@ config HOST_PYTHON3_TOML
 	tristate
 	default y if ALLYES
 	select HOST_PYTHON3
+	select HOST_PYTHON3_SETUPTOOLS
