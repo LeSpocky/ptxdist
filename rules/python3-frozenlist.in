@@ -3,6 +3,8 @@
 config PYTHON3_FROZENLIST
 	tristate
 	select PYTHON3
+	select HOST_PYTHON3_PYBUILD
+	select HOST_PYTHON3_EXPANDVARS
 	prompt "frozenlist"
 	help
 	  A list-like structure which implements
