@@ -1,0 +1,8 @@
+## SECTION=hosttools_noprompt
+
+config HOST_PYTHON3_EXPANDVARS
+	tristate
+	default y if ALLYES
+	select HOST_PYTHON3
+	select HOST_PYTHON3_HATCHLING
+	select HOST_PYTHON3_PYBUILD
