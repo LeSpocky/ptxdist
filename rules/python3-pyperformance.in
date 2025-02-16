@@ -1,0 +1,31 @@
+## SECTION=python3
+
+menuconfig PYTHON3_PYPERFORMANCE
+	tristate
+	select HOST_PYTHON3_PYBUILD
+	select PYTHON3
+	select PYTHON3_PACKAGING	if RUNTIME
+	select PYTHON3_PYPERF		if RUNTIME
+	select PYTHON3_DULWICH		if RUNTIME && PYTHON3_PYPERFORMANCE_DEPS
+	select PYTHON3_GREENLET		if RUNTIME && PYTHON3_PYPERFORMANCE_DEPS
+	select PYTHON3_MSGPACK		if RUNTIME && PYTHON3_PYPERFORMANCE_DEPS
+	select PYTHON3_PSUTIL		if RUNTIME && PYTHON3_PYPERFORMANCE_DEPS
+	prompt "pyperformance                 "
+	help
+	  Python benchmark suite
+
+if PYTHON3_PYPERFORMANCE
+
+config PYTHON3_PYPERFORMANCE_DEPS
+	bool
+	prompt "install basic dependencies"
+	help
+	  Pyperformance creates a venv and installs all required packages.
+	  However for some architectures, this is not possible, because no
+	  wheels are provided for download and a compiler is needed on the
+	  target to build the package.
+	  To work around this, install these package via PTXdist and hack
+	  the requirements.txt files to use the versions provided by
+	  PTXdist.
+
+endif
