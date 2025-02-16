@@ -1,0 +1,11 @@
+## SECTION=python3
+
+config PYTHON3_DULWICH
+	tristate
+	select HOST_PYTHON3_SETUPTOOLS_RUST
+	select HOST_PYTHON3_PYBUILD
+	select HOST_PYTHON3_WHEEL
+	select PYTHON3
+	prompt "dulwich"
+	help
+	  Python Git library
