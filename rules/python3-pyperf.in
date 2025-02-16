@@ -1,0 +1,11 @@
+## SECTION=python3
+
+config PYTHON3_PYPERF
+	tristate
+	select HOST_PYTHON3_PYBUILD
+	select PYTHON3
+	select PYTHON3_PSUTIL		if RUNTIME
+	prompt "pyperf"
+	help
+	  The Python pyperf module is a toolkit to write, run and analyze
+	  benchmarks.
