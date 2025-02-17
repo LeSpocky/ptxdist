@@ -1,0 +1,40 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Mon, 17 Feb 2025 22:14:46 +0100
+Subject: [PATCH] update error list for pcre2-10.45
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ src/mongo/util/pcre.h | 19 ++++++++++++++++++-
+ 1 file changed, 18 insertions(+), 1 deletion(-)
+
+diff --git a/src/mongo/util/pcre.h b/src/mongo/util/pcre.h
+index 4920f5a409be..20f732dab8b1 100644
+--- a/src/mongo/util/pcre.h
++++ b/src/mongo/util/pcre.h
+@@ -158,8 +158,25 @@ namespace mongo::pcre {
+     X(ERROR_ALPHA_ASSERTION_UNKNOWN)             \
+     X(ERROR_SCRIPT_RUN_NOT_AVAILABLE)            \
+     X(ERROR_TOO_MANY_CAPTURES)                   \
+-    X(ERROR_CONDITION_ATOMIC_ASSERTION_EXPECTED) \
++    X(ERROR_MISSING_OCTAL_DIGIT)                 \
+     X(ERROR_BACKSLASH_K_IN_LOOKAROUND)           \
++    X(ERROR_MAX_VAR_LOOKBEHIND_EXCEEDED)         \
++    X(ERROR_PATTERN_COMPILED_SIZE_TOO_BIG)       \
++    X(ERROR_OVERSIZE_PYTHON_OCTAL)               \
++    X(ERROR_CALLOUT_CALLER_DISABLED)             \
++    X(ERROR_EXTRA_CASING_REQUIRES_UNICODE)       \
++    X(ERROR_TURKISH_CASING_REQUIRES_UTF)         \
++    X(ERROR_EXTRA_CASING_INCOMPATIBLE)           \
++    X(ERROR_ECLASS_NEST_TOO_DEEP)                \
++    X(ERROR_ECLASS_INVALID_OPERATOR)             \
++    X(ERROR_ECLASS_UNEXPECTED_OPERATOR)          \
++    X(ERROR_ECLASS_EXPECTED_OPERAND)             \
++    X(ERROR_ECLASS_MIXED_OPERATORS)              \
++    X(ERROR_ECLASS_HINT_SQUARE_BRACKET)          \
++    X(ERROR_PERL_ECLASS_UNEXPECTED_EXPR)         \
++    X(ERROR_PERL_ECLASS_EMPTY_EXPR)              \
++    X(ERROR_PERL_ECLASS_MISSING_CLOSE)           \
++    X(ERROR_PERL_ECLASS_UNEXPECTED_CHAR)         \
+     X(ERROR_NOMATCH)                             \
+     X(ERROR_PARTIAL)                             \
+     X(ERROR_UTF8_ERR1)                           \

@@ -3,4 +3,5 @@
 0001-HACK-SConstruct-remove-metrics.patch
 0002-HACK-SConstruct-keep-environment.patch
 0003-HACK-don-t-require-GitPython.patch
-# 92efd435d713858af1a7f9c04eb75aab  - git-ptx-patches magic
+0004-update-error-list-for-pcre2-10.45.patch
+# 33c58fbf7ec5586959034e261ea2978e  - git-ptx-patches magic
