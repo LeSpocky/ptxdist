@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_MTD_UTILS) += mtd-utils
 #
 # Paths and names
 #
-MTD_UTILS_VERSION	:= 2.2.1
-MTD_UTILS_MD5		:= 08b97c0df7e70916a7b42460b5030fff
+MTD_UTILS_VERSION	:= 2.3.0
+MTD_UTILS_MD5		:= 06be1bd123cfea8575829e9b16e84f4b
 MTD_UTILS		:= mtd-utils-$(MTD_UTILS_VERSION)
 MTD_UTILS_SUFFIX	:= tar.bz2
 MTD_UTILS_URL		:= https://infraroot.at/pub/mtd/$(MTD_UTILS).$(MTD_UTILS_SUFFIX)
@@ -35,11 +35,13 @@ MTD_UTILS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-unit-tests \
 	$(GLOBAL_LARGE_FILE_OPTION) \
-	--$(call ptx/wwo,PTXCONF_MTD_UTILS_TESTS)-tests \
 	--$(call ptx/endis,PTXCONF_MTD_UTILS_UBIHEALTHD)-ubihealthd \
+	--disable-asan \
+	--$(call ptx/wwo,PTXCONF_MTD_UTILS_TESTS)-tests \
 	--$(call ptx/wwo, PTXCONF_MTD_UTILS_LSMTD)-lsmtd \
 	--$(call ptx/wwo, PTXCONF_MTD_UTILS_JFFS)-jffs \
 	--$(call ptx/wwo, PTXCONF_MTD_UTILS_UBIFS)-ubifs \
+	--with-zlib \
 	--without-xattr \
 	--$(call ptx/wwo, PTXCONF_MTD_UTILS_USE_LIBLZO)-lzo \
 	--without-zstd \
