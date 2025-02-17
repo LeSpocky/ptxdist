@@ -33,7 +33,12 @@ INOTIFY_TOOLS_LICENSE_FILES	:= file://COPYING;md5=ac6c26e52aea428ee7f56dc2c56424
 # autoconf
 #
 INOTIFY_TOOLS_CONF_TOOL	:= autoconf
-INOTIFY_TOOLS_CONF_OPT	:= $(CROSS_AUTOCONF_USR)
+INOTIFY_TOOLS_CONF_OPT	:= \
+	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-doxygen \
+	--disable-static-binary \
+	--enable-fanotify
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -69,3 +74,5 @@ endif
 	@$(call install_finish, inotify-tools)
 
 	@$(call touch)
+
+# vim: syntax=make
