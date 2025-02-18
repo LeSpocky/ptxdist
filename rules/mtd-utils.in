@@ -395,6 +395,13 @@ config MTD_UTILS_MKFS_UBIFS
 	help
 	  Create ubifs filesystems
 
+config MTD_UTILS_FSCK_UBIFS
+	bool
+	prompt "fsck.ubifs"
+	select MTD_UTILS_UBIFS
+	help
+	  Check ubifs filesystems
+
 endif
 
 config MTD_UTILS_MTDINFO
