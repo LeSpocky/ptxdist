@@ -109,10 +109,6 @@ endif
 
 $(STATEDIR)/python3.install:
 	@$(call targetinfo)
-
-#	# remove unneeded stuff
-	@find $(PYTHON3_DIR) \( -name test -o -name tests \) -print0 | xargs -0 rm -vrf
-
 	@$(call world/install, PYTHON3)
 
 #	# grab the host binary modules for cross-building
