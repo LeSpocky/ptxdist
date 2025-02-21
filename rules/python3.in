@@ -4,6 +4,7 @@ menuconfig PYTHON3
 	tristate "python3                       "
 	select HOST_PYTHON3
 	select HOST_PYTHON3_SETUPTOOLS
+	select HOST_QEMU	if PYTHON3_OPTIMIZATIONS
 	select LIBC_DL
 	select LIBC_CRYPT
 	select LIBC_M
@@ -31,6 +32,14 @@ menuconfig PYTHON3
 	  can be learned in a few days.
 
 if PYTHON3
+
+config PYTHON3_OPTIMIZATIONS
+	bool
+	prompt "build with optimizations enabled"
+	help
+	  Build with PGO. If this is enabled, the build-time increases
+	  significantly because Python is built twice. Once to generate the
+	  profile and a second time with PGO enabled.
 
 config PYTHON3_BZ2
 	bool "bz2 bindings"

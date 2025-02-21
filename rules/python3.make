@@ -63,7 +63,7 @@ PYTHON3_CONF_OPT	:= \
 	--disable-profiling \
 	--disable-pystats \
 	--disable-experimental-jit \
-	--disable-optimizations \
+	--$(call ptx/endis,PTXCONF_PYTHON3_OPTIMIZATIONS)-optimizations \
 	--disable-bolt \
 	--disable-loadable-sqlite-extensions \
 	$(GLOBAL_IPV6_OPTION) \
@@ -91,6 +91,17 @@ PYTHON3_CONF_OPT	:= \
 # Keep dictionary order in .pyc files stable
 PYTHON3_MAKE_ENV := \
 	PYTHONHASHSEED=0
+
+ifdef PTXCONF_PYTHON3_OPTIMIZATIONS
+PYTHON3_CONF_ENV += \
+	PROFILE_TASK="-m test.regrtest --pgo test_grammar test_opcodes test_dict test_types"
+
+PYTHON3_MAKE_ENV += \
+	CROSS_LD_LIBRARY_PATH=$(PYTHON3_DIR)
+
+PYTHON3_MAKE_OPT := \
+	LLVM_PROF_FILE=$(PTXDIST_SYSROOT_CROSS)/usr/bin/qemu-cross
+endif
 
 # ----------------------------------------------------------------------------
 # Install
