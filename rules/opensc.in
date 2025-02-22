@@ -7,6 +7,7 @@ menuconfig OPENSC
 	select OPENCT		if OPENSC_OPENCT
 	select PCSC_LITE	if OPENSC_PCSC
 	select OPENSSL		if OPENSC_OPENSSL
+	select CMOCKA		if OPENSC_TESTSUITE
 	help
 	  Smart card utilities with support for PKCS#15 compatible cards
 
@@ -44,8 +45,6 @@ config OPENSC_TOOLS
 	bool "install tools"
 
 config OPENSC_TESTSUITE
-	# needs cmocka
-	depends on BROKEN
 	bool "install testsuite"
 
 endif
