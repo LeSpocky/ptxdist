@@ -10,6 +10,7 @@ menuconfig GST_PLUGINS_BAD1
 	select GST_PLUGINS_BASE1
 	select GST_PLUGINS_BASE1_GL	if GST_PLUGINS_BAD1_GL
 	select ORC
+	select LIBASS			if GST_PLUGINS_BAD1_ASSRENDER
 	select BZIP2			if GST_PLUGINS_BAD1_BZ2
 	select BZIP2_LIBBZ2		if GST_PLUGINS_BAD1_BZ2
 	select BLUEZ			if GST_PLUGINS_BAD1_BLUEZ
@@ -40,6 +41,7 @@ menuconfig GST_PLUGINS_BAD1
 	select VULKAN_LOADER		if GST_PLUGINS_BAD1_VULKAN
 	select WAYLAND			if GST_PLUGINS_BAD1_WAYLAND
 	select WAYLAND_PROTOCOLS	if GST_PLUGINS_BAD1_WAYLAND
+	select LIBWEBP			if GST_PLUGINS_BAD1_WEBP
 	select LIBNICE			if GST_PLUGINS_BAD1_WEBRTC
 	select WEBRTC_AUDIO_PROCESSING1	if GST_PLUGINS_BAD1_WEBRTCDSP || GST_PLUGINS_BAD1_ISAC
 	select ZBAR			if GST_PLUGINS_BAD1_ZBAR
@@ -383,8 +385,6 @@ config GST_PLUGINS_BAD1_AVTP
 
 config GST_PLUGINS_BAD1_ASSRENDER
 	bool
-	# needs libass
-	depends on BROKEN
 	prompt "assrender"
 	help
 	  ASS/SSA subtitle renderer plugin
@@ -976,8 +976,6 @@ config GST_PLUGINS_BAD1_WAYLAND
 
 config GST_PLUGINS_BAD1_WEBP
 	bool
-	# needs libwebp
-	depends on BROKEN
 	prompt "webp"
 	help
 	  WebP image codec plugin
