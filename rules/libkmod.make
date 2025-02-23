@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBKMOD) += libkmod
 #
 # Paths and names
 #
-LIBKMOD_VERSION	:= 33
-LIBKMOD_MD5	:= c451c4aa61521adbe8af147f498046f8
+LIBKMOD_VERSION	:= 34
+LIBKMOD_MD5	:= 3e6c5c9ad9c7367ab9c3cc4f08dfde62
 LIBKMOD		:= kmod-$(LIBKMOD_VERSION)
 LIBKMOD_SUFFIX	:= tar.xz
 LIBKMOD_URL	:= $(call ptx/mirror, KERNEL, utils/kernel/kmod/$(LIBKMOD).$(LIBKMOD_SUFFIX))
@@ -32,24 +32,19 @@ LIBKMOD_CVE_PRODUCT := kernel:kmod
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBKMOD_CONF_TOOL	:= autoconf
+LIBKMOD_CONF_TOOL	:= meson
 LIBKMOD_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--$(call ptx/endis, PTXCONF_LIBKMOD_TOOLS)-tools \
-	--disable-manpages \
-	--disable-test-modules \
-	--$(call ptx/endis, PTXCONF_LIBKMOD_LOGGING)-logging \
-	--$(call ptx/endis, PTXCONF_LIBKMOD_DEBUG)-debug \
-	--disable-coverage \
-	--disable-gtk-doc \
-	--disable-gtk-doc-html \
-	--disable-gtk-doc-pdf \
-	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
-	--$(call ptx/wwo, PTXCONF_LIBKMOD_ZSTD)-zstd \
-	--without-xz \
-	--$(call ptx/wwo, PTXCONF_LIBKMOD_ZLIB)-zlib \
-	--without-openssl
+	$(CROSS_MESON_USR) \
+	-Dbuild-tests=false \
+	-Ddebug-messages=$(call ptx/truefalse,PTXCONF_LIBKMOD_DEBUG) \
+	-Ddocs=false \
+	-Dlogging=$(call ptx/truefalse,PTXCONF_LIBKMOD_LOGGING) \
+	-Dmanpages=false \
+	-Dopenssl=disabled \
+	-Dtools=$(call ptx/truefalse,PTXCONF_LIBKMOD_TOOLS) \
+	-Dzstd=$(call ptx/endis,PTXCONF_LIBKMOD_ZSTD)d \
+	-Dxz=disabled \
+	-Dzlib=$(call ptx/endis,PTXCONF_LIBKMOD_ZLIB)d
 
 # ----------------------------------------------------------------------------
 # Target-Install

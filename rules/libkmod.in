@@ -2,6 +2,7 @@
 
 menuconfig LIBKMOD
 	tristate
+	select HOST_MESON
 	select ZLIB			if LIBKMOD_ZLIB
 	select ZSTD			if LIBKMOD_ZSTD
 	select HOST_LIBKMOD		if LIBKMOD_ZLIB || LIBKMOD_ZSTD
