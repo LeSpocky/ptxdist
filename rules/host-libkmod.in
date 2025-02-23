@@ -2,6 +2,7 @@
 
 config HOST_LIBKMOD
 	tristate
+	select HOST_MESON
 	select HOST_ZLIB	if HOST_LIBKMOD_ZLIB
 	select HOST_ZSTD	if HOST_LIBKMOD_ZSTD
 	default y if ALLYES

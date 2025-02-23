@@ -16,33 +16,20 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBKMOD) += host-libkmod
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-HOST_LIBKMOD_CONF_TOOL	:= autoconf
+HOST_LIBKMOD_CONF_TOOL	:= meson
 HOST_LIBKMOD_CONF_OPT	:= \
-	$(HOST_AUTOCONF) \
-	--disable-static \
-	--enable-shared \
-	--enable-tools \
-	--disable-manpages \
-	--disable-test-modules \
-	--disable-logging \
-	--disable-debug \
-	--disable-coverage \
-	--enable-year2038 \
-	--$(call ptx/wwo, PTXCONF_HOST_LIBKMOD_ZSTD)-zstd \
-	--without-xz \
-	--$(call ptx/wwo, PTXCONF_HOST_LIBKMOD_ZLIB)-zlib \
-	--without-openssl
-
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/host-libkmod.install:
-	@$(call targetinfo)
-	@$(call world/install, HOST_LIBKMOD)
-	@ln -s ../bin/kmod $(HOST_LIBKMOD_PKGDIR)/usr/sbin/depmod
-	@$(call touch)
+	$(HOST_MESON_OPT) \
+	-Dbuild-tests=false \
+	-Ddebug-messages=false \
+	-Ddocs=false \
+	-Dlogging=false \
+	-Dmanpages=false \
+	-Dopenssl=disabled \
+	-Dtools=true \
+	-Dzstd=$(call ptx/endis,PTXCONF_HOST_LIBKMOD_ZSTD)d \
+	-Dxz=disabled \
+	-Dzlib=$(call ptx/endis,PTXCONF_HOST_LIBKMOD_ZLIB)d
 
 # vim: syntax=make
