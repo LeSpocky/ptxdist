@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_MINICOM) += minicom
 #
 # Paths and names
 #
-MINICOM_VERSION	:= 2.9
-MINICOM_MD5	:= e61ea3d07e73e245513c119e91989254
+MINICOM_VERSION	:= 2.10
+MINICOM_MD5	:= df480a0c10447b39b3741fe26637ddee
 MINICOM_SUFFIX	:= tar.bz2
 MINICOM		:= minicom-$(MINICOM_VERSION)
 MINICOM_URL	:= https://salsa.debian.org/minicom-team/minicom/-/archive/$(MINICOM_VERSION)/$(MINICOM).$(MINICOM_SUFFIX)
@@ -42,8 +42,6 @@ MINICOM_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-rpath \
-	--disable-music \
-	--enable-socket \
 	--enable-lockdev \
 	--enable-lock-dir=/var/lock \
 	--enable-dfl-port=/dev/modem \
@@ -51,6 +49,7 @@ MINICOM_CONF_OPT	:= \
 	--enable-cfg-dir=/etc \
 	--enable-kermit=$(call ptx/ifdef,PTXCONF_MINICOM_KERMIT,/usr/bin/ckermit,/usr/bin/false) \
 	--disable-nls \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--without-dmalloc
 
 # ----------------------------------------------------------------------------
