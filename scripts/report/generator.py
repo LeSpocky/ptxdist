@@ -125,12 +125,19 @@ node [ shape=point fixedsize=true width=0.1 ];
             cve_products.append((vendor, product))
         return cve_products
 
+    def get_cve_version(self, pkg):
+        version = pkg.get('cve-version', pkg.get('version', '*'))
+        tmp = version.split(':')
+        if len(tmp) > 2:
+            raise ReportException(f'cve-version "{version}" contains more than on ":"')
+        return tmp[0], tmp[1] if len(tmp) > 1 else '*'
+
     def create_cpe_ids(self, pkg):
         # if there is nothing to download then a CPE ID makes no sense
         if 'url' not in pkg:
             return []
-        version = pkg.get('cve-version', pkg.get('version', '*'))
-        return [f'cpe:2.3:*:{vendor}:{product}:{version}:*:*:*:*:*:*:*' for vendor, product in self.get_cve_products(pkg)]
+        version, update = self.get_cve_version(pkg)
+        return [f'cpe:2.3:*:{vendor}:{product}:{version}:{update}:*:*:*:*:*:*' for vendor, product in self.get_cve_products(pkg)]
 
     def load(self, data):
         return yaml.load(open(data).read(), Loader=yaml.SafeLoader)

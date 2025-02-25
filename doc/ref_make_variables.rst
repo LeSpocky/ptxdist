@@ -266,6 +266,9 @@ Package Definition
 ``<PKG>_CVE_VERSION``
   The version number in the `CVE Database <https://www.cve.org>`__, used for
   generating SBoM reports.
+  It can be of the form ``<version>:<update>`` if needed to specify the
+  'update' component of the version.
+  This is used for pre-releases, e.g. alpha*, rc*, etc.
   If not set, it defaults to ``$(<PKG>_VERSION)``.
 
 For most packages the variables described above are undefined by default.

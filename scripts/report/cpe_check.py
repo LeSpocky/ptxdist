@@ -108,13 +108,13 @@ class CPECheckGenerator(SbomGenerator):
 
         result['all'][pkg_name] = cpe_ids
 
-        version = pkg.get('cve-version', pkg.get('version', '*'))
+        version, update = self.get_cve_version(pkg)
         for vendor, product in self.get_cve_products(pkg):
             if product not in self.cpe_db:
                 result['unknown-product'][pkg_name] = product
                 continue
             cpe = CPE2_3(
-                f'cpe:2.3:*:{vendor}:{product}:{version}:*:*:*:*:*:*:*')
+                f'cpe:2.3:*:{vendor}:{product}:{version}:{update}:*:*:*:*:*:*')
             product_db = self.cpe_db[product]
             if vendor == '*':
                 vendors = product_db.keys()

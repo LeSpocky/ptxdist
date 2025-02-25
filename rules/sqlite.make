@@ -16,12 +16,22 @@
 #
 PACKAGES-$(PTXCONF_SQLITE) += sqlite
 
+define sqlite/expand
+$(if $(1),$(if $(filter $(1),0 1 2 3 4 5 6 7 8 9),0)$(1),00)
+endef
+define sqlite/file-version2
+$(word 1,$(1))$(call sqlite/expand,$(word 2,$(1)))$(call sqlite/expand,$(word 3,$(1)))$(call sqlite/expand,$(word 4,$(1)))
+endef
+define sqlite/file-version
+$(call sqlite/file-version2,$(subst ., ,$(strip $(1))))
+endef
+
 #
 # Paths and names
 #
-SQLITE_VERSION	:= 3480000
+SQLITE_VERSION	:= 3.48.0
 SQLITE_MD5	:= ab4e0652b6dedb075faf7a2781ba2c20
-SQLITE		:= sqlite-autoconf-$(SQLITE_VERSION)
+SQLITE		:= sqlite-autoconf-$(call sqlite/file-version,$(SQLITE_VERSION))
 SQLITE_SUFFIX	:= tar.gz
 SQLITE_URL	:= https://www.sqlite.org/2025/$(SQLITE).$(SQLITE_SUFFIX)
 SQLITE_SOURCE	:= $(SRCDIR)/$(SQLITE).$(SQLITE_SUFFIX)
