@@ -22,6 +22,8 @@ WAYLAND_URL	:= https://gitlab.freedesktop.org/wayland/wayland/-/releases/$(WAYLA
 WAYLAND_SOURCE	:= $(SRCDIR)/$(WAYLAND).$(WAYLAND_SUFFIX)
 WAYLAND_DIR	:= $(BUILDDIR)/$(WAYLAND)
 WAYLAND_LICENSE	:= MIT
+WAYLAND_LICENSE_FILES := \
+	file://COPYING;md5=b31d8f53b6aaf2b4985d7dd7810a70d1
 
 # ----------------------------------------------------------------------------
 # Prepare
