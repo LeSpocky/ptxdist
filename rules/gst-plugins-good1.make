@@ -21,7 +21,12 @@ GST_PLUGINS_GOOD1_SUFFIX	:= tar.xz
 GST_PLUGINS_GOOD1_URL		:= http://gstreamer.freedesktop.org/src/gst-plugins-good/$(GST_PLUGINS_GOOD1).$(GST_PLUGINS_GOOD1_SUFFIX)
 GST_PLUGINS_GOOD1_SOURCE	:= $(SRCDIR)/$(GST_PLUGINS_GOOD1).$(GST_PLUGINS_GOOD1_SUFFIX)
 GST_PLUGINS_GOOD1_DIR		:= $(BUILDDIR)/$(GST_PLUGINS_GOOD1)
-GST_PLUGINS_GOOD1_LICENSE	:= LGPL-2.1-or-later
+GST_PLUGINS_GOOD1_LICENSE	:= LGPL-2.1-or-later AND BSD-3-Clause AND MIT
+GST_PLUGINS_GOOD1_LICENSE_FILES	:= \
+	file://COPYING;md5=a6f89e2100d9b6cdffcea4f398e37343 \
+	file://gst/rtp/dboolhuff.LICENSE;md5=4951f35dffe167c1b3b63049741c1f79 \
+	file://gst/monoscope/monoscope.c;startline=2;endline=35;md5=fa73bba69a52d8c7dd074384948605c3 \
+	file://gst/isomp4/gstqtmux.c;startline=25;endline=44;md5=9bddd9fb9fe91948d147ba697448b31d
 
 # ----------------------------------------------------------------------------
 # Prepare
