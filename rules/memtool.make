@@ -22,6 +22,8 @@ MEMTOOL_URL	:= http://www.pengutronix.de/software/memtool/downloads/$(MEMTOOL).$
 MEMTOOL_SOURCE	:= $(SRCDIR)/$(MEMTOOL).$(MEMTOOL_SUFFIX)
 MEMTOOL_DIR	:= $(BUILDDIR)/$(MEMTOOL)
 MEMTOOL_LICENSE	:= GPL-2.0-only
+MEMTOOL_LICENSE_FILES := \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
 
 # ----------------------------------------------------------------------------
 # Prepare
