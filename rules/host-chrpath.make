@@ -22,7 +22,10 @@ HOST_CHRPATH_TARBALL	:= chrpath_$(HOST_CHRPATH_VERSION).orig.$(HOST_CHRPATH_SUFF
 HOST_CHRPATH_URL	:= http://snapshot.debian.org/archive/debian/20250106T091447Z/pool/main/c/chrpath/$(HOST_CHRPATH_TARBALL)
 HOST_CHRPATH_SOURCE	:= $(SRCDIR)/$(HOST_CHRPATH).$(HOST_CHRPATH_SUFFIX)
 HOST_CHRPATH_DIR	:= $(HOST_BUILDDIR)/$(HOST_CHRPATH)
-HOST_CHRPATH_LICENSE	:= GPL-2.0-only
+HOST_CHRPATH_LICENSE	:= GPL-2.0-or-later
+HOST_CHRPATH_LICENSE_FILES := \
+	file://COPYING;md5=59530bdf33659b29e73d4adb9f9f6552 \
+	file://main.c;startline=10;endline=13;md5=1b5e3f7c30bb16a7ea4210bfed447f68
 
 # ----------------------------------------------------------------------------
 # Prepare
