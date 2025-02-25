@@ -24,6 +24,8 @@ HOST_FAKEROOT_URL	:= https://snapshot.debian.org/archive/debian/20240713T143724Z
 HOST_FAKEROOT_SOURCE	:= $(SRCDIR)/$(HOST_FAKEROOT_TARBALL)
 HOST_FAKEROOT_DIR	:= $(HOST_BUILDDIR)/$(HOST_FAKEROOT)
 HOST_FAKEROOT_LICENSE	:= GPL-3.0-or-later
+HOST_FAKEROOT_LICENSE_FILES := \
+	file://COPYING;md5=f27defe1e96c2e1ecd4e0c9be8967949
 
 # ----------------------------------------------------------------------------
 # Prepare
