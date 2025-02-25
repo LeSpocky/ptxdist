@@ -21,7 +21,12 @@ GST_PLUGINS_BASE1_SUFFIX	:= tar.xz
 GST_PLUGINS_BASE1_URL		:= http://gstreamer.freedesktop.org/src/gst-plugins-base/$(GST_PLUGINS_BASE1).$(GST_PLUGINS_BASE1_SUFFIX)
 GST_PLUGINS_BASE1_SOURCE	:= $(SRCDIR)/$(GST_PLUGINS_BASE1).$(GST_PLUGINS_BASE1_SUFFIX)
 GST_PLUGINS_BASE1_DIR		:= $(BUILDDIR)/$(GST_PLUGINS_BASE1)
-GST_PLUGINS_BASE1_LICENSE	:= LGPL-2.0-or-later
+GST_PLUGINS_BASE1_LICENSE	:= LGPL-2.0-or-later AND BSD-3-Clause AND MIT
+GST_PLUGINS_BASE1_LICENSE_FILES	:= \
+	file://COPYING;md5=69333daa044cb77e486cc36129f7a770 \
+	file://gst/app/gstapp.c;startline=2;endline=17;md5=c47da05839f8e21a07fbcba7078022de \
+	file://gst-libs/gst/fft/kiss_fft_f32.c;startline=2;endline=6;md5=ff5063ce1d915132cfd77da26adde1a2 \
+	file://gst-libs/gst/rtsp/gstrtspdefs.c;startline=20;endline=40;md5=de3595ce8d06d57e25af36b10af7b67d
 
 # ----------------------------------------------------------------------------
 # Prepare
