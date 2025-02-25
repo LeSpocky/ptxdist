@@ -129,7 +129,8 @@ node [ shape=point fixedsize=true width=0.1 ];
         version = pkg.get('cve-version', pkg.get('version', '*'))
         tmp = version.split(':')
         if len(tmp) > 2:
-            raise ReportException(f'cve-version "{version}" contains more than on ":"')
+            raise ReportException(
+                f'cve-version "{version}" contains more than on ":"')
         return tmp[0], tmp[1] if len(tmp) > 1 else '*'
 
     def create_cpe_ids(self, pkg):

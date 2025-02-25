@@ -81,12 +81,14 @@ class CycloneDXSbomGenerator(SbomGenerator):
             for license in license_files.values():
                 filename = license['file']
                 if not path.exists(filename):
-                    raise ReportException(f'License file "{filename}" is missing')
+                    raise ReportException(
+                        f'License file "{filename}" is missing')
                 with open(filename, 'rb') as f:
                     content = b64encode(f.read()).decode()
                 text = AttachedText(content=content, encoding=Encoding.BASE_64)
                 file_path = license['path']
-                lic = self.lc_factory.make_with_name(path.basename(file_path), text=text)
+                lic = self.lc_factory.make_with_name(
+                    path.basename(file_path), text=text)
                 if prefix := self.git_blob_prefix(pkg):
                     lic.url = prefix + file_path
                 license_list.append(lic)

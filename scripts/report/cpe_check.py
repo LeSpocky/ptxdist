@@ -46,7 +46,8 @@ class CPECheckGenerator(SbomGenerator):
 
         if cache_filename and path.exists(cache_filename) and (not filename or path.getmtime(cache_filename) > path.getmtime(filename)):
             try:
-                print(f'Loading CPE dictionary from cache {cache_filename} ...')
+                print(
+                    f'Loading CPE dictionary from cache {cache_filename} ...')
                 self.cpe_db = pickle.load(open(cache_filename, 'rb'))
                 return
             except EOFError:
