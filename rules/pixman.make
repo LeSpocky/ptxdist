@@ -22,6 +22,8 @@ PIXMAN_URL	:= $(call ptx/mirror, XORG, individual/lib/$(PIXMAN).$(PIXMAN_SUFFIX)
 PIXMAN_SOURCE	:= $(SRCDIR)/$(PIXMAN).$(PIXMAN_SUFFIX)
 PIXMAN_DIR	:= $(BUILDDIR)/$(PIXMAN)
 PIXMAN_LICENSE	:= MIT
+PIXMAN_LICENSE_FILES := \
+	file://COPYING;md5=14096c769ae0cbb5fcb94ec468be11b3
 
 # ----------------------------------------------------------------------------
 # Prepare
