@@ -22,6 +22,9 @@ WHICH_URL	:= $(call ptx/mirror, GNU, which/$(WHICH).$(WHICH_SUFFIX))
 WHICH_SOURCE	:= $(SRCDIR)/$(WHICH).$(WHICH_SUFFIX)
 WHICH_DIR	:= $(BUILDDIR)/$(WHICH)
 WHICH_LICENSE	:= GPL-3.0-only
+WHICH_LICENSE_FILES := \
+	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
+	file://which.c;startline=3;endline=16;md5=5b09a4bf3cf99f6e73e868cedcb4ef22
 
 # ----------------------------------------------------------------------------
 # Prepare
