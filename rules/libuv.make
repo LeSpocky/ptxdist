@@ -21,7 +21,11 @@ LIBUV_SUFFIX	:= tar.gz
 LIBUV_URL	:= https://dist.libuv.org/dist/v$(LIBUV_VERSION)/$(LIBUV).$(LIBUV_SUFFIX)
 LIBUV_SOURCE	:= $(SRCDIR)/$(LIBUV).$(LIBUV_SUFFIX)
 LIBUV_DIR	:= $(BUILDDIR)/$(LIBUV)
-LIBUV_LICENSE	:= MIT
+LIBUV_LICENSE	:= MIT AND ISC
+LIBUV_LICENSE_FILES := \
+	file://LICENSE;md5=74b6f2f7818a4e3a80d03556f71b129b \
+	file://src/inet.c;startline=2;endline=15;md5=0bb6e8601910c7ad7c437a53b138601b
+
 
 # ----------------------------------------------------------------------------
 # Prepare
