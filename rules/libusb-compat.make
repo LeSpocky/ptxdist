@@ -21,7 +21,10 @@ LIBUSB_COMPAT_SUFFIX	:= tar.bz2
 LIBUSB_COMPAT_URL	:= $(call ptx/mirror, SF, libusb/$(LIBUSB_COMPAT).$(LIBUSB_COMPAT_SUFFIX))
 LIBUSB_COMPAT_SOURCE	:= $(SRCDIR)/$(LIBUSB_COMPAT).$(LIBUSB_COMPAT_SUFFIX)
 LIBUSB_COMPAT_DIR	:= $(BUILDDIR)/$(LIBUSB_COMPAT)
-LIBUSB_COMPAT_LICENSE	:= LGPL-2.1-only
+LIBUSB_COMPAT_LICENSE	:= LGPL-2.1-or-later
+LIBUSB_COMPAT_LICENSE_FILES := \
+	file://COPYING;md5=fbc093901857fcd118f065f900982c24 \
+	file://libusb/core.c;startline=3;endline=18;md5=2298e4a979818700952bd49cb9ff9777
 
 # ----------------------------------------------------------------------------
 # Prepare
