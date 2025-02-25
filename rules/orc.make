@@ -22,6 +22,8 @@ ORC_URL		:= http://gstreamer.freedesktop.org/data/src/orc/$(ORC).$(ORC_SUFFIX)
 ORC_SOURCE	:= $(SRCDIR)/$(ORC).$(ORC_SUFFIX)
 ORC_DIR		:= $(BUILDDIR)/$(ORC)
 ORC_LICENSE	:= BSD-2-Clause AND BSD-3-Clause
+ORC_LICENSE_FILES := \
+	file://COPYING;md5=1400bd9d09e8af56b9ec982b3d85797e
 
 # ----------------------------------------------------------------------------
 # Prepare
