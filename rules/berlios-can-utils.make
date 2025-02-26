@@ -21,7 +21,12 @@ BERLIOS_CAN_UTILS_SUFFIX	:= tar.gz
 BERLIOS_CAN_UTILS_URL		:= https://github.com/linux-can/can-utils/archive/$(BERLIOS_CAN_UTILS_VERSION).$(BERLIOS_CAN_UTILS_SUFFIX)
 BERLIOS_CAN_UTILS_SOURCE	:= $(SRCDIR)/$(BERLIOS_CAN_UTILS).$(BERLIOS_CAN_UTILS_SUFFIX)
 BERLIOS_CAN_UTILS_DIR		:= $(BUILDDIR)/$(BERLIOS_CAN_UTILS)
-BERLIOS_CAN_UTILS_LICENSE	:= GPL-2.0
+BERLIOS_CAN_UTILS_LICENSE	:= GPL-2.0-only AND (GPL-2.0-only OR BSD-3-Clause)
+BERLIOS_CAN_UTILS_LICENSE_FILES	:= \
+	file://LICENSES/GPL-2.0-only.txt;md5=f9d20a453221a1b7e32ae84694da2c37 \
+	file://canfdtest.c;startline=5;endline=15;md5=dc24414affc2b72358c3b7c8933d3132 \
+	file://candump.c;startline=5;endline=39;md5=3b695bf13b721cf1d2f4b117e38cba00
+
 
 # ----------------------------------------------------------------------------
 # Prepare
