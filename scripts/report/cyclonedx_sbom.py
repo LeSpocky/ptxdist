@@ -93,6 +93,8 @@ class CycloneDXSbomGenerator(SbomGenerator):
                     lic.url = prefix + file_path
                 license_list.append(lic)
             component.evidence = ComponentEvidence(licenses=license_list)
+        elif licenses != 'ignore' and not parent:
+            print(f'Warning: missing license-files for "{pkg_name}"')
 
         if urls := pkg.get('url', None):
             component.external_references = [

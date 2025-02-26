@@ -39,9 +39,14 @@ class Generator:
     def raise_exception(self, message):
         raise ReportException(message)
 
+    def base_name(self, name):
+        return name.removeprefix('host-system-').removeprefix('host-').removeprefix('cross-')
+
+    def base_pkg_name(self, pkg):
+        return self.base_name(pkg['name'])
+
     def build_chapter(self, pkg):
-        chapter = self.escape(pkg.get('name'))
-        chapter = chapter.removeprefix('host-').removeprefix('cross-')
+        chapter = self.escape(self.base_pkg_name(pkg))
         if pkg.get('licenses', '').find('proprietary') >= 0:
             chapter += ' *** Proprietary License!'
         if pkg.get('licenses', '').find('unknown') >= 0:
@@ -75,8 +80,7 @@ class Generator:
         if level > 3:
             return ''
 
-        display_name = self.escape(
-            pkg['name'].removeprefix('host-').removeprefix('cross-'))
+        display_name = self.escape(self.base_pkg_name(pkg))
         licenses = self.escape(pkg['licenses']).split()
         licenses = ' '.join(i + '\\\\' * (w % 3 == 2)
                             for w, i in enumerate(licenses))
@@ -114,8 +118,7 @@ node [ shape=point fixedsize=true width=0.1 ];
         return dot
 
     def get_cve_products(self, pkg):
-        products = pkg.get('cve-product', [pkg['name'].removeprefix(
-            'host-system-').removeprefix('host-').removeprefix('cross-')])
+        products = pkg.get('cve-product', [self.base_pkg_name(pkg)])
         cve_products = []
         for product in products:
             if ':' in product:
