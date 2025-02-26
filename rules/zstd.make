@@ -26,6 +26,7 @@ ZSTD_LICENSE		:= BSD-3-clause OR GPL-2.0-only
 ZSTD_LICENSE_FILES	:= \
 	file://LICENSE;md5=0822a32f7acdbe013606746641746ee8 \
 	file://COPYING;md5=39bba7d2cf0ba1036f2a6e2be52fe3f0
+ZSTD_CVE_PRODUCT	:= zstandard
 
 # ----------------------------------------------------------------------------
 # Prepare
