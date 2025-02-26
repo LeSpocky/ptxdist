@@ -28,6 +28,7 @@ OPENSSH_SOURCE	:= $(SRCDIR)/$(OPENSSH).$(OPENSSH_SUFFIX)
 OPENSSH_DIR	:= $(BUILDDIR)/$(OPENSSH)
 OPENSSH_LICENSE	:= BSD AND BSD-2-Clause AND BSD-3-Clause AND MIT AND Beerware AND ISC
 OPENSSH_LICENSE_FILES := file://LICENCE;md5=78ffb36e5a48c0d8c5648603a3b6c8eb
+OPENSSH_CVE_VERSION := $(subst p,:p,$(OPENSSH_VERSION))
 
 # ----------------------------------------------------------------------------
 # Prepare
