@@ -34,6 +34,7 @@ QT6_LICENSE_FILES	:= \
 	file://qtbase/LICENSES/LGPL-3.0-only.txt;md5=e6a600fd5e1d9cbde2d983680233ad02 \
 	file://qtbase/LICENSES/GFDL-1.3-no-invariants-only.txt;md5=a22d0be1ce2284b67950a4d1673dd1b0
 QT6_MKSPECS		:= $(call ptx/get-alternative, config/qt6, linux-ptx-g++)
+QT6_CVE_PRODUCT		:= qt
 
 ifdef PTXCONF_QT6
 ifeq ($(strip $(QT6_MKSPECS)),)
