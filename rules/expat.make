@@ -27,6 +27,7 @@ EXPAT_DIR		:= $(BUILDDIR)/$(EXPAT)
 EXPAT_LICENSE		:= MIT
 EXPAT_LICENSE_FILES	:= \
 	file://COPYING;md5=7b3b078238d0901d3b339289117cb7fb
+EXPAT_CVE_PRODUCT	:= libexpat_project:libexpat
 
 # ----------------------------------------------------------------------------
 # Prepare
