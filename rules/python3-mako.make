@@ -24,6 +24,7 @@ PYTHON3_MAKO_DIR	:= $(BUILDDIR)/python3-$(PYTHON3_MAKO)
 PYTHON3_MAKO_LICENSE	:= MIT
 PYTHON3_MAKO_LICENSE_FILES := \
 	file://LICENSE;md5=d0995d6f7ba3f186a03118f244e88f57
+PYTHON3_MAKO_CVE_PRODUCT := sqlalchemy:mako
 
 # ----------------------------------------------------------------------------
 # Prepare
