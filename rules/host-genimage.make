@@ -22,6 +22,9 @@ HOST_GENIMAGE_URL	:= https://www.pengutronix.de/software/genimage/download/$(HOS
 HOST_GENIMAGE_SOURCE	:= $(SRCDIR)/$(HOST_GENIMAGE).$(HOST_GENIMAGE_SUFFIX)
 HOST_GENIMAGE_DIR	:= $(HOST_BUILDDIR)/$(HOST_GENIMAGE)
 HOST_GENIMAGE_LICENSE	:= GPL-2.0-only
+HOST_GENIMAGE_LICENSE_FILES := \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://genimage.c;startline=2;endline=14;md5=e6631e61d58cfd63d650cf93672ebd6c
 
 # ----------------------------------------------------------------------------
 # Prepare
