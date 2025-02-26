@@ -26,6 +26,7 @@ ALSA_LIB_LICENSE	:= LGPL-2.1-or-later
 ALSA_LIB_LICENSE_FILES	:= \
 	file://src/async.c;startline=7;endline=25;md5=dcff7cc43cebd5f1816961f1016b162f \
 	file://COPYING;md5=a916467b91076e631dd8edb7424769c7
+ALSA_LIB_CVE_PRODUCT	:= alsa-project:alsa
 
 # ----------------------------------------------------------------------------
 # Prepare
