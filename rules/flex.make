@@ -22,6 +22,8 @@ FLEX_URL	:= https://github.com/westes/flex/releases/download/v$(FLEX_VERSION)/$(
 FLEX_SOURCE	:= $(SRCDIR)/$(FLEX).$(FLEX_SUFFIX)
 FLEX_DIR	:= $(BUILDDIR)/$(FLEX)
 FLEX_LICENSE	:= BSD-2-Clause
+FLEX_LICENSE_FILES := \
+	file://COPYING;md5=e4742cf92e89040b39486a6219b68067
 
 # ----------------------------------------------------------------------------
 # Prepare
