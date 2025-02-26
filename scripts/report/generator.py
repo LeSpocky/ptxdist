@@ -122,6 +122,9 @@ node [ shape=point fixedsize=true width=0.1 ];
                 vendor, product = product.split(":", 1)
             else:
                 vendor = '*'
+            if 'cve-product' not in pkg and product.startswith('python3-'):
+                vendor = 'python'
+                product = product.removeprefix('python3-')
             cve_products.append((vendor, product))
         return cve_products
 
