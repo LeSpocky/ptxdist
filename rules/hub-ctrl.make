@@ -22,6 +22,8 @@ HUB_CTRL_URL		:= http://www.pengutronix.de/software/ptxdist/temporary-src/$(HUB_
 HUB_CTRL_SOURCE		:= $(SRCDIR)/$(HUB_CTRL).$(HUB_CTRL_SUFFIX)
 HUB_CTRL_DIR		:= $(BUILDDIR)/$(HUB_CTRL)
 HUB_CTRL_LICENSE	:= GPL-2.0-or-later
+HUB_CTRL_LICENSE_FILES	:= \
+	file://hub-ctrl.c;startline=2;endline=7;md5=7d5a9a55ef783ee9068ffe452fedf438
 
 # ----------------------------------------------------------------------------
 # Prepare
