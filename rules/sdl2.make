@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SDL2) += sdl2
 #
 # Paths and names
 #
-SDL2_VERSION	:= 2.30.11
-SDL2_MD5	:= bea190b480f6df249db29eb3bacfe41e
+SDL2_VERSION	:= 2.32.0
+SDL2_MD5	:= e63ebd16bd874785a3859a5265280672
 SDL2		:= SDL2-$(SDL2_VERSION)
 SDL2_SUFFIX	:= tar.gz
 SDL2_URL	:= https://www.libsdl.org/release/$(SDL2).$(SDL2_SUFFIX)
@@ -51,11 +51,13 @@ SDL2_CONF_OPT	:= \
 	--enable-events \
 	--enable-joystick \
 	--enable-haptic \
+	--enable-hidapi \
 	--enable-sensor \
 	--disable-power \
 	--disable-filesystem \
 	--enable-timers \
 	--enable-file \
+	--disable-misc \
 	--enable-loadso \
 	--enable-cpuinfo \
 	--enable-assembly \
@@ -135,7 +137,7 @@ SDL2_CONF_OPT	:= \
 	--disable-directx \
 	--$(call ptx/endis,PTXCONF_SDL2_XORG)-xinput \
 	--disable-wasapi \
-	--enable-hidapi \
+	--disable-hidapi-joystick \
 	--disable-hidapi-libusb \
 	--enable-clock_gettime \
 	--disable-rpath \
