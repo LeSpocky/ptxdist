@@ -22,6 +22,7 @@ PYTHON3_JINJA2_LICENSE	:= BSD-3-Clause
 PYTHON3_JINJA2_LICENSE_FILES	:= \
 	file://PKG-INFO;startline=6;endline=8;md5=9756d487e0b816adb26f07c9c1eea379 \
 	file://LICENSE.rst;md5=5dc88300786f1c214c1e9827a5229462
+PYTHON3_JINJA2_CVE_PRODUCT	:= pocoo:jinja2
 
 # ----------------------------------------------------------------------------
 # Prepare
