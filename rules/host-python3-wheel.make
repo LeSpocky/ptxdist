@@ -24,6 +24,7 @@ HOST_PYTHON3_WHEEL_DIR			:= $(HOST_BUILDDIR)/$(HOST_PYTHON3_WHEEL)
 HOST_PYTHON3_WHEEL_LICENSE		:= MIT
 HOST_PYTHON3_WHEEL_LICENSE_FILES	:= \
 	file://LICENSE.txt;md5=7ffb0db04527cfe380e4f2726bd05ebf
+HOST_PYTHON3_WHEEL_CVE_PRODUCT		:= wheel_project:wheel
 
 # ----------------------------------------------------------------------------
 # Prepare
