@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NEATVNC) += neatvnc
 #
 # Paths and names
 #
-NEATVNC_VERSION	:= 0.8.1
-NEATVNC_MD5	:= 8192c54b0435a9b6bcf7aa8e580dfb20
+NEATVNC_VERSION	:= 0.9.3
+NEATVNC_MD5	:= 7c079be798256004b96c6f53b61d146f
 NEATVNC		:= neatvnc-$(NEATVNC_VERSION)
 NEATVNC_SUFFIX	:= tar.gz
 NEATVNC_URL	:= https://github.com/any1/neatvnc/archive/refs/tags/v$(NEATVNC_VERSION).$(NEATVNC_SUFFIX)
