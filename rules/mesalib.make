@@ -35,6 +35,7 @@ MESALIB_LICENSE_FILES := \
 	file://licenses/BSL-1.0;md5=4610c5f00caa47872489c3943d1bacc8 \
 	file://licenses/MIT;md5=e8f57dd048e186199433be2c41bd3d6d \
 	file://licenses/SGI-B-2.0;md5=efe792cf56e83c7aa8470e553faf333f
+MESALIB_CVE_PRODUCT := mesa
 
 # ----------------------------------------------------------------------------
 # Prepare
