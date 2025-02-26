@@ -22,6 +22,8 @@ PYTHON3_MAKO_URL	:= $(call ptx/mirror-pypi, Mako, $(PYTHON3_MAKO).$(PYTHON3_MAKO
 PYTHON3_MAKO_SOURCE	:= $(SRCDIR)/$(PYTHON3_MAKO).$(PYTHON3_MAKO_SUFFIX)
 PYTHON3_MAKO_DIR	:= $(BUILDDIR)/python3-$(PYTHON3_MAKO)
 PYTHON3_MAKO_LICENSE	:= MIT
+PYTHON3_MAKO_LICENSE_FILES := \
+	file://LICENSE;md5=d0995d6f7ba3f186a03118f244e88f57
 
 # ----------------------------------------------------------------------------
 # Prepare
