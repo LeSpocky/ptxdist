@@ -23,6 +23,9 @@ USBUTILS_URL		:= $(call ptx/mirror, KERNEL, utils/usb/usbutils/$(USBUTILS).$(USB
 USBUTILS_SOURCE		:= $(SRCDIR)/$(USBUTILS).$(USBUTILS_SUFFIX)
 USBUTILS_DIR		:= $(BUILDDIR)/$(USBUTILS)
 USBUTILS_LICENSE	:= GPL-2.0-only
+USBUTILS_LICENSE_FILES	:= \
+	file://LICENSES/GPL-2.0-only.txt;md5=c89d4ad08368966d8df5a90ea96bebe4 \
+	file://usbreset.c;startline=1;endline=1;md5=fcab174c20ea2e2bc0be64b493708266
 
 # ----------------------------------------------------------------------------
 # Prepare
