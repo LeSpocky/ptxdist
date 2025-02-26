@@ -25,6 +25,7 @@ GSTREAMER1_DIR		:= $(BUILDDIR)/$(GSTREAMER1)
 GSTREAMER1_LICENSE	:= LGPL-2.1-or-later
 GSTREAMER1_LICENSE_FILES:= \
 	file://COPYING;md5=69333daa044cb77e486cc36129f7a770
+GSTREAMER1_CVE_PRODUCT	:= gstreamer
 
 # ----------------------------------------------------------------------------
 # Prepare
