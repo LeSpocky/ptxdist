@@ -10,7 +10,11 @@ ptxd_make_world_report_init() {
     # use patchin_init for  pkg_patch_dir
     ptxd_make_world_patchin_init || return
 
-    pkg_license="${pkg_license:-unknown}"
+    if [ -n "${image_image}" ]; then
+	pkg_license="${pkg_license:-ignore}"
+    else
+	pkg_license="${pkg_license:-unknown}"
+    fi
 
     ptxd_make_world_license_flags || return
 
