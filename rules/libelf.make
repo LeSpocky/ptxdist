@@ -29,6 +29,7 @@ LIBELF_LICENSE_FILES := \
 	file://lib/color.c;startline=1;endline=28;md5=b960585bfffbf9f0df5b8f1af733a03b \
 	file://COPYING-GPLV2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 	file://COPYING-LGPLV3;md5=e6a600fd5e1d9cbde2d983680233ad02
+LIBELF_CVE_PRODUCT := elfutils
 
 # ----------------------------------------------------------------------------
 # Prepare
