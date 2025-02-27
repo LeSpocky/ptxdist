@@ -155,6 +155,15 @@ class CPECheckGenerator(SbomGenerator):
                 result['ambiguous-vendor'][pkg_name] = list(
                     exact_match.union(noversion_match))
 
+        for key, value in result.items():
+            if key not in ('unknown-product', 'unknown-vendor', 'unknown-version', 'ambiguous-vendor'):
+                continue
+
+            for name in list(value.keys()):
+                base_name = self.base_name(name)
+                if name != base_name and base_name in value:
+                    value.pop(name)
+
     def build(self, data):
         result = defaultdict(dict)
         result['ok'] = []
