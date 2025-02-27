@@ -1,0 +1,98 @@
+From: Marc Mutz <marc.mutz@qt.io>
+Date: Wed, 8 May 2024 16:11:36 +0200
+Subject: [PATCH] QAbstractOAuth: fix data race and poor seeding in
+ generateRandomString()
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+While not explicitly documented as thread-safe, this function
+maintains unprotected global state, and OAuth classes are surely used
+outside the main thread, so independent OAuth objects performing this
+operation at the same time means data race, iow: UB.
+
+Protect with a mutex.
+
+As a drive-by, use Q_GLOBAL_STATIC instead of magic statics, and make
+the char array constexpr instead of static const, to statically assert
+that it plays no role in thread-safety.
+
+Also seed the PRNG with QRandomGenerator::system() instead of the
+moral equivalent of gettimeoday(). The OAuth1 RFC5849¹ doesn't mention
+it, but the OpenID² spec asks for the nonce to be "unguessable to
+attackers". A gettimeofday()-seeded PRNG, esp. with only millisecond
+resolution, clearly doesn't fulfil that requirement.
+
+QRandomGenerator::system(), OTOH, is documented to be "securely
+seeded", and provides a seed_seq-like interface so the _whole_ mt19937
+state can be seeded, not just a 32-bit fraction of it.
+
+Keep the local PRNG to not exhaust the kernel's entropy pool through
+excessive system() usage.
+
+¹ https://datatracker.ietf.org/doc/html/rfc5849#section-3.3
+² https://openid.net/specs/openid-connect-core-1_0.html#NonceNotes
+
+Amends a6dc1c01da723a93e1c174a6950eb4bab8cab3fc.
+
+Pick-to: 6.7 6.5 6.2 5.15
+Change-Id: Id09b04cc2ae342a7374a9f7a6803c860360d132c
+Reviewed-by: Mårten Nordheim <marten.nordheim@qt.io>
+Reviewed-by: Jesus Fernandez <jsfdez@gmail.com>
+---
+ qtnetworkauth/src/oauth/qabstractoauth.cpp | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
+
+diff --git a/qtnetworkauth/src/oauth/qabstractoauth.cpp b/qtnetworkauth/src/oauth/qabstractoauth.cpp
+index 46985d6c60ad..09939eaf52ca 100644
+--- a/qtnetworkauth/src/oauth/qabstractoauth.cpp
++++ b/qtnetworkauth/src/oauth/qabstractoauth.cpp
+@@ -37,7 +37,6 @@
+ #include <QtCore/qurl.h>
+ #include <QtCore/qpair.h>
+ #include <QtCore/qstring.h>
+-#include <QtCore/qdatetime.h>
+ #include <QtCore/qurlquery.h>
+ #include <QtCore/qjsondocument.h>
+ #include <QtCore/qmessageauthenticationcode.h>
+@@ -46,6 +45,9 @@
+ #include <QtNetwork/qnetworkaccessmanager.h>
+ #include <QtNetwork/qnetworkreply.h>
+ 
++#include <QtCore/qrandom.h>
++#include <QtCore/private/qlocking_p.h>
++
+ #include <random>
+ 
+ Q_DECLARE_METATYPE(QAbstractOAuth::Error)
+@@ -290,15 +292,19 @@ void QAbstractOAuthPrivate::setStatus(QAbstractOAuth::Status newStatus)
+     }
+ }
+ 
++static QBasicMutex prngMutex;
++Q_GLOBAL_STATIC_WITH_ARGS(std::mt19937, prng, (*QRandomGenerator::system()))
++
+ QByteArray QAbstractOAuthPrivate::generateRandomString(quint8 length)
+ {
+-    const char characters[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+-    static std::mt19937 randomEngine(QDateTime::currentDateTime().toMSecsSinceEpoch());
++    constexpr char characters[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+     std::uniform_int_distribution<int> distribution(0, sizeof(characters) - 2);
+     QByteArray data;
+     data.reserve(length);
++    auto lock = qt_unique_lock(prngMutex);
+     for (quint8 i = 0; i < length; ++i)
+-        data.append(characters[distribution(randomEngine)]);
++        data.append(characters[distribution(*prng)]);
++    lock.unlock();
+     return data;
+ }
+ 
+@@ -614,6 +620,7 @@ void QAbstractOAuth::resourceOwnerAuthorization(const QUrl &url, const QVariantM
+ }
+ 
+ /*!
++    \threadsafe
+     Generates a random string which could be used as state or nonce.
+     The parameter \a length determines the size of the generated
+     string.

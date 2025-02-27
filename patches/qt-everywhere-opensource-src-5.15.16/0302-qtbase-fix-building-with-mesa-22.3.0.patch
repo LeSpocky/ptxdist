@@ -12,7 +12,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  2 files changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/qtbase/src/gui/configure.json b/qtbase/src/gui/configure.json
-index 1f08795c57b4..12c95742d2da 100644
+index ed6e419f490f..1f0e0534a50b 100644
 --- a/qtbase/src/gui/configure.json
 +++ b/qtbase/src/gui/configure.json
 @@ -834,7 +834,8 @@

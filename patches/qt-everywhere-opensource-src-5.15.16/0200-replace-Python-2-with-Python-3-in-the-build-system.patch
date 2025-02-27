@@ -13,7 +13,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  4 files changed, 21 insertions(+), 42 deletions(-)
 
 diff --git a/qtwebengine/configure.pri b/qtwebengine/configure.pri
-index e072961f0574..b5d6902a91d5 100644
+index 3a33bdc820e9..080f582b7d6e 100644
 --- a/qtwebengine/configure.pri
 +++ b/qtwebengine/configure.pri
 @@ -6,23 +6,6 @@ QTWEBENGINE_SOURCE_TREE = $$PWD
@@ -123,10 +123,10 @@ index e7f869a15f9f..3a5743c9d164 100644
      }
      return(true)
 diff --git a/qtwebengine/src/buildtools/configure.json b/qtwebengine/src/buildtools/configure.json
-index 88d1790c17c4..c9cf1b4b0aaf 100644
+index 9e7a0c5704f3..b92f22b3a779 100644
 --- a/qtwebengine/src/buildtools/configure.json
 +++ b/qtwebengine/src/buildtools/configure.json
-@@ -295,9 +295,9 @@
+@@ -316,9 +316,9 @@
              "label": "system ninja",
              "type": "detectNinja"
          },
@@ -139,7 +139,7 @@ index 88d1790c17c4..c9cf1b4b0aaf 100644
              "log": "location"
          },
          "webengine-winversion": {
-@@ -374,7 +374,7 @@
+@@ -395,7 +395,7 @@
                           && features.webengine-gperf
                           && features.webengine-bison
                           && features.webengine-flex
@@ -148,7 +148,7 @@ index 88d1790c17c4..c9cf1b4b0aaf 100644
                           && features.webengine-nodejs
                           && (!config.sanitizer || features.webengine-sanitizer)
                           && (!config.linux || features.pkg-config)
-@@ -400,7 +400,7 @@
+@@ -421,7 +421,7 @@
                           && features.webengine-gperf
                           && features.webengine-bison
                           && features.webengine-flex
@@ -157,7 +157,7 @@ index 88d1790c17c4..c9cf1b4b0aaf 100644
                           && (!config.sanitizer || features.webengine-sanitizer)
                           && (!config.linux || features.pkg-config)
                           && (!config.linux || features.webengine-host-pkg-config)
-@@ -423,12 +423,12 @@
+@@ -444,12 +444,12 @@
              "autoDetect": "features.private_tests",
              "output": [ "privateFeature" ]
          },
