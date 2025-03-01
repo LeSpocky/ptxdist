@@ -521,10 +521,10 @@ local-registry = "/nonexistant"
 
 EOF
 
-    grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
-	sed -n 's;^source = "git+\(.*://[^?]*\)?branch=\(.*\)#.*;[source."\1"]\ngit = "\1"\nbranch = "\2"\nreplace-with = "ptxdist"\n;p'
-    grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
-	sed -n 's;^source = "git+\(.*://[^?]*\)?rev=\(.*\)#.*";[source."\1"]\ngit = "\1"\nrev = "\2"\nreplace-with = "ptxdist"\n;p'
+    sed -n 's;source = "\(git.*\)#.*;\1;p' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
+	sed -n 's;^git+\(.*://[^?]*\)?branch=\(.*\)$;[source."\1"]\ngit = "\1"\nbranch = "\2"\nreplace-with = "ptxdist"\n;p'
+    sed -n 's;source = "\(git.*\)#.*;\1;p' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
+	sed -n 's;^git+\(.*://[^?]*\)?rev=\(.*\)$;[source."\1"]\ngit = "\1"\nrev = "\2"\nreplace-with = "ptxdist"\n;p'
     grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
 	sed -n 's;^source = "git+\(.*://[^?]*\)#.*";[source."\1"]\ngit = "\1"\nreplace-with = "ptxdist"\n;p'
     cat << EOF

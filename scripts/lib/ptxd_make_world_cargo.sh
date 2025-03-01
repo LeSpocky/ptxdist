@@ -49,7 +49,7 @@ END {
 export -f ptxd_make_world_cargo_sync_parse
 
 ptxd_make_world_cargo_sync_package() {
-    local path PACKAGE
+    local path PACKAGE ORIG_PACKAGE extra
 
     if [ -z "${url}" ]; then
 	url="https://crates.io/api/v1/crates/${package}/${version}/download"
@@ -65,6 +65,13 @@ ptxd_make_world_cargo_sync_package() {
     fi
     PACKAGE="$(tr '[a-z]' '[A-Z]' <<< "${package}-${version}" | tr -sc '[:alnum:]' '_')"
     PACKAGE="${PACKAGE%_}"
+    # the same package/version can exist multiple times with different commits
+    ORIG_PACKAGE="${PACKAGE}"
+    while [[ " ${packages} " =~ " ${PACKAGE} " ]]; do
+	extra="$((extra+1))"
+	PACKAGE="${ORIG_PACKAGE}_"${extra}
+    done
+    packages+=" ${PACKAGE}"
     if [[ "${url}" =~ ^git ]]; then
 	path="${PTXDIST_SRCDIR}/${package}-${version}+${hash:0:12}.git.crate"
     else
@@ -90,7 +97,7 @@ EOF
 export -f ptxd_make_world_cargo_sync_package
 
 ptxd_make_world_cargo_sync() {
-    local pkg_makefile_cargo package version cargofd
+    local pkg_makefile_cargo package version cargofd packages
     local PKG
     local -a tmp
     local -A workspaces
