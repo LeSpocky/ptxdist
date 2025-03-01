@@ -1,0 +1,6 @@
+## SECTION=hosttools_noprompt
+
+config HOST_BINDGEN_CLI
+	tristate
+	default y if ALLYES
+
