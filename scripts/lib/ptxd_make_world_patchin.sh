@@ -511,7 +511,7 @@ ptxd_make_world_patchin_post() {
     ptxd_make_world_patchin_init || return
 
     if [ "${pkg_conf_tool}" = "cargo" -o -n "${pkg_cargo_lock}" ]; then
-	cat << EOF > ${pkg_cargo_home}/config
+	cat << EOF
 [source.ptxdist]
 directory = "${pkg_cargo_home}/source"
 
@@ -522,12 +522,12 @@ local-registry = "/nonexistant"
 EOF
 
     grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
-	sed -n 's;^source = "git+\(.*://[^?]*\)?branch=\(.*\)#.*;[source."\1"]\ngit = "\1"\nbranch = "\2"\nreplace-with = "ptxdist"\n;p' >> ${pkg_cargo_home}/config
+	sed -n 's;^source = "git+\(.*://[^?]*\)?branch=\(.*\)#.*;[source."\1"]\ngit = "\1"\nbranch = "\2"\nreplace-with = "ptxdist"\n;p'
     grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
-	sed -n 's;^source = "git+\(.*://[^?]*\)?rev=\(.*\)#.*";[source."\1"]\ngit = "\1"\nrev = "\2"\nreplace-with = "ptxdist"\n;p' >> ${pkg_cargo_home}/config
+	sed -n 's;^source = "git+\(.*://[^?]*\)?rev=\(.*\)#.*";[source."\1"]\ngit = "\1"\nrev = "\2"\nreplace-with = "ptxdist"\n;p'
     grep 'source = "git' "${pkg_dir}/${pkg_cargo_lock}" | sort -u | \
-	sed -n 's;^source = "git+\(.*://[^?]*\)#.*";[source."\1"]\ngit = "\1"\nreplace-with = "ptxdist"\n;p' >> ${pkg_cargo_home}/config
-    cat << EOF >> ${pkg_cargo_home}/config
+	sed -n 's;^source = "git+\(.*://[^?]*\)#.*";[source."\1"]\ngit = "\1"\nreplace-with = "ptxdist"\n;p'
+    cat << EOF
 
 [build]
 target-dir = "${pkg_build_dir}/target"
@@ -535,7 +535,7 @@ target-dir = "${pkg_build_dir}/target"
 [net]
 offline = true
 EOF
-    fi
+    fi > ${pkg_cargo_home}/config
     if [ -n "${pkg_patchin_dir}" ]; then (
 	cd "${pkg_conf_dir_abs}" &&
 	if [ -n "${pkg_patch_dir}" ]; then
