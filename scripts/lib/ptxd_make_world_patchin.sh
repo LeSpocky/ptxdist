@@ -535,7 +535,7 @@ target-dir = "${pkg_build_dir}/target"
 [net]
 offline = true
 EOF
-    fi > ${pkg_cargo_home}/config
+    fi > ${pkg_cargo_home}/config.toml
     if [ -n "${pkg_patchin_dir}" ]; then (
 	cd "${pkg_conf_dir_abs}" &&
 	if [ -n "${pkg_patch_dir}" ]; then
