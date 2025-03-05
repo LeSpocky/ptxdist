@@ -14,8 +14,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_IMX_CST) += host-imx-cst
 #
 # Paths and names
 #
-HOST_IMX_CST_VERSION	:= 3.1.0
-HOST_IMX_CST_MD5	:= 89a2d6c05253c4de9a1bf9d5710bb7ae
+HOST_IMX_CST_VERSION	:= 3.4.1
+HOST_IMX_CST_MD5	:= b23ed5983734d4812fcf1da33eac8f31
 HOST_IMX_CST		:= cst-$(HOST_IMX_CST_VERSION)
 HOST_IMX_CST_SUFFIX	:= tgz
 HOST_IMX_CST_SOURCE	:= $(SRCDIR)/$(HOST_IMX_CST).$(HOST_IMX_CST_SUFFIX)
@@ -56,13 +56,9 @@ HOST_IMX_CST_CONF := NO
 HOST_IMX_CST_ARCH := \
 	linux$(call ptx/ifeq, GNU_BUILD, x86_64-%, 64, 32)
 
-$(STATEDIR)/host-imx-cst.compile:
-	@$(call targetinfo)
-	cd $(HOST_IMX_CST_DIR)/code/back_end/src && \
-		$(HOSTCC) \
-		-Wall -O2 -g3 -o ../../../$(HOST_IMX_CST_ARCH)/bin/cst \
-		-I ../hdr -L ../../../$(HOST_IMX_CST_ARCH)/lib *.c -lfrontend -lcrypto
-	@$(call touch)
+HOST_IMX_CST_MAKE_ENV := \
+	$(HOST_ENV) \
+	OPENSSL_PATH="$(PTXDIST_SYSROOT_HOST)/usr/lib/"
 
 # ----------------------------------------------------------------------------
 # Install
@@ -71,19 +67,13 @@ $(STATEDIR)/host-imx-cst.compile:
 HOST_IMX_CST_PROGS := \
 	cst \
 	srktool \
-	x5092wtls
-
-HOST_IMX_CST_LIBS := \
-	libfrontend.a
+	mac_dump
 
 $(STATEDIR)/host-imx-cst.install:
 	@$(call targetinfo)
 	@$(foreach prog, $(HOST_IMX_CST_PROGS), \
-		install -v -m0755 -D $(HOST_IMX_CST_DIR)/$(HOST_IMX_CST_ARCH)/bin/$(prog) \
+		install -v -m0755 -D $(HOST_IMX_CST_DIR)/build/$(HOST_IMX_CST_ARCH)/bin/$(prog) \
 		$(HOST_IMX_CST_PKGDIR)/usr/bin/$(prog)$(ptx/nl))
-	@$(foreach lib, $(HOST_IMX_CST_LIBS), \
-		install -v -m0644 -D $(HOST_IMX_CST_DIR)/$(HOST_IMX_CST_ARCH)/lib/$(lib) \
-		$(HOST_IMX_CST_PKGDIR)/usr/lib/imx-cst/$(lib)$(ptx/nl))
 	@$(call touch)
 
 # vim: syntax=make
