@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 24.3.4
-MESALIB_MD5	:= c64b7e2b4f1c7782c41bf022edbb365c
+MESALIB_VERSION	:= 25.0.1
+MESALIB_MD5	:= 3c317f5e15f5b6f7dd07591a9544d1f9
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -64,7 +64,9 @@ ifdef PTXCONF_ARCH_X86
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_IRIS)	+= iris
 endif
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_ZINK)	+= zink
+ifdef PTXCONF_ARCH_ARM64
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_ASAHI)	+= asahi
+endif
 ifdef PTXCONF_ARCH_X86
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_CROCUS)	+= crocus
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_SVGA)	+= svga
@@ -128,6 +130,13 @@ MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_PANFROST)	+= panfrost
 endif
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_SWRAST)		+= swrast
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_VIRTIO)		+= virtio
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_NOUVEAU)	+= nouveau
+ifdef PTXCONF_ARCH_ARM64
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_ASAHI)		+= asahi
+endif
+ifdef PTXCONF_ARCH_LP64
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_GFXSTREAM)	+= gfxstream
+endif
 
 MESALIB_VULKAN_LIBS-y = $(subst amd,radeon,$(subst swrast,lvp,$(MESALIB_VULKAN_DRIVERS-y)))
 
@@ -135,8 +144,9 @@ MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_DEVICE_SELECT)	+= device-select
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_INTEL_NULLHW)	+= intel-nullhw
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_OVERLAY)		+= overlay
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_SCREENSHOT)	+= screenshot
+MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_VRAM_REPORT_LIMIT) += \
+	vram-report-limit
 
-MESALIB_LIBS-y				:= libglapi
 MESALIB_LIBS-$(PTXCONF_MESALIB_GLX)	+= libGL
 MESALIB_LIBS-$(PTXCONF_MESALIB_GLES1)	+= libGLESv1_CM
 MESALIB_LIBS-$(PTXCONF_MESALIB_GLES2)	+= libGLESv2
@@ -204,28 +214,33 @@ MESALIB_CONF_OPT	:= \
 	-Dglx-direct=true \
 	-Dglx-read-only-text=false \
 	-Dgpuvis=false \
+	-Dinstall-mesa-clc=false \
+	-Dinstall-precomp-compiler=false \
 	-Dhtml-docs=disabled \
 	-Dhtml-docs-path= \
 	-Dimagination-srv=false \
 	-Dinstall-intel-clc=false \
 	-Dinstall-intel-gpu-tests=false \
+	-Dintel-bvh-grl=false \
 	-Dintel-clc=system \
+	-Dintel-elk=true \
 	-Dintel-rt=disabled \
 	-Dlegacy-x11=none \
 	-Dlibunwind=disabled \
 	-Dllvm=$(call ptx/endis, PTXCONF_MESALIB_LLVM)d \
 	-Dllvm-orcjit=false \
 	-Dlmsensors=$(call ptx/endis, PTXCONF_MESALIB_LMSENSORS)d \
+	-Dmesa-clc=$(call ptx/ifdef, PTXCONF_MESALIB_CLC,system,auto) \
 	-Dmicrosoft-clc=disabled \
 	-Dmin-windows-version=8 \
 	-Dmoltenvk-dir= \
-	-Dopencl-spirv=false \
 	-Dopengl=$(call ptx/truefalse, PTXCONF_MESALIB_OPENGL) \
 	-Dosmesa=false \
 	-Dperfetto=false \
 	-Dplatform-sdk-version=25 \
 	-Dplatforms=$(subst $(space),$(comma),$(MESALIBS_EGL_PLATFORMS-y)) \
 	-Dpower8=disabled \
+	-Dprecomp-compiler=system \
 	-Dradv-build-id='' \
 	-Dshader-cache=$(call ptx/endis, PTXCONF_MESALIB_SHADER_CACHE)d \
 	-Dshader-cache-default=true \

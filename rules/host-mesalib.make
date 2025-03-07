@@ -20,6 +20,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	$(HOST_MESON_OPT) \
 	-Dallow-kcmp=enabled \
 	-Damd-use-llvm=false \
+	-Damdgpu-virtio=false \
 	-Dandroid-libbacktrace=disabled \
 	-Dandroid-strict=true \
 	-Dandroid-stub=false \
@@ -65,26 +66,32 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dhtml-docs=disabled \
 	-Dhtml-docs-path= \
 	-Dimagination-srv=false \
-	-Dinstall-intel-clc=$(call ptx/truefalse, PTXCONF_HOST_MESALIB_INTEL_CLC) \
+	-Dinstall-intel-clc=false \
 	-Dinstall-intel-gpu-tests=false \
-	-Dintel-clc=$(call ptx/ifdef, PTXCONF_HOST_MESALIB_INTEL_CLC,enabled,system) \
+	-Dinstall-mesa-clc=$(call ptx/truefalse, PTXCONF_HOST_MESALIB_CLC) \
+	-Dinstall-precomp-compiler=false \
+	-Dintel-bvh-grl=false \
+	-Dintel-clc=system \
+	-Dintel-elk=true \
 	-Dintel-rt=disabled \
 	-Dlegacy-x11=none \
 	-Dlibunwind=disabled \
-	-Dllvm=$(call ptx/endis, PTXCONF_HOST_MESALIB_INTEL_CLC)d \
+	-Dllvm=$(call ptx/endis, PTXCONF_HOST_MESALIB_CLC)d \
 	-Dllvm-orcjit=false \
 	-Dlmsensors=disabled \
+	-Dmesa-clc=$(call ptx/ifdef, PTXCONF_HOST_MESALIB_CLC,enabled,auto) \
 	-Dmicrosoft-clc=disabled \
 	-Dmin-windows-version=8 \
 	-Dmoltenvk-dir= \
-	-Dopencl-spirv=false \
 	-Dopengl=true \
 	-Dosmesa=false \
 	-Dperfetto=false \
 	-Dplatform-sdk-version=25 \
 	-Dplatforms= \
 	-Dpower8=disabled \
+	-Dprecomp-compiler=system \
 	-Dradv-build-id='' \
+	-Dselinux=false \
 	-Dshader-cache=disabled \
 	-Dshader-cache-default=true \
 	-Dshader-cache-max-size=1G \
@@ -113,16 +120,18 @@ HOST_MESALIB_CONF_OPT	:= \
 
 HOST_MESALIB_MAKE_OPT	:= \
 	src/compiler/glsl/glsl_compiler
-ifdef PTXCONF_HOST_MESALIB_INTEL_CLC
+ifdef PTXCONF_HOST_MESALIB_CLC
 HOST_MESALIB_MAKE_OPT	+= \
-	src/intel/compiler/intel_clc
+	src/compiler/clc/mesa_clc \
+	src/compiler/spirv/vtn_bindgen
 endif
 
 $(STATEDIR)/host-mesalib.install:
 	@$(call targetinfo)
 	install -D -m755 $(HOST_MESALIB_DIR)-build/src/compiler/glsl/glsl_compiler $(HOST_MESALIB_PKGDIR)/usr/bin/mesa/glsl_compiler
-ifdef PTXCONF_HOST_MESALIB_INTEL_CLC
-	install -D -m755 $(HOST_MESALIB_DIR)-build/src/intel/compiler/intel_clc $(HOST_MESALIB_PKGDIR)/usr/bin/intel_clc
+ifdef PTXCONF_HOST_MESALIB_CLC
+	install -D -m755 $(HOST_MESALIB_DIR)-build/src/compiler/clc/mesa_clc $(HOST_MESALIB_PKGDIR)/usr/bin/mesa_clc
+	install -D -m755 $(HOST_MESALIB_DIR)-build/src/compiler/spirv/vtn_bindgen $(HOST_MESALIB_PKGDIR)/usr/bin/vtn_bindgen
 endif
 	@$(call touch)
 

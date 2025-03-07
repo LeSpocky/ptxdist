@@ -4,7 +4,7 @@ menuconfig MESALIB
 	tristate
 	prompt "mesa                          "
 	select HOST_MESALIB
-	select HOST_MESALIB_INTEL_CLC	if MESALIB_INTEL_CLC
+	select HOST_MESALIB_CLC		if MESALIB_CLC
 	select HOST_MESON
 	select HOST_MAKEDEPEND
 	select HOST_SYSTEM_PYTHON3
@@ -56,7 +56,7 @@ if MESALIB
 config MESALIB_DRI3
 	bool
 
-config MESALIB_INTEL_CLC
+config MESALIB_CLC
 	bool
 
 config MESALIB_LLVM
@@ -126,7 +126,7 @@ config MESALIB_DRI_PANFROST
 
 config MESALIB_DRI_IRIS
 	bool
-	select MESALIB_INTEL_CLC
+	select MESALIB_CLC
 	select MESALIB_XMLCONFIG
 	prompt "iris"
 
@@ -146,7 +146,7 @@ config MESALIB_DRI_ASAHI
 
 config MESALIB_DRI_CROCUS
 	bool
-	select MESALIB_INTEL_CLC
+	select MESALIB_CLC
 	select MESALIB_XMLCONFIG
 	prompt "crocus"
 
@@ -268,13 +268,13 @@ config MESALIB_VULKAN_BROADCOM
 
 config MESALIB_VULKAN_INTEL
 	bool
-	select MESALIB_INTEL_CLC
+	select MESALIB_CLC
 	select MESALIB_XMLCONFIG
 	prompt "Intel (Anvil)"
 
 config MESALIB_VULKAN_INTEL_HASVK
 	bool
-	select MESALIB_INTEL_CLC
+	select MESALIB_CLC
 	select MESALIB_XMLCONFIG
 	prompt "Intel (hasvk)"
 
@@ -296,6 +296,21 @@ config MESALIB_VULKAN_VIRTIO
 	select MESALIB_XMLCONFIG
 	prompt "Virtio-GPU Venus"
 
+config MESALIB_VULKAN_NOUVEAU
+	bool
+	# needs bindgen
+	depends on BROKEN
+	prompt "nouveau"
+
+config MESALIB_VULKAN_ASAHI
+	bool
+	depends on MESALIB_DRI_ASAHI
+	prompt "asahi"
+
+config MESALIB_VULKAN_GFXSTREAM
+	bool
+	prompt "gfxstream"
+
 comment "Vulkan layers"
 
 config MESALIB_VULKAN_DEVICE_SELECT
@@ -313,6 +328,10 @@ config MESALIB_VULKAN_OVERLAY
 config MESALIB_VULKAN_SCREENSHOT
 	bool
 	prompt "Screenshot layer"
+
+config MESALIB_VULKAN_VRAM_REPORT_LIMIT
+	bool
+	prompt "VRAM report limit layer"
 
 config MESALIB_SHADER_CACHE
 	bool
