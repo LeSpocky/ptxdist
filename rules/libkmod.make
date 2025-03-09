@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBKMOD) += libkmod
 #
 # Paths and names
 #
-LIBKMOD_VERSION	:= 34
-LIBKMOD_MD5	:= 3e6c5c9ad9c7367ab9c3cc4f08dfde62
+LIBKMOD_VERSION	:= 34.1
+LIBKMOD_MD5	:= bdc01ba7d330685af597c16c5f58c0e2
 LIBKMOD		:= kmod-$(LIBKMOD_VERSION)
 LIBKMOD_SUFFIX	:= tar.xz
 LIBKMOD_URL	:= $(call ptx/mirror, KERNEL, utils/kernel/kmod/$(LIBKMOD).$(LIBKMOD_SUFFIX))
