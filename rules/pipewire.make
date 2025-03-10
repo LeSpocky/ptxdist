@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 1.2.7
-PIPEWIRE_MD5		:= 244a64d8873a868d102b2dd02c964906
+PIPEWIRE_VERSION	:= 1.4.0
+PIPEWIRE_MD5		:= f5c9f60f9f7d24c4511f1c25e714a6b7
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -50,6 +50,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dbluez5-backend-ofono=disabled \
 	-Dbluez5-codec-aac=disabled \
 	-Dbluez5-codec-aptx=disabled \
+	-Dbluez5-codec-g722=disabled \
 	-Dbluez5-codec-lc3=disabled \
 	-Dbluez5-codec-lc3plus=disabled \
 	-Dbluez5-codec-ldac=disabled \
@@ -61,6 +62,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Ddoc-sysconfdir-value= \
 	-Ddocdir= \
 	-Ddocs=disabled \
+	-Debur128=disabled \
 	-Decho-cancel-webrtc=$(call ptx/endis,PTXCONF_PIPEWIRE_ECHO_CANCEL)d \
 	-Devl=disabled \
 	-Dexamples=enabled \
@@ -96,6 +98,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dpw-cat-ffmpeg=disabled \
 	-Draop=$(call ptx/endis,PTXCONF_PIPEWIRE_RAOP)d \
 	-Dreadline=$(call ptx/endis,PTXCONF_PIPEWIRE_PW_CTL)d \
+	-Dresampler-precomp-tuples='["32000,44100","32000,48000","48000,44100","44100,48000"]' \
 	-Drlimits-install=false \
 	-Drlimits-match=@pipewire \
 	-Drlimits-memlock=4194304 \
@@ -181,6 +184,9 @@ PIPEWIRE_SPA_MODULES := \
 	$(call ptx/ifdef,PTXCONF_PIPEWIRE_BLUETOOTH,bluez5/libspa-codec-bluez5-sbc) \
 	$(call ptx/ifdef,PTXCONF_PIPEWIRE_LIBCAMERA,libcamera/libspa-libcamera) \
 	support/libspa-dbus \
+	filter-graph/libspa-filter-graph \
+	filter-graph/libspa-filter-graph-plugin-builtin \
+	filter-graph/libspa-filter-graph-plugin-ladspa \
 	$(call ptx/ifdef,PTXCONF_PIPEWIRE_SYSTEMD,support/libspa-journal) \
 	support/libspa-support \
 	v4l2/libspa-v4l2 \
@@ -241,7 +247,6 @@ endif
 			spa-0.2/$(module))$(ptx/nl))
 
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/client.conf)
-	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/client-rt.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/demonic.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-dolby-surround.conf)
@@ -253,6 +258,7 @@ endif
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-virtual-surround-7.1-hesuvi.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/source-duplicate-FL.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/source-rnnoise.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-upmix-5.1-filter.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/minimal.conf)
 
