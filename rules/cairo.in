@@ -6,6 +6,7 @@ menuconfig CAIRO
 	select GCCLIBS_GCC_S
 	select XORG_LIB_XEXT	if CAIRO_XLIB
 	select XORG_LIB_XRENDER	if CAIRO_XLIB
+	select LIBLZO		if CAIRO_LZO
 	select ZLIB		if CAIRO_ZLIB
 	select GLIB		if CAIRO_GOBJECT
 	select FREETYPE		if CAIRO_FREETYPE
@@ -24,6 +25,9 @@ menuconfig CAIRO
 if CAIRO
 
 config CAIRO_GOBJECT
+	bool
+
+config CAIRO_LZO
 	bool
 
 config CAIRO_ZLIB
@@ -66,6 +70,7 @@ config CAIRO_PNG
 
 config CAIRO_SCRIPT
 	bool
+	select CAIRO_LZO
 	select CAIRO_ZLIB
 	prompt "script surface"
 

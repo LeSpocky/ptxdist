@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_CAIRO) += cairo
 #
 # Paths and names
 #
-CAIRO_VERSION	:= 1.18.2
-CAIRO_MD5	:= 5ad67c707edd0003f1b91c8bbc0005c1
+CAIRO_VERSION	:= 1.18.4
+CAIRO_MD5	:= db575fb41bbda127e0147e401f36f8ac
 CAIRO		:= cairo-$(CAIRO_VERSION)
 CAIRO_SUFFIX	:= tar.xz
 CAIRO_URL	:= http://cairographics.org/releases/cairo-$(CAIRO_VERSION).$(CAIRO_SUFFIX)
@@ -45,6 +45,7 @@ CAIRO_CONF_OPT	:= \
 	-Dglib=$(call ptx/endis, PTXCONF_CAIRO_GOBJECT)d \
 	-Dgtk2-utils=disabled \
 	-Dgtk_doc=false \
+	-Dlzo=$(call ptx/endis, PTXCONF_CAIRO_LZO)d \
 	-Dpng=$(call ptx/endis, PTXCONF_CAIRO_PNG)d \
 	-Dquartz=disabled \
 	-Dspectre=disabled \
