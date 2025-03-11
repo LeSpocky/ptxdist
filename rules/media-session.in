@@ -1,4 +1,6 @@
-## SECTION=multimedia_pipewire
+## SECTION=staging
+## old section:
+### SECTION=multimedia_pipewire
 
 config MEDIA_SESSION
 	tristate
@@ -13,6 +15,8 @@ config MEDIA_SESSION
 	prompt "media-session"
 	help
 	  Example session manager for PipeWire
+	  STAGING: remove in PTXdist 2026.04.0
+	  PipeWire API changed, fails to build with current toolchains.
 
 if MEDIA_SESSION
 
