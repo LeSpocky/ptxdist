@@ -26,9 +26,21 @@ config GST_PLUGINS_RS_AUDIOFX
 	bool
 	prompt "audiofx"
 
+config GST_PLUGINS_RS_AWS
+	bool
+	prompt "aws"
+
+config GST_PLUGINS_RS_CDG
+	bool
+	prompt "cdg"
+
 config GST_PLUGINS_RS_CLAXON
 	bool
 	prompt "claxon"
+
+config GST_PLUGINS_RS_CLOSEDCAPTION
+	bool
+	prompt "closedcaption"
 
 config GST_PLUGINS_RS_CSOUND
 	bool
@@ -36,29 +48,23 @@ config GST_PLUGINS_RS_CSOUND
 	depends on BROKEN
 	prompt "csound"
 
-config GST_PLUGINS_RS_LEWTON
+config GST_PLUGINS_RS_DAV1D
 	bool
-	prompt "lewton"
+	# needs dav1d
+	depends on BROKEN
+	prompt "dav1d"
 
-config GST_PLUGINS_RS_SPOTIFY
+config GST_PLUGINS_RS_FALLBACKSWITCH
 	bool
-	prompt "spotify"
+	prompt "fallbackswitch"
+
+config GST_PLUGINS_RS_FFV1
+	bool
+	prompt "ffv1"
 
 config GST_PLUGINS_RS_FILE
 	bool
 	prompt "file"
-
-config GST_PLUGINS_RS_SODIUM
-	bool
-	prompt "sodium"
-
-config GST_PLUGINS_RS_THREADSHARE
-	bool
-	prompt "threadshare"
-
-config GST_PLUGINS_RS_INTER
-	bool
-	prompt "inter"
 
 config GST_PLUGINS_RS_FLAVORS
 	bool
@@ -68,17 +74,43 @@ config GST_PLUGINS_RS_FMP4
 	bool
 	prompt "fmp4"
 
-config GST_PLUGINS_RS_MP4
+config GST_PLUGINS_RS_GIF
 	bool
-	prompt "mp4"
+	prompt "gif"
 
-config GST_PLUGINS_RS_AWS
+config GST_PLUGINS_RS_GTK4
 	bool
-	prompt "aws"
+	# needs gtk4
+	depends on BROKEN
+	prompt "gtk4"
 
 config GST_PLUGINS_RS_HLSSINK3
 	bool
 	prompt "hlssink3"
+
+config GST_PLUGINS_RS_HSV
+	bool
+	prompt "hsv"
+
+config GST_PLUGINS_RS_INTER
+	bool
+	prompt "inter"
+
+config GST_PLUGINS_RS_JSON
+	bool
+	prompt "json"
+
+config GST_PLUGINS_RS_LEWTON
+	bool
+	prompt "lewton"
+
+config GST_PLUGINS_RS_LIVESYNC
+	bool
+	prompt "livesync"
+
+config GST_PLUGINS_RS_MP4
+	bool
+	prompt "mp4"
 
 config GST_PLUGINS_RS_NDI
 	bool
@@ -88,53 +120,53 @@ config GST_PLUGINS_RS_ONVIF
 	bool
 	prompt "onvif"
 
+config GST_PLUGINS_RS_PNG
+	bool
+	prompt "png"
+
 config GST_PLUGINS_RS_RAPTORQ
 	bool
 	prompt "raptorq"
 
-config GST_PLUGINS_RS_REQWEST
+config GST_PLUGINS_RS_RAV1E
 	bool
-	prompt "reqwest"
-
-config GST_PLUGINS_RS_RTSP
-	bool
-	prompt "rtsp"
-
-config GST_PLUGINS_RS_RTP
-	bool
-	prompt "rtp"
-
-config GST_PLUGINS_RS_WEBRTC
-	bool
-	prompt "webrtc"
-
-config GST_PLUGINS_RS_WEBRTCHTTP
-	bool
-	prompt "webrtchttp"
-
-config GST_PLUGINS_RS_TEXTAHEAD
-	bool
-	prompt "textahead"
-
-config GST_PLUGINS_RS_JSON
-	bool
-	prompt "json"
+	prompt "rav1e"
 
 config GST_PLUGINS_RS_REGEX
 	bool
 	prompt "regex"
 
+config GST_PLUGINS_RS_REQWEST
+	bool
+	prompt "reqwest"
+
+config GST_PLUGINS_RS_RTP
+	bool
+	prompt "rtp"
+
+config GST_PLUGINS_RS_RTSP
+	bool
+	prompt "rtsp"
+
+config GST_PLUGINS_RS_SODIUM
+	bool
+	prompt "sodium"
+
+config GST_PLUGINS_RS_SPOTIFY
+	bool
+	prompt "spotify"
+
+config GST_PLUGINS_RS_TEXTAHEAD
+	bool
+	prompt "textahead"
+
 config GST_PLUGINS_RS_TEXTWRAP
 	bool
 	prompt "textwrap"
 
-config GST_PLUGINS_RS_FALLBACKSWITCH
+config GST_PLUGINS_RS_THREADSHARE
 	bool
-	prompt "fallbackswitch"
-
-config GST_PLUGINS_RS_LIVESYNC
-	bool
-	prompt "livesync"
+	prompt "threadshare"
 
 config GST_PLUGINS_RS_TOGGLERECORD
 	bool
@@ -148,46 +180,6 @@ config GST_PLUGINS_RS_URIPLAYLISTBIN
 	bool
 	prompt "uriplaylistbin"
 
-config GST_PLUGINS_RS_CDG
-	bool
-	prompt "cdg"
-
-config GST_PLUGINS_RS_CLOSEDCAPTION
-	bool
-	prompt "closedcaption"
-
-config GST_PLUGINS_RS_DAV1D
-	bool
-	# needs dav1d
-	depends on BROKEN
-	prompt "dav1d"
-
-config GST_PLUGINS_RS_FFV1
-	bool
-	prompt "ffv1"
-
-config GST_PLUGINS_RS_GIF
-	bool
-	prompt "gif"
-
-config GST_PLUGINS_RS_GTK4
-	bool
-	# needs gtk4
-	depends on BROKEN
-	prompt "gtk4"
-
-config GST_PLUGINS_RS_HSV
-	bool
-	prompt "hsv"
-
-config GST_PLUGINS_RS_PNG
-	bool
-	prompt "png"
-
-config GST_PLUGINS_RS_RAV1E
-	bool
-	prompt "rav1e"
-
 config GST_PLUGINS_RS_VIDEOFX
 	bool
 	prompt "videofx"
@@ -195,5 +187,13 @@ config GST_PLUGINS_RS_VIDEOFX
 config GST_PLUGINS_RS_WEBP
 	bool
 	prompt "webp"
+
+config GST_PLUGINS_RS_WEBRTC
+	bool
+	prompt "webrtc"
+
+config GST_PLUGINS_RS_WEBRTCHTTP
+	bool
+	prompt "webrtchttp"
 
 endif
