@@ -1,0 +1,11 @@
+## SECTION=multimedia_tools
+
+config DRM_INFO
+	tristate
+	select HOST_MESON
+	select HOST_SYSTEM_PYTHON3
+	select LIBDRM
+	select JSON_C
+	prompt "drm_info"
+	help
+	  Small utility to dump info about DRM devices.
