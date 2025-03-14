@@ -15,6 +15,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_MESALIB) += host-mesalib
 # Prepare
 # ----------------------------------------------------------------------------
 
+HOST_MESALIB_MESON_CROSS_FILE := $(call ptx/get-alternative, config/meson, mesalib-native-file.meson)
+
 HOST_MESALIB_CONF_TOOL	:= meson
 HOST_MESALIB_CONF_OPT	:= \
 	$(HOST_MESON_OPT) \
@@ -116,7 +118,9 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dxlib-lease=disabled \
 	-Dxmlconfig=disabled \
 	-Dzlib=enabled \
-	-Dzstd=disabled
+	-Dzstd=disabled \
+	\
+	--native-file $(HOST_MESALIB_MESON_CROSS_FILE)
 
 HOST_MESALIB_MAKE_OPT	:= \
 	src/compiler/glsl/glsl_compiler
