@@ -31,6 +31,7 @@ VKRUNNER_LICENSE_FILES	:= file://COPYING;md5=b16067245eacd718bc35526d75bc0893
 VKRUNNER_CONF_TOOL	:= cargo
 VKRUNNER_MAKE_ENV	:= \
 	$(CROSS_CARGO_ENV) \
+	CLANG_PATH=$(PTXDIST_PLATFORMDIR)/selected_toolchain/$(PTXCONF_COMPILER_PREFIX)clang \
 	LIBCLANG_PATH=$(PTXDIST_PLATFORMDIR)/selected_toolchain/../lib
 
 # ----------------------------------------------------------------------------
