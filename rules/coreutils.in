@@ -3,9 +3,10 @@
 menuconfig COREUTILS
 	tristate
 	prompt "coreutils                     "
-	select LIBC_M if COREUTILS_SORT
+	select LIBC_M		if COREUTILS_SORT
 	select LIBC_RT
 	select GCCLIBS_GCC_S
+	select SYSTEMD		if COREUTILS_SYSTEMD
 	help
 	  This package contains the essential basic system utilities.
 
@@ -20,6 +21,11 @@ menuconfig COREUTILS
 	  uname unexpand uniq unlink users vdir wc who whoami yes
 
 if COREUTILS
+
+config COREUTILS_SYSTEMD
+	bool
+	depends on COREUTILS_PINKY || COREUTILS_UPTIME || COREUTILS_USERS || COREUTILS_WHO
+	default INITMETHOD_SYSTEMD
 
 config COREUTILS_ECHO
 	bool

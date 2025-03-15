@@ -144,7 +144,7 @@ COREUTILS_CONF_OPT	:= \
 	--disable-assert \
 	--disable-rpath \
 	--disable-xattr \
-	--$(call ptx/endis, PTXCONF_INITMETHOD_SYSTEMD)-systemd \
+	--$(call ptx/endis, PTXCONF_COREUTILS_SYSTEMD)-systemd \
 	--disable-libsmack \
 	--disable-libcap \
 	--disable-single-binary \
