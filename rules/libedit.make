@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBEDIT) += libedit
 #
 # Paths and names
 #
-LIBEDIT_VERSION	:= 20160903-3.1
-LIBEDIT_MD5	:= 0467d27684c453a351fbcefebbcb16a3
+LIBEDIT_VERSION	:= 20250104-3.1
+LIBEDIT_MD5	:= 3b2c3c4ab30374bf975d69b5bcc220b6
 LIBEDIT		:= libedit-$(LIBEDIT_VERSION)
 LIBEDIT_SUFFIX	:= tar.gz
 LIBEDIT_URL	:= http://www.thrysoee.dk/editline/$(LIBEDIT).$(LIBEDIT_SUFFIX)
@@ -27,7 +27,10 @@ LIBEDIT_LICENSE	:= BSD-3-Clause
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBEDIT_CONF_TOOL := autoconf
+LIBEDIT_CONF_TOOL	:= autoconf
+LIBEDIT_CONF_OPT	:= \
+	$(CROSS_AUTOCONF_USR) \
+	--disable-examples
 
 # ----------------------------------------------------------------------------
 # Target-Install
