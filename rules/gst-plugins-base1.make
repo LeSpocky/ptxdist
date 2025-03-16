@@ -143,6 +143,15 @@ ifneq ($(call remove_quotes,$(GST_PLUGINS_BASE1_ENABLEC-)),)
 GST_PLUGINS_BASE1_CONF_OPT +=  $(addsuffix =disabled, $(addprefix -D, $(GST_PLUGINS_BASE1_ENABLEC-)))
 endif
 
+ifdef PTXCONF_ARCH_ARM
+ifndef PTXCONF_ARCH_ARM_V6
+GST_PLUGINS_BASE1_CONF_ENV += LDFLAGS=-latomic
+endif
+endif
+ifdef PTXCONF_ARCH_PPC
+GST_PLUGINS_BASE1_CONF_ENV += LDFLAGS=-latomic
+endif
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
