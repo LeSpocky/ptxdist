@@ -62,7 +62,7 @@ LIBELF_CONF_OPT	:= \
 	--with-zlib \
 	--without-bzlib \
 	--$(call ptx/wwo, PTXCONF_LIBELF_XZ)-lzma \
-	--without-zstd \
+	--$(call ptx/wwo, PTXCONF_LIBELF_ZSTD)-zstd \
 	--without-biarch
 
 LIBELF_ARCH := $(call remove_quotes,$(PTXCONF_ARCH_STRING))
