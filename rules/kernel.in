@@ -3,6 +3,7 @@
 menuconfig KERNEL
 	bool "kernel tools                  "
 	select LIBELF			if KERNEL_TOOL_PERF
+	select LIBELF_ZSTD		if KERNEL_TOOL_PERF
 	select LIBELF_LIBDW		if KERNEL_TOOL_PERF
 	select SLANG			if KERNEL_TOOL_PERF
 	select BINUTILS			if KERNEL_TOOL_PERF
