@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_LIBTIFF) += libtiff
 #
 # Paths and names
 #
-LIBTIFF_VERSION		:= 4.3.0
-LIBTIFF_MD5		:= 0a2e4744d1426a8fc8211c0cdbc3a1b3
+LIBTIFF_VERSION		:= 4.7.0
+LIBTIFF_MD5		:= 3a0fa4a270a4a192b08913f88d0cfbdd
 LIBTIFF			:= tiff-$(LIBTIFF_VERSION)
 LIBTIFF_SUFFIX		:= tar.gz
 LIBTIFF_URL		:= http://download.osgeo.org/libtiff/$(LIBTIFF).$(LIBTIFF_SUFFIX)
 LIBTIFF_SOURCE		:= $(SRCDIR)/$(LIBTIFF).$(LIBTIFF_SUFFIX)
 LIBTIFF_DIR		:= $(BUILDDIR)/$(LIBTIFF)
 LIBTIFF_LICENSE		:= libtiff
-LIBTIFF_LICENSE_FILES	:= file://COPYRIGHT;md5=34da3db46fab7501992f9615d7e158cf
+LIBTIFF_LICENSE_FILES	:= file://LICENSE.md;md5=a3e32d664d6db1386b4689c8121531c3
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -41,8 +41,13 @@ LIBTIFF_CONF_OPT	:= \
 	--enable-dependency-tracking \
 	--disable-ld-version-script \
 	--enable-libtool-lock \
+	--enable-deprecated \
 	--disable-rpath \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--$(call ptx/endis, PTXCONF_LIBTIFF_TOOLS)-tools \
+	--disable-tests \
+	--disable-contrib \
+	--disable-docs \
 	--enable-ccitt \
 	--enable-packbits \
 	--enable-lzw \
@@ -62,12 +67,14 @@ LIBTIFF_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBTIFF_WEBP)-webp \
 	--disable-jpeg12 \
 	--disable-cxx \
+	--disable-opengl \
 	--disable-win32-io \
 	--enable-strip-chopping \
 	--disable-defer-strile-load \
 	--disable-chunky-strip-read \
 	--enable-extrasample-as-alpha \
-	--enable-check-ycbcr-subsampling
+	--enable-check-ycbcr-subsampling \
+	--disable-sphinx
 
 # ----------------------------------------------------------------------------
 # Target-Install
