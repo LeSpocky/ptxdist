@@ -86,6 +86,7 @@ $(STATEDIR)/at91bootstrap2.clean:
 # oldconfig / menuconfig
 # ----------------------------------------------------------------------------
 
+# does not support the full set of kconfig targets, can not use ptx/kconfig-targets here
 at91bootstrap2_oldconfig at91bootstrap2_menuconfig: $(STATEDIR)/at91bootstrap2.extract
 	@$(call world/kconfig, AT91BOOTSTRAP2, $(subst at91bootstrap2_,,$@))
 
