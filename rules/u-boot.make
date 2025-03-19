@@ -229,7 +229,7 @@ $(STATEDIR)/u-boot.clean:
 # ----------------------------------------------------------------------------
 
 ifdef PTXCONF_U_BOOT_CONFIGSYSTEM_KCONFIG
-u-boot_oldconfig u-boot_menuconfig u-boot_nconfig: $(STATEDIR)/u-boot.extract
+$(call ptx/kconfig-targets, u-boot): $(STATEDIR)/u-boot.extract
 	@$(call world/kconfig, U_BOOT, $(subst u-boot_,,$@))
 endif
 
