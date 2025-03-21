@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SPIRV_TOOLS) += spirv-tools
 #
 # Paths and names
 #
-SPIRV_TOOLS_VERSION	:= 1.4.304.1
-SPIRV_TOOLS_MD5		:= b7fe16af4e1954b5479f3c55ca3eea9b
+SPIRV_TOOLS_VERSION	:= 1.4.309.0
+SPIRV_TOOLS_MD5		:= 6e0516ab3432a38cf9b51af568d6eb50
 SPIRV_TOOLS		:= spirv-tools-$(SPIRV_TOOLS_VERSION)
 SPIRV_TOOLS_SUFFIX	:= tar.gz
 SPIRV_TOOLS_URL		:= https://github.com/KhronosGroup/SPIRV-Tools/archive/vulkan-sdk-$(SPIRV_TOOLS_VERSION).$(SPIRV_TOOLS_SUFFIX)
