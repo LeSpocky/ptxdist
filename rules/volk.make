@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_VOLK) += volk
 #
 # Paths and names
 #
-VOLK_VERSION		:= 1.4.304.1
-VOLK_MD5		:= 077a27d8776bb690890e6946d3273b1e
+VOLK_VERSION		:= 1.4.309.0
+VOLK_MD5		:= bec8ba25ceed2641d9343210601b42ea
 VOLK			:= volk-$(VOLK_VERSION)
 VOLK_SUFFIX		:= tar.gz
 VOLK_URL		:= https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-$(VOLK_VERSION).$(VOLK_SUFFIX)
 VOLK_SOURCE		:= $(SRCDIR)/$(VOLK).$(VOLK_SUFFIX)
 VOLK_DIR		:= $(BUILDDIR)/$(VOLK)
 VOLK_LICENSE		:= MIT
-VOLK_LICENSE_FILES	:= file://LICENSE.md;md5=12e6af3a0e2a5e5dbf7796aa82b64626
+VOLK_LICENSE_FILES	:= file://LICENSE.md;md5=fb3d6e8051a71edca1e54bc38d35e5af
 
 # ----------------------------------------------------------------------------
 # Prepare
