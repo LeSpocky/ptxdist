@@ -60,6 +60,9 @@ HOST_IMX_CST_MAKE_ENV := \
 	$(HOST_ENV) \
 	OPENSSL_PATH="$(PTXDIST_SYSROOT_HOST)/usr/lib/"
 
+HOST_IMX_CST_MAKE_OPT := \
+	YACC=bison
+
 # ----------------------------------------------------------------------------
 # Install
 # ----------------------------------------------------------------------------
