@@ -1,0 +1,27 @@
+From: Karel Zak <kzak@redhat.com>
+Date: Mon, 24 Mar 2025 15:18:24 +0100
+Subject: [PATCH] meson: fix manadocs for libsmartcols and libblkid
+
+Fixes: https://github.com/util-linux/util-linux/issues/3475
+Signed-off-by: Karel Zak <kzak@redhat.com>
+---
+ meson.build | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index 1537f5e61d90..6aeac2137941 100644
+--- a/meson.build
++++ b/meson.build
+@@ -4028,7 +4028,11 @@ run_target(
+ 
+ manadocs += lib_tcolors_manadocs
+ if build_libblkid
+-  manadocs += lib_blkid_manadocs + lib_smartcols_manadocs
++  manadocs += lib_blkid_manadocs
++endif
++
++if build_libsmartcols
++  manadocs += lib_smartcols_manadocs
+ endif
+ 
+ if build_libuuid

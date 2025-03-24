@@ -249,6 +249,12 @@ config UTIL_LINUX_UUIDGEN
 	help
 	  uuidgen is a command-line utility to create a new UUID value.
 
+config UTIL_LINUX_WAITPID
+	bool
+	prompt "waitpid"
+	help
+	  waitpid - Utility to wait for arbitrary non-child processes.
+
 config UTIL_LINUX_WIPEFS
 	bool
 	select UTIL_LINUX_LIBBLKID
@@ -612,6 +618,16 @@ config UTIL_LINUX_COLUMN
 	prompt "column"
 	help
 	  Columnate lists.
+
+config UTIL_LINUX_HEXDUMP
+	bool
+	depends on !BUSYBOX_HEXDUMP
+	prompt "hexdump"
+	help
+	  Utility to print hexdumps.
+
+comment "BusyBox' hexdump is selected!"
+	depends on BUSYBOX_HEXDUMP
 
 config UTIL_LINUX_LINE
 	bool
