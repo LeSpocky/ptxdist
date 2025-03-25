@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_BOOST) += boost
 #
 # Paths and names
 #
-BOOST_VERSION	:= 1_83_0
-BOOST_MD5	:= 406f0b870182b4eb17a23a9d8fce967d
+BOOST_VERSION	:= 1_86_0
+BOOST_MD5	:= 2d098ba2e1457708a02de996857c2b10
 BOOST		:= boost_$(BOOST_VERSION)
 BOOST_SUFFIX	:= tar.bz2
 BOOST_URL	:= $(call ptx/mirror, SF, boost/$(BOOST).$(BOOST_SUFFIX))
@@ -29,13 +29,15 @@ BOOST_LICENSE_FILES := file://LICENSE_1_0.txt;md5=e4224ccaecb14d942c71d31bef20d7
 # Prepare
 # ----------------------------------------------------------------------------
 
-# boost doesn't provide "no library" choice. If the library list is empty, it
-# goes for all libraries. We start at least with date_time lib here to avoid
+# "headers" is the fake library to install headers. If the library list is empty,
+# it goes for all libraries. We start at least with headers lib here to avoid
 # this
-BOOST_LIBRARIES-y				:= date_time
+BOOST_LIBRARIES-y				:= headers
 
 BOOST_LIBRARIES-$(PTXCONF_BOOST_ATOMIC)		+= atomic
+BOOST_LIBRARIES-$(PTXCONF_BOOST_CHARCONV)	+= charconv
 BOOST_LIBRARIES-$(PTXCONF_BOOST_CHRONO)		+= chrono
+BOOST_LIBRARIES-$(PTXCONF_BOOST_COBALT)		+= cobalt
 BOOST_LIBRARIES-$(PTXCONF_BOOST_CONTAINER)	+= container
 BOOST_LIBRARIES-$(PTXCONF_BOOST_CONTEXT)	+= context
 BOOST_LIBRARIES-$(PTXCONF_BOOST_CONTRACT)	+= contract
@@ -46,7 +48,6 @@ BOOST_LIBRARIES-$(PTXCONF_BOOST_FIBER)		+= fiber
 BOOST_LIBRARIES-$(PTXCONF_BOOST_FILESYSTEM)	+= filesystem
 BOOST_LIBRARIES-$(PTXCONF_BOOST_GRAPH)		+= graph
 BOOST_LIBRARIES-$(PTXCONF_BOOST_GRAPH_PARALLEL)	+= graph_parallel
-BOOST_LIBRARIES-$(PTXCONF_BOOST_HEADERS)	+= headers
 BOOST_LIBRARIES-$(PTXCONF_BOOST_IOSTREAMS)	+= iostreams
 BOOST_LIBRARIES-$(PTXCONF_BOOST_JSON)		+= json
 BOOST_LIBRARIES-$(PTXCONF_BOOST_LOCALE)		+= locale
@@ -54,6 +55,8 @@ BOOST_LIBRARIES-$(PTXCONF_BOOST_LOG)		+= log
 BOOST_LIBRARIES-$(PTXCONF_BOOST_MATH)		+= math
 BOOST_LIBRARIES-$(PTXCONF_BOOST_MPI)		+= mpi
 BOOST_LIBRARIES-$(PTXCONF_BOOST_NOWIDE)		+= nowide
+BOOST_LIBRARIES-$(PTXCONF_BOOST_PREDEF)		+= predef
+BOOST_LIBRARIES-$(PTXCONF_BOOST_PROCESS)	+= process
 BOOST_LIBRARIES-$(PTXCONF_BOOST_PROGRAM_OPTIONS)+= program_options
 BOOST_LIBRARIES-$(PTXCONF_BOOST_PYTHON)		+= python
 BOOST_LIBRARIES-$(PTXCONF_BOOST_RANDOM)		+= random
@@ -159,14 +162,7 @@ $(STATEDIR)/boost.install:
 # Target-Install
 # ----------------------------------------------------------------------------
 
-# date_time is append to libraries list as minimum, however we only install it
-# to target if it is really selected
-ifndef PTXCONF_BOOST_DATE_TIME
-BOOST_INST_LIBRARIES := $(filter-out date_time,$(BOOST_LIBRARIES-y))
-else
-BOOST_INST_LIBRARIES := $(BOOST_LIBRARIES-y)
-endif
-BOOST_INST_LIBRARIES := $(addsuffix *.so*,$(addprefix */libboost_,$(BOOST_INST_LIBRARIES)))
+BOOST_INST_LIBRARIES := $(addsuffix *.so*,$(addprefix */libboost_,$(BOOST_LIBRARIES-y)))
 
 $(STATEDIR)/boost.targetinstall:
 	@$(call targetinfo)

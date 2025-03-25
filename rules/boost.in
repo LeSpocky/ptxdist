@@ -48,13 +48,26 @@ config BOOST_ATOMIC
 	help
 	  Boost atomic library
 
+config BOOST_CHARCONV
+	bool
+	select BOOST_LIBS
+	prompt "charconv"
+	help
+	  Boost charconv library
+
 config BOOST_CHRONO
 	bool
 	select BOOST_LIBS
-	select BOOST_SYSTEM
 	prompt "chrono"
 	help
 	  Boost chrono library
+
+config BOOST_COBALT
+	bool
+	select BOOST_LIBS
+	prompt "cobalt"
+	help
+	  Boost cobalt library
 
 config BOOST_CONTAINER
 	bool
@@ -63,13 +76,6 @@ config BOOST_CONTAINER
 	help
 	  Boost container library
 
-config BOOST_CONTRACT
-	bool
-	select BOOST_LIBS
-	prompt "contract"
-	help
-	  Boost contract library
-
 config BOOST_CONTEXT
 	bool
 	select BOOST_LIBS
@@ -77,13 +83,17 @@ config BOOST_CONTEXT
 	help
 	  Boost context library
 
+config BOOST_CONTRACT
+	bool
+	select BOOST_LIBS
+	prompt "contract"
+	help
+	  Boost contract library
+
 config BOOST_COROUTINE
 	bool
 	select BOOST_LIBS
-	select BOOST_CHRONO
 	select BOOST_CONTEXT
-	select BOOST_SYSTEM
-	select BOOST_THREAD
 	prompt "coroutine (deprecated)"
 	help
 	  Boost coroutine library
@@ -106,7 +116,9 @@ config BOOST_EXCEPTION
 config BOOST_FIBER
 	bool
 	select BOOST_LIBS
+	select BOOST_ATOMIC
 	select BOOST_CONTEXT
+	select BOOST_FILESYSTEM
 	prompt "fiber"
 	help
 	  Boost fiber library
@@ -114,6 +126,7 @@ config BOOST_FIBER
 config BOOST_FILESYSTEM
 	bool
 	select BOOST_LIBS
+	select BOOST_ATOMIC
 	prompt "filesystem"
 	help
 	  Boost filesystem library
@@ -121,7 +134,6 @@ config BOOST_FILESYSTEM
 config BOOST_GRAPH
 	bool
 	select BOOST_LIBS
-	select BOOST_REGEX
 	prompt "graph"
 	help
 	  Boost graph library
@@ -137,12 +149,6 @@ config BOOST_GRAPH_PARALLEL
 	help
 	  Boost graph_parallel library
 
-config BOOST_HEADERS
-	bool
-	prompt "headers"
-	help
-	  boost headers library
-
 config BOOST_IOSTREAMS
 	bool
 	select BOOST_LIBS
@@ -152,13 +158,17 @@ config BOOST_IOSTREAMS
 
 config BOOST_JSON
 	bool
+	select BOOST_LIBS
+	select BOOST_CONTAINER
 	prompt "json"
 	help
-	  boost json library
+	  Boost json library
 
 config BOOST_LOCALE
 	bool
 	select BOOST_LIBS
+	select BOOST_THREAD
+	select BOOST_CHRONO
 	prompt "locale"
 	help
 	  Boost locale library
@@ -168,10 +178,7 @@ config BOOST_LOG
 	select BOOST_LIBS
 	select BOOST_ATOMIC
 	select BOOST_CHRONO
-	select BOOST_DATE_TIME
 	select BOOST_FILESYSTEM
-	select BOOST_REGEX
-	select BOOST_SYSTEM
 	select BOOST_THREAD
 	prompt "log"
 	help
@@ -196,9 +203,25 @@ config BOOST_MPI
 
 config BOOST_NOWIDE
 	bool
+	select BOOST_LIBS
 	prompt "nowide"
 	help
-	  boost nowide library
+	  Boost nowide library
+
+config BOOST_PREDEF
+	bool
+	prompt "predef"
+	help
+	  Boost predef library
+
+config BOOST_PROCESS
+	bool
+	select BOOST_LIBS
+	select BOOST_ATOMIC
+	select BOOST_FILESYSTEM
+	prompt "process"
+	help
+	  Boost process library
 
 config BOOST_PROGRAM_OPTIONS
 	bool
@@ -210,7 +233,6 @@ config BOOST_PROGRAM_OPTIONS
 config BOOST_RANDOM
 	bool
 	select BOOST_LIBS
-	select BOOST_SYSTEM
 	prompt "random"
 	help
 	  Boost random library
@@ -255,7 +277,6 @@ config BOOST_TEST
 config BOOST_THREAD
 	bool
 	select BOOST_LIBS
-	select BOOST_SYSTEM
 	prompt "thread"
 	help
 	  Portable C++ multi-threading library
@@ -263,8 +284,6 @@ config BOOST_THREAD
 config BOOST_TIMER
 	bool
 	select BOOST_LIBS
-	select BOOST_CHRONO
-	select BOOST_SYSTEM
 	prompt "timer"
 	help
 	  Boost timer library
@@ -276,22 +295,20 @@ config BOOST_TYPE_ERASURE
 	select BOOST_SYSTEM
 	select BOOST_THREAD
 	prompt "type_erasure"
-	help
-	  boost type_erasure library
 
 config BOOST_URL
 	bool
+	select BOOST_LIBS
 	prompt "url"
 	help
-	  boost url library
+	  Boost url library
 
 config BOOST_WAVE
 	bool
 	select BOOST_LIBS
 	select BOOST_CHRONO
-	select BOOST_DATE_TIME
+	select BOOST_ATOMIC
 	select BOOST_FILESYSTEM
-	select BOOST_SYSTEM
 	select BOOST_THREAD
 	prompt "wave"
 	help
