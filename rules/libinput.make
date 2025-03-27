@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBINPUT) += libinput
 #
 # Paths and names
 #
-LIBINPUT_VERSION	:= 1.27.1
-LIBINPUT_MD5		:= 3b311d8953f8717f711a78b60087997e
+LIBINPUT_VERSION	:= 1.28.0
+LIBINPUT_MD5		:= ef9a2b7f29d38d2e9b5d6813b8954c3b
 LIBINPUT		:= libinput-$(LIBINPUT_VERSION)
 LIBINPUT_SUFFIX		:= tar.gz
 LIBINPUT_URL		:= https://gitlab.freedesktop.org/libinput/libinput/-/archive/$(LIBINPUT_VERSION)/$(LIBINPUT).$(LIBINPUT_SUFFIX)
@@ -37,6 +37,7 @@ LIBINPUT_CONF_OPT	:= \
 	-Ddocumentation=false \
 	-Depoll-dir= \
 	-Dinstall-tests=false \
+	-Dinternal-event-debugging=false \
 	-Dlibwacom=$(call ptx/truefalse, PTXCONF_LIBINPUT_WACOM) \
 	-Dtests=false \
 	-Dudev-dir=/usr/lib/udev \
