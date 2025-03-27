@@ -147,6 +147,9 @@ endif
 ifdef PTXCONF_WESTON_REMOTING
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/remoting-plugin)
 endif
+ifdef PTXCONF_WESTON_COLOR_MANAGEMENT_LCMS
+	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/color-lcms)
+endif
 	@$(call install_lib, weston, 0, 0, 0644, weston/desktop-shell)
 	@$(call install_lib, weston, 0, 0, 0644, weston/fullscreen-shell)
 ifdef PTXCONF_WESTON_IVISHELL
