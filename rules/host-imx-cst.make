@@ -32,7 +32,7 @@ $(HOST_IMX_CST_SOURCE):
 	@echo "*"
 	@echo "* Due to license restrictions please download version $(HOST_IMX_CST_VERSION) manually from:"
 	@echo "*"
-	@echo "*    https://www.nxp.com/webapp/sps/download/license.jsp?colCode=IMX_CST_TOOL"
+	@echo "*    https://www.nxp.com/webapp/sps/download/license.jsp?colCode=IMX_CST_TOOL_NEW"
 	@echo "*"
 	@echo "* and place it into the source directory as:"
 	@echo "*"
