@@ -151,6 +151,9 @@ $defs:
   path:
     type: string
     pattern: '^/[^\s]+$'
+  relative-path:
+    type: string
+    pattern: '^[^/][^\s]+$'
   md5:
     type: string
     pattern: '^[a-f0-9]{32}$'
@@ -166,6 +169,9 @@ $defs:
   git-hash:
     type: string
     pattern: '^[a-f0-9]{40}$'
+  cve-product:
+    type: string
+    pattern: '^[^\s]+(:[^\s]+)?$'
   simple-pkg:
     type: object
     required:
@@ -268,6 +274,7 @@ $defs:
                 - file
                 - guessed
                 - md5
+                - path
                 properties:
                   guessed:
                     type: boolean
@@ -275,6 +282,8 @@ $defs:
                     $ref: '#/$defs/path'
                   md5:
                     $ref: '#/$defs/md5'
+                  path:
+                    $ref: '#/$defs/relative-path'
           - type: array
             items:
               type: string
@@ -293,6 +302,12 @@ $defs:
         type: array
         items:
           $ref: '#/$defs/path'
+      cve-product:
+        type: array
+        items:
+          $ref: '#/$defs/cve-product'
+      cve-version:
+        $ref: '#/$defs/version'
   pkg:
     allOf:
     - $ref: '#/$defs/simple-pkg'
