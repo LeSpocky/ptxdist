@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_EXPAT) += expat
 #
 # Paths and names
 #
-EXPAT_VERSION		:= 2.7.0
-EXPAT_MD5		:= ec6d9a4d8033395bbb9287286db8bb1f
+EXPAT_VERSION		:= 2.7.1
+EXPAT_MD5		:= e01e02f2a7012f76bdb44b08415097be
 EXPAT			:= expat-$(EXPAT_VERSION)
 EXPAT_SUFFIX		:= tar.bz2
 EXPAT_RELEASE		:= R_$(subst .,_,$(EXPAT_VERSION))
@@ -26,7 +26,7 @@ EXPAT_SOURCE		:= $(SRCDIR)/$(EXPAT).$(EXPAT_SUFFIX)
 EXPAT_DIR		:= $(BUILDDIR)/$(EXPAT)
 EXPAT_LICENSE		:= MIT
 EXPAT_LICENSE_FILES	:= \
-	file://COPYING;md5=7b3b078238d0901d3b339289117cb7fb
+	file://COPYING;md5=f4fedd6116da0e171f7cb4d2923d7ac2
 EXPAT_CVE_PRODUCT	:= libexpat_project:libexpat
 
 # ----------------------------------------------------------------------------
