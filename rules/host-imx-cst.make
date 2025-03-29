@@ -18,6 +18,7 @@ HOST_IMX_CST_VERSION	:= 3.4.1
 HOST_IMX_CST_MD5	:= b23ed5983734d4812fcf1da33eac8f31
 HOST_IMX_CST		:= cst-$(HOST_IMX_CST_VERSION)
 HOST_IMX_CST_SUFFIX	:= tgz
+HOST_IMX_CST_URL	:= https://www.nxp.com/webapp/sps/download/license.jsp?colCode=IMX_CST_TOOL_NEW
 HOST_IMX_CST_SOURCE	:= $(SRCDIR)/$(HOST_IMX_CST).$(HOST_IMX_CST_SUFFIX)
 HOST_IMX_CST_DIR	:= $(HOST_BUILDDIR)/$(HOST_IMX_CST)
 HOST_IMX_CST_LICENSE	:= proprietary
@@ -32,7 +33,7 @@ $(HOST_IMX_CST_SOURCE):
 	@echo "*"
 	@echo "* Due to license restrictions please download version $(HOST_IMX_CST_VERSION) manually from:"
 	@echo "*"
-	@echo "*    https://www.nxp.com/webapp/sps/download/license.jsp?colCode=IMX_CST_TOOL_NEW"
+	@echo "*    $(HOST_IMX_CST_URL)"
 	@echo "*"
 	@echo "* and place it into the source directory as:"
 	@echo "*"
