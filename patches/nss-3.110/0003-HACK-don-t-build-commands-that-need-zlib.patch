@@ -12,10 +12,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 2 deletions(-)
 
 diff --git a/nss/cmd/manifest.mn b/nss/cmd/manifest.mn
-index 06bb99f4f8e0..4eb0024415ee 100644
+index 1af88bf4951c..2bb47e638064 100644
 --- a/nss/cmd/manifest.mn
 +++ b/nss/cmd/manifest.mn
-@@ -69,7 +69,6 @@ NSS_SRCDIRS = \
+@@ -70,7 +70,6 @@ NSS_SRCDIRS = \
   sdbthreadtst \
   sdrtest \
   selfserv  \
@@ -23,7 +23,7 @@ index 06bb99f4f8e0..4eb0024415ee 100644
   signver \
   smimetools  \
   ssltap  \
-@@ -80,7 +79,6 @@ NSS_SRCDIRS = \
+@@ -81,7 +80,6 @@ NSS_SRCDIRS = \
   validation  \
   vfychain \
   vfyserv \
