@@ -16,9 +16,9 @@ PACKAGES-$(PTXCONF_SYSLOGNG) += syslogng
 #
 # Paths and names
 #
-SYSLOGNG_VERSION	:= 3.25.1
-SYSLOG_LIBVERSION	:= 3.25
-SYSLOGNG_MD5		:= 07c2ebb712ddacd201b24b265b857b0d
+SYSLOGNG_VERSION	:= 4.8.1
+SYSLOG_LIBVERSION	:= 4.8
+SYSLOGNG_MD5		:= 6a5852343f9a34449c3812b474728aa7
 SYSLOGNG		:= syslog-ng-$(SYSLOGNG_VERSION)
 SYSLOGNG_SUFFIX		:= tar.gz
 SYSLOGNG_URL		:= https://github.com/balabit/syslog-ng/releases/download/syslog-ng-$(SYSLOGNG_VERSION)/$(SYSLOGNG).$(SYSLOGNG_SUFFIX)
@@ -42,11 +42,9 @@ SYSLOGNG_CONF_ENV	:= \
 SYSLOGNG_CONF_TOOL	:= autoconf
 SYSLOGNG_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--localstatedir=/var/run \
-	--with-module-dir=/usr/lib/syslog-ng \
-	--with-module-path=/usr/lib/syslog-ng \
 	--enable-forced-server-mode \
 	--disable-debug \
+	--disable-example-modules \
 	--enable-force-gnu99 \
 	--disable-extra-warnings \
 	--disable-env-wrapper \
@@ -54,39 +52,48 @@ SYSLOGNG_CONF_OPT	:= \
 	--disable-memtrace \
 	--enable-dynamic-linking \
 	--disable-mixed-linking \
+	--disable-force-classic-linking \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-tcp-wrapper \
 	--$(call ptx/endis, PTXCONF_SYSLOGNG_SPOOF_SOURCE)-spoof-source \
 	--disable-sun-streams \
+	--disable-darwin-osl \
 	--disable-openbsd-system-source \
 	--disable-sql \
 	--disable-pacct \
 	--disable-linux-caps \
+	--disable-ebpf \
 	--disable-gcov \
 	--disable-mongodb \
-	--disable-legacy-mongodb-options \
 	--$(call ptx/endis, PTXCONF_SYSLOGNG_JSON)-json \
 	--disable-amqp \
 	--$(call ptx/endis, PTXCONF_SYSLOGNG_STOMP_DESTINATION)-stomp \
 	--disable-smtp \
+	--disable-mqtt \
+	--disable-grpc \
+	--disable-cloud-auth \
+	--disable-cpp \
 	--$(call ptx/endis, PTXCONF_SYSLOGNG_HTTP)-http \
 	--disable-redis \
 	--$(call ptx/endis, PTXCONF_SYSLOGNG_SYSTEMD)-systemd \
 	--disable-geoip2 \
 	--disable-riemann \
-	--with-python=auto \
-	--$(call ptx/endis, PTXCONF_SYSLOGNG_PYTHON_DESTINATION)-python \
 	--disable-kafka \
+	--with-python=auto \
+	--$(call ptx/endis, PTXCONF_SYSLOGNG_PYTHON_DESTINATION)-python-modules \
 	--disable-manpages \
+	--disable-manpages-install \
 	--disable-java \
 	--disable-java-modules \
 	--enable-native \
-	--disable-snmp-dest \
+	--disable-afsnmp \
 	--disable-all-modules \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-valgrind \
 	--with-libnet=$(SYSROOT)/usr/bin \
 	--without-net-snmp \
+	--with-pidfile-dir=/var/run \
+	--with-module-dir=/usr/lib/syslog-ng \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
 	--with-jsonc=$(if $(PTXCONF_SYSLOGNG_JSON),system,no) \
 	--with-ivykis=internal \
