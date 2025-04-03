@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=networking
+## SECTION=networking
 # syslog-ng configuration
 
 menuconfig SYSLOGNG
@@ -18,10 +16,6 @@ menuconfig SYSLOGNG
 	select SYSTEMD		if SYSLOGNG_SYSTEMD
 	help
 	  The next generation syslog daemon.
-
-	  STAGING: remove in PTXdist 2026.03.0
-	  Unmaintained in PTXdist and fails to build with current toolchains.
-	  Needs updating to the latest version.
 
 if SYSLOGNG
 
