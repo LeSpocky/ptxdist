@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 25.0.2
-MESALIB_MD5	:= 3605bbca692582ec31f8f5ad652a2fc9
+MESALIB_VERSION	:= 25.0.3
+MESALIB_MD5	:= 42502c44e1e3e9ea9700c8c4e50b0f7c
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -186,7 +186,6 @@ MESALIB_CONF_OPT	:= \
 	-Degl-lib-suffix= \
 	-Degl-native-platform=auto \
 	-Denable-glcpp-tests=false \
-	-Dexecmem=true \
 	-Dexpat=enabled \
 	-Dfreedreno-kmds=msm \
 	-Dgallium-d3d10-dll-name=libgallium_d3d10 \
@@ -214,13 +213,13 @@ MESALIB_CONF_OPT	:= \
 	-Dglx-direct=true \
 	-Dglx-read-only-text=false \
 	-Dgpuvis=false \
-	-Dinstall-mesa-clc=false \
-	-Dinstall-precomp-compiler=false \
 	-Dhtml-docs=disabled \
 	-Dhtml-docs-path= \
 	-Dimagination-srv=false \
 	-Dinstall-intel-clc=false \
 	-Dinstall-intel-gpu-tests=false \
+	-Dinstall-mesa-clc=false \
+	-Dinstall-precomp-compiler=false \
 	-Dintel-bvh-grl=false \
 	-Dintel-clc=system \
 	-Dintel-elk=true \
