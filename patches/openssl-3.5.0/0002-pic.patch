@@ -110,10 +110,10 @@ index ef09e0fd297a..fe6ff45d1804 100644
  	&mov("eax",	&DWP($data_off,"esp","",0));	# get return
  	&mov("ebx",	&DWP($data_off+4,"esp","",0));	#
 diff --git a/crypto/perlasm/x86gas.pl b/crypto/perlasm/x86gas.pl
-index 1b2b27c02286..a62c01b175a2 100644
+index f3c01ea89b4b..2fba3d831c74 100644
 --- a/crypto/perlasm/x86gas.pl
 +++ b/crypto/perlasm/x86gas.pl
-@@ -171,6 +171,7 @@ sub ::file_end
+@@ -172,6 +172,7 @@ sub ::file_end
  	if ($::macosx)	{ push (@out,"$tmp,2\n"); }
  	elsif ($::elf)	{ push (@out,"$tmp,4\n"); }
  	else		{ push (@out,"$tmp\n"); }
@@ -121,7 +121,7 @@ index 1b2b27c02286..a62c01b175a2 100644
      }
      push(@out,$initseg) if ($initseg);
      if ($::elf) {
-@@ -249,8 +250,23 @@ ___
+@@ -250,8 +251,23 @@ ___
      elsif ($::elf)
      {	$initseg.=<<___;
  .section	.init
@@ -146,7 +146,7 @@ index 1b2b27c02286..a62c01b175a2 100644
      elsif ($::coff)
      {   $initseg.=<<___;	# applies to both Cygwin and Mingw
 diff --git a/crypto/x86cpuid.pl b/crypto/x86cpuid.pl
-index a7bcb27e262d..6688a1fc4464 100644
+index 35e2c5b0a540..282058ce87f3 100644
 --- a/crypto/x86cpuid.pl
 +++ b/crypto/x86cpuid.pl
 @@ -16,6 +16,8 @@ $output = pop and open STDOUT,">$output";
@@ -158,7 +158,7 @@ index a7bcb27e262d..6688a1fc4464 100644
  &function_begin("OPENSSL_ia32_cpuid");
  	&xor	("edx","edx");
  	&pushf	();
-@@ -161,9 +163,7 @@ for (@ARGV) { $sse2=1 if (/-DOPENSSL_IA32_SSE2/); }
+@@ -185,9 +187,7 @@ for (@ARGV) { $sse2=1 if (/-DOPENSSL_IA32_SSE2/); }
  &set_label("nocpuid");
  &function_end("OPENSSL_ia32_cpuid");
  
@@ -169,7 +169,7 @@ index a7bcb27e262d..6688a1fc4464 100644
  	&xor	("eax","eax");
  	&xor	("edx","edx");
  	&picmeup("ecx","OPENSSL_ia32cap_P");
-@@ -177,7 +177,7 @@ for (@ARGV) { $sse2=1 if (/-DOPENSSL_IA32_SSE2/); }
+@@ -201,7 +201,7 @@ for (@ARGV) { $sse2=1 if (/-DOPENSSL_IA32_SSE2/); }
  # This works in Ring 0 only [read DJGPP+MS-DOS+privileged DPMI host],
  # but it's safe to call it on any [supported] 32-bit platform...
  # Just check for [non-]zero return value...
@@ -178,7 +178,7 @@ index a7bcb27e262d..6688a1fc4464 100644
  	&picmeup("ecx","OPENSSL_ia32cap_P");
  	&bt	(&DWP(0,"ecx"),4);
  	&jnc	(&label("nohalt"));	# no TSC
-@@ -244,7 +244,7 @@ for (@ARGV) { $sse2=1 if (/-DOPENSSL_IA32_SSE2/); }
+@@ -268,7 +268,7 @@ for (@ARGV) { $sse2=1 if (/-DOPENSSL_IA32_SSE2/); }
  	&ret	();
  &function_end_B("OPENSSL_far_spin");
  

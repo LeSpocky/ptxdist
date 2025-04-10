@@ -41,10 +41,10 @@ index cba57b41273f..7fa3eeae412f 100644
      "linux-latomic" => {
          inherit_from     => [ "linux-generic32" ],
 diff --git a/Configure b/Configure
-index fff97bd6fc82..2f6f7271f94e 100755
+index 15054f94034a..fcb1d4cfefb4 100755
 --- a/Configure
 +++ b/Configure
-@@ -1813,7 +1813,7 @@ unless ($disabled{devcryptoeng}) {
+@@ -1835,7 +1835,7 @@ unless ($disabled{devcryptoeng}) {
  unless ($disabled{ktls}) {
      $config{ktls}="";
      my $cc = $config{CROSS_COMPILE}.$config{CC};
