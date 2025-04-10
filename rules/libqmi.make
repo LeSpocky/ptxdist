@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBQMI) += libqmi
 #
 # Paths and names
 #
-LIBQMI_VERSION	:= 1.34.0
-LIBQMI_MD5	:= 677b5d1ab763a7b7285b82d1798ff93d
+LIBQMI_VERSION	:= 1.36.0
+LIBQMI_MD5	:= e140fa38a1def3038af891c8f15b705b
 LIBQMI		:= libqmi-$(LIBQMI_VERSION)
 LIBQMI_SUFFIX	:= tar.bz2
 LIBQMI_URL	:= https://gitlab.freedesktop.org/mobile-broadband/libqmi/-/archive/$(LIBQMI_VERSION)/$(LIBQMI).$(LIBQMI_SUFFIX)
@@ -36,18 +36,19 @@ LIBQMI_LICENSE_FILES := \
 LIBQMI_CONF_TOOL	:= meson
 LIBQMI_CONF_OPT		:= \
 	$(CROSS_MESON_USR) \
-	-Dfirmware_update=$(call ptx/truefalse, PTXCONF_LIBQMI_FIRMWARE_UPDATE) \
+	-Dbash_completion=false \
 	-Dcollection=full \
+	-Dfirmware_update=$(call ptx/truefalse, PTXCONF_LIBQMI_FIRMWARE_UPDATE) \
+	-Dfuzzer=false \
+	-Dgtk_doc=false \
+	-Dintrospection=false \
+	-Dman=false \
 	-Dmbim_qmux=$(call ptx/truefalse, PTXCONF_LIBQMI_MBIM_QMUX) \
 	-Dmm_runtime_check=false \
 	-Dqrtr=false \
 	-Drmnet=false \
 	-Dudev=false \
-	-Dudevdir=/usr/lib/udev \
-	-Dintrospection=false \
-	-Dgtk_doc=false \
-	-Dman=false \
-	-Dbash_completion=false
+	-Dudevdir=/usr/lib/udev
 
 # ----------------------------------------------------------------------------
 # Target-Install
