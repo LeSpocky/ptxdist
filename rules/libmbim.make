@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBMBIM) += libmbim
 #
 # Paths and names
 #
-LIBMBIM_VERSION		:= 1.30.0
-LIBMBIM_MD5		:= dcfb85bd4338f0aa8a851d5d80d123f7
+LIBMBIM_VERSION		:= 1.32.0
+LIBMBIM_MD5		:= c175b50028062eed802bfb271861b4f8
 LIBMBIM			:= libmbim-$(LIBMBIM_VERSION)
 LIBMBIM_SUFFIX		:= tar.bz2
 LIBMBIM_URL		:= https://gitlab.freedesktop.org/mobile-broadband/libmbim/-/archive/$(LIBMBIM_VERSION)/$(LIBMBIM).$(LIBMBIM_SUFFIX)
@@ -36,11 +36,13 @@ LIBMBIM_LICENSE_FILES	:= \
 LIBMBIM_CONF_TOOL	:= meson
 LIBMBIM_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dudevdir=/usr/lib/udev \
-	-Dintrospection=false \
+	-Dbash_completion=false \
+	-Dfuzzer=false \
 	-Dgtk_doc=false \
+	-Dintrospection=false \
 	-Dman=false \
-	-Dbash_completion=false
+	-Dmbim_username= \
+	-Dudevdir=/usr/lib/udev
 
 # ----------------------------------------------------------------------------
 # Target-Install
