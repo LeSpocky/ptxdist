@@ -26,6 +26,17 @@ GLIBC_VERSION	:= $(call ptx/config-version, PTXCONF_GLIBC)
 # Prepare
 # ----------------------------------------------------------------------------
 
+GLIBC_INSTALL_MVEC :=
+ifdef PTXCONF_ARCH_X86
+GLIBC_INSTALL_MVEC := $(PTXCONF_GLIBC_MVEC)
+endif
+ifdef PTXCONF_ARCH_ARM64
+# libmvec support has been added to AArch64 with glibc version 2.38
+ifdef PTXCONF_GLIBC_2_38
+GLIBC_INSTALL_MVEC := $(PTXCONF_GLIBC_MVEC)
+endif
+endif
+
 $(STATEDIR)/glibc.prepare:
 	@$(call targetinfo)
 ifdef PTXCONF_GLIBC_Y2038
@@ -88,7 +99,7 @@ ifdef PTXCONF_GLIBC_M
 	@$(call install_copy_toolchain_lib, glibc, libm.so.6)
 endif
 
-ifdef PTXCONF_GLIBC_MVEC
+ifdef GLIBC_INSTALL_MVEC
 	@$(call install_copy_toolchain_lib, glibc, libmvec.so.1)
 endif
 
