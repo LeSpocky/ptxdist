@@ -12,15 +12,15 @@ PACKAGES-$(PTXCONF_FCGI) += fcgi
 #
 # Paths and names
 #
-FCGI_VERSION    	:= 2.4.2
-FCGI_MD5		:= 146376d5c5c059b9184755db76505fab
+FCGI_VERSION		:= 2.4.5
+FCGI_MD5		:= 2d87ab3f5b1321cd39e1b6a9bd9e3088
 FCGI			:= fcgi-$(FCGI_VERSION)
 FCGI_SUFFIX		:= tar.gz
 FCGI_URL		:= https://github.com/FastCGI-Archives/fcgi2/archive/$(FCGI_VERSION).$(FCGI_SUFFIX)
 FCGI_SOURCE		:= $(SRCDIR)/$(FCGI).$(FCGI_SUFFIX)
 FCGI_DIR		:= $(BUILDDIR)/$(FCGI)
 FCGI_LICENSE		:= OML
-FCGI_LICENSE_FILES	:= file://LICENSE.TERMS;md5=e3aacac3a647af6e7e31f181cda0a06a
+FCGI_LICENSE_FILES	:= file://LICENSE;md5=e3aacac3a647af6e7e31f181cda0a06a
 
 # ----------------------------------------------------------------------------
 # Prepare
