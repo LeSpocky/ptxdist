@@ -91,17 +91,5 @@ config ALSA_LIB_UCM
 	help
 	  Disable the use-case-manager component if you do not need it
 
-config ALSA_LIB_ALISP
-	bool
-	default y
-	# alisp itself broken in 1.1.7 builds now (alsa-lib commit 639d404),
-	# but then targets SI7018/sndo[cp]-mixer.alisp in src/conf/cards/
-	# fail (missing in tarball, present in git tree).
-	depends on BROKEN
-	prompt "alisp"
-	help
-	  Disable the alisp component if you do not need it
-
-
 endif
 

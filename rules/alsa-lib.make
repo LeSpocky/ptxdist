@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_ALSA_LIB) += alsa-lib
 #
 # Paths and names
 #
-ALSA_LIB_VERSION	:= 1.2.13
-ALSA_LIB_MD5		:= dd856a78e0702c3c4c1d8f56bc07bf61
+ALSA_LIB_VERSION	:= 1.2.14
+ALSA_LIB_MD5		:= d0efd7930da31f0034baddc0b993fa03
 ALSA_LIB		:= alsa-lib-$(ALSA_LIB_VERSION)
 ALSA_LIB_SUFFIX		:= tar.bz2
 ALSA_LIB_URL		:= https://www.alsa-project.org/files/pub/lib/$(ALSA_LIB).$(ALSA_LIB_SUFFIX)
@@ -51,7 +51,6 @@ ALSA_LIB_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_ALSA_LIB_SEQ)-seq \
 	--$(call ptx/endis, PTXCONF_ALSA_LIB_UCM)-ucm \
 	--disable-topology \
-	--$(call ptx/endis, PTXCONF_ALSA_LIB_ALISP)-alisp \
 	--disable-old-symbols \
 	--disable-mixer-modules \
 	--disable-mixer-pymods \
@@ -59,6 +58,7 @@ ALSA_LIB_CONF_OPT	:= \
 	--disable-python2 \
 	--disable-lockless-dmix \
 	--enable-thread-safety \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--with-versioned \
 	--with-tmpdir=/tmp \
 	--with-softfloat=$(call ptx/ifdef, PTXCONF_HAS_HARDFLOAT, no, yes) \
