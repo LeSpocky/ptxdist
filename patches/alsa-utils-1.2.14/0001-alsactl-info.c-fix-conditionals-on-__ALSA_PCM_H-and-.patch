@@ -31,7 +31,7 @@ Signed-off-by: Thomas Petazzoni <thomas.petazzoni@bootlin.com>
  1 file changed, 10 insertions(+), 4 deletions(-)
 
 diff --git a/alsactl/info.c b/alsactl/info.c
-index 1d648d870381..aeff16babb19 100644
+index 9acd701f1084..f73e5f4f0579 100644
 --- a/alsactl/info.c
 +++ b/alsactl/info.c
 @@ -22,9 +22,9 @@
@@ -45,7 +45,7 @@ index 1d648d870381..aeff16babb19 100644
  	int err, dev, idx;
  	unsigned int count;
  	snd_pcm_info_t *pcminfo;
-@@ -76,10 +76,12 @@ static int pcm_device_list(snd_ctl_t *ctl, snd_pcm_stream_t stream, bool *first)
+@@ -78,10 +78,12 @@ static int pcm_device_list(snd_ctl_t *ctl, snd_pcm_stream_t stream, bool *first)
  						idx, snd_pcm_info_get_subdevice_name(pcminfo));
  		}
  	}
@@ -59,7 +59,7 @@ index 1d648d870381..aeff16babb19 100644
  static const char *snd_rawmidi_stream_name(snd_rawmidi_stream_t stream)
  {
  	if (stream == SND_RAWMIDI_STREAM_INPUT)
-@@ -91,7 +93,6 @@ static const char *snd_rawmidi_stream_name(snd_rawmidi_stream_t stream)
+@@ -93,7 +95,6 @@ static const char *snd_rawmidi_stream_name(snd_rawmidi_stream_t stream)
  
  static int rawmidi_device_list(snd_ctl_t *ctl, snd_rawmidi_stream_t stream, bool *first)
  {
@@ -67,7 +67,7 @@ index 1d648d870381..aeff16babb19 100644
  	int err, dev, idx;
  	unsigned int count;
  	snd_rawmidi_info_t *info;
-@@ -143,9 +144,10 @@ static int rawmidi_device_list(snd_ctl_t *ctl, snd_rawmidi_stream_t stream, bool
+@@ -147,9 +148,10 @@ static int rawmidi_device_list(snd_ctl_t *ctl, snd_rawmidi_stream_t stream, bool
  						idx, snd_rawmidi_info_get_subdevice_name(info));
  		}
  	}
@@ -79,7 +79,7 @@ index 1d648d870381..aeff16babb19 100644
  
  static int hwdep_device_list(snd_ctl_t *ctl)
  {
-@@ -228,17 +230,21 @@ int general_card_info(int cardno)
+@@ -234,17 +236,21 @@ int general_card_info(int cardno)
  	}
  	err = card_info(ctl);
  
