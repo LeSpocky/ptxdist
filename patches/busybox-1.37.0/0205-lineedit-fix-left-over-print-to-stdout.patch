@@ -1,0 +1,33 @@
+From 40a8532dea18363fb67466e1b02651cc964017e8 Mon Sep 17 00:00:00 2001
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Date: Thu, 17 Apr 2025 11:00:43 +0200
+Subject: [PATCH 2/2] lineedit: fix left-over print to stdout
+
+There's code printing to stderr both before and after the single call to
+puts inside put_cur_glyph_and_inc_cursor().
+
+This is likely an oversight as we want everything to go through the
+same file descriptor, so switch it over to fputs.
+
+Fixes: fd47f056765a ("lineedit: print prompt and editing operations to stderr")
+Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+---
+ libbb/lineedit.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libbb/lineedit.c b/libbb/lineedit.c
+index 1f4b011008b6..206fc36ef5c0 100644
+--- a/libbb/lineedit.c
++++ b/libbb/lineedit.c
+@@ -451,7 +451,7 @@ static void put_cur_glyph_and_inc_cursor(void)
+ 		 * have automargin (IOW: it is moving cursor to next line
+ 		 * by itself (which is wrong for VT-10x terminals)),
+ 		 * this will break things: there will be one extra empty line */
+-		puts("\r"); /* + implicit '\n' */
++		fputs("\r\n", stderr);
+ #else
+ 		/* VT-10x terminals don't wrap cursor to next line when last char
+ 		 * on the line is printed - cursor stays "over" this char.
+-- 
+2.39.5
+

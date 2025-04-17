@@ -1,0 +1,37 @@
+From c443f2d2c67b5e5080632819980799c55b7bb89f Mon Sep 17 00:00:00 2001
+From: Ahmad Fatoum <a.fatoum@pengutronix.de>
+Date: Thu, 17 Apr 2025 11:00:43 +0200
+Subject: [PATCH 1/2] lineedit: fix printing lines during tab completion
+
+Indentation and escape characters are all output to stderr now, but the
+matches themself remained on stdout leading to garbled output on Tab
+completion.
+
+Print the results to stderr as well to fix this.
+
+Fixes: fd47f056765a ("lineedit: print prompt and editing operations to stderr")
+Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
+---
+ libbb/lineedit.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/libbb/lineedit.c b/libbb/lineedit.c
+index 543a3f11c3e4..1f4b011008b6 100644
+--- a/libbb/lineedit.c
++++ b/libbb/lineedit.c
+@@ -1170,9 +1170,10 @@ static void showfiles(void)
+ 			);
+ 		}
+ 		if (ENABLE_UNICODE_SUPPORT)
+-			puts(printable_string(matches[n]));
++			fputs(printable_string(matches[n]), stderr);
+ 		else
+-			puts(matches[n]);
++			fputs(matches[n], stderr);
++		bb_putchar_stderr('\n');
+ 	}
+ }
+ 
+-- 
+2.39.5
+

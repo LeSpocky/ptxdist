@@ -7,4 +7,6 @@
 0201-build-system-only-pass-real-libs-to-SELINUX_LIBS.patch
 0202-scripts-trylink-honour-SKIP_STRIP-and-don-t-strip-if.patch
 0203-tc-Fix-compilation-with-Linux-v6.8-rc1.patch
-# e781b8c6838e27fd021f9c1a9f87654d  - git-ptx-patches magic
+0204-lineedit-fix-printing-lines-during-tab-completion.patch
+0205-lineedit-fix-left-over-print-to-stdout.patch
+# de06cc1132910215a67ae025e9b0aaa9  - git-ptx-patches magic
