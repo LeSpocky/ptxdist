@@ -14,8 +14,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBCLC) += host-libclc
 #
 # Paths and names
 #
-HOST_LIBCLC_VERSION		:= 19.1.7
-HOST_LIBCLC_MD5			:= 84cfae232461adfd4e1990b9023cfe69
+HOST_LIBCLC_VERSION		:= 20.1.2
+HOST_LIBCLC_MD5			:= c69ab638d270bd2258e975f56c25f1f6
 HOST_LIBCLC			:= libclc-$(HOST_LIBCLC_VERSION)
 HOST_LIBCLC_SUFFIX		:= tar.xz
 HOST_LIBCLC_URL			:= https://github.com/llvm/llvm-project/releases/download/llvmorg-$(HOST_LIBCLC_VERSION)/$(HOST_LIBCLC).src.$(HOST_LIBCLC_SUFFIX)
