@@ -21,7 +21,7 @@ LIBTRACEEVENT_SUFFIX	:= tar.xz
 LIBTRACEEVENT_URL	:= https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git;tag=libtraceevent-$(LIBTRACEEVENT_VERSION)
 LIBTRACEEVENT_SOURCE	:= $(SRCDIR)/$(LIBTRACEEVENT).$(LIBTRACEEVENT_SUFFIX)
 LIBTRACEEVENT_DIR	:= $(BUILDDIR)/$(LIBTRACEEVENT)
-LIBTRACEEVENT_LICENSE	:= LGPL-2.1 + GPL-2.0
+LIBTRACEEVENT_LICENSE	:= LGPL-2.1 AND GPL-2.0
 
 # ----------------------------------------------------------------------------
 # Prepare
