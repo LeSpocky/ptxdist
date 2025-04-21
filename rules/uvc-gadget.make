@@ -14,13 +14,13 @@ PACKAGES-$(PTXCONF_UVC_GADGET) += uvc-gadget
 #
 # Paths and names
 #
-UVC_GADGET_VERSION	:= v0.3.0
+UVC_GADGET_VERSION	:= 0.3.0
 UVC_GADGET_MD5		:= 087c77cbeabf72933ea61021e228aa35
-UVC_GADGET		:= uvc-gadget-$(UVC_GADGET_VERSION)
+UVC_GADGET		:= uvc-gadget-v$(UVC_GADGET_VERSION)
 UVC_GADGET_SUFFIX	:= tar.xz
 UVC_GADGET_URL		:= \
-	git://git.ideasonboard.org/uvc-gadget.git;tag=$(UVC_GADGET_VERSION) \
-	https://gitlab.freedesktop.org/camera/uvc-gadget.git;tag=$(UVC_GADGET_VERSION)
+	git://git.ideasonboard.org/uvc-gadget.git;tag=v$(UVC_GADGET_VERSION) \
+	https://gitlab.freedesktop.org/camera/uvc-gadget.git;tag=v$(UVC_GADGET_VERSION)
 UVC_GADGET_SOURCE	:= $(SRCDIR)/$(UVC_GADGET).$(UVC_GADGET_SUFFIX)
 UVC_GADGET_DIR		:= $(BUILDDIR)/$(UVC_GADGET)
 UVC_GADGET_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later AND MIT
