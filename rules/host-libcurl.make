@@ -58,7 +58,7 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--enable-openssl-auto-load-config \
 	--disable-versioned-symbols \
 	--disable-windows-unicode \
-	--disable-threaded-resolver \
+	--enable-threaded-resolver \
 	--disable-verbose \
 	--disable-sspi \
 	--enable-basic-auth \
