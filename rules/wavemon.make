@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_WAVEMON) += wavemon
 #
 # Paths and names
 #
-WAVEMON_VERSION	:= 0.7.5
-WAVEMON_MD5	:= 77d4a0f099ca98cf98a915adc70694ba
-WAVEMON		:= wavemon-$(WAVEMON_VERSION)
-WAVEMON_SUFFIX	:= tar.bz2
-WAVEMON_URL	:= https://github.com/uoaerg/wavemon/releases/download/v$(WAVEMON_VERSION)/$(WAVEMON).$(WAVEMON_SUFFIX)
-WAVEMON_SOURCE	:= $(SRCDIR)/$(WAVEMON).$(WAVEMON_SUFFIX)
-WAVEMON_DIR	:= $(BUILDDIR)/$(WAVEMON)
-WAVEMON_LICENSE	:= GPL
+WAVEMON_VERSION		:= 0.7.5
+WAVEMON_MD5		:= 77d4a0f099ca98cf98a915adc70694ba
+WAVEMON			:= wavemon-$(WAVEMON_VERSION)
+WAVEMON_SUFFIX		:= tar.bz2
+WAVEMON_URL		:= https://github.com/uoaerg/wavemon/releases/download/v$(WAVEMON_VERSION)/$(WAVEMON).$(WAVEMON_SUFFIX)
+WAVEMON_SOURCE		:= $(SRCDIR)/$(WAVEMON).$(WAVEMON_SUFFIX)
+WAVEMON_DIR		:= $(BUILDDIR)/$(WAVEMON)
+WAVEMON_LICENSE		:= GPL-3.0-or-later
+WAVEMON_LICENSE_FILES	:= \
+	file://COPYING;md5=d32239bcb673463ab874e80d47fae504
 
 # ----------------------------------------------------------------------------
 # Prepare
