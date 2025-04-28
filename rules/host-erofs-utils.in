@@ -1,0 +1,19 @@
+## SECTION=hosttools_noprompt
+
+config HOST_EROFS_UTILS
+	tristate
+	default y if ALLYES
+	select HOST_LIBUUID
+	select HOST_ZLIB
+	select HOST_LZ4 if HOST_EROFS_UTILS_LZ4_SUPPORT
+	select HOST_ZSTD if HOST_EROFS_UTILS_ZSTD_SUPPORT
+
+if HOST_EROFS_UTILS
+
+config HOST_EROFS_UTILS_LZ4_SUPPORT
+	bool
+
+config HOST_EROFS_UTILS_ZSTD_SUPPORT
+	bool
+
+endif
