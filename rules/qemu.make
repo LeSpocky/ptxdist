@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 9.2.3
-QEMU_MD5	:= 9cfba589eb897edc7f7dda6e8d503afe
+QEMU_VERSION	:= 10.0.0
+QEMU_MD5	:= 0616ad4c49210ae33ca7aeb5091cb4e0
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -51,28 +51,38 @@ QEMU_CONF_OPT	:= \
 	--cross-prefix=$(CROSS_COMPILE) \
 	--ninja=ninja \
 	--disable-download \
-	--disable-tsan \
-	--disable-werror \
-	--enable-stack-protector \
 	--with-coroutine=auto \
-	--disable-plugins \
 	--disable-containers \
 	--audio-drv-list=$(subst $(space),$(comma),$(strip $(QEMU_AUDIO_DRIVER-y))) \
 	--block-drv-ro-whitelist= \
 	--block-drv-rw-whitelist= \
 	--enable-coroutine-pool \
+	--disable-debug-info \
+	--disable-qom-cast-debug \
+	--disable-asan \
+	--disable-block-drv-whitelist-in-tools \
 	--disable-cfi \
+	--disable-cfi-debug \
+	--disable-debug-graph-lock \
 	--disable-debug-mutex \
+	--disable-debug-remap \
+	--disable-debug-stack-usage \
+	--disable-debug-tcg \
 	--enable-fdt=system \
 	--disable-fuzzing \
+	--disable-gcov \
 	--disable-lto \
 	--disable-module-upgrades \
-	--disable-qom-cast-debug \
 	--disable-rng-none \
+	--disable-safe-stack \
+	--disable-strict-rust-lints \
 	--disable-strip \
 	--disable-tcg-interpreter \
 	--enable-trace-backends=nop \
+	--disable-tsan \
+	--disable-ubsan \
 	--tls-priority=NORMAL \
+	--disable-af-xdp \
 	--$(call ptx/endis, PTXCONF_QEMU_ALSA)-alsa \
 	--enable-attr \
 	--disable-auth-pam \
@@ -130,6 +140,7 @@ QEMU_CONF_OPT	:= \
 	--disable-lzo \
 	--enable-malloc-trim \
 	--enable-membarrier \
+	--disable-modules \
 	--disable-mpath \
 	--enable-multiprocess \
 	--disable-netmap \
@@ -142,7 +153,9 @@ QEMU_CONF_OPT	:= \
 	--disable-parallels \
 	--$(call ptx/endis, PTXCONF_QEMU_PIPEWIRE)-pipewire \
 	--$(call ptx/endis, PTXCONF_QEMU_PIXMAN)-pixman \
+	--disable-plugins \
 	--disable-png \
+	--disable-pvg \
 	--disable-qatzip \
 	--disable-qcow1 \
 	--disable-qed \
@@ -165,6 +178,7 @@ QEMU_CONF_OPT	:= \
 	--disable-sparse \
 	--disable-spice \
 	--disable-spice-protocol \
+	--enable-stack-protector \
 	--enable-tcg \
 	--$(call ptx/endis, PTXCONF_QEMU_TOOLS)-tools \
 	--disable-tpm \
@@ -192,6 +206,7 @@ QEMU_CONF_OPT	:= \
 	--disable-vpc \
 	--disable-vte \
 	--disable-vvfat \
+	--disable-werror \
 	--disable-whpx \
 	--disable-xen \
 	--disable-xen-pci-passthrough \
@@ -201,11 +216,7 @@ QEMU_CONF_OPT	:= \
 	--disable-user \
 	--$(call ptx/endis, PTXCONF_QEMU_USR)-linux-user \
 	--disable-bsd-user \
-	--enable-pie \
-	--disable-modules \
-	--disable-debug-tcg \
-	--disable-debug-info \
-	--disable-safe-stack
+	--enable-pie
 
 ifdef PTXCONF_QEMU_PULSEAUDIO
 QEMU_LDFLAGS      := \
