@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBXKBCOMMON) += libxkbcommon
 #
 # Paths and names
 #
-LIBXKBCOMMON_VERSION	:= 1.8.1
-LIBXKBCOMMON_MD5	:= 7a40f17b3d26bbf232df2242f16e69d9
+LIBXKBCOMMON_VERSION	:= 1.9.0
+LIBXKBCOMMON_MD5	:= 9f7237fc0cc575e8d26c06ce02a1fedf
 LIBXKBCOMMON		:= libxkbcommon-$(LIBXKBCOMMON_VERSION)
 LIBXKBCOMMON_SUFFIX	:= tar.gz
 LIBXKBCOMMON_URL	:= https://github.com/xkbcommon/libxkbcommon/archive/refs/tags/xkbcommon-$(LIBXKBCOMMON_VERSION).$(LIBXKBCOMMON_SUFFIX)
@@ -39,6 +39,8 @@ LIBXKBCOMMON_CONF_OPT	:= \
 	-Ddefault-options='' \
 	-Ddefault-rules='evdev' \
 	-Ddefault-variant='' \
+	-Denable-bash-completion=true \
+	-Denable-cool-uris=false \
 	-Denable-docs=false \
 	-Denable-tools=false \
 	-Denable-wayland=false \
