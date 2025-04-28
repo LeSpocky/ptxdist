@@ -78,7 +78,7 @@ UTIL_LINUX_CONF_OPT	:= \
 	-Dbuild-fdformat=disabled \
 	-Dbuild-fdisks=$(call ptx/endis, PTXCONF_UTIL_LINUX_FDISKS)d \
 	-Dbuild-findfs=$(call ptx/endis, PTXCONF_UTIL_LINUX_FINDFS)d \
-	-Dbuild-findmnt=disabled \
+	-Dbuild-findmnt=$(call ptx/endis, PTXCONF_UTIL_LINUX_FINDMNT)d \
 	-Dbuild-flock=$(call ptx/endis, PTXCONF_UTIL_LINUX_FLOCK)d \
 	-Dbuild-fsck=$(call ptx/endis, PTXCONF_UTIL_LINUX_FSCK)d \
 	-Dbuild-fsfreeze=$(call ptx/endis, PTXCONF_UTIL_LINUX_FSFREEZE)d \
@@ -233,6 +233,7 @@ UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_SULOGIN)		+= sbin/sulogin
 # misc-utils
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_BLKID)		+= sbin/blkid
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_FINDFS)		+= sbin/findfs
+UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_FINDMNT)		+= bin/findmnt
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_GETOPT)		+= bin/getopt
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_LSBLK)		+= bin/lsblk
 UTIL_LINUX_BIN-$(PTXCONF_UTIL_LINUX_MCOOKIE)		+= bin/mcookie
