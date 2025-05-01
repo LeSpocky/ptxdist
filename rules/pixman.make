@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIXMAN) += pixman
 #
 # Paths and names
 #
-PIXMAN_VERSION	:= 0.44.2
-PIXMAN_MD5	:= 3c403e3601d963a6972128b322342651
+PIXMAN_VERSION	:= 0.46.0
+PIXMAN_MD5	:= ea559ebeb853d8f5b2bf86832769b011
 PIXMAN		:= pixman-$(PIXMAN_VERSION)
 PIXMAN_SUFFIX	:= tar.xz
 PIXMAN_URL	:= $(call ptx/mirror, XORG, individual/lib/$(PIXMAN).$(PIXMAN_SUFFIX))
@@ -48,10 +48,12 @@ PIXMAN_CONF_OPT		:= \
 	-Dmmx=$(call ptx/endis, PTXCONF_ARCH_X86)d \
 	-Dneon=$(call ptx/endis, PTXCONF_ARCH_ARMV7_NEON)d \
 	-Dopenmp=disabled \
+	-Drvv=$(call ptx/endis, PTXCONF_ARCH_RISCV)d \
 	-Dsse2=$(call ptx/endis, PTXCONF_ARCH_X86)d \
 	-Dssse3=$(call ptx/endis, PTXCONF_ARCH_X86)d \
 	-Dtests=disabled \
 	-Dtimers=false \
+	-Dtls=auto \
 	-Dvmx=disabled
 
 # ----------------------------------------------------------------------------
