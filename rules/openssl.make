@@ -45,11 +45,11 @@ OPENSSL_ARCH-$(PTXCONF_ARCH_ARM64)	:= debian-arm64
 
 ifdef PTXCONF_ENDIAN_LITTLE
 OPENSSL_ARCH-$(PTXCONF_ARCH_ARM)	:= debian-armel
-OPENSSL_ARCH-$(PTXCONF_ARCH_MIPS)	:= debian-mipsel
+OPENSSL_ARCH-$(PTXCONF_ARCH_MIPS)	:= debian-$(call ptx/ifdef,PTXCONF_ARCH_LP64,mips64el,mipsel)
 OPENSSL_ARCH-$(PTXCONF_ARCH_SH_SH3)	:= debian-sh3
 OPENSSL_ARCH-$(PTXCONF_ARCH_SH_SH4)	:= debian-sh4
 else
-OPENSSL_ARCH-$(PTXCONF_ARCH_MIPS)	:= debian-mips
+OPENSSL_ARCH-$(PTXCONF_ARCH_MIPS)	:= debian-$(call ptx/ifdef,PTXCONF_ARCH_LP64,mips64,mips)
 OPENSSL_ARCH-$(PTXCONF_ARCH_SH_SH3)	:= debian-sh3eb
 OPENSSL_ARCH-$(PTXCONF_ARCH_SH_SH4)	:= debian-sh4eb
 endif
