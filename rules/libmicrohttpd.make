@@ -68,7 +68,8 @@ LIBMICROHTTPD_CONF_OPT	:= \
 	--disable-coverage \
 	--enable-asserts \
 	--disable-sanitizers \
-	--disable-experimental
+	--disable-experimental \
+	--with-threads=posix
 
 # ----------------------------------------------------------------------------
 # Target-Install
