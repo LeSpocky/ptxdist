@@ -22,4 +22,6 @@
 0402-HACK-qtwebengine-workaround-for-too-long-file-names.patch
 #tag:kms --start-number 500
 0500-eglfs_kms-device-ordering-robustness.patch
-# 544d9b0673000ed50ea790699663a6c7  - git-ptx-patches magic
+#tag:time64 --start-number 600
+0600-undefine-_TIME_BITS.patch
+# ce289d22eb7c2f55726ff2f0e24cb65f  - git-ptx-patches magic
