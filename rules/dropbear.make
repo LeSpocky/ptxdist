@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_DROPBEAR) += dropbear
 #
 # Paths and names
 #
-DROPBEAR_VERSION	:= 2022.83
-DROPBEAR_MD5		:= a75a34bcc03cacf71a2db9da3b7c94a5
+DROPBEAR_VERSION	:= 2025.88
+DROPBEAR_MD5		:= 510165167b102589d64144cab4477b6c
 DROPBEAR		:= dropbear-$(DROPBEAR_VERSION)
 DROPBEAR_SUFFIX		:= tar.bz2
 DROPBEAR_URL		:= \
@@ -31,7 +31,7 @@ DROPBEAR_LICENSE_FILES	:= \
 	file://LICENSE;md5=25cf44512b7bc8966a48b6b1a9b7605f \
 	file://libtomcrypt/LICENSE;md5=71baacc459522324ef3e2b9e052e8180 \
 	file://libtommath/LICENSE;md5=23e7e0a32e53a2b1d35f5fd9ef053402 \
-	file://loginrec.c;startline=1;endline=26;md5=0d785ee11fab1cead2c7fee9c35574f1
+	file://src/loginrec.c;startline=1;endline=26;md5=0d785ee11fab1cead2c7fee9c35574f1
 
 # ----------------------------------------------------------------------------
 # Prepare
