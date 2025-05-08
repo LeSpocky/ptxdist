@@ -20,7 +20,9 @@ DROPBEAR_VERSION	:= 2022.83
 DROPBEAR_MD5		:= a75a34bcc03cacf71a2db9da3b7c94a5
 DROPBEAR		:= dropbear-$(DROPBEAR_VERSION)
 DROPBEAR_SUFFIX		:= tar.bz2
-DROPBEAR_URL		:= https://matt.ucc.asn.au/dropbear/releases/$(DROPBEAR).$(DROPBEAR_SUFFIX)
+DROPBEAR_URL		:= \
+	https://matt.ucc.asn.au/dropbear/releases/$(DROPBEAR).$(DROPBEAR_SUFFIX) \
+	https://dropbear.nl/mirror/releases/$(DROPBEAR).$(DROPBEAR_SUFFIX)
 DROPBEAR_SOURCE		:= $(SRCDIR)/$(DROPBEAR).$(DROPBEAR_SUFFIX)
 DROPBEAR_DIR		:= $(BUILDDIR)/$(DROPBEAR)
 DROPBEAR_LICENSE	:= \
