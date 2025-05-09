@@ -121,7 +121,11 @@ if [ -n "${PKGCONFIG_WHITELIST_SRC}" -a "${1}" != "--version" -a "${1}" != "--he
     rm "${error}"
     for pkg in ${pkgs}; do
 	if [[ ! " ${whitelist} " =~ " ${pkg} " && ! "${pkg}" =~ '-uninstalled' ]]; then
-	    echo "$(basename ${0}): warning: blocking '${pkg}': not selected by '${PKGCONFIG_WHITELIST_SRC}'" >&${ERROR_FD}
+	    if [ "${pkg_conf_tool}" = "meson" -a -n "${PTXDIST_LOGFILE_PATH}" ]; then
+		echo "$(basename "${0}"): warning: blocking '${pkg}': not selected by '${PKGCONFIG_WHITELIST_SRC}'" >>"${PTXDIST_LOGFILE_PATH}"
+	    else
+		echo "$(basename "${0}"): warning: blocking '${pkg}': not selected by '${PKGCONFIG_WHITELIST_SRC}'" >&2
+	    fi
 	    exit 1
 	fi
     done
