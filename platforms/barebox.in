@@ -31,7 +31,7 @@ if BAREBOX
 config BAREBOX_VERSION
 	prompt "barebox version"
 	string
-	default "2016.08.0"
+	default "2025.04.0"
 
 config BAREBOX_CONFIG_BUILDSYSTEM_VERSION
 	prompt "add a buildsystem version to the barebox binary"
@@ -49,6 +49,7 @@ config BAREBOX_BUILDSYSTEM_VERSION
 config BAREBOX_MD5
 	prompt "barebox source md5sum"
 	string
+	default "3ee6d72d02d16836d3d782ae69661317"
 	help
 	  To ensure integrity of the downloaded source tarball, fill in its
 	  MD5 sum here.
