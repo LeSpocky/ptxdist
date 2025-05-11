@@ -27,7 +27,7 @@ GLIBC_VERSION	:= $(call ptx/config-version, PTXCONF_GLIBC)
 # ----------------------------------------------------------------------------
 
 GLIBC_INSTALL_MVEC :=
-ifdef PTXCONF_ARCH_X86
+ifdef PTXCONF_ARCH_X86_64
 GLIBC_INSTALL_MVEC := $(PTXCONF_GLIBC_MVEC)
 endif
 ifdef PTXCONF_ARCH_ARM64
