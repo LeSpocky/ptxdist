@@ -29,8 +29,8 @@ endef
 #
 # Paths and names
 #
-SQLITE_VERSION	:= 3.48.0
-SQLITE_MD5	:= ab4e0652b6dedb075faf7a2781ba2c20
+SQLITE_VERSION	:= 3.49.2
+SQLITE_MD5	:= 46ef8fec4c97ec77ab27659ad27b28b0
 SQLITE		:= sqlite-autoconf-$(call sqlite/file-version,$(SQLITE_VERSION))
 SQLITE_SUFFIX	:= tar.gz
 SQLITE_URL	:= https://www.sqlite.org/2025/$(SQLITE).$(SQLITE_SUFFIX)
@@ -63,11 +63,12 @@ SQLITE_CONF_TOOL	:= autoconf
 SQLITE_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--soname=legacy \
 	--disable-static \
 	--disable-editline \
 	--$(call ptx/endis,PTXCONF_SQLITE_READLINE)-readline \
 	--$(call ptx/endis,PTXCONF_SQLITE_THREADSAFE)-threadsafe \
-	--$(call ptx/endis,PTXCONF_SQLITE_LOAD_EXTENSION)-dynamic-extensions \
+	--$(call ptx/endis,PTXCONF_SQLITE_LOAD_EXTENSION)-load-extension \
 	--disable-math \
 	--enable-fts4 \
 	--enable-fts3 \
