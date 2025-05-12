@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20250410
-LINUX_FIRMWARE_MD5	:= 393288b01671dd1b48b4ae9fd6b8ff73
+LINUX_FIRMWARE_VERSION	:= 20250509
+LINUX_FIRMWARE_MD5	:= d3afb865ae743e52a914cc2fc06740a1
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -27,7 +27,6 @@ LINUX_FIRMWARE_LICENSE	:= proprietary
 # Order: find -type f \( -name "*LICENSE*" -o -name "*LICENCE*" \)
 LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.xc4000;md5=0ff51d2dc49fce04814c9155081092f0 \
-	file://LICENCE.ish;md5=99d3d0b448f36ac188b896b02ae8f158 \
 	file://LICENCE.iwlwifi_firmware;md5=2ce6786e0fc11ac6e36b54bb9b799f1b \
 	file://LICENCE.mali_csffw;md5=e064aaec4d21ef856e1b76a6f5dc435f \
 	file://LICENSE.dib0700;md5=f7411825c8a555a1a3e5eab9ca773431 \
@@ -52,6 +51,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.ueagle-atm4-firmware;md5=4ed7ea6b507ccc583b9d594417714118 \
 	file://LICENCE.ene_firmware;md5=ed67f0f62f8f798130c296720b7d3921 \
 	file://LICENCE.qla2xxx;md5=505855e921b75f1be4a437ad9b79dff0 \
+	file://LICENSE.bmi260;md5=0008c039ec4281e382bd0cb41b66866c \
 	file://LICENSE.sdma_firmware;md5=51e8c19ecc2270f4b8ea30341ad63ce9 \
 	file://LICENCE.qla1280;md5=d6895732e622d950609093223a2c4f5d \
 	file://LICENSE.ipu3_firmware;md5=38fe8238c06bf7dcfd0eedbebf452c3b \
@@ -77,6 +77,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.agere;md5=af0133de6b4a9b2522defd5f188afd31 \
 	file://LICENCE.siano;md5=4556c1bf830067f12ca151ad953ec2a5 \
 	file://LICENCE.broadcom_bcm43xx;md5=3160c14df7228891b868060e1951dfbc \
+	file://LICENSE.intel;md5=5c22a4ab607349c89ffcbb1595e493f8 \
 	file://LICENCE.rtlwifi_firmware.txt;md5=00d06cfd3eddd5a2698948ead2ad54a5 \
 	file://LICENCE.ralink-firmware.txt;md5=ab2c269277c45476fb449673911a2dfd \
 	file://LICENSE.QualcommAtheros_ath10k;md5=cb42b686ee5f5cb890275e4321db60a8 \
