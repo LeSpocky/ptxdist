@@ -33,11 +33,12 @@ HOST_SQLITE_CONF_ENV := \
 HOST_SQLITE_CONF_TOOL	:= autoconf
 HOST_SQLITE_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
+	--soname=legacy \
 	--disable-static \
 	--disable-editline \
 	--disable-readline \
 	--enable-threadsafe \
-	--disable-dynamic-extensions \
+	--disable-load-extension \
 	--disable-math \
 	--enable-fts4 \
 	--enable-fts3 \
