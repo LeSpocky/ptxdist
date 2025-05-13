@@ -251,7 +251,6 @@ ptxd_kconfig_validate_config_check() {
 export -f ptxd_kconfig_validate_config_check
 
 ptxd_kconfig_validate_config_next() {
-	local next
 	for next in "${@}"; do
 	    if ! ptxd_kconfig_validate_config_check "${next}"; then
 		continue
@@ -286,7 +285,7 @@ ptxd_kconfig_validate_config() {
 	layer_configs=( "${layer_configs[@]:1}" )
     fi
 
-    set -- "${layer_configss[@]}";
+    set -- "${layer_configs[@]}";
     while [ $# -gt 0 ]; do
 	last="${1}"
 	shift
@@ -298,10 +297,10 @@ ptxd_kconfig_validate_config() {
 	fi
 	ptxd_kconfig_validate_config_next "${@}"
 	if [ ! -e "${next}" -a -n "${relative_ref_config}" ]; then
-	    relative_config="${relative_ref_config}"
-	    unset relative_ref_config
 	    ignore_last_diff=y
 	    set -- "${last}" "${@}"
+	    set -- "${@/${relative_config}/${relative_ref_config}}"
+	    unset relative_ref_config
 	    ptxd_kconfig_validate_config_next "${@}"
 	fi
 	if [ ! -e "${next}" ]; then
