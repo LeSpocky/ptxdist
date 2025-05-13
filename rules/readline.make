@@ -55,6 +55,7 @@ $(STATEDIR)/readline.targetinstall:
 	@$(call install_fixup, readline,DESCRIPTION,missing)
 
 	@$(call install_lib, readline, 0, 0, 0644, libreadline)
+	@$(call install_lib, readline, 0, 0, 0644, libhistory)
 
 ifdef PTXCONF_READLINE_ETC_INPUTRC
 	@$(call install_alternative, readline, 0, 0, 0644, /etc/inputrc)
