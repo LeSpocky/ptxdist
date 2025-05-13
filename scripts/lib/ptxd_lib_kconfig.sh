@@ -139,7 +139,8 @@ ptxd_kconfig_create_config_merge() {
 	elif [ -n "${conflict}" -a -z "${a}" -a "${b}" = "======" ]; then
 	    continue
 	elif [[ "${a}" =~ ^[a-f0-9]{32}$ && -z "${b}" ]]; then
-	    if [ -z "${conflict}" ]; then
+	    # the first md5 is for the base config
+	    if [ -z "${conflict}" -a -z "${saved_md5}" ]; then
 		saved_md5="${a}"
 	    fi
 	    continue
@@ -318,6 +319,16 @@ ptxd_kconfig_validate_config() {
 		"It does not match '$(ptxd_print_path "${next}")'." \
 		"Run 'oldconfig${p:+ }${p}' to update all layers."
 	fi
+	tmp=( $(md5sum "${last}") )
+	file_md5="${tmp[0]}"
+	saved_md5="$(echo $(sed -n '2p' "${last}.diff"))"
+	# only check if it is an md5 to allow configs from older ptxdist versions
+	if [[ "${saved_md5}" =~ ^[a-f0-9]{32}$ ]] && [ "${file_md5}" != "${saved_md5}" ]; then
+	    local p="${part%ptx}"
+	    ptxd_bailout "'$(ptxd_print_path "${last}.diff")' is inconsistent." \
+		"It does not match '$(ptxd_print_path "${last}")'." \
+		"Run 'oldconfig${p:+ }${p}' to update."
+	fi
     done
     if [ -e "${last}.diff" -a -z "${ignore_last_diff}" ]; then
 	ptxd_bailout  "'$(ptxd_print_path "${last}.diff")' exists without a base layer!"
@@ -461,6 +472,8 @@ ptxd_kconfig_update_config() {
 	local tmp="$(mktemp "${PTXDIST_TEMPDIR}/config.XXXXXX")"
 	set -- $(md5sum "${base_config}")
 	echo "${1}" > "${tmp}" &&
+	set -- $(md5sum "${target_config}") &&
+	echo "${1}" >> "${tmp}" &&
 	sort "${base_config}" > "${tmp}.base" &&
 	sort "${target_config}" > "${tmp}.new" &&
 	# take any new lines and sort by option name
