@@ -16,15 +16,15 @@ PACKAGES-$(PTXCONF_LIBXML2) += libxml2
 #
 # Paths and names
 #
-LIBXML2_VERSION	:= 2.13.6
-LIBXML2_MD5	:= 85dffa2387ff756bdf8b3b247594914a
+LIBXML2_VERSION	:= 2.14.2
+LIBXML2_MD5	:= 7119ed27bed2d6542b8b4baeac6d53be
 LIBXML2		:= libxml2-$(LIBXML2_VERSION)
 LIBXML2_SUFFIX	:= tar.xz
 LIBXML2_SOURCE	:= $(SRCDIR)/$(LIBXML2).$(LIBXML2_SUFFIX)
 LIBXML2_DIR	:= $(BUILDDIR)/$(LIBXML2)
 LIBXML2_LICENSE	:= MIT AND ISC
 LIBXML2_LICENSE_FILES := \
-	file://Copyright;md5=f437ed9058e8e5135e47c01e973376ba \
+	file://Copyright;md5=5873615e8a9ecbf5c8857c4312ee05d6 \
 	file://dict.c;startline=5;endline=16;md5=6bf674402d04fa793fdc1f4d26635d33 \
 	file://list.c;startline=4;endline=15;md5=3fca05145285fa81f48c16c86a4a70b8
 
@@ -42,13 +42,12 @@ LIBXML2_CONF_TOOL := autoconf
 LIBXML2_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-static \
-	$(GLOBAL_IPV6_OPTION) \
 	--oldincludedir=$(SYSROOT)/usr/include \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_C14N)-c14n \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_CATALOG)-catalog \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_DEBUG)-debug \
-	--$(call ptx/wwo, PTXCONF_LIBXML2_FTP)-ftp \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_HISTORY)-history \
+	--$(call ptx/wwo, PTXCONF_LIBXML2_HISTORY)-readline \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_HTML)-html \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_HTTP)-http \
 	--without-icu \
@@ -61,18 +60,17 @@ LIBXML2_CONF_OPT := \
 	--without-python \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_READER)-reader \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_REGEXPS)-regexps \
+	--$(call ptx/wwo, PTXCONF_LIBXML2_RELAXNG)-relaxng \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_SAX1)-sax1 \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_SCHEMAS)-schemas \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_SCHEMATRON)-schematron \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_THREADS)-threads \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_THREADS_ALLOC)-thread-alloc \
-	--$(call ptx/wwo, PTXCONF_LIBXML2_DOM)-tree \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_DTD)-valid \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_WRITER)-writer \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_XINCLUDE)-xinclude \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_XPATH)-xpath \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_XPTR)-xptr \
-	--$(call ptx/wwo, PTXCONF_LIBXML2_XPTR)-xptr-locs \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_MINIMUM)-minimum \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_LEGACY)-legacy \
 	--with-tls

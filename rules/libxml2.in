@@ -5,6 +5,7 @@ menuconfig LIBXML2
 	prompt "libxml2                       "
 	select LIBC_M
 	select LIBC_DL	if LIBXML2_MODULES
+	select READLINE	if LIBXML2_HISTORY
 	select ZLIB	if LIBXML2_ZLIB
 	select XZ	if LIBXML2_LZMA
 	help
@@ -50,16 +51,9 @@ config LIBXML2_DEBUG
 	help
 	  Enable debugging support.
 
-config LIBXML2_FTP
-	bool
-	default y
-	prompt "FTP Support"
-	help
-	  Add FTP support.
-
 config LIBXML2_HISTORY
 	bool
-	prompt "History support for xmlling shell"
+	prompt "History support for xmllint shell"
 	help
 	  This feature adds history support to the xmllint shell.
 
@@ -137,7 +131,11 @@ config LIBXML2_REGEXPS
 	help
 	  Add support for Regular Expressions.
 
-#  --with-readline=DIR     use readline in DIR
+config LIBXML2_RELAXNG
+	bool
+	prompt "Relax-NG support"
+	help
+	  Add support Relax-NG schema for XML.
 
 config LIBXML2_SAX1
 	bool
@@ -175,14 +173,6 @@ config LIBXML2_THREADS_ALLOC
 	prompt "Per-Thread memory"
 	help
 	  Add per-thread memory.
-
-config LIBXML2_DOM
-	bool
-	default y
-	# FIXME: http://bugzilla.gnome.org/show_bug.cgi?id=545581
-	#prompt "DOM API"
-	help
-	  Add the DOM tree manipulation API.
 
 config LIBXML2_DTD
 	bool
