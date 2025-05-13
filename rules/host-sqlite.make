@@ -46,6 +46,6 @@ HOST_SQLITE_CONF_OPT	:= \
 	--enable-rtree \
 	--disable-session \
 	--disable-debug \
-	--disable-static-shell
+	--enable-static-shell
 
 # vim: syntax=make

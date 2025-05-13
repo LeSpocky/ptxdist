@@ -76,7 +76,13 @@ SQLITE_CONF_OPT		:= \
 	--enable-rtree \
 	--disable-session \
 	--disable-debug \
-	--disable-static-shell
+	--disable-static-shell \
+	\
+	--with-readline-cflags="-I$(SYSROOT)/usr/include"
+
+# linking sqlite3 to libsqlite3.so (--disable-static-shell) is broken without this
+SQLITE_MAKE_ENV	:= \
+	LDFLAGS=-lm
 
 # ----------------------------------------------------------------------------
 # Target-Install
