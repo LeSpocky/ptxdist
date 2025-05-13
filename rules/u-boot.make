@@ -120,6 +120,19 @@ endif
 $(STATEDIR)/u-boot.compile:
 	@$(call targetinfo)
 	@$(call world/compile, U_BOOT)
+ifdef PTXCONF_U_BOOT_VERIFY_SIGNATURE
+	@mv $(U_BOOT_BUILD_DIR)/u-boot.dtb $(U_BOOT_BUILD_DIR)/u-boot-pubkey.dtb
+	@$(CODE_SIGNING_ENV) $(U_BOOT_BUILD_DIR)/tools/mkimage \
+		-f auto-conf -d /dev/null -r \
+		-g image-kernel-fit -N pkcs11 -o "sha256,rsa4096" \
+		-k "$(shell cs_get_uri image-kernel-fit)" \
+		-K "$(U_BOOT_BUILD_DIR)/u-boot-pubkey.dtb" \
+		$(U_BOOT_BUILD_DIR)/unused.itb
+#	# retrigger building dts/dt.dtb to use EXT_DTB, might stay as is otherwise
+	@rm $(U_BOOT_BUILD_DIR)/dts/dt.dtb
+	@$(call compile, U_BOOT, $(U_BOOT_MAKE_OPT) EXT_DTB=$(U_BOOT_BUILD_DIR)/u-boot-pubkey.dtb)
+endif
+
 ifdef PTXCONF_U_BOOT_BOOT_SCRIPT
 	@$(U_BOOT_BUILD_DIR)/tools/mkimage -T script -C none \
 		-d $(U_BOOT_BOOT_SCRIPT_TXT) \

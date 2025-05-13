@@ -7,6 +7,7 @@ config U_BOOT_DEPENDENCIES
 menuconfig U_BOOT
 	select U_BOOT_DEPENDENCIES
 	select BOOTLOADER
+	select CODE_SIGNING		if U_BOOT_VERIFY_SIGNATURE
 	select HOST_SYSTEM_PYTHON3
 	select HOST_OPENSSL		if U_BOOT_NEEDS_HOST_OPENSSL
 	select HOST_GNUTLS		if U_BOOT_NEEDS_HOST_GNUTLS
@@ -18,11 +19,11 @@ if U_BOOT
 
 config U_BOOT_VERSION
 	string
-	default "2019.01"
+	default "2023.04"
 	prompt "U-Boot version"
 	help
-	  Enter the U-Boot version you want to build. Usually something like
-	  "2019.01".
+	  Enter the U-Boot version you want to build.
+	  Usually something like "2019.01".
 
 config U_BOOT_MD5
 	string
@@ -192,6 +193,29 @@ config U_BOOT_BOOT_SCRIPT_ROOTFS_PATH
 	  Target rootfs path where the U-Boot script should be located
 
 endif
+
+config U_BOOT_VERIFY_SIGNATURE
+	bool
+	prompt "Verify FIT image signature"
+	select U_BOOT_NEEDS_HOST_OPENSSL
+	imply KERNEL_FIT_SIGNED
+	help
+	  For U-Boot Verified Boot [1] a public key has to be put into
+	  the control dtb built with U-Boot.
+	  The loaded image (most probably a Linux Kernel image) must be
+	  signed with the matching private key.
+	  Uses the PTXdist Code Signing Infrastructure.
+
+	  Note: You need U-Boot 2023.04 or later.
+
+	  Note: You must enable CONFIG_TOOLS_FIT_SIGNATURE in U-Boot
+		Kconfig for the necessary host mkimage features, and
+		enable CONFIG_FIT_SIGNATURE, CONFIG_RSA, and
+		CONFIG_ECDSA for runtime verification.
+		Ensure you have _disabled_ CONFIG_LEGACY_IMAGE_FORMAT to
+		not accidentally allow running unsigned images.
+
+	  [1] https://docs.u-boot.org/en/latest/usage/fit/verified-boot.html
 
 comment "target install"
 
