@@ -126,13 +126,6 @@ ptxd_make_image_fit() {
 
     if [ -n "${image_sign_role}" ]; then
 	pkcs11_uri=$(cs_get_uri "${image_sign_role}")
-
-	#
-	# It would have been too simple for mkimage to just take a
-	# PKCS#11 URI. We must drop the "pkcs11:" prefix which U-Boot
-	# then adds again.
-	#
-	pkcs11_uri=$(echo "${pkcs11_uri}" | sed "s/pkcs11://")
 	sign_args=( -k "${pkcs11_uri}" )
     fi
 

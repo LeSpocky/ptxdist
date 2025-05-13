@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_U_BOOT_TOOLS) += u-boot-tools
 #
 # Paths and names
 #
-U_BOOT_TOOLS_VERSION	:= 2020.07
-U_BOOT_TOOLS_MD5	:= 86e51eeccd15e658ad1df943a0edf622
+U_BOOT_TOOLS_VERSION	:= 2025.04
+U_BOOT_TOOLS_MD5	:= da2cd684d4aa6195015fecd3efb1d0f0
 U_BOOT_TOOLS		:= u-boot-$(U_BOOT_TOOLS_VERSION)
 U_BOOT_TOOLS_SUFFIX	:= tar.bz2
 U_BOOT_TOOLS_URL	:= https://ftp.denx.de/pub/u-boot/$(U_BOOT_TOOLS).$(U_BOOT_TOOLS_SUFFIX)
@@ -25,7 +25,7 @@ U_BOOT_TOOLS_PKGDIR	:= $(PKGDIR)/u-boot-tools-$(U_BOOT_TOOLS_VERSION)
 U_BOOT_TOOLS_LICENSE	:= GPL-2.0-or-later AND Zlib
 U_BOOT_TOOLS_LICENSE_FILES := \
 	file://Licenses/gpl-2.0.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
-	file://include/u-boot/zlib.h;startline=15;endline=43;md5=7c27ae0384929249664da410d539a1dc
+	file://include/u-boot/zlib.h;startline=15;endline=42;md5=0ce30a522a630f7e637ea6d74422b320
 
 # ----------------------------------------------------------------------------
 # Prepare
