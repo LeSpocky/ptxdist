@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_LIBPWM) += libpwm
 #
 # Paths and names
 #
-LIBPWM_VERSION		:= 2024-04-09-gf7a7496fcb9d
-LIBPWM_MD5		:= 432a7dcb3a71449d6e07c805788a721b
+LIBPWM_VERSION		:= 1.0-rc1
+LIBPWM_MD5		:= bb8032cd03c25a0dcdc76712acda714c
 LIBPWM			:= libpwm-$(LIBPWM_VERSION)
-LIBPWM_SUFFIX		:= tar.gz
-LIBPWM_URL		:= https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/libpwm.git/snapshot/$(LIBPWM_VERSION).$(LIBPWM_SUFFIX)
+LIBPWM_SUFFIX		:= tar.xz
+LIBPWM_URL		:= https://mirrors.edge.kernel.org/pub/linux/kernel/people/ukleinek/libpwm/libpwm-1.0-rc1.tar.xz
 LIBPWM_SOURCE		:= $(SRCDIR)/$(LIBPWM).$(LIBPWM_SUFFIX)
 LIBPWM_DIR		:= $(BUILDDIR)/$(LIBPWM)
 LIBPWM_BUILD_OOT	:= YES
@@ -47,7 +47,8 @@ $(STATEDIR)/libpwm.targetinstall:
 	@$(call install_fixup, libpwm, DESCRIPTION, missing)
 
 	@$(call install_lib, libpwm, 0, 0, 0644, libpwm)
-	@$(call install_copy, libpwm, 0, 0, 0755, -, /usr/bin/pwmtest)
+	@$(call install_copy, libpwm, 0, 0, 0755, -, /usr/bin/pwmround)
+	@$(call install_copy, libpwm, 0, 0, 0755, -, /usr/bin/pwmset)
 	@$(call install_copy, libpwm, 0, 0, 0755, -, /usr/bin/pwmtestperf)
 
 	@$(call install_finish, libpwm)
