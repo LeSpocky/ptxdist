@@ -14,16 +14,16 @@ PACKAGES-$(PTXCONF_LIBCONFIG) += libconfig
 #
 # Paths and names
 #
-LIBCONFIG_VERSION	:= 1.7.2
-LIBCONFIG_MD5		:= 6bd98ee3a6e6b9126c82c916d7a9e690
+LIBCONFIG_VERSION	:= 1.8
+LIBCONFIG_MD5		:= 7dc4b7c9767be2b68d5bd1e56f713ee2
 LIBCONFIG		:= libconfig-$(LIBCONFIG_VERSION)
 LIBCONFIG_SUFFIX	:= tar.gz
-LIBCONFIG_URL		:= http://hyperrealm.github.io/libconfig/dist/$(LIBCONFIG).$(LIBCONFIG_SUFFIX)
+LIBCONFIG_URL		:= https://github.com/hyperrealm/libconfig/archive/refs/tags/v$(LIBCONFIG_VERSION).$(LIBCONFIG_SUFFIX)
 LIBCONFIG_SOURCE	:= $(SRCDIR)/$(LIBCONFIG).$(LIBCONFIG_SUFFIX)
 LIBCONFIG_DIR		:= $(BUILDDIR)/$(LIBCONFIG)
 LIBCONFIG_LICENSE	:= LGPL-2.1-or-later
 LIBCONFIG_LICENSE_FILES	:= \
-	file://lib/libconfig.c;startline=2;endline=15;md5=6b3d8fd63724d3a674cf2857441b1e70 \
+	file://lib/libconfig.c;startline=2;endline=15;md5=58ad0ed92e5b2a7e656128eba80a9c89 \
 	file://COPYING.LIB;md5=fad9b3332be894bab9bc501572864b29
 
 # ----------------------------------------------------------------------------
@@ -37,7 +37,9 @@ LIBCONFIG_CONF_TOOL	:= autoconf
 LIBCONFIG_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_LIBCONFIG_CXX)-cxx \
-	--disable-examples
+	--disable-doc \
+	--disable-examples \
+	--disable-tests
 
 # ----------------------------------------------------------------------------
 # Target-Install
