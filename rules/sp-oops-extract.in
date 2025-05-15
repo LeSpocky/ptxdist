@@ -1,4 +1,6 @@
-## SECTION=debug_tools
+## SECTION=staging
+## old section:
+### SECTION=debug_tools
 
 config SP_OOPS_EXTRACT
 	tristate
@@ -13,3 +15,5 @@ config SP_OOPS_EXTRACT
 	  'mtddev=<devno>' as module parameter. To extract that oops, just use
 	  'sp-oops-extract /dev/mtd<devno>'.
 
+	  STAGING: remove in PTXdist 2026.06.0
+	  Unmaintained in PTXdist, upstream dead and download is gone.
