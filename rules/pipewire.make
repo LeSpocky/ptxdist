@@ -124,7 +124,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dudev=enabled \
 	-Dudevrulesdir=/usr/lib/udev/rules.d \
 	-Dv4l2=enabled \
-	-Dvideoconvert=disabled \
+	-Dvideoconvert=enabled \
 	-Dvideotestsrc=enabled \
 	-Dvolume=enabled \
 	-Dvulkan=disabled \
@@ -190,6 +190,7 @@ PIPEWIRE_SPA_MODULES := \
 	$(call ptx/ifdef,PTXCONF_PIPEWIRE_SYSTEMD,support/libspa-journal) \
 	support/libspa-support \
 	v4l2/libspa-v4l2 \
+	videoconvert/libspa-videoconvert \
 	videotestsrc/libspa-videotestsrc \
 	volume/libspa-volume
 
