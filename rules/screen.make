@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SCREEN) += screen
 #
 # Paths and names
 #
-SCREEN_VERSION		:= 5.0.0
-SCREEN_MD5		:= befc115989242ed4bceeff8d8bfeb4e6
+SCREEN_VERSION		:= 5.0.1
+SCREEN_MD5		:= fb5e5dfc9353225c2d6929777344b1a6
 SCREEN			:= screen-$(SCREEN_VERSION)
 SCREEN_SUFFIX		:= tar.gz
 SCREEN_URL		:= $(call ptx/mirror, GNU, screen/$(SCREEN).$(SCREEN_SUFFIX))
