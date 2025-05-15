@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_QRENCODE) += qrencode
 #
 # Paths and names
 #
-QRENCODE_VERSION	:= 3.4.4
-QRENCODE_MD5		:= be545f3ce36ea8fbb58612d72c4222de
+QRENCODE_VERSION	:= 4.1.1
+QRENCODE_MD5		:= a046d19b4ad90d9f28ee0b3f29b60da6
 QRENCODE		:= qrencode-$(QRENCODE_VERSION)
 QRENCODE_SUFFIX		:= tar.gz
-QRENCODE_URL		:= https://fukuchi.org/works/qrencode/$(QRENCODE).$(QRENCODE_SUFFIX)
+QRENCODE_URL		:= https://github.com/fukuchi/libqrencode/archive/refs/tags/v$(QRENCODE_VERSION).$(QRENCODE_SUFFIX)
 QRENCODE_SOURCE		:= $(SRCDIR)/$(QRENCODE).$(QRENCODE_SUFFIX)
 QRENCODE_DIR		:= $(BUILDDIR)/$(QRENCODE)
 QRENCODE_LICENSE	:= LGPL-2.1-or-later
@@ -31,11 +31,12 @@ QRENCODE_CONF_TOOL	:= autoconf
 QRENCODE_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-thread-safety \
-	--disable-sdltest \
 	--disable-rpath \
 	--disable-gprof \
 	--disable-gcov \
 	--disable-mudflap \
+	--disable-asan \
+	--$(call ptx/wwo,PTXCONF_QRENCODE_TOOLS)-png \
 	--$(call ptx/wwo,PTXCONF_QRENCODE_TOOLS)-tools \
 	--without-tests
 
