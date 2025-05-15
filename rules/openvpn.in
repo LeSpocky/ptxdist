@@ -14,7 +14,6 @@ menuconfig OPENVPN
 	select BUSYBOX_FEATURE_IP_ROUTE	if BUSYBOX_IP && RUNTIME
 	select IPROUTE2			if !BUSYBOX_IP && RUNTIME
 	select IPROUTE2_IP		if !BUSYBOX_IP && RUNTIME
-	select PERL			if OPENVPN_INSTALL_SAMPLE_SCRIPTS_PERL && RUNTIME
 	help
 	  virtual private network daemon
 
@@ -74,7 +73,8 @@ if OPENVPN_INSTALL_SAMPLE_SCRIPTS
 
 config OPENVPN_INSTALL_SAMPLE_SCRIPTS_PERL
 	bool
-	depends on STAGING
+	# needs perl
+	depends on BROKEN
 	prompt "Install perl sample scripts"
 
 endif

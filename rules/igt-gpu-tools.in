@@ -17,7 +17,6 @@ menuconfig IGT_GPU_TOOLS
 	select UDEV_LIBUDEV
 	select ZLIB
 	select JSON_C		if IGT_GPU_TOOLS_TEST_RUNNER
-	select PERL		if IGT_GPU_TOOLS_TESTS_PERL && RUNTIME
 	prompt "igt-gpu-tools                 "
 	help
 	  igt-gpu-tools is a package of tools for debugging the Intel
@@ -51,7 +50,8 @@ if IGT_GPU_TOOLS_TESTS
 
 config IGT_GPU_TOOLS_TESTS_PERL
 	bool
-	depends on STAGING
+	# needs perl
+	depends on BROKEN
 	default y
 	prompt "install tests that need perl"
 

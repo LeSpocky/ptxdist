@@ -18,7 +18,6 @@ menuconfig CUPS
 	select GNUTLS			if CUPS_SSL
 	select AVAHI			if CUPS_AVAHI
 	select AVAHI_LIBAVAHI_CLIENT	if CUPS_AVAHI
-	select PERL			if CUPS_PERL && RUNTIME
 	select PYTHON3			if CUPS_PYTHON && RUNTIME
 
 	help
@@ -53,7 +52,8 @@ config CUPS_JAVA_PATH
 endif
 
 config CUPS_PERL
-	depends on STAGING
+	# needs perl
+	depends on BROKEN
 	bool "enable Perl support for web interface"
 
 config CUPS_PHP
