@@ -162,7 +162,7 @@ $(STATEDIR)/boost.install:
 # Target-Install
 # ----------------------------------------------------------------------------
 
-BOOST_INST_LIBRARIES := $(addsuffix *.so*,$(addprefix */libboost_,$(BOOST_LIBRARIES-y)))
+BOOST_INST_LIBRARIES := $(addsuffix *.so.*,$(addprefix */libboost_,$(BOOST_LIBRARIES-y)))
 
 $(STATEDIR)/boost.targetinstall:
 	@$(call targetinfo)
