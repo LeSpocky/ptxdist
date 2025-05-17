@@ -114,7 +114,8 @@ BOOST_JAM	:= \
 	architecture=$(BOOST_ARCH) \
 	address-model=$(call ptx/ifdef, PTXCONF_ARCH_LP64,64,32) \
 	boost.locale.icu=off \
-	$(addprefix --with-,$(BOOST_LIBRARIES-y))
+	$(addprefix --with-,$(BOOST_LIBRARIES-y)) \
+	$(if $(filter y,$(PTXCONF_ARCH_X86)$(PTXCONF_ARCH_X86_64)),boost.stacktrace.from_exception=off)
 
 JAM_PAR		:= \
 	$(filter -j%,$(if $(PTXDIST_PARALLELMFLAGS),$(PTXDIST_PARALLELMFLAGS),$(PARALLELMFLAGS)))
