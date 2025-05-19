@@ -1,0 +1,13 @@
+## SECTION=test_suites
+
+config RENDERCHECK
+	tristate
+	prompt "rendercheck"
+	select HOST_MESON
+	select XORG_LIB_XRENDER
+	select XORG_LIB_XEXT
+	select XORG_LIB_X11
+	select XORGPROTO
+	help
+	  rendercheck is a set of simple tests for the X Render extension.
+	  It is designed for authors of Render implementations in X Servers.
