@@ -5,7 +5,7 @@ Using an External Kernel Source Tree
 
 This application note describes how to use an external kernel source
 tree within a PTXdist project. In this case the external kernel source
-tree is managed by GIT.
+tree is managed by Git.
 
 Cloning the Linux Kernel Source Tree
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -74,7 +74,7 @@ enter it, and:
    configuration**.
 
    -  If no patches should be used on top of the selected kernel source
-      tree, we keep the **patch series file** entry empty. As GIT should
+      tree, we keep the **patch series file** entry empty. As Git should
       help us to create these patches for deployment, it should be kept
       empty on default in this first step.
 
@@ -98,7 +98,7 @@ config file**).
 Work Flow
 ~~~~~~~~~
 
-Now it's up to ourself working on the GIT based kernel source tree and
+Now it's up to ourself working on the Git based kernel source tree and
 using PTXdist to include the kernel into the root filesystem.
 
 To configure the kernel source tree, we simply run:
@@ -594,7 +594,7 @@ Setting-Up the Distributed Compiler
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 How to setup the distributed compiler can be found on the project’s
-homepage at GITHUB:
+homepage at GitHub:
 
 https://github.com/icecc/icecream.
 

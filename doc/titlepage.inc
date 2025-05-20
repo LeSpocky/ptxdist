@@ -41,7 +41,7 @@
   +49\,(0)51\,21\,/\,20\,69\,17\,--\,0 (Fon)\\
   +49\,(0)51\,21\,/\,20\,69\,17\,--\,55\,55 (Fax)\\[1ex]
   info@pengutronix.de\\[2.5ex]
-  {\footnotesize \copyright \, \number \year \ Pengutronix, Hildesheim -- GIT Rev.\ |ptxdistBSPRevision| \negthinspace}
+  {\footnotesize \copyright \, \number \year \ Pengutronix, Hildesheim -- Git Rev.\ |ptxdistBSPRevision| \negthinspace}
 \end{textblock}
 
 \end{titlepage}
