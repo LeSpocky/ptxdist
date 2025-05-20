@@ -177,8 +177,8 @@ configure_helper.py
 
 ``configure_helper.py`` can be found in ``scripts/`` in the PTXdist source
 tree. It should be used to determine which build system options should be
-specified for a package. Currently, only **autoconf** and **meson** based
-packages are supported.
+specified for a package. Currently, only **autoconf**, **meson** and
+**cmake** based packages are supported.
 
 It provides a diff between two lists of options. These list are generated
 from the options specified in the package Makefile and from the source tree
