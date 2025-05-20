@@ -376,7 +376,7 @@ Build Environment for all Stages
   wrappers. The specified flags are added to the command line when
   appropriate. In most cases this it the preferred way to add additional
   flags. Adding them via environment variables or ``make`` arguments can
-  have unexpected side effects, such as as overwriting existing defaults.
+  have unexpected side effects, such as overwriting existing defaults.
 
 ``<PKG>_FLAGS_BLACKLIST``
   A list of arbitrary flags. If any one of these flags is found as an
@@ -536,7 +536,7 @@ different.
   ptxdist packages (the lowercase name of the packages). PTXdist will add
   the necessary dependencies.
 
-  Note that this will not ensure that the packages are enabled or that all
+  Note that this will not ensure that the packages are enabled or that
   all package dependencies are satisfied. ``$(PTX_PACKAGES_INSTALL)`` can
   be used to specify all enabled packages. Or ``$(call ptx/collection,
   $(PTXDIST_WORKSPACE)/configs/<collection-file-name>)`` can be used to

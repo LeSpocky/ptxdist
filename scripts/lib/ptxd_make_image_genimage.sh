@@ -48,7 +48,7 @@ ptxd_make_image_genimage_config() {
 export -f ptxd_make_image_genimage_config
 
 #
-# extract ipkg an generate a tgz image
+# extract ipkg and generate a tgz image
 #
 ptxd_make_image_genimage_impl() {
     local tmpdir configdir file

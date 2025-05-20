@@ -98,7 +98,7 @@ config file**).
 Work Flow
 ~~~~~~~~~
 
-Now its up to ourself working on the GIT based kernel source tree and
+Now it's up to ourself working on the GIT based kernel source tree and
 using PTXdist to include the kernel into the root filesystem.
 
 To configure the kernel source tree, we simply run:
@@ -1479,7 +1479,7 @@ be built at the same time but should contain a different packages list each
 (refer :ref:`multi_image_individual_root_filesystems` for details).
 
 Marking a menu file based dependency with ``if BUILDTIME`` limits the dependency
-to compile-time only. In this case its possible to have the package in one
+to compile-time only. In this case it's possible to have the package in one
 image's list, but not its dependency.
 
 Run-Time only Dependency

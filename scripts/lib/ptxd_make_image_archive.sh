@@ -7,7 +7,7 @@
 #
 
 #
-# extract ipkg an generate a tgz image
+# extract ipkg and generate a tgz image
 #
 ptxd_make_image_archive_impl() {
     ptxd_make_image_init &&

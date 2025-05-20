@@ -117,7 +117,7 @@ which looks like this:
 What ``world/prepare`` does depends on some variable settings.
 
 If the package’s rule file defines ``<PKG>_CONF_TOOL`` to ``NO``,
-this stage is simply does nothing.
+this stage simply does nothing.
 
 All rules files can create the ``<PKG>_CONF_ENV`` variable and should
 define it at least to ``$(CROSS_ENV)`` (the default) if the prepare stage
