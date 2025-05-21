@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_NETWORKMANAGER) += networkmanager
 #
 # Paths and names
 #
-NETWORKMANAGER_VERSION	:= 1.48.0
-NETWORKMANAGER_MD5	:= 45f6ed63183aac8ae9e7fd435c47da41
+NETWORKMANAGER_VERSION	:= 1.52.0
+NETWORKMANAGER_MD5	:= 6ad017074a09bd6b9b9823d04c0265cd
 NETWORKMANAGER		:= NetworkManager-$(NETWORKMANAGER_VERSION)
 NETWORKMANAGER_SUFFIX	:= tar.bz2
 NETWORKMANAGER_URL	:= https://gitlab.freedesktop.org/NetworkManager/NetworkManager/-/archive/$(NETWORKMANAGER_VERSION)/NetworkManager-$(NETWORKMANAGER_VERSION).$(NETWORKMANAGER_SUFFIX)
@@ -44,7 +44,6 @@ NETWORKMANAGER_CONF_OPT = \
 	-Dcrypto=gnutls \
 	-Ddbus_conf_dir=/usr/share/dbus-1/system.d \
 	-Ddhclient=/usr/sbin/dhclient \
-	-Ddhcpcanon=false \
 	-Ddhcpcd=false \
 	-Ddnsmasq=/usr/sbin/dnsmasq \
 	-Ddocs=false \
