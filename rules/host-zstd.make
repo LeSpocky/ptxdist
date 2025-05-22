@@ -11,19 +11,14 @@
 #
 HOST_PACKAGES-$(PTXCONF_HOST_ZSTD) += host-zstd
 
-#
-# Paths and names
-#
-HOST_ZSTD_DIR		:= $(HOST_BUILDDIR)/$(ZSTD)
-HOST_ZSTD_SUBDIR	:= build/cmake
-
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
 HOST_ZSTD_CONF_TOOL	:= cmake
-HOST_ZSTD_BUILD_DIR	:= $(HOST_ZSTD_DIR)-build
-HOST_ZSTD_CONF_OPT	:= \
+# Use = instead of := because HOST_ZSTD_DIR is defined from ZSTD_* variables
+HOST_ZSTD_BUILD_DIR	 = $(HOST_ZSTD_DIR)-build
+HOST_ZSTD_CONF_OPT	 = \
 	$(HOST_CMAKE_OPT) \
 	-B$(HOST_ZSTD_BUILD_DIR) \
 	-DZSTD_LEGACY_SUPPORT=OFF \
