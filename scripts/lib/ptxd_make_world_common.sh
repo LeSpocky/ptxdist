@@ -230,6 +230,11 @@ ptxd_make_world_init() {
 	*)              pkg_type="target" ;;
     esac
 
+    local ptx_extract_dir_ptr="ptx_extract_dir_${pkg_type}"
+    if [ "${pkg_dir%/}" = "${!ptx_extract_dir_ptr%/}" ]; then
+	ptxd_bailout "Invalid ${pkg_PKG}_DIR = $(ptxd_print_path "${pkg_dir}")"
+    fi
+
     #
     # sanitize pkg_pkg_dir
     #
