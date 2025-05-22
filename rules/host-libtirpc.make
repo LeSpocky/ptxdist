@@ -31,7 +31,8 @@ HOST_LIBTIRPC_CONF_OPT	:= \
 # Install
 # ----------------------------------------------------------------------------
 
-HOST_LIBTIRPC_PC := $(HOST_LIBTIRPC_PKGDIR)/usr/lib/pkgconfig/libtirpc.pc
+# Use = instead of := because HOST_LIBTIRPC_PKGDIR is defined from LIBTIRPC_* variables
+HOST_LIBTIRPC_PC = $(HOST_LIBTIRPC_PKGDIR)/usr/lib/pkgconfig/libtirpc.pc
 
 $(STATEDIR)/host-libtirpc.install:
 	@$(call targetinfo)
