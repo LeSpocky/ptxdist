@@ -19,7 +19,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_CPPUTEST) += host-cpputest
 # autoconf
 #
 HOST_CPPUTEST_CONF_TOOL	:= autoconf
-CPPUTEST_CONF_OPT	:=  \
+HOST_CPPUTEST_CONF_OPT	:=  \
 	$(HOST_AUTOCONF_USR) \
 	--enable-std-c \
 	--enable-std-cpp \
