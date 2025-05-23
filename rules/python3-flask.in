@@ -1,0 +1,17 @@
+## SECTION=python3
+
+config PYTHON3_FLASK
+	tristate
+	select HOST_PYTHON3_PYBUILD
+	select HOST_PYTHON3_INSTALLER
+	select PYTHON3
+	select PYTHON3_BLINKER		if RUNTIME
+	select PYTHON3_CLICK		if RUNTIME
+	select PYTHON3_ITSDANGEROUS	if RUNTIME
+	select PYTHON3_JINJA2		if RUNTIME
+	select PYTHON3_MARKUPSAFE	if RUNTIME
+	select PYTHON3_SSL		if RUNTIME
+	select PYTHON3_WERKZEUG		if RUNTIME
+	prompt "flask"
+	help
+	  Flask is a lightweight WSGI web application framework.
