@@ -1,0 +1,11 @@
+## SECTION=python3
+
+config PYTHON3_CLICK
+	tristate
+	select HOST_PYTHON3_PYBUILD
+	select HOST_PYTHON3_INSTALLER
+	select PYTHON3
+	prompt "click"
+	help
+	  Click is a Python package for creating beautiful command line
+	  interfaces in a composable way with as little code as necessary.
