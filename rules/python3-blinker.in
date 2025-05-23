@@ -1,0 +1,11 @@
+## SECTION=python3
+
+config PYTHON3_BLINKER
+	tristate
+	select HOST_PYTHON3_PYBUILD
+	select HOST_PYTHON3_INSTALLER
+	select PYTHON3
+	prompt "blinker"
+	help
+	  Blinker provides fast & simple object-to-object and broadcast
+	  signaling for Python objects.
