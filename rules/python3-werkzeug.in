@@ -1,0 +1,11 @@
+## SECTION=python3
+
+config PYTHON3_WERKZEUG
+	tristate
+	select HOST_PYTHON3_PYBUILD
+	select HOST_PYTHON3_INSTALLER
+	select PYTHON3
+	select PYTHON3_MARKUPSAFE	if RUNTIME
+	prompt "werkzeug"
+	help
+	  Werkzeug is a comprehensive WSGI web application library.
