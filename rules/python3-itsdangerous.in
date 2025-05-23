@@ -1,0 +1,11 @@
+## SECTION=python3
+
+config PYTHON3_ITSDANGEROUS
+	tristate
+	select HOST_PYTHON3_PYBUILD
+	select HOST_PYTHON3_INSTALLER
+	select PYTHON3
+	prompt "itsdangerous"
+	help
+	  Various helpers to pass data to untrusted environments
+	  and to get it back safe and sound.
