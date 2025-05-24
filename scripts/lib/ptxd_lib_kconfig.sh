@@ -252,6 +252,7 @@ ptxd_kconfig_validate_config_check() {
 export -f ptxd_kconfig_validate_config_check
 
 ptxd_kconfig_validate_config_next() {
+	next=""
 	for next in "${@}"; do
 	    if ! ptxd_kconfig_validate_config_check "${next}"; then
 		continue
