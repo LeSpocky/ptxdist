@@ -2192,7 +2192,7 @@ ensure_ptxrc() {
 	fi
 
 	if [ -e "${tmpptxrc}.diff" ]; then
-		"${include}" <(tail -n +2 "${tmpptxrc}.diff")
+		"${include}" <(grep -vE '^[a-f0-9]{32}$' "${tmpptxrc}.diff")
 	else
 		"${include}" "${tmpptxrc}"
 	fi
@@ -2200,7 +2200,7 @@ ensure_ptxrc() {
 	PTXDIST_LOCAL_PTXRC="${PTXDIST_WORKSPACE}/.ptxdistrc"
 	if [ -e "${PTXDIST_LOCAL_PTXRC}.diff" ]; then
 		# explicitly unset variables that may have been set in the include above
-		"${include}" <(tail -n +2 "${PTXDIST_LOCAL_PTXRC}.diff" | sed 's/^# \(.*\) is not set$/unset \1/')
+		"${include}" <(grep -vE '^[a-f0-9]{32}$' "${PTXDIST_LOCAL_PTXRC}.diff" | sed 's/^# \(.*\) is not set$/unset \1/')
 	elif [ -e "${PTXDIST_LOCAL_PTXRC}" ]; then
 		"${include}" "${PTXDIST_LOCAL_PTXRC}"
 	fi
