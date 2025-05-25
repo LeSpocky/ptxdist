@@ -28,13 +28,13 @@ class LatexGenerator(Generator):
         return self.__dot.get(pkg, None)
 
     def format_dot(self, args):
+        from dot2tex import dot2tex
+
         dot = self.create_dot(args[0], args[1])
         return (args[1]['name'], dot2tex(dot, docpreamble='\\usepackage[xetex]{hyperref}', figonly=True,
                                          format='pgf', autosize=True))
 
     def init_dot(self, pkgs, limit):
-        from dot2tex import dot2tex
-
         if limit:
             packages = {pkg: pkgs[pkg] for pkg in limit}
         else:
