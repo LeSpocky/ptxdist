@@ -15,6 +15,9 @@ HOST_PACKAGES-$(PTXCONF_HOST_MESALIB) += host-mesalib
 # Prepare
 # ----------------------------------------------------------------------------
 
+HOST_MESALIB_TOOLS-y := glsl
+HOST_MESALIB_TOOLS-$(PTXCONF_HOST_MESALIB_PANFROST) += panfrost
+
 HOST_MESALIB_MESON_CROSS_FILE := $(call ptx/get-alternative, config/meson, mesalib-native-file.meson)
 
 HOST_MESALIB_CONF_TOOL	:= meson
@@ -27,6 +30,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dandroid-strict=true \
 	-Dandroid-stub=false \
 	-Dbuild-aco-tests=false \
+	-Dbuild-radv-tests=false \
 	-Dbuild-tests=false \
 	-Dcustom-shader-replacement= \
 	-Dd3d-drivers-path=/usr/lib/d3d \
@@ -37,7 +41,6 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Degl-lib-suffix= \
 	-Degl-native-platform=auto \
 	-Denable-glcpp-tests=false \
-	-Dexecmem=true \
 	-Dexpat=disabled \
 	-Dfreedreno-kmds= \
 	-Dgallium-d3d10-dll-name=libgallium_d3d10 \
@@ -46,14 +49,11 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dgallium-d3d12-video=disabled \
 	-Dgallium-drivers=softpipe \
 	-Dgallium-extra-hud=false \
-	-Dgallium-nine=false \
-	-Dgallium-opencl=disabled \
 	-Dgallium-rusticl=false \
 	-Dgallium-rusticl-enable-drivers= \
 	-Dgallium-va=disabled \
 	-Dgallium-vdpau=disabled \
 	-Dgallium-wgl-dll-name=libgallium_wgl \
-	-Dgallium-xa=disabled \
 	-Dgbm=disabled \
 	-Dgbm-backends-path= \
 	-Dgles-lib-suffix= \
@@ -71,40 +71,39 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dinstall-intel-clc=false \
 	-Dinstall-intel-gpu-tests=false \
 	-Dinstall-mesa-clc=$(call ptx/truefalse, PTXCONF_HOST_MESALIB_CLC) \
-	-Dinstall-precomp-compiler=false \
+	-Dinstall-precomp-compiler=true \
 	-Dintel-bvh-grl=false \
 	-Dintel-clc=system \
 	-Dintel-elk=true \
 	-Dintel-rt=disabled \
 	-Dlegacy-x11=none \
+	-Dlibgbm-external=false \
 	-Dlibunwind=disabled \
 	-Dllvm=$(call ptx/endis, PTXCONF_HOST_MESALIB_CLC)d \
 	-Dllvm-orcjit=false \
 	-Dlmsensors=disabled \
 	-Dmesa-clc=$(call ptx/ifdef, PTXCONF_HOST_MESALIB_CLC,enabled,auto) \
+	-Dmesa-clc-bundle-headers=enabled \
 	-Dmicrosoft-clc=disabled \
 	-Dmin-windows-version=8 \
 	-Dmoltenvk-dir= \
 	-Dopengl=true \
-	-Dosmesa=false \
 	-Dperfetto=false \
 	-Dplatform-sdk-version=25 \
 	-Dplatforms= \
 	-Dpower8=disabled \
-	-Dprecomp-compiler=system \
+	-Dprecomp-compiler=enabled \
 	-Dradv-build-id='' \
-	-Dselinux=false \
 	-Dshader-cache=disabled \
 	-Dshader-cache-default=true \
 	-Dshader-cache-max-size=1G \
-	-Dshared-glapi=enabled \
 	-Dshared-llvm=disabled \
 	-Dspirv-to-dxil=false \
 	-Dsplit-debug=disabled \
 	-Dsse2=true \
 	-Dstatic-libclc=[] \
 	-Dteflon=false \
-	-Dtools=glsl \
+	-Dtools=$(subst $(space),$(comma),$(HOST_MESALIB_TOOLS-y)) \
 	-Dunversion-libgallium=false \
 	-Dva-libs-path=/usr/lib/dri \
 	-Dvalgrind=disabled \
@@ -127,7 +126,11 @@ HOST_MESALIB_MAKE_OPT	:= \
 ifdef PTXCONF_HOST_MESALIB_CLC
 HOST_MESALIB_MAKE_OPT	+= \
 	src/compiler/clc/mesa_clc \
-	src/compiler/spirv/vtn_bindgen
+	src/compiler/spirv/vtn_bindgen2
+endif
+ifdef PTXCONF_HOST_MESALIB_PANFROST
+HOST_MESALIB_MAKE_OPT	+= \
+	src/panfrost/clc/panfrost_compile
 endif
 
 $(STATEDIR)/host-mesalib.install:
@@ -135,7 +138,10 @@ $(STATEDIR)/host-mesalib.install:
 	install -D -m755 $(HOST_MESALIB_DIR)-build/src/compiler/glsl/glsl_compiler $(HOST_MESALIB_PKGDIR)/usr/bin/mesa/glsl_compiler
 ifdef PTXCONF_HOST_MESALIB_CLC
 	install -D -m755 $(HOST_MESALIB_DIR)-build/src/compiler/clc/mesa_clc $(HOST_MESALIB_PKGDIR)/usr/bin/mesa_clc
-	install -D -m755 $(HOST_MESALIB_DIR)-build/src/compiler/spirv/vtn_bindgen $(HOST_MESALIB_PKGDIR)/usr/bin/vtn_bindgen
+	install -D -m755 $(HOST_MESALIB_DIR)-build/src/compiler/spirv/vtn_bindgen2 $(HOST_MESALIB_PKGDIR)/usr/bin/vtn_bindgen2
+endif
+ifdef PTXCONF_HOST_MESALIB_PANFROST
+	install -D -m755 $(HOST_MESALIB_DIR)-build/src/panfrost/clc/panfrost_compile $(HOST_MESALIB_PKGDIR)/usr/bin/panfrost_compile
 endif
 	@$(call touch)
 

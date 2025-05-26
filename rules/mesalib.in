@@ -5,6 +5,7 @@ menuconfig MESALIB
 	prompt "mesa                          "
 	select HOST_MESALIB
 	select HOST_MESALIB_CLC		if MESALIB_CLC
+	select HOST_MESALIB_PANFROST	if MESALIB_DRI_PANFROST || MESALIB_VULKAN_PANFROST
 	select HOST_MESON
 	select HOST_MAKEDEPEND
 	select HOST_SYSTEM_PYTHON3
