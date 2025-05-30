@@ -51,7 +51,9 @@ LIBGPIOD_CONF_OPT	:= \
 
 LIBGPIOD_CONF_ENV := \
 	$(CROSS_ENV) \
-	$(if $(PTXCONF_LIBGPIOD_PYTHON3), ac_cv_path_PYTHON=$(CROSS_PYTHON3))
+	$(if $(PTXCONF_LIBGPIOD_PYTHON3), \
+		ac_cv_path_PYTHON=$(CROSS_PYTHON3) \
+		ac_cv_prog_has_python_config=python$(PYTHON3_MAJORMINOR)-config)
 
 LIBGPIOD_LDFLAGS:= -Wl,-rpath-link,$(LIBGPIOD_DIR)/lib/.libs
 
