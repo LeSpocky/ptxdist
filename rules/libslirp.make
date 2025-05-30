@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBSLIRP) += libslirp
 #
 # Paths and names
 #
-LIBSLIRP_VERSION	:= 4.9.0
-LIBSLIRP_MD5		:= 31dbbfe667297a5931e56ba78f69c64f
+LIBSLIRP_VERSION	:= 4.9.1
+LIBSLIRP_MD5		:= eefd3b2375453cf9d07375c389441685
 LIBSLIRP		:= libslirp-v$(LIBSLIRP_VERSION)
 LIBSLIRP_SUFFIX		:= tar.bz2
 LIBSLIRP_URL		:= https://gitlab.freedesktop.org/slirp/libslirp/-/archive/v$(LIBSLIRP_VERSION)/$(LIBSLIRP).$(LIBSLIRP_SUFFIX)
@@ -35,6 +35,12 @@ LIBSLIRP_LICENSE_FILES	:= \
 # meson
 #
 LIBSLIRP_CONF_TOOL	:= meson
+LIBSLIRP_CONF_OPT	:= \
+	$(CROSS_MESON_USR) \
+	-Dfuzz-reproduce=false \
+	-Dllvm-fuzz=false \
+	-Doss-fuzz=false \
+	-Dstatic=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
