@@ -6,7 +6,7 @@
 # see the README file.
 #
 
-from datetime import datetime
+from datetime import datetime, timezone
 from os import path
 from shutil import copy
 import hashlib
@@ -142,8 +142,8 @@ class SpdxSbomGenerator(SbomGenerator):
 
     def build(self, data):
         creationInfo = spdx.SPDXCreationInfo()
-        creationInfo.created = datetime.now().isoformat()
-        creationInfo.creators = [data['bsp']['vendor']]
+        creationInfo.created = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
+        creationInfo.creators = [ f"Organization: {data['bsp']['vendor']}", f"Tool: ptxdist-{data['ptxdist']['version']}" ]
         document = spdx.SPDXDocument()
         document.creationInfo = creationInfo
         document.name = data['bsp']['project']
