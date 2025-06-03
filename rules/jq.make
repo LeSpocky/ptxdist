@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_JQ) += jq
 #
 # Paths and names
 #
-JQ_VERSION	:= 1.7.1
-JQ_MD5		:= 974a340105ecb43add8c55601525f9fc
+JQ_VERSION	:= 1.8.0
+JQ_MD5		:= 46856841b9fd765b852023b881cd2e8b
 JQ		:= jq-$(JQ_VERSION)
 JQ_SUFFIX	:= tar.gz
 JQ_URL		:= https://github.com/jqlang/jq/releases/download/$(JQ)/$(JQ).$(JQ_SUFFIX)
 JQ_SOURCE	:= $(SRCDIR)/$(JQ).$(JQ_SUFFIX)
 JQ_DIR		:= $(BUILDDIR)/$(JQ)
 JQ_LICENSE	:= MIT AND CC-BY-3.0 AND ICU
-JQ_LICENSE_FILES := file://COPYING;md5=488f4e0b04c0456337fb70d1ac1758ba
+JQ_LICENSE_FILES := file://COPYING;md5=08ffb5ac7e7e6bfc66968b89f01f512a
 
 # ----------------------------------------------------------------------------
 # Prepare
