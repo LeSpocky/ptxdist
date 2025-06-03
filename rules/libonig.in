@@ -1,0 +1,11 @@
+## SECTION=system_libraries
+
+config LIBONIG
+	tristate
+	prompt "libonig"
+	help
+	  Oniguruma is a modern and flexible regular expressions library.
+	  It encompasses features from different regular expression
+	  implementations that traditionally exist in different languages.
+
+# vim: ft=kconfig noet ts=8 sw=8
