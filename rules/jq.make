@@ -43,7 +43,7 @@ JQ_CONF_OPT	:= \
 	--disable-error-injection \
 	--disable-all-static \
 	--disable-decnum \
-	--with-oniguruma=prefix
+	--$(call ptx/wwo, PTXCONF_JQ_REGEX)-oniguruma
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -59,7 +59,6 @@ $(STATEDIR)/jq.targetinstall:
 	@$(call install_fixup, jq,DESCRIPTION,missing)
 
 	@$(call install_lib, jq, 0, 0, 0644, libjq)
-	@$(call install_lib, jq, 0, 0, 0644, libonig)
 	@$(call install_copy, jq, 0, 0, 0755, -, /usr/bin/jq)
 
 	@$(call install_finish, jq)

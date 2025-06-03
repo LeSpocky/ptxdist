@@ -1,9 +1,21 @@
 ## SECTION=shell_and_console
 
-config JQ
+menuconfig JQ
 	tristate
-	prompt "jq"
+	prompt "jq                            "
+	select LIBONIG if JQ_REGEX
 	help
 	  lightweight and flexible command-line JSON processor
+
+if JQ
+
+config JQ_REGEX
+	bool
+	prompt "regular expression support"
+	default y
+	help
+	  Optional support for match/test/sub and related functions.
+
+endif
 
 # vim: ft=kconfig noet tw=72
