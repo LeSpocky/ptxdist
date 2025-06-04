@@ -39,4 +39,7 @@ HOST_YASM_CONF_OPT	:= \
 	--disable-rpath \
 	--without-dmalloc
 
+HOST_YASM_CFLAGS	:= \
+	-std=gnu11
+
 # vim: syntax=make
