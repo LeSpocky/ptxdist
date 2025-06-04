@@ -511,6 +511,7 @@ ptxd_make_world_patchin_post() {
     ptxd_make_world_patchin_init || return
 
     if [ "${pkg_conf_tool}" = "cargo" -o -n "${pkg_cargo_lock}" ]; then
+	{
 	cat << EOF
 [source.ptxdist]
 directory = "${pkg_cargo_home}/source"
@@ -535,7 +536,8 @@ target-dir = "${pkg_build_dir}/target"
 [net]
 offline = true
 EOF
-    fi > ${pkg_cargo_home}/config.toml
+	} > ${pkg_cargo_home}/config.toml
+    fi
     if [ -n "${pkg_patchin_dir}" ]; then (
 	cd "${pkg_conf_dir_abs}" &&
 	if [ -n "${pkg_patch_dir}" ]; then
