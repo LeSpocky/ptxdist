@@ -35,4 +35,7 @@ HOST_UNIFDEF_MAKE_ENV	:= \
 	$(HOST_ENV) \
 	HOME=/usr
 
+HOST_UNIFDEF_CFLAGS	:= \
+	-std=gnu11
+
 # vim: syntax=make
