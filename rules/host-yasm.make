@@ -14,8 +14,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_YASM) += host-yasm
 #
 # Paths and names
 #
-HOST_YASM_VERSION	:= 1.0.1
-HOST_YASM_MD5		:= 2174fc3b6b74de07667f42d47514c336
+HOST_YASM_VERSION	:= 1.3.0
+HOST_YASM_MD5		:= fc9e586751ff789b34b1f21d572d96af
 HOST_YASM		:= yasm-$(HOST_YASM_VERSION)
 HOST_YASM_SUFFIX	:= tar.gz
 HOST_YASM_URL		:= http://www.tortall.net/projects/yasm/releases/$(HOST_YASM).$(HOST_YASM_SUFFIX)
