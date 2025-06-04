@@ -2,6 +2,7 @@
 
 menuconfig P11_KIT
 	tristate
+	select HOST_SYSTEM_PYTHON3
 	select LIBFFI
 	prompt "p11-kit                       "
 	help
