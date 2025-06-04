@@ -69,8 +69,9 @@ HOST_GNUTLS_CONF_OPT	:=  \
 	--disable-fips140-mode \
 	--disable-strict-x509 \
 	--enable-non-suiteb-curves \
+	--disable-dsa \
 	--disable-libdane \
-	--disable-guile \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--without-gcov \
 	--with-nettle-mini \
 	--without-included-libtasn1 \
@@ -90,6 +91,7 @@ HOST_GNUTLS_CONF_OPT	:=  \
 	--without-zlib \
 	--without-brotli \
 	--without-zstd \
+	--without-leancrypto \
 	--with-default-trust-store-file=/etc/ssl/certs/ca-certificates.crt
 
 # vim: syntax=make

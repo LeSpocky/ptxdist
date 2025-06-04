@@ -14,23 +14,23 @@ PACKAGES-$(PTXCONF_GNUTLS) += gnutls
 #
 # Paths and names
 #
-GNUTLS_VERSION		:= 3.7.11
-GNUTLS_MD5		:= dd8c16b17f1d37fca203e756e981a957
+GNUTLS_VERSION		:= 3.8.9
+GNUTLS_MD5		:= 33f4c800c20af2983c45223a803da865
 GNUTLS			:= gnutls-$(GNUTLS_VERSION)
 GNUTLS_SUFFIX		:= tar.xz
-GNUTLS_URL		:= https://www.gnupg.org/ftp/gcrypt/gnutls/v3.7/$(GNUTLS).$(GNUTLS_SUFFIX)
+GNUTLS_URL		:= https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/$(GNUTLS).$(GNUTLS_SUFFIX)
 GNUTLS_SOURCE		:= $(SRCDIR)/$(GNUTLS).$(GNUTLS_SUFFIX)
 GNUTLS_DIR		:= $(BUILDDIR)/$(GNUTLS)
 GNUTLS_LICENSE		:= LGPL-3.0-or-later
 GNUTLS_LICENSE_FILES	:= \
-	file://doc/COPYING.LESSER;md5=a6f89e2100d9b6cdffcea4f398e37343 \
-	file://LICENSE;md5=71391c8e0c1cfe68077e7fce3b586283
+	file://COPYING.LESSERv2;md5=4bf661c1e3793e55c8d1051bc5e0ae21 \
+	file://README.md;startline=181;endline=206;md5=a3b6ee773c4031524191773c86fc17df
 
 ifdef PTXCONF_GNUTLS_OPENSSL
 GNUTLS_LICENSE 		+= AND GPL-3.0-or-later
 GNUTLS_LICENSE_FILES	+= \
 	file://extra/gnutls_openssl.c;startline=1;endline=19;md5=b8b99cb92b0fbb522912f20e3359913c \
-	file://doc/COPYING;md5=c678957b0c8e964aa6c70fd77641a71e
+	file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
 endif
 
 # ----------------------------------------------------------------------------
@@ -96,8 +96,10 @@ GNUTLS_CONF_OPT		:= \
 	--disable-fips140-mode \
 	--disable-strict-x509 \
 	--enable-non-suiteb-curves \
+	--disable-dsa \
 	--disable-libdane \
-	--disable-guile \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
+	--without-gcov \
 	--with-nettle-mini \
 	--without-included-libtasn1 \
 	--with-included-unistring \
@@ -110,6 +112,7 @@ GNUTLS_CONF_OPT		:= \
 	--without-zlib \
 	--without-brotli \
 	--without-zstd \
+	--without-leancrypto \
 	--with-default-trust-store-file=/etc/ssl/certs/ca-certificates.crt
 
 # ----------------------------------------------------------------------------
