@@ -17,8 +17,8 @@ endif
 #
 # Paths and names
 #
-NODEJS_VERSION		:= v20.18.1
-NODEJS_MD5		:= 391712455ed6c448e177e37f8c9ef432
+NODEJS_VERSION		:= v20.19.2
+NODEJS_MD5		:= 91757f9a38f2699db9ed407311a58a7d
 NODEJS			:= node-$(NODEJS_VERSION)
 NODEJS_SUFFIX		:= tar.xz
 NODEJS_URL		:= http://nodejs.org/dist/$(NODEJS_VERSION)/$(NODEJS).$(NODEJS_SUFFIX)
@@ -26,7 +26,7 @@ NODEJS_SOURCE		:= $(SRCDIR)/$(NODEJS).$(NODEJS_SUFFIX)
 NODEJS_DIR		:= $(BUILDDIR)/$(NODEJS)
 NODEJS_LICENSE		:= MIT AND ISC AND BSD-3-Clause AND BSD-2-Clause AND Apache-2.0 AND Unicode-3.0 and NAIST-2003
 NODEJS_LICENSE_FILES	:= \
-        file://LICENSE;md5=c83fcdcd43ab352be6429ee1fd8827a0
+        file://LICENSE;md5=ac91fab5dbaf757274d2b29888f943ef
 
 node/env = \
 	$(CROSS_ENV) \

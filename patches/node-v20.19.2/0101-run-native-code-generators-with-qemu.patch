@@ -12,7 +12,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  2 files changed, 8 insertions(+)
 
 diff --git a/node.gyp b/node.gyp
-index 33bc7d985fe2..6a8d488f6068 100644
+index e88c7ded109c..9d78b5f2421a 100644
 --- a/node.gyp
 +++ b/node.gyp
 @@ -688,6 +688,7 @@
@@ -23,7 +23,7 @@ index 33bc7d985fe2..6a8d488f6068 100644
                      '<(node_mksnapshot_exec)',
                      '<(node_snapshot_main)',
                    ],
-@@ -992,6 +993,7 @@
+@@ -991,6 +992,7 @@
            'action_name': 'node_js2c',
            'process_outputs_as_sources': 1,
            'inputs': [
@@ -31,7 +31,7 @@ index 33bc7d985fe2..6a8d488f6068 100644
              '<(node_js2c_exec)',
              '<@(library_files)',
              '<@(deps_files)',
-@@ -1001,6 +1003,7 @@
+@@ -1000,6 +1002,7 @@
              '<(SHARED_INTERMEDIATE_DIR)/node_javascript.cc',
            ],
            'action': [
@@ -40,10 +40,10 @@ index 33bc7d985fe2..6a8d488f6068 100644
              '<@(_outputs)',
              'lib',
 diff --git a/tools/v8_gypfiles/v8.gyp b/tools/v8_gypfiles/v8.gyp
-index 45f6e0db8654..8724be7ad50d 100644
+index 9120a6890841..bc41339d06d7 100644
 --- a/tools/v8_gypfiles/v8.gyp
 +++ b/tools/v8_gypfiles/v8.gyp
-@@ -81,6 +81,7 @@
+@@ -94,6 +94,7 @@
          {
            'action_name': 'run_torque_action',
            'inputs': [  # Order matters.
@@ -51,7 +51,7 @@ index 45f6e0db8654..8724be7ad50d 100644
              '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)torque<(EXECUTABLE_SUFFIX)',
              '<@(torque_files)',
            ],
-@@ -112,6 +113,7 @@
+@@ -125,6 +126,7 @@
              '<@(torque_outputs_inc)',
            ],
            'action': [
@@ -59,7 +59,7 @@ index 45f6e0db8654..8724be7ad50d 100644
              '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)torque<(EXECUTABLE_SUFFIX)',
              '-o', '<(SHARED_INTERMEDIATE_DIR)/torque-generated',
              '-v8-root', '<(V8_ROOT)',
-@@ -224,6 +226,7 @@
+@@ -237,6 +239,7 @@
          {
            'action_name': 'generate_bytecode_builtins_list_action',
            'inputs': [
@@ -67,7 +67,7 @@ index 45f6e0db8654..8724be7ad50d 100644
              '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)bytecode_builtins_list_generator<(EXECUTABLE_SUFFIX)',
            ],
            'outputs': [
-@@ -401,6 +404,7 @@
+@@ -414,6 +417,7 @@
              ],
            },
            'inputs': [
@@ -75,7 +75,7 @@ index 45f6e0db8654..8724be7ad50d 100644
              '<(mksnapshot_exec)',
            ],
            'outputs': [
-@@ -1681,6 +1685,7 @@
+@@ -1699,6 +1703,7 @@
          {
            'action_name': 'run_gen-regexp-special-case_action',
            'inputs': [
