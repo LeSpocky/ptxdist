@@ -34,6 +34,9 @@ HOST_CKERMIT_MAKE_OPT := \
 	KFLAGS='-O2 -DCK_NCURSES -DHAVE_PTMX -DHAVE_OPENPTY -DMAINTYPE=int' \
 	LIBS='-lncurses -lutil -lresolv -lcrypt'
 
+HOST_CKERMIT_CFLAGS := \
+	-std=gnu11
+
 # ----------------------------------------------------------------------------
 # Install
 # ----------------------------------------------------------------------------
