@@ -21,7 +21,8 @@ PYTHON3_PLY_SUFFIX	:= tar.gz
 PYTHON3_PLY_URL		:= $(call ptx/mirror-pypi, ply, $(PYTHON3_PLY).$(PYTHON3_PLY_SUFFIX))
 PYTHON3_PLY_SOURCE	:= $(SRCDIR)/$(PYTHON3_PLY).$(PYTHON3_PLY_SUFFIX)
 PYTHON3_PLY_DIR		:= $(BUILDDIR)/$(PYTHON3_PLY)
-PYTHON3_PLY_LICENSE	:= BSD
+PYTHON3_PLY_LICENSE	:= BSD-3-Clause
+PYTHON3_PLY_LICENSE_FILES := file://ply/lex.py;startline=4;endline=31;md5=cf04500ef735e52b5bb9d6793a18085d
 
 # ----------------------------------------------------------------------------
 # Prepare
