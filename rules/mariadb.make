@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MARIADB) += mariadb
 #
 # Paths and names
 #
-MARIADB_VERSION	:= 11.4.4
-MARIADB_MD5	:= 969bead58d84d1f9fc16c6aa01e751fa
+MARIADB_VERSION	:= 11.4.7
+MARIADB_MD5	:= 10029b1fad463763e40dd1a7cc2bb38f
 MARIADB		:= mariadb-$(MARIADB_VERSION)
 MARIADB_SUFFIX	:= tar.gz
 MARIADB_URL	:= https://archive.mariadb.org/$(MARIADB)/source/$(MARIADB).$(MARIADB_SUFFIX)
