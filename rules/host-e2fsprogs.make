@@ -74,7 +74,7 @@ $(STATEDIR)/host-e2fsprogs.install:
 	@mv -v $(HOST_E2FSPROGS_PKGDIR)/usr/sbin/{mke2fs,mkfs.*} \
 		$(HOST_E2FSPROGS_PKGDIR)/usr/sbin/real/
 	@echo '#!/bin/sh'							>  $(HOST_E2FSPROGS_PKGDIR)/usr/sbin/mke2fs
-	@echo 'export MKE2FS_CONFIG="$$(dirname "$${0}")/../etc/mke2fs.conf"'	>> $(HOST_E2FSPROGS_PKGDIR)/usr/sbin/mke2fs
+	@echo 'export MKE2FS_CONFIG="$$(dirname "$${0}")/../../etc/mke2fs.conf"'>> $(HOST_E2FSPROGS_PKGDIR)/usr/sbin/mke2fs
 	@echo 'exec "$$(dirname "$${0}")/real/$$(basename "$${0}")" "$${@}"'	>> $(HOST_E2FSPROGS_PKGDIR)/usr/sbin/mke2fs
 	@chmod +x $(HOST_E2FSPROGS_PKGDIR)/usr/sbin/mke2fs
 	@$(foreach mkfs,mkfs.ext2 mkfs.ext3 mkfs.ext4, \
