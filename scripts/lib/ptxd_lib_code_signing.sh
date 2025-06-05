@@ -58,6 +58,11 @@ cs_init_variables() {
     sysroot="$(ptxd_get_ptxconf PTXCONF_SYSROOT_HOST)"
     keyprovider="$(ptxd_get_ptxconf PTXCONF_CODE_SIGNING_PROVIDER)"
     keydir="${sysroot}/var/lib/keys/${keyprovider}"
+    if [ -z "${tmpfd}" ]; then
+	tmpfile="$(mktemp "${PTXDIST_TEMPDIR}/${keyprovider}.XXXXXX")"
+	exec {tmpfd}<>"${tmpfile}"
+	rm "${tmpfile}"
+    fi
 }
 export -f cs_init_variables
 
@@ -209,10 +214,7 @@ cs_import_cert_from_pem() {
     local pem="${2}"
     cs_init_variables
 
-    openssl x509 \
-	"${openssl_keyopt[@]}" \
-	-in "${pem}" -inform pem -outform der |
-    softhsm_pkcs11_tool --type cert --write-object /dev/stdin --label "${role}"
+    softhsm_pkcs11_tool --type cert --write-object "${pem}" --label "${role}"
     check_pipe_status
 }
 export -f cs_import_cert_from_pem
@@ -235,8 +237,8 @@ cs_import_pubkey_from_pem() {
 
     openssl pkey \
 	"${openssl_keyopt[@]}" \
-	-in "${pem}" -inform pem -pubout -outform der |
-    softhsm_pkcs11_tool --type pubkey --write-object /dev/stdin --label "${role}"
+	-in "${pem}" -inform pem -pubout -outform der -out "/proc/self/fd/${tmpfd}"
+    softhsm_pkcs11_tool --type pubkey --write-object "/proc/self/fd/${tmpfd}" --label "${role}"
     check_pipe_status
 }
 export -f cs_import_pubkey_from_pem
@@ -259,8 +261,8 @@ cs_import_privkey_from_pem() {
 
     openssl pkey \
 	"${openssl_keyopt[@]}" \
-	-in "${pem}" -inform pem -outform der |
-    softhsm_pkcs11_tool --type privkey --write-object /dev/stdin --label "${role}"
+	-in "${pem}" -inform pem -outform der -out "/proc/self/fd/${tmpfd}"
+    softhsm_pkcs11_tool --type privkey --write-object "/proc/self/fd/${tmpfd}" --label "${role}"
     check_pipe_status
 }
 export -f cs_import_privkey_from_pem
