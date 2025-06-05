@@ -23,6 +23,13 @@ HOST_OPENSC_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--sysconfdir=/etc/opensc \
 	--enable-optimization \
+	--disable-code-coverage \
+	--disable-valgrind \
+	--disable-valgrind-memcheck \
+	--disable-valgrind-helgrind \
+	--disable-valgrind-drd \
+	--disable-valgrind-sgcheck \
+	--disable-fuzzing \
 	--disable-strict \
 	--disable-pedantic \
 	--enable-thread-locking \
@@ -36,12 +43,16 @@ HOST_OPENSC_CONF_OPT	:= \
 	--$(call ptx/disen, PTXCONF_HOST_OPENSC_PCSC)-ctapi \
 	--disable-minidriver \
 	--enable-sm \
+	--enable-piv-sm \
 	--disable-man \
 	--disable-doc \
+	--disable-tests \
 	--disable-dnie-ui \
 	--disable-notify \
+	--disable-autostart-items \
 	--disable-cmocka \
-	--disable-static
+	--disable-static \
+	--enable-assert
 
 HOST_OPENSC_CPPFLAGS := -Wno-implicit-fallthrough
 

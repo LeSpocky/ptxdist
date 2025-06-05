@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_OPENSC) += opensc
 #
 # Paths and names
 #
-OPENSC_VERSION	:= 0.23.0
-OPENSC_MD5	:= 35c599e673ae9205550974e2dcbe0825
+OPENSC_VERSION	:= 0.26.1
+OPENSC_MD5	:= dc3d9ff5131a66d756300fb5cf0d87c2
 OPENSC		:= OpenSC-$(OPENSC_VERSION)
 OPENSC_SUFFIX	:= tar.gz
 OPENSC_URL	:= https://github.com/OpenSC/OpenSC/releases/download/$(OPENSC_VERSION)/$(OPENSC).$(OPENSC_SUFFIX)
@@ -39,6 +39,13 @@ OPENSC_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--sysconfdir=/etc/opensc \
 	--enable-optimization \
+	--disable-code-coverage \
+	--disable-valgrind \
+	--disable-valgrind-memcheck \
+	--disable-valgrind-helgrind \
+	--disable-valgrind-drd \
+	--disable-valgrind-sgcheck \
+	--disable-fuzzing \
 	--disable-strict \
 	--disable-pedantic \
 	--enable-thread-locking \
@@ -52,12 +59,16 @@ OPENSC_CONF_OPT := \
 	--disable-ctapi \
 	--disable-minidriver \
 	--enable-sm \
+	--enable-piv-sm \
 	--disable-man \
 	--disable-doc \
+	--$(call ptx/endis,PTXCONF_OPENSC_TESTSUITE)-tests \
 	--disable-dnie-ui \
 	--disable-notify \
+	--disable-autostart-items \
 	--$(call ptx/endis,PTXCONF_OPENSC_TESTSUITE)-cmocka \
-	--disable-static
+	--disable-static \
+	--enable-assert
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -108,10 +119,10 @@ $(STATEDIR)/opensc.targetinstall:
 
 	@$(call install_lib, opensc, 0, 0, 0644, libopensc)
 	@$(call install_copy, opensc, 0, 0, 0755, /usr/lib/pkcs11)
-	@$(call install_lib, opensc, 0, 0, 0644, onepin-opensc-pkcs11)
-	@$(call install_link, opensc, ../onepin-opensc-pkcs11.so, /usr/lib/pkcs11/onepin-opensc-pkcs11.so)
 	@$(call install_lib, opensc, 0, 0, 0644, opensc-pkcs11)
 	@$(call install_link, opensc, ../opensc-pkcs11.so, /usr/lib/pkcs11/opensc-pkcs11.so)
+	@$(call install_link, opensc, opensc-pkcs11.so, /usr/lib/onepin-opensc-pkcs11.so)
+	@$(call install_link, opensc, ../onepin-opensc-pkcs11.so, /usr/lib/pkcs11/onepin-opensc-pkcs11.so)
 	@$(call install_lib, opensc, 0, 0, 0644, pkcs11-spy)
 	@$(call install_link, opensc, ../pkcs11-spy.so, /usr/lib/pkcs11/pkcs11-spy.so)
 
