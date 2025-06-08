@@ -1,0 +1,24 @@
+From: =?UTF-8?q?Micha=C5=82=20Trojnara?= <Michal.Trojnara@stunnel.org>
+Date: Wed, 14 May 2025 12:44:53 +0200
+Subject: [PATCH] Stop installing an internal header file
+
+Fix #596
+---
+ src/Makefile.am | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/Makefile.am b/src/Makefile.am
+index cdcc4ffd4b14..a48a0f1507c3 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -4,8 +4,8 @@ DISTCLEANFILES = libp11.map
+ CLEANFILES = libp11.pc
+ EXTRA_DIST = Makefile.mak libp11.rc.in pkcs11.rc.in
+ 
+-noinst_HEADERS= libp11-int.h pkcs11.h p11_pthread.h
+-include_HEADERS= libp11.h p11_err.h util.h
++noinst_HEADERS= libp11-int.h pkcs11.h p11_pthread.h util.h
++include_HEADERS= libp11.h p11_err.h
+ if ENABLE_STATIC_ENGINE
+ lib_LTLIBRARIES = libp11.la libpkcs11.la
+ else
