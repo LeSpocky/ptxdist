@@ -86,8 +86,8 @@ ifneq ($(strip $(MARIADB_PLUGINS_ENABLE-)),)
 MARIADB_CONF_OPT_PLUGINS := $(foreach plugin,$(MARIADB_PLUGINS_ENABLE-),$(addprefix -DPLUGIN_,$(addsuffix =NO, $(plugin))))
 endif
 
-ifneq ($(strip $(MARIADB_PLUGINS_ENABLED-y)),)
-MARIADB_CONF_OPT_PLUGINS += $(foreach plugin,$(MARIADB_PLUGINS_ENABLED-y),$(addprefix -DPLUGIN_,$(addsuffix =DYNAMIC, $(plugin))))
+ifneq ($(strip $(MARIADB_PLUGINS_ENABLE-y)),)
+MARIADB_CONF_OPT_PLUGINS += $(foreach plugin,$(MARIADB_PLUGINS_ENABLE-y),$(addprefix -DPLUGIN_,$(addsuffix =STATIC, $(plugin))))
 endif
 
 # cmake
