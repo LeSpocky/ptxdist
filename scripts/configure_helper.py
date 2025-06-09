@@ -229,7 +229,7 @@ def blacklist_hit(name, blacklist):
 			return True
 	return False
 
-parse_args_re = re.compile("--((enable|disable|with|without|with\(out\))-)?\[?([^\[=]*)(([\[=]*)([^]]*)]?)?")
+parse_args_re = re.compile(r"--((enable|disable|with|without|with\(out\))-)?\[?([^\[=]*)(([\[=]*)([^]]*)]?)?")
 def parse_configure_args(args, blacklist):
 	ret = []
 	for arg in args:
@@ -251,7 +251,7 @@ def parse_configure_args(args, blacklist):
 				"blacklist": blacklist_hit(groups[2], blacklist)})
 	return ret
 
-meson_parse_args_re = re.compile("-D(.*)=(.*)")
+meson_parse_args_re = re.compile(r"-D(.*)=(.*)")
 def parse_meson_args(args, blacklist):
 	ret = []
 	new_args = []
@@ -294,7 +294,7 @@ def parse_meson_args(args, blacklist):
 				"blacklist": blacklist_hit(name, blacklist)})
 	return (ret, new_args + sorted(last_args))
 
-cmake_parse_args_re = re.compile("-D([^:]*)(:[^=]*)?=(.*)")
+cmake_parse_args_re = re.compile(r"-D([^:]*)(:[^=]*)?=(.*)")
 def parse_cmake_args(args, blacklist):
 	ret = []
 	for arg in args:
@@ -361,15 +361,15 @@ def handle_dir_configure(d, configure):
 			cwd=os.path.dirname(configure))
 	lines = p.stdout.read().splitlines()
 	for line in lines:
-		if not re.match("^\s.*", line):
+		if not re.match(r"^\s.*", line):
 			continue
 		try:
-			word = re.split("[\s,]", line.strip())[0]
+			word = re.split(r"[\s,]", line.strip())[0]
 		except:
 			continue
 		if word[:2] == "--":
 			configure_args.append(word)
-		elif ptx_pkg in ("host-qemu", "qemu") and re.match("  [a-z].*", line):
+		elif ptx_pkg in ("host-qemu", "qemu") and re.match(r"  [a-z].*", line):
 			configure_args.append("--enable-" + word)
 
 	parsed = parse_configure_args(configure_args, configure_blacklist)
@@ -416,7 +416,7 @@ def handle_dir_cmake(d, cmake_builddir):
 	p = subprocess.Popen([ os.path.join(sysroot_host, "bin", "cmake"), "-L", "-N", d, cmake_builddir ],
 			stdout=subprocess.PIPE, universal_newlines=True)
 	lines = p.stdout.read().splitlines()
-	line_re = re.compile("([^:]*):([^=]*)=(.*)")
+	line_re = re.compile(r"([^:]*):([^=]*)=(.*)")
 	for line in lines:
 		match = line_re.match(line)
 		if not match:
