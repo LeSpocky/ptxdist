@@ -123,6 +123,7 @@ config MESALIB_DRI_VC4
 
 config MESALIB_DRI_PANFROST
 	bool
+	select MESALIB_CLC
 	prompt "panfrost"
 
 config MESALIB_DRI_IRIS
@@ -141,8 +142,7 @@ config MESALIB_DRI_ZINK
 
 config MESALIB_DRI_ASAHI
 	bool
-	# needs libclc
-	depends on BROKEN
+	select MESALIB_CLC
 	prompt "asahi"
 
 config MESALIB_DRI_CROCUS
@@ -285,6 +285,7 @@ config MESALIB_VULKAN_FREEDRENO
 
 config MESALIB_VULKAN_PANFROST
 	bool
+	select MESALIB_CLC
 	prompt "Panfrost"
 
 config MESALIB_VULKAN_SWRAST
@@ -305,6 +306,7 @@ config MESALIB_VULKAN_NOUVEAU
 
 config MESALIB_VULKAN_ASAHI
 	bool
+	select MESALIB_CLC
 	depends on MESALIB_DRI_ASAHI
 	prompt "asahi"
 
