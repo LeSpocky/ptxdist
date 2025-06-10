@@ -74,11 +74,16 @@ endif
 
 MESALIB_DRI_GALLIUM_LIBS-y = \
 	$(call ptx/ifdef, PTXCONF_MESALIB_DRI_KMSRO, \
+		apple \
 		armada-drm \
 		exynos \
+		gm12u320 \
+		hdlcd \
 		hx8357d \
+		ili9163 \
 		ili9225 \
 		ili9341 \
+		ili9486 \
 		imx-dcss \
 		imx-drm \
 		imx-lcdif \
@@ -91,14 +96,21 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 		meson \
 		mi0283qt \
 		mxsfb-drm \
+		panel-mipi-dbi \
 		pl111 \
 		rcar-du \
 		repaper \
 		rockchip \
+		rzg2l-du \
+		ssd130x \
 		st7586 \
 		st7735r \
+		sti \
 		stm \
-		sun4i-drm) \
+		sun4i-drm \
+		udl \
+		vkms \
+		zynqmp-dpsub) \
 	$(patsubst %pipe,swrast kms_swrast \
 	,$(subst softpipe llvmpipe,softpipe \
 	,$(subst freedreno,kgsl msm \
