@@ -114,10 +114,11 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 	$(patsubst %pipe,swrast kms_swrast \
 	,$(subst softpipe llvmpipe,softpipe \
 	,$(subst freedreno,kgsl msm \
+	,$(subst panfrost,panfrost panthor \
 	,$(subst svga,vmwgfx \
 	,$(subst virgl,virtio_gpu \
 	,$(MESALIB_GALLIUM_DRIVERS-y) \
-	)))))
+	))))))
 
 MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_VC1DEC)	+= vc1dec
 MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_H264DEC)	+= h264dec
