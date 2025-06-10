@@ -154,7 +154,9 @@ endif
 MESALIB_VULKAN_LIBS-y = $(subst amd,radeon,$(subst swrast,lvp,$(MESALIB_VULKAN_DRIVERS-y)))
 
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_DEVICE_SELECT)	+= device-select
+ifdef PTXCONF_ARCH_X86
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_INTEL_NULLHW)	+= intel-nullhw
+endif
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_OVERLAY)		+= overlay
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_SCREENSHOT)	+= screenshot
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_VRAM_REPORT_LIMIT) += \
@@ -342,6 +344,11 @@ ifneq ($(strip $(MESALIB_VULKAN_LIBS-y)),)
 		/usr/lib/libvulkan_$(lib).so)$(ptx/nl) \
 		$(call install_glob, mesalib, 0, 0, -, \
 		/etc/vulkan/icd.d, */$(lib)_icd.*.json)$(ptx/nl))
+endif
+ifneq ($(strip $(MESALIB_VULKAN_LAYERS-y)),)
+	@$(foreach lib, $(MESALIB_VULKAN_LAYERS-y), \
+		$(call install_copy, mesalib, 0, 0, 0644, -, \
+		/usr/lib/libVkLayer_MESA_$(subst -,_,$(lib)).so)$(ptx/nl))
 endif
 
 	@$(foreach lib, $(MESALIB_LIBS-y), \
