@@ -178,6 +178,7 @@ MESALIB_DRI_VA_LIBS-$(PTXCONF_MESALIB_DRI_R600)		+= r600
 MESALIB_DRI_VA_LIBS-$(PTXCONF_MESALIB_DRI_RADEONSI)	+= radeonsi
 endif
 MESALIB_DRI_VA_LIBS-$(PTXCONF_MESALIB_DRI_NOUVEAU)	+= nouveau
+MESALIB_DRI_VA_LIBS-$(PTXCONF_MESALIB_DRI_VIRGL)	+= virtio_gpu
 endif
 
 MESALIB_MESON_CROSS_FILE := $(call ptx/get-alternative, config/meson, mesalib-cross-file.meson)
