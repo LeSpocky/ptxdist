@@ -7,7 +7,7 @@ Development Tree
 PTXdist uses Git for version control.
 The master repository is available at::
 
-   git://git.pengutronix.de/ptxdist
+   https://git.pengutronix.de/git/ptxdist
 
 A `Git web interface <https://git.pengutronix.de/cgit/ptxdist/>`_ is also available.
 
