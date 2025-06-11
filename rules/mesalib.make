@@ -347,9 +347,12 @@ ifneq ($(strip $(MESALIB_VULKAN_LIBS-y)),)
 		/etc/vulkan/icd.d, */$(lib)_icd.*.json)$(ptx/nl))
 endif
 ifneq ($(strip $(MESALIB_VULKAN_LAYERS-y)),)
-	@$(foreach lib, $(MESALIB_VULKAN_LAYERS-y), \
+	@$(foreach lib, $(filter-out intel-nullhw,$(MESALIB_VULKAN_LAYERS-y)), \
 		$(call install_copy, mesalib, 0, 0, 0644, -, \
 		/usr/lib/libVkLayer_MESA_$(subst -,_,$(lib)).so)$(ptx/nl))
+endif
+ifdef PTXCONF_MESALIB_VULKAN_INTEL_NULLHW
+	@$(call install_lib, mesalib, 0, 0, 0644, libVkLayer_INTEL_nullhw)
 endif
 
 	@$(foreach lib, $(MESALIB_LIBS-y), \
