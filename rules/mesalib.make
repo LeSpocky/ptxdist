@@ -351,8 +351,10 @@ ifneq ($(strip $(MESALIB_VULKAN_LAYERS-y)),)
 		$(call install_copy, mesalib, 0, 0, 0644, -, \
 		/usr/lib/libVkLayer_MESA_$(subst -,_,$(lib)).so)$(ptx/nl))
 endif
+ifdef PTXCONF_ARCH_X86
 ifdef PTXCONF_MESALIB_VULKAN_INTEL_NULLHW
 	@$(call install_lib, mesalib, 0, 0, 0644, libVkLayer_INTEL_nullhw)
+endif
 endif
 
 	@$(foreach lib, $(MESALIB_LIBS-y), \
