@@ -13,8 +13,8 @@ PACKAGES-$(PTXCONF_PUREFTPD) += pureftpd
 #
 # Paths and names
 #
-PUREFTPD_VERSION	:= 1.0.36
-PUREFTPD_MD5		:= 7899c75c1fed7dbad0352eb31080e066
+PUREFTPD_VERSION	:= 1.0.52
+PUREFTPD_MD5		:= 6fdd75053b7aaa0f45089a7bf7fcd0b4
 PUREFTPD		:= pure-ftpd-$(PUREFTPD_VERSION)
 PUREFTPD_SUFFIX		:= tar.bz2
 PUREFTPD_URL		:= \
@@ -22,6 +22,12 @@ PUREFTPD_URL		:= \
 	http://download.pureftpd.org/pub/pure-ftpd/releases/obsolete/$(PUREFTPD).$(PUREFTPD_SUFFIX)
 PUREFTPD_SOURCE		:= $(SRCDIR)/$(PUREFTPD).$(PUREFTPD_SUFFIX)
 PUREFTPD_DIR		:= $(BUILDDIR)/$(PUREFTPD)
+PUREFTPD_LICENSE	:= ISC AND BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause
+PUREFTPD_LICENSE_FILES	:= \
+	file://COPYING;md5=5138d4a8a877b32de6a78cf7e9e99c25 \
+	file://src/bsd-getopt_long.c;startline=16;endline=43;md5=295b2603ea44ba63d947caed65e10801 \
+	file://src/bsd-glob.c;startline=2;endline=32;md5=8fd02637c51e4790905f94ede93f40f5 \
+	file://src/bsd-getopt_long.h;startline=20;endline=54;md5=72453a000b4b09da65c73ee68c527048
 
 # ----------------------------------------------------------------------------
 # Prepare
