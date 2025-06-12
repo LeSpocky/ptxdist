@@ -17,6 +17,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_MESALIB) += host-mesalib
 
 HOST_MESALIB_TOOLS-y := glsl
 HOST_MESALIB_TOOLS-$(PTXCONF_HOST_MESALIB_PANFROST) += panfrost
+HOST_MESALIB_TOOLS-$(PTXCONF_HOST_MESALIB_ASAHI) += asahi
 
 HOST_MESALIB_MESON_CROSS_FILE := $(call ptx/get-alternative, config/meson, mesalib-native-file.meson)
 
@@ -132,6 +133,10 @@ ifdef PTXCONF_HOST_MESALIB_PANFROST
 HOST_MESALIB_MAKE_OPT	+= \
 	src/panfrost/clc/panfrost_compile
 endif
+ifdef PTXCONF_HOST_MESALIB_ASAHI
+HOST_MESALIB_MAKE_OPT	+= \
+	src/asahi/clc/asahi_clc
+endif
 
 $(STATEDIR)/host-mesalib.install:
 	@$(call targetinfo)
@@ -142,6 +147,9 @@ ifdef PTXCONF_HOST_MESALIB_CLC
 endif
 ifdef PTXCONF_HOST_MESALIB_PANFROST
 	install -D -m755 $(HOST_MESALIB_DIR)-build/src/panfrost/clc/panfrost_compile $(HOST_MESALIB_PKGDIR)/usr/bin/panfrost_compile
+endif
+ifdef PTXCONF_HOST_MESALIB_ASAHI
+	install -D -m755 $(HOST_MESALIB_DIR)-build/src/asahi/clc/asahi_clc $(HOST_MESALIB_PKGDIR)/usr/bin/asahi_clc
 endif
 	@$(call touch)
 

@@ -22,4 +22,7 @@ config HOST_MESALIB_CLC
 config HOST_MESALIB_PANFROST
 	bool
 
+config HOST_MESALIB_ASAHI
+	bool
+
 endif
