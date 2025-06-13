@@ -39,6 +39,10 @@ PUREFTPD_LICENSE_FILES	:= \
 PUREFTPD_CONF_TOOL	:= autoconf
 PUREFTPD_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--enable-pie \
+	--enable-ssp \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--without-dmalloc \
 	--with-standalone \
 	--$(call ptx/wwo, PTXCONF_PUREFTPD_SYSTEMD_UNIT)-inetd \
@@ -47,6 +51,7 @@ PUREFTPD_CONF_OPT	:= \
 	--with-usernames \
 	--with-iplogging \
 	--with-humor \
+	--with-longoptions \
 	--without-ascii \
 	--$(call ptx/ifdef, PTXCONF_PUREFTPD_SHRINK_MORE,without,with)-globbing \
 	--with-nonalnum \
@@ -76,11 +81,13 @@ PUREFTPD_CONF_OPT	:= \
 	--without-peruserlimits \
 	--without-implicittls \
 	--without-debug \
+	--without-everything \
 	--with-language=english \
 	--without-ldap \
 	--without-mysql \
 	--without-pgsql \
-	--without-tls
+	--without-tls \
+	--without-bonjour
 
 #
 # FIXME: configure probes host's /dev/urandom and /dev/random

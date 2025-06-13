@@ -3,6 +3,7 @@ menuconfig PUREFTPD
 	tristate
 	prompt "pureftpd                      "
 	select LIBC_CRYPT
+	select LIBSODIUM
 	help
 	  Pure-FTPd is a fast, production-quality, standards-conformant
 	  FTP server based upon Troll-FTPd. Features include chrooted
