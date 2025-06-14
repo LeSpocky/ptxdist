@@ -8,7 +8,7 @@ menuconfig SYSLOGNG
 	select GLIB
 	select OPENSSL
 	select LIBCURL		if SYSLOGNG_HTTP
-	select JSON_C		if SYSLOGNG_JSON
+	select JSON_C
 	select PYTHON3		if SYSLOGNG_PYTHON_DESTINATION
 	select LIBC_RT
 	select LIBNET		if SYSLOGNG_SPOOF_SOURCE

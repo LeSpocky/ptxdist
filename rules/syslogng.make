@@ -95,7 +95,7 @@ SYSLOGNG_CONF_OPT	:= \
 	--with-pidfile-dir=/var/run \
 	--with-module-dir=/usr/lib/syslog-ng \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
-	--with-jsonc=$(if $(PTXCONF_SYSLOGNG_JSON),system,no) \
+	--with-jsonc \
 	--with-ivykis=internal \
 	--without-libesmtp \
 	--without-libhiredis \
