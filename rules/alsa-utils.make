@@ -34,7 +34,7 @@ ALSA_UTILS_LICENSE_FILES := \
 
 ALSA_UTILS_CONF_ENV	:= \
 	$(CROSS_ENV) \
-	ac_cv_header_alsa_mixer_h=$(call ptx/yesno, PTXCONF_ALSA_UTILS_ALSAMIXER) \
+	ac_cv_header_alsa_mixer_h=$(if $(PTXCONF_ALSA_UTILS_ALSAMIXER)$(PTXCONF_ALSA_UTILS_AMIXER),yes,no) \
 	ac_cv_header_alsa_rawmidi_h=$(call ptx/yesno, PTXCONF_ALSA_UTILS_RAW_MIDI) \
 	ac_cv_lib_asound_snd_seq_client_info_get_midi_version=$(call ptx/yesno, PTXCONF_ALSA_UTILS_MIDI)
 
