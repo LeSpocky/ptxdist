@@ -3,6 +3,7 @@
 config MINICOREDUMPER
 	tristate
 	prompt "minicoredumper"
+	select LIBC_THREAD_DB
 	select LIBELF
 	select JSON_C
 	help
