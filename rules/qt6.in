@@ -333,6 +333,7 @@ config QT6_MODULE_QTDECLARATIVE
 	bool
 	# FIXME: fails to build without QT6_TEST
 	select QT6_TEST
+	select QT6_OPENGL
 	select QT6_MODULE_QTSHADERTOOLS
 	prompt "QtDeclarative"
 
@@ -377,6 +378,7 @@ config QT6_MODULE_QTGRAPHS
 	bool
 	select QT6_GUI
 	select QT6_MODULE_QTDECLARATIVE
+	select QT6_MODULE_QTQUICK3D
 	prompt"QtGraphs"
 
 config QT6_MODULE_QTHTTPSERVER
