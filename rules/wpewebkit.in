@@ -93,6 +93,8 @@ config WPEWEBKIT_JOURNALD
 
 config WPEWEBKIT_VIDEO
 	bool
+	# fails to build without it
+	select WPEWEBKIT_AUDIO
 	prompt "video support"
 
 config WPEWEBKIT_AUDIO
