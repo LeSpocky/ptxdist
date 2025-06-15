@@ -561,6 +561,7 @@ config GST_PLUGINS_BAD1_GSM
 
 config GST_PLUGINS_BAD1_GTK3
 	bool
+	select GST_PLUGINS_BAD1_WAYLAND
 	prompt "gtk3"
 	help
 	  GTK+ video sink plugin
