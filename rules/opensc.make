@@ -59,7 +59,7 @@ OPENSC_CONF_OPT := \
 	--disable-ctapi \
 	--disable-minidriver \
 	--enable-sm \
-	--enable-piv-sm \
+	--$(call ptx/endis,PTXCONF_OPENSC_OPENSSL)-piv-sm \
 	--disable-man \
 	--disable-doc \
 	--$(call ptx/endis,PTXCONF_OPENSC_TESTSUITE)-tests \
