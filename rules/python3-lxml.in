@@ -4,6 +4,11 @@ config PYTHON3_LXML
 	tristate
 	select PYTHON3
 	select LIBXML2
+	select LIBXML2_C14N
+	select LIBXML2_DTD
+	select LIBXML2_HTML
+	select LIBXML2_RELAXNG
+	select LIBXML2_SAX1
 	select LIBXML2_SCHEMAS
 	select LIBXSLT
 	select LIBXSLT_LIBEXSLT
