@@ -44,6 +44,7 @@ config QEMU_SDL
 
 config QEMU_GTK
 	bool
+	select QEMU_PIXMAN
 	prompt "Enable GTK graphical output support."
 	help
 	  Say y to build with GTK support.
