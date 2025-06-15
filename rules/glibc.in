@@ -168,6 +168,7 @@ config GLIBC_NSS_HESIOD
 config GLIBC_NSS_NIS
 	bool
 	prompt "Install libnss_nis"
+	depends on !GLIBC_2_34
 	select GLIBC_NSL
 	select GLIBC_NSS_FILES
 	help
@@ -176,6 +177,7 @@ config GLIBC_NSS_NIS
 config GLIBC_NSS_NISPLUS
 	bool
 	prompt "Install libnss_nisplus"
+	depends on !GLIBC_2_34
 	select GLIBC_NSL
 	help
 	  Adds the NIS+ (NIS version 3) libnss source
