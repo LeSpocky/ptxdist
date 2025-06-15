@@ -121,6 +121,8 @@ ifdef PTXCONF_GSTREAMER1_INSTALL_TOOLS
 		/usr/bin/gst-typefind-1.0)
 	@$(call install_copy, gstreamer1, 0, 0, 0755, -, \
 		/usr/bin/gst-stats-1.0)
+	@$(call install_copy, gstreamer1, 0, 0, 0755, -, \
+		/usr/libexec/gstreamer-1.0/gst-plugin-scanner)
 endif
 
 	@$(call install_lib, gstreamer1, 0, 0, 0644, libgstbase-1.0)
@@ -138,8 +140,6 @@ ifdef PTXCONF_GSTREAMER1_DEBUG
 		gstreamer-1.0/libgstcoretracers)
 endif
 
-	@$(call install_copy, gstreamer1, 0, 0, 0755, -, \
-		/usr/libexec/gstreamer-1.0/gst-plugin-scanner)
 ifdef PTXCONF_GSTREAMER1_PTP
 	@$(call install_copy, gstreamer1, 0, 0, 4755, -, \
 		/usr/libexec/gstreamer-1.0/gst-ptp-helper)
