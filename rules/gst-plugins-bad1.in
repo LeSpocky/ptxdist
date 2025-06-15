@@ -1002,6 +1002,7 @@ config GST_PLUGINS_BAD1_VOAMRWBENC
 
 config GST_PLUGINS_BAD1_VULKAN
 	bool
+	select GST_PLUGINS_BAD1_WAYLAND
 	prompt "vulkan"
 	help
 	  Vulkan video sink plugin
