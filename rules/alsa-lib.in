@@ -79,6 +79,7 @@ config ALSA_LIB_HWDEP
 config ALSA_LIB_SEQ
 	bool
 	select ALSA_LIB_PCM
+	select ALSA_LIB_RAWMIDI
 	default y
 	prompt "sequencer"
 	help
