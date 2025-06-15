@@ -229,6 +229,7 @@ config GST_PLUGINS_RS_WEBP
 
 config GST_PLUGINS_RS_WEBRTC
 	bool
+	select GST_PLUGINS_RS_RTP
 	prompt "webrtc"
 
 config GST_PLUGINS_RS_WEBRTCHTTP
