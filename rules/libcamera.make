@@ -70,6 +70,7 @@ LIBCAMERA_IPA_PROXIES-$(PTXCONF_LIBCAMERA_PIPELINE_VIMC)	+= vimc
 LIBCAMERA_CONF_TOOL	:= meson
 LIBCAMERA_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
+	-Dwerror=false \
 	-Dandroid=disabled \
 	-Dcam=$(call ptx/endis,PTXCONF_LIBCAMERA_CAM)d \
 	-Ddoc_werror=false \
