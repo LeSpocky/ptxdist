@@ -31,6 +31,7 @@ config GLIBC_2_34
 
 config GLIBC_2_38
 	bool
+	select GLIBC_2_34
 	prompt "glibc-2.38 or later"
 	help
 	  In glibc-2.38 libcrypt was deprecated and removed afterwards.
