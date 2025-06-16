@@ -14,18 +14,18 @@ PACKAGES-$(PTXCONF_PAHO_MQTT_CPP) += paho-mqtt-cpp
 #
 # Paths and names
 #
-PAHO_MQTT_CPP_VERSION	:= 1.2.0
-PAHO_MQTT_CPP_MD5	:= 5a4b7c869e6f20cb85c438456d5b8d12
+PAHO_MQTT_CPP_VERSION	:= 1.5.3
+PAHO_MQTT_CPP_MD5	:= 5e854904a4eb7eae6a1bf4cfcdff28da
 PAHO_MQTT_CPP		:= paho.mqtt.cpp-$(PAHO_MQTT_CPP_VERSION)
 PAHO_MQTT_CPP_SUFFIX	:= tar.gz
 PAHO_MQTT_CPP_URL	:= https://github.com/eclipse/paho.mqtt.cpp/archive/v$(PAHO_MQTT_CPP_VERSION).$(PAHO_MQTT_CPP_SUFFIX)
 PAHO_MQTT_CPP_SOURCE	:= $(SRCDIR)/$(PAHO_MQTT_CPP).$(PAHO_MQTT_CPP_SUFFIX)
 PAHO_MQTT_CPP_DIR	:= $(BUILDDIR)/$(PAHO_MQTT_CPP)
 # "Eclipse Distribution License - v 1.0" is in fact BSD-3-Clause
-PAHO_MQTT_CPP_LICENSE	:= EPL-1.0 AND BSD-3-Clause
+PAHO_MQTT_CPP_LICENSE	:= EPL-2.0 AND BSD-3-Clause
 PAHO_MQTT_CPP_LICENSE_FILES := \
-	file://about.html;md5=dcde438d73cf42393da9d40fabc0c9bc \
-	file://epl-v10;md5=659c8e92a40b6df1d9e3dccf5ae45a08 \
+	file://about.html;md5=fa779b102043e99492d92d501aaa2456 \
+	file://epl-v20;md5=d9fc0efef5228704e7f5b37f27192723 \
 	file://edl-v10;md5=3adfcc70f5aeb7a44f3f9b495aa1fbf3
 
 # ----------------------------------------------------------------------------
