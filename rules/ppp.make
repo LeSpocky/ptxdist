@@ -23,7 +23,36 @@ PPP_SUFFIX	:= tar.gz
 PPP_URL		:= https://www.samba.org/ftp/ppp/$(PPP).$(PPP_SUFFIX)
 PPP_SOURCE	:= $(SRCDIR)/$(PPP).$(PPP_SUFFIX)
 PPP_DIR		:= $(BUILDDIR)/$(PPP)
-PPP_LICENSE	:= BSD AND GPL-2.0-only
+PPP_LICENSE	:= \
+	BSD-3-Clause AND GPL-2.0-only AND Apache-2.0 AND BSD-4.3TAHOE AND \
+	BSD-Attribution-HPND-disclaimer AND Mackerras-3-Clause AND FSFAP AND \
+	(GPL-2.0-or-later OR BSD-4-Clause OR BSD-3-Clause OR BSD-2-Clause) AND \
+	GPL-2.0-or-later WITH Autoconf-exception-generic AND \
+	HPND-Fenneberg-Livingston AND UMich-Merit AND HPND-INRIA-IMAG AND \
+	ISC AND LGPL-2.1-or-later AND MIT AND Mackerras-3-Clause-acknowledgment \
+	AND public_domain AND Sun-PPP AND Sun-PPP-2000
+PPP_LICENSE_FILES := \
+	file://LICENSE.BSD;md5=3775480a712fc46a69647678acb234cb \
+	file://LICENSE.GPL-2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://pppd/crypto_ms.c;startline=49;endline=54;md5=2683a91a6df93c252f955a916d71cf33 \
+	file://pppstats/pppstats.c;startline=18;endline=31;md5=d668e8c42e0238dd219c556aea5f313f \
+	file://pppd/auth.c;startline=28;endline=64;md5=c67784d4e4100a46116adb0c69679980 \
+	file://pppd/chap_ms.c;startline=4;endline=28;md5=6d1ed5fc616bc97b03c0eba74516ec55 \
+	file://m4/ax_check_atm.m4;startline=17;endline=22;md5=0c957d771d01d2fe770ff40e7929c794 \
+	file://pppd/termios_linux.h;startline=1;endline=6;md5=0502fac4cda6f3e1cee20e375d6ec6f7 \
+	file://m4/pkg.m4;startline=4;endline=26;md5=9c6805bddda682155b00f2d2ae5b3b0b \
+	file://pppd/plugins/radius/COPYRIGHT;startline=20;endline=32;md5=cb79d2ada1c67f5a36bd6e876701f18f \
+	file://pppd/plugins/radius/COPYRIGHT;startline=50;endline=68;md5=162895d33fd19ceb38742c7aa1d23253 \
+	file://pppd/ipv6cp.c;startline=72;endline=91;md5=72d14927791f0c58004e9948a3c8b2a4 \
+	file://pppd/pppd.8;startline=8;endline=20;md5=063c017c0747428ab8fcb6a924d1768e \
+	file://pppd/plugins/pppoatm/COPYING;startline=1;endline=4;md5=83bda153d6fc6da3dfcffbf75dcb5744 \
+	file://chat/chat.c;startline=6;endline=27;md5=fb879812bb782070b1b0549d1057689a \
+	file://pppd/session.c;startline=4;endline=28;md5=3052982a4f12f2dc3d8854695b7e95d1 \
+	file://pppd/ppp-md5.c;startline=101;endline=119;md5=bda64dbdffcf95ec99a3ad78d2b55301 \
+	file://pppd/eap.c;startline=4;endline=16;md5=fb3c09febdc398e3d3d3165730fc1641 \
+	file://pppd/sys-solaris.c;startline=7;endline=19;md5=63c3c2a91abee830755b6fbe2b3e4b0f \
+	file://pppd/eui64.c;startline=4;endline=33;md5=f761f20c0bd9aba37f1caf6065929cbd \
+	file://pppd/sys-solaris.c;startline=21;endline=41;md5=35c31e0a22bf9ea211c1ebab7169f6b8
 
 # ----------------------------------------------------------------------------
 # Prepare
