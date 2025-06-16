@@ -31,6 +31,10 @@ QEMU_BUILD_OOT	:= YES
 QEMU_MAKE_OPT	:= V=$(filter 1,$(PTXDIST_VERBOSE))
 
 QEMU_TARGETS	:= $(call remove_quotes,$(PTXCONF_QEMU_TARGETS))
+ifndef PTXCONF_ARCH_LP64
+# 64-bit targets are not supported on 32-bit hosts
+QEMU_TARGETS	:= $(filter-out %64,$(QEMU_TARGETS))
+endif
 
 QEMU_SYS_TARGETS	:= $(foreach target, $(QEMU_TARGETS), $(patsubst %,%-softmmu,$(target)))
 QEMU_USR_TARGETS	:= $(foreach target, $(QEMU_TARGETS), $(patsubst %,%-linux-user,$(target)))
