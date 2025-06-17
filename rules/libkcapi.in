@@ -2,6 +2,7 @@
 
 menuconfig LIBKCAPI
 	tristate
+	select BASH		if LIBKCAPI_TEST && RUNTIME
 	prompt "libkcapi                      "
 	help
 	  The Linux kernel exports a Netlink interface of type AF_ALG to
