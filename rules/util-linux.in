@@ -4,6 +4,7 @@ menuconfig UTIL_LINUX
 	tristate
 	prompt "util-linux                    "
 	select GCCLIBS_GCC_S
+	select LIBC_CRYPT			if UTIL_LINUX_SULOGIN
 	select HOST_MESON
 	select UTIL_LINUX_LIBBLKID
 	select UTIL_LINUX_LIBUUID		if UTIL_LINUX_MKSWAP_UUID
