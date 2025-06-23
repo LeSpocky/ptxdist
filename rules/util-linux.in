@@ -265,6 +265,7 @@ config UTIL_LINUX_WAITPID
 config UTIL_LINUX_WIPEFS
 	bool
 	select UTIL_LINUX_LIBBLKID
+	select UTIL_LINUX_LIBSMARTCOLS
 	prompt "wipefs"
 	help
 	  The wipefs program can erase filesystem, raid or partition-table
