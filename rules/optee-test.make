@@ -24,6 +24,9 @@ OPTEE_TEST_URL		:= https://github.com/OP-TEE/optee_test/archive/$(OPTEE_TEST_VER
 OPTEE_TEST_SOURCE	:= $(SRCDIR)/$(OPTEE_TEST).$(OPTEE_TEST_SUFFIX)
 OPTEE_TEST_DIR		:= $(BUILDDIR)/$(OPTEE_TEST)
 OPTEE_TEST_LICENSE	:= BSD-2-Clause and GPL-2.0
+OPTEE_TEST_LICENSE_FILES	:= \
+	file://LICENSE-BSD;md5=dca16d6efa93b55d0fd662ae5cd6feeb \
+	file://LICENSE-GPL;md5=10e86b5d2a6cb0e2b9dcfdd26a9ac58d
 
 # ----------------------------------------------------------------------------
 # Prepare
