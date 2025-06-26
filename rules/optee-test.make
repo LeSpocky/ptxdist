@@ -36,7 +36,9 @@ OPTEE_TEST_MAKE_ENV	:= \
 	CROSS_COMPILE_TA=$(call remove_quotes,$(PTXCONF_COMPILER_PREFIX)) \
 	TA_DEV_KIT_DIR=$(PTXDIST_SYSROOT_TARGET)/usr/lib/optee-os \
 	OPTEE_CLIENT_EXPORT=$(PTXDIST_SYSROOT_TARGET)/usr \
-	COMPILE_NS_USER=32 OPTEE_OPENSSL_EXPORT=$(PTXDIST_SYSROOT_TARGET)/usr/lib
+	COMPILE_NS_USER=32 OPTEE_OPENSSL_EXPORT=$(PTXDIST_SYSROOT_TARGET)/usr/lib \
+	bindir=/usr/bin \
+	libdir=/usr/lib
 
 OPTEE_TEST_CFLAGS	:= \
 	-Wno-error=deprecated-declarations
@@ -45,7 +47,7 @@ OPTEE_TEST_CFLAGS	:= \
 # Install
 # ----------------------------------------------------------------------------
 
-OPTEE_TEST_INSTALL_OPT := install DESTDIR=$(OPTEE_TEST_PKGDIR)/usr/
+OPTEE_TEST_INSTALL_OPT := install DESTDIR=$(OPTEE_TEST_PKGDIR)
 
 $(STATEDIR)/optee-test.install:
 	@$(call targetinfo)
