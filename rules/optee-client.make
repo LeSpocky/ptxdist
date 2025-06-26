@@ -22,6 +22,8 @@ OPTEE_CLIENT_URL	:= https://github.com/OP-TEE/optee_client/archive/$(OPTEE_CLIEN
 OPTEE_CLIENT_SOURCE	:= $(SRCDIR)/$(OPTEE_CLIENT).$(OPTEE_CLIENT_SUFFIX)
 OPTEE_CLIENT_DIR	:= $(BUILDDIR)/$(OPTEE_CLIENT)
 OPTEE_CLIENT_LICENSE	:= BSD-2-Clause
+OPTEE_CLIENT_LICENSE_FILES := \
+	file://LICENSE;md5=69663ab153298557a59c67a60a743e5b
 
 # ----------------------------------------------------------------------------
 # Prepare
