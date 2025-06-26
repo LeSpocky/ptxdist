@@ -3,6 +3,7 @@
 config OPTEE_TEST
 	tristate
 	select OPTEE_CLIENT
+	select OPTEE_CLIENT_SUPPLICANT_PLUGINS
 	select OPTEE
 	select OPENSSL
 	prompt "optee-test"

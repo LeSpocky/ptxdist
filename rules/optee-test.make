@@ -37,6 +37,7 @@ OPTEE_TEST_MAKE_ENV	:= \
 	TA_DEV_KIT_DIR=$(PTXDIST_SYSROOT_TARGET)/usr/lib/optee-os \
 	OPTEE_CLIENT_EXPORT=$(PTXDIST_SYSROOT_TARGET)/usr \
 	COMPILE_NS_USER=32 OPTEE_OPENSSL_EXPORT=$(PTXDIST_SYSROOT_TARGET)/usr/lib \
+	CFG_TEE_PLUGIN_LOAD_PATH=/usr/lib/tee-supplicant/plugins \
 	bindir=/usr/bin \
 	libdir=/usr/lib
 
@@ -70,6 +71,7 @@ $(STATEDIR)/optee-test.targetinstall:
 
 	@$(call install_copy, optee-test, 0, 0, 0755, -, /usr/bin/optee-xtest)
 	@$(call install_tree, optee-test, 0, 0, -, /usr/lib/optee_armtz)
+	@$(call install_tree, optee-test, 0, 0, -, /usr/lib/tee-supplicant/plugins)
 
 	@$(call install_finish, optee-test)
 
