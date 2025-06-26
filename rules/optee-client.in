@@ -2,6 +2,7 @@
 
 menuconfig OPTEE_CLIENT
 	tristate
+	select HOST_CMAKE
 	select LIBUUID
 	prompt "optee-client                  "
 	help

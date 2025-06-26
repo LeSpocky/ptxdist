@@ -27,13 +27,27 @@ OPTEE_CLIENT_LICENSE	:= BSD-2-Clause
 # Prepare
 # ----------------------------------------------------------------------------
 
-OPTEE_CLIENT_CONF_TOOL := NO
-OPTEE_CLIENT_MAKE_ENV := \
-	$(CROSS_ENV) \
-	LIBDIR=/usr/lib \
-	INCLUDEDIR=/usr/include \
-	CFG_TEE_CLIENT_LOAD_PATH=/usr/lib/ \
-	CFG_TEE_SUPP_PLUGINS=n
+OPTEE_CLIENT_CONF_TOOL	:= cmake
+OPTEE_CLIENT_CONF_OPT	:= \
+	$(CROSS_CMAKE_USR) \
+	-DBUILD_SHARED_LIBS=ON \
+	-DCFG_FTRACE_SUPPORT=ON \
+	-DCFG_GP_SOCKETS=1 \
+	-DCFG_TA_GPROF_SUPPORT=ON \
+	-DCFG_TEEPRIV_GROUP=teepriv \
+	-DCFG_TEE_CLIENT_LOAD_PATH=/usr/lib/ \
+	-DCFG_TEE_CLIENT_LOG_FILE=var/lib/tee/teec.log \
+	-DCFG_TEE_CLIENT_LOG_LEVEL=1 \
+	-DCFG_TEE_FS_PARENT_PATH=var/lib/tee \
+	-DCFG_TEE_GROUP=tee \
+	-DCFG_TEE_PLUGIN_LOAD_PATH=/usr/lib/tee-supplicant/plugins/ \
+	-DCFG_TEE_SUPPL_GROUP=teesuppl \
+	-DCFG_TEE_SUPPL_USER=teesuppl \
+	-DCFG_TEE_SUPP_LOG_LEVEL=1 \
+	-DCFG_TEE_SUPP_PLUGINS=OFF \
+	-DCFG_WERROR=ON \
+	-DRPMB_EMU=ON \
+	-DWITH_TEEACL=ON
 
 # ----------------------------------------------------------------------------
 # Target-Install
