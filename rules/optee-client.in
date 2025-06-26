@@ -22,4 +22,8 @@ config OPTEE_CLIENT_SYSTEMD_UNIT
 	depends on SYSTEMD
 	prompt "install systemd service file for tee-supplicant"
 
+config OPTEE_CLIENT_SUPPLICANT_PLUGINS
+	bool
+	prompt "enable TEE supplicant plugins"
+
 endif
