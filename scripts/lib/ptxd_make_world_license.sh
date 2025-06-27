@@ -413,7 +413,7 @@ ptxd_make_world_license() {
     local arg
     local -a pkg_license_texts
     local -a pkg_license_texts_guessed
-    local -A pkg_license_uris
+    local -A pkg_license_uris lic_names
     local pkg_dot
     local pkg_dot="${pkg_license_dir}/graph.dot"
     local pkg_tex="${pkg_license_dir}/graph.tex"
@@ -437,6 +437,10 @@ ptxd_make_world_license() {
 	ptxd_make_world_parse_license_files "${arg}" &&
 
 	local name="${filename//\//_}" &&
+	if [ -n "${lic_names["${name}"]}" ]; then
+	    name="${name}.${startline}"
+	fi &&
+	lic_names["${name}"]=1 &&
 	local lic="${pkg_license_dir}/license/${name}" &&
 	echo " $(ptxd_print_path "${file}")${guess:+ (guessed)}" &&
 	sed -n "${startline},${endline}p" "${file}" > "${lic}" &&
