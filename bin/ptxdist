@@ -1450,13 +1450,21 @@ do_select()
 		"      '${file}'"
 
 	#
-	# try to guess toolchain
+	# update PTXDIST_*CONFIG
 	#
 	case "${type}" in
+	ptxconfig)
+		PTXDIST_PTXCONFIG="${!dest_ptr}"
+		;;
 	platformconfig)
+		PTXDIST_PLATFORMCONFIG="${!dest_ptr}"
 		if [ "${PTX_toolchain_SET}" != "true" ]; then
+			# try to guess toolchain
 			do_select_toolchain
 		fi
+		;;
+	collectionconfig)
+		PTXDIST_COLLECTIONCONFIG="${!dest_ptr}"
 		;;
 	*)
 		;;
