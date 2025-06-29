@@ -1267,6 +1267,7 @@ setup_layers()
 			local tmp=( ${cfgs[@]/#/${layer}/} )
 			if [ "${#tmp[@]}" -gt 2 ]; then
 				tmp=( "${tmp[0]}" )
+				cfgs=( "${cfgs[0]}" )
 			fi
 			local -a ptxd_reply
 			ptxd_get_path_filtered "${tmp[@]}" || continue
