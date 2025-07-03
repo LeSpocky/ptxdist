@@ -10,10 +10,10 @@ meson.build:1482:22: ERROR: Object <[ExternalLibraryHolder] holds [ExternalLibra
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/meson.build b/meson.build
-index 6aeac2137941..56b14a171384 100644
+index 84fa4c805f59..839db6fb206e 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -1475,7 +1475,7 @@ has_seminfo_type = cc.has_type('struct seminfo', args : '-D_GNU_SOURCE', prefix
+@@ -1473,7 +1473,7 @@ has_seminfo_type = cc.has_type('struct seminfo', args : '-D_GNU_SOURCE', prefix
  
  posixipc_libs = []
  if not cc.has_function('shm_open') and conf.get('HAVE_SYS_MMAN_H').to_string() == '1'

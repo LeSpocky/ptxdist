@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_UTIL_LINUX) += util-linux
 #
 # Paths and names
 #
-UTIL_LINUX_VERSION	:= 2.41
-UTIL_LINUX_MD5		:= 1596f41840811a880b87fa0d360407be
+UTIL_LINUX_VERSION	:= 2.41.1
+UTIL_LINUX_MD5		:= 0feef1f700c5576a11ed97c47c1776d3
 UTIL_LINUX		:= util-linux-$(UTIL_LINUX_VERSION)
 UTIL_LINUX_SUFFIX	:= tar.gz
 UTIL_LINUX_URL		:= https://git.kernel.org/pub/scm/utils/util-linux/util-linux.git/snapshot/$(UTIL_LINUX).$(UTIL_LINUX_SUFFIX)
