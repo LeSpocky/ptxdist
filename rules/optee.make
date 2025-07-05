@@ -80,18 +80,10 @@ $(STATEDIR)/optee.targetinstall:
 
 	@$(call install_init, optee)
 	@$(foreach binary, $(OPTEE_BINARIES), \
-		install -vD -m644 $(OPTEE_OUT_DIR)/core/$(binary) \
-			$(IMAGEDIR)/$(binary)$(ptx/nl))
+		$(call ptx/image-install, OPTEE, \
+			$(OPTEE_OUT_DIR)/core/$(binary), \
+			$(binary))$(ptx/nl))
 
 	@$(call touch)
-
-# ----------------------------------------------------------------------------
-# Clean
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/optee.clean:
-	@$(call targetinfo)
-	@rm -f $(addprefix $(IMAGEDIR)/, $(OPTEE_BINARIES))
-	@$(call clean_pkg, OPTEE)
 
 # vim: syntax=make
