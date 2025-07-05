@@ -291,9 +291,8 @@ $(STATEDIR)/kernel.targetinstall:
 	@$(call targetinfo)
 
 	@$(foreach dtb, $(KERNEL_DTB_FILES), \
-		echo -e "Installing $(dtb) ...\n"$(ptx/nl) \
-		install -D -m0644 $(KERNEL_PKGDIR)/boot/$(dtb) \
-			$(IMAGEDIR)/$(dtb)$(ptx/nl))
+		$(call ptx/image-install, KERNEL, \
+			$(KERNEL_PKGDIR)/boot/$(dtb), $(dtb))$(ptx/nl))
 
 ifdef PTXCONF_KERNEL_XPKG
 	@$(call install_init,  kernel)
@@ -369,16 +368,6 @@ ifdef PTXCONF_KERNEL_MODULES_INSTALL
 endif
 
 	@$(call touch)
-
-# ----------------------------------------------------------------------------
-# Clean
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/kernel.clean:
-	@$(call targetinfo)
-	@$(call clean_pkg, KERNEL)
-	@$(foreach dtb,$(KERNEL_DTB_FILES), \
-		rm -vf $(IMAGEDIR)/$(dtb)$(ptx/nl))
 
 # ----------------------------------------------------------------------------
 # oldconfig / menuconfig
