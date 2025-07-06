@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_LIBPNG) += libpng
 #
 # Paths and names
 #
-LIBPNG_VERSION	:= 1.6.48
-LIBPNG_MD5	:= 6ddbe2107e3811d51da698794b8fb4a2
+LIBPNG_VERSION	:= 1.6.50
+LIBPNG_MD5	:= e583e61455c4f40d565d85c0e9a2fbf9
 LIBPNG		:= libpng-$(LIBPNG_VERSION)
 LIBPNG_SUFFIX	:= tar.xz
 LIBPNG_URL	:= $(call ptx/mirror, SF, libpng/$(LIBPNG).$(LIBPNG_SUFFIX))
@@ -41,11 +41,14 @@ LIBPNG_CONF_OPT := \
 	--enable-unversioned-links \
 	--enable-unversioned-libpng-pc \
 	--enable-unversioned-libpng-config \
+	--disable-hardware-optimizations \
+	--$(call ptx/endis, PTXCONF_ARCH_ARM_NEON)-arm-neon \
 	--disable-mips-msa \
 	--disable-mips-mmi \
 	--$(call ptx/endis, PTXCONF_ARCH_X86)-intel-sse \
 	--disable-powerpc-vsx \
 	--disable-loongarch-lsx \
+	--$(call ptx/endis, PTXCONF_ARCH_RISCV)-riscv-rvv \
 	--with-binconfigs
 
 # ----------------------------------------------------------------------------
