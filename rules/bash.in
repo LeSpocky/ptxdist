@@ -178,6 +178,13 @@ config BASH_MULTIBYTE
 	help
 	  Enable multibyte characters if OS supports them.
 
+config BASH_MEM_SCRAMBLE
+	bool
+	prompt "Enable mem overwrite after free"
+	help
+	  Security feature. Helps when handling sensitive data in variables.
+	  But caveats apply, the probably is performance issues and bugs here.
+
 config BASH_PROCSUBST
 	bool
 	prompt "Enable process substitution"
