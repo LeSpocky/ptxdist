@@ -12,6 +12,7 @@ menuconfig RAUC
 	select BUSYBOX_FEATURE_TAR_LONG_OPTIONS	if BUSYBOX_TAR
 	select BUSYBOX_FEATURE_TAR_AUTODETECT	if BUSYBOX_TAR
 	select BUSYBOX_FEATURE_SEAMLESS_GZ	if BUSYBOX_TAR
+	select COMPOSEFS			if RAUC_COMPOSEFS
 	select DBUS				if RAUC_SERVICE
 	select LIBCURL				if RAUC_NETWORK
 	select LIBNL3				if RAUC_STREAMING
@@ -80,6 +81,13 @@ config RAUC_GPT
 	  For details, see
 	  https://rauc.readthedocs.io/en/latest/advanced.html#update-boot-partition-in-gpt
 
+config RAUC_COMPOSEFS
+	bool
+	prompt "Enable composefs support"
+	help
+	  Enables support for creating composefs artifact repository.
+	  For details, see
+	  https://rauc.readthedocs.io/en/latest/integration.html#repository-type
 
 config RAUC_CONFIGURATION
 	bool

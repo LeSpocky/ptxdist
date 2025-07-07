@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_RAUC) += rauc
 #
 # Paths and names
 #
-RAUC_VERSION		:= 1.13
-RAUC_MD5		:= cb740d131e2e831810407f2d39d373dd
+RAUC_VERSION		:= 1.14
+RAUC_MD5		:= a99bac2e1a6bf26d75c6427b5e994e7f
 RAUC			:= rauc-$(RAUC_VERSION)
 RAUC_SUFFIX		:= tar.xz
 RAUC_URL		:= https://github.com/rauc/rauc/releases/download/v$(RAUC_VERSION)/$(RAUC).$(RAUC_SUFFIX)
@@ -23,7 +23,7 @@ RAUC_SOURCE		:= $(SRCDIR)/$(RAUC).$(RAUC_SUFFIX)
 RAUC_DIR		:= $(BUILDDIR)/$(RAUC)
 RAUC_LICENSE		:= LGPL-2.1-or-later
 RAUC_LICENSE_FILES	:= \
-	file://README.rst;startline=281;endline=294;md5=a0262c76b558b6a450c56cae990d129a \
+	file://README.rst;startline=281;endline=294;md5=340a79569c116c7f0439677b0a9fd6c3 \
 	file://COPYING;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
@@ -43,6 +43,7 @@ RAUC_CONF_OPT	:= \
 	-Dsystemdcatalogdir=/usr/lib/systemd/catalog \
 	-Dfuzzing=false \
 	-Dgpt=$(call ptx/endis,PTXCONF_RAUC_GPT)d \
+	-Dcomposefs=$(call ptx/endis,PTXCONF_RAUC_COMPOSEFS)d \
 	-Dhtmldocs=false \
 	-Djson=$(call ptx/endis,PTXCONF_RAUC_JSON)d \
 	-Dnetwork=$(call ptx/truefalse,PTXCONF_RAUC_NETWORK) \
