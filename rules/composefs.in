@@ -1,0 +1,9 @@
+## SECTION=disk_and_file
+
+config COMPOSEFS
+	bool
+	prompt "composefs"
+	select HOST_MESON
+	select OPENSSL
+	help
+	  A file system for mounting container images
