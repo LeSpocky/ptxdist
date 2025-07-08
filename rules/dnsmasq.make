@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_DNSMASQ) += dnsmasq
 #
 # Paths and names
 #
-DNSMASQ_VERSION		:= 2.89
-DNSMASQ_MD5		:= a227ce79d772c8a49f94335cdb041e77
+DNSMASQ_VERSION		:= 2.91
+DNSMASQ_MD5		:= d0f47ffc680a4697f6bbf988dcb75a31
 DNSMASQ			:= dnsmasq-$(DNSMASQ_VERSION)
 DNSMASQ_SUFFIX		:= tar.xz
 DNSMASQ_URL		:= https://thekelleys.org.uk/dnsmasq/$(DNSMASQ).$(DNSMASQ_SUFFIX)
