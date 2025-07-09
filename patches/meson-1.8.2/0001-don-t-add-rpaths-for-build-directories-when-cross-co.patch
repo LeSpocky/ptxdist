@@ -5,16 +5,18 @@ Subject: [PATCH] don't add rpaths for build directories when cross-compiling
 The binaries cannot be executed anyways, so this just increases the binary
 size unnecessarily.
 
+Instead add -rpath-link so ensure the libraries are found at build-time.
+
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- mesonbuild/linkers/linkers.py | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
+ mesonbuild/linkers/linkers.py | 10 ++++++++--
+ 1 file changed, 8 insertions(+), 2 deletions(-)
 
 diff --git a/mesonbuild/linkers/linkers.py b/mesonbuild/linkers/linkers.py
-index 176fb3348204..a1f1e0c2d87b 100644
+index 59f60e03a19c..83a14fc27a08 100644
 --- a/mesonbuild/linkers/linkers.py
 +++ b/mesonbuild/linkers/linkers.py
-@@ -698,7 +698,10 @@ class GnuLikeDynamicLinkerMixin(DynamicLinkerBase):
+@@ -717,7 +717,12 @@ class GnuLikeDynamicLinkerMixin(DynamicLinkerBase):
          # Need to deduplicate rpaths, as macOS's install_name_tool
          # is *very* allergic to duplicate -delete_rpath arguments
          # when calling depfixer on installation.
@@ -23,10 +25,12 @@ index 176fb3348204..a1f1e0c2d87b 100644
 +            all_paths = mesonlib.OrderedSet([os.path.join(origin_placeholder, p) for p in processed_rpaths])
 +        else:
 +            all_paths = mesonlib.OrderedSet()
++            for p in rpath_paths:
++                args.extend(self._apply_prefix('-rpath-link,' + os.path.join(build_dir, p)))
          rpath_dirs_to_remove: T.Set[bytes] = set()
          for p in all_paths:
              rpath_dirs_to_remove.add(p.encode('utf8'))
-@@ -728,7 +731,8 @@ class GnuLikeDynamicLinkerMixin(DynamicLinkerBase):
+@@ -747,7 +752,8 @@ class GnuLikeDynamicLinkerMixin(DynamicLinkerBase):
                  paths = padding
              else:
                  paths = paths + ':' + padding
