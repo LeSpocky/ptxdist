@@ -6,6 +6,7 @@ menuconfig CHRONY
 	prompt "chrony                        "
 	select LIBC_M
 	select LIBCAP
+	select GNUTLS		if CHRONY_ENABLE_NTS
 	select LIBSECCOMP	if CHRONY_SECCOMP
 	select NETTLE		if CHRONY_USE_NETTLE
 	select PPS_TOOLS	if CHRONY_PPS_REFCLK
@@ -23,6 +24,13 @@ menuconfig CHRONY
 	  See https://chrony.tuxfamily.org/ for details.
 
 if CHRONY
+
+config CHRONY_ENABLE_NTS
+	bool
+	prompt "Enable NTS support"
+	select CHRONY_USE_NETTLE
+	help
+	  Enable NTS support
 
 config CHRONY_USE_NETTLE
 	bool

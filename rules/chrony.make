@@ -44,6 +44,7 @@ CHRONY_CONF_OPT		:= \
 	--sysconfdir=/etc \
 	--disable-readline \
 	--without-editline \
+	$(call ptx/ifdef, PTXCONF_CHRONY_ENABLE_NTS,,--disable-nts) \
 	$(call ptx/ifdef, PTXCONF_CHRONY_USE_NETTLE,,--disable-sechash) \
 	$(call ptx/ifdef, PTXCONF_CHRONY_USE_NETTLE,,--without-nettle) \
 	--without-nss \
