@@ -3,5 +3,4 @@
 0001-e2fsprogs-Disable-docs.patch
 0002-e2fsprogs-Disable-ldconfig.patch
 0003-mke2fs.conf-remove-orphan_file-from-ext4-features.patch
-0004-misc-fix-without-libarchive-build-failure.patch
-# f5718abaa30eabe21a17b45d693a7ae4  - git-ptx-patches magic
+# 64efe4be705d81494b152b54654a13a5  - git-ptx-patches magic

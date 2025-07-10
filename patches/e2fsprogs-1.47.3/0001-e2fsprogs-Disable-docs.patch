@@ -10,11 +10,11 @@ Signed-off-by: Christian Melki <christian.melki@t2data.com>
  1 file changed, 2 insertions(+), 3 deletions(-)
 
 diff --git a/Makefile.in b/Makefile.in
-index 79b71165002d..0b80c20d4858 100644
+index 277b500bbc9a..226aa66c02c6 100644
 --- a/Makefile.in
 +++ b/Makefile.in
 @@ -35,7 +35,6 @@ TAR=tar
- all:: subs
+ all:: top-deps
  	$(MAKE) libs
  @ALL_CMT@	$(MAKE) progs
 -@ALL_CMT@	$(MAKE) docs
@@ -24,12 +24,12 @@ index 79b71165002d..0b80c20d4858 100644
 @@ -72,11 +71,11 @@ distclean-doc:
  	-test -d doc && cd doc && $(MAKE) distclean
  
- install: subs all-libs-recursive install-progs-recursive \
+ install: top-deps all-libs-recursive install-progs-recursive \
 -  install-shlibs-libs-recursive install-doc-libs
 +  install-shlibs-libs-recursive
  @SUBSET_CMT@	$(MAKE) install-libs
  
- install-strip: subs all-libs-recursive install-strip-progs-recursive \
+ install-strip: top-deps all-libs-recursive install-strip-progs-recursive \
 -  install-shlibs-strip-libs-recursive install-doc-libs
 +  install-shlibs-strip-libs-recursive
  
