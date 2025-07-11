@@ -24,9 +24,11 @@ menuconfig WPEWEBKIT
 	select HARFBUZZ
 	select HARFBUZZ_ICU
 	select GLIB_NETWORKING if RUNTIME
+	select LIBDRM
 	select LIBJPEG
 	select LIBWEBP
 	select LIBWEBP_DEMUX
+	select LIBWEBP_MUX
 	select SQLITE
 	select ZLIB
 	select LIBPNG
@@ -40,6 +42,7 @@ menuconfig WPEWEBKIT
 	select LIBEPOXY
 	select LIBGCRYPT
 	select LIBTASN1
+	select WPEWEBKIT_VIDEO	# Build with ENABLE_VIDEO=0 is broken
 	select OPENSSL				if WPEWEBKIT_WEBRTC
 	select GSTREAMER1			if WPEWEBKIT_VIDEO || WPEWEBKIT_AUDIO
 	select GST_PLUGINS_BASE1		if WPEWEBKIT_VIDEO || WPEWEBKIT_AUDIO

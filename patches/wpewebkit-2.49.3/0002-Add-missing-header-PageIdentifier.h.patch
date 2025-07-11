@@ -1,0 +1,28 @@
+From: Michael Tretter <m.tretter@pengutronix.de>
+Date: Wed, 9 Jul 2025 15:04:10 +0200
+Subject: [PATCH] Add missing header PageIdentifier.h
+
+Otherwise the build fails with the following error message:
+
+	Source/WebKit/WebProcess/Storage/RemoteWorkerFrameLoaderClient.h:42:82: error: 'WebCore::PageIdentifier' has not been declared
+	Source/WebKit/WebProcess/Storage/RemoteWorkerFrameLoaderClient.cpp:34:1: error: no declaration matches 'WebKit::RemoteWorkerFrameLoaderClient::RemoteWorkerFrameLoaderClient(WebCore::FrameLoader&, WebKit::WebPageProxyIdentifier, WebCore::PageIdentifier, const WTF::String&)'
+	Source/WebKit/WebProcess/Storage/RemoteWorkerFrameLoaderClient.h:40:7: note: candidates are: 'WebKit::RemoteWorkerFrameLoaderClient::RemoteWorkerFrameLoaderClient(WebKit::RemoteWorkerFrameLoaderClient&&)'
+	Source/WebKit/WebProcess/Storage/RemoteWorkerFrameLoaderClient.h:40:7: note: 'WebKit::RemoteWorkerFrameLoaderClient::RemoteWorkerFrameLoaderClient(const WebKit::RemoteWorkerFrameLoaderClient&)'
+	Source/WebKit/WebProcess/Storage/RemoteWorkerFrameLoaderClient.h:42:5: note: 'WebKit::RemoteWorkerFrameLoaderClient::RemoteWorkerFrameLoaderClient(WebCore::FrameLoader&, WebKit::WebPageProxyIdentifier, int, const WTF::String&)'
+	Source/WebKit/WebProcess/Storage/RemoteWorkerFrameLoaderClient.h:40:7: note: 'class WebKit::RemoteWorkerFrameLoaderClient' defined here
+---
+ Source/WebKit/WebProcess/Storage/RemoteWorkerFrameLoaderClient.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Source/WebKit/WebProcess/Storage/RemoteWorkerFrameLoaderClient.h b/Source/WebKit/WebProcess/Storage/RemoteWorkerFrameLoaderClient.h
+index ca2598c047ae..08923aec5944 100644
+--- a/Source/WebKit/WebProcess/Storage/RemoteWorkerFrameLoaderClient.h
++++ b/Source/WebKit/WebProcess/Storage/RemoteWorkerFrameLoaderClient.h
+@@ -26,6 +26,7 @@
+ #pragma once
+ 
+ #include "WebPageProxyIdentifier.h"
++#include <WebCore/PageIdentifier.h>
+ #include <WebCore/EmptyFrameLoaderClient.h>
+ #include <WebCore/ScriptExecutionContextIdentifier.h>
+ 

@@ -1,0 +1,20 @@
+From: Miguel Gomez <magomez@igalia.com>
+Date: Thu, 19 Jun 2025 12:45:39 +0200
+Subject: [PATCH] Unified build fix. Remove when fixed upstream
+
+---
+ Source/WebKit/UIProcess/ProvisionalPageProxy.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Source/WebKit/UIProcess/ProvisionalPageProxy.h b/Source/WebKit/UIProcess/ProvisionalPageProxy.h
+index a1d831a61655..a0486033a6e0 100644
+--- a/Source/WebKit/UIProcess/ProvisionalPageProxy.h
++++ b/Source/WebKit/UIProcess/ProvisionalPageProxy.h
+@@ -34,6 +34,7 @@
+ #include "WebFramePolicyListenerProxy.h"
+ #include "WebPageProxyIdentifier.h"
+ #include "WebPageProxyMessageReceiverRegistration.h"
++#include "WebsiteDataStore.h"
+ #include <WebCore/DiagnosticLoggingClient.h>
+ #include <WebCore/FrameIdentifier.h>
+ #include <WebCore/FrameLoaderClient.h>
