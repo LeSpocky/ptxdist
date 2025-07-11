@@ -160,7 +160,7 @@ export -f ptxd_make_world_prepare_meson
 # prepare for cargo based pkgs
 #
 ptxd_make_world_prepare_cargo_check() {
-    local arg cargo_lock_md5
+    local arg cargo_lock_md5 crate workspace
     local -a tmp
     local pkg_makefile_cargo="${pkg_makefile%.make}.cargo.make"
 
@@ -177,7 +177,29 @@ ptxd_make_world_prepare_cargo_check() {
 	echo "|${tmp[0]}|${pkg_cargo_lock_md5}|"
 	ptxd_bailout "${pkg_cargo_lock} has changed!" \
 	    "Run 'ptxdist cargosync ${pkg_label}' to regenerate '$(ptxd_print_path ${pkg_makefile_cargo})'."
-    fi
+    fi &&
+    ptxd_in_path PTXDIST_PATH_SCRIPTS vendor-cargo-workspace-package &&
+    vendor_cargo_workspace_package="${ptxd_reply}" &&
+
+    find "${pkg_cargo_home}/source" -maxdepth 1 -type l | while read link; do
+	crate="$(readlink "${link}")" &&
+	crate="${crate#../workspaces/}" &&
+	workspace="${pkg_cargo_home}/workspaces/${crate%%/*}" &&
+	crate="${pkg_cargo_home}/workspaces/${crate}" &&
+	if [ -e "${link}/Cargo.toml.orig" ]; then
+	    # already handed during a previous prepare run
+	    continue
+	fi &&
+	cp "${crate}/Cargo.toml" "${crate}/Cargo.toml.orig" &&
+	set -x
+	"${vendor_cargo_workspace_package}" \
+	    --input "${crate}/Cargo.toml.orig" \
+	    --output "${crate}/Cargo.toml" \
+	    --workspace "${workspace}/Cargo.toml" || {
+	    rm "${link}/Cargo.toml.orig"
+	    return
+	}
+    done
 }
 export -f ptxd_make_world_prepare_cargo_check
 

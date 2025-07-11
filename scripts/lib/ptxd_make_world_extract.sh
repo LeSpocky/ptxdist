@@ -120,12 +120,6 @@ ptxd_make_world_extract_cargo_crate() {
 }' "${pkg_cargo_home}/workspaces/${srcdir}/Cargo.toml" | while read dir name; do
 	ln -sf "../workspaces/${srcdir}/${dir}" "${pkg_cargo_home}/source/${name}"
 	printf '{"files": {}, "package": null}' > "${pkg_cargo_home}/source/${name}/.cargo-checksum.json"
-	mv "${pkg_cargo_home}/workspaces/${srcdir}/${dir}/Cargo.toml" \
-	    "${pkg_cargo_home}/workspaces/${srcdir}/${dir}/Cargo.toml.orig"
-	"${vendor_cargo_workspace_package}" \
-	    --input "${pkg_cargo_home}/workspaces/${srcdir}/${dir}/Cargo.toml.orig" \
-	    --output "${pkg_cargo_home}/workspaces/${srcdir}/${dir}/Cargo.toml" \
-	    --workspace "${pkg_cargo_home}/workspaces/${srcdir}/Cargo.toml" || return
     done
 }
 export -f ptxd_make_world_extract_cargo_crate
@@ -133,8 +127,6 @@ export -f ptxd_make_world_extract_cargo_crate
 ptxd_make_world_extract_cargo() {
     local src vendor_cargo_workspace_package
     echo "extract: cargo dependencies:"
-    ptxd_in_path PTXDIST_PATH_SCRIPTS vendor-cargo-workspace-package &&
-    vendor_cargo_workspace_package="${ptxd_reply}" &&
     rm -rf "${pkg_cargo_home}" &&
     mkdir -p "${pkg_cargo_home}/source" &&
     mkdir -p "${pkg_cargo_home}/workspaces" &&
