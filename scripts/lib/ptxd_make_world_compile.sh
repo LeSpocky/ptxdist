@@ -62,7 +62,12 @@ ptxd_make_world_compile_commands_parse_single() {
 	return 1
     fi
     for input in "${inputs[@]}"; do
-	output_file="${ptxdist_compile_commands_dir}/${input//\//_}.json"
+	if [ "$(wc -c <<< "${input}" )" -gt 250 ]; then
+	    set -- $(md5sum <<< "${input}")
+	    output_file="${ptxdist_compile_commands_dir}/${1}.json"
+	else
+	    output_file="${ptxdist_compile_commands_dir}/${input//\//_}.json"
+	fi
 	printf '  {
     "directory": "%s",
     "command": "%s",
