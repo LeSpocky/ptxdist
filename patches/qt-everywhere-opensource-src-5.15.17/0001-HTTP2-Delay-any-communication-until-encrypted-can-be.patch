@@ -37,10 +37,10 @@ Reviewed-by: Qt Cherry-pick Bot <cherrypick_bot@qt-project.org>
  3 files changed, 53 insertions(+), 5 deletions(-)
 
 diff --git a/qtbase/src/network/access/qhttp2protocolhandler.cpp b/qtbase/src/network/access/qhttp2protocolhandler.cpp
-index 39dd460881a4..bc1dac6836c2 100644
+index f0dc8800316c..995616b54e78 100644
 --- a/qtbase/src/network/access/qhttp2protocolhandler.cpp
 +++ b/qtbase/src/network/access/qhttp2protocolhandler.cpp
-@@ -371,12 +371,12 @@ bool QHttp2ProtocolHandler::sendRequest()
+@@ -375,12 +375,12 @@ bool QHttp2ProtocolHandler::sendRequest()
          }
      }
  

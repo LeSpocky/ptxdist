@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QT5) += qt5
 #
 # Paths and names
 #
-QT5_VERSION	:= 5.15.16
-QT5_MD5		:= 2a25d4e90abd05284bf5bb01365c9b44
+QT5_VERSION	:= 5.15.17
+QT5_MD5		:= 5f212232bbc41f2eabbdee4fcbc4040e
 QT5		:= qt-everywhere-opensource-src-$(QT5_VERSION)
 QT5_SUFFIX	:= tar.xz
 QT5_URL		:= \
@@ -308,6 +308,7 @@ QT5_CONF_OPT	+= \
 	-$(call ptx/ifdef, PTXCONF_QT5_MODULE_QTWEBENGINE_MEDIA,qt,no)-webengine-ffmpeg \
 	-system-webengine-opus \
 	-$(call ptx/ifdef, PTXCONF_QT5_MODULE_QTWEBENGINE_MEDIA,qt,no)-webengine-webp \
+	-webengine-python-version python3 \
 	--disable-webengine-pepper-plugins \
 	--disable-webengine-printing-and-pdf \
 	--disable-webengine-proprietary-codecs \
