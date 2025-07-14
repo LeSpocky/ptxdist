@@ -13,6 +13,7 @@ menuconfig PPP
 	select BUSYBOX_TEST	if BUSYBOX && PPP_STARTSCRIPT
 	select BUSYBOX_SLEEP	if BUSYBOX && PPP_STARTSCRIPT
 	select OPENSSL
+	select OPENSSL_LEGACY	if PPP_MICROSOFT
 	help
 	  Point-to-Point Protocol (PPP) - daemon
 
