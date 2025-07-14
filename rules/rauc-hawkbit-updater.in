@@ -3,7 +3,7 @@
 menuconfig RAUC_HAWKBIT_UPDATER
 	tristate
 	prompt "rauc-hawkbit-updater          "
-	select HOST_CMAKE
+	select HOST_MESON
 	select DBUS
 	select JSON_GLIB
 	select LIBCURL
