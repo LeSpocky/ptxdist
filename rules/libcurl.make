@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.14.1
-LIBCURL_MD5	:= cba9ea54bccefed639a529b1b5b17405
+LIBCURL_VERSION	:= 8.15.0
+LIBCURL_MD5	:= b8872bb6cc5d18d03bea8ff5090b2b81
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -48,7 +48,6 @@ LIBCURL_CONF_OPT	:= \
 	--disable-code-coverage \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-unity \
-	--disable-test-bundles \
 	--$(call ptx/endis, PTXCONF_LIBCURL_HTTP)-http \
 	--$(call ptx/endis, PTXCONF_LIBCURL_FTP)-ftp \
 	--$(call ptx/endis, PTXCONF_LIBCURL_FILE)-file \
@@ -104,14 +103,12 @@ LIBCURL_CONF_OPT	:= \
 	--enable-hsts \
 	--disable-websockets \
 	--without-schannel \
-	--without-secure-transport \
 	--without-amissl \
 	--$(call ptx/wwo,PTXCONF_LIBCURL_SSL)-ssl \
 	--with-openssl=$(call ptx/ifdef, PTXCONF_LIBCURL_SSL_OPENSSL,$(SYSROOT)/usr,no) \
 	--with-gnutls=$(call ptx/ifdef, PTXCONF_LIBCURL_SSL_GNUTLS,$(SYSROOT)/usr,no) \
 	--without-mbedtls \
 	--without-wolfssl \
-	--without-bearssl \
 	--without-rustls \
 	--with-zlib=$(SYSROOT) \
 	--without-brotli \
