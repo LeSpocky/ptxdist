@@ -1,0 +1,22 @@
+From: Lars Alex Pedersen <laa@kamstrup.com>
+Date: Thu, 10 Jul 2025 18:24:59 +0000
+Subject: [PATCH] Add ptxdist python compile options
+
+Signed-off-by: Lars Alex Pedersen <laa@kamstrup.com>
+---
+ bindings/python/Makefile.am | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bindings/python/Makefile.am b/bindings/python/Makefile.am
+index 2ae8ac8a514c..ff1d677bba2a 100644
+--- a/bindings/python/Makefile.am
++++ b/bindings/python/Makefile.am
+@@ -36,7 +36,7 @@ clean-local:
+ all-local: python-tests
+ 	CFLAGS="-I$(abs_top_srcdir)/include/ -I$(abs_top_srcdir)/tests/gpiosim \
+ 	-L$(abs_top_builddir)/lib/.libs/ -L$(abs_top_builddir)/tests/gpiosim/.libs/" \
+-	$(PYTHON) -m build
++	$(PYTHON) -m build --skip-dependency-check --wheel --no-isolation
+ 
+ install-exec-local:
+ 	$(PYTHON) -m pip install dist/*.whl \

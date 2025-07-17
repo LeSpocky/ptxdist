@@ -3,9 +3,15 @@
 menuconfig LIBGPIOD
 	tristate
 	prompt "libgpiod                      "
-	select HOST_SYSTEM_PYTHON3
-	select GCCLIBS_CXX	if LIBGPIOD_CXX
-	select PYTHON3		if LIBGPIOD_PYTHON3
+	select HOST_PYTHON3		if LIBGPIOD_PYTHON3
+	select HOST_PYTHON3_PYBUILD	if LIBGPIOD_PYTHON3
+	select HOST_PYTHON3_PIP		if LIBGPIOD_PYTHON3
+	select HOST_AUTOTOOLS_AUTOCONF_ARCHIVE
+	select DBUS			if LIBGPIOD_DBUS_DAEMON
+	select LIBGUDEV			if LIBGPIOD_DBUS_DAEMON
+	select GLIB			if LIBGPIOD_DBUS_DAEMON
+	select GCCLIBS_CXX		if LIBGPIOD_CXX
+	select PYTHON3			if LIBGPIOD_PYTHON3
 	help
 	  libgpiod is a library accompanied by a set of tools for
 	  interacting with the Linux GPIO character device.
@@ -56,6 +62,21 @@ config LIBGPIOD_GPIONOTIFY
 	select LIBGPIOD_TOOLS
 	help
 	  Waits for info changes on GPIO lines
+
+config LIBGPIOD_DBUS_DAEMON
+	bool
+	prompt "Install dbus daemon"
+	help
+	  Add a D-Bus interface to libgpiod together with a
+	  daemon implementing it and a command-line client
+
+config LIBGPIOD_DBUS_DAEMON_SYSTEMD
+	bool
+	prompt "Install dbus daemon systemd files"
+	depends on LIBGPIOD_DBUS_DAEMON
+	depends on INITMETHOD_SYSTEMD
+	help
+	  Install dbus daemon systemd unit and udev files
 
 config LIBGPIOD_CXX
 	bool
