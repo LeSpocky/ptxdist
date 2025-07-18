@@ -31,6 +31,7 @@ BASH_LICENSE_FILES	:= \
 
 BASH_CONF_ENV	:= \
 	$(CROSS_ENV) \
+	CFLAGS_FOR_BUILD="-std=gnu11" \
 	bash_cv_job_control_missing=$(call ptx/ifdef, PTXCONF_BASH_JOBS, present, missing) \
 	bash_cv_termcap_lib=$(call ptx/ifdef, PTXCONF_BASH_CURSES, libncurses, libtermcap)
 
