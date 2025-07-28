@@ -14,10 +14,10 @@ PACKAGES-$(PTXCONF_XORG_LIB_X11) += xorg-lib-x11
 #
 # Paths and names
 #
-XORG_LIB_X11_VERSION	:= 1.6.9
-XORG_LIB_X11_MD5	:= 55adbfb6d4370ecac5e70598c4e7eed2
+XORG_LIB_X11_VERSION	:= 1.8.12
+XORG_LIB_X11_MD5	:= 146d770e564812e00f97e0cbdce632b7
 XORG_LIB_X11		:= libX11-$(XORG_LIB_X11_VERSION)
-XORG_LIB_X11_SUFFIX	:= tar.bz2
+XORG_LIB_X11_SUFFIX	:= tar.xz
 XORG_LIB_X11_URL	:= $(call ptx/mirror, XORG, individual/lib/$(XORG_LIB_X11).$(XORG_LIB_X11_SUFFIX))
 XORG_LIB_X11_SOURCE	:= $(SRCDIR)/$(XORG_LIB_X11).$(XORG_LIB_X11_SUFFIX)
 XORG_LIB_X11_DIR	:= $(BUILDDIR)/$(XORG_LIB_X11)
@@ -55,6 +55,7 @@ XORG_LIB_X11_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_XORG_LIB_X11_XF86BIGFONT)-xf86bigfont \
 	--$(call ptx/endis, PTXCONF_XORG_LIB_X11_XKB)-xkb \
 	--enable-composecache \
+	--enable-thread-safety-constructor \
 	--disable-lint-library \
 	--disable-malloc0returnsnull \
 	$(XORG_OPTIONS_DOCS) \

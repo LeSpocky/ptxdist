@@ -8,10 +8,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 27 deletions(-)
 
 diff --git a/configure.ac b/configure.ac
-index a5fd706f4a3c..65433c677f6d 100644
+index c3f23e25d811..5021b99e718b 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -237,30 +237,6 @@ AC_SUBST(XTHREAD_CFLAGS)
+@@ -248,30 +248,6 @@ AC_SUBST(USE_THREAD_LIBS)
  
  AC_CHECK_FUNC(poll, [AC_DEFINE(USE_POLL, 1, [poll() function is available])], )
  
@@ -20,7 +20,7 @@ index a5fd706f4a3c..65433c677f6d 100644
 -#
 -AC_MSG_CHECKING([keysym definitions])
 -AC_ARG_WITH([keysymdefdir],
--        [AC_HELP_STRING([--with-keysymdefdir=DIR], [The location of keysymdef.h (defaults to xproto include dir)])],
+-        [AS_HELP_STRING([--with-keysymdefdir=DIR], [The location of keysymdef.h (defaults to xproto include dir)])],
 -        [KEYSYMDEFDIR=$withval],
 -        [KEYSYMDEFDIR=`$PKG_CONFIG --variable=includedir xproto`/X11])
 -
@@ -42,7 +42,7 @@ index a5fd706f4a3c..65433c677f6d 100644
  AC_ARG_ENABLE(xcms,
                AS_HELP_STRING([--disable-xcms],
                  [Disable Xlib support for CMS *EXPERIMENTAL*]),
-@@ -340,9 +316,6 @@ X11_LIBDIR="${libdir}/X11"
+@@ -351,9 +327,6 @@ X11_LIBDIR="${libdir}/X11"
  AX_DEFINE_DIR(X11_LIBDIR, X11_LIBDIR, [Location of libX11 library data])
  AC_SUBST(X11_LIBDIR)
  
