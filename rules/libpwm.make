@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_LIBPWM) += libpwm
 #
 # Paths and names
 #
-LIBPWM_VERSION		:= 1.0-rc1
-LIBPWM_MD5		:= bb8032cd03c25a0dcdc76712acda714c
+LIBPWM_VERSION		:= 1.0-rc2
+LIBPWM_MD5		:= ccf05e263bd26418311e0e93848b3a71
 LIBPWM			:= libpwm-$(LIBPWM_VERSION)
 LIBPWM_SUFFIX		:= tar.xz
-LIBPWM_URL		:= https://mirrors.edge.kernel.org/pub/linux/kernel/people/ukleinek/libpwm/libpwm-1.0-rc1.tar.xz
+LIBPWM_URL		:= https://mirrors.edge.kernel.org/pub/linux/kernel/people/ukleinek/libpwm/libpwm-$(LIBPWM_VERSION).tar.xz
 LIBPWM_SOURCE		:= $(SRCDIR)/$(LIBPWM).$(LIBPWM_SUFFIX)
 LIBPWM_DIR		:= $(BUILDDIR)/$(LIBPWM)
 LIBPWM_BUILD_OOT	:= YES
