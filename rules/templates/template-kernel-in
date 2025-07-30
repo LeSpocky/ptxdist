@@ -8,3 +8,5 @@ config KERNEL_@PACKAGE@
 	#select HOST_U_BOOT_TOOLS
 	help
 	  FIXME
+
+# vim: ft=kconfig tw=80

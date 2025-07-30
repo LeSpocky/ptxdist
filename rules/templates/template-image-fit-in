@@ -8,3 +8,5 @@ config IMAGE_@PACKAGE@
 	prompt "Generate images/@package@.fit"
 	help
 	  FIXME
+
+# vim: ft=kconfig tw=80

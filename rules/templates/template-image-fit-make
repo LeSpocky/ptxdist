@@ -31,4 +31,4 @@ $(IMAGE_@PACKAGE@_IMAGE): $(IMAGE_@PACKAGE@_KERNEL) $(IMAGE_@PACKAGE@_INITRAMFS)
 	@$(call world/image-fit, IMAGE_@PACKAGE@)
 	@$(call finish)
 
-# vim: syntax=make
+# vim: ft=make

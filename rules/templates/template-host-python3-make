@@ -30,4 +30,4 @@ HOST_PACKAGES-$(PTXCONF_@PREFIX@_@PACKAGE@) += @prefix@-@package@
 
 @PREFIX@_@PACKAGE@_CONF_TOOL	:= python3
 
-# vim: syntax=make
+# vim: ft=make

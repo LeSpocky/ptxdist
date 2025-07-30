@@ -29,4 +29,4 @@ $(IMAGE_@PACKAGE@_IMAGE):
 	@$(call image/genimage, IMAGE_@PACKAGE@)
 	@$(call finish)
 
-# vim: syntax=make
+# vim: ft=make

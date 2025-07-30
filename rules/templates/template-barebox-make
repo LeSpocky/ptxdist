@@ -86,4 +86,4 @@ $(STATEDIR)/barebox-@package@.targetinstall:
 $(call ptx/kconfig-targets, barebox-@package@): $(STATEDIR)/barebox-@package@.extract
 	@$(call world/kconfig, BAREBOX_@PACKAGE@, $(subst barebox-@package@_,,$@))
 
-# vim: syntax=make
+# vim: ft=make

@@ -66,4 +66,4 @@ $(STATEDIR)/@package@.targetinstall:
 
 	@$(call touch)
 
-# vim: syntax=make
+# vim: ft=make

@@ -77,4 +77,4 @@ $(STATEDIR)/@package@.targetinstall:
 #	@$(call targetinfo)
 #	@$(call clean_pkg, @PACKAGE@)
 
-# vim: syntax=make
+# vim: ft=make

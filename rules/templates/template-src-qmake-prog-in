@@ -6,3 +6,5 @@ config @PACKAGE@
 	select QT5
 	help
 	  FIXME
+
+# vim: ft=kconfig tw=80

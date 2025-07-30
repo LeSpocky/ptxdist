@@ -5,3 +5,5 @@ config @PACKAGE@
 	prompt "@package@"
 	help
 	  FIXME
+
+# vim: ft=kconfig tw=80

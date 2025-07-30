@@ -12,3 +12,5 @@ config HOST_@PACKAGE@_CODE_SIGNING
 	select HOST_OPENSSL
 	select HOST_EXTRACT_CERT
 	@EXTRA_DEPENDENCIES@
+
+# vim: ft=kconfig tw=80

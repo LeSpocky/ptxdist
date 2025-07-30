@@ -29,4 +29,4 @@ $(IMAGE_@PACKAGE@_TGZ_IMAGE):
 	@$(call image/archive, IMAGE_@PACKAGE@_TGZ)
 	@$(call finish)
 
-# vim: syntax=make
+# vim: ft=make

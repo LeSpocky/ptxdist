@@ -17,3 +17,5 @@ config BAREBOX_@PACKAGE@
 	  Enable this to add the public keys for the FIT image:
 	  CONFIG_CRYPTO_RSA_KEY="__ENV__FIT_KEY"
 	  CONFIG_CRYPTO_RSA_KEY_NAME_HINT="image-kernel-fit"
+
+# vim: ft=kconfig tw=80

@@ -15,4 +15,4 @@ CODE_SIGNING_ENV += \
 #$(call ptx/online-code-signing-provider)
 endif
 
-# vim: syntax=make
+# vim: ft=make

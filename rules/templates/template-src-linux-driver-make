@@ -63,4 +63,4 @@ $(STATEDIR)/@package@.targetinstall:
 	@$(call compile, @PACKAGE@, $(@PACKAGE@_MAKE_OPT)_install)
 	@$(call touch)
 
-# vim: syntax=make
+# vim: ft=make

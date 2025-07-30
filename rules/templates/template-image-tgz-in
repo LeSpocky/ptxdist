@@ -5,3 +5,5 @@ config IMAGE_@PACKAGE@_TGZ
 	prompt "Generate images/@package@.tgz"
 	help
 	  FIXME
+
+# vim: ft=kconfig tw=80

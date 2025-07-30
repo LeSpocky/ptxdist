@@ -50,4 +50,4 @@ $(STATEDIR)/python3-@package@.targetinstall:
 
 	@$(call touch)
 
-# vim: syntax=make
+# vim: ft=make

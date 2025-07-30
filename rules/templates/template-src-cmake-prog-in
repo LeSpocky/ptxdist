@@ -6,3 +6,5 @@ config @PACKAGE@
 	select HOST_CMAKE
 	help
 	  FIXME
+
+# vim: ft=kconfig tw=80

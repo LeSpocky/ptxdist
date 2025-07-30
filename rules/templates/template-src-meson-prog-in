@@ -6,3 +6,5 @@ config @PACKAGE@
 	select HOST_MESON
 	help
 	  FIXME
+
+# vim: ft=kconfig tw=80

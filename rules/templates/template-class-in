@@ -3,3 +3,5 @@
 config @CLASS@@PACKAGE@
 	tristate
 @DEFAULT@@SELECT@@PROMPT@
+
+# vim: ft=kconfig tw=80

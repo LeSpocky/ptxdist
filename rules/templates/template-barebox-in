@@ -5,3 +5,5 @@ config BAREBOX_@PACKAGE@
 	prompt "Barebox (@package@)"
 	help
 	  FIXME
+
+# vim: ft=kconfig tw=80

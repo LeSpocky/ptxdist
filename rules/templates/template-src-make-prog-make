@@ -95,4 +95,4 @@ $(STATEDIR)/@package@.clean:
 	@-$(call execute, @PACKAGE@, $(@PACKAGE@_MAKE_ENV) $(MAKE) clean)
 	@$(call clean_pkg, @PACKAGE@)
 
-# vim: syntax=make
+# vim: ft=make

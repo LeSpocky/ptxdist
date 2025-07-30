@@ -39,4 +39,4 @@ $(STATEDIR)/host-@package@-code-signing.install:
 	@$(call targetinfo)
 	@$(call touch)
 
-# vim: syntax=make
+# vim: ft=make

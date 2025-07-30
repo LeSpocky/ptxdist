@@ -4,3 +4,5 @@ config @PREFIX@_@PACKAGE@
 	tristate
 	default y if ALLYES
 	select @PREFIX@
+
+# vim: ft=kconfig tw=80
