@@ -1,0 +1,22 @@
+root = true
+
+[*]
+indent_style = tab
+tab_width = 8
+indent_size = 8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# kconfig uses a mix of tab and spaces in help section
+[*{.in,-in}]
+indent_style = unset
+
+[*.sh]
+indent_size = 4
+
+[*.py]
+indent_style = space
+tab_width = 4
+indent_size = 4
+
