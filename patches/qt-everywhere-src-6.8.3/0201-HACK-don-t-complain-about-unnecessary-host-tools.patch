@@ -1,0 +1,66 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 8 Jul 2022 16:59:49 +0200
+Subject: [PATCH] HACK: don't complain about unnecessary host-tools
+
+The cross build will fail if those tools are not available, but they are
+not actually needed at buildtime.
+
+This avoids building unnecessary stuff in host-qt6.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ qtdeclarative/tools/CMakeLists.txt | 9 ++++++---
+ qtquick3d/tools/CMakeLists.txt     | 2 ++
+ 2 files changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/qtdeclarative/tools/CMakeLists.txt b/qtdeclarative/tools/CMakeLists.txt
+index 0b89bea46ea2..2b4293b21293 100644
+--- a/qtdeclarative/tools/CMakeLists.txt
++++ b/qtdeclarative/tools/CMakeLists.txt
+@@ -36,15 +36,18 @@ if(NOT (ANDROID OR WASM OR IOS OR VISIONOS OR rtems))
+         endif()
+         if(QT_BUILD_SHARED_LIBS AND TARGET Qt::Quick)
+             add_subdirectory(qmlscene)
+-            add_subdirectory(qmltime)
++	    if (NOT CMAKE_CROSSCOMPILING)
++		add_subdirectory(qmltime)
++	    endif()
+         endif()
+         if(QT_BUILD_SHARED_LIBS
++	    AND NOT CMAKE_CROSSCOMPILING
+             AND QT_FEATURE_process
+             AND QT_FEATURE_regularexpression
+             AND TARGET Qt::Quick)
+             add_subdirectory(qmlplugindump)
+         endif()
+-        if(TARGET Qt::QuickTest)
++	if(TARGET Qt::QuickTest AND NOT CMAKE_CROSSCOMPILING)
+             add_subdirectory(qmltestrunner)
+         endif()
+         if(QT_FEATURE_private_tests)
+@@ -66,7 +69,7 @@ if(NOT (ANDROID OR WASM OR IOS OR VISIONOS OR rtems))
+         add_subdirectory(qmleasing)
+     endif()
+ 
+-    if(TARGET Qt::Quick AND TARGET Qt::Svg)
++    if(TARGET Qt::Quick AND TARGET Qt::Svg AND NOT CMAKE_CROSSCOMPILING)
+         add_subdirectory(svgtoqml)
+     endif()
+ endif() # NOT (ANDROID OR WASM OR IOS OR rtems)
+diff --git a/qtquick3d/tools/CMakeLists.txt b/qtquick3d/tools/CMakeLists.txt
+index 0adef6c8ba60..68400197a7d4 100644
+--- a/qtquick3d/tools/CMakeLists.txt
++++ b/qtquick3d/tools/CMakeLists.txt
+@@ -1,6 +1,7 @@
+ # Copyright (C) 2022 The Qt Company Ltd.
+ # SPDX-License-Identifier: BSD-3-Clause
+ 
++if (NOT CMAKE_CROSSCOMPILING)
+ add_subdirectory(balsam)
+ if(TARGET Qt::Widgets)
+     if(TARGET Qt::Concurrent)
+@@ -22,3 +23,4 @@ endif()
+ if(QT_FEATURE_localserver)
+     add_subdirectory(materialeditor)
+ endif()
++endif()

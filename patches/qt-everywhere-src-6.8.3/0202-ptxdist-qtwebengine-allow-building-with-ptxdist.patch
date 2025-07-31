@@ -12,10 +12,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/qtwebengine/cmake/Functions.cmake b/qtwebengine/cmake/Functions.cmake
-index 923f78dbdfcb..33aefea614fd 100644
+index 8d5a977771de..81d5a3f55699 100644
 --- a/qtwebengine/cmake/Functions.cmake
 +++ b/qtwebengine/cmake/Functions.cmake
-@@ -725,7 +725,7 @@ function(extract_cflag result cflag)
+@@ -738,7 +738,7 @@ function(extract_cflag result cflag)
          list(APPEND cflags ${CMAKE_CXX_COMPILER_ARG${i}})
          math(EXPR i "${i} + 1")
      endwhile()

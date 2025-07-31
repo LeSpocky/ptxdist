@@ -34,10 +34,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+)
 
 diff --git a/qtwebengine/src/3rdparty/gn/src/base/containers/span.h b/qtwebengine/src/3rdparty/gn/src/base/containers/span.h
-index 4af83b44bcb4..8fc90e189709 100644
+index de73fa18b479..7687576db47c 100644
 --- a/qtwebengine/src/3rdparty/gn/src/base/containers/span.h
 +++ b/qtwebengine/src/3rdparty/gn/src/base/containers/span.h
-@@ -9,6 +9,7 @@
+@@ -10,6 +10,7 @@
  
  #include <algorithm>
  #include <array>
