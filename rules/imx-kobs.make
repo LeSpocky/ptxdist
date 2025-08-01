@@ -51,5 +51,5 @@ $(STATEDIR)/imx-kobs.targetinstall:
 	@$(call install_finish, imx-kobs)
 
 	@$(call touch)
-	
-# vim: syntax=make	
+
+# vim: syntax=make
