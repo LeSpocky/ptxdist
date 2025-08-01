@@ -78,7 +78,7 @@ endif
 # Clean
 # ----------------------------------------------------------------------------
 
-uclibc_clean: 
+uclibc_clean:
 	rm -rf $(STATEDIR)/uclibc.*
 	rm -rf $(PKGDIR)/uclibc_*
 
