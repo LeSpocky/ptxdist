@@ -47,7 +47,7 @@ $(STATEDIR)/usb-modeswitch-data.targetinstall:
 	@$(call install_fixup, usb-modeswitch-data,DESCRIPTION,missing)
 
 	@$(call install_copy, usb-modeswitch-data, 0, 0, 0644, -, \
-		 /usr/lib/udev/rules.d/40-usb_modeswitch.rules)
+		/usr/lib/udev/rules.d/40-usb_modeswitch.rules)
 
 	@$(call install_tree, usb-modeswitch-data, 0, 0, -, \
 		/usr/share/usb_modeswitch)
