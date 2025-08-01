@@ -28,7 +28,7 @@ LIBMEMCACHED_LICENSE_FILES	:= file://COPYING;md5=0b0ea33346dc4b11e1f4d1d7a698201
 # Prepare
 # ----------------------------------------------------------------------------
 
-# We have libevent but disable it so clients/memslap doesn't build. 
+# We have libevent but disable it so clients/memslap doesn't build.
 # It fails to link because __sync_fetch_and_sub_4 is missing.
 LIBMEMCACHED_CONF_ENV := \
 	$(CROSS_ENV) \
