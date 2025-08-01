@@ -41,7 +41,7 @@ LIBXSLT_CONF_ENV := \
 #
 LIBXSLT_CONF_TOOL := autoconf
 LIBXSLT_CONF_OPT := \
-	 $(CROSS_AUTOCONF_USR) \
+	$(CROSS_AUTOCONF_USR) \
 	--disable-static \
 	--without-python \
 	--$(call ptx/wwo, PTXCONF_LIBXSLT_CRYPTO)-crypto \
