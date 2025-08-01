@@ -68,7 +68,7 @@ GLIB_CONF_OPT	:= \
 $(STATEDIR)/glib.install.post:
 	@$(call targetinfo)
 	@sed -i 's;^bindir=.*;bindir=$(PTXDIST_SYSROOT_HOST)/usr/bin;' \
-		 $(GLIB_PKGDIR)/usr/lib/pkgconfig/gio-2.0.pc
+		$(GLIB_PKGDIR)/usr/lib/pkgconfig/gio-2.0.pc
 	@sed -i "s;'/usr;'$(SYSROOT)/usr;" \
 		$(GLIB_PKGDIR)/usr/share/gdb/auto-load/usr/lib/libglib-2.0.so*-gdb.py \
 		$(GLIB_PKGDIR)/usr/share/gdb/auto-load/usr/lib/libgobject-2.0.so*-gdb.py
