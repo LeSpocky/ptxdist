@@ -36,8 +36,8 @@ LIBUV_LICENSE_FILES := \
 #
 LIBUV_CONF_TOOL	:= autoconf
 LIBUV_CONF_OPT	:= \
-        $(CROSS_AUTOCONF_USR) \
-        $(GLOBAL_LARGE_FILE_OPTION)
+	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION)
 
 # ----------------------------------------------------------------------------
 # Target-Install
