@@ -28,7 +28,7 @@ RSYNC_DIR	:= $(BUILDDIR)/$(RSYNC)
 
 RSYNC_CONF_ENV	:= \
 	$(CROSS_ENV) \
-	rsync_cv_HAVE_GETTIMEOFDAY_TZ=yes 
+	rsync_cv_HAVE_GETTIMEOFDAY_TZ=yes
 
 #
 # autoconf
