@@ -224,7 +224,7 @@ QEMU_CONF_OPT	:= \
 
 ifdef PTXCONF_QEMU_PULSEAUDIO
 QEMU_LDFLAGS      := \
-        -Wl,-rpath-link,$(SYSROOT)/usr/lib/pulseaudio
+	-Wl,-rpath-link,$(SYSROOT)/usr/lib/pulseaudio
 endif
 
 # ----------------------------------------------------------------------------
