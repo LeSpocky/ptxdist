@@ -21,7 +21,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBPCRE) += host-libpcre
 # Note: the --enable-newline-* options are broken. Only one should be used
 HOST_LIBPCRE_CONF_TOOL := autoconf
 HOST_LIBPCRE_CONF_OPT :=\
-	 $(HOST_AUTOCONF) \
+	$(HOST_AUTOCONF) \
 	--enable-pcre8 \
 	--enable-pcre16 \
 	--enable-pcre32 \
