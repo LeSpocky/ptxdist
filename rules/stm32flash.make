@@ -50,7 +50,7 @@ $(STATEDIR)/stm32flash.targetinstall:
 	@$(call install_copy, stm32flash, 0, 0, 0755, -, /usr/bin/stm32flash)
 
 	@$(call install_finish, stm32flash)
-	
+
 	@$(call touch)
 
 # vim: syntax=make
