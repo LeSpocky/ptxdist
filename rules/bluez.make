@@ -25,8 +25,8 @@ BLUEZ_SOURCE	:= $(SRCDIR)/$(BLUEZ).$(BLUEZ_SUFFIX)
 BLUEZ_DIR	:= $(BUILDDIR)/$(BLUEZ)
 BLUEZ_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-or-later
 BLUEZ_LICENSE_FILES := \
-	  file://COPYING;md5=12f884d2ae1ff87c09e5b7ccc2c4ca7e \
-	  file://COPYING.LIB;md5=fb504b67c50331fc78734fed90fb0e09
+	file://COPYING;md5=12f884d2ae1ff87c09e5b7ccc2c4ca7e \
+	file://COPYING.LIB;md5=fb504b67c50331fc78734fed90fb0e09
 
 # ----------------------------------------------------------------------------
 # Prepare
