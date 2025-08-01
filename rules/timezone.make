@@ -114,7 +114,7 @@ $(STATEDIR)/timezone.targetinstall:
 
 	@for f in `find ${TIMEZONE_PKGDIR}/usr/share/zoneinfo/ -type f | awk -v FS="zoneinfo/" '{print $$2}'`; do \
 		$(call install_copy, timezone, 0, 0, 0644, -, /usr/share/zoneinfo/$$f,n); \
-        done
+	done
 
 ifneq ($(call remove_quotes,$(PTXCONF_TIMEZONE_LOCALTIME)),)
 	@$(call install_link, timezone, ..$(TIMEZONE_LOCALTIME_FILE), \
