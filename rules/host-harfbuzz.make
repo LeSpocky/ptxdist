@@ -17,7 +17,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_HARFBUZZ) += host-harfbuzz
 
 HOST_HARFBUZZ_CONF_TOOL	:= meson
 HOST_HARFBUZZ_CONF_OPT	:=  \
-	 $(HOST_MESON_OPT) \
+	$(HOST_MESON_OPT) \
 	-Dbenchmark=disabled \
 	-Dcairo=disabled \
 	-Dchafa=disabled \
