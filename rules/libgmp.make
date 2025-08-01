@@ -41,7 +41,7 @@ LIBGMP_CONF_TOOL	:= autoconf
 # to crashes on at least armv5te, so override those CFLAGS with working
 # ones, replacing the wrong ones set by libgmp in the first place
 LIBGMP_CONF_ENV     := \
-    CFLAGS='-O2 -pedantic -g'
+	CFLAGS='-O2 -pedantic -g'
 LIBGMP_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-assert \
