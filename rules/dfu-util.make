@@ -38,8 +38,8 @@ DFU_UTIL_CONF_ENV	:= \
 #
 DFU_UTIL_CONF_TOOL	:= autoconf
 DFU_UTIL_CONF_OPT	:= \
-    $(CROSS_AUTOCONF_USR) \
-    $(GLOBAL_LARGE_FILE_OPTION)
+	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION)
 
 # ----------------------------------------------------------------------------
 # Target-Install
