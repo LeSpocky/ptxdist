@@ -31,9 +31,9 @@ MEMTOOL_LICENSE_FILES := \
 
 MEMTOOL_CONF_TOOL := autoconf
 MEMTOOL_CONF_OPT := \
-       $(CROSS_AUTOCONF_USR) \
-       $(GLOBAL_LARGE_FILE_OPTION) \
-       --enable-mdio \
+	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--enable-mdio \
 
 # ----------------------------------------------------------------------------
 # Target-Install
