@@ -35,15 +35,15 @@ GLIBMM_LICENSE_FILES	:= \
 #
 GLIBMM_CONF_TOOL  := meson
 GLIBMM_CONF_OPT   := \
-        $(CROSS_MESON_USR) \
-        -Dbuild-deprecated-api=false \
-        -Dbuild-documentation=false \
-        -Dbuild-examples=false \
-        -Ddebug-refcounting=false \
-        -Ddist-warnings=fatal \
-        -Dmaintainer-mode=false \
-        -Dmsvc14x-parallel-installable=false \
-        -Dwarnings=max
+	$(CROSS_MESON_USR) \
+	-Dbuild-deprecated-api=false \
+	-Dbuild-documentation=false \
+	-Dbuild-examples=false \
+	-Ddebug-refcounting=false \
+	-Ddist-warnings=fatal \
+	-Dmaintainer-mode=false \
+	-Dmsvc14x-parallel-installable=false \
+	-Dwarnings=max
 
 # ----------------------------------------------------------------------------
 # Target-Install
