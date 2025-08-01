@@ -63,9 +63,9 @@ $(STATEDIR)/crda.install:
 	@install -vD -m 644 $(CRDA_REGDB_DIR)/$(CRDA_REGDB)/regulatory.bin \
 		$(CRDA_PKGDIR)/usr/lib/crda/regulatory.bin
 	@install -vD -m 0644 $(CRDA_REGDB_DIR)/$(CRDA_REGDB)/regulatory.db \
-		 $(CRDA_PKGDIR)/lib/firmware/regulatory.db
+		$(CRDA_PKGDIR)/lib/firmware/regulatory.db
 	@install -vD -m 0644 $(CRDA_REGDB_DIR)/$(CRDA_REGDB)/regulatory.db.p7s \
-		 $(CRDA_PKGDIR)/lib/firmware/regulatory.db.p7s
+		$(CRDA_PKGDIR)/lib/firmware/regulatory.db.p7s
 	@install -vD -m 644 $(CRDA_REGDB_DIR)/pubkeys/linville.key.pub.pem \
 		$(CRDA_PKGDIR)/usr/lib/crda/pubkeys/linville.key.pub.pem
 	@install -vD -m 644 $(CRDA_REGDB_DIR)/pubkeys/sforshee.key.pub.pem \
