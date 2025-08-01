@@ -31,9 +31,9 @@ ATOP_LICENSE_FILES	:= file://COPYING;md5=393a5ca445f6965873eca0259a17f833
 ATOP_CONF_TOOL		:= NO
 ATOP_MAKE_OPT		:= $(CROSS_ENV)
 ATOP_INSTALL_OPT	:= \
-        $(ATOP_MAKE_OPT) \
-        DESTDIR=$(ATOP_PKGDIR) \
-        genericinstall
+	$(ATOP_MAKE_OPT) \
+	DESTDIR=$(ATOP_PKGDIR) \
+	genericinstall
 
 # ----------------------------------------------------------------------------
 # Target-Install
