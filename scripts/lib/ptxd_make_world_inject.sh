@@ -24,6 +24,7 @@ ptxd_make_inject() {
 
     echo -e "\nInject file $(ptxd_print_path ${source}) into" \
 	 "$(ptxd_print_path ${target})..."
+    mkdir -p "$(dirname "${target}")"
     cp ${source} ${target}
 }
 export -f ptxd_make_inject
