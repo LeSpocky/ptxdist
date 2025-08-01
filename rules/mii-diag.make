@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2004 by Benedikt Spranger
 #               2009 by Marc Kleine-Budde <mkl@pengutronix.de>
-#          
+#
 # For further information about the PTXdist project and license conditions
 # see the README file.
 #
