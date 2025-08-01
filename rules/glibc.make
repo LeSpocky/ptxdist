@@ -166,14 +166,14 @@ endif
 
 ifdef PTXCONF_GLIBC_LDCONFIG
 	@$(call install_copy, glibc, 0, 0, 0755, \
-	    $(PTXDIST_SYSROOT_TOOLCHAIN)/sbin/ldconfig, /usr/sbin/ldconfig)
+		$(PTXDIST_SYSROOT_TOOLCHAIN)/sbin/ldconfig, /usr/sbin/ldconfig)
 	@$(call install_alternative, glibc, 0, 0, 0644, /etc/ld.so.conf)
 	@$(call install_copy, glibc, 0, 0, 0755, /etc/ld.so.conf.d)
 endif
 
 ifdef PTXCONF_GLIBC_LDCONFIG_RC_ONCE
 	@$(call install_alternative, glibc, 0, 0, 0755, \
-	    /etc/rc.once.d/ldconfig)
+		/etc/rc.once.d/ldconfig)
 endif
 
 ifdef PTXCONF_GLIBC_I18N_BIN_LOCALE
