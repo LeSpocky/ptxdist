@@ -131,7 +131,7 @@ $(STATEDIR)/sudo.targetinstall:
 	@$(call install_copy, sudo, 0, 0, 0644, -, \
 		/usr/libexec/sudo/group_file.so)
 	@$(call install_copy, sudo, 0, 0, 0644, -, \
-                /usr/libexec/sudo/system_group.so)
+		/usr/libexec/sudo/system_group.so)
 
 ifdef PTXCONF_SUDO_INSTALL_ETC_SUDOERS
 	@$(call install_alternative, sudo, 0, 0, 0440, /etc/sudoers, n)
