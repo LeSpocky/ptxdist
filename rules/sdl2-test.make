@@ -137,11 +137,11 @@ SDL2_TEST_DATA := \
 $(STATEDIR)/sdl2-test.install:
 	@$(call targetinfo)
 	@$(foreach file, $(SDL2_TEST_TOOLS), \
-	     install -vD -m 0755 $(SDL2_TEST_DIR)/$(SDL2_TEST_SUBDIR)/$(file) \
-	       $(SDL2_TEST_PKGDIR)/usr/bin/sdl2tests/$(file)$(ptx/nl))
+		install -vD -m 0755 $(SDL2_TEST_DIR)/$(SDL2_TEST_SUBDIR)/$(file) \
+			$(SDL2_TEST_PKGDIR)/usr/bin/sdl2tests/$(file)$(ptx/nl))
 	@$(foreach file, $(SDL2_TEST_DATA), \
-	     install -vD -m 0644 $(SDL2_TEST_DIR)/$(SDL2_TEST_SUBDIR)/$(file) \
-	       $(SDL2_TEST_PKGDIR)/usr/bin/sdl2tests/$(file)$(ptx/nl))
+		install -vD -m 0644 $(SDL2_TEST_DIR)/$(SDL2_TEST_SUBDIR)/$(file) \
+			$(SDL2_TEST_PKGDIR)/usr/bin/sdl2tests/$(file)$(ptx/nl))
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
