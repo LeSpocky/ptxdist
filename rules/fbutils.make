@@ -1,7 +1,7 @@
 # -*-makefile-*-
 #
 # Copyright (C) 2004 by Sascha Hauer
-#          
+#
 # For further information about the PTXdist project and license conditions
 # see the README file.
 #
