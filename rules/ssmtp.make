@@ -34,10 +34,10 @@ SSMTP_LICENSE		:= GPL-2.0-or-later
 #
 SSMTP_CONF_TOOL := autoconf
 SSMTP_CONF_OPT  := $(CROSS_AUTOCONF_USR) \
-    --$(call ptx/endis, PTXCONF_SSMTP_REWRITE_DOMAIN)-rewrite-domain \
-    --$(call ptx/endis, PTXCONF_SSMTP_SSL)-ssl \
-    --$(call ptx/endis, PTXCONF_GLOBAL_IPV6)-inet6 \
-    --$(call ptx/endis, PTXCONF_SSMTP_MD5AUTH)-md5auth
+	--$(call ptx/endis, PTXCONF_SSMTP_REWRITE_DOMAIN)-rewrite-domain \
+	--$(call ptx/endis, PTXCONF_SSMTP_SSL)-ssl \
+	--$(call ptx/endis, PTXCONF_GLOBAL_IPV6)-inet6 \
+	--$(call ptx/endis, PTXCONF_SSMTP_MD5AUTH)-md5auth
 
 SSMTP_MAKE_ENV := $(CROSS_ENV)
 SSMTP_MAKE_PAR := NO
