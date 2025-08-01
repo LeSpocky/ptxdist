@@ -59,13 +59,13 @@ $(STATEDIR)/joe.targetinstall:
 		$(call install_copy, joe, 0, 0, 0644, $$file, /etc/joe/$$destination, n); \
 	done
 
-  ifdef PTXCONF_JOE_SYNTAX_HIGHLIGHT
+ifdef PTXCONF_JOE_SYNTAX_HIGHLIGHT
 	@$(call install_copy, joe, 0, 0, 0755, /etc/joe/syntax)
 	@for file in $(JOE_PKGDIR)/etc/joe/syntax/*.jsf; do \
 		destination=`basename $$file`; \
 		$(call install_copy, joe, 0, 0, 0644, $$file, /etc/joe/syntax/$$destination, n); \
 	done
-  endif
+endif
 
 	@$(call install_finish, joe)
 	@$(call touch)
