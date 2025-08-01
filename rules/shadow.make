@@ -48,7 +48,7 @@ SHADOW_CONF_OPT		:= \
 	--without-btrfs \
 	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--without-acl \
-  	--without-attr \
+	--without-attr \
 	--without-skey \
 	--without-tcb \
 	--without-libcrack \
