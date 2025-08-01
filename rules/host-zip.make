@@ -22,7 +22,7 @@ HOST_ZIP_CONF_TOOL	:= NO
 # ----------------------------------------------------------------------------
 
 HOST_ZIP_MAKE_OPT	:= \
-    -f unix/Makefile generic
+	-f unix/Makefile generic
 
 # ----------------------------------------------------------------------------
 # Install
@@ -30,8 +30,8 @@ HOST_ZIP_MAKE_OPT	:= \
 
 # Use = instead of := because host-zip.make being included before zip.make
 HOST_ZIP_INSTALL_OPT	= \
-    $(HOST_ENV) \
-    prefix=$(HOST_ZIP_PKGDIR)/usr \
-    -f unix/Makefile install
+	$(HOST_ENV) \
+	prefix=$(HOST_ZIP_PKGDIR)/usr \
+	-f unix/Makefile install
 
 # vim: syntax=make
