@@ -47,7 +47,7 @@ SMTPCLIENT_INSTALL_OPT := \
 
 $(STATEDIR)/smtpclient.targetinstall:
 	@$(call targetinfo)
-	
+
 	@$(call install_init, smtpclient)
 	@$(call install_fixup, smtpclient,PRIORITY,optional)
 	@$(call install_fixup, smtpclient,SECTION,base)
