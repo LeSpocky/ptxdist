@@ -1,7 +1,7 @@
 # -*-makefile-*-
 #
 # Copyright (C) 2006 by Robert Schwebel
-#          
+#
 # For further information about the PTXdist project and license conditions
 # see the README file.
 #
