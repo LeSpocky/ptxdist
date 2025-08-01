@@ -31,7 +31,9 @@ LIBPWM_LICENSE_FILES	:= file://COPYING;md5=41d65f310284fe1f2945ea9c57f297c7
 LIBPWM_CONF_TOOL	:= autoconf
 LIBPWM_CONF_OPT		:= $(CROSS_AUTOCONF_USR)
 
+ifdef PTXCONF_KERNEL_HEADER
 LIBPWM_CPPFLAGS := -isystem $(KERNEL_HEADERS_INCLUDE_DIR)
+endif
 
 # ----------------------------------------------------------------------------
 # Target-Install

@@ -3,6 +3,5 @@
 config LIBPWM
 	bool
 	prompt "libpwm"
-	select KERNEL_HEADER
 	help
 	  drive Linux PWM devices from userspace
