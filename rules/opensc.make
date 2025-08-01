@@ -142,7 +142,7 @@ ifdef PTXCONF_OPENSC_TESTSUITE
 	@$(call install_copy, opensc, 0, 0, 0755, /usr/lib/opensc/tests)
 	@$(call install_copy, opensc, 0, 0, 0755, /usr/lib/opensc/tests/regression)
 	@$(foreach prog, $(OPENSC_TESTS), \
-                $(call install_copy, opensc, 0, 0, 0755, $(OPENSC_DIR)/src/tests/$(prog), \
+		$(call install_copy, opensc, 0, 0, 0755, $(OPENSC_DIR)/src/tests/$(prog), \
 			/usr/lib/opensc/tests/$(prog))$(ptx/nl))
 
 	@$(call install_copy, opensc, 0, 0, 0644, $(OPENSC_DIR)/src/tests/regression/bintest, \
