@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBINPUT) += libinput
 #
 # Paths and names
 #
-LIBINPUT_VERSION	:= 1.28.1
-LIBINPUT_MD5		:= 34988f66b52814647c01fa72f2c5210d
+LIBINPUT_VERSION	:= 1.29.0
+LIBINPUT_MD5		:= 7c243cf456aff35b57412527ee8143e4
 LIBINPUT		:= libinput-$(LIBINPUT_VERSION)
 LIBINPUT_SUFFIX		:= tar.gz
 LIBINPUT_URL		:= https://gitlab.freedesktop.org/libinput/libinput/-/archive/$(LIBINPUT_VERSION)/$(LIBINPUT).$(LIBINPUT_SUFFIX)
@@ -32,16 +32,17 @@ LIBINPUT_LICENSE_FILES	:= \
 LIBINPUT_CONF_TOOL	:= meson
 LIBINPUT_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dcoverity=false \
-	-Ddebug-gui=false \
-	-Ddocumentation=false \
-	-Depoll-dir= \
-	-Dinstall-tests=false \
-	-Dinternal-event-debugging=false \
-	-Dlibwacom=$(call ptx/truefalse, PTXCONF_LIBINPUT_WACOM) \
-	-Dtests=false \
 	-Dudev-dir=/usr/lib/udev \
-	-Dzshcompletiondir=no
+	-Depoll-dir= \
+	-Dlibwacom=$(call ptx/truefalse, PTXCONF_LIBINPUT_WACOM) \
+	-Dmtdev=true \
+	-Ddebug-gui=false \
+	-Dtests=false \
+	-Dinstall-tests=false \
+	-Ddocumentation=false \
+	-Dcoverity=false \
+	-Dzshcompletiondir=no \
+	-Dinternal-event-debugging=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
