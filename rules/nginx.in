@@ -34,6 +34,13 @@ config NGINX_HTTP_AUTH_BASIC_MODULE
 	  resources by validating the user name and password using the
 	  HTTP Basic Authentication protocol.
 
+config NGINX_HTTP_AUTH_REQUEST_MODULE
+	bool
+	prompt "ngx_http_auth_request_module"
+	help
+	  The ngx_http_auth_request_module module implements client
+	  authorization based on the result of a subrequest.
+
 config NGINX_HTTP_AUTOINDEX_MODULE
 	bool
 	prompt "ngx_http_autoindex_module"

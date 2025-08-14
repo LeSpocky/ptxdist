@@ -73,6 +73,7 @@ NGINX_CONF_OPT := \
 	--without-http_ssi_module \
 	--without-http_userid_module \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_ACCESS_MODULE,,--without-http_access_module) \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_AUTH_REQUEST_MODULE,--with-http_auth_request_module) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_AUTH_BASIC_MODULE,,--without-http_auth_basic_module) \
 	--without-http_mirror_module \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_AUTOINDEX_MODULE,,--without-http_autoindex_module) \
