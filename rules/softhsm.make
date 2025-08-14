@@ -62,7 +62,7 @@ $(STATEDIR)/softhsm.targetinstall:
 
 	@$(call install_copy, softhsm, 0, 0, 0755, -, /usr/lib/softhsm/libsofthsm2.so)
 
-	@$(call install_copy, softhsm, 0, 0, 0644, -, /etc/softhsm2.conf)
+	@$(call install_alternative, softhsm, 0, 0, 0644, /etc/softhsm2.conf)
 
 ifdef PTXCONF_SOFTHSM_P11_KIT
 	@$(call install_copy, softhsm, 0, 0, 0644, -, /usr/share/p11-kit/modules/softhsm2.module)
