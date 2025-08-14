@@ -97,6 +97,17 @@ config NTP_CRYPTO
 	help
 	  FIXME: This item needs to be documented
 
+config NTP_SNTP
+	bool
+	prompt "build SNTP"
+	help
+	  Simple Network Time Protocol is a subset of the Network
+	  Time Protocol (NTP). SNTP can be used when the ultimate
+	  performance of a full NTP implementation based on
+	  RFC 1305 is neither needed nor justified.
+	  It is strongly recommended that SNTP be used only at
+	  the extremities of the synchronization subnet.
+
 comment "Clock drivers"
 
 config NTP_ALL_CLOCK_DRIVERS
@@ -176,4 +187,3 @@ endif
 
 comment "NTP conflicts with OpenNTPD"
 	depends on NTP && OPENNTPD
-

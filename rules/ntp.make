@@ -128,7 +128,7 @@ NTP_CONF_OPT	:= \
 	--disable-kmem \
 	--enable-accurate-adjtime \
 	--disable-simulator \
-	--without-sntp \
+	--$(call ptx/wwo, PTXCONF_NTP_SNTP)-sntp \
 	--without-ntpsnmpd \
 	--$(call ptx/endis, PTXCONF_NTP_SLEW_ALWAYS)-slew-always \
 	--$(call ptx/endis, PTXCONF_NTP_STEP_SLEW)-step-slew \
@@ -178,6 +178,14 @@ ifdef PTXCONF_NTP_NTPD
 	@$(call install_copy, ntp, 0, 0, 0755, -, \
 		/usr/sbin/ntpd)
 	@$(call install_alternative, ntp, 0, 0, 0644, /etc/ntp-server.conf)
+endif
+
+#	#
+#	# sntp client
+#	#
+ifdef PTXCONF_NTP_SNTP
+	@$(call install_copy, ntp, 0, 0, 0755, -, \
+		/usr/sbin/sntp)
 endif
 
 ifdef PTXCONF_NTP_NTPD_STARTSCRIPT
