@@ -84,6 +84,22 @@ config NGINX_HTTP_GRPC_MODULE
 	help
 	  ngx_http_grpc_module allows passing requests to a gRPC server.
 
+config NGINX_HTTP_LIMIT_CON_MODULE
+	bool
+	prompt "ngx_http_limit_conn_module"
+	help
+	  The ngx_http_limit_conn_module module is used to limit the number
+	  of connections per the defined key, in particular, the number of
+	  connections from a single IP address.
+
+config NGINX_HTTP_LIMIT_REQ_MODULE
+	bool
+	prompt "ngx_http_limit_req_module"
+	help
+	  The ngx_http_limit_req_module module is used to limit the
+	  request processing rate per a defined key, in particular,
+	  the processing rate of requests coming from a single IP address.
+
 config NGINX_HTTP_PROXY_MODULE
 	bool
 	prompt "ngx_http_proxy_module"

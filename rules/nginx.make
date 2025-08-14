@@ -87,8 +87,8 @@ NGINX_CONF_OPT := \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_SCGI_MODULE,,--without-http_scgi_module) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_GRPC_MODULE,,--without-http_grpc_module) \
 	--without-http_memcached_module \
-	--without-http_limit_conn_module \
-	--without-http_limit_req_module \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_LIMIT_CON_MODULE,,--without-http_limit_conn_module) \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_LIMIT_REQ_MODULE,,--without-http_limit_req_module) \
 	--without-http_empty_gif_module \
 	--without-http_browser_module \
 	--without-http_upstream_hash_module \
