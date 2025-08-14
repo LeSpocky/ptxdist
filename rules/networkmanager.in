@@ -102,6 +102,11 @@ config NETWORKMANAGER_EXAMPLES
 	bool
 	prompt "install examples for Network Manager"
 
+config NETWORKMANAGER_SYSTEM_CONNECTIONS
+	bool
+	default y
+	prompt "create /etc/NetworkManagers/system-connections"
+
 config NETWORKMANAGER_POLKIT
 	bool
 	depends on BROKEN

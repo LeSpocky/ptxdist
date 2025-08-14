@@ -132,7 +132,9 @@ $(STATEDIR)/networkmanager.targetinstall:
 
 	@$(call install_alternative, networkmanager, 0, 0, 0644, /etc/NetworkManager/NetworkManager.conf)
 	@$(call install_copy, networkmanager, 0, 0, 0755, /etc/NetworkManager/dispatcher.d/)
+ifdef NETWORKMANAGER_SYSTEM_CONNECTIONS
 	@$(call install_copy, networkmanager, 0, 0, 0755, /etc/NetworkManager/system-connections/)
+endif
 
 #	# unmanage NFS root devices
 	@$(call install_alternative, networkmanager, 0, 0, 0755, /usr/lib/init/nm-unmanage.sh)
