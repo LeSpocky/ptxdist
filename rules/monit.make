@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_MONIT) += monit
 #
 # Paths and names
 #
-MONIT_VERSION	:= 5.32.0
-MONIT_MD5	:= 4e3e9f9dd4a5094101e1cd24a292a4fb
+MONIT_VERSION	:= 5.35.2
+MONIT_MD5	:= d89fee3644f542156d42d99d93026d6e
 MONIT		:= monit-$(MONIT_VERSION)
 MONIT_SUFFIX	:= tar.gz
 MONIT_URL	:= http://mmonit.com/monit/dist/$(MONIT).$(MONIT_SUFFIX)
 MONIT_SOURCE	:= $(SRCDIR)/$(MONIT).$(MONIT_SUFFIX)
 MONIT_DIR	:= $(BUILDDIR)/$(MONIT)
 MONIT_LICENSE	:= AGPL-3.0-only
-MONIT_LICENSE_FILES := file://COPYING;md5=ea116a7defaf0e93b3bb73b2a34a3f51
+MONIT_LICENSE_FILES := file://COPYING;md5=79ca9f26f1ecb1e377e90383109ede64
 
 # ----------------------------------------------------------------------------
 # Prepare
