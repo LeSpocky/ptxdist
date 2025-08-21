@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_CMOCKA) += cmocka
 #
 # Paths and names
 #
-CMOCKA_VERSION		:= 1.1.5
-CMOCKA_MD5		:= 91f95cd5db88b9b120d191b18d367193
+CMOCKA_VERSION		:= 1.1.8
+CMOCKA_MD5		:= 976fe5a166f9729c350119d997256d2f
 CMOCKA			:= cmocka-$(CMOCKA_VERSION)
 CMOCKA_SUFFIX		:= tar.xz
 CMOCKA_URL		:= https://cmocka.org/files/$(basename $(CMOCKA_VERSION))/$(CMOCKA).$(CMOCKA_SUFFIX)
@@ -35,8 +35,7 @@ CMOCKA_CONF_OPT		:= \
 	-DPICKY_DEVELOPER:BOOL=OFF \
 	-DUNIT_TESTING:BOOL=OFF \
 	-DWITH_CMOCKERY_SUPPORT:BOOL=OFF \
-	-DWITH_EXAMPLES:BOOL=OFF \
-	-DWITH_STATIC_LIB=OFF
+	-DWITH_EXAMPLES:BOOL=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install
