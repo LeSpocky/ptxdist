@@ -81,6 +81,7 @@ QT6_CONF_ENV := \
 
 ifdef PTXCONF_QT6_MODULE_QTWEBENGINE
 QT6_CONF_ENV += \
+	LC_ALL=C.UTF-8 \
 	PKG_CONFIG_HOST=$(PTXDIST_SYSROOT_HOST)/usr/bin/pkg-config \
 	PTX_CMAKE_CFLAGS="$(filter -m%,$(shell ptxd_cross_cc_v | sed -n -e "s/'//g" -e "/^COLLECT_GCC_OPTIONS=/{s/[^=]*=\(.*\)/\1/p;q}"))"
 
