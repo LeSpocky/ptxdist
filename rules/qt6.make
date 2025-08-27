@@ -220,11 +220,9 @@ QT6_CONF_OPT += \
 	-DFEATURE_gestures=ON \
 	-DFEATURE_gif=$(call ptx/onoff,PTXCONF_QT6_GIF) \
 	-DFEATURE_glib=$(call ptx/onoff,PTXCONF_QT6_GLIB) \
-	-DFEATURE_glibc=ON \
 	-DFEATURE_gssapi=OFF \
 	-DFEATURE_gui=$(call ptx/onoff,PTXCONF_QT6_GUI) \
 	-DFEATURE_harfbuzz=$(call ptx/onoff,PTXCONF_QT6_GUI) \
-	-DFEATURE_headersclean=OFF \
 	-DFEATURE_highdpiscaling=ON \
 	-DFEATURE_hijricalendar=ON \
 	-DFEATURE_http=ON \
@@ -265,9 +263,9 @@ QT6_CONF_OPT += \
 	-DFEATURE_mimetype=ON \
 	-DFEATURE_mimetype_database=ON \
 	-DFEATURE_movie=ON \
-	-DFEATURE_msvc_obj_debug_info=OFF \
 	-DFEATURE_mtdev=OFF \
 	-DFEATURE_multiprocess=ON \
+	-DFEATURE_neon=$(call ptx/onoff,PTXCONF_ARCH_ARM_NEON) \
 	-DFEATURE_network=ON \
 	-DFEATURE_networkdiskcache=ON \
 	-DFEATURE_networkinterface=ON \
@@ -279,7 +277,6 @@ QT6_CONF_OPT += \
 	-DFEATURE_opengl_desktop=OFF \
 	-DFEATURE_opengl_dynamic=OFF \
 	-DFEATURE_opengles2=ON \
-	-DFEATURE_opengles3=OFF \
 	-DFEATURE_opengles31=OFF \
 	-DFEATURE_opengles32=OFF \
 	-DFEATURE_openssl=$(call ptx/onoff,PTXCONF_QT6_OPENSSL) \
@@ -345,7 +342,6 @@ QT6_CONF_OPT += \
 	-DFEATURE_sqlmodel=ON \
 	-DFEATURE_ssl=$(call ptx/onoff,PTXCONF_QT6_OPENSSL) \
 	-DFEATURE_sspi=OFF \
-	-DFEATURE_stack_protector_strong=OFF \
 	-DFEATURE_standarditemmodel=ON \
 	-DFEATURE_static=OFF \
 	-DFEATURE_stdlib_libcpp=OFF \
@@ -365,7 +361,6 @@ QT6_CONF_OPT += \
 	-DFEATURE_systemtrayicon=ON \
 	-DFEATURE_tabletevent=ON \
 	-DFEATURE_temporaryfile=ON \
-	-DFEATURE_testcocoon=OFF \
 	-DFEATURE_testlib=$(call ptx/onoff,PTXCONF_QT6_TEST) \
 	-DFEATURE_testlib_selfcover=OFF \
 	-DFEATURE_textdate=ON \
@@ -391,6 +386,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_vnc=OFF \
 	-DFEATURE_vsp2=OFF \
 	-DFEATURE_vulkan=OFF \
+	-DFEATURE_wayland=$(call ptx/onoff,PTXCONF_QT6_MODULE_QTWAYLAND) \
 	-DFEATURE_whatsthis=ON \
 	-DFEATURE_wheelevent=ON \
 	-DFEATURE_widgets=$(call ptx/onoff,PTXCONF_QT6_WIDGETS) \
@@ -555,6 +551,7 @@ ifdef PTXCONF_QT6_MODULE_QTCONNECTIVITY
 QT6_CONF_OPT += \
 	-DFEATURE_bluez=ON \
 	-DFEATURE_bluez_le=ON \
++	-DFEATURE_neard=ON \
 	-DFEATURE_pcsclite=OFF
 endif
 
@@ -613,6 +610,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_quick_treeview=ON \
 	-DFEATURE_quick_viewtransitions=ON \
 	-DFEATURE_quickcontrols2_basic=ON \
+	-DFEATURE_quickcontrols2_fluentwinui3=ON \
 	-DFEATURE_quickcontrols2_fusion=ON \
 	-DFEATURE_quickcontrols2_imagine=ON \
 	-DFEATURE_quickcontrols2_ios=OFF \
@@ -621,6 +619,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_quickcontrols2_universal=ON \
 	-DFEATURE_quickcontrols2_windows=OFF \
 	-DFEATURE_quicktemplates2_calendar=ON \
+	-DFEATURE_quicktemplates2_container=ON \
 	-DFEATURE_quicktemplates2_hover=ON \
 	-DFEATURE_quicktemplates2_multitouch=ON
 endif
@@ -647,12 +646,12 @@ QT6_CONF_OPT += \
 	-DFEATURE_ffmpeg=OFF \
 	-DFEATURE_gpu_vivante=OFF \
 	-DFEATURE_gstreamer=$(call ptx/onoff,PTXCONF_QT6_MODULE_QTMULTIMEDIA_GST) \
-	-DFEATURE_gstreamer_1_0=$(call ptx/onoff,PTXCONF_QT6_MODULE_QTMULTIMEDIA_GST) \
-	-DFEATURE_gstreamer_app=$(call ptx/onoff,PTXCONF_QT6_MODULE_QTMULTIMEDIA_GST) \
 	-DFEATURE_gstreamer_gl=$(call ptx/onoff,QT6_MODULE_QTMULTIMEDIA_GST_GL) \
 	-DFEATURE_gstreamer_photography=OFF \
 	-DFEATURE_linux_dmabuf=$(call ptx/onoff,PTXCONF_QT6_OPENGL) \
 	-DFEATURE_linux_v4l=ON \
+	-DFEATURE_pipewire=OFF \
+	-DFEATURE_pipewire_screencapture=OFF \
 	-DFEATURE_pulseaudio=OFF \
 	-DFEATURE_spatialaudio=OFF \
 	-DFEATURE_spatialaudio_quick3d=OFF \
@@ -666,12 +665,10 @@ endif
 ifdef PTXCONF_QT6_MODULE_QTOPCUA
 QT6_CONF_OPT += \
 	-DFEATURE_gds=$(call ptx/onoff,PTXCONF_QT6_OPENSSL) \
-	-DFEATURE_ns0idgenerator=OFF \
 	-DFEATURE_ns0idnames=ON \
 	-DFEATURE_open62541=OFF \
 	-DFEATURE_open62541_security=OFF \
-	-DFEATURE_system_open62541=OFF \
-	-DFEATURE_uacpp=OFF
+	-DFEATURE_system_open62541=OFF
 endif
 
 ifdef PTXCONF_QT6_MODULE_QTPOSITIONING
@@ -682,7 +679,8 @@ endif
 ifdef PTXCONF_QT6_MODULE_QTQUICK3D
 QT6_CONF_OPT += \
 	-DFEATURE_quick3d_assimp=ON \
-	-DFEATURE_system_assimp=OFF
+	-DFEATURE_system_assimp=OFF \
+	-DFEATURE_system_openxr=OFF
 endif
 
 ifdef PTXCONF_QT6_MODULE_QTSERIALBUS
@@ -751,7 +749,6 @@ QT6_CONF_OPT += \
 	-DFEATURE_wayland_libhybris_egl_server_buffer=OFF \
 	-DFEATURE_wayland_server=OFF \
 	-DFEATURE_wayland_shm_emulation_server_buffer=OFF \
-	-DFEATURE_wayland_text_input_v4_wip=OFF \
 	-DFEATURE_wayland_vulkan_server_buffer=OFF
 endif
 
@@ -779,6 +776,7 @@ QT6_CONF_OPT += \
 	-DFEATURE_webengine_printing_and_pdf=OFF \
 	-DFEATURE_webengine_proprietary_codecs=OFF \
 	-DFEATURE_webengine_qt_freetype=OFF \
+	-DFEATURE_webengine_system_gbm=ON \
 	-DFEATURE_webengine_qt_harfbuzz=OFF \
 	-DFEATURE_webengine_qt_libjpeg=OFF \
 	-DFEATURE_webengine_qt_libpng=OFF \
