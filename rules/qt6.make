@@ -83,6 +83,11 @@ ifdef PTXCONF_QT6_MODULE_QTWEBENGINE
 QT6_CONF_ENV += \
 	PKG_CONFIG_HOST=$(PTXDIST_SYSROOT_HOST)/usr/bin/pkg-config \
 	PTX_CMAKE_CFLAGS="$(filter -m%,$(shell ptxd_cross_cc_v | sed -n -e "s/'//g" -e "/^COLLECT_GCC_OPTIONS=/{s/[^=]*=\(.*\)/\1/p;q}"))"
+
+ifdef PTXCONF_ARCH_ARM64
+QT6_CFLAGS := \
+	-Wno-incompatible-pointer-types
+endif
 endif
 
 QT6_MODULES-y						:=
