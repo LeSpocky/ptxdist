@@ -61,7 +61,6 @@ OPTEE_OUT_DIR        := \
 $(STATEDIR)/optee.install:
 	@$(call targetinfo)
 
-	@$(call install_init, optee)
 	@install -vd -m755 $(OPTEE_PKGDIR)/usr/lib/optee-os
 	@cp -vr $(OPTEE_OUT_DIR)/$(OPTEE_LIB_DIR)/* $(OPTEE_PKGDIR)/usr/lib/optee-os
 
@@ -81,7 +80,6 @@ OPTEE_BINARIES := \
 $(STATEDIR)/optee.targetinstall:
 	@$(call targetinfo)
 
-	@$(call install_init, optee)
 	@$(foreach binary, $(OPTEE_BINARIES), \
 		$(call ptx/image-install, OPTEE, \
 			$(OPTEE_OUT_DIR)/core/$(binary), \
