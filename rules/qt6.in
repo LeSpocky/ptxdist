@@ -386,6 +386,7 @@ config QT6_MODULE_QTGRAPHS
 	bool
 	select QT6_GUI
 	select QT6_MODULE_QTDECLARATIVE
+	select QT6_MODULE_QTQUICK3D
 	prompt"QtGraphs"
 
 if QT6_MODULE_QTGRAPHS
