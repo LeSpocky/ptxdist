@@ -829,10 +829,6 @@ $(call ptx/error, Qt6: select at least one GUI platform!)
 endif
 endif
 
-# change default C++ standard
-# the detected standard is not used for configure and examples
-QT6_CXXFLAGS := -std=c++11
-
 $(STATEDIR)/qt6.prepare:
 	@$(call targetinfo)
 	@rm -rf "$(QT6_DIR)/qtbase/mkspecs/linux-ptx-g++"
