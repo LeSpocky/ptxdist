@@ -81,7 +81,6 @@ QT6_CONF_ENV := \
 
 ifdef PTXCONF_QT6_MODULE_QTWEBENGINE
 QT6_CONF_ENV += \
-	LC_ALL=C.UTF-8 \
 	PKG_CONFIG_HOST=$(PTXDIST_SYSROOT_HOST)/usr/bin/pkg-config \
 	PTX_CMAKE_CFLAGS="$(filter -m%,$(shell ptxd_cross_cc_v | sed -n -e "s/'//g" -e "/^COLLECT_GCC_OPTIONS=/{s/[^=]*=\(.*\)/\1/p;q}"))"
 
@@ -851,10 +850,13 @@ endif
 	@+$(call world/prepare, QT6)
 	@$(call touch)
 
+QT6_MAKE_ENV := \
+	LC_ALL=C.UTF-8
+
 # some macro magic fails with icecc remote cpp on ARM/ARM64
 ifneq ($(PTXCONF_ARCH_ARM64)$(PTXCONF_ARCH_ARM),)
 ifdef PTXCONF_QT6_MODULE_QTWEBENGINE
-QT6_MAKE_ENV := \
+QT6_MAKE_ENV += \
 	ICECC_REMOTE_CPP=0
 endif
 endif

@@ -1,0 +1,47 @@
+From: Joyee Cheung <joyee@igalia.com>
+Date: Mon, 8 Jul 2024 15:15:07 +0200
+Subject: [PATCH] fix builds with GCC 12 on certain Linux distributions
+
+With GCC 12 on certain Linux distributions (at least Debian 12,
+Alpine 3.18, Fedora 37, that ships GCC 12.2),
+std::is_trivially_copyable is broken
+and as a result, V8 fails to compile. This patch uses the
+same polyfill on MSVC to make it compile with GCC 12.2.
+
+See https://github.com/nodejs/node/pull/45427 for more context.
+Refs: https://gcc.gnu.org/git/?p=gcc.git;a=commitdiff;h=aeba3e009b0abfccaf01797556445dbf891cc8dc
+
+Change-Id: Ie0ab1bb1ec105bacbd80b341adf7dbd8569f031f
+Reviewed-on: https://chromium-review.googlesource.com/c/v8/v8/+/5679182
+Commit-Queue: Joyee Cheung <joyee@igalia.com>
+Reviewed-by: Nico Hartmann <nicohartmann@chromium.org>
+Cr-Commit-Position: refs/heads/main@{#95181}
+---
+ qtwebengine/src/3rdparty/chromium/v8/src/base/macros.h | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/qtwebengine/src/3rdparty/chromium/v8/src/base/macros.h b/qtwebengine/src/3rdparty/chromium/v8/src/base/macros.h
+index 93a99ec1367f..13816837271c 100644
+--- a/qtwebengine/src/3rdparty/chromium/v8/src/base/macros.h
++++ b/qtwebengine/src/3rdparty/chromium/v8/src/base/macros.h
+@@ -173,7 +173,7 @@ namespace base {
+ // base::is_trivially_copyable will differ for these cases.
+ template <typename T>
+ struct is_trivially_copyable {
+-#if V8_CC_MSVC
++#if V8_CC_MSVC || (__GNUC__ == 12 && __GNUC_MINOR__ <= 2)
+   // Unfortunately, MSVC 2015 is broken in that std::is_trivially_copyable can
+   // be false even though it should be true according to the standard.
+   // (status at 2018-02-26, observed on the msvc waterfall bot).
+@@ -181,6 +181,11 @@ struct is_trivially_copyable {
+   // intended, so we reimplement this according to the standard.
+   // See also https://developercommunity.visualstudio.com/content/problem/
+   //          170883/msvc-type-traits-stdis-trivial-is-bugged.html.
++  //
++  // GCC 12.1 and 12.2 are broken too, they are shipped by some stable Linux
++  // distributions, so the same polyfill is also used.
++  // See
++  // https://gcc.gnu.org/git/?p=gcc.git;a=commitdiff;h=aeba3e009b0abfccaf01797556445dbf891cc8dc
+   static constexpr bool value =
+       // Copy constructor is trivial or deleted.
+       (std::is_trivially_copy_constructible<T>::value ||
