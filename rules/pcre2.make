@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PCRE2) += pcre2
 #
 # Paths and names
 #
-PCRE2_VERSION		:= 10.45
-PCRE2_MD5		:= f71abbe1b5adf25cd9af5d26ef223b66
+PCRE2_VERSION		:= 10.46
+PCRE2_MD5		:= 641f99b635ebb9332a9b6a8ce8e2f3cf
 PCRE2			:= pcre2-$(PCRE2_VERSION)
 PCRE2_SUFFIX		:= tar.bz2
 PCRE2_URL		:= https://github.com/PCRE2Project/pcre2/releases/download/$(PCRE2)/$(PCRE2).$(PCRE2_SUFFIX)
