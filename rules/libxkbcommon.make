@@ -34,21 +34,21 @@ LIBXKBCOMMON_LICENSE_FILES := file://LICENSE;md5=70eff33050c59f900f5b83275dcf121
 LIBXKBCOMMON_CONF_TOOL	:= meson
 LIBXKBCOMMON_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Ddefault-layout='us' \
-	-Ddefault-model='pc105' \
-	-Ddefault-options='' \
-	-Ddefault-rules='evdev' \
-	-Ddefault-variant='' \
-	-Denable-bash-completion=true \
-	-Denable-cool-uris=false \
-	-Denable-docs=false \
-	-Denable-tools=false \
-	-Denable-wayland=false \
-	-Denable-x11=$(call ptx/truefalse, PTXCONF_LIBXKBCOMMON_X11) \
-	-Denable-xkbregistry=false \
-	-Dx-locale-root=$(XORG_DATADIR)/X11/locale \
-	-Dxkb-config-extra-path=/etc/xkb \
 	-Dxkb-config-root=$(XORG_DATADIR)/X11/xkb \
+	-Dxkb-config-extra-path=/etc/xkb \
+	-Dx-locale-root=$(XORG_DATADIR)/X11/locale \
+	-Ddefault-rules='evdev' \
+	-Ddefault-model='pc105' \
+	-Ddefault-layout='us' \
+	-Ddefault-variant='' \
+	-Ddefault-options='' \
+	-Denable-tools=false \
+	-Denable-x11=$(call ptx/truefalse, PTXCONF_LIBXKBCOMMON_X11) \
+	-Denable-docs=false \
+	-Denable-cool-uris=false \
+	-Denable-wayland=false \
+	-Denable-xkbregistry=false \
+	-Denable-bash-completion=true
 
 # ----------------------------------------------------------------------------
 # Target-Install
