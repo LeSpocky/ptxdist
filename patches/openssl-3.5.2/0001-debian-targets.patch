@@ -2,23 +2,23 @@ From: Debian OpenSSL Team <pkg-openssl-devel@lists.alioth.debian.org>
 Date: Sun, 5 Nov 2017 15:09:09 +0100
 Subject: [PATCH] debian-targets
 
-Imported from openssl_3.0.8-1.debian.tar.xz
+Imported from openssl_3.5.2-1.debian.tar.xz
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- Configurations/20-debian.conf | 169 ++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 169 insertions(+)
+ Configurations/20-debian.conf | 163 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 163 insertions(+)
  create mode 100644 Configurations/20-debian.conf
 
 diff --git a/Configurations/20-debian.conf b/Configurations/20-debian.conf
 new file mode 100644
-index 000000000000..c6860ed4b7d7
+index 000000000000..f75c06d305b0
 --- /dev/null
 +++ b/Configurations/20-debian.conf
-@@ -0,0 +1,169 @@
+@@ -0,0 +1,163 @@
 +my %targets = (
 +	"debian" => {
-+		cflags => add("-Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr -DOPENSSL_TLS_SECURITY_LEVEL=2"),
++		cflags => add("-Wa,--noexecstack -Wall -fzero-call-used-regs=used-gpr"),
 +	},
 +	"debian-alpha" => {
 +		inherit_from => [ "linux-alpha-gcc", "debian" ],
@@ -69,6 +69,9 @@ index 000000000000..c6860ed4b7d7
 +	},
 +	"debian-hurd-i386" => {
 +		inherit_from => [ "hurd-x86", "debian" ],
++	},
++	"debian-hurd-amd64" => {
++		inherit_from => [ "hurd-x86_64", "debian" ],
 +	},
 +	"debian-ia64" => {
 +		inherit_from => [ "linux-ia64", "debian" ],
@@ -134,16 +137,13 @@ index 000000000000..c6860ed4b7d7
 +		inherit_from => [ "linux-ppc", "debian" ],
 +	},
 +	"debian-ppc64" => {
-+		inherit_from => [ "linux-generic64", "debian", ],
-+		asm_arch         => 'ppc64',
-+		cflags => add("-DB_ENDIAN"),
-+		perlasm_scheme => "linux64",
++		inherit_from => [ "linux-ppc64", "debian", ],
 +	},
 +	"debian-ppc64el" => {
 +		inherit_from => [ "linux-ppc64le", "debian" ],
 +	},
 +	"debian-riscv64" => {
-+		inherit_from => [ "linux-generic64", "debian" ],
++		inherit_from => [ "linux64-riscv64", "debian" ],
 +	},
 +	"debian-s390" => {
 +		inherit_from => [ "linux-generic32", "debian" ],
@@ -167,16 +167,10 @@ index 000000000000..c6860ed4b7d7
 +		inherit_from => [ "linux-latomic", "debian" ],
 +	},
 +	"debian-sparc" => {
-+		inherit_from => [ "linux-latomic", "debian", ],
-+		asm_arch         => 'sparcv9',
-+		cflags => add("-DB_ENDIAN -DBN_DIV2W"),
++		inherit_from => [ "linux-sparcv9", "debian", ],
 +	},
 +	"debian-sparc64" => {
-+	        inherit_from => [ "linux-generic64", "debian" ],
-+		asm_arch         => 'sparcv9',
-+	        cflags => add("-m64 -mcpu=ultrasparc -DB_ENDIAN"),
-+		bn_ops => "BN_LLONG RC4_CHAR",
-+		ex_libs => add("-latomic"),
++	        inherit_from => [ "linux64-sparcv9", "debian" ],
 +	},
 +	"debian-tilegx" => {
 +		inherit_from => [ "linux-generic64", "debian" ],

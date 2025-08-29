@@ -11,7 +11,7 @@ Fixes: #19243
 
 Signed-off-by: Sebastian Andrzej Siewior <sebastian@breakpoint.cc>
 
-Imported from openssl_3.0.8-1.debian.tar.xz
+Imported from openssl_3.5.2-1.debian.tar.xz
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
