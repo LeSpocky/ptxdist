@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_IGT_GPU_TOOLS) += igt-gpu-tools
 #
 # Paths and names
 #
-IGT_GPU_TOOLS_VERSION	:= 2.0
-IGT_GPU_TOOLS_MD5	:= dfd4dd415c3b3e53ddf4d13f4164a62b
+IGT_GPU_TOOLS_VERSION	:= 2.1
+IGT_GPU_TOOLS_MD5	:= e6f66340b8f8d1bc45834757a599de4d
 IGT_GPU_TOOLS		:= igt-gpu-tools-$(IGT_GPU_TOOLS_VERSION)
 IGT_GPU_TOOLS_SUFFIX	:= tar.xz
 IGT_GPU_TOOLS_URL	:= $(call ptx/mirror, XORG, individual/app/$(IGT_GPU_TOOLS).$(IGT_GPU_TOOLS_SUFFIX))
@@ -66,7 +66,9 @@ IGT_GPU_TOOLS_CONF_OPT	:= \
 	-Duse_rpath=false \
 	-Dvalgrind=disabled \
 	-Dversion_hash=NO-GIT \
-	-Dxe_driver=disabled
+	-Dvmtb=disabled \
+	-Dxe_driver=disabled \
+	-Dxe_eudebug=disabled
 
 ifdef PTXCONF_KERNEL_HEADER
 IGT_GPU_TOOLS_CPPFLAGS	:= \
