@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 10.0.3
-QEMU_MD5	:= 4a244f485c9d7ac3d40f958f13eae298
+QEMU_VERSION	:= 10.1.0
+QEMU_MD5	:= 3bde2d1b18d38d44331a6d9cb0cc3962
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -123,6 +123,7 @@ QEMU_CONF_OPT	:= \
 	--disable-hv-balloon \
 	--disable-hvf \
 	--enable-iconv \
+	--disable-igvm \
 	--disable-jack \
 	--disable-keyring \
 	--enable-kvm \
@@ -155,6 +156,7 @@ QEMU_CONF_OPT	:= \
 	--disable-oss \
 	--$(call ptx/endis, PTXCONF_QEMU_PULSEAUDIO)-pa \
 	--disable-parallels \
+	--disable-passt \
 	--$(call ptx/endis, PTXCONF_QEMU_PIPEWIRE)-pipewire \
 	--$(call ptx/endis, PTXCONF_QEMU_PIXMAN)-pixman \
 	--disable-plugins \
@@ -189,6 +191,7 @@ QEMU_CONF_OPT	:= \
 	--disable-u2f \
 	--disable-uadk \
 	--disable-usb-redir \
+	--disable-valgrind \
 	--disable-vde \
 	--disable-vdi \
 	--disable-vduse-blk-export \
