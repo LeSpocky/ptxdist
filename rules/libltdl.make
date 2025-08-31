@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBLTDL) += libltdl
 #
 # Paths and names
 #
-LIBLTDL_VERSION	:= 2.5.3
-LIBLTDL_MD5	:= 42abe5bed6cc8207f0868968d89d77cf
+LIBLTDL_VERSION	:= 2.5.4
+LIBLTDL_MD5	:= 862d906983d9b423b072285d999d8672
 LIBLTDL		:= libtool-$(LIBLTDL_VERSION)
 LIBLTDL_SUFFIX	:= tar.gz
 LIBLTDL_URL	:= $(call ptx/mirror, GNU, libtool/$(LIBLTDL).$(LIBLTDL_SUFFIX))
@@ -24,7 +24,7 @@ LIBLTDL_DIR	:= $(BUILDDIR)/$(LIBLTDL)
 # License for libltdl only
 LIBLTDL_LICENSE	:= LGPL-2.0-or-later
 LIBLTDL_LICENSE_FILES := \
-	file://libltdl/COPYING.LIB;md5=4fbd65380cdd255951079008b364516c
+	file://libltdl/COPYING.LIB;md5=4bf661c1e3793e55c8d1051bc5e0ae21
 
 # ----------------------------------------------------------------------------
 # Prepare
