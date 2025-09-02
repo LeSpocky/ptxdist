@@ -11,7 +11,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 27 insertions(+), 13 deletions(-)
 
 diff --git a/hw/9pfs/9p-local.c b/hw/9pfs/9p-local.c
-index 1b1f3b9ec81e..d900dccaacb1 100644
+index 928523afcc6c..898b54b71dc3 100644
 --- a/hw/9pfs/9p-local.c
 +++ b/hw/9pfs/9p-local.c
 @@ -462,8 +462,7 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
