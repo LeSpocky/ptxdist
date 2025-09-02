@@ -37,6 +37,12 @@ config MOSQUITTO_SRV
 	bool
 	prompt "SRV lookup support"
 
+config MOSQUITTO_PASSWD
+	bool
+	prompt "install mosquitto passwd"
+	help
+	  Installs the file /usr/bin/mosquitto_passwd
+
 config MOSQUITTO_WEBSOCKETS
 	bool
 	depends on MOSQUITTO_BROKER

@@ -106,6 +106,11 @@ ifdef PTXCONF_MOSQUITTO_SYSTEMD_UNIT
 endif
 endif
 
+ifdef PTXCONF_MOSQUITTO_PASSWD
+#	# password file management
+	@$(call install_copy, mosquitto, 0, 0, 0755, -, /usr/bin/mosquitto_passwd)
+endif
+
 	@$(call install_finish, mosquitto)
 
 	@$(call touch)
