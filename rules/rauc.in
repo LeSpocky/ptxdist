@@ -47,6 +47,16 @@ config RAUC_SERVICE
 	  that communicate with each other via D-Bus interface.
 	  Only deactivate this if you have a system that does not provide D-Bus!
 
+config RAUC_MARK_GOOD
+	bool
+	prompt "Enable the rauc-mark-good systemd service"
+	depends on RAUC_SERVICE && INITMETHOD_SYSTEMD
+	default y
+	help
+	  The service will start after boot-complete target has been reached and
+	  mark the currently booted slot as good. If your application does this
+	  after some additional checks, disable this.
+
 config RAUC_NETWORK
 	bool
 	prompt "Enable network support"

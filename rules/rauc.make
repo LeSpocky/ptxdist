@@ -97,10 +97,12 @@ ifdef PTXCONF_INITMETHOD_SYSTEMD
 	@$(call install_alternative, rauc, 0, 0, 0644, \
 		/usr/lib/systemd/system/rauc.service)
 
+ifdef PTXCONF_RAUC_MARK_GOOD
 	@$(call install_alternative, rauc, 0, 0, 0644, \
 		/usr/lib/systemd/system/rauc-mark-good.service)
 	@$(call install_link, rauc, ../rauc-mark-good.service, \
 		/usr/lib/systemd/system/multi-user.target.wants/rauc-mark-good.service)
+endif
 else
 	@$(call install_copy, rauc, 0, 0, 0755, -, \
 		/usr/libexec/rauc-service.sh)
