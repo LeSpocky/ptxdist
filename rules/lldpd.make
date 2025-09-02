@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LLDPD) += lldpd
 #
 # Paths and names
 #
-LLDPD_VERSION	:= 1.0.13
-LLDPD_MD5	:= 40fab1279e4203191dd32d2057f1c3fe
+LLDPD_VERSION	:= 1.0.19
+LLDPD_MD5	:= c05268312d4bf19bad995406c3c30418
 LLDPD		:= lldpd-$(LLDPD_VERSION)
 LLDPD_SUFFIX	:= tar.gz
 LLDPD_URL	:= http://media.luffy.cx/files/lldpd//$(LLDPD).$(LLDPD_SUFFIX)
@@ -31,8 +31,19 @@ LLDPD_LICENSE	:= ISC
 LLDPD_CONF_TOOL	:= autoconf
 LLDPD_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--disable-doxygen-doc \
+	--disable-doxygen-dot \
+	--disable-doxygen-man \
+	--disable-doxygen-rtf \
+	--disable-doxygen-xml \
+	--disable-doxygen-chm \
+	--disable-doxygen-chi \
+	--disable-doxygen-html \
+	--disable-doxygen-ps \
+	--disable-doxygen-pdf \
 	--enable-hardening \
+	--enable-pie \
 	--disable-sanitizers \
+	--disable-fuzzer \
 	--disable-gcov \
 	--disable-json0 \
 	--disable-dtrace \
@@ -46,16 +57,25 @@ LLDPD_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_LLDPD_DOT3)-dot3 \
 	--$(call ptx/endis, PTXCONF_LLDPD_CUSTOM_TLV)-custom \
 	--$(call ptx/endis, PTXCONF_LLDPD_OLDIES)-oldies \
+	--with-libbsd \
 	--without-embedded-libevent \
 	--with-readline \
 	--$(call ptx/wwo, PTXCONF_LLDPD_SNMP)-snmp \
 	--$(call ptx/wwo, PTXCONF_LLDPD_XML)-xml \
 	--without-seccomp \
-	--with-libbsd \
+	--without-launchddaemonsdir \
 	--with-systemdsystemunitdir=/usr/lib/systemd/system \
+	--without-sysusersdir \
+	--without-apparmordir \
 	--with-privsep-user="$(PTXCONF_LLDPD_PRIVSEP_USER)" \
 	--with-privsep-group="$(PTXCONF_LLDPD_PRIVSEP_GROUP)" \
-	--with-privsep-chroot="$(PTXCONF_LLDPD_PRIVSEP_CHROOT)"
+	--with-privsep-chroot="$(PTXCONF_LLDPD_PRIVSEP_CHROOT)" \
+	--with-lldpd-ctl-socket="$(PTXCONF_LLDPD_CTL_SOCKET)" \
+	--with-lldpd-pid-file="$(PTXCONF_LLDPD_PID_FILE)" \
+	--with-netlink-max-receive-bufsize=1048576 \
+	--with-netlink-receive-bufsize=0 \
+	--with-netlink-send-bufsize=0
+
 
 # ----------------------------------------------------------------------------
 # Target-Install

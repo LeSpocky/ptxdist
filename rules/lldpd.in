@@ -36,6 +36,16 @@ config LLDPD_PRIVSEP_CHROOT
 	prompt "Which directory to use to chroot lldpd"
 	default "/var/run/lldpd"
 
+config LLDPD_CTL_SOCKET
+	string
+	prompt "Path to socket for communication with lldpd"
+	default "/var/run/lldpd.socket"
+
+config LLDPD_PID_FILE
+	string
+	prompt "Path to lldpd PID file"
+	default "/var/run/lldpd.pid"
+
 config LLDPD_CDP
 	bool
 	prompt "Enable Cisco Discovery Protocol"
