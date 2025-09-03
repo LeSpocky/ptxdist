@@ -99,7 +99,7 @@ ifdef PTXCONF_MOSQUITTO_BROKER
 		/etc/mosquitto/mosquitto.conf)
 
 ifdef PTXCONF_MOSQUITTO_SYSTEMD_UNIT
-	@$(call install_copy, mosquitto, 0, 0, 0644, -, \
+	@$(call install_alternative, mosquitto, 0, 0, 0644, \
 		/usr/lib/systemd/system/mosquitto.service)
 	@$(call install_link, mosquitto, ../mosquitto.service, \
 		/usr/lib/systemd/system/multi-user.target.wants/mosquitto.service)
