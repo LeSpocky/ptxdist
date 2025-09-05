@@ -1,3 +1,3 @@
 #!/bin/sh
 
-autoreconf -f -i
+autoreconf -f
