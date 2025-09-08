@@ -15,15 +15,16 @@ PACKAGES-$(PTXCONF_NGINX) += nginx
 #
 # Paths and names
 #
-NGINX_VERSION	:= 1.24.0
-NGINX_MD5	:= f95835b55b3cbf05a4368e7bccbb8a46
+NGINX_VERSION	:= 1.29.1
+NGINX_MD5	:= 060fdcccf3a825719319e2d9fa42d14d
 NGINX		:= nginx-$(NGINX_VERSION)
 NGINX_SUFFIX	:= tar.gz
 NGINX_URL	:= https://nginx.org/download/$(NGINX).$(NGINX_SUFFIX)
 NGINX_SOURCE	:= $(SRCDIR)/$(NGINX).$(NGINX_SUFFIX)
 NGINX_DIR	:= $(BUILDDIR)/$(NGINX)
 NGINX_LICENSE	:= BSD-2-Clause
-NGINX_LICENSE_FILES	:= file://LICENSE;md5=175abb631c799f54573dc481454c8632
+NGINX_LICENSE_FILES	:= \
+	file://LICENSE;md5=3dc49537b08b14c8b66ad247bb4c4593
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -62,7 +63,6 @@ NGINX_CONF_OPT := \
 	--lock-path=/var/lock/nginx.lock \
 	--user=www \
 	--group=www \
-	--force-endianness=$(call ptx/ifdef,PTXCONF_ENDIAN_LITTLE,little,big) \
 	$(call ptx/ifdef, PTXCONF_NGINX_THREADS,--with-threads) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_SSL_MODULE,--with-http_ssl_module) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_V2_MODULE,--with-http_v2_module) \
@@ -70,10 +70,10 @@ NGINX_CONF_OPT := \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_GZIP_STATIC_MODULE,--with-http_gzip_static_module) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_CHARSET_MODULE,,--without-http_charset_module) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_GZIP_MODULE,,--without-http_gzip_module) \
+	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_AUTH_REQUEST_MODULE,--with-http_auth_request_module) \
 	--without-http_ssi_module \
 	--without-http_userid_module \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_ACCESS_MODULE,,--without-http_access_module) \
-	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_AUTH_REQUEST_MODULE,--with-http_auth_request_module) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_AUTH_BASIC_MODULE,,--without-http_auth_basic_module) \
 	--without-http_mirror_module \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_AUTOINDEX_MODULE,,--without-http_autoindex_module) \
@@ -94,6 +94,7 @@ NGINX_CONF_OPT := \
 	--without-http_upstream_hash_module \
 	--without-http_upstream_ip_hash_module \
 	--without-http_upstream_least_conn_module \
+	--without-http_upstream_random_module \
 	--without-http_upstream_keepalive_module \
 	--without-http_upstream_zone_module \
 	--http-log-path=/var/log/nginx \
@@ -111,8 +112,11 @@ NGINX_CONF_OPT := \
 	--without-stream_map_module \
 	--without-stream_split_clients_module \
 	--without-stream_return_module \
+	--without-stream_pass_module \
+	--without-stream_set_module \
 	--without-stream_upstream_hash_module \
 	--without-stream_upstream_least_conn_module \
+	--without-stream_upstream_random_module \
 	--without-stream_upstream_zone_module \
 	--with-cc=$(CROSS_CC) \
 	--with-cpp=$(CROSS_CC) \

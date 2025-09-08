@@ -19,12 +19,12 @@ Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
  1 file changed, 3 insertions(+)
 
 diff --git a/auto/os/linux b/auto/os/linux
-index 1d7a0af7ae19..d8afcb78ca37 100644
+index 1eddc0efe569..cfdc552bae96 100644
 --- a/auto/os/linux
 +++ b/auto/os/linux
-@@ -232,6 +232,9 @@ ngx_feature_test="struct crypt_data  cd;
-                   crypt_r(\"key\", \"salt\", &cd);"
- . auto/feature
+@@ -236,6 +236,9 @@ if [ $ngx_found = yes ]; then
+     CRYPT_LIB="-lcrypt"
+ fi
  
 +if [ $ngx_found = yes ]; then
 +    CORE_LIBS="$CORE_LIBS $ngx_feature_libs"

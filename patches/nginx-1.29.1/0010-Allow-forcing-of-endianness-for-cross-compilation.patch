@@ -82,7 +82,7 @@ index 1b552b6b37b8..4b2a3cd75bcc 100644
 +    ;;
 +esac
 diff --git a/auto/options b/auto/options
-index 48f3a1a4251b..7f4163d3449a 100644
+index 6a6e990a0f6b..44207036b0c9 100644
 --- a/auto/options
 +++ b/auto/options
 @@ -17,6 +17,8 @@ NGX_USER=
@@ -94,7 +94,7 @@ index 48f3a1a4251b..7f4163d3449a 100644
  CC=${CC:-cc}
  CPP=
  NGX_OBJS=objs
-@@ -197,6 +199,8 @@ do
+@@ -204,6 +206,8 @@ do
          --user=*)                        NGX_USER="$value"          ;;
          --group=*)                       NGX_GROUP="$value"         ;;
  
@@ -103,7 +103,7 @@ index 48f3a1a4251b..7f4163d3449a 100644
          --crossbuild=*)                  NGX_PLATFORM="$value"      ;;
  
          --build=*)                       NGX_BUILD="$value"         ;;
-@@ -434,6 +438,8 @@ cat << END
+@@ -445,6 +449,8 @@ cat << END
    --build=NAME                       set build name
    --builddir=DIR                     set build directory
  

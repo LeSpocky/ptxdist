@@ -30,10 +30,10 @@ index 8016d802e7a8..a9c6b6ee5eeb 100644
  
  END
 diff --git a/auto/unix b/auto/unix
-index 12059a2301f2..f467fef04868 100644
+index a85a9d9ed322..657c56cba44a 100644
 --- a/auto/unix
 +++ b/auto/unix
-@@ -440,7 +440,8 @@ ngx_feature_test="struct in_pktinfo  pkt;
+@@ -420,7 +420,8 @@ ngx_feature_test="struct in_pktinfo  pkt;
  
  ngx_feature="IPV6_RECVPKTINFO"
  ngx_feature_name="NGX_HAVE_IPV6_RECVPKTINFO"
@@ -43,7 +43,7 @@ index 12059a2301f2..f467fef04868 100644
  ngx_feature_incs="#include <sys/socket.h>
                    #include <netinet/in.h>"
  ngx_feature_path=
-@@ -645,7 +646,8 @@ ngx_param=NGX_MAX_TIME_T_VALUE; ngx_value=$ngx_max_value; . auto/types/value
+@@ -675,7 +676,8 @@ ngx_param=NGX_MAX_TIME_T_VALUE; ngx_value=$ngx_max_value; . auto/types/value
  
  ngx_feature="AF_INET6"
  ngx_feature_name="NGX_HAVE_INET6"

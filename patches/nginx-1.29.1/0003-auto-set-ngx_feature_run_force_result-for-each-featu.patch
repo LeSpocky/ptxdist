@@ -66,7 +66,7 @@ index ded93f5bc989..7c3cb74a2bd1 100644
      ngx_feature_path=
      ngx_feature_libs=
 diff --git a/auto/lib/libatomic/conf b/auto/lib/libatomic/conf
-index d1e484ab32ee..37249161ea2f 100644
+index dfdc1a622075..cb1c755a860d 100644
 --- a/auto/lib/libatomic/conf
 +++ b/auto/lib/libatomic/conf
 @@ -15,6 +15,7 @@ else
@@ -78,7 +78,7 @@ index d1e484ab32ee..37249161ea2f 100644
                        #include <atomic_ops.h>"
      ngx_feature_path=
 diff --git a/auto/os/darwin b/auto/os/darwin
-index 429468f7fd40..1ed47cca5c89 100644
+index 0ede28d0ac78..c24c3dd9e5ba 100644
 --- a/auto/os/darwin
 +++ b/auto/os/darwin
 @@ -33,6 +33,7 @@ NGX_KQUEUE_CHECKED=YES
@@ -106,7 +106,7 @@ index 429468f7fd40..1ed47cca5c89 100644
                    #include <sys/socket.h>
                    #include <sys/uio.h>
 diff --git a/auto/os/linux b/auto/os/linux
-index eb6702679a4b..1d7a0af7ae19 100644
+index bc0556b3a129..1eddc0efe569 100644
 --- a/auto/os/linux
 +++ b/auto/os/linux
 @@ -37,6 +37,7 @@ fi
@@ -142,7 +142,7 @@ index eb6702679a4b..1d7a0af7ae19 100644
  ngx_feature_path=
  ngx_feature_libs=
 diff --git a/auto/unix b/auto/unix
-index 867101982440..679e21213879 100644
+index 6087e04fd6af..3f87b4f45656 100644
 --- a/auto/unix
 +++ b/auto/unix
 @@ -100,6 +100,7 @@ if test -z "$NGX_KQUEUE_CHECKED"; then
@@ -153,7 +153,7 @@ index 867101982440..679e21213879 100644
          ngx_feature_incs="#include <sys/event.h>
                            #include <sys/time.h>"
          ngx_feature_path=
-@@ -722,6 +723,7 @@ if [ $ngx_found = no ]; then
+@@ -752,6 +753,7 @@ if [ $ngx_found = no ]; then
      ngx_feature="sys_nerr"
      ngx_feature_name="NGX_SYS_NERR"
      ngx_feature_run=value
@@ -161,7 +161,7 @@ index 867101982440..679e21213879 100644
      ngx_feature_incs='#include <errno.h>
                        #include <stdio.h>'
      ngx_feature_path=
-@@ -737,6 +739,7 @@ if [ $ngx_found = no ]; then
+@@ -767,6 +769,7 @@ if [ $ngx_found = no ]; then
      ngx_feature="_sys_nerr"
      ngx_feature_name="NGX_SYS_NERR"
      ngx_feature_run=value
@@ -169,7 +169,7 @@ index 867101982440..679e21213879 100644
      ngx_feature_incs='#include <errno.h>
                        #include <stdio.h>'
      ngx_feature_path=
-@@ -806,6 +809,7 @@ ngx_feature_test="void *p; p = memalign(4096, 4096);
+@@ -836,6 +839,7 @@ ngx_feature_test="void *p; p = memalign(4096, 4096);
  ngx_feature="mmap(MAP_ANON|MAP_SHARED)"
  ngx_feature_name="NGX_HAVE_MAP_ANON"
  ngx_feature_run=yes
@@ -177,7 +177,7 @@ index 867101982440..679e21213879 100644
  ngx_feature_incs="#include <sys/mman.h>"
  ngx_feature_path=
  ngx_feature_libs=
-@@ -819,6 +823,7 @@ ngx_feature_test="void *p;
+@@ -849,6 +853,7 @@ ngx_feature_test="void *p;
  ngx_feature='mmap("/dev/zero", MAP_SHARED)'
  ngx_feature_name="NGX_HAVE_MAP_DEVZERO"
  ngx_feature_run=yes
@@ -185,7 +185,7 @@ index 867101982440..679e21213879 100644
  ngx_feature_incs="#include <sys/mman.h>
                    #include <sys/stat.h>
                    #include <fcntl.h>"
-@@ -834,6 +839,7 @@ ngx_feature_test='void *p; int  fd;
+@@ -864,6 +869,7 @@ ngx_feature_test='void *p; int  fd;
  ngx_feature="System V shared memory"
  ngx_feature_name="NGX_HAVE_SYSVSHM"
  ngx_feature_run=yes
@@ -193,7 +193,7 @@ index 867101982440..679e21213879 100644
  ngx_feature_incs="#include <sys/ipc.h>
                    #include <sys/shm.h>"
  ngx_feature_path=
-@@ -848,6 +854,7 @@ ngx_feature_test="int  id;
+@@ -878,6 +884,7 @@ ngx_feature_test="int  id;
  ngx_feature="POSIX semaphores"
  ngx_feature_name="NGX_HAVE_POSIX_SEM"
  ngx_feature_run=yes

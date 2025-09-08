@@ -107,10 +107,10 @@ index 000000000000..8970f5f6ec73
 +
 +echo " $ngx_sys_nerr"
 diff --git a/auto/unix b/auto/unix
-index 679e21213879..12059a2301f2 100644
+index 3f87b4f45656..a85a9d9ed322 100644
 --- a/auto/unix
 +++ b/auto/unix
-@@ -744,10 +744,18 @@ if [ $ngx_found = no ]; then
+@@ -774,10 +774,18 @@ if [ $ngx_found = no ]; then
                        #include <stdio.h>'
      ngx_feature_path=
      ngx_feature_libs=

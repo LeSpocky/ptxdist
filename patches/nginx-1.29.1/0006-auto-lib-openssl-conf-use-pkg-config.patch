@@ -11,10 +11,10 @@ Signed-off-by: Martin Bark <martin@barkynet.com>
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/auto/lib/openssl/conf b/auto/lib/openssl/conf
-index 4fb52df7fe17..fdaaef611001 100644
+index 3068cae36b10..4c7c987f8c79 100644
 --- a/auto/lib/openssl/conf
 +++ b/auto/lib/openssl/conf
-@@ -60,7 +60,9 @@ else
+@@ -63,7 +63,9 @@ else
          ngx_feature_run=no
          ngx_feature_incs="#include <openssl/ssl.h>"
          ngx_feature_path=

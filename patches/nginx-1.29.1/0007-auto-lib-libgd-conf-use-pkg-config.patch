@@ -15,7 +15,7 @@ Signed-off-by: Fabrice Fontaine <fontaine.fabrice@gmail.com>
  1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/auto/lib/libgd/conf b/auto/lib/libgd/conf
-index 678639767a63..031bcfec86ad 100644
+index 07f565677ee5..1c767c4b828f 100644
 --- a/auto/lib/libgd/conf
 +++ b/auto/lib/libgd/conf
 @@ -7,8 +7,9 @@
