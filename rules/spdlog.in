@@ -1,0 +1,9 @@
+## SECTION=system_libraries
+
+config SPDLOG
+	tristate
+	select HOST_CMAKE
+	select FMT
+	prompt "spdlog"
+	help
+	  Fast C++ logging library
