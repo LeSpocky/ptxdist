@@ -1,6 +1,6 @@
 ## SECTION=security
 
-config OPTEE_TEST
+menuconfig OPTEE_TEST
 	tristate
 	select OPTEE_CLIENT
 	select OPTEE_CLIENT_SUPPLICANT_PLUGINS
@@ -11,3 +11,18 @@ config OPTEE_TEST
 	  The optee_test git contains the source code for the TEE sanity
 	  testsuite in Linux using the ARM(R) TrustZone(R) technology. It is
 	  distributed under the GPLv2 and BSD 2-clause open-source licenses.
+
+if OPTEE_TEST
+
+config OPTEE_TEST_CFG
+	string
+	prompt "OP-TEE CFG Flags"
+	default "${PTXCONF_OPTEE_CFG}"
+	help
+	  The optee-tests use some of the OP-TEE CFG flags for its own
+	  configuration and enabling test suites. Allow the user to pass
+	  additional options to configure the optee-tests.
+
+	  By default, pass the same options as passeed to OP-TEE.
+
+endif

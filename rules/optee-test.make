@@ -40,6 +40,7 @@ OPTEE_TEST_MAKE_ENV	:= \
 	TA_DEV_KIT_DIR=$(PTXDIST_SYSROOT_TARGET)/usr/lib/optee-os \
 	OPTEE_CLIENT_EXPORT=$(PTXDIST_SYSROOT_TARGET)/usr \
 	CFG_TEE_PLUGIN_LOAD_PATH=/usr/lib/tee-supplicant/plugins \
+	$(call remove_quotes,$(PTXCONF_OPTEE_TEST_CFG)) \
 	bindir=/usr/bin \
 	libdir=/usr/lib
 
