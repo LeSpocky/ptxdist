@@ -40,4 +40,14 @@ config OPTEE_CFG
 	  Refer to the following file for the CFG_FLAGS:
 	  https://github.com/OP-TEE/optee_os/blob/master/mk/config.mk
 
+config OPTEE_INSTALL_USER_TAS
+	bool "install in-tree user TAs"
+	help
+	  Install the OP-TEE in-tree user TAs.
+
+	  Enable this option to install the user TAs, which are included in
+	  the OP-TEE OS, into the rootfs. This allows loading the TAs via the
+	  tee-supplicant at runtime and removes the requirement to include the
+	  TAs as early TAs in the OP-TEE binary.
+
 endif

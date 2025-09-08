@@ -64,6 +64,10 @@ $(STATEDIR)/optee.install:
 	@install -vd -m755 $(OPTEE_PKGDIR)/usr/lib/optee-os
 	@cp -vr $(OPTEE_OUT_DIR)/$(OPTEE_LIB_DIR)/* $(OPTEE_PKGDIR)/usr/lib/optee-os
 
+	@install -vd -m755 $(OPTEE_PKGDIR)/usr/lib/optee_armtz
+	@install -v -D -m444 $(OPTEE_OUT_DIR)/$(OPTEE_LIB_DIR)/ta/*.ta \
+		$(OPTEE_PKGDIR)/usr/lib/optee_armtz
+
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
@@ -77,8 +81,28 @@ OPTEE_BINARIES := \
 	tee-pageable_v2.bin \
 	tee.elf
 
+OPTEE_USER_TAS := \
+	023f8f1a-292a-432b-8fc4-de8471358067.ta \
+	80a4c275-0a47-4905-8285-1486a9771a08.ta \
+	f04a0fe7-1f5d-4b9b-abf7-619b85b4ce8c.ta \
+	fd02c9da-306c-48c7-a49c-bbd827ae86ee.ta
+
 $(STATEDIR)/optee.targetinstall:
 	@$(call targetinfo)
+
+ifdef PTXCONF_OPTEE_INSTALL_USER_TAS
+	@$(call install_init, optee)
+	@$(call install_fixup, optee,PRIORITY,optional)
+	@$(call install_fixup, optee,SECTION,base)
+	@$(call install_fixup, optee,AUTHOR,"Rouven Czerwinski <rouven@czerwinskis.de>")
+	@$(call install_fixup, optee,DESCRIPTION,missing)
+
+	@$(foreach ta, $(OPTEE_USER_TAS), \
+		$(call install_copy, optee, 0, 0, 0444, -, \
+			/usr/lib/optee_armtz/$(ta))$(ptx/nl))
+
+	@$(call install_finish, optee)
+endif
 
 	@$(foreach binary, $(OPTEE_BINARIES), \
 		$(call ptx/image-install, OPTEE, \
