@@ -39,7 +39,6 @@ OPTEE_TEST_MAKE_ENV	:= \
 	CROSS_COMPILE_TA=$(call remove_quotes,$(PTXCONF_COMPILER_PREFIX)) \
 	TA_DEV_KIT_DIR=$(PTXDIST_SYSROOT_TARGET)/usr/lib/optee-os \
 	OPTEE_CLIENT_EXPORT=$(PTXDIST_SYSROOT_TARGET)/usr \
-	COMPILE_NS_USER=32 \
 	CFG_TEE_PLUGIN_LOAD_PATH=/usr/lib/tee-supplicant/plugins \
 	bindir=/usr/bin \
 	libdir=/usr/lib
