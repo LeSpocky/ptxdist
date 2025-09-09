@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MODEMMANAGER) += modemmanager
 #
 # Paths and names
 #
-MODEMMANAGER_VERSION	:= 1.22.0
-MODEMMANAGER_MD5	:= e967a452eb6f505a645df8c0582a17b7
+MODEMMANAGER_VERSION	:= 1.24.2
+MODEMMANAGER_MD5	:= 4b4c08aac46a3d382d6fbe0b7520e502
 MODEMMANAGER		:= ModemManager-$(MODEMMANAGER_VERSION)
 MODEMMANAGER_SUFFIX	:= tar.bz2
 MODEMMANAGER_URL	:= https://gitlab.freedesktop.org/mobile-broadband/ModemManager/-/archive/$(MODEMMANAGER_VERSION)/$(MODEMMANAGER).$(MODEMMANAGER_SUFFIX)
@@ -36,25 +36,27 @@ MODEMMANAGER_LICENSE_FILES := \
 MODEMMANAGER_CONF_TOOL	:= meson
 MODEMMANAGER_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dudev=true \
-	-Dudevdir=/usr/lib/udev \
-	-Dtests=false \
-	-Ddbus_policy_dir=/usr/share/dbus-1/system.d \
-	-Dsystemdsystemunitdir=/usr/lib/systemd/system \
-	-Dsystemd_suspend_resume=$(call ptx/truefalse, PTXCONF_INITMETHOD_SYSTEMD) \
-	-Dpowerd_suspend_resume=false \
-	-Dsystemd_journal=$(call ptx/truefalse, PTXCONF_INITMETHOD_SYSTEMD) \
-	-Dpolkit=no \
 	-Dat_command_via_dbus=$(call ptx/truefalse, PTXCONF_MODEMMANAGER_ALLOW_DBUS_AT_CMDS) \
+	-Dbash_completion=false \
+	-Dbuiltin_plugins=false \
+	-Ddbus_policy_dir=/usr/share/dbus-1/system.d \
+	-Dexamples=false \
+	-Dfuzzer=false \
+	-Dgtk_doc=false \
+	-Dintrospection=false \
+	-Dman=false \
 	-Dmbim=true \
+	-Dpolkit=no \
+	-Dpowerd_suspend_resume=false \
 	-Dqmi=true \
 	-Dqrtr=false \
-	-Dintrospection=false \
-	-Dvapi=false \
-	-Dgtk_doc=false \
-	-Dman=false \
-	-Dbash_completion=false \
-	-Dexamples=false
+	-Dsystemd_journal=$(call ptx/truefalse, PTXCONF_INITMETHOD_SYSTEMD) \
+	-Dsystemd_suspend_resume=$(call ptx/truefalse, PTXCONF_INITMETHOD_SYSTEMD) \
+	-Dsystemdsystemunitdir=/usr/lib/systemd/system \
+	-Dtests=false \
+	-Dudev=true \
+	-Dudevdir=/usr/lib/udev \
+	-Dvapi=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
