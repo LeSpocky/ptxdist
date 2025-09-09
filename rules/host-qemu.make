@@ -115,6 +115,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-hv-balloon \
 	--disable-hvf \
 	--enable-iconv \
+	--disable-igvm \
 	--disable-jack \
 	--disable-keyring \
 	--enable-kvm \
@@ -147,6 +148,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-pa \
 	--disable-pipewire \
 	--disable-parallels \
+	--disable-passt \
 	--disable-pixman \
 	--disable-png \
 	--disable-qcow1 \
@@ -177,6 +179,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--disable-u2f \
 	--disable-uadk \
 	--disable-usb-redir \
+	--disable-valgrind \
 	--disable-vdi \
 	--disable-vduse-blk-export \
 	--disable-vfio-user-server \
