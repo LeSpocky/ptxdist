@@ -2,5 +2,5 @@
 
 config HOST_BINDGEN_CLI
 	tristate
-	default y if ALLYES
+	# No ALLYES default. Needs a working rust / cargo.
 
