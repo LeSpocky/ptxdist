@@ -36,7 +36,8 @@ IMA_EVM_UTILS_CONF_ENV := \
 	$(CROSS_ENV) \
 	ac_cv_lib_tss2_esys_Esys_Free=no \
 	ac_cv_lib_tss2_rc_Tss2_RC_Decode=no \
-	ac_cv_path_XMLCATALOG=
+	ac_cv_path_XMLCATALOG= \
+	MANPAGE_DOCBOOK_XSL=/does/not/extist
 
 IMA_EVM_UTILS_CONF_TOOL	:= autoconf
 IMA_EVM_UTILS_CONF_OPT	:= \

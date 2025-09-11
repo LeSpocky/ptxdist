@@ -15,6 +15,11 @@ HOST_PACKAGES-$(PTXCONF_HOST_IMA_EVM_UTILS) += host-ima-evm-utils
 # Prepare
 # ----------------------------------------------------------------------------
 
+HOST_IMA_EVM_UTILS_CONF_ENV	:= \
+	$(HOST_ENV) \
+	ac_cv_path_XMLCATALOG= \
+	MANPAGE_DOCBOOK_XSL=/does/not/extist
+
 #
 # autoconf
 #
