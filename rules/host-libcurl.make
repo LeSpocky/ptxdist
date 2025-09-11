@@ -113,7 +113,6 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--without-ngtcp2 \
 	--without-nghttp3 \
 	--without-quiche \
-	--without-msh3 \
 	--without-zsh-functions-dir \
 	--without-fish-functions-dir
 
