@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.15.0
-LIBCURL_MD5	:= b8872bb6cc5d18d03bea8ff5090b2b81
+LIBCURL_VERSION	:= 8.16.0
+LIBCURL_MD5	:= 3b5aae755714b338af0f66726bceb62a
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -132,7 +132,6 @@ LIBCURL_CONF_OPT	:= \
 	--without-openssl-quic \
 	--without-nghttp3 \
 	--without-quiche \
-	--without-msh3 \
 	--without-zsh-functions-dir \
 	--without-fish-functions-dir
 
