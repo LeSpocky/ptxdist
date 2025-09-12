@@ -308,6 +308,13 @@ ptxd_make_world_install_pack() {
 	-e "s:\(-I\|-isystem \)\(${pkg_sysroot_dir}\|${pkg_sysroot_dir_nolink}\)/*\(/include\|/usr/include\):\1@SYSROOT@\3:g" &&
     check_pipe_status &&
 
+    if [ -d "${pkg_pkg_dir}/usr/bin" ]; then
+	find "${pkg_pkg_dir}/usr/bin" -maxdepth 1 -type f -executable -print0 | \
+	    xargs -r -0 \
+	    sed -i "1s;^#!${pkg_sysroot_dir}\(.*\);#!@SYSROOT@\1;" &&
+	    check_pipe_status
+    fi &&
+
     if [ "${pkg_pkg_dev}" != "NO" -a "$(ptxd_get_ptxconf PTXCONF_PROJECT_CREATE_DEVPKGS)" = "y" ]; then
 	tar -c -C "${ptx_pkg_dir}" -z -f "${ptx_pkg_dir}/${pkg_pkg_dev}" "${pkg_pkg_dir##*/}"
     fi
@@ -356,6 +363,12 @@ ptxd_make_world_install_post() {
 	    cp -P -- "${config}" "${PTXDIST_SYSROOT_CROSS}/usr/bin" || return
 	fi
     done &&
+    if [ -d "${pkg_pkg_dir}/usr/bin" ]; then
+	find "${pkg_pkg_dir}/usr/bin" -maxdepth 1 -type f -executable -print0 | \
+	    xargs -r -0 \
+	    sed -i "1s;^#!@SYSROOT@\(.*\);#!${pkg_sysroot_dir}\1;" &&
+	    check_pipe_status
+    fi
 
     if [ ! -e "${ptx_pkg_dir}/.${pkg_label}" -o -h "${ptx_pkg_dir}/.${pkg_label}" ]; then
 	ln -sfT $(basename "${pkg_pkg_dir}") "${ptx_pkg_dir}/.${pkg_label}"
