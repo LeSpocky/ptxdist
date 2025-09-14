@@ -1,8 +1,8 @@
-## SECTION=multimedia_libs
+## SECTION=test_suites
 
-config VKMARK
-	bool
-	prompt "vkmark"
+menuconfig VKMARK
+	tristate
+	prompt "vkmark                        "
 	select HOST_MESON
 	select ASSIMP
 	select GLM
