@@ -4,7 +4,7 @@ menuconfig ZINT
 	tristate
 	select HOST_CMAKE
 	select LIBPNG		if ZINT_FRONTEND
-	prompt "zint"
+	prompt "zint                          "
 	help
 	  A barcode encoding library supporting over 50 symbologies.
 
