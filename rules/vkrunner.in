@@ -1,7 +1,7 @@
 ## SECTION=test_suites
 
 config VKRUNNER
-	bool
+	tristate
 	prompt "vkrunner"
 	select VULKAN_LOADER
 	select GLSLANG			if RUNTIME
