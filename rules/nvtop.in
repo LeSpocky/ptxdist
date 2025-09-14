@@ -1,8 +1,8 @@
 ## SECTION=shell_and_console
 
 menuconfig NVTOP
-	bool
-	prompt "nvtop"
+	tristate
+	prompt "nvtop                         "
 	select HOST_CMAKE
 	select NCURSES
 	select LIBDRM		if NVTOP_AMDGPU || NVTOP_MSM
