@@ -7,7 +7,7 @@ menuconfig UDISKS
 	select LIBBLOCKDEV
 	select LIBGUDEV
 	select POLKIT
-	prompt "udisks"
+	prompt "udisks                        "
 	help
 	  The UDisks project provides a daemon, tools and libraries to access
 	  and manipulate disks, storage devices and technologies.
