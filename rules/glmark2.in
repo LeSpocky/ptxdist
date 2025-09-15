@@ -1,4 +1,4 @@
-## SECTION=multimedia_libs
+## SECTION=test_suites
 
 menuconfig GLMARK2
 	tristate
