@@ -93,6 +93,8 @@ $(STATEDIR)/tpm2-tss.targetinstall:
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-tcti-mssim)
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-tctildr)
 	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-rc)
+	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-policy)
+	@$(call install_lib, tpm2-tss, 0, 0, 0644, libtss2-tcti-spi-helper)
 
 	@$(call install_alternative, tpm2-tss, 0, 0, 0644, \
 		/usr/lib/udev/rules.d/70-tpm-udev.rules)
