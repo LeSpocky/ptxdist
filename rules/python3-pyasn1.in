@@ -1,7 +1,7 @@
 ## SECTION=python3
 
 config PYTHON3_PYASN1
-	bool
+	tristate
 	prompt "pyasn1"
 	select PYTHON3
 	select HOST_PYTHON3_SETUPTOOLS
