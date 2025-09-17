@@ -98,6 +98,8 @@ $(STATEDIR)/tpm2-tss.targetinstall:
 
 	@$(call install_alternative, tpm2-tss, 0, 0, 0644, \
 		/usr/lib/udev/rules.d/70-tpm-udev.rules)
+	@$(call install_alternative, tpm2-tss, 0, 0, 0644, \
+		/etc/tpm2-tss/fapi-config.json)
 
 	@$(call install_finish, tpm2-tss)
 
