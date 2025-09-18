@@ -7,12 +7,13 @@
 #
 
 world/image-fit/env/impl = \
-	$(call world/image/env, $(1))					\
-	$(CODE_SIGNING_ENV)						\
-	image_sign_role="$(call ptx/escape,$($(1)_SIGN_ROLE))"		\
-	image_key_name_hint="$(call ptx/escape,$($(1)_KEY_NAME_HINT))"	\
-	image_kernel="$(call ptx/escape,$($(1)_KERNEL))"		\
-	image_initramfs="$(call ptx/escape,$($(1)_INITRAMFS))"		\
+	$(call world/image/env, $(1))						\
+	$(CODE_SIGNING_ENV)							\
+	image_sign_role="$(call ptx/escape,$($(1)_SIGN_ROLE))"			\
+	image_key_name_hint="$(call ptx/escape,$($(1)_KEY_NAME_HINT))"		\
+	image_kernel="$(call ptx/escape,$($(1)_KERNEL))"			\
+	image_kernel_compression="$(call ptx/escape,$($(1)_KERNEL_COMPRESSION))"\
+	image_initramfs="$(call ptx/escape,$($(1)_INITRAMFS))"			\
 	image_dtb="$(call ptx/escape,$($(1)_DTB))"
 
 world/image-fit/env = \

@@ -17,6 +17,12 @@ menuconfig KERNEL_FIT
 
 if KERNEL_FIT
 
+config KERNEL_FIT_KERNEL_COMPRESSION
+	string
+	# Keep in sync with KERNEL_IMAGE
+	default "gzip" if KERNEL_IMAGE_Z && (ARCH_ARM64 || ARCH_RISCV)
+	default "none"
+
 config KERNEL_FIT_NOLOAD
 	bool
 	prompt "Sub-image type 'kernel_noload'"

@@ -21,7 +21,7 @@ ptxd_make_image_fit_its() {
 			data = /incbin/("${image_kernel}");
 			arch = "$(ptxd_get_ptxconf PTXCONF_ARCH_STRING)";
 			os = "linux";
-			compression = "none";
+			compression = "${image_kernel_compression}";
 EOF
     if [ -n "$(ptxd_get_ptxconf PTXCONF_KERNEL_FIT_NOLOAD)" ]; then
         cat << EOF
