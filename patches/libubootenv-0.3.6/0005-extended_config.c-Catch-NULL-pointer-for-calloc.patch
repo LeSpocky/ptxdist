@@ -1,0 +1,30 @@
+From: Steffen Kothe <steffen.kothe@skothe.net>
+Date: Sun, 31 Aug 2025 19:07:56 +0000
+Subject: [PATCH] extended_config.c: Catch NULL pointer for calloc
+
+calloc is not guaranteed to return a valid pointer to a free memory
+area.
+
+Hence check for possible NULL return and fail immediately.
+
+Addresses possible CWE-690.
+
+Signed-off-by: Steffen Kothe <steffen.kothe@skothe.net>
+Acked-by: Stefano Babic <stefano.babic@swupdate.org>
+---
+ src/extended_config.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/extended_config.c b/src/extended_config.c
+index 45df3ec7a7ca..c3782e1fba94 100644
+--- a/src/extended_config.c
++++ b/src/extended_config.c
+@@ -131,6 +131,8 @@ static int consume_event(struct parser_state *s, yaml_event_t *event)
+ 		case YAML_SCALAR_EVENT:
+ 			value = (char *)event->data.scalar.value;
+ 			newctx = calloc (s->nelem + 1, sizeof(*newctx));
++			if (newctx == NULL)
++				return FAILURE;
+ 			for (int i = 0; i < s->nelem; i++) {
+ 				newctx[i] = s->ctxsets[i];
+ 			}

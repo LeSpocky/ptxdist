@@ -1,0 +1,40 @@
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Thu, 24 Apr 2025 19:53:01 -0600
+Subject: [PATCH] extended_config: fix segfault on empty config
+
+We need to validate that we have nelem and bail out if we don't.
+
+Fixes:
+==245== Invalid write of size 4
+==245==    at 0x4849E0C: parse_yaml_config (uboot_env.c:1390)
+==245==    by 0x484A717: libuboot_read_config_ext (uboot_env.c:1484)
+==245==    by 0x13F253: bootloader_initialize.constprop.0 (uboot.c:45)
+==245==    by 0x13F457: do_env_set (uboot.c:72)
+==245==    by 0x12B057: update_transaction_state (stream_interface.c:139)
+==245==    by 0x12C367: extract_files (stream_interface.c:297)
+==245==    by 0x12C367: network_initializer (stream_interface.c:658)
+==245==    by 0x4EA89AF: ??? (in /usr/lib/libc.so.6)
+==245==    by 0x4F0989B: ??? (in /usr/lib/libc.so.6)
+==245==  Address 0x2e8 is not stack'd, malloc'd or (recently) free'd
+
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+ src/extended_config.c | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/src/extended_config.c b/src/extended_config.c
+index ec814f484efd..45df3ec7a7ca 100644
+--- a/src/extended_config.c
++++ b/src/extended_config.c
+@@ -428,6 +428,11 @@ int parse_yaml_config(struct uboot_ctx **ctxlist, FILE *fp)
+ 		}
+ 	} while (state.state != STATE_STOP);
+ 
++	if (state.nelem == 0) {
++		status = FAILURE;
++		goto cleanup;
++	}
++
+ 	state.ctxsets[0].nelem = state.nelem;
+ 
+ 	for (int i = 0; i < state.nelem; i++) {

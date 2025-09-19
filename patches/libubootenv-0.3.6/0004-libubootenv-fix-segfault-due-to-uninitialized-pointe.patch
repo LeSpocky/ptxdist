@@ -1,0 +1,32 @@
+From: Mohamed-nour Toumi <mohamed.toumi_ext@softathome.com>
+Date: Mon, 28 Jul 2025 22:25:35 +0200
+Subject: [PATCH] libubootenv: fix segfault due to uninitialized pointer in
+ config parser
+
+Issue: The issue was introduced in commit c478e8d9, which replaced the use of %ms in sscanf() with a calloc()-based workaround for platforms where %ms is not supported (e.g., FreeBSD).
+However, this change inadvertently introduced a logic flaw: it uses calloc to emulate %ms% in sscanf() but also added 2 free instructions which could lead to free non-allocated memory on tmp when sscanf()
+is used to perform the dynamic allocation.
+
+Fix: Ensure `tmp` is initialized to NULL before each call to sscanf with `%ms`
+in `libuboot_read_config_ext()`. This prevents `free(tmp)` from crashing
+when sscanf fails to allocate memory (e.g., due to malformed config lines).
+
+Fixes segmentation fault observed when running swupdate with a ubootenv config file.
+
+Signed-off-by: Mohamed-nour Toumi <mohamed.toumi_ext@softathome.com>
+---
+ src/uboot_env.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/uboot_env.c b/src/uboot_env.c
+index d8b93dac7479..9641800f4bdc 100644
+--- a/src/uboot_env.c
++++ b/src/uboot_env.c
+@@ -871,6 +871,7 @@ int libuboot_read_config_ext(struct uboot_ctx **ctxlist, const char *config)
+ 				tmp,
+ #else
+ 		(void)len;
++		tmp = NULL;
+ 		ret = sscanf(line, "%ms %lli %zx %zx %lx %d",
+ 				&tmp,
+ #endif

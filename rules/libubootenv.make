@@ -34,7 +34,8 @@ LIBUBOOTENV_LICENSE_FILES := \
 LIBUBOOTENV_CONF_TOOL	:= cmake
 LIBUBOOTENV_CONF_OPT	:=  \
 	$(CROSS_CMAKE_USR) \
-	-DBUILD_DOC=OFF
+	-DBUILD_DOC=OFF \
+	-DNO_YML_SUPPORT=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install

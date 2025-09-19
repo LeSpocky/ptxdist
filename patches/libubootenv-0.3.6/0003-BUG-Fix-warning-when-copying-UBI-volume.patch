@@ -1,0 +1,35 @@
+From: Stefano Babic <stefano.babic@swupdate.org>
+Date: Tue, 29 Apr 2025 13:49:15 +0200
+Subject: [PATCH] BUG: Fix warning when copying UBI volume
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Fix:
+
+/home/stefano/SWUpdate/libubootenv/src/uboot_mtd.c: In function ‘libubootenv_ubi_update_name’:
+/home/stefano/SWUpdate/libubootenv/src/uboot_mtd.c:283:17: warning: ‘memset’ writing 256 bytes into a region of size 236 overflows the destination [-Wstringop-overflow=]
+  283 |                 memset(volume, 0, DEVNAME_MAX_LENGTH);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/stefano/SWUpdate/libubootenv/src/uboot_mtd.c:223:14: note: destination object ‘volume’ of size 236
+
+This can lead to overwrite the buffer for the volumes.
+
+Signed-off-by: Stefano Babic <stefano.babic@swupdate.org>
+---
+ src/uboot_mtd.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/uboot_mtd.c b/src/uboot_mtd.c
+index 81376e4ddc09..24e817d88944 100644
+--- a/src/uboot_mtd.c
++++ b/src/uboot_mtd.c
+@@ -280,7 +280,7 @@ int libubootenv_ubi_update_name(struct uboot_flash_env *dev)
+ 		memset(device, 0, DEVNAME_MAX_LENGTH);
+ 		memcpy(device, dev->devname, sep - dev->devname);
+ 
+-		memset(volume, 0, DEVNAME_MAX_LENGTH);
++		memset(volume, 0, VOLNAME_MAX_LENGTH);
+ 		sscanf(sep + 1, "%s", &volume[0]);
+ 
+ 		dev_id = ubi_get_dev_id(device);
