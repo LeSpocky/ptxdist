@@ -56,6 +56,7 @@ ifdef PTXCONF_LIBUBOOTENV_TOOLS
 	@$(call install_copy, libubootenv, 0, 0, 0755, \
 		$(LIBUBOOTENV_PKGDIR)/usr/bin/fw_printenv, /usr/sbin/fw_printenv)
 	@$(call install_link, libubootenv, fw_printenv, /usr/sbin/fw_setenv)
+	@$(call install_alternative, libubootenv, 0, 0, 0644, /etc/fw_env.config)
 endif
 
 	@$(call install_finish, libubootenv)
