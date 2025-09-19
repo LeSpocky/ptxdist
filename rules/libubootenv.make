@@ -51,6 +51,13 @@ $(STATEDIR)/libubootenv.targetinstall:
 
 	@$(call install_lib, libubootenv, 0, 0, 0644, libubootenv)
 
+ifdef PTXCONF_LIBUBOOTENV_TOOLS
+#	# same path as the equivalents from u-boot-tools package
+	@$(call install_copy, libubootenv, 0, 0, 0755, \
+		$(LIBUBOOTENV_PKGDIR)/usr/bin/fw_printenv, /usr/sbin/fw_printenv)
+	@$(call install_link, libubootenv, fw_printenv, /usr/sbin/fw_setenv)
+endif
+
 	@$(call install_finish, libubootenv)
 
 	@$(call touch)

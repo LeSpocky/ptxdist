@@ -1,15 +1,29 @@
 ## SECTION=system_libraries
 
-config LIBUBOOTENV
+menuconfig LIBUBOOTENV
 	tristate
 	select HOST_CMAKE
 	select LIBYAML
 	select ZLIB
-	prompt "libubootenv"
+	prompt "libubootenv                   "
 	help
 	  Generic library and tools to access and modify U-Boot
 	  environment from User Space.
 
 	  https://github.com/sbabic/libubootenv
+
+if LIBUBOOTENV
+
+config LIBUBOOTENV_TOOLS
+	bool
+	prompt "fw_printenv / fw_setenv"
+	depends on !U_BOOT_TOOLS || ALLYES
+	help
+	  Install fw_printenv and fw_setenv to target.
+
+comment "u-boot-tools is selected!"
+	depends on U_BOOT_TOOLS
+
+endif
 
 # vim: ft=kconfig noet tw=72 ts=8 sw=8
