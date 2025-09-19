@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_LIBXML2) += libxml2
 #
 # Paths and names
 #
-LIBXML2_VERSION	:= 2.14.6
-LIBXML2_MD5	:= a2bb2b6cb8fc7be1fafa14f500e4f7c5
+LIBXML2_VERSION	:= 2.15.0
+LIBXML2_MD5	:= 4f44fc1e16ed59c91022e4e89864bcdb
 LIBXML2		:= libxml2-$(LIBXML2_VERSION)
 LIBXML2_SUFFIX	:= tar.xz
 LIBXML2_SOURCE	:= $(SRCDIR)/$(LIBXML2).$(LIBXML2_SUFFIX)
@@ -25,8 +25,8 @@ LIBXML2_DIR	:= $(BUILDDIR)/$(LIBXML2)
 LIBXML2_LICENSE	:= MIT AND ISC
 LIBXML2_LICENSE_FILES := \
 	file://Copyright;md5=5873615e8a9ecbf5c8857c4312ee05d6 \
-	file://dict.c;startline=5;endline=16;md5=6bf674402d04fa793fdc1f4d26635d33 \
-	file://list.c;startline=4;endline=15;md5=3fca05145285fa81f48c16c86a4a70b8
+	file://dict.c;startline=5;endline=16;md5=052d1599b0684de2eb1c1e7176aa5006 \
+	file://list.c;startline=4;endline=15;md5=2c23bb052c68eec2ead1d4972b7f5bcd
 
 LIBXML2_URL := \
 	https://download.gnome.org/sources/libxml2/$(basename $(LIBXML2_VERSION))/$(LIBXML2).$(LIBXML2_SUFFIX)
@@ -46,13 +46,13 @@ LIBXML2_CONF_OPT := \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_C14N)-c14n \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_CATALOG)-catalog \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_DEBUG)-debug \
+	--without-docs \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_HISTORY)-history \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_HISTORY)-readline \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_HTML)-html \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_HTTP)-http \
 	--without-icu \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_ISO8859X)-iso8859x \
-	--$(call ptx/wwo, PTXCONF_LIBXML2_LZMA)-lzma \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_MODULES)-modules \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_OUTPUT)-output \
 	--$(call ptx/wwo, PTXCONF_LIBXML2_PATTERN)-pattern \
