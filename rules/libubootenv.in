@@ -3,7 +3,7 @@
 menuconfig LIBUBOOTENV
 	tristate
 	select HOST_CMAKE
-	select LIBYAML
+	select LIBYAML if LIBUBOOTENV_YAML_CONFIG
 	select ZLIB
 	prompt "libubootenv                   "
 	help
@@ -20,6 +20,12 @@ config LIBUBOOTENV_TOOLS
 	depends on !U_BOOT_TOOLS || ALLYES
 	help
 	  Install fw_printenv and fw_setenv to target.
+
+config LIBUBOOTENV_YAML_CONFIG
+	bool
+	prompt "extended conf file format"
+	help
+	  Support the new, extended, yaml based configuration file format.
 
 comment "u-boot-tools is selected!"
 	depends on U_BOOT_TOOLS

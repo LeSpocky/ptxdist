@@ -35,7 +35,7 @@ LIBUBOOTENV_CONF_TOOL	:= cmake
 LIBUBOOTENV_CONF_OPT	:=  \
 	$(CROSS_CMAKE_USR) \
 	-DBUILD_DOC=OFF \
-	-DNO_YML_SUPPORT=OFF
+	-DNO_YML_SUPPORT=$(call ptx/ifdef, PTXCONF_LIBUBOOTENV_YAML_CONFIG, OFF, ON)
 
 # ----------------------------------------------------------------------------
 # Target-Install
