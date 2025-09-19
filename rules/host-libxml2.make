@@ -30,7 +30,6 @@ HOST_LIBXML2_CONF_OPT	:= \
 	--disable-static \
 	--without-iconv \
 	--without-icu \
-	--without-python \
-	--without-lzma
+	--without-python
 
 # vim: syntax=make
