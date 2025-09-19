@@ -1,0 +1,15 @@
+## SECTION=system_libraries
+
+config LIBUBOOTENV
+	tristate
+	select HOST_CMAKE
+	select LIBYAML
+	select ZLIB
+	prompt "libubootenv"
+	help
+	  Generic library and tools to access and modify U-Boot
+	  environment from User Space.
+
+	  https://github.com/sbabic/libubootenv
+
+# vim: ft=kconfig noet tw=72 ts=8 sw=8
