@@ -1,0 +1,28 @@
+From: Stefan Behnel <stefan_ml@behnel.de>
+Date: Sun, 21 Sep 2025 06:30:09 +0200
+Subject: [PATCH] Fix compilation problem with libxml2 2.15, which (rightly) no
+ longer stores attribute default values in the name dict.
+
+See https://gitlab.gnome.org/GNOME/libxml2/-/commit/24628f25
+
+Fixes https://bugs.launchpad.net/lxml/+bug/2125278
+---
+ src/lxml/proxy.pxi | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/src/lxml/proxy.pxi b/src/lxml/proxy.pxi
+index f7b47a73a47d..0e6cf19ef7ff 100644
+--- a/src/lxml/proxy.pxi
++++ b/src/lxml/proxy.pxi
+@@ -574,7 +574,10 @@ cdef void fixThreadDictNamesForDtd(tree.xmlDtd* c_dtd,
+                 _fixThreadDictPtr(&c_element.content.prefix, c_src_dict, c_dict)
+             c_attribute = c_element.attributes
+             while c_attribute:
+-                _fixThreadDictPtr(&c_attribute.defaultValue, c_src_dict, c_dict)
++                if tree.LIBXML_VERSION < 21500:
++                    # libxml2 2.15 no longer stores default values in the dict.
++                    # See https://gitlab.gnome.org/GNOME/libxml2/-/commit/24628f25
++                    _fixThreadDictPtr(<const_xmlChar**>&c_attribute.defaultValue, c_src_dict, c_dict)
+                 _fixThreadDictPtr(&c_attribute.name, c_src_dict, c_dict)
+                 _fixThreadDictPtr(&c_attribute.prefix, c_src_dict, c_dict)
+                 _fixThreadDictPtr(&c_attribute.elem, c_src_dict, c_dict)
