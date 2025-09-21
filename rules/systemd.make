@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 257.7
+SYSTEMD_VERSION		:= 258
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_MD5		:= e4f510caa8f1dd16c62832ca0e0b1d4b
+SYSTEMD_MD5		:= 490c1c2bbe5b576ff9ca2848fbd31507
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 #ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -42,11 +42,6 @@ ifneq ($(PTXCONF_ARCH_X86)$(PTXCONF_ARCH_PPC),)
 SYSTEMD_WRAPPER_BLACKLIST := TARGET_HARDEN_PIE
 endif
 
-ifdef PTXCONF_KERNEL_HEADER
-SYSTEMD_CPPFLAGS	:= \
-	-isystem $(KERNEL_HEADERS_INCLUDE_DIR)
-endif
-
 SYSTEMD_CONF_TOOL	:= meson
 SYSTEMD_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
@@ -69,14 +64,12 @@ SYSTEMD_CONF_OPT	:= \
 	-Dcompat-mutable-uid-boundaries=false \
 	-Dcoredump=$(call ptx/truefalse,PTXCONF_SYSTEMD_COREDUMP) \
 	-Dcreate-log-dirs=false \
-	-Dcryptolib=auto \
 	-Ddbus=disabled \
 	-Ddbuspolicydir=/usr/share/dbus-1/system.d \
 	-Ddbussessionservicedir=/usr/share/dbus-1/services \
 	-Ddbussystemservicedir=/usr/share/dbus-1/system-services \
 	-Ddefault-dns-over-tls=no \
 	-Ddefault-dnssec=no \
-	-Ddefault-hierarchy=unified \
 	-Ddefault-keymap=us \
 	-Ddefault-kill-user-processes=true \
 	-Ddefault-llmnr=yes \
@@ -114,7 +107,6 @@ SYSTEMD_CONF_OPT	:= \
 	-Dinitrd=false \
 	-Dinstall-sysconfdir=true \
 	-Dinstall-tests=false \
-	-Dintegration-tests=false \
 	-Dipe=true \
 	-Dkernel-install=false \
 	-Dkexec-path=/usr/sbin/kexec \
@@ -128,6 +120,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dlibidn=disabled \
 	-Dlibidn2=disabled \
 	-Dlibiptc=$(call ptx/endis,PTXCONF_SYSTEMD_IPMASQUERADE)d \
+	-Dlibmount=enabled \
 	-Dlink-boot-shared=true \
 	-Dlink-executor-shared=true \
 	-Dlink-journalctl-shared=true \
@@ -153,7 +146,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dnetworkd=$(call ptx/truefalse,PTXCONF_SYSTEMD_NETWORK) \
 	-Dnobody-group=nogroup \
 	-Dnobody-user=nobody \
-	-Dnscd=false \
+	-Dnspawn=$(call ptx/endis,PTXCONF_SYSTEMD_NSPAWN)d \
 	-Dnsresourced=false \
 	-Dnss-myhostname=true \
 	-Dnss-mymachines=$(call ptx/endis,PTXCONF_SYSTEMD_NSPAWN)d \
@@ -268,7 +261,6 @@ endif
 
 SYSTEMD_HELPER := \
 	systemd \
-	systemd-cgroups-agent \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_COREDUMP,systemd-coredump) \
 	systemd-executor \
 	systemd-fsck \
@@ -299,6 +291,7 @@ SYSTEMD_HELPER := \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_TIMEDATE,systemd-timesyncd) \
 	systemd-update-done \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_UNITS_USER,systemd-user-runtime-dir) \
+	systemd-validatefs \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_VCONSOLE,systemd-vconsole-setup)
 
 SYSTEMD_UDEV_HELPER-y :=
@@ -314,6 +307,7 @@ SYSTEMD_UDEV_HELPER-$(PTXCONF_SYSTEMD_UDEV_MTD_PROBE)		+= mtd_probe
 SYSTEMD_UDEV_RULES-y := \
 	50-udev-default.rules \
 	60-persistent-alsa.rules \
+	60-persistent-hidraw.rules \
 	60-persistent-input.rules \
 	60-persistent-storage-mtd.rules \
 	60-persistent-storage-tape.rules \
@@ -333,6 +327,7 @@ SYSTEMD_UDEV_RULES-$(PTXCONF_SYSTEMD_UDEV_HWDB) += \
 	60-autosuspend.rules \
 	60-evdev.rules \
 	60-sensor.rules \
+	70-camera.rules \
 	70-joystick.rules \
 	70-mouse.rules \
 	70-touchpad.rules
@@ -424,6 +419,9 @@ endif
 
 	@$(call install_tree, systemd, 0, 0, -, /usr/lib/tmpfiles.d/)
 	@$(call install_copy, systemd, 0, 0, 0644, -, /usr/lib/sysctl.d/50-default.conf)
+ifdef PTXCONF_ARCH_LP64
+	@$(call install_copy, systemd, 0, 0, 0644, -, /usr/lib/sysctl.d/50-pid-max.conf)
+endif
 
 ifdef PTXCONF_SYSTEMD_DBUS_SERVICES
 	@$(call install_copy, systemd, 0, 0, 0644, -, \
@@ -455,9 +453,7 @@ ifdef PTXCONF_INITMETHOD_SYSTEMD
 	@$(call install_link, systemd, ../bin/systemctl, /usr/sbin/halt)
 	@$(call install_link, systemd, ../bin/systemctl, /usr/sbin/poweroff)
 	@$(call install_link, systemd, ../bin/systemctl, /usr/sbin/reboot)
-	@$(call install_link, systemd, ../bin/systemctl, /usr/sbin/runlevel)
 	@$(call install_link, systemd, ../bin/systemctl, /usr/sbin/shutdown)
-	@$(call install_link, systemd, ../bin/systemctl, /usr/sbin/telinit)
 endif
 
 ifdef PTXCONF_SYSTEMD_COREDUMP
@@ -536,6 +532,8 @@ ifdef PTXCONF_SYSTEMD_VCONSOLE
 	@$(call install_link, systemd, ../getty@.service,  \
 		/usr/lib/systemd/system/getty.target.wants/getty@tty1.service)
 	@$(call install_alternative, systemd, 0, 0, 0644, /etc/vconsole.conf)
+	@$(call install_alternative, systemd, 0, 0, 0644, \
+		/usr/share/systemd/language-fallback-map)
 endif
 
 #	# udev
