@@ -52,12 +52,12 @@ quotation for your special requirements.
 
 Contact us at:
 
-| Pengutronix
-| Peiner Str. 6-8
+| Pengutronix e.K.
+| Steuerwalder Straße 21
 | 31137 Hildesheim
 | Germany
 | Phone: +49 - 51 21 / 20 69 17 - 0
-| Fax: +49 - 51 21 / 20 69 17 - 55 55
+| Fax: +49 - 51 21 / 20 69 17 - 9
 
 or by electronic mail:
 

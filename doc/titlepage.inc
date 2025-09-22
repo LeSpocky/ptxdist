@@ -36,10 +36,10 @@
     \includegraphics[width=60mm]{new_logo_2006_ptx.pdf}\hspace*{-7pt}\vspace*{-7pt}\\
   \fontsize{12}{12}\selectfont%
   Pengutronix e.\,K.\\
-  Peiner Straße 6--8\\
+  Steuerwalder Straße 21\\
   31137 Hildesheim\\[1ex]
   +49\,(0)51\,21\,/\,20\,69\,17\,--\,0 (Fon)\\
-  +49\,(0)51\,21\,/\,20\,69\,17\,--\,55\,55 (Fax)\\[1ex]
+  +49\,(0)51\,21\,/\,20\,69\,17\,--\,9 (Fax)\\[1ex]
   info@pengutronix.de\\[2.5ex]
   {\footnotesize \copyright \, \number \year \ Pengutronix, Hildesheim -- Git Rev.\ |ptxdistBSPRevision| \negthinspace}
 \end{textblock}
