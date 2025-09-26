@@ -23,6 +23,7 @@ OPTEE_SUFFIX	:= tar.gz
 OPTEE_URL	:= https://github.com/OP-TEE/optee_os/archive/$(OPTEE_VERSION).$(OPTEE_SUFFIX)
 OPTEE_SOURCE	:= $(SRCDIR)/$(OPTEE).$(OPTEE_SUFFIX)
 OPTEE_DIR	:= $(BUILDDIR)/$(OPTEE)
+OPTEE_BUILD_DIR	:= $(OPTEE_DIR)-build
 OPTEE_LICENSE	:= BSD-2-Clause AND BSD-3-Clause
 OPTEE_LICENSE_FILES := \
 	file://LICENSE;md5=c1f21c4f72f372ef38a5a4aee55ec173
@@ -46,7 +47,11 @@ OPTEE_MAKE_ENV += \
 	CROSS_COMPILE64=$(COMPILER_PREFIX) \
 	$(call ptx/ifdef,PTXCONF_ARCH_ARM64,CFG_ARM64_core=y) \
 	PLATFORM=$(OPTEE_PLATFORM)$(OPTEE_PLATFORM_FLAVOUR) \
+	O="$(OPTEE_BUILD_DIR)" \
 	$(call remove_quotes,$(PTXCONF_OPTEE_CFG))
+
+OPTEE_MAKE_OPT := \
+	-C "$(OPTEE_DIR)"
 
 # ----------------------------------------------------------------------------
 # Install
@@ -55,17 +60,14 @@ OPTEE_MAKE_ENV += \
 OPTEE_LIB_DIR := \
 	$(call ptx/ifdef,PTXCONF_ARCH_ARM64,export-ta_arm64,export-ta_arm32)
 
-OPTEE_OUT_DIR        := \
-	$(OPTEE_DIR)/out/arm-plat-$(PTXCONF_OPTEE_PLATFORM)
-
 $(STATEDIR)/optee.install:
 	@$(call targetinfo)
 
 	@install -vd -m755 $(OPTEE_PKGDIR)/usr/lib/optee-os
-	@cp -vr $(OPTEE_OUT_DIR)/$(OPTEE_LIB_DIR)/* $(OPTEE_PKGDIR)/usr/lib/optee-os
+	@cp -vr $(OPTEE_BUILD_DIR)/$(OPTEE_LIB_DIR)/* $(OPTEE_PKGDIR)/usr/lib/optee-os
 
 	@install -vd -m755 $(OPTEE_PKGDIR)/usr/lib/optee_armtz
-	@install -v -D -m444 $(OPTEE_OUT_DIR)/$(OPTEE_LIB_DIR)/ta/*.ta \
+	@install -v -D -m444 $(OPTEE_BUILD_DIR)/$(OPTEE_LIB_DIR)/ta/*.ta \
 		$(OPTEE_PKGDIR)/usr/lib/optee_armtz
 
 	@$(call touch)
@@ -106,7 +108,7 @@ endif
 
 	@$(foreach binary, $(OPTEE_BINARIES), \
 		$(call ptx/image-install, OPTEE, \
-			$(OPTEE_OUT_DIR)/core/$(binary), \
+			$(OPTEE_BUILD_DIR)/core/$(binary), \
 			$(binary))$(ptx/nl))
 
 	@$(call touch)
