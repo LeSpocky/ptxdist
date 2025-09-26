@@ -132,6 +132,7 @@ ifdef PTXCONF_V4L_UTILS_V4L2SYSFSPATH
 endif
 ifdef PTXCONF_V4L_UTILS_TRACER
 	@$(call install_copy, v4l-utils, 0, 0, 0755, -, /usr/bin/v4l2-tracer)
+	@$(call install_lib, v4l-utils, 0, 0, 0644, libv4l2tracer)
 endif
 	@$(call install_finish, v4l-utils)
 
