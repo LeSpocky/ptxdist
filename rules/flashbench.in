@@ -1,4 +1,6 @@
-## SECTION=test_suites
+## SECTION=staging
+## old section:
+### SECTION=test_suites
 
 menuconfig FLASHBENCH
 	tristate
@@ -14,6 +16,9 @@ menuconfig FLASHBENCH
 	  [1] https://wiki.linaro.org/WorkingGroups/KernelConsolidation/Projects/FlashCardSurvey
 	  [2] git clone git://git.linaro.org/people/arnd/flashbench.git
 	  [3] http://lwn.net/Articles/428584/
+
+	  STAGING: remove in PTXdist 2026.10.0
+	  Upstream seems to be dead, download URL broken. Unmaintained in PTXist.
 
 if FLASHBENCH
 
