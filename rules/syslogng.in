@@ -4,7 +4,6 @@
 menuconfig SYSLOGNG
 	tristate
 	prompt "syslog-ng                     "
-	select EVENTLOG
 	select GLIB
 	select OPENSSL
 	select LIBCURL		if SYSLOGNG_HTTP
