@@ -15,10 +15,10 @@ PACKAGES-$(PTXCONF_BLKTRACE) += blktrace
 # Paths and names
 #
 BLKTRACE_VERSION	:= 1.2.0
-BLKTRACE_MD5		:= b9a80b7cc0a50f7a96d34c570ab8224d
+BLKTRACE_MD5		:= f52e02797a5c4d114b898416f6a1b818
 BLKTRACE		:= blktrace-$(BLKTRACE_VERSION)
-BLKTRACE_SUFFIX		:= tar.bz2
-BLKTRACE_URL		:= https://brick.kernel.dk/snaps/$(BLKTRACE).$(BLKTRACE_SUFFIX)
+BLKTRACE_SUFFIX		:= tar.gz
+BLKTRACE_URL		:= https://git.kernel.org/pub/scm/linux/kernel/git/axboe/blktrace.git/snapshot/$(BLKTRACE).$(BLKTRACE_SUFFIX)
 BLKTRACE_SOURCE		:= $(SRCDIR)/$(BLKTRACE).$(BLKTRACE_SUFFIX)
 BLKTRACE_DIR		:= $(BUILDDIR)/$(BLKTRACE)
 BLKTRACE_LICENSE	:= GPL-2.0-only
