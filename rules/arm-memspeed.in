@@ -1,4 +1,6 @@
-## SECTION=test_suites
+## SECTION=staging
+## old section:
+### SECTION=test_suites
 
 config ARM_MEMSPEED
 	tristate
@@ -9,3 +11,5 @@ config ARM_MEMSPEED
 	  Note: it does not work on a different architecture than ARM and it
 	  needs at least an ARMv5 core!
 
+	  STAGING: remove in PTXdist 2026.10.0
+	  Seems to be obsolete and upstream long dead and gone.
