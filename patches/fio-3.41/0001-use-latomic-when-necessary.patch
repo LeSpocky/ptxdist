@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 8 insertions(+), 5 deletions(-)
 
 diff --git a/configure b/configure
-index a2b9bd4cc8f4..a118d90f9648 100755
+index 3209e225e3d8..1b423a0b3f88 100755
 --- a/configure
 +++ b/configure
-@@ -607,16 +607,19 @@ cat > $TMPC <<EOF
+@@ -648,16 +648,19 @@ cat > $TMPC <<EOF
  #include <stdatomic.h>
  int main(void)
  {

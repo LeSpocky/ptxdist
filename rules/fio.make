@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_FIO) += fio
 #
 # Paths and names
 #
-FIO_VERSION		:= 3.32
-FIO_MD5			:= 505dd0fea0850cc90c994c65133407e1
+FIO_VERSION		:= 3.41
+FIO_MD5			:= 2890a01413d28ad0072ba0587314f5ef
 FIO			:= fio-$(FIO_VERSION)
 FIO_SUFFIX		:= tar.gz
-FIO_URL			:= https://brick.kernel.dk/snaps/$(FIO).$(FIO_SUFFIX)
+FIO_URL			:= https://github.com/axboe/fio/archive/refs/tags/$(FIO).$(FIO_SUFFIX)
 FIO_SOURCE		:= $(SRCDIR)/$(FIO).$(FIO_SUFFIX)
 FIO_DIR			:= $(BUILDDIR)/$(FIO)
 FIO_LICENSE		:= GPL-2.0-only
