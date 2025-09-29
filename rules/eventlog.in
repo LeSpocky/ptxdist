@@ -1,6 +1,11 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 config EVENTLOG
 	tristate
 	help
 	  Part of syslog-ng.
+
+	  STAGING: remove in PTXdist 2026.10.0
+	  Its only user switched to a vendored version and upstream is gone.
