@@ -29,7 +29,7 @@ LIBXML2_LICENSE_FILES := \
 	file://list.c;startline=4;endline=15;md5=2c23bb052c68eec2ead1d4972b7f5bcd
 
 LIBXML2_URL := \
-	https://download.gnome.org/sources/libxml2/$(basename $(LIBXML2_VERSION))/$(LIBXML2).$(LIBXML2_SUFFIX)
+	$(call ptx/mirror, GNOME, libxml2/$(basename $(LIBXML2_VERSION))/$(LIBXML2).$(LIBXML2_SUFFIX))
 
 # ----------------------------------------------------------------------------
 # Prepare
