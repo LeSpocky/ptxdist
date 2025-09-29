@@ -26,7 +26,7 @@ LIBXSLT_LICENSE_FILES := \
 	file://Copyright;md5=0cd9a07afbeb24026c9b03aecfeba458
 
 LIBXSLT_URL	:= \
-	https://download.gnome.org/sources/libxslt/$(basename $(LIBXSLT_VERSION))/$(LIBXSLT).$(LIBXSLT_SUFFIX)
+	$(call ptx/mirror, GNOME, libxslt/$(basename $(LIBXSLT_VERSION))/$(LIBXSLT).$(LIBXSLT_SUFFIX))
 
 # ----------------------------------------------------------------------------
 # Prepare
