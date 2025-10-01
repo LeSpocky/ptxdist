@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_SED) += sed
 #
 # Paths and names
 #
-SED_VERSION	:= 4.8
-SED_MD5		:= 4b9b442ae2527ac316d2915facc41622
+SED_VERSION	:= 4.9
+SED_MD5		:= a50000a406f767bfa35db319704ef7b5
 SED		:= sed-$(SED_VERSION)
 SED_SUFFIX	:= tar.gz
 SED_URL		:= $(call ptx/mirror, GNU, sed/$(SED).$(SED_SUFFIX))
@@ -24,7 +24,7 @@ SED_SOURCE	:= $(SRCDIR)/$(SED).$(SED_SUFFIX)
 SED_DIR		:= $(BUILDDIR)/$(SED)
 SED_LICENSE	:= GPL-3.0-only
 SED_LICENSE_FILES := \
-	file://COPYING;md5=c678957b0c8e964aa6c70fd77641a71e
+	file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -37,12 +37,21 @@ SED_CONF_TOOL	:= autoconf
 SED_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
+	--enable-threads=posix \
+	--enable-cross-guesses=conservative \
 	--disable-acl \
+	--disable-assert \
 	--disable-nls \
 	--disable-rpath \
+	--disable-i18n \
+	--disable-gcc-warnings \
+	--disable-bold-man-page-references \
+	--without-included-regex \
 	--without-selinux \
-	--enable-threads=posix \
-	--disable-assert
+	--with-packager \
+	--with-packager-version \
+	--with-packager-bug-reports
 
 # ----------------------------------------------------------------------------
 # Target-Install
