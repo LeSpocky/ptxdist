@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_GLSLANG) += glslang
 #
 # Paths and names
 #
-GLSLANG_VERSION		:= 1.4.321.0
-GLSLANG_MD5		:= b2218150554ad7236f2fbaacccbd1c91
+GLSLANG_VERSION		:= 1.4.328.0
+GLSLANG_MD5		:= 844c0aaaacbfae2a5bd3c71f498ed7c2
 GLSLANG			:= glslang-$(GLSLANG_VERSION)
 GLSLANG_SUFFIX		:= tar.gz
 GLSLANG_URL		:= https://github.com/KhronosGroup/glslang/archive/vulkan-sdk-$(GLSLANG_VERSION).$(GLSLANG_SUFFIX)
 GLSLANG_SOURCE		:= $(SRCDIR)/$(GLSLANG).$(GLSLANG_SUFFIX)
 GLSLANG_DIR		:= $(BUILDDIR)/$(GLSLANG)
 GLSLANG_LICENSE		:= BSD-3-clause AND BSD-2-clause AND MIT AND Apple-MIT-License AND Apache-2.0 AND (GPL-3.0-or-later WITH Bison-exception-2.2) AND custom
-GLSLANG_LICENSE_FILES := file://LICENSE.txt;md5=2a2b5acd7bc4844964cfda45fe807dc3
+GLSLANG_LICENSE_FILES := file://LICENSE.txt;md5=50ff9d0fcde2d5b953ebe431c48e34e3
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -44,7 +44,6 @@ GLSLANG_CONF_OPT	:= \
 	-DENABLE_PCH=ON \
 	-DENABLE_RTTI=OFF \
 	-DENABLE_SPIRV=ON \
-	-DENABLE_SPVREMAPPER=ON \
 	-DGLSLANG_ENABLE_INSTALL=ON \
 	-DGLSLANG_TESTS=OFF
 
@@ -63,14 +62,12 @@ $(STATEDIR)/glslang.targetinstall:
 
 ifdef PTXCONF_GLSLANG_TOOLS
 	@$(call install_copy, glslang, 0, 0, 0755, -, /usr/bin/glslangValidator)
-	@$(call install_copy, glslang, 0, 0, 0755, -, /usr/bin/spirv-remap)
 endif
 
 ifdef PTXCONF_GLSLANG_LIBS
 	@$(call install_lib, glslang, 0, 0, 0644, libglslang-default-resource-limits)
 	@$(call install_lib, glslang, 0, 0, 0644, libglslang)
 	@$(call install_lib, glslang, 0, 0, 0644, libSPIRV)
-	@$(call install_lib, glslang, 0, 0, 0644, libSPVRemapper)
 endif
 
 	@$(call install_finish, glslang)

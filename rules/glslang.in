@@ -16,13 +16,12 @@ config GLSLANG_TOOLS
 	prompt "install tools"
 	select GLSLANG_LIBS
 	help
-	  Install glslangValidator and spirv-remap tools.
+	  Install glslangValidator.
 
 config GLSLANG_LIBS
 	bool
 	prompt "install shared libraries"
 	help
-	  Install libglslang, libHLSL, libSPIRV, and libSPVRemapper shared
-	  libraries.
+	  Install libglslang, libHLSL, and libSPIRV shared libraries.
 
 endif
