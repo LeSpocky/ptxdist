@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBSOUP) += libsoup
 #
 # Paths and names
 #
-LIBSOUP_VERSION	:= 3.4.4
-LIBSOUP_MD5	:= a63ea04a9686e9e4470b127ffe1eb96b
+LIBSOUP_VERSION	:= 3.6.5
+LIBSOUP_MD5	:= 181a474d783492e3f5f7cbfb047bcecd
 LIBSOUP		:= libsoup-$(LIBSOUP_VERSION)
 LIBSOUP_SUFFIX	:= tar.xz
 LIBSOUP_URL	:= $(call ptx/mirror, GNOME, libsoup/$(basename $(LIBSOUP_VERSION))/$(LIBSOUP).$(LIBSOUP_SUFFIX))
@@ -43,7 +43,6 @@ LIBSOUP_CONF_OPT := \
 	-Dgssapi=disabled \
 	-Dinstalled_tests=false \
 	-Dintrospection=$(call ptx/endis, PTXCONF_LIBSOUP_INTROSPECTION)d \
-	-Dkrb5_config= \
 	-Dntlm=disabled \
 	-Dntlm_auth=ntlm_auth \
 	-Dpkcs11_tests=disabled \
