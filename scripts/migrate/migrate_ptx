@@ -501,3 +501,10 @@ s/^\(\(# \)\?PTXCONF_LIGHTTPD_PCRE\)\>/\12/
 #
 /^\(PTXCONF_MESALIB_DRI_\)SWRAST\([^_]*$\)/N
 s/^\(\(# \)\?PTXCONF_MESALIB_DRI_\)SWRAST\([^\n]*\n\)\(.*\)$/\1SOFTPIPE\3\1LLVMPIPE\3\4/
+
+# from   : ptxdist-2025.09.0
+# to     : ptxdist-2025.10.0
+# symbol : LDD -> GLIBC_LDD
+# reason : switch to LDD provided by toolchain
+#
+s/^\(\(# \)\?PTXCONF_\)LDD\>/\1GLIBC_LDD/

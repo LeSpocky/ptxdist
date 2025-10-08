@@ -176,6 +176,10 @@ ifdef PTXCONF_GLIBC_LDCONFIG_RC_ONCE
 		/etc/rc.once.d/ldconfig)
 endif
 
+ifdef PTXCONF_GLIBC_LDD
+	@$(call install_copy_toolchain_usr, glibc, bin/ldd)
+endif
+
 ifdef PTXCONF_GLIBC_I18N_BIN_LOCALE
 	@$(call install_copy_toolchain_usr, glibc, bin/locale)
 endif

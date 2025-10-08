@@ -45,6 +45,18 @@ config GLIBC_LD
 	  You don't want to deselect this, unless you have a pure
 	  static system. This is why this options hasn't a prompt.
 
+config GLIBC_LDD
+	bool
+	prompt "Install ldd from glibc"
+	select GLIBC_LD
+	help
+	  ldd prints the shared objects (shared libraries) required
+	  by each program or shared object specified on the command
+	  line.
+
+	  Selecting this installs the ldd version deployed with the
+	  toolchain for the active platform.
+
 config GLIBC_C
 	bool
 	default y
