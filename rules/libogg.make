@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBOGG) += libogg
 #
 # Paths and names
 #
-LIBOGG_VERSION	:= 1.3.5
-LIBOGG_MD5	:= 3267127fe8d7ba77d3e00cb9d7ad578d
+LIBOGG_VERSION	:= 1.3.6
+LIBOGG_MD5	:= e2ab08345a440d32e88b2156cf499eb9
 LIBOGG		:= libogg-$(LIBOGG_VERSION)
 LIBOGG_SUFFIX	:= tar.gz
 LIBOGG_URL	:= http://downloads.xiph.org/releases/ogg/$(LIBOGG).$(LIBOGG_SUFFIX)
@@ -35,7 +35,9 @@ LIBOGG_LICENSE_FILES := \
 LIBOGG_CONF_TOOL	:= autoconf
 LIBOGG_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
-	--enable-crc
+	--enable-crc \
+	--disable-gcc-sanitizers \
+	--disable-valgrind-testing
 
 # ----------------------------------------------------------------------------
 # Target-Install
