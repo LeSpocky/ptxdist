@@ -1,4 +1,6 @@
-## SECTION=debug_tools
+## SECTION=staging
+## old section:
+### SECTION=debug_tools
 
 config MEMTEST
 	tristate
@@ -10,3 +12,5 @@ config MEMTEST
 	  problems in the virtual memory system.  The idea is having a set of
 	  programs easy to set up and run to test the memory system.
 
+	  STAGING: remove in PTXdist 2026.11.0
+	  Seems to be obsolete and upstream long dead and gone.
