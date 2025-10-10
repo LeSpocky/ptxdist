@@ -1,0 +1,56 @@
+From: =?UTF-8?q?Sven=20P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Date: Thu, 5 Dec 2024 17:19:25 +0100
+Subject: [PATCH] Revert "Mark authorization completed on driver indication
+ during 4-way HS offload"
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+This patch causes WiFi problems in combination with the upstream brcmfmac
+driver. Prominently this affects the WiFi on Raspberry PIs. See also [1].
+
+[1] https://lists.infradead.org/pipermail/hostap/2024-August/042936.html
+
+This reverts commit 41638606054a09867fe3f9a2b5523aa4678cbfa5.
+
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+ wpa_supplicant/events.c | 25 ++++++++-----------------
+ 1 file changed, 8 insertions(+), 17 deletions(-)
+
+diff --git a/wpa_supplicant/events.c b/wpa_supplicant/events.c
+index 49917f7aaf72..bbb3a3edae7d 100644
+--- a/wpa_supplicant/events.c
++++ b/wpa_supplicant/events.c
+@@ -4327,23 +4327,14 @@ static void wpa_supplicant_event_assoc(struct wpa_supplicant *wpa_s,
+ 		eapol_sm_notify_eap_success(wpa_s->eapol, true);
+ 	} else if ((wpa_s->drv_flags & WPA_DRIVER_FLAGS_4WAY_HANDSHAKE_PSK) &&
+ 		   wpa_key_mgmt_wpa_psk(wpa_s->key_mgmt)) {
+-		if (already_authorized) {
+-			/*
+-			 * We are done; the driver will take care of RSN 4-way
+-			 * handshake.
+-			 */
+-			wpa_supplicant_cancel_auth_timeout(wpa_s);
+-			wpa_supplicant_set_state(wpa_s, WPA_COMPLETED);
+-			eapol_sm_notify_portValid(wpa_s->eapol, true);
+-			eapol_sm_notify_eap_success(wpa_s->eapol, true);
+-		} else {
+-			/* Update port, WPA_COMPLETED state from the
+-			 * EVENT_PORT_AUTHORIZED handler when the driver is done
+-			 * with the 4-way handshake.
+-			 */
+-			wpa_msg(wpa_s, MSG_DEBUG,
+-				"ASSOC INFO: wait for driver port authorized indication");
+-		}
++		/*
++		 * We are done; the driver will take care of RSN 4-way
++		 * handshake.
++		 */
++		wpa_supplicant_cancel_auth_timeout(wpa_s);
++		wpa_supplicant_set_state(wpa_s, WPA_COMPLETED);
++		eapol_sm_notify_portValid(wpa_s->eapol, true);
++		eapol_sm_notify_eap_success(wpa_s->eapol, true);
+ 	} else if ((wpa_s->drv_flags & WPA_DRIVER_FLAGS_4WAY_HANDSHAKE_8021X) &&
+ 		   wpa_key_mgmt_wpa_ieee8021x(wpa_s->key_mgmt)) {
+ 		/*
