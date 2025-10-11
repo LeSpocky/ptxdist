@@ -6,6 +6,9 @@
 0003-qtbase-XML-QDom-speedup-encodeText.patch
 0004-qtbase-QFileSystemEngine-Win-Use-GetTempPath2-when-a.patch
 0005-qtbase-qDecodeDataUrl-fix-precondition-violation-in-.patch
+0006-Remove-unused-python-import.patch
+0007-Fixes-for-python-3.12.patch
+0008-Fix-build-with-python-3.12-3.13.patch
 #tag:build --start-number 100
 0100-qt3d-link-with-latomic-if-necessary.patch
 0101-qtdeclarative-qv4compiler-fix-building-with-gcc-15.patch
@@ -23,4 +26,4 @@
 0500-eglfs_kms-device-ordering-robustness.patch
 #tag:time64 --start-number 600
 0600-undefine-_TIME_BITS.patch
-# e2438b75b671487a9b8c699a3b919a91  - git-ptx-patches magic
+# 43ca782375be1fef2d2e8e5f45f463fd  - git-ptx-patches magic
