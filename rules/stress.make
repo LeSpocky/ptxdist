@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_STRESS) += stress
 #
 # Paths and names
 #
-STRESS_VERSION	:= 1.0.4
-STRESS_MD5	:= 890a4236dd1656792f3ef9a190cf99ef
+STRESS_VERSION	:= 1.0.7
+STRESS_MD5	:= 4104cf194d249d8064683b6c28f374a3
 STRESS		:= stress-$(STRESS_VERSION)
 STRESS_SUFFIX	:= tar.gz
-STRESS_URL	:= https://people.seas.harvard.edu/~apw/stress/$(STRESS).$(STRESS_SUFFIX)
+STRESS_URL	:= https://github.com/resurrecting-open-source-projects/stress/archive/$(STRESS_VERSION).$(STRESS_SUFFIX)
 STRESS_SOURCE	:= $(SRCDIR)/$(STRESS).$(STRESS_SUFFIX)
 STRESS_DIR	:= $(BUILDDIR)/$(STRESS)
 STRESS_LICENSE	:= GPL-2.0-or-later
+STRESS_LICENSE_FILES	:= \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://src/stress.c;startline=3;endline=20;md5=a4bb41767da83c0d96e9bf23ba6422b8
 
 # ----------------------------------------------------------------------------
 # Prepare
