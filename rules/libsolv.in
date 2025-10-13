@@ -1,0 +1,8 @@
+## SECTION=system_libraries
+
+menuconfig LIBSOLV
+	tristate
+	select HOST_CMAKE
+	prompt "libsolv"
+	help
+	  Package dependency solver library
