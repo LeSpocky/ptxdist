@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LESS) += less
 #
 # Paths and names
 #
-LESS_VERSION	:= 668
-LESS_MD5	:= d72760386c5f80702890340d2f66c302
+LESS_VERSION	:= 679
+LESS_MD5	:= 0386dc14f6a081a94dfb4c2413864eed
 LESS		:= less-$(LESS_VERSION)
 LESS_SUFFIX	:= tar.gz
 LESS_URL	:= https://greenwoodsoftware.com/less/$(LESS).$(LESS_SUFFIX)
@@ -24,7 +24,7 @@ LESS_DIR	:= $(BUILDDIR)/$(LESS)
 LESS_LICENSE	:= GPL-3.0-or-later OR BSD-2-Clause
 LESS_LICENSE_FILES := \
 	file://README;startline=4;endline=13;md5=be18c1acf45c653f511cb4fd205021d4 \
-	file://LICENSE;md5=ea7ea443692720f3015859945c0fb65d \
+	file://LICENSE;md5=8051a271adb36d1462531a3b40c22878 \
 	file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
 
 # ----------------------------------------------------------------------------
