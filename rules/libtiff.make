@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_LIBTIFF) += libtiff
 #
 # Paths and names
 #
-LIBTIFF_VERSION		:= 4.7.0
-LIBTIFF_MD5		:= 3a0fa4a270a4a192b08913f88d0cfbdd
+LIBTIFF_VERSION		:= 4.7.1
+LIBTIFF_MD5		:= f1044dd3b4466cc53464210148e08146
 LIBTIFF			:= tiff-$(LIBTIFF_VERSION)
 LIBTIFF_SUFFIX		:= tar.gz
 LIBTIFF_URL		:= http://download.osgeo.org/libtiff/$(LIBTIFF).$(LIBTIFF_SUFFIX)
 LIBTIFF_SOURCE		:= $(SRCDIR)/$(LIBTIFF).$(LIBTIFF_SUFFIX)
 LIBTIFF_DIR		:= $(BUILDDIR)/$(LIBTIFF)
-LIBTIFF_LICENSE		:= libtiff
-LIBTIFF_LICENSE_FILES	:= file://LICENSE.md;md5=a3e32d664d6db1386b4689c8121531c3
+LIBTIFF_LICENSE		:= libtiff AND BSD-4.3TAHOE
+LIBTIFF_LICENSE_FILES	:= file://LICENSE.md;md5=4ab490c3088a0acff254eb2f8c577547
 
 # ----------------------------------------------------------------------------
 # Prepare
