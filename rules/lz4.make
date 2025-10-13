@@ -14,18 +14,18 @@ PACKAGES-$(PTXCONF_LZ4) += lz4
 #
 # Paths and names
 #
-LZ4_VERSION	:= 1.9.4
-LZ4_MD5		:= e9286adb64040071c5e23498bf753261
+LZ4_VERSION	:= 1.10.0
+LZ4_MD5		:= dead9f5f1966d9ae56e1e32761e4e675
 LZ4		:= lz4-$(LZ4_VERSION)
 LZ4_SUFFIX	:= tar.gz
-LZ4_URL		:= https://github.com/Cyan4973/lz4/archive/v$(LZ4_VERSION).$(LZ4_SUFFIX)
+LZ4_URL		:= https://github.com/lz4/lz4/archive/v$(LZ4_VERSION).$(LZ4_SUFFIX)
 LZ4_SOURCE	:= $(SRCDIR)/$(LZ4).$(LZ4_SUFFIX)
 LZ4_DIR		:= $(BUILDDIR)/$(LZ4)
 LZ4_LICENSE	:= BSD-2-Clause AND GPL-2.0-or-later
 LZ4_LICENSE_FILES := \
-	file://LICENSE;md5=c5cc3cd6f9274b4d32988096df9c3ec3 \
+	file://LICENSE;md5=c111c47e301c2ffe8776729b40b44477 \
 	file://lib/LICENSE;md5=5cd5f851b52ec832b10eedb3f01f885a \
-	file://programs/COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
+	file://programs/COPYING;md5=492daf447d6db0e5eb344a7922e7ec25
 
 # ----------------------------------------------------------------------------
 # Prepare
