@@ -2,8 +2,10 @@
 
 menuconfig OPKG
 	tristate
+	select HOST_CMAKE
 	select LIBARCHIVE
 	select LIBCURL if OPKG_CURL
+	select LIBSOLV
 	prompt "opkg                          "
 	help
 	  Opkg is a lightweight package management system based on Ipkg.
@@ -29,6 +31,7 @@ config OPKG_SHA256
 config OPKG_SSL_CURL
 	bool
 	prompt "libcurl certificate authentication"
+	depends on OPKG_CURL
 	help
 	  FIXME
 

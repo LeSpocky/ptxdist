@@ -15,11 +15,11 @@ PACKAGES-$(PTXCONF_OPKG) += opkg
 #
 # Paths and names
 #
-OPKG_VERSION	:= 0.7.0
-OPKG_MD5	:= 6bf0315a3fd5fd046279d0fd98a39016
+OPKG_VERSION	:= 0.9.0
+OPKG_MD5	:= 3a100d77beaedd4820599d91bc53e302
 OPKG		:= opkg-$(OPKG_VERSION)
 OPKG_SUFFIX	:= tar.gz
-OPKG_URL	:= http://downloads.yoctoproject.org/releases/opkg/$(OPKG).$(OPKG_SUFFIX)
+OPKG_URL	:= https://git.yoctoproject.org/opkg/snapshot/$(OPKG).$(OPKG_SUFFIX)
 OPKG_SOURCE	:= $(SRCDIR)/$(OPKG).$(OPKG_SUFFIX)
 OPKG_DIR	:= $(BUILDDIR)/$(OPKG)
 OPKG_LICENSE	:= GPL-2.0-or-later
@@ -29,25 +29,23 @@ OPKG_LICENSE_FILES := file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
-OPKG_CONF_TOOL	:= autoconf
+OPKG_CONF_TOOL	:= cmake
 OPKG_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--disable-libopkg-api \
-	--disable-static \
-	--disable-xz \
-	--disable-bzip2 \
-	--disable-lz4 \
-	--disable-zstd \
-	--$(call ptx/endis, PTXCONF_OPKG_CURL)-curl \
-	--$(call ptx/endis, PTXCONF_OPKG_SHA256)-sha256 \
-	--$(call ptx/endis, PTXCONF_OPKG_SSL_CURL)-ssl-curl \
-	--$(call ptx/endis, PTXCONF_OPKG_GPG)-gpg \
-	--without-static-libopkg \
-	--without-libsolv
+	$(CROSS_CMAKE_USR) \
+	-DSTATIC_LIBOPKG=OFF \
+	-DUSE_ACL=OFF \
+	-DUSE_SOLVER_INTERNAL=OFF \
+	-DUSE_SOLVER_LIBSOLV=ON \
+	-DUSE_XATTR=OFF \
+	-DWITH_BZIP2=OFF \
+	-DWITH_CURL=$(call ptx/onoff, PTXCONF_OPKG_CURL) \
+	-DWITH_GPGME=$(call ptx/onoff, PTXCONF_OPKG_GPG) \
+	-DWITH_LIBOPKG_API=OFF \
+	-DWITH_LZ4=OFF \
+	-DWITH_SHA256=$(call ptx/onoff, PTXCONF_OPKG_SHA256) \
+	-DWITH_SSLCURL=$(call ptx/onoff, PTXCONF_OPKG_SSL_CURL) \
+	-DWITH_XZ=OFF \
+	-DWITH_ZSTD=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install

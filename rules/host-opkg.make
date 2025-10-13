@@ -22,23 +22,21 @@ HOST_OPKG_DIR	= $(HOST_BUILDDIR)/$(HOST_OPKG)
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
-HOST_OPKG_CONF_TOOL	:= autoconf
+HOST_OPKG_CONF_TOOL	:= cmake
 HOST_OPKG_CONF_OPT	:= \
-	$(HOST_AUTOCONF) \
-	--disable-libopkg-api \
-	--disable-static \
-	--disable-xz \
-	--disable-bzip2 \
-	--disable-lz4 \
-	--disable-zstd \
-	--disable-curl \
-	--disable-sha256 \
-	--disable-ssl-curl \
-	--disable-gpg \
-	--without-static-libopkg \
-	--without-libsolv
+	$(HOST_CMAKE_OPT) \
+	-DSTATIC_LIBOPKG=OFF \
+	-DUSE_ACL=OFF \
+	-DUSE_SOLVER_INTERNAL=OFF \
+	-DUSE_SOLVER_LIBSOLV=ON \
+	-DUSE_XATTR=OFF \
+	-DWITH_BZIP2=OFF \
+	-DWITH_CURL=OFF \
+	-DWITH_GPGME=OFF \
+	-DWITH_LIBOPKG_API=OFF \
+	-DWITH_LZ4=OFF \
+	-DWITH_SHA256=OFF \
+	-DWITH_XZ=OFF \
+	-DWITH_ZSTD=OFF
 
 # vim: syntax=make
