@@ -149,6 +149,13 @@ config BOOST_GRAPH_PARALLEL
 	help
 	  Boost graph_parallel library
 
+config BOOST_HASH2
+	bool
+	select BOOST_LIBS
+	prompt "hash2"
+	help
+	  Boost Hash2 library
+
 config BOOST_IOSTREAMS
 	bool
 	select BOOST_LIBS
@@ -207,6 +214,13 @@ config BOOST_NOWIDE
 	prompt "nowide"
 	help
 	  Boost nowide library
+
+config BOOST_PARSER
+	bool
+	select BOOST_LIBS
+	prompt "parser"
+	help
+	  Boost Parser library
 
 config BOOST_PREDEF
 	bool
