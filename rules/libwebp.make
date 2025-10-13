@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBWEBP) += libwebp
 #
 # Paths and names
 #
-LIBWEBP_VERSION		:= 1.3.2
-LIBWEBP_MD5		:= 34869086761c0e2da6361035f7b64771
+LIBWEBP_VERSION		:= 1.6.0
+LIBWEBP_MD5		:= cceb6447180f961473b181c9ef38b630
 LIBWEBP			:= libwebp-$(LIBWEBP_VERSION)
 LIBWEBP_SUFFIX		:= tar.gz
 LIBWEBP_URL		:= http://downloads.webmproject.org/releases/webp/$(LIBWEBP).$(LIBWEBP_SUFFIX)
@@ -40,6 +40,7 @@ LIBWEBP_CONF_OPT 	:= \
 	--$(call ptx/endis, PTXCONF_LIBWEBP_DECODER)-libwebpdecoder \
 	--disable-libwebpextras \
 	--disable-asserts \
+	--$(call ptx/endis, PTXCONF_ARCH_X86)-avx2 \
 	--$(call ptx/endis, PTXCONF_ARCH_X86)-sse4.1 \
 	--$(call ptx/endis, PTXCONF_ARCH_X86)-sse2 \
 	--$(call ptx/endis, PTXCONF_ARCH_ARM_NEON)-neon \
