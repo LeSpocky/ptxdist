@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GNUPG) += gnupg
 #
 # Paths and names
 #
-GNUPG_VERSION	:= 2.5.3
-GNUPG_MD5	:= 0f6c849e3c7ad7cefd35b54647044348
+GNUPG_VERSION	:= 2.4.8
+GNUPG_MD5	:= a165b60aeaac0bb4d251117a45199c5f
 GNUPG		:= gnupg-$(GNUPG_VERSION)
 GNUPG_SUFFIX	:= tar.bz2
 GNUPG_URL	:= https://www.gnupg.org/ftp/gcrypt/gnupg/$(GNUPG).$(GNUPG_SUFFIX)
@@ -50,6 +50,7 @@ GNUPG_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--disable-doc \
 	--$(call ptx/endis, PTXCONF_GNUPG_GPGTAR)-gpgtar \
 	--disable-wks-tools \
+	--disable-gpg-is-gpg2 \
 	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux-support \
 	--disable-large-secmem \
 	--enable-trust-models \
