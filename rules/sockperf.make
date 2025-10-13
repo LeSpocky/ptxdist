@@ -32,12 +32,6 @@ SOCKPERF_CONF_TOOL	:= autoconf
 SOCKPERF_CONF_ENV       := $(CROSS_ENV) GIT_CEILING_DIRECTORIES="$(BUILDDIR)"
 SOCKPERF_MAKE_ENV       := $(CROSS_ENV) GIT_CEILING_DIRECTORIES="$(BUILDDIR)"
 
-$(STATEDIR)/sockperf.prepare:
-	@$(call targetinfo)
-	@$(call world/execute, SOCKPERF, ./autogen.sh)
-	@$(call world/prepare, SOCKPERF)
-	@$(call touch)
-
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
