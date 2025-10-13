@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_V4L_UTILS) += v4l-utils
 #
 # Paths and names
 #
-V4L_UTILS_VERSION	:= 1.28.1
-V4L_UTILS_MD5		:= 6716de513a1fd2e1edb404a46a455855
+V4L_UTILS_VERSION	:= 1.32.0
+V4L_UTILS_MD5		:= c484b0320a757bd08a785cad7b32147a
 V4L_UTILS		:= v4l-utils-$(V4L_UTILS_VERSION)
 V4L_UTILS_SUFFIX	:= tar.xz
 V4L_UTILS_URL		:= http://linuxtv.org/downloads/v4l-utils/$(V4L_UTILS).$(V4L_UTILS_SUFFIX)
@@ -23,9 +23,9 @@ V4L_UTILS_SOURCE	:= $(SRCDIR)/$(V4L_UTILS).$(V4L_UTILS_SUFFIX)
 V4L_UTILS_DIR		:= $(BUILDDIR)/$(V4L_UTILS)
 V4L_UTILS_LICENSE	:= GPL-2.0-or-later (tools); LGPL-2.1-or-later (libs)
 V4L_UTILS_LICENSE_FILES	:= \
-	file://COPYING;md5=48da9957849056017dc568bbc43d8975 \
-	file://COPYING.libdvbv5;md5=28fb0f8e5cecc8a7a1a88008019dc3d0 \
-	file://COPYING.libv4l;md5=d749e86a105281d7a44c2328acebc4b0
+	file://COPYING;md5=0ebceacbd7029b5e7051e9f529542b7c \
+	file://COPYING.libdvbv5;md5=209de6465458b9065125bd859a3081be \
+	file://COPYING.libv4l;md5=88b8889c2c4329d4cf18ce5895e64c16
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -45,6 +45,7 @@ V4L_UTILS_CONF_OPT	:= \
 	-Dlibdvbv5=disabled \
 	-Dlibv4l1subdir=libv4l \
 	-Dlibv4l2subdir=libv4l \
+	-Dlibv4l2tracersubdir=libv4l \
 	-Dlibv4lconvertsubdir=libv4l \
 	-Dqv4l2=disabled \
 	-Dqvidcap=disabled \
@@ -53,8 +54,10 @@ V4L_UTILS_CONF_OPT	:= \
 	-Dv4l-plugins=true \
 	-Dv4l-utils=true \
 	-Dv4l-wrappers=$(call ptx/truefalse, PTXCONF_V4L_UTILS_V4L2CONVERT) \
+	-Dv4l2-compliance-32-time64=false \
 	-Dv4l2-compliance-32=false \
 	-Dv4l2-compliance-libv4l=true \
+	-Dv4l2-ctl-32-time64=false \
 	-Dv4l2-ctl-32=false \
 	-Dv4l2-ctl-libv4l=true \
 	-Dv4l2-ctl-stream-to=true \
@@ -132,7 +135,7 @@ ifdef PTXCONF_V4L_UTILS_V4L2SYSFSPATH
 endif
 ifdef PTXCONF_V4L_UTILS_TRACER
 	@$(call install_copy, v4l-utils, 0, 0, 0755, -, /usr/bin/v4l2-tracer)
-	@$(call install_lib, v4l-utils, 0, 0, 0644, libv4l2tracer)
+	@$(call install_lib, v4l-utils, 0, 0, 0644, libv4l/libv4l2tracer)
 endif
 	@$(call install_finish, v4l-utils)
 
