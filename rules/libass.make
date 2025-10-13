@@ -35,12 +35,6 @@ LIBASS_CONF_OPT		:= \
 	--disable-test \
 	--disable-profile
 
-$(STATEDIR)/libass.prepare:
-	@$(call targetinfo)
-	@$(call world/execute, LIBASS, ./autogen.sh)
-	@$(call world/prepare, LIBASS)
-	@$(call touch)
-
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
