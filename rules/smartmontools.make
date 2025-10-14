@@ -14,16 +14,16 @@ PACKAGES-$(PTXCONF_SMARTMONTOOLS) += smartmontools
 #
 # Paths and names
 #
-SMARTMONTOOLS_VERSION	:= 7.2
-SMARTMONTOOLS_MD5	:= e8d134c69ae4959a05cb56b31172ffb1
+SMARTMONTOOLS_VERSION	:= 7.5
+SMARTMONTOOLS_MD5	:= 38c38b0b82db7fc4906cdd50d15a7931
 SMARTMONTOOLS		:= smartmontools-$(SMARTMONTOOLS_VERSION)
 SMARTMONTOOLS_SUFFIX	:= tar.gz
-SMARTMONTOOLS_URL	:= $(call ptx/mirror, SF, smartmontools/$(SMARTMONTOOLS).$(SMARTMONTOOLS_SUFFIX))
+SMARTMONTOOLS_URL	:= https://github.com/smartmontools/smartmontools/releases/download/RELEASE_$(subst .,_,$(SMARTMONTOOLS_VERSION))/$(SMARTMONTOOLS).$(SMARTMONTOOLS_SUFFIX)
 SMARTMONTOOLS_SOURCE	:= $(SRCDIR)/$(SMARTMONTOOLS).$(SMARTMONTOOLS_SUFFIX)
 SMARTMONTOOLS_DIR	:= $(BUILDDIR)/$(SMARTMONTOOLS)
 SMARTMONTOOLS_LICENSE	:= GPL-2.0-or-later
 SMARTMONTOOLS_LICENSE_FILES := \
-	file://smartctl.cpp;startline=6;endline=10;md5=cf81e7daba6234e2c6674a2a20344e55 \
+	file://smartctl.cpp;startline=6;endline=10;md5=21f9f8b91f23d65696fb035733bb6d56 \
 	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
 
 # ----------------------------------------------------------------------------
