@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_ZBAR) += zbar
 #
 # Paths and names
 #
-ZBAR_VERSION	:= 0.23.90
-ZBAR_MD5	:= 5acc043376cad65e8c6a8b0a5eed7e1b
+ZBAR_VERSION	:= 0.23.93
+ZBAR_MD5	:= e8cc283fcfc53177b95e8980e6a8f23c
 ZBAR		:= zbar-$(ZBAR_VERSION)
 ZBAR_SUFFIX	:= tar.bz2
 ZBAR_URL	:= https://linuxtv.org/downloads/zbar/$(ZBAR).$(ZBAR_SUFFIX)
@@ -56,7 +56,7 @@ ZBAR_CONF_OPT	:= \
 	--without-gir \
 	--without-python \
 	--without-qt \
-	--without-qt5 \
+	--without-qt6 \
 	--without-java
 
 $(STATEDIR)/zbar.targetinstall:
