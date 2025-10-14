@@ -14,16 +14,16 @@ PACKAGES-$(PTXCONF_LIBBSD) += libbsd
 #
 # Paths and names
 #
-LIBBSD_VERSION	:= 0.11.7
-LIBBSD_MD5	:= 2c5e63b5bb7771bbe4f572c7788e0bb8
+LIBBSD_VERSION	:= 0.12.2
+LIBBSD_MD5	:= 1aa07d44ee00e2cc1ae3ac10baae7a68
 LIBBSD		:= libbsd-$(LIBBSD_VERSION)
 LIBBSD_SUFFIX	:= tar.xz
 LIBBSD_URL	:= http://libbsd.freedesktop.org/releases/$(LIBBSD).$(LIBBSD_SUFFIX)
 LIBBSD_SOURCE	:= $(SRCDIR)/$(LIBBSD).$(LIBBSD_SUFFIX)
 LIBBSD_DIR	:= $(BUILDDIR)/$(LIBBSD)
-LIBBSD_LICENSE	:= BSD-4-Clause AND BSD-3-Clause AND BSD-2-Clause-NetBSD AND ISC AND MIT AND Beerware AND public_domain
+LIBBSD_LICENSE	:= BSD-3-Clause AND BSD-2-Clause-NetBSD AND ISC AND MIT AND Beerware AND public_domain
 LIBBSD_LICENSE_FILES := \
-	file://COPYING;md5=75e85c5a558f86d10fbd5abc567ea5e6
+	file://COPYING;md5=9b087a0981a1fcad42efbba6d4925a0f
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -38,6 +38,7 @@ LIBBSD_CONF_OPT	:= \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-shared \
 	--disable-static \
+	--disable-sanitize \
 	--with-gnu-ld
 
 # ----------------------------------------------------------------------------
