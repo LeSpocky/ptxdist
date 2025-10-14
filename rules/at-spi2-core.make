@@ -17,8 +17,8 @@ PACKAGES-$(PTXCONF_AT_SPI2_CORE) += at-spi2-core
 #
 # Paths and names
 #
-AT_SPI2_CORE_VERSION	:= 2.52.0
-AT_SPI2_CORE_MD5	:= e6591545b2bf204fe9a58f777bd0b78a
+AT_SPI2_CORE_VERSION	:= 2.58.1
+AT_SPI2_CORE_MD5	:= f2652694adb33d8d2d19b9ce96a38cdf
 AT_SPI2_CORE		:= at-spi2-core-$(AT_SPI2_CORE_VERSION)
 AT_SPI2_CORE_SUFFIX	:= tar.xz
 AT_SPI2_CORE_URL	:= $(call ptx/mirror, GNOME, at-spi2-core/$(basename $(AT_SPI2_CORE_VERSION))/$(AT_SPI2_CORE).$(AT_SPI2_CORE_SUFFIX))
@@ -45,10 +45,10 @@ AT_SPI2_CORE_CONF_OPT	:= \
 	-Ddbus_daemon=default \
 	-Ddbus_services_dir=default \
 	-Ddefault_bus=dbus-daemon \
-	-Ddisable_p2p=false \
 	-Ddocs=false \
 	-Dgtk2_atk_adaptor=false \
 	-Dintrospection=$(call ptx/endis, PTXCONF_AT_SPI2_CORE_INTROSPECTION)d \
+	-Dpython= \
 	-Dsystemd_user_dir=default \
 	-Duse_systemd=false \
 	-Dx11=disabled
