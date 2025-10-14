@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBASSUAN) += libassuan
 #
 # Paths and names
 #
-LIBASSUAN_VERSION	:= 3.0.1
-LIBASSUAN_MD5		:= 6f0d239302ae3b8d4aefcb499b137530
+LIBASSUAN_VERSION	:= 3.0.2
+LIBASSUAN_MD5		:= c6f1bf4bd2aaa79cd1635dcc070ba51a
 LIBASSUAN		:= libassuan-$(LIBASSUAN_VERSION)
 LIBASSUAN_SUFFIX	:= tar.bz2
 LIBASSUAN_URL		:= https://www.gnupg.org/ftp/gcrypt/libassuan/$(LIBASSUAN).$(LIBASSUAN_SUFFIX)
