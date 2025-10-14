@@ -12,8 +12,8 @@ PACKAGES-$(PTXCONF_SOCAT) += socat
 # Paths and names
 #
 
-SOCAT_VERSION	:= 1.7.3.2
-SOCAT_MD5	:= aec3154f7854580cfab0c2d81e910519
+SOCAT_VERSION	:= 1.8.0.3
+SOCAT_MD5	:= ffd9c84c8bce700eac26847c8a700a78
 SOCAT		:= socat-$(SOCAT_VERSION)
 SOCAT_SUFFIX	:= tar.gz
 SOCAT_URL	:= \
@@ -21,7 +21,11 @@ SOCAT_URL	:= \
 	http://www.dest-unreach.org/socat/download/Archive/$(SOCAT).$(SOCAT_SUFFIX)
 SOCAT_SOURCE	:= $(SRCDIR)/$(SOCAT).$(SOCAT_SUFFIX)
 SOCAT_DIR	:= $(BUILDDIR)/$(SOCAT)
-SOCAT_LICENSE	:= GPL-2.0-only
+SOCAT_LICENSE	:= GPL-2.0-only AND MIT
+SOCAT_LICENSE_FILES := \
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://README;startline=248;endline=281;md5=4e953b796133e1470eb57b3f59611720 \
+	file://install-sh;startline=6;endline=16;md5=6c39b6a36ad775d09cc9ee0e33fe9e6c
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -38,12 +42,15 @@ SOCAT_CONF_TOOL	:= autoconf
 SOCAT_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-help \
+	--enable-largefile \
+	--enable-stats \
 	--enable-stdio \
 	--enable-fdnum \
 	--enable-file \
 	--enable-creat \
 	--enable-gopen \
 	--enable-pipe \
+	--enable-socketpair \
 	--enable-termios \
 	--enable-unix \
 	--enable-abstract-unixsocket \
@@ -54,23 +61,34 @@ SOCAT_CONF_OPT	:= \
 	--enable-interface \
 	--enable-tcp \
 	--enable-udp \
+	--enable-udplite \
 	--enable-sctp \
+	--enable-dccp \
+	--enable-vsock \
+	--enable-namespaces \
 	--enable-listen \
+	--enable-posixmq \
 	--enable-socks4 \
 	--enable-socks4a \
+	--enable-socks5 \
 	--enable-proxy \
 	--enable-exec \
 	--enable-system \
+	--enable-shell \
 	--enable-pty \
-	--enable-ext2 \
+	--enable-fs \
 	--disable-readline \
 	--$(call ptx/endis, PTXCONF_SOCAT_OPENSSL)-openssl \
+	--enable-resolve \
+	--disable-res-deprecated \
 	--disable-fips \
 	--enable-tun \
 	--enable-sycls \
 	--enable-filan \
 	--enable-retry \
+	--disable-devtests \
 	--enable-msglevel=0 \
+	--enable-default-ipv=4 \
 	--disable-libwrap
 
 
