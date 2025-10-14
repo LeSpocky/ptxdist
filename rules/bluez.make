@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_BLUEZ) += bluez
 #
 # Paths and names
 #
-BLUEZ_VERSION	:= 5.77
-BLUEZ_MD5	:= 7cb07ec3073faa0af8b5c8ec5f080a2c
+BLUEZ_VERSION	:= 5.84
+BLUEZ_MD5	:= 0de2fc5c9bbe0e8db6d4616bcf895733
 BLUEZ		:= bluez-$(BLUEZ_VERSION)
 BLUEZ_SUFFIX	:= tar.gz
 BLUEZ_URL	:= $(call ptx/mirror, KERNEL, bluetooth/$(BLUEZ).$(BLUEZ_SUFFIX))
@@ -84,7 +84,6 @@ BLUEZ_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-hid2hci \
 	--disable-logger \
 	--disable-admin \
-	--disable-android \
 	--with-dbusconfdir=/usr/share \
 	--with-dbussystembusdir=/usr/share/dbus-1/system-services \
 	--with-dbussessionbusdir=/usr/share/dbus-1/services \
