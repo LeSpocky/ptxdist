@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBATOMIC_OPS) += libatomic_ops
 #
 # Paths and names
 #
-LIBATOMIC_OPS_VERSION	:= 7.8.0
-LIBATOMIC_OPS_MD5	:= a7e51e8041c3e60c298c037b2789c3fa
+LIBATOMIC_OPS_VERSION	:= 7.8.4
+LIBATOMIC_OPS_MD5	:= e32047636a32bb9b1d3429965b949dbb
 LIBATOMIC_OPS		:= libatomic_ops-$(LIBATOMIC_OPS_VERSION)
 LIBATOMIC_OPS_SUFFIX	:= tar.gz
 LIBATOMIC_OPS_URL	:= https://github.com/bdwgc/libatomic_ops/releases/download/v$(LIBATOMIC_OPS_VERSION)/$(LIBATOMIC_OPS).$(LIBATOMIC_OPS_SUFFIX)
@@ -45,12 +45,12 @@ LIBATOMIC_OPS_CONF_OPT	:=  \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-shared \
 	--disable-static \
-	--disable-werror \
 	--disable-assertions \
 	--disable-atomic-intrinsics \
 	--disable-gcov \
 	--enable-gpl \
-	--disable-docs
+	--disable-docs \
+	--disable-werror
 
 # ----------------------------------------------------------------------------
 # Target-Install
