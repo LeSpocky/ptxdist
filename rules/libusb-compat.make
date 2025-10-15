@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBUSB_COMPAT) += libusb-compat
 #
 # Paths and names
 #
-LIBUSB_COMPAT_VERSION	:= 0.1.3
-LIBUSB_COMPAT_MD5	:= 570ac2ea085b80d1f74ddc7c6a93c0eb
+LIBUSB_COMPAT_VERSION	:= 0.1.8
+LIBUSB_COMPAT_MD5	:= c228d0b101855769d7929e77898fd38b
 LIBUSB_COMPAT		:= libusb-compat-$(LIBUSB_COMPAT_VERSION)
 LIBUSB_COMPAT_SUFFIX	:= tar.bz2
 LIBUSB_COMPAT_URL	:= $(call ptx/mirror, SF, libusb/$(LIBUSB_COMPAT).$(LIBUSB_COMPAT_SUFFIX))
@@ -24,7 +24,7 @@ LIBUSB_COMPAT_DIR	:= $(BUILDDIR)/$(LIBUSB_COMPAT)
 LIBUSB_COMPAT_LICENSE	:= LGPL-2.1-or-later
 LIBUSB_COMPAT_LICENSE_FILES := \
 	file://COPYING;md5=fbc093901857fcd118f065f900982c24 \
-	file://libusb/core.c;startline=3;endline=18;md5=2298e4a979818700952bd49cb9ff9777
+	file://libusb/core.c;startline=4;endline=20;md5=f4c647b16934814e5bc486a958690226
 
 # ----------------------------------------------------------------------------
 # Prepare
