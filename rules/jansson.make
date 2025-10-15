@@ -14,27 +14,34 @@ PACKAGES-$(PTXCONF_JANSSON) += jansson
 #
 # Paths and names
 #
-JANSSON_VERSION	:= 2.13.1
-JANSSON_MD5	:= e343e5b2e8fac568a00a8ca36dc01ebe
+JANSSON_VERSION	:= 2.14.1
+JANSSON_MD5	:= 6a4307413fedc78342b5555cec9474a0
 JANSSON		:= jansson-$(JANSSON_VERSION)
-JANSSON_SUFFIX	:= tar.bz2
-JANSSON_URL	:= http://www.digip.org/jansson/releases/$(JANSSON).$(JANSSON_SUFFIX)
+JANSSON_SUFFIX	:= tar.gz
+JANSSON_URL	:= https://github.com/akheron/jansson/archive/refs/tags/v$(JANSSON_VERSION).$(JANSSON_SUFFIX)
 JANSSON_SOURCE	:= $(SRCDIR)/$(JANSSON).$(JANSSON_SUFFIX)
 JANSSON_DIR	:= $(BUILDDIR)/lib$(JANSSON)
-JANSSON_LICENSE	:= MIT
+JANSSON_LICENSE	:= MIT AND dtoa
+JANSSON_LICENSE_FILES := \
+	file://LICENSE;md5=d9911525d4128bee234ee2d3ccaa2537 \
+	file://src/jansson.h;startline=1;endline=6;md5=46863262fe45ff28360cdf0aecc2264e \
+	file://src/dtoa.c;startline=2;endline=19;md5=0893720de1a2e17053089dc16f743e11
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
-
-JANSSON_CONF_TOOL	:= autoconf
+JANSSON_CONF_TOOL	:= cmake
 JANSSON_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-windows-cryptoapi
+	$(CROSS_CMAKE_USR) \
+	-DJANSSON_BUILD_DOCS=OFF \
+	-DJANSSON_BUILD_SHARED_LIBS=ON \
+	-DJANSSON_COVERAGE=OFF \
+	-DJANSSON_EXAMPLES=OFF \
+	-DJANSSON_INSTALL=ON \
+	-DJANSSON_WITHOUT_TESTS=ON \
+	-DUSE_DTOA=ON \
+	-DUSE_URANDOM=ON
 
 # ----------------------------------------------------------------------------
 # Target-Install

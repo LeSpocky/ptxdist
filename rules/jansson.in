@@ -2,6 +2,7 @@
 
 config JANSSON
 	tristate
+	select HOST_CMAKE
 	prompt "jansson"
 	help
 	  C-Library for encoding, decoding and manipulating JSON data.
