@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_RSYNC3) += rsync3
 #
 # Paths and names
 #
-RSYNC3_VERSION	:= 3.2.7
-RSYNC3_MD5	:= f216f350ef56b9ba61bc313cb6ec2ed6
+RSYNC3_VERSION	:= 3.4.1
+RSYNC3_MD5	:= 04ce67866db04fd7a1cde0b78168406e
 RSYNC3		:= rsync-$(RSYNC3_VERSION)
 RSYNC3_SUFFIX	:= tar.gz
 RSYNC3_URL	:= https://download.samba.org/pub/rsync/src/$(RSYNC3).$(RSYNC3_SUFFIX)
 RSYNC3_SOURCE	:= $(SRCDIR)/$(RSYNC3).$(RSYNC3_SUFFIX)
 RSYNC3_DIR	:= $(BUILDDIR)/$(RSYNC3)
-RSYNC3_LICENSE	:= GPL-3.0-only
+RSYNC3_LICENSE	:= GPL-3.0-or-later
+RSYNC3_LICENSE_FILES := \
+	file://COPYING;md5=24423708fe159c9d12be1ea29fcb18c7 \
+	file://main.c;md5=5cb7de0eabde5a928beb01ae4ec7e72e
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -54,6 +57,7 @@ RSYNC3_CONF_OPT := \
 	--$(call ptx/endis, PTXCONF_ICONV)-iconv \
 	--$(call ptx/endis, PTXCONF_RSYNC3_ACL)-acl-support \
 	--$(call ptx/endis, PTXCONF_RSYNC3_ATTR)-xattr-support \
+	--without-rrsync \
 	--with-included-popt \
 	--without-included-zlib \
 	--with-secluded-args
