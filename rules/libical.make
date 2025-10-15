@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBICAL) += libical
 #
 # Paths and names
 #
-LIBICAL_VERSION	:= 3.0.17
-LIBICAL_MD5	:= aab3e2c80a5a61c744204675bff19ae0
+LIBICAL_VERSION	:= 3.0.20
+LIBICAL_MD5	:= 539a8a293d344e7aa8ccf3740494a46d
 LIBICAL		:= libical-$(LIBICAL_VERSION)
 LIBICAL_SUFFIX	:= tar.gz
 LIBICAL_URL	:= https://github.com/libical/libical/releases/download/v$(LIBICAL_VERSION)/$(LIBICAL).$(LIBICAL_SUFFIX)
@@ -24,7 +24,7 @@ LIBICAL_DIR	:= $(BUILDDIR)/$(LIBICAL)
 LIBICAL_LICENSE	:= LGPL-2.1-only OR MPL-2.0
 LIBICAL_LICENSE_FILES := \
 	file://LICENSE;md5=1910a2a76ddf6a9ba369182494170d87 \
-	file://LICENSE.LGPL21.txt;md5=933adb561f159e7c3da079536f0ed871 \
+	file://LICENSE.LGPL21.txt;md5=8f690bb538f4b301d931374a6eb864d0 \
 	file://LICENSE.MPL2.txt;md5=f75d2927d3c1ed2414ef72048f5ad640
 
 # ----------------------------------------------------------------------------
