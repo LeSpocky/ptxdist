@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LVM2) += lvm2
 #
 # Paths and names
 #
-LVM2_VERSION	:= 2.03.22
-LVM2_MD5	:= a97cf533222a5760225dbd26c3982ca6
+LVM2_VERSION	:= 2.03.35
+LVM2_MD5	:= d1527944d496d602f479e8fe9138c94a
 LVM2		:= LVM2.$(LVM2_VERSION)
 LVM2_SUFFIX	:= tgz
 LVM2_URL	:= \
@@ -58,17 +58,18 @@ LVM2_CONF_OPT := \
 	--disable-lvmlockd-idm \
 	--disable-use-lvmlockd \
 	--disable-use-lvmpolld \
-	--disable-notify-dbus \
 	--$(call ptx/endis, PTXCONF_LVM2_SYSTEMD)-systemd-journal \
 	--$(call ptx/endis, PTXCONF_LVM2_SYSTEMD)-app-machineid \
+	--$(call ptx/endis, PTXCONF_LVM2_SYSTEMD)-sd-notify \
 	--disable-blkid_wiping \
+	--disable-nvme-wwid \
 	--$(call ptx/endis, PTXCONF_LVM2_SYSTEMD)-udev_sync \
 	--$(call ptx/endis, PTXCONF_LVM2_SYSTEMD)-udev_rules \
 	--disable-udev-rule-exec-detection \
 	--disable-units-compat \
 	--enable-ioctl \
 	--enable-o_direct \
-	--enable-cmdlib \
+	--disable-notify-dbus \
 	--disable-dbus-service \
 	--enable-pkgconfig \
 	--enable-write_install \
@@ -76,10 +77,15 @@ LVM2_CONF_OPT := \
 	--disable-lvmimportvdo \
 	--enable-blkdeactivate \
 	--enable-dmeventd \
+	--enable-cmdlib \
 	--disable-dmfilemapd \
 	--disable-selinux \
 	--enable-blkzeroout \
 	--disable-nls \
+	--without-blkid \
+	--without-libnvme \
+	--$(call ptx/wwo, PTXCONF_LVM2_SYSTEMD)-systemd \
+	--$(call ptx/wwo, PTXCONF_LVM2_SYSTEMD)-udev \
 	--with-device-uid=$(PTXCONF_LVM2_DEVICE_UID) \
 	--with-device-gid=$(PTXCONF_LVM2_DEVICE_GID) \
 	--with-device-mode=$(PTXCONF_LVM2_DEVICE_MODE)
