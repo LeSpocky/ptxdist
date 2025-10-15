@@ -3,4 +3,5 @@
 config HOST_NFSUTILS
 	tristate
 	select HOST_LIBBLKID
+	select HOST_LIBEVENT
 	default y if ALLYES

@@ -40,12 +40,15 @@ HOST_NFSUTILS_CONF_OPT	:= \
 	--disable-ipv6 \
 	--disable-mountconfig \
 	--disable-nfsdcld \
+	--disable-nfsrahead \
 	--disable-nfsdcltrack \
+	--disable-nfsdctl \
 	--disable-nfsv4server \
 	--disable-caps \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-ldap \
 	--disable-gums \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--without-systemd \
 	--with-rpcgen=internal \
 	--without-mountfile \

@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NFSUTILS) += nfsutils
 #
 # Paths and names
 #
-NFSUTILS_VERSION	:= 2.6.2
-NFSUTILS_MD5		:= 36cbb17ca1f27d6d351a4f20ad25ba23
+NFSUTILS_VERSION	:= 2.8.4
+NFSUTILS_MD5		:= b1c17c1415456390fcb8c8632f9b668f
 NFSUTILS		:= nfs-utils-$(NFSUTILS_VERSION)
 NFSUTILS_SUFFIX		:= tar.gz
 NFSUTILS_URL		:= $(call ptx/mirror, KERNEL, utils/nfs-utils/$(NFSUTILS_VERSION)/$(NFSUTILS).$(NFSUTILS_SUFFIX))
@@ -59,12 +59,15 @@ NFSUTILS_CONF_OPT	:= \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-mountconfig \
 	--disable-nfsdcld \
+	--disable-nfsrahead \
 	--disable-nfsdcltrack \
+	--disable-nfsdctl \
 	--disable-nfsv4server \
 	--disable-caps \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-ldap \
 	--disable-gums \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--with-statedir=/var/lib/nfs \
 	--with-statdpath=/var/lib/nfs \
 	--with-statduser=rpcuser \
