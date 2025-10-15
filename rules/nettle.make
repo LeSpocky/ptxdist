@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NETTLE) += nettle
 #
 # Paths and names
 #
-NETTLE_VERSION	:= 3.8.1
-NETTLE_MD5	:= e15c5fd5cc901f5dde6a271d7f2320d1
+NETTLE_VERSION	:= 3.10.2
+NETTLE_MD5	:= b28bcbf6f045ff007940a9401673600d
 NETTLE		:= nettle-$(NETTLE_VERSION)
 NETTLE_SUFFIX	:= tar.gz
 NETTLE_SOURCE	:= $(SRCDIR)/$(NETTLE).$(NETTLE_SUFFIX)
@@ -51,6 +51,7 @@ NETTLE_CONF_OPT		:= \
 	--disable-fat \
 	--$(call ptx/endis,PTXCONF_ARCH_ARM_NEON)-arm-neon \
 	--disable-x86-aesni \
+	--disable-extra-asserts \
 	--$(call ptx/disen,PTXCONF_NETTLE_GMP)-mini-gmp
 
 # ----------------------------------------------------------------------------
