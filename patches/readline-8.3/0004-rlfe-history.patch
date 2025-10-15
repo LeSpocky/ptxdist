@@ -13,10 +13,10 @@ Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
  1 file changed, 11 insertions(+), 6 deletions(-)
 
 diff --git a/examples/rlfe/rlfe.c b/examples/rlfe/rlfe.c
-index f40b2ddaf00f..89bb17e462db 100644
+index 0e8ef2b8246d..91e51b2d6f2b 100644
 --- a/examples/rlfe/rlfe.c
 +++ b/examples/rlfe/rlfe.c
-@@ -154,21 +154,27 @@ struct termios orig_term;
+@@ -152,21 +152,27 @@ struct termios orig_term;
  static pid_t child = -1;
  
  static void
@@ -48,7 +48,7 @@ index f40b2ddaf00f..89bb17e462db 100644
  volatile int propagate_sigwinch = 0;
  
  /* sigwinch_handler
-@@ -710,8 +716,7 @@ main(int argc, char** argv)
+@@ -708,8 +714,7 @@ main(int argc, char** argv)
  	  if (count <= 0)
  	    {
  	      DPRINT0 ("(Connection closed by foreign host.)\n");

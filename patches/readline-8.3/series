@@ -4,5 +4,4 @@
 0002-rl-header.patch
 0003-rl-no-rpath.patch
 0004-rlfe-history.patch
-0005-always-link-against-our-termcap-libraries.patch
-# 7b8eea3fcea421a1233d1d9232c74be5  - git-ptx-patches magic
+# eae3239a8862b47078f4dd50c25717aa  - git-ptx-patches magic

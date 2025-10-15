@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_READLINE) += readline
 #
 # Paths and names
 #
-READLINE_VERSION	:= 8.2
-READLINE_MD5		:= 4aa1b31be779e6b84f9a96cb66bc50f6
+READLINE_VERSION	:= 8.3
+READLINE_MD5		:= 25a73bfb2a3ad7146c5e9d4408d9f6cd
 READLINE		:= readline-$(READLINE_VERSION)
 READLINE_SUFFIX		:= tar.gz
 READLINE_URL		:= $(call ptx/mirror, GNU, readline/$(READLINE).$(READLINE_SUFFIX))
@@ -39,7 +39,9 @@ READLINE_CONF_OPT	:= \
 	--disable-install-examples \
 	--enable-bracketed-paste-default \
 	$(GLOBAL_LARGE_FILE_OPTION) \
-	--$(call ptx/wwo,PTXCONF_READLINE_NCURSES)-curses
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
+	--$(call ptx/wwo,PTXCONF_READLINE_NCURSES)-curses \
+	--with-shared-termcap-library
 
 # ----------------------------------------------------------------------------
 # Target-Install
