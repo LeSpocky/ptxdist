@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_CIFS_UTILS) += cifs-utils
 #
 # Paths and names
 #
-CIFS_UTILS_VERSION	:= 7.0
-CIFS_UTILS_MD5		:= 518431bf43f23e6aacd97e80e2060df7
+CIFS_UTILS_VERSION	:= 7.4
+CIFS_UTILS_MD5		:= ced910b43321c604a9c402beac45cb4e
 CIFS_UTILS		:= cifs-utils-$(CIFS_UTILS_VERSION)
 CIFS_UTILS_SUFFIX	:= tar.bz2
 CIFS_UTILS_URL		:= https://ftp.samba.org/pub/linux-cifs/cifs-utils/$(CIFS_UTILS).$(CIFS_UTILS_SUFFIX)
@@ -45,10 +45,11 @@ CIFS_UTILS_CONF_OPT	:= \
 	--disable-pam \
 	--disable-systemd \
 	--disable-man \
+	--with-libcap-ng=no \
 	--without-libcap
 
 CIFS_UTILS_INSTALL_OPT := \
-	root_sbindir=/usr/sbin \
+	ROOTSBINDIR=/usr/sbin \
 	install
 
 # ----------------------------------------------------------------------------
