@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_TALLOC) += talloc
 #
 # Paths and names
 #
-TALLOC_VERSION		:= 2.3.4
-TALLOC_MD5		:= ffdaf52a6572307cc3b6487b9e99cd61
+TALLOC_VERSION		:= 2.4.3
+TALLOC_MD5		:= a51e4220fda52f4ae39413ed7e281f38
 TALLOC			:= talloc-$(TALLOC_VERSION)
 TALLOC_SUFFIX		:= tar.gz
 TALLOC_URL		:= https://www.samba.org/ftp/talloc/$(TALLOC).$(TALLOC_SUFFIX)
