@@ -1,4 +1,6 @@
-## SECTION=disk_and_file
+## SECTION=staging
+## old section:
+### SECTION=disk_and_file
 
 menuconfig SAMBA
 	tristate
@@ -36,6 +38,8 @@ menuconfig SAMBA
 	  Note: on a read-only root filesystem this package still requires a
 	  writable '/var/lib' and '/var/cache'.
 
+	  STAGING: remove in PTXdist 2026.11.0
+	  Unmaintained in PTXdist and fails to build with the latest library updates.
 if SAMBA
 
 config SAMBA_COMMON
