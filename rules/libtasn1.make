@@ -14,16 +14,19 @@ PACKAGES-$(PTXCONF_LIBTASN1) += libtasn1
 #
 # Paths and names
 #
-LIBTASN1_VERSION	:= 4.19.0
-LIBTASN1_MD5		:= f701ab57eb8e7d9c105b2cd5d809b29a
+LIBTASN1_VERSION	:= 4.20.0
+LIBTASN1_MD5		:= 930f71d788cf37505a0327c1b84741be
 LIBTASN1		:= libtasn1-$(LIBTASN1_VERSION)
 LIBTASN1_SUFFIX		:= tar.gz
 LIBTASN1_URL		:= $(call ptx/mirror, GNU, libtasn1/$(LIBTASN1).$(LIBTASN1_SUFFIX))
 LIBTASN1_SOURCE		:= $(SRCDIR)/$(LIBTASN1).$(LIBTASN1_SUFFIX)
 LIBTASN1_DIR		:= $(BUILDDIR)/$(LIBTASN1)
-LIBTASN1_LICENSE	:= LGPL-2.1-only AND GPL-3.0-only
+LIBTASN1_LICENSE	:= GPL-3.0-or-later or LGPL-2.1-or-later
 LIBTASN1_LICENSE_FILES	:= \
-	file://COPYING;md5=75ac100ec923f959898182307970c360
+	file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464 \
+	file://COPYING.LESSERv2;md5=4bf661c1e3793e55c8d1051bc5e0ae21 \
+	file://src/asn1Decoding.c;startline=2;endline=19;md5=0f8220e37b07ef6094c916bf78630262 \
+	file://lib/decoding.c;startline=1;endline=19;md5=c157bbdf0f0275a2f313aee933e95aa7
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -35,13 +38,15 @@ LIBTASN1_LICENSE_FILES	:= \
 LIBTASN1_CONF_TOOL := autoconf
 LIBTASN1_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-doc \
 	--disable-gtk-doc \
 	--disable-gtk-doc-html \
 	--disable-gtk-doc-pdf \
 	--disable-valgrind-tests \
 	--disable-code-coverage \
-	--disable-gcc-warnings
+	--disable-gcc-warnings \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038
 
 # ----------------------------------------------------------------------------
 # Target-Install
