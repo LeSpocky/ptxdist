@@ -14,14 +14,15 @@ PACKAGES-$(PTXCONF_RPCBIND) += rpcbind
 #
 # Paths and names
 #
-RPCBIND_VERSION	:= 1.2.6
-RPCBIND_MD5	:= 2d84ebbb7d6fb1fc3566d2d4b37f214b
+RPCBIND_VERSION	:= 1.2.8
+RPCBIND_MD5	:= dc7988c2307999525619983df72cb957
 RPCBIND		:= rpcbind-$(RPCBIND_VERSION)
 RPCBIND_SUFFIX	:= tar.bz2
 RPCBIND_URL	:= $(call ptx/mirror, SF, rpcbind/$(RPCBIND).$(RPCBIND_SUFFIX))
 RPCBIND_SOURCE	:= $(SRCDIR)/$(RPCBIND).$(RPCBIND_SUFFIX)
 RPCBIND_DIR	:= $(BUILDDIR)/$(RPCBIND)
 RPCBIND_LICENSE	:= BSD-3-Clause
+RPCBIND_LICENSE_FILES := file://COPYING;md5=b46486e4c4a416602693a711bb5bfa39
 
 # ----------------------------------------------------------------------------
 # Prepare
