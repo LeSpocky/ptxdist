@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MPFR) += mpfr
 #
 # Paths and names
 #
-MPFR_VERSION		:= 4.2.1
-MPFR_MD5		:= 523c50c6318dde6f9dc523bc0244690a
+MPFR_VERSION		:= 4.2.2
+MPFR_MD5		:= 7c32c39b8b6e3ae85f25156228156061
 MPFR			:= mpfr-$(MPFR_VERSION)
 MPFR_SUFFIX		:= tar.xz
 MPFR_URL		:= https://www.mpfr.org/$(MPFR)/$(MPFR).$(MPFR_SUFFIX)
