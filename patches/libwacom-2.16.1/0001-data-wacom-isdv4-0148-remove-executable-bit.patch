@@ -1,0 +1,19 @@
+From: =?UTF-8?q?Sven=20P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Date: Wed, 15 Oct 2025 17:01:16 +0200
+Subject: [PATCH] data: wacom-isdv4-0148: remove executable bit
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Remove the executable bit, as as the file is not executable anyways.
+
+Fixes: fdeecf25254e ("data: Add several new tablet definitions")
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+ data/wacom-isdv4-0148.tablet | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ mode change 100755 => 100644 data/wacom-isdv4-0148.tablet
+
+diff --git a/data/wacom-isdv4-0148.tablet b/data/wacom-isdv4-0148.tablet
+old mode 100755
+new mode 100644
