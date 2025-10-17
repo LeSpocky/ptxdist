@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GOBJECT_INTROSPECTION) += gobject-introspection
 #
 # Paths and names
 #
-GOBJECT_INTROSPECTION_VERSION	:= 1.72.0
-GOBJECT_INTROSPECTION_MD5	:= 13cbf9bca8f906ee275c8b107311d815
+GOBJECT_INTROSPECTION_VERSION	:= 1.86.0
+GOBJECT_INTROSPECTION_MD5	:= fa0f2ae76868bf35ff725f940d75ec16
 GOBJECT_INTROSPECTION		:= gobject-introspection-$(GOBJECT_INTROSPECTION_VERSION)
 GOBJECT_INTROSPECTION_SUFFIX	:= tar.xz
 GOBJECT_INTROSPECTION_URL	:= $(call ptx/mirror, GNOME, gobject-introspection/$(basename $(GOBJECT_INTROSPECTION_VERSION))/$(GOBJECT_INTROSPECTION).$(GOBJECT_INTROSPECTION_SUFFIX))
@@ -40,7 +40,8 @@ GOBJECT_INTROSPECTION_CONF_OPT	:= \
 	-Dgi_cross_ldd_wrapper=$(PTXDIST_SYSROOT_CROSS)/usr/bin/qemu/ldd \
 	-Dgi_cross_use_prebuilt_gi=true \
 	-Dgtk_doc=false \
-	-Dpython=$(SYSTEMPYTHON3)
+	-Dpython=$(SYSTEMPYTHON3) \
+	-Dtests=false
 
 $(STATEDIR)/gobject-introspection.prepare:
 	@$(call targetinfo)

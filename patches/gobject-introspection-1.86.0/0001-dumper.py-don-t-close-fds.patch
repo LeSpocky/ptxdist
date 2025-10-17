@@ -10,10 +10,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/giscanner/dumper.py b/giscanner/dumper.py
-index 22afd61efb67..08c3ae19f4f2 100644
+index e56786373f68..e1644bde2d8f 100644
 --- a/giscanner/dumper.py
 +++ b/giscanner/dumper.py
-@@ -275,7 +275,7 @@ class DumpCompiler(object):
+@@ -289,7 +289,7 @@ class DumpCompiler(object):
              shell = utils.which(shell)
              args = [shell, tf_name.replace('\\', '/')]
          try:

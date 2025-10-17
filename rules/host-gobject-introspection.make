@@ -25,6 +25,7 @@ HOST_GOBJECT_INTROSPECTION_CONF_OPT	:= \
 	-Dcairo=disabled \
 	-Ddoctool=disabled \
 	-Dgtk_doc=false \
-	-Dpython=$(SYSTEMPYTHON3)
+	-Dpython=$(SYSTEMPYTHON3) \
+	-Dtests=false
 
 # vim: syntax=make

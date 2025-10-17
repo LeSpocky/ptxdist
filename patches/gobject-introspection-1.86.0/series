@@ -2,4 +2,5 @@
 #tag:base --start-number 1
 0001-dumper.py-don-t-close-fds.patch
 0002-HACK-don-t-build-the-python-module-when-cross-compil.patch
-# 5897d2843253341a60a4fb45e833d86d  - git-ptx-patches magic
+0003-HACK-install-glib-gir-typename-files.patch
+# 0d2fb32ce35e1a6b77f2b43e5409c35b  - git-ptx-patches magic
