@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_HTOP) += htop
 #
 # Paths and names
 #
-HTOP_VERSION		:= 3.0.1
-HTOP_MD5		:= c09908bacb5e22454715547aed88c3af
+HTOP_VERSION		:= 3.4.1
+HTOP_MD5		:= c3e003d9e265774dd808e934d1780774
 HTOP			:= htop-$(HTOP_VERSION)
 HTOP_SUFFIX		:= tar.gz
 HTOP_URL		:= https://github.com/htop-dev/htop/archive/$(HTOP_VERSION).$(HTOP_SUFFIX)
@@ -24,7 +24,7 @@ HTOP_SOURCE		:= $(SRCDIR)/$(HTOP).$(HTOP_SUFFIX)
 HTOP_DIR		:= $(BUILDDIR)/$(HTOP)
 HTOP_LICENSE		:= GPL-2.0-only
 HTOP_LICENSE_FILES	:= \
-	file://COPYING;md5=4099d367cd5e59b6d4fc1ee33accb891
+	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -39,16 +39,21 @@ HTOP_CONF_ENV	:= \
 HTOP_CONF_TOOL	:= autoconf
 HTOP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-static \
+	--disable-pcp \
+	--disable-unicode \
+	--enable-affinity \
+	--disable-unwind \
+	--disable-hwloc \
 	--disable-openvz \
-	--enable-cgroup \
 	--disable-vserver \
 	--disable-ancient-vserver \
-	--enable-taskstats \
-	--disable-unicode \
-	--enable-linux-affinity \
-	--disable-hwloc \
-	--disable-setuid \
-	--disable-delayacct
+	--disable-capabilities \
+	--disable-delayacct \
+	--disable-sensors \
+	--disable-werror \
+	--disable-debug
 
 # ----------------------------------------------------------------------------
 # Target-Install
