@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 menuconfig SERDISPLIB
 	tristate
@@ -15,3 +17,6 @@ config SERDISPLIB_TESTSERDISP
 	  If selected, the testserdisp test program will be installed on
 	  the target.
 
+	  STAGING: remove in PTXdist 2026.11.0
+	  Upstream seems to be dead. Unmaintained in PTXdist and fails to build
+	  with the latest version ob libusb-compat.
