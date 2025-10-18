@@ -14,16 +14,16 @@ PACKAGES-$(PTXCONF_JSON_GLIB) += json-glib
 #
 # Paths and names
 #
-JSON_GLIB_VERSION	:= 1.8.0
-JSON_GLIB_MD5		:= f1aac2b8a17fd68646653cc4d8426486
+JSON_GLIB_VERSION	:= 1.9.2
+JSON_GLIB_MD5		:= 92b7990216ee56163ef52c94b35138f6
 JSON_GLIB		:= json-glib-$(JSON_GLIB_VERSION)
 JSON_GLIB_SUFFIX	:= tar.xz
 JSON_GLIB_URL		:= $(call ptx/mirror, GNOME, json-glib/$(basename $(JSON_GLIB_VERSION))/$(JSON_GLIB).$(JSON_GLIB_SUFFIX))
 JSON_GLIB_SOURCE	:= $(SRCDIR)/$(JSON_GLIB).$(JSON_GLIB_SUFFIX)
 JSON_GLIB_DIR		:= $(BUILDDIR)/$(JSON_GLIB)
-JSON_GLIB_LICENSE	:= LGPL-2.1-only
+JSON_GLIB_LICENSE	:= LGPL-2.1-or-later
 JSON_GLIB_LICENSE_FILES	:= \
-	file://COPYING;md5=7fbc338309ac38fefcd64b04bb903e34
+	file://LICENSES/LGPL-2.1-or-later.txt;md5=41890f71f740302b785c27661123bff5
 
 # ----------------------------------------------------------------------------
 # Prepare
