@@ -1,6 +1,6 @@
 ## SECTION=system_libraries
 
-menuconfig LIBSOLV
+config LIBSOLV
 	tristate
 	select HOST_CMAKE
 	prompt "libsolv"
