@@ -1,0 +1,8 @@
+## SECTION=multimedia_libs
+
+config OPENH264
+	bool
+	prompt "openh264"
+	select HOST_MESON
+	help
+	  Enable OpenH264 codec
