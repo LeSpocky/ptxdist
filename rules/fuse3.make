@@ -14,14 +14,18 @@ PACKAGES-$(PTXCONF_FUSE3) += fuse3
 #
 # Paths and names
 #
-FUSE3_VERSION	:= 3.16.2
-FUSE3_MD5	:= b00bf08b27ead4a9411578777e94a1cc
+FUSE3_VERSION	:= 3.17.4
+FUSE3_MD5	:= c894181418bf0bc11f98938fc30d37df
 FUSE3		:= fuse-$(FUSE3_VERSION)
 FUSE3_SUFFIX	:= tar.gz
 FUSE3_URL	:= https://github.com/libfuse/libfuse/releases/download/$(FUSE3)/$(FUSE3).$(FUSE3_SUFFIX)
 FUSE3_SOURCE	:= $(SRCDIR)/$(FUSE3).$(FUSE3_SUFFIX)
 FUSE3_DIR	:= $(BUILDDIR)/$(FUSE3)
 FUSE3_LICENSE	:= GPL-2.0-only AND LGPL-2.1-only
+FUSE3_LICENSE_FILES := \
+	file://LICENSE;md5=a55c12a2d7d742ecb41ca9ae0a6ddc66 \
+	file://GPL2.txt;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
+	file://LGPL2.txt;md5=4fbd65380cdd255951079008b364516c
 
 # ----------------------------------------------------------------------------
 # Prepare
