@@ -14,17 +14,21 @@ PACKAGES-$(PTXCONF_CRYPTSETUP) += cryptsetup
 #
 # Paths and names
 #
-CRYPTSETUP_VERSION		:= 2.7.4
-CRYPTSETUP_MD5			:= 26ffe48f65d144af91b2a9639425d08c
+CRYPTSETUP_VERSION		:= 2.8.1
+CRYPTSETUP_MD5			:= 92b51ffa30e98447dccece6e4a055e3b
 CRYPTSETUP			:= cryptsetup-$(CRYPTSETUP_VERSION)
 CRYPTSETUP_SUFFIX		:= tar.xz
 CRYPTSETUP_URL			:= $(call ptx/mirror, KERNEL, utils/cryptsetup/v$(basename $(CRYPTSETUP_VERSION))/$(CRYPTSETUP).$(CRYPTSETUP_SUFFIX))
 CRYPTSETUP_SOURCE		:= $(SRCDIR)/$(CRYPTSETUP).$(CRYPTSETUP_SUFFIX)
 CRYPTSETUP_DIR			:= $(BUILDDIR)/$(CRYPTSETUP)
-CRYPTSETUP_LICENSE		:= GPL-2.0-or-later AND LGPL-2.0-or-later
+CRYPTSETUP_LICENSE		:= GPL-2.0-or-later AND LGPL-2.1-or-later AND public_domain AND Apache-2.0 AND CC-BY-SA-4.0 AND GPL-2.0-or-later WITH cryptsetup-OpenSSL-exception AND LGPL-2.1-or-later WITH cryptsetup-OpenSSL-exception
 CRYPTSETUP_LICENSE_FILES	:= \
 	file://COPYING;md5=32107dd283b1dfeb66c9b3e6be312326 \
-	file://COPYING.LGPL;md5=1960515788100ce5f9c98ea78a65dc52
+	file://README.licensing;md5=45c1ba157f18d08991819f41f56d72e9 \
+	file://docs/licenses/COPYING.Apache-2.0;md5=3b83ef96387f14655fc854ddc3c6bd57 \
+	file://docs/licenses/COPYING.CC-BY-SA-4.0;md5=b296faaab9c17d5874fd17967df54736 \
+	file://docs/licenses/COPYING.GPL-2.0-or-later-WITH-cryptsetup-OpenSSL-exception;md5=32107dd283b1dfeb66c9b3e6be312326 \
+	file://docs/licenses/COPYING.LGPL-2.1-or-later-WITH-cryptsetup-OpenSSL-exception;md5=1960515788100ce5f9c98ea78a65dc52
 
 # ----------------------------------------------------------------------------
 # Prepare
