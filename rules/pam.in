@@ -4,6 +4,7 @@ menuconfig PAM
 	tristate
 	prompt "PAM                           "
 	select DB		if PAM_DB
+	select HOST_MESON
 	select LIBC_CRYPT
 	select LIBTIRPC		if PAM_NIS
 	help
@@ -19,6 +20,8 @@ config PAM_DB
 
 config PAM_NIS
 	bool
+	# requires libnsl after the meson migration (with autoconf it was an optional dependency)
+	depends on BROKEN
 	prompt "enable NIS/YP support in pam_unix"
 
 endif

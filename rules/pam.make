@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_PAM) += pam
 #
 # Paths and names
 #
-PAM_VERSION	:= 1.5.2
-PAM_MD5		:= 895e8adfa14af334f679bbeb28503f66
+PAM_VERSION	:= 1.7.1
+PAM_MD5		:= dacf0f92ca7f647f9f4e54397b417e0b
 PAM		:= Linux-PAM-$(PAM_VERSION)
-PAM_SUFFIX	:= tar.xz
-PAM_URL		:= https://github.com/linux-pam/linux-pam/releases/download/v$(PAM_VERSION)/$(PAM).$(PAM_SUFFIX)
+PAM_SUFFIX	:= tar.gz
+PAM_URL		:= https://github.com/linux-pam/linux-pam/archive/refs/tags/v$(PAM_VERSION).$(PAM_SUFFIX)
 PAM_SOURCE	:= $(SRCDIR)/$(PAM).$(PAM_SUFFIX)
 PAM_DIR		:= $(BUILDDIR)/$(PAM)
 PAM_LICENSE	:= BSD-3-Clause OR (GPL-2.0-or-later AND LGPL-2.0-or-later)
@@ -30,31 +30,29 @@ PAM_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-PAM_CONF_ENV	:= \
-	$(CROSS_ENV) \
-	ac_cv_lib_nsl_yp_match=no
-
-#
-# autoconf
-#
-PAM_CONF_TOOL	:= autoconf
+PAM_CONF_TOOL	:= meson
 PAM_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--disable-Werror \
-	--disable-doc \
-	--disable-lckpwdf \
-	--disable-audit \
-	--$(call ptx/endis, PTXCONF_PAM_DB)-db \
-	--$(call ptx/endis, PTXCONF_PAM_NIS)-nis \
-	--disable-usergroups \
-	--disable-selinux \
-	--disable-econf \
-	--disable-openssl \
-	--disable-regenerate-docu \
-	--disable-nls \
-	--disable-rpath \
-	--enable-unix
+	$(CROSS_MESON_USR) \
+	-Di18n=disabled \
+	-Ddocs=disabled \
+	-Daudit=disabled \
+	-Deconf=disabled \
+	-Dlogind=disabled \
+	-Delogind=disabled \
+	-Dopenssl=disabled \
+	-Dselinux=disabled \
+	-Dnis=$(call ptx/endis, PTXCONF_PAM_NIS)d \
+	-Dexamples=false \
+	-Dlckpwdf=false \
+	-Dpam-debug=false \
+	-Dpamlocking=false \
+	-Dread-both-confs=false \
+	-Dusergroups=false \
+	-Dxtests=false \
+	-Duidmin=1000 \
+	-Dpam_userdb=$(call ptx/endis, PTXCONF_PAM_DB)d \
+	-Dpam_lastlog=disabled \
+	-Dpam_unix=enabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -84,7 +82,7 @@ $(STATEDIR)/pam.targetinstall:
 	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/pam_env.conf)
 	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/time.conf)
 
-	@$(call install_alternative, pam, 0, 0, 0755, /sbin/mkhomedir_helper)
+	@$(call install_alternative, pam, 0, 0, 0755, /usr/sbin/mkhomedir_helper)
 
 	@$(call install_finish, pam)
 
