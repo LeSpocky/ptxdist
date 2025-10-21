@@ -14,16 +14,16 @@ PACKAGES-$(PTXCONF_XZ) += xz
 #
 # Paths and names
 #
-XZ_VERSION	:= 5.4.4
-XZ_MD5		:= fbb849a27e266964aefe26bad508144f
+XZ_VERSION	:= 5.8.1
+XZ_MD5		:= 1be5d8137d7b5e91fa9ff8a6fdc4895b
 XZ		:= xz-$(XZ_VERSION)
-XZ_SUFFIX	:= tar.bz2
-XZ_URL		:= https://tukaani.org/xz/$(XZ).$(XZ_SUFFIX)
+XZ_SUFFIX	:= tar.gz
+XZ_URL		:= https://github.com/tukaani-project/xz/archive/refs/tags/v$(XZ_VERSION).$(XZ_SUFFIX)
 XZ_SOURCE	:= $(SRCDIR)/$(XZ).$(XZ_SUFFIX)
 XZ_DIR		:= $(BUILDDIR)/$(XZ)
-XZ_LICENSE	:= public_domain AND LGPL-2.1-or-later AND GPL-2.0-or-later AND GPL-3.0-or-later
+XZ_LICENSE	:= 0BSD AND public_domain AND LGPL-2.1-or-later AND GPL-2.0-or-later AND GPL-3.0-or-later
 XZ_LICENSE_FILES := \
-	file://COPYING;md5=c8ea84ebe7b93cce676b54355dc6b2c0 \
+	file://COPYING;md5=d38d562f6112174de93a9677682231b2 \
 	file://COPYING.GPLv2;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 	file://COPYING.GPLv3;md5=1ebbd3e34237af26da5dc08a4e440464 \
 	file://COPYING.LGPLv2.1;md5=4fbd65380cdd255951079008b364516c
@@ -32,37 +32,30 @@ XZ_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
-XZ_CONF_TOOL	:= autoconf
+XZ_CONF_TOOL	:= cmake
 XZ_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-debug \
-	--disable-external-sha256 \
-	--disable-microlzma \
-	--disable-lzip-decoder \
-	--enable-assembler \
-	--enable-clmul-crc \
-	--disable-small \
-	--enable-threads \
-	--$(call ptx/endis,PTXCONF_XZ_TOOLS)-xz \
-	--$(call ptx/endis,PTXCONF_XZ_TOOLS)-xzdec \
-	--disable-lzmadec \
-	--disable-lzmainfo \
-	--disable-lzma-links \
-	--$(call ptx/endis,PTXCONF_XZ_TOOLS)-scripts \
-	--disable-doc \
-	--disable-sandbox \
-	--enable-shared \
-	--disable-static \
-	--enable-symbol-versions \
-	--disable-nls \
-	--disable-rpath \
-	$(GLOBAL_LARGE_FILE_OPTION) \
-	--enable-unaligned-access=auto \
-	--disable-unsafe-type-punning \
-	--disable-werror
+	$(CROSS_CMAKE_USR) \
+	-DBUILD_SHARED_LIBS=ON \
+	-DBUILD_TESTING=OFF \
+	-DTUKLIB_USE_UNSAFE_TYPE_PUNNING=OFF \
+	-DXZ_DOC=OFF \
+	-DXZ_DOXYGEN=OFF \
+	-DXZ_EXTERNAL_SHA256=OFF \
+	-DXZ_LZIP_DECODER=OFF \
+	-DXZ_MICROLZMA_DECODER=OFF \
+	-DXZ_MICROLZMA_ENCODER=OFF \
+	-DXZ_NLS=OFF \
+	-DXZ_SANDBOX=no \
+	-DXZ_SMALL=OFF \
+	-DXZ_SYMBOL_VERSIONING=linux \
+	-DXZ_THREADS=yes \
+	-DXZ_TOOL_LZMADEC=OFF \
+	-DXZ_TOOL_LZMAINFO=OFF \
+	-DXZ_TOOL_SCRIPTS=$(call ptx/onoff,PTXCONF_XZ_TOOLS) \
+	-DXZ_TOOL_SYMLINKS=OFF \
+	-DXZ_TOOL_SYMLINKS_LZMA=OFF \
+	-DXZ_TOOL_XZ=$(call ptx/onoff,PTXCONF_XZ_TOOLS) \
+	-DXZ_TOOL_XZDEC=$(call ptx/onoff,PTXCONF_XZ_TOOLS)
 
 # ----------------------------------------------------------------------------
 # Target-Install

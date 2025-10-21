@@ -2,6 +2,7 @@
 
 config HOST_XZ
 	tristate
+	select HOST_CMAKE
 	default y if ALLYES
 	help
 	  XZ-format compression utilities

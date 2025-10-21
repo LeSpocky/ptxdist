@@ -2,6 +2,7 @@
 
 menuconfig XZ
 	tristate
+	select HOST_CMAKE
 	prompt "xz                            "
 	help
 	  XZ Utils is free general-purpose data compression software

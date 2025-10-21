@@ -15,35 +15,29 @@ HOST_PACKAGES-$(PTXCONF_HOST_XZ) += host-xz
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
-HOST_XZ_CONF_TOOL	:= autoconf
+HOST_XZ_CONF_TOOL	:= cmake
 HOST_XZ_CONF_OPT	:= \
-	$(HOST_AUTOCONF) \
-	--disable-debug \
-	--disable-external-sha256 \
-	--disable-microlzma \
-	--disable-lzip-decoder \
-	--enable-assembler \
-	--enable-clmul-crc \
-	--disable-small \
-	--enable-threads \
-	--enable-xz \
-	--disable-xzdec \
-	--disable-lzmadec \
-	--disable-lzmainfo \
-	--disable-lzma-links \
-	--disable-scripts \
-	--disable-doc \
-	--disable-sandbox \
-	--enable-shared \
-	--disable-static \
-	--enable-symbol-versions \
-	--disable-nls \
-	--enable-rpath \
-	--enable-unaligned-access=auto \
-	--disable-unsafe-type-punning \
-	--disable-werror
+	$(HOST_CMAKE_OPT) \
+	-DBUILD_SHARED_LIBS=ON \
+	-DBUILD_TESTING=OFF \
+	-DTUKLIB_USE_UNSAFE_TYPE_PUNNING=OFF \
+	-DXZ_DOC=OFF \
+	-DXZ_DOXYGEN=OFF \
+	-DXZ_EXTERNAL_SHA256=OFF \
+	-DXZ_LZIP_DECODER=OFF \
+	-DXZ_MICROLZMA_DECODER=OFF \
+	-DXZ_MICROLZMA_ENCODER=OFF \
+	-DXZ_NLS=OFF \
+	-DXZ_SANDBOX=no \
+	-DXZ_SMALL=OFF \
+	-DXZ_SYMBOL_VERSIONING=linux \
+	-DXZ_THREADS=yes \
+	-DXZ_TOOL_LZMADEC=OFF \
+	-DXZ_TOOL_LZMAINFO=OFF \
+	-DXZ_TOOL_SCRIPTS=OFF \
+	-DXZ_TOOL_SYMLINKS=OFF \
+	-DXZ_TOOL_SYMLINKS_LZMA=OFF \
+	-DXZ_TOOL_XZ=ON \
+	-DXZ_TOOL_XZDEC=OFF
 
 # vim: syntax=make
