@@ -4,6 +4,7 @@ menuconfig FONTCONFIG
 	tristate
 	prompt "fontconfig                    "
 	select HOST_GPERF
+	select HOST_MESON
 	select FREETYPE
 	select EXPAT
 	select LIBUUID

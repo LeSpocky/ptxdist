@@ -21,25 +21,22 @@ HOST_FONTCONFIG_DIR	= $(HOST_BUILDDIR)/$(FONTCONFIG)
 # Prepare
 # ----------------------------------------------------------------------------
 
-HOST_FONTCONFIG_CONF_ENV	:= \
-	$(HOST_ENV) \
-	ac_cv_prog_HASDOCBOOK=no
-
-#
-# autoconf
-#
-HOST_FONTCONFIG_CONF_TOOL := autoconf
-HOST_FONTCONFIG_CONF_OPT := \
-	$(HOST_AUTOCONF) \
-	--disable-nls \
-	--disable-rpath \
-	--disable-iconv \
-	--disable-libxml2 \
-	--disable-docs \
-	--with-arch=$(PTXCONF_ARCH_STRING) \
-	--with-default-fonts=$(XORG_FONTDIR) \
-	--with-cache-dir=$(PTXDIST_SYSROOT_HOST)/var/cache/fontconfig
-
-HOST_FONTCONFIG_MAKE_PAR := NO
+HOST_FONTCONFIG_CONF_TOOL	:= meson
+HOST_FONTCONFIG_CONF_OPT	:= \
+	$(HOST_MESON_OPT) \
+	-Dbaseconfig-dir=default \
+	-Dbitmap-conf=no-except-emoji \
+	-Dcache-build=disabled \
+	-Dcache-dir=$(PTXDIST_SYSROOT_HOST)/var/cache/fontconfig \
+	-Ddefault-hinting=slight \
+	-Ddefault-fonts-dirs=[\'$(XORG_FONTDIR)\'] \
+	-Ddefault-sub-pixel-rendering=none \
+	-Ddoc=disabled \
+	-Dfontations=disabled \
+	-Diconv=disabled \
+	-Dnls=disabled \
+	-Dtests=disabled \
+	-Dtools=enabled \
+	-Dxml-backend=expat
 
 # vim: syntax=make
