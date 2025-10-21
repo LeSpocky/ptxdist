@@ -19,6 +19,27 @@ menuconfig LIBWEBSOCKETS
 
 if LIBWEBSOCKETS
 
+menu "LWS roles                      "
+
+comment "not all roles are optional in this ptxdist package"
+
+config LIBWEBSOCKETS_ROLE_RAW_FILE
+	bool
+	prompt "raw files support"
+	default y
+
+config LIBWEBSOCKETS_ROLE_WS
+	bool
+	prompt "websockets support"
+	default y
+
+config LIBWEBSOCKETS_ROLE_H2
+	bool
+	prompt "http/2 support"
+	default y
+
+endmenu
+
 config LIBWEBSOCKETS_TLS
 	bool
 	prompt "TLS (SSL) support"
