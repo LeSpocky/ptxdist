@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_DAV1D) += dav1d
 #
 # Paths and names
 #
-DAV1D_VERSION		:= 1.3.0
-DAV1D_MD5		:= c8381f8346525dcd4205e9b50d80c5f4
+DAV1D_VERSION		:= 1.5.1
+DAV1D_MD5		:= 40f852ee7a8db1d1d2b1add6234a667f
 DAV1D			:= dav1d-$(DAV1D_VERSION)
 DAV1D_SUFFIX		:= tar.bz2
 DAV1D_URL		:= https://code.videolan.org/videolan/dav1d/-/archive/$(DAV1D_VERSION)/$(DAV1D).$(DAV1D_SUFFIX)
