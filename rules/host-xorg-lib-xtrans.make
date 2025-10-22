@@ -25,5 +25,9 @@ HOST_XORG_LIB_XTRANS_DIR	= $(HOST_BUILDDIR)/$(XORG_LIB_XTRANS)
 # autoconf
 #
 HOST_XORG_LIB_XTRANS_CONF_TOOL	:= autoconf
+HOST_XORG_LIB_XTRANS_CONF_OPT	:= \
+	$(HOST_AUTOCONF) \
+	--disable-docs \
+	$(XORG_OPTIONS_DOCS)
 
 # vim: syntax=make
