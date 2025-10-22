@@ -44,7 +44,7 @@ EOF
 	args=( "${src_filter}" )
     fi
 
-    tar --wildcards -C "${dest}" "${filter}" -x -f "${archive}" "${args[@]}" || {
+    tar --ignore-zeros --wildcards -C "${dest}" "${filter}" -x -f "${archive}" "${args[@]}" || {
 	cat >&2 <<EOF
 
 error: extracting '${archive}' failed

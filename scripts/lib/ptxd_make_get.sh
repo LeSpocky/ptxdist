@@ -173,6 +173,99 @@ export -f ptxd_make_get_http
 #
 # in env:
 #
+# ${tag}	: the tag to archive
+# ${git_mirror[]}	: git command for the local mirror for the url
+#
+# out env:
+#
+# "${paths[]}"	: submodule paths relative to the repository
+# "${urls[]}"	: submodule urls
+# "${commits[]}": submodule commits
+#
+ptxd_make_get_git_submodules_parse() {
+    local line="${1}"
+    local value name
+    local -a tmp keys
+
+    IFS="=" read -r -a tmp <<< "${line}"
+    value="${tmp[1]}"
+    IFS="." read -r -a keys <<< "${tmp[0]}"
+    if [ "${keys[0]}" != "submodule" ]; then
+	return
+    fi
+    name="${keys[1]}"
+    if [ "${keys[2]}" == "path" ]; then
+	paths["${name}"]="${value}"
+	# git ls-tree produces: '<permission> <type> <commit-ish>	<path>'
+	IFS="	 " read -r -a tmp <<< "$("${git_mirror[@]}" ls-tree -d "${tag}" -- "${value}")"
+	commits["${name}"]="${tmp[2]}"
+    elif [ "${keys[2]}" == "url" ]; then
+	urls["${name}"]="${value}"
+    fi
+}
+export -f ptxd_make_get_git_submodules_parse
+
+#
+# in env:
+#
+# ${url}	: the url of the git repository
+# ${tag}	: the tag to archive
+# ${git_mirror[]}:  git command for the local mirror for the url
+#
+# out env:
+# "${paths[]}"	: submodule paths relative to the repository
+# "${urls[]}"	: submodule urls
+# "${commits[]}": submodule commits
+#
+ptxd_make_get_git_submodules() {
+    local TMP_REPO
+
+    # with submodules=recurse, there will be repos without .gitmodules so skip those
+    if [ -z "$("${git_mirror[@]}" ls-tree "${tag}" -- ".gitmodules")" ]; then
+	return
+    fi
+
+    exec {config}< <("${git_mirror[@]}" show "${tag}:.gitmodules" | git config list --file="-")
+    while read -r line <&${config}; do
+	ptxd_make_get_git_submodules_parse "${line}"
+    done
+    exec {config}<&-
+
+    # fake a work tree so 'git submodule' can be used to resolve relative URLs
+    TMP_REPO="$(mktemp -d "${PTXDIST_TEMPDIR}/archive.XXXXXX")"
+    (
+	cd "${TMP_REPO}" &&
+	git init --quiet . &&
+	git remote add origin "${url}" &&
+	"${git_mirror[@]}" show "${tag}:.gitmodules" > "${TMP_REPO}/.gitmodules" &&
+	for key in "${!paths[@]}"; do
+	    submodule_path="${paths[${key}]}"
+	    mkdir -p "${submodule_path}" &&
+	    git update-index --add --cacheinfo 160000 "${commits[${key}]}" "${submodule_path}"  || break
+	done &&
+	git submodule init -q &&
+	git submodule sync -q
+    ) &&
+
+    exec {config}< <(git config list --file="${TMP_REPO}/.git/config") &&
+    while read -r line <&${config}; do
+	ptxd_make_get_git_submodules_parse "${line}"
+    done &&
+    exec {config}<&- &&
+    rm -rf "${TMP_REPO}"
+
+}
+export -f ptxd_make_get_git_submodules
+
+ptxd_make_get_git_mirror() {
+    local mirror="${1#[a-z]*//}"
+    echo "$(dirname "${path}")/${mirror//\//.}"
+}
+export -f ptxd_make_get_git_mirror
+
+#
+# in env:
+#
 # ${temp_file}	: local temporary file name
 # ${url}	: the url to download
 # ${tag}	: the tag to archive
@@ -180,6 +273,7 @@ export -f ptxd_make_get_http
 # ${prefix}	: the prefix to use inside the tarball
 #
 ptxd_make_get_git_archive() {
+    local -A paths urls commits
     local -a git_mirror=( git --git-dir="${mirror}" )
 
     echo "${PROMPT}git: fetching '${url} into '${mirror}'..."
@@ -203,6 +297,33 @@ ptxd_make_get_git_archive() {
     fi &&
 
     "${git_mirror[@]}" archive "${format}" --prefix="${prefix}" "${tag}" >> "${temp_file}" &&
+
+    case "${submodules}" in
+	"no") return ;;
+	"yes") submodules="" ;;
+    esac &&
+    ptxd_make_get_git_submodules &&
+
+    if [ "${FUNCNAME[0]}" != "${FUNCNAME[1]}" ]; then
+	# toplevel repo so there must be at least one submodule
+	if [ "${#urls[*]}" -eq 0 ]; then
+	    ptxd_make_serialize_put
+	    ptxd_bailout "git: downloading submodules requested but no submodules found!"
+	fi
+	if [ "${#urls[*]}" -ne "${#paths[*]}" ] || [ "${#urls[*]}" -ne "${#commits[*]}" ]; then
+	    ptxd_make_serialize_put
+	    ptxd_bailout "git: collecting submodules failed! Submodule data is incomplete!"
+	fi
+    fi
+
+    for key in "${!urls[@]}"; do
+	echo "${PROMPT}git: found submodule ${paths[${key}]} with commit ${commits[${key}]}"
+	url="${urls[${key}]}" \
+	    tag="${commits[${key}]}" \
+	    mirror="$(ptxd_make_get_git_mirror "${urls[${key}]}")" \
+	    prefix="${prefix}${paths[${key}]}/" \
+	    ptxd_make_get_git_archive || break
+    done
 }
 export -f ptxd_make_get_git_archive
 
@@ -218,8 +339,8 @@ ptxd_make_get_git() {
     unset opts
     local tag commit temp_file format
     local -a compress
-    local mirror="${url#[a-z]*//}"
-    mirror="$(dirname "${path}")/${mirror//\//.}"
+    local submodules=no
+    local mirror="$(ptxd_make_get_git_mirror "${url}")"
     local prefix="$(basename "${path}")"
     prefix="${prefix%.tar.*}/"
 
@@ -246,12 +367,28 @@ ptxd_make_get_git() {
 	    tag=*)
 		tag="${opt#tag=}"
 		;;
+	    submodules=*)
+		submodules="${opt#submodules=}"
+		;;
 	    *)
 		ptxd_bailout "invalid option '${opt}' to ${FUNCNAME}"
 		;;
 	esac
     done
     unset opt
+
+    case "${submodules}" in
+	yes|recurse)
+	    if [ "${format}" = "--format=zip" ]; then
+		ptxd_bailout "Submodules are not supported for zip archives"
+	    fi
+	    ;;
+	no)
+	    ;;
+	*)
+	    ptxd_bailout "invalid submodules argument '${submodules}'!" \
+		"Valid options are 'yes' or 'recurse'"
+    esac
 
     if [ -z "${tag}" ]; then
 	ptxd_bailout "git url '${url}' has no 'tag' option"

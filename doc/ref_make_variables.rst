@@ -196,6 +196,13 @@ Package Definition
   Git URLs must either start with 'git://' or end with '.git'. They have a
   mandatory ``tag=<tagname>`` option.
 
+  Git URLs can have the optional ``submodules=<type>`` option.
+  If this option is specified, then submodules will be downloaded as well.
+  If ``<type>`` is ``yes`` then only the submodules specified in the primary
+  repository will be downloaded.
+  If ``<type>`` is ``recurse`` then all submodules will be downloaded
+  recursively.
+
   SVN URLs must start with 'svn://'. They have a mandatory
   ``rev=r<number>`` option.
 
