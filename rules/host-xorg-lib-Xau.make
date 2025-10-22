@@ -19,6 +19,11 @@ HOST_PACKAGES-$(PTXCONF_HOST_XORG_LIB_XAU) += host-xorg-lib-xau
 #
 # autoconf
 #
-HOST_XORG_LIB_XAU_CONF_TOOL := autoconf
+HOST_XORG_LIB_XAU_CONF_TOOL	:= autoconf
+HOST_XORG_LIB_XAU_CONF_OPT	:= \
+	$(HOST_AUTOCONF) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-xthreads \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038
 
 # vim: syntax=make

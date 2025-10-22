@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_XORG_LIB_XAU) += xorg-lib-xau
 #
 # Paths and names
 #
-XORG_LIB_XAU_VERSION	:= 1.0.9
-XORG_LIB_XAU_MD5	:= c5f16288f2da9f071b29111d68797480
+XORG_LIB_XAU_VERSION	:= 1.0.12
+XORG_LIB_XAU_MD5	:= 4c9f81acf00b62e5de56a912691bd737
 XORG_LIB_XAU		:= libXau-$(XORG_LIB_XAU_VERSION)
-XORG_LIB_XAU_SUFFIX	:= tar.bz2
+XORG_LIB_XAU_SUFFIX	:= tar.xz
 XORG_LIB_XAU_URL	:= $(call ptx/mirror, XORG, individual/lib/$(XORG_LIB_XAU).$(XORG_LIB_XAU_SUFFIX))
 XORG_LIB_XAU_SOURCE	:= $(SRCDIR)/$(XORG_LIB_XAU).$(XORG_LIB_XAU_SUFFIX)
 XORG_LIB_XAU_DIR	:= $(BUILDDIR)/$(XORG_LIB_XAU)
-XORG_LIB_XAU_LICENSE	:= MIT
+XORG_LIB_XAU_LICENSE	:= MIT-open-group
+XORG_LIB_XAU_LICENSE_FILES := \
+	file://COPYING;md5=7908e342491198401321cec1956807ec
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -33,7 +35,9 @@ XORG_LIB_XAU_LICENSE	:= MIT
 XORG_LIB_XAU_CONF_TOOL	:= autoconf
 XORG_LIB_XAU_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--$(call ptx/endis, PTXCONF_XORG_LIB_XAU_THREAD)-xthreads
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--$(call ptx/endis, PTXCONF_XORG_LIB_XAU_THREAD)-xthreads \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038
 
 # ----------------------------------------------------------------------------
 # Target-Install
