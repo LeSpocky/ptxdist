@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_XORG_LIB_XSHMFENCE) += xorg-lib-xshmfence
 #
 # Paths and names
 #
-XORG_LIB_XSHMFENCE_VERSION	:= 1.3
-XORG_LIB_XSHMFENCE_MD5		:= 42dda8016943dc12aff2c03a036e0937
+XORG_LIB_XSHMFENCE_VERSION	:= 1.3.3
+XORG_LIB_XSHMFENCE_MD5		:= 9805be7e18f858bed9938542ed2905dc
 XORG_LIB_XSHMFENCE		:= libxshmfence-$(XORG_LIB_XSHMFENCE_VERSION)
-XORG_LIB_XSHMFENCE_SUFFIX	:= tar.bz2
+XORG_LIB_XSHMFENCE_SUFFIX	:= tar.xz
 XORG_LIB_XSHMFENCE_URL		:= $(call ptx/mirror, XORG, individual/lib/$(XORG_LIB_XSHMFENCE).$(XORG_LIB_XSHMFENCE_SUFFIX))
 XORG_LIB_XSHMFENCE_SOURCE	:= $(SRCDIR)/$(XORG_LIB_XSHMFENCE).$(XORG_LIB_XSHMFENCE_SUFFIX)
 XORG_LIB_XSHMFENCE_DIR		:= $(BUILDDIR)/$(XORG_LIB_XSHMFENCE)
-XORG_LIB_XSHMFENCE_LICENSE	:= MIT
+XORG_LIB_XSHMFENCE_LICENSE	:= HPND-sell-variant
+XORG_LIB_XSHMFENCE_LICENSE_FILES := \
+	file://COPYING;md5=47e508ca280fde97906eacb77892c3ac
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -35,7 +37,9 @@ XORG_LIB_XSHMFENCE_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-selective-werror \
 	--disable-strict-compilation \
-	--enable-futex
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--enable-futex \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038
 
 # ----------------------------------------------------------------------------
 # Target-Install
