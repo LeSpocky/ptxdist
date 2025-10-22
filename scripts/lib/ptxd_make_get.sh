@@ -170,6 +170,41 @@ ptxd_make_get_http() {
 }
 export -f ptxd_make_get_http
 
+#
+# in env:
+#
+# ${temp_file}	: local temporary file name
+# ${url}	: the url to download
+# ${tag}	: the tag to archive
+# ${mirror}	: the local directory for git
+# ${prefix}	: the prefix to use inside the tarball
+#
+ptxd_make_get_git_archive() {
+    local -a git_mirror=( git --git-dir="${mirror}" )
+
+    echo "${PROMPT}git: fetching '${url} into '${mirror}'..."
+    if [ ! -d "${mirror}" ]; then
+	git init --bare --shared "${mirror}"
+    else
+	"${git_mirror[@]}" remote rm origin
+    fi &&
+    # overwrite everything so the git repository is in a defined state
+    "${git_mirror[@]}" config transfer.fsckObjects true &&
+    "${git_mirror[@]}" remote add origin "${url}" &&
+    "${git_mirror[@]}" fetch --progress -pf origin "+refs/*:refs/*" &&
+    # at least for some git versions this is not group writeable for shared repos
+    if [ "$(stat -c '%A' "${mirror}/FETCH_HEAD" | cut -c 6)" != "w" ]; then
+	chmod g+w "${mirror}/FETCH_HEAD"
+    fi &&
+
+    if ! "${git_mirror[@]}" rev-parse --verify -q "${tag}" > /dev/null; then
+	ptxd_make_serialize_put
+	ptxd_bailout "git: tag '${tag}' not found in '${url}'"
+    fi &&
+
+    "${git_mirror[@]}" archive "${format}" --prefix="${prefix}" "${tag}" >> "${temp_file}" &&
+}
+export -f ptxd_make_get_git_archive
 
 #
 # in env:
@@ -181,17 +216,19 @@ export -f ptxd_make_get_http
 ptxd_make_get_git() {
     set -- "${opts[@]}"
     unset opts
-    local tag archive_args commit
+    local tag commit temp_file format
+    local -a compress
     local mirror="${url#[a-z]*//}"
     mirror="$(dirname "${path}")/${mirror//\//.}"
     local prefix="$(basename "${path}")"
     prefix="${prefix%.tar.*}/"
 
     case "${path}" in
-    *.tar.gz|*.tar.bz2|*.tar.xz|*.zip)
+    *.tar.gz|*.tar.bz2|*.tar.xz|*.crate)
+	format="--format=tar"
 	;;
-    *.crate)
-	archive_args="--format=tar.gz"
+    *.zip)
+	format="--format=zip"
 	;;
     *)
 	ptxd_bailout "Only .tar.gz, .tar.bz2, .tar.xz and .zip archives are supported for git downloads."
@@ -227,30 +264,38 @@ ptxd_make_get_git() {
 	ptxd_make_serialize_put
 	return
     elif [ ! -e "${path}" ]; then
-	echo "${PROMPT}git: fetching '${url} into '${mirror}'..."
-	if [ ! -d "${mirror}" ]; then
-	    git init --bare --shared "${mirror}"
-	else
-	    git --git-dir="${mirror}" remote rm origin
-	fi &&
-	# overwrite everything so the git repository is in a defined state
-	git --git-dir="${mirror}" config transfer.fsckObjects true &&
-	git --git-dir="${mirror}" config tar.tar.gz.command "gzip -cn" &&
-	git --git-dir="${mirror}" config tar.tar.bz2.command "bzip2 -c" &&
-	git --git-dir="${mirror}" config tar.tar.xz.command "xz -T 1 -c" &&
-	git --git-dir="${mirror}" remote add origin "${url}" &&
-	git --git-dir="${mirror}" fetch --progress -pf origin "+refs/*:refs/*"  &&
-	# at least for some git versions this is not group writeable for shared repos
-	if [ "$(stat -c '%A' "${mirror}/FETCH_HEAD" | cut -c 6)" != "w" ]; then
-	    chmod g+w "${mirror}/FETCH_HEAD"
-	fi &&
+	case "${path}" in
+	    *.zip)
+		;;
+	    *.tar.bz2)
+		compress=( "bzip2" "-c" )
+		;;
+	    *.tar.xz)
+		compress=( "xz" "-T" "1" "-c" )
+		;;
+	    *.tar.gz|*.crate)
+		compress=( "gzip" "-cn" )
+		;;
+	    *)
+		ptxd_make_serialize_put
+		ptxd_bailout "Unexpected file format for '${path}'"
+		;;
+	esac
+	# remove any pending or half downloaded files
+	p="[a-zA-Z0-9]"
+	rm -f -- "${path}."$p$p$p$p$p$p$p$p$p$p
 
-	if ! git --git-dir="${mirror}" rev-parse --verify -q "${tag}" > /dev/null; then
+	if ! temp_file="$(mktemp "${path}.XXXXXXXXXX")"; then
 	    ptxd_make_serialize_put
-	    ptxd_bailout "git: tag '${tag}' not found in '${url}'"
-	fi &&
-
-	git --git-dir="${mirror}" archive ${archive_args} --prefix="${prefix}" -o "${path}" "${tag}"
+	    ptxd_bailout "failed to create tempfile"
+	fi
+	ptxd_make_get_git_archive &&
+	if [ "${#compress[*]}" -gt 0 ]; then
+	    "${compress[@]}" "${temp_file}" > "${path}" &&
+	    rm "${temp_file}"
+	else
+	    mv "${temp_file}" "${path}"
+	fi
     fi
     ptxd_make_serialize_put
     if ! ptxd_make_get_need_commit; then
