@@ -25,6 +25,7 @@ HOST_LIBXCB_CONF_ENV	:= \
 HOST_LIBXCB_CONF_TOOL	:= autoconf
 HOST_LIBXCB_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-static \
 	--disable-selective-werror \
 	--disable-strict-compilation \

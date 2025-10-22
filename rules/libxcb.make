@@ -14,14 +14,14 @@ PACKAGES-$(PTXCONF_LIBXCB) += libxcb
 #
 # Paths and names
 #
-LIBXCB_VERSION		:= 1.16
-LIBXCB_MD5		:= c769f93c254263077df62404661b710d
+LIBXCB_VERSION		:= 1.17.0
+LIBXCB_MD5		:= 96565523e9f9b701fcb35d31f1d4086e
 LIBXCB			:= libxcb-$(LIBXCB_VERSION)
 LIBXCB_SUFFIX		:= tar.xz
-LIBXCB_URL		:= http://xcb.freedesktop.org/dist/$(LIBXCB).$(LIBXCB_SUFFIX)
+LIBXCB_URL		:= https://xcb.freedesktop.org/dist/$(LIBXCB).$(LIBXCB_SUFFIX)
 LIBXCB_SOURCE		:= $(SRCDIR)/$(LIBXCB).$(LIBXCB_SUFFIX)
 LIBXCB_DIR		:= $(BUILDDIR)/$(LIBXCB)
-LIBXCB_LICENSE		:= MIT
+LIBXCB_LICENSE		:= X11
 LIBXCB_LICENSE_FILES	:= \
 	file://COPYING;md5=d763b081cb10c223435b01e00dc0aba7
 
@@ -39,6 +39,7 @@ LIBXCB_CONF_ENV := \
 LIBXCB_CONF_TOOL	:= autoconf
 LIBXCB_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-static \
 	--disable-selective-werror \
 	--disable-strict-compilation \
