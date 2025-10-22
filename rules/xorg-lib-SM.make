@@ -14,14 +14,16 @@ PACKAGES-$(PTXCONF_XORG_LIB_SM) += xorg-lib-sm
 #
 # Paths and names
 #
-XORG_LIB_SM_VERSION	:= 1.2.3
-XORG_LIB_SM_MD5		:= 87c7fad1c1813517979184c8ccd76628
+XORG_LIB_SM_VERSION	:= 1.2.6
+XORG_LIB_SM_MD5		:= 3aeeea05091db1c69e6f768e0950a431
 XORG_LIB_SM		:= libSM-$(XORG_LIB_SM_VERSION)
-XORG_LIB_SM_SUFFIX	:= tar.bz2
+XORG_LIB_SM_SUFFIX	:= tar.xz
 XORG_LIB_SM_URL		:= $(call ptx/mirror, XORG, individual/lib/$(XORG_LIB_SM).$(XORG_LIB_SM_SUFFIX))
 XORG_LIB_SM_SOURCE	:= $(SRCDIR)/$(XORG_LIB_SM).$(XORG_LIB_SM_SUFFIX)
 XORG_LIB_SM_DIR		:= $(BUILDDIR)/$(XORG_LIB_SM)
-XORG_LIB_SM_LICENSE	:= MIT
+XORG_LIB_SM_LICENSE	:= MIT AND MIT-open-group
+XORG_LIB_SM_LICENSE_FILES := \
+	file://COPYING;md5=e04a412a93c7cb2b5e07ebd8fd922917
 
 # ----------------------------------------------------------------------------
 # Prepare
