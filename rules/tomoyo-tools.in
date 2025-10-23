@@ -1,4 +1,6 @@
-## SECTION=security
+## SECTION=staging
+## old section:
+### SECTION=security
 
 config TOMOYO_TOOLS
 	tristate
@@ -6,3 +8,6 @@ config TOMOYO_TOOLS
 	select NCURSES
 	help
 	  TOMOYO Linux userspace tools for Linux kernels >=3.2
+
+	  STAGING: remove in PTXdist 2026.11.0
+	  Unmaintained in PTXdist and upstream seems to be gone.
