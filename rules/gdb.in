@@ -46,6 +46,7 @@ config GDB_DEBUGINFO_SUPPORT
 
 config GDB_11_1
 	bool
+	default y
 	prompt "gdb-11.1 or later"
 	help
 	  Since gdb-11.1, GMP is a required dependency. Enable this option
@@ -53,6 +54,7 @@ config GDB_11_1
 
 config GDB_14_1
 	bool
+	default y
 	select GDB_ZSTD
 	prompt "gdb-14.1 or later"
 	help
