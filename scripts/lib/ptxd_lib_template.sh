@@ -248,7 +248,7 @@ ptxd_template_filter() {
 	echo
 	echo "${PTXDIST_LOG_PROMPT}warning: template '${template_file}' does not exist"
 	echo
-	continue
+	return
     fi
 
     if [ -f "${filename}" ]; then

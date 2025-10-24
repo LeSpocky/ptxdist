@@ -83,7 +83,7 @@ export -f ptxd_make_dtb
 ptxd_make_world_dtbo() {
     local dtb_deps_target dtb_source dtb_target
 
-    ptxd_make_world_init || break
+    ptxd_make_world_init || return
 
     dtb_deps_target="${ptx_state_dir}/${pkg_stamp}"
 
@@ -110,7 +110,7 @@ export -f ptxd_make_world_dtbo
 ptxd_make_world_dtb() {
     local dtb_deps_target dtb_source dtb_target
 
-    ptxd_make_world_init || break
+    ptxd_make_world_init || return
 
     dtb_deps_target="${ptx_state_dir}/${pkg_stamp}"
 

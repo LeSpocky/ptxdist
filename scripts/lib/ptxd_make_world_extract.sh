@@ -91,7 +91,7 @@ ptxd_make_world_extract_cargo_crate() {
     srcdir="${tmp%.git}"
     abs_srcdir="${pkg_cargo_home}/source/${srcdir}"
     mkdir "${abs_srcdir}" &&
-    tar -C "${abs_srcdir}" --strip-components=1 -xf "${src}" || break
+    tar -C "${abs_srcdir}" --strip-components=1 -xf "${src}" || return
     if grep -qi '^\[package\]$' "${abs_srcdir}/Cargo.toml"; then
 	if [ "${tmp}" = "${srcdir}" ]; then
 	    # don't set the checksum for crates from git, they would trigger Cargo.lock changes
