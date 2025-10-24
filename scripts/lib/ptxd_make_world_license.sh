@@ -18,11 +18,9 @@
 # $guess = 'yes' if the file was not specified explicitly
 #
 ptxd_make_world_parse_license_files() {
-    local orig_ifs="${IFS}"
-    IFS=";"
-    set -- ${@}
-    IFS="${orig_ifs}"
-    unset orig_ifs
+    local -a args
+    local arg
+    IFS=";" read -r -a args <<< "${1}"
 
     file=""
     filename=""
@@ -32,9 +30,7 @@ ptxd_make_world_parse_license_files() {
     encoding=""
     guess=""
 
-    while [ ${#} -ne 0 ]; do
-	local arg="${1}"
-	shift
+    for arg in "${args[@]}"; do
 
 	case "${arg}" in
 	    "file://"*)
