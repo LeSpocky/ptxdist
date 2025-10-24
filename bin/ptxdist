@@ -143,7 +143,7 @@ check_nonstandard() {
 		return 1
 	elif [ -z "${!nonstandard_set}" ]; then
 		echo
-		echo "${PTXDIST_LOG_PROMPT}error: invalid use of '${FUNCNAME} ${@}'"
+		echo "${PTXDIST_LOG_PROMPT}error: invalid use of '${FUNCNAME} ${*}'"
 		echo
 		exit 1
 	fi
@@ -1336,7 +1336,7 @@ do_config()
 		;;
 	*)
 		echo
-		echo "${PTXDIST_LOG_PROMPT}error: invalid use of '${FUNCNAME} ${@}'"
+		echo "${PTXDIST_LOG_PROMPT}error: invalid use of '${FUNCNAME} ${*}'"
 		echo
 		exit 1
 		;;
@@ -2274,7 +2274,7 @@ ptxdist_trap_exit_handler() {
 		# use these quotes to keep Enrik's editor happy
 		#	   \\
 		#	    VV
-		echo -e "\n}""}} $(date '+%FT%T%z') ${PTXDIST} ${PTXDIST_ARGS_FULL[@]}; (exit value: ${retval})\n\n\n" >> "${PTX_LOGFILE}"
+		echo -e "\n}""}} $(date '+%FT%T%z') ${PTXDIST} ${PTXDIST_ARGS_FULL[*]}; (exit value: ${retval})\n\n\n" >> "${PTX_LOGFILE}"
 	fi
 }
 
@@ -2478,7 +2478,7 @@ setup_auto_version()
 
 	file_dotconfig="${PTXDIST_PTXCONFIG}"
 	ptxd_normalize_config
-	if ! ptxd_get_path_filtered ${PTXDIST_LAYERS[@]/%//${relative_file_dotconfig}}; then
+	if ! ptxd_get_path_filtered "${PTXDIST_LAYERS[@]/%//${relative_file_dotconfig}}"; then
 		# no config yet, so this is either 'select' or fails later anyways
 		return
 	fi
@@ -2708,7 +2708,7 @@ setup_logfile()
 	# use these quotes to keep Enrik's editor happy
 	#      ||
 	#      VV
-	echo "{""{{ $(date '+%FT%T%z') ${PTXDIST} ${PTXDIST_ARGS_FULL[@]}" >> "${PTX_LOGFILE}"
+	echo "{""{{ $(date '+%FT%T%z') ${PTXDIST} ${PTXDIST_ARGS_FULL[*]}" >> "${PTX_LOGFILE}"
 	export PTX_LOGFILE
 }
 

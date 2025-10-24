@@ -783,7 +783,7 @@ ptxd_kconfig() {
 	kconfig_layer_configs=( "${file_dotconfig}" "${PTXDIST_PTXRC}" ${PTXDIST_TOPDIR}/config/setup/ptxdistrc.default )
 	;;
     *)
-	ptxd_bailout "invalid use of '${FUNCNAME} ${@}'"
+	ptxd_bailout "invalid use of '${FUNCNAME} ${*}'"
 	;;
     esac
 

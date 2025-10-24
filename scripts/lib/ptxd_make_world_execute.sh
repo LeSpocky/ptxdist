@@ -38,7 +38,7 @@ ptxd_make_execute_impl() {
     cmd[${#cmd[@]}]="${pkg_execute_cmd}"
 
 
-    ptxd_verbose "executing:" "${cmd[@]}
+    ptxd_verbose "executing:" "${cmd[*]}
 " &&
     "${echo:-echo}" \
 	"${cmd[@]}" \

@@ -577,7 +577,7 @@ Please download '${url}'
 manually into '$(dirname ${path})'
 
 EOF
-	set -- ${orig_argv[@]}
+	set -- "${orig_argv[@]}"
 	if [ $# -ne 1 ]; then
 	    echo "If this URL doesn't work, you may try these ones:"
 	    while [ ${#} -ne 0 ]; do
@@ -756,7 +756,7 @@ ptxd_make_get() {
     if [ "${ptxd_make_get_nofail}" != "y" ]; then
 	echo
 	echo "Could not download package"
-	echo "URL: ${orig_argv[@]}"
+	echo "URL: ${orig_argv[*]}"
 	echo
 	exit 1
     fi

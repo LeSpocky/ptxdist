@@ -183,7 +183,7 @@ ptxd_make_license_report() {
     ptx_license_target_tex="${ptx_report_dir}/${pkg_section}/$(basename "${ptx_license_target%.pdf}.tex")"
     (
 	ptxd_make_license_report_header
-	for pkg in ${@}; do
+	for pkg in "${@}"; do
 		pkg_lic="${ptxd_package_license_association[${pkg}]}"
 		if [ -z ${pkg_lic} -o "${pkg_lic}" = "ignore" ]; then
 			continue
@@ -277,7 +277,7 @@ ptxd_make_license_compliance_pdf() {
     ptx_license_target_tex="${ptx_report_dir}/${pkg_section}/$(basename "${ptx_license_target%.pdf}.tex")"
     (
 	ptxd_make_license_compliance_header
-	for pkg in ${@}; do
+	for pkg in "${@}"; do
 		pkg_lic="${ptxd_package_license_association[${pkg}]}"
 		if [ -z "${pkg_lic}" -o "${pkg_lic}" = "proprietary" -o "${pkg_lic}" = "ignore" ]; then
 			continue
@@ -306,7 +306,7 @@ ptxd_make_license_compliance_yaml() {
 # combine all package related info into one document
 #
     (
-	for pkg in ${@}; do
+	for pkg in "${@}"; do
 		pkg_lic="${ptxd_package_license_association[${pkg}]}"
 		if [ -z "${pkg_lic}" ]; then
 			continue
