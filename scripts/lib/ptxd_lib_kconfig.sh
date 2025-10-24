@@ -728,7 +728,7 @@ ptxd_kconfig_update() {
 	    return
 	    ;;
 	*)
-	    ptxd_bailout "invalid use of '${FUNCNAME} ${@}'"
+	    ptxd_bailout "invalid use of '${FUNCNAME} (config=${config})'"
 	    ;;
 	esac
     fi &&
