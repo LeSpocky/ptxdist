@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_RTMPDUMP) += rtmpdump
 # Paths and names
 #
 # No tags: use a fake descriptive commit-ish to include the date
-RTMPDUMP_VERSION	:= 2021-02-19-gf1b83c10d8be
-RTMPDUMP_MD5		:= 33390d59c4eac5ae34ac155804d44fb6 b0f9380fc56d42e5a12094c467188de9
+RTMPDUMP_VERSION	:= 2024-03-01-g6f6bb1353fc8
+RTMPDUMP_MD5		:= 0e47613afcf77bf039fe6761f7b6c1f6
 RTMPDUMP		:= rtmpdump-$(RTMPDUMP_VERSION)
 RTMPDUMP_SUFFIX		:= tar.gz
 RTMPDUMP_URL		:= git+https://git.ffmpeg.org/rtmpdump.git;tag=$(RTMPDUMP_VERSION)
