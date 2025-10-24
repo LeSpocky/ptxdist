@@ -603,7 +603,7 @@ export -f ptxd_make_get_download_permitted
 # - no-proxy			don't use proxy even if configured
 #
 ptxd_make_get() {
-    local -a argv
+    local -a argv urls
     local ptxmirror_url
 
     # needed when called from the source archive target
@@ -615,7 +615,6 @@ ptxd_make_get() {
     fi
 
     local path="${1}"
-    shift
 
     # skip nested archives
     if [[ "${path}" =~ ^"${PTXDIST_PLATFORMDIR}" ]]; then
@@ -640,12 +639,10 @@ ptxd_make_get() {
     #
     # split by spaces, etc
     #
-    set -- ${@}
+    read -r -a urls <<< "${2}"
 
-    while [ ${#} -gt 0 ]; do
+    for url in "${urls[@]}"; do
 	local add=true
-	local url="${1}"
-	shift
 
 	if [[ "${url}" =~ "file://" ]]; then
 	    # keep original URL
