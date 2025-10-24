@@ -22,17 +22,21 @@ HOST_GDK_PIXBUF_CONF_TOOL	:= meson
 HOST_GDK_PIXBUF_CONF_OPT	:=  \
 	$(HOST_MESON_OPT) \
 	-Dbuiltin_loaders=png \
-	-Ddocs=false \
+	-Ddocumentation=false \
+	-Dgif=disabled \
 	-Dgio_sniffing=false \
+	-Dglycin=disabled \
 	-Dgtk_doc=false \
 	-Dinstalled_tests=false \
 	-Dintrospection=disabled \
 	-Djpeg=disabled \
 	-Dman=false \
 	-Dnative_windows_loaders=false \
+	-Dothers=disabled \
 	-Dpng=enabled \
 	-Drelocatable=false \
 	-Dtests=false \
+	-Dthumbnailer=disabled \
 	-Dtiff=disabled
 
 # vim: syntax=make

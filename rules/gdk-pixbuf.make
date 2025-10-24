@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GDK_PIXBUF) += gdk-pixbuf
 #
 # Paths and names
 #
-GDK_PIXBUF_VERSION	:= 2.42.10
-GDK_PIXBUF_MD5		:= 4a62f339cb1424693fba9bb7ffef8150
+GDK_PIXBUF_VERSION	:= 2.44.4
+GDK_PIXBUF_MD5		:= 2676fd771eeec4ecee3af4b366aa1412
 GDK_PIXBUF		:= gdk-pixbuf-$(GDK_PIXBUF_VERSION)
 GDK_PIXBUF_SUFFIX	:= tar.xz
 GDK_PIXBUF_URL		:= $(call ptx/mirror, GNOME, gdk-pixbuf/$(basename $(GDK_PIXBUF_VERSION))/$(GDK_PIXBUF).$(GDK_PIXBUF_SUFFIX))
@@ -41,17 +41,21 @@ GDK_PIXBUF_CONF_TOOL	:= meson
 GDK_PIXBUF_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Dbuiltin_loaders=$(subst $(space),$(comma),$(GDK_PIXBUF_LOADER-y)) \
-	-Ddocs=false \
+	-Ddocumentation=false \
+	-Dgif=disabled \
 	-Dgio_sniffing=false \
+	-Dglycin=disabled \
 	-Dgtk_doc=false \
 	-Dinstalled_tests=false \
 	-Dintrospection=disabled \
 	-Djpeg=$(call ptx/endis, PTXCONF_GDK_PIXBUF_LOADER_JPEG)d \
 	-Dman=false \
 	-Dnative_windows_loaders=false \
+	-Dothers=disabled \
 	-Dpng=$(call ptx/endis, PTXCONF_GDK_PIXBUF_LOADER_PNG)d \
 	-Drelocatable=false \
 	-Dtests=false \
+	-Dthumbnailer=disabled \
 	-Dtiff=disabled
 
 # ----------------------------------------------------------------------------
