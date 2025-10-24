@@ -1,17 +1,20 @@
 From: Aron Xu <aron@debian.org>
 Date: Mon, 13 Feb 2012 19:06:52 +0800
 Subject: [PATCH] New flag '-b' for broadcast support
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Imported from netcat-openbsd_1.228-1.debian.tar.xz
+Imported from netcat-openbsd_1.234-1.debian.tar.xz
 
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
  nc.1     |  4 +++-
  netcat.c | 22 ++++++++++++++++++++--
  2 files changed, 23 insertions(+), 3 deletions(-)
 
 diff --git a/nc.1 b/nc.1
-index da37f06f241c..49a3d4d61892 100644
+index f2629398e5bd..6ee1584f8c6b 100644
 --- a/nc.1
 +++ b/nc.1
 @@ -33,7 +33,7 @@
@@ -33,7 +36,7 @@ index da37f06f241c..49a3d4d61892 100644
  Send CRLF as line-ending.  Each line feed (LF) character from the input
  data is translated into CR+LF before being written to the socket.  Line
 diff --git a/netcat.c b/netcat.c
-index efa6618365f7..099e615adc0f 100644
+index 73fdfa45a966..2768ef82def4 100644
 --- a/netcat.c
 +++ b/netcat.c
 @@ -132,6 +132,7 @@
@@ -44,7 +47,7 @@ index efa6618365f7..099e615adc0f 100644
  int	dflag;					/* detached, no stdin */
  int	Fflag;					/* fdpass sock to stdout */
  unsigned int iflag;				/* Interval Flag */
-@@ -261,9 +262,9 @@ main(int argc, char *argv[])
+@@ -262,9 +263,9 @@ main(int argc, char *argv[])
  
  	while ((ch = getopt(argc, argv,
  #ifdef HAVE_TLS
@@ -56,7 +59,7 @@ index efa6618365f7..099e615adc0f 100644
  #endif
  	    != -1) {
  		switch (ch) {
-@@ -273,6 +274,13 @@ main(int argc, char *argv[])
+@@ -274,6 +275,13 @@ main(int argc, char *argv[])
  		case '6':
  			family = AF_INET6;
  			break;
@@ -70,7 +73,7 @@ index efa6618365f7..099e615adc0f 100644
  		case 'U':
  			family = AF_UNIX;
  			break;
-@@ -1907,6 +1915,15 @@ set_common_sockopts(int s, int af)
+@@ -1912,6 +1920,15 @@ set_common_sockopts(int s, int af)
  {
  	int x = 1;
  
@@ -86,7 +89,7 @@ index efa6618365f7..099e615adc0f 100644
  #ifdef TCP_MD5SIG
  	if (Sflag) {
  		if (setsockopt(s, IPPROTO_TCP, TCP_MD5SIG,
-@@ -2185,6 +2202,7 @@ help(void)
+@@ -2195,6 +2212,7 @@ help(void)
  	fprintf(stderr, "\tCommand Summary:\n\
  	\t-4		Use IPv4\n\
  	\t-6		Use IPv6\n\

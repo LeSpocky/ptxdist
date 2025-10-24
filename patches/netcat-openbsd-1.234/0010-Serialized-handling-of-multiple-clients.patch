@@ -1,19 +1,22 @@
 From: Aron Xu <aron@debian.org>
 Date: Tue, 14 Feb 2012 23:02:00 +0800
 Subject: [PATCH] Serialized handling of multiple clients
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Imported from netcat-openbsd_1.228-1.debian.tar.xz
+Imported from netcat-openbsd_1.234-1.debian.tar.xz
 
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
  netcat.c | 17 ++++++++---------
  1 file changed, 8 insertions(+), 9 deletions(-)
 
 diff --git a/netcat.c b/netcat.c
-index 099e615adc0f..7e3813297fcb 100644
+index 2768ef82def4..af3559eeec56 100644
 --- a/netcat.c
 +++ b/netcat.c
-@@ -713,7 +713,10 @@ main(int argc, char *argv[])
+@@ -718,7 +718,10 @@ main(int argc, char *argv[])
  				s = unix_bind(host, 0);
  			else
  				s = unix_listen(host);
@@ -25,7 +28,7 @@ index 099e615adc0f..7e3813297fcb 100644
  
  #ifdef HAVE_TLS
  		if (usetls) {
-@@ -727,13 +730,6 @@ main(int argc, char *argv[])
+@@ -732,13 +735,6 @@ main(int argc, char *argv[])
  #endif
  		/* Allow only one connection at a time, but stay alive. */
  		for (;;) {
@@ -39,7 +42,7 @@ index 099e615adc0f..7e3813297fcb 100644
  			if (uflag && kflag) {
  				/*
  				 * For UDP and -k, don't connect the socket,
-@@ -807,8 +803,11 @@ main(int argc, char *argv[])
+@@ -812,8 +808,11 @@ main(int argc, char *argv[])
  #endif
  			}
  

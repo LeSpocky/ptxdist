@@ -1,16 +1,19 @@
 From: Aron Xu <aron@debian.org>
 Date: Mon, 13 Feb 2012 15:29:37 +0800
 Subject: [PATCH] Fix UDP scan timeout
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Imported from netcat-openbsd_1.228-1.debian.tar.xz
+Imported from netcat-openbsd_1.234-1.debian.tar.xz
 
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
  netcat.c | 21 ++++++++++++++-------
  1 file changed, 14 insertions(+), 7 deletions(-)
 
 diff --git a/netcat.c b/netcat.c
-index 5ead82701124..47259d6acaff 100644
+index bda96cef9d0e..1c9144fefa9d 100644
 --- a/netcat.c
 +++ b/netcat.c
 @@ -129,6 +129,8 @@
@@ -22,7 +25,7 @@ index 5ead82701124..47259d6acaff 100644
  /* Command Line Options */
  int	dflag;					/* detached, no stdin */
  int	Fflag;					/* fdpass sock to stdout */
-@@ -1794,19 +1796,24 @@ build_ports(char *p)
+@@ -1799,19 +1801,24 @@ build_ports(char *p)
  int
  udptest(int s)
  {

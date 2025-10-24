@@ -14,15 +14,17 @@ PACKAGES-$(PTXCONF_NETCAT) += netcat
 #
 # Paths and names
 #
-NETCAT_VERSION	:= 1.228
-NETCAT_MD5	:= c30dd048bd65f619f6ed1c9b69255b29
+NETCAT_VERSION	:= 1.234
+NETCAT_MD5	:= c3906f02d5a070afd8ac23ec983fc746
 NETCAT		:= netcat-openbsd-$(NETCAT_VERSION)
 NETCAT_SUFFIX	:= tar.gz
 NETCAT_TARBALL	:= netcat-openbsd_$(NETCAT_VERSION).orig.$(NETCAT_SUFFIX)
-NETCAT_URL	:= https://snapshot.debian.org/archive/debian/20250106T033111Z/pool/main/n/netcat-openbsd/$(NETCAT_TARBALL)
+NETCAT_URL	:= https://snapshot.debian.org/archive/debian/20251024T083547Z/pool/main/n/netcat-openbsd/$(NETCAT_TARBALL)
 NETCAT_SOURCE	:= $(SRCDIR)/$(NETCAT).$(NETCAT_SUFFIX)
 NETCAT_DIR	:= $(BUILDDIR)/$(NETCAT)
-NETCAT_LICENSE	:= BSD
+NETCAT_LICENSE	:= BSD-3-Clause
+NETCAT_LICENSE_FILES := \
+	file://netcat.c;startline=2;endline=28;md5=ca6c43ecf716610359891a6a6e1df406
 
 # ----------------------------------------------------------------------------
 # Prepare

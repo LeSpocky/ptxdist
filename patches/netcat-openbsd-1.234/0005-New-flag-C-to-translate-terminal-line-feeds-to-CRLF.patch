@@ -1,17 +1,20 @@
 From: Aron Xu <aron@debian.org>
 Date: Mon, 13 Feb 2012 14:57:45 +0800
 Subject: [PATCH] New flag '-C' to translate terminal line feeds to CRLF
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Imported from netcat-openbsd_1.228-1.debian.tar.xz
+Imported from netcat-openbsd_1.234-1.debian.tar.xz
 
-Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
  nc.1     |  9 ++++++--
  netcat.c | 72 +++++++++++++++++++++++++++++++++++-----------------------------
  2 files changed, 47 insertions(+), 34 deletions(-)
 
 diff --git a/nc.1 b/nc.1
-index 2eb732e093e4..478fedde9313 100644
+index d285e62ad219..5c1263053710 100644
 --- a/nc.1
 +++ b/nc.1
 @@ -33,7 +33,7 @@
@@ -35,7 +38,7 @@ index 2eb732e093e4..478fedde9313 100644
  .It Fl D
  Enable debugging on the socket.
  .It Fl d
-@@ -380,7 +385,7 @@ More complicated examples can be built up when the user knows the format
+@@ -386,7 +391,7 @@ More complicated examples can be built up when the user knows the format
  of requests required by the server.
  As another example, an email may be submitted to an SMTP server using:
  .Bd -literal -offset indent
@@ -45,19 +48,19 @@ index 2eb732e093e4..478fedde9313 100644
  MAIL FROM:<user@host.example.com>
  RCPT TO:<user2@host.example.com>
 diff --git a/netcat.c b/netcat.c
-index f52088ab077d..76bd3aba24ed 100644
+index 9d4fa4fc5fba..7b38f4031dcd 100644
 --- a/netcat.c
 +++ b/netcat.c
-@@ -166,6 +166,8 @@ char	*tls_expecthash;			/* required hash of peer cert */
- char	*tls_ciphers;				/* TLS ciphers */
+@@ -167,6 +167,8 @@ char	*tls_ciphers;				/* TLS ciphers */
  char	*tls_protocols;				/* TLS protocols */
+ char	*tls_alpn;				/* TLS ALPN */
  FILE	*Zflag;					/* file to save peer cert */
 +#else
 +int	Cflag = 0;			/* CRLF line-ending */
  #endif
  
  int recvcount, recvlimit;
-@@ -216,7 +218,7 @@ ssize_t fillbuf(int, unsigned char *, size_t *, struct tls *);
+@@ -217,7 +219,7 @@ ssize_t fillbuf(int, unsigned char *, size_t *, struct tls *);
  void	tls_setup_client(struct tls *, int, char *);
  struct tls *tls_setup_server(struct tls *, int, char *);
  #else
@@ -66,7 +69,7 @@ index f52088ab077d..76bd3aba24ed 100644
  ssize_t fillbuf(int, unsigned char *, size_t *);
  #endif
  
-@@ -255,7 +257,7 @@ main(int argc, char *argv[])
+@@ -256,7 +258,7 @@ main(int argc, char *argv[])
  #ifdef HAVE_TLS
  	    "46C:cDde:FH:hI:i:K:klM:m:NnO:o:P:p:R:rSs:T:tUuV:vW:w:X:x:Z:z"))
  #else
@@ -75,7 +78,7 @@ index f52088ab077d..76bd3aba24ed 100644
  #endif
  	    != -1) {
  		switch (ch) {
-@@ -285,6 +287,10 @@ main(int argc, char *argv[])
+@@ -288,6 +290,10 @@ main(int argc, char *argv[])
  		case 'c':
  			usetls = 1;
  			break;
@@ -86,7 +89,7 @@ index f52088ab077d..76bd3aba24ed 100644
  #endif
  		case 'd':
  			dflag = 1;
-@@ -1339,12 +1345,6 @@ readwrite(int net_fd)
+@@ -1344,12 +1350,6 @@ readwrite(int net_fd)
  		    stdinbufpos == 0 && netinbufpos == 0)
  			return;
  
@@ -99,7 +102,7 @@ index f52088ab077d..76bd3aba24ed 100644
  		/* poll */
  		num_fds = poll(pfd, 4, timeout);
  
-@@ -1424,7 +1424,7 @@ readwrite(int net_fd)
+@@ -1429,7 +1429,7 @@ readwrite(int net_fd)
  				pfd[POLL_NETOUT].events = POLLOUT;
  			else
  #else
@@ -108,7 +111,7 @@ index f52088ab077d..76bd3aba24ed 100644
  #endif
  			if (ret == -1)
  				pfd[POLL_NETOUT].fd = -1;
-@@ -1483,7 +1483,7 @@ readwrite(int net_fd)
+@@ -1488,7 +1488,7 @@ readwrite(int net_fd)
  				pfd[POLL_STDOUT].events = POLLOUT;
  			else
  #else
@@ -117,7 +120,7 @@ index f52088ab077d..76bd3aba24ed 100644
  #endif
  			if (ret == -1)
  				pfd[POLL_STDOUT].fd = -1;
-@@ -1509,36 +1509,43 @@ readwrite(int net_fd)
+@@ -1514,36 +1514,43 @@ readwrite(int net_fd)
  }
  
  ssize_t
@@ -182,7 +185,7 @@ index f52088ab077d..76bd3aba24ed 100644
  	/* adjust buffer */
  	adjust = *bufpos - n;
  	if (adjust > 0)
-@@ -2083,6 +2090,7 @@ help(void)
+@@ -2093,6 +2100,7 @@ help(void)
  	fprintf(stderr, "\tCommand Summary:\n\
  	\t-4		Use IPv4\n\
  	\t-6		Use IPv6\n\
@@ -190,7 +193,7 @@ index f52088ab077d..76bd3aba24ed 100644
  	\t-D		Enable the debug socket option\n\
  	\t-d		Detach from stdin\n\
  	\t-F		Pass socket fd\n\
-@@ -2120,7 +2128,7 @@ void
+@@ -2130,7 +2138,7 @@ void
  usage(int ret)
  {
  	fprintf(stderr,
