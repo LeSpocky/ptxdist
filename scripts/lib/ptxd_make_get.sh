@@ -184,7 +184,7 @@ ptxd_make_get_git_archive() {
 
     echo "${PROMPT}git: fetching '${url} into '${mirror}'..."
     if [ ! -d "${mirror}" ]; then
-	git init --bare --shared "${mirror}"
+	git init --quiet --bare --shared "${mirror}"
     else
 	"${git_mirror[@]}" remote rm origin
     fi &&
