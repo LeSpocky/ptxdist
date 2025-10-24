@@ -19,7 +19,7 @@ ptxd_dialog_fselect() {
 
 	exec 3>&1
 	exec 4>&1
-	while [ -d "${_select}" -o \! -e "${_select}" ]; do
+	while [ -d "${_select}" -o ! -e "${_select}" ]; do
 		# FIXME take care about real links
 		_select="$(readlink -f ${_select})"
 		_select="${_select}/$(eval ${PTX_DIALOG} \

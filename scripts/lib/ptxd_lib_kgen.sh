@@ -51,7 +51,7 @@ ptxd_kgen_generate_sections()
     local dir
     {
 	for dir in "${kgen_dirs[@]}"; do
-	    if [ \! -d "${dir}" ]; then
+	    if [ ! -d "${dir}" ]; then
 		continue
 	    fi
 	    # '! -name ".#*"' filters out emacs's lock files

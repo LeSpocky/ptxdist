@@ -21,7 +21,7 @@ ptxd_get_lib_path() {
     # let the shell canonicalized the path
     lib_dir="$(cd ${lib_path%/${lib}} && echo $PWD)"
 
-    if test \! -d "${lib_dir}"; then
+    if test ! -d "${lib_dir}"; then
 	echo "install_copy_toolchain_lib: ${lib_dir} not found" >&2
 	return 1
     fi

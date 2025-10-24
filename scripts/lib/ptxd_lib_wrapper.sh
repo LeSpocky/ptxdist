@@ -31,7 +31,7 @@ ptxd_lib_setup_host_wrapper() {
 	fi
 
 	cc_abs="$(which "${cc}" 2>/dev/null)"
-	if [ \! -x "${cc_abs}" ]; then
+	if [ ! -x "${cc_abs}" ]; then
 	    echo
 	    echo "${PTXDIST_LOG_PROMPT}error: your host ${cc_ptr##*_} compiler: '${cc}'"
 	    echo "${PTXDIST_LOG_PROMPT}error: cannot be found or isn't executable"

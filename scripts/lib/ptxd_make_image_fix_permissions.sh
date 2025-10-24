@@ -40,7 +40,7 @@ ptxd_make_image_fix_permissions_check() {
 	local fixup=false
 	file="${workdir}/${file#/}"
 
-	if [ \! -e "${file}" ]; then
+	if [ ! -e "${file}" ]; then
 	    fixup=true
 	else
 	    local uid_is gid_is prm_is
@@ -113,7 +113,7 @@ ptxd_make_image_fix_permissions() {
     exec 3>&-
 
     # nothing to do!
-    if [ \! -s "${fixscript}" ]; then
+    if [ ! -s "${fixscript}" ]; then
 	return
     fi
 

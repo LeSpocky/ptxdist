@@ -42,7 +42,7 @@ export -f ptxd_make_world_hash
 # perform sanity check
 #
 ptxd_make_world_prepare_sanity_check() {
-    if [ "${pkg_conf_tool}" = "autoconf" -a \! -x "${pkg_conf_dir_abs}/configure" ]; then
+    if [ "${pkg_conf_tool}" = "autoconf" -a ! -x "${pkg_conf_dir_abs}/configure" ]; then
 	cat >&2 <<EOF
 
 error: 'configure' not found or not executable in:
@@ -50,7 +50,7 @@ error: 'configure' not found or not executable in:
 
 EOF
 	exit 1
-    elif [ "${pkg_conf_tool}" = "cmake" -a \! -e "${pkg_conf_dir_abs}/CMakeLists.txt" ]; then
+    elif [ "${pkg_conf_tool}" = "cmake" -a ! -e "${pkg_conf_dir_abs}/CMakeLists.txt" ]; then
 	cat >&2 <<EOF
 
 error: 'CMakeLists.txt' not found in:

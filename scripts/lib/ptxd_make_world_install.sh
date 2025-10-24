@@ -227,7 +227,7 @@ ptxd_make_world_install_unpack() {
 	*)          pkg_prefix="" ;;
     esac &&
 
-    if [ \! -e "${ptx_pkg_dev_dir}/${pkg_pkg_dev}" ]; then
+    if [ ! -e "${ptx_pkg_dev_dir}/${pkg_pkg_dev}" ]; then
 	ptxd_bailout "Internal error: '$(ptxd_print_path ${ptx_pkg_dev_dir}/${pkg_pkg_dev})' does not exist."
     fi &&
     rm -rf -- "${pkg_pkg_dir}" &&
@@ -250,7 +250,7 @@ ptxd_make_world_install_pack() {
     fi &&
 
     # remove empty dirs
-    test \! -e "${pkg_pkg_dir}" || \
+    test ! -e "${pkg_pkg_dir}" || \
 	find "${pkg_pkg_dir}" -depth -type d -print0 | xargs -r -0 -- \
 	rmdir --ignore-fail-on-non-empty -- &&
     check_pipe_status &&
@@ -264,7 +264,7 @@ ptxd_make_world_install_pack() {
 	fi || break
     done &&
 
-    if [ \! -e "${pkg_pkg_dir}" ]; then
+    if [ ! -e "${pkg_pkg_dir}" ]; then
 	if [ -e "${pkg_dir}" ]; then
 	    ptxd_warning "PKG didn't install anything to '${pkg_pkg_dir}'"
 	fi
@@ -351,7 +351,7 @@ ptxd_make_world_install_post() {
 	done
     ) | sort -u > "${ptx_state_dir}/${pkg_label}.pkgconfig"
     # do nothing if pkg_pkg_dir does not exist
-    if [ \! -d "${pkg_pkg_dir}" ]; then
+    if [ ! -d "${pkg_pkg_dir}" ]; then
 	return
     fi &&
 

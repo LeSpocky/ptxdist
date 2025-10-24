@@ -337,7 +337,7 @@ _check_config_platform() {
 
 
 _check_config_collection() {
-	if [ \! -e "${PTXDIST_COLLECTIONCONFIG}" -a \
+	if [ ! -e "${PTXDIST_COLLECTIONCONFIG}" -a \
 	    \( -L "${PTXDIST_COLLECTIONCONFIG}" -o "${PTX_collectionconfig_SET}" == "true" \) ]; then
 		ptxd_dialog_msgbox \
 			"error:	'${PTXDIST_COLLECTIONCONFIG#${PTXDIST_WORKSPACE}/}' is missing\n" \
@@ -508,7 +508,7 @@ check_dirs() {
 		"${PTXDIST_SRCDIR}" \
 	        "${PTXDIST_GEN_CONFIG_DIR}" \
 		; do
-		if [ \! -d "${dir}" ]; then
+		if [ ! -d "${dir}" ]; then
 			install -m755 -d "${dir}" || ptxd_bailout "cannot create dir: '${dir}'"
 		fi
 	done
@@ -1356,7 +1356,7 @@ do_config()
 			file_dotconfig="$(ptxd_abspath "${file_dotconfig}")" || exit 1
 		else
 			file_dotconfig="${PTXDIST_COLLECTIONCONFIG}"
-			if [ \! -e "${file_dotconfig}" ]; then
+			if [ ! -e "${file_dotconfig}" ]; then
 				ptxd_dialog_msgbox \
 					"error: no collectionconfig selected, please try\n" \
 					"	'ptxdist collection <collectionconfig>' first, or\n" \
@@ -1436,7 +1436,7 @@ do_select()
 		return 1
 	fi
 
-	if [ -e "${!dest_ptr}" -a \! -L "${!dest_ptr}" ]; then
+	if [ -e "${!dest_ptr}" -a ! -L "${!dest_ptr}" ]; then
 		ptxd_dialog_msgbox \
 			"error: '${!dest_ptr}'\n" \
 			"	is not a link. This is mostly not critical, as it usually\n" \
@@ -1862,7 +1862,7 @@ EOF
 		gdb|cgdb)
 			local -a prefix
 			if [ "${cmd}" = "cgdb" ]; then
-				if [ \! -x "$(which cgdb 2>/dev/null)" ]; then
+				if [ ! -x "$(which cgdb 2>/dev/null)" ]; then
 					ptxd_bailout "cgdb is required to be installed on your host-machine."
 				fi
 				prefix=( cgdb -d )
@@ -1944,7 +1944,7 @@ EOF
 			exit
 			;;
 		menu)
-			if [ \! -x "$(which dialog 2>/dev/null)" ]; then
+			if [ ! -x "$(which dialog 2>/dev/null)" ]; then
 				echo
 				echo "${PTXDIST_LOG_PROMPT}info: Sorry, menu not possible yet. Please install 'dialog'"
 				echo
@@ -1956,7 +1956,7 @@ EOF
 			;;
 
 		newpackage)
-			if [ \! -d "rules" -a "${1}" != "help" ]; then
+			if [ ! -d "rules" -a "${1}" != "help" ]; then
 				echo
 				echo "${PTXDIST_LOG_PROMPT}error: no rules/ directory found"
 				echo "${PTXDIST_LOG_PROMPT}error: please call from a workspace or ptxdist directory"
@@ -2681,8 +2681,8 @@ setup_logfile()
 	PTX_LOGFILE="${PTXDIST_PLATFORMDIR}/logfile"
 	local logdir="${PTX_LOGFILE%/*}"
 
-	if [ -e "${logdir}" -a \! -w "${logdir}" -o \
-		\! -d "${logdir}" ] && ! mkdir -p "${logdir}" 2>/dev/null; then
+	if [ -e "${logdir}" -a ! -w "${logdir}" -o \
+		! -d "${logdir}" ] && ! mkdir -p "${logdir}" 2>/dev/null; then
 		#
 		# small hack:
 		#
@@ -2696,7 +2696,7 @@ setup_logfile()
 		esac
 	fi
 
-	if [ \! -e "${PTX_LOGFILE}" ]; then
+	if [ ! -e "${PTX_LOGFILE}" ]; then
 		# let emacs outline mode be compatible to vi's fold mode
 		echo "# -*- mode:outline; outline-regexp:\"{""{{\" -*-" > "${PTX_LOGFILE}"
 		# help vim to recognise the fold markers and expand the first level of folding

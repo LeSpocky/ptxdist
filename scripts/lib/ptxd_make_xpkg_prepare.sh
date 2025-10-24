@@ -30,7 +30,7 @@ ptxd_make_xpkg_deps() {
 	local map="${ptx_state_dir}/${1}.xpkg.map"
 	shift
 
-	if [ \! -e "${map}" ]; then
+	if [ ! -e "${map}" ]; then
 	    continue
 	fi
 

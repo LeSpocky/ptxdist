@@ -22,7 +22,7 @@ ptxd_make_world_patchin_apply_init()
     if [ -n "${pkg_patch_series}" ]; then
 	# check if specified series file can be found
 	pkg_patch_series="${pkg_patch_dir}/${pkg_patch_series}"
-	if [ \! -e "${pkg_patch_series}" ]; then
+	if [ ! -e "${pkg_patch_series}" ]; then
 	    echo "error: specified series '${pkg_patch_series}' not found"
 	    return 1
 	fi
@@ -299,7 +299,7 @@ ptxd_make_world_patchin_apply()
 	popd > /dev/null
 
 	# no patches found
-	if [ \! -s "${tmp_patch_series}" ]; then
+	if [ ! -s "${tmp_patch_series}" ]; then
 	    rm -f "${tmp_patch_series}" &&
 	    unset pkg_patch_series
 	else
@@ -333,7 +333,7 @@ ptxd_make_world_patchin_apply()
 		*) ptxd_bailout "invalid parameter to patch '${patch}' in series file '${pkg_patch_series}'"
 	    esac
 
-	    if [ \! -f "${pkg_patchin_dir}/.ptxdist/patches/${patch}" ]; then
+	    if [ ! -f "${pkg_patchin_dir}/.ptxdist/patches/${patch}" ]; then
 		ptxd_bailout "cannot find patch: '${patch}' specified in series file '${pkg_patch_series}'"
 	    fi
 
@@ -353,7 +353,7 @@ ptxd_make_world_patchin_apply()
     fi &&
 
     # patches
-    if [ \! -e "${pkg_patchin_dir}/patches" ]; then
+    if [ ! -e "${pkg_patchin_dir}/patches" ]; then
 	ln -sf ".ptxdist/patches" "${pkg_patchin_dir}/patches"
     fi || return
 

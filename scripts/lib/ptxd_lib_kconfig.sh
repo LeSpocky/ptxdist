@@ -18,7 +18,7 @@ ptxd_kconfig_migrate() {
     local config="${2-.config}"
     local assistant="${PTX_MIGRATEDIR}/migrate_${part}"
 
-    if [ \! -f "${assistant}" ]; then
+    if [ ! -f "${assistant}" ]; then
 	return 0
     fi
 

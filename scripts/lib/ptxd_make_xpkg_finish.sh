@@ -52,7 +52,7 @@ ptxd_make_xpkg_finish() {
     #
     # no command file -> no files to package -> exit
     #
-    if [ \! -s "${pkg_xpkg_cmds}" ]; then
+    if [ ! -s "${pkg_xpkg_cmds}" ]; then
 	rm -rf -- "${pkg_xpkg_tmp}" "${pkg_xpkg_dbg_tmp}" &&
 	ptxd_pedantic "Packet '${pkg_xpkg}' is empty. not generating"
 	return
