@@ -191,7 +191,6 @@ ptxd_make_world_prepare_cargo_check() {
 	    continue
 	fi &&
 	cp "${crate}/Cargo.toml" "${crate}/Cargo.toml.orig" &&
-	set -x
 	"${vendor_cargo_workspace_package}" \
 	    --input "${crate}/Cargo.toml.orig" \
 	    --output "${crate}/Cargo.toml" \
