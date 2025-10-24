@@ -18,12 +18,12 @@ if !GDB_TOOLCHAIN_VERSION
 
 config GDB_VERSION
 	string "gdb version"
-	default "13.1"
+	default "15.2"
 endif
 
 config GDB_MD5
 	string "gdb source md5sum"
-	default "4aaad768ff2585464173c091947287ec" if !GDB_TOOLCHAIN_VERSION
+	default "85c722e2f2baea2b7820a6a7eaea2ce8" if !GDB_TOOLCHAIN_VERSION
 	help
 	  md5sum for the gdb source archive. If the version is provided by
 	  the toolchain and the toolchain is an OSELAS.Toolchain then this
