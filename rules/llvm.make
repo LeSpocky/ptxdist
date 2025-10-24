@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LLVM) += llvm
 #
 # Paths and names
 #
-LLVM_VERSION		:= 21.1.3
-LLVM_MD5		:= af92844c27a1744fbd903e5c7ce67abf
+LLVM_VERSION		:= 21.1.4
+LLVM_MD5		:= 1ae8b35fb12871c3a887f7ec0b984144
 LLVM			:= llvm-$(LLVM_VERSION)
 LLVM_SUFFIX		:= src.tar.xz
 LLVM_URL		:= \
@@ -27,13 +27,13 @@ LLVM_STRIP_LEVEL	:= 0
 LLVM_LICENSE		:= Apache-2.0 WITH LLVM-exception AND NCSA
 LLVM_LICENSE_FILES	:= file://$(LLVM_SUBDIR)/LICENSE.TXT;md5=8a15a0759ef07f2682d2ba4b893c9afe
 
-LLVM_CMAKE_MD5		:= 7bdc5b26b633a954a26198a1a708e280
+LLVM_CMAKE_MD5		:= bec2c8e6dfd303bbdeaf48966a785279
 LLVM_CMAKE_URL		:= \
 	https://github.com/llvm/llvm-project/releases/download/llvmorg-$(LLVM_VERSION)/cmake-$(LLVM_VERSION).$(LLVM_SUFFIX)
 LLVM_CMAKE_SOURCE	:= $(SRCDIR)/cmake-$(LLVM_VERSION).$(LLVM_SUFFIX)
 LLVM_CMAKE_DIR		:= $(BUILDDIR)/$(LLVM)/cmake
 
-LLVM_THIRD_PARTY_MD5	:= f25621b5319d8b36759ec3fdb9ef4fef
+LLVM_THIRD_PARTY_MD5	:= 3a3308918e54694e394c57f23dafb881
 LLVM_THIRD_PARTY_URL	:= \
 	https://github.com/llvm/llvm-project/releases/download/llvmorg-$(LLVM_VERSION)/third-party-$(LLVM_VERSION).$(LLVM_SUFFIX)
 LLVM_THIRD_PARTY_SOURCE	:= $(SRCDIR)/llvm-third-party-$(LLVM_VERSION).$(LLVM_SUFFIX)
