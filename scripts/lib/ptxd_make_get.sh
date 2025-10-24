@@ -436,7 +436,6 @@ ptxd_make_get_git() {
     fi
     ptxd_make_serialize_put
     if ! ptxd_make_get_need_commit; then
-	set +x
 	return
     fi
     if commit="$(git --git-dir="${mirror}" rev-parse "${tag}^{}" 2>/dev/null)"; then
