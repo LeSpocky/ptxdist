@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_VIM) += vim
 #
 # Paths and names
 #
-VIM_VERSION	:= 9.1.0061
-VIM_MD5		:= 61c5918a6098e7930b9998ad4cbf0633
+VIM_VERSION	:= 9.1.1868
+VIM_MD5		:= eb7cbc69d825dd7ef330005557b2ba0a
 VIM		:= vim-$(VIM_VERSION)
 VIM_SUFFIX	:= tar.gz
 VIM_URL		:= https://github.com/vim/vim/archive/refs/tags/v$(VIM_VERSION).$(VIM_SUFFIX)
@@ -66,12 +66,14 @@ VIM_CONF_OPT	:= \
 	--disable-channel \
 	--disable-terminal \
 	--disable-autoservername \
+	--disable-socketserver \
 	--enable-multibyte \
 	--disable-rightleft \
 	--disable-arabic \
 	--disable-farsi \
 	--disable-xim \
 	--disable-fontset \
+	--disable-clipboard-provider \
 	--disable-gui \
 	--disable-gtk2-check \
 	--disable-gnome-check \
@@ -87,6 +89,8 @@ VIM_CONF_OPT	:= \
 	--disable-gpm \
 	--disable-sysmouse \
 	--disable-nls \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
+	--without-wayland \
 	--without-x \
 	--without-gnome \
 	--with-tlib=ncurses
