@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FFMPEG) += ffmpeg
 #
 # Paths and names
 #
-FFMPEG_VERSION	:= 7.1.1
-FFMPEG_MD5	:= 26f2bd7d20c6c616f31d7130c88d7250
+FFMPEG_VERSION	:= 8.0
+FFMPEG_MD5	:= 2c91c725fb1b393618554ff429e4ae43
 FFMPEG		:= ffmpeg-$(FFMPEG_VERSION)
 FFMPEG_SUFFIX	:= tar.xz
 FFMPEG_URL	:= https://www.ffmpeg.org/releases/$(FFMPEG).$(FFMPEG_SUFFIX)
@@ -24,8 +24,8 @@ FFMPEG_DIR	:= $(BUILDDIR)/$(FFMPEG)
 # Note: any GPL only code is disabled below with --disable-gpl
 FFMPEG_LICENSE	:= LGPL-2.1-or-later AND BSD-3-Clause
 FFMPEG_LICENSE_FILES := \
-	file://LICENSE.md;md5=d62f7dc46e5dd02bf89ab1aac8c51bba \
-	file://COPYING.LGPLv2.1;md5=bd7a443320af8c812e4c18d1b79df004 \
+	file://LICENSE.md;md5=fb3208aff899819928c690028e282681 \
+	file://COPYING.LGPLv2.1;md5=eed22b3456132611e3d4aa7a7ec64dac \
 	file://libavcodec/arm/vp8dsp_armv6.S;startline=4;endline=52;md5=24eb31d8cad17de39e517e8d946cdee0 \
 	file://libavcodec/mips/ac3dsp_mips.c;startline=2;endline=27;md5=5f25aa1db1ecf13c29efc63800bf6ae8 \
 
@@ -76,7 +76,6 @@ FFMPEG_CONF_OPT		:= \
 	--enable-avformat \
 	--enable-swresample \
 	--disable-swscale \
-	--disable-postproc \
 	--enable-avfilter \
 	\
 	--enable-pthreads \
@@ -151,6 +150,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-liblensfun \
 	--disable-libmodplug \
 	--disable-libmp3lame \
+	--disable-liboapv \
 	--disable-libopencore-amrnb \
 	--disable-libopencore-amrwb \
 	--disable-libopencv \
@@ -216,6 +216,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-mediafoundation \
 	--disable-metal \
 	--disable-libmysofa \
+	--disable-ohcodec \
 	--disable-openal \
 	--disable-opencl \
 	--disable-opengl \
@@ -226,6 +227,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-sdl2 \
 	--disable-securetransport \
 	--disable-vapoursynth \
+	--disable-whisper \
 	--disable-xlib \
 	--disable-zlib \
 	--disable-amf \
