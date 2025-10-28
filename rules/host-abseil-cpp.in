@@ -1,0 +1,7 @@
+## SECTION=hosttools_noprompt
+
+config HOST_ABSEIL_CPP
+	tristate
+	select HOST_CMAKE
+	select HOST_NINJA
+	default y if ALLYES
