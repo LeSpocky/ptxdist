@@ -12,7 +12,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/Makefile.am b/src/Makefile.am
-index 7ef2013a5ff9..167ad58ce747 100644
+index 00181bd9607b..9caf57d6a4a8 100644
 --- a/src/Makefile.am
 +++ b/src/Makefile.am
 @@ -2,7 +2,7 @@
@@ -23,17 +23,17 @@ index 7ef2013a5ff9..167ad58ce747 100644
 +	-I$(top_srcdir)/include/bsd/ \
  	-include $(top_builddir)/config.h \
  	-DLIBBSD_OVERLAY -DLIBBSD_DISABLE_DEPRECATED \
- 	-D__REENTRANT
+ 	-D__REENTRANT \
 diff --git a/test/Makefile.am b/test/Makefile.am
-index 90fe38430bbd..eb54cf39d60d 100644
+index 13c3309c4bb4..a5d5f70449bc 100644
 --- a/test/Makefile.am
 +++ b/test/Makefile.am
-@@ -7,7 +7,7 @@ HEADERS_CPPFLAGS = \
- 	-D__REENTRANT
+@@ -8,7 +8,7 @@ HEADERS_CPPFLAGS = \
+ 	# EOL
  
  AM_CPPFLAGS = \
 -	-isystem $(top_srcdir)/include/bsd/ \
 +	-I$(top_srcdir)/include/bsd/ \
  	$(HEADERS_CPPFLAGS) \
- 	-DLIBBSD_OVERLAY
- 
+ 	-DLIBBSD_OVERLAY \
+ 	# EOL
