@@ -2,4 +2,6 @@
 
 config HOST_PROTOBUF
 	tristate
+	select HOST_ABSEIL_CPP
+	select HOST_CMAKE
 	default y if ALLYES

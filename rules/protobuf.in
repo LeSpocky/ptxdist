@@ -2,11 +2,14 @@
 
 menuconfig PROTOBUF
 	tristate
+	select ABSEIL_CPP
 	select LIBC_M
 	select LIBC_PTHREAD
 	select GCCLIBS_CXX
 	select GCCLIBS_GCC_S
+	# needed to provide protoc
 	select HOST_PROTOBUF
+	select HOST_CMAKE
 	select ZLIB		if PROTOBUF_ZLIB
 	prompt "protobuf                      "
 	help

@@ -14,29 +14,39 @@ PACKAGES-$(PTXCONF_PROTOBUF) += protobuf
 #
 # Paths and names
 #
-PROTOBUF_VERSION	:= 3.7.1
-PROTOBUF_MD5		:= cda6ae370a5df941f8aa837c8a0292ba
-PROTOBUF		:= protobuf-all-$(PROTOBUF_VERSION)
+PROTOBUF_VERSION	:= 33.0
+PROTOBUF_MD5		:= 936b48fdf816b0341c74ba73a42348c0
+PROTOBUF		:= protobuf-$(PROTOBUF_VERSION)
 PROTOBUF_SUFFIX		:= tar.gz
 PROTOBUF_URL		:= https://github.com/google/protobuf/releases/download/v$(PROTOBUF_VERSION)/$(PROTOBUF).$(PROTOBUF_SUFFIX)
 PROTOBUF_SOURCE		:= $(SRCDIR)/$(PROTOBUF).$(PROTOBUF_SUFFIX)
 PROTOBUF_DIR		:= $(BUILDDIR)/$(PROTOBUF)
 PROTOBUF_LICENSE	:= BSD-3-Clause
+PROTOBUF_LICENSE_FILES	:= \
+	file://LICENSE;md5=37b5762e07f0af8c74ce80a8bda4266b
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
-PROTOBUF_CONF_TOOL	:= autoconf
+PROTOBUF_CONF_TOOL	:= cmake
 PROTOBUF_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-64bit-solaris \
-	--disable-static \
-	--$(call ptx/wwo, PTXCONF_PROTOBUF_ZLIB)-zlib \
-	--with-protoc=$(PTXDIST_SYSROOT_HOST)/usr/bin/protoc
+	$(CROSS_CMAKE_USR) \
+	-Dprotobuf_BUILD_CONFORMANCE=OFF \
+	-Dprotobuf_BUILD_EXAMPLES=OFF \
+	-Dprotobuf_BUILD_LIBPROTOC=OFF \
+	-Dprotobuf_BUILD_LIBUPB=OFF \
+	-Dprotobuf_BUILD_PROTOBUF_BINARIES=ON \
+	-Dprotobuf_BUILD_PROTOC_BINARIES=OFF \
+	-Dprotobuf_BUILD_SHARED_LIBS=ON \
+	-Dprotobuf_BUILD_TESTS=OFF \
+	-Dprotobuf_DISABLE_RTTI=OFF \
+	-Dprotobuf_FORCE_FETCH_DEPENDENCIES=OFF \
+	-Dprotobuf_INSTALL=ON \
+	-Dprotobuf_LOCAL_DEPENDENCIES_ONLY=ON \
+	-Dprotobuf_WITH_ZLIB=$(call ptx/onoff, PTXCONF_PROTOBUF_ZLIB) \
+	-Dutf8_range_ENABLE_INSTALL=ON \
+	-Dutf8_range_ENABLE_TESTS=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -51,6 +61,7 @@ $(STATEDIR)/protobuf.targetinstall:
 	@$(call install_fixup, protobuf,AUTHOR,"Adrian Baumgarth <adrian.baumgarth@l-3com.com>")
 	@$(call install_fixup, protobuf,DESCRIPTION,missing)
 
+	@$(call install_lib, protobuf, 0, 0, 0644, libutf8_validity)
 	@$(call install_lib, protobuf, 0, 0, 0644, libprotobuf-lite)
 	@$(call install_lib, protobuf, 0, 0, 0644, libprotobuf)
 
