@@ -1,0 +1,59 @@
+From: =?UTF-8?q?Sven=20P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Date: Tue, 28 Oct 2025 16:08:59 +0100
+Subject: [PATCH] Fix kdclist struct not being defined
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+When the kdclist and kdclist_entry structs were added, they were defined
+dependent of the KRB5_DNS_LOOKUP macro, whereas the code using the struct
+is compiled even without the macro set. This causes a compile failure
+when the code is compiled without the KRB5_DNS_LOOKUP macro enabled.
+
+Fixes: fabbf11f457a ("Defer primary KDC lookups")
+
+Upstream-Status: Submitted [https://github.com/krb5/krb5/pull/1466]
+
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+ src/lib/krb5/os/locate_kdc.c | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/src/lib/krb5/os/locate_kdc.c b/src/lib/krb5/os/locate_kdc.c
+index d1df04a635bb..c186bce51c5a 100644
+--- a/src/lib/krb5/os/locate_kdc.c
++++ b/src/lib/krb5/os/locate_kdc.c
+@@ -28,16 +28,6 @@
+ #include "fake-addrinfo.h"
+ #include "os-proto.h"
+ 
+-#ifdef KRB5_DNS_LOOKUP
+-
+-#define DEFAULT_LOOKUP_KDC 1
+-#if KRB5_DNS_LOOKUP_REALM
+-#define DEFAULT_LOOKUP_REALM 1
+-#else
+-#define DEFAULT_LOOKUP_REALM 0
+-#endif
+-#define DEFAULT_URI_LOOKUP TRUE
+-
+ struct kdclist_entry {
+     krb5_data realm;
+     struct server_entry server;
+@@ -48,6 +38,16 @@ struct kdclist {
+     struct kdclist_entry *list;
+ };
+ 
++#ifdef KRB5_DNS_LOOKUP
++
++#define DEFAULT_LOOKUP_KDC 1
++#if KRB5_DNS_LOOKUP_REALM
++#define DEFAULT_LOOKUP_REALM 1
++#else
++#define DEFAULT_LOOKUP_REALM 0
++#endif
++#define DEFAULT_URI_LOOKUP TRUE
++
+ static int
+ maybe_use_dns (krb5_context context, const char *name, int defalt)
+ {

@@ -14,11 +14,11 @@ PACKAGES-$(PTXCONF_KRB5) += krb5
 #
 # Paths and names
 #
-KRB5_VERSION	:= 1.20
-KRB5_MD5	:= e88657aca6e6b0528c11a78643498bd5
+KRB5_VERSION	:= 1.22.1
+KRB5_MD5	:= 8f841cea186ef6856ea6c2a063091861
 KRB5		:= krb5-$(KRB5_VERSION)
 KRB5_SUFFIX	:= tar.gz
-KRB5_URL	:= https://web.mit.edu/kerberos/dist/krb5/$(KRB5_VERSION)/$(KRB5).$(KRB5_SUFFIX)
+KRB5_URL	:= https://web.mit.edu/kerberos/dist/krb5/$(basename $(KRB5_VERSION))/$(KRB5).$(KRB5_SUFFIX)
 KRB5_SOURCE	:= $(SRCDIR)/$(KRB5).$(KRB5_SUFFIX)
 KRB5_DIR	:= $(BUILDDIR)/$(KRB5)
 KRB5_LICENSE	:= MIT
