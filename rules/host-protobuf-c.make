@@ -17,6 +17,11 @@ HOST_PACKAGES-$(PTXCONF_HOST_PROTOBUF_C) += host-protobuf-c
 HOST_PROTOBUF_C_CONF_TOOL	:= autoconf
 HOST_PROTOBUF_C_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
-	--disable-static
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-static \
+	--enable-protoc \
+	--disable-valgrind-tests \
+	--disable-code-coverage \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038
 
 # vim: syntax=make

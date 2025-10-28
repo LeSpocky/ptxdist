@@ -2,7 +2,6 @@
 
 config PROTOBUF_C
 	tristate
-	select HOST_PROTOBUF_C
 	prompt "protobuf-c                    "
 	help
 	  A C implementation of the Protocol Buffers data serialization
