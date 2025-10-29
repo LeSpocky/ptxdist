@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_NETWORKMANAGER) += networkmanager
 #
 # Paths and names
 #
-NETWORKMANAGER_VERSION	:= 1.52.0
-NETWORKMANAGER_MD5	:= 6ad017074a09bd6b9b9823d04c0265cd
+NETWORKMANAGER_VERSION	:= 1.54.1
+NETWORKMANAGER_MD5	:= c3c144bddd640f64822292b34674ccea
 NETWORKMANAGER		:= NetworkManager-$(NETWORKMANAGER_VERSION)
 NETWORKMANAGER_SUFFIX	:= tar.bz2
 NETWORKMANAGER_URL	:= https://gitlab.freedesktop.org/NetworkManager/NetworkManager/-/archive/$(NETWORKMANAGER_VERSION)/NetworkManager-$(NETWORKMANAGER_VERSION).$(NETWORKMANAGER_SUFFIX)
@@ -62,6 +62,7 @@ NETWORKMANAGER_CONF_OPT = \
 	-Dmodify_system=false \
 	-Dmore_asserts=no \
 	-Dmore_logging=$(call ptx/truefalse,PTXCONF_NETWORKMANAGER_MORE_LOGGING) \
+	-Dnbft=false \
 	-Dnetconfig=false \
 	-Dnm_cloud_setup=false \
 	-Dnmcli=$(call ptx/truefalse,PTXCONF_NETWORKMANAGER_NMCLI) \
