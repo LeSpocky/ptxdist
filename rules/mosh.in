@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 menuconfig MOSH
 	tristate
@@ -16,6 +18,10 @@ menuconfig MOSH
 	  connectivity, and provides intelligent local echo and line editing of
 	  user keystrokes. Mosh is a replacement for SSH. It's more robust and
 	  responsive, especially over Wi-Fi, cellular, and long-distance links.
+
+	  STAGING: remove in PTXdist 2026.11.0
+	  Unmaintained in PTXdist and fails to build with new protobuf. Needs
+	  updating to new version.
 
 if MOSH
 
