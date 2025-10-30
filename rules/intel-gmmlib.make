@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_ARCH_X86)-$(PTXCONF_INTEL_GMMLIB) += intel-gmmlib
 #
 # Paths and names
 #
-INTEL_GMMLIB_VERSION	:= 22.7.0
-INTEL_GMMLIB_MD5	:= 906f3c11d4eee7b81d0c1916c738701a
+INTEL_GMMLIB_VERSION	:= 22.8.2
+INTEL_GMMLIB_MD5	:= e43198dee270a7accad3d39e2385ed9b
 INTEL_GMMLIB		:= intel-gmmlib-$(INTEL_GMMLIB_VERSION)
 INTEL_GMMLIB_SUFFIX	:= tar.gz
 INTEL_GMMLIB_URL	:= https://github.com/intel/gmmlib/archive/$(INTEL_GMMLIB).$(INTEL_GMMLIB_SUFFIX)
@@ -34,8 +34,7 @@ INTEL_GMMLIB_LICENSE_FILES := \
 #
 INTEL_GMMLIB_CONF_TOOL	:= cmake
 INTEL_GMMLIB_CONF_OPT	:= \
-	$(CROSS_CMAKE_USR) \
-	-DRUN_TEST_SUITE=OFF
+	$(CROSS_CMAKE_USR)
 
 # ----------------------------------------------------------------------------
 # Target-Install
