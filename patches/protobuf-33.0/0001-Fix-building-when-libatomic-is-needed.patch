@@ -1,0 +1,36 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sat, 1 Nov 2025 09:58:09 +0100
+Subject: [PATCH] Fix building when libatomic is needed
+
+Set target_link_libraries for the correct target, the function argument,
+not always libprotobuf.
+
+Without this building for architectures that need libatomic fails with:
+
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS - Failed
+CMake Error at cmake/protobuf-configure-target.cmake:11 (target_link_libraries):
+Cannot specify link libraries for target "libprotobuf" which is not built
+by this project.
+Call Stack (most recent call first):
+cmake/libprotobuf-lite.cmake:28 (protobuf_configure_target)
+CMakeLists.txt:278 (include)
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ cmake/protobuf-configure-target.cmake | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cmake/protobuf-configure-target.cmake b/cmake/protobuf-configure-target.cmake
+index c67c57056591..425a5afdcd3f 100644
+--- a/cmake/protobuf-configure-target.cmake
++++ b/cmake/protobuf-configure-target.cmake
+@@ -8,7 +8,7 @@
+ # Refactors configuration options set on all Protobuf targets
+ function(protobuf_configure_target target)
+     if(protobuf_LINK_LIBATOMIC)
+-        target_link_libraries(libprotobuf PRIVATE atomic)
++        target_link_libraries("${target}" PRIVATE atomic)
+     endif()
+ 
+     target_compile_features("${target}" PUBLIC cxx_std_17)
