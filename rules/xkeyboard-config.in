@@ -4,5 +4,6 @@ config XKEYBOARD_CONFIG
 	tristate
 	prompt "xkeyboard-config"
 	select HOST_MESON
+	select HOST_SYSTEM_PYTHON3_STRENUM
 	help
 	  FIXME
