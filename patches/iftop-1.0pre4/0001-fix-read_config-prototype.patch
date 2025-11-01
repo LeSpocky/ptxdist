@@ -1,0 +1,25 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sat, 1 Nov 2025 16:16:09 +0100
+Subject: [PATCH] fix read_config() prototype
+
+The function is defined like this in the source file and building with
+gcc-15 fails without this.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ cfgfile.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cfgfile.h b/cfgfile.h
+index 11ba475f27b0..a331b7592a79 100644
+--- a/cfgfile.h
++++ b/cfgfile.h
+@@ -13,7 +13,7 @@ typedef struct {
+     int value;
+ } config_enumeration_type;
+ 
+-int read_config();
++int read_config(char *file, int whinge_on_error);
+ 
+ char *config_get_string(const char *directive);
+ int config_get_bool(const char *directive);
