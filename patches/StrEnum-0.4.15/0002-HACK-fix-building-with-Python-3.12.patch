@@ -1,0 +1,31 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sat, 1 Nov 2025 12:40:00 +0100
+Subject: [PATCH] HACK: fix building with Python 3.12
+
+versioneer is broken with Python 3.12, so hardcode the version instead.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ setup.py | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 9d19dc6e3351..3c55ee488a57 100644
+--- a/setup.py
++++ b/setup.py
+@@ -1,14 +1,12 @@
+ # pylint:disable=missing-docstring,invalid-name
+ import setuptools
+-import versioneer
+ 
+ with open("README.md", "r", encoding="utf-8") as fh:
+     long_description = fh.read()
+ 
+ setuptools.setup(
+     name="StrEnum",
+-    version=versioneer.get_version(),
+-    cmdclass=versioneer.get_cmdclass(),
++    version="0.4.15",
+     author="James Sinclair",
+     author_email="james@nurfherder.com",
+     description="An Enum that inherits from str.",

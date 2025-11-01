@@ -1,0 +1,23 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Sat, 1 Nov 2025 10:18:52 +0100
+Subject: [PATCH] HACK: drop pytest-runner build requirement
+
+It's not strictly needed and we don't want the dependency in PTXdist.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ setup.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 2ab514e68ca0..9d19dc6e3351 100644
+--- a/setup.py
++++ b/setup.py
+@@ -32,7 +32,6 @@ setuptools.setup(
+         ],
+         "release": ["twine"],
+     },
+-    setup_requires=["pytest-runner"],
+     classifiers=[
+         "Development Status :: 5 - Production/Stable",
+         "Programming Language :: Python :: 3 :: Only",
