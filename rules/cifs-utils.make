@@ -48,6 +48,9 @@ CIFS_UTILS_CONF_OPT	:= \
 	--with-libcap-ng=no \
 	--without-libcap
 
+CIFS_UTILS_CFLAGS := \
+	-std=gnu17
+
 CIFS_UTILS_INSTALL_OPT := \
 	ROOTSBINDIR=/usr/sbin \
 	install
