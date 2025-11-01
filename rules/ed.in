@@ -1,4 +1,6 @@
-## SECTION=editors
+## SECTION=staging
+## old section:
+### SECTION=editors
 
 config ED
 	tristate
@@ -6,6 +8,10 @@ config ED
 	depends on !BUSYBOX_ED || ALLYES
 	help
 	  The classic UNIX line editor
+
+	  STAGING: remove in PTXdist 2026.11.0
+	  Unmaintained in PTXdist and fails to build with gcc 15.
+	  Needs to be updated to new version.
 
 comment "BusyBox' ed is selected!"
 	depends on BUSYBOX_ED
