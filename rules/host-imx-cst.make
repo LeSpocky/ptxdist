@@ -15,34 +15,21 @@ HOST_PACKAGES-$(PTXCONF_HOST_IMX_CST) += host-imx-cst
 # Paths and names
 #
 HOST_IMX_CST_VERSION	:= 3.4.1
-HOST_IMX_CST_MD5	:= b23ed5983734d4812fcf1da33eac8f31
+HOST_IMX_CST_MD5	:= 72aeb8e0394c3117c5a19da0e7e4fa84
 HOST_IMX_CST		:= cst-$(HOST_IMX_CST_VERSION)
-HOST_IMX_CST_SUFFIX	:= tgz
-HOST_IMX_CST_URL	:= https://www.nxp.com/webapp/sps/download/license.jsp?colCode=IMX_CST_TOOL_NEW
+HOST_IMX_CST_MOD	:= +dfsg.orig
+HOST_IMX_CST_SUFFIX	:= tar.xz
+HOST_IMX_CST_URL	:= https://snapshot.debian.org/archive/debian/20251014T030053Z/pool/main/i/imx-code-signing-tool/imx-code-signing-tool_$(HOST_IMX_CST_VERSION)$(HOST_IMX_CST_MOD).$(HOST_IMX_CST_SUFFIX)
 HOST_IMX_CST_SOURCE	:= $(SRCDIR)/$(HOST_IMX_CST).$(HOST_IMX_CST_SUFFIX)
 HOST_IMX_CST_DIR	:= $(HOST_BUILDDIR)/$(HOST_IMX_CST)
-HOST_IMX_CST_LICENSE	:= proprietary
+HOST_IMX_CST_LICENSE	:= BSD-3-Clause AND (OpenSSL OR Apache-2.0) AND custom
+HOST_IMX_CST_LICENSE_FILES := \
+	file://Software_Content_Register_CST.txt;startline=5;endline=8;md5=58eeb2145e365237c49d5e91f6b10f7d \
+	file://code/front_end/src/cst.c;startline=1;endline=5;md5=d3dc6d769e75ac1dd16b77d9ab467521 \
+	file://LICENSE.bsd3;md5=14aba05f9fa6c25527297c8aac95fcf6 \
+	file://LICENSE.openssl;md5=3441526b1df5cc01d812c7dfc218cea6 \
+	file://LICENSE.hidapi;md5=e0ea014f523f64f0adb13409055ee59e
 
-# ----------------------------------------------------------------------------
-# Get
-# ----------------------------------------------------------------------------
-
-$(HOST_IMX_CST_SOURCE):
-	@$(call targetinfo)
-	@echo "************************************************************************"
-	@echo "*"
-	@echo "* Due to license restrictions please download version $(HOST_IMX_CST_VERSION) manually from:"
-	@echo "*"
-	@echo "*    $(HOST_IMX_CST_URL)"
-	@echo "*"
-	@echo "* and place it into the source directory as:"
-	@echo "*"
-	@echo "*    $(HOST_IMX_CST_SOURCE)"
-	@echo "*"
-	@echo "*"
-	@echo "************************************************************************"
-	@echo
-	@exit 1
 
 # ----------------------------------------------------------------------------
 # Prepare
