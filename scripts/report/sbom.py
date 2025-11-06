@@ -88,6 +88,8 @@ class SbomGenerator(Generator):
                     tag = m.group(1)
                 if line.startswith('#'):
                     continue
+                if len(line.split()) > 1:
+                    line = line.split()[0]
                 patch = path.join(patch_dir, line.rstrip())
                 if not path.exists(patch):
                     raise ReportException(
