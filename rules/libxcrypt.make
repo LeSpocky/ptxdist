@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBXCRYPT) += libxcrypt
 #
 # Paths and names
 #
-LIBXCRYPT_VERSION	:= 4.4.38
-LIBXCRYPT_MD5		:= 1796a5d20098e9dd9e3f576803c83000
+LIBXCRYPT_VERSION	:= 4.5.1
+LIBXCRYPT_MD5		:= 7be4cacda2055aa41133f7a577512a08
 LIBXCRYPT		:= libxcrypt-$(LIBXCRYPT_VERSION)
 LIBXCRYPT_SUFFIX	:= tar.xz
 LIBXCRYPT_URL		:= https://github.com/besser82/libxcrypt/releases/download/v$(LIBXCRYPT_VERSION)/$(LIBXCRYPT).$(LIBXCRYPT_SUFFIX)
@@ -41,13 +41,21 @@ HASH_METHODS := glibc,strong
 LIBXCRYPT_CONF_TOOL	:= autoconf
 LIBXCRYPT_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-failure-tokens \
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-werror \
 	--disable-static \
+	--disable-symvers \
 	--disable-valgrind \
+	--disable-valgrind-memcheck \
+	--enable-valgrind-helgrind \
+	--disable-valgrind-drd \
+	--disable-valgrind-sgcheck \
+	--disable-failure-tokens \
+	--enable-xcrypt-compat-files \
 	--enable-obsolete-api \
 	--enable-obsolete-api-enosys=$(call ptx/ifdef,PTXCONF_LIBXCRYPT_OBSOLETE_STUBS,yes,no) \
 	--enable-hashes=$(HASH_METHODS) \
-	--enable-xcrypt-compat-files
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038
 
 # ----------------------------------------------------------------------------
 # Target-Install
