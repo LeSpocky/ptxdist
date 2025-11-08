@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.16.0
-LIBCURL_MD5	:= 3b5aae755714b338af0f66726bceb62a
+LIBCURL_VERSION	:= 8.17.0
+LIBCURL_MD5	:= 7a9d4b772fc56d68479b0416f234105a
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -122,7 +122,6 @@ LIBCURL_CONF_OPT	:= \
 	--without-libgsasl \
 	--$(call ptx/wwo, PTXCONF_LIBCURL_LIBSSH2)-libssh2 \
 	--without-libssh \
-	--without-wolfssh \
 	--without-librtmp \
 	--without-winidn \
 	--without-apple-idn \
