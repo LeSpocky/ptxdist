@@ -22,9 +22,6 @@ GST_PLUGINS_UGLY1_URL		:= https://gstreamer.freedesktop.org/src/gst-plugins-ugly
 GST_PLUGINS_UGLY1_SOURCE	:= $(SRCDIR)/$(GST_PLUGINS_UGLY1).$(GST_PLUGINS_UGLY1_SUFFIX)
 GST_PLUGINS_UGLY1_DIR		:= $(BUILDDIR)/$(GST_PLUGINS_UGLY1)
 GST_PLUGINS_UGLY1_LICENSE	:= LGPL-2.1-or-later
-ifdef PTXCONF_GST_PLUGINS_UGLY1_MPEG2DEC
-GST_PLUGINS_UGLY1_LICENSE += AND $(LIBMPEG2_LICENSE)
-endif
 
 # ----------------------------------------------------------------------------
 # Prepare
