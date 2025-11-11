@@ -10,6 +10,7 @@ menuconfig GST_PLUGINS_UGLY1
 	select ORC			if GST_PLUGINS_UGLY1_A52DEC
 	select LIBCDIO			if GST_PLUGINS_UGLY1_CDIO
 	select LIBMPEG2			if GST_PLUGINS_UGLY1_MPEG2DEC
+	select X264			if GST_PLUGINS_UGLY1_X264
 	prompt "gst-plugins-ugly              "
 	help
 	  GStreamer Ugly Plug-ins is a set of plug-ins that
@@ -79,8 +80,6 @@ config GST_PLUGINS_UGLY1_SIDPLAY
 
 config GST_PLUGINS_UGLY1_X264
 	bool
-	# needs x264
-	depends on BROKEN
 	prompt "x264"
 	help
 	  H.264 video encoder plugin
