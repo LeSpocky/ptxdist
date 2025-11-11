@@ -1,0 +1,7 @@
+## SECTION=multimedia_libs
+
+config X264
+	bool
+	prompt "x264 encoder"
+	help
+	  Enable x264 encoder
