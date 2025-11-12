@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_DRM_INFO) += drm-info
 #
 # Paths and names
 #
-DRM_INFO_VERSION	:= 2.7.0
-DRM_INFO_MD5		:= 0066f5d02007b712d7b21a89e89785ba
+DRM_INFO_VERSION	:= 2.8.0
+DRM_INFO_MD5		:= fcf4a1559fdb2ddc817b95db427448b9
 DRM_INFO		:= drm_info-v$(DRM_INFO_VERSION)
 DRM_INFO_SUFFIX		:= tar.bz2
 DRM_INFO_URL		:= https://gitlab.freedesktop.org/emersion/drm_info/-/archive/v$(DRM_INFO_VERSION)/$(DRM_INFO).$(DRM_INFO_SUFFIX)
