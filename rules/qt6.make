@@ -19,8 +19,8 @@ QT6_MD5			:= 10a39c4b4af4f465c4ff0352a6d18a0a
 QT6			:= qt-everywhere-src-$(QT6_VERSION)
 QT6_SUFFIX		:= tar.xz
 QT6_URL			:= \
-	https://download.qt-project.org/archive/qt/$(basename $(QT6_VERSION))/$(QT6_VERSION)/single/$(QT6).$(QT6_SUFFIX) \
-	https://download.qt-project.org/development_releases/qt/$(basename $(QT6_VERSION))/$(QT6_VERSION)/single/$(QT6).$(QT6_SUFFIX)
+	https://download.qt.io/archive/qt/$(basename $(QT6_VERSION))/$(QT6_VERSION)/single/$(QT6).$(QT6_SUFFIX) \
+	https://download.qt.io/development_releases/qt/$(basename $(QT6_VERSION))/$(QT6_VERSION)/single/$(QT6).$(QT6_SUFFIX)
 QT6_SOURCE		:= $(SRCDIR)/$(QT6).$(QT6_SUFFIX)
 QT6_DIR			:= $(realpath $(BUILDDIR))/$(QT6)
 QT6_BUILD_OOT		:= YES
