@@ -1,0 +1,9 @@
+## SECTION=networking
+
+config PHYTOOL
+	tristate
+	prompt "phytool"
+	help
+	  Linux MDIO register access
+
+# vim: ft=kconfig tw=80
