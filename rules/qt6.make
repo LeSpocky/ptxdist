@@ -985,7 +985,9 @@ QT6_PLUGINS-$(PTXCONF_QT6_GLIB)					+= networkinformation/libqglib
 QT6_PLUGINS-$(PTXCONF_QT6_DBUS)					+= networkinformation/libqnetworkmanager
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTBASE)			+= tls/libqcertonlybackend
 QT6_PLUGINS-$(PTXCONF_QT6_OPENSSL)				+= tls/libqopensslbackend
+ifdef PTXCONF_QT6_MODULE_QTDECLARATIVE
 QT6_QML-$(PTXCONF_QT6_MODULE_QTBASE)				+= QtNetwork
+endif
 
 ### QtCharts ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTCHARTS)				+= Qt6Charts
