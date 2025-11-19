@@ -48,7 +48,7 @@ OPTEE_CLIENT_CONF_OPT	:= \
 	-DCFG_TEE_SUPP_LOG_LEVEL=1 \
 	-DCFG_TEE_SUPP_PLUGINS=$(call ptx/onoff, PTXCONF_OPTEE_CLIENT_SUPPLICANT_PLUGINS) \
 	-DCFG_WERROR=ON \
-	-DRPMB_EMU=ON \
+	-DRPMB_EMU=$(call ptx/onoff, PTXCONF_OPTEE_CLIENT_SUPPLICANT_RPMB_EMULATION) \
 	-DWITH_TEEACL=ON
 
 # ----------------------------------------------------------------------------

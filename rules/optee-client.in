@@ -26,4 +26,10 @@ config OPTEE_CLIENT_SUPPLICANT_PLUGINS
 	bool
 	prompt "enable TEE supplicant plugins"
 
+config OPTEE_CLIENT_SUPPLICANT_RPMB_EMULATION
+	bool
+	prompt "enable TEE supplicant RPMB emulation"
+	help
+	  Emulate the RPMB in the TEE supplicant instead of using the eMMC.
+
 endif
