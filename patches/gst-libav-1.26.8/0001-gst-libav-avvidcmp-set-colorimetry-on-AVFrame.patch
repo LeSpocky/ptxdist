@@ -1,0 +1,75 @@
+From: =?UTF-8?q?Sven=20P=C3=BCschel?= <s.pueschel@pengutronix.de>
+Date: Fri, 14 Nov 2025 10:50:51 +0100
+Subject: [PATCH] gst-libav: avvidcmp: set colorimetry on AVFrame
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Set the colorimetry on AVFrame based on the GstVideoFrame values.
+This properly maps potential colorimetry information to libav.
+
+Furthermore this fixes the avvideocompare element when used with
+FFmpeg 8.0. When comparing video frames FFmpeg also uses the scale
+filter. This has been reworked to use a new API [1], which checks
+that the color primaries and transfer characteristics are not set
+to RESERVED, which is the default 0 value. This causes the ff_test_fmt
+function to fail which in turn causes the avvideocompare element to fail.
+
+The implementation is copied from gst_ffmpeg_videoinfo_to_context, but
+the color range has been adopted to also map the unknown range to
+unspecified, similar to how gst_ffmpeg_videoinfo_to_context maps
+AVCOL_RANGE_UNSPECIFIED to GST_VIDEO_COLOR_RANGE_UNKNOWN.
+
+This was tested with FFmpeg 8.0 and the following sample pipeline:
+
+  gst-launch-1.0 videotestsrc num-buffers=100          \
+    ! video/x-raw,format=NV12                          \
+    ! videobalance brightness=0.005 hue=0.005          \
+    ! avvideocompare method=psnr stats-file=- name=cmp \
+    ! fakesink videotestsrc ! video/x-raw,format=NV12  \
+    ! cmp.
+
+Without the patch it doesn't generate any stats output and when called
+with GST_DEBUG=3 it shows the following errors for each frame:
+
+  Unsupported input (Operation not supported):
+  fmt:nv12 csp:gbr prim:reserved trc:reserved -> fmt:yuv420p csp:unknown prim:reserved trc:reserved
+
+[1] https://github.com/FFmpeg/FFmpeg/commit/04ce01df0bb2d66e143bcfcea439afc2a1b8d96e
+
+Upstream-Status: Submitted [https://gitlab.freedesktop.org/gstreamer/gstreamer/-/merge_requests/10090]
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+ ext/libav/gstavvidcmp.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
+
+diff --git a/ext/libav/gstavvidcmp.c b/ext/libav/gstavvidcmp.c
+index 9fab0238935e..a5375e081a48 100644
+--- a/ext/libav/gstavvidcmp.c
++++ b/ext/libav/gstavvidcmp.c
+@@ -619,6 +619,25 @@ _fill_avpicture (GstFFMpegVidCmp * self, AVFrame * picture,
+   picture->width = GST_VIDEO_FRAME_WIDTH (vframe);
+   picture->height = GST_VIDEO_FRAME_HEIGHT (vframe);
+   picture->format = self->pixfmt;
++
++  picture->color_primaries =
++      gst_video_color_primaries_to_iso (vframe->info.colorimetry.primaries);
++  picture->color_trc =
++      gst_video_transfer_function_to_iso (vframe->info.colorimetry.transfer);
++  picture->colorspace =
++      gst_video_color_matrix_to_iso (vframe->info.colorimetry.matrix);
++
++  switch (vframe->info.colorimetry.range) {
++    case GST_VIDEO_COLOR_RANGE_0_255:
++      picture->color_range = AVCOL_RANGE_JPEG;
++      break;
++    case GST_VIDEO_COLOR_RANGE_16_235:
++      picture->color_range = AVCOL_RANGE_MPEG;
++      break;
++    case GST_VIDEO_COLOR_RANGE_UNKNOWN:
++      picture->color_range = AVCOL_RANGE_UNSPECIFIED;
++      break;
++  }
+ }
+ 
+ static GstFlowReturn
