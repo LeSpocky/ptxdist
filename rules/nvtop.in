@@ -7,7 +7,7 @@ menuconfig NVTOP
 	select NCURSES
 	select LIBDRM		if NVTOP_AMDGPU || NVTOP_MSM
 	select LIBDRM_AMDGPU	if NVTOP_AMDGPU
-	select SYSTEMD		if NVTOP_AMDGPU || NVTOP_INTEL
+	select SYSTEMD		if NVTOP_AMDGPU || NVTOP_INTEL || NVTOP_V3D
 	help
 	  Interactive GPU process monitor
 
@@ -38,5 +38,9 @@ config NVTOP_PANFROST
 config NVTOP_PANTHOR
 	bool
 	prompt "build support for Mali GPUs using the panthor driver"
+
+config NVTOP_V3D
+	bool
+	prompt "build support for Raspberry Pi using the v3d driver"
 
 endif

@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NVTOP) += nvtop
 #
 # Paths and names
 #
-NVTOP_VERSION	:= 3.1.0
-NVTOP_MD5	:= bdf8217412aa12f54448f14bb49bb164
+NVTOP_VERSION	:= 3.2.0
+NVTOP_MD5	:= a4c0fcd4a4737ca682c2bf19da7c0bdb
 NVTOP		:= nvtop-$(NVTOP_VERSION)
 NVTOP_SUFFIX	:= tar.gz
 NVTOP_URL	:= https://github.com/Syllo/nvtop/archive/refs/tags/$(NVTOP_VERSION).$(NVTOP_SUFFIX)
@@ -42,7 +42,16 @@ NVTOP_CONF_OPT	:= \
 	-DAPPLE_SUPPORT=off \
 	-DPANFROST_SUPPORT=$(call ptx/onoff, PTXCONF_NVTOP_PANFROST) \
 	-DPANTHOR_SUPPORT=$(call ptx/onoff, PTXCONF_NVTOP_PANTHOR) \
-	-DASCEND_SUPPORT=off
+	-DASCEND_SUPPORT=off \
+	-DTPU_SUPPORT=OFF \
+	-DV3D_SUPPORT=$(call ptx/onoff, PTXCONF_NVTOP_V3D) \
+	-DBUILD_TESTING=OFF \
+	-DSANITIZE_ADDRESS=OFF \
+	-DSANITIZE_LINK_STATIC=OFF \
+	-DSANITIZE_MEMORY=OFF \
+	-DSANITIZE_THREAD=OFF \
+	-DSANITIZE_UNDEFINED=OFF \
+	-DUSE_LIBUDEV_OVER_LIBSYSTEMD=OFF
 
 # ----------------------------------------------------------------------------
 # Target-Install
