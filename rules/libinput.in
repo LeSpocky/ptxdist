@@ -5,6 +5,8 @@ menuconfig LIBINPUT
 	select HOST_MESON
 	select MTDEV
 	select LIBEVDEV
+	select LUA			if LIBINPUT_LUA
+	select LUA_INSTALL_LIBLUA	if LIBINPUT_LUA
 	select UDEV
 	select UDEV_LIBUDEV
 	select PYTHON3			if LIBINPUT_TOOL_REPLAY && RUNTIME
@@ -20,6 +22,12 @@ menuconfig LIBINPUT
 	  functionality that users expect.
 
 if LIBINPUT
+
+config LIBINPUT_LUA
+	bool
+	prompt "lua plugins"
+	help
+	  Enable support for Lua plugins.
 
 config LIBINPUT_QUIRKS
 	bool

@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBINPUT) += libinput
 #
 # Paths and names
 #
-LIBINPUT_VERSION	:= 1.29.2
-LIBINPUT_MD5		:= c0caf71d5ad9cd2258474824abad81db
+LIBINPUT_VERSION	:= 1.30.0
+LIBINPUT_MD5		:= 701702bea2e86b071639aa6582c0a5b7
 LIBINPUT		:= libinput-$(LIBINPUT_VERSION)
 LIBINPUT_SUFFIX		:= tar.gz
 LIBINPUT_URL		:= https://gitlab.freedesktop.org/libinput/libinput/-/archive/$(LIBINPUT_VERSION)/$(LIBINPUT).$(LIBINPUT_SUFFIX)
@@ -42,7 +42,9 @@ LIBINPUT_CONF_OPT	:= \
 	-Ddocumentation=false \
 	-Dcoverity=false \
 	-Dzshcompletiondir=no \
-	-Dinternal-event-debugging=false
+	-Dinternal-event-debugging=false \
+	-Dautoload-plugins=false \
+	-Dlua-plugins=$(call ptx/endis, PTXCONF_LIBINPUT_LUA)d
 
 # ----------------------------------------------------------------------------
 # Target-Install
