@@ -32,6 +32,7 @@ NCURSES_LICENSE_FILES	:= file://COPYING;md5=7743fde124d1ceeaf6eb1100c49fcf6c
 NCURSES_CONF_TOOL := autoconf
 NCURSES_CONF_ENV := \
 	$(CROSS_ENV) \
+	cf_cv_header_stdbool_h=1 \
 	TIC_PATH="$(PTXDIST_SYSROOT_HOST)/usr/bin/tic"
 
 NCURSES_SHARED_TARGET	:= y
