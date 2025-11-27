@@ -44,7 +44,7 @@ $1 == "source" {
 END {
     dump()
 }
-' "${pkg_cargo_lock}"
+' "${1}"
 }
 export -f ptxd_make_world_cargo_sync_parse
 
@@ -97,7 +97,7 @@ EOF
 export -f ptxd_make_world_cargo_sync_package
 
 ptxd_make_world_cargo_sync() {
-    local pkg_makefile_cargo package version cargofd packages
+    local pkg_makefile_cargo package version cargofd packages cargo_lock cargo_lock_md5
     local PKG
     local -a tmp
     local -A workspaces
@@ -115,7 +115,10 @@ ptxd_make_world_cargo_sync() {
     # copy the copyright header from the package rule file
     sed '/^\([^#]\|$\)/Q' ${pkg_makefile} >&${makefilefd}
 
-    set -- $(md5sum "${pkg_cargo_lock}")
+    for cargo_lock in "${pkg_cargo_lock[@]}"; do
+	read -r -a tmp < <(md5sum "${cargo_lock}")
+	cargo_lock_md5+="${cargo_lock_md5:+ }${tmp[0]}"
+    done
     cat << EOF >&${makefilefd}
 
 #
@@ -123,21 +126,24 @@ ptxd_make_world_cargo_sync() {
 # should not be modified manually!
 #
 
-${PKG}_CARGO_LOCK_MD5 := $1
+${PKG}_CARGO_LOCK_MD5 := ${cargo_lock_md5}
 
 EOF
 
-    exec {cargofd}< <(ptxd_make_world_cargo_sync_parse) &&
-    while read package version url hash <&${cargofd}; do
-	if [ "${package}" = "${pkg_label}" ]; then
-	    continue
-	fi
-	if [ -z "${version}" ]; then
-	    ptxd_bailout "${tmp[*]}"
-	fi
-	ptxd_make_world_cargo_sync_package
+    for cargo_lock in "${pkg_cargo_lock[@]}"; do
+	echo -e "\nReading ${cargo_lock}...\n"
+	exec {cargofd}< <(ptxd_make_world_cargo_sync_parse "${cargo_lock}") &&
+	while read package version url hash <&${cargofd}; do
+	    if [ "${package}" = "${pkg_label}" ]; then
+		continue
+	    fi
+	    if [ -z "${version}" ]; then
+		ptxd_bailout "${tmp[*]}"
+	    fi
+	    ptxd_make_world_cargo_sync_package
+	done
+	exec {cargofd}<&-
     done
-    exec {cargofd}<&-
 
     cat << EOF >&${makefilefd}
 

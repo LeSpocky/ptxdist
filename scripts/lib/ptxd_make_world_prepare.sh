@@ -160,24 +160,26 @@ export -f ptxd_make_world_prepare_meson
 # prepare for cargo based pkgs
 #
 ptxd_make_world_prepare_cargo_check() {
-    local arg cargo_lock_md5 crate workspace
-    local -a tmp
+    local crate workspace count=0
+    local -a tmp cargo_lock
     local pkg_makefile_cargo="${pkg_makefile%.make}.cargo.make"
 
-    if [ -z "${pkg_cargo_lock}" ]; then
+    if [ "${#pkg_cargo_lock[*]}" -eq 0 ]; then
 	return
     fi
 
-    if [ -z "${pkg_cargo_lock_md5}" ]; then
+    if [ "${#pkg_cargo_lock_md5[*]}" -eq 0 ]; then
 	ptxd_bailout "Cargo dependency config is missing!" \
 	    "Run 'ptxdist cargosync ${pkg_label}' to generate '$(ptxd_print_path ${pkg_makefile_cargo})'."
     fi
-    tmp=( $(cd "${pkg_dir}" && md5sum "${pkg_cargo_lock}" 2> /dev/null) )
-    if [ "${tmp[0]}" != "${pkg_cargo_lock_md5}" ]; then
-	echo "|${tmp[0]}|${pkg_cargo_lock_md5}|"
-	ptxd_bailout "${pkg_cargo_lock} has changed!" \
-	    "Run 'ptxdist cargosync ${pkg_label}' to regenerate '$(ptxd_print_path ${pkg_makefile_cargo})'."
-    fi &&
+    for cargo_lock in "${pkg_cargo_lock[@]}"; do
+	read -r -a tmp < <(cd "${pkg_dir}" && md5sum "${cargo_lock}")
+	if [ "${tmp[0]}" != "${pkg_cargo_lock_md5[${count}]}" ]; then
+	    ptxd_bailout "${cargo_lock} has changed!" \
+		"Run 'ptxdist cargosync ${pkg_label}' to regenerate '$(ptxd_print_path "${pkg_makefile_cargo}")'."
+	fi || break
+	count=$((count+1))
+    done &&
     ptxd_in_path PTXDIST_PATH_SCRIPTS vendor-cargo-workspace-package &&
     vendor_cargo_workspace_package="${ptxd_reply}" &&
 

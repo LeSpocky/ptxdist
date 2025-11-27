@@ -337,6 +337,8 @@ ptxd_make_world_init() {
 	pkg_cargo_home="${pkg_dir}/ptxdist-cargo-home"
 	pkg_make_env_cargo="CARGO_HOME='${pkg_cargo_home}' ${pkg_make_env:-${!make_env_ptr}}"
 	pkg_cargo_lock="${pkg_cargo_lock:-Cargo.lock}"
+	read -r -a pkg_cargo_lock <<< "${pkg_cargo_lock}"
+	read -r -a pkg_cargo_lock_md5 <<< "${pkg_cargo_lock_md5}"
 	if [[ " ${pkg_build_deps} " =~ " host-cargo-c " ]]; then
 	    pkg_make_env_cargo="${ptx_conf_env_target} ${pkg_make_env_cargo}"
 	fi
