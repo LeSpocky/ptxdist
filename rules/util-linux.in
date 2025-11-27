@@ -5,6 +5,7 @@ menuconfig UTIL_LINUX
 	prompt "util-linux                    "
 	select GCCLIBS_GCC_S
 	select LIBC_CRYPT			if UTIL_LINUX_SULOGIN
+	select LIBCAP_NG			if UTIL_LINUX_SETPRIV
 	select HOST_MESON
 	select UTIL_LINUX_LIBBLKID
 	select UTIL_LINUX_LIBUUID		if UTIL_LINUX_MKSWAP_UUID
@@ -554,6 +555,16 @@ config UTIL_LINUX_SWAPON
 
 comment "BusyBox' swapon is selected!"
 	depends on BUSYBOX_SWAPON
+
+config UTIL_LINUX_SETPRIV
+	bool
+	depends on !BUSYBOX_SETPRIV
+	prompt "setpriv"
+	help
+	  Run a program with different Linux privilege settings.
+
+comment "BusyBox' setpriv is selected!"
+	depends on BUSYBOX_SETPRIV
 
 config UTIL_LINUX_SETSID
 	bool
