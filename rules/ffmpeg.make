@@ -75,7 +75,7 @@ FFMPEG_CONF_OPT		:= \
 	--enable-avcodec \
 	--enable-avformat \
 	--enable-swresample \
-	--disable-swscale \
+	--enable-swscale \
 	--enable-avfilter \
 	\
 	--enable-pthreads \
@@ -98,7 +98,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-indevs \
 	--disable-outdevs \
 	--disable-devices \
-	--disable-filters \
+	--enable-filters \
 	\
 	--disable-alsa \
 	--disable-appkit \
@@ -285,6 +285,7 @@ $(STATEDIR)/ffmpeg.targetinstall:
 	@$(call install_lib, ffmpeg, 0, 0, 0644, libavformat)
 	@$(call install_lib, ffmpeg, 0, 0, 0644, libavutil)
 	@$(call install_lib, ffmpeg, 0, 0, 0644, libswresample)
+	@$(call install_lib, ffmpeg, 0, 0, 0644, libswscale)
 
 	@$(call install_finish, ffmpeg)
 
