@@ -9,7 +9,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_HOST_SYSTEM_PYTHON3_PYEXCEL_ODS) += host-system-python3-pyexcel-ods
+HOST_PACKAGES-$(PTXCONF_HOST_SYSTEM_PYTHON3_PYEXCEL_ODS) += host-system-python3-pyexcel-ods
 
 #
 # Paths and names
