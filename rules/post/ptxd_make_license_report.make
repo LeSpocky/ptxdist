@@ -6,15 +6,6 @@
 # see the README file.
 #
 
-PTX_PACKAGES_TOOLS := \
-	$(CROSS_PACKAGES) \
-	$(HOST_PACKAGES) \
-	$(LAZY_PACKAGES)
-
-PTX_PACKAGES_TARGET := \
-	$(PTX_PACKAGES_INSTALL) \
-	$(EXTRA_PACKAGES)
-
 PHONY += license-check
 
 license-check: $(addprefix $(STATEDIR)/,$(addsuffix .report,$(PTX_PACKAGES_SELECTED)))
