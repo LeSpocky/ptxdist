@@ -9,7 +9,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_HOST_SYSTEM_PYTHON3_PYEXCEL_IO) += host-system-python3-pyexcel-io
+HOST_PACKAGES-$(PTXCONF_HOST_SYSTEM_PYTHON3_PYEXCEL_IO) += host-system-python3-pyexcel-io
 
 #
 # Paths and names
