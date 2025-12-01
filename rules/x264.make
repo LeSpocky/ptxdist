@@ -29,16 +29,16 @@ X264_LICENSE_FILES	:= file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f
 # ----------------------------------------------------------------------------
 
 X264_CONF_ENV := \
-    $(CROSS_ENV) \
-    AS=$(CROSS_CC)
+	$(CROSS_ENV) \
+	AS=$(CROSS_CC)
 
 X264_CONF_TOOL := autoconf
 X264_CONF_OPT := \
-    --host=$(patsubst aarch64-v8a%,aarch64% \
-	   ,$(patsubst arm-v7a%,arm% \
-           ,$(PTXCONF_GNU_TARGET))) \
-    --prefix=/usr \
-    --enable-shared
+	--host=$(patsubst aarch64-v8a%,aarch64% \
+	      ,$(patsubst arm-v7a%,arm% \
+	      ,$(PTXCONF_GNU_TARGET))) \
+	--prefix=/usr \
+	--enable-shared
 
 # ----------------------------------------------------------------------------
 # Target-Install
