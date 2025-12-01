@@ -155,12 +155,6 @@ EOF
 	# license files have not been extracted, so just add the string from the rule
 	do_list "license-files:" "${pkg_license_files}"
     fi
-    if [ "${1}" != "fast" -a -e "${pkg_xpkg_map}" ]; then
-	echo "ipkgs:"
-	for xpkg in $(< "${pkg_xpkg_map}"); do
-	    echo "- '${ptx_pkg_dir}/${xpkg}_${pkg_version}_${PTXDIST_IPKG_ARCH_STRING}.ipk'"
-	done
-    fi
     do_echo "image:" "${image_image}"
     do_list "pkgs:" "${image_pkgs}"
     do_list "files:" "${image_files}"
@@ -178,6 +172,21 @@ ptxd_make_world_fast_report() {
     ptxd_make_world_report_yaml fast > "${ptx_report_dir}/fast/${pkg_label}.yaml"
 }
 export -f ptxd_make_world_fast_report
+
+ptxd_make_world_late_report() {
+    declare -A pkg_license_flags
+    ptxd_make_world_license_init || return
+
+    {
+    if [ -e "${pkg_xpkg_map}" ]; then
+	echo "ipkgs:"
+	for xpkg in $(< "${pkg_xpkg_map}"); do
+	    echo "- '${ptx_pkg_dir}/${xpkg}_${pkg_version}_${PTXDIST_IPKG_ARCH_STRING}.ipk'"
+	done
+    fi
+    } > "${pkg_license_dir}/late-report.yaml"
+}
+export -f ptxd_make_world_late_report
 
 ptxd_make_image_reports() {
     local generate_report report

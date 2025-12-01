@@ -16,11 +16,11 @@ full-bsp-report: $(RELEASEDIR)/full-bsp-report.yaml
 
 #
 # The full report needs the 'report' stage for license files and the
-# targetinstall stage for the list of ipkgs
+# late-report stage for the list of ipkgs
 #
 $(RELEASEDIR)/full-bsp-report.yaml: \
 		$(addprefix $(STATEDIR)/,$(addsuffix .report,$(PTX_PACKAGES_SELECTED))) \
-		$(addprefix $(STATEDIR)/,$(addsuffix .targetinstall,$(PTX_PACKAGES_SELECTED)))
+		$(addprefix $(STATEDIR)/,$(addsuffix .late-report,$(PTX_PACKAGES_TARGET)))
 	@$(call targetinfo)
 	@$(call ptx/report-env, $@) ptxd_make_full_bsp_report
 	@$(call finish)

@@ -60,6 +60,18 @@ $(STATEDIR)/%.fast-report:
 	@$(call world/fast-report, $(PTX_MAP_TO_PACKAGE_$(*)))
 	@$(call touch)
 
+#
+# world/late-report
+#
+world/late-report = \
+	$(call world/env, $(1)) \
+	ptxd_make_world_late_report
+
+$(STATEDIR)/%.late-report:
+	@$(call targetinfo)
+	@$(call world/late-report, $(PTX_MAP_TO_PACKAGE_$(*)))
+	@$(call touch)
+
 # create a "release" of all required information including licenses, sources and patches
 
 world/release = \

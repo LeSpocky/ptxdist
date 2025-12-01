@@ -74,6 +74,13 @@ ptxd_make_full_bsp_report_pkg() {
     pkg_lic="${pkg_lic}/${pkg}"
     echo "  ${pkg}:"
     sed 's/^/    /' "${ptx_report_dir}/${pkg_lic}/license-report.yaml"
+    case "${pkg}" in
+	host-*|cross-*|image-*)
+	    ;;
+	*)
+	    sed 's/^/    /' "${ptx_report_dir}/${pkg_lic}/late-report.yaml"
+	    ;;
+    esac
 }
 export -f ptxd_make_full_bsp_report_pkg
 
