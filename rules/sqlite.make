@@ -29,8 +29,8 @@ endef
 #
 # Paths and names
 #
-SQLITE_VERSION	:= 3.50.4
-SQLITE_MD5	:= d74bbdca4ab1b2bd46d3b3f8dbb0f3db
+SQLITE_VERSION	:= 3.51.1
+SQLITE_MD5	:= 2fe030b42ee30d6980f0b33947426d96
 SQLITE		:= sqlite-autoconf-$(call sqlite/file-version,$(SQLITE_VERSION))
 SQLITE_SUFFIX	:= tar.gz
 SQLITE_URL	:= https://www.sqlite.org/2025/$(SQLITE).$(SQLITE_SUFFIX)
