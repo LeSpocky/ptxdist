@@ -29,8 +29,13 @@ X264_LICENSE_FILES	:= file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f
 # ----------------------------------------------------------------------------
 
 X264_CONF_ENV := \
-	$(CROSS_ENV) \
-	AS=$(CROSS_CC)
+	$(CROSS_ENV)
+
+ifdef PTXCONF_ARCH_X86
+X264_CONF_ENV += AS=nasm
+else
+X264_CONF_ENV += AS=$(CROSS_CC)
+endif
 
 X264_CONF_TOOL := autoconf
 X264_CONF_OPT := \

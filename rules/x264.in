@@ -2,6 +2,7 @@
 
 config X264
 	bool
+	select CROSS_NASM
 	prompt "x264 encoder"
 	help
 	  Enable x264 encoder
