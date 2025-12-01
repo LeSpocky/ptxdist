@@ -164,7 +164,7 @@ ptxd_make_world_prepare_cargo_check() {
     local -a tmp cargo_lock
     local pkg_makefile_cargo="${pkg_makefile%.make}.cargo.make"
 
-    if [ "${#pkg_cargo_lock[*]}" -eq 0 ]; then
+    if [ -z "${pkg_cargo_lock[*]}" ]; then
 	return
     fi
 
