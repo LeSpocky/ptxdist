@@ -131,6 +131,39 @@ EXTRA_PACKAGES	+= $(EXTRA_PACKAGES-m)
 LAZY_PACKAGES	+= $(LAZY_PACKAGES-m)
 endif
 
+_tmp := $(filter host-%,$(PACKAGES))
+ifneq ($(strip $(_tmp)),)
+$(error '$(_tmp)' must be added to HOST_PACKAGES- not PACKAGES-)
+endif
+_tmp := $(filter cross-%,$(PACKAGES))
+ifneq ($(strip $(_tmp)),)
+$(error '$(_tmp)' must be added to CROSS_PACKAGES- not PACKAGES-)
+endif
+_tmp := $(filter image-%,$(PACKAGES))
+ifneq ($(strip $(_tmp)),)
+$(error '$(_tmp)' must be added to IMAGE_PACKAGES- not PACKAGES-)
+endif
+_tmp := $(filter-out host-%,$(HOST_PACKAGES))
+ifneq ($(strip $(_tmp)),)
+$(error '$(_tmp)' must be added to PACKAGES- not HOST_PACKAGES-)
+endif
+_tmp := $(filter-out cross-%,$(CROSS_PACKAGES))
+ifneq ($(strip $(_tmp)),)
+$(error '$(_tmp)' must be added to PACKAGES- not CROSS_PACKAGES-)
+endif
+_tmp := $(filter-out image-%,$(IMAGE_PACKAGES))
+ifneq ($(strip $(_tmp)),)
+$(error '$(_tmp)' must be added to PACKAGES- not IMAGE_PACKAGES-)
+endif
+_tmp := $(filter host-% cross-%,$(EXTRA_PACKAGES))
+ifneq ($(strip $(_tmp)),)
+$(error '$(_tmp)' must be added to LAZY_PACKAGES- not EXTRA_PACKAGES-)
+endif
+_tmp := $(filter-out host-% cross-%,$(LAZY_PACKAGES))
+ifneq ($(strip $(_tmp)),)
+$(error '$(_tmp)' must be added to EXTRA_PACKAGES- not LAZY_PACKAGES-)
+endif
+
 PTX_PACKAGES_SELECTED	:= \
 	$(PACKAGES) \
 	$(CROSS_PACKAGES) \
