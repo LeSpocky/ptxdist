@@ -72,6 +72,21 @@ ptxd_make_world_package_info() {
     do_echo "patches:" "$(ptxd_print_path "${pkg_patch_dir}")"
     do_echo "${pkg_patch_dir}"
 
+    if [  -n "${PTXDIST_CREATE_DEVPKGS}" -o "$(ptxd_get_ptxconf PTXCONF_PROJECT_CREATE_DEVPKGS)" == "y" ]; then
+	do_echo "create devpkg:" "${ptx_pkg_dir}/${pkg_pkg_dev}"
+	echo
+    fi
+    if [ "$(ptxd_get_ptxconf PTXCONF_PROJECT_USE_DEVPKGS)" == "y" ]; then
+	if [ ${pkg_pkg_dev} = "NO" ]; then
+	    do_echo "use devpkg:" "no"
+	elif [ -e "${ptx_pkg_dev_dir}/${pkg_pkg_dev}" ]; then
+	    do_echo "use devpkg:" "${ptx_pkg_dev_dir}/${pkg_pkg_dev} (found)"
+	else
+	    do_echo "use devpkg:" "${ptx_pkg_dev_dir}/${pkg_pkg_dev} (missing)"
+	fi
+	echo
+    fi
+
     do_echo "build deps:" "${pkg_build_deps}"
     do_echo "runtime deps:" "${pkg_run_deps}"
     do_echo "${pkg_build_deps}${pkg_run_deps}"
