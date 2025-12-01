@@ -1,4 +1,3 @@
-#!/bin/bash
 #
 # Copyright (C) 2022 by Michael Olbrich <m.olbrich@pengutronix.de>
 #
