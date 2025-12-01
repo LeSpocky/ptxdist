@@ -315,7 +315,7 @@ ptxd_make_world_install_pack() {
 	    check_pipe_status
     fi &&
 
-    if [ "${pkg_pkg_dev}" != "NO" -a "$(ptxd_get_ptxconf PTXCONF_PROJECT_CREATE_DEVPKGS)" = "y" ]; then
+    if [ "${pkg_pkg_dev}" != "NO" ] && [ -n "${PTXDIST_CREATE_DEVPKGS}" -o "$(ptxd_get_ptxconf PTXCONF_PROJECT_CREATE_DEVPKGS)" = "y" ]; then
 	tar -c -C "${ptx_pkg_dir}" -z -f "${ptx_pkg_dir}/${pkg_pkg_dev}" "${pkg_pkg_dir##*/}"
     fi
 }

@@ -859,6 +859,7 @@ Options:
 				contain a 'bin/activate' shell script.
   --no-container		Override the setup/localsetup configuration and
 				explicitly run PTXdist without a container.
+  --create-devpkg		Enable the creation of pre-built package archives.
 EOF
 }
 
@@ -1188,6 +1189,9 @@ parse_first()
 			;;
 		--no-container)
 			unset PTXCONF_SETUP_CONTAINER_ENABLE
+			;;
+		--create-devpkg)
+			PTXDIST_CREATE_DEVPKGS=1
 			;;
 		--)
 			while [ ${#} -ne 0 ]; do
@@ -2751,6 +2755,7 @@ setup_export() {
 		PTXDIST_LOADMFLAGS \
 		\
 		PTXDIST_CCACHE \
+		PTXDIST_CREATE_DEVPKGS \
 		PTXDIST_FORCE_DOWNLOAD \
 		PTXDIST_ICECC \
 		PTXDIST_ICECC_CREATE_ENV \

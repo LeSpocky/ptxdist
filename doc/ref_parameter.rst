@@ -426,3 +426,9 @@ Options
 ``--virtualenv=<dir>``
   include a Python Virtual Environment. The given path must contain a
   ``bin/activate`` shell script.
+
+``--create-devpkg``
+  Enable the creation of pre-built package archives. This has the same effect
+  as enabling ``PTXCONF_PROJECT_CREATE_DEVPKGS`` in the ``ptxconfig``. This is
+  useful to only create pre-built package in specific circumstances, e.g. in a
+  CI.
