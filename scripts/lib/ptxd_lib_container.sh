@@ -104,6 +104,11 @@ ptxd_run_in_container()
 		cmd+=( --volume="${PTXDIST_SRCDIR}:${srcdir}" )
 	fi
 
+	devpkg_prefix="$(ptxd_get_ptxconf PTXCONF_PROJECT_DEVPKGDIR)" || return 0
+	if [ -d "${devpkg_prefix}" ]; then
+		cmd+=( --volume="${devpkg_prefix}:${devpkg_prefix}" )
+	fi
+
 	if [ -n "${PTXCONF_SETUP_ICECC}" ]; then
 		for tmp in /run/icecc/iceccd.socket /run/iceccd.socket; do
 			if [ -e "${tmp}" ]; then
