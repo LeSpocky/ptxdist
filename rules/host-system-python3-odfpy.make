@@ -9,7 +9,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_HOST_SYSTEM_PYTHON3_ODFPY) += host-system-python3-odfpy
+HOST_PACKAGES-$(PTXCONF_HOST_SYSTEM_PYTHON3_ODFPY) += host-system-python3-odfpy
 
 #
 # Paths and names
