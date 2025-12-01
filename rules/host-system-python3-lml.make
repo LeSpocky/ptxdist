@@ -9,7 +9,7 @@
 #
 # We provide this package
 #
-PACKAGES-$(PTXCONF_HOST_SYSTEM_PYTHON3_LML) += host-system-python3-lml
+HOST_PACKAGES-$(PTXCONF_HOST_SYSTEM_PYTHON3_LML) += host-system-python3-lml
 
 #
 # Paths and names
