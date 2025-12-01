@@ -90,19 +90,14 @@ $(STATEDIR)/tf-a.compile:
 # Install
 # ----------------------------------------------------------------------------
 
-tf-a/inst_pkgdir = \
-	install -v -D -m 644 $(2) $(TF_A_PKGDIR)/usr/lib/firmware/$(3)
-
 tf-a/inst_plat = $(foreach artifact, \
 	$(wildcard $(addprefix $(TF_A_BINDIR)/, $(TF_A_ARTIFACTS))) \
 	$(wildcard $(addprefix $(TF_A_BINDIR_BOARD)/, $(TF_A_ARTIFACTS))), \
-	$(call $(2),TF_A,$(artifact),$(1)-$(notdir $(artifact)))$(ptx/nl))
-
-tf-a/inst_bins = $(foreach plat, $(TF_A_PLATFORMS), $(call tf-a/inst_plat,$(plat),$(1)))
+	install -v -D -m 644 $(artifact) $(TF_A_PKGDIR)/usr/lib/firmware/$(1)-$(notdir $(artifact))$(ptx/nl))
 
 $(STATEDIR)/tf-a.install:
 	@$(call targetinfo)
-	@$(call tf-a/inst_bins,tf-a/inst_pkgdir)
+	@$(foreach plat, $(TF_A_PLATFORMS), $(call tf-a/inst_plat,$(plat)))
 	@$(call touch)
 
 # ----------------------------------------------------------------------------
@@ -111,7 +106,8 @@ $(STATEDIR)/tf-a.install:
 
 $(STATEDIR)/tf-a.targetinstall:
 	@$(call targetinfo)
-	@$(call tf-a/inst_bins,ptx/image-install)
+	@$(foreach artifact, $(wildcard $(TF_A_PKGDIR)/usr/lib/firmware/*), \
+		$(call ptx/image-install, TF_A, $(artifact))$(ptx/nl))
 	@$(call touch)
 
 # vim: syntax=make
