@@ -115,9 +115,11 @@ ptxd_make_world_report_yaml() {
     do_echo "pkgdir:" "${pkg_pkg_dir}"
     do_echo "cfghash:" "${pkg_cfghash}"
     do_echo "srchash:" "${pkg_srchash}"
-    if [ "$(ptxd_get_ptxconf PTXCONF_PROJECT_CREATE_DEVPKGS)" == "y" -o \
-	 "$(ptxd_get_ptxconf PTXCONF_PROJECT_USE_DEVPKGS)" == "y" ]; then
+    if [  -n "${PTXDIST_CREATE_DEVPKGS}" -o "$(ptxd_get_ptxconf PTXCONF_PROJECT_CREATE_DEVPKGS)" == "y" ]; then
 	do_echo "devpkg:" "${ptx_pkg_dir}/${pkg_pkg_dev}"
+    fi
+    if [ ${pkg_pkg_dev} != "NO" -a "$(ptxd_get_ptxconf PTXCONF_PROJECT_USE_DEVPKGS)" == "y" ]; then
+	do_echo "use-devpkg:" "${ptx_pkg_dev_dir}/${pkg_pkg_dev}"
     fi
     do_echo "license-section:" "${pkg_section}"
     do_echo "licenses:" "${pkg_license}"

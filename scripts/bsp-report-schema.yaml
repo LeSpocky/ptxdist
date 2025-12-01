@@ -238,6 +238,8 @@ $defs:
         $ref: '#/$defs/md5'
       devpkg:
         $ref: '#/$defs/path'
+      use-devpkg:
+        $ref: '#/$defs/path'
       spdx-sbom:
         $ref: '#/$defs/path'
       cyclonedx-sbom:
