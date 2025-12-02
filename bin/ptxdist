@@ -859,7 +859,7 @@ Options:
 				contain a 'bin/activate' shell script.
   --no-container		Override the setup/localsetup configuration and
 				explicitly run PTXdist without a container.
-  --create-devpkg		Enable the creation of pre-built package archives.
+  --create-devpkgs		Enable the creation of pre-built package archives.
 EOF
 }
 
@@ -1190,7 +1190,7 @@ parse_first()
 		--no-container)
 			unset PTXCONF_SETUP_CONTAINER_ENABLE
 			;;
-		--create-devpkg)
+		--create-devpkgs)
 			PTXDIST_CREATE_DEVPKGS=1
 			;;
 		--)
