@@ -1,0 +1,12 @@
+## SECTION=python3
+
+config PYTHON3_PYDOT
+	tristate
+	select HOST_PYTHON3_PYBUILD
+	select PYTHON3
+	select PYTHON3_PYPARSING	if RUNTIME
+	prompt "pydot"
+	help
+	  Pydot is a Python interface to Graphviz and its DOT language.
+
+# vim: ft=kconfig tw=80
