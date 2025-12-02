@@ -2,6 +2,7 @@
 
 config PYTHON3_PYPARSING
 	tristate
+	select HOST_PYTHON3_PYBUILD
 	select PYTHON3
 	prompt "pyparsing"
 	help
