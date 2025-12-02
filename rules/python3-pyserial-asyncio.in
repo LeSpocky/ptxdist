@@ -1,0 +1,11 @@
+## SECTION=python3
+
+config PYTHON3_PYSERIAL_ASYNCIO
+	tristate
+	select PYTHON3
+	select PYSERIAL3
+	prompt "pyserial-asyncio"
+	help
+	  Async I/O extension package for the Python Serial Port Extension.
+
+# vim: ft=kconfig tw=80
