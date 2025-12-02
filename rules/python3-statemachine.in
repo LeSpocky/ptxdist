@@ -1,0 +1,12 @@
+## SECTION=python3
+
+config PYTHON3_STATEMACHINE
+	tristate
+	select HOST_PYTHON3_HATCHLING
+	select HOST_PYTHON3_PYBUILD
+	select PYTHON3
+	prompt "statemachine"
+	help
+	  Python finite-state machines made easy.
+
+# vim: ft=kconfig tw=80
