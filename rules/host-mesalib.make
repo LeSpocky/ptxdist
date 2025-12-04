@@ -18,6 +18,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_MESALIB) += host-mesalib
 HOST_MESALIB_TOOLS-y := glsl
 HOST_MESALIB_TOOLS-$(PTXCONF_HOST_MESALIB_PANFROST) += panfrost
 HOST_MESALIB_TOOLS-$(PTXCONF_HOST_MESALIB_ASAHI) += asahi
+HOST_MESALIB_TOOLS-$(PTXCONF_HOST_MESALIB_IMAGINATION) += imagination
 
 HOST_MESALIB_MESON_CROSS_FILE := $(call ptx/get-alternative, config/meson, mesalib-native-file.meson)
 
@@ -29,6 +30,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Damd-use-llvm=false \
 	-Damdgpu-virtio=false \
 	-Dandroid-libbacktrace=disabled \
+	-Dandroid-libperfetto=disabled \
 	-Dandroid-strict=true \
 	-Dandroid-stub=false \
 	-Dbuild-aco-tests=false \
@@ -37,6 +39,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dcustom-shader-replacement= \
 	-Dd3d-drivers-path=/usr/lib/d3d \
 	-Ddatasources=auto \
+	-Ddisplay-info=disabled \
 	-Ddraw-use-llvm=false \
 	-Ddri-drivers-path=/usr/lib/dri \
 	-Degl=disabled \
@@ -56,7 +59,6 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dgallium-rusticl=false \
 	-Dgallium-rusticl-enable-drivers= \
 	-Dgallium-va=disabled \
-	-Dgallium-vdpau=disabled \
 	-Dgallium-wgl-dll-name=libgallium_wgl \
 	-Dgbm=disabled \
 	-Dgbm-backends-path= \
@@ -72,6 +74,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dhtml-docs=disabled \
 	-Dhtml-docs-path= \
 	-Dimagination-srv=false \
+	-Dimagination-uscgen-devices=[] \
 	-Dinstall-intel-gpu-tests=false \
 	-Dinstall-mesa-clc=$(call ptx/truefalse, PTXCONF_HOST_MESALIB_CLC) \
 	-Dinstall-precomp-compiler=true \
@@ -102,6 +105,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dshader-cache-max-size=1G \
 	-Dshared-llvm=disabled \
 	-Dspirv-to-dxil=false \
+	-Dspirv-tools=$(call ptx/endis, PTXCONF_HOST_MESALIB_CLC)d \
 	-Dsplit-debug=disabled \
 	-Dsse2=true \
 	-Dstatic-libclc=[] \
@@ -111,7 +115,6 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dunversion-libgallium=false \
 	-Dva-libs-path=/usr/lib/dri \
 	-Dvalgrind=disabled \
-	-Dvdpau-libs-path=/usr/lib/vdpau \
 	-Dvideo-codecs=[] \
 	-Dvirtgpu_kumquat=false \
 	-Dvmware-mks-stats=false \
@@ -141,6 +144,10 @@ ifdef PTXCONF_HOST_MESALIB_ASAHI
 HOST_MESALIB_MAKE_OPT	+= \
 	src/asahi/clc/asahi_clc
 endif
+ifdef PTXCONF_HOST_MESALIB_IMAGINATION
+HOST_MESALIB_MAKE_OPT	+= \
+	src/imagination/pco/uscgen/pco_clc
+endif
 
 $(STATEDIR)/host-mesalib.install:
 	@$(call targetinfo)
@@ -154,6 +161,9 @@ ifdef PTXCONF_HOST_MESALIB_PANFROST
 endif
 ifdef PTXCONF_HOST_MESALIB_ASAHI
 	install -D -m755 $(HOST_MESALIB_DIR)-build/src/asahi/clc/asahi_clc $(HOST_MESALIB_PKGDIR)/usr/bin/asahi_clc
+endif
+ifdef PTXCONF_HOST_MESALIB_IMAGINATION
+	install -D -m755 $(HOST_MESALIB_DIR)-build/src/imagination/pco/uscgen/pco_clc $(HOST_MESALIB_PKGDIR)/usr/bin/pco_clc
 endif
 	@$(call touch)
 

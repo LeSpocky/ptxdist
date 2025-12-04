@@ -7,6 +7,7 @@ menuconfig MESALIB
 	select HOST_MESALIB_CLC		if MESALIB_CLC
 	select HOST_MESALIB_PANFROST	if MESALIB_DRI_PANFROST || MESALIB_VULKAN_PANFROST
 	select HOST_MESALIB_ASAHI	if MESALIB_DRI_ASAHI || MESALIB_VULKAN_ASAHI
+	select HOST_MESALIB_IMAGINATION	if MESALIB_VULKAN_IMAGINATION
 	select HOST_MESON
 	select HOST_MAKEDEPEND
 	select HOST_SYSTEM_PYTHON3
@@ -19,6 +20,7 @@ menuconfig MESALIB
 	select HOST_GLSLANG		if MESALIB_VULKAN_SCREENSHOT
 	select GCCLIBS
 	select GCCLIBS_CXX
+	select LIBDISPLAY_INFO
 	select LIBDRM
 	select LIBVA			if MESALIB_VA
 	select WAYLAND			if MESALIB_EGL_WAYLAND
@@ -30,6 +32,7 @@ menuconfig MESALIB
 	select LLVM			if MESALIB_LLVM
 	select LLVM_TARGET_TARGET	if MESALIB_DRI_LLVMPIPE
 	select LLVM_TARGET_AMDGPU	if MESALIB_DRI_RADEONSI
+	select SPIRV_TOOLS		if MESALIB_CLC
 	select VULKAN_LOADER		if MESALIB_DRI_ZINK
 	select LM_SENSORS		if MESALIB_LMSENSORS
 	select XORGPROTO		if MESALIB_GLX
@@ -105,6 +108,10 @@ config MESALIB_DRI_FREEDRENO
 	bool
 	prompt "Freedreno"
 
+config MESALIB_DRI_ETHOSU
+	bool
+	prompt "ethosu"
+
 config MESALIB_DRI_ETNAVIV
 	bool
 	prompt "Etnaviv"
@@ -133,6 +140,10 @@ config MESALIB_DRI_IRIS
 config MESALIB_DRI_LIMA
 	bool
 	prompt "lima"
+
+config MESALIB_DRI_ROCKET
+	bool
+	prompt "rocket"
 
 config MESALIB_DRI_ZINK
 	bool
@@ -277,6 +288,11 @@ config MESALIB_VULKAN_INTEL_HASVK
 	select MESALIB_XMLCONFIG
 	prompt "Intel (hasvk)"
 
+config MESALIB_VULKAN_IMAGINATION
+	bool
+	select MESALIB_CLC
+	prompt "Imagination"
+
 config MESALIB_VULKAN_FREEDRENO
 	bool
 	prompt "Freedreno (Turnip)"
@@ -313,6 +329,10 @@ config MESALIB_VULKAN_GFXSTREAM
 	prompt "gfxstream"
 
 comment "Vulkan layers"
+
+config MESALIB_VULKAN_ANTI_LAG
+	bool
+	prompt "Anti-Lag layer"
 
 config MESALIB_VULKAN_DEVICE_SELECT
 	bool

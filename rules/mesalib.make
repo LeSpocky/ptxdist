@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 25.2.7
-MESALIB_MD5	:= 0de4be70ff09523b3f4e1270cb0a69ef
+MESALIB_VERSION	:= 25.3.1
+MESALIB_MD5	:= 80c20978752fc15a792c41d482b04196
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -51,6 +51,9 @@ MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_RADEONSI)	+= radeonsi
 endif
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_NOUVEAU)	+= nouveau
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_FREEDRENO)+= freedreno
+ifdef PTXCONF_ARCH_ARM64
+MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_ETHOSU)	+= ethosu
+endif
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_ETNAVIV)	+= etnaviv
 ifdef PTXCONF_ARCH_ARM_NEON
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_V3D)	+= v3d
@@ -62,6 +65,9 @@ MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_PANFROST)	+= panfrost
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_LIMA)	+= lima
 ifdef PTXCONF_ARCH_X86
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_IRIS)	+= iris
+endif
+ifdef PTXCONF_ARCH_ARM64
+MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_ROCKET)	+= rocket
 endif
 MESALIB_GALLIUM_DRIVERS-$(PTXCONF_MESALIB_DRI_ZINK)	+= zink
 ifdef PTXCONF_ARCH_ARM64
@@ -117,8 +123,10 @@ MESALIB_DRI_GALLIUM_LIBS-y = \
 	,$(subst panfrost,panfrost panthor \
 	,$(subst svga,vmwgfx \
 	,$(subst virgl,virtio_gpu \
+	,$(subst ethosu, \
+	,$(subst rocket, \
 	,$(MESALIB_GALLIUM_DRIVERS-y) \
-	))))))
+	))))))))
 
 MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_VC1DEC)	+= vc1dec
 MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_H264DEC)	+= h264dec
@@ -133,6 +141,7 @@ ifdef PTXCONF_ARCH_X86
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_AMD)		+= amd
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_INTEL)		+= intel
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_INTEL_HASVK)	+= intel_hasvk
+MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_IMAGINATION)	+= imagination
 endif
 ifdef PTXCONF_ARCH_ARM_NEON
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_BROADCOM)	+= broadcom
@@ -151,8 +160,13 @@ ifdef PTXCONF_ARCH_LP64
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_GFXSTREAM)	+= gfxstream
 endif
 
-MESALIB_VULKAN_LIBS-y = $(subst amd,radeon,$(subst swrast,lvp,$(MESALIB_VULKAN_DRIVERS-y)))
+MESALIB_VULKAN_LIBS-y = $(subst amd,radeon \
+	,$(subst swrast,lvp \
+	,$(subst imagination,powervr_mesa \
+	,$(MESALIB_VULKAN_DRIVERS-y) \
+	)))
 
+MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_ANTI_LAG)	+= anti-lag
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_DEVICE_SELECT)	+= device-select
 ifdef PTXCONF_ARCH_X86
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_INTEL_NULLHW)	+= intel-nullhw
@@ -191,6 +205,7 @@ MESALIB_CONF_OPT	:= \
 	-Damd-use-llvm=true \
 	-Damdgpu-virtio=false \
 	-Dandroid-libbacktrace=disabled \
+	-Dandroid-libperfetto=disabled \
 	-Dandroid-strict=true \
 	-Dandroid-stub=false \
 	-Dbuild-aco-tests=false \
@@ -199,6 +214,7 @@ MESALIB_CONF_OPT	:= \
 	-Dcustom-shader-replacement= \
 	-Dd3d-drivers-path=/usr/lib/d3d \
 	-Ddatasources=auto \
+	-Ddisplay-info=enabled \
 	-Ddraw-use-llvm=true \
 	-Ddri-drivers-path=/usr/lib/dri \
 	-Degl=$(call ptx/endis, PTXCONF_MESALIB_EGL)d \
@@ -218,7 +234,6 @@ MESALIB_CONF_OPT	:= \
 	-Dgallium-rusticl=false \
 	-Dgallium-rusticl-enable-drivers= \
 	-Dgallium-va=$(call ptx/endis, PTXCONF_MESALIB_VA)d \
-	-Dgallium-vdpau=disabled \
 	-Dgallium-wgl-dll-name=libgallium_wgl \
 	-Dgbm=$(call ptx/endis, PTXCONF_MESALIB_GBM)d \
 	-Dgbm-backends-path= \
@@ -234,6 +249,7 @@ MESALIB_CONF_OPT	:= \
 	-Dhtml-docs=disabled \
 	-Dhtml-docs-path= \
 	-Dimagination-srv=false \
+	-Dimagination-uscgen-devices=axe-1-16m \
 	-Dinstall-intel-gpu-tests=false \
 	-Dinstall-mesa-clc=false \
 	-Dinstall-precomp-compiler=false \
@@ -264,6 +280,7 @@ MESALIB_CONF_OPT	:= \
 	-Dshader-cache-max-size=1G \
 	-Dshared-llvm=enabled \
 	-Dspirv-to-dxil=false \
+	-Dspirv-tools=$(call ptx/endis, PTXCONF_MESALIB_CLC)d \
 	-Dsplit-debug=disabled \
 	-Dsse2=true \
 	-Dstatic-libclc=[] \
@@ -273,7 +290,6 @@ MESALIB_CONF_OPT	:= \
 	-Dunversion-libgallium=false \
 	-Dva-libs-path=/usr/lib/dri \
 	-Dvalgrind=disabled \
-	-Dvdpau-libs-path=/usr/lib/vdpau \
 	-Dvideo-codecs=$(subst $(space),$(comma),$(MESALIB_VIDEO_CODECS-y)) \
 	-Dvirtgpu_kumquat=false \
 	-Dvmware-mks-stats=false \
