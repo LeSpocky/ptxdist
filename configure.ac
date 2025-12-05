@@ -187,7 +187,7 @@ AC_MSG_RESULT([$AWK_VERSION])
 AC_PATH_PROGS(SYSCTL, sysctl false,, $PATH)
 
 dnl Check for lex
-AC_PROG_LEX
+AC_PROG_LEX(noyywrap)
 AC_PATH_PROGS(LEX, ${LEX},, $PATH)
 if test -z "${LEX}"; then
    AC_MSG_ERROR([(f)lex could not be found, please install])
