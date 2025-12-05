@@ -35,11 +35,6 @@ dnl
 PKG_PROG_PKG_CONFIG
 AS_IF([test -z "$PKG_CONFIG"], AC_MSG_ERROR([pkg-config not found.]))
 
-dnl
-dnl Check header files, mostly for lxdialog & kconfig
-dnl
-AC_HEADER_STDC
-
 AC_CHECK_HEADERS([fcntl.h inttypes.h libintl.h limits.h locale.h malloc.h stddef.h stdlib.h string.h sys/time.h unistd.h])
 
 AC_CHECK_HEADER([regex.h], [], AC_MSG_ERROR([Cannot find regex.h.]))
