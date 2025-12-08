@@ -1,0 +1,26 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 12 Dec 2025 10:29:55 +0100
+Subject: [PATCH] ipa: rpi: remove executable bit from data files
+
+These are just data files. Like all other files in the same directory,
+they should not be executable. So change the mode to match.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ src/ipa/rpi/pisp/data/imx415.json  | 0
+ src/ipa/rpi/pisp/data/ov64a40.json | 0
+ src/ipa/rpi/vc4/data/imx415.json   | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+ mode change 100755 => 100644 src/ipa/rpi/pisp/data/imx415.json
+ mode change 100755 => 100644 src/ipa/rpi/pisp/data/ov64a40.json
+ mode change 100755 => 100644 src/ipa/rpi/vc4/data/imx415.json
+
+diff --git a/src/ipa/rpi/pisp/data/imx415.json b/src/ipa/rpi/pisp/data/imx415.json
+old mode 100755
+new mode 100644
+diff --git a/src/ipa/rpi/pisp/data/ov64a40.json b/src/ipa/rpi/pisp/data/ov64a40.json
+old mode 100755
+new mode 100644
+diff --git a/src/ipa/rpi/vc4/data/imx415.json b/src/ipa/rpi/vc4/data/imx415.json
+old mode 100755
+new mode 100644

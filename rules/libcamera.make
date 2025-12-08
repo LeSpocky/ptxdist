@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBCAMERA) += libcamera
 #
 # Paths and names
 #
-LIBCAMERA_VERSION	:= 0.4.0
-LIBCAMERA_MD5		:= 286fe1efb70329bcb59a592db06134e3
+LIBCAMERA_VERSION	:= 0.6.0
+LIBCAMERA_MD5		:= 1c4ce91a4a4f24bc6ff633723d59bd2d
 LIBCAMERA		:= libcamera-$(LIBCAMERA_VERSION)
 LIBCAMERA_SUFFIX	:= tar.gz
 LIBCAMERA_URL		:= https://gitlab.freedesktop.org/camera/libcamera/-/archive/v$(LIBCAMERA_VERSION)/$(LIBCAMERA).$(LIBCAMERA_SUFFIX)
@@ -44,9 +44,13 @@ LIBCAMERA_LICENSE_FILES	:= file://LICENSES/Apache-2.0.txt;md5=3b83ef96387f14655f
 
 LIBCAMERA_IPAS-y					:=
 LIBCAMERA_IPAS-$(PTXCONF_LIBCAMERA_IPA_IPU3)		+= ipu3
+LIBCAMERA_IPASC-$(PTXCONF_LIBCAMERA_IPA_MALI_C55)	+= mali-c55
+LIBCAMERA_IPASM-$(PTXCONF_LIBCAMERA_IPA_MALI_C55)	+= mali_c55
 LIBCAMERA_IPASC-$(PTXCONF_LIBCAMERA_IPA_RASPBERRYPI)	+= rpi/vc4
 LIBCAMERA_IPASM-$(PTXCONF_LIBCAMERA_IPA_RASPBERRYPI)	+= rpi_vc4
 LIBCAMERA_IPAS-$(PTXCONF_LIBCAMERA_IPA_RKISP1)		+= rkisp1
+LIBCAMERA_IPASC-$(PTXCONF_LIBCAMERA_IPA_SIMPLE)		+= simple
+LIBCAMERA_IPASM-$(PTXCONF_LIBCAMERA_IPA_SIMPLE)		+= soft_simple
 LIBCAMERA_IPAS-$(PTXCONF_LIBCAMERA_IPA_VIMC)		+= vimc
 
 LIBCAMERA_IPASC-y	+= $(LIBCAMERA_IPAS-y)
@@ -55,16 +59,20 @@ LIBCAMERA_IPASM-y	+= $(LIBCAMERA_IPAS-y)
 LIBCAMERA_PIPELINES-y						:=
 LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_IMX8ISI)	+= imx8-isi
 LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_IPU3)		+= ipu3
+LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_MALI_C55)	+= mali-c55
 LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_RASPBERRYPI)	+= rpi/vc4
 LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_RKISP1)	+= rkisp1
 LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_SIMPLE)	+= simple
 LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_UVCVIDEO)	+= uvcvideo
 LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_VIMC)		+= vimc
+LIBCAMERA_PIPELINES-$(PTXCONF_LIBCAMERA_PIPELINE_VIRTUAL)	+= virtual
 
 LIBCAMERA_IPA_PROXIES-y						:=
 LIBCAMERA_IPA_PROXIES-$(PTXCONF_LIBCAMERA_PIPELINE_IPU3)	+= ipu3
+LIBCAMERA_IPA_PROXIES-$(PTXCONF_LIBCAMERA_PIPELINE_MALI_C55)	+= mali-c55
 LIBCAMERA_IPA_PROXIES-$(PTXCONF_LIBCAMERA_PIPELINE_RASPBERRYPI)	+= raspberrypi
 LIBCAMERA_IPA_PROXIES-$(PTXCONF_LIBCAMERA_PIPELINE_RKISP1)	+= rkisp1
+LIBCAMERA_IPA_PROXIES-$(PTXCONF_LIBCAMERA_PIPELINE_SIMPLE)	+= soft
 LIBCAMERA_IPA_PROXIES-$(PTXCONF_LIBCAMERA_PIPELINE_VIMC)	+= vimc
 
 LIBCAMERA_CONF_TOOL	:= meson
@@ -78,6 +86,7 @@ LIBCAMERA_CONF_OPT	:= \
 	-Dgstreamer=$(call ptx/endis,PTXCONF_LIBCAMERA_GSTREAMER)d \
 	-Dipas=$(subst $(ptx/def/space),$(ptx/def/comma),$(strip $(LIBCAMERA_IPASC-y))) \
 	-Dlc-compliance=disabled \
+	-Dlibunwind=disabled \
 	-Dpipelines=$(subst $(ptx/def/space),$(ptx/def/comma),$(strip $(LIBCAMERA_PIPELINES-y))) \
 	-Dpycamera=disabled \
 	-Dqcam=$(call ptx/endis,PTXCONF_LIBCAMERA_QCAM)d \
@@ -104,14 +113,14 @@ define install_ipa_module_signed
 	# The IPA modules must not be stripped, otherwise the associated
 	# signatures will no longer be valid.
 	@$(call install_copy, libcamera, 0, 0, 0644, -, \
-		/usr/lib/libcamera/ipa_$(strip $(1)).so, n)
+		/usr/lib/libcamera/ipa/ipa_$(strip $(1)).so, n)
 	@$(call install_copy, libcamera, 0, 0, 0644, -, \
-		/usr/lib/libcamera/ipa_$(strip $(1)).so.sign)
+		/usr/lib/libcamera/ipa/ipa_$(strip $(1)).so.sign)
 endef
 
 define install_ipa_module
 	@$(call install_copy, libcamera, 0, 0, 0644, -, \
-		/usr/lib/libcamera/ipa_$(strip $(1)).so)
+		/usr/lib/libcamera/ipa/ipa_$(strip $(1)).so)
 endef
 
 $(STATEDIR)/libcamera.targetinstall:

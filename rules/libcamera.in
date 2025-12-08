@@ -68,6 +68,15 @@ config LIBCAMERA_IPA_IPU3
 	prompt "ipu3 IPA"
 	depends on LIBCAMERA_PIPELINE_IPU3
 
+config LIBCAMERA_PIPELINE_MALI_C55
+	bool
+	prompt "mali-c55 pipeline"
+
+config LIBCAMERA_IPA_MALI_C55
+	bool
+	prompt "mali-c55 IPA"
+	depends on LIBCAMERA_PIPELINE_MALI_C55
+
 config LIBCAMERA_PIPELINE_RASPBERRYPI
 	bool
 	prompt "raspberrypi pipeline"
@@ -92,6 +101,11 @@ config LIBCAMERA_PIPELINE_SIMPLE
 	bool
 	prompt "simple pipeline"
 
+config LIBCAMERA_IPA_SIMPLE
+	bool
+	prompt "simple IPA"
+	depends on LIBCAMERA_PIPELINE_SIMPLE
+
 config LIBCAMERA_PIPELINE_UVCVIDEO
 	bool
 	prompt "uvcvideo pipeline"
@@ -105,6 +119,12 @@ config LIBCAMERA_IPA_VIMC
 	default y
 	prompt "vimc IPA"
 	depends on LIBCAMERA_PIPELINE_VIMC
+
+config LIBCAMERA_PIPELINE_VIRTUAL
+	bool
+	# needs libyuv
+	depends on BROKEN
+	prompt "virtual pipeline"
 
 endmenu
 
