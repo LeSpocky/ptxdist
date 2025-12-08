@@ -390,7 +390,7 @@ ptxd_install_compression_format() {
 
     libc="$(ptxd_cross_cc -print-file-name=libc.so.6 2> /dev/null)"
     if [ -f "${libc}" ]; then
-	comp="=$($(ptxd_get_ptxconf PTXCONF_COMPILER_PREFIX)readelf -t "${libc}" | sed -n -e '/COMPRESSED/{N;s/.*\(ZLIB\|ZSTD\).*/\1/p;q}' | tr '[:upper:]' '[:lower:]')"
+	comp="$($(ptxd_get_ptxconf PTXCONF_COMPILER_PREFIX)readelf -t "${libc}" | sed -n -e '/COMPRESSED/{N;s/.*\(ZLIB\|ZSTD\).*/=\1/p;q}' | tr '[:upper:]' '[:lower:]')"
     fi
     export ptxd_install_file_objcopy_args="--only-keep-debug --compress-debug-sections${comp}"
 }
