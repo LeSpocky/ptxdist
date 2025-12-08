@@ -99,6 +99,9 @@ comment "BusyBox' fdisk is selected!"
 config UTIL_LINUX_FINDMNT
 	bool
 	prompt "findmnt"
+	select UTIL_LINUX_LIBBLKID
+	select UTIL_LINUX_LIBMOUNT
+	select UTIL_LINUX_LIBSMARTCOLS
 	help
 	  findmnt - Find a mounted device from its mountpoint and vise versa
 
