@@ -7,6 +7,7 @@ menuconfig GDB
 	select LIBC_DL
 	select GCCLIBS_GCC_S
 	select NCURSES
+	select READLINE
 	select ZLIB
 	select ZSTD		if GDB_ZSTD
 	select LIBGMP		if GDB_11_1
