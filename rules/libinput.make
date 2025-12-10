@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBINPUT) += libinput
 #
 # Paths and names
 #
-LIBINPUT_VERSION	:= 1.30.0
-LIBINPUT_MD5		:= 701702bea2e86b071639aa6582c0a5b7
+LIBINPUT_VERSION	:= 1.30.1
+LIBINPUT_MD5		:= f23d9ed94d3def26e82271d15f54a74a
 LIBINPUT		:= libinput-$(LIBINPUT_VERSION)
 LIBINPUT_SUFFIX		:= tar.gz
 LIBINPUT_URL		:= https://gitlab.freedesktop.org/libinput/libinput/-/archive/$(LIBINPUT_VERSION)/$(LIBINPUT).$(LIBINPUT_SUFFIX)
