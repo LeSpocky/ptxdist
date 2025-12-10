@@ -83,6 +83,7 @@ $(STATEDIR)/pam.targetinstall:
 	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/time.conf)
 
 	@$(call install_alternative, pam, 0, 0, 0755, /usr/sbin/mkhomedir_helper)
+	@$(call install_alternative, pam, 0, 0, 0755, /usr/sbin/unix_chkpwd)
 
 	@$(call install_finish, pam)
 
