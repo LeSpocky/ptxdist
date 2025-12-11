@@ -9,6 +9,7 @@ menuconfig NGINX
 	select LIBPCRE			if NGINX_PCRE
 	select OPENSSL			if NGINX_HTTP_SSL_MODULE || NGINX_HTTP_V2_MODULE
 	select ZLIB			if NGINX_HTTP_GZIP_MODULE || NGINX_HTTP_GZIP_STATIC_MODULE
+	select ROOTFS_VAR_WWW		if NGINX_POPULATE_TEST_WEBSITE
 	help
 	  nginx ("engine X") is a high-performance web and reverse
 	  proxy server created by Igor Sysoev. It can be used both as
