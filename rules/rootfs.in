@@ -256,6 +256,15 @@ config ROOTFS_VAR_TMP
 	  system reboots. Say 'y' here to ensure a '/var/tmp' directory is
 	  available at run-time.
 
+config ROOTFS_VAR_WWW
+	bool
+	prompt "/var/www"
+	help
+	  This directory is intended for webserver application data.
+	  Usually things like html or javascript files go here.
+	  Say 'y' here to ensure a '/var/www' directory is available at
+	  run-time.
+
 endmenu
 endif # ROOTFS
 

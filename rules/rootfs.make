@@ -145,6 +145,9 @@ ifdef PTXCONF_ROOTFS_VAR_OVERLAYFS
 	@$(call install_link, rootfs, ../var.mount, \
 		/usr/lib/systemd/system/local-fs.target.requires/var.mount)
 endif
+ifdef PTXCONF_ROOTFS_VAR_WWW
+	@$(call install_copy, rootfs, 0, 0, 0755, /var/www)
+endif
 
 #	#
 #	# install files in rootfs
