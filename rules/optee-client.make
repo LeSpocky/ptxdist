@@ -33,8 +33,8 @@ OPTEE_CLIENT_CONF_TOOL	:= cmake
 OPTEE_CLIENT_CONF_OPT	:= \
 	$(CROSS_CMAKE_USR) \
 	-DBUILD_SHARED_LIBS=ON \
-	-DCFG_ENABLE_SYSTEMD=OFF \
-	-DCFG_ENABLE_UDEV=OFF \
+	-DCFG_ENABLE_SYSTEMD=$(call ptx/onoff, PTXCONF_OPTEE_CLIENT_SYSTEMD_UNIT) \
+	-DCFG_ENABLE_UDEV=$(call ptx/onoff, PTXCONF_OPTEE_CLIENT_UDEV) \
 	-DCFG_FTRACE_SUPPORT=ON \
 	-DCFG_GP_SOCKETS=1 \
 	-DCFG_TA_GPROF_SUPPORT=ON \
@@ -52,6 +52,7 @@ OPTEE_CLIENT_CONF_OPT	:= \
 	-DCFG_USE_PKGCONFIG=OFF \
 	-DCFG_WERROR=ON \
 	-DRPMB_EMU=$(call ptx/onoff, PTXCONF_OPTEE_CLIENT_SUPPLICANT_RPMB_EMULATION) \
+	-DUDEV_UDEV_DIR="/usr/lib/udev/rules.d" \
 	-DWITH_TEEACL=ON
 
 # ----------------------------------------------------------------------------
@@ -70,11 +71,13 @@ $(STATEDIR)/optee-client.targetinstall:
 	@$(call install_lib, optee-client, 0, 0, 0644, libteec)
 	@$(call install_lib, optee-client, 0, 0, 0644, libckteec)
 	@$(call install_copy, optee-client, 0, 0, 0755, -, /usr/sbin/tee-supplicant)
+ifdef PTXCONF_OPTEE_CLIENT_UDEV
+	@$(call install_alternative, optee-client, 0, 0, 0644, \
+		/usr/lib/udev/rules.d/60-optee-udev.rules)
+endif
 ifdef PTXCONF_OPTEE_CLIENT_SYSTEMD_UNIT
 	@$(call install_alternative, optee-client, 0, 0, 0644, \
-		/usr/lib/systemd/system/tee-supplicant.service)
-	@$(call install_link, optee-client, ../tee-supplicant.service,\
-		/usr/lib/systemd/system/multi-user.target.wants/tee-supplicant.service)
+		/usr/lib/systemd/system/tee-supplicant@.service)
 endif
 
 	@$(call install_finish, optee-client)

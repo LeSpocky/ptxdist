@@ -1,0 +1,32 @@
+From: Holger Assmann <h.assmann@pengutronix.de>
+Date: Mon, 1 Dec 2025 10:35:22 +0100
+Subject: [PATCH] tee-supplicant: add device instance as start parameter for
+ service file
+
+tee-supplicant requires a device name as a positional argument. This can
+not be provided via $OPTARGS from the EnvironmentFile, since that
+variable does not account for the service file being a template where
+instance-specific services (i.e. @teepriv0, @teepriv1, ...) are derived
+from.
+
+Therefore, the device instance used for each templated systemd service
+needs to be included directly in the ExecStart line.
+
+Signed-off-by: Holger Assmann <h.assmann@pengutronix.de>
+Acked-by: Jerome Forissier <jerome.forissier@linaro.org>
+---
+ tee-supplicant/tee-supplicant@.service.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tee-supplicant/tee-supplicant@.service.in b/tee-supplicant/tee-supplicant@.service.in
+index e53a9357f01f..7e10e1d753a4 100644
+--- a/tee-supplicant/tee-supplicant@.service.in
++++ b/tee-supplicant/tee-supplicant@.service.in
+@@ -12,6 +12,6 @@ Type=notify
+ User=@CFG_TEE_SUPPL_USER@
+ Group=@CFG_TEE_SUPPL_GROUP@
+ EnvironmentFile=-@CMAKE_INSTALL_SYSCONFDIR@/default/tee-supplicant
+-ExecStart=@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_SBINDIR@/tee-supplicant $OPTARGS
++ExecStart=@CMAKE_INSTALL_PREFIX@/@CMAKE_INSTALL_SBINDIR@/tee-supplicant $OPTARGS /dev/%I
+ # Workaround for fTPM TA: stop kernel module before tee-supplicant
+ ExecStop=-/bin/sh -c "/sbin/modprobe -v -r tpm_ftpm_tee ; /bin/kill $MAINPID"

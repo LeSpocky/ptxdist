@@ -16,11 +16,31 @@ menuconfig OPTEE_CLIENT
 
 if OPTEE_CLIENT
 
+config OPTEE_CLIENT_UDEV
+	bool
+	default y
+	depends on UDEV
+	select OPTEE_CLIENT_SYSTEMD_UNIT
+	prompt "permission handling and systemd trigger"
+	help
+	  optee-client comes with an udev rule that defines the group ownership
+	  of any '/dev/tee*' to 'tee' and of any '/dev/teepriv*' device as well
+	  as the RPMB partition of any eMMC to 'teepriv'. The respective groups
+	  have to be defined within the BSP.
+	  The udev rule further instantiates a systemd service for every TEE
+	  device.
+
 config OPTEE_CLIENT_SYSTEMD_UNIT
 	bool
 	default y
 	depends on SYSTEMD
 	prompt "install systemd service file for tee-supplicant"
+	help
+	  optee-client comes with a systemd service template to start a TEE-
+	  device specific instance of tee-supplicant.
+	  tee-supplicant is intended to run with a dedicated user/group
+	  setting: 'teesuppl:teesuppl'. This has to be defined within the BSP.
+	  Note that 'teesuppl' has also to be part of group 'teepriv'.
 
 config OPTEE_CLIENT_SUPPLICANT_PLUGINS
 	bool

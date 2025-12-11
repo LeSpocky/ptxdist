@@ -1,0 +1,30 @@
+From: Marco Felsch <m.felsch@pengutronix.de>
+Date: Sat, 8 Nov 2025 02:21:18 +0100
+Subject: [PATCH] tee-supplicant: add missing rule for the mmcblk[0-9]rpmb
+ group
+
+Fix rootless tee-supplicant handling for RPMB use-case. The RPMB
+communcation fails badly if the in-kernel RPMB handling was not enabled
+and the rootless tee-supplicant is used because the default group for
+the /dev/mmcblk[0-9]rpmb is 'root'.
+
+Set the group to same group used for /dev/teepriv[0-9] to fix this and
+to allow rootless tee-supplicant usage with legacy user-space RPMB
+handling.
+
+Signed-off-by: Marco Felsch <m.felsch@pengutronix.de>
+---
+ tee-supplicant/optee-udev.rules.in | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/tee-supplicant/optee-udev.rules.in b/tee-supplicant/optee-udev.rules.in
+index 275e83388efd..e28fb40c4040 100644
+--- a/tee-supplicant/optee-udev.rules.in
++++ b/tee-supplicant/optee-udev.rules.in
+@@ -5,3 +5,6 @@ KERNEL=="tee[0-9]*", MODE="0660", OWNER="root", GROUP="@CFG_TEE_GROUP@", TAG+="s
+ # tee-supplicant.service with the device name as parameter
+ KERNEL=="teepriv[0-9]*", MODE="0660", OWNER="root", GROUP="@CFG_TEEPRIV_GROUP@", \
+     TAG+="systemd", ENV{SYSTEMD_WANTS}+="tee-supplicant@%k.service"
++
++ACTION=="add", SUBSYSTEM=="mmc_rpmb", KERNEL=="mmcblk[0-9]rpmb", \
++    GROUP="@CFG_TEEPRIV_GROUP@"
