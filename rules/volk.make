@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_VOLK) += volk
 #
 # Paths and names
 #
-VOLK_VERSION		:= 1.4.328.1
-VOLK_MD5		:= 3f4345d570649a5d40082a43edcb87e6
+VOLK_VERSION		:= 1.4.335.0
+VOLK_MD5		:= 81204922e8ce121fecad6e102ee127de
 VOLK			:= volk-$(VOLK_VERSION)
 VOLK_SUFFIX		:= tar.gz
 VOLK_URL		:= https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-$(VOLK_VERSION).$(VOLK_SUFFIX)
@@ -35,7 +35,8 @@ VOLK_CONF_OPT	:= \
 	-G Ninja \
 	-DVOLK_HEADERS_ONLY=OFF \
 	-DVOLK_INSTALL=ON \
+	-DVOLK_NAMESPACE=OFF \
 	-DVOLK_PULL_IN_VULKAN=ON \
-	-DVOLK_STATIC_DEFINES=OFF
+	-DVOLK_STATIC_DEFINES=
 
 # vim: syntax=make
