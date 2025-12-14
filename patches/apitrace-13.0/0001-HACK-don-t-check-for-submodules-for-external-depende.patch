@@ -4,23 +4,24 @@ Subject: [PATCH] HACK: don't check for submodules for external dependencies
 
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
- thirdparty/CMakeLists.txt | 4 ----
- 1 file changed, 4 deletions(-)
+ thirdparty/CMakeLists.txt | 5 -----
+ 1 file changed, 5 deletions(-)
 
 diff --git a/thirdparty/CMakeLists.txt b/thirdparty/CMakeLists.txt
-index 7eae7e55da3e..ceb9305b44a4 100644
+index 722899bc3c40..91251f7e2134 100644
 --- a/thirdparty/CMakeLists.txt
 +++ b/thirdparty/CMakeLists.txt
-@@ -15,12 +15,8 @@ endfunction ()
+@@ -18,13 +18,8 @@ endfunction ()
  
  set (SUBMODULES_MISSING FALSE)
  foreach (path IN ITEMS
 -    brotli/LICENSE
--    gtest/googletest/LICENSE
+-    gtest/LICENSE
      libbacktrace/LICENSE
 -    libpng/LICENSE
      snappy/COPYING
 -    zlib/README
+-    directxmath/LICENSE
  )
      if (NOT EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/${path}")
          message (SEND_ERROR "error: ${CMAKE_CURRENT_SOURCE_DIR}/${path} does not exist")

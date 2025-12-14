@@ -2,5 +2,4 @@
 #tag:base --start-number 1
 0001-HACK-don-t-check-for-submodules-for-external-depende.patch
 0002-HACK-don-t-do-dpkg-architecture-magic.patch
-0003-Allow-building-without-GTest-when-BUILD_TESTING-is-n.patch
-# b2c22b5a761a53785691516d94cb19c1  - git-ptx-patches magic
+# d781b7ce7b411ab6ab663c32f56ed491  - git-ptx-patches magic
