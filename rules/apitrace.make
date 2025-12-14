@@ -69,7 +69,7 @@ APITRACE_CONF_OPT	:=  \
 	-DENABLE_STATIC_LIBSTDCXX=OFF \
 	-DENABLE_STATIC_SNAPPY=SNAPPY \
 	-DENABLE_TESTS=OFF \
-	-DENABLE_WAFFLE=OFF \
+	-DENABLE_WAFFLE=$(call ptx/onoff, PTXCONF_APITRACE_REPLAY) \
 	-DENABLE_X11=OFF
 
 # ----------------------------------------------------------------------------
@@ -86,6 +86,10 @@ $(STATEDIR)/apitrace.targetinstall:
 	@$(call install_fixup, apitrace,DESCRIPTION,missing)
 
 	@$(call install_copy, apitrace, 0, 0, 0755, -, /usr/bin/apitrace)
+
+ifdef PTXCONF_APITRACE_REPLAY
+	@$(call install_copy, apitrace, 0, 0, 0755, -, /usr/bin/eglretrace)
+endif
 
 	@$(call install_lib, apitrace, 0, 0, 0644, apitrace/wrappers/egltrace)
 

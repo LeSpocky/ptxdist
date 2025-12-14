@@ -8,6 +8,18 @@ config APITRACE
 	select ZLIB
 	select LIBPNG
 	select BROTLI
+	select WAFFLE			if APITRACE_REPLAY
 	prompt "apitrace"
 	help
 	  Tools for tracing OpenGL, Direct3D, and other graphics APIs.
+
+if APITRACE
+
+config APITRACE_REPLAY
+	tristate
+	prompt "apitrace replay"
+	help
+	  Build apitrace tools to replay a captured trace on the target
+	  system.
+
+endif
