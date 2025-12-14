@@ -1,0 +1,36 @@
+From: Lucas Stach <l.stach@pengutronix.de>
+Date: Sun, 14 Dec 2025 18:12:57 +0100
+Subject: [PATCH] use stdbool.h instead of rolling our own
+
+With C23 bool is now a proper keyword, so we can not use
+the check if bool is defined to gate our own fallback.
+
+Use stdbool.h instead to have bool types across different
+compiler versions.
+
+Signed-off-by: Lucas Stach <l.stach@pengutronix.de>
+---
+ memedit_parser.h | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/memedit_parser.h b/memedit_parser.h
+index c5db019b7cde..bed7544a789e 100644
+--- a/memedit_parser.h
++++ b/memedit_parser.h
+@@ -14,15 +14,9 @@
+ **
+ ******************************************************************************/
+ 
++#include <stdbool.h>
+ #include <stdio.h>
+ 
+-#ifndef bool
+-typedef enum bool_t
+-{
+-  false = 0, true
+-} bool;
+-#endif
+-
+ /* customized structure for command line parameters */
+ struct arg_t
+ {
