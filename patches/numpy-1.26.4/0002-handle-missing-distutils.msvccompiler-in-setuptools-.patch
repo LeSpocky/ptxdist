@@ -1,0 +1,45 @@
+From: Markus Heidelberg <m.heidelberg@cab.de>
+Date: Tue, 16 Dec 2025 11:50:00 +0100
+Subject: [PATCH] handle missing distutils.msvccompiler in setuptools >= 74.0.0
+
+distutils._msvccompiler exists, but only provides the MSVCCompiler
+class, not the get_build_version function.
+
+Signed-off-by: Markus Heidelberg <m.heidelberg@cab.de>
+---
+ numpy/distutils/mingw32ccompiler.py | 4 +++-
+ numpy/distutils/msvccompiler.py     | 2 +-
+ 2 files changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/numpy/distutils/mingw32ccompiler.py b/numpy/distutils/mingw32ccompiler.py
+index 4763f41ad326..f504d8b6223d 100644
+--- a/numpy/distutils/mingw32ccompiler.py
++++ b/numpy/distutils/mingw32ccompiler.py
+@@ -24,13 +24,15 @@
+ 
+ import distutils.cygwinccompiler
+ from distutils.unixccompiler import UnixCCompiler
+-from distutils.msvccompiler import get_build_version as get_build_msvc_version
+ from distutils.errors import UnknownFileError
+ from numpy.distutils.misc_util import (msvc_runtime_library,
+                                        msvc_runtime_version,
+                                        msvc_runtime_major,
+                                        get_build_architecture)
+ 
++def get_build_msvc_version():
++    return None
++
+ def get_msvcr_replacement():
+     """Replacement for outdated version of get_msvcr from cygwinccompiler"""
+     msvcr = msvc_runtime_library()
+diff --git a/numpy/distutils/msvccompiler.py b/numpy/distutils/msvccompiler.py
+index 2b93221baac8..5e2a030404da 100644
+--- a/numpy/distutils/msvccompiler.py
++++ b/numpy/distutils/msvccompiler.py
+@@ -1,5 +1,5 @@
+ import os
+-from distutils.msvccompiler import MSVCCompiler as _MSVCCompiler
++from distutils._msvccompiler import MSVCCompiler as _MSVCCompiler
+ 
+ from .system_info import platform_bits
+ 
