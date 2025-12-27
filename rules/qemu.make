@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_QEMU) += qemu
 #
 # Paths and names
 #
-QEMU_VERSION	:= 10.1.3
-QEMU_MD5	:= ea3f6241bc4802ddeace111eb2b8a2c1
+QEMU_VERSION	:= 10.2.0
+QEMU_MD5	:= 931c0b9ed2ef58bb7c53bb143f4c24f3
 QEMU		:= qemu-$(QEMU_VERSION)
 QEMU_SUFFIX	:= tar.xz
 QEMU_URL	:= https://download.qemu.org/$(QEMU).$(QEMU_SUFFIX)
@@ -147,6 +147,7 @@ QEMU_CONF_OPT	:= \
 	--enable-membarrier \
 	--disable-modules \
 	--disable-mpath \
+	--disable-mshv \
 	--enable-multiprocess \
 	--disable-netmap \
 	--disable-nettle \
