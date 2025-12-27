@@ -138,6 +138,7 @@ HOST_QEMU_CONF_OPT	:= \
 	--enable-malloc-trim \
 	--enable-membarrier \
 	--disable-mpath \
+	--disable-mshv \
 	--enable-multiprocess \
 	--disable-netmap \
 	--disable-nettle \
