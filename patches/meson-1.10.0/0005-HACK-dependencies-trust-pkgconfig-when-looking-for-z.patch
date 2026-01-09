@@ -10,10 +10,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/mesonbuild/dependencies/dev.py b/mesonbuild/dependencies/dev.py
-index 8f0f1baae323..fd9ca9be0d3f 100644
+index 4d219a58967f..85f6e2502941 100644
 --- a/mesonbuild/dependencies/dev.py
 +++ b/mesonbuild/dependencies/dev.py
-@@ -827,7 +827,7 @@ packages['gmock'] = gmock_factory = DependencyFactory(
+@@ -818,7 +818,7 @@ packages['gmock'] = gmock_factory = DependencyFactory(
  
  packages['zlib'] = zlib_factory = DependencyFactory(
      'zlib',

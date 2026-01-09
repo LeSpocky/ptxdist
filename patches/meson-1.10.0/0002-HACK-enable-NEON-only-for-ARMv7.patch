@@ -10,7 +10,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 3 insertions(+)
 
 diff --git a/mesonbuild/modules/simd.py b/mesonbuild/modules/simd.py
-index bfdc0c2dfc2d..5b9de7a3fd96 100644
+index 2519d531ef89..3e89fc14d5fc 100644
 --- a/mesonbuild/modules/simd.py
 +++ b/mesonbuild/modules/simd.py
 @@ -84,6 +84,9 @@ class SimdModule(ExtensionModule):
