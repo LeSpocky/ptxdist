@@ -2,7 +2,9 @@
 
 config PYTHON3_TRAITLETS
 	tristate
+	select HOST_PYTHON3_PYBUILD
 	select PYTHON3
+	select PYTHON3_IPYTHON_GENUTILS	if RUNTIME
 	prompt "traitlets"
 	help
 	  A configuration system for Python applications.
