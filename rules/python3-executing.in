@@ -1,0 +1,11 @@
+## SECTION=python3
+
+config PYTHON3_EXECUTING
+	tristate
+	select PYTHON3
+	prompt "executing"
+	help
+	  This mini-package lets you get information about what a frame is
+	  currently doing, particularly the AST node being executed.
+
+# vim: ft=kconfig tw=80
