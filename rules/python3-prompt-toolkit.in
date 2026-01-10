@@ -1,0 +1,13 @@
+## SECTION=python3
+
+config PYTHON3_PROMPT_TOOLKIT
+	tristate
+	select PYTHON3
+	select HOST_PYTHON3_PYBUILD
+	select PYTHON3_WCWIDTH		if RUNTIME
+	prompt "prompt-toolkit"
+	help
+	  prompt_toolkit is a library for building powerful interactive command
+	  line applications in Python.
+
+# vim: ft=kconfig tw=80
