@@ -8,7 +8,7 @@ Signed-off-by: Alexander Aring <alex.aring@gmail.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/pcap-config.in b/pcap-config.in
-index 6039ef33b324..505f7515f2f7 100644
+index 28427047e27f..334092eb73bf 100644
 --- a/pcap-config.in
 +++ b/pcap-config.in
 @@ -10,8 +10,8 @@

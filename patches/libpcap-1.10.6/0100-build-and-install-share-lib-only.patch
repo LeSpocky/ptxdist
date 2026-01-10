@@ -12,10 +12,10 @@ Signed-off-by: Alexander Aring <alex.aring@gmail.com>
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/Makefile.in b/Makefile.in
-index 54246586828d..4c6768d6d764 100644
+index fe32c40cf62f..6e56b8fe3af8 100644
 --- a/Makefile.in
 +++ b/Makefile.in
-@@ -429,7 +429,7 @@ RELEASE_FILES = $(COMMON_C_SRC) $(HDR) $(MAN1) $(MAN3PCAP_EXPAND) \
+@@ -420,7 +420,7 @@ RELEASE_FILES = $(COMMON_C_SRC) $(HDR) $(MAN1) $(MAN3PCAP_EXPAND) \
  	$(MAN3PCAP_NOEXPAND) $(MANFILE) $(MANMISC) $(EXTRA_DIST) \
  	$(TEST_DIST)
  
@@ -24,7 +24,7 @@ index 54246586828d..4c6768d6d764 100644
  
  libpcap.a: $(OBJ)
  	@rm -f $@
-@@ -615,7 +615,7 @@ testprogs: FORCE
+@@ -606,7 +606,7 @@ testprogs: FORCE libpcap.a
  
  FORCE:
  
