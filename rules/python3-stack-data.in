@@ -1,0 +1,15 @@
+## SECTION=python3
+
+config PYTHON3_STACK_DATA
+	tristate
+	select PYTHON3
+	select PYTHON3_ASTTOKENS	if RUNTIME
+	select PYTHON3_EXECUTING	if RUNTIME
+	select PYTHON3_PURE_EVAL	if RUNTIME
+	prompt "stack-data"
+	help
+	  stack-data is a library that extracts data from stack frames and
+	  tracebacks, particularly to display more useful tracebacks than the
+	  default.
+
+# vim: ft=kconfig tw=80
