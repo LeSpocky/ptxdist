@@ -1,0 +1,12 @@
+## SECTION=python3
+
+config PYTHON3_PURE_EVAL
+	tristate
+	select PYTHON3
+	prompt "pure-eval"
+	help
+	  pure-eval is a Python package that lets you safely evaluate certain
+	  AST nodes without triggering arbitrary code that may have unwanted
+	  side effects.
+
+# vim: ft=kconfig tw=80
