@@ -1,0 +1,14 @@
+## SECTION=python3
+
+config PYTHON3_PYGMENTS
+	tristate
+	select PYTHON3
+	select HOST_PYTHON3_PYBUILD
+	select HOST_PYTHON3_HATCHLING
+	prompt "pygments"
+	help
+	  Pygments is a syntax highlighting package written in Python.
+	  It is a generic syntax highlighter suitable for use in code hosting,
+	  forums, wikis or other applications that need to prettify source code.
+
+# vim: ft=kconfig tw=80
