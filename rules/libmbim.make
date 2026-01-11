@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBMBIM) += libmbim
 #
 # Paths and names
 #
-LIBMBIM_VERSION		:= 1.32.0
-LIBMBIM_MD5		:= c175b50028062eed802bfb271861b4f8
+LIBMBIM_VERSION		:= 1.34.0
+LIBMBIM_MD5		:= 049b766df334612600130af0ff733262
 LIBMBIM			:= libmbim-$(LIBMBIM_VERSION)
 LIBMBIM_SUFFIX		:= tar.bz2
 LIBMBIM_URL		:= https://gitlab.freedesktop.org/mobile-broadband/libmbim/-/archive/$(LIBMBIM_VERSION)/$(LIBMBIM).$(LIBMBIM_SUFFIX)
