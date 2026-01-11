@@ -21,11 +21,11 @@ HOST_PACKAGES-$(PTXCONF_HOST_ORC) += host-orc
 HOST_ORC_CONF_TOOL	:= meson
 HOST_ORC_CONF_OPT	:= \
 	$(HOST_MESON_OPT) \
+	-Dorc-target=all \
+	-Dorc-test=disabled \
 	-Dbenchmarks=disabled \
 	-Dexamples=disabled \
-	-Dgtk_doc=disabled \
-	-Dorc-backend=all \
-	-Dorc-test=disabled \
+	-Dhotdoc=disabled \
 	-Dtests=disabled \
 	-Dtools=enabled
 
