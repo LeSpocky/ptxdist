@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_ORC) += orc
 #
 # Paths and names
 #
-ORC_VERSION	:= 0.4.41
-ORC_MD5		:= 16f82f66d1c3988d01c945278bf01fde
+ORC_VERSION	:= 0.4.42
+ORC_MD5		:= b8b4e43d46a62b32150ed5e9833f1d55
 ORC		:= orc-$(ORC_VERSION)
 ORC_SUFFIX	:= tar.xz
 ORC_URL		:= https://gstreamer.freedesktop.org/data/src/orc/$(ORC).$(ORC_SUFFIX)
@@ -29,22 +29,19 @@ ORC_LICENSE_FILES := \
 # Prepare
 # ----------------------------------------------------------------------------
 
-ORC_BACKEND := all
+ORC_TARGET := all
 ifdef PTXCONF_ARCH_ARM_NEON
-ORC_BACKEND := neon
+ORC_TARGET := neon
 endif
 
-#
-# autoconf
-#
 ORC_CONF_TOOL	:= meson
 ORC_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
+	-Dorc-target=$(ORC_TARGET) \
+	-Dorc-test=$(call ptx/endis,PTXCONF_ORC_TEST)d \
 	-Dbenchmarks=disabled \
 	-Dexamples=disabled \
-	-Dgtk_doc=disabled \
-	-Dorc-backend=$(ORC_BACKEND) \
-	-Dorc-test=$(call ptx/endis,PTXCONF_ORC_TEST)d
+	-Dhotdoc=disabled \
 	-Dtests=disabled \
 	-Dtools=disabled
 
@@ -52,12 +49,11 @@ ORC_CONF_OPT	:= \
 # Install
 # ----------------------------------------------------------------------------
 
-# don't install orcc it's for the target and should not be used
 $(STATEDIR)/orc.install:
 	@$(call targetinfo)
 	@$(call world/install, ORC)
-	@rm $(ORC_PKGDIR)/usr/bin/orcc
 	@$(call touch)
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
