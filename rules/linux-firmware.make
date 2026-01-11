@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LINUX_FIRMWARE) += linux-firmware
 #
 # Paths and names
 #
-LINUX_FIRMWARE_VERSION	:= 20251125
-LINUX_FIRMWARE_MD5	:= 7fdfe0f4768bed8ca9035e98815fc502
+LINUX_FIRMWARE_VERSION	:= 20260110
+LINUX_FIRMWARE_MD5	:= c353e926f90e0c123eef24b447c953e0
 LINUX_FIRMWARE		:= linux-firmware-$(LINUX_FIRMWARE_VERSION)
 LINUX_FIRMWARE_SUFFIX	:= tar.gz
 LINUX_FIRMWARE_URL	:= $(call ptx/mirror, KERNEL, kernel/firmware/$(LINUX_FIRMWARE).$(LINUX_FIRMWARE_SUFFIX))
@@ -33,7 +33,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENCE.linaro;md5=936d91e71cf9cd30e733db4bf11661cc \
 	file://LICENCE.adsp_sst;md5=615c45b91a5a4a9fe046d6ab9a2df728 \
 	file://LICENCE.cadence;md5=009f46816f6956cfb75ede13d3e1cee0 \
-	file://LICENSE.amd-ucode;md5=6ca90c57f7b248de1e25c7f68ffc4698 \
+	file://LICENSE.amd-ucode;md5=450f217aadc787514165e9568652d700 \
 	file://LICENSE.aeonsemi;md5=521c00bae0077c90d6ffb9ccf66905ae \
 	file://LICENSE.atmel;md5=aa74ac0c60595dee4d4e239107ea77a3 \
 	file://LICENCE.fw_sst_0f28;md5=6353931c988ad52818ae733ac61cd293 \
@@ -48,6 +48,7 @@ LINUX_FIRMWARE_LICENSE_FILES := \
 	file://LICENSE.tlg2300;md5=4b23ec9ced919a0bf2f7c56dac31b2b7 \
 	file://LICENSE.ice_enhanced;md5=f305cfc31b64f95f774f9edd9df0224d \
 	file://LICENCE.lenovo;md5=7f25420b5c27211f7bf33bebb3042ce4 \
+	file://LICENCE.r8a779g_pcie_phy;md5=0b20e76a9a004b83c4a1c87e2153bbad \
 	file://LICENSE.qcom;md5=164e3362a538eb11d3ac51e8e134294b \
 	file://LICENCE.alacritech;md5=75dabc07cc2fb59d929baa6bd6aae48a \
 	file://LICENCE.ibt_firmware;md5=fdbee1ddfe0fb7ab0b2fcd6b454a366b \
