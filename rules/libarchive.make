@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBARCHIVE) += libarchive
 #
 # Paths and names
 #
-LIBARCHIVE_VERSION	:= 3.8.1
-LIBARCHIVE_MD5		:= 29353cd50c2146601b708a80307a5a76
+LIBARCHIVE_VERSION	:= 3.8.5
+LIBARCHIVE_MD5		:= 2226a84d3720b1a3d00deb0d11530a60
 LIBARCHIVE		:= libarchive-$(LIBARCHIVE_VERSION)
 LIBARCHIVE_SUFFIX	:= tar.gz
 LIBARCHIVE_URL		:= https://www.libarchive.org/downloads/$(LIBARCHIVE).$(LIBARCHIVE_SUFFIX)
@@ -50,6 +50,7 @@ LIBARCHIVE_CONF_OPT	:= \
 	--disable-xattr \
 	--disable-acl \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--with-zlib \
 	--$(call ptx/wwo, PTXCONF_LIBARCHIVE_BZIP2)-bz2lib \
 	--without-libb2 \
