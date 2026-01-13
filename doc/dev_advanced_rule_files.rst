@@ -91,15 +91,17 @@ let’s expand our menu. Here is its current content:
               FIXME
 
 We’ll add two menu entries, one for each optional parameter we want to
-add on demand to the ``configure`` parameters:
+add on demand to the ``configure`` parameters. The main menu entry will be
+adapted to contain these entries in a submenu, trailing spaces are added to the
+``prompt`` string for proper alignment:
 
 .. code-block:: kconfig
 
     ## SECTION=project_specific
 
-    config FOO
+    menuconfig FOO
            tristate
-           prompt "foo"
+           prompt "foo                           "
            help
              FIXME
 
@@ -230,10 +232,10 @@ file looks like:
 
     ## SECTION=project_specific
 
-    config FOO
+    menuconfig FOO
            tristate
            select ZLIB
-           prompt "foo"
+           prompt "foo                           "
            help
              FIXME
 
@@ -269,11 +271,11 @@ enabled. To add these dependencies on demand, the menu file looks like:
 
     ## SECTION=project_specific
 
-    config FOO
+    menuconfig FOO
            tristate
            select ZLIB if FOO_FOO
            select LIBXML2 if FOO_BAR
-           prompt "foo"
+           prompt "foo                           "
            help
              FIXME
 
@@ -322,12 +324,12 @@ file. With all the additions above it now looks like:
 
     ## SECTION=project_specific
 
-    config FOO
+    menuconfig FOO
            tristate
            select ZLIB if FOO_FOO
            select LIBXML2 if FOO_BAR
            select LIBC_M
-           prompt "foo"
+           prompt "foo                           "
            help
              FIXME
 
