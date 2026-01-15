@@ -1,0 +1,65 @@
+From: Christian Melki <christian.melki@t2data.com>
+Date: Thu, 15 Jan 2026 20:20:39 +0100
+Subject: [PATCH] Makefile.am: Remove bindings dir.
+
+Author thought it would be a good idea to stop delivering libcap-ng in non-dist format.
+So no more proper tarball releases with functioning configure scripts.
+SWIG binding was causing autoreconf errors.
+
+* Add missing files.
+
+Signed-off-by: Christian Melki <christian.melki@t2data.com>
+---
+ Makefile.am              | 3 ---
+ NEWS                     | 0
+ bindings/src/Makefile.am | 4 ----
+ configure.ac             | 6 ------
+ 4 files changed, 13 deletions(-)
+ create mode 100644 NEWS
+
+diff --git a/Makefile.am b/Makefile.am
+index 82976206de34..aec072a11e9d 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -22,9 +22,6 @@
+ #
+ ACLOCAL_AMFLAGS = -I m4
+ SUBDIRS = src utils m4 docs
+-if HAVE_SWIG
+-SUBDIRS += bindings
+-endif
+ EXTRA_DIST = ChangeLog AUTHORS README.md INSTALL COPYING COPYING.LIB \
+ 	libcap-ng.spec autogen.sh 
+ 
+diff --git a/NEWS b/NEWS
+new file mode 100644
+index 000000000000..e69de29bb2d1
+diff --git a/bindings/src/Makefile.am b/bindings/src/Makefile.am
+index 301ed0fb8af5..626241c6328c 100644
+--- a/bindings/src/Makefile.am
++++ b/bindings/src/Makefile.am
+@@ -19,7 +19,3 @@
+ # Authors:
+ #   Steve Grubb <sgrubb@redhat.com>
+ #
+-
+-EXTRA_DIST = capng_swig.i
+-SWIG_SOURCES = capng_swig.i
+-CONFIG_CLEAN_FILES = *.loT *.rej *.orig
+diff --git a/configure.ac b/configure.ac
+index 45372108b92e..ed8a1ff34282 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -208,12 +208,6 @@ if test x"${ac_cv_have_decl_PR_CAP_AMBIENT}" = x"no" ; then
+ fi
+ AM_CONDITIONAL(BUILD_LIBDROP_AMBIENT, test x"${ac_cv_have_decl_PR_CAP_AMBIENT}" = x"yes")
+ 
+-AC_CHECK_PROG(swig_found, swig, yes, no)
+-if test x"${swig_found}" = x"no" ; then
+-	AC_MSG_WARN("Swig not found - python bindings will not be made")
+-fi
+-AM_CONDITIONAL(HAVE_SWIG, test x"${swig_found}" = x"yes")
+-
+ withval=""
+ AC_MSG_CHECKING(whether to create python3 bindings)
+ AC_ARG_WITH(python3,
