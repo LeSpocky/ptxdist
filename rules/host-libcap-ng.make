@@ -21,7 +21,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_LIBCAP_NG) += host-libcap-ng
 HOST_LIBCAP_NG_CONF_TOOL := autoconf
 HOST_LIBCAP_NG_CONF_OPT := \
 	$(HOST_AUTOCONF) \
-	--without-debug \
+	--disable-cap-audit \
 	--without-warn \
 	--without-python3
 
