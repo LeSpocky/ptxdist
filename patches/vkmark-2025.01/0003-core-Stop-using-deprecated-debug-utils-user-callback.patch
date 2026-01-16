@@ -1,0 +1,37 @@
+From: Philipp Zabel <p.zabel@pengutronix.de>
+Date: Wed, 10 Dec 2025 11:06:29 +0100
+Subject: [PATCH] core: Stop using deprecated debug utils user callback setter
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Fix a build warning:
+
+  ../src/vulkan_state.cpp:203:32: warning: ‘vk::DebugUtilsMessengerCreateInfoEXT& vk::DebugUtilsMessengerCreateInfoEXT::setPfnUserCallback(PFN_vkDebugUtilsMessengerCallbackEXT)’ is deprecated: This setter is deprecated. Use the one taking a function pointer type from the vk-namespace instead. [-Wdeprecated-declarations]
+
+by moving the callback function type into the Vulkan namespace.
+
+Upstream-Status: Submitted [https://github.com/vkmark/vkmark/pull/81]
+---
+ src/vulkan_state.cpp | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/vulkan_state.cpp b/src/vulkan_state.cpp
+index 847095147bf5..7e4a05b0d179 100644
+--- a/src/vulkan_state.cpp
++++ b/src/vulkan_state.cpp
+@@ -31,10 +31,10 @@
+ namespace
+ {
+ 
+-VKAPI_ATTR VkBool32 VKAPI_CALL debug_callback(
+-    VkDebugUtilsMessageSeverityFlagBitsEXT message_severity,
+-    VkDebugUtilsMessageTypeFlagsEXT message_type,
+-    const VkDebugUtilsMessengerCallbackDataEXT* callback_data,
++VKAPI_ATTR vk::Bool32 VKAPI_CALL debug_callback(
++    vk::DebugUtilsMessageSeverityFlagBitsEXT message_severity,
++    vk::DebugUtilsMessageTypeFlagsEXT message_type,
++    const vk::DebugUtilsMessengerCallbackDataEXT* callback_data,
+     void* user_data)
+ {
+     Log::debug("%s\n", callback_data->pMessage);

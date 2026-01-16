@@ -1,0 +1,39 @@
+From: Philipp Zabel <p.zabel@pengutronix.de>
+Date: Wed, 10 Dec 2025 10:59:49 +0100
+Subject: [PATCH] kms: Register custom dispatcher with isDispatchLoader
+
+Since Vulkan 1.4.333, custom dispatch loaders must be registered
+with isDispatchLoader to be recognized.
+
+Upstream-Status: Submitted [https://github.com/vkmark/vkmark/pull/80]
+---
+ src/ws/kms_window_system.cpp | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+
+diff --git a/src/ws/kms_window_system.cpp b/src/ws/kms_window_system.cpp
+index fe59c5bc2159..d51e2bbbeac0 100644
+--- a/src/ws/kms_window_system.cpp
++++ b/src/ws/kms_window_system.cpp
+@@ -416,6 +416,22 @@ public:
+     PFN_vkGetPhysicalDeviceFormatProperties2KHR vkGetPhysicalDeviceFormatProperties2KHR;
+ };
+ 
++}
++
++#if VK_HEADER_VERSION >= 333
++namespace vk::detail {
++
++template <>
++struct isDispatchLoader<::GetFormatProperties2Dispatcher>
++{
++    static VULKAN_HPP_CONST_OR_CONSTEXPR bool value = true;
++};
++
++}
++#endif
++
++namespace {
++
+ std::vector<uint64_t> vk_get_supported_mods_for_format(VulkanState& vulkan,
+                                                        vk::Format format)
+ {

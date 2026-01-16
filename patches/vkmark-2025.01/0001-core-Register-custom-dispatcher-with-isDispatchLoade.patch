@@ -1,0 +1,35 @@
+From: Philipp Zabel <p.zabel@pengutronix.de>
+Date: Wed, 10 Dec 2025 10:59:49 +0100
+Subject: [PATCH] core: Register custom dispatcher with isDispatchLoader
+
+Since Vulkan 1.4.333, custom dispatch loaders must be registered
+with isDispatchLoader to be recognized.
+
+Upstream-Status: Submitted [https://github.com/vkmark/vkmark/pull/80]
+---
+ src/vulkan_state.cpp | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/src/vulkan_state.cpp b/src/vulkan_state.cpp
+index a36b2994dbba..847095147bf5 100644
+--- a/src/vulkan_state.cpp
++++ b/src/vulkan_state.cpp
+@@ -65,6 +65,18 @@ public:
+ 
+ }
+ 
++#if VK_HEADER_VERSION >= 333
++namespace vk::detail {
++
++template <>
++struct isDispatchLoader<::DebugUtilsDispatcher>
++{
++    static VULKAN_HPP_CONST_OR_CONSTEXPR bool value = true;
++};
++
++}
++#endif
++
+ VulkanState::VulkanState(VulkanWSI& vulkan_wsi, ChoosePhysicalDeviceStrategy const& pd_strategy, bool debug)
+     : debug_enabled(debug)
+ {
