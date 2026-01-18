@@ -16,7 +16,7 @@ config APITRACE
 if APITRACE
 
 config APITRACE_REPLAY
-	tristate
+	bool
 	prompt "apitrace replay"
 	help
 	  Build apitrace tools to replay a captured trace on the target
