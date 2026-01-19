@@ -18,7 +18,10 @@ HOST_PACKAGES-$(PTXCONF_HOST_NFSUTILS) += host-nfsutils
 # fake rpc/rpc.h availability, it's not needed for rpcgen
 HOST_NFSUTILS_CONF_ENV	:= \
 	$(HOST_ENV) \
-	ac_cv_header_rpc_rpc_h=yes
+	ac_cv_header_rpc_rpc_h=yes \
+	ac_cv_header_sqlite3_h=no \
+	libsqlite3_cv_is_recent=yes \
+	ac_cv_lib_sqlite3_sqlite3_libversion=no
 
 #
 # autoconf
