@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_RSYSLOG) += rsyslog
 #
 # Paths and names
 #
-RSYSLOG_VERSION	:= 8.2406.0
-RSYSLOG_MD5	:= 9bb2673cf15181b16e3f7c7bb5ad23fd
+RSYSLOG_VERSION	:= 8.2512.0
+RSYSLOG_MD5	:= 744e44c74f9ecd97ee800c78dc8271d3
 RSYSLOG		:= rsyslog-$(RSYSLOG_VERSION)
 RSYSLOG_SUFFIX	:= tar.gz
 RSYSLOG_URL	:= https://www.rsyslog.com/files/download/rsyslog/$(RSYSLOG).$(RSYSLOG_SUFFIX)
