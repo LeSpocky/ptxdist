@@ -166,6 +166,10 @@ MESALIB_VULKAN_LIBS-y = $(subst amd,radeon \
 	,$(MESALIB_VULKAN_DRIVERS-y) \
 	)))
 
+MESALIB_VULKAN_ICDS-y = $(subst gfxstream,gfxstream_vk \
+	,$(MESALIB_VULKAN_LIBS-y) \
+	)
+
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_ANTI_LAG)	+= anti-lag
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_DEVICE_SELECT)	+= device-select
 ifdef PTXCONF_ARCH_X86
@@ -362,9 +366,10 @@ endif
 ifneq ($(strip $(MESALIB_VULKAN_LIBS-y)),)
 	@$(foreach lib, $(MESALIB_VULKAN_LIBS-y), \
 		$(call install_copy, mesalib, 0, 0, 0644, -, \
-		/usr/lib/libvulkan_$(lib).so)$(ptx/nl) \
+		/usr/lib/libvulkan_$(lib).so)$(ptx/nl))
+	@$(foreach icd, $(MESALIB_VULKAN_ICDS-y), \
 		$(call install_glob, mesalib, 0, 0, -, \
-		/etc/vulkan/icd.d, */$(lib)_icd.*.json)$(ptx/nl))
+		/etc/vulkan/icd.d, */$(icd)_icd.*.json)$(ptx/nl))
 endif
 ifneq ($(strip $(MESALIB_VULKAN_LAYERS-y)),)
 	@$(foreach lib, $(filter-out intel-nullhw,$(MESALIB_VULKAN_LAYERS-y)), \
