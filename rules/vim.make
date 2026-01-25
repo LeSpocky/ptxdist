@@ -99,6 +99,7 @@ VIM_INSTALL_OPT := \
 	installvimbin \
 	installrtbase \
 	installmacros \
+	installpack \
 	installspell
 
 # ----------------------------------------------------------------------------
