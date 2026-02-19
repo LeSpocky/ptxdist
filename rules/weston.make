@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_WESTON) += weston
 #
 # Paths and names
 #
-WESTON_VERSION	:= 14.0.2
-LIBWESTON_MAJOR := 14
-WESTON_MD5	:= ff6cb69bd4ddd07d3076d5fc4fcbad91
+WESTON_VERSION	:= 15.0.0
+LIBWESTON_MAJOR := 15
+WESTON_MD5	:= 8ffb4333fce63cbdea5c1918d5843ca8
 WESTON		:= weston-$(WESTON_VERSION)
 WESTON_SUFFIX	:= tar.gz
 WESTON_URL	:= https://gitlab.freedesktop.org/wayland/weston/-/archive/$(WESTON_VERSION)/$(WESTON).$(WESTON_SUFFIX)
@@ -38,7 +38,6 @@ WESTON_CONF_OPT		:= \
 	$(CROSS_MESON_USR) \
 	-Dbackend-default=drm \
 	-Dbackend-drm=true \
-	-Dbackend-drm-screencast-vaapi=false \
 	-Dbackend-headless=$(call ptx/truefalse,PTXCONF_WESTON_HEADLESS_COMPOSITOR) \
 	-Dbackend-pipewire=$(call ptx/truefalse,PTXCONF_WESTON_BACKEND_PIPEWIRE) \
 	-Dbackend-rdp=false \
@@ -47,19 +46,23 @@ WESTON_CONF_OPT		:= \
 	-Dbackend-x11=false \
 	-Dcolor-management-lcms=$(call ptx/truefalse,PTXCONF_WESTON_COLOR_MANAGEMENT_LCMS) \
 	-Ddemo-clients=$(call ptx/truefalse,PTXCONF_WESTON_IVISHELL_EXAMPLE) \
+	-Ddeprecated-backend-drm-screencast-vaapi=false \
+	-Ddeprecated-screenshare=false \
+	-Ddeprecated-shell-fullscreen=false \
 	-Ddesktop-shell-client-default=weston-desktop-shell \
 	-Ddoc=false \
 	-Dimage-jpeg=true \
 	-Dimage-webp=false \
+	-Dperfetto=false \
 	-Dpipewire=$(call ptx/truefalse,PTXCONF_WESTON_PIPEWIRE) \
 	-Dremoting=$(call ptx/truefalse,PTXCONF_WESTON_REMOTING) \
 	-Drenderer-gl=$(call ptx/truefalse,PTXCONF_WESTON_GL) \
+	-Drenderer-vulkan=$(call ptx/truefalse,PTXCONF_WESTON_VULKAN) \
 	-Dresize-pool=true \
-	-Dscreenshare=false \
 	-Dshell-desktop=true \
-	-Dshell-fullscreen=true \
 	-Dshell-ivi=$(call ptx/truefalse,PTXCONF_WESTON_IVISHELL) \
 	-Dshell-kiosk=$(call ptx/truefalse,PTXCONF_WESTON_SHELL_KIOSK) \
+	-Dshell-lua=$(call ptx/truefalse,PTXCONF_WESTON_SHELL_LUA) \
 	-Dsimple-clients=$(subst $(space),$(comma),$(WESTON_SIMPLE_CLIENTS-y)) \
 	-Dsystemd=$(call ptx/truefalse,PTXCONF_WESTON_SYSTEMD) \
 	-Dtest-junit-xml=false \
@@ -141,6 +144,9 @@ ifdef PTXCONF_WESTON_GL
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/wayland-backend)
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/gl-renderer)
 endif
+ifdef PTXCONF_WESTON_VULKAN
+	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/vulkan-renderer)
+endif
 ifdef PTXCONF_WESTON_PIPEWIRE
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/pipewire-plugin)
 endif
@@ -151,12 +157,15 @@ ifdef PTXCONF_WESTON_COLOR_MANAGEMENT_LCMS
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/color-lcms)
 endif
 	@$(call install_lib, weston, 0, 0, 0644, weston/desktop-shell)
-	@$(call install_lib, weston, 0, 0, 0644, weston/fullscreen-shell)
 ifdef PTXCONF_WESTON_IVISHELL
 	@$(call install_lib, weston, 0, 0, 0644, weston/ivi-shell)
 endif
 ifdef PTXCONF_WESTON_SHELL_KIOSK
 	@$(call install_lib, weston, 0, 0, 0644, weston/kiosk-shell)
+endif
+ifdef PTXCONF_WESTON_SHELL_LUA
+	@$(call install_lib, weston, 0, 0, 0644, weston/lua-shell)
+	@$(call install_alternative, weston, 0, 0, 0644, /usr/libexec/shell.lua)
 endif
 ifdef PTXCONF_WESTON_SYSTEMD
 	@$(call install_lib, weston, 0, 0, 0644, weston/systemd-notify)

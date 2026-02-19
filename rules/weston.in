@@ -36,12 +36,15 @@ menuconfig WESTON
 	select GST_PLUGINS_GOOD1_JPEG	if WESTON_REMOTING && RUNTIME
 	select GST_PLUGINS_GOOD1_RTP	if WESTON_REMOTING && RUNTIME
 	select GST_PLUGINS_GOOD1_UDP	if WESTON_REMOTING && RUNTIME
+	select LUA			if WESTON_SHELL_LUA
+	select LUA_INSTALL_LIBLUA	if WESTON_SHELL_LUA
 	select PANGO			if WESTON_IVISHELL_EXAMPLE
 	select PIPEWIRE			if WESTON_PIPEWIRE
 	select PIPEWIRE			if WESTON_BACKEND_PIPEWIRE
 	select NEATVNC			if WESTON_BACKEND_VNC
 	select PAM			if WESTON_BACKEND_VNC
 	select LCMS			if WESTON_COLOR_MANAGEMENT_LCMS
+	select VULKAN_LOADER		if WESTON_VULKAN
 	prompt "weston                        "
 	help
 	  Wayland compositor reference implementation
@@ -55,6 +58,10 @@ config WESTON_XWAYLAND
 config WESTON_GL
 	bool
 	prompt "OpenGL accelerated compositing"
+
+config WESTON_VULKAN
+	bool
+	prompt "Vulkan accelerated compositing"
 
 config WESTON_HEADLESS_COMPOSITOR
 	bool
@@ -107,6 +114,10 @@ config WESTON_IVISHELL_EXAMPLE
 config WESTON_SHELL_KIOSK
 	bool
 	prompt "kiosk shell"
+
+config WESTON_SHELL_LUA
+	bool
+	prompt "Lua shell"
 
 config WESTON_PIPEWIRE
 	bool
