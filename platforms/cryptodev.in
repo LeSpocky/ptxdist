@@ -1,4 +1,4 @@
-## SECTION=core
+## SECTION=platform_project_specific
 
 config CRYPTODEV
 	tristate
