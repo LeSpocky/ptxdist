@@ -3,4 +3,5 @@
 0001-Fix-cryptodev_verbosity-sysctl-for-Linux-6.11-rc1.patch
 0002-Exclude-unused-struct-since-Linux-6.5.patch
 0003-Fix-uninitialized-session-pointers.patch
-# b25ab355176e0ac9ad9433b6a050c0e4  - git-ptx-patches magic
+0004-Fix-build-for-Linux-6.18-rc1.patch
+# 3025afd546f1ec2e0afecd54c87e23d2  - git-ptx-patches magic
