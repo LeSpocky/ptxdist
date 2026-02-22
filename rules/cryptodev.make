@@ -45,11 +45,8 @@ CRYPTODEV_WRAPPER_ACCEPT_PATHS = \
 	$(KERNEL_DIR)
 
 CRYPTODEV_MAKE_OPT = \
-	O=$(KERNEL_BUILD_DIR) \
-	$(KERNEL_BASE_OPT) \
-	KERNEL_DIR=$(KERNEL_DIR) \
-	DESTDIR=$(CRYPTODEV_PKGDIR) \
-	prefix=/usr
+	$(KERNEL_MODULE_OPT) \
+	modules
 
 # ----------------------------------------------------------------------------
 # Install
@@ -65,7 +62,7 @@ $(STATEDIR)/cryptodev.install:
 
 $(STATEDIR)/cryptodev.targetinstall:
 	@$(call targetinfo)
-	@$(call compile, CRYPTODEV, $(CRYPTODEV_MAKE_OPT) install)
+	@$(call compile, CRYPTODEV, $(CRYPTODEV_MAKE_OPT)_install)
 	@$(call touch)
 
 # vim: syntax=make
