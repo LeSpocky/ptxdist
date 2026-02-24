@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_MINICOM) += minicom
 #
 # Paths and names
 #
-MINICOM_VERSION	:= 2.10
-MINICOM_MD5	:= df480a0c10447b39b3741fe26637ddee
+MINICOM_VERSION	:= 2.11
+MINICOM_MD5	:= bf34ca28ccaccef3883dbbc1ef12275a
 MINICOM_SUFFIX	:= tar.bz2
 MINICOM		:= minicom-$(MINICOM_VERSION)
 MINICOM_URL	:= https://salsa.debian.org/minicom-team/minicom/-/archive/$(MINICOM_VERSION)/$(MINICOM).$(MINICOM_SUFFIX)
