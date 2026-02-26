@@ -122,6 +122,7 @@ HOST_MESALIB_CONF_OPT	:= \
 	-Dvulkan-drivers=[] \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-layers=[] \
+	-Dvulkan-manifest-per-architecture=true \
 	-Dxlib-lease=disabled \
 	-Dxmlconfig=disabled \
 	-Dzlib=enabled \

@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 25.3.5
-MESALIB_MD5	:= 8e699baecbb0a15b5651cc0db2035a4c
+MESALIB_VERSION	:= 26.0.1
+MESALIB_MD5	:= 20a629e63ffe1474b33993684bf9cb75
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -136,6 +136,8 @@ MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_H265ENC)	+= h265enc
 MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_AV1DEC)	+= av1dec
 MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_AV1ENC)	+= av1enc
 MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_VP9DEC)	+= vp9dec
+MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_MPEG12DEC)	+= mpeg12dec
+MESALIB_VIDEO_CODECS-$(PTXCONF_MESALIB_VIDEO_JPEGDEC)	+= jpegdec
 
 ifdef PTXCONF_ARCH_X86
 MESALIB_VULKAN_DRIVERS-$(PTXCONF_MESALIB_VULKAN_AMD)		+= amd
@@ -168,7 +170,7 @@ MESALIB_VULKAN_LIBS-y = $(subst amd,radeon \
 
 MESALIB_VULKAN_ICDS-y = $(subst gfxstream,gfxstream_vk \
 	,$(MESALIB_VULKAN_LIBS-y) \
-	)
+	))
 
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_ANTI_LAG)	+= anti-lag
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_DEVICE_SELECT)	+= device-select
@@ -301,6 +303,7 @@ MESALIB_CONF_OPT	:= \
 	-Dvulkan-drivers=$(subst $(space),$(comma),$(MESALIB_VULKAN_DRIVERS-y)) \
 	-Dvulkan-icd-dir=/etc/vulkan/icd.d \
 	-Dvulkan-layers=$(subst $(space),$(comma),$(MESALIB_VULKAN_LAYERS-y)) \
+	-Dvulkan-manifest-per-architecture=true \
 	-Dxlib-lease=$(call ptx/endis, PTXCONF_MESALIB_EGL_X11)d \
 	-Dxmlconfig=$(call ptx/endis, PTXCONF_MESALIB_XMLCONFIG)d \
 	-Dzlib=enabled \

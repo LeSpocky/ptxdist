@@ -232,6 +232,14 @@ config MESALIB_VIDEO_VP9DEC
 	bool
 	prompt "VP9 decoding"
 
+config MESALIB_VIDEO_MPEG12DEC
+	bool
+	prompt "MPEG1/2 decoding"
+
+config MESALIB_VIDEO_JPEGDEC
+	bool
+	prompt "JPEG decoding"
+
 endmenu
 
 endif
