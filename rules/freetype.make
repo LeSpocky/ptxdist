@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_FREETYPE) += freetype
 #
 # Paths and names
 #
-FREETYPE_VERSION	:= 2.14.1
-FREETYPE_MD5		:= 78c7d7450fb7d0999ccd029f84094340
+FREETYPE_VERSION	:= 2.14.2
+FREETYPE_MD5		:= b019e5b389e0ec08ebdfb4a50666cc5e
 FREETYPE		:= freetype-$(FREETYPE_VERSION)
 FREETYPE_SUFFIX		:= tar.xz
 FREETYPE_SOURCE		:= $(SRCDIR)/$(FREETYPE).$(FREETYPE_SUFFIX)
@@ -48,6 +48,7 @@ FREETYPE_CONF_OPT	:= \
 	--enable-freetype-config \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-mmap \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--with-zlib \
 	--without-bzip2 \
 	--$(call ptx/wwo,PTXCONF_FREETYPE_LIBPNG)-png \

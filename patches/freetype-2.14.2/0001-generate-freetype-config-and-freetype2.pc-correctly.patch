@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  4 files changed, 18 insertions(+), 26 deletions(-)
 
 diff --git a/builds/unix/configure.ac b/builds/unix/configure.ac
-index 9979dceaf7f3..25784fea4ba8 100644
+index 5c4ccf1e8b34..e3cd66f0638b 100644
 --- a/builds/unix/configure.ac
 +++ b/builds/unix/configure.ac
-@@ -1195,7 +1195,9 @@ AC_CONFIG_HEADERS([ftconfig.h])
+@@ -1200,7 +1200,9 @@ AC_CONFIG_HEADERS([ftconfig.h])
  # and `builds/unix/unix-cc.mk' that will be used by the build system
  #
  AC_CONFIG_FILES([unix-cc.mk:unix-cc.in
