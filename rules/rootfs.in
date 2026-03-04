@@ -439,11 +439,21 @@ choice
 
 	config ROOTFS_RESOLV_SYSTEMD
 		bool
-		depends on SYSTEMD_NETWORK
+		depends on SYSTEMD_RESOLVED
 		prompt "link to /run/systemd/resolve/resolv.conf"
 		help
 		  If enabled, it installs /etc/resolv.conf as a link to
 		  /run/systemd/resolve/resolv.conf. This file is provided by
+		  systemd-resolved and is filled with data from the systemd
+		  managed interfaces.
+
+	config ROOTFS_RESOLV_STUB_SYSTEMD
+		bool
+		depends on SYSTEMD_RESOLVED
+		prompt "link to /run/systemd/resolve/stub-resolv.conf"
+		help
+		  If enabled, it installs /etc/resolv.conf as a link to
+		  /run/systemd/resolve/stub-resolv.conf. This file is provided by
 		  systemd-resolved and is filled with data from the systemd
 		  managed interfaces.
 

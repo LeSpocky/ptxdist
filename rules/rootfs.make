@@ -266,6 +266,9 @@ endif
 ifdef PTXCONF_ROOTFS_RESOLV_SYSTEMD
 	@$(call install_link, rootfs, /run/systemd/resolve/resolv.conf, /etc/resolv.conf)
 endif
+ifdef PTXCONF_ROOTFS_RESOLV_STUB_SYSTEMD
+	@$(call install_link, rootfs, /run/systemd/resolve/stub-resolv.conf, /etc/resolv.conf)
+endif
 ifdef PTXCONF_ROOTFS_RESOLV_STATIC
 	@$(call install_link, rootfs, /usr/lib/systemd/resolv.conf, /etc/resolv.conf)
 endif
