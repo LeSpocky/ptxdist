@@ -1,0 +1,11 @@
+## SECTION=multimedia_libs
+
+config SHARED_MIME_INFO
+	tristate
+	select HOST_MESON
+	select HOST_SHARED_MIME_INFO
+	prompt "shared-mime-info"
+	help
+	  FreeDesktop.org shared MIME database and spec
+
+# vim: ft=kconfig tw=80
