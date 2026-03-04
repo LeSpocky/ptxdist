@@ -150,7 +150,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dnsresourced=false \
 	-Dnss-myhostname=true \
 	-Dnss-mymachines=$(call ptx/endis,PTXCONF_SYSTEMD_NSPAWN)d \
-	-Dnss-resolve=$(call ptx/endis,PTXCONF_SYSTEMD_NETWORK)d \
+	-Dnss-resolve=$(call ptx/endis,PTXCONF_SYSTEMD_RESOLVED)d \
 	-Dnss-systemd=true \
 	-Dntp-servers= \
 	-Dok-color=green \
@@ -172,7 +172,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Drandomseed=$(call ptx/falsetrue,PTXCONF_SYSTEMD_DISABLE_RANDOM_SEED) \
 	-Dremote=$(call ptx/endis,PTXCONF_SYSTEMD_JOURNAL_REMOTE)d \
 	-Drepart=$(call ptx/endis,PTXCONF_SYSTEMD_REPART)d \
-	-Dresolve=$(call ptx/truefalse,PTXCONF_SYSTEMD_NETWORK) \
+	-Dresolve=$(call ptx/truefalse,PTXCONF_SYSTEMD_RESOLVED) \
 	-Drfkill=false \
 	-Dseccomp=$(call ptx/endis,PTXCONF_SYSTEMD_SECCOMP)d \
 	-Dselinux=$(call ptx/endis,PTXCONF_GLOBAL_SELINUX)d \
@@ -280,7 +280,7 @@ SYSTEMD_HELPER := \
 	$(call ptx/ifdef, PTXCONF_SYSTEMD_DISABLE_RANDOM_SEED,,systemd-random-seed) \
 	systemd-remount-fs \
 	systemd-reply-password \
-	$(call ptx/ifdef, PTXCONF_SYSTEMD_NETWORK,systemd-resolved) \
+	$(call ptx/ifdef, PTXCONF_SYSTEMD_RESOLVED,systemd-resolved) \
 	systemd-shutdown \
 	systemd-sleep \
 	systemd-socket-proxyd \
@@ -483,28 +483,30 @@ endif
 
 ifdef PTXCONF_SYSTEMD_NETWORK
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/networkctl)
-	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/resolvectl)
-	@$(call install_link, systemd, resolvectl, /usr/bin/systemd-resolve)
-	@$(call install_link, systemd, ../bin/resolvectl, /usr/sbin/resolvconf)
 	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/lib/systemd/systemd-network-generator)
-	@$(call install_lib, systemd, 0, 0, 0644, libnss_resolve)
-	@$(call install_copy, systemd, 0, 0, 0644, -, /usr/lib/systemd/resolv.conf)
-	@$(call install_alternative, systemd, 0, 0, 0644, \
-		/etc/systemd/resolved.conf)
-	@$(call install_link, systemd, ../systemd-resolved.service,  \
-		/usr/lib/systemd/system/multi-user.target.wants/systemd-resolved.service)
 	@$(call install_link, systemd, ../systemd-networkd.service,  \
 		/usr/lib/systemd/system/multi-user.target.wants/systemd-networkd.service)
 	@$(call install_link, systemd, ../systemd-networkd.socket,  \
 		/usr/lib/systemd/system/sockets.target.wants/systemd-networkd.socket)
 	@$(call install_link, systemd, ../systemd-networkd-wait-online.service,  \
 		/usr/lib/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service)
-
 	@$(call install_tree, systemd, 0, 0, -, /usr/lib/systemd/network)
 	@$(call install_alternative_tree, systemd, 0, 0, /usr/lib/systemd/network)
 else
 	@$(call install_alternative, systemd, 0, 0, 0644, \
 		/usr/lib/systemd/network/99-default.link)
+endif
+
+ifdef PTXCONF_SYSTEMD_RESOLVED
+	@$(call install_copy, systemd, 0, 0, 0755, -, /usr/bin/resolvectl)
+	@$(call install_link, systemd, resolvectl, /usr/bin/systemd-resolve)
+	@$(call install_link, systemd, ../bin/resolvectl, /usr/sbin/resolvconf)
+	@$(call install_lib, systemd, 0, 0, 0644, libnss_resolve)
+	@$(call install_copy, systemd, 0, 0, 0644, -, /usr/lib/systemd/resolv.conf)
+	@$(call install_alternative, systemd, 0, 0, 0644, \
+		/etc/systemd/resolved.conf)
+	@$(call install_link, systemd, ../systemd-resolved.service,  \
+		/usr/lib/systemd/system/multi-user.target.wants/systemd-resolved.service)
 endif
 
 ifdef PTXCONF_SYSTEMD_POLKIT

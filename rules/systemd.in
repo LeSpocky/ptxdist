@@ -122,6 +122,11 @@ config SYSTEMD_NETWORK
 	select SYSTEMD_DBUS_SERVICES
 	prompt "network configuration with systemd"
 
+config SYSTEMD_RESOLVED
+	bool
+	select SYSTEMD_DBUS_SERVICES
+	prompt "network name resolution with systemd"
+
 config SYSTEMD_OPENSSL
 	bool
 	prompt "openssl support"
