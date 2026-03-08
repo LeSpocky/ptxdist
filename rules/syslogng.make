@@ -16,9 +16,9 @@ PACKAGES-$(PTXCONF_SYSLOGNG) += syslogng
 #
 # Paths and names
 #
-SYSLOGNG_VERSION	:= 4.8.1
-SYSLOG_LIBVERSION	:= 4.8
-SYSLOGNG_MD5		:= 6a5852343f9a34449c3812b474728aa7
+SYSLOGNG_VERSION	:= 4.10.2
+SYSLOG_LIBVERSION	:= 4.10
+SYSLOGNG_MD5		:= 0c97637b266efcf932b5fdea5f40235e
 SYSLOGNG		:= syslog-ng-$(SYSLOGNG_VERSION)
 SYSLOGNG_SUFFIX		:= tar.gz
 SYSLOGNG_URL		:= https://github.com/balabit/syslog-ng/releases/download/syslog-ng-$(SYSLOGNG_VERSION)/$(SYSLOGNG).$(SYSLOGNG_SUFFIX)
@@ -33,6 +33,7 @@ SYSLOGNG_LICENSE	:= GPL-2.0-or-later AND LGPL-2.1-only
 SYSLOGNG_CONF_ENV	:= \
 	$(CROSS_ENV) \
 	ac_cv_lib_nsl_gethostbyname=no \
+	ac_cv_search_io_uring_queue_init=no \
 	am_cv_python_version=$(PYTHON3_MAJORMINOR) \
 	ac_cv_path_PYTHON=$(CROSS_PYTHON3)
 
@@ -87,6 +88,8 @@ SYSLOGNG_CONF_OPT	:= \
 	--disable-java-modules \
 	--enable-native \
 	--disable-afsnmp \
+	--disable-colored-log \
+	--disable-stackdump \
 	--disable-all-modules \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-valgrind \
@@ -134,6 +137,9 @@ $(STATEDIR)/syslogng.targetinstall:
 	@$(call install_lib, syslogng, 0, 0, 0644, libevtlog-$(SYSLOG_LIBVERSION))
 	@$(call install_lib, syslogng, 0, 0, 0644, libsecret-storage)
 	@$(call install_glob, syslogng, 0, 0, -, /usr/lib/syslog-ng, *.so)
+
+	@$(call install_copy, syslogng, 0, 0, 0644, -, \
+		/usr/share/syslog-ng/smart-multi-line.fsm)
 
 #	# config
 ifdef PTXCONF_SYSLOGNG_CONFIG
