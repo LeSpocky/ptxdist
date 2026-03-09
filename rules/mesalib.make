@@ -170,7 +170,7 @@ MESALIB_VULKAN_LIBS-y = $(subst amd,radeon \
 
 MESALIB_VULKAN_ICDS-y = $(subst gfxstream,gfxstream_vk \
 	,$(MESALIB_VULKAN_LIBS-y) \
-	))
+	)
 
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_ANTI_LAG)	+= anti-lag
 MESALIB_VULKAN_LAYERS-$(PTXCONF_MESALIB_VULKAN_DEVICE_SELECT)	+= device-select
