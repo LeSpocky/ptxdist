@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_E2FSPROGS) += e2fsprogs
 #
 # Paths and names
 #
-E2FSPROGS_VERSION	:= 1.47.3
-E2FSPROGS_MD5		:= bfe4e87fe42d899d47cf9bb815fa2b76
+E2FSPROGS_VERSION	:= 1.47.4
+E2FSPROGS_MD5		:= 2c41cfdd6097c7731b35e88c59140c69
 E2FSPROGS		:= e2fsprogs-$(E2FSPROGS_VERSION)
 E2FSPROGS_SUFFIX	:= tar.gz
 E2FSPROGS_URL		:= $(call ptx/mirror, KERNEL, kernel/people/tytso/e2fsprogs/v$(E2FSPROGS_VERSION)/$(E2FSPROGS).$(E2FSPROGS_SUFFIX))
@@ -37,7 +37,6 @@ E2FSPROGS_LICENSE_FILES	:= \
 E2FSPROGS_CONF_TOOL	:= autoconf
 E2FSPROGS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-symlink-install \
 	--disable-relative-symlinks \
 	--disable-symlink-build \
@@ -69,12 +68,14 @@ E2FSPROGS_CONF_OPT	:= \
 	--disable-bmap-stats-ops \
 	--disable-nls \
 	--disable-rpath \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-fuse2fs \
 	--disable-lto \
 	--disable-ubsan \
 	--disable-addrsan \
 	--disable-threadsan \
 	--disable-fuzzing \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--with-pthread \
 	--without-libarchive
 
