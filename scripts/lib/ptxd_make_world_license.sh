@@ -322,7 +322,7 @@ ptxd_create_section_from_license()
 	    echo ignore
 	    return 0
 	    ;;
-	AND|OR|WITH|"")
+	AND|OR|WITH|and|or|with|"")
 	    ;;
 	*)
 	    section[other]="true"
