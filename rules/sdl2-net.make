@@ -21,7 +21,7 @@ SDL2_NET_SUFFIX	:= tar.gz
 SDL2_NET_URL		:= https://www.libsdl.org/projects/SDL_net/release/$(SDL2_NET).$(SDL2_NET_SUFFIX)
 SDL2_NET_SOURCE	:= $(SRCDIR)/$(SDL2_NET).$(SDL2_NET_SUFFIX)
 SDL2_NET_DIR		:= $(BUILDDIR)/$(SDL2_NET)
-SDL2_NET_LICENSE	:= zlib
+SDL2_NET_LICENSE	:= Zlib
 
 # ----------------------------------------------------------------------------
 # Prepare

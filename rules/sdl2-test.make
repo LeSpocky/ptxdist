@@ -22,7 +22,7 @@ SDL2_TEST_URL		= $(SDL2_URL)
 SDL2_TEST_SOURCE	= $(SDL2_SOURCE)
 SDL2_TEST_DIR		= $(BUILDDIR)/$(SDL2_TEST)
 SDL2_TEST_SUBDIR	:= test
-SDL2_TESTS_LICENSE	:= zlib
+SDL2_TESTS_LICENSE	:= Zlib
 
 # ----------------------------------------------------------------------------
 # Prepare

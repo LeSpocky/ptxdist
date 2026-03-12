@@ -21,7 +21,7 @@ SDL2_MIXER_SUFFIX	:= tar.gz
 SDL2_MIXER_URL		:= https://www.libsdl.org/projects/SDL_mixer/release/$(SDL2_MIXER).$(SDL2_MIXER_SUFFIX)
 SDL2_MIXER_SOURCE	:= $(SRCDIR)/$(SDL2_MIXER).$(SDL2_MIXER_SUFFIX)
 SDL2_MIXER_DIR		:= $(BUILDDIR)/$(SDL2_MIXER)
-SDL2_MIXER_LICENSE	:= zlib
+SDL2_MIXER_LICENSE	:= Zlib
 
 # ----------------------------------------------------------------------------
 # Prepare

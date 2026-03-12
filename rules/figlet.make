@@ -23,7 +23,7 @@ FIGLET_SUFFIX		:= tar.gz
 FIGLET_URL		:= https://github.com/cmatsuoka/figlet/archive/refs/tags/$(FIGLET_VERSION).$(FIGLET_SUFFIX)
 FIGLET_SOURCE		:= $(SRCDIR)/$(FIGLET).$(FIGLET_SUFFIX)
 FIGLET_DIR		:= $(BUILDDIR)/$(FIGLET)
-FIGLET_LICENSE		:= BSD-3-clause
+FIGLET_LICENSE		:= BSD-3-Clause
 FIGLET_LICENSE_FILES	:= \
 	file://LICENSE;md5=1688bcd97b27704f1afcac7336409857
 

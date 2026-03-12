@@ -24,7 +24,7 @@ NTP_URL		:= \
 	https://downloads.nwtime.org/ntp/$(NTP).$(NTP_SUFFIX)
 NTP_SOURCE	:= $(SRCDIR)/$(NTP).$(NTP_SUFFIX)
 NTP_DIR		:= $(BUILDDIR)/$(NTP)
-NTP_LICENSE	:= ntp
+NTP_LICENSE	:= NTP
 NTP_LICENSE_FILES	:= file://COPYRIGHT;md5=2311915f6d5142b06395231b0ffeaf29
 
 # ----------------------------------------------------------------------------

@@ -21,7 +21,7 @@ SDL2_SUFFIX	:= tar.gz
 SDL2_URL	:= https://www.libsdl.org/release/$(SDL2).$(SDL2_SUFFIX)
 SDL2_SOURCE	:= $(SRCDIR)/$(SDL2).$(SDL2_SUFFIX)
 SDL2_DIR	:= $(BUILDDIR)/$(SDL2)
-SDL2_LICENSE	:= zlib
+SDL2_LICENSE	:= Zlib
 
 # ----------------------------------------------------------------------------
 # Prepare

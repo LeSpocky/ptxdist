@@ -21,7 +21,7 @@ SDL2_IMAGE_SUFFIX	:= tar.gz
 SDL2_IMAGE_URL		:= https://github.com/libsdl-org/SDL_image/releases/download/release-$(SDL2_IMAGE_VERSION)/$(SDL2_IMAGE).$(SDL2_IMAGE_SUFFIX)
 SDL2_IMAGE_SOURCE	:= $(SRCDIR)/$(SDL2_IMAGE).$(SDL2_IMAGE_SUFFIX)
 SDL2_IMAGE_DIR		:= $(BUILDDIR)/$(SDL2_IMAGE)
-SDL2_IMAGE_LICENSE	:= zlib
+SDL2_IMAGE_LICENSE	:= Zlib
 
 # ----------------------------------------------------------------------------
 # Prepare

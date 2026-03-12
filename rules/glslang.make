@@ -21,7 +21,7 @@ GLSLANG_SUFFIX		:= tar.gz
 GLSLANG_URL		:= https://github.com/KhronosGroup/glslang/archive/vulkan-sdk-$(GLSLANG_VERSION).$(GLSLANG_SUFFIX)
 GLSLANG_SOURCE		:= $(SRCDIR)/$(GLSLANG).$(GLSLANG_SUFFIX)
 GLSLANG_DIR		:= $(BUILDDIR)/$(GLSLANG)
-GLSLANG_LICENSE		:= BSD-3-clause AND BSD-2-clause AND MIT AND Apple-MIT-License AND Apache-2.0 AND (GPL-3.0-or-later WITH Bison-exception-2.2) AND custom
+GLSLANG_LICENSE		:= BSD-3-Clause AND BSD-2-Clause AND MIT AND Apple-MIT-License AND Apache-2.0 AND (GPL-3.0-or-later WITH Bison-exception-2.2) AND custom
 GLSLANG_LICENSE_FILES := file://LICENSE.txt;md5=50ff9d0fcde2d5b953ebe431c48e34e3
 
 # ----------------------------------------------------------------------------

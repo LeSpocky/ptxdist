@@ -21,7 +21,7 @@ SDL_TTF_SUFFIX	:= tar.gz
 SDL_TTF_URL	:= http://www.libsdl.org/projects/SDL_ttf/release/$(SDL_TTF).$(SDL_TTF_SUFFIX)
 SDL_TTF_SOURCE	:= $(SRCDIR)/$(SDL_TTF).$(SDL_TTF_SUFFIX)
 SDL_TTF_DIR	:= $(BUILDDIR)/$(SDL_TTF)
-SDL_TTF_LICENSE := zlib
+SDL_TTF_LICENSE := Zlib
 
 # ----------------------------------------------------------------------------
 # Prepare

@@ -21,7 +21,7 @@ SDL2_TTF_SUFFIX		:= tar.gz
 SDL2_TTF_URL		:= https://www.libsdl.org/projects/SDL_ttf/release/$(SDL2_TTF).$(SDL2_TTF_SUFFIX)
 SDL2_TTF_SOURCE		:= $(SRCDIR)/$(SDL2_TTF).$(SDL2_TTF_SUFFIX)
 SDL2_TTF_DIR		:= $(BUILDDIR)/$(SDL2_TTF)
-SDL2_TTF_LICENSE	:= zlib
+SDL2_TTF_LICENSE	:= Zlib
 SDL2_TTF_LICENSE_FILES	:= \
 	file://LICENSE.txt;md5=fbb0010b2f7cf6e8a13bcac1ef4d2455
 
