@@ -21,7 +21,7 @@ LIBTSM_SUFFIX		:= tar.gz
 LIBTSM_URL		:= https://github.com/kmscon/libtsm/archive/refs/tags/v$(LIBTSM_VERSION).$(LIBTSM_SUFFIX)
 LIBTSM_SOURCE		:= $(SRCDIR)/$(LIBTSM).$(LIBTSM_SUFFIX)
 LIBTSM_DIR		:= $(BUILDDIR)/$(LIBTSM)
-LIBTSM_LICENSE		:= MIT and BSD-2-Clause
+LIBTSM_LICENSE		:= MIT AND BSD-2-Clause
 LIBTSM_LICENSE_FILES	:= file://COPYING;md5=69e8256cdc4e949f86fedf94b1b320b4
 
 # ----------------------------------------------------------------------------

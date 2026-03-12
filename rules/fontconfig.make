@@ -21,7 +21,7 @@ FONTCONFIG_SUFFIX	:= tar.gz
 FONTCONFIG_URL		:= https://gitlab.freedesktop.org/fontconfig/fontconfig/-/archive/$(FONTCONFIG_VERSION)/$(FONTCONFIG).$(FONTCONFIG_SUFFIX)
 FONTCONFIG_SOURCE	:= $(SRCDIR)/$(FONTCONFIG).$(FONTCONFIG_SUFFIX)
 FONTCONFIG_DIR		:= $(BUILDDIR)/$(FONTCONFIG)
-FONTCONFIG_LICENSE	:= HPND-sell-variant AND MIT AND custom AND MIT-Modern-Variant AND Unicode-TOU and public_domain
+FONTCONFIG_LICENSE	:= HPND-sell-variant AND MIT AND custom AND MIT-Modern-Variant AND Unicode-TOU AND public_domain
 FONTCONFIG_LICENSE_FILES	:= \
 	file://COPYING;md5=00252fd272bf2e722925613ad74cb6c7 \
 	file://src/ftglue.c;startline=1;endline=8;md5=789386c3d7c853bbce055520a11aaeb9 \
