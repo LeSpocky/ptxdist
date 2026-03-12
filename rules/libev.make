@@ -21,7 +21,7 @@ LIBEV_SUFFIX	:= tar.gz
 LIBEV_URL	:= http://dist.schmorp.de/libev/Attic/$(LIBEV).$(LIBEV_SUFFIX)
 LIBEV_SOURCE	:= $(SRCDIR)/$(LIBEV).$(LIBEV_SUFFIX)
 LIBEV_DIR	:= $(BUILDDIR)/$(LIBEV)
-LIBEV_LICENSE	:= GPLv2+, BSD
+LIBEV_LICENSE	:= GPL-2.0-or-later AND BSD
 
 # ----------------------------------------------------------------------------
 # Prepare

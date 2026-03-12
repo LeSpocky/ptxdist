@@ -21,7 +21,7 @@ GPGME_SUFFIX	:= tar.bz2
 GPGME_URL	:= https://www.gnupg.org/ftp/gcrypt/gpgme/$(GPGME).$(GPGME_SUFFIX)
 GPGME_SOURCE	:= $(SRCDIR)/$(GPGME).$(GPGME_SUFFIX)
 GPGME_DIR	:= $(BUILDDIR)/$(GPGME)
-GPGME_LICENSE	:= LGPLv2.1+
+GPGME_LICENSE	:= LGPL-2.1-or-later
 
 # ----------------------------------------------------------------------------
 # Prepare

@@ -21,7 +21,7 @@ PIGLIT_SUFFIX	:= tar.gz
 PIGLIT_URL	:= https://gitlab.freedesktop.org/mesa/piglit/-/archive/$(PIGLIT_VERSION)/$(PIGLIT).$(PIGLIT_SUFFIX)
 PIGLIT_SOURCE	:= $(SRCDIR)/$(PIGLIT).$(PIGLIT_SUFFIX)
 PIGLIT_DIR	:= $(BUILDDIR)/$(PIGLIT)
-PIGLIT_LICENSE	:= MIT AND GPLv2+ AND GPLv3 AND LGPLv2
+PIGLIT_LICENSE	:= MIT AND GPL-2.0-or-later AND GPL-3.0-only AND LGPL-2.0-only
 
 # ----------------------------------------------------------------------------
 # Prepare

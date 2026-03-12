@@ -22,7 +22,7 @@ LIBARCHIVE_URL		:= https://www.libarchive.org/downloads/$(LIBARCHIVE).$(LIBARCHI
 LIBARCHIVE_SOURCE	:= $(SRCDIR)/$(LIBARCHIVE).$(LIBARCHIVE_SUFFIX)
 LIBARCHIVE_DIR		:= $(BUILDDIR)/$(LIBARCHIVE)
 LIBARCHIVE_LICENSE	:= BSD-2-Clause AND BSD-3-Clause AND public_domain AND \
-			   (CC-0-1.0 OR OpenSSL OR Apache-2.0)
+			   (CC0-1.0 OR OpenSSL OR Apache-2.0)
 LIBARCHIVE_LICENSE_FILES	:= file://COPYING;md5=7ce08437ff7f5e24d72e666313ae4084
 
 # ----------------------------------------------------------------------------

@@ -21,7 +21,7 @@ OPENH264_SUFFIX		:= tar.gz
 OPENH264_URL		:= https://github.com/cisco/openh264/archive/refs/tags/v$(OPENH264_VERSION).$(OPENH264_SUFFIX)
 OPENH264_SOURCE		:= $(SRCDIR)/$(OPENH264).$(OPENH264_SUFFIX)
 OPENH264_DIR		:= $(BUILDDIR)/$(OPENH264)
-OPENH264_LICENSE	:= BSD 2-Clause
+OPENH264_LICENSE	:= BSD-2-Clause
 OPENH264_LICENSE_FILES	:= file://LICENSE;md5=bb6d3771da6a07d33fd50d4d9aa73bcf
 
 # ----------------------------------------------------------------------------

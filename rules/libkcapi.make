@@ -21,7 +21,7 @@ LIBKCAPI_SUFFIX		:= tar.gz
 LIBKCAPI_URL		:= https://github.com/smuellerDD/libkcapi/archive/refs/tags/v$(LIBKCAPI_VERSION).$(LIBKCAPI_SUFFIX)
 LIBKCAPI_SOURCE		:= $(SRCDIR)/$(LIBKCAPI).$(LIBKCAPI_SUFFIX)
 LIBKCAPI_DIR		:= $(BUILDDIR)/$(LIBKCAPI)
-LIBKCAPI_LICENSE	:= GPLv2+
+LIBKCAPI_LICENSE	:= GPL-2.0-or-later
 
 # ----------------------------------------------------------------------------
 # Prepare
