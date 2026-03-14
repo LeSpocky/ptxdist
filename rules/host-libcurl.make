@@ -25,7 +25,6 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--enable-optimize \
 	--disable-warnings \
 	--disable-werror \
-	--disable-curldebug \
 	--enable-symbol-hiding \
 	--disable-ares \
 	--enable-rt \
@@ -94,6 +93,7 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--without-mbedtls \
 	--without-wolfssl \
 	--without-rustls \
+	--without-apple-sectrust \
 	--without-zlib \
 	--without-brotli \
 	--without-zstd \
