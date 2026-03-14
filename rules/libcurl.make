@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.18.0
-LIBCURL_MD5	:= dae6088bf7af69d3b0a87c762de92248
+LIBCURL_VERSION	:= 8.19.0
+LIBCURL_MD5	:= d5d3581ba4b4df1140a26a6efcf13e61
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_SOURCE	:= $(SRCDIR)/$(LIBCURL).$(LIBCURL_SUFFIX)
 LIBCURL_DIR	:= $(BUILDDIR)/$(LIBCURL)
 LIBCURL_LICENSE	:= curl
-LIBCURL_LICENSE_FILES := file://COPYING;md5=72f4e9890e99e68d77b7e40703d789b8
+LIBCURL_LICENSE_FILES := file://COPYING;md5=0515352b285b9c3f66464b135c9c0fdc
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -39,7 +39,6 @@ LIBCURL_CONF_OPT	:= \
 	--enable-optimize \
 	--disable-warnings \
 	--disable-werror \
-	--disable-curldebug \
 	--enable-symbol-hiding \
 	--$(call ptx/endis, PTXCONF_LIBCURL_C_ARES)-ares \
 	--enable-rt \
@@ -110,6 +109,7 @@ LIBCURL_CONF_OPT	:= \
 	--without-mbedtls \
 	--without-wolfssl \
 	--without-rustls \
+	--without-apple-sectrust \
 	--with-zlib=$(SYSROOT) \
 	--without-brotli \
 	--without-zstd \
@@ -128,7 +128,6 @@ LIBCURL_CONF_OPT	:= \
 	--without-libidn2 \
 	--without-nghttp2 \
 	--without-ngtcp2 \
-	--without-openssl-quic \
 	--without-nghttp3 \
 	--without-quiche \
 	--without-zsh-functions-dir \
