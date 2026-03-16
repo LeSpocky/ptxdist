@@ -17,7 +17,7 @@ menuconfig CASYNC
 	select XZ		if CASYNC_LZMA
 	select ZLIB		if CASYNC_ZLIB
 	help
-	  casync — Content Addressable Data Synchronizer.
+	  casync - Content Addressable Data Synchronizer.
 
 if CASYNC
 
