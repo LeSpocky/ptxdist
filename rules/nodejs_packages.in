@@ -55,7 +55,7 @@ config NODEJS_PACKAGES_LICENSE
 	  be utilized under. Hence you carefully need to examine all of them
 	  individually to create a reliable list of licenses.
 
-	  [1] https://www.ptxdist.org/doc/dev_manual.html#some-notes-about-licenses
+	  [1] https://www.ptxdist.org/doc/ref_make_variables.html#package-definition
 
 config NODEJS_PACKAGES_OFFLINE
 	bool
