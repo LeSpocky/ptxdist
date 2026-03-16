@@ -37,7 +37,7 @@ config NODEJS_PACKAGES_LIST
 	  As a prerequisite the path '${PTXDIST_WORKSPACE}/local_src/nodejs_
 	  packages/' must exist in the BSP *before* building this package.
 
-	  [1] https://legacy.yarnpkg.com/en/docs/dependency-versions/
+	  [1] https://classic.yarnpkg.com/en/docs/dependency-versions
 
 config NODEJS_PACKAGES_LICENSE
 	string
