@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_GLIB) += glib
 #
 # Paths and names
 #
-GLIB_VERSION	:= 2.86.4
-GLIB_MD5	:= f2233a826c952aaae42b4a61611a06a4
+GLIB_VERSION	:= 2.88.0
+GLIB_MD5	:= 064370bbd78421f639e38ece5e14ca23
 GLIB		:= glib-$(GLIB_VERSION)
 GLIB_SUFFIX	:= tar.xz
 GLIB_URL	:= $(call ptx/mirror, GNOME, glib/$(basename $(GLIB_VERSION))/$(GLIB).$(GLIB_SUFFIX))
@@ -38,26 +38,29 @@ GLIB_MESON_CROSS_FILE := $(call ptx/get-alternative, config/meson, glib-cross-fi
 GLIB_CONF_TOOL	:= meson
 GLIB_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dbsymbolic_functions=true \
-	-Ddocumentation=false \
-	-Ddtrace=false \
-	-Dforce_posix_threads=true \
-	-Dglib_assert=true \
-	-Dglib_checks=true \
-	-Dglib_debug=enabled \
-	-Dinstalled_tests=false \
-	-Dintrospection=disabled \
-	-Dlibelf=disabled \
+	-Dselinux=disabled \
+	-Dxattr=false \
 	-Dlibmount=$(call ptx/endis, PTXCONF_GLIB_LIBMOUNT)d \
 	-Dman-pages=disabled \
-	-Dmultiarch=false \
+	-Ddtrace=false \
+	-Dsystemtap=false \
+	-Dsysprof=disabled \
+	-Ddocumentation=false \
+	-Dgtk_doc=false \
+	-Dbsymbolic_functions=true \
+	-Dforce_posix_threads=true \
+	-Dtests=false \
+	-Dinstalled_tests=false \
 	-Dnls=disabled \
 	-Doss_fuzz=disabled \
-	-Dselinux=disabled \
-	-Dsysprof=disabled \
-	-Dsystemtap=false \
-	-Dtests=false \
-	-Dxattr=false \
+	-Dglib_debug=enabled \
+	-Dglib_assert=true \
+	-Dglib_checks=true \
+	-Dlibelf=disabled \
+	-Dmultiarch=false \
+	-Dintrospection=disabled \
+	-Dfile_monitor_backend=auto \
+	-Dgvdb:tests=false \
 	\
 	--cross-file $(GLIB_MESON_CROSS_FILE)
 
