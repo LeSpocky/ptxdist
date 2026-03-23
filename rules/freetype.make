@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_FREETYPE) += freetype
 #
 # Paths and names
 #
-FREETYPE_VERSION	:= 2.14.2
-FREETYPE_MD5		:= b019e5b389e0ec08ebdfb4a50666cc5e
+FREETYPE_VERSION	:= 2.14.3
+FREETYPE_MD5		:= 5e78e6fdce5a61d3075e4c25e9852f84
 FREETYPE		:= freetype-$(FREETYPE_VERSION)
 FREETYPE_SUFFIX		:= tar.xz
 FREETYPE_SOURCE		:= $(SRCDIR)/$(FREETYPE).$(FREETYPE_SUFFIX)
@@ -28,7 +28,7 @@ FREETYPE_LICENSE_FILES	:= \
 	file://docs/FTL.TXT;md5=72d844cd2f3bcaf6a85244b508032be7 \
 	file://src/bdf/README;startline=98;endline=140;md5=fef9416f085f0834b3ba93a5dc5a622c \
 	file://src/pcf/README;startline=69;endline=88;md5=e0f11f550450e58753f2d54ddaf17d34 \
-	file://src/autofit/ft-hb.c;startline=7;endline=14;md5=e8099c3115f942031df07e75609f89cf
+	file://src/autofit/ft-hb.c;startline=7;endline=14;md5=6297ce6489e3e6aee5a297465f9bed27
 
 FREETYPE_URL := \
 	https://download.savannah.gnu.org/releases/freetype/$(FREETYPE).$(FREETYPE_SUFFIX) \
