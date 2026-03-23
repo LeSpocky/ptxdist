@@ -72,7 +72,7 @@ config IPTABLES_LIBNFNETLINK
 	bool
 	prompt "configure libnfnetlink"
 	help
-	  Select if iptables should be build against libnfnetlink
+	  Select if iptables should be built against libnfnetlink
 
 config IPTABLES_NFTABLES_COMPAT
 	bool

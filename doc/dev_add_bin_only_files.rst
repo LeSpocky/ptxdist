@@ -14,7 +14,7 @@ source code format.
 Add Binary Files File by File
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Doing to on a file by file base can happen by just using the ``install_copy``
+Doing so on a file by file base can happen by just using the ``install_copy``
 macro in the *targetinstall* stage in our own customized rules file.
 
 .. code-block:: none

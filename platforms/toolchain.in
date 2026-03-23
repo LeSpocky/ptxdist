@@ -7,8 +7,8 @@ config CROSSCHAIN_VENDOR
 	prompt "check for specific toolchain vendor"
 	default "OSELAS.Toolchain-2020.08"
 	help
-	  Add here an unique vendor string to ensure this project will
-	  be build with the correct toolchain.
+	  Add here a unique vendor string to ensure this project will
+	  be built with the correct toolchain.
 	  Leave this entry empty to omit this check.
 	  To use this feature add a file called 'ptxconfig' to the bin/ folder of
 	  your toolchain. This file should contain at least one variable definition:

@@ -19,14 +19,14 @@ config REPRODUCIBLE_TIMESTAMP_PTXDIST
 	bool
 	prompt "ptxdist version"
 	help
-	  Use the year and month of the PTXdist version to generated the
+	  Use the year and month of the PTXdist version to generate the
 	  timestamp.
 
 config REPRODUCIBLE_TIMESTAMP_TOOLCHAIN
 	bool
 	prompt "toolchain version"
 	help
-	  Use the year and month of the toolchain version to generated the
+	  Use the year and month of the toolchain version to generate the
 	  timestamp. This only works for OSELAS.Toolchain.
 	  This is useful to keep the timestamp stable across PTXdist
 	  version updates. When a toolchain update happens, then the
@@ -54,7 +54,7 @@ config REPRODUCIBLE_TIMESTAMP_STRING
 	  Supply a custom fake timestamp to be injected to the build.
 	  The timestamp is passed to 'date --date', e.g. "2018-11-01 UTC".
 
-	  Note: the timestamp should contain include the timezone.
+	  Note: the timestamp should include the timezone.
 	  Otherwise timezone changes may produce different results.
 
 endif

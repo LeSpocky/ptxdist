@@ -254,7 +254,7 @@ The ``<source>`` parameter can be:
   *foo* example package can be a ``$(FOO_DIR)/foo``.
 * a minus sign (``-``). PTXdist uses the <destination>
   parameter in this case to locate the file to copy from. 
-  The <destination> is uses a path relative to the :ref:`package install
+  The <destination> is used as path relative to the :ref:`package install
   directory<pkg_pkgdir>`. This only works if the package uses the default
   or a similar *install* stage. For our *foo* example used source file is
   ``<platform-dir>/packages/foo-1.1.0/<destination>``.

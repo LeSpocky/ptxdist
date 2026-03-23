@@ -100,7 +100,7 @@ choice
 		prompt "uImage "
 		help
 		 This is the target for most non ia32 platforms like PowerPC
-		 and ARM architectures. Its a compressed image with additional
+		 and ARM architectures. It's a compressed image with additional
 		 embedded information.
 
 	config KERNEL_IMAGE_VM
@@ -128,7 +128,7 @@ choice
 		bool
 		prompt "Image"
 		help
-		 This is the target to get the kernel image as an raw uncompressed
+		 This is the target to get the kernel image as a raw uncompressed
 		 binary file.
 
 	config KERNEL_IMAGE_SIMPLE
@@ -294,7 +294,7 @@ config KERNEL_OPENSSL
 	bool
 	help
 	  Select this if you're going to build your kernel with support for
-	  module signing, IMA etc. where openssl is need as hosttool.
+	  module signing, IMA etc. where openssl is needed as hosttool.
 
 	  Select this if you're unsure, as it won't hurt. It just
 	  increases the build time.

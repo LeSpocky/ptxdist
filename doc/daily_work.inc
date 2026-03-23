@@ -26,7 +26,7 @@ tree.
 Configuring the PTXdist Project
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note:: assumption is here, the directory ``/myprj`` contains a valid PTXdist project.
+.. note:: assumption is here, the directory ``~/myprj`` contains a valid PTXdist project.
 
 To make PTXdist use of this kernel source tree, instead of an archive we
 can simply create a link now:
@@ -454,7 +454,7 @@ command line parameters.
     is two times the available CPU cores.
 
 ``-je<number>``
-    this defines the number of packages to be build in parallel. The
+    this defines the number of packages to be built in parallel. The
     default is one package at a time.
 
 ``-j<number>``
@@ -469,7 +469,7 @@ command line parameters.
 
 A much softer setup is to just use the ``-j<number>`` parameter. This will run
 up to ``<number>`` tasks at the same time which will be spread over everything
-to do. This will create a system load which is much user friendly. Even the
+to do. This will create a system load which is much more user friendly. Even the
 filesystem load is smoother with this parameter.
 
 Building in Background
