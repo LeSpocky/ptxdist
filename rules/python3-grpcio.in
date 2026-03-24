@@ -1,0 +1,26 @@
+## SECTION=python3
+
+config PYTHON3_GRPCIO
+	tristate
+	select HOST_PYTHON3_SETUPTOOLS
+	select HOST_CYTHON3
+	select PYTHON3_PROTOBUF
+	select PYTHON3_TYPING_EXTENSIONS
+	select ABSEIL_CPP
+	select ABSEIL_CPP_SHARED_LIB
+	select C_ARES
+	select GCCLIBS_CXX
+	select GCCLIBS_GCC_S
+	select LIBC_DL
+	select LIBC_M
+	select LIBC_PTHREAD
+	select LIBC_RT
+	select OPENSSL
+	select PYTHON3
+	select RE2
+	select ZLIB
+	prompt "grpcio"
+	help
+	  Package for gRPC Python
+
+# vim: ft=kconfig tw=80
