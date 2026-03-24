@@ -1,0 +1,11 @@
+## SECTION=system_libraries
+
+config RE2
+	tristate
+	select HOST_CMAKE
+	select ABSEIL_CPP
+	prompt "re2"
+	help
+	  RE2 is an efficient, principled regular expression library.
+
+# vim: ft=kconfig tw=80
