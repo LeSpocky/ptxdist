@@ -8,3 +8,11 @@ config ABSEIL_CPP
 	help
 	   Abseil is an open-source collection of C++ library code designed
 	   to augment the C++ standard library.
+
+if ABSEIL_CPP
+
+config ABSEIL_CPP_SHARED_LIB
+	bool
+	prompt "Build as shared library"
+
+endif

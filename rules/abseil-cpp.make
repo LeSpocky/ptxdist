@@ -36,7 +36,8 @@ ABSEIL_CPP_CONF_TOOL	:= cmake
 ABSEIL_CPP_CONF_OPT	:=  \
 	$(CROSS_CMAKE_USR) \
 	-G Ninja \
-	-DABSL_BUILD_MONOLITHIC_SHARED_LIBS=OFF \
+	-DABSL_BUILD_MONOLITHIC_SHARED_LIBS=$(call ptx/ifdef, ABSEIL_CPP_SHARED_LIB, OFF, ON) \
+	-DBUILD_SHARED_LIBS=$(call ptx/ifdef, ABSEIL_CPP_SHARED_LIB, OFF, ON) \
 	-DABSL_BUILD_TESTING=OFF \
 	-DABSL_BUILD_TEST_HELPERS=OFF \
 	-DABSL_ENABLE_INSTALL=ON \
@@ -46,5 +47,23 @@ ABSEIL_CPP_CONF_OPT	:=  \
 
 ABSEIL_CPP_CXXFLAGS	:= \
 	-fPIC
+
+# ----------------------------------------------------------------------------
+# Target-Install
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/abseil-cpp.targetinstall:
+	@$(call targetinfo)
+
+	@$(call install_init, abseil-cpp)
+	@$(call install_fixup, abseil-cpp, PRIORITY, optional)
+	@$(call install_fixup, abseil-cpp, SECTION, base)
+	@$(call install_fixup, abseil-cpp, AUTHOR, "Lars Pedersen <lapeddk@gmail.com>")
+	@$(call install_fixup, abseil-cpp, DESCRIPTION, missing)
+ifdef PTXCONF_ABSEIL_CPP_SHARED_LIB
+	@$(call install_lib, abseil-cpp, 0, 0, 0644, libabseil_dll)
+endif
+	@$(call install_finish, abseil-cpp)
+	@$(call touch)
 
 # vim: syntax=make
