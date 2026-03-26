@@ -49,7 +49,7 @@ END {
 export -f ptxd_make_world_cargo_sync_parse
 
 ptxd_make_world_cargo_sync_package() {
-    local path PACKAGE ORIG_PACKAGE extra
+    local path PACKAGE ORIG_PACKAGE FULL_PACKAGE extra
 
     if [ -z "${url}" ]; then
 	url="https://crates.io/api/v1/crates/${package}/${version}/download"
@@ -65,6 +65,12 @@ ptxd_make_world_cargo_sync_package() {
     fi
     PACKAGE="$(tr '[a-z]' '[A-Z]' <<< "${package}-${version}" | tr -sc '[:alnum:]' '_')"
     PACKAGE="${PACKAGE%_}"
+    # exactly the same package can exist in multiple lock files
+    FULL_PACKAGE="${PACKAGE}-${hash}"
+    if [[ " ${full_packages} " =~ " ${FULL_PACKAGE} " ]]; then
+	return
+    fi
+    full_packages+=" ${FULL_PACKAGE}"
     # the same package/version can exist multiple times with different commits
     ORIG_PACKAGE="${PACKAGE}"
     while [[ " ${packages} " =~ " ${PACKAGE} " ]]; do
@@ -97,7 +103,7 @@ EOF
 export -f ptxd_make_world_cargo_sync_package
 
 ptxd_make_world_cargo_sync() {
-    local pkg_makefile_cargo package version cargofd packages cargo_lock cargo_lock_md5
+    local pkg_makefile_cargo package version cargofd packages full_packages cargo_lock cargo_lock_md5
     local PKG
     local -a tmp
     local -A workspaces
