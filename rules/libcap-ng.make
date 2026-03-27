@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBCAP_NG) += libcap-ng
 #
 # Paths and names
 #
-LIBCAP_NG_VERSION	:= 0.9
-LIBCAP_NG_MD5		:= abc6ba14f5b96041abe8e41c59aed7ed
+LIBCAP_NG_VERSION	:= 0.9.2
+LIBCAP_NG_MD5		:= c0603e7f6e68fa3fd4bcfc5ea93f3b93
 LIBCAP_NG		:= libcap-ng-$(LIBCAP_NG_VERSION)
 LIBCAP_NG_SUFFIX	:= tar.gz
 LIBCAP_NG_URL		:= \
@@ -56,7 +56,6 @@ $(STATEDIR)/libcap-ng.targetinstall:
 	@$(call install_lib, libcap-ng, 0, 0, 0644, libcap-ng)
 
 ifdef PTXCONF_LIBCAP_NG_TOOLS
-	@$(call install_copy, libcap-ng, 0, 0, 0755, -, /usr/bin/captest)
 	@$(call install_copy, libcap-ng, 0, 0, 0755, -, /usr/bin/filecap)
 	@$(call install_copy, libcap-ng, 0, 0, 0755, -, /usr/bin/netcap)
 	@$(call install_copy, libcap-ng, 0, 0, 0755, -, /usr/bin/pscap)
