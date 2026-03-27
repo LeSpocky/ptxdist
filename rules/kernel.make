@@ -285,7 +285,9 @@ $(STATEDIR)/kernel.install:
 	@$(call targetinfo)
 ifdef PTXCONF_KERNEL_MODULES_INSTALL
 	@$(call world/install, KERNEL)
+ifeq ($(KERNEL_VERSION_MAJOR),6)
 	@chmod -x $(KERNEL_PKGDIR)/lib/modules/*/modules.builtin.modinfo
+endif
 endif
 	@$(call world/dtb, KERNEL)
 	@$(call world/dtbo, KERNEL)
