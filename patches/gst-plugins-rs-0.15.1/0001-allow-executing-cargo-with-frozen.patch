@@ -10,7 +10,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  3 files changed, 10 insertions(+)
 
 diff --git a/cargo_wrapper.py b/cargo_wrapper.py
-index b62ed4278605..97d801907ea4 100755
+index 96142bbaba66..79567f51281a 100755
 --- a/cargo_wrapper.py
 +++ b/cargo_wrapper.py
 @@ -34,6 +34,7 @@ PARSER.add_argument('--depfile', type=P)
@@ -21,7 +21,7 @@ index b62ed4278605..97d801907ea4 100755
  
  
  def shlex_join(args):
-@@ -284,6 +285,9 @@ if __name__ == '__main__':
+@@ -286,6 +287,9 @@ if __name__ == '__main__':
          print('Unknown command:', opts.command, file=logfile)
          sys.exit(1)
  
@@ -32,10 +32,10 @@ index b62ed4278605..97d801907ea4 100755
          cargo_cmd += ['--target', rustc_target]
      if features:
 diff --git a/meson.build b/meson.build
-index 50ac870fe5f9..d7299aa034c3 100644
+index 64fa34abc5b9..3d1fb81a668f 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -649,6 +649,10 @@ if get_option('doc').disabled()
+@@ -654,6 +654,10 @@ if get_option('doc').disabled()
    extra_args += ['--disable-doc']
  endif
  
@@ -47,10 +47,10 @@ index 50ac870fe5f9..d7299aa034c3 100644
  pkg_config = find_program('pkgconfig', 'pkg-config')
  if pkg_config.found()
 diff --git a/meson_options.txt b/meson_options.txt
-index 55cfc13173f2..645b2e67d05e 100644
+index a3eca99e39a0..f0a44c0aa739 100644
 --- a/meson_options.txt
 +++ b/meson_options.txt
-@@ -89,3 +89,5 @@ option('tests', type : 'feature', value : 'auto', yield : true,
+@@ -91,3 +91,5 @@ option('tests', type : 'feature', value : 'auto', yield : true,
         description : 'Build and enable unit tests')
  option('auto_plugin_features', type: 'feature', value: 'auto',
         description: 'Override value of all auto plugin features')

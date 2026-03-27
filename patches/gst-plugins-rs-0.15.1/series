@@ -2,4 +2,5 @@
 #tag:base --start-number 1
 0001-allow-executing-cargo-with-frozen.patch
 0002-HACK-lower-required-rust-version.patch
-# 20981b26c90d4859824b5770444f53fd  - git-ptx-patches magic
+0003-whisper-fix-compiling-on-ARM.patch
+# 0ca68d244523b490475f2e21e11f9c36  - git-ptx-patches magic

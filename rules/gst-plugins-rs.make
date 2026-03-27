@@ -14,12 +14,11 @@ PACKAGES-$(PTXCONF_GST_PLUGINS_RS) += gst-plugins-rs
 #
 # Paths and names
 #
-GST_PLUGINS_RS_VERSION		:= 1.28.0
-GST_PLUGINS_RS_TAG		:= gstreamer-$(GST_PLUGINS_RS_VERSION)
-GST_PLUGINS_RS_MD5		:= ff949aa99fab4f320fbe48bf3f81ed18
+GST_PLUGINS_RS_VERSION		:= 0.15.1
+GST_PLUGINS_RS_MD5		:= baeb5d53e049571ac18052328bcd5622
 GST_PLUGINS_RS			:= gst-plugins-rs-$(GST_PLUGINS_RS_VERSION)
 GST_PLUGINS_RS_SUFFIX		:= tar.bz2
-GST_PLUGINS_RS_URL		:= https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/$(GST_PLUGINS_RS_TAG)/gst-plugins-rs-$(GST_PLUGINS_RS_TAG).$(GST_PLUGINS_RS_SUFFIX)
+GST_PLUGINS_RS_URL		:= https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/$(GST_PLUGINS_RS_VERSION)/gst-plugins-rs-$(GST_PLUGINS_RS_VERSION).$(GST_PLUGINS_RS_SUFFIX)
 GST_PLUGINS_RS_SOURCE		:= $(SRCDIR)/$(GST_PLUGINS_RS).$(GST_PLUGINS_RS_SUFFIX)
 GST_PLUGINS_RS_DIR		:= $(BUILDDIR)/$(GST_PLUGINS_RS)
 GST_PLUGINS_RS_CARGO_LOCK	:= Cargo.lock

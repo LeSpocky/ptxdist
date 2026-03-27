@@ -37,6 +37,7 @@ ptxd_make_check_src_impl() {
 	return
     fi
 
+    ptxd_verbose "Verifying checksum for '${src}'..."
     for md5sum in ${md5}; do
 	echo "${md5sum}  ${src}" | md5sum --check > /dev/null 2>&1 && return
     done

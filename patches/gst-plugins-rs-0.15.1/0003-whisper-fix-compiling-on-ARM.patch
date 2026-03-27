@@ -1,0 +1,29 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Fri, 27 Mar 2026 18:38:22 +0100
+Subject: [PATCH] whisper: fix compiling on ARM
+
+CStr::from_ptr() takes a c_char as argument. This maps to i8 on x86 so
+the code compiles there but on ARM and ARM64, c_char maps to u8 and this
+fails to build with:
+
+151 |     let c_str = unsafe { std::ffi::CStr::from_ptr(text) };
+    |                          ------------------------ ^^^^ expected `*const u8`, found `*const i8`
+
+Use c_char to make sure, that the type is always correct.
+---
+ audio/whisper/src/transcriber/imp.rs | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/audio/whisper/src/transcriber/imp.rs b/audio/whisper/src/transcriber/imp.rs
+index ea8f40430b65..667ff13ef1e4 100644
+--- a/audio/whisper/src/transcriber/imp.rs
++++ b/audio/whisper/src/transcriber/imp.rs
+@@ -145,7 +145,7 @@ type LogLevel = i32;
+ 
+ unsafe extern "C" fn my_log_callback(
+     level: LogLevel,
+-    text: *const i8,
++    text: *const std::ffi::c_char,
+     _user_data: *mut std::ffi::c_void,
+ ) {
+     let c_str = unsafe { std::ffi::CStr::from_ptr(text) };
