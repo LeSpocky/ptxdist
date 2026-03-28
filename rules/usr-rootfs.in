@@ -1,5 +1,6 @@
 ## SECTION=rootfs
 
 config USR_ROOTFS
-	tristate
+	bool
+	default y
 	select BASE
