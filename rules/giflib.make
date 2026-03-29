@@ -9,9 +9,9 @@
 PACKAGES-$(PTXCONF_GIFLIB) += giflib
 
 GIFLIB_VERSION       := 5.1.4
-GIFLIB_MD5           := 2c171ced93c0e83bb09e6ccad8e3ba2b
+GIFLIB_MD5           := 8985c9411fdb2178b89d3348da9a06b0
 GIFLIB               := giflib-$(GIFLIB_VERSION)
-GIFLIB_SUFFIX        := tar.bz2
+GIFLIB_SUFFIX        := tar.gz
 GIFLIB_URL           := $(call ptx/mirror, SF, giflib/$(GIFLIB).$(GIFLIB_SUFFIX))
 GIFLIB_SOURCE        := $(SRCDIR)/$(GIFLIB).$(GIFLIB_SUFFIX)
 GIFLIB_DIR           := $(BUILDDIR)/$(GIFLIB)
