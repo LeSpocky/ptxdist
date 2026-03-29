@@ -1,4 +1,6 @@
-## SECTION=web
+## SECTION=staging
+## old section:
+### SECTION=web
 menuconfig JVISU
 	tristate
 	select HOST_SYSTEM_JDK
@@ -16,6 +18,10 @@ menuconfig JVISU
 	  To build this package make sure you already installed a SUN
 	  JAVA SDK and setup the path to this installation directory
 	  in the "JAVA SDK" menu entry when running "ptxdist setup"
+
+	  STAGING: remove in PTXdist 2027.04.0
+	  Upstream dead and unmaintained in PTXist. Fails to build with newer
+	  JDK versions.
 
 config JVISU_APPLET
 	bool

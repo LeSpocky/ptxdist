@@ -88,10 +88,6 @@ menu "Scientific Apps               "
 source "generated/scientific.in"
 endmenu
 
-menu "Web Applications              "
-source "generated/web.in"
-endmenu
-
 menu "Test Suites                   "
 source "generated/test_suites.in"
 endmenu
