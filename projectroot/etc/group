@@ -41,4 +41,5 @@ mongodb:x:217:
 polkitd:x:218:
 gpio:x:219:gpio-manager
 gpio-manager:x:220:
+clock:x:221:
 nogroup:x:65534:
