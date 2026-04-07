@@ -30,6 +30,9 @@ ifdef PTXCONF_KERNEL_FIT_INITRAMFS
 KERNEL_FIT_INITRAMFS		:= $(IMAGEDIR)/root.cpio
 endif
 KERNEL_FIT_DTB			 = $(addprefix $(IMAGEDIR)/,$(KERNEL_DTB_FILES))
+ifdef PTXCONF_KERNEL_FIT_DTBO
+KERNEL_FIT_DTBO			 = $(addprefix $(IMAGEDIR)/,$(KERNEL_DTBO_FILES))
+endif
 
 # ----------------------------------------------------------------------------
 # Target-Install

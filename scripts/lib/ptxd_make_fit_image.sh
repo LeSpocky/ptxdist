@@ -78,6 +78,20 @@ EOF
 		};
 EOF
     done
+    for i in ${image_dtbo}; do
+	dtbo="$(basename ${i})"
+	cat << EOF
+		${dtbo} {
+			data = /incbin/("${i}");
+			compression = "none";
+			type = "flat_dt";
+			arch = "$(ptxd_get_ptxconf PTXCONF_ARCH_STRING)";
+			hash-1 {
+				algo = "sha256";
+			};
+		};
+EOF
+    done
     cat << EOF
 	};
 	configurations {
@@ -103,6 +117,25 @@ EOF
 				algo = "sha256,rsa4096";
 				key-name-hint = "${image_key_name_hint}";
 				sign-images = "fdt", "kernel"${image_initramfs:+$(printf %s ', "ramdisk"')};
+			};
+EOF
+	fi
+	cat << EOF
+		};
+EOF
+    done
+    for i in ${image_dtbo}; do
+	dtbo="$(basename ${i})"
+	cat << EOF
+		${dtbo} {
+			fdt = "${dtbo}";
+EOF
+	if [ -n "${image_sign_role}" ]; then
+	    cat << EOF
+			signature-1 {
+				algo = "sha256,rsa4096";
+				key-name-hint = "${image_key_name_hint}";
+				sign-images = "fdt";
 			};
 EOF
 	fi

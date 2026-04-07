@@ -58,6 +58,10 @@ config KERNEL_FIT_SIGNED
 	help
 	  If enabled a signed FIT image will be generated.
 
+config KERNEL_FIT_DTBO
+	bool
+	prompt "include device tree overlays"
+
 config KERNEL_FIT_INITRAMFS
 	bool
 	depends on !KERNEL_FIT_INSTALL
