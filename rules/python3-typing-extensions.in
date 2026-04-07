@@ -6,6 +6,6 @@ config PYTHON3_TYPING_EXTENSIONS
 	select HOST_PYTHON3_PYBUILD
 	prompt "typing-extensions"
 	help
-	  FIXME
+	  Python typing_extensions module enables new and experimental type system features.
 
 # vim: ft=kconfig tw=80
