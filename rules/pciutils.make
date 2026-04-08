@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_PCIUTILS) += pciutils
 #
 # Paths and names
 #
-PCIUTILS_VERSION	:= 3.14.0
-PCIUTILS_MD5		:= 9c98aeb5ca211d6d7e4cb5e20a489afe
+PCIUTILS_VERSION	:= 3.15.0
+PCIUTILS_MD5		:= 6afa843ac75c7522c565ed91c4549e06
 PCIUTILS		:= pciutils-$(PCIUTILS_VERSION)
 PCIUTILS_SUFFIX		:= tar.gz
 PCIUTILS_URL		:= https://github.com/pciutils/pciutils/archive/refs/tags/v$(PCIUTILS_VERSION).$(PCIUTILS_SUFFIX)
