@@ -46,10 +46,10 @@ index 924e3d0877b4..626241c6328c 100644
 -EXTRA_DIST = capng_swig.i
 -CONFIG_CLEAN_FILES = *.loT *.rej *.orig
 diff --git a/configure.ac b/configure.ac
-index 91ccdf98bab6..2fa7b778a2aa 100644
+index 44ef598d0676..d987698e2062 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -222,12 +222,6 @@ if test x"${ac_cv_have_decl_PR_CAP_AMBIENT}" = x"no" ; then
+@@ -257,12 +257,6 @@ if test x"${ac_cv_have_decl_PR_CAP_AMBIENT}" = x"no" ; then
  fi
  AM_CONDITIONAL(BUILD_LIBDROP_AMBIENT, test x"${ac_cv_have_decl_PR_CAP_AMBIENT}" = x"yes")
  
