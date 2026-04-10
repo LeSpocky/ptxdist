@@ -19,7 +19,7 @@ OPKG_VERSION	:= 0.9.0
 OPKG_MD5	:= 3a100d77beaedd4820599d91bc53e302
 OPKG		:= opkg-$(OPKG_VERSION)
 OPKG_SUFFIX	:= tar.gz
-OPKG_URL	:= https://git.yoctoproject.org/opkg/snapshot/$(OPKG).$(OPKG_SUFFIX)
+OPKG_URL	:= git+https://git.yoctoproject.org/opkg;tag=v$(OPKG_VERSION)
 OPKG_SOURCE	:= $(SRCDIR)/$(OPKG).$(OPKG_SUFFIX)
 OPKG_DIR	:= $(BUILDDIR)/$(OPKG)
 OPKG_LICENSE	:= GPL-2.0-or-later
