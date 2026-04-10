@@ -1,3 +1,4 @@
+
 # -*-makefile-*-
 #
 # Copyright (C) 2011 by George McCollister <george.mccollister@gmail.com>
@@ -18,7 +19,7 @@ HOST_OPKG_UTILS_VERSION	:= 0.7.0
 HOST_OPKG_UTILS_MD5	:= 53c42e603468102f28d010e922310941
 HOST_OPKG_UTILS		:= opkg-utils-$(HOST_OPKG_UTILS_VERSION)
 HOST_OPKG_UTILS_SUFFIX	:= tar.gz
-HOST_OPKG_UTILS_URL	:= https://git.yoctoproject.org/opkg-utils/snapshot/$(HOST_OPKG_UTILS).$(HOST_OPKG_UTILS_SUFFIX)
+HOST_OPKG_UTILS_URL	:= git+https://git.yoctoproject.org/opkg-utils;tag=$(HOST_OPKG_UTILS_VERSION)
 HOST_OPKG_UTILS_SOURCE	:= $(SRCDIR)/$(HOST_OPKG_UTILS).$(HOST_OPKG_UTILS_SUFFIX)
 HOST_OPKG_UTILS_DIR	:= $(HOST_BUILDDIR)/$(HOST_OPKG_UTILS)
 HOST_OPKG_UTILS_LICENSE	:= GPL-2.0-only
