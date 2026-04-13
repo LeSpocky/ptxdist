@@ -226,6 +226,16 @@ config UTIL_LINUX_GETOPT
 comment "BusyBox' getopt is selected!"
 	depends on BUSYBOX_GETOPT
 
+config UTIL_LINUX_LOGGER
+	bool
+	prompt "logger"
+	depends on !BUSYBOX_LOGGER || ALLYES
+	help
+	  logger - enter messages into the system log
+
+comment "BusyBox' logger is selected!"
+	depends on BUSYBOX_LOGGER
+
 config UTIL_LINUX_LSBLK
 	bool
 	select UTIL_LINUX_LIBBLKID
