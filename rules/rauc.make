@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_RAUC) += rauc
 #
 # Paths and names
 #
-RAUC_VERSION		:= 1.14
-RAUC_MD5		:= a99bac2e1a6bf26d75c6427b5e994e7f
+RAUC_VERSION		:= 1.15.2
+RAUC_MD5		:= a06c5d569a5b470edf99567ce5697491
 RAUC			:= rauc-$(RAUC_VERSION)
 RAUC_SUFFIX		:= tar.xz
 RAUC_URL		:= https://github.com/rauc/rauc/releases/download/v$(RAUC_VERSION)/$(RAUC).$(RAUC_SUFFIX)
@@ -23,8 +23,8 @@ RAUC_SOURCE		:= $(SRCDIR)/$(RAUC).$(RAUC_SUFFIX)
 RAUC_DIR		:= $(BUILDDIR)/$(RAUC)
 RAUC_LICENSE		:= LGPL-2.1-or-later
 RAUC_LICENSE_FILES	:= \
-	file://README.rst;startline=281;endline=294;md5=340a79569c116c7f0439677b0a9fd6c3 \
-	file://COPYING;md5=4fbd65380cdd255951079008b364516c
+	file://README.rst;startline=281;endline=294;md5=e8cbfbe2d43ca2bc4c1213b244529b29 \
+	file://COPYING;md5=4bf661c1e3793e55c8d1051bc5e0ae21
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -46,7 +46,9 @@ RAUC_CONF_OPT	:= \
 	-Dcomposefs=$(call ptx/endis,PTXCONF_RAUC_COMPOSEFS)d \
 	-Dhtmldocs=false \
 	-Djson=$(call ptx/endis,PTXCONF_RAUC_JSON)d \
+	-Dmanpages=false \
 	-Dnetwork=$(call ptx/truefalse,PTXCONF_RAUC_NETWORK) \
+	-Dpkcs11_engine=true \
 	-Dservice=$(call ptx/truefalse,PTXCONF_RAUC_SERVICE) \
 	-Dstreaming=$(call ptx/truefalse,PTXCONF_RAUC_STREAMING) \
 	-Dstreaming_user=nobody \
