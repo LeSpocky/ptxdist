@@ -33,6 +33,7 @@ config UTIL_LINUX_LIBFDISK
 config UTIL_LINUX_FDISKS
 	select UTIL_LINUX_LIBFDISK
 	select UTIL_LINUX_LIBSMARTCOLS
+	select UTIL_LINUX_LIBTCOLORS
 	select UTIL_LINUX_USES_NCURSES
 	bool
 
@@ -43,6 +44,10 @@ config UTIL_LINUX_USES_NCURSESW
 	bool
 	depends on UTIL_LINUX_USES_NCURSES
 	default NCURSES_WIDE_CHAR
+
+config UTIL_LINUX_LIBTCOLORS
+	bool
+	select UTIL_LINUX_USES_NCURSES
 
 config UTIL_LINUX_USES_PAM
 	bool
@@ -241,6 +246,7 @@ config UTIL_LINUX_LSBLK
 	select UTIL_LINUX_LIBBLKID
 	select UTIL_LINUX_LIBMOUNT
 	select UTIL_LINUX_LIBSMARTCOLS
+	select UTIL_LINUX_LIBTCOLORS
 	prompt "lsblk"
 	help
 	  The lsblk command lists information about all available or the
@@ -339,6 +345,7 @@ config UTIL_LINUX_CHMEM
 
 config UTIL_LINUX_DMESG
 	bool
+	select UTIL_LINUX_LIBTCOLORS
 	depends on !BUSYBOX_DMESG || ALLYES
 	prompt "dmesg"
 	help
@@ -423,6 +430,7 @@ comment "BusyBox' ipcs is selected!"
 
 config UTIL_LINUX_IRQTOP
 	bool
+	select UTIL_LINUX_LIBTCOLORS
 	select UTIL_LINUX_USES_NCURSES
 	prompt "irqtop"
 	help
@@ -653,6 +661,7 @@ config UTIL_LINUX_COLUMN
 
 config UTIL_LINUX_HEXDUMP
 	bool
+	select UTIL_LINUX_LIBTCOLORS
 	depends on !BUSYBOX_HEXDUMP
 	prompt "hexdump"
 	help
