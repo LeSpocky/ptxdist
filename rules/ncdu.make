@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_NCDU) += ncdu
 #
 # Paths and names
 #
-NCDU_VERSION	:= 1.14.2
-NCDU_MD5	:= 6c7e88b0c205f124f397de701402ad3a
+NCDU_VERSION	:= 1.22
+NCDU_MD5	:= 46245039bd07a40d7594a2053139e43f
 NCDU		:= ncdu-$(NCDU_VERSION)
 NCDU_SUFFIX	:= tar.gz
 NCDU_URL	:= https://dev.yorhel.nl/download/$(NCDU).$(NCDU_SUFFIX)
 NCDU_SOURCE	:= $(SRCDIR)/$(NCDU).$(NCDU_SUFFIX)
 NCDU_DIR	:= $(BUILDDIR)/$(NCDU)
 NCDU_LICENSE	:= MIT
-NCDU_LICENSE_FILES := file://COPYING;md5=1a8f907df32388f0d4b8cc88479f9a6a
+NCDU_LICENSE_FILES := file://COPYING;md5=fd36a36514d73885d04105f000da9813
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -32,6 +32,7 @@ NCDU_CONF_TOOL	:= autoconf
 NCDU_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--$(call ptx/wow, PTXCONF_NCDU_WIDE_CHAR)-ncurses \
 	--$(call ptx/wwo, PTXCONF_NCDU_WIDE_CHAR)-ncursesw
 
