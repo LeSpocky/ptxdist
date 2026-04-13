@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=disk_and_file
+## SECTION=disk_and_file
 
 config NCDU
 	tristate
@@ -8,10 +6,6 @@ config NCDU
 	select NCURSES
 	help
 	  Disk usage analyzer with ncurses interface.
-
-	  STAGING: remove in PTXdist 2027.03.0
-	  Unmaintained in PTXist. Fails to build with gcc 15. Needs updating to new
-	  version.
 
 if NCDU
 
