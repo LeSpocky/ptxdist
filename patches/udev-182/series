@@ -3,4 +3,5 @@
 0001-configure.ac-fix-FTBFS-with-new-glibc.patch
 0002-mtd-probe-fix-compilation.patch
 0003-Fix-build-with-recent-glibc-releases.patch
-# 1ac211f09adebb5f2f0678a4eda965d9  - git-ptx-patches magic
+0004-Fix-build-witch-recent-gcc-added-missing-function-de.patch
+# b21bf1430bf2663ce271b3b972fbf2e5  - git-ptx-patches magic
