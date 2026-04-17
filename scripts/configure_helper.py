@@ -510,7 +510,9 @@ parser.add_argument("-n", "--new-src", help="the new source directory",
 parser.add_argument("-s", "--only-src", help="the only source directory",
 	dest="only")
 parser.add_argument("--sort", help="sort the options before comparing",
-	dest="sort", action="store_true")
+	dest="sort", action="store_true", default=None)
+parser.add_argument("--no-sort", help="do not sort the options before comparing",
+	dest="sort", action="store_false")
 parser.add_argument("-f", "--force", help="pass --force when calling ptxdist",
 	dest="force", action="store_true")
 
@@ -546,6 +548,8 @@ if args.pkg:
 		parsed_pkg_conf_opt = parse_configure_args(pkg_conf_opt, [])
 	if tool == "meson":
 		(parsed_pkg_conf_opt, pkg_conf_opt) = parse_meson_args(pkg_conf_opt, [])
+		if args.sort is None:
+			args.sort = True
 	if tool == "cmake":
 		parsed_pkg_conf_opt = parse_cmake_args(pkg_conf_opt, [])
 
