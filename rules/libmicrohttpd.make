@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBMICROHTTPD) += libmicrohttpd
 #
 # Paths and names
 #
-LIBMICROHTTPD_VERSION	:= 1.0.1
-LIBMICROHTTPD_MD5	:= b41c83799a478ea9c774e50ed22446bc
+LIBMICROHTTPD_VERSION	:= 1.0.5
+LIBMICROHTTPD_MD5	:= d86911728a096d833785b88f5625ba40
 LIBMICROHTTPD		:= libmicrohttpd-$(LIBMICROHTTPD_VERSION)
 LIBMICROHTTPD_SUFFIX	:= tar.gz
 LIBMICROHTTPD_URL	:= $(call ptx/mirror, GNU, libmicrohttpd/$(LIBMICROHTTPD).$(LIBMICROHTTPD_SUFFIX))
@@ -49,6 +49,7 @@ LIBMICROHTTPD_CONF_ENV	:= $(CROSS_ENV) \
 
 LIBMICROHTTPD_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-compact-code \
 	--enable-compiler-hardening \
 	--enable-linker-hardening \
@@ -61,7 +62,6 @@ LIBMICROHTTPD_CONF_OPT	:= \
 	--enable-epoll \
 	--enable-itc=eventfd \
 	--disable-curl \
-	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-sendfile \
 	--$(call ptx/endis, PTXCONF_LIBMICROHTTPD_MESSAGES)-messages \
 	--enable-postprocessor \
@@ -75,6 +75,7 @@ LIBMICROHTTPD_CONF_OPT	:= \
 	--enable-asserts \
 	--disable-sanitizers \
 	--disable-experimental \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--with-threads=posix
 
 # ----------------------------------------------------------------------------
