@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FILE) += file
 #
 # Paths and names
 #
-FILE_VERSION	:= 5.45
-FILE_MD5	:= 26b2a96d4e3a8938827a1e572afd527a
+FILE_VERSION	:= 5.47
+FILE_MD5	:= 1023ef52a2fb64acdf80211e469d6939
 FILE		:= file-$(FILE_VERSION)
 FILE_SUFFIX	:= tar.gz
 FILE_URL	:= http://ftp.astron.com/pub/file/$(FILE).$(FILE_SUFFIX)
@@ -42,10 +42,12 @@ FILE_CONF_OPT	:= \
 	--disable-xzlib \
 	--disable-zstdlib \
 	--disable-lzlib \
+	--disable-lrziplib \
 	--$(call ptx/endis, PTXCONF_FILE_SECCOMP)-libseccomp \
 	--disable-fsect-man5 \
 	$(GLOBAL_LARGE_FILE_OPTION) \
-	--disable-warnings
+	--disable-warnings \
+	--$(call ptx/endis, PTXCONF_GLIBC_Y2038)-year2038
 
 # ----------------------------------------------------------------------------
 # Target-Install
