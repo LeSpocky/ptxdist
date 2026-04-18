@@ -15,14 +15,16 @@ PACKAGES-$(PTXCONF_NANO) += nano
 #
 # Paths and names
 #
-NANO_VERSION		:= 8.6
-NANO_MD5		:= e6a772af7d82411ab5e60d6e7ebb9a6f
+NANO_VERSION	:= 9.0
+NANO_MAJOR		:= $(word 1,$(subst ., ,$(NANO_VERSION)))
+NANO_MD5		:= fe956d0e4807a96d9cf78849aaf04d54
 NANO			:= nano-$(NANO_VERSION)
-NANO_SUFFIX		:= tar.gz
-NANO_URL		:= https://www.nano-editor.org/dist/v$(basename $(NANO_VERSION))/$(NANO).$(NANO_SUFFIX)
+NANO_SUFFIX		:= tar.xz
+NANO_URL		:= https://www.nano-editor.org/dist/v$(NANO_MAJOR)/$(NANO).$(NANO_SUFFIX)
 NANO_SOURCE		:= $(SRCDIR)/$(NANO).$(NANO_SUFFIX)
 NANO_DIR		:= $(BUILDDIR)/$(NANO)
 NANO_LICENSE		:= GPL-3.0-or-later
+NANO_LICENSE_FILES	:= file://COPYING;md5=f27defe1e96c2e1ecd4e0c9be8967949
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -42,6 +44,7 @@ NANO_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--enable-threads=posix \
+	--disable-cross-guesses \
 	--disable-nls \
 	--disable-rpath \
 	--disable-browser \
