@@ -14,14 +14,15 @@ PACKAGES-$(PTXCONF_GZIP) += gzip
 #
 # Paths and names
 #
-GZIP_VERSION	:= 1.9
-GZIP_MD5	:= 9492c6ccb2239ff679a5475a7bb543ed
+GZIP_VERSION	:= 1.14
+GZIP_MD5	:= 4bf5a10f287501ee8e8ebe00ef62b2c2
 GZIP		:= gzip-$(GZIP_VERSION)
 GZIP_SUFFIX	:= tar.xz
 GZIP_URL	:= $(call ptx/mirror, GNU, gzip/$(GZIP).$(GZIP_SUFFIX))
 GZIP_SOURCE	:= $(SRCDIR)/$(GZIP).$(GZIP_SUFFIX)
 GZIP_DIR	:= $(BUILDDIR)/$(GZIP)
 GZIP_LICENSE	:= GPL-3.0-only
+GZIP_LICENSE_FILES	:= file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -33,11 +34,11 @@ GZIP_LICENSE	:= GPL-3.0-only
 GZIP_CONF_TOOL	:= autoconf
 GZIP_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--runstatedir=/run \
 	$(GLOBAL_LARGE_FILE_OPTION) \
-	--enable-threads=posix \
-	--disable-rpath \
-	--disable-gcc-warnings
+	--disable-cross-guesses \
+	--disable-gcc-warnings \
+	--disable-dfltcc \
+	--$(call ptx/endis, PTXCONF_GLIBC_Y2038)-year2038
 
 # ----------------------------------------------------------------------------
 # Target-Install
