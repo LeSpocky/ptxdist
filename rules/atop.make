@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_ATOP) += atop
 #
 # Paths and names
 #
-ATOP_VERSION		:= 2.10.0
-ATOP_MD5		:= 6d14559b59e25d15dbcfa978ed0ec50e
+ATOP_VERSION		:= 2.12.1
+ATOP_MD5		:= 71da39419d59baa8ade42ca20482b472
 ATOP			:= atop-$(ATOP_VERSION)
 ATOP_URL		:= https://www.atoptool.nl/download/$(ATOP).tar.gz
 ATOP_SOURCE		:= $(SRCDIR)/$(ATOP).tar.gz
