@@ -17,7 +17,7 @@ components which are available to the public).
 .. only:: ptxdistonly
 
   .. note::
-    The PTXdist documenation can be built for a specific BSP. That makes it
+    The PTXdist documentation can be built for a specific BSP. That makes it
     possible to add BSP specific chapters to the documentation, the BSP is
     referenced by its name and the PTXdist and toolchain versions are
     correctly specified for this BSP.
