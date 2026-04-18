@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_HAVEGED) += haveged
 #
 # Paths and names
 #
-HAVEGED_VERSION	:= 1.9.18
-HAVEGED_MD5	:= 654ed186b6e2ec04d049b3edf4743187
+HAVEGED_VERSION	:= 1.9.19
+HAVEGED_MD5	:= 715898625bd45062f1c8697f9aff2fe9
 HAVEGED		:= haveged-$(HAVEGED_VERSION)
 HAVEGED_SUFFIX	:= tar.gz
 HAVEGED_URL	:= \
@@ -25,7 +25,7 @@ HAVEGED_DIR	:= $(BUILDDIR)/$(HAVEGED)
 HAVEGED_LICENSE	:= GPL-3.0-or-later
 HAVEGED_LICENSE_FILES   := \
 	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
-	file://src/haveged.c;startline=1;endline=20;md5=f825c43c9190a988f49b137884675529
+	file://src/haveged.c;startline=1;endline=20;md5=4d0277c50e7cdae7b14dc63ae1766eea
 
 # ----------------------------------------------------------------------------
 # Prepare
