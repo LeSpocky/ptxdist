@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIGHTTPD) += lighttpd
 #
 # Paths and names
 #
-LIGHTTPD_VERSION	:= 1.4.76
-LIGHTTPD_MD5		:= f9018cda389b1aa6dae4c5f962c20825
+LIGHTTPD_VERSION	:= 1.4.82
+LIGHTTPD_MD5		:= 49855a1259ad2066cbf06641dd67ef2d
 LIGHTTPD		:= lighttpd-$(LIGHTTPD_VERSION)
 LIGHTTPD_SUFFIX		:= tar.xz
 LIGHTTPD_URL		:= http://download.lighttpd.net/lighttpd/releases-1.4.x/$(LIGHTTPD).$(LIGHTTPD_SUFFIX)
@@ -38,6 +38,7 @@ LIGHTTPD_LICENSE_FILES	:= \
 LIGHTTPD_CONF_TOOL	:= meson
 LIGHTTPD_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
+	-Dwith_boringssl=false \
 	-Dwith_brotli=disabled \
 	-Dwith_bzip=$(call ptx/endis,PTXCONF_LIGHTTPD_BZ2LIB)d \
 	-Dwith_dbi=disabled \
@@ -46,7 +47,6 @@ LIGHTTPD_CONF_OPT	:= \
 	-Dwith_gnutls=false \
 	-Dwith_krb5=disabled \
 	-Dwith_ldap=disabled \
-	-Dwith_libev=disabled \
 	-Dwith_libunwind=disabled \
 	-Dwith_lua=$(call ptx/truefalse,PTXCONF_LIGHTTPD_LUA) \
 	-Dwith_maxminddb=disabled \
