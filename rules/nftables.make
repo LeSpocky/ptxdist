@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NFTABLES) += nftables
 #
 # Paths and names
 #
-NFTABLES_VERSION	:= 1.1.1
-NFTABLES_MD5		:= f0a71bcd8c112be7594851b39d4a45c3
+NFTABLES_VERSION	:= 1.1.6
+NFTABLES_MD5		:= 638ddff35ca429f68860a437d53237b4
 NFTABLES		:= nftables-$(NFTABLES_VERSION)
 NFTABLES_SUFFIX		:= tar.xz
 NFTABLES_URL		:= https://ftp.netfilter.org/pub/nftables/$(NFTABLES).$(NFTABLES_SUFFIX)
@@ -36,10 +36,13 @@ NFTABLES_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_NFTABLES_DEBUG)-debug \
 	--disable-man-doc \
+	--disable-fuzzer \
+	--disable-distcheck \
 	--$(call ptx/wwo, PTXCONF_NFTABLES_MGMP)-mini-gmp \
 	--without-cli \
 	--without-xtables \
-	--without-json
+	--without-json \
+	--with-unitdir=/usr/lib/systemd/system
 
 # ----------------------------------------------------------------------------
 # Target-Install
