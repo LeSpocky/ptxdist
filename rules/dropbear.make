@@ -32,6 +32,7 @@ DROPBEAR_LICENSE_FILES	:= \
 	file://libtomcrypt/LICENSE;md5=71baacc459522324ef3e2b9e052e8180 \
 	file://libtommath/LICENSE;md5=23e7e0a32e53a2b1d35f5fd9ef053402 \
 	file://src/loginrec.c;startline=1;endline=26;md5=0d785ee11fab1cead2c7fee9c35574f1
+DROPBEAR_CVE_PRODUCT	:= dropbear_ssh_project:dropbear_ssh
 
 # ----------------------------------------------------------------------------
 # Prepare
