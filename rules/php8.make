@@ -18,8 +18,8 @@ PACKAGES-$(PTXCONF_PHP8) += php8
 #
 # Paths and names
 #
-PHP8_VERSION	:= 8.3.8
-PHP8_MD5	:= 3a731ebd24cd36c70148416703ba2f0e
+PHP8_VERSION	:= 8.5.5
+PHP8_MD5	:= 75841bde77d44ec53584fec41dde43a4
 PHP8		:= php-$(PHP8_VERSION)
 PHP8_SUFFIX	:= tar.xz
 PHP8_SOURCE	:= $(SRCDIR)/$(PHP8).$(PHP8_SUFFIX)
@@ -48,10 +48,8 @@ PHP8_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-rpath \
 	--disable-re2c-cgoto \
-	--disable-gcc-global-regs \
 	--without-apxs2 \
 	--$(call ptx/endis, PTXCONF_PHP8_SAPI_CLI)-cli \
-	--without-pear \
 	--disable-embed \
 	--disable-fpm \
 	--without-fpm-user \
@@ -66,6 +64,7 @@ PHP8_CONF_OPT := \
 	--disable-phpdbg-debug \
 	--disable-phpdbg-readline \
 	--$(call ptx/endis, PTXCONF_PHP8_SAPI_CGI)-cgi \
+	--enable-system-glob \
 	--without-valgrind \
 	--disable-gcov \
 	--disable-debug \
@@ -88,9 +87,10 @@ PHP8_CONF_OPT := \
 	--disable-undefined-sanitizer \
 	--disable-all \
 	--without-libxml \
-	--without-openssl \
-	--without-kerberos \
+	--$(call ptx/wwo, PTXCONF_PHP8_OPENSSL)-openssl \
 	--without-system-ciphers \
+	--without-openssl-legacy-provider \
+	--without-openssl-argon2 \
 	--without-external-pcre \
 	--without-pcre-jit \
 	--without-sqlite3 \
@@ -122,7 +122,7 @@ PHP8_CONF_OPT := \
 	--disable-fileinfo \
 	--$(call ptx/endis, PTXCONF_PHP8_FILTER)-filter \
 	--disable-ftp \
-	--without-openssl-dir \
+	--with-ftp-ssl \
 	--disable-gd \
 	--without-external-gd \
 	--without-avif \
@@ -135,8 +135,6 @@ PHP8_CONF_OPT := \
 	--without-gmp \
 	--without-mhash \
 	--without-iconv \
-	--without-imap \
-	--without-imap-ssl \
 	--disable-intl \
 	--without-ldap \
 	--without-ldap-sasl \
@@ -144,20 +142,10 @@ PHP8_CONF_OPT := \
 	--disable-mbregex \
 	--without-mysqli \
 	--without-mysql-sock \
-	--without-oci8 \
-	--without-odbcver \
-	--without-adabas \
-	--without-sapdb \
-	--without-solid \
 	--without-ibm-db2 \
-	--without-empress \
-	--without-empress-bcs \
 	--without-custom-odbc \
 	--without-iodbc \
-	--without-esoob \
 	--without-unixODBC \
-	--without-dbmaker \
-	--disable-opcache \
 	--disable-huge-code-pages \
 	--disable-opcache-jit \
 	--without-capstone \
@@ -166,15 +154,12 @@ PHP8_CONF_OPT := \
 	--without-pdo-dblib \
 	--without-pdo-firebird \
 	--without-pdo-mysql \
-	--without-zlib-dir \
-	--without-pdo-oci \
 	--without-pdo-odbc \
 	--without-pdo-pgsql \
 	--without-pdo-sqlite \
 	--without-pgsql \
 	--disable-phar \
 	--disable-posix \
-	--without-pspell \
 	--without-libedit \
 	--without-readline \
 	--$(call ptx/endis, PTXCONF_PHP8_SESSION)-session \
@@ -192,6 +177,7 @@ PHP8_CONF_OPT := \
 	--disable-sysvshm \
 	--without-tidy \
 	--disable-tokenizer \
+	--without-external-uriparser \
 	--disable-xml \
 	--without-expat \
 	--disable-xmlreader \
@@ -200,9 +186,11 @@ PHP8_CONF_OPT := \
 	--disable-zend-test \
 	--without-zip \
 	--disable-mysqlnd \
+	--with-mysqlnd-ssl \
 	--disable-mysqlnd-compression-support \
 	--without-pear \
 	--disable-fiber-asm \
+	--disable-gcc-global-regs \
 	--disable-zend-signals \
 	--disable-zend-max-execution-timers
 
