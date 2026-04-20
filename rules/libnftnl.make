@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBNFTNL) += libnftnl
 #
 # Paths and names
 #
-LIBNFTNL_VERSION	:= 1.2.8
-LIBNFTNL_MD5		:= b0517646bbf47a8cf6ce67aeaeb201c4
+LIBNFTNL_VERSION	:= 1.3.1
+LIBNFTNL_MD5		:= ab1a894717469fb1d45d4c8ca0557fb6
 LIBNFTNL		:= libnftnl-$(LIBNFTNL_VERSION)
 LIBNFTNL_SUFFIX		:= tar.xz
 LIBNFTNL_URL		:= http://ftp.netfilter.org/pub/libnftnl/$(LIBNFTNL).$(LIBNFTNL_SUFFIX)
