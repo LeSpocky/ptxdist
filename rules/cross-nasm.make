@@ -21,7 +21,7 @@ CROSS_NASM_MD5		:= 8414016d6ad0e113958c29066dfcc550
 CROSS_NASM		:= nasm-$(CROSS_NASM_VERSION)
 CROSS_NASM_SUFFIX	:= tar.xz
 CROSS_NASM_URL		:= \
-	http://www.nasm.us/pub/nasm/releasebuilds/$(CROSS_NASM_VERSION)/$(CROSS_NASM).$(CROSS_NASM_SUFFIX) \
+	https://www.nasm.us/pub/nasm/releasebuilds/$(CROSS_NASM_VERSION)/$(CROSS_NASM).$(CROSS_NASM_SUFFIX) \
 	https://snapshot.debian.org/archive/debian/20250401T023134Z/pool/main/n/nasm/nasm_$(CROSS_NASM_VERSION).orig.$(CROSS_NASM_SUFFIX)
 CROSS_NASM_SOURCE	:= $(SRCDIR)/$(CROSS_NASM).$(CROSS_NASM_SUFFIX)
 CROSS_NASM_DIR		:= $(CROSS_BUILDDIR)/$(CROSS_NASM)
