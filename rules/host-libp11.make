@@ -29,6 +29,7 @@ HOST_LIBP11_CONF_OPT	:= \
 	--disable-pedantic \
 	--disable-api-doc \
 	--with-enginesdir=/usr/lib/engines-3 \
+	--with-modulesdir=/usr/lib/ossl-modules \
 	--with-pkcs11-module=
 
 HOST_LIBP11_MAKE_PAR	:= NO
