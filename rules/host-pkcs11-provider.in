@@ -1,0 +1,10 @@
+## SECTION=hosttools_noprompt
+
+config HOST_PKCS11_PROVIDER
+	tristate
+	default y if ALLYES
+	select HOST_MESON
+	select HOST_OPENSSL
+
+
+# vim: ft=kconfig tw=80

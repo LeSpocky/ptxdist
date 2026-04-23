@@ -1,0 +1,36 @@
+From fbbb2835505f45cc84c17def5bd0e9d0fc7fb271 Mon Sep 17 00:00:00 2001
+From: Sascha Hauer <s.hauer@pengutronix.de>
+Date: Thu, 23 Apr 2026 11:08:17 +0200
+Subject: [PATCH] meson: fix provider installation path with DESTDIR
+
+provider_path is set from the modulesdir pkg-config variable, which
+expands to an absolute path with the prefix baked in. When meson
+installs with DESTDIR set, it prepends DESTDIR to this absolute path,
+resulting in a doubled prefix in the install location.
+
+Fix this by passing pkgconfig_define to override ${prefix} during
+variable expansion, so modulesdir is re-evaluated relative to the
+current meson --prefix rather than whatever was recorded in the .pc
+file at the time OpenSSL was installed.
+
+Signed-off-by: Sascha Hauer <s.hauer@pengutronix.de>
+---
+ meson.build | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/meson.build b/meson.build
+index b3912cb..f54b52f 100644
+--- a/meson.build
++++ b/meson.build
+@@ -46,7 +46,7 @@ conf.set('PACKAGE_MAJOR', major_version)
+ conf.set('PACKAGE_MINOR', minor_version)
+ 
+ libcrypto = dependency('libcrypto', version: '>= 3.0.7')
+-provider_path = libcrypto.get_variable(pkgconfig: 'modulesdir')
++provider_path = libcrypto.get_variable(pkgconfig: 'modulesdir', pkgconfig_define: ['prefix', get_option('prefix')])
+ libssl = dependency('libssl', version: '>= 3.0.7')
+ 
+ host_system = host_machine.system()
+-- 
+2.47.3
+
