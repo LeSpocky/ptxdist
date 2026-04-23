@@ -4,6 +4,7 @@ menuconfig CODE_SIGNING
 	bool
 	select VIRTUAL
 	select HOST_LIBP11
+	select HOST_PKCS11_PROVIDER
 	prompt "Code signing                  "
 	help
 	  This option enables the ptxdist signing infrastructure.

@@ -8,7 +8,7 @@
 
 CODE_SIGNING_ENV = \
 	SO_PATH=$(PTXDIST_SYSROOT_HOST)/usr/lib/engines-3/pkcs11.so \
-	OPENSSL_CONF="$(PTXDIST_SYSROOT_HOST)/usr/ssl/openssl.cnf" \
+	OPENSSL_CONF="$(PTXDIST_SYSROOT_HOST)/usr/ssl/openssl-pkcs11.cnf" \
 	OPENSSL_ENGINES="$(PTXDIST_SYSROOT_HOST)/usr/lib/engines-3"
 
 #

@@ -4,6 +4,7 @@ config HOST_SOFTHSM
 	tristate
 	select HOST_P11_KIT
 	select HOST_OPENSSL
+	select HOST_PKCS11_PROVIDER
 	select HOST_SQLITE
 	default y if ALLYES
 	help
