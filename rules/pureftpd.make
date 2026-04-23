@@ -18,8 +18,8 @@ PUREFTPD_MD5		:= 6fdd75053b7aaa0f45089a7bf7fcd0b4
 PUREFTPD		:= pure-ftpd-$(PUREFTPD_VERSION)
 PUREFTPD_SUFFIX		:= tar.bz2
 PUREFTPD_URL		:= \
-	http://download.pureftpd.org/pub/pure-ftpd/releases/$(PUREFTPD).$(PUREFTPD_SUFFIX) \
-	http://download.pureftpd.org/pub/pure-ftpd/releases/obsolete/$(PUREFTPD).$(PUREFTPD_SUFFIX)
+	https://download.pureftpd.org/pub/pure-ftpd/releases/$(PUREFTPD).$(PUREFTPD_SUFFIX) \
+	https://download.pureftpd.org/pub/pure-ftpd/releases/obsolete/$(PUREFTPD).$(PUREFTPD_SUFFIX)
 PUREFTPD_SOURCE		:= $(SRCDIR)/$(PUREFTPD).$(PUREFTPD_SUFFIX)
 PUREFTPD_DIR		:= $(BUILDDIR)/$(PUREFTPD)
 PUREFTPD_LICENSE	:= ISC AND BSD-2-Clause AND BSD-3-Clause AND BSD-4-Clause
