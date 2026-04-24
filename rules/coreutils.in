@@ -116,6 +116,7 @@ config COREUTILS_TRUNCATE
 
 config COREUTILS_CHCON
 	bool
+	depends on GLOBAL_SELINUX
 	prompt "chcon"
 	depends on !BUSYBOX_CHCON || ALLYES
 
@@ -324,6 +325,7 @@ comment "busybox' mktemp is selected!"
 
 config COREUTILS_RUNCON
 	bool
+	depends on GLOBAL_SELINUX
 	prompt "runcon"
 	depends on !BUSYBOX_RUNCON || ALLYES
 
