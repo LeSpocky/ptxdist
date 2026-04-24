@@ -14,20 +14,20 @@ PACKAGES-$(PTXCONF_OPENVPN) += openvpn
 #
 # Paths and names
 #
-OPENVPN_VERSION		:= 2.6.11
-OPENVPN_MD5		:= 467b270c54955681add7f253aa03fc5a
+OPENVPN_VERSION		:= 2.7.1
+OPENVPN_MD5		:= bec8a86a22304fa70ca6edb5b27c531c
 OPENVPN			:= openvpn-$(OPENVPN_VERSION)
 OPENVPN_SUFFIX		:= tar.gz
 OPENVPN_URL		:= https://github.com/OpenVPN/openvpn/releases/download/v$(OPENVPN_VERSION)/$(OPENVPN).$(OPENVPN_SUFFIX)
 OPENVPN_SOURCE		:= $(SRCDIR)/$(OPENVPN).$(OPENVPN_SUFFIX)
 OPENVPN_DIR		:= $(BUILDDIR)/$(OPENVPN)
-OPENVPN_LICENSE		:= GPL-2.0-only WITH (openvpn-openssl-exception AND custom-exception) AND BSD-2-Clause AND BSD-3-Clause AND ((GPL-2.0-only WITH Linux-syscall-note) OR MIT)
+OPENVPN_LICENSE		:= GPL-2.0-only WITH (openvpn-openssl-exception AND custom-exception) AND BSD-2-Clause AND BSD-3-Clause AND ((GPL-2.0-only WITH Linux-syscall-note) OR BSD-3-Clause)
 OPENVPN_LICENSE_FILES := \
-	file://COPYING;md5=89196bacc47ed37a5b242a535661a049 \
-	file://COPYRIGHT.GPL;md5=52cadf4008002e3c314a47a54fa7306c \
-	file://src/openvpn/openvpn.c;startline=2;endline=21;md5=80aebe6059f2989b52c49783938e7221 \
+	file://COPYING;md5=924af2c382c415a0a68d0d9e7b483d23 \
+	file://COPYRIGHT.GPL;md5=570a9b3749dd0463a1778803b12a6dce \
+	file://src/openvpn/openvpn.c;startline=2;endline=20;md5=13f8f88d2afa15b6ee2cd2642b7c7bd4 \
 	file://src/openvpn/base64.c;startline=2;endline=31;md5=f4debd767645b13107fc5912faf2ad8f \
-	file://src/openvpn/ovpn_dco_linux.h;startline=1;endline=1;md5=b317f96dbe63f35baef28266acb68512 \
+	file://src/openvpn/ovpn_dco_linux.h;startline=1;endline=1;md5=65da6a5d2e6f7b92b288c73bb0d968d5 \
 	file://src/openvpn/ovpn_dco_freebsd.h;startline=1;endline=1;md5=a7ba62aad20f9685c53b0565a263af30
 
 # ----------------------------------------------------------------------------
@@ -60,7 +60,8 @@ OPENVPN_CONF_OPT	:= \
 	--disable-lz4 \
 	--disable-comp-stub \
 	--enable-ofb-cfb \
-	--disable-x509-alt-username \
+	--disable-dns-updown-by-default \
+	--disable-ntlm \
 	--disable-plugins \
 	--enable-management \
 	--disable-pkcs11 \
@@ -82,6 +83,7 @@ OPENVPN_CONF_OPT	:= \
 	--disable-async-push \
 	--disable-wolfssl-options-h \
 	--disable-unit-tests \
+	--with-mem-check=no \
 	--with-crypto-library=openssl \
 	--with-openssl-engine
 
