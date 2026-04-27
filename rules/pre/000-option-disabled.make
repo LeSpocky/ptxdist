@@ -197,4 +197,20 @@ define ptx/config-md5
 $(call ptx/config-foo,$(strip $(1)),$(if $(strip $(2)),$(strip $(2))_MD5,$(strip $(1))_MD5),$(PTXCONF_SETUP_CHECK))
 endef
 
+
+#
+# $(call ptx/config-sha256, PTXCONF_SYMBOL,PTXCONF_SYMBOL2) returns:
+# - if PTXCONF_SYMBOL is defined:
+#   - $(PTXCONF_SYMBOL2_SHA256) without quotes if it's not empty
+#   - fails with an error otherwise
+# - 'undefined if PTXCONF_SYMBOL is not defined
+# If PTXCONF_SYMBOL2 is empty then PTXCONF_SYMBOL_SHA256 is used instead.
+#
+# This makes it easy to ensure, that the sha256 sum of a package is defined if
+# the package is enabled.
+#
+define ptx/config-sha256
+$(call ptx/config-foo,$(strip $(1)),$(if $(strip $(2)),$(strip $(2))_SHA256,$(strip $(1))_SHA256),$(PTXCONF_SETUP_CHECK))
+endef
+
 # vim: syntax=make

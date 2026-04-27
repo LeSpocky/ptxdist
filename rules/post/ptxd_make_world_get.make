@@ -58,7 +58,7 @@ get = \
 	ptxd_make_get "$($(strip $(1))_SOURCE)" "$($(strip $(1))_URL)"
 
 check_src = \
-	ptxd_make_check_src "$($(strip $(1))_SOURCE)" "$($(strip $(1))_MD5)"
+	ptxd_make_check_src "$($(strip $(1))_SOURCE)" "$($(strip $(1))_MD5)" "$($(strip $(1))_SHA256)"
 
 getdev = \
 	ptxd_make_get_nofail=y \

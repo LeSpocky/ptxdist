@@ -22,11 +22,15 @@ ptxd_make_world_get() {
     if [ -n "${pkg_src}" ]; then
 	ptxd_make_get "${pkg_src}" "${pkg_url}" &&
 
-	ptxd_make_check_src_impl "${pkg_src}" "${pkg_md5}" && return
+	ptxd_make_check_src_impl "${pkg_src}" "${pkg_md5}" "${pkg_sha256}" && return
 
 	if [ "${PTXCONF_SETUP_CHECK}" = "update" ]; then
-	    ptxd_make_world_update_md5
-	elif [ -z "${pkg_md5}" ]; then
+	    if [ -z "${pkg_sha256}" ]; then
+		ptxd_make_world_update_md5
+	    else
+		ptxd_make_world_update_sha256
+	    fi
+	elif [ -z "${pkg_md5}" ] && [ -z "${pkg_sha256}" ]; then
 	    ptxd_bailout "Checksum for '${pkg_label}' (${pkg_src}) missing."
 	else
 	    ptxd_bailout "Wrong checksum for '${pkg_label}' (${pkg_src})"

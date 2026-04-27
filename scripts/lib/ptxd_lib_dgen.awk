@@ -441,6 +441,7 @@ function write_vars_pkg_all(this_PKG, this_pkg, prefix, dir_prefix) {
 		print this_PKG " = " dir_prefix "$(" target_PKG ")"	> DGEN_DEPS_PRE;
 		print this_PKG "_VERSION = $(" target_PKG "_VERSION)"	> DGEN_DEPS_PRE;
 		print this_PKG "_MD5 = $(" target_PKG "_MD5)"		> DGEN_DEPS_PRE;
+		print this_PKG "_SHA256 = $(" target_PKG "_SHA256)"	> DGEN_DEPS_PRE;
 		print this_PKG "_SOURCE = $(" target_PKG "_SOURCE)"	> DGEN_DEPS_PRE;
 		print this_PKG "_URL = $(" target_PKG "_URL)"		> DGEN_DEPS_PRE;
 		print this_PKG "_DIR = $(addprefix $(" PREFIX \

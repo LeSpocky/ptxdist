@@ -125,6 +125,7 @@ ptxd_make_world_license_write() {
     local pkg_chapter="$(ptxd_make_latex_escape ${pkg_label})"
     local packages_url="${pkg_url}"
     local packages_md5="${pkg_md5}"
+    local packages_sha256="${pkg_sha256}"
     local -a flags=( "${!pkg_license_flags[@]}" )
     local -a index=( "${!pkg_license_flags[@]}" )
     flags=( "${flags[@]/#/\\nameref${brl}}" )
@@ -139,6 +140,7 @@ ptxd_make_world_license_write() {
 	    pkg_chapter="${pkg_chapter} *** Proprietary License!"
 	    packages_url="*not available*"
 	    packages_md5="*not available*"
+	    packages_sha256="*not available*"
 	    ;;
 	*unknown*)
 	    pkg_chapter="${pkg_chapter} *** Unknown License!"
@@ -160,6 +162,7 @@ ptxd_make_world_license_write() {
 		\item[Flags:] $(ptxd_make_latex_escape "${flags[*]}")
 		\item[URL:] \begin{flushleft}$(ptxd_make_latex_escape "${packages_url}")\end{flushleft}
 		\item[MD5:] {\ttfamily ${packages_md5}}
+		\item[SHA256:] {\ttfamily ${packages_sha256}}
 		\fi
 		\end{description}
 	EOF

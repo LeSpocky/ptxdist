@@ -54,6 +54,7 @@ ptxd_make_world_package_info() {
 
     do_echo "source:" "$(ptxd_print_path "${pkg_src}")"
     do_echo "md5:" "${pkg_md5}"
+    do_echo "sha256:" "${pkg_sha256}"
     do_echo "url:" "${pkg_url}"
     do_echo "${pkg_src}${pkg_url}"
 

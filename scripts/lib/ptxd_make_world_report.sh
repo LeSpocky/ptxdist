@@ -63,6 +63,7 @@ ptxd_make_world_report_yaml_fragment() {
 	do_echo "  version:" "${pkg_version}"
 	do_list "  url:" "${pkg_url}"
 	do_echo "  md5:" "${pkg_md5}"
+	do_echo "  sha256:" "${pkg_sha256}"
 	do_echo "  source:" "${pkg_src}"
 	do_list "  cve-product:" "${pkg_cve_product}"
 	do_echo "  cve-version:" "${pkg_cve_version}"
@@ -96,10 +97,15 @@ ptxd_make_world_report_yaml() {
     do_echo "version:" "${pkg_version}"
     do_list "url:" "${pkg_url}"
     do_echo "md5:" "${pkg_md5}"
+    do_echo "sha256:" "${pkg_sha256}"
     do_echo "source:" "${pkg_src}"
     if [ -n "${pkg_md5s}" -a "${pkg_md5s}" != ":" ]; then
 	echo "md5s:"
 	awk "BEGIN { RS=\" *:\\\\s*\"; FS=\":\" } { if (\$1) print \"- '\" \$1 \"'\" }" <<<"${pkg_md5s}"
+    fi
+    if [ -n "${pkg_sha256s}" -a "${pkg_sha256s}" != ":" ]; then
+	echo "sha256s:"
+	awk "BEGIN { RS=\" *:\\\\s*\"; FS=\":\" } { if (\$1) print \"- '\" \$1 \"'\" }" <<<"${pkg_sha256s}"
     fi
     do_list "sources:" "${pkg_srcs}"
     if [ -e "${tmp_report}" ]; then

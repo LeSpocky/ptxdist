@@ -158,6 +158,15 @@ Package Definition
   new version. This check helps to ensure that all developers work with the
   same source code.
 
+  This is the legacy alternative to ``<PKG>_SHA256``.
+
+``<PKG>_SHA256``
+  The sha256 checksum of the source archive. PTXdist calculates the checksum
+  before extracting the archive and will abort if does not match. Upstream
+  project occasionally change the content of an archive without releasing a
+  new version. This check helps to ensure that all developers work with the
+  same source code.
+
 ``<PKG>_SUFFIX``
   The archive suffix without the leading '.', e.g. 'tar.gz' or 'zip'. This
   is only used locally to define ``<PKG>_URL`` and ``<PKG>_SOURCE``.

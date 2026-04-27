@@ -9,11 +9,14 @@
 #
 # $1: filename of the source archive to check
 # $2: md5sum of the source archive to check
+# $3: sha256sum of the source archive to check
 #
 ptxd_make_check_src_impl() {
     local src="${1}"
     local md5="${2}"
+    local sha256="${3}"
     local md5sum
+    local sha256sum
 
     if [ -z "${src}" ]; then
 	ptxd_bailout "ptxd_make_check_src called without source file."
@@ -27,19 +30,22 @@ ptxd_make_check_src_impl() {
 	return
 	;;
     notempty)
-	[ -z "${md5}" ] && return
+	[ -z "${md5}" -a -z "${sha256}" ] && return
 	;;
     esac
     # for some packages setting the md5sum in the makefile is not possible
     # e.g. for the kernel with its variable version number. Use "none" to
     # disable the check.
-    if [ "${md5}" = "none" ]; then
+    if [ "${md5}" = "none" -o "${sha256}" = "none" ]; then
 	return
     fi
 
     ptxd_verbose "Verifying checksum for '${src}'..."
     for md5sum in ${md5}; do
 	echo "${md5sum}  ${src}" | md5sum --check > /dev/null 2>&1 && return
+    done
+    for sha256sum in ${sha256}; do
+	echo "${sha256sum}  ${src}" | sha256sum --check > /dev/null 2>&1 && return
     done
     return 1
 }
@@ -51,7 +57,7 @@ export -f ptxd_make_check_src_impl
 ptxd_make_check_src() {
     ptxd_make_check_src_impl "$@" && return
 
-    if [ -z "${2}" ]; then
+    if [ -z "${2}" -a -z "${3}" ]; then
 	ptxd_bailout "Checksum for '${1}' missing."
     else
 	ptxd_bailout "Wrong checksum for '${1}'"

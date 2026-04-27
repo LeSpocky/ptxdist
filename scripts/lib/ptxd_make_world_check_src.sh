@@ -60,3 +60,10 @@ ptxd_make_world_update_md5() {
     ptxd_make_world_update_checksum md5sum MD5
 }
 export -f ptxd_make_world_update_md5
+
+# try to update the sha256sum of the current package
+# this only works if the makefile contains a "<PKG>_SHA256 := ..." line.
+ptxd_make_world_update_sha256() {
+    ptxd_make_world_update_checksum sha256sum SHA256
+}
+export -f ptxd_make_world_update_sha256
