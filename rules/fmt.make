@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FMT) += fmt
 #
 # Paths and names
 #
-FMT_VERSION		:= 11.0.2
-FMT_MD5			:= 3fe10c5184c8ecd0d2f9536c1b1ae95c
+FMT_VERSION		:= 11.2.0
+FMT_MD5			:= 2f3701cada629ca455c3388d1089f5bd
 FMT			:= fmt-$(FMT_VERSION)
 FMT_SUFFIX		:= tar.gz
 FMT_URL			:= https://github.com/fmtlib/fmt/archive/refs/tags/$(FMT_VERSION).$(FMT_SUFFIX)
