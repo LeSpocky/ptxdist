@@ -52,9 +52,9 @@ ptxd_make_check_src() {
     ptxd_make_check_src_impl "$@" && return
 
     if [ -z "${2}" ]; then
-	ptxd_bailout "md5sum for '${1}' missing."
+	ptxd_bailout "Checksum for '${1}' missing."
     else
-	ptxd_bailout "Wrong md5sum for '${1}'"
+	ptxd_bailout "Wrong checksum for '${1}'"
     fi
 }
 export -f ptxd_make_check_src

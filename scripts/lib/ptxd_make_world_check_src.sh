@@ -38,15 +38,15 @@ ptxd_make_world_update_md5() {
 	fi
     done
     if [ -z "${pkg_makefile}" ]; then
-	ptxd_bailout "Could not update md5sum for '${pkg_label}': makefile not found"
+	ptxd_bailout "Could not update checksum for '${pkg_label}': makefile not found"
     fi
     local count=$(grep "^${pkg_PKG}_MD5[ 	]*:=" "${pkg_makefile}" 2> /dev/null | wc -l)
     if [ "${count}" -gt 1 ]; then
-	ptxd_bailout "Could not update md5sum for '${pkg_label}': ${pkg_PKG}_MD5 found ${count} times in '$(ptxd_print_path ${pkg_makefile})'."
+	ptxd_bailout "Could not update checksum for '${pkg_label}': ${pkg_PKG}_MD5 found ${count} times in '$(ptxd_print_path ${pkg_makefile})'."
     fi
     sed -i "s/^\(\<${pkg_PKG}_MD5[ 	]*:=\) *[a-f0-9]*\$/\1 ${md5}/" "${pkg_makefile}"
     if ! grep -q "${md5}\$" "${pkg_makefile}"; then
-	ptxd_bailout "Could not update md5sum for '${pkg_label}': ${pkg_PKG}_MD5 not found"
+	ptxd_bailout "Could not update checksum for '${pkg_label}': ${pkg_PKG}_MD5 not found"
     fi
     ptxd_warning "New checksum for ${pkg_PKG}: ${md5} in $(ptxd_print_path "${pkg_makefile}")"
 }

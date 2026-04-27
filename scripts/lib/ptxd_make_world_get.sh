@@ -27,9 +27,9 @@ ptxd_make_world_get() {
 	if [ "${PTXCONF_SETUP_CHECK}" = "update" ]; then
 	    ptxd_make_world_update_md5
 	elif [ -z "${pkg_md5}" ]; then
-	    ptxd_bailout "md5sum for '${pkg_label}' (${pkg_src}) missing."
+	    ptxd_bailout "Checksum for '${pkg_label}' (${pkg_src}) missing."
 	else
-	    ptxd_bailout "Wrong md5sum for '${pkg_label}' (${pkg_src})"
+	    ptxd_bailout "Wrong checksum for '${pkg_label}' (${pkg_src})"
 	fi
     fi
 }
