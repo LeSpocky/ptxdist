@@ -1,12 +1,9 @@
 ## SECTION=system_libraries
 
 menuconfig LIBSECCOMP
-	bool
+	tristate
 	prompt "libseccomp                    "
 	select HOST_GPERF
-	select SED if LIBSECCOMP_UTILS && RUNTIME
-	select STRACE if LIBSECCOMP_UTILS && RUNTIME
-	select WHICH if LIBSECCOMP_UTILS && RUNTIME
 	help
 	  An Enhanced Seccomp (mode 2) Helper Library
 
@@ -23,8 +20,8 @@ config LIBSECCOMP_UTILS
 	prompt "install utils"
 	help
 	  Install some utils, useful for development.
-	  Note: in order to run some of these utils the tools 'uniq', 'sort',
-	  'expr' and 'mktemp' from the 'Busybox' *or* 'Coreutils' package is
-	  required.
+	  Note: in order to run some of these utils the tools 'expr', 'mktemp', 'sed',
+	  'sort', 'strace, ''uniq' and 'which' from the 'Busybox' *or* 'Coreutils'
+	  package is required.
 
 endif
