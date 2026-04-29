@@ -41,8 +41,9 @@ LIBMBIM_CONF_OPT	:= \
 	-Dgtk_doc=false \
 	-Dintrospection=false \
 	-Dman=false \
+	-Dmbim_groupname= \
 	-Dmbim_username= \
-	-Dudevdir=/usr/lib/udev
+	-Dudevdir=$(call ptx/ifdef,PTXCONF_LIBMBIM_UDEV,/usr/lib/udev,)
 
 # ----------------------------------------------------------------------------
 # Target-Install

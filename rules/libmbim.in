@@ -1,13 +1,21 @@
 ## SECTION=networking
 
-config LIBMBIM
+menuconfig LIBMBIM
 	tristate
 	select HOST_MESON
 	select GLIB
-	select UDEV
-	select LIBGUDEV
-	prompt "libmbim"
+	select UDEV		if LIBMBIM_UDEV
+	select LIBGUDEV		if LIBMBIM_UDEV
+	prompt "libmbim                       "
 	help
 	  libmbim is a glib-based library for talking to WWAN modems and
 	  devices which speak the Mobile Interface Broadband Model (MBIM)
 	  protocol.
+
+if LIBMBIM
+
+config LIBMBIM_UDEV
+	bool "enable udev support"
+	default y
+
+endif
