@@ -2,6 +2,7 @@
 
 config LIBNETFILTER_LOG
 	tristate
+	select LIBMNL
 	select LIBNFNETLINK
 	prompt "libnetfilter_log"
 	help
