@@ -2,6 +2,7 @@
 
 config LIBNETFILTER_QUEUE
 	tristate
+	select LIBMNL
 	select LIBNFNETLINK
 	prompt "libnetfilter_queue"
 	help
