@@ -2,6 +2,7 @@
 
 config LIBNETFILTER_CONNTRACK
 	tristate
+	select LIBMNL
 	select LIBNFNETLINK
 	prompt "libnetfilter_conntrack"
 	help
