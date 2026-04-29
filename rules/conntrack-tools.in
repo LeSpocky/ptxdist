@@ -1,0 +1,34 @@
+## SECTION=networking
+
+menuconfig CONNTRACK_TOOLS
+	tristate
+	select LIBMNL
+	select LIBNETFILTER_CONNTRACK
+	select LIBNFNETLINK
+	select LIBTIRPC
+	select LIBNETFILTER_CTTIMEOUT	if CONNTRACK_TOOLS_CTTIMEOUT
+	select LIBNETFILTER_CTHELPER	if CONNTRACK_TOOLS_CTHELPER
+	select LIBNETFILTER_QUEUE	if CONNTRACK_TOOLS_CTHELPER
+	select SYSTEMD			if CONNTRACK_TOOLS_SYSTEMD
+	prompt "conntrack-tools               "
+	help
+	  The conntrack-tools are a set of tools targeted at system
+	  administrators.
+
+if CONNTRACK_TOOLS
+
+config CONNTRACK_TOOLS_CTHELPER
+	bool "userspace conntrack helper support"
+
+config CONNTRACK_TOOLS_CTTIMEOUT
+	bool "conntrack timeout support"
+
+config CONNTRACK_TOOLS_SYSTEMD
+	bool "systemd support"
+	default y
+	depends on INITMETHOD_SYSTEMD
+
+config CONNTRACK_TOOLS_CONNTRACKD
+	bool "install conntrackd"
+
+endif
