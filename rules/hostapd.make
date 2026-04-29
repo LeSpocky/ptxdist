@@ -74,6 +74,10 @@ $(STATEDIR)/hostapd.targetinstall:
 	@$(call install_copy, hostapd, 0, 0, 0755, -, /usr/sbin/hostapd)
 	@$(call install_alternative, hostapd, 0, 0, 0644, /etc/hostapd/hostapd.conf)
 
+ifdef PTXCONF_HOSTAPD_CLI
+	@$(call install_copy, hostapd, 0, 0, 0755, -, /usr/sbin/hostapd_cli)
+endif
+
 ifdef PTXCONF_HOSTAPD_SYSTEMD_UNIT
 	@$(call install_alternative, hostapd, 0, 0, 0644, \
 		/usr/lib/systemd/system/hostapd.service)

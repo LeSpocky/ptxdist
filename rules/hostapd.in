@@ -24,6 +24,12 @@ menuconfig HOSTAPD
 
 if HOSTAPD
 
+config HOSTAPD_CLI
+	bool
+	prompt "Install hostapd_cli"
+	help
+	  Install hostapd command-line interface
+
 config HOSTAPD_SYSTEMD_UNIT
 	bool
 	prompt "Enable systemd support"
