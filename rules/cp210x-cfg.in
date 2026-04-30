@@ -1,0 +1,12 @@
+## SECTION=shell_and_console
+
+config CP210X_CFG
+	tristate
+	prompt "cp210x-cfg"
+	select LIBUSB
+	help
+	  CLI utility for programming CP210x (USB->UART bridge)
+
+	  Change VID, PID, serial and more during manufacturing.
+
+# vim: ft=kconfig tw=80
