@@ -15,14 +15,14 @@ PACKAGES-$(PTXCONF_STRONGSWAN) += strongswan
 #
 # Paths and names
 #
-STRONGSWAN_VERSION	:= 5.9.14
-STRONGSWAN_MD5		:= 21ca3fc7c18456405d03b77266ba630a
-STRONGSWAN		:= strongswan-$(STRONGSWAN_VERSION)
-STRONGSWAN_SUFFIX	:= tar.bz2
-STRONGSWAN_URL		:= https://download.strongswan.org/$(STRONGSWAN).$(STRONGSWAN_SUFFIX)
-STRONGSWAN_SOURCE	:= $(SRCDIR)/$(STRONGSWAN).$(STRONGSWAN_SUFFIX)
-STRONGSWAN_DIR		:= $(BUILDDIR)/$(STRONGSWAN)
-STRONGSWAN_LICENSE	:= GPL-2.0-only
+STRONGSWAN_VERSION		:= 6.0.5
+STRONGSWAN_MD5			:= 7049111627010dc02293970c82e43d28
+STRONGSWAN			:= strongswan-$(STRONGSWAN_VERSION)
+STRONGSWAN_SUFFIX		:= tar.bz2
+STRONGSWAN_URL			:= https://download.strongswan.org/$(STRONGSWAN).$(STRONGSWAN_SUFFIX)
+STRONGSWAN_SOURCE		:= $(SRCDIR)/$(STRONGSWAN).$(STRONGSWAN_SUFFIX)
+STRONGSWAN_DIR			:= $(BUILDDIR)/$(STRONGSWAN)
+STRONGSWAN_LICENSE		:= GPL-2.0-only
 STRONGSWAN_LICENSE_FILES	:= \
 	file://LICENSE;md5=7744b64eaadabebdfd17e8a5ae6c9855 \
 	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263
@@ -37,7 +37,6 @@ STRONGSWAN_CONF_OPT	:= \
 	--disable-static \
 	--enable-aes \
 	--$(call ptx/endis, PTXCONF_STRONGSWAN_AFALG)-af-alg \
-	--disable-bliss \
 	--disable-blowfish \
 	--disable-botan \
 	--disable-ccm \
@@ -52,12 +51,12 @@ STRONGSWAN_CONF_OPT	:= \
 	--enable-gmp \
 	--disable-curve25519 \
 	--enable-hmac \
+	--enable-kdf \
 	--disable-md4 \
 	--disable-md5 \
 	--enable-mgf1 \
-	--disable-newhope \
+	--disable-ml \
 	--enable-nonce \
-	--disable-ntru \
 	--$(call ptx/endis, PTXCONF_STRONGSWAN_OPENSSL)-openssl \
 	--disable-wolfssl \
 	--disable-padlock \
@@ -79,6 +78,7 @@ STRONGSWAN_CONF_OPT	:= \
 	--enable-pubkey \
 	--disable-sshkey \
 	--enable-x509 \
+	--disable-openxpki \
 	--$(call ptx/endis, PTXCONF_STRONGSWAN_LIBCURL)-curl \
 	--disable-files \
 	--disable-ldap \
@@ -135,7 +135,6 @@ STRONGSWAN_CONF_OPT	:= \
 	--$(call ptx/disen, PTXCONF_STRONGSWAN_SWANCTL)-stroke \
 	--disable-smp \
 	--disable-sql \
-	--disable-uci \
 	--$(call ptx/endis, PTXCONF_STRONGSWAN_SWANCTL)-vici \
 	--disable-android-dns \
 	--enable-attr \
@@ -197,7 +196,9 @@ STRONGSWAN_CONF_OPT	:= \
 	--enable-scripts \
 	--disable-svc \
 	--$(call ptx/endis, PTXCONF_STRONGSWAN_SYSTEMD_UNIT)-systemd \
+	--$(call ptx/endis, PTXCONF_STRONGSWAN_SWANCTL)-swanctl \
 	--disable-tkm \
+	--disable-cert-enroll \
 	--disable-bfd-backtraces \
 	--disable-dbghelp-backtraces \
 	--enable-ikev1 \
@@ -208,27 +209,28 @@ STRONGSWAN_CONF_OPT	:= \
 	--disable-unwind-backtraces \
 	--disable-ruby-gems \
 	--disable-ruby-gems-install \
+	--disable-python-wheels \
 	--disable-python-eggs \
-	--disable-python-eggs-install \
 	--disable-perl-cpan \
 	--disable-perl-cpan-install \
+	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--disable-tss-trousers \
 	--disable-tss-tss2 \
+	--disable-cert-enroll-timer \
+	--disable-asan \
 	--disable-coverage \
+	--disable-git-version \
 	--disable-leak-detective \
 	--disable-lock-profiler \
 	--disable-log-thread-ids \
 	--disable-monolithic \
+	--disable-warnings \
 	--disable-defaults \
-	--enable-kdf \
 	--enable-dependency-tracking \
 	--enable-shared \
-	--disable-warnings \
-	--disable-asan \
-	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux \
-	--$(call ptx/endis, PTXCONF_STRONGSWAN_SWANCTL)-swanctl \
 	--with-ipseclibdir=/usr/lib \
-	--with-systemdsystemunitdir=/usr/lib/systemd/system
+	--with-systemdsystemunitdir=/usr/lib/systemd/system \
+	--with-dbuspolicydir=/usr/share/dbus-1/system.d
 
 STRONGSWAN_CFLAGS	:= -Wno-incompatible-pointer-types
 STRONGSWAN_LDFLAGS	:= -Wl,-rpath,/usr/lib/plugins
