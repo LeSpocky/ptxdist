@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_LIBJPEG) += libjpeg
 #
 # Paths and names
 #
-LIBJPEG_VERSION	:= 3.1.4
-LIBJPEG_MD5	:= fe6c781a8f9e5871b689ee90c99326e5
+LIBJPEG_VERSION	:= 3.1.4.1
+LIBJPEG_MD5	:= e506d623f832e6f5336194314b3c0699
 LIBJPEG_SUFFIX	:= tar.gz
 LIBJPEG		:= libjpeg-turbo-$(LIBJPEG_VERSION)
 LIBJPEG_URL	:= https://github.com/libjpeg-turbo/libjpeg-turbo/archive/refs/tags/$(LIBJPEG_VERSION).$(LIBJPEG_SUFFIX)
