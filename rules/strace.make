@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_STRACE) += strace
 #
 # Paths and names
 #
-STRACE_VERSION	:= 6.19
-STRACE_MD5	:= 27df05d9aecdba5460f25633cef92b1e
+STRACE_VERSION	:= 7.0
+STRACE_MD5	:= 3453a5880241e7327e467410646b611a
 STRACE		:= strace-$(STRACE_VERSION)
 STRACE_SUFFIX	:= tar.xz
 STRACE_URL	:= https://strace.io/files/$(STRACE_VERSION)/$(STRACE).$(STRACE_SUFFIX)
@@ -33,6 +33,10 @@ STRACE_LICENSE_FILES := \
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
+
+STRACE_CONF_ENV		:= \
+	$(CROSS_ENV) \
+	ac_cv_header_termcap_h=no
 
 STRACE_CONF_TOOL	:= autoconf
 STRACE_CONF_OPT		:= \
