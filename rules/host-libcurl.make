@@ -104,7 +104,6 @@ HOST_LIBCURL_CONF_OPT	:= \
 	--without-libgsasl \
 	--without-libssh2 \
 	--without-libssh \
-	--without-librtmp \
 	--without-winidn \
 	--without-apple-idn \
 	--without-libidn2 \
