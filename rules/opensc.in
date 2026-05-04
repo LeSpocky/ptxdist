@@ -4,7 +4,6 @@ menuconfig OPENSC
 	tristate "opensc                        "
 	select ZLIB
 	select READLINE		if OPENSC_READLINE
-	select OPENCT		if OPENSC_OPENCT
 	select PCSC_LITE	if OPENSC_PCSC
 	select OPENSSL		if OPENSC_OPENSSL
 	select CMOCKA		if OPENSC_TESTSUITE
@@ -25,6 +24,8 @@ choice
 	default OPENSC_PCSC
 
 	config OPENSC_OPENCT
+		# needs openct
+		depends on BROKEN
 		bool "openct"
 
 	config OPENSC_PCSC
