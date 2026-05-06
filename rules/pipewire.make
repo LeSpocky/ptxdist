@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PIPEWIRE) += pipewire
 #
 # Paths and names
 #
-PIPEWIRE_VERSION	:= 1.4.9
-PIPEWIRE_MD5		:= 377c0ce290cf2ce69cae2214419291cb
+PIPEWIRE_VERSION	:= 1.6.4
+PIPEWIRE_MD5		:= 9f770dc4f064186ada8cc56189ce70e0
 PIPEWIRE		:= pipewire-$(PIPEWIRE_VERSION)
 PIPEWIRE_SUFFIX		:= tar.bz2
 PIPEWIRE_URL		:= https://gitlab.freedesktop.org/pipewire/pipewire/-/archive/$(PIPEWIRE_VERSION)/$(PIPEWIRE).$(PIPEWIRE_SUFFIX)
@@ -53,8 +53,10 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dbluez5-codec-g722=disabled \
 	-Dbluez5-codec-lc3=disabled \
 	-Dbluez5-codec-lc3plus=disabled \
+	-Dbluez5-codec-ldac-dec=disabled \
 	-Dbluez5-codec-ldac=disabled \
 	-Dbluez5-codec-opus=disabled \
+	-Dbluez5-plc-spandsp=disabled \
 	-Dcompress-offload=disabled \
 	-Dcontrol=enabled \
 	-Ddbus=enabled \
@@ -67,6 +69,7 @@ PIPEWIRE_CONF_OPT	:= \
 	-Devl=disabled \
 	-Dexamples=enabled \
 	-Dffmpeg=disabled \
+	-Dfftw=disabled \
 	-Dflatpak=disabled \
 	-Dgsettings=disabled \
 	-Dgsettings-pulse-schema=disabled \
@@ -82,12 +85,14 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dlibjack-path= \
 	-Dlibmysofa=disabled \
 	-Dlibpulse=disabled \
+	-Dlibsystemd=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD)d \
 	-Dlibusb=disabled \
 	-Dlibv4l2-path= \
 	-Dlogind=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD)d \
 	-Dlogind-provider=libsystemd \
 	-Dlv2=disabled \
 	-Dman=disabled \
+	-Donnxruntime=disabled \
 	-Dopus=disabled \
 	-Dpam-defaults-install=false \
 	-Dpam-memlock-default=8192 \
@@ -114,7 +119,6 @@ PIPEWIRE_CONF_OPT	:= \
 	-Dsndfile=enabled \
 	-Dspa-plugins=enabled \
 	-Dsupport=enabled \
-	-Dsystemd=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD)d \
 	-Dsystemd-system-service=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD_UNIT)d \
 	-Dsystemd-system-unit-dir=/usr/lib/systemd/system \
 	-Dsystemd-user-service=$(call ptx/endis,PTXCONF_PIPEWIRE_SYSTEMD_UNIT_USER)d \
@@ -173,6 +177,8 @@ PIPEWIRE_MODULES-y := \
 PIPEWIRE_MODULES-$(PTXCONF_PIPEWIRE_RAOP)	+= raop-sink
 
 PIPEWIRE_SPA_MODULES := \
+	libspa \
+	$(call ptx/ifdef,PTXCONF_PIPEWIRE_ECHO_CANCEL,aec/libspa-aec-null) \
 	$(call ptx/ifdef,PTXCONF_PIPEWIRE_ECHO_CANCEL,aec/libspa-aec-webrtc) \
 	alsa/libspa-alsa \
 	audioconvert/libspa-audioconvert \
@@ -206,6 +212,8 @@ $(STATEDIR)/pipewire.targetinstall:
 	@$(call install_lib, pipewire, 0, 0, 644, libpipewire-0.3)
 
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/pipewire)
+	@$(call install_link, pipewire, pipewire, /usr/bin/pipewire-aes67)
+	@$(call install_link, pipewire, pipewire, /usr/bin/pipewire-avb)
 ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
 	@$(call install_link, pipewire, pipewire, /usr/bin/pipewire-pulse)
 endif
@@ -234,10 +242,14 @@ endif
 	@$(call install_copy, pipewire, 0, 0, 755, -, /usr/bin/spa-resample)
 
 	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-dsdplay)
+	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-encplay)
+	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-midi2play)
+	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-midi2record)
 	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-midiplay)
 	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-midirecord)
 	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-play)
 	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-record)
+	@$(call install_link, pipewire, pw-cat, /usr/bin/pw-sysex)
 
 	@$(foreach module, $(PIPEWIRE_MODULES-y), \
 		$(call install_lib, pipewire, 0, 0, 644, \
@@ -250,6 +262,7 @@ endif
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/client.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/demonic.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-dolby-pro-logic-ii.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-dolby-surround.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-eq6.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-make-LFE.conf)
@@ -260,6 +273,8 @@ endif
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/source-duplicate-FL.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/source-rnnoise.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/filter-chain/sink-upmix-5.1-filter.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire-aes67.conf)
+	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire-avb.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/pipewire.conf)
 	@$(call install_alternative, pipewire, 0, 0, 644, /usr/share/pipewire/minimal.conf)
 
@@ -284,6 +299,8 @@ ifdef PTXCONF_PIPEWIRE_SYSTEMD_UNIT_USER
 	@$(call install_link, pipewire, ../pipewire.socket, \
 		/usr/lib/systemd/user/sockets.target.wants/pipewire.socket)
 ifdef PTXCONF_PIPEWIRE_PULSEAUDIO
+	@$(call install_alternative, pipewire, 0, 0, 0644, \
+		/usr/lib/systemd/user/filter-chain.service)
 	@$(call install_alternative, pipewire, 0, 0, 0644, \
 		/usr/lib/systemd/user/pipewire-pulse.service)
 	@$(call install_alternative, pipewire, 0, 0, 0644, \
