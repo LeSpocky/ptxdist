@@ -244,7 +244,8 @@ KERNEL_TOOL_PERF_OPTS	:= \
 	NO_AUXTRACE= \
 	NO_LIBBPF=1 \
 	NO_SDT=1 \
-	NO_LIBCAP=1
+	NO_LIBCAP=1 \
+	NO_RUST=$(call ptx/ifdef, PTXCONF_KERNEL_RUST,0,1)
 
 # manual make to handle CPPFLAGS and broken parallel building for some
 # kernel versions
