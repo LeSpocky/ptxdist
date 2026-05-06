@@ -68,6 +68,10 @@ config GST_PLUGINS_RS_DAV1D
 	depends on BROKEN
 	prompt "dav1d"
 
+config GST_PLUGINS_RS_DEBUGSEIMETAINSERTER
+	bool
+	prompt "debugseimetainserter"
+
 config GST_PLUGINS_RS_DEEPGRAM
 	bool
 	prompt "deepgram"
@@ -270,5 +274,9 @@ config GST_PLUGINS_RS_WEBRTC
 config GST_PLUGINS_RS_WEBRTCHTTP
 	bool
 	prompt "webrtchttp"
+
+config GST_PLUGINS_RS_WHISPER
+	bool
+	prompt "whisper"
 
 endif
