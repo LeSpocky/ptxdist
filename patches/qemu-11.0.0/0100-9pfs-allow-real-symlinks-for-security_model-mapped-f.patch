@@ -11,10 +11,10 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 27 insertions(+), 13 deletions(-)
 
 diff --git a/hw/9pfs/9p-local.c b/hw/9pfs/9p-local.c
-index 31e216227cb9..1815a99c9da4 100644
+index 24cb1da90ae0..9827cefbe12a 100644
 --- a/hw/9pfs/9p-local.c
 +++ b/hw/9pfs/9p-local.c
-@@ -462,8 +462,7 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
+@@ -463,8 +463,7 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
  {
      ssize_t tsize = -1;
  
@@ -24,15 +24,15 @@ index 31e216227cb9..1815a99c9da4 100644
          int fd;
  
          fd = local_open_nofollow(fs_ctx, fs_path->data, O_RDONLY, 0);
-@@ -473,6 +472,7 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
+@@ -477,6 +476,7 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
          tsize = RETRY_ON_EINTR(read(fd, (void *)buf, bufsz));
          close_preserve_errno(fd);
      } else if ((fs_ctx->export_flags & V9FS_SM_PASSTHROUGH) ||
 +               (fs_ctx->export_flags & V9FS_SM_MAPPED_FILE) ||
                 (fs_ctx->export_flags & V9FS_SM_NONE)) {
+     native_symlink:;
          char *dirpath = g_path_get_dirname(fs_path->data);
-         char *name = g_path_get_basename(fs_path->data);
-@@ -484,6 +484,17 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
+@@ -489,6 +489,17 @@ static ssize_t local_readlink(FsContext *fs_ctx, V9fsPath *fs_path,
          }
  
          tsize = readlinkat(dirfd, name, buf, bufsz);
@@ -50,7 +50,7 @@ index 31e216227cb9..1815a99c9da4 100644
          close_preserve_errno(dirfd);
      out:
          g_free(name);
-@@ -902,18 +913,21 @@ static int local_symlink(FsContext *fs_ctx, const char *oldpath,
+@@ -907,18 +918,21 @@ static int local_symlink(FsContext *fs_ctx, const char *oldpath,
          int fd;
          ssize_t oldpath_size, write_size;
  
