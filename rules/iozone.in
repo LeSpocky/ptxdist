@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=test_suites
+## SECTION=test_suites
 
 config IOZONE
 	tristate
@@ -11,7 +9,3 @@ config IOZONE
 	help
 	  IOzone is a filesystem benchmark tool. The benchmark generates
 	  and measures a variety of file operations.
-
-	  STAGING: remove in PTXdist 2027.03.0
-	  Unmaintained in PTXist. Fails to build with gcc 15. Needs updating to new
-	  version.
