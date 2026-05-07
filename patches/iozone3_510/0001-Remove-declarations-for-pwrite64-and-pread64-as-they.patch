@@ -1,0 +1,27 @@
+From: Steve Robbins <steve@sumost.ca>
+Date: Sat, 22 Feb 2025 17:11:04 -0600
+Subject: [PATCH] Remove declarations for pwrite64 and pread64 as they are
+ defined in unistd.h. The removed source definitions conflict with unistd.h on
+ i386.
+
+---
+ src/current/iozone.c | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/src/current/iozone.c b/src/current/iozone.c
+index 41e06845e394..b83a836acafa 100755
+--- a/src/current/iozone.c
++++ b/src/current/iozone.c
+@@ -1309,12 +1309,6 @@ int pit_gettimeofday();
+ #endif /* End of HAVE ANSI C */
+ 
+ #ifdef HAVE_ANSIC_C
+-#if defined (HAVE_PREAD) && defined(_LARGEFILE64_SOURCE)
+-ssize_t pwrite64(int, const void *, size_t, off_t);
+-/* ssize_t pwrite64(); */
+-ssize_t pread64(int, void *, size_t, off_t);
+-/*ssize_t pread64(); */
+-#endif
+ #if !defined(linux)
+ char *getenv();
+ char *inet_ntoa();

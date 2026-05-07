@@ -9,30 +9,48 @@
 #
 # We provide this package
 #
-ifndef PTXCONF_ARCH_ARM64
 PACKAGES-$(PTXCONF_IOZONE) += iozone
-endif
 
 #
 # Paths and names
 #
-IOZONE_VERSION	:= 327
-IOZONE_MD5	:= 3b5f8d7fcb5ba5bba139165c8d53f342
+IOZONE_VERSION	:= 510
+IOZONE_MD5	:= 5a3cbf8e78707ccae9e80f6dc0c393af
 IOZONE		:= iozone3_$(IOZONE_VERSION)
 IOZONE_SUFFIX	:= tar
 IOZONE_URL	:= http://www.iozone.org/src/current/$(IOZONE).$(IOZONE_SUFFIX)
 IOZONE_SOURCE	:= $(SRCDIR)/$(IOZONE).$(IOZONE_SUFFIX)
 IOZONE_DIR	:= $(BUILDDIR)/$(IOZONE)
+IOZONE_SUBDIR	:= src/current
 IOZONE_LICENSE	:= Freeware
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
-IOZONE_CONF_TOOL	:= autoconf
+IOZONE_CONF_TOOL	:= NO
+
+IOZONE_CFLAGS		:= \
+	-DHAVE_PREADV \
+	-DHAVE_PWRITEV \
+	-std=gnu99
+
+# parallel building is broken, multiple files are compiled in one target
+IOZONE_MAKE_OPT		:= \
+	$(CROSS_ENV_CC) \
+	$(PARALLELMFLAGS_BROKEN) \
+	linux
+
+# ----------------------------------------------------------------------------
+# Install
+# ----------------------------------------------------------------------------
+
+$(STATEDIR)/iozone.install:
+	@$(call targetinfo)
+	@$(call world/execute, IOZONE, \
+		install -v -m 755 -t $(IOZONE_PKGDIR)/usr/bin \
+			$(IOZONE_DIR)/src/current/{iozone$(comma)fileop})
+	@$(call touch)
 
 # ----------------------------------------------------------------------------
 # Target-Install
