@@ -27,9 +27,9 @@ class SpdxSbomGenerator(SbomGenerator):
         document.to_json(file, sort_keys=True, indent=2)
 
     def add_packages(self, pkgs):
-        for pkg in pkgs:
-            if pkg not in self.spdx_pkgs and pkg != self.current_pkg:
-                self.pkgs.add(pkg)
+        for pkg in sorted(pkgs):
+            if pkg not in self.spdx_pkgs and pkg != self.current_pkg and pkg not in self.pkgs:
+                self.pkgs.append(pkg)
 
     def build_package(self, document, pkg):
         pkg_name = pkg['name']
@@ -150,7 +150,7 @@ class SpdxSbomGenerator(SbomGenerator):
         namespace_uuid = uuid.uuid5(uuid.NAMESPACE_DNS, 'sbom.ptxdist.org')
         document.documentNamespace = f'http://spdx.org/spdxdoc/{document.name}/{namespace_uuid}'
 
-        self.pkgs = set()
+        self.pkgs = []
         self.current_pkg = None
         self.spdx_pkgs = {}
 
