@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# PTXdist 2022.09.0
+# PTXdist 2026.04.0
 #
 
 #
@@ -81,3 +81,5 @@ PTXCONF_SETUP_HOST_CC="gcc"
 PTXCONF_SETUP_HOST_CXX="g++"
 PTXCONF_SETUP_HOST_MAKE="make"
 # end of Developer Options 
+
+# PTXCONF_SETUP_CONTAINER_ENABLE is not set
