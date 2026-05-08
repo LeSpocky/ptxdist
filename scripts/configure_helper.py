@@ -383,11 +383,9 @@ def handle_dir_configure(d, configure):
 	return (parsed, args, label)
 
 def handle_dir_meson(d, meson_builddir):
-	if not os.path.exists(meson_builddir):
-		abort("package must be configured")
-		exit(1)
+	arg = meson_builddir if os.path.exists(meson_builddir) else os.path.join(d, "meson.build")
 	args = []
-	p = subprocess.Popen([ os.path.join(sysroot_host, "bin", "meson"), "introspect", meson_builddir, "--buildoptions" ], stdout=subprocess.PIPE, universal_newlines=True)
+	p = subprocess.Popen([ os.path.join(sysroot_host, "bin", "meson"), "introspect", arg, "--buildoptions" ], stdout=subprocess.PIPE, universal_newlines=True)
 	options = json.load(p.stdout)
 	for option in options:
 		try:
