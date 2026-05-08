@@ -61,6 +61,7 @@ class SpdxSbomGenerator(SbomGenerator):
                 spdx_pkg.checksums.append(checksum)
 
         document.packages.append(spdx_pkg)
+        self.add_external_refs(document, pkg, spdx_pkg)
         self.spdx_pkgs[pkg_name] = spdx_pkg
 
         for source in pkg.get('source-packages', []):
@@ -182,7 +183,6 @@ class SpdxSbomGenerator(SbomGenerator):
 
             spdx_pkg = self.spdx_pkgs[pkg_name]
             self.add_dependencies(document, pkg, spdx_pkg)
-            self.add_external_refs(document, pkg, spdx_pkg)
 
         if target:
             document.add_relationship(
