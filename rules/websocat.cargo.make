@@ -14,1117 +14,1117 @@
 WEBSOCAT_CARGO_LOCK_MD5 := 900a7811bde29915cdd015af7d0bb5c5
 
 WEBSOCAT_ADLER_1_0_2_MD5		:= 669215548c64019c08c92b2c1afd3deb
-WEBSOCAT_ADLER_1_0_2_URL		:= https://crates.io/api/v1/crates/adler/1.0.2/download
+WEBSOCAT_ADLER_1_0_2_URL		:= $(call ptx/mirror, CRATESIO, adler/1.0.2/download)
 WEBSOCAT_ADLER_1_0_2_SOURCE	:= $(SRCDIR)/adler-1.0.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_ADLER_1_0_2
 
 WEBSOCAT_AEAD_0_4_3_MD5		:= d8996d67ebb969d68c8b35ed1858171b
-WEBSOCAT_AEAD_0_4_3_URL		:= https://crates.io/api/v1/crates/aead/0.4.3/download
+WEBSOCAT_AEAD_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, aead/0.4.3/download)
 WEBSOCAT_AEAD_0_4_3_SOURCE	:= $(SRCDIR)/aead-0.4.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_AEAD_0_4_3
 
 WEBSOCAT_ANYMAP_0_12_1_MD5		:= 64a3aad83a83e6ec727a4d896dcbc077
-WEBSOCAT_ANYMAP_0_12_1_URL		:= https://crates.io/api/v1/crates/anymap/0.12.1/download
+WEBSOCAT_ANYMAP_0_12_1_URL		:= $(call ptx/mirror, CRATESIO, anymap/0.12.1/download)
 WEBSOCAT_ANYMAP_0_12_1_SOURCE	:= $(SRCDIR)/anymap-0.12.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_ANYMAP_0_12_1
 
 WEBSOCAT_ARGON2_0_4_1_MD5		:= ac28d5811a10ea72ad763bc48e9595f6
-WEBSOCAT_ARGON2_0_4_1_URL		:= https://crates.io/api/v1/crates/argon2/0.4.1/download
+WEBSOCAT_ARGON2_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, argon2/0.4.1/download)
 WEBSOCAT_ARGON2_0_4_1_SOURCE	:= $(SRCDIR)/argon2-0.4.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_ARGON2_0_4_1
 
 WEBSOCAT_ATTY_0_2_14_MD5		:= 142cb4b9a653e56e56311f0c883b8582
-WEBSOCAT_ATTY_0_2_14_URL		:= https://crates.io/api/v1/crates/atty/0.2.14/download
+WEBSOCAT_ATTY_0_2_14_URL		:= $(call ptx/mirror, CRATESIO, atty/0.2.14/download)
 WEBSOCAT_ATTY_0_2_14_SOURCE	:= $(SRCDIR)/atty-0.2.14.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_ATTY_0_2_14
 
 WEBSOCAT_AUTOCFG_0_1_8_MD5		:= 9563ddbf0d01fb162d94707f57ad9f40
-WEBSOCAT_AUTOCFG_0_1_8_URL		:= https://crates.io/api/v1/crates/autocfg/0.1.8/download
+WEBSOCAT_AUTOCFG_0_1_8_URL		:= $(call ptx/mirror, CRATESIO, autocfg/0.1.8/download)
 WEBSOCAT_AUTOCFG_0_1_8_SOURCE	:= $(SRCDIR)/autocfg-0.1.8.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_AUTOCFG_0_1_8
 
 WEBSOCAT_AUTOCFG_1_2_0_MD5		:= c4e7c176f09e17c6f7d0d574bd6c74b3
-WEBSOCAT_AUTOCFG_1_2_0_URL		:= https://crates.io/api/v1/crates/autocfg/1.2.0/download
+WEBSOCAT_AUTOCFG_1_2_0_URL		:= $(call ptx/mirror, CRATESIO, autocfg/1.2.0/download)
 WEBSOCAT_AUTOCFG_1_2_0_SOURCE	:= $(SRCDIR)/autocfg-1.2.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_AUTOCFG_1_2_0
 
 WEBSOCAT_BASE64_0_9_3_MD5		:= 496ce53f8d4d95bf19e48bb2f31e4a7e
-WEBSOCAT_BASE64_0_9_3_URL		:= https://crates.io/api/v1/crates/base64/0.9.3/download
+WEBSOCAT_BASE64_0_9_3_URL		:= $(call ptx/mirror, CRATESIO, base64/0.9.3/download)
 WEBSOCAT_BASE64_0_9_3_SOURCE	:= $(SRCDIR)/base64-0.9.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BASE64_0_9_3
 
 WEBSOCAT_BASE64_0_10_1_MD5		:= 9ed1fef898024a6aaf3e3878cd83c103
-WEBSOCAT_BASE64_0_10_1_URL		:= https://crates.io/api/v1/crates/base64/0.10.1/download
+WEBSOCAT_BASE64_0_10_1_URL		:= $(call ptx/mirror, CRATESIO, base64/0.10.1/download)
 WEBSOCAT_BASE64_0_10_1_SOURCE	:= $(SRCDIR)/base64-0.10.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BASE64_0_10_1
 
 WEBSOCAT_BASE64CT_1_6_0_MD5		:= bd4c0e123b65937461c135ff7030a44e
-WEBSOCAT_BASE64CT_1_6_0_URL		:= https://crates.io/api/v1/crates/base64ct/1.6.0/download
+WEBSOCAT_BASE64CT_1_6_0_URL		:= $(call ptx/mirror, CRATESIO, base64ct/1.6.0/download)
 WEBSOCAT_BASE64CT_1_6_0_SOURCE	:= $(SRCDIR)/base64ct-1.6.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BASE64CT_1_6_0
 
 WEBSOCAT_BITFLAGS_1_3_2_MD5		:= a295edb6953237ebbdfa8e731229f9a3
-WEBSOCAT_BITFLAGS_1_3_2_URL		:= https://crates.io/api/v1/crates/bitflags/1.3.2/download
+WEBSOCAT_BITFLAGS_1_3_2_URL		:= $(call ptx/mirror, CRATESIO, bitflags/1.3.2/download)
 WEBSOCAT_BITFLAGS_1_3_2_SOURCE	:= $(SRCDIR)/bitflags-1.3.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BITFLAGS_1_3_2
 
 WEBSOCAT_BITFLAGS_2_5_0_MD5		:= f3406374808b01be3a263666aa9aa2f5
-WEBSOCAT_BITFLAGS_2_5_0_URL		:= https://crates.io/api/v1/crates/bitflags/2.5.0/download
+WEBSOCAT_BITFLAGS_2_5_0_URL		:= $(call ptx/mirror, CRATESIO, bitflags/2.5.0/download)
 WEBSOCAT_BITFLAGS_2_5_0_SOURCE	:= $(SRCDIR)/bitflags-2.5.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BITFLAGS_2_5_0
 
 WEBSOCAT_BLAKE2_0_10_6_MD5		:= 87ba9457ae5c2e77d0cf5f893ed0bf1e
-WEBSOCAT_BLAKE2_0_10_6_URL		:= https://crates.io/api/v1/crates/blake2/0.10.6/download
+WEBSOCAT_BLAKE2_0_10_6_URL		:= $(call ptx/mirror, CRATESIO, blake2/0.10.6/download)
 WEBSOCAT_BLAKE2_0_10_6_SOURCE	:= $(SRCDIR)/blake2-0.10.6.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BLAKE2_0_10_6
 
 WEBSOCAT_BLOCK_BUFFER_0_7_3_MD5		:= a885637c56c780044d778f18420687cc
-WEBSOCAT_BLOCK_BUFFER_0_7_3_URL		:= https://crates.io/api/v1/crates/block-buffer/0.7.3/download
+WEBSOCAT_BLOCK_BUFFER_0_7_3_URL		:= $(call ptx/mirror, CRATESIO, block-buffer/0.7.3/download)
 WEBSOCAT_BLOCK_BUFFER_0_7_3_SOURCE	:= $(SRCDIR)/block-buffer-0.7.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BLOCK_BUFFER_0_7_3
 
 WEBSOCAT_BLOCK_BUFFER_0_10_4_MD5		:= 023b03cf9968b29253a5dfe62051008d
-WEBSOCAT_BLOCK_BUFFER_0_10_4_URL		:= https://crates.io/api/v1/crates/block-buffer/0.10.4/download
+WEBSOCAT_BLOCK_BUFFER_0_10_4_URL		:= $(call ptx/mirror, CRATESIO, block-buffer/0.10.4/download)
 WEBSOCAT_BLOCK_BUFFER_0_10_4_SOURCE	:= $(SRCDIR)/block-buffer-0.10.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BLOCK_BUFFER_0_10_4
 
 WEBSOCAT_BLOCK_PADDING_0_1_5_MD5		:= 95414d4f9c612bbe8a061dd2ff0bc519
-WEBSOCAT_BLOCK_PADDING_0_1_5_URL		:= https://crates.io/api/v1/crates/block-padding/0.1.5/download
+WEBSOCAT_BLOCK_PADDING_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, block-padding/0.1.5/download)
 WEBSOCAT_BLOCK_PADDING_0_1_5_SOURCE	:= $(SRCDIR)/block-padding-0.1.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BLOCK_PADDING_0_1_5
 
 WEBSOCAT_BYTE_TOOLS_0_3_1_MD5		:= 4bd3c3b61fe602e6078615a491e5050a
-WEBSOCAT_BYTE_TOOLS_0_3_1_URL		:= https://crates.io/api/v1/crates/byte-tools/0.3.1/download
+WEBSOCAT_BYTE_TOOLS_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, byte-tools/0.3.1/download)
 WEBSOCAT_BYTE_TOOLS_0_3_1_SOURCE	:= $(SRCDIR)/byte-tools-0.3.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BYTE_TOOLS_0_3_1
 
 WEBSOCAT_BYTEORDER_1_5_0_MD5		:= 45339d90b2b3a4f123af5ec459954102
-WEBSOCAT_BYTEORDER_1_5_0_URL		:= https://crates.io/api/v1/crates/byteorder/1.5.0/download
+WEBSOCAT_BYTEORDER_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, byteorder/1.5.0/download)
 WEBSOCAT_BYTEORDER_1_5_0_SOURCE	:= $(SRCDIR)/byteorder-1.5.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BYTEORDER_1_5_0
 
 WEBSOCAT_BYTES_0_4_12_MD5		:= 1d02fa9f0fca9470a24a05e7c155993d
-WEBSOCAT_BYTES_0_4_12_URL		:= https://crates.io/api/v1/crates/bytes/0.4.12/download
+WEBSOCAT_BYTES_0_4_12_URL		:= $(call ptx/mirror, CRATESIO, bytes/0.4.12/download)
 WEBSOCAT_BYTES_0_4_12_SOURCE	:= $(SRCDIR)/bytes-0.4.12.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_BYTES_0_4_12
 
 WEBSOCAT_CC_1_0_90_MD5		:= 3688fd97ff4600fa12dcba8623da73a3
-WEBSOCAT_CC_1_0_90_URL		:= https://crates.io/api/v1/crates/cc/1.0.90/download
+WEBSOCAT_CC_1_0_90_URL		:= $(call ptx/mirror, CRATESIO, cc/1.0.90/download)
 WEBSOCAT_CC_1_0_90_SOURCE	:= $(SRCDIR)/cc-1.0.90.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CC_1_0_90
 
 WEBSOCAT_CFG_IF_0_1_10_MD5		:= 882dbbc613a93f64c3709b0a2bd0d6dc
-WEBSOCAT_CFG_IF_0_1_10_URL		:= https://crates.io/api/v1/crates/cfg-if/0.1.10/download
+WEBSOCAT_CFG_IF_0_1_10_URL		:= $(call ptx/mirror, CRATESIO, cfg-if/0.1.10/download)
 WEBSOCAT_CFG_IF_0_1_10_SOURCE	:= $(SRCDIR)/cfg-if-0.1.10.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CFG_IF_0_1_10
 
 WEBSOCAT_CFG_IF_1_0_0_MD5		:= 74634128440dbc3766bda76fdf0aaa05
-WEBSOCAT_CFG_IF_1_0_0_URL		:= https://crates.io/api/v1/crates/cfg-if/1.0.0/download
+WEBSOCAT_CFG_IF_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, cfg-if/1.0.0/download)
 WEBSOCAT_CFG_IF_1_0_0_SOURCE	:= $(SRCDIR)/cfg-if-1.0.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CFG_IF_1_0_0
 
 WEBSOCAT_CHACHA20_0_8_2_MD5		:= c91eb059dc49ce8c5145967b492cd7f8
-WEBSOCAT_CHACHA20_0_8_2_URL		:= https://crates.io/api/v1/crates/chacha20/0.8.2/download
+WEBSOCAT_CHACHA20_0_8_2_URL		:= $(call ptx/mirror, CRATESIO, chacha20/0.8.2/download)
 WEBSOCAT_CHACHA20_0_8_2_SOURCE	:= $(SRCDIR)/chacha20-0.8.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CHACHA20_0_8_2
 
 WEBSOCAT_CHACHA20POLY1305_0_9_1_MD5		:= 5abf1bc1fb30b1a546e9c2636386e0b8
-WEBSOCAT_CHACHA20POLY1305_0_9_1_URL		:= https://crates.io/api/v1/crates/chacha20poly1305/0.9.1/download
+WEBSOCAT_CHACHA20POLY1305_0_9_1_URL		:= $(call ptx/mirror, CRATESIO, chacha20poly1305/0.9.1/download)
 WEBSOCAT_CHACHA20POLY1305_0_9_1_SOURCE	:= $(SRCDIR)/chacha20poly1305-0.9.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CHACHA20POLY1305_0_9_1
 
 WEBSOCAT_CIPHER_0_3_0_MD5		:= 5f2578209a4d7964623462e402375ac0
-WEBSOCAT_CIPHER_0_3_0_URL		:= https://crates.io/api/v1/crates/cipher/0.3.0/download
+WEBSOCAT_CIPHER_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, cipher/0.3.0/download)
 WEBSOCAT_CIPHER_0_3_0_SOURCE	:= $(SRCDIR)/cipher-0.3.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CIPHER_0_3_0
 
 WEBSOCAT_CLAP_2_34_0_MD5		:= 59ae9122b2946d4d52bc48a1da5c5e06
-WEBSOCAT_CLAP_2_34_0_URL		:= https://crates.io/api/v1/crates/clap/2.34.0/download
+WEBSOCAT_CLAP_2_34_0_URL		:= $(call ptx/mirror, CRATESIO, clap/2.34.0/download)
 WEBSOCAT_CLAP_2_34_0_SOURCE	:= $(SRCDIR)/clap-2.34.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CLAP_2_34_0
 
 WEBSOCAT_CLOUDABI_0_0_3_MD5		:= 1c8b50f8528dd37df7d984e0e4b61bd5
-WEBSOCAT_CLOUDABI_0_0_3_URL		:= https://crates.io/api/v1/crates/cloudabi/0.0.3/download
+WEBSOCAT_CLOUDABI_0_0_3_URL		:= $(call ptx/mirror, CRATESIO, cloudabi/0.0.3/download)
 WEBSOCAT_CLOUDABI_0_0_3_SOURCE	:= $(SRCDIR)/cloudabi-0.0.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CLOUDABI_0_0_3
 
 WEBSOCAT_CORE_FOUNDATION_0_9_4_MD5		:= 4d7e3bc6c42f8a875a87246ed14d9948
-WEBSOCAT_CORE_FOUNDATION_0_9_4_URL		:= https://crates.io/api/v1/crates/core-foundation/0.9.4/download
+WEBSOCAT_CORE_FOUNDATION_0_9_4_URL		:= $(call ptx/mirror, CRATESIO, core-foundation/0.9.4/download)
 WEBSOCAT_CORE_FOUNDATION_0_9_4_SOURCE	:= $(SRCDIR)/core-foundation-0.9.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CORE_FOUNDATION_0_9_4
 
 WEBSOCAT_CORE_FOUNDATION_SYS_0_8_6_MD5		:= d7624e4ff046ae83eda8e82d90887bdb
-WEBSOCAT_CORE_FOUNDATION_SYS_0_8_6_URL		:= https://crates.io/api/v1/crates/core-foundation-sys/0.8.6/download
+WEBSOCAT_CORE_FOUNDATION_SYS_0_8_6_URL		:= $(call ptx/mirror, CRATESIO, core-foundation-sys/0.8.6/download)
 WEBSOCAT_CORE_FOUNDATION_SYS_0_8_6_SOURCE	:= $(SRCDIR)/core-foundation-sys-0.8.6.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CORE_FOUNDATION_SYS_0_8_6
 
 WEBSOCAT_CPUFEATURES_0_2_12_MD5		:= 162407e4c09897085d00344230f375a0
-WEBSOCAT_CPUFEATURES_0_2_12_URL		:= https://crates.io/api/v1/crates/cpufeatures/0.2.12/download
+WEBSOCAT_CPUFEATURES_0_2_12_URL		:= $(call ptx/mirror, CRATESIO, cpufeatures/0.2.12/download)
 WEBSOCAT_CPUFEATURES_0_2_12_SOURCE	:= $(SRCDIR)/cpufeatures-0.2.12.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CPUFEATURES_0_2_12
 
 WEBSOCAT_CRC32FAST_1_4_0_MD5		:= 2cdf6f26459b770f7cf497cfba8eb5d4
-WEBSOCAT_CRC32FAST_1_4_0_URL		:= https://crates.io/api/v1/crates/crc32fast/1.4.0/download
+WEBSOCAT_CRC32FAST_1_4_0_URL		:= $(call ptx/mirror, CRATESIO, crc32fast/1.4.0/download)
 WEBSOCAT_CRC32FAST_1_4_0_SOURCE	:= $(SRCDIR)/crc32fast-1.4.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CRC32FAST_1_4_0
 
 WEBSOCAT_CROSSBEAM_DEQUE_0_7_4_MD5		:= 372d983bc911b6099ad1b8ed6087604f
-WEBSOCAT_CROSSBEAM_DEQUE_0_7_4_URL		:= https://crates.io/api/v1/crates/crossbeam-deque/0.7.4/download
+WEBSOCAT_CROSSBEAM_DEQUE_0_7_4_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-deque/0.7.4/download)
 WEBSOCAT_CROSSBEAM_DEQUE_0_7_4_SOURCE	:= $(SRCDIR)/crossbeam-deque-0.7.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CROSSBEAM_DEQUE_0_7_4
 
 WEBSOCAT_CROSSBEAM_EPOCH_0_8_2_MD5		:= 49b4b022e9fa4cc60376a79ecb39d04f
-WEBSOCAT_CROSSBEAM_EPOCH_0_8_2_URL		:= https://crates.io/api/v1/crates/crossbeam-epoch/0.8.2/download
+WEBSOCAT_CROSSBEAM_EPOCH_0_8_2_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-epoch/0.8.2/download)
 WEBSOCAT_CROSSBEAM_EPOCH_0_8_2_SOURCE	:= $(SRCDIR)/crossbeam-epoch-0.8.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CROSSBEAM_EPOCH_0_8_2
 
 WEBSOCAT_CROSSBEAM_QUEUE_0_1_2_MD5		:= 7c90c5d981a715d9863d6bfcc984d6ed
-WEBSOCAT_CROSSBEAM_QUEUE_0_1_2_URL		:= https://crates.io/api/v1/crates/crossbeam-queue/0.1.2/download
+WEBSOCAT_CROSSBEAM_QUEUE_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-queue/0.1.2/download)
 WEBSOCAT_CROSSBEAM_QUEUE_0_1_2_SOURCE	:= $(SRCDIR)/crossbeam-queue-0.1.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CROSSBEAM_QUEUE_0_1_2
 
 WEBSOCAT_CROSSBEAM_QUEUE_0_2_3_MD5		:= 836bbd6315ea443caf33fe3394ea4991
-WEBSOCAT_CROSSBEAM_QUEUE_0_2_3_URL		:= https://crates.io/api/v1/crates/crossbeam-queue/0.2.3/download
+WEBSOCAT_CROSSBEAM_QUEUE_0_2_3_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-queue/0.2.3/download)
 WEBSOCAT_CROSSBEAM_QUEUE_0_2_3_SOURCE	:= $(SRCDIR)/crossbeam-queue-0.2.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CROSSBEAM_QUEUE_0_2_3
 
 WEBSOCAT_CROSSBEAM_UTILS_0_6_6_MD5		:= 66912c6b316cfec144c4fbcbf59bf862
-WEBSOCAT_CROSSBEAM_UTILS_0_6_6_URL		:= https://crates.io/api/v1/crates/crossbeam-utils/0.6.6/download
+WEBSOCAT_CROSSBEAM_UTILS_0_6_6_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-utils/0.6.6/download)
 WEBSOCAT_CROSSBEAM_UTILS_0_6_6_SOURCE	:= $(SRCDIR)/crossbeam-utils-0.6.6.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CROSSBEAM_UTILS_0_6_6
 
 WEBSOCAT_CROSSBEAM_UTILS_0_7_2_MD5		:= ff67cf2eb9668167782b8012d3b48e7b
-WEBSOCAT_CROSSBEAM_UTILS_0_7_2_URL		:= https://crates.io/api/v1/crates/crossbeam-utils/0.7.2/download
+WEBSOCAT_CROSSBEAM_UTILS_0_7_2_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-utils/0.7.2/download)
 WEBSOCAT_CROSSBEAM_UTILS_0_7_2_SOURCE	:= $(SRCDIR)/crossbeam-utils-0.7.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CROSSBEAM_UTILS_0_7_2
 
 WEBSOCAT_CRYPTO_COMMON_0_1_6_MD5		:= 89e88633cab0e4b6f3d3878b84dffe8b
-WEBSOCAT_CRYPTO_COMMON_0_1_6_URL		:= https://crates.io/api/v1/crates/crypto-common/0.1.6/download
+WEBSOCAT_CRYPTO_COMMON_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, crypto-common/0.1.6/download)
 WEBSOCAT_CRYPTO_COMMON_0_1_6_SOURCE	:= $(SRCDIR)/crypto-common-0.1.6.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_CRYPTO_COMMON_0_1_6
 
 WEBSOCAT_DERIVATIVE_1_0_4_MD5		:= fdefb54850aeb1f31d201f0115aab3d4
-WEBSOCAT_DERIVATIVE_1_0_4_URL		:= https://crates.io/api/v1/crates/derivative/1.0.4/download
+WEBSOCAT_DERIVATIVE_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, derivative/1.0.4/download)
 WEBSOCAT_DERIVATIVE_1_0_4_SOURCE	:= $(SRCDIR)/derivative-1.0.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_DERIVATIVE_1_0_4
 
 WEBSOCAT_DIGEST_0_8_1_MD5		:= b00352aced738d455145117157604783
-WEBSOCAT_DIGEST_0_8_1_URL		:= https://crates.io/api/v1/crates/digest/0.8.1/download
+WEBSOCAT_DIGEST_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, digest/0.8.1/download)
 WEBSOCAT_DIGEST_0_8_1_SOURCE	:= $(SRCDIR)/digest-0.8.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_DIGEST_0_8_1
 
 WEBSOCAT_DIGEST_0_10_7_MD5		:= 3d62bfbbe08bdcee55fcb8cda85554d9
-WEBSOCAT_DIGEST_0_10_7_URL		:= https://crates.io/api/v1/crates/digest/0.10.7/download
+WEBSOCAT_DIGEST_0_10_7_URL		:= $(call ptx/mirror, CRATESIO, digest/0.10.7/download)
 WEBSOCAT_DIGEST_0_10_7_SOURCE	:= $(SRCDIR)/digest-0.10.7.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_DIGEST_0_10_7
 
 WEBSOCAT_ENV_LOGGER_0_6_2_MD5		:= 034a5cb6f2dd0fe6602fbe95806b678b
-WEBSOCAT_ENV_LOGGER_0_6_2_URL		:= https://crates.io/api/v1/crates/env_logger/0.6.2/download
+WEBSOCAT_ENV_LOGGER_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, env_logger/0.6.2/download)
 WEBSOCAT_ENV_LOGGER_0_6_2_SOURCE	:= $(SRCDIR)/env_logger-0.6.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_ENV_LOGGER_0_6_2
 
 WEBSOCAT_ERRNO_0_3_8_MD5		:= 349e0ae5420f0b7e6ff835cd03cc7428
-WEBSOCAT_ERRNO_0_3_8_URL		:= https://crates.io/api/v1/crates/errno/0.3.8/download
+WEBSOCAT_ERRNO_0_3_8_URL		:= $(call ptx/mirror, CRATESIO, errno/0.3.8/download)
 WEBSOCAT_ERRNO_0_3_8_SOURCE	:= $(SRCDIR)/errno-0.3.8.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_ERRNO_0_3_8
 
 WEBSOCAT_FAKE_SIMD_0_1_2_MD5		:= 1aef0dd636d3ef234e4f035fc26c0069
-WEBSOCAT_FAKE_SIMD_0_1_2_URL		:= https://crates.io/api/v1/crates/fake-simd/0.1.2/download
+WEBSOCAT_FAKE_SIMD_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, fake-simd/0.1.2/download)
 WEBSOCAT_FAKE_SIMD_0_1_2_SOURCE	:= $(SRCDIR)/fake-simd-0.1.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_FAKE_SIMD_0_1_2
 
 WEBSOCAT_FASTRAND_2_0_2_MD5		:= 840d04b67c8e340315332a53cb8a186c
-WEBSOCAT_FASTRAND_2_0_2_URL		:= https://crates.io/api/v1/crates/fastrand/2.0.2/download
+WEBSOCAT_FASTRAND_2_0_2_URL		:= $(call ptx/mirror, CRATESIO, fastrand/2.0.2/download)
 WEBSOCAT_FASTRAND_2_0_2_SOURCE	:= $(SRCDIR)/fastrand-2.0.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_FASTRAND_2_0_2
 
 WEBSOCAT_FLATE2_1_0_28_MD5		:= 110e56f20886997bc288b6fea8617ce1
-WEBSOCAT_FLATE2_1_0_28_URL		:= https://crates.io/api/v1/crates/flate2/1.0.28/download
+WEBSOCAT_FLATE2_1_0_28_URL		:= $(call ptx/mirror, CRATESIO, flate2/1.0.28/download)
 WEBSOCAT_FLATE2_1_0_28_SOURCE	:= $(SRCDIR)/flate2-1.0.28.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_FLATE2_1_0_28
 
 WEBSOCAT_FNV_1_0_7_MD5		:= 8dab3b3ec00dc56cffde0b0c410d47b5
-WEBSOCAT_FNV_1_0_7_URL		:= https://crates.io/api/v1/crates/fnv/1.0.7/download
+WEBSOCAT_FNV_1_0_7_URL		:= $(call ptx/mirror, CRATESIO, fnv/1.0.7/download)
 WEBSOCAT_FNV_1_0_7_SOURCE	:= $(SRCDIR)/fnv-1.0.7.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_FNV_1_0_7
 
 WEBSOCAT_FOREIGN_TYPES_0_3_2_MD5		:= 78c898fdaa3968e23904bf8538c4a271
-WEBSOCAT_FOREIGN_TYPES_0_3_2_URL		:= https://crates.io/api/v1/crates/foreign-types/0.3.2/download
+WEBSOCAT_FOREIGN_TYPES_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, foreign-types/0.3.2/download)
 WEBSOCAT_FOREIGN_TYPES_0_3_2_SOURCE	:= $(SRCDIR)/foreign-types-0.3.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_FOREIGN_TYPES_0_3_2
 
 WEBSOCAT_FOREIGN_TYPES_SHARED_0_1_1_MD5		:= 667e86b8b8d96ab4e9605627ce7dcc9a
-WEBSOCAT_FOREIGN_TYPES_SHARED_0_1_1_URL		:= https://crates.io/api/v1/crates/foreign-types-shared/0.1.1/download
+WEBSOCAT_FOREIGN_TYPES_SHARED_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, foreign-types-shared/0.1.1/download)
 WEBSOCAT_FOREIGN_TYPES_SHARED_0_1_1_SOURCE	:= $(SRCDIR)/foreign-types-shared-0.1.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_FOREIGN_TYPES_SHARED_0_1_1
 
 WEBSOCAT_FUCHSIA_CPRNG_0_1_1_MD5		:= 27260b46db6b9ac40318143d70a80ba3
-WEBSOCAT_FUCHSIA_CPRNG_0_1_1_URL		:= https://crates.io/api/v1/crates/fuchsia-cprng/0.1.1/download
+WEBSOCAT_FUCHSIA_CPRNG_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, fuchsia-cprng/0.1.1/download)
 WEBSOCAT_FUCHSIA_CPRNG_0_1_1_SOURCE	:= $(SRCDIR)/fuchsia-cprng-0.1.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_FUCHSIA_CPRNG_0_1_1
 
 WEBSOCAT_FUCHSIA_ZIRCON_0_3_3_MD5		:= dd7c80c2d04d2e9ceba82826cf69764d
-WEBSOCAT_FUCHSIA_ZIRCON_0_3_3_URL		:= https://crates.io/api/v1/crates/fuchsia-zircon/0.3.3/download
+WEBSOCAT_FUCHSIA_ZIRCON_0_3_3_URL		:= $(call ptx/mirror, CRATESIO, fuchsia-zircon/0.3.3/download)
 WEBSOCAT_FUCHSIA_ZIRCON_0_3_3_SOURCE	:= $(SRCDIR)/fuchsia-zircon-0.3.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_FUCHSIA_ZIRCON_0_3_3
 
 WEBSOCAT_FUCHSIA_ZIRCON_SYS_0_3_3_MD5		:= 54cfab480b7a5f7302eadf44129d3f4b
-WEBSOCAT_FUCHSIA_ZIRCON_SYS_0_3_3_URL		:= https://crates.io/api/v1/crates/fuchsia-zircon-sys/0.3.3/download
+WEBSOCAT_FUCHSIA_ZIRCON_SYS_0_3_3_URL		:= $(call ptx/mirror, CRATESIO, fuchsia-zircon-sys/0.3.3/download)
 WEBSOCAT_FUCHSIA_ZIRCON_SYS_0_3_3_SOURCE	:= $(SRCDIR)/fuchsia-zircon-sys-0.3.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_FUCHSIA_ZIRCON_SYS_0_3_3
 
 WEBSOCAT_FUTURES_0_1_31_MD5		:= a2506255208617c2cb4f52fcd6a739dd
-WEBSOCAT_FUTURES_0_1_31_URL		:= https://crates.io/api/v1/crates/futures/0.1.31/download
+WEBSOCAT_FUTURES_0_1_31_URL		:= $(call ptx/mirror, CRATESIO, futures/0.1.31/download)
 WEBSOCAT_FUTURES_0_1_31_SOURCE	:= $(SRCDIR)/futures-0.1.31.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_FUTURES_0_1_31
 
 WEBSOCAT_GENERIC_ARRAY_0_12_4_MD5		:= 668f0eda79c119d7c79f1e49c0afbeeb
-WEBSOCAT_GENERIC_ARRAY_0_12_4_URL		:= https://crates.io/api/v1/crates/generic-array/0.12.4/download
+WEBSOCAT_GENERIC_ARRAY_0_12_4_URL		:= $(call ptx/mirror, CRATESIO, generic-array/0.12.4/download)
 WEBSOCAT_GENERIC_ARRAY_0_12_4_SOURCE	:= $(SRCDIR)/generic-array-0.12.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_GENERIC_ARRAY_0_12_4
 
 WEBSOCAT_GENERIC_ARRAY_0_14_7_MD5		:= 64a6d8fe0c9a450bcefa41894e17d7ac
-WEBSOCAT_GENERIC_ARRAY_0_14_7_URL		:= https://crates.io/api/v1/crates/generic-array/0.14.7/download
+WEBSOCAT_GENERIC_ARRAY_0_14_7_URL		:= $(call ptx/mirror, CRATESIO, generic-array/0.14.7/download)
 WEBSOCAT_GENERIC_ARRAY_0_14_7_SOURCE	:= $(SRCDIR)/generic-array-0.14.7.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_GENERIC_ARRAY_0_14_7
 
 WEBSOCAT_GETRANDOM_0_2_12_MD5		:= ba5684833f6b40a3aa32ae4989c40f79
-WEBSOCAT_GETRANDOM_0_2_12_URL		:= https://crates.io/api/v1/crates/getrandom/0.2.12/download
+WEBSOCAT_GETRANDOM_0_2_12_URL		:= $(call ptx/mirror, CRATESIO, getrandom/0.2.12/download)
 WEBSOCAT_GETRANDOM_0_2_12_SOURCE	:= $(SRCDIR)/getrandom-0.2.12.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_GETRANDOM_0_2_12
 
 WEBSOCAT_HECK_0_3_3_MD5		:= d4310bba2bdd940077329f6fca3fde78
-WEBSOCAT_HECK_0_3_3_URL		:= https://crates.io/api/v1/crates/heck/0.3.3/download
+WEBSOCAT_HECK_0_3_3_URL		:= $(call ptx/mirror, CRATESIO, heck/0.3.3/download)
 WEBSOCAT_HECK_0_3_3_SOURCE	:= $(SRCDIR)/heck-0.3.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_HECK_0_3_3
 
 WEBSOCAT_HERMIT_ABI_0_1_19_MD5		:= 0b7994d1256215201bdfb810a357ffa2
-WEBSOCAT_HERMIT_ABI_0_1_19_URL		:= https://crates.io/api/v1/crates/hermit-abi/0.1.19/download
+WEBSOCAT_HERMIT_ABI_0_1_19_URL		:= $(call ptx/mirror, CRATESIO, hermit-abi/0.1.19/download)
 WEBSOCAT_HERMIT_ABI_0_1_19_SOURCE	:= $(SRCDIR)/hermit-abi-0.1.19.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_HERMIT_ABI_0_1_19
 
 WEBSOCAT_HERMIT_ABI_0_3_9_MD5		:= 4daeb6abd6951210bed659c3c1ea01b4
-WEBSOCAT_HERMIT_ABI_0_3_9_URL		:= https://crates.io/api/v1/crates/hermit-abi/0.3.9/download
+WEBSOCAT_HERMIT_ABI_0_3_9_URL		:= $(call ptx/mirror, CRATESIO, hermit-abi/0.3.9/download)
 WEBSOCAT_HERMIT_ABI_0_3_9_SOURCE	:= $(SRCDIR)/hermit-abi-0.3.9.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_HERMIT_ABI_0_3_9
 
 WEBSOCAT_HEX_0_4_3_MD5		:= 1d3e530a3410fc95a6987d70f84a6332
-WEBSOCAT_HEX_0_4_3_URL		:= https://crates.io/api/v1/crates/hex/0.4.3/download
+WEBSOCAT_HEX_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, hex/0.4.3/download)
 WEBSOCAT_HEX_0_4_3_SOURCE	:= $(SRCDIR)/hex-0.4.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_HEX_0_4_3
 
 WEBSOCAT_HTTP_0_1_21_MD5		:= 495ec7bcfa5f016979d56c6e6d0e0367
-WEBSOCAT_HTTP_0_1_21_URL		:= https://crates.io/api/v1/crates/http/0.1.21/download
+WEBSOCAT_HTTP_0_1_21_URL		:= $(call ptx/mirror, CRATESIO, http/0.1.21/download)
 WEBSOCAT_HTTP_0_1_21_SOURCE	:= $(SRCDIR)/http-0.1.21.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_HTTP_0_1_21
 
 WEBSOCAT_HTTP_BYTES_0_1_0_MD5		:= efed5c546894d13822d881b03a886d35
-WEBSOCAT_HTTP_BYTES_0_1_0_URL		:= https://crates.io/api/v1/crates/http-bytes/0.1.0/download
+WEBSOCAT_HTTP_BYTES_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, http-bytes/0.1.0/download)
 WEBSOCAT_HTTP_BYTES_0_1_0_SOURCE	:= $(SRCDIR)/http-bytes-0.1.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_HTTP_BYTES_0_1_0
 
 WEBSOCAT_HTTPARSE_1_8_0_MD5		:= 92968aee56cb2f162a55008fedddbb78
-WEBSOCAT_HTTPARSE_1_8_0_URL		:= https://crates.io/api/v1/crates/httparse/1.8.0/download
+WEBSOCAT_HTTPARSE_1_8_0_URL		:= $(call ptx/mirror, CRATESIO, httparse/1.8.0/download)
 WEBSOCAT_HTTPARSE_1_8_0_SOURCE	:= $(SRCDIR)/httparse-1.8.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_HTTPARSE_1_8_0
 
 WEBSOCAT_HYPER_0_10_16_MD5		:= 87bfa5b74e84c418684711ebd2a1652e
-WEBSOCAT_HYPER_0_10_16_URL		:= https://crates.io/api/v1/crates/hyper/0.10.16/download
+WEBSOCAT_HYPER_0_10_16_URL		:= $(call ptx/mirror, CRATESIO, hyper/0.10.16/download)
 WEBSOCAT_HYPER_0_10_16_SOURCE	:= $(SRCDIR)/hyper-0.10.16.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_HYPER_0_10_16
 
 WEBSOCAT_IDNA_0_1_5_MD5		:= 89cabfcb37602a7b200b1a9cd660ee2e
-WEBSOCAT_IDNA_0_1_5_URL		:= https://crates.io/api/v1/crates/idna/0.1.5/download
+WEBSOCAT_IDNA_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, idna/0.1.5/download)
 WEBSOCAT_IDNA_0_1_5_SOURCE	:= $(SRCDIR)/idna-0.1.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_IDNA_0_1_5
 
 WEBSOCAT_IOVEC_0_1_4_MD5		:= f1c40b9836035b69e464df711a1d2950
-WEBSOCAT_IOVEC_0_1_4_URL		:= https://crates.io/api/v1/crates/iovec/0.1.4/download
+WEBSOCAT_IOVEC_0_1_4_URL		:= $(call ptx/mirror, CRATESIO, iovec/0.1.4/download)
 WEBSOCAT_IOVEC_0_1_4_SOURCE	:= $(SRCDIR)/iovec-0.1.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_IOVEC_0_1_4
 
 WEBSOCAT_ITOA_0_4_8_MD5		:= 06e7dbde9932c6a9bac63d9288670678
-WEBSOCAT_ITOA_0_4_8_URL		:= https://crates.io/api/v1/crates/itoa/0.4.8/download
+WEBSOCAT_ITOA_0_4_8_URL		:= $(call ptx/mirror, CRATESIO, itoa/0.4.8/download)
 WEBSOCAT_ITOA_0_4_8_SOURCE	:= $(SRCDIR)/itoa-0.4.8.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_ITOA_0_4_8
 
 WEBSOCAT_KERNEL32_SYS_0_2_2_MD5		:= 9d033cc2daa6924420a4a89e6705773f
-WEBSOCAT_KERNEL32_SYS_0_2_2_URL		:= https://crates.io/api/v1/crates/kernel32-sys/0.2.2/download
+WEBSOCAT_KERNEL32_SYS_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, kernel32-sys/0.2.2/download)
 WEBSOCAT_KERNEL32_SYS_0_2_2_SOURCE	:= $(SRCDIR)/kernel32-sys-0.2.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_KERNEL32_SYS_0_2_2
 
 WEBSOCAT_LANGUAGE_TAGS_0_2_2_MD5		:= 70d98bc08018458ae5f7109b52aa1acc
-WEBSOCAT_LANGUAGE_TAGS_0_2_2_URL		:= https://crates.io/api/v1/crates/language-tags/0.2.2/download
+WEBSOCAT_LANGUAGE_TAGS_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, language-tags/0.2.2/download)
 WEBSOCAT_LANGUAGE_TAGS_0_2_2_SOURCE	:= $(SRCDIR)/language-tags-0.2.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_LANGUAGE_TAGS_0_2_2
 
 WEBSOCAT_LAZY_STATIC_1_4_0_MD5		:= fba3b040a55c01be7376d3dd5c4d4920
-WEBSOCAT_LAZY_STATIC_1_4_0_URL		:= https://crates.io/api/v1/crates/lazy_static/1.4.0/download
+WEBSOCAT_LAZY_STATIC_1_4_0_URL		:= $(call ptx/mirror, CRATESIO, lazy_static/1.4.0/download)
 WEBSOCAT_LAZY_STATIC_1_4_0_SOURCE	:= $(SRCDIR)/lazy_static-1.4.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_LAZY_STATIC_1_4_0
 
 WEBSOCAT_LIBC_0_2_175_MD5		:= e2f3769d38ccb4dd9ab28d743c6ba2c5
-WEBSOCAT_LIBC_0_2_175_URL		:= https://crates.io/api/v1/crates/libc/0.2.175/download
+WEBSOCAT_LIBC_0_2_175_URL		:= $(call ptx/mirror, CRATESIO, libc/0.2.175/download)
 WEBSOCAT_LIBC_0_2_175_SOURCE	:= $(SRCDIR)/libc-0.2.175.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_LIBC_0_2_175
 
 WEBSOCAT_LINUX_RAW_SYS_0_4_13_MD5		:= f2d8f01a4e5c5236ab55240d09c6e82f
-WEBSOCAT_LINUX_RAW_SYS_0_4_13_URL		:= https://crates.io/api/v1/crates/linux-raw-sys/0.4.13/download
+WEBSOCAT_LINUX_RAW_SYS_0_4_13_URL		:= $(call ptx/mirror, CRATESIO, linux-raw-sys/0.4.13/download)
 WEBSOCAT_LINUX_RAW_SYS_0_4_13_SOURCE	:= $(SRCDIR)/linux-raw-sys-0.4.13.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_LINUX_RAW_SYS_0_4_13
 
 WEBSOCAT_LOCK_API_0_3_4_MD5		:= 19466d8edb3c032438026125770b17f9
-WEBSOCAT_LOCK_API_0_3_4_URL		:= https://crates.io/api/v1/crates/lock_api/0.3.4/download
+WEBSOCAT_LOCK_API_0_3_4_URL		:= $(call ptx/mirror, CRATESIO, lock_api/0.3.4/download)
 WEBSOCAT_LOCK_API_0_3_4_SOURCE	:= $(SRCDIR)/lock_api-0.3.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_LOCK_API_0_3_4
 
 WEBSOCAT_LOCK_API_0_4_11_MD5		:= cc1b0e90e372869ad03ef40bd53fa30f
-WEBSOCAT_LOCK_API_0_4_11_URL		:= https://crates.io/api/v1/crates/lock_api/0.4.11/download
+WEBSOCAT_LOCK_API_0_4_11_URL		:= $(call ptx/mirror, CRATESIO, lock_api/0.4.11/download)
 WEBSOCAT_LOCK_API_0_4_11_SOURCE	:= $(SRCDIR)/lock_api-0.4.11.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_LOCK_API_0_4_11
 
 WEBSOCAT_LOG_0_3_9_MD5		:= 33f0dff2bb670d9307fea18d579b5494
-WEBSOCAT_LOG_0_3_9_URL		:= https://crates.io/api/v1/crates/log/0.3.9/download
+WEBSOCAT_LOG_0_3_9_URL		:= $(call ptx/mirror, CRATESIO, log/0.3.9/download)
 WEBSOCAT_LOG_0_3_9_SOURCE	:= $(SRCDIR)/log-0.3.9.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_LOG_0_3_9
 
 WEBSOCAT_LOG_0_4_21_MD5		:= 5a376ab3f01ed9e90e8d71e1d5fa6ae7
-WEBSOCAT_LOG_0_4_21_URL		:= https://crates.io/api/v1/crates/log/0.4.21/download
+WEBSOCAT_LOG_0_4_21_URL		:= $(call ptx/mirror, CRATESIO, log/0.4.21/download)
 WEBSOCAT_LOG_0_4_21_SOURCE	:= $(SRCDIR)/log-0.4.21.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_LOG_0_4_21
 
 WEBSOCAT_MATCHES_0_1_10_MD5		:= 1cf0db5ea492bd048cfac1327e8bfce0
-WEBSOCAT_MATCHES_0_1_10_URL		:= https://crates.io/api/v1/crates/matches/0.1.10/download
+WEBSOCAT_MATCHES_0_1_10_URL		:= $(call ptx/mirror, CRATESIO, matches/0.1.10/download)
 WEBSOCAT_MATCHES_0_1_10_SOURCE	:= $(SRCDIR)/matches-0.1.10.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_MATCHES_0_1_10
 
 WEBSOCAT_MAYBE_UNINIT_2_0_0_MD5		:= b5cf10e268e8a3bee2de8a734104245e
-WEBSOCAT_MAYBE_UNINIT_2_0_0_URL		:= https://crates.io/api/v1/crates/maybe-uninit/2.0.0/download
+WEBSOCAT_MAYBE_UNINIT_2_0_0_URL		:= $(call ptx/mirror, CRATESIO, maybe-uninit/2.0.0/download)
 WEBSOCAT_MAYBE_UNINIT_2_0_0_SOURCE	:= $(SRCDIR)/maybe-uninit-2.0.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_MAYBE_UNINIT_2_0_0
 
 WEBSOCAT_MEMCHR_2_7_2_MD5		:= e90235c862e9e1fabe9f569bcfbd9692
-WEBSOCAT_MEMCHR_2_7_2_URL		:= https://crates.io/api/v1/crates/memchr/2.7.2/download
+WEBSOCAT_MEMCHR_2_7_2_URL		:= $(call ptx/mirror, CRATESIO, memchr/2.7.2/download)
 WEBSOCAT_MEMCHR_2_7_2_SOURCE	:= $(SRCDIR)/memchr-2.7.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_MEMCHR_2_7_2
 
 WEBSOCAT_MEMOFFSET_0_5_6_MD5		:= 5d9532411dde9442741983efd0961351
-WEBSOCAT_MEMOFFSET_0_5_6_URL		:= https://crates.io/api/v1/crates/memoffset/0.5.6/download
+WEBSOCAT_MEMOFFSET_0_5_6_URL		:= $(call ptx/mirror, CRATESIO, memoffset/0.5.6/download)
 WEBSOCAT_MEMOFFSET_0_5_6_SOURCE	:= $(SRCDIR)/memoffset-0.5.6.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_MEMOFFSET_0_5_6
 
 WEBSOCAT_MIME_0_2_6_MD5		:= 6d1fc428d2446b4975d8c1788c73e72c
-WEBSOCAT_MIME_0_2_6_URL		:= https://crates.io/api/v1/crates/mime/0.2.6/download
+WEBSOCAT_MIME_0_2_6_URL		:= $(call ptx/mirror, CRATESIO, mime/0.2.6/download)
 WEBSOCAT_MIME_0_2_6_SOURCE	:= $(SRCDIR)/mime-0.2.6.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_MIME_0_2_6
 
 WEBSOCAT_MINIZ_OXIDE_0_7_2_MD5		:= 86aa81f2561682f16c0be376294bf9d3
-WEBSOCAT_MINIZ_OXIDE_0_7_2_URL		:= https://crates.io/api/v1/crates/miniz_oxide/0.7.2/download
+WEBSOCAT_MINIZ_OXIDE_0_7_2_URL		:= $(call ptx/mirror, CRATESIO, miniz_oxide/0.7.2/download)
 WEBSOCAT_MINIZ_OXIDE_0_7_2_SOURCE	:= $(SRCDIR)/miniz_oxide-0.7.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_MINIZ_OXIDE_0_7_2
 
 WEBSOCAT_MIO_0_6_23_MD5		:= 257e573f323c639630b31f147671b627
-WEBSOCAT_MIO_0_6_23_URL		:= https://crates.io/api/v1/crates/mio/0.6.23/download
+WEBSOCAT_MIO_0_6_23_URL		:= $(call ptx/mirror, CRATESIO, mio/0.6.23/download)
 WEBSOCAT_MIO_0_6_23_SOURCE	:= $(SRCDIR)/mio-0.6.23.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_MIO_0_6_23
 
 WEBSOCAT_MIO_NAMED_PIPES_0_1_7_MD5		:= 149e92d5fe1d4adde8dadfa37badf19a
-WEBSOCAT_MIO_NAMED_PIPES_0_1_7_URL		:= https://crates.io/api/v1/crates/mio-named-pipes/0.1.7/download
+WEBSOCAT_MIO_NAMED_PIPES_0_1_7_URL		:= $(call ptx/mirror, CRATESIO, mio-named-pipes/0.1.7/download)
 WEBSOCAT_MIO_NAMED_PIPES_0_1_7_SOURCE	:= $(SRCDIR)/mio-named-pipes-0.1.7.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_MIO_NAMED_PIPES_0_1_7
 
 WEBSOCAT_MIO_UDS_0_6_8_MD5		:= 10e28d0be14899dcbad91142a228fb35
-WEBSOCAT_MIO_UDS_0_6_8_URL		:= https://crates.io/api/v1/crates/mio-uds/0.6.8/download
+WEBSOCAT_MIO_UDS_0_6_8_URL		:= $(call ptx/mirror, CRATESIO, mio-uds/0.6.8/download)
 WEBSOCAT_MIO_UDS_0_6_8_SOURCE	:= $(SRCDIR)/mio-uds-0.6.8.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_MIO_UDS_0_6_8
 
 WEBSOCAT_MIOW_0_2_2_MD5		:= 1fbbe598255c0addb31bdfbe3e76420d
-WEBSOCAT_MIOW_0_2_2_URL		:= https://crates.io/api/v1/crates/miow/0.2.2/download
+WEBSOCAT_MIOW_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, miow/0.2.2/download)
 WEBSOCAT_MIOW_0_2_2_SOURCE	:= $(SRCDIR)/miow-0.2.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_MIOW_0_2_2
 
 WEBSOCAT_MIOW_0_3_7_MD5		:= 4604959975c2154a14f6b5e97444e2c8
-WEBSOCAT_MIOW_0_3_7_URL		:= https://crates.io/api/v1/crates/miow/0.3.7/download
+WEBSOCAT_MIOW_0_3_7_URL		:= $(call ptx/mirror, CRATESIO, miow/0.3.7/download)
 WEBSOCAT_MIOW_0_3_7_SOURCE	:= $(SRCDIR)/miow-0.3.7.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_MIOW_0_3_7
 
 WEBSOCAT_NATIVE_TLS_0_2_11_MD5		:= 790ae5bbcccc91d97517bb1bde7ecd8e
-WEBSOCAT_NATIVE_TLS_0_2_11_URL		:= https://crates.io/api/v1/crates/native-tls/0.2.11/download
+WEBSOCAT_NATIVE_TLS_0_2_11_URL		:= $(call ptx/mirror, CRATESIO, native-tls/0.2.11/download)
 WEBSOCAT_NATIVE_TLS_0_2_11_SOURCE	:= $(SRCDIR)/native-tls-0.2.11.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_NATIVE_TLS_0_2_11
 
 WEBSOCAT_NET2_0_2_39_MD5		:= 02f29fb17eeacc1ca623f6c9a980f2c1
-WEBSOCAT_NET2_0_2_39_URL		:= https://crates.io/api/v1/crates/net2/0.2.39/download
+WEBSOCAT_NET2_0_2_39_URL		:= $(call ptx/mirror, CRATESIO, net2/0.2.39/download)
 WEBSOCAT_NET2_0_2_39_SOURCE	:= $(SRCDIR)/net2-0.2.39.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_NET2_0_2_39
 
 WEBSOCAT_NUM_CPUS_1_16_0_MD5		:= d443cbf9907b31a0f396fb13489d6cd0
-WEBSOCAT_NUM_CPUS_1_16_0_URL		:= https://crates.io/api/v1/crates/num_cpus/1.16.0/download
+WEBSOCAT_NUM_CPUS_1_16_0_URL		:= $(call ptx/mirror, CRATESIO, num_cpus/1.16.0/download)
 WEBSOCAT_NUM_CPUS_1_16_0_SOURCE	:= $(SRCDIR)/num_cpus-1.16.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_NUM_CPUS_1_16_0
 
 WEBSOCAT_ONCE_CELL_1_19_0_MD5		:= 8390247ae7126c00e162732b249be9d7
-WEBSOCAT_ONCE_CELL_1_19_0_URL		:= https://crates.io/api/v1/crates/once_cell/1.19.0/download
+WEBSOCAT_ONCE_CELL_1_19_0_URL		:= $(call ptx/mirror, CRATESIO, once_cell/1.19.0/download)
 WEBSOCAT_ONCE_CELL_1_19_0_SOURCE	:= $(SRCDIR)/once_cell-1.19.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_ONCE_CELL_1_19_0
 
 WEBSOCAT_OPAQUE_DEBUG_0_2_3_MD5		:= 797752fea1f2c8b458cf7383b61433c9
-WEBSOCAT_OPAQUE_DEBUG_0_2_3_URL		:= https://crates.io/api/v1/crates/opaque-debug/0.2.3/download
+WEBSOCAT_OPAQUE_DEBUG_0_2_3_URL		:= $(call ptx/mirror, CRATESIO, opaque-debug/0.2.3/download)
 WEBSOCAT_OPAQUE_DEBUG_0_2_3_SOURCE	:= $(SRCDIR)/opaque-debug-0.2.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_OPAQUE_DEBUG_0_2_3
 
 WEBSOCAT_OPAQUE_DEBUG_0_3_1_MD5		:= af58dda7d5f0917aae30cf3f5fffdadf
-WEBSOCAT_OPAQUE_DEBUG_0_3_1_URL		:= https://crates.io/api/v1/crates/opaque-debug/0.3.1/download
+WEBSOCAT_OPAQUE_DEBUG_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, opaque-debug/0.3.1/download)
 WEBSOCAT_OPAQUE_DEBUG_0_3_1_SOURCE	:= $(SRCDIR)/opaque-debug-0.3.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_OPAQUE_DEBUG_0_3_1
 
 WEBSOCAT_OPENSSL_0_10_64_MD5		:= f4c1fe0f183ec61db569aeb437c6f9cd
-WEBSOCAT_OPENSSL_0_10_64_URL		:= https://crates.io/api/v1/crates/openssl/0.10.64/download
+WEBSOCAT_OPENSSL_0_10_64_URL		:= $(call ptx/mirror, CRATESIO, openssl/0.10.64/download)
 WEBSOCAT_OPENSSL_0_10_64_SOURCE	:= $(SRCDIR)/openssl-0.10.64.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_OPENSSL_0_10_64
 
 WEBSOCAT_OPENSSL_MACROS_0_1_1_MD5		:= 28d34115cfbbe0e8f80333591f2cdd84
-WEBSOCAT_OPENSSL_MACROS_0_1_1_URL		:= https://crates.io/api/v1/crates/openssl-macros/0.1.1/download
+WEBSOCAT_OPENSSL_MACROS_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, openssl-macros/0.1.1/download)
 WEBSOCAT_OPENSSL_MACROS_0_1_1_SOURCE	:= $(SRCDIR)/openssl-macros-0.1.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_OPENSSL_MACROS_0_1_1
 
 WEBSOCAT_OPENSSL_PROBE_0_1_5_MD5		:= 907244c0d3791f3f981c7cc8e4cad0a3
-WEBSOCAT_OPENSSL_PROBE_0_1_5_URL		:= https://crates.io/api/v1/crates/openssl-probe/0.1.5/download
+WEBSOCAT_OPENSSL_PROBE_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, openssl-probe/0.1.5/download)
 WEBSOCAT_OPENSSL_PROBE_0_1_5_SOURCE	:= $(SRCDIR)/openssl-probe-0.1.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_OPENSSL_PROBE_0_1_5
 
 WEBSOCAT_OPENSSL_SRC_300_5_4_3_5_4_MD5		:= 10a77c7ac9d24e383ee49fa320c9f890
-WEBSOCAT_OPENSSL_SRC_300_5_4_3_5_4_URL		:= https://crates.io/api/v1/crates/openssl-src/300.5.4+3.5.4/download
+WEBSOCAT_OPENSSL_SRC_300_5_4_3_5_4_URL		:= $(call ptx/mirror, CRATESIO, openssl-src/300.5.4+3.5.4/download)
 WEBSOCAT_OPENSSL_SRC_300_5_4_3_5_4_SOURCE	:= $(SRCDIR)/openssl-src-300.5.4+3.5.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_OPENSSL_SRC_300_5_4_3_5_4
 
 WEBSOCAT_OPENSSL_SYS_0_9_104_MD5		:= 4c18f7576b04986cfd0e7e7182d6cac8
-WEBSOCAT_OPENSSL_SYS_0_9_104_URL		:= https://crates.io/api/v1/crates/openssl-sys/0.9.104/download
+WEBSOCAT_OPENSSL_SYS_0_9_104_URL		:= $(call ptx/mirror, CRATESIO, openssl-sys/0.9.104/download)
 WEBSOCAT_OPENSSL_SYS_0_9_104_SOURCE	:= $(SRCDIR)/openssl-sys-0.9.104.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_OPENSSL_SYS_0_9_104
 
 WEBSOCAT_PARKING_LOT_0_9_0_MD5		:= 783499db4bc8bb10620a842c2f2d8d36
-WEBSOCAT_PARKING_LOT_0_9_0_URL		:= https://crates.io/api/v1/crates/parking_lot/0.9.0/download
+WEBSOCAT_PARKING_LOT_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, parking_lot/0.9.0/download)
 WEBSOCAT_PARKING_LOT_0_9_0_SOURCE	:= $(SRCDIR)/parking_lot-0.9.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PARKING_LOT_0_9_0
 
 WEBSOCAT_PARKING_LOT_0_12_1_MD5		:= 1be45f99109d447849f4244b58c5a470
-WEBSOCAT_PARKING_LOT_0_12_1_URL		:= https://crates.io/api/v1/crates/parking_lot/0.12.1/download
+WEBSOCAT_PARKING_LOT_0_12_1_URL		:= $(call ptx/mirror, CRATESIO, parking_lot/0.12.1/download)
 WEBSOCAT_PARKING_LOT_0_12_1_SOURCE	:= $(SRCDIR)/parking_lot-0.12.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PARKING_LOT_0_12_1
 
 WEBSOCAT_PARKING_LOT_CORE_0_6_3_MD5		:= 6405ed412c7b896fc910469de089945b
-WEBSOCAT_PARKING_LOT_CORE_0_6_3_URL		:= https://crates.io/api/v1/crates/parking_lot_core/0.6.3/download
+WEBSOCAT_PARKING_LOT_CORE_0_6_3_URL		:= $(call ptx/mirror, CRATESIO, parking_lot_core/0.6.3/download)
 WEBSOCAT_PARKING_LOT_CORE_0_6_3_SOURCE	:= $(SRCDIR)/parking_lot_core-0.6.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PARKING_LOT_CORE_0_6_3
 
 WEBSOCAT_PARKING_LOT_CORE_0_9_9_MD5		:= 7502c2f15026ee3e6a01f57b92942771
-WEBSOCAT_PARKING_LOT_CORE_0_9_9_URL		:= https://crates.io/api/v1/crates/parking_lot_core/0.9.9/download
+WEBSOCAT_PARKING_LOT_CORE_0_9_9_URL		:= $(call ptx/mirror, CRATESIO, parking_lot_core/0.9.9/download)
 WEBSOCAT_PARKING_LOT_CORE_0_9_9_SOURCE	:= $(SRCDIR)/parking_lot_core-0.9.9.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PARKING_LOT_CORE_0_9_9
 
 WEBSOCAT_PASSWORD_HASH_0_4_2_MD5		:= 8b67ff1e021e9c6002ff6f6b750476cb
-WEBSOCAT_PASSWORD_HASH_0_4_2_URL		:= https://crates.io/api/v1/crates/password-hash/0.4.2/download
+WEBSOCAT_PASSWORD_HASH_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, password-hash/0.4.2/download)
 WEBSOCAT_PASSWORD_HASH_0_4_2_SOURCE	:= $(SRCDIR)/password-hash-0.4.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PASSWORD_HASH_0_4_2
 
 WEBSOCAT_PERCENT_ENCODING_1_0_1_MD5		:= 8a5fc6ba84f3ac8a7e43ecb99322866c
-WEBSOCAT_PERCENT_ENCODING_1_0_1_URL		:= https://crates.io/api/v1/crates/percent-encoding/1.0.1/download
+WEBSOCAT_PERCENT_ENCODING_1_0_1_URL		:= $(call ptx/mirror, CRATESIO, percent-encoding/1.0.1/download)
 WEBSOCAT_PERCENT_ENCODING_1_0_1_SOURCE	:= $(SRCDIR)/percent-encoding-1.0.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PERCENT_ENCODING_1_0_1
 
 WEBSOCAT_PKG_CONFIG_0_3_30_MD5		:= 524ffd7a9b5b25c4d388686a5dde5cac
-WEBSOCAT_PKG_CONFIG_0_3_30_URL		:= https://crates.io/api/v1/crates/pkg-config/0.3.30/download
+WEBSOCAT_PKG_CONFIG_0_3_30_URL		:= $(call ptx/mirror, CRATESIO, pkg-config/0.3.30/download)
 WEBSOCAT_PKG_CONFIG_0_3_30_SOURCE	:= $(SRCDIR)/pkg-config-0.3.30.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PKG_CONFIG_0_3_30
 
 WEBSOCAT_POLY1305_0_7_2_MD5		:= 34d2cb51549a4e7236ec8dbfcf19236d
-WEBSOCAT_POLY1305_0_7_2_URL		:= https://crates.io/api/v1/crates/poly1305/0.7.2/download
+WEBSOCAT_POLY1305_0_7_2_URL		:= $(call ptx/mirror, CRATESIO, poly1305/0.7.2/download)
 WEBSOCAT_POLY1305_0_7_2_SOURCE	:= $(SRCDIR)/poly1305-0.7.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_POLY1305_0_7_2
 
 WEBSOCAT_PPV_LITE86_0_2_17_MD5		:= 5c69337d37e58a380e00eac9ce0373bb
-WEBSOCAT_PPV_LITE86_0_2_17_URL		:= https://crates.io/api/v1/crates/ppv-lite86/0.2.17/download
+WEBSOCAT_PPV_LITE86_0_2_17_URL		:= $(call ptx/mirror, CRATESIO, ppv-lite86/0.2.17/download)
 WEBSOCAT_PPV_LITE86_0_2_17_SOURCE	:= $(SRCDIR)/ppv-lite86-0.2.17.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PPV_LITE86_0_2_17
 
 WEBSOCAT_PROC_MACRO2_0_4_30_MD5		:= 020c7d0be083642e24a1499122793006
-WEBSOCAT_PROC_MACRO2_0_4_30_URL		:= https://crates.io/api/v1/crates/proc-macro2/0.4.30/download
+WEBSOCAT_PROC_MACRO2_0_4_30_URL		:= $(call ptx/mirror, CRATESIO, proc-macro2/0.4.30/download)
 WEBSOCAT_PROC_MACRO2_0_4_30_SOURCE	:= $(SRCDIR)/proc-macro2-0.4.30.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PROC_MACRO2_0_4_30
 
 WEBSOCAT_PROC_MACRO2_1_0_79_MD5		:= e0c30e3bc29a1b33c71f2823cd5b5365
-WEBSOCAT_PROC_MACRO2_1_0_79_URL		:= https://crates.io/api/v1/crates/proc-macro2/1.0.79/download
+WEBSOCAT_PROC_MACRO2_1_0_79_URL		:= $(call ptx/mirror, CRATESIO, proc-macro2/1.0.79/download)
 WEBSOCAT_PROC_MACRO2_1_0_79_SOURCE	:= $(SRCDIR)/proc-macro2-1.0.79.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PROC_MACRO2_1_0_79
 
 WEBSOCAT_PROMETHEUS_0_13_3_MD5		:= 1ef86231895113a7a86188dcbe65558f
-WEBSOCAT_PROMETHEUS_0_13_3_URL		:= https://crates.io/api/v1/crates/prometheus/0.13.3/download
+WEBSOCAT_PROMETHEUS_0_13_3_URL		:= $(call ptx/mirror, CRATESIO, prometheus/0.13.3/download)
 WEBSOCAT_PROMETHEUS_0_13_3_SOURCE	:= $(SRCDIR)/prometheus-0.13.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PROMETHEUS_0_13_3
 
 WEBSOCAT_PROMETHEUS_METRIC_STORAGE_0_5_0_MD5		:= aa527f2aaa77030ca61460fba55ed779
-WEBSOCAT_PROMETHEUS_METRIC_STORAGE_0_5_0_URL		:= https://crates.io/api/v1/crates/prometheus-metric-storage/0.5.0/download
+WEBSOCAT_PROMETHEUS_METRIC_STORAGE_0_5_0_URL		:= $(call ptx/mirror, CRATESIO, prometheus-metric-storage/0.5.0/download)
 WEBSOCAT_PROMETHEUS_METRIC_STORAGE_0_5_0_SOURCE	:= $(SRCDIR)/prometheus-metric-storage-0.5.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PROMETHEUS_METRIC_STORAGE_0_5_0
 
 WEBSOCAT_PROMETHEUS_METRIC_STORAGE_DERIVE_0_5_0_MD5		:= 8f13a2424f72460f28dded2a3873a5be
-WEBSOCAT_PROMETHEUS_METRIC_STORAGE_DERIVE_0_5_0_URL		:= https://crates.io/api/v1/crates/prometheus-metric-storage-derive/0.5.0/download
+WEBSOCAT_PROMETHEUS_METRIC_STORAGE_DERIVE_0_5_0_URL		:= $(call ptx/mirror, CRATESIO, prometheus-metric-storage-derive/0.5.0/download)
 WEBSOCAT_PROMETHEUS_METRIC_STORAGE_DERIVE_0_5_0_SOURCE	:= $(SRCDIR)/prometheus-metric-storage-derive-0.5.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_PROMETHEUS_METRIC_STORAGE_DERIVE_0_5_0
 
 WEBSOCAT_QUOTE_0_6_13_MD5		:= e6692d52f35aa3b9311d7d7748fa25ea
-WEBSOCAT_QUOTE_0_6_13_URL		:= https://crates.io/api/v1/crates/quote/0.6.13/download
+WEBSOCAT_QUOTE_0_6_13_URL		:= $(call ptx/mirror, CRATESIO, quote/0.6.13/download)
 WEBSOCAT_QUOTE_0_6_13_SOURCE	:= $(SRCDIR)/quote-0.6.13.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_QUOTE_0_6_13
 
 WEBSOCAT_QUOTE_1_0_35_MD5		:= 0358b31bf59c7915bb03f9e66f2d1ea3
-WEBSOCAT_QUOTE_1_0_35_URL		:= https://crates.io/api/v1/crates/quote/1.0.35/download
+WEBSOCAT_QUOTE_1_0_35_URL		:= $(call ptx/mirror, CRATESIO, quote/1.0.35/download)
 WEBSOCAT_QUOTE_1_0_35_SOURCE	:= $(SRCDIR)/quote-1.0.35.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_QUOTE_1_0_35
 
 WEBSOCAT_RAND_0_6_5_MD5		:= 793627c8c18012ad77cb3e81fa4c2195
-WEBSOCAT_RAND_0_6_5_URL		:= https://crates.io/api/v1/crates/rand/0.6.5/download
+WEBSOCAT_RAND_0_6_5_URL		:= $(call ptx/mirror, CRATESIO, rand/0.6.5/download)
 WEBSOCAT_RAND_0_6_5_SOURCE	:= $(SRCDIR)/rand-0.6.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_0_6_5
 
 WEBSOCAT_RAND_0_8_5_MD5		:= ee7a5f842c39bc47c474196e83b0df5f
-WEBSOCAT_RAND_0_8_5_URL		:= https://crates.io/api/v1/crates/rand/0.8.5/download
+WEBSOCAT_RAND_0_8_5_URL		:= $(call ptx/mirror, CRATESIO, rand/0.8.5/download)
 WEBSOCAT_RAND_0_8_5_SOURCE	:= $(SRCDIR)/rand-0.8.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_0_8_5
 
 WEBSOCAT_RAND_CHACHA_0_1_1_MD5		:= 3ab5a79607a4d260bf61cd99dc82ab05
-WEBSOCAT_RAND_CHACHA_0_1_1_URL		:= https://crates.io/api/v1/crates/rand_chacha/0.1.1/download
+WEBSOCAT_RAND_CHACHA_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, rand_chacha/0.1.1/download)
 WEBSOCAT_RAND_CHACHA_0_1_1_SOURCE	:= $(SRCDIR)/rand_chacha-0.1.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_CHACHA_0_1_1
 
 WEBSOCAT_RAND_CHACHA_0_3_1_MD5		:= e30085994bbeb4b7f4895d48216d5476
-WEBSOCAT_RAND_CHACHA_0_3_1_URL		:= https://crates.io/api/v1/crates/rand_chacha/0.3.1/download
+WEBSOCAT_RAND_CHACHA_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, rand_chacha/0.3.1/download)
 WEBSOCAT_RAND_CHACHA_0_3_1_SOURCE	:= $(SRCDIR)/rand_chacha-0.3.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_CHACHA_0_3_1
 
 WEBSOCAT_RAND_CORE_0_3_1_MD5		:= 8cab41822d03dfa674870315308fa392
-WEBSOCAT_RAND_CORE_0_3_1_URL		:= https://crates.io/api/v1/crates/rand_core/0.3.1/download
+WEBSOCAT_RAND_CORE_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, rand_core/0.3.1/download)
 WEBSOCAT_RAND_CORE_0_3_1_SOURCE	:= $(SRCDIR)/rand_core-0.3.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_CORE_0_3_1
 
 WEBSOCAT_RAND_CORE_0_4_2_MD5		:= 35ddcd36701a1a6711cc3aec85909f41
-WEBSOCAT_RAND_CORE_0_4_2_URL		:= https://crates.io/api/v1/crates/rand_core/0.4.2/download
+WEBSOCAT_RAND_CORE_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, rand_core/0.4.2/download)
 WEBSOCAT_RAND_CORE_0_4_2_SOURCE	:= $(SRCDIR)/rand_core-0.4.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_CORE_0_4_2
 
 WEBSOCAT_RAND_CORE_0_6_4_MD5		:= a1626b8f4d165b1b60d960862eba4cf0
-WEBSOCAT_RAND_CORE_0_6_4_URL		:= https://crates.io/api/v1/crates/rand_core/0.6.4/download
+WEBSOCAT_RAND_CORE_0_6_4_URL		:= $(call ptx/mirror, CRATESIO, rand_core/0.6.4/download)
 WEBSOCAT_RAND_CORE_0_6_4_SOURCE	:= $(SRCDIR)/rand_core-0.6.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_CORE_0_6_4
 
 WEBSOCAT_RAND_HC_0_1_0_MD5		:= 28b1e6d15e1ba8cf3a2e953ce7fcd3de
-WEBSOCAT_RAND_HC_0_1_0_URL		:= https://crates.io/api/v1/crates/rand_hc/0.1.0/download
+WEBSOCAT_RAND_HC_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, rand_hc/0.1.0/download)
 WEBSOCAT_RAND_HC_0_1_0_SOURCE	:= $(SRCDIR)/rand_hc-0.1.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_HC_0_1_0
 
 WEBSOCAT_RAND_ISAAC_0_1_1_MD5		:= 74b15f1928431937f14ed91fdc12b542
-WEBSOCAT_RAND_ISAAC_0_1_1_URL		:= https://crates.io/api/v1/crates/rand_isaac/0.1.1/download
+WEBSOCAT_RAND_ISAAC_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, rand_isaac/0.1.1/download)
 WEBSOCAT_RAND_ISAAC_0_1_1_SOURCE	:= $(SRCDIR)/rand_isaac-0.1.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_ISAAC_0_1_1
 
 WEBSOCAT_RAND_JITTER_0_1_4_MD5		:= 2255d3d9a603e177985602a7df1c5bbc
-WEBSOCAT_RAND_JITTER_0_1_4_URL		:= https://crates.io/api/v1/crates/rand_jitter/0.1.4/download
+WEBSOCAT_RAND_JITTER_0_1_4_URL		:= $(call ptx/mirror, CRATESIO, rand_jitter/0.1.4/download)
 WEBSOCAT_RAND_JITTER_0_1_4_SOURCE	:= $(SRCDIR)/rand_jitter-0.1.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_JITTER_0_1_4
 
 WEBSOCAT_RAND_OS_0_1_3_MD5		:= 5acfdc8656212bce8df1bcc43db34c3d
-WEBSOCAT_RAND_OS_0_1_3_URL		:= https://crates.io/api/v1/crates/rand_os/0.1.3/download
+WEBSOCAT_RAND_OS_0_1_3_URL		:= $(call ptx/mirror, CRATESIO, rand_os/0.1.3/download)
 WEBSOCAT_RAND_OS_0_1_3_SOURCE	:= $(SRCDIR)/rand_os-0.1.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_OS_0_1_3
 
 WEBSOCAT_RAND_PCG_0_1_2_MD5		:= f9e08a49715c401602243230b28d86f0
-WEBSOCAT_RAND_PCG_0_1_2_URL		:= https://crates.io/api/v1/crates/rand_pcg/0.1.2/download
+WEBSOCAT_RAND_PCG_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, rand_pcg/0.1.2/download)
 WEBSOCAT_RAND_PCG_0_1_2_SOURCE	:= $(SRCDIR)/rand_pcg-0.1.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_PCG_0_1_2
 
 WEBSOCAT_RAND_XORSHIFT_0_1_1_MD5		:= 7826deb76941fc36c2391951bd65ba47
-WEBSOCAT_RAND_XORSHIFT_0_1_1_URL		:= https://crates.io/api/v1/crates/rand_xorshift/0.1.1/download
+WEBSOCAT_RAND_XORSHIFT_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, rand_xorshift/0.1.1/download)
 WEBSOCAT_RAND_XORSHIFT_0_1_1_SOURCE	:= $(SRCDIR)/rand_xorshift-0.1.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RAND_XORSHIFT_0_1_1
 
 WEBSOCAT_RDRAND_0_4_0_MD5		:= c8d655d206cbe48b84a22544d6fc6d15
-WEBSOCAT_RDRAND_0_4_0_URL		:= https://crates.io/api/v1/crates/rdrand/0.4.0/download
+WEBSOCAT_RDRAND_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, rdrand/0.4.0/download)
 WEBSOCAT_RDRAND_0_4_0_SOURCE	:= $(SRCDIR)/rdrand-0.4.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RDRAND_0_4_0
 
 WEBSOCAT_READWRITE_0_1_2_MD5		:= 726d171356fe358b6b0a777b2e1525c0
-WEBSOCAT_READWRITE_0_1_2_URL		:= https://crates.io/api/v1/crates/readwrite/0.1.2/download
+WEBSOCAT_READWRITE_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, readwrite/0.1.2/download)
 WEBSOCAT_READWRITE_0_1_2_SOURCE	:= $(SRCDIR)/readwrite-0.1.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_READWRITE_0_1_2
 
 WEBSOCAT_REDOX_SYSCALL_0_1_57_MD5		:= 3cc3a4bd5861ca93d7c0d19129334703
-WEBSOCAT_REDOX_SYSCALL_0_1_57_URL		:= https://crates.io/api/v1/crates/redox_syscall/0.1.57/download
+WEBSOCAT_REDOX_SYSCALL_0_1_57_URL		:= $(call ptx/mirror, CRATESIO, redox_syscall/0.1.57/download)
 WEBSOCAT_REDOX_SYSCALL_0_1_57_SOURCE	:= $(SRCDIR)/redox_syscall-0.1.57.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_REDOX_SYSCALL_0_1_57
 
 WEBSOCAT_REDOX_SYSCALL_0_4_1_MD5		:= ff1d093069cfc9eb161907e17a51208b
-WEBSOCAT_REDOX_SYSCALL_0_4_1_URL		:= https://crates.io/api/v1/crates/redox_syscall/0.4.1/download
+WEBSOCAT_REDOX_SYSCALL_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, redox_syscall/0.4.1/download)
 WEBSOCAT_REDOX_SYSCALL_0_4_1_SOURCE	:= $(SRCDIR)/redox_syscall-0.4.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_REDOX_SYSCALL_0_4_1
 
 WEBSOCAT_RUSTC_VERSION_0_2_3_MD5		:= 4d101ab24d14c54937c5f45ece8fad5f
-WEBSOCAT_RUSTC_VERSION_0_2_3_URL		:= https://crates.io/api/v1/crates/rustc_version/0.2.3/download
+WEBSOCAT_RUSTC_VERSION_0_2_3_URL		:= $(call ptx/mirror, CRATESIO, rustc_version/0.2.3/download)
 WEBSOCAT_RUSTC_VERSION_0_2_3_SOURCE	:= $(SRCDIR)/rustc_version-0.2.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RUSTC_VERSION_0_2_3
 
 WEBSOCAT_RUSTIX_0_38_32_MD5		:= c74beacbda25822857d315b64c167575
-WEBSOCAT_RUSTIX_0_38_32_URL		:= https://crates.io/api/v1/crates/rustix/0.38.32/download
+WEBSOCAT_RUSTIX_0_38_32_URL		:= $(call ptx/mirror, CRATESIO, rustix/0.38.32/download)
 WEBSOCAT_RUSTIX_0_38_32_SOURCE	:= $(SRCDIR)/rustix-0.38.32.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_RUSTIX_0_38_32
 
 WEBSOCAT_SAFEMEM_0_3_3_MD5		:= 994b165f971ecfc09dc13fca8d394691
-WEBSOCAT_SAFEMEM_0_3_3_URL		:= https://crates.io/api/v1/crates/safemem/0.3.3/download
+WEBSOCAT_SAFEMEM_0_3_3_URL		:= $(call ptx/mirror, CRATESIO, safemem/0.3.3/download)
 WEBSOCAT_SAFEMEM_0_3_3_SOURCE	:= $(SRCDIR)/safemem-0.3.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SAFEMEM_0_3_3
 
 WEBSOCAT_SCHANNEL_0_1_23_MD5		:= 6a0950fa3775d755dbbdbd24a2841786
-WEBSOCAT_SCHANNEL_0_1_23_URL		:= https://crates.io/api/v1/crates/schannel/0.1.23/download
+WEBSOCAT_SCHANNEL_0_1_23_URL		:= $(call ptx/mirror, CRATESIO, schannel/0.1.23/download)
 WEBSOCAT_SCHANNEL_0_1_23_SOURCE	:= $(SRCDIR)/schannel-0.1.23.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SCHANNEL_0_1_23
 
 WEBSOCAT_SCOPEGUARD_1_2_0_MD5		:= f1358be8c98b98837cbd2cf51e75f8b3
-WEBSOCAT_SCOPEGUARD_1_2_0_URL		:= https://crates.io/api/v1/crates/scopeguard/1.2.0/download
+WEBSOCAT_SCOPEGUARD_1_2_0_URL		:= $(call ptx/mirror, CRATESIO, scopeguard/1.2.0/download)
 WEBSOCAT_SCOPEGUARD_1_2_0_SOURCE	:= $(SRCDIR)/scopeguard-1.2.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SCOPEGUARD_1_2_0
 
 WEBSOCAT_SECURITY_FRAMEWORK_2_10_0_MD5		:= 065b255ec9ba792962f17f8a15827cad
-WEBSOCAT_SECURITY_FRAMEWORK_2_10_0_URL		:= https://crates.io/api/v1/crates/security-framework/2.10.0/download
+WEBSOCAT_SECURITY_FRAMEWORK_2_10_0_URL		:= $(call ptx/mirror, CRATESIO, security-framework/2.10.0/download)
 WEBSOCAT_SECURITY_FRAMEWORK_2_10_0_SOURCE	:= $(SRCDIR)/security-framework-2.10.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SECURITY_FRAMEWORK_2_10_0
 
 WEBSOCAT_SECURITY_FRAMEWORK_SYS_2_10_0_MD5		:= f973f3b7f174a2c9335eb0a8936c9c1a
-WEBSOCAT_SECURITY_FRAMEWORK_SYS_2_10_0_URL		:= https://crates.io/api/v1/crates/security-framework-sys/2.10.0/download
+WEBSOCAT_SECURITY_FRAMEWORK_SYS_2_10_0_URL		:= $(call ptx/mirror, CRATESIO, security-framework-sys/2.10.0/download)
 WEBSOCAT_SECURITY_FRAMEWORK_SYS_2_10_0_SOURCE	:= $(SRCDIR)/security-framework-sys-2.10.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SECURITY_FRAMEWORK_SYS_2_10_0
 
 WEBSOCAT_SEMVER_0_9_0_MD5		:= 64111c20b69aa1532fb66b70c4660b55
-WEBSOCAT_SEMVER_0_9_0_URL		:= https://crates.io/api/v1/crates/semver/0.9.0/download
+WEBSOCAT_SEMVER_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, semver/0.9.0/download)
 WEBSOCAT_SEMVER_0_9_0_SOURCE	:= $(SRCDIR)/semver-0.9.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SEMVER_0_9_0
 
 WEBSOCAT_SEMVER_PARSER_0_7_0_MD5		:= 8b4d8c7b6e3a060d365bc1ad650929fa
-WEBSOCAT_SEMVER_PARSER_0_7_0_URL		:= https://crates.io/api/v1/crates/semver-parser/0.7.0/download
+WEBSOCAT_SEMVER_PARSER_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, semver-parser/0.7.0/download)
 WEBSOCAT_SEMVER_PARSER_0_7_0_SOURCE	:= $(SRCDIR)/semver-parser-0.7.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SEMVER_PARSER_0_7_0
 
 WEBSOCAT_SHA_1_0_8_2_MD5		:= b1cace2e0c87bbbf5753996e28016787
-WEBSOCAT_SHA_1_0_8_2_URL		:= https://crates.io/api/v1/crates/sha-1/0.8.2/download
+WEBSOCAT_SHA_1_0_8_2_URL		:= $(call ptx/mirror, CRATESIO, sha-1/0.8.2/download)
 WEBSOCAT_SHA_1_0_8_2_SOURCE	:= $(SRCDIR)/sha-1-0.8.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SHA_1_0_8_2
 
 WEBSOCAT_SIGNAL_HOOK_REGISTRY_1_4_1_MD5		:= 22e95901b912671da26457ac33e36a23
-WEBSOCAT_SIGNAL_HOOK_REGISTRY_1_4_1_URL		:= https://crates.io/api/v1/crates/signal-hook-registry/1.4.1/download
+WEBSOCAT_SIGNAL_HOOK_REGISTRY_1_4_1_URL		:= $(call ptx/mirror, CRATESIO, signal-hook-registry/1.4.1/download)
 WEBSOCAT_SIGNAL_HOOK_REGISTRY_1_4_1_SOURCE	:= $(SRCDIR)/signal-hook-registry-1.4.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SIGNAL_HOOK_REGISTRY_1_4_1
 
 WEBSOCAT_SLAB_0_4_9_MD5		:= 5d8c25fc51ffebca67935516c2325860
-WEBSOCAT_SLAB_0_4_9_URL		:= https://crates.io/api/v1/crates/slab/0.4.9/download
+WEBSOCAT_SLAB_0_4_9_URL		:= $(call ptx/mirror, CRATESIO, slab/0.4.9/download)
 WEBSOCAT_SLAB_0_4_9_SOURCE	:= $(SRCDIR)/slab-0.4.9.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SLAB_0_4_9
 
 WEBSOCAT_SLAB_TYPESAFE_0_1_3_MD5		:= 1a13596ea648f42a9ef124c502e60bc7
-WEBSOCAT_SLAB_TYPESAFE_0_1_3_URL		:= https://crates.io/api/v1/crates/slab_typesafe/0.1.3/download
+WEBSOCAT_SLAB_TYPESAFE_0_1_3_URL		:= $(call ptx/mirror, CRATESIO, slab_typesafe/0.1.3/download)
 WEBSOCAT_SLAB_TYPESAFE_0_1_3_SOURCE	:= $(SRCDIR)/slab_typesafe-0.1.3.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SLAB_TYPESAFE_0_1_3
 
 WEBSOCAT_SMALLVEC_0_6_14_MD5		:= e87ae057c34483e359e8de3e5f9dfbd5
-WEBSOCAT_SMALLVEC_0_6_14_URL		:= https://crates.io/api/v1/crates/smallvec/0.6.14/download
+WEBSOCAT_SMALLVEC_0_6_14_URL		:= $(call ptx/mirror, CRATESIO, smallvec/0.6.14/download)
 WEBSOCAT_SMALLVEC_0_6_14_SOURCE	:= $(SRCDIR)/smallvec-0.6.14.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SMALLVEC_0_6_14
 
 WEBSOCAT_SMALLVEC_1_13_2_MD5		:= 50d5a501f911bb592f0dce2d052c2aa8
-WEBSOCAT_SMALLVEC_1_13_2_URL		:= https://crates.io/api/v1/crates/smallvec/1.13.2/download
+WEBSOCAT_SMALLVEC_1_13_2_URL		:= $(call ptx/mirror, CRATESIO, smallvec/1.13.2/download)
 WEBSOCAT_SMALLVEC_1_13_2_SOURCE	:= $(SRCDIR)/smallvec-1.13.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SMALLVEC_1_13_2
 
 WEBSOCAT_SMART_DEFAULT_0_3_0_MD5		:= a7a9f63158ec1ceb6456a386bcef44aa
-WEBSOCAT_SMART_DEFAULT_0_3_0_URL		:= https://crates.io/api/v1/crates/smart-default/0.3.0/download
+WEBSOCAT_SMART_DEFAULT_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, smart-default/0.3.0/download)
 WEBSOCAT_SMART_DEFAULT_0_3_0_SOURCE	:= $(SRCDIR)/smart-default-0.3.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SMART_DEFAULT_0_3_0
 
 WEBSOCAT_STRUCTOPT_0_2_16_MD5		:= 1f42aab04908d63f65a54f24da851def
-WEBSOCAT_STRUCTOPT_0_2_16_URL		:= https://crates.io/api/v1/crates/structopt/0.2.16/download
+WEBSOCAT_STRUCTOPT_0_2_16_URL		:= $(call ptx/mirror, CRATESIO, structopt/0.2.16/download)
 WEBSOCAT_STRUCTOPT_0_2_16_SOURCE	:= $(SRCDIR)/structopt-0.2.16.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_STRUCTOPT_0_2_16
 
 WEBSOCAT_STRUCTOPT_DERIVE_0_2_16_MD5		:= e5f9df6748867a7046ae07b0e3e1d269
-WEBSOCAT_STRUCTOPT_DERIVE_0_2_16_URL		:= https://crates.io/api/v1/crates/structopt-derive/0.2.16/download
+WEBSOCAT_STRUCTOPT_DERIVE_0_2_16_URL		:= $(call ptx/mirror, CRATESIO, structopt-derive/0.2.16/download)
 WEBSOCAT_STRUCTOPT_DERIVE_0_2_16_SOURCE	:= $(SRCDIR)/structopt-derive-0.2.16.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_STRUCTOPT_DERIVE_0_2_16
 
 WEBSOCAT_SUBTLE_2_4_1_MD5		:= 8e053c23f1d36fbf3f276fbf501e3e35
-WEBSOCAT_SUBTLE_2_4_1_URL		:= https://crates.io/api/v1/crates/subtle/2.4.1/download
+WEBSOCAT_SUBTLE_2_4_1_URL		:= $(call ptx/mirror, CRATESIO, subtle/2.4.1/download)
 WEBSOCAT_SUBTLE_2_4_1_SOURCE	:= $(SRCDIR)/subtle-2.4.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SUBTLE_2_4_1
 
 WEBSOCAT_SYN_0_15_44_MD5		:= 340f92fe45f0eb5766d679252e9acc42
-WEBSOCAT_SYN_0_15_44_URL		:= https://crates.io/api/v1/crates/syn/0.15.44/download
+WEBSOCAT_SYN_0_15_44_URL		:= $(call ptx/mirror, CRATESIO, syn/0.15.44/download)
 WEBSOCAT_SYN_0_15_44_SOURCE	:= $(SRCDIR)/syn-0.15.44.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SYN_0_15_44
 
 WEBSOCAT_SYN_1_0_109_MD5		:= 64d9f46e9ba78f68c30c486be3d8b7df
-WEBSOCAT_SYN_1_0_109_URL		:= https://crates.io/api/v1/crates/syn/1.0.109/download
+WEBSOCAT_SYN_1_0_109_URL		:= $(call ptx/mirror, CRATESIO, syn/1.0.109/download)
 WEBSOCAT_SYN_1_0_109_SOURCE	:= $(SRCDIR)/syn-1.0.109.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SYN_1_0_109
 
 WEBSOCAT_SYN_2_0_57_MD5		:= 3c8b70b81deef63b05d4a3bd786c9cab
-WEBSOCAT_SYN_2_0_57_URL		:= https://crates.io/api/v1/crates/syn/2.0.57/download
+WEBSOCAT_SYN_2_0_57_URL		:= $(call ptx/mirror, CRATESIO, syn/2.0.57/download)
 WEBSOCAT_SYN_2_0_57_SOURCE	:= $(SRCDIR)/syn-2.0.57.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_SYN_2_0_57
 
 WEBSOCAT_TEMPFILE_3_10_1_MD5		:= 449c7bb37fc298d2026fbf2855eb8db0
-WEBSOCAT_TEMPFILE_3_10_1_URL		:= https://crates.io/api/v1/crates/tempfile/3.10.1/download
+WEBSOCAT_TEMPFILE_3_10_1_URL		:= $(call ptx/mirror, CRATESIO, tempfile/3.10.1/download)
 WEBSOCAT_TEMPFILE_3_10_1_SOURCE	:= $(SRCDIR)/tempfile-3.10.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TEMPFILE_3_10_1
 
 WEBSOCAT_TEXTWRAP_0_11_0_MD5		:= a8de006fe0c7e373c560dd51599287a8
-WEBSOCAT_TEXTWRAP_0_11_0_URL		:= https://crates.io/api/v1/crates/textwrap/0.11.0/download
+WEBSOCAT_TEXTWRAP_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, textwrap/0.11.0/download)
 WEBSOCAT_TEXTWRAP_0_11_0_SOURCE	:= $(SRCDIR)/textwrap-0.11.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TEXTWRAP_0_11_0
 
 WEBSOCAT_THISERROR_1_0_58_MD5		:= 361668f9f11e4f0eba45f70c24fa8614
-WEBSOCAT_THISERROR_1_0_58_URL		:= https://crates.io/api/v1/crates/thiserror/1.0.58/download
+WEBSOCAT_THISERROR_1_0_58_URL		:= $(call ptx/mirror, CRATESIO, thiserror/1.0.58/download)
 WEBSOCAT_THISERROR_1_0_58_SOURCE	:= $(SRCDIR)/thiserror-1.0.58.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_THISERROR_1_0_58
 
 WEBSOCAT_THISERROR_IMPL_1_0_58_MD5		:= f443b2cca547d22f994c2dd99a6e5581
-WEBSOCAT_THISERROR_IMPL_1_0_58_URL		:= https://crates.io/api/v1/crates/thiserror-impl/1.0.58/download
+WEBSOCAT_THISERROR_IMPL_1_0_58_URL		:= $(call ptx/mirror, CRATESIO, thiserror-impl/1.0.58/download)
 WEBSOCAT_THISERROR_IMPL_1_0_58_SOURCE	:= $(SRCDIR)/thiserror-impl-1.0.58.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_THISERROR_IMPL_1_0_58
 
 WEBSOCAT_TIME_0_1_45_MD5		:= dc9491aba5e393b587f4bbffab58ed52
-WEBSOCAT_TIME_0_1_45_URL		:= https://crates.io/api/v1/crates/time/0.1.45/download
+WEBSOCAT_TIME_0_1_45_URL		:= $(call ptx/mirror, CRATESIO, time/0.1.45/download)
 WEBSOCAT_TIME_0_1_45_SOURCE	:= $(SRCDIR)/time-0.1.45.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TIME_0_1_45
 
 WEBSOCAT_TINYVEC_1_6_0_MD5		:= 5f0470696baaa4e5953bddbf196998f9
-WEBSOCAT_TINYVEC_1_6_0_URL		:= https://crates.io/api/v1/crates/tinyvec/1.6.0/download
+WEBSOCAT_TINYVEC_1_6_0_URL		:= $(call ptx/mirror, CRATESIO, tinyvec/1.6.0/download)
 WEBSOCAT_TINYVEC_1_6_0_SOURCE	:= $(SRCDIR)/tinyvec-1.6.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TINYVEC_1_6_0
 
 WEBSOCAT_TINYVEC_MACROS_0_1_1_MD5		:= c678a7da0ee4b850ebde0474144a0415
-WEBSOCAT_TINYVEC_MACROS_0_1_1_URL		:= https://crates.io/api/v1/crates/tinyvec_macros/0.1.1/download
+WEBSOCAT_TINYVEC_MACROS_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, tinyvec_macros/0.1.1/download)
 WEBSOCAT_TINYVEC_MACROS_0_1_1_SOURCE	:= $(SRCDIR)/tinyvec_macros-0.1.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TINYVEC_MACROS_0_1_1
 
 WEBSOCAT_TK_LISTEN_0_2_1_MD5		:= c853f885486f785b964849c7a76fec78
-WEBSOCAT_TK_LISTEN_0_2_1_URL		:= https://crates.io/api/v1/crates/tk-listen/0.2.1/download
+WEBSOCAT_TK_LISTEN_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, tk-listen/0.2.1/download)
 WEBSOCAT_TK_LISTEN_0_2_1_SOURCE	:= $(SRCDIR)/tk-listen-0.2.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TK_LISTEN_0_2_1
 
 WEBSOCAT_TOKIO_0_1_22_MD5		:= b521ad2ed1e1ac7384af8ca3faa2967e
-WEBSOCAT_TOKIO_0_1_22_URL		:= https://crates.io/api/v1/crates/tokio/0.1.22/download
+WEBSOCAT_TOKIO_0_1_22_URL		:= $(call ptx/mirror, CRATESIO, tokio/0.1.22/download)
 WEBSOCAT_TOKIO_0_1_22_SOURCE	:= $(SRCDIR)/tokio-0.1.22.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_0_1_22
 
 WEBSOCAT_TOKIO_CODEC_0_1_2_MD5		:= 81550da6fbe0dd33fec098a811476df6
-WEBSOCAT_TOKIO_CODEC_0_1_2_URL		:= https://crates.io/api/v1/crates/tokio-codec/0.1.2/download
+WEBSOCAT_TOKIO_CODEC_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, tokio-codec/0.1.2/download)
 WEBSOCAT_TOKIO_CODEC_0_1_2_SOURCE	:= $(SRCDIR)/tokio-codec-0.1.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_CODEC_0_1_2
 
 WEBSOCAT_TOKIO_CURRENT_THREAD_0_1_7_MD5		:= ea62c780602b6ee7f9698b6cb7c7ca75
-WEBSOCAT_TOKIO_CURRENT_THREAD_0_1_7_URL		:= https://crates.io/api/v1/crates/tokio-current-thread/0.1.7/download
+WEBSOCAT_TOKIO_CURRENT_THREAD_0_1_7_URL		:= $(call ptx/mirror, CRATESIO, tokio-current-thread/0.1.7/download)
 WEBSOCAT_TOKIO_CURRENT_THREAD_0_1_7_SOURCE	:= $(SRCDIR)/tokio-current-thread-0.1.7.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_CURRENT_THREAD_0_1_7
 
 WEBSOCAT_TOKIO_EXECUTOR_0_1_10_MD5		:= 231140a3fc27d3743bdf5709a11bf330
-WEBSOCAT_TOKIO_EXECUTOR_0_1_10_URL		:= https://crates.io/api/v1/crates/tokio-executor/0.1.10/download
+WEBSOCAT_TOKIO_EXECUTOR_0_1_10_URL		:= $(call ptx/mirror, CRATESIO, tokio-executor/0.1.10/download)
 WEBSOCAT_TOKIO_EXECUTOR_0_1_10_SOURCE	:= $(SRCDIR)/tokio-executor-0.1.10.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_EXECUTOR_0_1_10
 
 WEBSOCAT_TOKIO_FILE_UNIX_0_5_1_MD5		:= 79994a1b66afcdec629d487e66cb06a9
-WEBSOCAT_TOKIO_FILE_UNIX_0_5_1_URL		:= https://crates.io/api/v1/crates/tokio-file-unix/0.5.1/download
+WEBSOCAT_TOKIO_FILE_UNIX_0_5_1_URL		:= $(call ptx/mirror, CRATESIO, tokio-file-unix/0.5.1/download)
 WEBSOCAT_TOKIO_FILE_UNIX_0_5_1_SOURCE	:= $(SRCDIR)/tokio-file-unix-0.5.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_FILE_UNIX_0_5_1
 
 WEBSOCAT_TOKIO_FS_0_1_7_MD5		:= bf4481a8e4e42049b7540dd1ef478efd
-WEBSOCAT_TOKIO_FS_0_1_7_URL		:= https://crates.io/api/v1/crates/tokio-fs/0.1.7/download
+WEBSOCAT_TOKIO_FS_0_1_7_URL		:= $(call ptx/mirror, CRATESIO, tokio-fs/0.1.7/download)
 WEBSOCAT_TOKIO_FS_0_1_7_SOURCE	:= $(SRCDIR)/tokio-fs-0.1.7.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_FS_0_1_7
 
 WEBSOCAT_TOKIO_IO_0_1_13_MD5		:= 533cca06f326430afa78a186b0d9833c
-WEBSOCAT_TOKIO_IO_0_1_13_URL		:= https://crates.io/api/v1/crates/tokio-io/0.1.13/download
+WEBSOCAT_TOKIO_IO_0_1_13_URL		:= $(call ptx/mirror, CRATESIO, tokio-io/0.1.13/download)
 WEBSOCAT_TOKIO_IO_0_1_13_SOURCE	:= $(SRCDIR)/tokio-io-0.1.13.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_IO_0_1_13
 
 WEBSOCAT_TOKIO_NAMED_PIPES_0_1_0_MD5		:= 030e252ec9eea53de036414ef6580637
-WEBSOCAT_TOKIO_NAMED_PIPES_0_1_0_URL		:= https://crates.io/api/v1/crates/tokio-named-pipes/0.1.0/download
+WEBSOCAT_TOKIO_NAMED_PIPES_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, tokio-named-pipes/0.1.0/download)
 WEBSOCAT_TOKIO_NAMED_PIPES_0_1_0_SOURCE	:= $(SRCDIR)/tokio-named-pipes-0.1.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_NAMED_PIPES_0_1_0
 
 WEBSOCAT_TOKIO_PROCESS_0_2_5_MD5		:= b6d0910d4987701952a79b0ba0b8a9a9
-WEBSOCAT_TOKIO_PROCESS_0_2_5_URL		:= https://crates.io/api/v1/crates/tokio-process/0.2.5/download
+WEBSOCAT_TOKIO_PROCESS_0_2_5_URL		:= $(call ptx/mirror, CRATESIO, tokio-process/0.2.5/download)
 WEBSOCAT_TOKIO_PROCESS_0_2_5_SOURCE	:= $(SRCDIR)/tokio-process-0.2.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_PROCESS_0_2_5
 
 WEBSOCAT_TOKIO_REACTOR_0_1_12_MD5		:= 9fa6cdac7b44df7983891dc0fb87fd83
-WEBSOCAT_TOKIO_REACTOR_0_1_12_URL		:= https://crates.io/api/v1/crates/tokio-reactor/0.1.12/download
+WEBSOCAT_TOKIO_REACTOR_0_1_12_URL		:= $(call ptx/mirror, CRATESIO, tokio-reactor/0.1.12/download)
 WEBSOCAT_TOKIO_REACTOR_0_1_12_SOURCE	:= $(SRCDIR)/tokio-reactor-0.1.12.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_REACTOR_0_1_12
 
 WEBSOCAT_TOKIO_SIGNAL_0_2_9_MD5		:= a9d9717d3cb72393bfb0bfdf8b15db1f
-WEBSOCAT_TOKIO_SIGNAL_0_2_9_URL		:= https://crates.io/api/v1/crates/tokio-signal/0.2.9/download
+WEBSOCAT_TOKIO_SIGNAL_0_2_9_URL		:= $(call ptx/mirror, CRATESIO, tokio-signal/0.2.9/download)
 WEBSOCAT_TOKIO_SIGNAL_0_2_9_SOURCE	:= $(SRCDIR)/tokio-signal-0.2.9.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_SIGNAL_0_2_9
 
 WEBSOCAT_TOKIO_STDIN_STDOUT_0_1_5_MD5		:= 036e8d45b21baa7fbb72656cd5e71ba1
-WEBSOCAT_TOKIO_STDIN_STDOUT_0_1_5_URL		:= https://crates.io/api/v1/crates/tokio-stdin-stdout/0.1.5/download
+WEBSOCAT_TOKIO_STDIN_STDOUT_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, tokio-stdin-stdout/0.1.5/download)
 WEBSOCAT_TOKIO_STDIN_STDOUT_0_1_5_SOURCE	:= $(SRCDIR)/tokio-stdin-stdout-0.1.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_STDIN_STDOUT_0_1_5
 
 WEBSOCAT_TOKIO_SYNC_0_1_8_MD5		:= aabc9eb293b82123f0223970184601e3
-WEBSOCAT_TOKIO_SYNC_0_1_8_URL		:= https://crates.io/api/v1/crates/tokio-sync/0.1.8/download
+WEBSOCAT_TOKIO_SYNC_0_1_8_URL		:= $(call ptx/mirror, CRATESIO, tokio-sync/0.1.8/download)
 WEBSOCAT_TOKIO_SYNC_0_1_8_SOURCE	:= $(SRCDIR)/tokio-sync-0.1.8.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_SYNC_0_1_8
 
 WEBSOCAT_TOKIO_TCP_0_1_4_MD5		:= 8a91e95192d3540845b244118b33f591
-WEBSOCAT_TOKIO_TCP_0_1_4_URL		:= https://crates.io/api/v1/crates/tokio-tcp/0.1.4/download
+WEBSOCAT_TOKIO_TCP_0_1_4_URL		:= $(call ptx/mirror, CRATESIO, tokio-tcp/0.1.4/download)
 WEBSOCAT_TOKIO_TCP_0_1_4_SOURCE	:= $(SRCDIR)/tokio-tcp-0.1.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_TCP_0_1_4
 
 WEBSOCAT_TOKIO_THREADPOOL_0_1_18_MD5		:= 309b8c8a38a188c3c878ab31f7b5008e
-WEBSOCAT_TOKIO_THREADPOOL_0_1_18_URL		:= https://crates.io/api/v1/crates/tokio-threadpool/0.1.18/download
+WEBSOCAT_TOKIO_THREADPOOL_0_1_18_URL		:= $(call ptx/mirror, CRATESIO, tokio-threadpool/0.1.18/download)
 WEBSOCAT_TOKIO_THREADPOOL_0_1_18_SOURCE	:= $(SRCDIR)/tokio-threadpool-0.1.18.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_THREADPOOL_0_1_18
 
 WEBSOCAT_TOKIO_TIMER_0_2_13_MD5		:= 122f7f583ffc6ee551eb0259bf5340aa
-WEBSOCAT_TOKIO_TIMER_0_2_13_URL		:= https://crates.io/api/v1/crates/tokio-timer/0.2.13/download
+WEBSOCAT_TOKIO_TIMER_0_2_13_URL		:= $(call ptx/mirror, CRATESIO, tokio-timer/0.2.13/download)
 WEBSOCAT_TOKIO_TIMER_0_2_13_SOURCE	:= $(SRCDIR)/tokio-timer-0.2.13.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_TIMER_0_2_13
 
 WEBSOCAT_TOKIO_TLS_0_2_1_MD5		:= 93b0a3f6f09adde608f98ac4dd3e2dc6
-WEBSOCAT_TOKIO_TLS_0_2_1_URL		:= https://crates.io/api/v1/crates/tokio-tls/0.2.1/download
+WEBSOCAT_TOKIO_TLS_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, tokio-tls/0.2.1/download)
 WEBSOCAT_TOKIO_TLS_0_2_1_SOURCE	:= $(SRCDIR)/tokio-tls-0.2.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_TLS_0_2_1
 
 WEBSOCAT_TOKIO_UDP_0_1_6_MD5		:= 58771e80a94984d9b0846dd621d49203
-WEBSOCAT_TOKIO_UDP_0_1_6_URL		:= https://crates.io/api/v1/crates/tokio-udp/0.1.6/download
+WEBSOCAT_TOKIO_UDP_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, tokio-udp/0.1.6/download)
 WEBSOCAT_TOKIO_UDP_0_1_6_SOURCE	:= $(SRCDIR)/tokio-udp-0.1.6.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_UDP_0_1_6
 
 WEBSOCAT_TOKIO_UDS_0_2_7_MD5		:= a09a9df0d8c8963982c2ddc4c7db26f7
-WEBSOCAT_TOKIO_UDS_0_2_7_URL		:= https://crates.io/api/v1/crates/tokio-uds/0.2.7/download
+WEBSOCAT_TOKIO_UDS_0_2_7_URL		:= $(call ptx/mirror, CRATESIO, tokio-uds/0.2.7/download)
 WEBSOCAT_TOKIO_UDS_0_2_7_SOURCE	:= $(SRCDIR)/tokio-uds-0.2.7.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TOKIO_UDS_0_2_7
 
 WEBSOCAT_TRAITOBJECT_0_1_1_MD5		:= d19b0356665f4831ec014346f4e73ae7
-WEBSOCAT_TRAITOBJECT_0_1_1_URL		:= https://crates.io/api/v1/crates/traitobject/0.1.1/download
+WEBSOCAT_TRAITOBJECT_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, traitobject/0.1.1/download)
 WEBSOCAT_TRAITOBJECT_0_1_1_SOURCE	:= $(SRCDIR)/traitobject-0.1.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TRAITOBJECT_0_1_1
 
 WEBSOCAT_TYPEABLE_0_1_2_MD5		:= 389c8d5d19fa97981c8fff9416541391
-WEBSOCAT_TYPEABLE_0_1_2_URL		:= https://crates.io/api/v1/crates/typeable/0.1.2/download
+WEBSOCAT_TYPEABLE_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, typeable/0.1.2/download)
 WEBSOCAT_TYPEABLE_0_1_2_SOURCE	:= $(SRCDIR)/typeable-0.1.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TYPEABLE_0_1_2
 
 WEBSOCAT_TYPENUM_1_17_0_MD5		:= 6ebb8deee5a5a0d1c26b20eeee1926b3
-WEBSOCAT_TYPENUM_1_17_0_URL		:= https://crates.io/api/v1/crates/typenum/1.17.0/download
+WEBSOCAT_TYPENUM_1_17_0_URL		:= $(call ptx/mirror, CRATESIO, typenum/1.17.0/download)
 WEBSOCAT_TYPENUM_1_17_0_SOURCE	:= $(SRCDIR)/typenum-1.17.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_TYPENUM_1_17_0
 
 WEBSOCAT_UNICASE_1_4_2_MD5		:= f316454c1928e03f6459d7eac04d2168
-WEBSOCAT_UNICASE_1_4_2_URL		:= https://crates.io/api/v1/crates/unicase/1.4.2/download
+WEBSOCAT_UNICASE_1_4_2_URL		:= $(call ptx/mirror, CRATESIO, unicase/1.4.2/download)
 WEBSOCAT_UNICASE_1_4_2_SOURCE	:= $(SRCDIR)/unicase-1.4.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_UNICASE_1_4_2
 
 WEBSOCAT_UNICODE_BIDI_0_3_15_MD5		:= 8a607889ac525c2286e2f7c88f89d931
-WEBSOCAT_UNICODE_BIDI_0_3_15_URL		:= https://crates.io/api/v1/crates/unicode-bidi/0.3.15/download
+WEBSOCAT_UNICODE_BIDI_0_3_15_URL		:= $(call ptx/mirror, CRATESIO, unicode-bidi/0.3.15/download)
 WEBSOCAT_UNICODE_BIDI_0_3_15_SOURCE	:= $(SRCDIR)/unicode-bidi-0.3.15.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_UNICODE_BIDI_0_3_15
 
 WEBSOCAT_UNICODE_IDENT_1_0_12_MD5		:= ca65153603a1a7240bbd9d2ce19f2d67
-WEBSOCAT_UNICODE_IDENT_1_0_12_URL		:= https://crates.io/api/v1/crates/unicode-ident/1.0.12/download
+WEBSOCAT_UNICODE_IDENT_1_0_12_URL		:= $(call ptx/mirror, CRATESIO, unicode-ident/1.0.12/download)
 WEBSOCAT_UNICODE_IDENT_1_0_12_SOURCE	:= $(SRCDIR)/unicode-ident-1.0.12.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_UNICODE_IDENT_1_0_12
 
 WEBSOCAT_UNICODE_NORMALIZATION_0_1_23_MD5		:= 97fa43aa1afabd1f5f3d1070389b42ba
-WEBSOCAT_UNICODE_NORMALIZATION_0_1_23_URL		:= https://crates.io/api/v1/crates/unicode-normalization/0.1.23/download
+WEBSOCAT_UNICODE_NORMALIZATION_0_1_23_URL		:= $(call ptx/mirror, CRATESIO, unicode-normalization/0.1.23/download)
 WEBSOCAT_UNICODE_NORMALIZATION_0_1_23_SOURCE	:= $(SRCDIR)/unicode-normalization-0.1.23.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_UNICODE_NORMALIZATION_0_1_23
 
 WEBSOCAT_UNICODE_SEGMENTATION_1_11_0_MD5		:= 43bd6ad524e583eaa8c071dbb01f11ae
-WEBSOCAT_UNICODE_SEGMENTATION_1_11_0_URL		:= https://crates.io/api/v1/crates/unicode-segmentation/1.11.0/download
+WEBSOCAT_UNICODE_SEGMENTATION_1_11_0_URL		:= $(call ptx/mirror, CRATESIO, unicode-segmentation/1.11.0/download)
 WEBSOCAT_UNICODE_SEGMENTATION_1_11_0_SOURCE	:= $(SRCDIR)/unicode-segmentation-1.11.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_UNICODE_SEGMENTATION_1_11_0
 
 WEBSOCAT_UNICODE_WIDTH_0_1_11_MD5		:= 908ec8a89821b72f3a35726bab24461f
-WEBSOCAT_UNICODE_WIDTH_0_1_11_URL		:= https://crates.io/api/v1/crates/unicode-width/0.1.11/download
+WEBSOCAT_UNICODE_WIDTH_0_1_11_URL		:= $(call ptx/mirror, CRATESIO, unicode-width/0.1.11/download)
 WEBSOCAT_UNICODE_WIDTH_0_1_11_SOURCE	:= $(SRCDIR)/unicode-width-0.1.11.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_UNICODE_WIDTH_0_1_11
 
 WEBSOCAT_UNICODE_XID_0_1_0_MD5		:= 5aaf04f9a94a6450e3e4963ddd62b92d
-WEBSOCAT_UNICODE_XID_0_1_0_URL		:= https://crates.io/api/v1/crates/unicode-xid/0.1.0/download
+WEBSOCAT_UNICODE_XID_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, unicode-xid/0.1.0/download)
 WEBSOCAT_UNICODE_XID_0_1_0_SOURCE	:= $(SRCDIR)/unicode-xid-0.1.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_UNICODE_XID_0_1_0
 
 WEBSOCAT_UNIVERSAL_HASH_0_4_1_MD5		:= ea24161ca337ad70c7eb0cd8980b83d4
-WEBSOCAT_UNIVERSAL_HASH_0_4_1_URL		:= https://crates.io/api/v1/crates/universal-hash/0.4.1/download
+WEBSOCAT_UNIVERSAL_HASH_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, universal-hash/0.4.1/download)
 WEBSOCAT_UNIVERSAL_HASH_0_4_1_SOURCE	:= $(SRCDIR)/universal-hash-0.4.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_UNIVERSAL_HASH_0_4_1
 
 WEBSOCAT_URL_1_7_2_MD5		:= 32f0ced8a8881d2c0572b879bf15b91e
-WEBSOCAT_URL_1_7_2_URL		:= https://crates.io/api/v1/crates/url/1.7.2/download
+WEBSOCAT_URL_1_7_2_URL		:= $(call ptx/mirror, CRATESIO, url/1.7.2/download)
 WEBSOCAT_URL_1_7_2_SOURCE	:= $(SRCDIR)/url-1.7.2.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_URL_1_7_2
 
 WEBSOCAT_VCPKG_0_2_15_MD5		:= e900a384ac7dbb320fe6a7279fbfef89
-WEBSOCAT_VCPKG_0_2_15_URL		:= https://crates.io/api/v1/crates/vcpkg/0.2.15/download
+WEBSOCAT_VCPKG_0_2_15_URL		:= $(call ptx/mirror, CRATESIO, vcpkg/0.2.15/download)
 WEBSOCAT_VCPKG_0_2_15_SOURCE	:= $(SRCDIR)/vcpkg-0.2.15.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_VCPKG_0_2_15
 
 WEBSOCAT_VERSION_CHECK_0_1_5_MD5		:= f48add3d6234e8b9829fa5364509f425
-WEBSOCAT_VERSION_CHECK_0_1_5_URL		:= https://crates.io/api/v1/crates/version_check/0.1.5/download
+WEBSOCAT_VERSION_CHECK_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, version_check/0.1.5/download)
 WEBSOCAT_VERSION_CHECK_0_1_5_SOURCE	:= $(SRCDIR)/version_check-0.1.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_VERSION_CHECK_0_1_5
 
 WEBSOCAT_VERSION_CHECK_0_9_4_MD5		:= d18d362345c4fe512ef67b738b239fb8
-WEBSOCAT_VERSION_CHECK_0_9_4_URL		:= https://crates.io/api/v1/crates/version_check/0.9.4/download
+WEBSOCAT_VERSION_CHECK_0_9_4_URL		:= $(call ptx/mirror, CRATESIO, version_check/0.9.4/download)
 WEBSOCAT_VERSION_CHECK_0_9_4_SOURCE	:= $(SRCDIR)/version_check-0.9.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_VERSION_CHECK_0_9_4
 
 WEBSOCAT_WASI_0_10_0_WASI_SNAPSHOT_PREVIEW1_MD5		:= a312b55a428f827a91097d1d8497b02b
-WEBSOCAT_WASI_0_10_0_WASI_SNAPSHOT_PREVIEW1_URL		:= https://crates.io/api/v1/crates/wasi/0.10.0+wasi-snapshot-preview1/download
+WEBSOCAT_WASI_0_10_0_WASI_SNAPSHOT_PREVIEW1_URL		:= $(call ptx/mirror, CRATESIO, wasi/0.10.0+wasi-snapshot-preview1/download)
 WEBSOCAT_WASI_0_10_0_WASI_SNAPSHOT_PREVIEW1_SOURCE	:= $(SRCDIR)/wasi-0.10.0+wasi-snapshot-preview1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WASI_0_10_0_WASI_SNAPSHOT_PREVIEW1
 
 WEBSOCAT_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_MD5		:= e972ea58ec203bfa6c79c1207852298b
-WEBSOCAT_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_URL		:= https://crates.io/api/v1/crates/wasi/0.11.0+wasi-snapshot-preview1/download
+WEBSOCAT_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_URL		:= $(call ptx/mirror, CRATESIO, wasi/0.11.0+wasi-snapshot-preview1/download)
 WEBSOCAT_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_SOURCE	:= $(SRCDIR)/wasi-0.11.0+wasi-snapshot-preview1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1
 
 WEBSOCAT_WEBSOCKET_0_27_1_MD5		:= 94b0130b53f8364a0995877f5c59d90a
-WEBSOCAT_WEBSOCKET_0_27_1_URL		:= https://crates.io/api/v1/crates/websocket/0.27.1/download
+WEBSOCAT_WEBSOCKET_0_27_1_URL		:= $(call ptx/mirror, CRATESIO, websocket/0.27.1/download)
 WEBSOCAT_WEBSOCKET_0_27_1_SOURCE	:= $(SRCDIR)/websocket-0.27.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WEBSOCKET_0_27_1
 
 WEBSOCAT_WEBSOCKET_BASE_0_26_5_MD5		:= 22afd66095bf3c9a8ece5f3f2fb3e52c
-WEBSOCAT_WEBSOCKET_BASE_0_26_5_URL		:= https://crates.io/api/v1/crates/websocket-base/0.26.5/download
+WEBSOCAT_WEBSOCKET_BASE_0_26_5_URL		:= $(call ptx/mirror, CRATESIO, websocket-base/0.26.5/download)
 WEBSOCAT_WEBSOCKET_BASE_0_26_5_SOURCE	:= $(SRCDIR)/websocket-base-0.26.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WEBSOCKET_BASE_0_26_5
 
 WEBSOCAT_WINAPI_0_2_8_MD5		:= b44489eb4799c4fabac3fceb48de54f7
-WEBSOCAT_WINAPI_0_2_8_URL		:= https://crates.io/api/v1/crates/winapi/0.2.8/download
+WEBSOCAT_WINAPI_0_2_8_URL		:= $(call ptx/mirror, CRATESIO, winapi/0.2.8/download)
 WEBSOCAT_WINAPI_0_2_8_SOURCE	:= $(SRCDIR)/winapi-0.2.8.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINAPI_0_2_8
 
 WEBSOCAT_WINAPI_0_3_9_MD5		:= 0498c4a11448bfc35dc7bb2caa64c753
-WEBSOCAT_WINAPI_0_3_9_URL		:= https://crates.io/api/v1/crates/winapi/0.3.9/download
+WEBSOCAT_WINAPI_0_3_9_URL		:= $(call ptx/mirror, CRATESIO, winapi/0.3.9/download)
 WEBSOCAT_WINAPI_0_3_9_SOURCE	:= $(SRCDIR)/winapi-0.3.9.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINAPI_0_3_9
 
 WEBSOCAT_WINAPI_BUILD_0_1_1_MD5		:= c900e7dbce808ff8ced375077b17a163
-WEBSOCAT_WINAPI_BUILD_0_1_1_URL		:= https://crates.io/api/v1/crates/winapi-build/0.1.1/download
+WEBSOCAT_WINAPI_BUILD_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, winapi-build/0.1.1/download)
 WEBSOCAT_WINAPI_BUILD_0_1_1_SOURCE	:= $(SRCDIR)/winapi-build-0.1.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINAPI_BUILD_0_1_1
 
 WEBSOCAT_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_MD5		:= db96b50050277bf05a3c68534bbb9586
-WEBSOCAT_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_URL		:= https://crates.io/api/v1/crates/winapi-i686-pc-windows-gnu/0.4.0/download
+WEBSOCAT_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, winapi-i686-pc-windows-gnu/0.4.0/download)
 WEBSOCAT_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_SOURCE	:= $(SRCDIR)/winapi-i686-pc-windows-gnu-0.4.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINAPI_I686_PC_WINDOWS_GNU_0_4_0
 
 WEBSOCAT_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_MD5		:= 09de9d01e7331ff3da11f58be8bef0df
-WEBSOCAT_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_URL		:= https://crates.io/api/v1/crates/winapi-x86_64-pc-windows-gnu/0.4.0/download
+WEBSOCAT_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, winapi-x86_64-pc-windows-gnu/0.4.0/download)
 WEBSOCAT_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_SOURCE	:= $(SRCDIR)/winapi-x86_64-pc-windows-gnu-0.4.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0
 
 WEBSOCAT_WINDOWS_SYS_0_52_0_MD5		:= 2376de634160158ece40c4bc2ab3eb41
-WEBSOCAT_WINDOWS_SYS_0_52_0_URL		:= https://crates.io/api/v1/crates/windows-sys/0.52.0/download
+WEBSOCAT_WINDOWS_SYS_0_52_0_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.52.0/download)
 WEBSOCAT_WINDOWS_SYS_0_52_0_SOURCE	:= $(SRCDIR)/windows-sys-0.52.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_SYS_0_52_0
 
 WEBSOCAT_WINDOWS_TARGETS_0_48_5_MD5		:= 24c64817e85ef77765ed0f26c31c9b4c
-WEBSOCAT_WINDOWS_TARGETS_0_48_5_URL		:= https://crates.io/api/v1/crates/windows-targets/0.48.5/download
+WEBSOCAT_WINDOWS_TARGETS_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows-targets/0.48.5/download)
 WEBSOCAT_WINDOWS_TARGETS_0_48_5_SOURCE	:= $(SRCDIR)/windows-targets-0.48.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_TARGETS_0_48_5
 
 WEBSOCAT_WINDOWS_TARGETS_0_52_4_MD5		:= da06678965a6a18bd802a4dfc0ff16a6
-WEBSOCAT_WINDOWS_TARGETS_0_52_4_URL		:= https://crates.io/api/v1/crates/windows-targets/0.52.4/download
+WEBSOCAT_WINDOWS_TARGETS_0_52_4_URL		:= $(call ptx/mirror, CRATESIO, windows-targets/0.52.4/download)
 WEBSOCAT_WINDOWS_TARGETS_0_52_4_SOURCE	:= $(SRCDIR)/windows-targets-0.52.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_TARGETS_0_52_4
 
 WEBSOCAT_WINDOWS_AARCH64_GNULLVM_0_48_5_MD5		:= dae6d89034a6988042fd8be4cf5e037d
-WEBSOCAT_WINDOWS_AARCH64_GNULLVM_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.48.5/download
+WEBSOCAT_WINDOWS_AARCH64_GNULLVM_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_gnullvm/0.48.5/download)
 WEBSOCAT_WINDOWS_AARCH64_GNULLVM_0_48_5_SOURCE	:= $(SRCDIR)/windows_aarch64_gnullvm-0.48.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_AARCH64_GNULLVM_0_48_5
 
 WEBSOCAT_WINDOWS_AARCH64_GNULLVM_0_52_4_MD5		:= 37de98e52a65c26a9ea5d1c64ac70ff7
-WEBSOCAT_WINDOWS_AARCH64_GNULLVM_0_52_4_URL		:= https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.52.4/download
+WEBSOCAT_WINDOWS_AARCH64_GNULLVM_0_52_4_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_gnullvm/0.52.4/download)
 WEBSOCAT_WINDOWS_AARCH64_GNULLVM_0_52_4_SOURCE	:= $(SRCDIR)/windows_aarch64_gnullvm-0.52.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_AARCH64_GNULLVM_0_52_4
 
 WEBSOCAT_WINDOWS_AARCH64_MSVC_0_48_5_MD5		:= de2839e16d9d7a9fd1c397da62f62b4a
-WEBSOCAT_WINDOWS_AARCH64_MSVC_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_aarch64_msvc/0.48.5/download
+WEBSOCAT_WINDOWS_AARCH64_MSVC_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_msvc/0.48.5/download)
 WEBSOCAT_WINDOWS_AARCH64_MSVC_0_48_5_SOURCE	:= $(SRCDIR)/windows_aarch64_msvc-0.48.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_AARCH64_MSVC_0_48_5
 
 WEBSOCAT_WINDOWS_AARCH64_MSVC_0_52_4_MD5		:= 08d0a285a0002da66dd555876cf0b278
-WEBSOCAT_WINDOWS_AARCH64_MSVC_0_52_4_URL		:= https://crates.io/api/v1/crates/windows_aarch64_msvc/0.52.4/download
+WEBSOCAT_WINDOWS_AARCH64_MSVC_0_52_4_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_msvc/0.52.4/download)
 WEBSOCAT_WINDOWS_AARCH64_MSVC_0_52_4_SOURCE	:= $(SRCDIR)/windows_aarch64_msvc-0.52.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_AARCH64_MSVC_0_52_4
 
 WEBSOCAT_WINDOWS_I686_GNU_0_48_5_MD5		:= e0c35ffb8cfdb74a39bf799811f79304
-WEBSOCAT_WINDOWS_I686_GNU_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_i686_gnu/0.48.5/download
+WEBSOCAT_WINDOWS_I686_GNU_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnu/0.48.5/download)
 WEBSOCAT_WINDOWS_I686_GNU_0_48_5_SOURCE	:= $(SRCDIR)/windows_i686_gnu-0.48.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_I686_GNU_0_48_5
 
 WEBSOCAT_WINDOWS_I686_GNU_0_52_4_MD5		:= b6834054fd9736252087791fdda2e73a
-WEBSOCAT_WINDOWS_I686_GNU_0_52_4_URL		:= https://crates.io/api/v1/crates/windows_i686_gnu/0.52.4/download
+WEBSOCAT_WINDOWS_I686_GNU_0_52_4_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnu/0.52.4/download)
 WEBSOCAT_WINDOWS_I686_GNU_0_52_4_SOURCE	:= $(SRCDIR)/windows_i686_gnu-0.52.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_I686_GNU_0_52_4
 
 WEBSOCAT_WINDOWS_I686_MSVC_0_48_5_MD5		:= d990172b607020701f9e84ca8e1c043c
-WEBSOCAT_WINDOWS_I686_MSVC_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_i686_msvc/0.48.5/download
+WEBSOCAT_WINDOWS_I686_MSVC_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_msvc/0.48.5/download)
 WEBSOCAT_WINDOWS_I686_MSVC_0_48_5_SOURCE	:= $(SRCDIR)/windows_i686_msvc-0.48.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_I686_MSVC_0_48_5
 
 WEBSOCAT_WINDOWS_I686_MSVC_0_52_4_MD5		:= 05b3e5d30c79a17e5c14c64f092326fe
-WEBSOCAT_WINDOWS_I686_MSVC_0_52_4_URL		:= https://crates.io/api/v1/crates/windows_i686_msvc/0.52.4/download
+WEBSOCAT_WINDOWS_I686_MSVC_0_52_4_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_msvc/0.52.4/download)
 WEBSOCAT_WINDOWS_I686_MSVC_0_52_4_SOURCE	:= $(SRCDIR)/windows_i686_msvc-0.52.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_I686_MSVC_0_52_4
 
 WEBSOCAT_WINDOWS_X86_64_GNU_0_48_5_MD5		:= 0a68848588e847ceccf504891584d00b
-WEBSOCAT_WINDOWS_X86_64_GNU_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnu/0.48.5/download
+WEBSOCAT_WINDOWS_X86_64_GNU_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnu/0.48.5/download)
 WEBSOCAT_WINDOWS_X86_64_GNU_0_48_5_SOURCE	:= $(SRCDIR)/windows_x86_64_gnu-0.48.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_X86_64_GNU_0_48_5
 
 WEBSOCAT_WINDOWS_X86_64_GNU_0_52_4_MD5		:= af0110497c2fc215c55297232f3e6665
-WEBSOCAT_WINDOWS_X86_64_GNU_0_52_4_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnu/0.52.4/download
+WEBSOCAT_WINDOWS_X86_64_GNU_0_52_4_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnu/0.52.4/download)
 WEBSOCAT_WINDOWS_X86_64_GNU_0_52_4_SOURCE	:= $(SRCDIR)/windows_x86_64_gnu-0.52.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_X86_64_GNU_0_52_4
 
 WEBSOCAT_WINDOWS_X86_64_GNULLVM_0_48_5_MD5		:= 45b469ad607b912256b7c80141fa2d17
-WEBSOCAT_WINDOWS_X86_64_GNULLVM_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.48.5/download
+WEBSOCAT_WINDOWS_X86_64_GNULLVM_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnullvm/0.48.5/download)
 WEBSOCAT_WINDOWS_X86_64_GNULLVM_0_48_5_SOURCE	:= $(SRCDIR)/windows_x86_64_gnullvm-0.48.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_X86_64_GNULLVM_0_48_5
 
 WEBSOCAT_WINDOWS_X86_64_GNULLVM_0_52_4_MD5		:= b08b96f50cdba558c550c985252c3fd6
-WEBSOCAT_WINDOWS_X86_64_GNULLVM_0_52_4_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.52.4/download
+WEBSOCAT_WINDOWS_X86_64_GNULLVM_0_52_4_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnullvm/0.52.4/download)
 WEBSOCAT_WINDOWS_X86_64_GNULLVM_0_52_4_SOURCE	:= $(SRCDIR)/windows_x86_64_gnullvm-0.52.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_X86_64_GNULLVM_0_52_4
 
 WEBSOCAT_WINDOWS_X86_64_MSVC_0_48_5_MD5		:= 7799baff9a5664205d9110a2624e8989
-WEBSOCAT_WINDOWS_X86_64_MSVC_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_x86_64_msvc/0.48.5/download
+WEBSOCAT_WINDOWS_X86_64_MSVC_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_msvc/0.48.5/download)
 WEBSOCAT_WINDOWS_X86_64_MSVC_0_48_5_SOURCE	:= $(SRCDIR)/windows_x86_64_msvc-0.48.5.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_X86_64_MSVC_0_48_5
 
 WEBSOCAT_WINDOWS_X86_64_MSVC_0_52_4_MD5		:= ff740ff52ecfd509004f54630f94c3e4
-WEBSOCAT_WINDOWS_X86_64_MSVC_0_52_4_URL		:= https://crates.io/api/v1/crates/windows_x86_64_msvc/0.52.4/download
+WEBSOCAT_WINDOWS_X86_64_MSVC_0_52_4_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_msvc/0.52.4/download)
 WEBSOCAT_WINDOWS_X86_64_MSVC_0_52_4_SOURCE	:= $(SRCDIR)/windows_x86_64_msvc-0.52.4.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WINDOWS_X86_64_MSVC_0_52_4
 
 WEBSOCAT_WS2_32_SYS_0_2_1_MD5		:= 38346bab0933c9eb1e36d22fe4220ba7
-WEBSOCAT_WS2_32_SYS_0_2_1_URL		:= https://crates.io/api/v1/crates/ws2_32-sys/0.2.1/download
+WEBSOCAT_WS2_32_SYS_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, ws2_32-sys/0.2.1/download)
 WEBSOCAT_WS2_32_SYS_0_2_1_SOURCE	:= $(SRCDIR)/ws2_32-sys-0.2.1.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_WS2_32_SYS_0_2_1
 
 WEBSOCAT_ZEROIZE_1_7_0_MD5		:= 4ca31ec33e1508b14d3445f19a16ba55
-WEBSOCAT_ZEROIZE_1_7_0_URL		:= https://crates.io/api/v1/crates/zeroize/1.7.0/download
+WEBSOCAT_ZEROIZE_1_7_0_URL		:= $(call ptx/mirror, CRATESIO, zeroize/1.7.0/download)
 WEBSOCAT_ZEROIZE_1_7_0_SOURCE	:= $(SRCDIR)/zeroize-1.7.0.crate
 WEBSOCAT_PARTS			+= WEBSOCAT_ZEROIZE_1_7_0
 
