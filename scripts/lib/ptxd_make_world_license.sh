@@ -124,8 +124,13 @@ ptxd_make_world_license_write() {
     local brl='{' brr='}'
     local pkg_chapter="$(ptxd_make_latex_escape ${pkg_label})"
     local packages_url="${pkg_url}"
-    local packages_md5="${pkg_md5}"
-    local packages_sha256="${pkg_sha256}"
+    if [ -n "${pkg_sha256}" ]; then
+	local packages_checksum="${pkg_sha256}"
+	local packages_checksum_type="SHA256"
+    else
+	local packages_checksum="${pkg_md5}"
+	local packages_checksum_type="MD5"
+    fi
     local -a flags=( "${!pkg_license_flags[@]}" )
     local -a index=( "${!pkg_license_flags[@]}" )
     flags=( "${flags[@]/#/\\nameref${brl}}" )
@@ -139,8 +144,7 @@ ptxd_make_world_license_write() {
 	*proprietary*)
 	    pkg_chapter="${pkg_chapter} *** Proprietary License!"
 	    packages_url="*not available*"
-	    packages_md5="*not available*"
-	    packages_sha256="*not available*"
+	    packages_checksum="*not available*"
 	    ;;
 	*unknown*)
 	    pkg_chapter="${pkg_chapter} *** Unknown License!"
@@ -161,8 +165,7 @@ ptxd_make_world_license_write() {
 		${index[*]}
 		\item[Flags:] $(ptxd_make_latex_escape "${flags[*]}")
 		\item[URL:] \begin{flushleft}$(ptxd_make_latex_escape "${packages_url}")\end{flushleft}
-		\item[MD5:] {\ttfamily ${packages_md5}}
-		\item[SHA256:] {\ttfamily ${packages_sha256}}
+		\item[${packages_checksum_type}:] {\ttfamily ${packages_checksum}}
 		\fi
 		\end{description}
 	EOF
