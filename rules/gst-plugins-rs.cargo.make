@@ -14,582 +14,582 @@
 GST_PLUGINS_RS_CARGO_LOCK_MD5 := a9bd30b063836c41c9859c430daa2407
 
 GST_PLUGINS_RS_ADDR2LINE_0_25_1_MD5		:= 6185be920ab1302a8b29a5ed44875324
-GST_PLUGINS_RS_ADDR2LINE_0_25_1_URL		:= https://crates.io/api/v1/crates/addr2line/0.25.1/download
+GST_PLUGINS_RS_ADDR2LINE_0_25_1_URL		:= $(call ptx/mirror, CRATESIO, addr2line/0.25.1/download)
 GST_PLUGINS_RS_ADDR2LINE_0_25_1_SOURCE	:= $(SRCDIR)/addr2line-0.25.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ADDR2LINE_0_25_1
 
 GST_PLUGINS_RS_ADLER2_2_0_1_MD5		:= 873036bd52f5fd829bd41b3c2ca0bc08
-GST_PLUGINS_RS_ADLER2_2_0_1_URL		:= https://crates.io/api/v1/crates/adler2/2.0.1/download
+GST_PLUGINS_RS_ADLER2_2_0_1_URL		:= $(call ptx/mirror, CRATESIO, adler2/2.0.1/download)
 GST_PLUGINS_RS_ADLER2_2_0_1_SOURCE	:= $(SRCDIR)/adler2-2.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ADLER2_2_0_1
 
 GST_PLUGINS_RS_AES_0_8_4_MD5		:= bcd3b8d466e8187ed4bd4655b34b6285
-GST_PLUGINS_RS_AES_0_8_4_URL		:= https://crates.io/api/v1/crates/aes/0.8.4/download
+GST_PLUGINS_RS_AES_0_8_4_URL		:= $(call ptx/mirror, CRATESIO, aes/0.8.4/download)
 GST_PLUGINS_RS_AES_0_8_4_SOURCE	:= $(SRCDIR)/aes-0.8.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AES_0_8_4
 
 GST_PLUGINS_RS_AHASH_0_8_12_MD5		:= 2d72538f5e173edbd18d17e347f409bc
-GST_PLUGINS_RS_AHASH_0_8_12_URL		:= https://crates.io/api/v1/crates/ahash/0.8.12/download
+GST_PLUGINS_RS_AHASH_0_8_12_URL		:= $(call ptx/mirror, CRATESIO, ahash/0.8.12/download)
 GST_PLUGINS_RS_AHASH_0_8_12_SOURCE	:= $(SRCDIR)/ahash-0.8.12.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AHASH_0_8_12
 
 GST_PLUGINS_RS_AHO_CORASICK_1_1_4_MD5		:= 2fb8e2b2c327d642027d27dd82160195
-GST_PLUGINS_RS_AHO_CORASICK_1_1_4_URL		:= https://crates.io/api/v1/crates/aho-corasick/1.1.4/download
+GST_PLUGINS_RS_AHO_CORASICK_1_1_4_URL		:= $(call ptx/mirror, CRATESIO, aho-corasick/1.1.4/download)
 GST_PLUGINS_RS_AHO_CORASICK_1_1_4_SOURCE	:= $(SRCDIR)/aho-corasick-1.1.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AHO_CORASICK_1_1_4
 
 GST_PLUGINS_RS_ALIGNED_0_4_3_MD5		:= 6c9f338fc5deca6642b84e3babe32750
-GST_PLUGINS_RS_ALIGNED_0_4_3_URL		:= https://crates.io/api/v1/crates/aligned/0.4.3/download
+GST_PLUGINS_RS_ALIGNED_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, aligned/0.4.3/download)
 GST_PLUGINS_RS_ALIGNED_0_4_3_SOURCE	:= $(SRCDIR)/aligned-0.4.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ALIGNED_0_4_3
 
 GST_PLUGINS_RS_ALIGNED_VEC_0_6_4_MD5		:= 961ece9d3ed75a46ac4db3d95c394e55
-GST_PLUGINS_RS_ALIGNED_VEC_0_6_4_URL		:= https://crates.io/api/v1/crates/aligned-vec/0.6.4/download
+GST_PLUGINS_RS_ALIGNED_VEC_0_6_4_URL		:= $(call ptx/mirror, CRATESIO, aligned-vec/0.6.4/download)
 GST_PLUGINS_RS_ALIGNED_VEC_0_6_4_SOURCE	:= $(SRCDIR)/aligned-vec-0.6.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ALIGNED_VEC_0_6_4
 
 GST_PLUGINS_RS_ALLOCATOR_API2_0_2_21_MD5		:= a4cce839af1f5a83a1bf73de16819a75
-GST_PLUGINS_RS_ALLOCATOR_API2_0_2_21_URL		:= https://crates.io/api/v1/crates/allocator-api2/0.2.21/download
+GST_PLUGINS_RS_ALLOCATOR_API2_0_2_21_URL		:= $(call ptx/mirror, CRATESIO, allocator-api2/0.2.21/download)
 GST_PLUGINS_RS_ALLOCATOR_API2_0_2_21_SOURCE	:= $(SRCDIR)/allocator-api2-0.2.21.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ALLOCATOR_API2_0_2_21
 
 GST_PLUGINS_RS_ANDROID_SYSTEM_PROPERTIES_0_1_5_MD5		:= bf23cd323c33a8c283c41bb9b79e4ce4
-GST_PLUGINS_RS_ANDROID_SYSTEM_PROPERTIES_0_1_5_URL		:= https://crates.io/api/v1/crates/android_system_properties/0.1.5/download
+GST_PLUGINS_RS_ANDROID_SYSTEM_PROPERTIES_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, android_system_properties/0.1.5/download)
 GST_PLUGINS_RS_ANDROID_SYSTEM_PROPERTIES_0_1_5_SOURCE	:= $(SRCDIR)/android_system_properties-0.1.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ANDROID_SYSTEM_PROPERTIES_0_1_5
 
 GST_PLUGINS_RS_ANSTREAM_0_6_21_MD5		:= 082b8b397447a875d587f5f6447092db
-GST_PLUGINS_RS_ANSTREAM_0_6_21_URL		:= https://crates.io/api/v1/crates/anstream/0.6.21/download
+GST_PLUGINS_RS_ANSTREAM_0_6_21_URL		:= $(call ptx/mirror, CRATESIO, anstream/0.6.21/download)
 GST_PLUGINS_RS_ANSTREAM_0_6_21_SOURCE	:= $(SRCDIR)/anstream-0.6.21.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ANSTREAM_0_6_21
 
 GST_PLUGINS_RS_ANSTYLE_1_0_13_MD5		:= 8f73a79f90605665cbc9650aafa9ca45
-GST_PLUGINS_RS_ANSTYLE_1_0_13_URL		:= https://crates.io/api/v1/crates/anstyle/1.0.13/download
+GST_PLUGINS_RS_ANSTYLE_1_0_13_URL		:= $(call ptx/mirror, CRATESIO, anstyle/1.0.13/download)
 GST_PLUGINS_RS_ANSTYLE_1_0_13_SOURCE	:= $(SRCDIR)/anstyle-1.0.13.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ANSTYLE_1_0_13
 
 GST_PLUGINS_RS_ANSTYLE_PARSE_0_2_7_MD5		:= 27ce951824c9152083803a3f33f60d1c
-GST_PLUGINS_RS_ANSTYLE_PARSE_0_2_7_URL		:= https://crates.io/api/v1/crates/anstyle-parse/0.2.7/download
+GST_PLUGINS_RS_ANSTYLE_PARSE_0_2_7_URL		:= $(call ptx/mirror, CRATESIO, anstyle-parse/0.2.7/download)
 GST_PLUGINS_RS_ANSTYLE_PARSE_0_2_7_SOURCE	:= $(SRCDIR)/anstyle-parse-0.2.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ANSTYLE_PARSE_0_2_7
 
 GST_PLUGINS_RS_ANSTYLE_QUERY_1_1_5_MD5		:= c7aa5d86dfe62f20aebe2f9e8f2981d6
-GST_PLUGINS_RS_ANSTYLE_QUERY_1_1_5_URL		:= https://crates.io/api/v1/crates/anstyle-query/1.1.5/download
+GST_PLUGINS_RS_ANSTYLE_QUERY_1_1_5_URL		:= $(call ptx/mirror, CRATESIO, anstyle-query/1.1.5/download)
 GST_PLUGINS_RS_ANSTYLE_QUERY_1_1_5_SOURCE	:= $(SRCDIR)/anstyle-query-1.1.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ANSTYLE_QUERY_1_1_5
 
 GST_PLUGINS_RS_ANSTYLE_WINCON_3_0_11_MD5		:= c03b3c2d00cf63a83ca2798fd7693603
-GST_PLUGINS_RS_ANSTYLE_WINCON_3_0_11_URL		:= https://crates.io/api/v1/crates/anstyle-wincon/3.0.11/download
+GST_PLUGINS_RS_ANSTYLE_WINCON_3_0_11_URL		:= $(call ptx/mirror, CRATESIO, anstyle-wincon/3.0.11/download)
 GST_PLUGINS_RS_ANSTYLE_WINCON_3_0_11_SOURCE	:= $(SRCDIR)/anstyle-wincon-3.0.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ANSTYLE_WINCON_3_0_11
 
 GST_PLUGINS_RS_ANYHOW_1_0_102_MD5		:= d6185493a6ebbb1b9d976c535aadca10
-GST_PLUGINS_RS_ANYHOW_1_0_102_URL		:= https://crates.io/api/v1/crates/anyhow/1.0.102/download
+GST_PLUGINS_RS_ANYHOW_1_0_102_URL		:= $(call ptx/mirror, CRATESIO, anyhow/1.0.102/download)
 GST_PLUGINS_RS_ANYHOW_1_0_102_SOURCE	:= $(SRCDIR)/anyhow-1.0.102.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ANYHOW_1_0_102
 
 GST_PLUGINS_RS_ANYMAP3_1_0_1_MD5		:= 2d68884bb49ddaa6b1ffc0e39c50590c
-GST_PLUGINS_RS_ANYMAP3_1_0_1_URL		:= https://crates.io/api/v1/crates/anymap3/1.0.1/download
+GST_PLUGINS_RS_ANYMAP3_1_0_1_URL		:= $(call ptx/mirror, CRATESIO, anymap3/1.0.1/download)
 GST_PLUGINS_RS_ANYMAP3_1_0_1_SOURCE	:= $(SRCDIR)/anymap3-1.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ANYMAP3_1_0_1
 
 GST_PLUGINS_RS_ARBITRARY_1_4_2_MD5		:= 398727580fbb14a12bcbdb0851fac883
-GST_PLUGINS_RS_ARBITRARY_1_4_2_URL		:= https://crates.io/api/v1/crates/arbitrary/1.4.2/download
+GST_PLUGINS_RS_ARBITRARY_1_4_2_URL		:= $(call ptx/mirror, CRATESIO, arbitrary/1.4.2/download)
 GST_PLUGINS_RS_ARBITRARY_1_4_2_SOURCE	:= $(SRCDIR)/arbitrary-1.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ARBITRARY_1_4_2
 
 GST_PLUGINS_RS_ARG_ENUM_PROC_MACRO_0_3_4_MD5		:= 5f1f0d90556bfcd0fb1b1f021912e949
-GST_PLUGINS_RS_ARG_ENUM_PROC_MACRO_0_3_4_URL		:= https://crates.io/api/v1/crates/arg_enum_proc_macro/0.3.4/download
+GST_PLUGINS_RS_ARG_ENUM_PROC_MACRO_0_3_4_URL		:= $(call ptx/mirror, CRATESIO, arg_enum_proc_macro/0.3.4/download)
 GST_PLUGINS_RS_ARG_ENUM_PROC_MACRO_0_3_4_SOURCE	:= $(SRCDIR)/arg_enum_proc_macro-0.3.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ARG_ENUM_PROC_MACRO_0_3_4
 
 GST_PLUGINS_RS_ARRAY_INIT_2_1_0_MD5		:= 678f17b5a372e485c0eaab05320c17c4
-GST_PLUGINS_RS_ARRAY_INIT_2_1_0_URL		:= https://crates.io/api/v1/crates/array-init/2.1.0/download
+GST_PLUGINS_RS_ARRAY_INIT_2_1_0_URL		:= $(call ptx/mirror, CRATESIO, array-init/2.1.0/download)
 GST_PLUGINS_RS_ARRAY_INIT_2_1_0_SOURCE	:= $(SRCDIR)/array-init-2.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ARRAY_INIT_2_1_0
 
 GST_PLUGINS_RS_ARRAYVEC_0_7_6_MD5		:= 3ce13f8504b72552464acf5c8a29fe72
-GST_PLUGINS_RS_ARRAYVEC_0_7_6_URL		:= https://crates.io/api/v1/crates/arrayvec/0.7.6/download
+GST_PLUGINS_RS_ARRAYVEC_0_7_6_URL		:= $(call ptx/mirror, CRATESIO, arrayvec/0.7.6/download)
 GST_PLUGINS_RS_ARRAYVEC_0_7_6_SOURCE	:= $(SRCDIR)/arrayvec-0.7.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ARRAYVEC_0_7_6
 
 GST_PLUGINS_RS_AS_SLICE_0_2_1_MD5		:= fdd18ab1fcd6905d1abb3dce8a86ea68
-GST_PLUGINS_RS_AS_SLICE_0_2_1_URL		:= https://crates.io/api/v1/crates/as-slice/0.2.1/download
+GST_PLUGINS_RS_AS_SLICE_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, as-slice/0.2.1/download)
 GST_PLUGINS_RS_AS_SLICE_0_2_1_SOURCE	:= $(SRCDIR)/as-slice-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AS_SLICE_0_2_1
 
 GST_PLUGINS_RS_ASH_0_38_0_1_3_281_MD5		:= 57a24b7d0eb28101d91c9be9815cbf17
-GST_PLUGINS_RS_ASH_0_38_0_1_3_281_URL		:= https://crates.io/api/v1/crates/ash/0.38.0+1.3.281/download
+GST_PLUGINS_RS_ASH_0_38_0_1_3_281_URL		:= $(call ptx/mirror, CRATESIO, ash/0.38.0+1.3.281/download)
 GST_PLUGINS_RS_ASH_0_38_0_1_3_281_SOURCE	:= $(SRCDIR)/ash-0.38.0+1.3.281.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASH_0_38_0_1_3_281
 
 GST_PLUGINS_RS_ASN1_RS_0_7_1_MD5		:= d3a685aa92ac2ed269140664bff18773
-GST_PLUGINS_RS_ASN1_RS_0_7_1_URL		:= https://crates.io/api/v1/crates/asn1-rs/0.7.1/download
+GST_PLUGINS_RS_ASN1_RS_0_7_1_URL		:= $(call ptx/mirror, CRATESIO, asn1-rs/0.7.1/download)
 GST_PLUGINS_RS_ASN1_RS_0_7_1_SOURCE	:= $(SRCDIR)/asn1-rs-0.7.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASN1_RS_0_7_1
 
 GST_PLUGINS_RS_ASN1_RS_DERIVE_0_6_0_MD5		:= 38fe21e687382337932c6c5aaad1151c
-GST_PLUGINS_RS_ASN1_RS_DERIVE_0_6_0_URL		:= https://crates.io/api/v1/crates/asn1-rs-derive/0.6.0/download
+GST_PLUGINS_RS_ASN1_RS_DERIVE_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, asn1-rs-derive/0.6.0/download)
 GST_PLUGINS_RS_ASN1_RS_DERIVE_0_6_0_SOURCE	:= $(SRCDIR)/asn1-rs-derive-0.6.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASN1_RS_DERIVE_0_6_0
 
 GST_PLUGINS_RS_ASN1_RS_IMPL_0_2_0_MD5		:= fe9bf9f209265cf16047548d19978637
-GST_PLUGINS_RS_ASN1_RS_IMPL_0_2_0_URL		:= https://crates.io/api/v1/crates/asn1-rs-impl/0.2.0/download
+GST_PLUGINS_RS_ASN1_RS_IMPL_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, asn1-rs-impl/0.2.0/download)
 GST_PLUGINS_RS_ASN1_RS_IMPL_0_2_0_SOURCE	:= $(SRCDIR)/asn1-rs-impl-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASN1_RS_IMPL_0_2_0
 
 GST_PLUGINS_RS_ASYNC_CHANNEL_2_5_0_MD5		:= f8a8ecf4f8bdfd1680e54c8f4c81eb18
-GST_PLUGINS_RS_ASYNC_CHANNEL_2_5_0_URL		:= https://crates.io/api/v1/crates/async-channel/2.5.0/download
+GST_PLUGINS_RS_ASYNC_CHANNEL_2_5_0_URL		:= $(call ptx/mirror, CRATESIO, async-channel/2.5.0/download)
 GST_PLUGINS_RS_ASYNC_CHANNEL_2_5_0_SOURCE	:= $(SRCDIR)/async-channel-2.5.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASYNC_CHANNEL_2_5_0
 
 GST_PLUGINS_RS_ASYNC_COMPRESSION_0_4_41_MD5		:= 7fa3ff74c5631ab37ff5e07e4fafad3e
-GST_PLUGINS_RS_ASYNC_COMPRESSION_0_4_41_URL		:= https://crates.io/api/v1/crates/async-compression/0.4.41/download
+GST_PLUGINS_RS_ASYNC_COMPRESSION_0_4_41_URL		:= $(call ptx/mirror, CRATESIO, async-compression/0.4.41/download)
 GST_PLUGINS_RS_ASYNC_COMPRESSION_0_4_41_SOURCE	:= $(SRCDIR)/async-compression-0.4.41.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASYNC_COMPRESSION_0_4_41
 
 GST_PLUGINS_RS_ASYNC_LOCK_3_4_2_MD5		:= 1c0188df1c937ebaa68d67cf5230ebde
-GST_PLUGINS_RS_ASYNC_LOCK_3_4_2_URL		:= https://crates.io/api/v1/crates/async-lock/3.4.2/download
+GST_PLUGINS_RS_ASYNC_LOCK_3_4_2_URL		:= $(call ptx/mirror, CRATESIO, async-lock/3.4.2/download)
 GST_PLUGINS_RS_ASYNC_LOCK_3_4_2_SOURCE	:= $(SRCDIR)/async-lock-3.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASYNC_LOCK_3_4_2
 
 GST_PLUGINS_RS_ASYNC_RECURSION_1_1_1_MD5		:= 2e76f09d03d84f1402ef456531cda0ab
-GST_PLUGINS_RS_ASYNC_RECURSION_1_1_1_URL		:= https://crates.io/api/v1/crates/async-recursion/1.1.1/download
+GST_PLUGINS_RS_ASYNC_RECURSION_1_1_1_URL		:= $(call ptx/mirror, CRATESIO, async-recursion/1.1.1/download)
 GST_PLUGINS_RS_ASYNC_RECURSION_1_1_1_SOURCE	:= $(SRCDIR)/async-recursion-1.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASYNC_RECURSION_1_1_1
 
 GST_PLUGINS_RS_ASYNC_STREAM_0_3_6_MD5		:= 6bc1f27d4513fdbab995cc8d471c7ee5
-GST_PLUGINS_RS_ASYNC_STREAM_0_3_6_URL		:= https://crates.io/api/v1/crates/async-stream/0.3.6/download
+GST_PLUGINS_RS_ASYNC_STREAM_0_3_6_URL		:= $(call ptx/mirror, CRATESIO, async-stream/0.3.6/download)
 GST_PLUGINS_RS_ASYNC_STREAM_0_3_6_SOURCE	:= $(SRCDIR)/async-stream-0.3.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASYNC_STREAM_0_3_6
 
 GST_PLUGINS_RS_ASYNC_STREAM_IMPL_0_3_6_MD5		:= ef55651762f7d47a07ebaa0757d51cdc
-GST_PLUGINS_RS_ASYNC_STREAM_IMPL_0_3_6_URL		:= https://crates.io/api/v1/crates/async-stream-impl/0.3.6/download
+GST_PLUGINS_RS_ASYNC_STREAM_IMPL_0_3_6_URL		:= $(call ptx/mirror, CRATESIO, async-stream-impl/0.3.6/download)
 GST_PLUGINS_RS_ASYNC_STREAM_IMPL_0_3_6_SOURCE	:= $(SRCDIR)/async-stream-impl-0.3.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASYNC_STREAM_IMPL_0_3_6
 
 GST_PLUGINS_RS_ASYNC_TASK_4_7_1_MD5		:= e09416c884027b94479fc254f8d2388e
-GST_PLUGINS_RS_ASYNC_TASK_4_7_1_URL		:= https://crates.io/api/v1/crates/async-task/4.7.1/download
+GST_PLUGINS_RS_ASYNC_TASK_4_7_1_URL		:= $(call ptx/mirror, CRATESIO, async-task/4.7.1/download)
 GST_PLUGINS_RS_ASYNC_TASK_4_7_1_SOURCE	:= $(SRCDIR)/async-task-4.7.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASYNC_TASK_4_7_1
 
 GST_PLUGINS_RS_ASYNC_TRAIT_0_1_89_MD5		:= d29971a331ab6d870ba90d0c019d0c06
-GST_PLUGINS_RS_ASYNC_TRAIT_0_1_89_URL		:= https://crates.io/api/v1/crates/async-trait/0.1.89/download
+GST_PLUGINS_RS_ASYNC_TRAIT_0_1_89_URL		:= $(call ptx/mirror, CRATESIO, async-trait/0.1.89/download)
 GST_PLUGINS_RS_ASYNC_TRAIT_0_1_89_SOURCE	:= $(SRCDIR)/async-trait-0.1.89.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASYNC_TRAIT_0_1_89
 
 GST_PLUGINS_RS_ASYNC_TUNGSTENITE_0_33_0_MD5		:= 783021786b0dc3d392b5e44a0550e7a5
-GST_PLUGINS_RS_ASYNC_TUNGSTENITE_0_33_0_URL		:= https://crates.io/api/v1/crates/async-tungstenite/0.33.0/download
+GST_PLUGINS_RS_ASYNC_TUNGSTENITE_0_33_0_URL		:= $(call ptx/mirror, CRATESIO, async-tungstenite/0.33.0/download)
 GST_PLUGINS_RS_ASYNC_TUNGSTENITE_0_33_0_SOURCE	:= $(SRCDIR)/async-tungstenite-0.33.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ASYNC_TUNGSTENITE_0_33_0
 
 GST_PLUGINS_RS_ATOMIC_WAKER_1_1_2_MD5		:= 6a44afda654777d2930b93366bdfc7f3
-GST_PLUGINS_RS_ATOMIC_WAKER_1_1_2_URL		:= https://crates.io/api/v1/crates/atomic-waker/1.1.2/download
+GST_PLUGINS_RS_ATOMIC_WAKER_1_1_2_URL		:= $(call ptx/mirror, CRATESIO, atomic-waker/1.1.2/download)
 GST_PLUGINS_RS_ATOMIC_WAKER_1_1_2_SOURCE	:= $(SRCDIR)/atomic-waker-1.1.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ATOMIC_WAKER_1_1_2
 
 GST_PLUGINS_RS_ATOMIC_FLOAT_1_1_0_MD5		:= b78a5f8a2084adeaa64abf57008b2c70
-GST_PLUGINS_RS_ATOMIC_FLOAT_1_1_0_URL		:= https://crates.io/api/v1/crates/atomic_float/1.1.0/download
+GST_PLUGINS_RS_ATOMIC_FLOAT_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, atomic_float/1.1.0/download)
 GST_PLUGINS_RS_ATOMIC_FLOAT_1_1_0_SOURCE	:= $(SRCDIR)/atomic_float-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ATOMIC_FLOAT_1_1_0
 
 GST_PLUGINS_RS_ATOMIC_REFCELL_0_1_13_MD5		:= 44d013310c0ba44e00bae5f29a55e57d
-GST_PLUGINS_RS_ATOMIC_REFCELL_0_1_13_URL		:= https://crates.io/api/v1/crates/atomic_refcell/0.1.13/download
+GST_PLUGINS_RS_ATOMIC_REFCELL_0_1_13_URL		:= $(call ptx/mirror, CRATESIO, atomic_refcell/0.1.13/download)
 GST_PLUGINS_RS_ATOMIC_REFCELL_0_1_13_SOURCE	:= $(SRCDIR)/atomic_refcell-0.1.13.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ATOMIC_REFCELL_0_1_13
 
 GST_PLUGINS_RS_AUTOCFG_1_5_0_MD5		:= 3e70bb53cab36a3ef2a02dfce21bc472
-GST_PLUGINS_RS_AUTOCFG_1_5_0_URL		:= https://crates.io/api/v1/crates/autocfg/1.5.0/download
+GST_PLUGINS_RS_AUTOCFG_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, autocfg/1.5.0/download)
 GST_PLUGINS_RS_AUTOCFG_1_5_0_SOURCE	:= $(SRCDIR)/autocfg-1.5.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AUTOCFG_1_5_0
 
 GST_PLUGINS_RS_AV_DATA_0_4_4_MD5		:= 8a526915d751c5101a7599bbd12d41aa
-GST_PLUGINS_RS_AV_DATA_0_4_4_URL		:= https://crates.io/api/v1/crates/av-data/0.4.4/download
+GST_PLUGINS_RS_AV_DATA_0_4_4_URL		:= $(call ptx/mirror, CRATESIO, av-data/0.4.4/download)
 GST_PLUGINS_RS_AV_DATA_0_4_4_SOURCE	:= $(SRCDIR)/av-data-0.4.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AV_DATA_0_4_4
 
 GST_PLUGINS_RS_AV_SCENECHANGE_0_14_1_MD5		:= ad6d53c7685471646c2d5837401adf90
-GST_PLUGINS_RS_AV_SCENECHANGE_0_14_1_URL		:= https://crates.io/api/v1/crates/av-scenechange/0.14.1/download
+GST_PLUGINS_RS_AV_SCENECHANGE_0_14_1_URL		:= $(call ptx/mirror, CRATESIO, av-scenechange/0.14.1/download)
 GST_PLUGINS_RS_AV_SCENECHANGE_0_14_1_SOURCE	:= $(SRCDIR)/av-scenechange-0.14.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AV_SCENECHANGE_0_14_1
 
 GST_PLUGINS_RS_AV1_GRAIN_0_2_5_MD5		:= cb76f5372ac76de7635076107a3bbe34
-GST_PLUGINS_RS_AV1_GRAIN_0_2_5_URL		:= https://crates.io/api/v1/crates/av1-grain/0.2.5/download
+GST_PLUGINS_RS_AV1_GRAIN_0_2_5_URL		:= $(call ptx/mirror, CRATESIO, av1-grain/0.2.5/download)
 GST_PLUGINS_RS_AV1_GRAIN_0_2_5_SOURCE	:= $(SRCDIR)/av1-grain-0.2.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AV1_GRAIN_0_2_5
 
 GST_PLUGINS_RS_AWS_CONFIG_1_8_14_MD5		:= c2e87c8bdd1044437245dd5991960070
-GST_PLUGINS_RS_AWS_CONFIG_1_8_14_URL		:= https://crates.io/api/v1/crates/aws-config/1.8.14/download
+GST_PLUGINS_RS_AWS_CONFIG_1_8_14_URL		:= $(call ptx/mirror, CRATESIO, aws-config/1.8.14/download)
 GST_PLUGINS_RS_AWS_CONFIG_1_8_14_SOURCE	:= $(SRCDIR)/aws-config-1.8.14.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_CONFIG_1_8_14
 
 GST_PLUGINS_RS_AWS_CREDENTIAL_TYPES_1_2_13_MD5		:= 58aece84f7bc79ba98f2a4292565bb61
-GST_PLUGINS_RS_AWS_CREDENTIAL_TYPES_1_2_13_URL		:= https://crates.io/api/v1/crates/aws-credential-types/1.2.13/download
+GST_PLUGINS_RS_AWS_CREDENTIAL_TYPES_1_2_13_URL		:= $(call ptx/mirror, CRATESIO, aws-credential-types/1.2.13/download)
 GST_PLUGINS_RS_AWS_CREDENTIAL_TYPES_1_2_13_SOURCE	:= $(SRCDIR)/aws-credential-types-1.2.13.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_CREDENTIAL_TYPES_1_2_13
 
 GST_PLUGINS_RS_AWS_RUNTIME_1_7_1_MD5		:= 5563bbc8b1283dd859d90f4e11b770a0
-GST_PLUGINS_RS_AWS_RUNTIME_1_7_1_URL		:= https://crates.io/api/v1/crates/aws-runtime/1.7.1/download
+GST_PLUGINS_RS_AWS_RUNTIME_1_7_1_URL		:= $(call ptx/mirror, CRATESIO, aws-runtime/1.7.1/download)
 GST_PLUGINS_RS_AWS_RUNTIME_1_7_1_SOURCE	:= $(SRCDIR)/aws-runtime-1.7.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_RUNTIME_1_7_1
 
 GST_PLUGINS_RS_AWS_SDK_KINESISVIDEO_1_97_0_MD5		:= 175fff2d76826fe4255902d4359c0b35
-GST_PLUGINS_RS_AWS_SDK_KINESISVIDEO_1_97_0_URL		:= https://crates.io/api/v1/crates/aws-sdk-kinesisvideo/1.97.0/download
+GST_PLUGINS_RS_AWS_SDK_KINESISVIDEO_1_97_0_URL		:= $(call ptx/mirror, CRATESIO, aws-sdk-kinesisvideo/1.97.0/download)
 GST_PLUGINS_RS_AWS_SDK_KINESISVIDEO_1_97_0_SOURCE	:= $(SRCDIR)/aws-sdk-kinesisvideo-1.97.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SDK_KINESISVIDEO_1_97_0
 
 GST_PLUGINS_RS_AWS_SDK_KINESISVIDEOSIGNALING_1_95_0_MD5		:= 80b09d5c74b96c60e17c1aca18f59b36
-GST_PLUGINS_RS_AWS_SDK_KINESISVIDEOSIGNALING_1_95_0_URL		:= https://crates.io/api/v1/crates/aws-sdk-kinesisvideosignaling/1.95.0/download
+GST_PLUGINS_RS_AWS_SDK_KINESISVIDEOSIGNALING_1_95_0_URL		:= $(call ptx/mirror, CRATESIO, aws-sdk-kinesisvideosignaling/1.95.0/download)
 GST_PLUGINS_RS_AWS_SDK_KINESISVIDEOSIGNALING_1_95_0_SOURCE	:= $(SRCDIR)/aws-sdk-kinesisvideosignaling-1.95.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SDK_KINESISVIDEOSIGNALING_1_95_0
 
 GST_PLUGINS_RS_AWS_SDK_POLLY_1_100_0_MD5		:= 5f5e71394835cb5fc431b787033b0aa2
-GST_PLUGINS_RS_AWS_SDK_POLLY_1_100_0_URL		:= https://crates.io/api/v1/crates/aws-sdk-polly/1.100.0/download
+GST_PLUGINS_RS_AWS_SDK_POLLY_1_100_0_URL		:= $(call ptx/mirror, CRATESIO, aws-sdk-polly/1.100.0/download)
 GST_PLUGINS_RS_AWS_SDK_POLLY_1_100_0_SOURCE	:= $(SRCDIR)/aws-sdk-polly-1.100.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SDK_POLLY_1_100_0
 
 GST_PLUGINS_RS_AWS_SDK_S3_1_124_0_MD5		:= a1522e70344aef7a98b3e3fef076e024
-GST_PLUGINS_RS_AWS_SDK_S3_1_124_0_URL		:= https://crates.io/api/v1/crates/aws-sdk-s3/1.124.0/download
+GST_PLUGINS_RS_AWS_SDK_S3_1_124_0_URL		:= $(call ptx/mirror, CRATESIO, aws-sdk-s3/1.124.0/download)
 GST_PLUGINS_RS_AWS_SDK_S3_1_124_0_SOURCE	:= $(SRCDIR)/aws-sdk-s3-1.124.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SDK_S3_1_124_0
 
 GST_PLUGINS_RS_AWS_SDK_SSO_1_95_0_MD5		:= 10f2ea13d44e31fc919431df8bbfecbc
-GST_PLUGINS_RS_AWS_SDK_SSO_1_95_0_URL		:= https://crates.io/api/v1/crates/aws-sdk-sso/1.95.0/download
+GST_PLUGINS_RS_AWS_SDK_SSO_1_95_0_URL		:= $(call ptx/mirror, CRATESIO, aws-sdk-sso/1.95.0/download)
 GST_PLUGINS_RS_AWS_SDK_SSO_1_95_0_SOURCE	:= $(SRCDIR)/aws-sdk-sso-1.95.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SDK_SSO_1_95_0
 
 GST_PLUGINS_RS_AWS_SDK_STS_1_99_0_MD5		:= 8a25f75751ff4d47283538fa08e20fe6
-GST_PLUGINS_RS_AWS_SDK_STS_1_99_0_URL		:= https://crates.io/api/v1/crates/aws-sdk-sts/1.99.0/download
+GST_PLUGINS_RS_AWS_SDK_STS_1_99_0_URL		:= $(call ptx/mirror, CRATESIO, aws-sdk-sts/1.99.0/download)
 GST_PLUGINS_RS_AWS_SDK_STS_1_99_0_SOURCE	:= $(SRCDIR)/aws-sdk-sts-1.99.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SDK_STS_1_99_0
 
 GST_PLUGINS_RS_AWS_SDK_TRANSCRIBESTREAMING_1_100_0_MD5		:= 7f4fe177dfefff37591d9fddbd825e81
-GST_PLUGINS_RS_AWS_SDK_TRANSCRIBESTREAMING_1_100_0_URL		:= https://crates.io/api/v1/crates/aws-sdk-transcribestreaming/1.100.0/download
+GST_PLUGINS_RS_AWS_SDK_TRANSCRIBESTREAMING_1_100_0_URL		:= $(call ptx/mirror, CRATESIO, aws-sdk-transcribestreaming/1.100.0/download)
 GST_PLUGINS_RS_AWS_SDK_TRANSCRIBESTREAMING_1_100_0_SOURCE	:= $(SRCDIR)/aws-sdk-transcribestreaming-1.100.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SDK_TRANSCRIBESTREAMING_1_100_0
 
 GST_PLUGINS_RS_AWS_SDK_TRANSLATE_1_95_0_MD5		:= 5bc0e7aa3fda8f79c74f2fbc39898533
-GST_PLUGINS_RS_AWS_SDK_TRANSLATE_1_95_0_URL		:= https://crates.io/api/v1/crates/aws-sdk-translate/1.95.0/download
+GST_PLUGINS_RS_AWS_SDK_TRANSLATE_1_95_0_URL		:= $(call ptx/mirror, CRATESIO, aws-sdk-translate/1.95.0/download)
 GST_PLUGINS_RS_AWS_SDK_TRANSLATE_1_95_0_SOURCE	:= $(SRCDIR)/aws-sdk-translate-1.95.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SDK_TRANSLATE_1_95_0
 
 GST_PLUGINS_RS_AWS_SIGV4_1_4_1_MD5		:= 07f06315e8ae59eca79d40b8c2ae454d
-GST_PLUGINS_RS_AWS_SIGV4_1_4_1_URL		:= https://crates.io/api/v1/crates/aws-sigv4/1.4.1/download
+GST_PLUGINS_RS_AWS_SIGV4_1_4_1_URL		:= $(call ptx/mirror, CRATESIO, aws-sigv4/1.4.1/download)
 GST_PLUGINS_RS_AWS_SIGV4_1_4_1_SOURCE	:= $(SRCDIR)/aws-sigv4-1.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SIGV4_1_4_1
 
 GST_PLUGINS_RS_AWS_SMITHY_ASYNC_1_2_13_MD5		:= 5870767adb1ca7bfa0f8841157116f99
-GST_PLUGINS_RS_AWS_SMITHY_ASYNC_1_2_13_URL		:= https://crates.io/api/v1/crates/aws-smithy-async/1.2.13/download
+GST_PLUGINS_RS_AWS_SMITHY_ASYNC_1_2_13_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-async/1.2.13/download)
 GST_PLUGINS_RS_AWS_SMITHY_ASYNC_1_2_13_SOURCE	:= $(SRCDIR)/aws-smithy-async-1.2.13.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_ASYNC_1_2_13
 
 GST_PLUGINS_RS_AWS_SMITHY_CHECKSUMS_0_64_5_MD5		:= ce6a255d3b35fd235d7fc99ef3afe987
-GST_PLUGINS_RS_AWS_SMITHY_CHECKSUMS_0_64_5_URL		:= https://crates.io/api/v1/crates/aws-smithy-checksums/0.64.5/download
+GST_PLUGINS_RS_AWS_SMITHY_CHECKSUMS_0_64_5_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-checksums/0.64.5/download)
 GST_PLUGINS_RS_AWS_SMITHY_CHECKSUMS_0_64_5_SOURCE	:= $(SRCDIR)/aws-smithy-checksums-0.64.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_CHECKSUMS_0_64_5
 
 GST_PLUGINS_RS_AWS_SMITHY_EVENTSTREAM_0_60_19_MD5		:= 283f927dd3ee64e696631a5ba7e1f27d
-GST_PLUGINS_RS_AWS_SMITHY_EVENTSTREAM_0_60_19_URL		:= https://crates.io/api/v1/crates/aws-smithy-eventstream/0.60.19/download
+GST_PLUGINS_RS_AWS_SMITHY_EVENTSTREAM_0_60_19_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-eventstream/0.60.19/download)
 GST_PLUGINS_RS_AWS_SMITHY_EVENTSTREAM_0_60_19_SOURCE	:= $(SRCDIR)/aws-smithy-eventstream-0.60.19.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_EVENTSTREAM_0_60_19
 
 GST_PLUGINS_RS_AWS_SMITHY_HTTP_0_63_5_MD5		:= dc2b2c84674d515b1ae171e6348fdbfa
-GST_PLUGINS_RS_AWS_SMITHY_HTTP_0_63_5_URL		:= https://crates.io/api/v1/crates/aws-smithy-http/0.63.5/download
+GST_PLUGINS_RS_AWS_SMITHY_HTTP_0_63_5_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-http/0.63.5/download)
 GST_PLUGINS_RS_AWS_SMITHY_HTTP_0_63_5_SOURCE	:= $(SRCDIR)/aws-smithy-http-0.63.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_HTTP_0_63_5
 
 GST_PLUGINS_RS_AWS_SMITHY_HTTP_CLIENT_1_1_11_MD5		:= fcdc69e24cd2894bbe5140877ba2f28d
-GST_PLUGINS_RS_AWS_SMITHY_HTTP_CLIENT_1_1_11_URL		:= https://crates.io/api/v1/crates/aws-smithy-http-client/1.1.11/download
+GST_PLUGINS_RS_AWS_SMITHY_HTTP_CLIENT_1_1_11_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-http-client/1.1.11/download)
 GST_PLUGINS_RS_AWS_SMITHY_HTTP_CLIENT_1_1_11_SOURCE	:= $(SRCDIR)/aws-smithy-http-client-1.1.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_HTTP_CLIENT_1_1_11
 
 GST_PLUGINS_RS_AWS_SMITHY_JSON_0_62_4_MD5		:= 53fd403fcfdb62f1d43c08a4d5c55f2b
-GST_PLUGINS_RS_AWS_SMITHY_JSON_0_62_4_URL		:= https://crates.io/api/v1/crates/aws-smithy-json/0.62.4/download
+GST_PLUGINS_RS_AWS_SMITHY_JSON_0_62_4_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-json/0.62.4/download)
 GST_PLUGINS_RS_AWS_SMITHY_JSON_0_62_4_SOURCE	:= $(SRCDIR)/aws-smithy-json-0.62.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_JSON_0_62_4
 
 GST_PLUGINS_RS_AWS_SMITHY_OBSERVABILITY_0_2_5_MD5		:= 6b29b235e892edd8d4a9d625a09c411e
-GST_PLUGINS_RS_AWS_SMITHY_OBSERVABILITY_0_2_5_URL		:= https://crates.io/api/v1/crates/aws-smithy-observability/0.2.5/download
+GST_PLUGINS_RS_AWS_SMITHY_OBSERVABILITY_0_2_5_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-observability/0.2.5/download)
 GST_PLUGINS_RS_AWS_SMITHY_OBSERVABILITY_0_2_5_SOURCE	:= $(SRCDIR)/aws-smithy-observability-0.2.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_OBSERVABILITY_0_2_5
 
 GST_PLUGINS_RS_AWS_SMITHY_QUERY_0_60_14_MD5		:= 03f95005125e935ff8368da0cea53d53
-GST_PLUGINS_RS_AWS_SMITHY_QUERY_0_60_14_URL		:= https://crates.io/api/v1/crates/aws-smithy-query/0.60.14/download
+GST_PLUGINS_RS_AWS_SMITHY_QUERY_0_60_14_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-query/0.60.14/download)
 GST_PLUGINS_RS_AWS_SMITHY_QUERY_0_60_14_SOURCE	:= $(SRCDIR)/aws-smithy-query-0.60.14.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_QUERY_0_60_14
 
 GST_PLUGINS_RS_AWS_SMITHY_RUNTIME_1_10_2_MD5		:= 33639c4696f0c570445715bc4ce1de26
-GST_PLUGINS_RS_AWS_SMITHY_RUNTIME_1_10_2_URL		:= https://crates.io/api/v1/crates/aws-smithy-runtime/1.10.2/download
+GST_PLUGINS_RS_AWS_SMITHY_RUNTIME_1_10_2_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-runtime/1.10.2/download)
 GST_PLUGINS_RS_AWS_SMITHY_RUNTIME_1_10_2_SOURCE	:= $(SRCDIR)/aws-smithy-runtime-1.10.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_RUNTIME_1_10_2
 
 GST_PLUGINS_RS_AWS_SMITHY_RUNTIME_API_1_11_5_MD5		:= 78f8a9691fa6a80d5b0d4203ba4797d3
-GST_PLUGINS_RS_AWS_SMITHY_RUNTIME_API_1_11_5_URL		:= https://crates.io/api/v1/crates/aws-smithy-runtime-api/1.11.5/download
+GST_PLUGINS_RS_AWS_SMITHY_RUNTIME_API_1_11_5_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-runtime-api/1.11.5/download)
 GST_PLUGINS_RS_AWS_SMITHY_RUNTIME_API_1_11_5_SOURCE	:= $(SRCDIR)/aws-smithy-runtime-api-1.11.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_RUNTIME_API_1_11_5
 
 GST_PLUGINS_RS_AWS_SMITHY_TYPES_1_4_5_MD5		:= bc6719438b327715e80f4f76c4e4e074
-GST_PLUGINS_RS_AWS_SMITHY_TYPES_1_4_5_URL		:= https://crates.io/api/v1/crates/aws-smithy-types/1.4.5/download
+GST_PLUGINS_RS_AWS_SMITHY_TYPES_1_4_5_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-types/1.4.5/download)
 GST_PLUGINS_RS_AWS_SMITHY_TYPES_1_4_5_SOURCE	:= $(SRCDIR)/aws-smithy-types-1.4.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_TYPES_1_4_5
 
 GST_PLUGINS_RS_AWS_SMITHY_XML_0_60_14_MD5		:= c08caa9caa455c038841b675800521b7
-GST_PLUGINS_RS_AWS_SMITHY_XML_0_60_14_URL		:= https://crates.io/api/v1/crates/aws-smithy-xml/0.60.14/download
+GST_PLUGINS_RS_AWS_SMITHY_XML_0_60_14_URL		:= $(call ptx/mirror, CRATESIO, aws-smithy-xml/0.60.14/download)
 GST_PLUGINS_RS_AWS_SMITHY_XML_0_60_14_SOURCE	:= $(SRCDIR)/aws-smithy-xml-0.60.14.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_SMITHY_XML_0_60_14
 
 GST_PLUGINS_RS_AWS_TYPES_1_3_13_MD5		:= 2790c500ac1515b4d05255018a3e625f
-GST_PLUGINS_RS_AWS_TYPES_1_3_13_URL		:= https://crates.io/api/v1/crates/aws-types/1.3.13/download
+GST_PLUGINS_RS_AWS_TYPES_1_3_13_URL		:= $(call ptx/mirror, CRATESIO, aws-types/1.3.13/download)
 GST_PLUGINS_RS_AWS_TYPES_1_3_13_SOURCE	:= $(SRCDIR)/aws-types-1.3.13.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_AWS_TYPES_1_3_13
 
 GST_PLUGINS_RS_BACKTRACE_0_3_76_MD5		:= 0234fbff6a32192b355625a61e32bcfe
-GST_PLUGINS_RS_BACKTRACE_0_3_76_URL		:= https://crates.io/api/v1/crates/backtrace/0.3.76/download
+GST_PLUGINS_RS_BACKTRACE_0_3_76_URL		:= $(call ptx/mirror, CRATESIO, backtrace/0.3.76/download)
 GST_PLUGINS_RS_BACKTRACE_0_3_76_SOURCE	:= $(SRCDIR)/backtrace-0.3.76.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BACKTRACE_0_3_76
 
 GST_PLUGINS_RS_BASE16CT_0_1_1_MD5		:= 8455e3593aaf2e71ad1dafe46ed67a3c
-GST_PLUGINS_RS_BASE16CT_0_1_1_URL		:= https://crates.io/api/v1/crates/base16ct/0.1.1/download
+GST_PLUGINS_RS_BASE16CT_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, base16ct/0.1.1/download)
 GST_PLUGINS_RS_BASE16CT_0_1_1_SOURCE	:= $(SRCDIR)/base16ct-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BASE16CT_0_1_1
 
 GST_PLUGINS_RS_BASE32_0_5_1_MD5		:= e3dabe4b9660bd355b15f2ae1c569f37
-GST_PLUGINS_RS_BASE32_0_5_1_URL		:= https://crates.io/api/v1/crates/base32/0.5.1/download
+GST_PLUGINS_RS_BASE32_0_5_1_URL		:= $(call ptx/mirror, CRATESIO, base32/0.5.1/download)
 GST_PLUGINS_RS_BASE32_0_5_1_SOURCE	:= $(SRCDIR)/base32-0.5.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BASE32_0_5_1
 
 GST_PLUGINS_RS_BASE64_0_21_7_MD5		:= 5a5f45206802441161524e1be576da1f
-GST_PLUGINS_RS_BASE64_0_21_7_URL		:= https://crates.io/api/v1/crates/base64/0.21.7/download
+GST_PLUGINS_RS_BASE64_0_21_7_URL		:= $(call ptx/mirror, CRATESIO, base64/0.21.7/download)
 GST_PLUGINS_RS_BASE64_0_21_7_SOURCE	:= $(SRCDIR)/base64-0.21.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BASE64_0_21_7
 
 GST_PLUGINS_RS_BASE64_0_22_1_MD5		:= 20084c4c04bcc06fd3d7ff662deca706
-GST_PLUGINS_RS_BASE64_0_22_1_URL		:= https://crates.io/api/v1/crates/base64/0.22.1/download
+GST_PLUGINS_RS_BASE64_0_22_1_URL		:= $(call ptx/mirror, CRATESIO, base64/0.22.1/download)
 GST_PLUGINS_RS_BASE64_0_22_1_SOURCE	:= $(SRCDIR)/base64-0.22.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BASE64_0_22_1
 
 GST_PLUGINS_RS_BASE64_SERDE_0_8_0_MD5		:= e53172ef3f0d8cde85f78217518c9dba
-GST_PLUGINS_RS_BASE64_SERDE_0_8_0_URL		:= https://crates.io/api/v1/crates/base64-serde/0.8.0/download
+GST_PLUGINS_RS_BASE64_SERDE_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, base64-serde/0.8.0/download)
 GST_PLUGINS_RS_BASE64_SERDE_0_8_0_SOURCE	:= $(SRCDIR)/base64-serde-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BASE64_SERDE_0_8_0
 
 GST_PLUGINS_RS_BASE64_SIMD_0_8_0_MD5		:= 01d2513b275ae4baacd5d31ede2ef71c
-GST_PLUGINS_RS_BASE64_SIMD_0_8_0_URL		:= https://crates.io/api/v1/crates/base64-simd/0.8.0/download
+GST_PLUGINS_RS_BASE64_SIMD_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, base64-simd/0.8.0/download)
 GST_PLUGINS_RS_BASE64_SIMD_0_8_0_SOURCE	:= $(SRCDIR)/base64-simd-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BASE64_SIMD_0_8_0
 
 GST_PLUGINS_RS_BASE64CT_1_8_3_MD5		:= 08a6eb0bc8d7d522bfee7589d357f00d
-GST_PLUGINS_RS_BASE64CT_1_8_3_URL		:= https://crates.io/api/v1/crates/base64ct/1.8.3/download
+GST_PLUGINS_RS_BASE64CT_1_8_3_URL		:= $(call ptx/mirror, CRATESIO, base64ct/1.8.3/download)
 GST_PLUGINS_RS_BASE64CT_1_8_3_SOURCE	:= $(SRCDIR)/base64ct-1.8.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BASE64CT_1_8_3
 
 GST_PLUGINS_RS_BINCODE_1_3_3_MD5		:= b9beac7e75b4986031a89562c26eb553
-GST_PLUGINS_RS_BINCODE_1_3_3_URL		:= https://crates.io/api/v1/crates/bincode/1.3.3/download
+GST_PLUGINS_RS_BINCODE_1_3_3_URL		:= $(call ptx/mirror, CRATESIO, bincode/1.3.3/download)
 GST_PLUGINS_RS_BINCODE_1_3_3_SOURCE	:= $(SRCDIR)/bincode-1.3.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BINCODE_1_3_3
 
 GST_PLUGINS_RS_BINCODE_2_0_1_MD5		:= da534a5cf27fc4ffdde56f52f1fcb2a0
-GST_PLUGINS_RS_BINCODE_2_0_1_URL		:= https://crates.io/api/v1/crates/bincode/2.0.1/download
+GST_PLUGINS_RS_BINCODE_2_0_1_URL		:= $(call ptx/mirror, CRATESIO, bincode/2.0.1/download)
 GST_PLUGINS_RS_BINCODE_2_0_1_SOURCE	:= $(SRCDIR)/bincode-2.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BINCODE_2_0_1
 
 GST_PLUGINS_RS_BINDGEN_0_70_1_MD5		:= 678b314fead2ae18138aa24753d689a4
-GST_PLUGINS_RS_BINDGEN_0_70_1_URL		:= https://crates.io/api/v1/crates/bindgen/0.70.1/download
+GST_PLUGINS_RS_BINDGEN_0_70_1_URL		:= $(call ptx/mirror, CRATESIO, bindgen/0.70.1/download)
 GST_PLUGINS_RS_BINDGEN_0_70_1_SOURCE	:= $(SRCDIR)/bindgen-0.70.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BINDGEN_0_70_1
 
 GST_PLUGINS_RS_BINDGEN_0_71_1_MD5		:= 39602f830d9c0a0a57ea156016ccde07
-GST_PLUGINS_RS_BINDGEN_0_71_1_URL		:= https://crates.io/api/v1/crates/bindgen/0.71.1/download
+GST_PLUGINS_RS_BINDGEN_0_71_1_URL		:= $(call ptx/mirror, CRATESIO, bindgen/0.71.1/download)
 GST_PLUGINS_RS_BINDGEN_0_71_1_SOURCE	:= $(SRCDIR)/bindgen-0.71.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BINDGEN_0_71_1
 
 GST_PLUGINS_RS_BINDGEN_0_72_1_MD5		:= ad2d79fdb3d9280ae34a5f18f9fcb788
-GST_PLUGINS_RS_BINDGEN_0_72_1_URL		:= https://crates.io/api/v1/crates/bindgen/0.72.1/download
+GST_PLUGINS_RS_BINDGEN_0_72_1_URL		:= $(call ptx/mirror, CRATESIO, bindgen/0.72.1/download)
 GST_PLUGINS_RS_BINDGEN_0_72_1_SOURCE	:= $(SRCDIR)/bindgen-0.72.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BINDGEN_0_72_1
 
 GST_PLUGINS_RS_BIT_SET_0_8_0_MD5		:= fa4e40913159dd05959a52a5dff270fc
-GST_PLUGINS_RS_BIT_SET_0_8_0_URL		:= https://crates.io/api/v1/crates/bit-set/0.8.0/download
+GST_PLUGINS_RS_BIT_SET_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, bit-set/0.8.0/download)
 GST_PLUGINS_RS_BIT_SET_0_8_0_SOURCE	:= $(SRCDIR)/bit-set-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BIT_SET_0_8_0
 
 GST_PLUGINS_RS_BIT_VEC_0_8_0_MD5		:= 66aebb5faa7f9df11bdeb5c1b1aca9a2
-GST_PLUGINS_RS_BIT_VEC_0_8_0_URL		:= https://crates.io/api/v1/crates/bit-vec/0.8.0/download
+GST_PLUGINS_RS_BIT_VEC_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, bit-vec/0.8.0/download)
 GST_PLUGINS_RS_BIT_VEC_0_8_0_SOURCE	:= $(SRCDIR)/bit-vec-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BIT_VEC_0_8_0
 
 GST_PLUGINS_RS_BITFLAGS_1_3_2_MD5		:= a295edb6953237ebbdfa8e731229f9a3
-GST_PLUGINS_RS_BITFLAGS_1_3_2_URL		:= https://crates.io/api/v1/crates/bitflags/1.3.2/download
+GST_PLUGINS_RS_BITFLAGS_1_3_2_URL		:= $(call ptx/mirror, CRATESIO, bitflags/1.3.2/download)
 GST_PLUGINS_RS_BITFLAGS_1_3_2_SOURCE	:= $(SRCDIR)/bitflags-1.3.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BITFLAGS_1_3_2
 
 GST_PLUGINS_RS_BITFLAGS_2_11_0_MD5		:= 58f403eb1c3a8600210527b17908e37a
-GST_PLUGINS_RS_BITFLAGS_2_11_0_URL		:= https://crates.io/api/v1/crates/bitflags/2.11.0/download
+GST_PLUGINS_RS_BITFLAGS_2_11_0_URL		:= $(call ptx/mirror, CRATESIO, bitflags/2.11.0/download)
 GST_PLUGINS_RS_BITFLAGS_2_11_0_SOURCE	:= $(SRCDIR)/bitflags-2.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BITFLAGS_2_11_0
 
 GST_PLUGINS_RS_BITREADER_0_3_11_MD5		:= 3d90160eebb397cb9f6cc4f31f736246
-GST_PLUGINS_RS_BITREADER_0_3_11_URL		:= https://crates.io/api/v1/crates/bitreader/0.3.11/download
+GST_PLUGINS_RS_BITREADER_0_3_11_URL		:= $(call ptx/mirror, CRATESIO, bitreader/0.3.11/download)
 GST_PLUGINS_RS_BITREADER_0_3_11_SOURCE	:= $(SRCDIR)/bitreader-0.3.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BITREADER_0_3_11
 
 GST_PLUGINS_RS_BITSTREAM_IO_4_9_0_MD5		:= 7153345fc075a39ffc29a3332807ec2f
-GST_PLUGINS_RS_BITSTREAM_IO_4_9_0_URL		:= https://crates.io/api/v1/crates/bitstream-io/4.9.0/download
+GST_PLUGINS_RS_BITSTREAM_IO_4_9_0_URL		:= $(call ptx/mirror, CRATESIO, bitstream-io/4.9.0/download)
 GST_PLUGINS_RS_BITSTREAM_IO_4_9_0_SOURCE	:= $(SRCDIR)/bitstream-io-4.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BITSTREAM_IO_4_9_0
 
 GST_PLUGINS_RS_BLOCK_0_1_6_MD5		:= ea2d23ceb9f98853a7dffc6c02884464
-GST_PLUGINS_RS_BLOCK_0_1_6_URL		:= https://crates.io/api/v1/crates/block/0.1.6/download
+GST_PLUGINS_RS_BLOCK_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, block/0.1.6/download)
 GST_PLUGINS_RS_BLOCK_0_1_6_SOURCE	:= $(SRCDIR)/block-0.1.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BLOCK_0_1_6
 
 GST_PLUGINS_RS_BLOCK_BUFFER_0_10_4_MD5		:= 023b03cf9968b29253a5dfe62051008d
-GST_PLUGINS_RS_BLOCK_BUFFER_0_10_4_URL		:= https://crates.io/api/v1/crates/block-buffer/0.10.4/download
+GST_PLUGINS_RS_BLOCK_BUFFER_0_10_4_URL		:= $(call ptx/mirror, CRATESIO, block-buffer/0.10.4/download)
 GST_PLUGINS_RS_BLOCK_BUFFER_0_10_4_SOURCE	:= $(SRCDIR)/block-buffer-0.10.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BLOCK_BUFFER_0_10_4
 
 GST_PLUGINS_RS_BLOCK2_0_6_2_MD5		:= 4dd4175ec3e2840e7a0f49141b8d59dd
-GST_PLUGINS_RS_BLOCK2_0_6_2_URL		:= https://crates.io/api/v1/crates/block2/0.6.2/download
+GST_PLUGINS_RS_BLOCK2_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, block2/0.6.2/download)
 GST_PLUGINS_RS_BLOCK2_0_6_2_SOURCE	:= $(SRCDIR)/block2-0.6.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BLOCK2_0_6_2
 
 GST_PLUGINS_RS_BSTR_1_12_1_MD5		:= 039b68ad4423e03069a58f9c91041d11
-GST_PLUGINS_RS_BSTR_1_12_1_URL		:= https://crates.io/api/v1/crates/bstr/1.12.1/download
+GST_PLUGINS_RS_BSTR_1_12_1_URL		:= $(call ptx/mirror, CRATESIO, bstr/1.12.1/download)
 GST_PLUGINS_RS_BSTR_1_12_1_SOURCE	:= $(SRCDIR)/bstr-1.12.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BSTR_1_12_1
 
 GST_PLUGINS_RS_BUILT_0_8_0_MD5		:= ff80199de5dc12a1a0ff84f361510056
-GST_PLUGINS_RS_BUILT_0_8_0_URL		:= https://crates.io/api/v1/crates/built/0.8.0/download
+GST_PLUGINS_RS_BUILT_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, built/0.8.0/download)
 GST_PLUGINS_RS_BUILT_0_8_0_SOURCE	:= $(SRCDIR)/built-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BUILT_0_8_0
 
 GST_PLUGINS_RS_BUMPALO_3_20_2_MD5		:= 8bf5578c26c3fb3dc870c1017cdc24d5
-GST_PLUGINS_RS_BUMPALO_3_20_2_URL		:= https://crates.io/api/v1/crates/bumpalo/3.20.2/download
+GST_PLUGINS_RS_BUMPALO_3_20_2_URL		:= $(call ptx/mirror, CRATESIO, bumpalo/3.20.2/download)
 GST_PLUGINS_RS_BUMPALO_3_20_2_SOURCE	:= $(SRCDIR)/bumpalo-3.20.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BUMPALO_3_20_2
 
 GST_PLUGINS_RS_BURN_0_20_1_MD5		:= 49448231feeb0dc43a60765d47da5a90
-GST_PLUGINS_RS_BURN_0_20_1_URL		:= https://crates.io/api/v1/crates/burn/0.20.1/download
+GST_PLUGINS_RS_BURN_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn/0.20.1/download)
 GST_PLUGINS_RS_BURN_0_20_1_SOURCE	:= $(SRCDIR)/burn-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_0_20_1
 
 GST_PLUGINS_RS_BURN_BACKEND_0_20_1_MD5		:= d24f7036d91d19e8411d2a6bc1b2054a
-GST_PLUGINS_RS_BURN_BACKEND_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-backend/0.20.1/download
+GST_PLUGINS_RS_BURN_BACKEND_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-backend/0.20.1/download)
 GST_PLUGINS_RS_BURN_BACKEND_0_20_1_SOURCE	:= $(SRCDIR)/burn-backend-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_BACKEND_0_20_1
 
 GST_PLUGINS_RS_BURN_CORE_0_20_1_MD5		:= 064335502fba403b14dc14501afdb863
-GST_PLUGINS_RS_BURN_CORE_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-core/0.20.1/download
+GST_PLUGINS_RS_BURN_CORE_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-core/0.20.1/download)
 GST_PLUGINS_RS_BURN_CORE_0_20_1_SOURCE	:= $(SRCDIR)/burn-core-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_CORE_0_20_1
 
 GST_PLUGINS_RS_BURN_CPU_0_20_1_MD5		:= 4a39ef1491428191efdbb68d64bdf9fe
-GST_PLUGINS_RS_BURN_CPU_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-cpu/0.20.1/download
+GST_PLUGINS_RS_BURN_CPU_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-cpu/0.20.1/download)
 GST_PLUGINS_RS_BURN_CPU_0_20_1_SOURCE	:= $(SRCDIR)/burn-cpu-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_CPU_0_20_1
 
 GST_PLUGINS_RS_BURN_CUBECL_0_20_1_MD5		:= 3bee1548190507d0e74c50200ba57e8c
-GST_PLUGINS_RS_BURN_CUBECL_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-cubecl/0.20.1/download
+GST_PLUGINS_RS_BURN_CUBECL_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-cubecl/0.20.1/download)
 GST_PLUGINS_RS_BURN_CUBECL_0_20_1_SOURCE	:= $(SRCDIR)/burn-cubecl-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_CUBECL_0_20_1
 
 GST_PLUGINS_RS_BURN_DERIVE_0_20_1_MD5		:= 15d2b1a6c62182852095f0a9ab3d1fc6
-GST_PLUGINS_RS_BURN_DERIVE_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-derive/0.20.1/download
+GST_PLUGINS_RS_BURN_DERIVE_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-derive/0.20.1/download)
 GST_PLUGINS_RS_BURN_DERIVE_0_20_1_SOURCE	:= $(SRCDIR)/burn-derive-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_DERIVE_0_20_1
 
 GST_PLUGINS_RS_BURN_IR_0_20_1_MD5		:= c49d9a3ca3c1832b8f90d5f2723493ba
-GST_PLUGINS_RS_BURN_IR_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-ir/0.20.1/download
+GST_PLUGINS_RS_BURN_IR_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-ir/0.20.1/download)
 GST_PLUGINS_RS_BURN_IR_0_20_1_SOURCE	:= $(SRCDIR)/burn-ir-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_IR_0_20_1
 
 GST_PLUGINS_RS_BURN_NDARRAY_0_20_1_MD5		:= f95b1d9779b4962b686039989d1b4312
-GST_PLUGINS_RS_BURN_NDARRAY_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-ndarray/0.20.1/download
+GST_PLUGINS_RS_BURN_NDARRAY_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-ndarray/0.20.1/download)
 GST_PLUGINS_RS_BURN_NDARRAY_0_20_1_SOURCE	:= $(SRCDIR)/burn-ndarray-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_NDARRAY_0_20_1
 
 GST_PLUGINS_RS_BURN_NN_0_20_1_MD5		:= 123a2d64bd6560091a21c0a6522b5ad6
-GST_PLUGINS_RS_BURN_NN_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-nn/0.20.1/download
+GST_PLUGINS_RS_BURN_NN_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-nn/0.20.1/download)
 GST_PLUGINS_RS_BURN_NN_0_20_1_SOURCE	:= $(SRCDIR)/burn-nn-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_NN_0_20_1
 
 GST_PLUGINS_RS_BURN_OPTIM_0_20_1_MD5		:= 3c2e9dfe6a5f5c863664a701e7a16514
-GST_PLUGINS_RS_BURN_OPTIM_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-optim/0.20.1/download
+GST_PLUGINS_RS_BURN_OPTIM_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-optim/0.20.1/download)
 GST_PLUGINS_RS_BURN_OPTIM_0_20_1_SOURCE	:= $(SRCDIR)/burn-optim-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_OPTIM_0_20_1
 
 GST_PLUGINS_RS_BURN_STD_0_20_1_MD5		:= 231d2e452c5155570d962527ace29bb2
-GST_PLUGINS_RS_BURN_STD_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-std/0.20.1/download
+GST_PLUGINS_RS_BURN_STD_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-std/0.20.1/download)
 GST_PLUGINS_RS_BURN_STD_0_20_1_SOURCE	:= $(SRCDIR)/burn-std-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_STD_0_20_1
 
 GST_PLUGINS_RS_BURN_STORE_0_20_1_MD5		:= cd20fe2ef9f17734948553a1a6b3b129
-GST_PLUGINS_RS_BURN_STORE_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-store/0.20.1/download
+GST_PLUGINS_RS_BURN_STORE_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-store/0.20.1/download)
 GST_PLUGINS_RS_BURN_STORE_0_20_1_SOURCE	:= $(SRCDIR)/burn-store-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_STORE_0_20_1
 
 GST_PLUGINS_RS_BURN_TENSOR_0_20_1_MD5		:= 3dbe2453852192bf36e9ede51ddce327
-GST_PLUGINS_RS_BURN_TENSOR_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-tensor/0.20.1/download
+GST_PLUGINS_RS_BURN_TENSOR_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-tensor/0.20.1/download)
 GST_PLUGINS_RS_BURN_TENSOR_0_20_1_SOURCE	:= $(SRCDIR)/burn-tensor-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_TENSOR_0_20_1
 
 GST_PLUGINS_RS_BURN_WGPU_0_20_1_MD5		:= 83a333057a13cf4800e6002f61b964b4
-GST_PLUGINS_RS_BURN_WGPU_0_20_1_URL		:= https://crates.io/api/v1/crates/burn-wgpu/0.20.1/download
+GST_PLUGINS_RS_BURN_WGPU_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, burn-wgpu/0.20.1/download)
 GST_PLUGINS_RS_BURN_WGPU_0_20_1_SOURCE	:= $(SRCDIR)/burn-wgpu-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BURN_WGPU_0_20_1
 
 GST_PLUGINS_RS_BYTE_SLICE_CAST_1_2_3_MD5		:= 684ba8d9688670d57849d6ff2935a67f
-GST_PLUGINS_RS_BYTE_SLICE_CAST_1_2_3_URL		:= https://crates.io/api/v1/crates/byte-slice-cast/1.2.3/download
+GST_PLUGINS_RS_BYTE_SLICE_CAST_1_2_3_URL		:= $(call ptx/mirror, CRATESIO, byte-slice-cast/1.2.3/download)
 GST_PLUGINS_RS_BYTE_SLICE_CAST_1_2_3_SOURCE	:= $(SRCDIR)/byte-slice-cast-1.2.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BYTE_SLICE_CAST_1_2_3
 
 GST_PLUGINS_RS_BYTEMUCK_1_25_0_MD5		:= ec9087f462624c5d819e1361538dbf05
-GST_PLUGINS_RS_BYTEMUCK_1_25_0_URL		:= https://crates.io/api/v1/crates/bytemuck/1.25.0/download
+GST_PLUGINS_RS_BYTEMUCK_1_25_0_URL		:= $(call ptx/mirror, CRATESIO, bytemuck/1.25.0/download)
 GST_PLUGINS_RS_BYTEMUCK_1_25_0_SOURCE	:= $(SRCDIR)/bytemuck-1.25.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BYTEMUCK_1_25_0
 
 GST_PLUGINS_RS_BYTEMUCK_DERIVE_1_10_2_MD5		:= 97a85db121e60d673d165734fb6ce0f0
-GST_PLUGINS_RS_BYTEMUCK_DERIVE_1_10_2_URL		:= https://crates.io/api/v1/crates/bytemuck_derive/1.10.2/download
+GST_PLUGINS_RS_BYTEMUCK_DERIVE_1_10_2_URL		:= $(call ptx/mirror, CRATESIO, bytemuck_derive/1.10.2/download)
 GST_PLUGINS_RS_BYTEMUCK_DERIVE_1_10_2_SOURCE	:= $(SRCDIR)/bytemuck_derive-1.10.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BYTEMUCK_DERIVE_1_10_2
 
 GST_PLUGINS_RS_BYTEORDER_1_5_0_MD5		:= 45339d90b2b3a4f123af5ec459954102
-GST_PLUGINS_RS_BYTEORDER_1_5_0_URL		:= https://crates.io/api/v1/crates/byteorder/1.5.0/download
+GST_PLUGINS_RS_BYTEORDER_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, byteorder/1.5.0/download)
 GST_PLUGINS_RS_BYTEORDER_1_5_0_SOURCE	:= $(SRCDIR)/byteorder-1.5.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BYTEORDER_1_5_0
 
 GST_PLUGINS_RS_BYTEORDER_LITE_0_1_0_MD5		:= d8b6232e66c7e07e8a626ef21d3b8725
-GST_PLUGINS_RS_BYTEORDER_LITE_0_1_0_URL		:= https://crates.io/api/v1/crates/byteorder-lite/0.1.0/download
+GST_PLUGINS_RS_BYTEORDER_LITE_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, byteorder-lite/0.1.0/download)
 GST_PLUGINS_RS_BYTEORDER_LITE_0_1_0_SOURCE	:= $(SRCDIR)/byteorder-lite-0.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BYTEORDER_LITE_0_1_0
 
 GST_PLUGINS_RS_BYTEORDER_SLICE_3_0_0_MD5		:= af5df41b7903ccf95444a40a011b1092
-GST_PLUGINS_RS_BYTEORDER_SLICE_3_0_0_URL		:= https://crates.io/api/v1/crates/byteorder_slice/3.0.0/download
+GST_PLUGINS_RS_BYTEORDER_SLICE_3_0_0_URL		:= $(call ptx/mirror, CRATESIO, byteorder_slice/3.0.0/download)
 GST_PLUGINS_RS_BYTEORDER_SLICE_3_0_0_SOURCE	:= $(SRCDIR)/byteorder_slice-3.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BYTEORDER_SLICE_3_0_0
 
 GST_PLUGINS_RS_BYTES_1_11_1_MD5		:= 06457d3034340d791d99664015b3010e
-GST_PLUGINS_RS_BYTES_1_11_1_URL		:= https://crates.io/api/v1/crates/bytes/1.11.1/download
+GST_PLUGINS_RS_BYTES_1_11_1_URL		:= $(call ptx/mirror, CRATESIO, bytes/1.11.1/download)
 GST_PLUGINS_RS_BYTES_1_11_1_SOURCE	:= $(SRCDIR)/bytes-1.11.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BYTES_1_11_1
 
 GST_PLUGINS_RS_BYTES_UTILS_0_1_4_MD5		:= 7895778ede1d810b824eaa51bfcd0fa1
-GST_PLUGINS_RS_BYTES_UTILS_0_1_4_URL		:= https://crates.io/api/v1/crates/bytes-utils/0.1.4/download
+GST_PLUGINS_RS_BYTES_UTILS_0_1_4_URL		:= $(call ptx/mirror, CRATESIO, bytes-utils/0.1.4/download)
 GST_PLUGINS_RS_BYTES_UTILS_0_1_4_SOURCE	:= $(SRCDIR)/bytes-utils-0.1.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BYTES_UTILS_0_1_4
 
 GST_PLUGINS_RS_BZIP2_0_6_1_MD5		:= b94ba0d6b221b4bac5bca01bce21181b
-GST_PLUGINS_RS_BZIP2_0_6_1_URL		:= https://crates.io/api/v1/crates/bzip2/0.6.1/download
+GST_PLUGINS_RS_BZIP2_0_6_1_URL		:= $(call ptx/mirror, CRATESIO, bzip2/0.6.1/download)
 GST_PLUGINS_RS_BZIP2_0_6_1_SOURCE	:= $(SRCDIR)/bzip2-0.6.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_BZIP2_0_6_1
 
 GST_PLUGINS_RS_C2RUST_BITFIELDS_0_20_0_MD5		:= 6b66d19e0737680859b59ef74b7238af
-GST_PLUGINS_RS_C2RUST_BITFIELDS_0_20_0_URL		:= https://crates.io/api/v1/crates/c2rust-bitfields/0.20.0/download
+GST_PLUGINS_RS_C2RUST_BITFIELDS_0_20_0_URL		:= $(call ptx/mirror, CRATESIO, c2rust-bitfields/0.20.0/download)
 GST_PLUGINS_RS_C2RUST_BITFIELDS_0_20_0_SOURCE	:= $(SRCDIR)/c2rust-bitfields-0.20.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_C2RUST_BITFIELDS_0_20_0
 
 GST_PLUGINS_RS_C2RUST_BITFIELDS_DERIVE_0_20_0_MD5		:= ca7248fce43bd88551f64e74353c8319
-GST_PLUGINS_RS_C2RUST_BITFIELDS_DERIVE_0_20_0_URL		:= https://crates.io/api/v1/crates/c2rust-bitfields-derive/0.20.0/download
+GST_PLUGINS_RS_C2RUST_BITFIELDS_DERIVE_0_20_0_URL		:= $(call ptx/mirror, CRATESIO, c2rust-bitfields-derive/0.20.0/download)
 GST_PLUGINS_RS_C2RUST_BITFIELDS_DERIVE_0_20_0_SOURCE	:= $(SRCDIR)/c2rust-bitfields-derive-0.20.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_C2RUST_BITFIELDS_DERIVE_0_20_0
 
@@ -599,847 +599,847 @@ GST_PLUGINS_RS_GTK_RS_CORE_0_22_2_SOURCE	:= $(SRCDIR)/gtk-rs-core-0.22.2+484fbe0
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GTK_RS_CORE_0_22_2
 
 GST_PLUGINS_RS_CASELESS_0_2_2_MD5		:= 93ee0943ce0a267a5fe38867ab262eb6
-GST_PLUGINS_RS_CASELESS_0_2_2_URL		:= https://crates.io/api/v1/crates/caseless/0.2.2/download
+GST_PLUGINS_RS_CASELESS_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, caseless/0.2.2/download)
 GST_PLUGINS_RS_CASELESS_0_2_2_SOURCE	:= $(SRCDIR)/caseless-0.2.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CASELESS_0_2_2
 
 GST_PLUGINS_RS_CC_1_2_56_MD5		:= 463a425785b2b34a7b2f5106bf25808e
-GST_PLUGINS_RS_CC_1_2_56_URL		:= https://crates.io/api/v1/crates/cc/1.2.56/download
+GST_PLUGINS_RS_CC_1_2_56_URL		:= $(call ptx/mirror, CRATESIO, cc/1.2.56/download)
 GST_PLUGINS_RS_CC_1_2_56_SOURCE	:= $(SRCDIR)/cc-1.2.56.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CC_1_2_56
 
 GST_PLUGINS_RS_CDG_0_1_0_MD5		:= 140d9bf81d91078eb485f305b423ef68
-GST_PLUGINS_RS_CDG_0_1_0_URL		:= https://crates.io/api/v1/crates/cdg/0.1.0/download
+GST_PLUGINS_RS_CDG_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, cdg/0.1.0/download)
 GST_PLUGINS_RS_CDG_0_1_0_SOURCE	:= $(SRCDIR)/cdg-0.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CDG_0_1_0
 
 GST_PLUGINS_RS_CDG_RENDERER_0_8_0_MD5		:= c8e6809245b55a603f8d5f6f8183fea9
-GST_PLUGINS_RS_CDG_RENDERER_0_8_0_URL		:= https://crates.io/api/v1/crates/cdg_renderer/0.8.0/download
+GST_PLUGINS_RS_CDG_RENDERER_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, cdg_renderer/0.8.0/download)
 GST_PLUGINS_RS_CDG_RENDERER_0_8_0_SOURCE	:= $(SRCDIR)/cdg_renderer-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CDG_RENDERER_0_8_0
 
 GST_PLUGINS_RS_CDP_TYPES_0_3_0_MD5		:= 5069d06368cdf01de6e3adb7801b901d
-GST_PLUGINS_RS_CDP_TYPES_0_3_0_URL		:= https://crates.io/api/v1/crates/cdp-types/0.3.0/download
+GST_PLUGINS_RS_CDP_TYPES_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, cdp-types/0.3.0/download)
 GST_PLUGINS_RS_CDP_TYPES_0_3_0_SOURCE	:= $(SRCDIR)/cdp-types-0.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CDP_TYPES_0_3_0
 
 GST_PLUGINS_RS_CEA608_TYPES_0_1_4_MD5		:= 5fe25d9fe8cdff12e02d16182cff2f89
-GST_PLUGINS_RS_CEA608_TYPES_0_1_4_URL		:= https://crates.io/api/v1/crates/cea608-types/0.1.4/download
+GST_PLUGINS_RS_CEA608_TYPES_0_1_4_URL		:= $(call ptx/mirror, CRATESIO, cea608-types/0.1.4/download)
 GST_PLUGINS_RS_CEA608_TYPES_0_1_4_SOURCE	:= $(SRCDIR)/cea608-types-0.1.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CEA608_TYPES_0_1_4
 
 GST_PLUGINS_RS_CEA708_TYPES_0_4_1_MD5		:= 39cd1d00f2a1f0df5420b0ff8275dd05
-GST_PLUGINS_RS_CEA708_TYPES_0_4_1_URL		:= https://crates.io/api/v1/crates/cea708-types/0.4.1/download
+GST_PLUGINS_RS_CEA708_TYPES_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, cea708-types/0.4.1/download)
 GST_PLUGINS_RS_CEA708_TYPES_0_4_1_SOURCE	:= $(SRCDIR)/cea708-types-0.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CEA708_TYPES_0_4_1
 
 GST_PLUGINS_RS_CESU8_1_1_0_MD5		:= 267fc4a374516caa7ab495f0c607c1b4
-GST_PLUGINS_RS_CESU8_1_1_0_URL		:= https://crates.io/api/v1/crates/cesu8/1.1.0/download
+GST_PLUGINS_RS_CESU8_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, cesu8/1.1.0/download)
 GST_PLUGINS_RS_CESU8_1_1_0_SOURCE	:= $(SRCDIR)/cesu8-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CESU8_1_1_0
 
 GST_PLUGINS_RS_CEXPR_0_6_0_MD5		:= 10b68ba1e7093d889e9198dcd0ea2a3e
-GST_PLUGINS_RS_CEXPR_0_6_0_URL		:= https://crates.io/api/v1/crates/cexpr/0.6.0/download
+GST_PLUGINS_RS_CEXPR_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, cexpr/0.6.0/download)
 GST_PLUGINS_RS_CEXPR_0_6_0_SOURCE	:= $(SRCDIR)/cexpr-0.6.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CEXPR_0_6_0
 
 GST_PLUGINS_RS_CFG_EXPR_0_17_2_MD5		:= 94efd55d2b96829e2c6d516792cd8702
-GST_PLUGINS_RS_CFG_EXPR_0_17_2_URL		:= https://crates.io/api/v1/crates/cfg-expr/0.17.2/download
+GST_PLUGINS_RS_CFG_EXPR_0_17_2_URL		:= $(call ptx/mirror, CRATESIO, cfg-expr/0.17.2/download)
 GST_PLUGINS_RS_CFG_EXPR_0_17_2_SOURCE	:= $(SRCDIR)/cfg-expr-0.17.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CFG_EXPR_0_17_2
 
 GST_PLUGINS_RS_CFG_IF_1_0_4_MD5		:= 7dbc461580b8ee7d163a6e02524c6d90
-GST_PLUGINS_RS_CFG_IF_1_0_4_URL		:= https://crates.io/api/v1/crates/cfg-if/1.0.4/download
+GST_PLUGINS_RS_CFG_IF_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, cfg-if/1.0.4/download)
 GST_PLUGINS_RS_CFG_IF_1_0_4_SOURCE	:= $(SRCDIR)/cfg-if-1.0.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CFG_IF_1_0_4
 
 GST_PLUGINS_RS_CFG_ALIASES_0_2_1_MD5		:= f5215c4283a1984b95043a7185245e00
-GST_PLUGINS_RS_CFG_ALIASES_0_2_1_URL		:= https://crates.io/api/v1/crates/cfg_aliases/0.2.1/download
+GST_PLUGINS_RS_CFG_ALIASES_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, cfg_aliases/0.2.1/download)
 GST_PLUGINS_RS_CFG_ALIASES_0_2_1_SOURCE	:= $(SRCDIR)/cfg_aliases-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CFG_ALIASES_0_2_1
 
 GST_PLUGINS_RS_CHACHA20_0_10_0_MD5		:= 3c00fbb55e7d7715a8692b0555a18bed
-GST_PLUGINS_RS_CHACHA20_0_10_0_URL		:= https://crates.io/api/v1/crates/chacha20/0.10.0/download
+GST_PLUGINS_RS_CHACHA20_0_10_0_URL		:= $(call ptx/mirror, CRATESIO, chacha20/0.10.0/download)
 GST_PLUGINS_RS_CHACHA20_0_10_0_SOURCE	:= $(SRCDIR)/chacha20-0.10.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CHACHA20_0_10_0
 
 GST_PLUGINS_RS_CHRONO_0_4_44_MD5		:= 14937e64ec2e08ef69a3dd700d40d02e
-GST_PLUGINS_RS_CHRONO_0_4_44_URL		:= https://crates.io/api/v1/crates/chrono/0.4.44/download
+GST_PLUGINS_RS_CHRONO_0_4_44_URL		:= $(call ptx/mirror, CRATESIO, chrono/0.4.44/download)
 GST_PLUGINS_RS_CHRONO_0_4_44_SOURCE	:= $(SRCDIR)/chrono-0.4.44.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CHRONO_0_4_44
 
 GST_PLUGINS_RS_CIPHER_0_4_4_MD5		:= ef4cc5591659a050ca0de3363b6ab353
-GST_PLUGINS_RS_CIPHER_0_4_4_URL		:= https://crates.io/api/v1/crates/cipher/0.4.4/download
+GST_PLUGINS_RS_CIPHER_0_4_4_URL		:= $(call ptx/mirror, CRATESIO, cipher/0.4.4/download)
 GST_PLUGINS_RS_CIPHER_0_4_4_SOURCE	:= $(SRCDIR)/cipher-0.4.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CIPHER_0_4_4
 
 GST_PLUGINS_RS_CLANG_SYS_1_8_1_MD5		:= 5354f10053de350a42ecd5f4136ec439
-GST_PLUGINS_RS_CLANG_SYS_1_8_1_URL		:= https://crates.io/api/v1/crates/clang-sys/1.8.1/download
+GST_PLUGINS_RS_CLANG_SYS_1_8_1_URL		:= $(call ptx/mirror, CRATESIO, clang-sys/1.8.1/download)
 GST_PLUGINS_RS_CLANG_SYS_1_8_1_SOURCE	:= $(SRCDIR)/clang-sys-1.8.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CLANG_SYS_1_8_1
 
 GST_PLUGINS_RS_CLAP_4_5_60_MD5		:= 626a24820b4db63892d29aeaca1368bb
-GST_PLUGINS_RS_CLAP_4_5_60_URL		:= https://crates.io/api/v1/crates/clap/4.5.60/download
+GST_PLUGINS_RS_CLAP_4_5_60_URL		:= $(call ptx/mirror, CRATESIO, clap/4.5.60/download)
 GST_PLUGINS_RS_CLAP_4_5_60_SOURCE	:= $(SRCDIR)/clap-4.5.60.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CLAP_4_5_60
 
 GST_PLUGINS_RS_CLAP_BUILDER_4_5_60_MD5		:= 659d620506766e1daee3e6b6f5d6f803
-GST_PLUGINS_RS_CLAP_BUILDER_4_5_60_URL		:= https://crates.io/api/v1/crates/clap_builder/4.5.60/download
+GST_PLUGINS_RS_CLAP_BUILDER_4_5_60_URL		:= $(call ptx/mirror, CRATESIO, clap_builder/4.5.60/download)
 GST_PLUGINS_RS_CLAP_BUILDER_4_5_60_SOURCE	:= $(SRCDIR)/clap_builder-4.5.60.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CLAP_BUILDER_4_5_60
 
 GST_PLUGINS_RS_CLAP_DERIVE_4_5_55_MD5		:= 98053437993f33da2a248faf5df8aff9
-GST_PLUGINS_RS_CLAP_DERIVE_4_5_55_URL		:= https://crates.io/api/v1/crates/clap_derive/4.5.55/download
+GST_PLUGINS_RS_CLAP_DERIVE_4_5_55_URL		:= $(call ptx/mirror, CRATESIO, clap_derive/4.5.55/download)
 GST_PLUGINS_RS_CLAP_DERIVE_4_5_55_SOURCE	:= $(SRCDIR)/clap_derive-4.5.55.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CLAP_DERIVE_4_5_55
 
 GST_PLUGINS_RS_CLAP_LEX_1_0_0_MD5		:= e2788c8738759b28a40439f09863e56a
-GST_PLUGINS_RS_CLAP_LEX_1_0_0_URL		:= https://crates.io/api/v1/crates/clap_lex/1.0.0/download
+GST_PLUGINS_RS_CLAP_LEX_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, clap_lex/1.0.0/download)
 GST_PLUGINS_RS_CLAP_LEX_1_0_0_SOURCE	:= $(SRCDIR)/clap_lex-1.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CLAP_LEX_1_0_0
 
 GST_PLUGINS_RS_CLAXON_0_4_3_MD5		:= a65ca49be667184156f4fe14dc93ff49
-GST_PLUGINS_RS_CLAXON_0_4_3_URL		:= https://crates.io/api/v1/crates/claxon/0.4.3/download
+GST_PLUGINS_RS_CLAXON_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, claxon/0.4.3/download)
 GST_PLUGINS_RS_CLAXON_0_4_3_SOURCE	:= $(SRCDIR)/claxon-0.4.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CLAXON_0_4_3
 
 GST_PLUGINS_RS_CMAKE_0_1_57_MD5		:= 5eb2157af7bad45b5900e43eb5a21484
-GST_PLUGINS_RS_CMAKE_0_1_57_URL		:= https://crates.io/api/v1/crates/cmake/0.1.57/download
+GST_PLUGINS_RS_CMAKE_0_1_57_URL		:= $(call ptx/mirror, CRATESIO, cmake/0.1.57/download)
 GST_PLUGINS_RS_CMAKE_0_1_57_SOURCE	:= $(SRCDIR)/cmake-0.1.57.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CMAKE_0_1_57
 
 GST_PLUGINS_RS_CODESPAN_REPORTING_0_12_0_MD5		:= 96f65f1baa3e1f1026fb4313c80e16ed
-GST_PLUGINS_RS_CODESPAN_REPORTING_0_12_0_URL		:= https://crates.io/api/v1/crates/codespan-reporting/0.12.0/download
+GST_PLUGINS_RS_CODESPAN_REPORTING_0_12_0_URL		:= $(call ptx/mirror, CRATESIO, codespan-reporting/0.12.0/download)
 GST_PLUGINS_RS_CODESPAN_REPORTING_0_12_0_SOURCE	:= $(SRCDIR)/codespan-reporting-0.12.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CODESPAN_REPORTING_0_12_0
 
 GST_PLUGINS_RS_COLOR_NAME_1_2_0_MD5		:= fd854be1bd69bb941c898903cb7256f8
-GST_PLUGINS_RS_COLOR_NAME_1_2_0_URL		:= https://crates.io/api/v1/crates/color-name/1.2.0/download
+GST_PLUGINS_RS_COLOR_NAME_1_2_0_URL		:= $(call ptx/mirror, CRATESIO, color-name/1.2.0/download)
 GST_PLUGINS_RS_COLOR_NAME_1_2_0_SOURCE	:= $(SRCDIR)/color-name-1.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COLOR_NAME_1_2_0
 
 GST_PLUGINS_RS_COLOR_THIEF_0_2_2_MD5		:= e6d79b8dfca026ff5c19abdd4ff3e12a
-GST_PLUGINS_RS_COLOR_THIEF_0_2_2_URL		:= https://crates.io/api/v1/crates/color-thief/0.2.2/download
+GST_PLUGINS_RS_COLOR_THIEF_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, color-thief/0.2.2/download)
 GST_PLUGINS_RS_COLOR_THIEF_0_2_2_SOURCE	:= $(SRCDIR)/color-thief-0.2.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COLOR_THIEF_0_2_2
 
 GST_PLUGINS_RS_COLOR_QUANT_1_1_0_MD5		:= ee1260862a62c0d8824b664a1abda7b8
-GST_PLUGINS_RS_COLOR_QUANT_1_1_0_URL		:= https://crates.io/api/v1/crates/color_quant/1.1.0/download
+GST_PLUGINS_RS_COLOR_QUANT_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, color_quant/1.1.0/download)
 GST_PLUGINS_RS_COLOR_QUANT_1_1_0_SOURCE	:= $(SRCDIR)/color_quant-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COLOR_QUANT_1_1_0
 
 GST_PLUGINS_RS_COLORCHOICE_1_0_4_MD5		:= b69f87eec94e36408135e81035235621
-GST_PLUGINS_RS_COLORCHOICE_1_0_4_URL		:= https://crates.io/api/v1/crates/colorchoice/1.0.4/download
+GST_PLUGINS_RS_COLORCHOICE_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, colorchoice/1.0.4/download)
 GST_PLUGINS_RS_COLORCHOICE_1_0_4_SOURCE	:= $(SRCDIR)/colorchoice-1.0.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COLORCHOICE_1_0_4
 
 GST_PLUGINS_RS_COLORED_3_1_1_MD5		:= b688cb9f4979f5b038ca515905b32a61
-GST_PLUGINS_RS_COLORED_3_1_1_URL		:= https://crates.io/api/v1/crates/colored/3.1.1/download
+GST_PLUGINS_RS_COLORED_3_1_1_URL		:= $(call ptx/mirror, CRATESIO, colored/3.1.1/download)
 GST_PLUGINS_RS_COLORED_3_1_1_SOURCE	:= $(SRCDIR)/colored-3.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COLORED_3_1_1
 
 GST_PLUGINS_RS_COMBINE_4_6_7_MD5		:= aba1d13503196d9a767b260913f1401f
-GST_PLUGINS_RS_COMBINE_4_6_7_URL		:= https://crates.io/api/v1/crates/combine/4.6.7/download
+GST_PLUGINS_RS_COMBINE_4_6_7_URL		:= $(call ptx/mirror, CRATESIO, combine/4.6.7/download)
 GST_PLUGINS_RS_COMBINE_4_6_7_SOURCE	:= $(SRCDIR)/combine-4.6.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COMBINE_4_6_7
 
 GST_PLUGINS_RS_COMPRESSION_CODECS_0_4_37_MD5		:= eac87328eeb6dcda83dd8075a818b884
-GST_PLUGINS_RS_COMPRESSION_CODECS_0_4_37_URL		:= https://crates.io/api/v1/crates/compression-codecs/0.4.37/download
+GST_PLUGINS_RS_COMPRESSION_CODECS_0_4_37_URL		:= $(call ptx/mirror, CRATESIO, compression-codecs/0.4.37/download)
 GST_PLUGINS_RS_COMPRESSION_CODECS_0_4_37_SOURCE	:= $(SRCDIR)/compression-codecs-0.4.37.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COMPRESSION_CODECS_0_4_37
 
 GST_PLUGINS_RS_COMPRESSION_CORE_0_4_31_MD5		:= 37b619501e625336c17a2f49f805c260
-GST_PLUGINS_RS_COMPRESSION_CORE_0_4_31_URL		:= https://crates.io/api/v1/crates/compression-core/0.4.31/download
+GST_PLUGINS_RS_COMPRESSION_CORE_0_4_31_URL		:= $(call ptx/mirror, CRATESIO, compression-core/0.4.31/download)
 GST_PLUGINS_RS_COMPRESSION_CORE_0_4_31_SOURCE	:= $(SRCDIR)/compression-core-0.4.31.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COMPRESSION_CORE_0_4_31
 
 GST_PLUGINS_RS_COMRAK_0_39_1_MD5		:= 562d34de10bf76ba903839d6b7cb68f8
-GST_PLUGINS_RS_COMRAK_0_39_1_URL		:= https://crates.io/api/v1/crates/comrak/0.39.1/download
+GST_PLUGINS_RS_COMRAK_0_39_1_URL		:= $(call ptx/mirror, CRATESIO, comrak/0.39.1/download)
 GST_PLUGINS_RS_COMRAK_0_39_1_SOURCE	:= $(SRCDIR)/comrak-0.39.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COMRAK_0_39_1
 
 GST_PLUGINS_RS_CONCURRENT_QUEUE_2_5_0_MD5		:= d1f70680f36b13b74bab20250fb2f26f
-GST_PLUGINS_RS_CONCURRENT_QUEUE_2_5_0_URL		:= https://crates.io/api/v1/crates/concurrent-queue/2.5.0/download
+GST_PLUGINS_RS_CONCURRENT_QUEUE_2_5_0_URL		:= $(call ptx/mirror, CRATESIO, concurrent-queue/2.5.0/download)
 GST_PLUGINS_RS_CONCURRENT_QUEUE_2_5_0_SOURCE	:= $(SRCDIR)/concurrent-queue-2.5.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CONCURRENT_QUEUE_2_5_0
 
 GST_PLUGINS_RS_CONSOLE_0_16_2_MD5		:= a606bb7a24dd3ec448451ab501b13f75
-GST_PLUGINS_RS_CONSOLE_0_16_2_URL		:= https://crates.io/api/v1/crates/console/0.16.2/download
+GST_PLUGINS_RS_CONSOLE_0_16_2_URL		:= $(call ptx/mirror, CRATESIO, console/0.16.2/download)
 GST_PLUGINS_RS_CONSOLE_0_16_2_SOURCE	:= $(SRCDIR)/console-0.16.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CONSOLE_0_16_2
 
 GST_PLUGINS_RS_CONST_OID_0_9_6_MD5		:= 6ed0aab506ad1ec23e34c6aec4efd1d7
-GST_PLUGINS_RS_CONST_OID_0_9_6_URL		:= https://crates.io/api/v1/crates/const-oid/0.9.6/download
+GST_PLUGINS_RS_CONST_OID_0_9_6_URL		:= $(call ptx/mirror, CRATESIO, const-oid/0.9.6/download)
 GST_PLUGINS_RS_CONST_OID_0_9_6_SOURCE	:= $(SRCDIR)/const-oid-0.9.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CONST_OID_0_9_6
 
 GST_PLUGINS_RS_CONST_RANDOM_0_1_18_MD5		:= 62eedaf67c83ca22d82ea4285fc9e69f
-GST_PLUGINS_RS_CONST_RANDOM_0_1_18_URL		:= https://crates.io/api/v1/crates/const-random/0.1.18/download
+GST_PLUGINS_RS_CONST_RANDOM_0_1_18_URL		:= $(call ptx/mirror, CRATESIO, const-random/0.1.18/download)
 GST_PLUGINS_RS_CONST_RANDOM_0_1_18_SOURCE	:= $(SRCDIR)/const-random-0.1.18.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CONST_RANDOM_0_1_18
 
 GST_PLUGINS_RS_CONST_RANDOM_MACRO_0_1_16_MD5		:= d78e51dde3d0fe821efa4f3b55d894ee
-GST_PLUGINS_RS_CONST_RANDOM_MACRO_0_1_16_URL		:= https://crates.io/api/v1/crates/const-random-macro/0.1.16/download
+GST_PLUGINS_RS_CONST_RANDOM_MACRO_0_1_16_URL		:= $(call ptx/mirror, CRATESIO, const-random-macro/0.1.16/download)
 GST_PLUGINS_RS_CONST_RANDOM_MACRO_0_1_16_SOURCE	:= $(SRCDIR)/const-random-macro-0.1.16.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CONST_RANDOM_MACRO_0_1_16
 
 GST_PLUGINS_RS_CONSTANT_TIME_EQ_0_3_1_MD5		:= a420be1752eb4ac451ef963031b2332e
-GST_PLUGINS_RS_CONSTANT_TIME_EQ_0_3_1_URL		:= https://crates.io/api/v1/crates/constant_time_eq/0.3.1/download
+GST_PLUGINS_RS_CONSTANT_TIME_EQ_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, constant_time_eq/0.3.1/download)
 GST_PLUGINS_RS_CONSTANT_TIME_EQ_0_3_1_SOURCE	:= $(SRCDIR)/constant_time_eq-0.3.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CONSTANT_TIME_EQ_0_3_1
 
 GST_PLUGINS_RS_CONSTCAT_0_6_1_MD5		:= 6452692af1ecfd222026473c4c7f71f5
-GST_PLUGINS_RS_CONSTCAT_0_6_1_URL		:= https://crates.io/api/v1/crates/constcat/0.6.1/download
+GST_PLUGINS_RS_CONSTCAT_0_6_1_URL		:= $(call ptx/mirror, CRATESIO, constcat/0.6.1/download)
 GST_PLUGINS_RS_CONSTCAT_0_6_1_SOURCE	:= $(SRCDIR)/constcat-0.6.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CONSTCAT_0_6_1
 
 GST_PLUGINS_RS_CONVERT_CASE_0_8_0_MD5		:= 59c0f15f50946481fe78f442d2d3121c
-GST_PLUGINS_RS_CONVERT_CASE_0_8_0_URL		:= https://crates.io/api/v1/crates/convert_case/0.8.0/download
+GST_PLUGINS_RS_CONVERT_CASE_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, convert_case/0.8.0/download)
 GST_PLUGINS_RS_CONVERT_CASE_0_8_0_SOURCE	:= $(SRCDIR)/convert_case-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CONVERT_CASE_0_8_0
 
 GST_PLUGINS_RS_CONVERT_CASE_0_10_0_MD5		:= 73fe23ba2453e0e169dd26f74be57bc8
-GST_PLUGINS_RS_CONVERT_CASE_0_10_0_URL		:= https://crates.io/api/v1/crates/convert_case/0.10.0/download
+GST_PLUGINS_RS_CONVERT_CASE_0_10_0_URL		:= $(call ptx/mirror, CRATESIO, convert_case/0.10.0/download)
 GST_PLUGINS_RS_CONVERT_CASE_0_10_0_SOURCE	:= $(SRCDIR)/convert_case-0.10.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CONVERT_CASE_0_10_0
 
 GST_PLUGINS_RS_COOKIE_0_18_1_MD5		:= 2bbef48469a5a6d3f7b8e93dbc0b40a4
-GST_PLUGINS_RS_COOKIE_0_18_1_URL		:= https://crates.io/api/v1/crates/cookie/0.18.1/download
+GST_PLUGINS_RS_COOKIE_0_18_1_URL		:= $(call ptx/mirror, CRATESIO, cookie/0.18.1/download)
 GST_PLUGINS_RS_COOKIE_0_18_1_SOURCE	:= $(SRCDIR)/cookie-0.18.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COOKIE_0_18_1
 
 GST_PLUGINS_RS_COOKIE_FACTORY_0_3_3_MD5		:= a9df8cec8c65c4321133c1e9e1a2e9f8
-GST_PLUGINS_RS_COOKIE_FACTORY_0_3_3_URL		:= https://crates.io/api/v1/crates/cookie-factory/0.3.3/download
+GST_PLUGINS_RS_COOKIE_FACTORY_0_3_3_URL		:= $(call ptx/mirror, CRATESIO, cookie-factory/0.3.3/download)
 GST_PLUGINS_RS_COOKIE_FACTORY_0_3_3_SOURCE	:= $(SRCDIR)/cookie-factory-0.3.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COOKIE_FACTORY_0_3_3
 
 GST_PLUGINS_RS_COOKIE_STORE_0_22_1_MD5		:= 5e30c9de4cee2529bc36a552fa4205b0
-GST_PLUGINS_RS_COOKIE_STORE_0_22_1_URL		:= https://crates.io/api/v1/crates/cookie_store/0.22.1/download
+GST_PLUGINS_RS_COOKIE_STORE_0_22_1_URL		:= $(call ptx/mirror, CRATESIO, cookie_store/0.22.1/download)
 GST_PLUGINS_RS_COOKIE_STORE_0_22_1_SOURCE	:= $(SRCDIR)/cookie_store-0.22.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_COOKIE_STORE_0_22_1
 
 GST_PLUGINS_RS_CORE_FOUNDATION_0_9_4_MD5		:= 4d7e3bc6c42f8a875a87246ed14d9948
-GST_PLUGINS_RS_CORE_FOUNDATION_0_9_4_URL		:= https://crates.io/api/v1/crates/core-foundation/0.9.4/download
+GST_PLUGINS_RS_CORE_FOUNDATION_0_9_4_URL		:= $(call ptx/mirror, CRATESIO, core-foundation/0.9.4/download)
 GST_PLUGINS_RS_CORE_FOUNDATION_0_9_4_SOURCE	:= $(SRCDIR)/core-foundation-0.9.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CORE_FOUNDATION_0_9_4
 
 GST_PLUGINS_RS_CORE_FOUNDATION_0_10_1_MD5		:= e37baa1796debe9e6f5b94fdb25c2ff3
-GST_PLUGINS_RS_CORE_FOUNDATION_0_10_1_URL		:= https://crates.io/api/v1/crates/core-foundation/0.10.1/download
+GST_PLUGINS_RS_CORE_FOUNDATION_0_10_1_URL		:= $(call ptx/mirror, CRATESIO, core-foundation/0.10.1/download)
 GST_PLUGINS_RS_CORE_FOUNDATION_0_10_1_SOURCE	:= $(SRCDIR)/core-foundation-0.10.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CORE_FOUNDATION_0_10_1
 
 GST_PLUGINS_RS_CORE_FOUNDATION_SYS_0_8_7_MD5		:= c5229cfccb6a1598e74a837dbc9e2797
-GST_PLUGINS_RS_CORE_FOUNDATION_SYS_0_8_7_URL		:= https://crates.io/api/v1/crates/core-foundation-sys/0.8.7/download
+GST_PLUGINS_RS_CORE_FOUNDATION_SYS_0_8_7_URL		:= $(call ptx/mirror, CRATESIO, core-foundation-sys/0.8.7/download)
 GST_PLUGINS_RS_CORE_FOUNDATION_SYS_0_8_7_SOURCE	:= $(SRCDIR)/core-foundation-sys-0.8.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CORE_FOUNDATION_SYS_0_8_7
 
 GST_PLUGINS_RS_CORE_GRAPHICS_TYPES_0_2_0_MD5		:= 909656b4082c08c3f071d0c5df4491d4
-GST_PLUGINS_RS_CORE_GRAPHICS_TYPES_0_2_0_URL		:= https://crates.io/api/v1/crates/core-graphics-types/0.2.0/download
+GST_PLUGINS_RS_CORE_GRAPHICS_TYPES_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, core-graphics-types/0.2.0/download)
 GST_PLUGINS_RS_CORE_GRAPHICS_TYPES_0_2_0_SOURCE	:= $(SRCDIR)/core-graphics-types-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CORE_GRAPHICS_TYPES_0_2_0
 
 GST_PLUGINS_RS_CORE2_0_4_0_MD5		:= db8e2dc37d47edb8a35fc2ec560a15c7
-GST_PLUGINS_RS_CORE2_0_4_0_URL		:= https://crates.io/api/v1/crates/core2/0.4.0/download
+GST_PLUGINS_RS_CORE2_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, core2/0.4.0/download)
 GST_PLUGINS_RS_CORE2_0_4_0_SOURCE	:= $(SRCDIR)/core2-0.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CORE2_0_4_0
 
 GST_PLUGINS_RS_CPUFEATURES_0_2_17_MD5		:= 08c18a18f452c41072b08e8367778c6a
-GST_PLUGINS_RS_CPUFEATURES_0_2_17_URL		:= https://crates.io/api/v1/crates/cpufeatures/0.2.17/download
+GST_PLUGINS_RS_CPUFEATURES_0_2_17_URL		:= $(call ptx/mirror, CRATESIO, cpufeatures/0.2.17/download)
 GST_PLUGINS_RS_CPUFEATURES_0_2_17_SOURCE	:= $(SRCDIR)/cpufeatures-0.2.17.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CPUFEATURES_0_2_17
 
 GST_PLUGINS_RS_CPUFEATURES_0_3_0_MD5		:= e63d7fa29c8d1d0b7a94e96b65743d39
-GST_PLUGINS_RS_CPUFEATURES_0_3_0_URL		:= https://crates.io/api/v1/crates/cpufeatures/0.3.0/download
+GST_PLUGINS_RS_CPUFEATURES_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, cpufeatures/0.3.0/download)
 GST_PLUGINS_RS_CPUFEATURES_0_3_0_SOURCE	:= $(SRCDIR)/cpufeatures-0.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CPUFEATURES_0_3_0
 
 GST_PLUGINS_RS_CRC_3_3_0_MD5		:= 03025dfeb02d047fb5f2d0f2dfcb7bfb
-GST_PLUGINS_RS_CRC_3_3_0_URL		:= https://crates.io/api/v1/crates/crc/3.3.0/download
+GST_PLUGINS_RS_CRC_3_3_0_URL		:= $(call ptx/mirror, CRATESIO, crc/3.3.0/download)
 GST_PLUGINS_RS_CRC_3_3_0_SOURCE	:= $(SRCDIR)/crc-3.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CRC_3_3_0
 
 GST_PLUGINS_RS_CRC_CATALOG_2_4_0_MD5		:= 589feb40322e6c7ef4dced9755764612
-GST_PLUGINS_RS_CRC_CATALOG_2_4_0_URL		:= https://crates.io/api/v1/crates/crc-catalog/2.4.0/download
+GST_PLUGINS_RS_CRC_CATALOG_2_4_0_URL		:= $(call ptx/mirror, CRATESIO, crc-catalog/2.4.0/download)
 GST_PLUGINS_RS_CRC_CATALOG_2_4_0_SOURCE	:= $(SRCDIR)/crc-catalog-2.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CRC_CATALOG_2_4_0
 
 GST_PLUGINS_RS_CRC_FAST_1_9_0_MD5		:= e304e5ac0dde7a6338ecee1002109b67
-GST_PLUGINS_RS_CRC_FAST_1_9_0_URL		:= https://crates.io/api/v1/crates/crc-fast/1.9.0/download
+GST_PLUGINS_RS_CRC_FAST_1_9_0_URL		:= $(call ptx/mirror, CRATESIO, crc-fast/1.9.0/download)
 GST_PLUGINS_RS_CRC_FAST_1_9_0_SOURCE	:= $(SRCDIR)/crc-fast-1.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CRC_FAST_1_9_0
 
 GST_PLUGINS_RS_CRC32FAST_1_5_0_MD5		:= b2a8b4dcf41563d959ae386da42eeb83
-GST_PLUGINS_RS_CRC32FAST_1_5_0_URL		:= https://crates.io/api/v1/crates/crc32fast/1.5.0/download
+GST_PLUGINS_RS_CRC32FAST_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, crc32fast/1.5.0/download)
 GST_PLUGINS_RS_CRC32FAST_1_5_0_SOURCE	:= $(SRCDIR)/crc32fast-1.5.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CRC32FAST_1_5_0
 
 GST_PLUGINS_RS_CRITICAL_SECTION_1_2_0_MD5		:= 9f38d8588fe4829b3d23483efe1a0078
-GST_PLUGINS_RS_CRITICAL_SECTION_1_2_0_URL		:= https://crates.io/api/v1/crates/critical-section/1.2.0/download
+GST_PLUGINS_RS_CRITICAL_SECTION_1_2_0_URL		:= $(call ptx/mirror, CRATESIO, critical-section/1.2.0/download)
 GST_PLUGINS_RS_CRITICAL_SECTION_1_2_0_SOURCE	:= $(SRCDIR)/critical-section-1.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CRITICAL_SECTION_1_2_0
 
 GST_PLUGINS_RS_CROSSBEAM_DEQUE_0_8_6_MD5		:= 3975562a4eb5f04b174ad599a0da8fd6
-GST_PLUGINS_RS_CROSSBEAM_DEQUE_0_8_6_URL		:= https://crates.io/api/v1/crates/crossbeam-deque/0.8.6/download
+GST_PLUGINS_RS_CROSSBEAM_DEQUE_0_8_6_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-deque/0.8.6/download)
 GST_PLUGINS_RS_CROSSBEAM_DEQUE_0_8_6_SOURCE	:= $(SRCDIR)/crossbeam-deque-0.8.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CROSSBEAM_DEQUE_0_8_6
 
 GST_PLUGINS_RS_CROSSBEAM_EPOCH_0_9_18_MD5		:= 44505199ec0964feb5488051b4ac92d5
-GST_PLUGINS_RS_CROSSBEAM_EPOCH_0_9_18_URL		:= https://crates.io/api/v1/crates/crossbeam-epoch/0.9.18/download
+GST_PLUGINS_RS_CROSSBEAM_EPOCH_0_9_18_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-epoch/0.9.18/download)
 GST_PLUGINS_RS_CROSSBEAM_EPOCH_0_9_18_SOURCE	:= $(SRCDIR)/crossbeam-epoch-0.9.18.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CROSSBEAM_EPOCH_0_9_18
 
 GST_PLUGINS_RS_CROSSBEAM_UTILS_0_8_21_MD5		:= 897be1152015ad66fa30dbdc224af39d
-GST_PLUGINS_RS_CROSSBEAM_UTILS_0_8_21_URL		:= https://crates.io/api/v1/crates/crossbeam-utils/0.8.21/download
+GST_PLUGINS_RS_CROSSBEAM_UTILS_0_8_21_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-utils/0.8.21/download)
 GST_PLUGINS_RS_CROSSBEAM_UTILS_0_8_21_SOURCE	:= $(SRCDIR)/crossbeam-utils-0.8.21.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CROSSBEAM_UTILS_0_8_21
 
 GST_PLUGINS_RS_CRUNCHY_0_2_4_MD5		:= 5364311ee37e0d14061eb1fce66ce061
-GST_PLUGINS_RS_CRUNCHY_0_2_4_URL		:= https://crates.io/api/v1/crates/crunchy/0.2.4/download
+GST_PLUGINS_RS_CRUNCHY_0_2_4_URL		:= $(call ptx/mirror, CRATESIO, crunchy/0.2.4/download)
 GST_PLUGINS_RS_CRUNCHY_0_2_4_SOURCE	:= $(SRCDIR)/crunchy-0.2.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CRUNCHY_0_2_4
 
 GST_PLUGINS_RS_CRYPTO_BIGINT_0_4_9_MD5		:= c61e055235673ee15f1f5be3cb070f2c
-GST_PLUGINS_RS_CRYPTO_BIGINT_0_4_9_URL		:= https://crates.io/api/v1/crates/crypto-bigint/0.4.9/download
+GST_PLUGINS_RS_CRYPTO_BIGINT_0_4_9_URL		:= $(call ptx/mirror, CRATESIO, crypto-bigint/0.4.9/download)
 GST_PLUGINS_RS_CRYPTO_BIGINT_0_4_9_SOURCE	:= $(SRCDIR)/crypto-bigint-0.4.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CRYPTO_BIGINT_0_4_9
 
 GST_PLUGINS_RS_CRYPTO_BIGINT_0_5_5_MD5		:= d2695f81f5e7b7a44da337b59c56b363
-GST_PLUGINS_RS_CRYPTO_BIGINT_0_5_5_URL		:= https://crates.io/api/v1/crates/crypto-bigint/0.5.5/download
+GST_PLUGINS_RS_CRYPTO_BIGINT_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, crypto-bigint/0.5.5/download)
 GST_PLUGINS_RS_CRYPTO_BIGINT_0_5_5_SOURCE	:= $(SRCDIR)/crypto-bigint-0.5.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CRYPTO_BIGINT_0_5_5
 
 GST_PLUGINS_RS_CRYPTO_COMMON_0_1_7_MD5		:= 5dec9da63f47c77c430e7e05f911c2fc
-GST_PLUGINS_RS_CRYPTO_COMMON_0_1_7_URL		:= https://crates.io/api/v1/crates/crypto-common/0.1.7/download
+GST_PLUGINS_RS_CRYPTO_COMMON_0_1_7_URL		:= $(call ptx/mirror, CRATESIO, crypto-common/0.1.7/download)
 GST_PLUGINS_RS_CRYPTO_COMMON_0_1_7_SOURCE	:= $(SRCDIR)/crypto-common-0.1.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CRYPTO_COMMON_0_1_7
 
 GST_PLUGINS_RS_CSOUND_0_1_8_MD5		:= 2e959f523a51aa1749ae8c4af1379283
-GST_PLUGINS_RS_CSOUND_0_1_8_URL		:= https://crates.io/api/v1/crates/csound/0.1.8/download
+GST_PLUGINS_RS_CSOUND_0_1_8_URL		:= $(call ptx/mirror, CRATESIO, csound/0.1.8/download)
 GST_PLUGINS_RS_CSOUND_0_1_8_SOURCE	:= $(SRCDIR)/csound-0.1.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CSOUND_0_1_8
 
 GST_PLUGINS_RS_CSOUND_SYS_0_1_2_MD5		:= a25f8aaee3669b134a365ea938089f77
-GST_PLUGINS_RS_CSOUND_SYS_0_1_2_URL		:= https://crates.io/api/v1/crates/csound-sys/0.1.2/download
+GST_PLUGINS_RS_CSOUND_SYS_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, csound-sys/0.1.2/download)
 GST_PLUGINS_RS_CSOUND_SYS_0_1_2_SOURCE	:= $(SRCDIR)/csound-sys-0.1.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CSOUND_SYS_0_1_2
 
 GST_PLUGINS_RS_CTR_0_9_2_MD5		:= 99fbf6fa951e7abc4f9e3acece16948a
-GST_PLUGINS_RS_CTR_0_9_2_URL		:= https://crates.io/api/v1/crates/ctr/0.9.2/download
+GST_PLUGINS_RS_CTR_0_9_2_URL		:= $(call ptx/mirror, CRATESIO, ctr/0.9.2/download)
 GST_PLUGINS_RS_CTR_0_9_2_SOURCE	:= $(SRCDIR)/ctr-0.9.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CTR_0_9_2
 
 GST_PLUGINS_RS_CTRLC_3_5_2_MD5		:= 7939a6c3246fbe6facd0762c4b56b9eb
-GST_PLUGINS_RS_CTRLC_3_5_2_URL		:= https://crates.io/api/v1/crates/ctrlc/3.5.2/download
+GST_PLUGINS_RS_CTRLC_3_5_2_URL		:= $(call ptx/mirror, CRATESIO, ctrlc/3.5.2/download)
 GST_PLUGINS_RS_CTRLC_3_5_2_SOURCE	:= $(SRCDIR)/ctrlc-3.5.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CTRLC_3_5_2
 
 GST_PLUGINS_RS_CUBECL_0_9_0_MD5		:= e5cfbcccaad5259b1e7767599e5854cd
-GST_PLUGINS_RS_CUBECL_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl/0.9.0/download
+GST_PLUGINS_RS_CUBECL_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_0_9_0
 
 GST_PLUGINS_RS_CUBECL_COMMON_0_9_0_MD5		:= 1bb53b17d9bef3ca4917d8d5d11503a8
-GST_PLUGINS_RS_CUBECL_COMMON_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-common/0.9.0/download
+GST_PLUGINS_RS_CUBECL_COMMON_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-common/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_COMMON_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-common-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_COMMON_0_9_0
 
 GST_PLUGINS_RS_CUBECL_CORE_0_9_0_MD5		:= 25e0789e23976814897b144c79409281
-GST_PLUGINS_RS_CUBECL_CORE_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-core/0.9.0/download
+GST_PLUGINS_RS_CUBECL_CORE_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-core/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_CORE_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-core-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_CORE_0_9_0
 
 GST_PLUGINS_RS_CUBECL_CPP_0_9_0_MD5		:= 77417d3ef7d34be40bde8495a7f44e09
-GST_PLUGINS_RS_CUBECL_CPP_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-cpp/0.9.0/download
+GST_PLUGINS_RS_CUBECL_CPP_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-cpp/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_CPP_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-cpp-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_CPP_0_9_0
 
 GST_PLUGINS_RS_CUBECL_CPU_0_9_0_MD5		:= e2deb35dca71b1f2ea5194ceb8ed6fba
-GST_PLUGINS_RS_CUBECL_CPU_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-cpu/0.9.0/download
+GST_PLUGINS_RS_CUBECL_CPU_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-cpu/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_CPU_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-cpu-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_CPU_0_9_0
 
 GST_PLUGINS_RS_CUBECL_CUDA_0_9_0_MD5		:= 117a549c5505d5a3705585938d6f2709
-GST_PLUGINS_RS_CUBECL_CUDA_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-cuda/0.9.0/download
+GST_PLUGINS_RS_CUBECL_CUDA_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-cuda/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_CUDA_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-cuda-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_CUDA_0_9_0
 
 GST_PLUGINS_RS_CUBECL_IR_0_9_0_MD5		:= 061561c5ad058bd95fa7896380fd8aa5
-GST_PLUGINS_RS_CUBECL_IR_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-ir/0.9.0/download
+GST_PLUGINS_RS_CUBECL_IR_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-ir/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_IR_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-ir-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_IR_0_9_0
 
 GST_PLUGINS_RS_CUBECL_MACROS_0_9_0_MD5		:= d36165e1affd099ef671e6d336768818
-GST_PLUGINS_RS_CUBECL_MACROS_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-macros/0.9.0/download
+GST_PLUGINS_RS_CUBECL_MACROS_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-macros/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_MACROS_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-macros-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_MACROS_0_9_0
 
 GST_PLUGINS_RS_CUBECL_MACROS_INTERNAL_0_9_0_MD5		:= 260b2bf3a412c2b28d5e5df2dae2a19f
-GST_PLUGINS_RS_CUBECL_MACROS_INTERNAL_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-macros-internal/0.9.0/download
+GST_PLUGINS_RS_CUBECL_MACROS_INTERNAL_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-macros-internal/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_MACROS_INTERNAL_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-macros-internal-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_MACROS_INTERNAL_0_9_0
 
 GST_PLUGINS_RS_CUBECL_OPT_0_9_0_MD5		:= 54e39048eb1538b5a41af525db0dcd3a
-GST_PLUGINS_RS_CUBECL_OPT_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-opt/0.9.0/download
+GST_PLUGINS_RS_CUBECL_OPT_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-opt/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_OPT_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-opt-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_OPT_0_9_0
 
 GST_PLUGINS_RS_CUBECL_RUNTIME_0_9_0_MD5		:= a5017a2ec7fc6d97a5c7c3f8b47d0058
-GST_PLUGINS_RS_CUBECL_RUNTIME_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-runtime/0.9.0/download
+GST_PLUGINS_RS_CUBECL_RUNTIME_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-runtime/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_RUNTIME_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-runtime-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_RUNTIME_0_9_0
 
 GST_PLUGINS_RS_CUBECL_SPIRV_0_9_0_MD5		:= 23d2f4f40b3673944644f7d5c83a3613
-GST_PLUGINS_RS_CUBECL_SPIRV_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-spirv/0.9.0/download
+GST_PLUGINS_RS_CUBECL_SPIRV_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-spirv/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_SPIRV_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-spirv-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_SPIRV_0_9_0
 
 GST_PLUGINS_RS_CUBECL_STD_0_9_0_MD5		:= 69cc93718e81adf556e7231d7d40523f
-GST_PLUGINS_RS_CUBECL_STD_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-std/0.9.0/download
+GST_PLUGINS_RS_CUBECL_STD_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-std/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_STD_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-std-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_STD_0_9_0
 
 GST_PLUGINS_RS_CUBECL_WGPU_0_9_0_MD5		:= f5a7bb9e5cebe23975dd9430bc12dd01
-GST_PLUGINS_RS_CUBECL_WGPU_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-wgpu/0.9.0/download
+GST_PLUGINS_RS_CUBECL_WGPU_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-wgpu/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_WGPU_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-wgpu-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_WGPU_0_9_0
 
 GST_PLUGINS_RS_CUBECL_ZSPACE_0_9_0_MD5		:= bff11d3b1ef7931540b3d8067c3c3831
-GST_PLUGINS_RS_CUBECL_ZSPACE_0_9_0_URL		:= https://crates.io/api/v1/crates/cubecl-zspace/0.9.0/download
+GST_PLUGINS_RS_CUBECL_ZSPACE_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, cubecl-zspace/0.9.0/download)
 GST_PLUGINS_RS_CUBECL_ZSPACE_0_9_0_SOURCE	:= $(SRCDIR)/cubecl-zspace-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBECL_ZSPACE_0_9_0
 
 GST_PLUGINS_RS_CUBEK_0_1_1_MD5		:= e62d4d935dd0e403fe2469d1e00b3d71
-GST_PLUGINS_RS_CUBEK_0_1_1_URL		:= https://crates.io/api/v1/crates/cubek/0.1.1/download
+GST_PLUGINS_RS_CUBEK_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, cubek/0.1.1/download)
 GST_PLUGINS_RS_CUBEK_0_1_1_SOURCE	:= $(SRCDIR)/cubek-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBEK_0_1_1
 
 GST_PLUGINS_RS_CUBEK_ATTENTION_0_1_1_MD5		:= 6f4ac639428d9c915c7182bf2e60ef19
-GST_PLUGINS_RS_CUBEK_ATTENTION_0_1_1_URL		:= https://crates.io/api/v1/crates/cubek-attention/0.1.1/download
+GST_PLUGINS_RS_CUBEK_ATTENTION_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, cubek-attention/0.1.1/download)
 GST_PLUGINS_RS_CUBEK_ATTENTION_0_1_1_SOURCE	:= $(SRCDIR)/cubek-attention-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBEK_ATTENTION_0_1_1
 
 GST_PLUGINS_RS_CUBEK_CONVOLUTION_0_1_1_MD5		:= 8e24589a7d122623a55b4cec55b279c8
-GST_PLUGINS_RS_CUBEK_CONVOLUTION_0_1_1_URL		:= https://crates.io/api/v1/crates/cubek-convolution/0.1.1/download
+GST_PLUGINS_RS_CUBEK_CONVOLUTION_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, cubek-convolution/0.1.1/download)
 GST_PLUGINS_RS_CUBEK_CONVOLUTION_0_1_1_SOURCE	:= $(SRCDIR)/cubek-convolution-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBEK_CONVOLUTION_0_1_1
 
 GST_PLUGINS_RS_CUBEK_MATMUL_0_1_1_MD5		:= 9890f2ce8b72595c7cc776bed5376d62
-GST_PLUGINS_RS_CUBEK_MATMUL_0_1_1_URL		:= https://crates.io/api/v1/crates/cubek-matmul/0.1.1/download
+GST_PLUGINS_RS_CUBEK_MATMUL_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, cubek-matmul/0.1.1/download)
 GST_PLUGINS_RS_CUBEK_MATMUL_0_1_1_SOURCE	:= $(SRCDIR)/cubek-matmul-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBEK_MATMUL_0_1_1
 
 GST_PLUGINS_RS_CUBEK_QUANT_0_1_1_MD5		:= ba7f89d4b7f1f2e199d304943754423e
-GST_PLUGINS_RS_CUBEK_QUANT_0_1_1_URL		:= https://crates.io/api/v1/crates/cubek-quant/0.1.1/download
+GST_PLUGINS_RS_CUBEK_QUANT_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, cubek-quant/0.1.1/download)
 GST_PLUGINS_RS_CUBEK_QUANT_0_1_1_SOURCE	:= $(SRCDIR)/cubek-quant-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBEK_QUANT_0_1_1
 
 GST_PLUGINS_RS_CUBEK_RANDOM_0_1_1_MD5		:= be19a91ab31c2981eeea5231a5f1ab4d
-GST_PLUGINS_RS_CUBEK_RANDOM_0_1_1_URL		:= https://crates.io/api/v1/crates/cubek-random/0.1.1/download
+GST_PLUGINS_RS_CUBEK_RANDOM_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, cubek-random/0.1.1/download)
 GST_PLUGINS_RS_CUBEK_RANDOM_0_1_1_SOURCE	:= $(SRCDIR)/cubek-random-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBEK_RANDOM_0_1_1
 
 GST_PLUGINS_RS_CUBEK_REDUCE_0_1_1_MD5		:= d827381a08dc806c1fab342a7d523474
-GST_PLUGINS_RS_CUBEK_REDUCE_0_1_1_URL		:= https://crates.io/api/v1/crates/cubek-reduce/0.1.1/download
+GST_PLUGINS_RS_CUBEK_REDUCE_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, cubek-reduce/0.1.1/download)
 GST_PLUGINS_RS_CUBEK_REDUCE_0_1_1_SOURCE	:= $(SRCDIR)/cubek-reduce-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUBEK_REDUCE_0_1_1
 
 GST_PLUGINS_RS_CUDARC_0_18_2_MD5		:= 70527729aa16cb501ccbfc68752d815d
-GST_PLUGINS_RS_CUDARC_0_18_2_URL		:= https://crates.io/api/v1/crates/cudarc/0.18.2/download
+GST_PLUGINS_RS_CUDARC_0_18_2_URL		:= $(call ptx/mirror, CRATESIO, cudarc/0.18.2/download)
 GST_PLUGINS_RS_CUDARC_0_18_2_SOURCE	:= $(SRCDIR)/cudarc-0.18.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_CUDARC_0_18_2
 
 GST_PLUGINS_RS_DARLING_0_20_11_MD5		:= 8579dbeae36259c4fb23dde813e12c47
-GST_PLUGINS_RS_DARLING_0_20_11_URL		:= https://crates.io/api/v1/crates/darling/0.20.11/download
+GST_PLUGINS_RS_DARLING_0_20_11_URL		:= $(call ptx/mirror, CRATESIO, darling/0.20.11/download)
 GST_PLUGINS_RS_DARLING_0_20_11_SOURCE	:= $(SRCDIR)/darling-0.20.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DARLING_0_20_11
 
 GST_PLUGINS_RS_DARLING_0_21_3_MD5		:= 076c091a48baec4e033664b63519eb2b
-GST_PLUGINS_RS_DARLING_0_21_3_URL		:= https://crates.io/api/v1/crates/darling/0.21.3/download
+GST_PLUGINS_RS_DARLING_0_21_3_URL		:= $(call ptx/mirror, CRATESIO, darling/0.21.3/download)
 GST_PLUGINS_RS_DARLING_0_21_3_SOURCE	:= $(SRCDIR)/darling-0.21.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DARLING_0_21_3
 
 GST_PLUGINS_RS_DARLING_CORE_0_20_11_MD5		:= 0e444fb1678604a426bec209f9da1c82
-GST_PLUGINS_RS_DARLING_CORE_0_20_11_URL		:= https://crates.io/api/v1/crates/darling_core/0.20.11/download
+GST_PLUGINS_RS_DARLING_CORE_0_20_11_URL		:= $(call ptx/mirror, CRATESIO, darling_core/0.20.11/download)
 GST_PLUGINS_RS_DARLING_CORE_0_20_11_SOURCE	:= $(SRCDIR)/darling_core-0.20.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DARLING_CORE_0_20_11
 
 GST_PLUGINS_RS_DARLING_CORE_0_21_3_MD5		:= 5ad22b7ada9f76ab24e6fc0c74994310
-GST_PLUGINS_RS_DARLING_CORE_0_21_3_URL		:= https://crates.io/api/v1/crates/darling_core/0.21.3/download
+GST_PLUGINS_RS_DARLING_CORE_0_21_3_URL		:= $(call ptx/mirror, CRATESIO, darling_core/0.21.3/download)
 GST_PLUGINS_RS_DARLING_CORE_0_21_3_SOURCE	:= $(SRCDIR)/darling_core-0.21.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DARLING_CORE_0_21_3
 
 GST_PLUGINS_RS_DARLING_MACRO_0_20_11_MD5		:= 454fec8b466c2d522140176fb00fc250
-GST_PLUGINS_RS_DARLING_MACRO_0_20_11_URL		:= https://crates.io/api/v1/crates/darling_macro/0.20.11/download
+GST_PLUGINS_RS_DARLING_MACRO_0_20_11_URL		:= $(call ptx/mirror, CRATESIO, darling_macro/0.20.11/download)
 GST_PLUGINS_RS_DARLING_MACRO_0_20_11_SOURCE	:= $(SRCDIR)/darling_macro-0.20.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DARLING_MACRO_0_20_11
 
 GST_PLUGINS_RS_DARLING_MACRO_0_21_3_MD5		:= 536ec6ffab8412089726b9e77fc4613e
-GST_PLUGINS_RS_DARLING_MACRO_0_21_3_URL		:= https://crates.io/api/v1/crates/darling_macro/0.21.3/download
+GST_PLUGINS_RS_DARLING_MACRO_0_21_3_URL		:= $(call ptx/mirror, CRATESIO, darling_macro/0.21.3/download)
 GST_PLUGINS_RS_DARLING_MACRO_0_21_3_SOURCE	:= $(SRCDIR)/darling_macro-0.21.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DARLING_MACRO_0_21_3
 
 GST_PLUGINS_RS_DASH_MPD_0_19_3_MD5		:= 4af7eacdc42e37ac5df9f17e2d5dada6
-GST_PLUGINS_RS_DASH_MPD_0_19_3_URL		:= https://crates.io/api/v1/crates/dash-mpd/0.19.3/download
+GST_PLUGINS_RS_DASH_MPD_0_19_3_URL		:= $(call ptx/mirror, CRATESIO, dash-mpd/0.19.3/download)
 GST_PLUGINS_RS_DASH_MPD_0_19_3_SOURCE	:= $(SRCDIR)/dash-mpd-0.19.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASH_MPD_0_19_3
 
 GST_PLUGINS_RS_DASP_0_11_0_MD5		:= 2ae3cacf5d114fd866f29523360c96ef
-GST_PLUGINS_RS_DASP_0_11_0_URL		:= https://crates.io/api/v1/crates/dasp/0.11.0/download
+GST_PLUGINS_RS_DASP_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, dasp/0.11.0/download)
 GST_PLUGINS_RS_DASP_0_11_0_SOURCE	:= $(SRCDIR)/dasp-0.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASP_0_11_0
 
 GST_PLUGINS_RS_DASP_ENVELOPE_0_11_0_MD5		:= a6488ab26e20d940eadc4b25c7aa3dfd
-GST_PLUGINS_RS_DASP_ENVELOPE_0_11_0_URL		:= https://crates.io/api/v1/crates/dasp_envelope/0.11.0/download
+GST_PLUGINS_RS_DASP_ENVELOPE_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, dasp_envelope/0.11.0/download)
 GST_PLUGINS_RS_DASP_ENVELOPE_0_11_0_SOURCE	:= $(SRCDIR)/dasp_envelope-0.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASP_ENVELOPE_0_11_0
 
 GST_PLUGINS_RS_DASP_FRAME_0_11_0_MD5		:= 5f079197b9be58c0eaa24213d75b2793
-GST_PLUGINS_RS_DASP_FRAME_0_11_0_URL		:= https://crates.io/api/v1/crates/dasp_frame/0.11.0/download
+GST_PLUGINS_RS_DASP_FRAME_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, dasp_frame/0.11.0/download)
 GST_PLUGINS_RS_DASP_FRAME_0_11_0_SOURCE	:= $(SRCDIR)/dasp_frame-0.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASP_FRAME_0_11_0
 
 GST_PLUGINS_RS_DASP_INTERPOLATE_0_11_0_MD5		:= caf8cf3a879238960d30a0d7c0d706bb
-GST_PLUGINS_RS_DASP_INTERPOLATE_0_11_0_URL		:= https://crates.io/api/v1/crates/dasp_interpolate/0.11.0/download
+GST_PLUGINS_RS_DASP_INTERPOLATE_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, dasp_interpolate/0.11.0/download)
 GST_PLUGINS_RS_DASP_INTERPOLATE_0_11_0_SOURCE	:= $(SRCDIR)/dasp_interpolate-0.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASP_INTERPOLATE_0_11_0
 
 GST_PLUGINS_RS_DASP_PEAK_0_11_0_MD5		:= 6d2e40573f17bca9ec4218d12e82fc3d
-GST_PLUGINS_RS_DASP_PEAK_0_11_0_URL		:= https://crates.io/api/v1/crates/dasp_peak/0.11.0/download
+GST_PLUGINS_RS_DASP_PEAK_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, dasp_peak/0.11.0/download)
 GST_PLUGINS_RS_DASP_PEAK_0_11_0_SOURCE	:= $(SRCDIR)/dasp_peak-0.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASP_PEAK_0_11_0
 
 GST_PLUGINS_RS_DASP_RING_BUFFER_0_11_0_MD5		:= c87c75b90612d95aaa90cbae54dc3941
-GST_PLUGINS_RS_DASP_RING_BUFFER_0_11_0_URL		:= https://crates.io/api/v1/crates/dasp_ring_buffer/0.11.0/download
+GST_PLUGINS_RS_DASP_RING_BUFFER_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, dasp_ring_buffer/0.11.0/download)
 GST_PLUGINS_RS_DASP_RING_BUFFER_0_11_0_SOURCE	:= $(SRCDIR)/dasp_ring_buffer-0.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASP_RING_BUFFER_0_11_0
 
 GST_PLUGINS_RS_DASP_RMS_0_11_0_MD5		:= d6f7814e3e8ff8f64b13c3abda08a155
-GST_PLUGINS_RS_DASP_RMS_0_11_0_URL		:= https://crates.io/api/v1/crates/dasp_rms/0.11.0/download
+GST_PLUGINS_RS_DASP_RMS_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, dasp_rms/0.11.0/download)
 GST_PLUGINS_RS_DASP_RMS_0_11_0_SOURCE	:= $(SRCDIR)/dasp_rms-0.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASP_RMS_0_11_0
 
 GST_PLUGINS_RS_DASP_SAMPLE_0_11_0_MD5		:= 6eab5f634114223f7b84615fc46458c2
-GST_PLUGINS_RS_DASP_SAMPLE_0_11_0_URL		:= https://crates.io/api/v1/crates/dasp_sample/0.11.0/download
+GST_PLUGINS_RS_DASP_SAMPLE_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, dasp_sample/0.11.0/download)
 GST_PLUGINS_RS_DASP_SAMPLE_0_11_0_SOURCE	:= $(SRCDIR)/dasp_sample-0.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASP_SAMPLE_0_11_0
 
 GST_PLUGINS_RS_DASP_SIGNAL_0_11_0_MD5		:= 9088e1615ab1436994d957abc2808f29
-GST_PLUGINS_RS_DASP_SIGNAL_0_11_0_URL		:= https://crates.io/api/v1/crates/dasp_signal/0.11.0/download
+GST_PLUGINS_RS_DASP_SIGNAL_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, dasp_signal/0.11.0/download)
 GST_PLUGINS_RS_DASP_SIGNAL_0_11_0_SOURCE	:= $(SRCDIR)/dasp_signal-0.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASP_SIGNAL_0_11_0
 
 GST_PLUGINS_RS_DASP_SLICE_0_11_0_MD5		:= 792e2f581e8d9a14871e1aafc7e76eea
-GST_PLUGINS_RS_DASP_SLICE_0_11_0_URL		:= https://crates.io/api/v1/crates/dasp_slice/0.11.0/download
+GST_PLUGINS_RS_DASP_SLICE_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, dasp_slice/0.11.0/download)
 GST_PLUGINS_RS_DASP_SLICE_0_11_0_SOURCE	:= $(SRCDIR)/dasp_slice-0.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASP_SLICE_0_11_0
 
 GST_PLUGINS_RS_DASP_WINDOW_0_11_1_MD5		:= e17dd0583c8e2f9f67faec96c309cd94
-GST_PLUGINS_RS_DASP_WINDOW_0_11_1_URL		:= https://crates.io/api/v1/crates/dasp_window/0.11.1/download
+GST_PLUGINS_RS_DASP_WINDOW_0_11_1_URL		:= $(call ptx/mirror, CRATESIO, dasp_window/0.11.1/download)
 GST_PLUGINS_RS_DASP_WINDOW_0_11_1_SOURCE	:= $(SRCDIR)/dasp_window-0.11.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DASP_WINDOW_0_11_1
 
 GST_PLUGINS_RS_DATA_ENCODING_2_10_0_MD5		:= af9af4c082c6d8c0b65c7bd7a601a093
-GST_PLUGINS_RS_DATA_ENCODING_2_10_0_URL		:= https://crates.io/api/v1/crates/data-encoding/2.10.0/download
+GST_PLUGINS_RS_DATA_ENCODING_2_10_0_URL		:= $(call ptx/mirror, CRATESIO, data-encoding/2.10.0/download)
 GST_PLUGINS_RS_DATA_ENCODING_2_10_0_SOURCE	:= $(SRCDIR)/data-encoding-2.10.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DATA_ENCODING_2_10_0
 
 GST_PLUGINS_RS_DAV1D_0_11_1_MD5		:= 61d1ef37f5042cbd8a18919a080ecefc
-GST_PLUGINS_RS_DAV1D_0_11_1_URL		:= https://crates.io/api/v1/crates/dav1d/0.11.1/download
+GST_PLUGINS_RS_DAV1D_0_11_1_URL		:= $(call ptx/mirror, CRATESIO, dav1d/0.11.1/download)
 GST_PLUGINS_RS_DAV1D_0_11_1_SOURCE	:= $(SRCDIR)/dav1d-0.11.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DAV1D_0_11_1
 
 GST_PLUGINS_RS_DAV1D_SYS_0_8_3_MD5		:= 491c0d9f4d6998514005640ef5fd0d0b
-GST_PLUGINS_RS_DAV1D_SYS_0_8_3_URL		:= https://crates.io/api/v1/crates/dav1d-sys/0.8.3/download
+GST_PLUGINS_RS_DAV1D_SYS_0_8_3_URL		:= $(call ptx/mirror, CRATESIO, dav1d-sys/0.8.3/download)
 GST_PLUGINS_RS_DAV1D_SYS_0_8_3_SOURCE	:= $(SRCDIR)/dav1d-sys-0.8.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DAV1D_SYS_0_8_3
 
 GST_PLUGINS_RS_DEEPGRAM_0_7_0_MD5		:= 391f6288fd88a2253187779b370899c7
-GST_PLUGINS_RS_DEEPGRAM_0_7_0_URL		:= https://crates.io/api/v1/crates/deepgram/0.7.0/download
+GST_PLUGINS_RS_DEEPGRAM_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, deepgram/0.7.0/download)
 GST_PLUGINS_RS_DEEPGRAM_0_7_0_SOURCE	:= $(SRCDIR)/deepgram-0.7.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DEEPGRAM_0_7_0
 
 GST_PLUGINS_RS_DEFLATE64_0_1_11_MD5		:= b432c27b97f0a4a9b2ea55e40a722ab6
-GST_PLUGINS_RS_DEFLATE64_0_1_11_URL		:= https://crates.io/api/v1/crates/deflate64/0.1.11/download
+GST_PLUGINS_RS_DEFLATE64_0_1_11_URL		:= $(call ptx/mirror, CRATESIO, deflate64/0.1.11/download)
 GST_PLUGINS_RS_DEFLATE64_0_1_11_SOURCE	:= $(SRCDIR)/deflate64-0.1.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DEFLATE64_0_1_11
 
 GST_PLUGINS_RS_DER_0_6_1_MD5		:= fee14f852bfbbc2b0f92abe26a987bd7
-GST_PLUGINS_RS_DER_0_6_1_URL		:= https://crates.io/api/v1/crates/der/0.6.1/download
+GST_PLUGINS_RS_DER_0_6_1_URL		:= $(call ptx/mirror, CRATESIO, der/0.6.1/download)
 GST_PLUGINS_RS_DER_0_6_1_SOURCE	:= $(SRCDIR)/der-0.6.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DER_0_6_1
 
 GST_PLUGINS_RS_DER_0_7_10_MD5		:= aac304f4d342ddf73b37e26385b3d585
-GST_PLUGINS_RS_DER_0_7_10_URL		:= https://crates.io/api/v1/crates/der/0.7.10/download
+GST_PLUGINS_RS_DER_0_7_10_URL		:= $(call ptx/mirror, CRATESIO, der/0.7.10/download)
 GST_PLUGINS_RS_DER_0_7_10_SOURCE	:= $(SRCDIR)/der-0.7.10.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DER_0_7_10
 
 GST_PLUGINS_RS_DER_PARSER_10_0_0_MD5		:= 6a28347e59d75ef4028773e383ac33da
-GST_PLUGINS_RS_DER_PARSER_10_0_0_URL		:= https://crates.io/api/v1/crates/der-parser/10.0.0/download
+GST_PLUGINS_RS_DER_PARSER_10_0_0_URL		:= $(call ptx/mirror, CRATESIO, der-parser/10.0.0/download)
 GST_PLUGINS_RS_DER_PARSER_10_0_0_SOURCE	:= $(SRCDIR)/der-parser-10.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DER_PARSER_10_0_0
 
 GST_PLUGINS_RS_DERANGED_0_5_8_MD5		:= efb672eafdbbab56cc05a8fc08ed2fb3
-GST_PLUGINS_RS_DERANGED_0_5_8_URL		:= https://crates.io/api/v1/crates/deranged/0.5.8/download
+GST_PLUGINS_RS_DERANGED_0_5_8_URL		:= $(call ptx/mirror, CRATESIO, deranged/0.5.8/download)
 GST_PLUGINS_RS_DERANGED_0_5_8_SOURCE	:= $(SRCDIR)/deranged-0.5.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DERANGED_0_5_8
 
 GST_PLUGINS_RS_DERIVE_INTO_OWNED_0_2_0_MD5		:= 5d62f455ae655352b3e3c59d310e501b
-GST_PLUGINS_RS_DERIVE_INTO_OWNED_0_2_0_URL		:= https://crates.io/api/v1/crates/derive-into-owned/0.2.0/download
+GST_PLUGINS_RS_DERIVE_INTO_OWNED_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, derive-into-owned/0.2.0/download)
 GST_PLUGINS_RS_DERIVE_INTO_OWNED_0_2_0_SOURCE	:= $(SRCDIR)/derive-into-owned-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DERIVE_INTO_OWNED_0_2_0
 
 GST_PLUGINS_RS_DERIVE_NEW_0_7_0_MD5		:= fb52421df563b0f41d8a2b1b7a43c3e1
-GST_PLUGINS_RS_DERIVE_NEW_0_7_0_URL		:= https://crates.io/api/v1/crates/derive-new/0.7.0/download
+GST_PLUGINS_RS_DERIVE_NEW_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, derive-new/0.7.0/download)
 GST_PLUGINS_RS_DERIVE_NEW_0_7_0_SOURCE	:= $(SRCDIR)/derive-new-0.7.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DERIVE_NEW_0_7_0
 
 GST_PLUGINS_RS_DERIVE_BUILDER_0_20_2_MD5		:= 4f3e6d806cfd6173f04167b10753738a
-GST_PLUGINS_RS_DERIVE_BUILDER_0_20_2_URL		:= https://crates.io/api/v1/crates/derive_builder/0.20.2/download
+GST_PLUGINS_RS_DERIVE_BUILDER_0_20_2_URL		:= $(call ptx/mirror, CRATESIO, derive_builder/0.20.2/download)
 GST_PLUGINS_RS_DERIVE_BUILDER_0_20_2_SOURCE	:= $(SRCDIR)/derive_builder-0.20.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DERIVE_BUILDER_0_20_2
 
 GST_PLUGINS_RS_DERIVE_BUILDER_CORE_0_20_2_MD5		:= cc2ca6e59bb38de25de8980d8b95f913
-GST_PLUGINS_RS_DERIVE_BUILDER_CORE_0_20_2_URL		:= https://crates.io/api/v1/crates/derive_builder_core/0.20.2/download
+GST_PLUGINS_RS_DERIVE_BUILDER_CORE_0_20_2_URL		:= $(call ptx/mirror, CRATESIO, derive_builder_core/0.20.2/download)
 GST_PLUGINS_RS_DERIVE_BUILDER_CORE_0_20_2_SOURCE	:= $(SRCDIR)/derive_builder_core-0.20.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DERIVE_BUILDER_CORE_0_20_2
 
 GST_PLUGINS_RS_DERIVE_BUILDER_MACRO_0_20_2_MD5		:= 0c7e87f9498c86b92988dc9f251f941b
-GST_PLUGINS_RS_DERIVE_BUILDER_MACRO_0_20_2_URL		:= https://crates.io/api/v1/crates/derive_builder_macro/0.20.2/download
+GST_PLUGINS_RS_DERIVE_BUILDER_MACRO_0_20_2_URL		:= $(call ptx/mirror, CRATESIO, derive_builder_macro/0.20.2/download)
 GST_PLUGINS_RS_DERIVE_BUILDER_MACRO_0_20_2_SOURCE	:= $(SRCDIR)/derive_builder_macro-0.20.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DERIVE_BUILDER_MACRO_0_20_2
 
 GST_PLUGINS_RS_DERIVE_MORE_2_1_1_MD5		:= 5db50f0910f8d10d20eebdfb0dc56b9c
-GST_PLUGINS_RS_DERIVE_MORE_2_1_1_URL		:= https://crates.io/api/v1/crates/derive_more/2.1.1/download
+GST_PLUGINS_RS_DERIVE_MORE_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, derive_more/2.1.1/download)
 GST_PLUGINS_RS_DERIVE_MORE_2_1_1_SOURCE	:= $(SRCDIR)/derive_more-2.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DERIVE_MORE_2_1_1
 
 GST_PLUGINS_RS_DERIVE_MORE_IMPL_2_1_1_MD5		:= e891852d966a40470371fac78d6fa9c3
-GST_PLUGINS_RS_DERIVE_MORE_IMPL_2_1_1_URL		:= https://crates.io/api/v1/crates/derive_more-impl/2.1.1/download
+GST_PLUGINS_RS_DERIVE_MORE_IMPL_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, derive_more-impl/2.1.1/download)
 GST_PLUGINS_RS_DERIVE_MORE_IMPL_2_1_1_SOURCE	:= $(SRCDIR)/derive_more-impl-2.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DERIVE_MORE_IMPL_2_1_1
 
 GST_PLUGINS_RS_DEUNICODE_1_6_2_MD5		:= 51f76f10d298342d8ec0914c2a617370
-GST_PLUGINS_RS_DEUNICODE_1_6_2_URL		:= https://crates.io/api/v1/crates/deunicode/1.6.2/download
+GST_PLUGINS_RS_DEUNICODE_1_6_2_URL		:= $(call ptx/mirror, CRATESIO, deunicode/1.6.2/download)
 GST_PLUGINS_RS_DEUNICODE_1_6_2_SOURCE	:= $(SRCDIR)/deunicode-1.6.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DEUNICODE_1_6_2
 
 GST_PLUGINS_RS_DIFF_0_1_13_MD5		:= 434e2423f372fed80f69ed8873fdd2a3
-GST_PLUGINS_RS_DIFF_0_1_13_URL		:= https://crates.io/api/v1/crates/diff/0.1.13/download
+GST_PLUGINS_RS_DIFF_0_1_13_URL		:= $(call ptx/mirror, CRATESIO, diff/0.1.13/download)
 GST_PLUGINS_RS_DIFF_0_1_13_SOURCE	:= $(SRCDIR)/diff-0.1.13.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DIFF_0_1_13
 
 GST_PLUGINS_RS_DIGEST_0_10_7_MD5		:= 3d62bfbbe08bdcee55fcb8cda85554d9
-GST_PLUGINS_RS_DIGEST_0_10_7_URL		:= https://crates.io/api/v1/crates/digest/0.10.7/download
+GST_PLUGINS_RS_DIGEST_0_10_7_URL		:= $(call ptx/mirror, CRATESIO, digest/0.10.7/download)
 GST_PLUGINS_RS_DIGEST_0_10_7_SOURCE	:= $(SRCDIR)/digest-0.10.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DIGEST_0_10_7
 
 GST_PLUGINS_RS_DIRS_6_0_0_MD5		:= e78c924ecd8e323bea0db94cb63fe424
-GST_PLUGINS_RS_DIRS_6_0_0_URL		:= https://crates.io/api/v1/crates/dirs/6.0.0/download
+GST_PLUGINS_RS_DIRS_6_0_0_URL		:= $(call ptx/mirror, CRATESIO, dirs/6.0.0/download)
 GST_PLUGINS_RS_DIRS_6_0_0_SOURCE	:= $(SRCDIR)/dirs-6.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DIRS_6_0_0
 
 GST_PLUGINS_RS_DIRS_SYS_0_5_0_MD5		:= 99546145bdd4e87ba299cc9cae560ac8
-GST_PLUGINS_RS_DIRS_SYS_0_5_0_URL		:= https://crates.io/api/v1/crates/dirs-sys/0.5.0/download
+GST_PLUGINS_RS_DIRS_SYS_0_5_0_URL		:= $(call ptx/mirror, CRATESIO, dirs-sys/0.5.0/download)
 GST_PLUGINS_RS_DIRS_SYS_0_5_0_SOURCE	:= $(SRCDIR)/dirs-sys-0.5.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DIRS_SYS_0_5_0
 
 GST_PLUGINS_RS_DISPATCH2_0_3_1_MD5		:= b4814a803b84db4cf8515ea8cbb097bf
-GST_PLUGINS_RS_DISPATCH2_0_3_1_URL		:= https://crates.io/api/v1/crates/dispatch2/0.3.1/download
+GST_PLUGINS_RS_DISPATCH2_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, dispatch2/0.3.1/download)
 GST_PLUGINS_RS_DISPATCH2_0_3_1_SOURCE	:= $(SRCDIR)/dispatch2-0.3.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DISPATCH2_0_3_1
 
 GST_PLUGINS_RS_DISPLAYDOC_0_2_5_MD5		:= 145b7bd67e6356f3510a7d8fa9bb7926
-GST_PLUGINS_RS_DISPLAYDOC_0_2_5_URL		:= https://crates.io/api/v1/crates/displaydoc/0.2.5/download
+GST_PLUGINS_RS_DISPLAYDOC_0_2_5_URL		:= $(call ptx/mirror, CRATESIO, displaydoc/0.2.5/download)
 GST_PLUGINS_RS_DISPLAYDOC_0_2_5_SOURCE	:= $(SRCDIR)/displaydoc-0.2.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DISPLAYDOC_0_2_5
 
 GST_PLUGINS_RS_DOCUMENT_FEATURES_0_2_12_MD5		:= 58c92d1a99f821c6afc763d6c9943b2d
-GST_PLUGINS_RS_DOCUMENT_FEATURES_0_2_12_URL		:= https://crates.io/api/v1/crates/document-features/0.2.12/download
+GST_PLUGINS_RS_DOCUMENT_FEATURES_0_2_12_URL		:= $(call ptx/mirror, CRATESIO, document-features/0.2.12/download)
 GST_PLUGINS_RS_DOCUMENT_FEATURES_0_2_12_SOURCE	:= $(SRCDIR)/document-features-0.2.12.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DOCUMENT_FEATURES_0_2_12
 
 GST_PLUGINS_RS_DSSIM_CORE_3_4_0_MD5		:= a5425179667a099549a96cf35e171d76
-GST_PLUGINS_RS_DSSIM_CORE_3_4_0_URL		:= https://crates.io/api/v1/crates/dssim-core/3.4.0/download
+GST_PLUGINS_RS_DSSIM_CORE_3_4_0_URL		:= $(call ptx/mirror, CRATESIO, dssim-core/3.4.0/download)
 GST_PLUGINS_RS_DSSIM_CORE_3_4_0_SOURCE	:= $(SRCDIR)/dssim-core-3.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DSSIM_CORE_3_4_0
 
 GST_PLUGINS_RS_DYN_CLONE_1_0_20_MD5		:= 5780fcd1ea46357609cc4f21b97fca1d
-GST_PLUGINS_RS_DYN_CLONE_1_0_20_URL		:= https://crates.io/api/v1/crates/dyn-clone/1.0.20/download
+GST_PLUGINS_RS_DYN_CLONE_1_0_20_URL		:= $(call ptx/mirror, CRATESIO, dyn-clone/1.0.20/download)
 GST_PLUGINS_RS_DYN_CLONE_1_0_20_SOURCE	:= $(SRCDIR)/dyn-clone-1.0.20.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_DYN_CLONE_1_0_20
 
 GST_PLUGINS_RS_EASYFFT_0_4_2_MD5		:= 15061129f2c8998c42f9da3d98e849d7
-GST_PLUGINS_RS_EASYFFT_0_4_2_URL		:= https://crates.io/api/v1/crates/easyfft/0.4.2/download
+GST_PLUGINS_RS_EASYFFT_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, easyfft/0.4.2/download)
 GST_PLUGINS_RS_EASYFFT_0_4_2_SOURCE	:= $(SRCDIR)/easyfft-0.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EASYFFT_0_4_2
 
 GST_PLUGINS_RS_EBML_ITERABLE_0_6_3_MD5		:= f94dba26e0227fddf6c01d1da98f0e15
-GST_PLUGINS_RS_EBML_ITERABLE_0_6_3_URL		:= https://crates.io/api/v1/crates/ebml-iterable/0.6.3/download
+GST_PLUGINS_RS_EBML_ITERABLE_0_6_3_URL		:= $(call ptx/mirror, CRATESIO, ebml-iterable/0.6.3/download)
 GST_PLUGINS_RS_EBML_ITERABLE_0_6_3_SOURCE	:= $(SRCDIR)/ebml-iterable-0.6.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EBML_ITERABLE_0_6_3
 
 GST_PLUGINS_RS_EBML_ITERABLE_SPECIFICATION_0_4_0_MD5		:= 15be704c98fe939588dbe8deecc1cbe8
-GST_PLUGINS_RS_EBML_ITERABLE_SPECIFICATION_0_4_0_URL		:= https://crates.io/api/v1/crates/ebml-iterable-specification/0.4.0/download
+GST_PLUGINS_RS_EBML_ITERABLE_SPECIFICATION_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, ebml-iterable-specification/0.4.0/download)
 GST_PLUGINS_RS_EBML_ITERABLE_SPECIFICATION_0_4_0_SOURCE	:= $(SRCDIR)/ebml-iterable-specification-0.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EBML_ITERABLE_SPECIFICATION_0_4_0
 
 GST_PLUGINS_RS_EBML_ITERABLE_SPECIFICATION_DERIVE_0_4_0_MD5		:= 62b7063474d94ea12fb43e478c914ddb
-GST_PLUGINS_RS_EBML_ITERABLE_SPECIFICATION_DERIVE_0_4_0_URL		:= https://crates.io/api/v1/crates/ebml-iterable-specification-derive/0.4.0/download
+GST_PLUGINS_RS_EBML_ITERABLE_SPECIFICATION_DERIVE_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, ebml-iterable-specification-derive/0.4.0/download)
 GST_PLUGINS_RS_EBML_ITERABLE_SPECIFICATION_DERIVE_0_4_0_SOURCE	:= $(SRCDIR)/ebml-iterable-specification-derive-0.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EBML_ITERABLE_SPECIFICATION_DERIVE_0_4_0
 
 GST_PLUGINS_RS_EBUR128_0_1_10_MD5		:= f2184cfa0be9144ddadf2b6dc5607c70
-GST_PLUGINS_RS_EBUR128_0_1_10_URL		:= https://crates.io/api/v1/crates/ebur128/0.1.10/download
+GST_PLUGINS_RS_EBUR128_0_1_10_URL		:= $(call ptx/mirror, CRATESIO, ebur128/0.1.10/download)
 GST_PLUGINS_RS_EBUR128_0_1_10_SOURCE	:= $(SRCDIR)/ebur128-0.1.10.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EBUR128_0_1_10
 
 GST_PLUGINS_RS_ECDSA_0_14_8_MD5		:= 6527a7fcb43b9678957946313a148b29
-GST_PLUGINS_RS_ECDSA_0_14_8_URL		:= https://crates.io/api/v1/crates/ecdsa/0.14.8/download
+GST_PLUGINS_RS_ECDSA_0_14_8_URL		:= $(call ptx/mirror, CRATESIO, ecdsa/0.14.8/download)
 GST_PLUGINS_RS_ECDSA_0_14_8_SOURCE	:= $(SRCDIR)/ecdsa-0.14.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ECDSA_0_14_8
 
 GST_PLUGINS_RS_ED25519_1_5_3_MD5		:= 696721936b4c3ba28adad538e1574b58
-GST_PLUGINS_RS_ED25519_1_5_3_URL		:= https://crates.io/api/v1/crates/ed25519/1.5.3/download
+GST_PLUGINS_RS_ED25519_1_5_3_URL		:= $(call ptx/mirror, CRATESIO, ed25519/1.5.3/download)
 GST_PLUGINS_RS_ED25519_1_5_3_SOURCE	:= $(SRCDIR)/ed25519-1.5.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ED25519_1_5_3
 
 GST_PLUGINS_RS_EITHER_1_15_0_MD5		:= 96c3c9f009928f02773032f341666861
-GST_PLUGINS_RS_EITHER_1_15_0_URL		:= https://crates.io/api/v1/crates/either/1.15.0/download
+GST_PLUGINS_RS_EITHER_1_15_0_URL		:= $(call ptx/mirror, CRATESIO, either/1.15.0/download)
 GST_PLUGINS_RS_EITHER_1_15_0_SOURCE	:= $(SRCDIR)/either-1.15.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EITHER_1_15_0
 
 GST_PLUGINS_RS_ELLIPTIC_CURVE_0_12_3_MD5		:= 9ebc1e7e34f00011e1b4a10489e0e2ab
-GST_PLUGINS_RS_ELLIPTIC_CURVE_0_12_3_URL		:= https://crates.io/api/v1/crates/elliptic-curve/0.12.3/download
+GST_PLUGINS_RS_ELLIPTIC_CURVE_0_12_3_URL		:= $(call ptx/mirror, CRATESIO, elliptic-curve/0.12.3/download)
 GST_PLUGINS_RS_ELLIPTIC_CURVE_0_12_3_SOURCE	:= $(SRCDIR)/elliptic-curve-0.12.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ELLIPTIC_CURVE_0_12_3
 
 GST_PLUGINS_RS_EMBASSY_FUTURES_0_1_2_MD5		:= 356887ec9d330b173347b6f870097789
-GST_PLUGINS_RS_EMBASSY_FUTURES_0_1_2_URL		:= https://crates.io/api/v1/crates/embassy-futures/0.1.2/download
+GST_PLUGINS_RS_EMBASSY_FUTURES_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, embassy-futures/0.1.2/download)
 GST_PLUGINS_RS_EMBASSY_FUTURES_0_1_2_SOURCE	:= $(SRCDIR)/embassy-futures-0.1.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EMBASSY_FUTURES_0_1_2
 
 GST_PLUGINS_RS_EMBASSY_TIME_0_4_0_MD5		:= de2bf58b481b82c915f03781d771f5a8
-GST_PLUGINS_RS_EMBASSY_TIME_0_4_0_URL		:= https://crates.io/api/v1/crates/embassy-time/0.4.0/download
+GST_PLUGINS_RS_EMBASSY_TIME_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, embassy-time/0.4.0/download)
 GST_PLUGINS_RS_EMBASSY_TIME_0_4_0_SOURCE	:= $(SRCDIR)/embassy-time-0.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EMBASSY_TIME_0_4_0
 
 GST_PLUGINS_RS_EMBASSY_TIME_DRIVER_0_2_1_MD5		:= b69e692b138f27d63d2bd1dad324ad95
-GST_PLUGINS_RS_EMBASSY_TIME_DRIVER_0_2_1_URL		:= https://crates.io/api/v1/crates/embassy-time-driver/0.2.1/download
+GST_PLUGINS_RS_EMBASSY_TIME_DRIVER_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, embassy-time-driver/0.2.1/download)
 GST_PLUGINS_RS_EMBASSY_TIME_DRIVER_0_2_1_SOURCE	:= $(SRCDIR)/embassy-time-driver-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EMBASSY_TIME_DRIVER_0_2_1
 
 GST_PLUGINS_RS_EMBEDDED_HAL_0_2_7_MD5		:= f8b79732997d331fd350f2855af3f3cf
-GST_PLUGINS_RS_EMBEDDED_HAL_0_2_7_URL		:= https://crates.io/api/v1/crates/embedded-hal/0.2.7/download
+GST_PLUGINS_RS_EMBEDDED_HAL_0_2_7_URL		:= $(call ptx/mirror, CRATESIO, embedded-hal/0.2.7/download)
 GST_PLUGINS_RS_EMBEDDED_HAL_0_2_7_SOURCE	:= $(SRCDIR)/embedded-hal-0.2.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EMBEDDED_HAL_0_2_7
 
 GST_PLUGINS_RS_EMBEDDED_HAL_1_0_0_MD5		:= a62d9095125cbcf9ccba36e65d46b06a
-GST_PLUGINS_RS_EMBEDDED_HAL_1_0_0_URL		:= https://crates.io/api/v1/crates/embedded-hal/1.0.0/download
+GST_PLUGINS_RS_EMBEDDED_HAL_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, embedded-hal/1.0.0/download)
 GST_PLUGINS_RS_EMBEDDED_HAL_1_0_0_SOURCE	:= $(SRCDIR)/embedded-hal-1.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EMBEDDED_HAL_1_0_0
 
 GST_PLUGINS_RS_EMBEDDED_HAL_ASYNC_1_0_0_MD5		:= fe7b7424578e0d3267fcfe738f7c1f08
-GST_PLUGINS_RS_EMBEDDED_HAL_ASYNC_1_0_0_URL		:= https://crates.io/api/v1/crates/embedded-hal-async/1.0.0/download
+GST_PLUGINS_RS_EMBEDDED_HAL_ASYNC_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, embedded-hal-async/1.0.0/download)
 GST_PLUGINS_RS_EMBEDDED_HAL_ASYNC_1_0_0_SOURCE	:= $(SRCDIR)/embedded-hal-async-1.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EMBEDDED_HAL_ASYNC_1_0_0
 
 GST_PLUGINS_RS_ENCODE_UNICODE_1_0_0_MD5		:= 1ba20ae7fd15056e81d732e0e78b118b
-GST_PLUGINS_RS_ENCODE_UNICODE_1_0_0_URL		:= https://crates.io/api/v1/crates/encode_unicode/1.0.0/download
+GST_PLUGINS_RS_ENCODE_UNICODE_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, encode_unicode/1.0.0/download)
 GST_PLUGINS_RS_ENCODE_UNICODE_1_0_0_SOURCE	:= $(SRCDIR)/encode_unicode-1.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ENCODE_UNICODE_1_0_0
 
 GST_PLUGINS_RS_ENCODING_RS_0_8_35_MD5		:= 916cd597e92b97a987a1a8f8f2d40805
-GST_PLUGINS_RS_ENCODING_RS_0_8_35_URL		:= https://crates.io/api/v1/crates/encoding_rs/0.8.35/download
+GST_PLUGINS_RS_ENCODING_RS_0_8_35_URL		:= $(call ptx/mirror, CRATESIO, encoding_rs/0.8.35/download)
 GST_PLUGINS_RS_ENCODING_RS_0_8_35_SOURCE	:= $(SRCDIR)/encoding_rs-0.8.35.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ENCODING_RS_0_8_35
 
 GST_PLUGINS_RS_ENTITIES_1_0_1_MD5		:= 0b7816b297924500c1635d2118681d4c
-GST_PLUGINS_RS_ENTITIES_1_0_1_URL		:= https://crates.io/api/v1/crates/entities/1.0.1/download
+GST_PLUGINS_RS_ENTITIES_1_0_1_URL		:= $(call ptx/mirror, CRATESIO, entities/1.0.1/download)
 GST_PLUGINS_RS_ENTITIES_1_0_1_SOURCE	:= $(SRCDIR)/entities-1.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ENTITIES_1_0_1
 
 GST_PLUGINS_RS_ENUMN_0_1_14_MD5		:= a2114d4ae6af29247ee737ac7dbd7400
-GST_PLUGINS_RS_ENUMN_0_1_14_URL		:= https://crates.io/api/v1/crates/enumn/0.1.14/download
+GST_PLUGINS_RS_ENUMN_0_1_14_URL		:= $(call ptx/mirror, CRATESIO, enumn/0.1.14/download)
 GST_PLUGINS_RS_ENUMN_0_1_14_SOURCE	:= $(SRCDIR)/enumn-0.1.14.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ENUMN_0_1_14
 
 GST_PLUGINS_RS_ENUMSET_1_1_10_MD5		:= 8bd9e4b8639ca82c7ab807139f15448b
-GST_PLUGINS_RS_ENUMSET_1_1_10_URL		:= https://crates.io/api/v1/crates/enumset/1.1.10/download
+GST_PLUGINS_RS_ENUMSET_1_1_10_URL		:= $(call ptx/mirror, CRATESIO, enumset/1.1.10/download)
 GST_PLUGINS_RS_ENUMSET_1_1_10_SOURCE	:= $(SRCDIR)/enumset-1.1.10.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ENUMSET_1_1_10
 
 GST_PLUGINS_RS_ENUMSET_DERIVE_0_14_0_MD5		:= 6d553cf2c5d3cf2c74d0460b5b25fbb2
-GST_PLUGINS_RS_ENUMSET_DERIVE_0_14_0_URL		:= https://crates.io/api/v1/crates/enumset_derive/0.14.0/download
+GST_PLUGINS_RS_ENUMSET_DERIVE_0_14_0_URL		:= $(call ptx/mirror, CRATESIO, enumset_derive/0.14.0/download)
 GST_PLUGINS_RS_ENUMSET_DERIVE_0_14_0_SOURCE	:= $(SRCDIR)/enumset_derive-0.14.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ENUMSET_DERIVE_0_14_0
 
 GST_PLUGINS_RS_ENV_FILTER_1_0_0_MD5		:= 638527997394d84b5d04e1a782b31685
-GST_PLUGINS_RS_ENV_FILTER_1_0_0_URL		:= https://crates.io/api/v1/crates/env_filter/1.0.0/download
+GST_PLUGINS_RS_ENV_FILTER_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, env_filter/1.0.0/download)
 GST_PLUGINS_RS_ENV_FILTER_1_0_0_SOURCE	:= $(SRCDIR)/env_filter-1.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ENV_FILTER_1_0_0
 
 GST_PLUGINS_RS_ENV_LOGGER_0_11_9_MD5		:= 79a36c8e8fd2d64de635af6935c194db
-GST_PLUGINS_RS_ENV_LOGGER_0_11_9_URL		:= https://crates.io/api/v1/crates/env_logger/0.11.9/download
+GST_PLUGINS_RS_ENV_LOGGER_0_11_9_URL		:= $(call ptx/mirror, CRATESIO, env_logger/0.11.9/download)
 GST_PLUGINS_RS_ENV_LOGGER_0_11_9_SOURCE	:= $(SRCDIR)/env_logger-0.11.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ENV_LOGGER_0_11_9
 
 GST_PLUGINS_RS_EQUATOR_0_4_2_MD5		:= bd9a335180497846d4608040eab66d6a
-GST_PLUGINS_RS_EQUATOR_0_4_2_URL		:= https://crates.io/api/v1/crates/equator/0.4.2/download
+GST_PLUGINS_RS_EQUATOR_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, equator/0.4.2/download)
 GST_PLUGINS_RS_EQUATOR_0_4_2_SOURCE	:= $(SRCDIR)/equator-0.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EQUATOR_0_4_2
 
 GST_PLUGINS_RS_EQUATOR_MACRO_0_4_2_MD5		:= e51649f56164a525a368d803a2738c6f
-GST_PLUGINS_RS_EQUATOR_MACRO_0_4_2_URL		:= https://crates.io/api/v1/crates/equator-macro/0.4.2/download
+GST_PLUGINS_RS_EQUATOR_MACRO_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, equator-macro/0.4.2/download)
 GST_PLUGINS_RS_EQUATOR_MACRO_0_4_2_SOURCE	:= $(SRCDIR)/equator-macro-0.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EQUATOR_MACRO_0_4_2
 
 GST_PLUGINS_RS_EQUIVALENT_1_0_2_MD5		:= 8ea35f559a34b5a0ba1b063e001773ca
-GST_PLUGINS_RS_EQUIVALENT_1_0_2_URL		:= https://crates.io/api/v1/crates/equivalent/1.0.2/download
+GST_PLUGINS_RS_EQUIVALENT_1_0_2_URL		:= $(call ptx/mirror, CRATESIO, equivalent/1.0.2/download)
 GST_PLUGINS_RS_EQUIVALENT_1_0_2_SOURCE	:= $(SRCDIR)/equivalent-1.0.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EQUIVALENT_1_0_2
 
 GST_PLUGINS_RS_ERRNO_0_3_14_MD5		:= dceddd3d936c2195d6fd507e3773bc4e
-GST_PLUGINS_RS_ERRNO_0_3_14_URL		:= https://crates.io/api/v1/crates/errno/0.3.14/download
+GST_PLUGINS_RS_ERRNO_0_3_14_URL		:= $(call ptx/mirror, CRATESIO, errno/0.3.14/download)
 GST_PLUGINS_RS_ERRNO_0_3_14_SOURCE	:= $(SRCDIR)/errno-0.3.14.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ERRNO_0_3_14
 
 GST_PLUGINS_RS_ETHERPARSE_0_19_0_MD5		:= 786572c998b63057665ac37ec6dee176
-GST_PLUGINS_RS_ETHERPARSE_0_19_0_URL		:= https://crates.io/api/v1/crates/etherparse/0.19.0/download
+GST_PLUGINS_RS_ETHERPARSE_0_19_0_URL		:= $(call ptx/mirror, CRATESIO, etherparse/0.19.0/download)
 GST_PLUGINS_RS_ETHERPARSE_0_19_0_SOURCE	:= $(SRCDIR)/etherparse-0.19.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ETHERPARSE_0_19_0
 
 GST_PLUGINS_RS_EVENT_LISTENER_5_4_1_MD5		:= f0db69b0c5226c2e39bc7b1d6d2d8ec7
-GST_PLUGINS_RS_EVENT_LISTENER_5_4_1_URL		:= https://crates.io/api/v1/crates/event-listener/5.4.1/download
+GST_PLUGINS_RS_EVENT_LISTENER_5_4_1_URL		:= $(call ptx/mirror, CRATESIO, event-listener/5.4.1/download)
 GST_PLUGINS_RS_EVENT_LISTENER_5_4_1_SOURCE	:= $(SRCDIR)/event-listener-5.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EVENT_LISTENER_5_4_1
 
 GST_PLUGINS_RS_EVENT_LISTENER_STRATEGY_0_5_4_MD5		:= 3f50050270afe8306cbe5191201577b9
-GST_PLUGINS_RS_EVENT_LISTENER_STRATEGY_0_5_4_URL		:= https://crates.io/api/v1/crates/event-listener-strategy/0.5.4/download
+GST_PLUGINS_RS_EVENT_LISTENER_STRATEGY_0_5_4_URL		:= $(call ptx/mirror, CRATESIO, event-listener-strategy/0.5.4/download)
 GST_PLUGINS_RS_EVENT_LISTENER_STRATEGY_0_5_4_SOURCE	:= $(SRCDIR)/event-listener-strategy-0.5.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_EVENT_LISTENER_STRATEGY_0_5_4
 
 GST_PLUGINS_RS_FALLIBLE_ITERATOR_0_3_0_MD5		:= 4abeb2b6db91c4964c17ec4bf24248f4
-GST_PLUGINS_RS_FALLIBLE_ITERATOR_0_3_0_URL		:= https://crates.io/api/v1/crates/fallible-iterator/0.3.0/download
+GST_PLUGINS_RS_FALLIBLE_ITERATOR_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, fallible-iterator/0.3.0/download)
 GST_PLUGINS_RS_FALLIBLE_ITERATOR_0_3_0_SOURCE	:= $(SRCDIR)/fallible-iterator-0.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FALLIBLE_ITERATOR_0_3_0
 
 GST_PLUGINS_RS_FASTBLOOM_0_14_1_MD5		:= 724e02acc6424f010d421f13943ffa4e
-GST_PLUGINS_RS_FASTBLOOM_0_14_1_URL		:= https://crates.io/api/v1/crates/fastbloom/0.14.1/download
+GST_PLUGINS_RS_FASTBLOOM_0_14_1_URL		:= $(call ptx/mirror, CRATESIO, fastbloom/0.14.1/download)
 GST_PLUGINS_RS_FASTBLOOM_0_14_1_SOURCE	:= $(SRCDIR)/fastbloom-0.14.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FASTBLOOM_0_14_1
 
 GST_PLUGINS_RS_FASTRAND_2_3_0_MD5		:= b0a1ffd6b0b5fe67e3dac04cd26b3099
-GST_PLUGINS_RS_FASTRAND_2_3_0_URL		:= https://crates.io/api/v1/crates/fastrand/2.3.0/download
+GST_PLUGINS_RS_FASTRAND_2_3_0_URL		:= $(call ptx/mirror, CRATESIO, fastrand/2.3.0/download)
 GST_PLUGINS_RS_FASTRAND_2_3_0_SOURCE	:= $(SRCDIR)/fastrand-2.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FASTRAND_2_3_0
 
 GST_PLUGINS_RS_FDEFLATE_0_3_7_MD5		:= 4f351598e06a94639d8786bf3017f6a2
-GST_PLUGINS_RS_FDEFLATE_0_3_7_URL		:= https://crates.io/api/v1/crates/fdeflate/0.3.7/download
+GST_PLUGINS_RS_FDEFLATE_0_3_7_URL		:= $(call ptx/mirror, CRATESIO, fdeflate/0.3.7/download)
 GST_PLUGINS_RS_FDEFLATE_0_3_7_SOURCE	:= $(SRCDIR)/fdeflate-0.3.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FDEFLATE_0_3_7
 
 GST_PLUGINS_RS_FF_0_12_1_MD5		:= a72db14ef8d9686e8843e1b6d2e6ec04
-GST_PLUGINS_RS_FF_0_12_1_URL		:= https://crates.io/api/v1/crates/ff/0.12.1/download
+GST_PLUGINS_RS_FF_0_12_1_URL		:= $(call ptx/mirror, CRATESIO, ff/0.12.1/download)
 GST_PLUGINS_RS_FF_0_12_1_SOURCE	:= $(SRCDIR)/ff-0.12.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FF_0_12_1
 
@@ -1449,27 +1449,27 @@ GST_PLUGINS_RS_FFV1_0_0_0_SOURCE	:= $(SRCDIR)/ffv1-0.0.0+bd9eabfc14c9.git.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FFV1_0_0_0
 
 GST_PLUGINS_RS_FIELD_OFFSET_0_3_6_MD5		:= ed22a92c62cf990ccf3f959342507034
-GST_PLUGINS_RS_FIELD_OFFSET_0_3_6_URL		:= https://crates.io/api/v1/crates/field-offset/0.3.6/download
+GST_PLUGINS_RS_FIELD_OFFSET_0_3_6_URL		:= $(call ptx/mirror, CRATESIO, field-offset/0.3.6/download)
 GST_PLUGINS_RS_FIELD_OFFSET_0_3_6_SOURCE	:= $(SRCDIR)/field-offset-0.3.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FIELD_OFFSET_0_3_6
 
 GST_PLUGINS_RS_FILETIME_0_2_27_MD5		:= 3af57da2cb839fc49bbf046dc80ba6f1
-GST_PLUGINS_RS_FILETIME_0_2_27_URL		:= https://crates.io/api/v1/crates/filetime/0.2.27/download
+GST_PLUGINS_RS_FILETIME_0_2_27_URL		:= $(call ptx/mirror, CRATESIO, filetime/0.2.27/download)
 GST_PLUGINS_RS_FILETIME_0_2_27_SOURCE	:= $(SRCDIR)/filetime-0.2.27.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FILETIME_0_2_27
 
 GST_PLUGINS_RS_FIND_MSVC_TOOLS_0_1_9_MD5		:= 01c4ec29f81c1001360f63fbb021b264
-GST_PLUGINS_RS_FIND_MSVC_TOOLS_0_1_9_URL		:= https://crates.io/api/v1/crates/find-msvc-tools/0.1.9/download
+GST_PLUGINS_RS_FIND_MSVC_TOOLS_0_1_9_URL		:= $(call ptx/mirror, CRATESIO, find-msvc-tools/0.1.9/download)
 GST_PLUGINS_RS_FIND_MSVC_TOOLS_0_1_9_SOURCE	:= $(SRCDIR)/find-msvc-tools-0.1.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FIND_MSVC_TOOLS_0_1_9
 
 GST_PLUGINS_RS_FIXEDBITSET_0_4_2_MD5		:= a1e1c92075e77d61acf61a094a68fa61
-GST_PLUGINS_RS_FIXEDBITSET_0_4_2_URL		:= https://crates.io/api/v1/crates/fixedbitset/0.4.2/download
+GST_PLUGINS_RS_FIXEDBITSET_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, fixedbitset/0.4.2/download)
 GST_PLUGINS_RS_FIXEDBITSET_0_4_2_SOURCE	:= $(SRCDIR)/fixedbitset-0.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FIXEDBITSET_0_4_2
 
 GST_PLUGINS_RS_FLATE2_1_1_9_MD5		:= c9206a31d6f150dbb558bf9da78ec0e2
-GST_PLUGINS_RS_FLATE2_1_1_9_URL		:= https://crates.io/api/v1/crates/flate2/1.1.9/download
+GST_PLUGINS_RS_FLATE2_1_1_9_URL		:= $(call ptx/mirror, CRATESIO, flate2/1.1.9/download)
 GST_PLUGINS_RS_FLATE2_1_1_9_SOURCE	:= $(SRCDIR)/flate2-1.1.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FLATE2_1_1_9
 
@@ -1479,142 +1479,142 @@ GST_PLUGINS_RS_FLAVORS_0_2_0_SOURCE	:= $(SRCDIR)/flavors-0.2.0+833508af656d.git.
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FLAVORS_0_2_0
 
 GST_PLUGINS_RS_FLOAT_ORD_0_3_2_MD5		:= c8f22434a26eba7148afaef17fe43cee
-GST_PLUGINS_RS_FLOAT_ORD_0_3_2_URL		:= https://crates.io/api/v1/crates/float-ord/0.3.2/download
+GST_PLUGINS_RS_FLOAT_ORD_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, float-ord/0.3.2/download)
 GST_PLUGINS_RS_FLOAT_ORD_0_3_2_SOURCE	:= $(SRCDIR)/float-ord-0.3.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FLOAT_ORD_0_3_2
 
 GST_PLUGINS_RS_FLOAT4_0_1_0_MD5		:= 15b219f75573590a51f62d57596f05a6
-GST_PLUGINS_RS_FLOAT4_0_1_0_URL		:= https://crates.io/api/v1/crates/float4/0.1.0/download
+GST_PLUGINS_RS_FLOAT4_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, float4/0.1.0/download)
 GST_PLUGINS_RS_FLOAT4_0_1_0_SOURCE	:= $(SRCDIR)/float4-0.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FLOAT4_0_1_0
 
 GST_PLUGINS_RS_FLOAT8_0_4_2_MD5		:= f253dd416a5417e3639210f4cfb45fe5
-GST_PLUGINS_RS_FLOAT8_0_4_2_URL		:= https://crates.io/api/v1/crates/float8/0.4.2/download
+GST_PLUGINS_RS_FLOAT8_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, float8/0.4.2/download)
 GST_PLUGINS_RS_FLOAT8_0_4_2_SOURCE	:= $(SRCDIR)/float8-0.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FLOAT8_0_4_2
 
 GST_PLUGINS_RS_FLUME_0_12_0_MD5		:= d6485ae05b4b9546857928effb297647
-GST_PLUGINS_RS_FLUME_0_12_0_URL		:= https://crates.io/api/v1/crates/flume/0.12.0/download
+GST_PLUGINS_RS_FLUME_0_12_0_URL		:= $(call ptx/mirror, CRATESIO, flume/0.12.0/download)
 GST_PLUGINS_RS_FLUME_0_12_0_SOURCE	:= $(SRCDIR)/flume-0.12.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FLUME_0_12_0
 
 GST_PLUGINS_RS_FNV_1_0_7_MD5		:= 8dab3b3ec00dc56cffde0b0c410d47b5
-GST_PLUGINS_RS_FNV_1_0_7_URL		:= https://crates.io/api/v1/crates/fnv/1.0.7/download
+GST_PLUGINS_RS_FNV_1_0_7_URL		:= $(call ptx/mirror, CRATESIO, fnv/1.0.7/download)
 GST_PLUGINS_RS_FNV_1_0_7_SOURCE	:= $(SRCDIR)/fnv-1.0.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FNV_1_0_7
 
 GST_PLUGINS_RS_FOLDHASH_0_1_5_MD5		:= fc53a85c912427e1af1278d8f9ef2aa4
-GST_PLUGINS_RS_FOLDHASH_0_1_5_URL		:= https://crates.io/api/v1/crates/foldhash/0.1.5/download
+GST_PLUGINS_RS_FOLDHASH_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, foldhash/0.1.5/download)
 GST_PLUGINS_RS_FOLDHASH_0_1_5_SOURCE	:= $(SRCDIR)/foldhash-0.1.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FOLDHASH_0_1_5
 
 GST_PLUGINS_RS_FOLDHASH_0_2_0_MD5		:= e36ee995fbd928f67773e5dbca035c5e
-GST_PLUGINS_RS_FOLDHASH_0_2_0_URL		:= https://crates.io/api/v1/crates/foldhash/0.2.0/download
+GST_PLUGINS_RS_FOLDHASH_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, foldhash/0.2.0/download)
 GST_PLUGINS_RS_FOLDHASH_0_2_0_SOURCE	:= $(SRCDIR)/foldhash-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FOLDHASH_0_2_0
 
 GST_PLUGINS_RS_FOREIGN_TYPES_0_5_0_MD5		:= 24210500b0b946ed658dd20037cdf5b4
-GST_PLUGINS_RS_FOREIGN_TYPES_0_5_0_URL		:= https://crates.io/api/v1/crates/foreign-types/0.5.0/download
+GST_PLUGINS_RS_FOREIGN_TYPES_0_5_0_URL		:= $(call ptx/mirror, CRATESIO, foreign-types/0.5.0/download)
 GST_PLUGINS_RS_FOREIGN_TYPES_0_5_0_SOURCE	:= $(SRCDIR)/foreign-types-0.5.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FOREIGN_TYPES_0_5_0
 
 GST_PLUGINS_RS_FOREIGN_TYPES_MACROS_0_2_3_MD5		:= 38f845b095b4ca30f93e034c7bd5ab14
-GST_PLUGINS_RS_FOREIGN_TYPES_MACROS_0_2_3_URL		:= https://crates.io/api/v1/crates/foreign-types-macros/0.2.3/download
+GST_PLUGINS_RS_FOREIGN_TYPES_MACROS_0_2_3_URL		:= $(call ptx/mirror, CRATESIO, foreign-types-macros/0.2.3/download)
 GST_PLUGINS_RS_FOREIGN_TYPES_MACROS_0_2_3_SOURCE	:= $(SRCDIR)/foreign-types-macros-0.2.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FOREIGN_TYPES_MACROS_0_2_3
 
 GST_PLUGINS_RS_FOREIGN_TYPES_SHARED_0_3_1_MD5		:= 0b1834c2de5aeb930998c0f41e1e5ac7
-GST_PLUGINS_RS_FOREIGN_TYPES_SHARED_0_3_1_URL		:= https://crates.io/api/v1/crates/foreign-types-shared/0.3.1/download
+GST_PLUGINS_RS_FOREIGN_TYPES_SHARED_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, foreign-types-shared/0.3.1/download)
 GST_PLUGINS_RS_FOREIGN_TYPES_SHARED_0_3_1_SOURCE	:= $(SRCDIR)/foreign-types-shared-0.3.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FOREIGN_TYPES_SHARED_0_3_1
 
 GST_PLUGINS_RS_FORM_URLENCODED_1_2_2_MD5		:= 50f998a859c3e57218745ba77c370e2b
-GST_PLUGINS_RS_FORM_URLENCODED_1_2_2_URL		:= https://crates.io/api/v1/crates/form_urlencoded/1.2.2/download
+GST_PLUGINS_RS_FORM_URLENCODED_1_2_2_URL		:= $(call ptx/mirror, CRATESIO, form_urlencoded/1.2.2/download)
 GST_PLUGINS_RS_FORM_URLENCODED_1_2_2_SOURCE	:= $(SRCDIR)/form_urlencoded-1.2.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FORM_URLENCODED_1_2_2
 
 GST_PLUGINS_RS_FS_EXTRA_1_3_0_MD5		:= ac9acb45412c8c2e1437db4e50fb834f
-GST_PLUGINS_RS_FS_EXTRA_1_3_0_URL		:= https://crates.io/api/v1/crates/fs_extra/1.3.0/download
+GST_PLUGINS_RS_FS_EXTRA_1_3_0_URL		:= $(call ptx/mirror, CRATESIO, fs_extra/1.3.0/download)
 GST_PLUGINS_RS_FS_EXTRA_1_3_0_SOURCE	:= $(SRCDIR)/fs_extra-1.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FS_EXTRA_1_3_0
 
 GST_PLUGINS_RS_FSLOCK_0_2_1_MD5		:= f015b5b877f1d890e1b167809d3ceb17
-GST_PLUGINS_RS_FSLOCK_0_2_1_URL		:= https://crates.io/api/v1/crates/fslock/0.2.1/download
+GST_PLUGINS_RS_FSLOCK_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, fslock/0.2.1/download)
 GST_PLUGINS_RS_FSLOCK_0_2_1_SOURCE	:= $(SRCDIR)/fslock-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FSLOCK_0_2_1
 
 GST_PLUGINS_RS_FST_0_4_7_MD5		:= 5259cf708a270d8811edbe62dd17c579
-GST_PLUGINS_RS_FST_0_4_7_URL		:= https://crates.io/api/v1/crates/fst/0.4.7/download
+GST_PLUGINS_RS_FST_0_4_7_URL		:= $(call ptx/mirror, CRATESIO, fst/0.4.7/download)
 GST_PLUGINS_RS_FST_0_4_7_SOURCE	:= $(SRCDIR)/fst-0.4.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FST_0_4_7
 
 GST_PLUGINS_RS_FUTURES_0_3_32_MD5		:= 3313319a2408705e8234c61e2bfe6818
-GST_PLUGINS_RS_FUTURES_0_3_32_URL		:= https://crates.io/api/v1/crates/futures/0.3.32/download
+GST_PLUGINS_RS_FUTURES_0_3_32_URL		:= $(call ptx/mirror, CRATESIO, futures/0.3.32/download)
 GST_PLUGINS_RS_FUTURES_0_3_32_SOURCE	:= $(SRCDIR)/futures-0.3.32.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FUTURES_0_3_32
 
 GST_PLUGINS_RS_FUTURES_CHANNEL_0_3_32_MD5		:= f89d6019e0235b8a2fa0192439ab1d20
-GST_PLUGINS_RS_FUTURES_CHANNEL_0_3_32_URL		:= https://crates.io/api/v1/crates/futures-channel/0.3.32/download
+GST_PLUGINS_RS_FUTURES_CHANNEL_0_3_32_URL		:= $(call ptx/mirror, CRATESIO, futures-channel/0.3.32/download)
 GST_PLUGINS_RS_FUTURES_CHANNEL_0_3_32_SOURCE	:= $(SRCDIR)/futures-channel-0.3.32.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FUTURES_CHANNEL_0_3_32
 
 GST_PLUGINS_RS_FUTURES_CORE_0_3_32_MD5		:= f16e9cea55055cb7ef8d754727242b6b
-GST_PLUGINS_RS_FUTURES_CORE_0_3_32_URL		:= https://crates.io/api/v1/crates/futures-core/0.3.32/download
+GST_PLUGINS_RS_FUTURES_CORE_0_3_32_URL		:= $(call ptx/mirror, CRATESIO, futures-core/0.3.32/download)
 GST_PLUGINS_RS_FUTURES_CORE_0_3_32_SOURCE	:= $(SRCDIR)/futures-core-0.3.32.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FUTURES_CORE_0_3_32
 
 GST_PLUGINS_RS_FUTURES_EXECUTOR_0_3_32_MD5		:= 37614ea870fd446fbeacd6477364caf0
-GST_PLUGINS_RS_FUTURES_EXECUTOR_0_3_32_URL		:= https://crates.io/api/v1/crates/futures-executor/0.3.32/download
+GST_PLUGINS_RS_FUTURES_EXECUTOR_0_3_32_URL		:= $(call ptx/mirror, CRATESIO, futures-executor/0.3.32/download)
 GST_PLUGINS_RS_FUTURES_EXECUTOR_0_3_32_SOURCE	:= $(SRCDIR)/futures-executor-0.3.32.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FUTURES_EXECUTOR_0_3_32
 
 GST_PLUGINS_RS_FUTURES_IO_0_3_32_MD5		:= fb71f26e56c868ceb246642467f60aef
-GST_PLUGINS_RS_FUTURES_IO_0_3_32_URL		:= https://crates.io/api/v1/crates/futures-io/0.3.32/download
+GST_PLUGINS_RS_FUTURES_IO_0_3_32_URL		:= $(call ptx/mirror, CRATESIO, futures-io/0.3.32/download)
 GST_PLUGINS_RS_FUTURES_IO_0_3_32_SOURCE	:= $(SRCDIR)/futures-io-0.3.32.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FUTURES_IO_0_3_32
 
 GST_PLUGINS_RS_FUTURES_LITE_2_6_1_MD5		:= 29262ad47afbf8db117fd581e958b96b
-GST_PLUGINS_RS_FUTURES_LITE_2_6_1_URL		:= https://crates.io/api/v1/crates/futures-lite/2.6.1/download
+GST_PLUGINS_RS_FUTURES_LITE_2_6_1_URL		:= $(call ptx/mirror, CRATESIO, futures-lite/2.6.1/download)
 GST_PLUGINS_RS_FUTURES_LITE_2_6_1_SOURCE	:= $(SRCDIR)/futures-lite-2.6.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FUTURES_LITE_2_6_1
 
 GST_PLUGINS_RS_FUTURES_MACRO_0_3_32_MD5		:= 26879bc2f931276484214e5c3124f3c9
-GST_PLUGINS_RS_FUTURES_MACRO_0_3_32_URL		:= https://crates.io/api/v1/crates/futures-macro/0.3.32/download
+GST_PLUGINS_RS_FUTURES_MACRO_0_3_32_URL		:= $(call ptx/mirror, CRATESIO, futures-macro/0.3.32/download)
 GST_PLUGINS_RS_FUTURES_MACRO_0_3_32_SOURCE	:= $(SRCDIR)/futures-macro-0.3.32.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FUTURES_MACRO_0_3_32
 
 GST_PLUGINS_RS_FUTURES_SINK_0_3_32_MD5		:= 17bd511a7288906c12a96b2ba29179a7
-GST_PLUGINS_RS_FUTURES_SINK_0_3_32_URL		:= https://crates.io/api/v1/crates/futures-sink/0.3.32/download
+GST_PLUGINS_RS_FUTURES_SINK_0_3_32_URL		:= $(call ptx/mirror, CRATESIO, futures-sink/0.3.32/download)
 GST_PLUGINS_RS_FUTURES_SINK_0_3_32_SOURCE	:= $(SRCDIR)/futures-sink-0.3.32.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FUTURES_SINK_0_3_32
 
 GST_PLUGINS_RS_FUTURES_TASK_0_3_32_MD5		:= d49ac779aef556b3b58375a47fa73913
-GST_PLUGINS_RS_FUTURES_TASK_0_3_32_URL		:= https://crates.io/api/v1/crates/futures-task/0.3.32/download
+GST_PLUGINS_RS_FUTURES_TASK_0_3_32_URL		:= $(call ptx/mirror, CRATESIO, futures-task/0.3.32/download)
 GST_PLUGINS_RS_FUTURES_TASK_0_3_32_SOURCE	:= $(SRCDIR)/futures-task-0.3.32.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FUTURES_TASK_0_3_32
 
 GST_PLUGINS_RS_FUTURES_TIMER_3_0_3_MD5		:= bb09633833b38806273f793d73167ac3
-GST_PLUGINS_RS_FUTURES_TIMER_3_0_3_URL		:= https://crates.io/api/v1/crates/futures-timer/3.0.3/download
+GST_PLUGINS_RS_FUTURES_TIMER_3_0_3_URL		:= $(call ptx/mirror, CRATESIO, futures-timer/3.0.3/download)
 GST_PLUGINS_RS_FUTURES_TIMER_3_0_3_SOURCE	:= $(SRCDIR)/futures-timer-3.0.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FUTURES_TIMER_3_0_3
 
 GST_PLUGINS_RS_FUTURES_UTIL_0_3_32_MD5		:= 1853b94a2efa6fac650a8bd9fefe6c72
-GST_PLUGINS_RS_FUTURES_UTIL_0_3_32_URL		:= https://crates.io/api/v1/crates/futures-util/0.3.32/download
+GST_PLUGINS_RS_FUTURES_UTIL_0_3_32_URL		:= $(call ptx/mirror, CRATESIO, futures-util/0.3.32/download)
 GST_PLUGINS_RS_FUTURES_UTIL_0_3_32_SOURCE	:= $(SRCDIR)/futures-util-0.3.32.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_FUTURES_UTIL_0_3_32
 
 GST_PLUGINS_RS_G2GEN_1_2_2_MD5		:= 6d31f49462235793ed3c3d2e17f42eab
-GST_PLUGINS_RS_G2GEN_1_2_2_URL		:= https://crates.io/api/v1/crates/g2gen/1.2.2/download
+GST_PLUGINS_RS_G2GEN_1_2_2_URL		:= $(call ptx/mirror, CRATESIO, g2gen/1.2.2/download)
 GST_PLUGINS_RS_G2GEN_1_2_2_SOURCE	:= $(SRCDIR)/g2gen-1.2.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_G2GEN_1_2_2
 
 GST_PLUGINS_RS_G2P_1_2_2_MD5		:= a9a4b4671de4c5d65158a0d886209eb0
-GST_PLUGINS_RS_G2P_1_2_2_URL		:= https://crates.io/api/v1/crates/g2p/1.2.2/download
+GST_PLUGINS_RS_G2P_1_2_2_URL		:= $(call ptx/mirror, CRATESIO, g2p/1.2.2/download)
 GST_PLUGINS_RS_G2P_1_2_2_SOURCE	:= $(SRCDIR)/g2p-1.2.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_G2P_1_2_2
 
 GST_PLUGINS_RS_G2POLY_1_2_2_MD5		:= 513d9254a411a9b4f62ca2bcf19c78bd
-GST_PLUGINS_RS_G2POLY_1_2_2_URL		:= https://crates.io/api/v1/crates/g2poly/1.2.2/download
+GST_PLUGINS_RS_G2POLY_1_2_2_URL		:= $(call ptx/mirror, CRATESIO, g2poly/1.2.2/download)
 GST_PLUGINS_RS_G2POLY_1_2_2_SOURCE	:= $(SRCDIR)/g2poly-1.2.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_G2POLY_1_2_2
 
@@ -1624,97 +1624,97 @@ GST_PLUGINS_RS_GTK4_RS_0_11_0_SOURCE	:= $(SRCDIR)/gtk4-rs-0.11.0+12259c689cf3.gi
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GTK4_RS_0_11_0
 
 GST_PLUGINS_RS_GENERIC_ARRAY_0_14_7_MD5		:= 64a6d8fe0c9a450bcefa41894e17d7ac
-GST_PLUGINS_RS_GENERIC_ARRAY_0_14_7_URL		:= https://crates.io/api/v1/crates/generic-array/0.14.7/download
+GST_PLUGINS_RS_GENERIC_ARRAY_0_14_7_URL		:= $(call ptx/mirror, CRATESIO, generic-array/0.14.7/download)
 GST_PLUGINS_RS_GENERIC_ARRAY_0_14_7_SOURCE	:= $(SRCDIR)/generic-array-0.14.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GENERIC_ARRAY_0_14_7
 
 GST_PLUGINS_RS_GENERIC_SINGLETON_0_5_1_MD5		:= 94a6037d7acbaa4db082e6b50f366fbd
-GST_PLUGINS_RS_GENERIC_SINGLETON_0_5_1_URL		:= https://crates.io/api/v1/crates/generic_singleton/0.5.1/download
+GST_PLUGINS_RS_GENERIC_SINGLETON_0_5_1_URL		:= $(call ptx/mirror, CRATESIO, generic_singleton/0.5.1/download)
 GST_PLUGINS_RS_GENERIC_SINGLETON_0_5_1_SOURCE	:= $(SRCDIR)/generic_singleton-0.5.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GENERIC_SINGLETON_0_5_1
 
 GST_PLUGINS_RS_GETIFADDRS_0_6_0_MD5		:= 1be8bb2f1349bf54c09c4d3d1ef63478
-GST_PLUGINS_RS_GETIFADDRS_0_6_0_URL		:= https://crates.io/api/v1/crates/getifaddrs/0.6.0/download
+GST_PLUGINS_RS_GETIFADDRS_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, getifaddrs/0.6.0/download)
 GST_PLUGINS_RS_GETIFADDRS_0_6_0_SOURCE	:= $(SRCDIR)/getifaddrs-0.6.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GETIFADDRS_0_6_0
 
 GST_PLUGINS_RS_GETRANDOM_0_2_17_MD5		:= e9a474ff4fa06cae9de697c1a96a6181
-GST_PLUGINS_RS_GETRANDOM_0_2_17_URL		:= https://crates.io/api/v1/crates/getrandom/0.2.17/download
+GST_PLUGINS_RS_GETRANDOM_0_2_17_URL		:= $(call ptx/mirror, CRATESIO, getrandom/0.2.17/download)
 GST_PLUGINS_RS_GETRANDOM_0_2_17_SOURCE	:= $(SRCDIR)/getrandom-0.2.17.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GETRANDOM_0_2_17
 
 GST_PLUGINS_RS_GETRANDOM_0_3_4_MD5		:= 9a421286bfaf7199053b6fa7a3e690cb
-GST_PLUGINS_RS_GETRANDOM_0_3_4_URL		:= https://crates.io/api/v1/crates/getrandom/0.3.4/download
+GST_PLUGINS_RS_GETRANDOM_0_3_4_URL		:= $(call ptx/mirror, CRATESIO, getrandom/0.3.4/download)
 GST_PLUGINS_RS_GETRANDOM_0_3_4_SOURCE	:= $(SRCDIR)/getrandom-0.3.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GETRANDOM_0_3_4
 
 GST_PLUGINS_RS_GETRANDOM_0_4_1_MD5		:= d716100c19b98edf2954c0c5731634bf
-GST_PLUGINS_RS_GETRANDOM_0_4_1_URL		:= https://crates.io/api/v1/crates/getrandom/0.4.1/download
+GST_PLUGINS_RS_GETRANDOM_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, getrandom/0.4.1/download)
 GST_PLUGINS_RS_GETRANDOM_0_4_1_SOURCE	:= $(SRCDIR)/getrandom-0.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GETRANDOM_0_4_1
 
 GST_PLUGINS_RS_GIF_0_14_1_MD5		:= 8dc6509abf0f283cc3604a98e969273d
-GST_PLUGINS_RS_GIF_0_14_1_URL		:= https://crates.io/api/v1/crates/gif/0.14.1/download
+GST_PLUGINS_RS_GIF_0_14_1_URL		:= $(call ptx/mirror, CRATESIO, gif/0.14.1/download)
 GST_PLUGINS_RS_GIF_0_14_1_SOURCE	:= $(SRCDIR)/gif-0.14.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GIF_0_14_1
 
 GST_PLUGINS_RS_GIMLI_0_32_3_MD5		:= 014715a2e2ea6ec30fc15bb52cbf4ca6
-GST_PLUGINS_RS_GIMLI_0_32_3_URL		:= https://crates.io/api/v1/crates/gimli/0.32.3/download
+GST_PLUGINS_RS_GIMLI_0_32_3_URL		:= $(call ptx/mirror, CRATESIO, gimli/0.32.3/download)
 GST_PLUGINS_RS_GIMLI_0_32_3_SOURCE	:= $(SRCDIR)/gimli-0.32.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GIMLI_0_32_3
 
 GST_PLUGINS_RS_GL_GENERATOR_0_14_0_MD5		:= cd6875725af793cd82db47d68b00ee93
-GST_PLUGINS_RS_GL_GENERATOR_0_14_0_URL		:= https://crates.io/api/v1/crates/gl_generator/0.14.0/download
+GST_PLUGINS_RS_GL_GENERATOR_0_14_0_URL		:= $(call ptx/mirror, CRATESIO, gl_generator/0.14.0/download)
 GST_PLUGINS_RS_GL_GENERATOR_0_14_0_SOURCE	:= $(SRCDIR)/gl_generator-0.14.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GL_GENERATOR_0_14_0
 
 GST_PLUGINS_RS_GLOB_0_3_3_MD5		:= 57552c44152b62cf7fdf28a3582457f4
-GST_PLUGINS_RS_GLOB_0_3_3_URL		:= https://crates.io/api/v1/crates/glob/0.3.3/download
+GST_PLUGINS_RS_GLOB_0_3_3_URL		:= $(call ptx/mirror, CRATESIO, glob/0.3.3/download)
 GST_PLUGINS_RS_GLOB_0_3_3_SOURCE	:= $(SRCDIR)/glob-0.3.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GLOB_0_3_3
 
 GST_PLUGINS_RS_GLOW_0_16_0_MD5		:= 2148b6324097dfbd6757abe69b6b44a8
-GST_PLUGINS_RS_GLOW_0_16_0_URL		:= https://crates.io/api/v1/crates/glow/0.16.0/download
+GST_PLUGINS_RS_GLOW_0_16_0_URL		:= $(call ptx/mirror, CRATESIO, glow/0.16.0/download)
 GST_PLUGINS_RS_GLOW_0_16_0_SOURCE	:= $(SRCDIR)/glow-0.16.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GLOW_0_16_0
 
 GST_PLUGINS_RS_GLUTIN_WGL_SYS_0_6_1_MD5		:= 784f9d07cc5abe373ee1c69a2367ca57
-GST_PLUGINS_RS_GLUTIN_WGL_SYS_0_6_1_URL		:= https://crates.io/api/v1/crates/glutin_wgl_sys/0.6.1/download
+GST_PLUGINS_RS_GLUTIN_WGL_SYS_0_6_1_URL		:= $(call ptx/mirror, CRATESIO, glutin_wgl_sys/0.6.1/download)
 GST_PLUGINS_RS_GLUTIN_WGL_SYS_0_6_1_SOURCE	:= $(SRCDIR)/glutin_wgl_sys-0.6.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GLUTIN_WGL_SYS_0_6_1
 
 GST_PLUGINS_RS_GOVERNOR_0_10_4_MD5		:= 722f460e4ef0ca9647edbea30e836c45
-GST_PLUGINS_RS_GOVERNOR_0_10_4_URL		:= https://crates.io/api/v1/crates/governor/0.10.4/download
+GST_PLUGINS_RS_GOVERNOR_0_10_4_URL		:= $(call ptx/mirror, CRATESIO, governor/0.10.4/download)
 GST_PLUGINS_RS_GOVERNOR_0_10_4_SOURCE	:= $(SRCDIR)/governor-0.10.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GOVERNOR_0_10_4
 
 GST_PLUGINS_RS_GPU_ALLOC_0_6_0_MD5		:= 7408001e14fa57680e29eed3f8bf866e
-GST_PLUGINS_RS_GPU_ALLOC_0_6_0_URL		:= https://crates.io/api/v1/crates/gpu-alloc/0.6.0/download
+GST_PLUGINS_RS_GPU_ALLOC_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, gpu-alloc/0.6.0/download)
 GST_PLUGINS_RS_GPU_ALLOC_0_6_0_SOURCE	:= $(SRCDIR)/gpu-alloc-0.6.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GPU_ALLOC_0_6_0
 
 GST_PLUGINS_RS_GPU_ALLOC_TYPES_0_3_0_MD5		:= c6d40d9ee992d3e513752fc18aeb8da9
-GST_PLUGINS_RS_GPU_ALLOC_TYPES_0_3_0_URL		:= https://crates.io/api/v1/crates/gpu-alloc-types/0.3.0/download
+GST_PLUGINS_RS_GPU_ALLOC_TYPES_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, gpu-alloc-types/0.3.0/download)
 GST_PLUGINS_RS_GPU_ALLOC_TYPES_0_3_0_SOURCE	:= $(SRCDIR)/gpu-alloc-types-0.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GPU_ALLOC_TYPES_0_3_0
 
 GST_PLUGINS_RS_GPU_ALLOCATOR_0_27_0_MD5		:= 9fa7030e36606050ee6ee57007081e81
-GST_PLUGINS_RS_GPU_ALLOCATOR_0_27_0_URL		:= https://crates.io/api/v1/crates/gpu-allocator/0.27.0/download
+GST_PLUGINS_RS_GPU_ALLOCATOR_0_27_0_URL		:= $(call ptx/mirror, CRATESIO, gpu-allocator/0.27.0/download)
 GST_PLUGINS_RS_GPU_ALLOCATOR_0_27_0_SOURCE	:= $(SRCDIR)/gpu-allocator-0.27.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GPU_ALLOCATOR_0_27_0
 
 GST_PLUGINS_RS_GPU_DESCRIPTOR_0_3_2_MD5		:= d1470fab8946d2d4988e4b2fac7af2b7
-GST_PLUGINS_RS_GPU_DESCRIPTOR_0_3_2_URL		:= https://crates.io/api/v1/crates/gpu-descriptor/0.3.2/download
+GST_PLUGINS_RS_GPU_DESCRIPTOR_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, gpu-descriptor/0.3.2/download)
 GST_PLUGINS_RS_GPU_DESCRIPTOR_0_3_2_SOURCE	:= $(SRCDIR)/gpu-descriptor-0.3.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GPU_DESCRIPTOR_0_3_2
 
 GST_PLUGINS_RS_GPU_DESCRIPTOR_TYPES_0_2_0_MD5		:= 90a5e69447fe4bca7f66ae6a6faa5d57
-GST_PLUGINS_RS_GPU_DESCRIPTOR_TYPES_0_2_0_URL		:= https://crates.io/api/v1/crates/gpu-descriptor-types/0.2.0/download
+GST_PLUGINS_RS_GPU_DESCRIPTOR_TYPES_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, gpu-descriptor-types/0.2.0/download)
 GST_PLUGINS_RS_GPU_DESCRIPTOR_TYPES_0_2_0_SOURCE	:= $(SRCDIR)/gpu-descriptor-types-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GPU_DESCRIPTOR_TYPES_0_2_0
 
 GST_PLUGINS_RS_GROUP_0_12_1_MD5		:= 7bb80c6cde4a95fd16152fed90c18099
-GST_PLUGINS_RS_GROUP_0_12_1_URL		:= https://crates.io/api/v1/crates/group/0.12.1/download
+GST_PLUGINS_RS_GROUP_0_12_1_URL		:= $(call ptx/mirror, CRATESIO, group/0.12.1/download)
 GST_PLUGINS_RS_GROUP_0_12_1_SOURCE	:= $(SRCDIR)/group-0.12.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GROUP_0_12_1
 
@@ -1724,3152 +1724,3152 @@ GST_PLUGINS_RS_GSTREAMER_RS_0_25_1_SOURCE	:= $(SRCDIR)/gstreamer-rs-0.25.1+3d569
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_GSTREAMER_RS_0_25_1
 
 GST_PLUGINS_RS_H2_0_3_27_MD5		:= f2ac54d415aacf7e5096e9f6fc78f684
-GST_PLUGINS_RS_H2_0_3_27_URL		:= https://crates.io/api/v1/crates/h2/0.3.27/download
+GST_PLUGINS_RS_H2_0_3_27_URL		:= $(call ptx/mirror, CRATESIO, h2/0.3.27/download)
 GST_PLUGINS_RS_H2_0_3_27_SOURCE	:= $(SRCDIR)/h2-0.3.27.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_H2_0_3_27
 
 GST_PLUGINS_RS_H2_0_4_13_MD5		:= eecf7cb2e82fce1bf25272a1c326668b
-GST_PLUGINS_RS_H2_0_4_13_URL		:= https://crates.io/api/v1/crates/h2/0.4.13/download
+GST_PLUGINS_RS_H2_0_4_13_URL		:= $(call ptx/mirror, CRATESIO, h2/0.4.13/download)
 GST_PLUGINS_RS_H2_0_4_13_SOURCE	:= $(SRCDIR)/h2-0.4.13.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_H2_0_4_13
 
 GST_PLUGINS_RS_HALF_2_7_1_MD5		:= ae95906a14fee88019527f5dac6a2908
-GST_PLUGINS_RS_HALF_2_7_1_URL		:= https://crates.io/api/v1/crates/half/2.7.1/download
+GST_PLUGINS_RS_HALF_2_7_1_URL		:= $(call ptx/mirror, CRATESIO, half/2.7.1/download)
 GST_PLUGINS_RS_HALF_2_7_1_SOURCE	:= $(SRCDIR)/half-2.7.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HALF_2_7_1
 
 GST_PLUGINS_RS_HASHBROWN_0_12_3_MD5		:= 1b41b97d982520b7364a87a39e2a1ed8
-GST_PLUGINS_RS_HASHBROWN_0_12_3_URL		:= https://crates.io/api/v1/crates/hashbrown/0.12.3/download
+GST_PLUGINS_RS_HASHBROWN_0_12_3_URL		:= $(call ptx/mirror, CRATESIO, hashbrown/0.12.3/download)
 GST_PLUGINS_RS_HASHBROWN_0_12_3_SOURCE	:= $(SRCDIR)/hashbrown-0.12.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HASHBROWN_0_12_3
 
 GST_PLUGINS_RS_HASHBROWN_0_13_2_MD5		:= d88bf8eec9baf123a8a829615b06fd0d
-GST_PLUGINS_RS_HASHBROWN_0_13_2_URL		:= https://crates.io/api/v1/crates/hashbrown/0.13.2/download
+GST_PLUGINS_RS_HASHBROWN_0_13_2_URL		:= $(call ptx/mirror, CRATESIO, hashbrown/0.13.2/download)
 GST_PLUGINS_RS_HASHBROWN_0_13_2_SOURCE	:= $(SRCDIR)/hashbrown-0.13.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HASHBROWN_0_13_2
 
 GST_PLUGINS_RS_HASHBROWN_0_15_5_MD5		:= ff62c1415be32ef6642213c9ae175170
-GST_PLUGINS_RS_HASHBROWN_0_15_5_URL		:= https://crates.io/api/v1/crates/hashbrown/0.15.5/download
+GST_PLUGINS_RS_HASHBROWN_0_15_5_URL		:= $(call ptx/mirror, CRATESIO, hashbrown/0.15.5/download)
 GST_PLUGINS_RS_HASHBROWN_0_15_5_SOURCE	:= $(SRCDIR)/hashbrown-0.15.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HASHBROWN_0_15_5
 
 GST_PLUGINS_RS_HASHBROWN_0_16_1_MD5		:= 5f183ccef8add67a9c1eae2fd04231ef
-GST_PLUGINS_RS_HASHBROWN_0_16_1_URL		:= https://crates.io/api/v1/crates/hashbrown/0.16.1/download
+GST_PLUGINS_RS_HASHBROWN_0_16_1_URL		:= $(call ptx/mirror, CRATESIO, hashbrown/0.16.1/download)
 GST_PLUGINS_RS_HASHBROWN_0_16_1_SOURCE	:= $(SRCDIR)/hashbrown-0.16.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HASHBROWN_0_16_1
 
 GST_PLUGINS_RS_HEADERS_0_4_1_MD5		:= a6a84bdf83b891befefe0c4e6c6d9931
-GST_PLUGINS_RS_HEADERS_0_4_1_URL		:= https://crates.io/api/v1/crates/headers/0.4.1/download
+GST_PLUGINS_RS_HEADERS_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, headers/0.4.1/download)
 GST_PLUGINS_RS_HEADERS_0_4_1_SOURCE	:= $(SRCDIR)/headers-0.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HEADERS_0_4_1
 
 GST_PLUGINS_RS_HEADERS_CORE_0_3_0_MD5		:= fdaf12e6f55939ce24b7f6b03d64a044
-GST_PLUGINS_RS_HEADERS_CORE_0_3_0_URL		:= https://crates.io/api/v1/crates/headers-core/0.3.0/download
+GST_PLUGINS_RS_HEADERS_CORE_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, headers-core/0.3.0/download)
 GST_PLUGINS_RS_HEADERS_CORE_0_3_0_SOURCE	:= $(SRCDIR)/headers-core-0.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HEADERS_CORE_0_3_0
 
 GST_PLUGINS_RS_HECK_0_4_1_MD5		:= b92fa50f56a1e06a7f1bf665442d4a73
-GST_PLUGINS_RS_HECK_0_4_1_URL		:= https://crates.io/api/v1/crates/heck/0.4.1/download
+GST_PLUGINS_RS_HECK_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, heck/0.4.1/download)
 GST_PLUGINS_RS_HECK_0_4_1_SOURCE	:= $(SRCDIR)/heck-0.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HECK_0_4_1
 
 GST_PLUGINS_RS_HECK_0_5_0_MD5		:= ce5935e8063a452913a61e5405b33cb9
-GST_PLUGINS_RS_HECK_0_5_0_URL		:= https://crates.io/api/v1/crates/heck/0.5.0/download
+GST_PLUGINS_RS_HECK_0_5_0_URL		:= $(call ptx/mirror, CRATESIO, heck/0.5.0/download)
 GST_PLUGINS_RS_HECK_0_5_0_SOURCE	:= $(SRCDIR)/heck-0.5.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HECK_0_5_0
 
 GST_PLUGINS_RS_HERMIT_ABI_0_5_2_MD5		:= b0dd13f7bb7833b8d10e78cb331f4464
-GST_PLUGINS_RS_HERMIT_ABI_0_5_2_URL		:= https://crates.io/api/v1/crates/hermit-abi/0.5.2/download
+GST_PLUGINS_RS_HERMIT_ABI_0_5_2_URL		:= $(call ptx/mirror, CRATESIO, hermit-abi/0.5.2/download)
 GST_PLUGINS_RS_HERMIT_ABI_0_5_2_SOURCE	:= $(SRCDIR)/hermit-abi-0.5.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HERMIT_ABI_0_5_2
 
 GST_PLUGINS_RS_HEX_0_4_3_MD5		:= 1d3e530a3410fc95a6987d70f84a6332
-GST_PLUGINS_RS_HEX_0_4_3_URL		:= https://crates.io/api/v1/crates/hex/0.4.3/download
+GST_PLUGINS_RS_HEX_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, hex/0.4.3/download)
 GST_PLUGINS_RS_HEX_0_4_3_SOURCE	:= $(SRCDIR)/hex-0.4.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HEX_0_4_3
 
 GST_PLUGINS_RS_HEXF_PARSE_0_2_1_MD5		:= c840150c8fa6e192f8c6ad34cba5eb65
-GST_PLUGINS_RS_HEXF_PARSE_0_2_1_URL		:= https://crates.io/api/v1/crates/hexf-parse/0.2.1/download
+GST_PLUGINS_RS_HEXF_PARSE_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, hexf-parse/0.2.1/download)
 GST_PLUGINS_RS_HEXF_PARSE_0_2_1_SOURCE	:= $(SRCDIR)/hexf-parse-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HEXF_PARSE_0_2_1
 
 GST_PLUGINS_RS_HMAC_0_12_1_MD5		:= 4e0c068ba38fa8e0aa6c46bce5e9d2ab
-GST_PLUGINS_RS_HMAC_0_12_1_URL		:= https://crates.io/api/v1/crates/hmac/0.12.1/download
+GST_PLUGINS_RS_HMAC_0_12_1_URL		:= $(call ptx/mirror, CRATESIO, hmac/0.12.1/download)
 GST_PLUGINS_RS_HMAC_0_12_1_SOURCE	:= $(SRCDIR)/hmac-0.12.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HMAC_0_12_1
 
 GST_PLUGINS_RS_HOME_0_5_12_MD5		:= f5956eb9324f20e363d9a4ff26b7bd03
-GST_PLUGINS_RS_HOME_0_5_12_URL		:= https://crates.io/api/v1/crates/home/0.5.12/download
+GST_PLUGINS_RS_HOME_0_5_12_URL		:= $(call ptx/mirror, CRATESIO, home/0.5.12/download)
 GST_PLUGINS_RS_HOME_0_5_12_SOURCE	:= $(SRCDIR)/home-0.5.12.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HOME_0_5_12
 
 GST_PLUGINS_RS_HOUND_3_5_1_MD5		:= 47cc1a1ee02b6795e4c5d5517b9b1942
-GST_PLUGINS_RS_HOUND_3_5_1_URL		:= https://crates.io/api/v1/crates/hound/3.5.1/download
+GST_PLUGINS_RS_HOUND_3_5_1_URL		:= $(call ptx/mirror, CRATESIO, hound/3.5.1/download)
 GST_PLUGINS_RS_HOUND_3_5_1_SOURCE	:= $(SRCDIR)/hound-3.5.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HOUND_3_5_1
 
 GST_PLUGINS_RS_HRTF_0_8_1_MD5		:= df4d656a91e0be924ba764b6c9151ea0
-GST_PLUGINS_RS_HRTF_0_8_1_URL		:= https://crates.io/api/v1/crates/hrtf/0.8.1/download
+GST_PLUGINS_RS_HRTF_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, hrtf/0.8.1/download)
 GST_PLUGINS_RS_HRTF_0_8_1_SOURCE	:= $(SRCDIR)/hrtf-0.8.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HRTF_0_8_1
 
 GST_PLUGINS_RS_HTTP_0_2_12_MD5		:= fb46b88c5cbf8bfe28124af1794f3934
-GST_PLUGINS_RS_HTTP_0_2_12_URL		:= https://crates.io/api/v1/crates/http/0.2.12/download
+GST_PLUGINS_RS_HTTP_0_2_12_URL		:= $(call ptx/mirror, CRATESIO, http/0.2.12/download)
 GST_PLUGINS_RS_HTTP_0_2_12_SOURCE	:= $(SRCDIR)/http-0.2.12.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HTTP_0_2_12
 
 GST_PLUGINS_RS_HTTP_1_4_0_MD5		:= c3ab409169316622bbff1ae1983481c0
-GST_PLUGINS_RS_HTTP_1_4_0_URL		:= https://crates.io/api/v1/crates/http/1.4.0/download
+GST_PLUGINS_RS_HTTP_1_4_0_URL		:= $(call ptx/mirror, CRATESIO, http/1.4.0/download)
 GST_PLUGINS_RS_HTTP_1_4_0_SOURCE	:= $(SRCDIR)/http-1.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HTTP_1_4_0
 
 GST_PLUGINS_RS_HTTP_BODY_0_4_6_MD5		:= 54cbd8850aebe933b8f1214d8e916d1e
-GST_PLUGINS_RS_HTTP_BODY_0_4_6_URL		:= https://crates.io/api/v1/crates/http-body/0.4.6/download
+GST_PLUGINS_RS_HTTP_BODY_0_4_6_URL		:= $(call ptx/mirror, CRATESIO, http-body/0.4.6/download)
 GST_PLUGINS_RS_HTTP_BODY_0_4_6_SOURCE	:= $(SRCDIR)/http-body-0.4.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HTTP_BODY_0_4_6
 
 GST_PLUGINS_RS_HTTP_BODY_1_0_1_MD5		:= 9f891783a0726303d8827598b7f4dcbe
-GST_PLUGINS_RS_HTTP_BODY_1_0_1_URL		:= https://crates.io/api/v1/crates/http-body/1.0.1/download
+GST_PLUGINS_RS_HTTP_BODY_1_0_1_URL		:= $(call ptx/mirror, CRATESIO, http-body/1.0.1/download)
 GST_PLUGINS_RS_HTTP_BODY_1_0_1_SOURCE	:= $(SRCDIR)/http-body-1.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HTTP_BODY_1_0_1
 
 GST_PLUGINS_RS_HTTP_BODY_UTIL_0_1_3_MD5		:= c059b75a48188c6b09d6a877caecc556
-GST_PLUGINS_RS_HTTP_BODY_UTIL_0_1_3_URL		:= https://crates.io/api/v1/crates/http-body-util/0.1.3/download
+GST_PLUGINS_RS_HTTP_BODY_UTIL_0_1_3_URL		:= $(call ptx/mirror, CRATESIO, http-body-util/0.1.3/download)
 GST_PLUGINS_RS_HTTP_BODY_UTIL_0_1_3_SOURCE	:= $(SRCDIR)/http-body-util-0.1.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HTTP_BODY_UTIL_0_1_3
 
 GST_PLUGINS_RS_HTTPARSE_1_10_1_MD5		:= efa1346b8285d297dddb9173d3548e71
-GST_PLUGINS_RS_HTTPARSE_1_10_1_URL		:= https://crates.io/api/v1/crates/httparse/1.10.1/download
+GST_PLUGINS_RS_HTTPARSE_1_10_1_URL		:= $(call ptx/mirror, CRATESIO, httparse/1.10.1/download)
 GST_PLUGINS_RS_HTTPARSE_1_10_1_SOURCE	:= $(SRCDIR)/httparse-1.10.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HTTPARSE_1_10_1
 
 GST_PLUGINS_RS_HTTPDATE_1_0_3_MD5		:= 580b311bafe0447ebc9ca2e646d9b0e7
-GST_PLUGINS_RS_HTTPDATE_1_0_3_URL		:= https://crates.io/api/v1/crates/httpdate/1.0.3/download
+GST_PLUGINS_RS_HTTPDATE_1_0_3_URL		:= $(call ptx/mirror, CRATESIO, httpdate/1.0.3/download)
 GST_PLUGINS_RS_HTTPDATE_1_0_3_SOURCE	:= $(SRCDIR)/httpdate-1.0.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HTTPDATE_1_0_3
 
 GST_PLUGINS_RS_HUMAN_BYTES_0_4_3_MD5		:= dcc22ed7212ce1e18a16afb15b5aadc5
-GST_PLUGINS_RS_HUMAN_BYTES_0_4_3_URL		:= https://crates.io/api/v1/crates/human_bytes/0.4.3/download
+GST_PLUGINS_RS_HUMAN_BYTES_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, human_bytes/0.4.3/download)
 GST_PLUGINS_RS_HUMAN_BYTES_0_4_3_SOURCE	:= $(SRCDIR)/human_bytes-0.4.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HUMAN_BYTES_0_4_3
 
 GST_PLUGINS_RS_HXDMP_0_2_1_MD5		:= 0f4542d1690904ceece8f91030289bf7
-GST_PLUGINS_RS_HXDMP_0_2_1_URL		:= https://crates.io/api/v1/crates/hxdmp/0.2.1/download
+GST_PLUGINS_RS_HXDMP_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, hxdmp/0.2.1/download)
 GST_PLUGINS_RS_HXDMP_0_2_1_SOURCE	:= $(SRCDIR)/hxdmp-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HXDMP_0_2_1
 
 GST_PLUGINS_RS_HYPER_0_14_32_MD5		:= e26c3b1f0328a2267ef91021e29dc7f9
-GST_PLUGINS_RS_HYPER_0_14_32_URL		:= https://crates.io/api/v1/crates/hyper/0.14.32/download
+GST_PLUGINS_RS_HYPER_0_14_32_URL		:= $(call ptx/mirror, CRATESIO, hyper/0.14.32/download)
 GST_PLUGINS_RS_HYPER_0_14_32_SOURCE	:= $(SRCDIR)/hyper-0.14.32.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HYPER_0_14_32
 
 GST_PLUGINS_RS_HYPER_1_8_1_MD5		:= e0aaefdd1f59bdda0fdb98943105935b
-GST_PLUGINS_RS_HYPER_1_8_1_URL		:= https://crates.io/api/v1/crates/hyper/1.8.1/download
+GST_PLUGINS_RS_HYPER_1_8_1_URL		:= $(call ptx/mirror, CRATESIO, hyper/1.8.1/download)
 GST_PLUGINS_RS_HYPER_1_8_1_SOURCE	:= $(SRCDIR)/hyper-1.8.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HYPER_1_8_1
 
 GST_PLUGINS_RS_HYPER_PROXY2_0_1_0_MD5		:= e3cc19a743c910bdd511db4c0642ea1a
-GST_PLUGINS_RS_HYPER_PROXY2_0_1_0_URL		:= https://crates.io/api/v1/crates/hyper-proxy2/0.1.0/download
+GST_PLUGINS_RS_HYPER_PROXY2_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, hyper-proxy2/0.1.0/download)
 GST_PLUGINS_RS_HYPER_PROXY2_0_1_0_SOURCE	:= $(SRCDIR)/hyper-proxy2-0.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HYPER_PROXY2_0_1_0
 
 GST_PLUGINS_RS_HYPER_RUSTLS_0_24_2_MD5		:= e7f9a478997aff38a5625fd8e1dec88c
-GST_PLUGINS_RS_HYPER_RUSTLS_0_24_2_URL		:= https://crates.io/api/v1/crates/hyper-rustls/0.24.2/download
+GST_PLUGINS_RS_HYPER_RUSTLS_0_24_2_URL		:= $(call ptx/mirror, CRATESIO, hyper-rustls/0.24.2/download)
 GST_PLUGINS_RS_HYPER_RUSTLS_0_24_2_SOURCE	:= $(SRCDIR)/hyper-rustls-0.24.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HYPER_RUSTLS_0_24_2
 
 GST_PLUGINS_RS_HYPER_RUSTLS_0_26_0_MD5		:= d07e6840929997a3b230c99fef028cfc
-GST_PLUGINS_RS_HYPER_RUSTLS_0_26_0_URL		:= https://crates.io/api/v1/crates/hyper-rustls/0.26.0/download
+GST_PLUGINS_RS_HYPER_RUSTLS_0_26_0_URL		:= $(call ptx/mirror, CRATESIO, hyper-rustls/0.26.0/download)
 GST_PLUGINS_RS_HYPER_RUSTLS_0_26_0_SOURCE	:= $(SRCDIR)/hyper-rustls-0.26.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HYPER_RUSTLS_0_26_0
 
 GST_PLUGINS_RS_HYPER_RUSTLS_0_27_7_MD5		:= f38e3a292c0ef7457a4bf9cf11c98f21
-GST_PLUGINS_RS_HYPER_RUSTLS_0_27_7_URL		:= https://crates.io/api/v1/crates/hyper-rustls/0.27.7/download
+GST_PLUGINS_RS_HYPER_RUSTLS_0_27_7_URL		:= $(call ptx/mirror, CRATESIO, hyper-rustls/0.27.7/download)
 GST_PLUGINS_RS_HYPER_RUSTLS_0_27_7_SOURCE	:= $(SRCDIR)/hyper-rustls-0.27.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HYPER_RUSTLS_0_27_7
 
 GST_PLUGINS_RS_HYPER_UTIL_0_1_20_MD5		:= d756bfcd88e1d1449b4637a253458a3f
-GST_PLUGINS_RS_HYPER_UTIL_0_1_20_URL		:= https://crates.io/api/v1/crates/hyper-util/0.1.20/download
+GST_PLUGINS_RS_HYPER_UTIL_0_1_20_URL		:= $(call ptx/mirror, CRATESIO, hyper-util/0.1.20/download)
 GST_PLUGINS_RS_HYPER_UTIL_0_1_20_SOURCE	:= $(SRCDIR)/hyper-util-0.1.20.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HYPER_UTIL_0_1_20
 
 GST_PLUGINS_RS_HYPHENATION_0_8_4_MD5		:= f6547ba8831e94f08ac736c9f0574a80
-GST_PLUGINS_RS_HYPHENATION_0_8_4_URL		:= https://crates.io/api/v1/crates/hyphenation/0.8.4/download
+GST_PLUGINS_RS_HYPHENATION_0_8_4_URL		:= $(call ptx/mirror, CRATESIO, hyphenation/0.8.4/download)
 GST_PLUGINS_RS_HYPHENATION_0_8_4_SOURCE	:= $(SRCDIR)/hyphenation-0.8.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HYPHENATION_0_8_4
 
 GST_PLUGINS_RS_HYPHENATION_COMMONS_0_8_4_MD5		:= 57c4fcdb03923d1cbe734465804da9ac
-GST_PLUGINS_RS_HYPHENATION_COMMONS_0_8_4_URL		:= https://crates.io/api/v1/crates/hyphenation_commons/0.8.4/download
+GST_PLUGINS_RS_HYPHENATION_COMMONS_0_8_4_URL		:= $(call ptx/mirror, CRATESIO, hyphenation_commons/0.8.4/download)
 GST_PLUGINS_RS_HYPHENATION_COMMONS_0_8_4_SOURCE	:= $(SRCDIR)/hyphenation_commons-0.8.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_HYPHENATION_COMMONS_0_8_4
 
 GST_PLUGINS_RS_IANA_TIME_ZONE_0_1_65_MD5		:= 81afe385a2e45869d056cdd55cf9051e
-GST_PLUGINS_RS_IANA_TIME_ZONE_0_1_65_URL		:= https://crates.io/api/v1/crates/iana-time-zone/0.1.65/download
+GST_PLUGINS_RS_IANA_TIME_ZONE_0_1_65_URL		:= $(call ptx/mirror, CRATESIO, iana-time-zone/0.1.65/download)
 GST_PLUGINS_RS_IANA_TIME_ZONE_0_1_65_SOURCE	:= $(SRCDIR)/iana-time-zone-0.1.65.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IANA_TIME_ZONE_0_1_65
 
 GST_PLUGINS_RS_IANA_TIME_ZONE_HAIKU_0_1_2_MD5		:= 87b1b7cb12ef4dfe842c212b98263048
-GST_PLUGINS_RS_IANA_TIME_ZONE_HAIKU_0_1_2_URL		:= https://crates.io/api/v1/crates/iana-time-zone-haiku/0.1.2/download
+GST_PLUGINS_RS_IANA_TIME_ZONE_HAIKU_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, iana-time-zone-haiku/0.1.2/download)
 GST_PLUGINS_RS_IANA_TIME_ZONE_HAIKU_0_1_2_SOURCE	:= $(SRCDIR)/iana-time-zone-haiku-0.1.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IANA_TIME_ZONE_HAIKU_0_1_2
 
 GST_PLUGINS_RS_ICU_COLLECTIONS_2_1_1_MD5		:= 49dca09da2b9035986fe978a39c91c50
-GST_PLUGINS_RS_ICU_COLLECTIONS_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_collections/2.1.1/download
+GST_PLUGINS_RS_ICU_COLLECTIONS_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_collections/2.1.1/download)
 GST_PLUGINS_RS_ICU_COLLECTIONS_2_1_1_SOURCE	:= $(SRCDIR)/icu_collections-2.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ICU_COLLECTIONS_2_1_1
 
 GST_PLUGINS_RS_ICU_LOCALE_2_1_1_MD5		:= 502ec9ced2182c970553e43e98b5c0b0
-GST_PLUGINS_RS_ICU_LOCALE_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_locale/2.1.1/download
+GST_PLUGINS_RS_ICU_LOCALE_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_locale/2.1.1/download)
 GST_PLUGINS_RS_ICU_LOCALE_2_1_1_SOURCE	:= $(SRCDIR)/icu_locale-2.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ICU_LOCALE_2_1_1
 
 GST_PLUGINS_RS_ICU_LOCALE_CORE_2_1_1_MD5		:= 750cde2aa62779cd0393f8fb43c21048
-GST_PLUGINS_RS_ICU_LOCALE_CORE_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_locale_core/2.1.1/download
+GST_PLUGINS_RS_ICU_LOCALE_CORE_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_locale_core/2.1.1/download)
 GST_PLUGINS_RS_ICU_LOCALE_CORE_2_1_1_SOURCE	:= $(SRCDIR)/icu_locale_core-2.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ICU_LOCALE_CORE_2_1_1
 
 GST_PLUGINS_RS_ICU_LOCALE_DATA_2_1_2_MD5		:= b9c248ac0ead1604f6a7a837c71592bd
-GST_PLUGINS_RS_ICU_LOCALE_DATA_2_1_2_URL		:= https://crates.io/api/v1/crates/icu_locale_data/2.1.2/download
+GST_PLUGINS_RS_ICU_LOCALE_DATA_2_1_2_URL		:= $(call ptx/mirror, CRATESIO, icu_locale_data/2.1.2/download)
 GST_PLUGINS_RS_ICU_LOCALE_DATA_2_1_2_SOURCE	:= $(SRCDIR)/icu_locale_data-2.1.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ICU_LOCALE_DATA_2_1_2
 
 GST_PLUGINS_RS_ICU_NORMALIZER_2_1_1_MD5		:= ca611f40ae8d26d9d2ebabf12532cee1
-GST_PLUGINS_RS_ICU_NORMALIZER_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_normalizer/2.1.1/download
+GST_PLUGINS_RS_ICU_NORMALIZER_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_normalizer/2.1.1/download)
 GST_PLUGINS_RS_ICU_NORMALIZER_2_1_1_SOURCE	:= $(SRCDIR)/icu_normalizer-2.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ICU_NORMALIZER_2_1_1
 
 GST_PLUGINS_RS_ICU_NORMALIZER_DATA_2_1_1_MD5		:= 7a314fd97a06316b612d31d7b06cf373
-GST_PLUGINS_RS_ICU_NORMALIZER_DATA_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_normalizer_data/2.1.1/download
+GST_PLUGINS_RS_ICU_NORMALIZER_DATA_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_normalizer_data/2.1.1/download)
 GST_PLUGINS_RS_ICU_NORMALIZER_DATA_2_1_1_SOURCE	:= $(SRCDIR)/icu_normalizer_data-2.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ICU_NORMALIZER_DATA_2_1_1
 
 GST_PLUGINS_RS_ICU_PROPERTIES_2_1_2_MD5		:= d699b75845a054f315a8e0148229bb7b
-GST_PLUGINS_RS_ICU_PROPERTIES_2_1_2_URL		:= https://crates.io/api/v1/crates/icu_properties/2.1.2/download
+GST_PLUGINS_RS_ICU_PROPERTIES_2_1_2_URL		:= $(call ptx/mirror, CRATESIO, icu_properties/2.1.2/download)
 GST_PLUGINS_RS_ICU_PROPERTIES_2_1_2_SOURCE	:= $(SRCDIR)/icu_properties-2.1.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ICU_PROPERTIES_2_1_2
 
 GST_PLUGINS_RS_ICU_PROPERTIES_DATA_2_1_2_MD5		:= 03613ec559ee51a45bb61ee07f1fd045
-GST_PLUGINS_RS_ICU_PROPERTIES_DATA_2_1_2_URL		:= https://crates.io/api/v1/crates/icu_properties_data/2.1.2/download
+GST_PLUGINS_RS_ICU_PROPERTIES_DATA_2_1_2_URL		:= $(call ptx/mirror, CRATESIO, icu_properties_data/2.1.2/download)
 GST_PLUGINS_RS_ICU_PROPERTIES_DATA_2_1_2_SOURCE	:= $(SRCDIR)/icu_properties_data-2.1.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ICU_PROPERTIES_DATA_2_1_2
 
 GST_PLUGINS_RS_ICU_PROVIDER_2_1_1_MD5		:= 68642bdd8c6d8feda2d737b4aecede40
-GST_PLUGINS_RS_ICU_PROVIDER_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_provider/2.1.1/download
+GST_PLUGINS_RS_ICU_PROVIDER_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_provider/2.1.1/download)
 GST_PLUGINS_RS_ICU_PROVIDER_2_1_1_SOURCE	:= $(SRCDIR)/icu_provider-2.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ICU_PROVIDER_2_1_1
 
 GST_PLUGINS_RS_ICU_SEGMENTER_2_1_2_MD5		:= e517540026959631a53fbc6ce794b4bf
-GST_PLUGINS_RS_ICU_SEGMENTER_2_1_2_URL		:= https://crates.io/api/v1/crates/icu_segmenter/2.1.2/download
+GST_PLUGINS_RS_ICU_SEGMENTER_2_1_2_URL		:= $(call ptx/mirror, CRATESIO, icu_segmenter/2.1.2/download)
 GST_PLUGINS_RS_ICU_SEGMENTER_2_1_2_SOURCE	:= $(SRCDIR)/icu_segmenter-2.1.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ICU_SEGMENTER_2_1_2
 
 GST_PLUGINS_RS_ICU_SEGMENTER_DATA_2_1_1_MD5		:= dabab671f2bcc9839d10fbd3d745043b
-GST_PLUGINS_RS_ICU_SEGMENTER_DATA_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_segmenter_data/2.1.1/download
+GST_PLUGINS_RS_ICU_SEGMENTER_DATA_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_segmenter_data/2.1.1/download)
 GST_PLUGINS_RS_ICU_SEGMENTER_DATA_2_1_1_SOURCE	:= $(SRCDIR)/icu_segmenter_data-2.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ICU_SEGMENTER_DATA_2_1_1
 
 GST_PLUGINS_RS_ID_ARENA_2_3_0_MD5		:= ecca370386c4c809a464b923a41e775b
-GST_PLUGINS_RS_ID_ARENA_2_3_0_URL		:= https://crates.io/api/v1/crates/id-arena/2.3.0/download
+GST_PLUGINS_RS_ID_ARENA_2_3_0_URL		:= $(call ptx/mirror, CRATESIO, id-arena/2.3.0/download)
 GST_PLUGINS_RS_ID_ARENA_2_3_0_SOURCE	:= $(SRCDIR)/id-arena-2.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ID_ARENA_2_3_0
 
 GST_PLUGINS_RS_IDENT_CASE_1_0_1_MD5		:= fe77a3f609b6fd8d5b08f3b2ef14d2ad
-GST_PLUGINS_RS_IDENT_CASE_1_0_1_URL		:= https://crates.io/api/v1/crates/ident_case/1.0.1/download
+GST_PLUGINS_RS_IDENT_CASE_1_0_1_URL		:= $(call ptx/mirror, CRATESIO, ident_case/1.0.1/download)
 GST_PLUGINS_RS_IDENT_CASE_1_0_1_SOURCE	:= $(SRCDIR)/ident_case-1.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IDENT_CASE_1_0_1
 
 GST_PLUGINS_RS_IDNA_1_1_0_MD5		:= f25c179049fc3742f9c1ac8e3fd038ae
-GST_PLUGINS_RS_IDNA_1_1_0_URL		:= https://crates.io/api/v1/crates/idna/1.1.0/download
+GST_PLUGINS_RS_IDNA_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, idna/1.1.0/download)
 GST_PLUGINS_RS_IDNA_1_1_0_SOURCE	:= $(SRCDIR)/idna-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IDNA_1_1_0
 
 GST_PLUGINS_RS_IDNA_ADAPTER_1_2_1_MD5		:= b1b2c3e3512162c97ebc6bc9944cad1e
-GST_PLUGINS_RS_IDNA_ADAPTER_1_2_1_URL		:= https://crates.io/api/v1/crates/idna_adapter/1.2.1/download
+GST_PLUGINS_RS_IDNA_ADAPTER_1_2_1_URL		:= $(call ptx/mirror, CRATESIO, idna_adapter/1.2.1/download)
 GST_PLUGINS_RS_IDNA_ADAPTER_1_2_1_SOURCE	:= $(SRCDIR)/idna_adapter-1.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IDNA_ADAPTER_1_2_1
 
 GST_PLUGINS_RS_IMAGE_0_25_9_MD5		:= 5977e4894e5cc609d15e86b047b98b82
-GST_PLUGINS_RS_IMAGE_0_25_9_URL		:= https://crates.io/api/v1/crates/image/0.25.9/download
+GST_PLUGINS_RS_IMAGE_0_25_9_URL		:= $(call ptx/mirror, CRATESIO, image/0.25.9/download)
 GST_PLUGINS_RS_IMAGE_0_25_9_SOURCE	:= $(SRCDIR)/image-0.25.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IMAGE_0_25_9
 
 GST_PLUGINS_RS_IMAGE_HASHER_3_1_1_MD5		:= 6b2b88ab8fbadd31e02d0a98c851776e
-GST_PLUGINS_RS_IMAGE_HASHER_3_1_1_URL		:= https://crates.io/api/v1/crates/image_hasher/3.1.1/download
+GST_PLUGINS_RS_IMAGE_HASHER_3_1_1_URL		:= $(call ptx/mirror, CRATESIO, image_hasher/3.1.1/download)
 GST_PLUGINS_RS_IMAGE_HASHER_3_1_1_SOURCE	:= $(SRCDIR)/image_hasher-3.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IMAGE_HASHER_3_1_1
 
 GST_PLUGINS_RS_IMGREF_1_12_0_MD5		:= 67f78ced147ac8f15ceffdce535c256c
-GST_PLUGINS_RS_IMGREF_1_12_0_URL		:= https://crates.io/api/v1/crates/imgref/1.12.0/download
+GST_PLUGINS_RS_IMGREF_1_12_0_URL		:= $(call ptx/mirror, CRATESIO, imgref/1.12.0/download)
 GST_PLUGINS_RS_IMGREF_1_12_0_SOURCE	:= $(SRCDIR)/imgref-1.12.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IMGREF_1_12_0
 
 GST_PLUGINS_RS_INDEXMAP_1_9_3_MD5		:= 11ce8b5f52cd315e8f52985b834b87eb
-GST_PLUGINS_RS_INDEXMAP_1_9_3_URL		:= https://crates.io/api/v1/crates/indexmap/1.9.3/download
+GST_PLUGINS_RS_INDEXMAP_1_9_3_URL		:= $(call ptx/mirror, CRATESIO, indexmap/1.9.3/download)
 GST_PLUGINS_RS_INDEXMAP_1_9_3_SOURCE	:= $(SRCDIR)/indexmap-1.9.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_INDEXMAP_1_9_3
 
 GST_PLUGINS_RS_INDEXMAP_2_13_0_MD5		:= db0326fdcb5eca7e5fa11b9745dadd42
-GST_PLUGINS_RS_INDEXMAP_2_13_0_URL		:= https://crates.io/api/v1/crates/indexmap/2.13.0/download
+GST_PLUGINS_RS_INDEXMAP_2_13_0_URL		:= $(call ptx/mirror, CRATESIO, indexmap/2.13.0/download)
 GST_PLUGINS_RS_INDEXMAP_2_13_0_SOURCE	:= $(SRCDIR)/indexmap-2.13.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_INDEXMAP_2_13_0
 
 GST_PLUGINS_RS_INDICATIF_0_18_4_MD5		:= 99bb2de25f1242605a019dd101db6b49
-GST_PLUGINS_RS_INDICATIF_0_18_4_URL		:= https://crates.io/api/v1/crates/indicatif/0.18.4/download
+GST_PLUGINS_RS_INDICATIF_0_18_4_URL		:= $(call ptx/mirror, CRATESIO, indicatif/0.18.4/download)
 GST_PLUGINS_RS_INDICATIF_0_18_4_SOURCE	:= $(SRCDIR)/indicatif-0.18.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_INDICATIF_0_18_4
 
 GST_PLUGINS_RS_INOUT_0_1_4_MD5		:= 7c7e0fb7becfd41cc236b444597fb170
-GST_PLUGINS_RS_INOUT_0_1_4_URL		:= https://crates.io/api/v1/crates/inout/0.1.4/download
+GST_PLUGINS_RS_INOUT_0_1_4_URL		:= $(call ptx/mirror, CRATESIO, inout/0.1.4/download)
 GST_PLUGINS_RS_INOUT_0_1_4_SOURCE	:= $(SRCDIR)/inout-0.1.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_INOUT_0_1_4
 
 GST_PLUGINS_RS_INTERPOLATE_NAME_0_2_4_MD5		:= 5da39427e196c0609d3d5aee2635c0db
-GST_PLUGINS_RS_INTERPOLATE_NAME_0_2_4_URL		:= https://crates.io/api/v1/crates/interpolate_name/0.2.4/download
+GST_PLUGINS_RS_INTERPOLATE_NAME_0_2_4_URL		:= $(call ptx/mirror, CRATESIO, interpolate_name/0.2.4/download)
 GST_PLUGINS_RS_INTERPOLATE_NAME_0_2_4_SOURCE	:= $(SRCDIR)/interpolate_name-0.2.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_INTERPOLATE_NAME_0_2_4
 
 GST_PLUGINS_RS_IPNET_2_11_0_MD5		:= a184d54ca99f3af8f5afc00b6c64c0b5
-GST_PLUGINS_RS_IPNET_2_11_0_URL		:= https://crates.io/api/v1/crates/ipnet/2.11.0/download
+GST_PLUGINS_RS_IPNET_2_11_0_URL		:= $(call ptx/mirror, CRATESIO, ipnet/2.11.0/download)
 GST_PLUGINS_RS_IPNET_2_11_0_SOURCE	:= $(SRCDIR)/ipnet-2.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IPNET_2_11_0
 
 GST_PLUGINS_RS_IRI_STRING_0_7_10_MD5		:= 09347b8e91f8fa7ff5a199dfa63b22c9
-GST_PLUGINS_RS_IRI_STRING_0_7_10_URL		:= https://crates.io/api/v1/crates/iri-string/0.7.10/download
+GST_PLUGINS_RS_IRI_STRING_0_7_10_URL		:= $(call ptx/mirror, CRATESIO, iri-string/0.7.10/download)
 GST_PLUGINS_RS_IRI_STRING_0_7_10_SOURCE	:= $(SRCDIR)/iri-string-0.7.10.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IRI_STRING_0_7_10
 
 GST_PLUGINS_RS_IS_DOCKER_0_2_0_MD5		:= 8e42a93de32afe2f1de0d06740ec7d2f
-GST_PLUGINS_RS_IS_DOCKER_0_2_0_URL		:= https://crates.io/api/v1/crates/is-docker/0.2.0/download
+GST_PLUGINS_RS_IS_DOCKER_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, is-docker/0.2.0/download)
 GST_PLUGINS_RS_IS_DOCKER_0_2_0_SOURCE	:= $(SRCDIR)/is-docker-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IS_DOCKER_0_2_0
 
 GST_PLUGINS_RS_IS_WSL_0_4_0_MD5		:= 9cde561d8c0043f6bb0645d0bbd77d82
-GST_PLUGINS_RS_IS_WSL_0_4_0_URL		:= https://crates.io/api/v1/crates/is-wsl/0.4.0/download
+GST_PLUGINS_RS_IS_WSL_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, is-wsl/0.4.0/download)
 GST_PLUGINS_RS_IS_WSL_0_4_0_SOURCE	:= $(SRCDIR)/is-wsl-0.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IS_WSL_0_4_0
 
 GST_PLUGINS_RS_IS_TERMINAL_POLYFILL_1_70_2_MD5		:= 164c3046a7f9720ce6c4240a8433a923
-GST_PLUGINS_RS_IS_TERMINAL_POLYFILL_1_70_2_URL		:= https://crates.io/api/v1/crates/is_terminal_polyfill/1.70.2/download
+GST_PLUGINS_RS_IS_TERMINAL_POLYFILL_1_70_2_URL		:= $(call ptx/mirror, CRATESIO, is_terminal_polyfill/1.70.2/download)
 GST_PLUGINS_RS_IS_TERMINAL_POLYFILL_1_70_2_SOURCE	:= $(SRCDIR)/is_terminal_polyfill-1.70.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_IS_TERMINAL_POLYFILL_1_70_2
 
 GST_PLUGINS_RS_ISO8601_0_6_3_MD5		:= b2de9ff80d8e8b0fd1954682cfab9f1f
-GST_PLUGINS_RS_ISO8601_0_6_3_URL		:= https://crates.io/api/v1/crates/iso8601/0.6.3/download
+GST_PLUGINS_RS_ISO8601_0_6_3_URL		:= $(call ptx/mirror, CRATESIO, iso8601/0.6.3/download)
 GST_PLUGINS_RS_ISO8601_0_6_3_SOURCE	:= $(SRCDIR)/iso8601-0.6.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ISO8601_0_6_3
 
 GST_PLUGINS_RS_ITERTOOLS_0_11_0_MD5		:= d629ca093dfd23b5e9b4262c5f801928
-GST_PLUGINS_RS_ITERTOOLS_0_11_0_URL		:= https://crates.io/api/v1/crates/itertools/0.11.0/download
+GST_PLUGINS_RS_ITERTOOLS_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, itertools/0.11.0/download)
 GST_PLUGINS_RS_ITERTOOLS_0_11_0_SOURCE	:= $(SRCDIR)/itertools-0.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ITERTOOLS_0_11_0
 
 GST_PLUGINS_RS_ITERTOOLS_0_12_1_MD5		:= cbafbdc811ecda2c59593e87a05c219f
-GST_PLUGINS_RS_ITERTOOLS_0_12_1_URL		:= https://crates.io/api/v1/crates/itertools/0.12.1/download
+GST_PLUGINS_RS_ITERTOOLS_0_12_1_URL		:= $(call ptx/mirror, CRATESIO, itertools/0.12.1/download)
 GST_PLUGINS_RS_ITERTOOLS_0_12_1_SOURCE	:= $(SRCDIR)/itertools-0.12.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ITERTOOLS_0_12_1
 
 GST_PLUGINS_RS_ITERTOOLS_0_13_0_MD5		:= 22c9fb2659929f432d5fe217d1cb74cf
-GST_PLUGINS_RS_ITERTOOLS_0_13_0_URL		:= https://crates.io/api/v1/crates/itertools/0.13.0/download
+GST_PLUGINS_RS_ITERTOOLS_0_13_0_URL		:= $(call ptx/mirror, CRATESIO, itertools/0.13.0/download)
 GST_PLUGINS_RS_ITERTOOLS_0_13_0_SOURCE	:= $(SRCDIR)/itertools-0.13.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ITERTOOLS_0_13_0
 
 GST_PLUGINS_RS_ITERTOOLS_0_14_0_MD5		:= 46ad4f3e5384660617259ff0e3ff902b
-GST_PLUGINS_RS_ITERTOOLS_0_14_0_URL		:= https://crates.io/api/v1/crates/itertools/0.14.0/download
+GST_PLUGINS_RS_ITERTOOLS_0_14_0_URL		:= $(call ptx/mirror, CRATESIO, itertools/0.14.0/download)
 GST_PLUGINS_RS_ITERTOOLS_0_14_0_SOURCE	:= $(SRCDIR)/itertools-0.14.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ITERTOOLS_0_14_0
 
 GST_PLUGINS_RS_ITOA_1_0_17_MD5		:= 7adb8a4c6ab02e9b85282feb836ab048
-GST_PLUGINS_RS_ITOA_1_0_17_URL		:= https://crates.io/api/v1/crates/itoa/1.0.17/download
+GST_PLUGINS_RS_ITOA_1_0_17_URL		:= $(call ptx/mirror, CRATESIO, itoa/1.0.17/download)
 GST_PLUGINS_RS_ITOA_1_0_17_SOURCE	:= $(SRCDIR)/itoa-1.0.17.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ITOA_1_0_17
 
 GST_PLUGINS_RS_JIFF_0_2_21_MD5		:= 3c742cb992db2e8e90c7410b6379160b
-GST_PLUGINS_RS_JIFF_0_2_21_URL		:= https://crates.io/api/v1/crates/jiff/0.2.21/download
+GST_PLUGINS_RS_JIFF_0_2_21_URL		:= $(call ptx/mirror, CRATESIO, jiff/0.2.21/download)
 GST_PLUGINS_RS_JIFF_0_2_21_SOURCE	:= $(SRCDIR)/jiff-0.2.21.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_JIFF_0_2_21
 
 GST_PLUGINS_RS_JIFF_STATIC_0_2_21_MD5		:= 3ff68611e5310cfafebf5417540648df
-GST_PLUGINS_RS_JIFF_STATIC_0_2_21_URL		:= https://crates.io/api/v1/crates/jiff-static/0.2.21/download
+GST_PLUGINS_RS_JIFF_STATIC_0_2_21_URL		:= $(call ptx/mirror, CRATESIO, jiff-static/0.2.21/download)
 GST_PLUGINS_RS_JIFF_STATIC_0_2_21_SOURCE	:= $(SRCDIR)/jiff-static-0.2.21.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_JIFF_STATIC_0_2_21
 
 GST_PLUGINS_RS_JNI_0_21_1_MD5		:= be01525e51d79736e7af74fe93d19f93
-GST_PLUGINS_RS_JNI_0_21_1_URL		:= https://crates.io/api/v1/crates/jni/0.21.1/download
+GST_PLUGINS_RS_JNI_0_21_1_URL		:= $(call ptx/mirror, CRATESIO, jni/0.21.1/download)
 GST_PLUGINS_RS_JNI_0_21_1_SOURCE	:= $(SRCDIR)/jni-0.21.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_JNI_0_21_1
 
 GST_PLUGINS_RS_JNI_SYS_0_3_0_MD5		:= 73272fe4aadb91d550dca8fc7ead8bf7
-GST_PLUGINS_RS_JNI_SYS_0_3_0_URL		:= https://crates.io/api/v1/crates/jni-sys/0.3.0/download
+GST_PLUGINS_RS_JNI_SYS_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, jni-sys/0.3.0/download)
 GST_PLUGINS_RS_JNI_SYS_0_3_0_SOURCE	:= $(SRCDIR)/jni-sys-0.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_JNI_SYS_0_3_0
 
 GST_PLUGINS_RS_JOBSERVER_0_1_34_MD5		:= b20f8542fa832b16de4b865c2a16b158
-GST_PLUGINS_RS_JOBSERVER_0_1_34_URL		:= https://crates.io/api/v1/crates/jobserver/0.1.34/download
+GST_PLUGINS_RS_JOBSERVER_0_1_34_URL		:= $(call ptx/mirror, CRATESIO, jobserver/0.1.34/download)
 GST_PLUGINS_RS_JOBSERVER_0_1_34_SOURCE	:= $(SRCDIR)/jobserver-0.1.34.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_JOBSERVER_0_1_34
 
 GST_PLUGINS_RS_JS_SYS_0_3_91_MD5		:= fc851d94b0963b4fff78fc7a03e1b49e
-GST_PLUGINS_RS_JS_SYS_0_3_91_URL		:= https://crates.io/api/v1/crates/js-sys/0.3.91/download
+GST_PLUGINS_RS_JS_SYS_0_3_91_URL		:= $(call ptx/mirror, CRATESIO, js-sys/0.3.91/download)
 GST_PLUGINS_RS_JS_SYS_0_3_91_SOURCE	:= $(SRCDIR)/js-sys-0.3.91.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_JS_SYS_0_3_91
 
 GST_PLUGINS_RS_JSONWEBTOKEN_9_3_1_MD5		:= 3e0090108e293a2f798aea22f98c9cb5
-GST_PLUGINS_RS_JSONWEBTOKEN_9_3_1_URL		:= https://crates.io/api/v1/crates/jsonwebtoken/9.3.1/download
+GST_PLUGINS_RS_JSONWEBTOKEN_9_3_1_URL		:= $(call ptx/mirror, CRATESIO, jsonwebtoken/9.3.1/download)
 GST_PLUGINS_RS_JSONWEBTOKEN_9_3_1_SOURCE	:= $(SRCDIR)/jsonwebtoken-9.3.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_JSONWEBTOKEN_9_3_1
 
 GST_PLUGINS_RS_KHRONOS_EGL_6_0_0_MD5		:= 8d32bb26f7c1f0bc492745a5a6201c20
-GST_PLUGINS_RS_KHRONOS_EGL_6_0_0_URL		:= https://crates.io/api/v1/crates/khronos-egl/6.0.0/download
+GST_PLUGINS_RS_KHRONOS_EGL_6_0_0_URL		:= $(call ptx/mirror, CRATESIO, khronos-egl/6.0.0/download)
 GST_PLUGINS_RS_KHRONOS_EGL_6_0_0_SOURCE	:= $(SRCDIR)/khronos-egl-6.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_KHRONOS_EGL_6_0_0
 
 GST_PLUGINS_RS_KHRONOS_API_3_1_0_MD5		:= 8bc92e2d422193be1d498146e34a0b85
-GST_PLUGINS_RS_KHRONOS_API_3_1_0_URL		:= https://crates.io/api/v1/crates/khronos_api/3.1.0/download
+GST_PLUGINS_RS_KHRONOS_API_3_1_0_URL		:= $(call ptx/mirror, CRATESIO, khronos_api/3.1.0/download)
 GST_PLUGINS_RS_KHRONOS_API_3_1_0_SOURCE	:= $(SRCDIR)/khronos_api-3.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_KHRONOS_API_3_1_0
 
 GST_PLUGINS_RS_KSTRING_2_0_2_MD5		:= 5a7af442aa87deb7aa2e47aa53ecb4b0
-GST_PLUGINS_RS_KSTRING_2_0_2_URL		:= https://crates.io/api/v1/crates/kstring/2.0.2/download
+GST_PLUGINS_RS_KSTRING_2_0_2_URL		:= $(call ptx/mirror, CRATESIO, kstring/2.0.2/download)
 GST_PLUGINS_RS_KSTRING_2_0_2_SOURCE	:= $(SRCDIR)/kstring-2.0.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_KSTRING_2_0_2
 
 GST_PLUGINS_RS_LAZY_STATIC_1_5_0_MD5		:= bb0c20f6e3faaa647d9c463c5501a8e0
-GST_PLUGINS_RS_LAZY_STATIC_1_5_0_URL		:= https://crates.io/api/v1/crates/lazy_static/1.5.0/download
+GST_PLUGINS_RS_LAZY_STATIC_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, lazy_static/1.5.0/download)
 GST_PLUGINS_RS_LAZY_STATIC_1_5_0_SOURCE	:= $(SRCDIR)/lazy_static-1.5.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LAZY_STATIC_1_5_0
 
 GST_PLUGINS_RS_LEB128FMT_0_1_0_MD5		:= 1abb8c15c927019465ab14988633c201
-GST_PLUGINS_RS_LEB128FMT_0_1_0_URL		:= https://crates.io/api/v1/crates/leb128fmt/0.1.0/download
+GST_PLUGINS_RS_LEB128FMT_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, leb128fmt/0.1.0/download)
 GST_PLUGINS_RS_LEB128FMT_0_1_0_SOURCE	:= $(SRCDIR)/leb128fmt-0.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LEB128FMT_0_1_0
 
 GST_PLUGINS_RS_LEWTON_0_10_2_MD5		:= d3d110551104b00b42c9920958939391
-GST_PLUGINS_RS_LEWTON_0_10_2_URL		:= https://crates.io/api/v1/crates/lewton/0.10.2/download
+GST_PLUGINS_RS_LEWTON_0_10_2_URL		:= $(call ptx/mirror, CRATESIO, lewton/0.10.2/download)
 GST_PLUGINS_RS_LEWTON_0_10_2_SOURCE	:= $(SRCDIR)/lewton-0.10.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LEWTON_0_10_2
 
 GST_PLUGINS_RS_LIBBZ2_RS_SYS_0_2_2_MD5		:= 39b8c49dbee71963a611bb754a33b2aa
-GST_PLUGINS_RS_LIBBZ2_RS_SYS_0_2_2_URL		:= https://crates.io/api/v1/crates/libbz2-rs-sys/0.2.2/download
+GST_PLUGINS_RS_LIBBZ2_RS_SYS_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, libbz2-rs-sys/0.2.2/download)
 GST_PLUGINS_RS_LIBBZ2_RS_SYS_0_2_2_SOURCE	:= $(SRCDIR)/libbz2-rs-sys-0.2.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBBZ2_RS_SYS_0_2_2
 
 GST_PLUGINS_RS_LIBC_0_2_182_MD5		:= d9b5132f05c76e3af86f25b079216bab
-GST_PLUGINS_RS_LIBC_0_2_182_URL		:= https://crates.io/api/v1/crates/libc/0.2.182/download
+GST_PLUGINS_RS_LIBC_0_2_182_URL		:= $(call ptx/mirror, CRATESIO, libc/0.2.182/download)
 GST_PLUGINS_RS_LIBC_0_2_182_SOURCE	:= $(SRCDIR)/libc-0.2.182.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBC_0_2_182
 
 GST_PLUGINS_RS_LIBFUZZER_SYS_0_4_12_MD5		:= fc9fcc38cccce47a8b30e3916116d531
-GST_PLUGINS_RS_LIBFUZZER_SYS_0_4_12_URL		:= https://crates.io/api/v1/crates/libfuzzer-sys/0.4.12/download
+GST_PLUGINS_RS_LIBFUZZER_SYS_0_4_12_URL		:= $(call ptx/mirror, CRATESIO, libfuzzer-sys/0.4.12/download)
 GST_PLUGINS_RS_LIBFUZZER_SYS_0_4_12_SOURCE	:= $(SRCDIR)/libfuzzer-sys-0.4.12.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBFUZZER_SYS_0_4_12
 
 GST_PLUGINS_RS_LIBLOADING_0_8_9_MD5		:= 606f51fd52eefaa3fefcb9722f6a09a8
-GST_PLUGINS_RS_LIBLOADING_0_8_9_URL		:= https://crates.io/api/v1/crates/libloading/0.8.9/download
+GST_PLUGINS_RS_LIBLOADING_0_8_9_URL		:= $(call ptx/mirror, CRATESIO, libloading/0.8.9/download)
 GST_PLUGINS_RS_LIBLOADING_0_8_9_SOURCE	:= $(SRCDIR)/libloading-0.8.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBLOADING_0_8_9
 
 GST_PLUGINS_RS_LIBLOADING_0_9_0_MD5		:= 2b0c972861be338403925f241c0ebdbe
-GST_PLUGINS_RS_LIBLOADING_0_9_0_URL		:= https://crates.io/api/v1/crates/libloading/0.9.0/download
+GST_PLUGINS_RS_LIBLOADING_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, libloading/0.9.0/download)
 GST_PLUGINS_RS_LIBLOADING_0_9_0_SOURCE	:= $(SRCDIR)/libloading-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBLOADING_0_9_0
 
 GST_PLUGINS_RS_LIBLZMA_0_4_6_MD5		:= 578af8fb2abb27c420d4ff75e794bdb4
-GST_PLUGINS_RS_LIBLZMA_0_4_6_URL		:= https://crates.io/api/v1/crates/liblzma/0.4.6/download
+GST_PLUGINS_RS_LIBLZMA_0_4_6_URL		:= $(call ptx/mirror, CRATESIO, liblzma/0.4.6/download)
 GST_PLUGINS_RS_LIBLZMA_0_4_6_SOURCE	:= $(SRCDIR)/liblzma-0.4.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBLZMA_0_4_6
 
 GST_PLUGINS_RS_LIBLZMA_SYS_0_4_5_MD5		:= 777615a402590b8d95a8a32f75bba71a
-GST_PLUGINS_RS_LIBLZMA_SYS_0_4_5_URL		:= https://crates.io/api/v1/crates/liblzma-sys/0.4.5/download
+GST_PLUGINS_RS_LIBLZMA_SYS_0_4_5_URL		:= $(call ptx/mirror, CRATESIO, liblzma-sys/0.4.5/download)
 GST_PLUGINS_RS_LIBLZMA_SYS_0_4_5_SOURCE	:= $(SRCDIR)/liblzma-sys-0.4.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBLZMA_SYS_0_4_5
 
 GST_PLUGINS_RS_LIBM_0_2_16_MD5		:= 0cd2b5d61e8f18c95abc97fc4e39ccd8
-GST_PLUGINS_RS_LIBM_0_2_16_URL		:= https://crates.io/api/v1/crates/libm/0.2.16/download
+GST_PLUGINS_RS_LIBM_0_2_16_URL		:= $(call ptx/mirror, CRATESIO, libm/0.2.16/download)
 GST_PLUGINS_RS_LIBM_0_2_16_SOURCE	:= $(SRCDIR)/libm-0.2.16.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBM_0_2_16
 
 GST_PLUGINS_RS_LIBREDOX_0_1_12_MD5		:= 7700f05c27a07f60e516b311ca036365
-GST_PLUGINS_RS_LIBREDOX_0_1_12_URL		:= https://crates.io/api/v1/crates/libredox/0.1.12/download
+GST_PLUGINS_RS_LIBREDOX_0_1_12_URL		:= $(call ptx/mirror, CRATESIO, libredox/0.1.12/download)
 GST_PLUGINS_RS_LIBREDOX_0_1_12_SOURCE	:= $(SRCDIR)/libredox-0.1.12.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBREDOX_0_1_12
 
 GST_PLUGINS_RS_LIBRESPOT_AUDIO_0_8_0_MD5		:= 1d0a70ab2aaff62faaac1f08602ebbc6
-GST_PLUGINS_RS_LIBRESPOT_AUDIO_0_8_0_URL		:= https://crates.io/api/v1/crates/librespot-audio/0.8.0/download
+GST_PLUGINS_RS_LIBRESPOT_AUDIO_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, librespot-audio/0.8.0/download)
 GST_PLUGINS_RS_LIBRESPOT_AUDIO_0_8_0_SOURCE	:= $(SRCDIR)/librespot-audio-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBRESPOT_AUDIO_0_8_0
 
 GST_PLUGINS_RS_LIBRESPOT_CORE_0_8_0_MD5		:= 0155ab9d876e6946a6c40c3737fe4b7f
-GST_PLUGINS_RS_LIBRESPOT_CORE_0_8_0_URL		:= https://crates.io/api/v1/crates/librespot-core/0.8.0/download
+GST_PLUGINS_RS_LIBRESPOT_CORE_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, librespot-core/0.8.0/download)
 GST_PLUGINS_RS_LIBRESPOT_CORE_0_8_0_SOURCE	:= $(SRCDIR)/librespot-core-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBRESPOT_CORE_0_8_0
 
 GST_PLUGINS_RS_LIBRESPOT_METADATA_0_8_0_MD5		:= 04eb28f926d6fe4126b97a8f53373f2b
-GST_PLUGINS_RS_LIBRESPOT_METADATA_0_8_0_URL		:= https://crates.io/api/v1/crates/librespot-metadata/0.8.0/download
+GST_PLUGINS_RS_LIBRESPOT_METADATA_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, librespot-metadata/0.8.0/download)
 GST_PLUGINS_RS_LIBRESPOT_METADATA_0_8_0_SOURCE	:= $(SRCDIR)/librespot-metadata-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBRESPOT_METADATA_0_8_0
 
 GST_PLUGINS_RS_LIBRESPOT_OAUTH_0_8_0_MD5		:= e58c8b9015892ca1a2745a64a28a6757
-GST_PLUGINS_RS_LIBRESPOT_OAUTH_0_8_0_URL		:= https://crates.io/api/v1/crates/librespot-oauth/0.8.0/download
+GST_PLUGINS_RS_LIBRESPOT_OAUTH_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, librespot-oauth/0.8.0/download)
 GST_PLUGINS_RS_LIBRESPOT_OAUTH_0_8_0_SOURCE	:= $(SRCDIR)/librespot-oauth-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBRESPOT_OAUTH_0_8_0
 
 GST_PLUGINS_RS_LIBRESPOT_PLAYBACK_0_8_0_MD5		:= 6c6687facece10dd8210ff7b9d34e23e
-GST_PLUGINS_RS_LIBRESPOT_PLAYBACK_0_8_0_URL		:= https://crates.io/api/v1/crates/librespot-playback/0.8.0/download
+GST_PLUGINS_RS_LIBRESPOT_PLAYBACK_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, librespot-playback/0.8.0/download)
 GST_PLUGINS_RS_LIBRESPOT_PLAYBACK_0_8_0_SOURCE	:= $(SRCDIR)/librespot-playback-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBRESPOT_PLAYBACK_0_8_0
 
 GST_PLUGINS_RS_LIBRESPOT_PROTOCOL_0_8_0_MD5		:= 65533c1e9f080ebcb002626794564dec
-GST_PLUGINS_RS_LIBRESPOT_PROTOCOL_0_8_0_URL		:= https://crates.io/api/v1/crates/librespot-protocol/0.8.0/download
+GST_PLUGINS_RS_LIBRESPOT_PROTOCOL_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, librespot-protocol/0.8.0/download)
 GST_PLUGINS_RS_LIBRESPOT_PROTOCOL_0_8_0_SOURCE	:= $(SRCDIR)/librespot-protocol-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBRESPOT_PROTOCOL_0_8_0
 
 GST_PLUGINS_RS_LIBSODIUM_SYS_0_2_7_MD5		:= c7cf095d4de3ba9528c9ced34933d31b
-GST_PLUGINS_RS_LIBSODIUM_SYS_0_2_7_URL		:= https://crates.io/api/v1/crates/libsodium-sys/0.2.7/download
+GST_PLUGINS_RS_LIBSODIUM_SYS_0_2_7_URL		:= $(call ptx/mirror, CRATESIO, libsodium-sys/0.2.7/download)
 GST_PLUGINS_RS_LIBSODIUM_SYS_0_2_7_SOURCE	:= $(SRCDIR)/libsodium-sys-0.2.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBSODIUM_SYS_0_2_7
 
 GST_PLUGINS_RS_LIBWEBP_SYS2_0_1_11_MD5		:= 708d98e085cbd82b9070b87e0924326d
-GST_PLUGINS_RS_LIBWEBP_SYS2_0_1_11_URL		:= https://crates.io/api/v1/crates/libwebp-sys2/0.1.11/download
+GST_PLUGINS_RS_LIBWEBP_SYS2_0_1_11_URL		:= $(call ptx/mirror, CRATESIO, libwebp-sys2/0.1.11/download)
 GST_PLUGINS_RS_LIBWEBP_SYS2_0_1_11_SOURCE	:= $(SRCDIR)/libwebp-sys2-0.1.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBWEBP_SYS2_0_1_11
 
 GST_PLUGINS_RS_LIBWEBP_SYS2_0_2_0_MD5		:= 668106445021dd1494f0a5acd4c8e8e9
-GST_PLUGINS_RS_LIBWEBP_SYS2_0_2_0_URL		:= https://crates.io/api/v1/crates/libwebp-sys2/0.2.0/download
+GST_PLUGINS_RS_LIBWEBP_SYS2_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, libwebp-sys2/0.2.0/download)
 GST_PLUGINS_RS_LIBWEBP_SYS2_0_2_0_SOURCE	:= $(SRCDIR)/libwebp-sys2-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIBWEBP_SYS2_0_2_0
 
 GST_PLUGINS_RS_LINUX_RAW_SYS_0_4_15_MD5		:= c794e0a278b9d264dc033b1c840dd217
-GST_PLUGINS_RS_LINUX_RAW_SYS_0_4_15_URL		:= https://crates.io/api/v1/crates/linux-raw-sys/0.4.15/download
+GST_PLUGINS_RS_LINUX_RAW_SYS_0_4_15_URL		:= $(call ptx/mirror, CRATESIO, linux-raw-sys/0.4.15/download)
 GST_PLUGINS_RS_LINUX_RAW_SYS_0_4_15_SOURCE	:= $(SRCDIR)/linux-raw-sys-0.4.15.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LINUX_RAW_SYS_0_4_15
 
 GST_PLUGINS_RS_LINUX_RAW_SYS_0_12_1_MD5		:= 55cc03328b9f67387b17d3855d19b3b0
-GST_PLUGINS_RS_LINUX_RAW_SYS_0_12_1_URL		:= https://crates.io/api/v1/crates/linux-raw-sys/0.12.1/download
+GST_PLUGINS_RS_LINUX_RAW_SYS_0_12_1_URL		:= $(call ptx/mirror, CRATESIO, linux-raw-sys/0.12.1/download)
 GST_PLUGINS_RS_LINUX_RAW_SYS_0_12_1_SOURCE	:= $(SRCDIR)/linux-raw-sys-0.12.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LINUX_RAW_SYS_0_12_1
 
 GST_PLUGINS_RS_LITEMAP_0_8_1_MD5		:= 7d20f46219d84067cb62dc1032f19c72
-GST_PLUGINS_RS_LITEMAP_0_8_1_URL		:= https://crates.io/api/v1/crates/litemap/0.8.1/download
+GST_PLUGINS_RS_LITEMAP_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, litemap/0.8.1/download)
 GST_PLUGINS_RS_LITEMAP_0_8_1_SOURCE	:= $(SRCDIR)/litemap-0.8.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LITEMAP_0_8_1
 
 GST_PLUGINS_RS_LITRS_1_0_0_MD5		:= 93bcc1d1d2104f1ec9841e3637e2959c
-GST_PLUGINS_RS_LITRS_1_0_0_URL		:= https://crates.io/api/v1/crates/litrs/1.0.0/download
+GST_PLUGINS_RS_LITRS_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, litrs/1.0.0/download)
 GST_PLUGINS_RS_LITRS_1_0_0_SOURCE	:= $(SRCDIR)/litrs-1.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LITRS_1_0_0
 
 GST_PLUGINS_RS_LIVEKIT_API_0_4_14_MD5		:= 853cd47afd5c1ce5478cb85ed061b699
-GST_PLUGINS_RS_LIVEKIT_API_0_4_14_URL		:= https://crates.io/api/v1/crates/livekit-api/0.4.14/download
+GST_PLUGINS_RS_LIVEKIT_API_0_4_14_URL		:= $(call ptx/mirror, CRATESIO, livekit-api/0.4.14/download)
 GST_PLUGINS_RS_LIVEKIT_API_0_4_14_SOURCE	:= $(SRCDIR)/livekit-api-0.4.14.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIVEKIT_API_0_4_14
 
 GST_PLUGINS_RS_LIVEKIT_PROTOCOL_0_7_1_MD5		:= 2162da628910f41c0fba12c68df8b6db
-GST_PLUGINS_RS_LIVEKIT_PROTOCOL_0_7_1_URL		:= https://crates.io/api/v1/crates/livekit-protocol/0.7.1/download
+GST_PLUGINS_RS_LIVEKIT_PROTOCOL_0_7_1_URL		:= $(call ptx/mirror, CRATESIO, livekit-protocol/0.7.1/download)
 GST_PLUGINS_RS_LIVEKIT_PROTOCOL_0_7_1_SOURCE	:= $(SRCDIR)/livekit-protocol-0.7.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIVEKIT_PROTOCOL_0_7_1
 
 GST_PLUGINS_RS_LIVEKIT_RUNTIME_0_4_0_MD5		:= 204fedc8e1bad4eefc7e141a16212d8c
-GST_PLUGINS_RS_LIVEKIT_RUNTIME_0_4_0_URL		:= https://crates.io/api/v1/crates/livekit-runtime/0.4.0/download
+GST_PLUGINS_RS_LIVEKIT_RUNTIME_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, livekit-runtime/0.4.0/download)
 GST_PLUGINS_RS_LIVEKIT_RUNTIME_0_4_0_SOURCE	:= $(SRCDIR)/livekit-runtime-0.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LIVEKIT_RUNTIME_0_4_0
 
 GST_PLUGINS_RS_LOCK_API_0_4_14_MD5		:= 3e106da1aa25437329bf9cab094e6216
-GST_PLUGINS_RS_LOCK_API_0_4_14_URL		:= https://crates.io/api/v1/crates/lock_api/0.4.14/download
+GST_PLUGINS_RS_LOCK_API_0_4_14_URL		:= $(call ptx/mirror, CRATESIO, lock_api/0.4.14/download)
 GST_PLUGINS_RS_LOCK_API_0_4_14_SOURCE	:= $(SRCDIR)/lock_api-0.4.14.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LOCK_API_0_4_14
 
 GST_PLUGINS_RS_LOG_0_4_29_MD5		:= 421029191180ccd11cd28d7186a0640a
-GST_PLUGINS_RS_LOG_0_4_29_URL		:= https://crates.io/api/v1/crates/log/0.4.29/download
+GST_PLUGINS_RS_LOG_0_4_29_URL		:= $(call ptx/mirror, CRATESIO, log/0.4.29/download)
 GST_PLUGINS_RS_LOG_0_4_29_SOURCE	:= $(SRCDIR)/log-0.4.29.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LOG_0_4_29
 
 GST_PLUGINS_RS_LRU_0_16_3_MD5		:= 3dcf171d1cfa4c5959afcddd8ca9f582
-GST_PLUGINS_RS_LRU_0_16_3_URL		:= https://crates.io/api/v1/crates/lru/0.16.3/download
+GST_PLUGINS_RS_LRU_0_16_3_URL		:= $(call ptx/mirror, CRATESIO, lru/0.16.3/download)
 GST_PLUGINS_RS_LRU_0_16_3_SOURCE	:= $(SRCDIR)/lru-0.16.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LRU_0_16_3
 
 GST_PLUGINS_RS_LRU_SLAB_0_1_2_MD5		:= 1038d63cd7294fcdc93eded7b270c072
-GST_PLUGINS_RS_LRU_SLAB_0_1_2_URL		:= https://crates.io/api/v1/crates/lru-slab/0.1.2/download
+GST_PLUGINS_RS_LRU_SLAB_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, lru-slab/0.1.2/download)
 GST_PLUGINS_RS_LRU_SLAB_0_1_2_SOURCE	:= $(SRCDIR)/lru-slab-0.1.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LRU_SLAB_0_1_2
 
 GST_PLUGINS_RS_LZMA_RUST2_0_15_7_MD5		:= 93192d839ad92e7f537b833d04a80392
-GST_PLUGINS_RS_LZMA_RUST2_0_15_7_URL		:= https://crates.io/api/v1/crates/lzma-rust2/0.15.7/download
+GST_PLUGINS_RS_LZMA_RUST2_0_15_7_URL		:= $(call ptx/mirror, CRATESIO, lzma-rust2/0.15.7/download)
 GST_PLUGINS_RS_LZMA_RUST2_0_15_7_SOURCE	:= $(SRCDIR)/lzma-rust2-0.15.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_LZMA_RUST2_0_15_7
 
 GST_PLUGINS_RS_M3U8_RS_6_0_0_MD5		:= f611676e83b0bbdcda3d7fde657ac1f8
-GST_PLUGINS_RS_M3U8_RS_6_0_0_URL		:= https://crates.io/api/v1/crates/m3u8-rs/6.0.0/download
+GST_PLUGINS_RS_M3U8_RS_6_0_0_URL		:= $(call ptx/mirror, CRATESIO, m3u8-rs/6.0.0/download)
 GST_PLUGINS_RS_M3U8_RS_6_0_0_SOURCE	:= $(SRCDIR)/m3u8-rs-6.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_M3U8_RS_6_0_0
 
 GST_PLUGINS_RS_MALLOC_BUF_0_0_6_MD5		:= 7c81e7a61ec172a229d6fdbc553e883d
-GST_PLUGINS_RS_MALLOC_BUF_0_0_6_URL		:= https://crates.io/api/v1/crates/malloc_buf/0.0.6/download
+GST_PLUGINS_RS_MALLOC_BUF_0_0_6_URL		:= $(call ptx/mirror, CRATESIO, malloc_buf/0.0.6/download)
 GST_PLUGINS_RS_MALLOC_BUF_0_0_6_SOURCE	:= $(SRCDIR)/malloc_buf-0.0.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MALLOC_BUF_0_0_6
 
 GST_PLUGINS_RS_MATCHERS_0_2_0_MD5		:= 775cccc2de63ac894d5c2fc2c6864a73
-GST_PLUGINS_RS_MATCHERS_0_2_0_URL		:= https://crates.io/api/v1/crates/matchers/0.2.0/download
+GST_PLUGINS_RS_MATCHERS_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, matchers/0.2.0/download)
 GST_PLUGINS_RS_MATCHERS_0_2_0_SOURCE	:= $(SRCDIR)/matchers-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MATCHERS_0_2_0
 
 GST_PLUGINS_RS_MATRIXMULTIPLY_0_3_10_MD5		:= 7982083d0b2a1fdefa6e8042dc45ca77
-GST_PLUGINS_RS_MATRIXMULTIPLY_0_3_10_URL		:= https://crates.io/api/v1/crates/matrixmultiply/0.3.10/download
+GST_PLUGINS_RS_MATRIXMULTIPLY_0_3_10_URL		:= $(call ptx/mirror, CRATESIO, matrixmultiply/0.3.10/download)
 GST_PLUGINS_RS_MATRIXMULTIPLY_0_3_10_SOURCE	:= $(SRCDIR)/matrixmultiply-0.3.10.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MATRIXMULTIPLY_0_3_10
 
 GST_PLUGINS_RS_MAYBE_RAYON_0_1_1_MD5		:= a84f2eb0538582f5449a70ccdd1940bb
-GST_PLUGINS_RS_MAYBE_RAYON_0_1_1_URL		:= https://crates.io/api/v1/crates/maybe-rayon/0.1.1/download
+GST_PLUGINS_RS_MAYBE_RAYON_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, maybe-rayon/0.1.1/download)
 GST_PLUGINS_RS_MAYBE_RAYON_0_1_1_SOURCE	:= $(SRCDIR)/maybe-rayon-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MAYBE_RAYON_0_1_1
 
 GST_PLUGINS_RS_MD_5_0_10_6_MD5		:= e595ddf1b635868eb7e2f237f71aeb21
-GST_PLUGINS_RS_MD_5_0_10_6_URL		:= https://crates.io/api/v1/crates/md-5/0.10.6/download
+GST_PLUGINS_RS_MD_5_0_10_6_URL		:= $(call ptx/mirror, CRATESIO, md-5/0.10.6/download)
 GST_PLUGINS_RS_MD_5_0_10_6_SOURCE	:= $(SRCDIR)/md-5-0.10.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MD_5_0_10_6
 
 GST_PLUGINS_RS_MD5_0_8_0_MD5		:= 925a3354ffc473d7bb883bc1bdb59c95
-GST_PLUGINS_RS_MD5_0_8_0_URL		:= https://crates.io/api/v1/crates/md5/0.8.0/download
+GST_PLUGINS_RS_MD5_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, md5/0.8.0/download)
 GST_PLUGINS_RS_MD5_0_8_0_SOURCE	:= $(SRCDIR)/md5-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MD5_0_8_0
 
 GST_PLUGINS_RS_MEMCHR_2_8_0_MD5		:= 5ab4143491e10a733e15fd16fadc9ee8
-GST_PLUGINS_RS_MEMCHR_2_8_0_URL		:= https://crates.io/api/v1/crates/memchr/2.8.0/download
+GST_PLUGINS_RS_MEMCHR_2_8_0_URL		:= $(call ptx/mirror, CRATESIO, memchr/2.8.0/download)
 GST_PLUGINS_RS_MEMCHR_2_8_0_SOURCE	:= $(SRCDIR)/memchr-2.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MEMCHR_2_8_0
 
 GST_PLUGINS_RS_MEMMAP2_0_9_10_MD5		:= f0d0ff577bb4d7d50811da818ea9d1f6
-GST_PLUGINS_RS_MEMMAP2_0_9_10_URL		:= https://crates.io/api/v1/crates/memmap2/0.9.10/download
+GST_PLUGINS_RS_MEMMAP2_0_9_10_URL		:= $(call ptx/mirror, CRATESIO, memmap2/0.9.10/download)
 GST_PLUGINS_RS_MEMMAP2_0_9_10_SOURCE	:= $(SRCDIR)/memmap2-0.9.10.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MEMMAP2_0_9_10
 
 GST_PLUGINS_RS_MEMOFFSET_0_9_1_MD5		:= 1fb91af1c97373201990f1baedc58c35
-GST_PLUGINS_RS_MEMOFFSET_0_9_1_URL		:= https://crates.io/api/v1/crates/memoffset/0.9.1/download
+GST_PLUGINS_RS_MEMOFFSET_0_9_1_URL		:= $(call ptx/mirror, CRATESIO, memoffset/0.9.1/download)
 GST_PLUGINS_RS_MEMOFFSET_0_9_1_SOURCE	:= $(SRCDIR)/memoffset-0.9.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MEMOFFSET_0_9_1
 
 GST_PLUGINS_RS_METAL_0_32_0_MD5		:= fd0900290b000ade810bbde8dc70aab2
-GST_PLUGINS_RS_METAL_0_32_0_URL		:= https://crates.io/api/v1/crates/metal/0.32.0/download
+GST_PLUGINS_RS_METAL_0_32_0_URL		:= $(call ptx/mirror, CRATESIO, metal/0.32.0/download)
 GST_PLUGINS_RS_METAL_0_32_0_SOURCE	:= $(SRCDIR)/metal-0.32.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_METAL_0_32_0
 
 GST_PLUGINS_RS_MIME_0_3_17_MD5		:= dfdf2484a5545f51cf6b1f5f23b9f92e
-GST_PLUGINS_RS_MIME_0_3_17_URL		:= https://crates.io/api/v1/crates/mime/0.3.17/download
+GST_PLUGINS_RS_MIME_0_3_17_URL		:= $(call ptx/mirror, CRATESIO, mime/0.3.17/download)
 GST_PLUGINS_RS_MIME_0_3_17_SOURCE	:= $(SRCDIR)/mime-0.3.17.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MIME_0_3_17
 
 GST_PLUGINS_RS_MIME_GUESS_2_0_5_MD5		:= 55ce05da347f8d2edb9c9f5e14f2cd8a
-GST_PLUGINS_RS_MIME_GUESS_2_0_5_URL		:= https://crates.io/api/v1/crates/mime_guess/2.0.5/download
+GST_PLUGINS_RS_MIME_GUESS_2_0_5_URL		:= $(call ptx/mirror, CRATESIO, mime_guess/2.0.5/download)
 GST_PLUGINS_RS_MIME_GUESS_2_0_5_SOURCE	:= $(SRCDIR)/mime_guess-2.0.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MIME_GUESS_2_0_5
 
 GST_PLUGINS_RS_MINIMAL_LEXICAL_0_2_1_MD5		:= 8b708bc4b33c5e1683467444c9ed41b0
-GST_PLUGINS_RS_MINIMAL_LEXICAL_0_2_1_URL		:= https://crates.io/api/v1/crates/minimal-lexical/0.2.1/download
+GST_PLUGINS_RS_MINIMAL_LEXICAL_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, minimal-lexical/0.2.1/download)
 GST_PLUGINS_RS_MINIMAL_LEXICAL_0_2_1_SOURCE	:= $(SRCDIR)/minimal-lexical-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MINIMAL_LEXICAL_0_2_1
 
 GST_PLUGINS_RS_MINIZ_OXIDE_0_8_9_MD5		:= dc106924da0261fec2bb0fe52fcbd9e6
-GST_PLUGINS_RS_MINIZ_OXIDE_0_8_9_URL		:= https://crates.io/api/v1/crates/miniz_oxide/0.8.9/download
+GST_PLUGINS_RS_MINIZ_OXIDE_0_8_9_URL		:= $(call ptx/mirror, CRATESIO, miniz_oxide/0.8.9/download)
 GST_PLUGINS_RS_MINIZ_OXIDE_0_8_9_SOURCE	:= $(SRCDIR)/miniz_oxide-0.8.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MINIZ_OXIDE_0_8_9
 
 GST_PLUGINS_RS_MIO_1_1_1_MD5		:= d994b2a95f55266d239b5b2791c76dcd
-GST_PLUGINS_RS_MIO_1_1_1_URL		:= https://crates.io/api/v1/crates/mio/1.1.1/download
+GST_PLUGINS_RS_MIO_1_1_1_URL		:= $(call ptx/mirror, CRATESIO, mio/1.1.1/download)
 GST_PLUGINS_RS_MIO_1_1_1_SOURCE	:= $(SRCDIR)/mio-1.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MIO_1_1_1
 
 GST_PLUGINS_RS_MORE_ASSERTS_0_3_1_MD5		:= b34065ba816a2bcb2819c4d6b6ab2a59
-GST_PLUGINS_RS_MORE_ASSERTS_0_3_1_URL		:= https://crates.io/api/v1/crates/more-asserts/0.3.1/download
+GST_PLUGINS_RS_MORE_ASSERTS_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, more-asserts/0.3.1/download)
 GST_PLUGINS_RS_MORE_ASSERTS_0_3_1_SOURCE	:= $(SRCDIR)/more-asserts-0.3.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MORE_ASSERTS_0_3_1
 
 GST_PLUGINS_RS_MOXCMS_0_7_11_MD5		:= fd7fc992464363112f93c8aa515fd68c
-GST_PLUGINS_RS_MOXCMS_0_7_11_URL		:= https://crates.io/api/v1/crates/moxcms/0.7.11/download
+GST_PLUGINS_RS_MOXCMS_0_7_11_URL		:= $(call ptx/mirror, CRATESIO, moxcms/0.7.11/download)
 GST_PLUGINS_RS_MOXCMS_0_7_11_SOURCE	:= $(SRCDIR)/moxcms-0.7.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MOXCMS_0_7_11
 
 GST_PLUGINS_RS_MP4_ATOM_0_10_1_MD5		:= 0d9a6cc0f9c5b546f00890620dbef198
-GST_PLUGINS_RS_MP4_ATOM_0_10_1_URL		:= https://crates.io/api/v1/crates/mp4-atom/0.10.1/download
+GST_PLUGINS_RS_MP4_ATOM_0_10_1_URL		:= $(call ptx/mirror, CRATESIO, mp4-atom/0.10.1/download)
 GST_PLUGINS_RS_MP4_ATOM_0_10_1_SOURCE	:= $(SRCDIR)/mp4-atom-0.10.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MP4_ATOM_0_10_1
 
 GST_PLUGINS_RS_MULDIV_1_0_1_MD5		:= b1efbc442d3767b23c5cd3c9a2902ead
-GST_PLUGINS_RS_MULDIV_1_0_1_URL		:= https://crates.io/api/v1/crates/muldiv/1.0.1/download
+GST_PLUGINS_RS_MULDIV_1_0_1_URL		:= $(call ptx/mirror, CRATESIO, muldiv/1.0.1/download)
 GST_PLUGINS_RS_MULDIV_1_0_1_SOURCE	:= $(SRCDIR)/muldiv-1.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MULDIV_1_0_1
 
 GST_PLUGINS_RS_MULTIMAP_0_10_1_MD5		:= 20657ce5719d47cfc0dfe5664de8102f
-GST_PLUGINS_RS_MULTIMAP_0_10_1_URL		:= https://crates.io/api/v1/crates/multimap/0.10.1/download
+GST_PLUGINS_RS_MULTIMAP_0_10_1_URL		:= $(call ptx/mirror, CRATESIO, multimap/0.10.1/download)
 GST_PLUGINS_RS_MULTIMAP_0_10_1_SOURCE	:= $(SRCDIR)/multimap-0.10.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_MULTIMAP_0_10_1
 
 GST_PLUGINS_RS_NAGA_26_0_0_MD5		:= 340c3c4592f898dfc230230de630dc8b
-GST_PLUGINS_RS_NAGA_26_0_0_URL		:= https://crates.io/api/v1/crates/naga/26.0.0/download
+GST_PLUGINS_RS_NAGA_26_0_0_URL		:= $(call ptx/mirror, CRATESIO, naga/26.0.0/download)
 GST_PLUGINS_RS_NAGA_26_0_0_SOURCE	:= $(SRCDIR)/naga-26.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NAGA_26_0_0
 
 GST_PLUGINS_RS_NASM_RS_0_3_2_MD5		:= 28b60abc729e7c18242e237b7c1031a3
-GST_PLUGINS_RS_NASM_RS_0_3_2_URL		:= https://crates.io/api/v1/crates/nasm-rs/0.3.2/download
+GST_PLUGINS_RS_NASM_RS_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, nasm-rs/0.3.2/download)
 GST_PLUGINS_RS_NASM_RS_0_3_2_SOURCE	:= $(SRCDIR)/nasm-rs-0.3.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NASM_RS_0_3_2
 
 GST_PLUGINS_RS_NB_0_1_3_MD5		:= 09702661552ee7d93bb8c2ff5b7f851c
-GST_PLUGINS_RS_NB_0_1_3_URL		:= https://crates.io/api/v1/crates/nb/0.1.3/download
+GST_PLUGINS_RS_NB_0_1_3_URL		:= $(call ptx/mirror, CRATESIO, nb/0.1.3/download)
 GST_PLUGINS_RS_NB_0_1_3_SOURCE	:= $(SRCDIR)/nb-0.1.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NB_0_1_3
 
 GST_PLUGINS_RS_NB_1_1_0_MD5		:= 369ff7d1fffa02143d683fae32929b5a
-GST_PLUGINS_RS_NB_1_1_0_URL		:= https://crates.io/api/v1/crates/nb/1.1.0/download
+GST_PLUGINS_RS_NB_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, nb/1.1.0/download)
 GST_PLUGINS_RS_NB_1_1_0_SOURCE	:= $(SRCDIR)/nb-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NB_1_1_0
 
 GST_PLUGINS_RS_NDARRAY_0_17_2_MD5		:= 566b6647670c4d36c44485917646026a
-GST_PLUGINS_RS_NDARRAY_0_17_2_URL		:= https://crates.io/api/v1/crates/ndarray/0.17.2/download
+GST_PLUGINS_RS_NDARRAY_0_17_2_URL		:= $(call ptx/mirror, CRATESIO, ndarray/0.17.2/download)
 GST_PLUGINS_RS_NDARRAY_0_17_2_SOURCE	:= $(SRCDIR)/ndarray-0.17.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NDARRAY_0_17_2
 
 GST_PLUGINS_RS_NDK_SYS_0_6_0_11769913_MD5		:= 39c42e640a8f39a3da834971d4525c57
-GST_PLUGINS_RS_NDK_SYS_0_6_0_11769913_URL		:= https://crates.io/api/v1/crates/ndk-sys/0.6.0+11769913/download
+GST_PLUGINS_RS_NDK_SYS_0_6_0_11769913_URL		:= $(call ptx/mirror, CRATESIO, ndk-sys/0.6.0+11769913/download)
 GST_PLUGINS_RS_NDK_SYS_0_6_0_11769913_SOURCE	:= $(SRCDIR)/ndk-sys-0.6.0+11769913.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NDK_SYS_0_6_0_11769913
 
 GST_PLUGINS_RS_NEW_DEBUG_UNREACHABLE_1_0_6_MD5		:= 1ac8ee39aea832c035b9ec2b2cd42097
-GST_PLUGINS_RS_NEW_DEBUG_UNREACHABLE_1_0_6_URL		:= https://crates.io/api/v1/crates/new_debug_unreachable/1.0.6/download
+GST_PLUGINS_RS_NEW_DEBUG_UNREACHABLE_1_0_6_URL		:= $(call ptx/mirror, CRATESIO, new_debug_unreachable/1.0.6/download)
 GST_PLUGINS_RS_NEW_DEBUG_UNREACHABLE_1_0_6_SOURCE	:= $(SRCDIR)/new_debug_unreachable-1.0.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NEW_DEBUG_UNREACHABLE_1_0_6
 
 GST_PLUGINS_RS_NIX_0_31_2_MD5		:= 4a5b704e58f4c03439cbb8acb1e2c54e
-GST_PLUGINS_RS_NIX_0_31_2_URL		:= https://crates.io/api/v1/crates/nix/0.31.2/download
+GST_PLUGINS_RS_NIX_0_31_2_URL		:= $(call ptx/mirror, CRATESIO, nix/0.31.2/download)
 GST_PLUGINS_RS_NIX_0_31_2_SOURCE	:= $(SRCDIR)/nix-0.31.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NIX_0_31_2
 
 GST_PLUGINS_RS_NNNOISELESS_0_5_2_MD5		:= 0dce114d8816711cfeda005fbf2cd921
-GST_PLUGINS_RS_NNNOISELESS_0_5_2_URL		:= https://crates.io/api/v1/crates/nnnoiseless/0.5.2/download
+GST_PLUGINS_RS_NNNOISELESS_0_5_2_URL		:= $(call ptx/mirror, CRATESIO, nnnoiseless/0.5.2/download)
 GST_PLUGINS_RS_NNNOISELESS_0_5_2_SOURCE	:= $(SRCDIR)/nnnoiseless-0.5.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NNNOISELESS_0_5_2
 
 GST_PLUGINS_RS_NO_STD_COMPAT_0_2_0_MD5		:= 42097d3813b8f5b18e3ab340383587c5
-GST_PLUGINS_RS_NO_STD_COMPAT_0_2_0_URL		:= https://crates.io/api/v1/crates/no-std-compat/0.2.0/download
+GST_PLUGINS_RS_NO_STD_COMPAT_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, no-std-compat/0.2.0/download)
 GST_PLUGINS_RS_NO_STD_COMPAT_0_2_0_SOURCE	:= $(SRCDIR)/no-std-compat-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NO_STD_COMPAT_0_2_0
 
 GST_PLUGINS_RS_NOM_7_1_3_MD5		:= f17aecb8887cf0ecd823623160aed7db
-GST_PLUGINS_RS_NOM_7_1_3_URL		:= https://crates.io/api/v1/crates/nom/7.1.3/download
+GST_PLUGINS_RS_NOM_7_1_3_URL		:= $(call ptx/mirror, CRATESIO, nom/7.1.3/download)
 GST_PLUGINS_RS_NOM_7_1_3_SOURCE	:= $(SRCDIR)/nom-7.1.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NOM_7_1_3
 
 GST_PLUGINS_RS_NOM_8_0_0_MD5		:= 6c8d8924a13f7f3e91dbf4897b2e2f4d
-GST_PLUGINS_RS_NOM_8_0_0_URL		:= https://crates.io/api/v1/crates/nom/8.0.0/download
+GST_PLUGINS_RS_NOM_8_0_0_URL		:= $(call ptx/mirror, CRATESIO, nom/8.0.0/download)
 GST_PLUGINS_RS_NOM_8_0_0_SOURCE	:= $(SRCDIR)/nom-8.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NOM_8_0_0
 
 GST_PLUGINS_RS_NONZERO_EXT_0_3_0_MD5		:= 8c04e550d6feb392bb437ec2e2ab514f
-GST_PLUGINS_RS_NONZERO_EXT_0_3_0_URL		:= https://crates.io/api/v1/crates/nonzero_ext/0.3.0/download
+GST_PLUGINS_RS_NONZERO_EXT_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, nonzero_ext/0.3.0/download)
 GST_PLUGINS_RS_NONZERO_EXT_0_3_0_SOURCE	:= $(SRCDIR)/nonzero_ext-0.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NONZERO_EXT_0_3_0
 
 GST_PLUGINS_RS_NOOP_PROC_MACRO_0_3_0_MD5		:= a584467fc24841b97d682fe620dfe708
-GST_PLUGINS_RS_NOOP_PROC_MACRO_0_3_0_URL		:= https://crates.io/api/v1/crates/noop_proc_macro/0.3.0/download
+GST_PLUGINS_RS_NOOP_PROC_MACRO_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, noop_proc_macro/0.3.0/download)
 GST_PLUGINS_RS_NOOP_PROC_MACRO_0_3_0_SOURCE	:= $(SRCDIR)/noop_proc_macro-0.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NOOP_PROC_MACRO_0_3_0
 
 GST_PLUGINS_RS_NTAPI_0_4_3_MD5		:= 747ad92c032b3dfd1fc3b4ed2c5226d3
-GST_PLUGINS_RS_NTAPI_0_4_3_URL		:= https://crates.io/api/v1/crates/ntapi/0.4.3/download
+GST_PLUGINS_RS_NTAPI_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, ntapi/0.4.3/download)
 GST_PLUGINS_RS_NTAPI_0_4_3_SOURCE	:= $(SRCDIR)/ntapi-0.4.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NTAPI_0_4_3
 
 GST_PLUGINS_RS_NU_ANSI_TERM_0_50_3_MD5		:= 0f3c49558a5f7e9a6bc42c7e99a6d071
-GST_PLUGINS_RS_NU_ANSI_TERM_0_50_3_URL		:= https://crates.io/api/v1/crates/nu-ansi-term/0.50.3/download
+GST_PLUGINS_RS_NU_ANSI_TERM_0_50_3_URL		:= $(call ptx/mirror, CRATESIO, nu-ansi-term/0.50.3/download)
 GST_PLUGINS_RS_NU_ANSI_TERM_0_50_3_SOURCE	:= $(SRCDIR)/nu-ansi-term-0.50.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NU_ANSI_TERM_0_50_3
 
 GST_PLUGINS_RS_NUM_0_4_3_MD5		:= 8927630752c4318c97736c12ed667301
-GST_PLUGINS_RS_NUM_0_4_3_URL		:= https://crates.io/api/v1/crates/num/0.4.3/download
+GST_PLUGINS_RS_NUM_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, num/0.4.3/download)
 GST_PLUGINS_RS_NUM_0_4_3_SOURCE	:= $(SRCDIR)/num-0.4.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_0_4_3
 
 GST_PLUGINS_RS_NUM_BIGINT_0_4_6_MD5		:= 9ad9785decbdb61128f4d05833d5e959
-GST_PLUGINS_RS_NUM_BIGINT_0_4_6_URL		:= https://crates.io/api/v1/crates/num-bigint/0.4.6/download
+GST_PLUGINS_RS_NUM_BIGINT_0_4_6_URL		:= $(call ptx/mirror, CRATESIO, num-bigint/0.4.6/download)
 GST_PLUGINS_RS_NUM_BIGINT_0_4_6_SOURCE	:= $(SRCDIR)/num-bigint-0.4.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_BIGINT_0_4_6
 
 GST_PLUGINS_RS_NUM_BIGINT_DIG_0_8_6_MD5		:= 4d33c780780e5617d413ef67ab1a02f3
-GST_PLUGINS_RS_NUM_BIGINT_DIG_0_8_6_URL		:= https://crates.io/api/v1/crates/num-bigint-dig/0.8.6/download
+GST_PLUGINS_RS_NUM_BIGINT_DIG_0_8_6_URL		:= $(call ptx/mirror, CRATESIO, num-bigint-dig/0.8.6/download)
 GST_PLUGINS_RS_NUM_BIGINT_DIG_0_8_6_SOURCE	:= $(SRCDIR)/num-bigint-dig-0.8.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_BIGINT_DIG_0_8_6
 
 GST_PLUGINS_RS_NUM_COMPLEX_0_4_6_MD5		:= f66a5e0697395109481ae9afd83db471
-GST_PLUGINS_RS_NUM_COMPLEX_0_4_6_URL		:= https://crates.io/api/v1/crates/num-complex/0.4.6/download
+GST_PLUGINS_RS_NUM_COMPLEX_0_4_6_URL		:= $(call ptx/mirror, CRATESIO, num-complex/0.4.6/download)
 GST_PLUGINS_RS_NUM_COMPLEX_0_4_6_SOURCE	:= $(SRCDIR)/num-complex-0.4.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_COMPLEX_0_4_6
 
 GST_PLUGINS_RS_NUM_CONV_0_2_0_MD5		:= 5b58e4f18091c0fa3579419f24cfaef9
-GST_PLUGINS_RS_NUM_CONV_0_2_0_URL		:= https://crates.io/api/v1/crates/num-conv/0.2.0/download
+GST_PLUGINS_RS_NUM_CONV_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, num-conv/0.2.0/download)
 GST_PLUGINS_RS_NUM_CONV_0_2_0_SOURCE	:= $(SRCDIR)/num-conv-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_CONV_0_2_0
 
 GST_PLUGINS_RS_NUM_DERIVE_0_4_2_MD5		:= 3cf2c6451073b85f3075962a60bb90a0
-GST_PLUGINS_RS_NUM_DERIVE_0_4_2_URL		:= https://crates.io/api/v1/crates/num-derive/0.4.2/download
+GST_PLUGINS_RS_NUM_DERIVE_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, num-derive/0.4.2/download)
 GST_PLUGINS_RS_NUM_DERIVE_0_4_2_SOURCE	:= $(SRCDIR)/num-derive-0.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_DERIVE_0_4_2
 
 GST_PLUGINS_RS_NUM_INTEGER_0_1_46_MD5		:= 1b3093a865e51ce798ed79054dd3d829
-GST_PLUGINS_RS_NUM_INTEGER_0_1_46_URL		:= https://crates.io/api/v1/crates/num-integer/0.1.46/download
+GST_PLUGINS_RS_NUM_INTEGER_0_1_46_URL		:= $(call ptx/mirror, CRATESIO, num-integer/0.1.46/download)
 GST_PLUGINS_RS_NUM_INTEGER_0_1_46_SOURCE	:= $(SRCDIR)/num-integer-0.1.46.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_INTEGER_0_1_46
 
 GST_PLUGINS_RS_NUM_ITER_0_1_45_MD5		:= 0fbab0ba3ce58941898919fa3d0bae4b
-GST_PLUGINS_RS_NUM_ITER_0_1_45_URL		:= https://crates.io/api/v1/crates/num-iter/0.1.45/download
+GST_PLUGINS_RS_NUM_ITER_0_1_45_URL		:= $(call ptx/mirror, CRATESIO, num-iter/0.1.45/download)
 GST_PLUGINS_RS_NUM_ITER_0_1_45_SOURCE	:= $(SRCDIR)/num-iter-0.1.45.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_ITER_0_1_45
 
 GST_PLUGINS_RS_NUM_RATIONAL_0_4_2_MD5		:= 15353118e83f5e3c77cb725af8340add
-GST_PLUGINS_RS_NUM_RATIONAL_0_4_2_URL		:= https://crates.io/api/v1/crates/num-rational/0.4.2/download
+GST_PLUGINS_RS_NUM_RATIONAL_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, num-rational/0.4.2/download)
 GST_PLUGINS_RS_NUM_RATIONAL_0_4_2_SOURCE	:= $(SRCDIR)/num-rational-0.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_RATIONAL_0_4_2
 
 GST_PLUGINS_RS_NUM_TRAITS_0_2_19_MD5		:= e092b3abcc54806f2a35889d725bf95f
-GST_PLUGINS_RS_NUM_TRAITS_0_2_19_URL		:= https://crates.io/api/v1/crates/num-traits/0.2.19/download
+GST_PLUGINS_RS_NUM_TRAITS_0_2_19_URL		:= $(call ptx/mirror, CRATESIO, num-traits/0.2.19/download)
 GST_PLUGINS_RS_NUM_TRAITS_0_2_19_SOURCE	:= $(SRCDIR)/num-traits-0.2.19.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_TRAITS_0_2_19
 
 GST_PLUGINS_RS_NUM_CPUS_1_17_0_MD5		:= 9b08761c5be54489cdd3d759005554a1
-GST_PLUGINS_RS_NUM_CPUS_1_17_0_URL		:= https://crates.io/api/v1/crates/num_cpus/1.17.0/download
+GST_PLUGINS_RS_NUM_CPUS_1_17_0_URL		:= $(call ptx/mirror, CRATESIO, num_cpus/1.17.0/download)
 GST_PLUGINS_RS_NUM_CPUS_1_17_0_SOURCE	:= $(SRCDIR)/num_cpus-1.17.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_CPUS_1_17_0
 
 GST_PLUGINS_RS_NUM_THREADS_0_1_7_MD5		:= 4578b5cccbe636b7e5becdf5543b3802
-GST_PLUGINS_RS_NUM_THREADS_0_1_7_URL		:= https://crates.io/api/v1/crates/num_threads/0.1.7/download
+GST_PLUGINS_RS_NUM_THREADS_0_1_7_URL		:= $(call ptx/mirror, CRATESIO, num_threads/0.1.7/download)
 GST_PLUGINS_RS_NUM_THREADS_0_1_7_SOURCE	:= $(SRCDIR)/num_threads-0.1.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_NUM_THREADS_0_1_7
 
 GST_PLUGINS_RS_OAUTH2_5_0_0_MD5		:= 5c9c80cf88c495013c49268655f58037
-GST_PLUGINS_RS_OAUTH2_5_0_0_URL		:= https://crates.io/api/v1/crates/oauth2/5.0.0/download
+GST_PLUGINS_RS_OAUTH2_5_0_0_URL		:= $(call ptx/mirror, CRATESIO, oauth2/5.0.0/download)
 GST_PLUGINS_RS_OAUTH2_5_0_0_SOURCE	:= $(SRCDIR)/oauth2-5.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OAUTH2_5_0_0
 
 GST_PLUGINS_RS_OBJC_0_2_7_MD5		:= b4dcac855af5df71f3383d86c4a96b78
-GST_PLUGINS_RS_OBJC_0_2_7_URL		:= https://crates.io/api/v1/crates/objc/0.2.7/download
+GST_PLUGINS_RS_OBJC_0_2_7_URL		:= $(call ptx/mirror, CRATESIO, objc/0.2.7/download)
 GST_PLUGINS_RS_OBJC_0_2_7_SOURCE	:= $(SRCDIR)/objc-0.2.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OBJC_0_2_7
 
 GST_PLUGINS_RS_OBJC2_0_6_4_MD5		:= 7863d25765478c7802da3a22b89a22dc
-GST_PLUGINS_RS_OBJC2_0_6_4_URL		:= https://crates.io/api/v1/crates/objc2/0.6.4/download
+GST_PLUGINS_RS_OBJC2_0_6_4_URL		:= $(call ptx/mirror, CRATESIO, objc2/0.6.4/download)
 GST_PLUGINS_RS_OBJC2_0_6_4_SOURCE	:= $(SRCDIR)/objc2-0.6.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OBJC2_0_6_4
 
 GST_PLUGINS_RS_OBJC2_CORE_FOUNDATION_0_3_2_MD5		:= 03ac333203202f17d0eb0b3eeed8215a
-GST_PLUGINS_RS_OBJC2_CORE_FOUNDATION_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-core-foundation/0.3.2/download
+GST_PLUGINS_RS_OBJC2_CORE_FOUNDATION_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-core-foundation/0.3.2/download)
 GST_PLUGINS_RS_OBJC2_CORE_FOUNDATION_0_3_2_SOURCE	:= $(SRCDIR)/objc2-core-foundation-0.3.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OBJC2_CORE_FOUNDATION_0_3_2
 
 GST_PLUGINS_RS_OBJC2_ENCODE_4_1_0_MD5		:= 5d9728c30b0b7db1def672b428b6e6b2
-GST_PLUGINS_RS_OBJC2_ENCODE_4_1_0_URL		:= https://crates.io/api/v1/crates/objc2-encode/4.1.0/download
+GST_PLUGINS_RS_OBJC2_ENCODE_4_1_0_URL		:= $(call ptx/mirror, CRATESIO, objc2-encode/4.1.0/download)
 GST_PLUGINS_RS_OBJC2_ENCODE_4_1_0_SOURCE	:= $(SRCDIR)/objc2-encode-4.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OBJC2_ENCODE_4_1_0
 
 GST_PLUGINS_RS_OBJC2_IO_KIT_0_3_2_MD5		:= 865cb5035f6b3dba04196ba04d15fab6
-GST_PLUGINS_RS_OBJC2_IO_KIT_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-io-kit/0.3.2/download
+GST_PLUGINS_RS_OBJC2_IO_KIT_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-io-kit/0.3.2/download)
 GST_PLUGINS_RS_OBJC2_IO_KIT_0_3_2_SOURCE	:= $(SRCDIR)/objc2-io-kit-0.3.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OBJC2_IO_KIT_0_3_2
 
 GST_PLUGINS_RS_OBJECT_0_37_3_MD5		:= 5c16a07e83766851ccb68168ebab6e65
-GST_PLUGINS_RS_OBJECT_0_37_3_URL		:= https://crates.io/api/v1/crates/object/0.37.3/download
+GST_PLUGINS_RS_OBJECT_0_37_3_URL		:= $(call ptx/mirror, CRATESIO, object/0.37.3/download)
 GST_PLUGINS_RS_OBJECT_0_37_3_SOURCE	:= $(SRCDIR)/object-0.37.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OBJECT_0_37_3
 
 GST_PLUGINS_RS_OGG_0_9_2_MD5		:= e91036bcbb8c58ea5222f3d86c382be2
-GST_PLUGINS_RS_OGG_0_9_2_URL		:= https://crates.io/api/v1/crates/ogg/0.9.2/download
+GST_PLUGINS_RS_OGG_0_9_2_URL		:= $(call ptx/mirror, CRATESIO, ogg/0.9.2/download)
 GST_PLUGINS_RS_OGG_0_9_2_SOURCE	:= $(SRCDIR)/ogg-0.9.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OGG_0_9_2
 
 GST_PLUGINS_RS_OID_REGISTRY_0_8_1_MD5		:= a5f531aae0bcccf380eef7d604a21c31
-GST_PLUGINS_RS_OID_REGISTRY_0_8_1_URL		:= https://crates.io/api/v1/crates/oid-registry/0.8.1/download
+GST_PLUGINS_RS_OID_REGISTRY_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, oid-registry/0.8.1/download)
 GST_PLUGINS_RS_OID_REGISTRY_0_8_1_SOURCE	:= $(SRCDIR)/oid-registry-0.8.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OID_REGISTRY_0_8_1
 
 GST_PLUGINS_RS_ONCE_CELL_1_21_3_MD5		:= 76f8e4dcc29ab304e065cced86a344d2
-GST_PLUGINS_RS_ONCE_CELL_1_21_3_URL		:= https://crates.io/api/v1/crates/once_cell/1.21.3/download
+GST_PLUGINS_RS_ONCE_CELL_1_21_3_URL		:= $(call ptx/mirror, CRATESIO, once_cell/1.21.3/download)
 GST_PLUGINS_RS_ONCE_CELL_1_21_3_SOURCE	:= $(SRCDIR)/once_cell-1.21.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ONCE_CELL_1_21_3
 
 GST_PLUGINS_RS_ONCE_CELL_POLYFILL_1_70_2_MD5		:= 6760292aaf3f1484be67db2635c1ba47
-GST_PLUGINS_RS_ONCE_CELL_POLYFILL_1_70_2_URL		:= https://crates.io/api/v1/crates/once_cell_polyfill/1.70.2/download
+GST_PLUGINS_RS_ONCE_CELL_POLYFILL_1_70_2_URL		:= $(call ptx/mirror, CRATESIO, once_cell_polyfill/1.70.2/download)
 GST_PLUGINS_RS_ONCE_CELL_POLYFILL_1_70_2_SOURCE	:= $(SRCDIR)/once_cell_polyfill-1.70.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ONCE_CELL_POLYFILL_1_70_2
 
 GST_PLUGINS_RS_OPEN_5_3_3_MD5		:= ca161fe9229d62298164e4c6493cfa44
-GST_PLUGINS_RS_OPEN_5_3_3_URL		:= https://crates.io/api/v1/crates/open/5.3.3/download
+GST_PLUGINS_RS_OPEN_5_3_3_URL		:= $(call ptx/mirror, CRATESIO, open/5.3.3/download)
 GST_PLUGINS_RS_OPEN_5_3_3_SOURCE	:= $(SRCDIR)/open-5.3.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OPEN_5_3_3
 
 GST_PLUGINS_RS_OPENSSL_PROBE_0_1_6_MD5		:= 3d95144c0cb9d673d59fdaa60ec8f46d
-GST_PLUGINS_RS_OPENSSL_PROBE_0_1_6_URL		:= https://crates.io/api/v1/crates/openssl-probe/0.1.6/download
+GST_PLUGINS_RS_OPENSSL_PROBE_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, openssl-probe/0.1.6/download)
 GST_PLUGINS_RS_OPENSSL_PROBE_0_1_6_SOURCE	:= $(SRCDIR)/openssl-probe-0.1.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OPENSSL_PROBE_0_1_6
 
 GST_PLUGINS_RS_OPENSSL_PROBE_0_2_1_MD5		:= 4438c7f5721db842ecd1b5d58b2b2d8c
-GST_PLUGINS_RS_OPENSSL_PROBE_0_2_1_URL		:= https://crates.io/api/v1/crates/openssl-probe/0.2.1/download
+GST_PLUGINS_RS_OPENSSL_PROBE_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, openssl-probe/0.2.1/download)
 GST_PLUGINS_RS_OPENSSL_PROBE_0_2_1_SOURCE	:= $(SRCDIR)/openssl-probe-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OPENSSL_PROBE_0_2_1
 
 GST_PLUGINS_RS_OPTION_EXT_0_2_0_MD5		:= 130db480add7c9dccf7c13aa9ca71c82
-GST_PLUGINS_RS_OPTION_EXT_0_2_0_URL		:= https://crates.io/api/v1/crates/option-ext/0.2.0/download
+GST_PLUGINS_RS_OPTION_EXT_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, option-ext/0.2.0/download)
 GST_PLUGINS_RS_OPTION_EXT_0_2_0_SOURCE	:= $(SRCDIR)/option-ext-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OPTION_EXT_0_2_0
 
 GST_PLUGINS_RS_OPTION_OPERATIONS_0_6_1_MD5		:= b9497c372aea993790eccc186d2b7968
-GST_PLUGINS_RS_OPTION_OPERATIONS_0_6_1_URL		:= https://crates.io/api/v1/crates/option-operations/0.6.1/download
+GST_PLUGINS_RS_OPTION_OPERATIONS_0_6_1_URL		:= $(call ptx/mirror, CRATESIO, option-operations/0.6.1/download)
 GST_PLUGINS_RS_OPTION_OPERATIONS_0_6_1_SOURCE	:= $(SRCDIR)/option-operations-0.6.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OPTION_OPERATIONS_0_6_1
 
 GST_PLUGINS_RS_ORDERED_FLOAT_5_0_0_MD5		:= 320af7cafcc5dbf90de4a2a6514c87e5
-GST_PLUGINS_RS_ORDERED_FLOAT_5_0_0_URL		:= https://crates.io/api/v1/crates/ordered-float/5.0.0/download
+GST_PLUGINS_RS_ORDERED_FLOAT_5_0_0_URL		:= $(call ptx/mirror, CRATESIO, ordered-float/5.0.0/download)
 GST_PLUGINS_RS_ORDERED_FLOAT_5_0_0_SOURCE	:= $(SRCDIR)/ordered-float-5.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ORDERED_FLOAT_5_0_0
 
 GST_PLUGINS_RS_OUTREF_0_5_2_MD5		:= 4514e60d830c74d54f790d187dec4f68
-GST_PLUGINS_RS_OUTREF_0_5_2_URL		:= https://crates.io/api/v1/crates/outref/0.5.2/download
+GST_PLUGINS_RS_OUTREF_0_5_2_URL		:= $(call ptx/mirror, CRATESIO, outref/0.5.2/download)
 GST_PLUGINS_RS_OUTREF_0_5_2_SOURCE	:= $(SRCDIR)/outref-0.5.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_OUTREF_0_5_2
 
 GST_PLUGINS_RS_P256_0_11_1_MD5		:= a9c25aeb8cbdb3d778d3534c4101d2ef
-GST_PLUGINS_RS_P256_0_11_1_URL		:= https://crates.io/api/v1/crates/p256/0.11.1/download
+GST_PLUGINS_RS_P256_0_11_1_URL		:= $(call ptx/mirror, CRATESIO, p256/0.11.1/download)
 GST_PLUGINS_RS_P256_0_11_1_SOURCE	:= $(SRCDIR)/p256-0.11.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_P256_0_11_1
 
 GST_PLUGINS_RS_PARKING_2_2_1_MD5		:= c98fa41bae9a9421fcf24801356ef5a8
-GST_PLUGINS_RS_PARKING_2_2_1_URL		:= https://crates.io/api/v1/crates/parking/2.2.1/download
+GST_PLUGINS_RS_PARKING_2_2_1_URL		:= $(call ptx/mirror, CRATESIO, parking/2.2.1/download)
 GST_PLUGINS_RS_PARKING_2_2_1_SOURCE	:= $(SRCDIR)/parking-2.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PARKING_2_2_1
 
 GST_PLUGINS_RS_PARKING_LOT_0_12_5_MD5		:= 439ec4865e007e2470fdc635f282599e
-GST_PLUGINS_RS_PARKING_LOT_0_12_5_URL		:= https://crates.io/api/v1/crates/parking_lot/0.12.5/download
+GST_PLUGINS_RS_PARKING_LOT_0_12_5_URL		:= $(call ptx/mirror, CRATESIO, parking_lot/0.12.5/download)
 GST_PLUGINS_RS_PARKING_LOT_0_12_5_SOURCE	:= $(SRCDIR)/parking_lot-0.12.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PARKING_LOT_0_12_5
 
 GST_PLUGINS_RS_PARKING_LOT_CORE_0_9_12_MD5		:= 9d5019b2e6c4e1352ccff8b64b88e2cf
-GST_PLUGINS_RS_PARKING_LOT_CORE_0_9_12_URL		:= https://crates.io/api/v1/crates/parking_lot_core/0.9.12/download
+GST_PLUGINS_RS_PARKING_LOT_CORE_0_9_12_URL		:= $(call ptx/mirror, CRATESIO, parking_lot_core/0.9.12/download)
 GST_PLUGINS_RS_PARKING_LOT_CORE_0_9_12_SOURCE	:= $(SRCDIR)/parking_lot_core-0.9.12.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PARKING_LOT_CORE_0_9_12
 
 GST_PLUGINS_RS_PARSE_LINK_HEADER_0_4_0_MD5		:= 4879c1d55f896f963deff9b605708f42
-GST_PLUGINS_RS_PARSE_LINK_HEADER_0_4_0_URL		:= https://crates.io/api/v1/crates/parse_link_header/0.4.0/download
+GST_PLUGINS_RS_PARSE_LINK_HEADER_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, parse_link_header/0.4.0/download)
 GST_PLUGINS_RS_PARSE_LINK_HEADER_0_4_0_SOURCE	:= $(SRCDIR)/parse_link_header-0.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PARSE_LINK_HEADER_0_4_0
 
 GST_PLUGINS_RS_PASTE_1_0_15_MD5		:= d57243eda469f74ab7f743a0c22ab1d7
-GST_PLUGINS_RS_PASTE_1_0_15_URL		:= https://crates.io/api/v1/crates/paste/1.0.15/download
+GST_PLUGINS_RS_PASTE_1_0_15_URL		:= $(call ptx/mirror, CRATESIO, paste/1.0.15/download)
 GST_PLUGINS_RS_PASTE_1_0_15_SOURCE	:= $(SRCDIR)/paste-1.0.15.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PASTE_1_0_15
 
 GST_PLUGINS_RS_PASTEY_0_1_1_MD5		:= 981d5d5fe5073bd7b3b16a3191f91dcc
-GST_PLUGINS_RS_PASTEY_0_1_1_URL		:= https://crates.io/api/v1/crates/pastey/0.1.1/download
+GST_PLUGINS_RS_PASTEY_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, pastey/0.1.1/download)
 GST_PLUGINS_RS_PASTEY_0_1_1_SOURCE	:= $(SRCDIR)/pastey-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PASTEY_0_1_1
 
 GST_PLUGINS_RS_PASTEY_0_2_1_MD5		:= 742efbdb258f12bc6cd97ea52029ff9b
-GST_PLUGINS_RS_PASTEY_0_2_1_URL		:= https://crates.io/api/v1/crates/pastey/0.2.1/download
+GST_PLUGINS_RS_PASTEY_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, pastey/0.2.1/download)
 GST_PLUGINS_RS_PASTEY_0_2_1_SOURCE	:= $(SRCDIR)/pastey-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PASTEY_0_2_1
 
 GST_PLUGINS_RS_PATHDIFF_0_2_3_MD5		:= 2d2ee59e7cd5c7adb3ab4188a78182bf
-GST_PLUGINS_RS_PATHDIFF_0_2_3_URL		:= https://crates.io/api/v1/crates/pathdiff/0.2.3/download
+GST_PLUGINS_RS_PATHDIFF_0_2_3_URL		:= $(call ptx/mirror, CRATESIO, pathdiff/0.2.3/download)
 GST_PLUGINS_RS_PATHDIFF_0_2_3_SOURCE	:= $(SRCDIR)/pathdiff-0.2.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PATHDIFF_0_2_3
 
 GST_PLUGINS_RS_PBJSON_0_6_0_MD5		:= d530aa0759fdfc8b2b48d53ce40b440d
-GST_PLUGINS_RS_PBJSON_0_6_0_URL		:= https://crates.io/api/v1/crates/pbjson/0.6.0/download
+GST_PLUGINS_RS_PBJSON_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, pbjson/0.6.0/download)
 GST_PLUGINS_RS_PBJSON_0_6_0_SOURCE	:= $(SRCDIR)/pbjson-0.6.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PBJSON_0_6_0
 
 GST_PLUGINS_RS_PBJSON_BUILD_0_6_2_MD5		:= f056c1af64b192bf8b5c106d9aa45493
-GST_PLUGINS_RS_PBJSON_BUILD_0_6_2_URL		:= https://crates.io/api/v1/crates/pbjson-build/0.6.2/download
+GST_PLUGINS_RS_PBJSON_BUILD_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, pbjson-build/0.6.2/download)
 GST_PLUGINS_RS_PBJSON_BUILD_0_6_2_SOURCE	:= $(SRCDIR)/pbjson-build-0.6.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PBJSON_BUILD_0_6_2
 
 GST_PLUGINS_RS_PBJSON_TYPES_0_6_0_MD5		:= ce976a08a154825723a3cbdc93e5d3ae
-GST_PLUGINS_RS_PBJSON_TYPES_0_6_0_URL		:= https://crates.io/api/v1/crates/pbjson-types/0.6.0/download
+GST_PLUGINS_RS_PBJSON_TYPES_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, pbjson-types/0.6.0/download)
 GST_PLUGINS_RS_PBJSON_TYPES_0_6_0_SOURCE	:= $(SRCDIR)/pbjson-types-0.6.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PBJSON_TYPES_0_6_0
 
 GST_PLUGINS_RS_PBKDF2_0_12_2_MD5		:= 8dcc72ff75b917257f9e9bb29de4b9e1
-GST_PLUGINS_RS_PBKDF2_0_12_2_URL		:= https://crates.io/api/v1/crates/pbkdf2/0.12.2/download
+GST_PLUGINS_RS_PBKDF2_0_12_2_URL		:= $(call ptx/mirror, CRATESIO, pbkdf2/0.12.2/download)
 GST_PLUGINS_RS_PBKDF2_0_12_2_SOURCE	:= $(SRCDIR)/pbkdf2-0.12.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PBKDF2_0_12_2
 
 GST_PLUGINS_RS_PCAP_FILE_2_0_0_MD5		:= c0f232c6b2c6ad64639aafd03ba425ce
-GST_PLUGINS_RS_PCAP_FILE_2_0_0_URL		:= https://crates.io/api/v1/crates/pcap-file/2.0.0/download
+GST_PLUGINS_RS_PCAP_FILE_2_0_0_URL		:= $(call ptx/mirror, CRATESIO, pcap-file/2.0.0/download)
 GST_PLUGINS_RS_PCAP_FILE_2_0_0_SOURCE	:= $(SRCDIR)/pcap-file-2.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PCAP_FILE_2_0_0
 
 GST_PLUGINS_RS_PEM_3_0_6_MD5		:= 48462ddad2b2f0d06cfca0cbfd928a8f
-GST_PLUGINS_RS_PEM_3_0_6_URL		:= https://crates.io/api/v1/crates/pem/3.0.6/download
+GST_PLUGINS_RS_PEM_3_0_6_URL		:= $(call ptx/mirror, CRATESIO, pem/3.0.6/download)
 GST_PLUGINS_RS_PEM_3_0_6_SOURCE	:= $(SRCDIR)/pem-3.0.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PEM_3_0_6
 
 GST_PLUGINS_RS_PEM_RFC7468_0_7_0_MD5		:= a37720d4e4cbebd28ac9c7930137a9d6
-GST_PLUGINS_RS_PEM_RFC7468_0_7_0_URL		:= https://crates.io/api/v1/crates/pem-rfc7468/0.7.0/download
+GST_PLUGINS_RS_PEM_RFC7468_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, pem-rfc7468/0.7.0/download)
 GST_PLUGINS_RS_PEM_RFC7468_0_7_0_SOURCE	:= $(SRCDIR)/pem-rfc7468-0.7.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PEM_RFC7468_0_7_0
 
 GST_PLUGINS_RS_PERCENT_ENCODING_2_3_2_MD5		:= ef8998050cc1339f2187fcb43e927f1b
-GST_PLUGINS_RS_PERCENT_ENCODING_2_3_2_URL		:= https://crates.io/api/v1/crates/percent-encoding/2.3.2/download
+GST_PLUGINS_RS_PERCENT_ENCODING_2_3_2_URL		:= $(call ptx/mirror, CRATESIO, percent-encoding/2.3.2/download)
 GST_PLUGINS_RS_PERCENT_ENCODING_2_3_2_SOURCE	:= $(SRCDIR)/percent-encoding-2.3.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PERCENT_ENCODING_2_3_2
 
 GST_PLUGINS_RS_PETGRAPH_0_6_5_MD5		:= aa64b5603b047aa734216db62286aac8
-GST_PLUGINS_RS_PETGRAPH_0_6_5_URL		:= https://crates.io/api/v1/crates/petgraph/0.6.5/download
+GST_PLUGINS_RS_PETGRAPH_0_6_5_URL		:= $(call ptx/mirror, CRATESIO, petgraph/0.6.5/download)
 GST_PLUGINS_RS_PETGRAPH_0_6_5_SOURCE	:= $(SRCDIR)/petgraph-0.6.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PETGRAPH_0_6_5
 
 GST_PLUGINS_RS_PIN_PROJECT_1_1_11_MD5		:= cd4a1324d69fd62611984c19082e593d
-GST_PLUGINS_RS_PIN_PROJECT_1_1_11_URL		:= https://crates.io/api/v1/crates/pin-project/1.1.11/download
+GST_PLUGINS_RS_PIN_PROJECT_1_1_11_URL		:= $(call ptx/mirror, CRATESIO, pin-project/1.1.11/download)
 GST_PLUGINS_RS_PIN_PROJECT_1_1_11_SOURCE	:= $(SRCDIR)/pin-project-1.1.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PIN_PROJECT_1_1_11
 
 GST_PLUGINS_RS_PIN_PROJECT_INTERNAL_1_1_11_MD5		:= f33d4ef5860ae51a7fc2c22197836cfc
-GST_PLUGINS_RS_PIN_PROJECT_INTERNAL_1_1_11_URL		:= https://crates.io/api/v1/crates/pin-project-internal/1.1.11/download
+GST_PLUGINS_RS_PIN_PROJECT_INTERNAL_1_1_11_URL		:= $(call ptx/mirror, CRATESIO, pin-project-internal/1.1.11/download)
 GST_PLUGINS_RS_PIN_PROJECT_INTERNAL_1_1_11_SOURCE	:= $(SRCDIR)/pin-project-internal-1.1.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PIN_PROJECT_INTERNAL_1_1_11
 
 GST_PLUGINS_RS_PIN_PROJECT_LITE_0_2_17_MD5		:= bf59e862849889131e4b20b3760f739e
-GST_PLUGINS_RS_PIN_PROJECT_LITE_0_2_17_URL		:= https://crates.io/api/v1/crates/pin-project-lite/0.2.17/download
+GST_PLUGINS_RS_PIN_PROJECT_LITE_0_2_17_URL		:= $(call ptx/mirror, CRATESIO, pin-project-lite/0.2.17/download)
 GST_PLUGINS_RS_PIN_PROJECT_LITE_0_2_17_SOURCE	:= $(SRCDIR)/pin-project-lite-0.2.17.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PIN_PROJECT_LITE_0_2_17
 
 GST_PLUGINS_RS_PIN_UTILS_0_1_0_MD5		:= 07c75fec267864bcbb800ca7709ceae2
-GST_PLUGINS_RS_PIN_UTILS_0_1_0_URL		:= https://crates.io/api/v1/crates/pin-utils/0.1.0/download
+GST_PLUGINS_RS_PIN_UTILS_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, pin-utils/0.1.0/download)
 GST_PLUGINS_RS_PIN_UTILS_0_1_0_SOURCE	:= $(SRCDIR)/pin-utils-0.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PIN_UTILS_0_1_0
 
 GST_PLUGINS_RS_PKCS1_0_7_5_MD5		:= 1a9d5f743b59a38b55a219cdc8534299
-GST_PLUGINS_RS_PKCS1_0_7_5_URL		:= https://crates.io/api/v1/crates/pkcs1/0.7.5/download
+GST_PLUGINS_RS_PKCS1_0_7_5_URL		:= $(call ptx/mirror, CRATESIO, pkcs1/0.7.5/download)
 GST_PLUGINS_RS_PKCS1_0_7_5_SOURCE	:= $(SRCDIR)/pkcs1-0.7.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PKCS1_0_7_5
 
 GST_PLUGINS_RS_PKCS8_0_9_0_MD5		:= 51ae68c1bf4d1bb8261ac8d8fcba0eac
-GST_PLUGINS_RS_PKCS8_0_9_0_URL		:= https://crates.io/api/v1/crates/pkcs8/0.9.0/download
+GST_PLUGINS_RS_PKCS8_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, pkcs8/0.9.0/download)
 GST_PLUGINS_RS_PKCS8_0_9_0_SOURCE	:= $(SRCDIR)/pkcs8-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PKCS8_0_9_0
 
 GST_PLUGINS_RS_PKCS8_0_10_2_MD5		:= 54148ff5f2a4a6f4f1e857b0bf854bf0
-GST_PLUGINS_RS_PKCS8_0_10_2_URL		:= https://crates.io/api/v1/crates/pkcs8/0.10.2/download
+GST_PLUGINS_RS_PKCS8_0_10_2_URL		:= $(call ptx/mirror, CRATESIO, pkcs8/0.10.2/download)
 GST_PLUGINS_RS_PKCS8_0_10_2_SOURCE	:= $(SRCDIR)/pkcs8-0.10.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PKCS8_0_10_2
 
 GST_PLUGINS_RS_PKG_CONFIG_0_3_32_MD5		:= c0cc536bbce6c848a2957222de166961
-GST_PLUGINS_RS_PKG_CONFIG_0_3_32_URL		:= https://crates.io/api/v1/crates/pkg-config/0.3.32/download
+GST_PLUGINS_RS_PKG_CONFIG_0_3_32_URL		:= $(call ptx/mirror, CRATESIO, pkg-config/0.3.32/download)
 GST_PLUGINS_RS_PKG_CONFIG_0_3_32_SOURCE	:= $(SRCDIR)/pkg-config-0.3.32.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PKG_CONFIG_0_3_32
 
 GST_PLUGINS_RS_PNG_0_18_1_MD5		:= 2d67766ffe7e66e6a0f343a42ffaea16
-GST_PLUGINS_RS_PNG_0_18_1_URL		:= https://crates.io/api/v1/crates/png/0.18.1/download
+GST_PLUGINS_RS_PNG_0_18_1_URL		:= $(call ptx/mirror, CRATESIO, png/0.18.1/download)
 GST_PLUGINS_RS_PNG_0_18_1_SOURCE	:= $(SRCDIR)/png-0.18.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PNG_0_18_1
 
 GST_PLUGINS_RS_POCKET_RESOURCES_0_3_2_MD5		:= 3b2dd4a6b07468581165c5fa940d426b
-GST_PLUGINS_RS_POCKET_RESOURCES_0_3_2_URL		:= https://crates.io/api/v1/crates/pocket-resources/0.3.2/download
+GST_PLUGINS_RS_POCKET_RESOURCES_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, pocket-resources/0.3.2/download)
 GST_PLUGINS_RS_POCKET_RESOURCES_0_3_2_SOURCE	:= $(SRCDIR)/pocket-resources-0.3.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_POCKET_RESOURCES_0_3_2
 
 GST_PLUGINS_RS_POLLING_3_11_0_MD5		:= 984aae484b1847131db6e51b174ae724
-GST_PLUGINS_RS_POLLING_3_11_0_URL		:= https://crates.io/api/v1/crates/polling/3.11.0/download
+GST_PLUGINS_RS_POLLING_3_11_0_URL		:= $(call ptx/mirror, CRATESIO, polling/3.11.0/download)
 GST_PLUGINS_RS_POLLING_3_11_0_SOURCE	:= $(SRCDIR)/polling-3.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_POLLING_3_11_0
 
 GST_PLUGINS_RS_PORTABLE_ATOMIC_1_13_1_MD5		:= 78850f30bd2975b90e014b07afd764de
-GST_PLUGINS_RS_PORTABLE_ATOMIC_1_13_1_URL		:= https://crates.io/api/v1/crates/portable-atomic/1.13.1/download
+GST_PLUGINS_RS_PORTABLE_ATOMIC_1_13_1_URL		:= $(call ptx/mirror, CRATESIO, portable-atomic/1.13.1/download)
 GST_PLUGINS_RS_PORTABLE_ATOMIC_1_13_1_SOURCE	:= $(SRCDIR)/portable-atomic-1.13.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PORTABLE_ATOMIC_1_13_1
 
 GST_PLUGINS_RS_PORTABLE_ATOMIC_UTIL_0_2_5_MD5		:= c7df7d79d4a18d94b4d1d2168ccc3a99
-GST_PLUGINS_RS_PORTABLE_ATOMIC_UTIL_0_2_5_URL		:= https://crates.io/api/v1/crates/portable-atomic-util/0.2.5/download
+GST_PLUGINS_RS_PORTABLE_ATOMIC_UTIL_0_2_5_URL		:= $(call ptx/mirror, CRATESIO, portable-atomic-util/0.2.5/download)
 GST_PLUGINS_RS_PORTABLE_ATOMIC_UTIL_0_2_5_SOURCE	:= $(SRCDIR)/portable-atomic-util-0.2.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PORTABLE_ATOMIC_UTIL_0_2_5
 
 GST_PLUGINS_RS_POTENTIAL_UTF_0_1_4_MD5		:= 3fc6b20d8adff029d6efe97abfe3b504
-GST_PLUGINS_RS_POTENTIAL_UTF_0_1_4_URL		:= https://crates.io/api/v1/crates/potential_utf/0.1.4/download
+GST_PLUGINS_RS_POTENTIAL_UTF_0_1_4_URL		:= $(call ptx/mirror, CRATESIO, potential_utf/0.1.4/download)
 GST_PLUGINS_RS_POTENTIAL_UTF_0_1_4_SOURCE	:= $(SRCDIR)/potential_utf-0.1.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_POTENTIAL_UTF_0_1_4
 
 GST_PLUGINS_RS_POWERFMT_0_2_0_MD5		:= 30eb4de1c1a3bd214d7649b891abf444
-GST_PLUGINS_RS_POWERFMT_0_2_0_URL		:= https://crates.io/api/v1/crates/powerfmt/0.2.0/download
+GST_PLUGINS_RS_POWERFMT_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, powerfmt/0.2.0/download)
 GST_PLUGINS_RS_POWERFMT_0_2_0_SOURCE	:= $(SRCDIR)/powerfmt-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_POWERFMT_0_2_0
 
 GST_PLUGINS_RS_PPMD_RUST_1_4_0_MD5		:= 42395ec4b64dfdc1d811e7e8547d5dcf
-GST_PLUGINS_RS_PPMD_RUST_1_4_0_URL		:= https://crates.io/api/v1/crates/ppmd-rust/1.4.0/download
+GST_PLUGINS_RS_PPMD_RUST_1_4_0_URL		:= $(call ptx/mirror, CRATESIO, ppmd-rust/1.4.0/download)
 GST_PLUGINS_RS_PPMD_RUST_1_4_0_SOURCE	:= $(SRCDIR)/ppmd-rust-1.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PPMD_RUST_1_4_0
 
 GST_PLUGINS_RS_PPV_LITE86_0_2_21_MD5		:= 24b98ea919f5970d55ff176be1d551b1
-GST_PLUGINS_RS_PPV_LITE86_0_2_21_URL		:= https://crates.io/api/v1/crates/ppv-lite86/0.2.21/download
+GST_PLUGINS_RS_PPV_LITE86_0_2_21_URL		:= $(call ptx/mirror, CRATESIO, ppv-lite86/0.2.21/download)
 GST_PLUGINS_RS_PPV_LITE86_0_2_21_SOURCE	:= $(SRCDIR)/ppv-lite86-0.2.21.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PPV_LITE86_0_2_21
 
 GST_PLUGINS_RS_PRESSER_0_3_1_MD5		:= 800b75bba2dc1620ac98931c7b00385b
-GST_PLUGINS_RS_PRESSER_0_3_1_URL		:= https://crates.io/api/v1/crates/presser/0.3.1/download
+GST_PLUGINS_RS_PRESSER_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, presser/0.3.1/download)
 GST_PLUGINS_RS_PRESSER_0_3_1_SOURCE	:= $(SRCDIR)/presser-0.3.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PRESSER_0_3_1
 
 GST_PLUGINS_RS_PRETTY_ASSERTIONS_1_4_1_MD5		:= c96675a504294eefcf7b6a94247915bb
-GST_PLUGINS_RS_PRETTY_ASSERTIONS_1_4_1_URL		:= https://crates.io/api/v1/crates/pretty_assertions/1.4.1/download
+GST_PLUGINS_RS_PRETTY_ASSERTIONS_1_4_1_URL		:= $(call ptx/mirror, CRATESIO, pretty_assertions/1.4.1/download)
 GST_PLUGINS_RS_PRETTY_ASSERTIONS_1_4_1_SOURCE	:= $(SRCDIR)/pretty_assertions-1.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PRETTY_ASSERTIONS_1_4_1
 
 GST_PLUGINS_RS_PRETTYPLEASE_0_2_37_MD5		:= 16c9310ae90220fab4063f0de0f97275
-GST_PLUGINS_RS_PRETTYPLEASE_0_2_37_URL		:= https://crates.io/api/v1/crates/prettyplease/0.2.37/download
+GST_PLUGINS_RS_PRETTYPLEASE_0_2_37_URL		:= $(call ptx/mirror, CRATESIO, prettyplease/0.2.37/download)
 GST_PLUGINS_RS_PRETTYPLEASE_0_2_37_SOURCE	:= $(SRCDIR)/prettyplease-0.2.37.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PRETTYPLEASE_0_2_37
 
 GST_PLUGINS_RS_PRIMAL_CHECK_0_3_4_MD5		:= c5fb9715346f6e1c7b84575e241803f0
-GST_PLUGINS_RS_PRIMAL_CHECK_0_3_4_URL		:= https://crates.io/api/v1/crates/primal-check/0.3.4/download
+GST_PLUGINS_RS_PRIMAL_CHECK_0_3_4_URL		:= $(call ptx/mirror, CRATESIO, primal-check/0.3.4/download)
 GST_PLUGINS_RS_PRIMAL_CHECK_0_3_4_SOURCE	:= $(SRCDIR)/primal-check-0.3.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PRIMAL_CHECK_0_3_4
 
 GST_PLUGINS_RS_PRIORITY_QUEUE_2_7_0_MD5		:= 27cc3636d893e78ee0a9420c68dd0278
-GST_PLUGINS_RS_PRIORITY_QUEUE_2_7_0_URL		:= https://crates.io/api/v1/crates/priority-queue/2.7.0/download
+GST_PLUGINS_RS_PRIORITY_QUEUE_2_7_0_URL		:= $(call ptx/mirror, CRATESIO, priority-queue/2.7.0/download)
 GST_PLUGINS_RS_PRIORITY_QUEUE_2_7_0_SOURCE	:= $(SRCDIR)/priority-queue-2.7.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PRIORITY_QUEUE_2_7_0
 
 GST_PLUGINS_RS_PROC_MACRO_CRATE_3_4_0_MD5		:= 72f66196a31c83281a8d295b2d8e0060
-GST_PLUGINS_RS_PROC_MACRO_CRATE_3_4_0_URL		:= https://crates.io/api/v1/crates/proc-macro-crate/3.4.0/download
+GST_PLUGINS_RS_PROC_MACRO_CRATE_3_4_0_URL		:= $(call ptx/mirror, CRATESIO, proc-macro-crate/3.4.0/download)
 GST_PLUGINS_RS_PROC_MACRO_CRATE_3_4_0_SOURCE	:= $(SRCDIR)/proc-macro-crate-3.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROC_MACRO_CRATE_3_4_0
 
 GST_PLUGINS_RS_PROC_MACRO_ERROR_ATTR2_2_0_0_MD5		:= 0ccc3cd8ae26998e9fb381126ee5639b
-GST_PLUGINS_RS_PROC_MACRO_ERROR_ATTR2_2_0_0_URL		:= https://crates.io/api/v1/crates/proc-macro-error-attr2/2.0.0/download
+GST_PLUGINS_RS_PROC_MACRO_ERROR_ATTR2_2_0_0_URL		:= $(call ptx/mirror, CRATESIO, proc-macro-error-attr2/2.0.0/download)
 GST_PLUGINS_RS_PROC_MACRO_ERROR_ATTR2_2_0_0_SOURCE	:= $(SRCDIR)/proc-macro-error-attr2-2.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROC_MACRO_ERROR_ATTR2_2_0_0
 
 GST_PLUGINS_RS_PROC_MACRO_ERROR2_2_0_1_MD5		:= 350ffa8a14da2aa4537a209b061bb716
-GST_PLUGINS_RS_PROC_MACRO_ERROR2_2_0_1_URL		:= https://crates.io/api/v1/crates/proc-macro-error2/2.0.1/download
+GST_PLUGINS_RS_PROC_MACRO_ERROR2_2_0_1_URL		:= $(call ptx/mirror, CRATESIO, proc-macro-error2/2.0.1/download)
 GST_PLUGINS_RS_PROC_MACRO_ERROR2_2_0_1_SOURCE	:= $(SRCDIR)/proc-macro-error2-2.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROC_MACRO_ERROR2_2_0_1
 
 GST_PLUGINS_RS_PROC_MACRO2_1_0_106_MD5		:= f5948ef8f9b14504ab34f71ad4a4bd18
-GST_PLUGINS_RS_PROC_MACRO2_1_0_106_URL		:= https://crates.io/api/v1/crates/proc-macro2/1.0.106/download
+GST_PLUGINS_RS_PROC_MACRO2_1_0_106_URL		:= $(call ptx/mirror, CRATESIO, proc-macro2/1.0.106/download)
 GST_PLUGINS_RS_PROC_MACRO2_1_0_106_SOURCE	:= $(SRCDIR)/proc-macro2-1.0.106.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROC_MACRO2_1_0_106
 
 GST_PLUGINS_RS_PROFILING_1_0_17_MD5		:= 483423aeefeca4aa9a3fce750b278cfd
-GST_PLUGINS_RS_PROFILING_1_0_17_URL		:= https://crates.io/api/v1/crates/profiling/1.0.17/download
+GST_PLUGINS_RS_PROFILING_1_0_17_URL		:= $(call ptx/mirror, CRATESIO, profiling/1.0.17/download)
 GST_PLUGINS_RS_PROFILING_1_0_17_SOURCE	:= $(SRCDIR)/profiling-1.0.17.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROFILING_1_0_17
 
 GST_PLUGINS_RS_PROFILING_PROCMACROS_1_0_17_MD5		:= 05e424def0f776dc822f9a765f819440
-GST_PLUGINS_RS_PROFILING_PROCMACROS_1_0_17_URL		:= https://crates.io/api/v1/crates/profiling-procmacros/1.0.17/download
+GST_PLUGINS_RS_PROFILING_PROCMACROS_1_0_17_URL		:= $(call ptx/mirror, CRATESIO, profiling-procmacros/1.0.17/download)
 GST_PLUGINS_RS_PROFILING_PROCMACROS_1_0_17_SOURCE	:= $(SRCDIR)/profiling-procmacros-1.0.17.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROFILING_PROCMACROS_1_0_17
 
 GST_PLUGINS_RS_PROST_0_12_6_MD5		:= d324a29dfb61a9718fe386aecb926009
-GST_PLUGINS_RS_PROST_0_12_6_URL		:= https://crates.io/api/v1/crates/prost/0.12.6/download
+GST_PLUGINS_RS_PROST_0_12_6_URL		:= $(call ptx/mirror, CRATESIO, prost/0.12.6/download)
 GST_PLUGINS_RS_PROST_0_12_6_SOURCE	:= $(SRCDIR)/prost-0.12.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROST_0_12_6
 
 GST_PLUGINS_RS_PROST_BUILD_0_12_6_MD5		:= 1f41ca6fe55783f781e92d6d266c9d42
-GST_PLUGINS_RS_PROST_BUILD_0_12_6_URL		:= https://crates.io/api/v1/crates/prost-build/0.12.6/download
+GST_PLUGINS_RS_PROST_BUILD_0_12_6_URL		:= $(call ptx/mirror, CRATESIO, prost-build/0.12.6/download)
 GST_PLUGINS_RS_PROST_BUILD_0_12_6_SOURCE	:= $(SRCDIR)/prost-build-0.12.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROST_BUILD_0_12_6
 
 GST_PLUGINS_RS_PROST_DERIVE_0_12_6_MD5		:= bf02b2eedf5d9cb42944d040b962dd12
-GST_PLUGINS_RS_PROST_DERIVE_0_12_6_URL		:= https://crates.io/api/v1/crates/prost-derive/0.12.6/download
+GST_PLUGINS_RS_PROST_DERIVE_0_12_6_URL		:= $(call ptx/mirror, CRATESIO, prost-derive/0.12.6/download)
 GST_PLUGINS_RS_PROST_DERIVE_0_12_6_SOURCE	:= $(SRCDIR)/prost-derive-0.12.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROST_DERIVE_0_12_6
 
 GST_PLUGINS_RS_PROST_TYPES_0_12_6_MD5		:= dae5125dd7da027f6ae95bff584a6436
-GST_PLUGINS_RS_PROST_TYPES_0_12_6_URL		:= https://crates.io/api/v1/crates/prost-types/0.12.6/download
+GST_PLUGINS_RS_PROST_TYPES_0_12_6_URL		:= $(call ptx/mirror, CRATESIO, prost-types/0.12.6/download)
 GST_PLUGINS_RS_PROST_TYPES_0_12_6_SOURCE	:= $(SRCDIR)/prost-types-0.12.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROST_TYPES_0_12_6
 
 GST_PLUGINS_RS_PROTOBUF_3_7_2_MD5		:= 9373fd904711d6f7bed781c1fab2d1b4
-GST_PLUGINS_RS_PROTOBUF_3_7_2_URL		:= https://crates.io/api/v1/crates/protobuf/3.7.2/download
+GST_PLUGINS_RS_PROTOBUF_3_7_2_URL		:= $(call ptx/mirror, CRATESIO, protobuf/3.7.2/download)
 GST_PLUGINS_RS_PROTOBUF_3_7_2_SOURCE	:= $(SRCDIR)/protobuf-3.7.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROTOBUF_3_7_2
 
 GST_PLUGINS_RS_PROTOBUF_CODEGEN_3_7_2_MD5		:= 78e4fa9ba1efbc86c72245c6fed01224
-GST_PLUGINS_RS_PROTOBUF_CODEGEN_3_7_2_URL		:= https://crates.io/api/v1/crates/protobuf-codegen/3.7.2/download
+GST_PLUGINS_RS_PROTOBUF_CODEGEN_3_7_2_URL		:= $(call ptx/mirror, CRATESIO, protobuf-codegen/3.7.2/download)
 GST_PLUGINS_RS_PROTOBUF_CODEGEN_3_7_2_SOURCE	:= $(SRCDIR)/protobuf-codegen-3.7.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROTOBUF_CODEGEN_3_7_2
 
 GST_PLUGINS_RS_PROTOBUF_JSON_MAPPING_3_7_2_MD5		:= 0459343f2361b5bb6b5a5344671eb7c9
-GST_PLUGINS_RS_PROTOBUF_JSON_MAPPING_3_7_2_URL		:= https://crates.io/api/v1/crates/protobuf-json-mapping/3.7.2/download
+GST_PLUGINS_RS_PROTOBUF_JSON_MAPPING_3_7_2_URL		:= $(call ptx/mirror, CRATESIO, protobuf-json-mapping/3.7.2/download)
 GST_PLUGINS_RS_PROTOBUF_JSON_MAPPING_3_7_2_SOURCE	:= $(SRCDIR)/protobuf-json-mapping-3.7.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROTOBUF_JSON_MAPPING_3_7_2
 
 GST_PLUGINS_RS_PROTOBUF_PARSE_3_7_2_MD5		:= 592573f821f676d5260238a0af332ee0
-GST_PLUGINS_RS_PROTOBUF_PARSE_3_7_2_URL		:= https://crates.io/api/v1/crates/protobuf-parse/3.7.2/download
+GST_PLUGINS_RS_PROTOBUF_PARSE_3_7_2_URL		:= $(call ptx/mirror, CRATESIO, protobuf-parse/3.7.2/download)
 GST_PLUGINS_RS_PROTOBUF_PARSE_3_7_2_SOURCE	:= $(SRCDIR)/protobuf-parse-3.7.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROTOBUF_PARSE_3_7_2
 
 GST_PLUGINS_RS_PROTOBUF_SUPPORT_3_7_2_MD5		:= 77209e2fbd92372a342ce4be73f6c3de
-GST_PLUGINS_RS_PROTOBUF_SUPPORT_3_7_2_URL		:= https://crates.io/api/v1/crates/protobuf-support/3.7.2/download
+GST_PLUGINS_RS_PROTOBUF_SUPPORT_3_7_2_URL		:= $(call ptx/mirror, CRATESIO, protobuf-support/3.7.2/download)
 GST_PLUGINS_RS_PROTOBUF_SUPPORT_3_7_2_SOURCE	:= $(SRCDIR)/protobuf-support-3.7.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PROTOBUF_SUPPORT_3_7_2
 
 GST_PLUGINS_RS_PSL_TYPES_2_0_11_MD5		:= 63afb9414a9c6456ea2206e982885d82
-GST_PLUGINS_RS_PSL_TYPES_2_0_11_URL		:= https://crates.io/api/v1/crates/psl-types/2.0.11/download
+GST_PLUGINS_RS_PSL_TYPES_2_0_11_URL		:= $(call ptx/mirror, CRATESIO, psl-types/2.0.11/download)
 GST_PLUGINS_RS_PSL_TYPES_2_0_11_SOURCE	:= $(SRCDIR)/psl-types-2.0.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PSL_TYPES_2_0_11
 
 GST_PLUGINS_RS_PUBLICSUFFIX_2_3_0_MD5		:= 5ccbf1da59266997e903f176ecdad470
-GST_PLUGINS_RS_PUBLICSUFFIX_2_3_0_URL		:= https://crates.io/api/v1/crates/publicsuffix/2.3.0/download
+GST_PLUGINS_RS_PUBLICSUFFIX_2_3_0_URL		:= $(call ptx/mirror, CRATESIO, publicsuffix/2.3.0/download)
 GST_PLUGINS_RS_PUBLICSUFFIX_2_3_0_SOURCE	:= $(SRCDIR)/publicsuffix-2.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PUBLICSUFFIX_2_3_0
 
 GST_PLUGINS_RS_PXFM_0_1_27_MD5		:= 3435f743fb221ce524094b07a8eab2d9
-GST_PLUGINS_RS_PXFM_0_1_27_URL		:= https://crates.io/api/v1/crates/pxfm/0.1.27/download
+GST_PLUGINS_RS_PXFM_0_1_27_URL		:= $(call ptx/mirror, CRATESIO, pxfm/0.1.27/download)
 GST_PLUGINS_RS_PXFM_0_1_27_SOURCE	:= $(SRCDIR)/pxfm-0.1.27.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PXFM_0_1_27
 
 GST_PLUGINS_RS_PYO3_0_28_2_MD5		:= c087ed3f2fba78a12feb1c97d5a46bb9
-GST_PLUGINS_RS_PYO3_0_28_2_URL		:= https://crates.io/api/v1/crates/pyo3/0.28.2/download
+GST_PLUGINS_RS_PYO3_0_28_2_URL		:= $(call ptx/mirror, CRATESIO, pyo3/0.28.2/download)
 GST_PLUGINS_RS_PYO3_0_28_2_SOURCE	:= $(SRCDIR)/pyo3-0.28.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PYO3_0_28_2
 
 GST_PLUGINS_RS_PYO3_BUILD_CONFIG_0_28_2_MD5		:= 4aecc047def0c4824bd05613ec3bbf1b
-GST_PLUGINS_RS_PYO3_BUILD_CONFIG_0_28_2_URL		:= https://crates.io/api/v1/crates/pyo3-build-config/0.28.2/download
+GST_PLUGINS_RS_PYO3_BUILD_CONFIG_0_28_2_URL		:= $(call ptx/mirror, CRATESIO, pyo3-build-config/0.28.2/download)
 GST_PLUGINS_RS_PYO3_BUILD_CONFIG_0_28_2_SOURCE	:= $(SRCDIR)/pyo3-build-config-0.28.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PYO3_BUILD_CONFIG_0_28_2
 
 GST_PLUGINS_RS_PYO3_FFI_0_28_2_MD5		:= 24f29ed7c62a2a74e5fffe2dfe86ea07
-GST_PLUGINS_RS_PYO3_FFI_0_28_2_URL		:= https://crates.io/api/v1/crates/pyo3-ffi/0.28.2/download
+GST_PLUGINS_RS_PYO3_FFI_0_28_2_URL		:= $(call ptx/mirror, CRATESIO, pyo3-ffi/0.28.2/download)
 GST_PLUGINS_RS_PYO3_FFI_0_28_2_SOURCE	:= $(SRCDIR)/pyo3-ffi-0.28.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PYO3_FFI_0_28_2
 
 GST_PLUGINS_RS_PYO3_MACROS_0_28_2_MD5		:= 10e26b47e989084437fca840e29481bf
-GST_PLUGINS_RS_PYO3_MACROS_0_28_2_URL		:= https://crates.io/api/v1/crates/pyo3-macros/0.28.2/download
+GST_PLUGINS_RS_PYO3_MACROS_0_28_2_URL		:= $(call ptx/mirror, CRATESIO, pyo3-macros/0.28.2/download)
 GST_PLUGINS_RS_PYO3_MACROS_0_28_2_SOURCE	:= $(SRCDIR)/pyo3-macros-0.28.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PYO3_MACROS_0_28_2
 
 GST_PLUGINS_RS_PYO3_MACROS_BACKEND_0_28_2_MD5		:= c1cb3eccb265f5901b4bc8300496092d
-GST_PLUGINS_RS_PYO3_MACROS_BACKEND_0_28_2_URL		:= https://crates.io/api/v1/crates/pyo3-macros-backend/0.28.2/download
+GST_PLUGINS_RS_PYO3_MACROS_BACKEND_0_28_2_URL		:= $(call ptx/mirror, CRATESIO, pyo3-macros-backend/0.28.2/download)
 GST_PLUGINS_RS_PYO3_MACROS_BACKEND_0_28_2_SOURCE	:= $(SRCDIR)/pyo3-macros-backend-0.28.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_PYO3_MACROS_BACKEND_0_28_2
 
 GST_PLUGINS_RS_QUICK_XML_0_38_4_MD5		:= 6e8ee0c663ea76d166b80f3bd7889de3
-GST_PLUGINS_RS_QUICK_XML_0_38_4_URL		:= https://crates.io/api/v1/crates/quick-xml/0.38.4/download
+GST_PLUGINS_RS_QUICK_XML_0_38_4_URL		:= $(call ptx/mirror, CRATESIO, quick-xml/0.38.4/download)
 GST_PLUGINS_RS_QUICK_XML_0_38_4_SOURCE	:= $(SRCDIR)/quick-xml-0.38.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_QUICK_XML_0_38_4
 
 GST_PLUGINS_RS_QUICK_XML_0_39_2_MD5		:= a5293389435948a5d7a9748c3fd431d9
-GST_PLUGINS_RS_QUICK_XML_0_39_2_URL		:= https://crates.io/api/v1/crates/quick-xml/0.39.2/download
+GST_PLUGINS_RS_QUICK_XML_0_39_2_URL		:= $(call ptx/mirror, CRATESIO, quick-xml/0.39.2/download)
 GST_PLUGINS_RS_QUICK_XML_0_39_2_SOURCE	:= $(SRCDIR)/quick-xml-0.39.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_QUICK_XML_0_39_2
 
 GST_PLUGINS_RS_QUINN_0_11_9_MD5		:= 3a881f19fa2ed2a2653ee55e1d75c3e3
-GST_PLUGINS_RS_QUINN_0_11_9_URL		:= https://crates.io/api/v1/crates/quinn/0.11.9/download
+GST_PLUGINS_RS_QUINN_0_11_9_URL		:= $(call ptx/mirror, CRATESIO, quinn/0.11.9/download)
 GST_PLUGINS_RS_QUINN_0_11_9_SOURCE	:= $(SRCDIR)/quinn-0.11.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_QUINN_0_11_9
 
 GST_PLUGINS_RS_QUINN_PROTO_0_11_13_MD5		:= 7d8cad7f93f950c60a8b75935c67a492
-GST_PLUGINS_RS_QUINN_PROTO_0_11_13_URL		:= https://crates.io/api/v1/crates/quinn-proto/0.11.13/download
+GST_PLUGINS_RS_QUINN_PROTO_0_11_13_URL		:= $(call ptx/mirror, CRATESIO, quinn-proto/0.11.13/download)
 GST_PLUGINS_RS_QUINN_PROTO_0_11_13_SOURCE	:= $(SRCDIR)/quinn-proto-0.11.13.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_QUINN_PROTO_0_11_13
 
 GST_PLUGINS_RS_QUINN_UDP_0_5_14_MD5		:= 7ab76de34829eee75ebc205fceb9e3ba
-GST_PLUGINS_RS_QUINN_UDP_0_5_14_URL		:= https://crates.io/api/v1/crates/quinn-udp/0.5.14/download
+GST_PLUGINS_RS_QUINN_UDP_0_5_14_URL		:= $(call ptx/mirror, CRATESIO, quinn-udp/0.5.14/download)
 GST_PLUGINS_RS_QUINN_UDP_0_5_14_SOURCE	:= $(SRCDIR)/quinn-udp-0.5.14.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_QUINN_UDP_0_5_14
 
 GST_PLUGINS_RS_QUOTE_1_0_44_MD5		:= 93f2bf917de2581c31f5b40f88ccdbd1
-GST_PLUGINS_RS_QUOTE_1_0_44_URL		:= https://crates.io/api/v1/crates/quote/1.0.44/download
+GST_PLUGINS_RS_QUOTE_1_0_44_URL		:= $(call ptx/mirror, CRATESIO, quote/1.0.44/download)
 GST_PLUGINS_RS_QUOTE_1_0_44_SOURCE	:= $(SRCDIR)/quote-1.0.44.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_QUOTE_1_0_44
 
 GST_PLUGINS_RS_R_EFI_5_3_0_MD5		:= 751468b1f120283e4f6f266867a03837
-GST_PLUGINS_RS_R_EFI_5_3_0_URL		:= https://crates.io/api/v1/crates/r-efi/5.3.0/download
+GST_PLUGINS_RS_R_EFI_5_3_0_URL		:= $(call ptx/mirror, CRATESIO, r-efi/5.3.0/download)
 GST_PLUGINS_RS_R_EFI_5_3_0_SOURCE	:= $(SRCDIR)/r-efi-5.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_R_EFI_5_3_0
 
 GST_PLUGINS_RS_RAND_0_8_5_MD5		:= ee7a5f842c39bc47c474196e83b0df5f
-GST_PLUGINS_RS_RAND_0_8_5_URL		:= https://crates.io/api/v1/crates/rand/0.8.5/download
+GST_PLUGINS_RS_RAND_0_8_5_URL		:= $(call ptx/mirror, CRATESIO, rand/0.8.5/download)
 GST_PLUGINS_RS_RAND_0_8_5_SOURCE	:= $(SRCDIR)/rand-0.8.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAND_0_8_5
 
 GST_PLUGINS_RS_RAND_0_9_2_MD5		:= a6290a543b60d161a9817d1592189855
-GST_PLUGINS_RS_RAND_0_9_2_URL		:= https://crates.io/api/v1/crates/rand/0.9.2/download
+GST_PLUGINS_RS_RAND_0_9_2_URL		:= $(call ptx/mirror, CRATESIO, rand/0.9.2/download)
 GST_PLUGINS_RS_RAND_0_9_2_SOURCE	:= $(SRCDIR)/rand-0.9.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAND_0_9_2
 
 GST_PLUGINS_RS_RAND_0_10_0_MD5		:= 43b20fa1e9cdf2b535493391a11383ac
-GST_PLUGINS_RS_RAND_0_10_0_URL		:= https://crates.io/api/v1/crates/rand/0.10.0/download
+GST_PLUGINS_RS_RAND_0_10_0_URL		:= $(call ptx/mirror, CRATESIO, rand/0.10.0/download)
 GST_PLUGINS_RS_RAND_0_10_0_SOURCE	:= $(SRCDIR)/rand-0.10.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAND_0_10_0
 
 GST_PLUGINS_RS_RAND_CHACHA_0_3_1_MD5		:= e30085994bbeb4b7f4895d48216d5476
-GST_PLUGINS_RS_RAND_CHACHA_0_3_1_URL		:= https://crates.io/api/v1/crates/rand_chacha/0.3.1/download
+GST_PLUGINS_RS_RAND_CHACHA_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, rand_chacha/0.3.1/download)
 GST_PLUGINS_RS_RAND_CHACHA_0_3_1_SOURCE	:= $(SRCDIR)/rand_chacha-0.3.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAND_CHACHA_0_3_1
 
 GST_PLUGINS_RS_RAND_CHACHA_0_9_0_MD5		:= 6072cecb286422299a2fd6c98319bd0d
-GST_PLUGINS_RS_RAND_CHACHA_0_9_0_URL		:= https://crates.io/api/v1/crates/rand_chacha/0.9.0/download
+GST_PLUGINS_RS_RAND_CHACHA_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, rand_chacha/0.9.0/download)
 GST_PLUGINS_RS_RAND_CHACHA_0_9_0_SOURCE	:= $(SRCDIR)/rand_chacha-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAND_CHACHA_0_9_0
 
 GST_PLUGINS_RS_RAND_CORE_0_6_4_MD5		:= a1626b8f4d165b1b60d960862eba4cf0
-GST_PLUGINS_RS_RAND_CORE_0_6_4_URL		:= https://crates.io/api/v1/crates/rand_core/0.6.4/download
+GST_PLUGINS_RS_RAND_CORE_0_6_4_URL		:= $(call ptx/mirror, CRATESIO, rand_core/0.6.4/download)
 GST_PLUGINS_RS_RAND_CORE_0_6_4_SOURCE	:= $(SRCDIR)/rand_core-0.6.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAND_CORE_0_6_4
 
 GST_PLUGINS_RS_RAND_CORE_0_9_5_MD5		:= 3dd34cc681354af2b132dbf85f068a4a
-GST_PLUGINS_RS_RAND_CORE_0_9_5_URL		:= https://crates.io/api/v1/crates/rand_core/0.9.5/download
+GST_PLUGINS_RS_RAND_CORE_0_9_5_URL		:= $(call ptx/mirror, CRATESIO, rand_core/0.9.5/download)
 GST_PLUGINS_RS_RAND_CORE_0_9_5_SOURCE	:= $(SRCDIR)/rand_core-0.9.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAND_CORE_0_9_5
 
 GST_PLUGINS_RS_RAND_CORE_0_10_0_MD5		:= 9355f947522b1e6f44d305d1385032eb
-GST_PLUGINS_RS_RAND_CORE_0_10_0_URL		:= https://crates.io/api/v1/crates/rand_core/0.10.0/download
+GST_PLUGINS_RS_RAND_CORE_0_10_0_URL		:= $(call ptx/mirror, CRATESIO, rand_core/0.10.0/download)
 GST_PLUGINS_RS_RAND_CORE_0_10_0_SOURCE	:= $(SRCDIR)/rand_core-0.10.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAND_CORE_0_10_0
 
 GST_PLUGINS_RS_RAND_DISTR_0_5_1_MD5		:= 04cfd1f729a33fca5931adc2c2078c41
-GST_PLUGINS_RS_RAND_DISTR_0_5_1_URL		:= https://crates.io/api/v1/crates/rand_distr/0.5.1/download
+GST_PLUGINS_RS_RAND_DISTR_0_5_1_URL		:= $(call ptx/mirror, CRATESIO, rand_distr/0.5.1/download)
 GST_PLUGINS_RS_RAND_DISTR_0_5_1_SOURCE	:= $(SRCDIR)/rand_distr-0.5.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAND_DISTR_0_5_1
 
 GST_PLUGINS_RS_RANGE_ALLOC_0_1_5_MD5		:= 1e1d21b429c0686c9c2dbad2baa25644
-GST_PLUGINS_RS_RANGE_ALLOC_0_1_5_URL		:= https://crates.io/api/v1/crates/range-alloc/0.1.5/download
+GST_PLUGINS_RS_RANGE_ALLOC_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, range-alloc/0.1.5/download)
 GST_PLUGINS_RS_RANGE_ALLOC_0_1_5_SOURCE	:= $(SRCDIR)/range-alloc-0.1.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RANGE_ALLOC_0_1_5
 
 GST_PLUGINS_RS_RAPTORQ_2_0_0_MD5		:= cb814fd4e85949ef6b2b96189e2d8eb2
-GST_PLUGINS_RS_RAPTORQ_2_0_0_URL		:= https://crates.io/api/v1/crates/raptorq/2.0.0/download
+GST_PLUGINS_RS_RAPTORQ_2_0_0_URL		:= $(call ptx/mirror, CRATESIO, raptorq/2.0.0/download)
 GST_PLUGINS_RS_RAPTORQ_2_0_0_SOURCE	:= $(SRCDIR)/raptorq-2.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAPTORQ_2_0_0
 
 GST_PLUGINS_RS_RAV1E_0_8_1_MD5		:= e5dbbd4deaeb33daa67f7391bccbd249
-GST_PLUGINS_RS_RAV1E_0_8_1_URL		:= https://crates.io/api/v1/crates/rav1e/0.8.1/download
+GST_PLUGINS_RS_RAV1E_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, rav1e/0.8.1/download)
 GST_PLUGINS_RS_RAV1E_0_8_1_SOURCE	:= $(SRCDIR)/rav1e-0.8.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAV1E_0_8_1
 
 GST_PLUGINS_RS_RAW_WINDOW_HANDLE_0_6_2_MD5		:= 4d7af0b3bb140efdd46768b3e4f32192
-GST_PLUGINS_RS_RAW_WINDOW_HANDLE_0_6_2_URL		:= https://crates.io/api/v1/crates/raw-window-handle/0.6.2/download
+GST_PLUGINS_RS_RAW_WINDOW_HANDLE_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, raw-window-handle/0.6.2/download)
 GST_PLUGINS_RS_RAW_WINDOW_HANDLE_0_6_2_SOURCE	:= $(SRCDIR)/raw-window-handle-0.6.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAW_WINDOW_HANDLE_0_6_2
 
 GST_PLUGINS_RS_RAWPOINTER_0_2_1_MD5		:= d4a05ab09e96ee8767f7409721bf65b8
-GST_PLUGINS_RS_RAWPOINTER_0_2_1_URL		:= https://crates.io/api/v1/crates/rawpointer/0.2.1/download
+GST_PLUGINS_RS_RAWPOINTER_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, rawpointer/0.2.1/download)
 GST_PLUGINS_RS_RAWPOINTER_0_2_1_SOURCE	:= $(SRCDIR)/rawpointer-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAWPOINTER_0_2_1
 
 GST_PLUGINS_RS_RAYON_1_11_0_MD5		:= dbaed304fca775edfd9fb0e980f64cbe
-GST_PLUGINS_RS_RAYON_1_11_0_URL		:= https://crates.io/api/v1/crates/rayon/1.11.0/download
+GST_PLUGINS_RS_RAYON_1_11_0_URL		:= $(call ptx/mirror, CRATESIO, rayon/1.11.0/download)
 GST_PLUGINS_RS_RAYON_1_11_0_SOURCE	:= $(SRCDIR)/rayon-1.11.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAYON_1_11_0
 
 GST_PLUGINS_RS_RAYON_CORE_1_13_0_MD5		:= 6e945b7625522326c4b07d5551d89102
-GST_PLUGINS_RS_RAYON_CORE_1_13_0_URL		:= https://crates.io/api/v1/crates/rayon-core/1.13.0/download
+GST_PLUGINS_RS_RAYON_CORE_1_13_0_URL		:= $(call ptx/mirror, CRATESIO, rayon-core/1.13.0/download)
 GST_PLUGINS_RS_RAYON_CORE_1_13_0_SOURCE	:= $(SRCDIR)/rayon-core-1.13.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RAYON_CORE_1_13_0
 
 GST_PLUGINS_RS_RCGEN_0_14_7_MD5		:= f1b39805c1ef7e6ed17069cfff33f2a0
-GST_PLUGINS_RS_RCGEN_0_14_7_URL		:= https://crates.io/api/v1/crates/rcgen/0.14.7/download
+GST_PLUGINS_RS_RCGEN_0_14_7_URL		:= $(call ptx/mirror, CRATESIO, rcgen/0.14.7/download)
 GST_PLUGINS_RS_RCGEN_0_14_7_SOURCE	:= $(SRCDIR)/rcgen-0.14.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RCGEN_0_14_7
 
 GST_PLUGINS_RS_REALFFT_3_5_0_MD5		:= 4fef202fdbaa00a5f1181afdcee22a73
-GST_PLUGINS_RS_REALFFT_3_5_0_URL		:= https://crates.io/api/v1/crates/realfft/3.5.0/download
+GST_PLUGINS_RS_REALFFT_3_5_0_URL		:= $(call ptx/mirror, CRATESIO, realfft/3.5.0/download)
 GST_PLUGINS_RS_REALFFT_3_5_0_SOURCE	:= $(SRCDIR)/realfft-3.5.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_REALFFT_3_5_0
 
 GST_PLUGINS_RS_REDOX_SYSCALL_0_5_18_MD5		:= 56eeea4cebc8f0fe1d09207656f78ece
-GST_PLUGINS_RS_REDOX_SYSCALL_0_5_18_URL		:= https://crates.io/api/v1/crates/redox_syscall/0.5.18/download
+GST_PLUGINS_RS_REDOX_SYSCALL_0_5_18_URL		:= $(call ptx/mirror, CRATESIO, redox_syscall/0.5.18/download)
 GST_PLUGINS_RS_REDOX_SYSCALL_0_5_18_SOURCE	:= $(SRCDIR)/redox_syscall-0.5.18.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_REDOX_SYSCALL_0_5_18
 
 GST_PLUGINS_RS_REDOX_SYSCALL_0_7_3_MD5		:= f33b1f1301f6b1af56c461229b3a3923
-GST_PLUGINS_RS_REDOX_SYSCALL_0_7_3_URL		:= https://crates.io/api/v1/crates/redox_syscall/0.7.3/download
+GST_PLUGINS_RS_REDOX_SYSCALL_0_7_3_URL		:= $(call ptx/mirror, CRATESIO, redox_syscall/0.7.3/download)
 GST_PLUGINS_RS_REDOX_SYSCALL_0_7_3_SOURCE	:= $(SRCDIR)/redox_syscall-0.7.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_REDOX_SYSCALL_0_7_3
 
 GST_PLUGINS_RS_REDOX_USERS_0_5_2_MD5		:= 7a1371bccdc531b353e9e82e8daf824b
-GST_PLUGINS_RS_REDOX_USERS_0_5_2_URL		:= https://crates.io/api/v1/crates/redox_users/0.5.2/download
+GST_PLUGINS_RS_REDOX_USERS_0_5_2_URL		:= $(call ptx/mirror, CRATESIO, redox_users/0.5.2/download)
 GST_PLUGINS_RS_REDOX_USERS_0_5_2_SOURCE	:= $(SRCDIR)/redox_users-0.5.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_REDOX_USERS_0_5_2
 
 GST_PLUGINS_RS_REF_CAST_1_0_25_MD5		:= ada590bae67a4207745223aab78e32e4
-GST_PLUGINS_RS_REF_CAST_1_0_25_URL		:= https://crates.io/api/v1/crates/ref-cast/1.0.25/download
+GST_PLUGINS_RS_REF_CAST_1_0_25_URL		:= $(call ptx/mirror, CRATESIO, ref-cast/1.0.25/download)
 GST_PLUGINS_RS_REF_CAST_1_0_25_SOURCE	:= $(SRCDIR)/ref-cast-1.0.25.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_REF_CAST_1_0_25
 
 GST_PLUGINS_RS_REF_CAST_IMPL_1_0_25_MD5		:= ccb8cb53529c5fabd9da41cdc017c732
-GST_PLUGINS_RS_REF_CAST_IMPL_1_0_25_URL		:= https://crates.io/api/v1/crates/ref-cast-impl/1.0.25/download
+GST_PLUGINS_RS_REF_CAST_IMPL_1_0_25_URL		:= $(call ptx/mirror, CRATESIO, ref-cast-impl/1.0.25/download)
 GST_PLUGINS_RS_REF_CAST_IMPL_1_0_25_SOURCE	:= $(SRCDIR)/ref-cast-impl-1.0.25.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_REF_CAST_IMPL_1_0_25
 
 GST_PLUGINS_RS_REGEX_1_12_3_MD5		:= 933d9b47b1e4f4e0cb271bc8ce60cad8
-GST_PLUGINS_RS_REGEX_1_12_3_URL		:= https://crates.io/api/v1/crates/regex/1.12.3/download
+GST_PLUGINS_RS_REGEX_1_12_3_URL		:= $(call ptx/mirror, CRATESIO, regex/1.12.3/download)
 GST_PLUGINS_RS_REGEX_1_12_3_SOURCE	:= $(SRCDIR)/regex-1.12.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_REGEX_1_12_3
 
 GST_PLUGINS_RS_REGEX_AUTOMATA_0_4_14_MD5		:= dbb01350ea9e84a75a25118f9fa9ef80
-GST_PLUGINS_RS_REGEX_AUTOMATA_0_4_14_URL		:= https://crates.io/api/v1/crates/regex-automata/0.4.14/download
+GST_PLUGINS_RS_REGEX_AUTOMATA_0_4_14_URL		:= $(call ptx/mirror, CRATESIO, regex-automata/0.4.14/download)
 GST_PLUGINS_RS_REGEX_AUTOMATA_0_4_14_SOURCE	:= $(SRCDIR)/regex-automata-0.4.14.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_REGEX_AUTOMATA_0_4_14
 
 GST_PLUGINS_RS_REGEX_LITE_0_1_9_MD5		:= 9653fae57acaf4f465912b8c662fbc22
-GST_PLUGINS_RS_REGEX_LITE_0_1_9_URL		:= https://crates.io/api/v1/crates/regex-lite/0.1.9/download
+GST_PLUGINS_RS_REGEX_LITE_0_1_9_URL		:= $(call ptx/mirror, CRATESIO, regex-lite/0.1.9/download)
 GST_PLUGINS_RS_REGEX_LITE_0_1_9_SOURCE	:= $(SRCDIR)/regex-lite-0.1.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_REGEX_LITE_0_1_9
 
 GST_PLUGINS_RS_REGEX_SYNTAX_0_8_10_MD5		:= ce4a2bf504f1d0446d88e6ac1d505663
-GST_PLUGINS_RS_REGEX_SYNTAX_0_8_10_URL		:= https://crates.io/api/v1/crates/regex-syntax/0.8.10/download
+GST_PLUGINS_RS_REGEX_SYNTAX_0_8_10_URL		:= $(call ptx/mirror, CRATESIO, regex-syntax/0.8.10/download)
 GST_PLUGINS_RS_REGEX_SYNTAX_0_8_10_SOURCE	:= $(SRCDIR)/regex-syntax-0.8.10.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_REGEX_SYNTAX_0_8_10
 
 GST_PLUGINS_RS_RENDERDOC_SYS_1_1_0_MD5		:= 8dd2512ec89596274c862ae0f37dba78
-GST_PLUGINS_RS_RENDERDOC_SYS_1_1_0_URL		:= https://crates.io/api/v1/crates/renderdoc-sys/1.1.0/download
+GST_PLUGINS_RS_RENDERDOC_SYS_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, renderdoc-sys/1.1.0/download)
 GST_PLUGINS_RS_RENDERDOC_SYS_1_1_0_SOURCE	:= $(SRCDIR)/renderdoc-sys-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RENDERDOC_SYS_1_1_0
 
 GST_PLUGINS_RS_REQWEST_0_12_28_MD5		:= 27c5f3bd18d5eb1b6d10b4b842a9651e
-GST_PLUGINS_RS_REQWEST_0_12_28_URL		:= https://crates.io/api/v1/crates/reqwest/0.12.28/download
+GST_PLUGINS_RS_REQWEST_0_12_28_URL		:= $(call ptx/mirror, CRATESIO, reqwest/0.12.28/download)
 GST_PLUGINS_RS_REQWEST_0_12_28_SOURCE	:= $(SRCDIR)/reqwest-0.12.28.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_REQWEST_0_12_28
 
 GST_PLUGINS_RS_RFC6979_0_3_1_MD5		:= 0f8abe719ab40fbe5bec2aa247645588
-GST_PLUGINS_RS_RFC6979_0_3_1_URL		:= https://crates.io/api/v1/crates/rfc6979/0.3.1/download
+GST_PLUGINS_RS_RFC6979_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, rfc6979/0.3.1/download)
 GST_PLUGINS_RS_RFC6979_0_3_1_SOURCE	:= $(SRCDIR)/rfc6979-0.3.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RFC6979_0_3_1
 
 GST_PLUGINS_RS_RGB_0_8_53_MD5		:= 187c37d5e6f3866fd8d6dd0b67e0537a
-GST_PLUGINS_RS_RGB_0_8_53_URL		:= https://crates.io/api/v1/crates/rgb/0.8.53/download
+GST_PLUGINS_RS_RGB_0_8_53_URL		:= $(call ptx/mirror, CRATESIO, rgb/0.8.53/download)
 GST_PLUGINS_RS_RGB_0_8_53_SOURCE	:= $(SRCDIR)/rgb-0.8.53.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RGB_0_8_53
 
 GST_PLUGINS_RS_RING_0_17_14_MD5		:= 240aa8a629702c405fd9aa30d5859616
-GST_PLUGINS_RS_RING_0_17_14_URL		:= https://crates.io/api/v1/crates/ring/0.17.14/download
+GST_PLUGINS_RS_RING_0_17_14_URL		:= $(call ptx/mirror, CRATESIO, ring/0.17.14/download)
 GST_PLUGINS_RS_RING_0_17_14_SOURCE	:= $(SRCDIR)/ring-0.17.14.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RING_0_17_14
 
 GST_PLUGINS_RS_RMP_0_8_15_MD5		:= b9050fe4e2d8e423ddc7e6a647751848
-GST_PLUGINS_RS_RMP_0_8_15_URL		:= https://crates.io/api/v1/crates/rmp/0.8.15/download
+GST_PLUGINS_RS_RMP_0_8_15_URL		:= $(call ptx/mirror, CRATESIO, rmp/0.8.15/download)
 GST_PLUGINS_RS_RMP_0_8_15_SOURCE	:= $(SRCDIR)/rmp-0.8.15.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RMP_0_8_15
 
 GST_PLUGINS_RS_RMP_SERDE_1_3_1_MD5		:= eb29e7f18a8b1158af08c1fb853c86cc
-GST_PLUGINS_RS_RMP_SERDE_1_3_1_URL		:= https://crates.io/api/v1/crates/rmp-serde/1.3.1/download
+GST_PLUGINS_RS_RMP_SERDE_1_3_1_URL		:= $(call ptx/mirror, CRATESIO, rmp-serde/1.3.1/download)
 GST_PLUGINS_RS_RMP_SERDE_1_3_1_SOURCE	:= $(SRCDIR)/rmp-serde-1.3.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RMP_SERDE_1_3_1
 
 GST_PLUGINS_RS_RQRR_0_10_1_MD5		:= 7c56186cb24849c3dd0d9fb8f60d7d32
-GST_PLUGINS_RS_RQRR_0_10_1_URL		:= https://crates.io/api/v1/crates/rqrr/0.10.1/download
+GST_PLUGINS_RS_RQRR_0_10_1_URL		:= $(call ptx/mirror, CRATESIO, rqrr/0.10.1/download)
 GST_PLUGINS_RS_RQRR_0_10_1_SOURCE	:= $(SRCDIR)/rqrr-0.10.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RQRR_0_10_1
 
 GST_PLUGINS_RS_RSA_0_9_10_MD5		:= dcd78f71178be4f6f8985e1060bdd9ef
-GST_PLUGINS_RS_RSA_0_9_10_URL		:= https://crates.io/api/v1/crates/rsa/0.9.10/download
+GST_PLUGINS_RS_RSA_0_9_10_URL		:= $(call ptx/mirror, CRATESIO, rsa/0.9.10/download)
 GST_PLUGINS_RS_RSA_0_9_10_SOURCE	:= $(SRCDIR)/rsa-0.9.10.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RSA_0_9_10
 
 GST_PLUGINS_RS_RTCP_TYPES_0_3_0_MD5		:= 0291ed5fffa1472708a17ae97848a34e
-GST_PLUGINS_RS_RTCP_TYPES_0_3_0_URL		:= https://crates.io/api/v1/crates/rtcp-types/0.3.0/download
+GST_PLUGINS_RS_RTCP_TYPES_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, rtcp-types/0.3.0/download)
 GST_PLUGINS_RS_RTCP_TYPES_0_3_0_SOURCE	:= $(SRCDIR)/rtcp-types-0.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RTCP_TYPES_0_3_0
 
 GST_PLUGINS_RS_RTP_TYPES_0_1_2_MD5		:= dec87022213b20ac698c5b62568e15ae
-GST_PLUGINS_RS_RTP_TYPES_0_1_2_URL		:= https://crates.io/api/v1/crates/rtp-types/0.1.2/download
+GST_PLUGINS_RS_RTP_TYPES_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, rtp-types/0.1.2/download)
 GST_PLUGINS_RS_RTP_TYPES_0_1_2_SOURCE	:= $(SRCDIR)/rtp-types-0.1.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RTP_TYPES_0_1_2
 
 GST_PLUGINS_RS_RTSP_TYPES_0_1_3_MD5		:= a55799392576e9957eb8a745dc4fefe1
-GST_PLUGINS_RS_RTSP_TYPES_0_1_3_URL		:= https://crates.io/api/v1/crates/rtsp-types/0.1.3/download
+GST_PLUGINS_RS_RTSP_TYPES_0_1_3_URL		:= $(call ptx/mirror, CRATESIO, rtsp-types/0.1.3/download)
 GST_PLUGINS_RS_RTSP_TYPES_0_1_3_SOURCE	:= $(SRCDIR)/rtsp-types-0.1.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RTSP_TYPES_0_1_3
 
 GST_PLUGINS_RS_RUBATO_0_14_1_MD5		:= ebc6e51536f89328876010309309f667
-GST_PLUGINS_RS_RUBATO_0_14_1_URL		:= https://crates.io/api/v1/crates/rubato/0.14.1/download
+GST_PLUGINS_RS_RUBATO_0_14_1_URL		:= $(call ptx/mirror, CRATESIO, rubato/0.14.1/download)
 GST_PLUGINS_RS_RUBATO_0_14_1_SOURCE	:= $(SRCDIR)/rubato-0.14.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUBATO_0_14_1
 
 GST_PLUGINS_RS_RUSTC_DEMANGLE_0_1_27_MD5		:= 8481c2ba6ccba2a4e09c730daf7cd17c
-GST_PLUGINS_RS_RUSTC_DEMANGLE_0_1_27_URL		:= https://crates.io/api/v1/crates/rustc-demangle/0.1.27/download
+GST_PLUGINS_RS_RUSTC_DEMANGLE_0_1_27_URL		:= $(call ptx/mirror, CRATESIO, rustc-demangle/0.1.27/download)
 GST_PLUGINS_RS_RUSTC_DEMANGLE_0_1_27_SOURCE	:= $(SRCDIR)/rustc-demangle-0.1.27.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTC_DEMANGLE_0_1_27
 
 GST_PLUGINS_RS_RUSTC_HASH_1_1_0_MD5		:= 7b1261ea730a9314bc9bcdf4a379bf98
-GST_PLUGINS_RS_RUSTC_HASH_1_1_0_URL		:= https://crates.io/api/v1/crates/rustc-hash/1.1.0/download
+GST_PLUGINS_RS_RUSTC_HASH_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, rustc-hash/1.1.0/download)
 GST_PLUGINS_RS_RUSTC_HASH_1_1_0_SOURCE	:= $(SRCDIR)/rustc-hash-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTC_HASH_1_1_0
 
 GST_PLUGINS_RS_RUSTC_HASH_2_1_1_MD5		:= 9f5da5d4deefacf77ae9ca3cbe5c7c6a
-GST_PLUGINS_RS_RUSTC_HASH_2_1_1_URL		:= https://crates.io/api/v1/crates/rustc-hash/2.1.1/download
+GST_PLUGINS_RS_RUSTC_HASH_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, rustc-hash/2.1.1/download)
 GST_PLUGINS_RS_RUSTC_HASH_2_1_1_SOURCE	:= $(SRCDIR)/rustc-hash-2.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTC_HASH_2_1_1
 
 GST_PLUGINS_RS_RUSTC_VERSION_0_4_1_MD5		:= 3dcd0f89abb6723ee3ddc24a7673a9c0
-GST_PLUGINS_RS_RUSTC_VERSION_0_4_1_URL		:= https://crates.io/api/v1/crates/rustc_version/0.4.1/download
+GST_PLUGINS_RS_RUSTC_VERSION_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, rustc_version/0.4.1/download)
 GST_PLUGINS_RS_RUSTC_VERSION_0_4_1_SOURCE	:= $(SRCDIR)/rustc_version-0.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTC_VERSION_0_4_1
 
 GST_PLUGINS_RS_RUSTDCT_0_7_1_MD5		:= 17c56242c062ed0b5d11b364ae4e1f73
-GST_PLUGINS_RS_RUSTDCT_0_7_1_URL		:= https://crates.io/api/v1/crates/rustdct/0.7.1/download
+GST_PLUGINS_RS_RUSTDCT_0_7_1_URL		:= $(call ptx/mirror, CRATESIO, rustdct/0.7.1/download)
 GST_PLUGINS_RS_RUSTDCT_0_7_1_SOURCE	:= $(SRCDIR)/rustdct-0.7.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTDCT_0_7_1
 
 GST_PLUGINS_RS_RUSTFFT_6_4_1_MD5		:= 2008717800f9f240f569adcfb27eca9d
-GST_PLUGINS_RS_RUSTFFT_6_4_1_URL		:= https://crates.io/api/v1/crates/rustfft/6.4.1/download
+GST_PLUGINS_RS_RUSTFFT_6_4_1_URL		:= $(call ptx/mirror, CRATESIO, rustfft/6.4.1/download)
 GST_PLUGINS_RS_RUSTFFT_6_4_1_SOURCE	:= $(SRCDIR)/rustfft-6.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTFFT_6_4_1
 
 GST_PLUGINS_RS_RUSTICATA_MACROS_4_1_0_MD5		:= 4c17d91b60aab0755f805e0259ff0e21
-GST_PLUGINS_RS_RUSTICATA_MACROS_4_1_0_URL		:= https://crates.io/api/v1/crates/rusticata-macros/4.1.0/download
+GST_PLUGINS_RS_RUSTICATA_MACROS_4_1_0_URL		:= $(call ptx/mirror, CRATESIO, rusticata-macros/4.1.0/download)
 GST_PLUGINS_RS_RUSTICATA_MACROS_4_1_0_SOURCE	:= $(SRCDIR)/rusticata-macros-4.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTICATA_MACROS_4_1_0
 
 GST_PLUGINS_RS_RUSTIX_0_38_44_MD5		:= 8391791c82ccf4f938ee8a58ea1d5e39
-GST_PLUGINS_RS_RUSTIX_0_38_44_URL		:= https://crates.io/api/v1/crates/rustix/0.38.44/download
+GST_PLUGINS_RS_RUSTIX_0_38_44_URL		:= $(call ptx/mirror, CRATESIO, rustix/0.38.44/download)
 GST_PLUGINS_RS_RUSTIX_0_38_44_SOURCE	:= $(SRCDIR)/rustix-0.38.44.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTIX_0_38_44
 
 GST_PLUGINS_RS_RUSTIX_1_1_4_MD5		:= 0a6b86d84ce6703664485db94718c08a
-GST_PLUGINS_RS_RUSTIX_1_1_4_URL		:= https://crates.io/api/v1/crates/rustix/1.1.4/download
+GST_PLUGINS_RS_RUSTIX_1_1_4_URL		:= $(call ptx/mirror, CRATESIO, rustix/1.1.4/download)
 GST_PLUGINS_RS_RUSTIX_1_1_4_SOURCE	:= $(SRCDIR)/rustix-1.1.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTIX_1_1_4
 
 GST_PLUGINS_RS_RUSTLS_0_21_12_MD5		:= fecd60334b6816d05cb484f7c34f9da0
-GST_PLUGINS_RS_RUSTLS_0_21_12_URL		:= https://crates.io/api/v1/crates/rustls/0.21.12/download
+GST_PLUGINS_RS_RUSTLS_0_21_12_URL		:= $(call ptx/mirror, CRATESIO, rustls/0.21.12/download)
 GST_PLUGINS_RS_RUSTLS_0_21_12_SOURCE	:= $(SRCDIR)/rustls-0.21.12.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_0_21_12
 
 GST_PLUGINS_RS_RUSTLS_0_22_4_MD5		:= 726db343085030d764acdd9aa54b0451
-GST_PLUGINS_RS_RUSTLS_0_22_4_URL		:= https://crates.io/api/v1/crates/rustls/0.22.4/download
+GST_PLUGINS_RS_RUSTLS_0_22_4_URL		:= $(call ptx/mirror, CRATESIO, rustls/0.22.4/download)
 GST_PLUGINS_RS_RUSTLS_0_22_4_SOURCE	:= $(SRCDIR)/rustls-0.22.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_0_22_4
 
 GST_PLUGINS_RS_RUSTLS_0_23_37_MD5		:= d2441a56590c5d5d519c4709866847fb
-GST_PLUGINS_RS_RUSTLS_0_23_37_URL		:= https://crates.io/api/v1/crates/rustls/0.23.37/download
+GST_PLUGINS_RS_RUSTLS_0_23_37_URL		:= $(call ptx/mirror, CRATESIO, rustls/0.23.37/download)
 GST_PLUGINS_RS_RUSTLS_0_23_37_SOURCE	:= $(SRCDIR)/rustls-0.23.37.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_0_23_37
 
 GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_6_3_MD5		:= 084b7be564e38bc109b9b70631e1784e
-GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_6_3_URL		:= https://crates.io/api/v1/crates/rustls-native-certs/0.6.3/download
+GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_6_3_URL		:= $(call ptx/mirror, CRATESIO, rustls-native-certs/0.6.3/download)
 GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_6_3_SOURCE	:= $(SRCDIR)/rustls-native-certs-0.6.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_6_3
 
 GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_7_3_MD5		:= 2c28d5207adefea7d90a7e485b75517d
-GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_7_3_URL		:= https://crates.io/api/v1/crates/rustls-native-certs/0.7.3/download
+GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_7_3_URL		:= $(call ptx/mirror, CRATESIO, rustls-native-certs/0.7.3/download)
 GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_7_3_SOURCE	:= $(SRCDIR)/rustls-native-certs-0.7.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_7_3
 
 GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_8_3_MD5		:= fc7d13de0454b07718b913b7abae5c61
-GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_8_3_URL		:= https://crates.io/api/v1/crates/rustls-native-certs/0.8.3/download
+GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_8_3_URL		:= $(call ptx/mirror, CRATESIO, rustls-native-certs/0.8.3/download)
 GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_8_3_SOURCE	:= $(SRCDIR)/rustls-native-certs-0.8.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_NATIVE_CERTS_0_8_3
 
 GST_PLUGINS_RS_RUSTLS_PEMFILE_1_0_4_MD5		:= 64f80235e287a272c4f841791884a1de
-GST_PLUGINS_RS_RUSTLS_PEMFILE_1_0_4_URL		:= https://crates.io/api/v1/crates/rustls-pemfile/1.0.4/download
+GST_PLUGINS_RS_RUSTLS_PEMFILE_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, rustls-pemfile/1.0.4/download)
 GST_PLUGINS_RS_RUSTLS_PEMFILE_1_0_4_SOURCE	:= $(SRCDIR)/rustls-pemfile-1.0.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_PEMFILE_1_0_4
 
 GST_PLUGINS_RS_RUSTLS_PEMFILE_2_2_0_MD5		:= 4b24bd32a2a5d6b5a23a75811e4a0748
-GST_PLUGINS_RS_RUSTLS_PEMFILE_2_2_0_URL		:= https://crates.io/api/v1/crates/rustls-pemfile/2.2.0/download
+GST_PLUGINS_RS_RUSTLS_PEMFILE_2_2_0_URL		:= $(call ptx/mirror, CRATESIO, rustls-pemfile/2.2.0/download)
 GST_PLUGINS_RS_RUSTLS_PEMFILE_2_2_0_SOURCE	:= $(SRCDIR)/rustls-pemfile-2.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_PEMFILE_2_2_0
 
 GST_PLUGINS_RS_RUSTLS_PKI_TYPES_1_14_0_MD5		:= c79f24b131629664b89d6f1ddaa5c93f
-GST_PLUGINS_RS_RUSTLS_PKI_TYPES_1_14_0_URL		:= https://crates.io/api/v1/crates/rustls-pki-types/1.14.0/download
+GST_PLUGINS_RS_RUSTLS_PKI_TYPES_1_14_0_URL		:= $(call ptx/mirror, CRATESIO, rustls-pki-types/1.14.0/download)
 GST_PLUGINS_RS_RUSTLS_PKI_TYPES_1_14_0_SOURCE	:= $(SRCDIR)/rustls-pki-types-1.14.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_PKI_TYPES_1_14_0
 
 GST_PLUGINS_RS_RUSTLS_PLATFORM_VERIFIER_0_6_2_MD5		:= c704003b1baf3b1d44cef757871016e7
-GST_PLUGINS_RS_RUSTLS_PLATFORM_VERIFIER_0_6_2_URL		:= https://crates.io/api/v1/crates/rustls-platform-verifier/0.6.2/download
+GST_PLUGINS_RS_RUSTLS_PLATFORM_VERIFIER_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, rustls-platform-verifier/0.6.2/download)
 GST_PLUGINS_RS_RUSTLS_PLATFORM_VERIFIER_0_6_2_SOURCE	:= $(SRCDIR)/rustls-platform-verifier-0.6.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_PLATFORM_VERIFIER_0_6_2
 
 GST_PLUGINS_RS_RUSTLS_PLATFORM_VERIFIER_ANDROID_0_1_1_MD5		:= fe89b5c8ce7887d299d9e50042234eb2
-GST_PLUGINS_RS_RUSTLS_PLATFORM_VERIFIER_ANDROID_0_1_1_URL		:= https://crates.io/api/v1/crates/rustls-platform-verifier-android/0.1.1/download
+GST_PLUGINS_RS_RUSTLS_PLATFORM_VERIFIER_ANDROID_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, rustls-platform-verifier-android/0.1.1/download)
 GST_PLUGINS_RS_RUSTLS_PLATFORM_VERIFIER_ANDROID_0_1_1_SOURCE	:= $(SRCDIR)/rustls-platform-verifier-android-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_PLATFORM_VERIFIER_ANDROID_0_1_1
 
 GST_PLUGINS_RS_RUSTLS_WEBPKI_0_101_7_MD5		:= 9a668fb72cd7aeefb4e48fc37bdc0a4e
-GST_PLUGINS_RS_RUSTLS_WEBPKI_0_101_7_URL		:= https://crates.io/api/v1/crates/rustls-webpki/0.101.7/download
+GST_PLUGINS_RS_RUSTLS_WEBPKI_0_101_7_URL		:= $(call ptx/mirror, CRATESIO, rustls-webpki/0.101.7/download)
 GST_PLUGINS_RS_RUSTLS_WEBPKI_0_101_7_SOURCE	:= $(SRCDIR)/rustls-webpki-0.101.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_WEBPKI_0_101_7
 
 GST_PLUGINS_RS_RUSTLS_WEBPKI_0_102_8_MD5		:= 852208752cf7c6a48a6f4a8ea92239eb
-GST_PLUGINS_RS_RUSTLS_WEBPKI_0_102_8_URL		:= https://crates.io/api/v1/crates/rustls-webpki/0.102.8/download
+GST_PLUGINS_RS_RUSTLS_WEBPKI_0_102_8_URL		:= $(call ptx/mirror, CRATESIO, rustls-webpki/0.102.8/download)
 GST_PLUGINS_RS_RUSTLS_WEBPKI_0_102_8_SOURCE	:= $(SRCDIR)/rustls-webpki-0.102.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_WEBPKI_0_102_8
 
 GST_PLUGINS_RS_RUSTLS_WEBPKI_0_103_9_MD5		:= 2eb72e44a5889530cc9de998d22d37e3
-GST_PLUGINS_RS_RUSTLS_WEBPKI_0_103_9_URL		:= https://crates.io/api/v1/crates/rustls-webpki/0.103.9/download
+GST_PLUGINS_RS_RUSTLS_WEBPKI_0_103_9_URL		:= $(call ptx/mirror, CRATESIO, rustls-webpki/0.103.9/download)
 GST_PLUGINS_RS_RUSTLS_WEBPKI_0_103_9_SOURCE	:= $(SRCDIR)/rustls-webpki-0.103.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTLS_WEBPKI_0_103_9
 
 GST_PLUGINS_RS_RUSTVERSION_1_0_22_MD5		:= e662b1464700d377cb89a8a9b59bd8c0
-GST_PLUGINS_RS_RUSTVERSION_1_0_22_URL		:= https://crates.io/api/v1/crates/rustversion/1.0.22/download
+GST_PLUGINS_RS_RUSTVERSION_1_0_22_URL		:= $(call ptx/mirror, CRATESIO, rustversion/1.0.22/download)
 GST_PLUGINS_RS_RUSTVERSION_1_0_22_SOURCE	:= $(SRCDIR)/rustversion-1.0.22.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RUSTVERSION_1_0_22
 
 GST_PLUGINS_RS_RYU_1_0_23_MD5		:= f536f5cb15fa6909887c0ba3a9ba7474
-GST_PLUGINS_RS_RYU_1_0_23_URL		:= https://crates.io/api/v1/crates/ryu/1.0.23/download
+GST_PLUGINS_RS_RYU_1_0_23_URL		:= $(call ptx/mirror, CRATESIO, ryu/1.0.23/download)
 GST_PLUGINS_RS_RYU_1_0_23_SOURCE	:= $(SRCDIR)/ryu-1.0.23.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_RYU_1_0_23
 
 GST_PLUGINS_RS_SAFETENSORS_0_7_0_MD5		:= e5509b02dabf8c62a65e17298f6e9ffa
-GST_PLUGINS_RS_SAFETENSORS_0_7_0_URL		:= https://crates.io/api/v1/crates/safetensors/0.7.0/download
+GST_PLUGINS_RS_SAFETENSORS_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, safetensors/0.7.0/download)
 GST_PLUGINS_RS_SAFETENSORS_0_7_0_SOURCE	:= $(SRCDIR)/safetensors-0.7.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SAFETENSORS_0_7_0
 
 GST_PLUGINS_RS_SAME_FILE_1_0_6_MD5		:= 2d8d8b377d144f5e32b4f65a69eb0b24
-GST_PLUGINS_RS_SAME_FILE_1_0_6_URL		:= https://crates.io/api/v1/crates/same-file/1.0.6/download
+GST_PLUGINS_RS_SAME_FILE_1_0_6_URL		:= $(call ptx/mirror, CRATESIO, same-file/1.0.6/download)
 GST_PLUGINS_RS_SAME_FILE_1_0_6_SOURCE	:= $(SRCDIR)/same-file-1.0.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SAME_FILE_1_0_6
 
 GST_PLUGINS_RS_SANITIZE_FILENAME_0_6_0_MD5		:= 036a448b68ede8fa8f82352671381a4d
-GST_PLUGINS_RS_SANITIZE_FILENAME_0_6_0_URL		:= https://crates.io/api/v1/crates/sanitize-filename/0.6.0/download
+GST_PLUGINS_RS_SANITIZE_FILENAME_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, sanitize-filename/0.6.0/download)
 GST_PLUGINS_RS_SANITIZE_FILENAME_0_6_0_SOURCE	:= $(SRCDIR)/sanitize-filename-0.6.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SANITIZE_FILENAME_0_6_0
 
 GST_PLUGINS_RS_SCC_2_4_0_MD5		:= 642aea677e78209dded0d63dab98fa10
-GST_PLUGINS_RS_SCC_2_4_0_URL		:= https://crates.io/api/v1/crates/scc/2.4.0/download
+GST_PLUGINS_RS_SCC_2_4_0_URL		:= $(call ptx/mirror, CRATESIO, scc/2.4.0/download)
 GST_PLUGINS_RS_SCC_2_4_0_SOURCE	:= $(SRCDIR)/scc-2.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SCC_2_4_0
 
 GST_PLUGINS_RS_SCHANNEL_0_1_28_MD5		:= c4526bf321f0061a0670fc4abedfd26f
-GST_PLUGINS_RS_SCHANNEL_0_1_28_URL		:= https://crates.io/api/v1/crates/schannel/0.1.28/download
+GST_PLUGINS_RS_SCHANNEL_0_1_28_URL		:= $(call ptx/mirror, CRATESIO, schannel/0.1.28/download)
 GST_PLUGINS_RS_SCHANNEL_0_1_28_SOURCE	:= $(SRCDIR)/schannel-0.1.28.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SCHANNEL_0_1_28
 
 GST_PLUGINS_RS_SCHEMARS_0_9_0_MD5		:= d63e1e3fea9c51dd39d6b9d3e7e6f80b
-GST_PLUGINS_RS_SCHEMARS_0_9_0_URL		:= https://crates.io/api/v1/crates/schemars/0.9.0/download
+GST_PLUGINS_RS_SCHEMARS_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, schemars/0.9.0/download)
 GST_PLUGINS_RS_SCHEMARS_0_9_0_SOURCE	:= $(SRCDIR)/schemars-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SCHEMARS_0_9_0
 
 GST_PLUGINS_RS_SCHEMARS_1_2_1_MD5		:= 55573457e5f869baa026f8b442d89d44
-GST_PLUGINS_RS_SCHEMARS_1_2_1_URL		:= https://crates.io/api/v1/crates/schemars/1.2.1/download
+GST_PLUGINS_RS_SCHEMARS_1_2_1_URL		:= $(call ptx/mirror, CRATESIO, schemars/1.2.1/download)
 GST_PLUGINS_RS_SCHEMARS_1_2_1_SOURCE	:= $(SRCDIR)/schemars-1.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SCHEMARS_1_2_1
 
 GST_PLUGINS_RS_SCOPED_TLS_1_0_1_MD5		:= b898bcf321bba46ecd15c9279cdbb290
-GST_PLUGINS_RS_SCOPED_TLS_1_0_1_URL		:= https://crates.io/api/v1/crates/scoped-tls/1.0.1/download
+GST_PLUGINS_RS_SCOPED_TLS_1_0_1_URL		:= $(call ptx/mirror, CRATESIO, scoped-tls/1.0.1/download)
 GST_PLUGINS_RS_SCOPED_TLS_1_0_1_SOURCE	:= $(SRCDIR)/scoped-tls-1.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SCOPED_TLS_1_0_1
 
 GST_PLUGINS_RS_SCOPEGUARD_1_2_0_MD5		:= f1358be8c98b98837cbd2cf51e75f8b3
-GST_PLUGINS_RS_SCOPEGUARD_1_2_0_URL		:= https://crates.io/api/v1/crates/scopeguard/1.2.0/download
+GST_PLUGINS_RS_SCOPEGUARD_1_2_0_URL		:= $(call ptx/mirror, CRATESIO, scopeguard/1.2.0/download)
 GST_PLUGINS_RS_SCOPEGUARD_1_2_0_SOURCE	:= $(SRCDIR)/scopeguard-1.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SCOPEGUARD_1_2_0
 
 GST_PLUGINS_RS_SCT_0_7_1_MD5		:= c5a05bb3260e6a4b5d61cf78618f6021
-GST_PLUGINS_RS_SCT_0_7_1_URL		:= https://crates.io/api/v1/crates/sct/0.7.1/download
+GST_PLUGINS_RS_SCT_0_7_1_URL		:= $(call ptx/mirror, CRATESIO, sct/0.7.1/download)
 GST_PLUGINS_RS_SCT_0_7_1_SOURCE	:= $(SRCDIR)/sct-0.7.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SCT_0_7_1
 
 GST_PLUGINS_RS_SDD_3_0_10_MD5		:= d28895a62d461c91582bd6e3c3f16bb7
-GST_PLUGINS_RS_SDD_3_0_10_URL		:= https://crates.io/api/v1/crates/sdd/3.0.10/download
+GST_PLUGINS_RS_SDD_3_0_10_URL		:= $(call ptx/mirror, CRATESIO, sdd/3.0.10/download)
 GST_PLUGINS_RS_SDD_3_0_10_SOURCE	:= $(SRCDIR)/sdd-3.0.10.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SDD_3_0_10
 
 GST_PLUGINS_RS_SDP_TYPES_0_1_8_MD5		:= 892d2309cced8d218ebb1a29cda2566c
-GST_PLUGINS_RS_SDP_TYPES_0_1_8_URL		:= https://crates.io/api/v1/crates/sdp-types/0.1.8/download
+GST_PLUGINS_RS_SDP_TYPES_0_1_8_URL		:= $(call ptx/mirror, CRATESIO, sdp-types/0.1.8/download)
 GST_PLUGINS_RS_SDP_TYPES_0_1_8_SOURCE	:= $(SRCDIR)/sdp-types-0.1.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SDP_TYPES_0_1_8
 
 GST_PLUGINS_RS_SEC1_0_3_0_MD5		:= 25ae59415304320ebb1536e5facaf4ed
-GST_PLUGINS_RS_SEC1_0_3_0_URL		:= https://crates.io/api/v1/crates/sec1/0.3.0/download
+GST_PLUGINS_RS_SEC1_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, sec1/0.3.0/download)
 GST_PLUGINS_RS_SEC1_0_3_0_SOURCE	:= $(SRCDIR)/sec1-0.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SEC1_0_3_0
 
 GST_PLUGINS_RS_SECURITY_FRAMEWORK_2_11_1_MD5		:= 3b3ebed978a7c19de258926438888de5
-GST_PLUGINS_RS_SECURITY_FRAMEWORK_2_11_1_URL		:= https://crates.io/api/v1/crates/security-framework/2.11.1/download
+GST_PLUGINS_RS_SECURITY_FRAMEWORK_2_11_1_URL		:= $(call ptx/mirror, CRATESIO, security-framework/2.11.1/download)
 GST_PLUGINS_RS_SECURITY_FRAMEWORK_2_11_1_SOURCE	:= $(SRCDIR)/security-framework-2.11.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SECURITY_FRAMEWORK_2_11_1
 
 GST_PLUGINS_RS_SECURITY_FRAMEWORK_3_7_0_MD5		:= f2dfc93b8c3eb0ccefb7fbaa9b4defc4
-GST_PLUGINS_RS_SECURITY_FRAMEWORK_3_7_0_URL		:= https://crates.io/api/v1/crates/security-framework/3.7.0/download
+GST_PLUGINS_RS_SECURITY_FRAMEWORK_3_7_0_URL		:= $(call ptx/mirror, CRATESIO, security-framework/3.7.0/download)
 GST_PLUGINS_RS_SECURITY_FRAMEWORK_3_7_0_SOURCE	:= $(SRCDIR)/security-framework-3.7.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SECURITY_FRAMEWORK_3_7_0
 
 GST_PLUGINS_RS_SECURITY_FRAMEWORK_SYS_2_17_0_MD5		:= 030ff57f06cd6011f6cc119b860f7804
-GST_PLUGINS_RS_SECURITY_FRAMEWORK_SYS_2_17_0_URL		:= https://crates.io/api/v1/crates/security-framework-sys/2.17.0/download
+GST_PLUGINS_RS_SECURITY_FRAMEWORK_SYS_2_17_0_URL		:= $(call ptx/mirror, CRATESIO, security-framework-sys/2.17.0/download)
 GST_PLUGINS_RS_SECURITY_FRAMEWORK_SYS_2_17_0_SOURCE	:= $(SRCDIR)/security-framework-sys-2.17.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SECURITY_FRAMEWORK_SYS_2_17_0
 
 GST_PLUGINS_RS_SEMVER_1_0_27_MD5		:= 47a71e25c316729a529ade4ce1ba5f5c
-GST_PLUGINS_RS_SEMVER_1_0_27_URL		:= https://crates.io/api/v1/crates/semver/1.0.27/download
+GST_PLUGINS_RS_SEMVER_1_0_27_URL		:= $(call ptx/mirror, CRATESIO, semver/1.0.27/download)
 GST_PLUGINS_RS_SEMVER_1_0_27_SOURCE	:= $(SRCDIR)/semver-1.0.27.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SEMVER_1_0_27
 
 GST_PLUGINS_RS_SERDE_1_0_228_MD5		:= d156b7c4a314664880656902717747ed
-GST_PLUGINS_RS_SERDE_1_0_228_URL		:= https://crates.io/api/v1/crates/serde/1.0.228/download
+GST_PLUGINS_RS_SERDE_1_0_228_URL		:= $(call ptx/mirror, CRATESIO, serde/1.0.228/download)
 GST_PLUGINS_RS_SERDE_1_0_228_SOURCE	:= $(SRCDIR)/serde-1.0.228.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERDE_1_0_228
 
 GST_PLUGINS_RS_SERDE_BYTES_0_11_19_MD5		:= 06d60ccc831bdf352572712f7fc0e190
-GST_PLUGINS_RS_SERDE_BYTES_0_11_19_URL		:= https://crates.io/api/v1/crates/serde_bytes/0.11.19/download
+GST_PLUGINS_RS_SERDE_BYTES_0_11_19_URL		:= $(call ptx/mirror, CRATESIO, serde_bytes/0.11.19/download)
 GST_PLUGINS_RS_SERDE_BYTES_0_11_19_SOURCE	:= $(SRCDIR)/serde_bytes-0.11.19.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERDE_BYTES_0_11_19
 
 GST_PLUGINS_RS_SERDE_CORE_1_0_228_MD5		:= 60d4c4f575afc314d644677feb1289c1
-GST_PLUGINS_RS_SERDE_CORE_1_0_228_URL		:= https://crates.io/api/v1/crates/serde_core/1.0.228/download
+GST_PLUGINS_RS_SERDE_CORE_1_0_228_URL		:= $(call ptx/mirror, CRATESIO, serde_core/1.0.228/download)
 GST_PLUGINS_RS_SERDE_CORE_1_0_228_SOURCE	:= $(SRCDIR)/serde_core-1.0.228.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERDE_CORE_1_0_228
 
 GST_PLUGINS_RS_SERDE_DERIVE_1_0_228_MD5		:= 45ca53c87e6fb9748e740a9298e2c14c
-GST_PLUGINS_RS_SERDE_DERIVE_1_0_228_URL		:= https://crates.io/api/v1/crates/serde_derive/1.0.228/download
+GST_PLUGINS_RS_SERDE_DERIVE_1_0_228_URL		:= $(call ptx/mirror, CRATESIO, serde_derive/1.0.228/download)
 GST_PLUGINS_RS_SERDE_DERIVE_1_0_228_SOURCE	:= $(SRCDIR)/serde_derive-1.0.228.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERDE_DERIVE_1_0_228
 
 GST_PLUGINS_RS_SERDE_JSON_1_0_149_MD5		:= 10164f24ab04c289c629028667a273ca
-GST_PLUGINS_RS_SERDE_JSON_1_0_149_URL		:= https://crates.io/api/v1/crates/serde_json/1.0.149/download
+GST_PLUGINS_RS_SERDE_JSON_1_0_149_URL		:= $(call ptx/mirror, CRATESIO, serde_json/1.0.149/download)
 GST_PLUGINS_RS_SERDE_JSON_1_0_149_SOURCE	:= $(SRCDIR)/serde_json-1.0.149.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERDE_JSON_1_0_149
 
 GST_PLUGINS_RS_SERDE_PATH_TO_ERROR_0_1_20_MD5		:= 47e699dfc9712fccc0e94e894f5cb7fd
-GST_PLUGINS_RS_SERDE_PATH_TO_ERROR_0_1_20_URL		:= https://crates.io/api/v1/crates/serde_path_to_error/0.1.20/download
+GST_PLUGINS_RS_SERDE_PATH_TO_ERROR_0_1_20_URL		:= $(call ptx/mirror, CRATESIO, serde_path_to_error/0.1.20/download)
 GST_PLUGINS_RS_SERDE_PATH_TO_ERROR_0_1_20_SOURCE	:= $(SRCDIR)/serde_path_to_error-0.1.20.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERDE_PATH_TO_ERROR_0_1_20
 
 GST_PLUGINS_RS_SERDE_SPANNED_1_0_4_MD5		:= 15603a17a0d683c7c50d4b7db22ddf58
-GST_PLUGINS_RS_SERDE_SPANNED_1_0_4_URL		:= https://crates.io/api/v1/crates/serde_spanned/1.0.4/download
+GST_PLUGINS_RS_SERDE_SPANNED_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, serde_spanned/1.0.4/download)
 GST_PLUGINS_RS_SERDE_SPANNED_1_0_4_SOURCE	:= $(SRCDIR)/serde_spanned-1.0.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERDE_SPANNED_1_0_4
 
 GST_PLUGINS_RS_SERDE_URLENCODED_0_7_1_MD5		:= 47151b766b6b73e638fabe6fae7b723d
-GST_PLUGINS_RS_SERDE_URLENCODED_0_7_1_URL		:= https://crates.io/api/v1/crates/serde_urlencoded/0.7.1/download
+GST_PLUGINS_RS_SERDE_URLENCODED_0_7_1_URL		:= $(call ptx/mirror, CRATESIO, serde_urlencoded/0.7.1/download)
 GST_PLUGINS_RS_SERDE_URLENCODED_0_7_1_SOURCE	:= $(SRCDIR)/serde_urlencoded-0.7.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERDE_URLENCODED_0_7_1
 
 GST_PLUGINS_RS_SERDE_WITH_3_17_0_MD5		:= b7c2cd274ce41a8cf0a361cdeaa9a557
-GST_PLUGINS_RS_SERDE_WITH_3_17_0_URL		:= https://crates.io/api/v1/crates/serde_with/3.17.0/download
+GST_PLUGINS_RS_SERDE_WITH_3_17_0_URL		:= $(call ptx/mirror, CRATESIO, serde_with/3.17.0/download)
 GST_PLUGINS_RS_SERDE_WITH_3_17_0_SOURCE	:= $(SRCDIR)/serde_with-3.17.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERDE_WITH_3_17_0
 
 GST_PLUGINS_RS_SERDE_WITH_MACROS_3_17_0_MD5		:= f4cf0492e6278ae6aa800082a340f9e1
-GST_PLUGINS_RS_SERDE_WITH_MACROS_3_17_0_URL		:= https://crates.io/api/v1/crates/serde_with_macros/3.17.0/download
+GST_PLUGINS_RS_SERDE_WITH_MACROS_3_17_0_URL		:= $(call ptx/mirror, CRATESIO, serde_with_macros/3.17.0/download)
 GST_PLUGINS_RS_SERDE_WITH_MACROS_3_17_0_SOURCE	:= $(SRCDIR)/serde_with_macros-3.17.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERDE_WITH_MACROS_3_17_0
 
 GST_PLUGINS_RS_SERIAL_TEST_3_4_0_MD5		:= 904915d9636e2189e865313af777d8ad
-GST_PLUGINS_RS_SERIAL_TEST_3_4_0_URL		:= https://crates.io/api/v1/crates/serial_test/3.4.0/download
+GST_PLUGINS_RS_SERIAL_TEST_3_4_0_URL		:= $(call ptx/mirror, CRATESIO, serial_test/3.4.0/download)
 GST_PLUGINS_RS_SERIAL_TEST_3_4_0_SOURCE	:= $(SRCDIR)/serial_test-3.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERIAL_TEST_3_4_0
 
 GST_PLUGINS_RS_SERIAL_TEST_DERIVE_3_4_0_MD5		:= ca7aea6142d55e247b15aef20b89e0bc
-GST_PLUGINS_RS_SERIAL_TEST_DERIVE_3_4_0_URL		:= https://crates.io/api/v1/crates/serial_test_derive/3.4.0/download
+GST_PLUGINS_RS_SERIAL_TEST_DERIVE_3_4_0_URL		:= $(call ptx/mirror, CRATESIO, serial_test_derive/3.4.0/download)
 GST_PLUGINS_RS_SERIAL_TEST_DERIVE_3_4_0_SOURCE	:= $(SRCDIR)/serial_test_derive-3.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SERIAL_TEST_DERIVE_3_4_0
 
 GST_PLUGINS_RS_SFV_0_14_0_MD5		:= a73b7bf93d031f27d8793b78474cef49
-GST_PLUGINS_RS_SFV_0_14_0_URL		:= https://crates.io/api/v1/crates/sfv/0.14.0/download
+GST_PLUGINS_RS_SFV_0_14_0_URL		:= $(call ptx/mirror, CRATESIO, sfv/0.14.0/download)
 GST_PLUGINS_RS_SFV_0_14_0_SOURCE	:= $(SRCDIR)/sfv-0.14.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SFV_0_14_0
 
 GST_PLUGINS_RS_SHA1_0_10_6_MD5		:= d7602381c0bc21d10603cc940a837b06
-GST_PLUGINS_RS_SHA1_0_10_6_URL		:= https://crates.io/api/v1/crates/sha1/0.10.6/download
+GST_PLUGINS_RS_SHA1_0_10_6_URL		:= $(call ptx/mirror, CRATESIO, sha1/0.10.6/download)
 GST_PLUGINS_RS_SHA1_0_10_6_SOURCE	:= $(SRCDIR)/sha1-0.10.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SHA1_0_10_6
 
 GST_PLUGINS_RS_SHA2_0_10_9_MD5		:= 295e503f197dd34556876b97c60b87c1
-GST_PLUGINS_RS_SHA2_0_10_9_URL		:= https://crates.io/api/v1/crates/sha2/0.10.9/download
+GST_PLUGINS_RS_SHA2_0_10_9_URL		:= $(call ptx/mirror, CRATESIO, sha2/0.10.9/download)
 GST_PLUGINS_RS_SHA2_0_10_9_SOURCE	:= $(SRCDIR)/sha2-0.10.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SHA2_0_10_9
 
 GST_PLUGINS_RS_SHA256_1_6_0_MD5		:= 0bbef13f7225a28d827400fac461d340
-GST_PLUGINS_RS_SHA256_1_6_0_URL		:= https://crates.io/api/v1/crates/sha256/1.6.0/download
+GST_PLUGINS_RS_SHA256_1_6_0_URL		:= $(call ptx/mirror, CRATESIO, sha256/1.6.0/download)
 GST_PLUGINS_RS_SHA256_1_6_0_SOURCE	:= $(SRCDIR)/sha256-1.6.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SHA256_1_6_0
 
 GST_PLUGINS_RS_SHANNON_0_2_0_MD5		:= 31bc883e6f9b36925f55460401197274
-GST_PLUGINS_RS_SHANNON_0_2_0_URL		:= https://crates.io/api/v1/crates/shannon/0.2.0/download
+GST_PLUGINS_RS_SHANNON_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, shannon/0.2.0/download)
 GST_PLUGINS_RS_SHANNON_0_2_0_SOURCE	:= $(SRCDIR)/shannon-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SHANNON_0_2_0
 
 GST_PLUGINS_RS_SHARDED_SLAB_0_1_7_MD5		:= 96261f3cee18842060fd64d618e056d8
-GST_PLUGINS_RS_SHARDED_SLAB_0_1_7_URL		:= https://crates.io/api/v1/crates/sharded-slab/0.1.7/download
+GST_PLUGINS_RS_SHARDED_SLAB_0_1_7_URL		:= $(call ptx/mirror, CRATESIO, sharded-slab/0.1.7/download)
 GST_PLUGINS_RS_SHARDED_SLAB_0_1_7_SOURCE	:= $(SRCDIR)/sharded-slab-0.1.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SHARDED_SLAB_0_1_7
 
 GST_PLUGINS_RS_SHELL_WORDS_1_1_1_MD5		:= baea6ab0ad0e707176e0852b62342432
-GST_PLUGINS_RS_SHELL_WORDS_1_1_1_URL		:= https://crates.io/api/v1/crates/shell-words/1.1.1/download
+GST_PLUGINS_RS_SHELL_WORDS_1_1_1_URL		:= $(call ptx/mirror, CRATESIO, shell-words/1.1.1/download)
 GST_PLUGINS_RS_SHELL_WORDS_1_1_1_SOURCE	:= $(SRCDIR)/shell-words-1.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SHELL_WORDS_1_1_1
 
 GST_PLUGINS_RS_SHLEX_1_3_0_MD5		:= 6c623a8eed8450399ec323a72e96855c
-GST_PLUGINS_RS_SHLEX_1_3_0_URL		:= https://crates.io/api/v1/crates/shlex/1.3.0/download
+GST_PLUGINS_RS_SHLEX_1_3_0_URL		:= $(call ptx/mirror, CRATESIO, shlex/1.3.0/download)
 GST_PLUGINS_RS_SHLEX_1_3_0_SOURCE	:= $(SRCDIR)/shlex-1.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SHLEX_1_3_0
 
 GST_PLUGINS_RS_SIGNAL_HOOK_0_4_3_MD5		:= 8a568cbc041ce45f83e3b1c348b018ea
-GST_PLUGINS_RS_SIGNAL_HOOK_0_4_3_URL		:= https://crates.io/api/v1/crates/signal-hook/0.4.3/download
+GST_PLUGINS_RS_SIGNAL_HOOK_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, signal-hook/0.4.3/download)
 GST_PLUGINS_RS_SIGNAL_HOOK_0_4_3_SOURCE	:= $(SRCDIR)/signal-hook-0.4.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SIGNAL_HOOK_0_4_3
 
 GST_PLUGINS_RS_SIGNAL_HOOK_REGISTRY_1_4_8_MD5		:= 7a11a8c075b55ab9b8c7771520f95352
-GST_PLUGINS_RS_SIGNAL_HOOK_REGISTRY_1_4_8_URL		:= https://crates.io/api/v1/crates/signal-hook-registry/1.4.8/download
+GST_PLUGINS_RS_SIGNAL_HOOK_REGISTRY_1_4_8_URL		:= $(call ptx/mirror, CRATESIO, signal-hook-registry/1.4.8/download)
 GST_PLUGINS_RS_SIGNAL_HOOK_REGISTRY_1_4_8_SOURCE	:= $(SRCDIR)/signal-hook-registry-1.4.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SIGNAL_HOOK_REGISTRY_1_4_8
 
 GST_PLUGINS_RS_SIGNALSMITH_STRETCH_0_1_3_MD5		:= e95daf5e81c7ad6040fa506ce5954c53
-GST_PLUGINS_RS_SIGNALSMITH_STRETCH_0_1_3_URL		:= https://crates.io/api/v1/crates/signalsmith-stretch/0.1.3/download
+GST_PLUGINS_RS_SIGNALSMITH_STRETCH_0_1_3_URL		:= $(call ptx/mirror, CRATESIO, signalsmith-stretch/0.1.3/download)
 GST_PLUGINS_RS_SIGNALSMITH_STRETCH_0_1_3_SOURCE	:= $(SRCDIR)/signalsmith-stretch-0.1.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SIGNALSMITH_STRETCH_0_1_3
 
 GST_PLUGINS_RS_SIGNATURE_1_6_4_MD5		:= 7e18daae5710423266c13dc8556103b0
-GST_PLUGINS_RS_SIGNATURE_1_6_4_URL		:= https://crates.io/api/v1/crates/signature/1.6.4/download
+GST_PLUGINS_RS_SIGNATURE_1_6_4_URL		:= $(call ptx/mirror, CRATESIO, signature/1.6.4/download)
 GST_PLUGINS_RS_SIGNATURE_1_6_4_SOURCE	:= $(SRCDIR)/signature-1.6.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SIGNATURE_1_6_4
 
 GST_PLUGINS_RS_SIGNATURE_2_2_0_MD5		:= a5f10909341dab15fcdee74b0409ec69
-GST_PLUGINS_RS_SIGNATURE_2_2_0_URL		:= https://crates.io/api/v1/crates/signature/2.2.0/download
+GST_PLUGINS_RS_SIGNATURE_2_2_0_URL		:= $(call ptx/mirror, CRATESIO, signature/2.2.0/download)
 GST_PLUGINS_RS_SIGNATURE_2_2_0_SOURCE	:= $(SRCDIR)/signature-2.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SIGNATURE_2_2_0
 
 GST_PLUGINS_RS_SIMD_ADLER32_0_3_8_MD5		:= c21092e1613c25704d1b7295a9775868
-GST_PLUGINS_RS_SIMD_ADLER32_0_3_8_URL		:= https://crates.io/api/v1/crates/simd-adler32/0.3.8/download
+GST_PLUGINS_RS_SIMD_ADLER32_0_3_8_URL		:= $(call ptx/mirror, CRATESIO, simd-adler32/0.3.8/download)
 GST_PLUGINS_RS_SIMD_ADLER32_0_3_8_SOURCE	:= $(SRCDIR)/simd-adler32-0.3.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SIMD_ADLER32_0_3_8
 
 GST_PLUGINS_RS_SIMD_HELPERS_0_1_0_MD5		:= 3fa17e3e59c041e59e715c6d4e7a15b3
-GST_PLUGINS_RS_SIMD_HELPERS_0_1_0_URL		:= https://crates.io/api/v1/crates/simd_helpers/0.1.0/download
+GST_PLUGINS_RS_SIMD_HELPERS_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, simd_helpers/0.1.0/download)
 GST_PLUGINS_RS_SIMD_HELPERS_0_1_0_SOURCE	:= $(SRCDIR)/simd_helpers-0.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SIMD_HELPERS_0_1_0
 
 GST_PLUGINS_RS_SIPHASHER_1_0_2_MD5		:= da295881bf2183216377b531a92a371c
-GST_PLUGINS_RS_SIPHASHER_1_0_2_URL		:= https://crates.io/api/v1/crates/siphasher/1.0.2/download
+GST_PLUGINS_RS_SIPHASHER_1_0_2_URL		:= $(call ptx/mirror, CRATESIO, siphasher/1.0.2/download)
 GST_PLUGINS_RS_SIPHASHER_1_0_2_SOURCE	:= $(SRCDIR)/siphasher-1.0.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SIPHASHER_1_0_2
 
 GST_PLUGINS_RS_SKIA_BINDINGS_0_93_1_MD5		:= 0bfe511d216b4a77fac88784a07310c9
-GST_PLUGINS_RS_SKIA_BINDINGS_0_93_1_URL		:= https://crates.io/api/v1/crates/skia-bindings/0.93.1/download
+GST_PLUGINS_RS_SKIA_BINDINGS_0_93_1_URL		:= $(call ptx/mirror, CRATESIO, skia-bindings/0.93.1/download)
 GST_PLUGINS_RS_SKIA_BINDINGS_0_93_1_SOURCE	:= $(SRCDIR)/skia-bindings-0.93.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SKIA_BINDINGS_0_93_1
 
 GST_PLUGINS_RS_SKIA_SAFE_0_93_1_MD5		:= 5b7cf25ce5225b1c126ce48384acc7d3
-GST_PLUGINS_RS_SKIA_SAFE_0_93_1_URL		:= https://crates.io/api/v1/crates/skia-safe/0.93.1/download
+GST_PLUGINS_RS_SKIA_SAFE_0_93_1_URL		:= $(call ptx/mirror, CRATESIO, skia-safe/0.93.1/download)
 GST_PLUGINS_RS_SKIA_SAFE_0_93_1_SOURCE	:= $(SRCDIR)/skia-safe-0.93.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SKIA_SAFE_0_93_1
 
 GST_PLUGINS_RS_SLAB_0_4_12_MD5		:= e6122636524bff66e5ac90cf7ce0d17c
-GST_PLUGINS_RS_SLAB_0_4_12_URL		:= https://crates.io/api/v1/crates/slab/0.4.12/download
+GST_PLUGINS_RS_SLAB_0_4_12_URL		:= $(call ptx/mirror, CRATESIO, slab/0.4.12/download)
 GST_PLUGINS_RS_SLAB_0_4_12_SOURCE	:= $(SRCDIR)/slab-0.4.12.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SLAB_0_4_12
 
 GST_PLUGINS_RS_SLOTMAP_1_1_1_MD5		:= 7941b0fedfc722389cc11eb1309ab509
-GST_PLUGINS_RS_SLOTMAP_1_1_1_URL		:= https://crates.io/api/v1/crates/slotmap/1.1.1/download
+GST_PLUGINS_RS_SLOTMAP_1_1_1_URL		:= $(call ptx/mirror, CRATESIO, slotmap/1.1.1/download)
 GST_PLUGINS_RS_SLOTMAP_1_1_1_SOURCE	:= $(SRCDIR)/slotmap-1.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SLOTMAP_1_1_1
 
 GST_PLUGINS_RS_SLUG_0_1_6_MD5		:= 70b68cafcee2556b38439a53c75d8a36
-GST_PLUGINS_RS_SLUG_0_1_6_URL		:= https://crates.io/api/v1/crates/slug/0.1.6/download
+GST_PLUGINS_RS_SLUG_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, slug/0.1.6/download)
 GST_PLUGINS_RS_SLUG_0_1_6_SOURCE	:= $(SRCDIR)/slug-0.1.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SLUG_0_1_6
 
 GST_PLUGINS_RS_SMALLVEC_1_15_1_MD5		:= bff9f5bd01b620680a98b1c59d92df7c
-GST_PLUGINS_RS_SMALLVEC_1_15_1_URL		:= https://crates.io/api/v1/crates/smallvec/1.15.1/download
+GST_PLUGINS_RS_SMALLVEC_1_15_1_URL		:= $(call ptx/mirror, CRATESIO, smallvec/1.15.1/download)
 GST_PLUGINS_RS_SMALLVEC_1_15_1_SOURCE	:= $(SRCDIR)/smallvec-1.15.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SMALLVEC_1_15_1
 
 GST_PLUGINS_RS_SMAWK_0_3_2_MD5		:= ea275797b6ebf7a4089a9b005ced5e6e
-GST_PLUGINS_RS_SMAWK_0_3_2_URL		:= https://crates.io/api/v1/crates/smawk/0.3.2/download
+GST_PLUGINS_RS_SMAWK_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, smawk/0.3.2/download)
 GST_PLUGINS_RS_SMAWK_0_3_2_SOURCE	:= $(SRCDIR)/smawk-0.3.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SMAWK_0_3_2
 
 GST_PLUGINS_RS_SOCKET2_0_5_10_MD5		:= 9a4322c66721f69dc43383e21b8a2852
-GST_PLUGINS_RS_SOCKET2_0_5_10_URL		:= https://crates.io/api/v1/crates/socket2/0.5.10/download
+GST_PLUGINS_RS_SOCKET2_0_5_10_URL		:= $(call ptx/mirror, CRATESIO, socket2/0.5.10/download)
 GST_PLUGINS_RS_SOCKET2_0_5_10_SOURCE	:= $(SRCDIR)/socket2-0.5.10.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SOCKET2_0_5_10
 
 GST_PLUGINS_RS_SOCKET2_0_6_2_MD5		:= f152e30ff3fb6d222c5c079dac081b34
-GST_PLUGINS_RS_SOCKET2_0_6_2_URL		:= https://crates.io/api/v1/crates/socket2/0.6.2/download
+GST_PLUGINS_RS_SOCKET2_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, socket2/0.6.2/download)
 GST_PLUGINS_RS_SOCKET2_0_6_2_SOURCE	:= $(SRCDIR)/socket2-0.6.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SOCKET2_0_6_2
 
 GST_PLUGINS_RS_SODIUMOXIDE_0_2_7_MD5		:= 81bce807288b9d5cfe4952c5f78e37de
-GST_PLUGINS_RS_SODIUMOXIDE_0_2_7_URL		:= https://crates.io/api/v1/crates/sodiumoxide/0.2.7/download
+GST_PLUGINS_RS_SODIUMOXIDE_0_2_7_URL		:= $(call ptx/mirror, CRATESIO, sodiumoxide/0.2.7/download)
 GST_PLUGINS_RS_SODIUMOXIDE_0_2_7_SOURCE	:= $(SRCDIR)/sodiumoxide-0.2.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SODIUMOXIDE_0_2_7
 
 GST_PLUGINS_RS_SPIN_0_9_8_MD5		:= ae0a9c293bf6cb72cd62d6b9486356c0
-GST_PLUGINS_RS_SPIN_0_9_8_URL		:= https://crates.io/api/v1/crates/spin/0.9.8/download
+GST_PLUGINS_RS_SPIN_0_9_8_URL		:= $(call ptx/mirror, CRATESIO, spin/0.9.8/download)
 GST_PLUGINS_RS_SPIN_0_9_8_SOURCE	:= $(SRCDIR)/spin-0.9.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SPIN_0_9_8
 
 GST_PLUGINS_RS_SPIN_0_10_0_MD5		:= ec9daac7f21ade68fbf9e009ab327de1
-GST_PLUGINS_RS_SPIN_0_10_0_URL		:= https://crates.io/api/v1/crates/spin/0.10.0/download
+GST_PLUGINS_RS_SPIN_0_10_0_URL		:= $(call ptx/mirror, CRATESIO, spin/0.10.0/download)
 GST_PLUGINS_RS_SPIN_0_10_0_SOURCE	:= $(SRCDIR)/spin-0.10.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SPIN_0_10_0
 
 GST_PLUGINS_RS_SPINNING_TOP_0_3_0_MD5		:= b23d944a76aef4eec2081e5512afe123
-GST_PLUGINS_RS_SPINNING_TOP_0_3_0_URL		:= https://crates.io/api/v1/crates/spinning_top/0.3.0/download
+GST_PLUGINS_RS_SPINNING_TOP_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, spinning_top/0.3.0/download)
 GST_PLUGINS_RS_SPINNING_TOP_0_3_0_SOURCE	:= $(SRCDIR)/spinning_top-0.3.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SPINNING_TOP_0_3_0
 
 GST_PLUGINS_RS_SPIRV_0_3_0_SDK_1_3_268_0_MD5		:= 4fefd0ef59810a6624de3637e2f1449d
-GST_PLUGINS_RS_SPIRV_0_3_0_SDK_1_3_268_0_URL		:= https://crates.io/api/v1/crates/spirv/0.3.0+sdk-1.3.268.0/download
+GST_PLUGINS_RS_SPIRV_0_3_0_SDK_1_3_268_0_URL		:= $(call ptx/mirror, CRATESIO, spirv/0.3.0+sdk-1.3.268.0/download)
 GST_PLUGINS_RS_SPIRV_0_3_0_SDK_1_3_268_0_SOURCE	:= $(SRCDIR)/spirv-0.3.0+sdk-1.3.268.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SPIRV_0_3_0_SDK_1_3_268_0
 
 GST_PLUGINS_RS_SPKI_0_6_0_MD5		:= cf989ba9ceb035a131cbca6578ef90f5
-GST_PLUGINS_RS_SPKI_0_6_0_URL		:= https://crates.io/api/v1/crates/spki/0.6.0/download
+GST_PLUGINS_RS_SPKI_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, spki/0.6.0/download)
 GST_PLUGINS_RS_SPKI_0_6_0_SOURCE	:= $(SRCDIR)/spki-0.6.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SPKI_0_6_0
 
 GST_PLUGINS_RS_SPKI_0_7_3_MD5		:= ae35a16ea73fc405f1cf50fa35b70ddd
-GST_PLUGINS_RS_SPKI_0_7_3_URL		:= https://crates.io/api/v1/crates/spki/0.7.3/download
+GST_PLUGINS_RS_SPKI_0_7_3_URL		:= $(call ptx/mirror, CRATESIO, spki/0.7.3/download)
 GST_PLUGINS_RS_SPKI_0_7_3_SOURCE	:= $(SRCDIR)/spki-0.7.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SPKI_0_7_3
 
 GST_PLUGINS_RS_SPRINTF_0_4_3_MD5		:= 9a2bfec1126e3492e435718930636065
-GST_PLUGINS_RS_SPRINTF_0_4_3_URL		:= https://crates.io/api/v1/crates/sprintf/0.4.3/download
+GST_PLUGINS_RS_SPRINTF_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, sprintf/0.4.3/download)
 GST_PLUGINS_RS_SPRINTF_0_4_3_SOURCE	:= $(SRCDIR)/sprintf-0.4.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SPRINTF_0_4_3
 
 GST_PLUGINS_RS_STABLE_VEC_0_4_1_MD5		:= 0a3afc23bfc7a7a4b1e872f29045c939
-GST_PLUGINS_RS_STABLE_VEC_0_4_1_URL		:= https://crates.io/api/v1/crates/stable-vec/0.4.1/download
+GST_PLUGINS_RS_STABLE_VEC_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, stable-vec/0.4.1/download)
 GST_PLUGINS_RS_STABLE_VEC_0_4_1_SOURCE	:= $(SRCDIR)/stable-vec-0.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_STABLE_VEC_0_4_1
 
 GST_PLUGINS_RS_STABLE_DEREF_TRAIT_1_2_1_MD5		:= e504675031766787830ccf420f6d8ca2
-GST_PLUGINS_RS_STABLE_DEREF_TRAIT_1_2_1_URL		:= https://crates.io/api/v1/crates/stable_deref_trait/1.2.1/download
+GST_PLUGINS_RS_STABLE_DEREF_TRAIT_1_2_1_URL		:= $(call ptx/mirror, CRATESIO, stable_deref_trait/1.2.1/download)
 GST_PLUGINS_RS_STABLE_DEREF_TRAIT_1_2_1_SOURCE	:= $(SRCDIR)/stable_deref_trait-1.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_STABLE_DEREF_TRAIT_1_2_1
 
 GST_PLUGINS_RS_STATIC_ASSERTIONS_1_1_0_MD5		:= c9defe80406280bcfce4ecf31c0200b3
-GST_PLUGINS_RS_STATIC_ASSERTIONS_1_1_0_URL		:= https://crates.io/api/v1/crates/static_assertions/1.1.0/download
+GST_PLUGINS_RS_STATIC_ASSERTIONS_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, static_assertions/1.1.0/download)
 GST_PLUGINS_RS_STATIC_ASSERTIONS_1_1_0_SOURCE	:= $(SRCDIR)/static_assertions-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_STATIC_ASSERTIONS_1_1_0
 
 GST_PLUGINS_RS_STRENGTH_REDUCE_0_2_4_MD5		:= b0f93fdd4c2e80a67d96ffe4f55c2d63
-GST_PLUGINS_RS_STRENGTH_REDUCE_0_2_4_URL		:= https://crates.io/api/v1/crates/strength_reduce/0.2.4/download
+GST_PLUGINS_RS_STRENGTH_REDUCE_0_2_4_URL		:= $(call ptx/mirror, CRATESIO, strength_reduce/0.2.4/download)
 GST_PLUGINS_RS_STRENGTH_REDUCE_0_2_4_SOURCE	:= $(SRCDIR)/strength_reduce-0.2.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_STRENGTH_REDUCE_0_2_4
 
 GST_PLUGINS_RS_STRSIM_0_11_1_MD5		:= fbe5da24bd1beef6125107ee41118187
-GST_PLUGINS_RS_STRSIM_0_11_1_URL		:= https://crates.io/api/v1/crates/strsim/0.11.1/download
+GST_PLUGINS_RS_STRSIM_0_11_1_URL		:= $(call ptx/mirror, CRATESIO, strsim/0.11.1/download)
 GST_PLUGINS_RS_STRSIM_0_11_1_SOURCE	:= $(SRCDIR)/strsim-0.11.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_STRSIM_0_11_1
 
 GST_PLUGINS_RS_SUBTLE_2_6_1_MD5		:= 611730d5a0344bd87742297274631890
-GST_PLUGINS_RS_SUBTLE_2_6_1_URL		:= https://crates.io/api/v1/crates/subtle/2.6.1/download
+GST_PLUGINS_RS_SUBTLE_2_6_1_URL		:= $(call ptx/mirror, CRATESIO, subtle/2.6.1/download)
 GST_PLUGINS_RS_SUBTLE_2_6_1_SOURCE	:= $(SRCDIR)/subtle-2.6.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SUBTLE_2_6_1
 
 GST_PLUGINS_RS_SYMPHONIA_0_5_5_MD5		:= a27c6907cf89b22e60a3cae1d38e74c6
-GST_PLUGINS_RS_SYMPHONIA_0_5_5_URL		:= https://crates.io/api/v1/crates/symphonia/0.5.5/download
+GST_PLUGINS_RS_SYMPHONIA_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, symphonia/0.5.5/download)
 GST_PLUGINS_RS_SYMPHONIA_0_5_5_SOURCE	:= $(SRCDIR)/symphonia-0.5.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYMPHONIA_0_5_5
 
 GST_PLUGINS_RS_SYMPHONIA_BUNDLE_FLAC_0_5_5_MD5		:= c88601bc44cc98c4471b7c1831a97d49
-GST_PLUGINS_RS_SYMPHONIA_BUNDLE_FLAC_0_5_5_URL		:= https://crates.io/api/v1/crates/symphonia-bundle-flac/0.5.5/download
+GST_PLUGINS_RS_SYMPHONIA_BUNDLE_FLAC_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, symphonia-bundle-flac/0.5.5/download)
 GST_PLUGINS_RS_SYMPHONIA_BUNDLE_FLAC_0_5_5_SOURCE	:= $(SRCDIR)/symphonia-bundle-flac-0.5.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYMPHONIA_BUNDLE_FLAC_0_5_5
 
 GST_PLUGINS_RS_SYMPHONIA_BUNDLE_MP3_0_5_5_MD5		:= 789f8d84d73559c82de297e8b213a6fe
-GST_PLUGINS_RS_SYMPHONIA_BUNDLE_MP3_0_5_5_URL		:= https://crates.io/api/v1/crates/symphonia-bundle-mp3/0.5.5/download
+GST_PLUGINS_RS_SYMPHONIA_BUNDLE_MP3_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, symphonia-bundle-mp3/0.5.5/download)
 GST_PLUGINS_RS_SYMPHONIA_BUNDLE_MP3_0_5_5_SOURCE	:= $(SRCDIR)/symphonia-bundle-mp3-0.5.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYMPHONIA_BUNDLE_MP3_0_5_5
 
 GST_PLUGINS_RS_SYMPHONIA_CODEC_VORBIS_0_5_5_MD5		:= 7b39210ab72951e2c8e5a7f44383fea8
-GST_PLUGINS_RS_SYMPHONIA_CODEC_VORBIS_0_5_5_URL		:= https://crates.io/api/v1/crates/symphonia-codec-vorbis/0.5.5/download
+GST_PLUGINS_RS_SYMPHONIA_CODEC_VORBIS_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, symphonia-codec-vorbis/0.5.5/download)
 GST_PLUGINS_RS_SYMPHONIA_CODEC_VORBIS_0_5_5_SOURCE	:= $(SRCDIR)/symphonia-codec-vorbis-0.5.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYMPHONIA_CODEC_VORBIS_0_5_5
 
 GST_PLUGINS_RS_SYMPHONIA_CORE_0_5_5_MD5		:= 8cbba1bb7952b304c975a27e89bbedad
-GST_PLUGINS_RS_SYMPHONIA_CORE_0_5_5_URL		:= https://crates.io/api/v1/crates/symphonia-core/0.5.5/download
+GST_PLUGINS_RS_SYMPHONIA_CORE_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, symphonia-core/0.5.5/download)
 GST_PLUGINS_RS_SYMPHONIA_CORE_0_5_5_SOURCE	:= $(SRCDIR)/symphonia-core-0.5.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYMPHONIA_CORE_0_5_5
 
 GST_PLUGINS_RS_SYMPHONIA_FORMAT_OGG_0_5_5_MD5		:= de7f06252b76c82b52d0ca758b289163
-GST_PLUGINS_RS_SYMPHONIA_FORMAT_OGG_0_5_5_URL		:= https://crates.io/api/v1/crates/symphonia-format-ogg/0.5.5/download
+GST_PLUGINS_RS_SYMPHONIA_FORMAT_OGG_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, symphonia-format-ogg/0.5.5/download)
 GST_PLUGINS_RS_SYMPHONIA_FORMAT_OGG_0_5_5_SOURCE	:= $(SRCDIR)/symphonia-format-ogg-0.5.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYMPHONIA_FORMAT_OGG_0_5_5
 
 GST_PLUGINS_RS_SYMPHONIA_METADATA_0_5_5_MD5		:= e6e3af9ce06f3b18497c361db7955b2b
-GST_PLUGINS_RS_SYMPHONIA_METADATA_0_5_5_URL		:= https://crates.io/api/v1/crates/symphonia-metadata/0.5.5/download
+GST_PLUGINS_RS_SYMPHONIA_METADATA_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, symphonia-metadata/0.5.5/download)
 GST_PLUGINS_RS_SYMPHONIA_METADATA_0_5_5_SOURCE	:= $(SRCDIR)/symphonia-metadata-0.5.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYMPHONIA_METADATA_0_5_5
 
 GST_PLUGINS_RS_SYMPHONIA_UTILS_XIPH_0_5_5_MD5		:= a2e3914db310fb1f1f17afdc08c03d35
-GST_PLUGINS_RS_SYMPHONIA_UTILS_XIPH_0_5_5_URL		:= https://crates.io/api/v1/crates/symphonia-utils-xiph/0.5.5/download
+GST_PLUGINS_RS_SYMPHONIA_UTILS_XIPH_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, symphonia-utils-xiph/0.5.5/download)
 GST_PLUGINS_RS_SYMPHONIA_UTILS_XIPH_0_5_5_SOURCE	:= $(SRCDIR)/symphonia-utils-xiph-0.5.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYMPHONIA_UTILS_XIPH_0_5_5
 
 GST_PLUGINS_RS_SYN_1_0_109_MD5		:= 64d9f46e9ba78f68c30c486be3d8b7df
-GST_PLUGINS_RS_SYN_1_0_109_URL		:= https://crates.io/api/v1/crates/syn/1.0.109/download
+GST_PLUGINS_RS_SYN_1_0_109_URL		:= $(call ptx/mirror, CRATESIO, syn/1.0.109/download)
 GST_PLUGINS_RS_SYN_1_0_109_SOURCE	:= $(SRCDIR)/syn-1.0.109.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYN_1_0_109
 
 GST_PLUGINS_RS_SYN_2_0_117_MD5		:= b34c2cb40fbdc36ce1bfaeb331830548
-GST_PLUGINS_RS_SYN_2_0_117_URL		:= https://crates.io/api/v1/crates/syn/2.0.117/download
+GST_PLUGINS_RS_SYN_2_0_117_URL		:= $(call ptx/mirror, CRATESIO, syn/2.0.117/download)
 GST_PLUGINS_RS_SYN_2_0_117_SOURCE	:= $(SRCDIR)/syn-2.0.117.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYN_2_0_117
 
 GST_PLUGINS_RS_SYNC_WRAPPER_1_0_2_MD5		:= ff4e9640582e1c8c2168e3c79e3992d7
-GST_PLUGINS_RS_SYNC_WRAPPER_1_0_2_URL		:= https://crates.io/api/v1/crates/sync_wrapper/1.0.2/download
+GST_PLUGINS_RS_SYNC_WRAPPER_1_0_2_URL		:= $(call ptx/mirror, CRATESIO, sync_wrapper/1.0.2/download)
 GST_PLUGINS_RS_SYNC_WRAPPER_1_0_2_SOURCE	:= $(SRCDIR)/sync_wrapper-1.0.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYNC_WRAPPER_1_0_2
 
 GST_PLUGINS_RS_SYNSTRUCTURE_0_13_2_MD5		:= 99f5ad699ad94698b60f39bba715ca45
-GST_PLUGINS_RS_SYNSTRUCTURE_0_13_2_URL		:= https://crates.io/api/v1/crates/synstructure/0.13.2/download
+GST_PLUGINS_RS_SYNSTRUCTURE_0_13_2_URL		:= $(call ptx/mirror, CRATESIO, synstructure/0.13.2/download)
 GST_PLUGINS_RS_SYNSTRUCTURE_0_13_2_SOURCE	:= $(SRCDIR)/synstructure-0.13.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYNSTRUCTURE_0_13_2
 
 GST_PLUGINS_RS_SYSINFO_0_36_1_MD5		:= d8916b9ee17c9a2be056dab832548bac
-GST_PLUGINS_RS_SYSINFO_0_36_1_URL		:= https://crates.io/api/v1/crates/sysinfo/0.36.1/download
+GST_PLUGINS_RS_SYSINFO_0_36_1_URL		:= $(call ptx/mirror, CRATESIO, sysinfo/0.36.1/download)
 GST_PLUGINS_RS_SYSINFO_0_36_1_SOURCE	:= $(SRCDIR)/sysinfo-0.36.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYSINFO_0_36_1
 
 GST_PLUGINS_RS_SYSTEM_CONFIGURATION_0_7_0_MD5		:= 55334808bf51df2661ab81577e571ebd
-GST_PLUGINS_RS_SYSTEM_CONFIGURATION_0_7_0_URL		:= https://crates.io/api/v1/crates/system-configuration/0.7.0/download
+GST_PLUGINS_RS_SYSTEM_CONFIGURATION_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, system-configuration/0.7.0/download)
 GST_PLUGINS_RS_SYSTEM_CONFIGURATION_0_7_0_SOURCE	:= $(SRCDIR)/system-configuration-0.7.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYSTEM_CONFIGURATION_0_7_0
 
 GST_PLUGINS_RS_SYSTEM_CONFIGURATION_SYS_0_6_0_MD5		:= 0f4f309e7a04d48b38c5d07e8138ef0e
-GST_PLUGINS_RS_SYSTEM_CONFIGURATION_SYS_0_6_0_URL		:= https://crates.io/api/v1/crates/system-configuration-sys/0.6.0/download
+GST_PLUGINS_RS_SYSTEM_CONFIGURATION_SYS_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, system-configuration-sys/0.6.0/download)
 GST_PLUGINS_RS_SYSTEM_CONFIGURATION_SYS_0_6_0_SOURCE	:= $(SRCDIR)/system-configuration-sys-0.6.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYSTEM_CONFIGURATION_SYS_0_6_0
 
 GST_PLUGINS_RS_SYSTEM_DEPS_7_0_7_MD5		:= a2ddcb1280af1c3b6b30dbf3071db2f1
-GST_PLUGINS_RS_SYSTEM_DEPS_7_0_7_URL		:= https://crates.io/api/v1/crates/system-deps/7.0.7/download
+GST_PLUGINS_RS_SYSTEM_DEPS_7_0_7_URL		:= $(call ptx/mirror, CRATESIO, system-deps/7.0.7/download)
 GST_PLUGINS_RS_SYSTEM_DEPS_7_0_7_SOURCE	:= $(SRCDIR)/system-deps-7.0.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_SYSTEM_DEPS_7_0_7
 
 GST_PLUGINS_RS_TAR_0_4_44_MD5		:= 4659adaaaaee37c38748a2833f5f015b
-GST_PLUGINS_RS_TAR_0_4_44_URL		:= https://crates.io/api/v1/crates/tar/0.4.44/download
+GST_PLUGINS_RS_TAR_0_4_44_URL		:= $(call ptx/mirror, CRATESIO, tar/0.4.44/download)
 GST_PLUGINS_RS_TAR_0_4_44_SOURCE	:= $(SRCDIR)/tar-0.4.44.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TAR_0_4_44
 
 GST_PLUGINS_RS_TARGET_LEXICON_0_12_16_MD5		:= 681788f60edd20951a4f993b884d30e9
-GST_PLUGINS_RS_TARGET_LEXICON_0_12_16_URL		:= https://crates.io/api/v1/crates/target-lexicon/0.12.16/download
+GST_PLUGINS_RS_TARGET_LEXICON_0_12_16_URL		:= $(call ptx/mirror, CRATESIO, target-lexicon/0.12.16/download)
 GST_PLUGINS_RS_TARGET_LEXICON_0_12_16_SOURCE	:= $(SRCDIR)/target-lexicon-0.12.16.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TARGET_LEXICON_0_12_16
 
 GST_PLUGINS_RS_TARGET_LEXICON_0_13_5_MD5		:= 1c5e2b3aab7fe8564b762078e41484f6
-GST_PLUGINS_RS_TARGET_LEXICON_0_13_5_URL		:= https://crates.io/api/v1/crates/target-lexicon/0.13.5/download
+GST_PLUGINS_RS_TARGET_LEXICON_0_13_5_URL		:= $(call ptx/mirror, CRATESIO, target-lexicon/0.13.5/download)
 GST_PLUGINS_RS_TARGET_LEXICON_0_13_5_SOURCE	:= $(SRCDIR)/target-lexicon-0.13.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TARGET_LEXICON_0_13_5
 
 GST_PLUGINS_RS_TEMPFILE_3_26_0_MD5		:= a0ac55c5a7847ec7199c78349599c2c6
-GST_PLUGINS_RS_TEMPFILE_3_26_0_URL		:= https://crates.io/api/v1/crates/tempfile/3.26.0/download
+GST_PLUGINS_RS_TEMPFILE_3_26_0_URL		:= $(call ptx/mirror, CRATESIO, tempfile/3.26.0/download)
 GST_PLUGINS_RS_TEMPFILE_3_26_0_SOURCE	:= $(SRCDIR)/tempfile-3.26.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TEMPFILE_3_26_0
 
 GST_PLUGINS_RS_TERMCOLOR_1_4_1_MD5		:= b83e3c4eee8862b3cd0dc8570da6d0c0
-GST_PLUGINS_RS_TERMCOLOR_1_4_1_URL		:= https://crates.io/api/v1/crates/termcolor/1.4.1/download
+GST_PLUGINS_RS_TERMCOLOR_1_4_1_URL		:= $(call ptx/mirror, CRATESIO, termcolor/1.4.1/download)
 GST_PLUGINS_RS_TERMCOLOR_1_4_1_SOURCE	:= $(SRCDIR)/termcolor-1.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TERMCOLOR_1_4_1
 
 GST_PLUGINS_RS_TEST_LOG_0_2_19_MD5		:= 67a99bcf277ea8ca5e9465b2abfb53d9
-GST_PLUGINS_RS_TEST_LOG_0_2_19_URL		:= https://crates.io/api/v1/crates/test-log/0.2.19/download
+GST_PLUGINS_RS_TEST_LOG_0_2_19_URL		:= $(call ptx/mirror, CRATESIO, test-log/0.2.19/download)
 GST_PLUGINS_RS_TEST_LOG_0_2_19_SOURCE	:= $(SRCDIR)/test-log-0.2.19.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TEST_LOG_0_2_19
 
 GST_PLUGINS_RS_TEST_LOG_MACROS_0_2_19_MD5		:= cd899dac31ce177b2facb5d24938bb61
-GST_PLUGINS_RS_TEST_LOG_MACROS_0_2_19_URL		:= https://crates.io/api/v1/crates/test-log-macros/0.2.19/download
+GST_PLUGINS_RS_TEST_LOG_MACROS_0_2_19_URL		:= $(call ptx/mirror, CRATESIO, test-log-macros/0.2.19/download)
 GST_PLUGINS_RS_TEST_LOG_MACROS_0_2_19_SOURCE	:= $(SRCDIR)/test-log-macros-0.2.19.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TEST_LOG_MACROS_0_2_19
 
 GST_PLUGINS_RS_TEST_WITH_0_15_8_MD5		:= 3fd66aa5191a890871bfdffc32b4cf0d
-GST_PLUGINS_RS_TEST_WITH_0_15_8_URL		:= https://crates.io/api/v1/crates/test-with/0.15.8/download
+GST_PLUGINS_RS_TEST_WITH_0_15_8_URL		:= $(call ptx/mirror, CRATESIO, test-with/0.15.8/download)
 GST_PLUGINS_RS_TEST_WITH_0_15_8_SOURCE	:= $(SRCDIR)/test-with-0.15.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TEST_WITH_0_15_8
 
 GST_PLUGINS_RS_TEXT_PLACEHOLDER_0_5_1_MD5		:= bdbd2dd8d4aee18a1269184bee7b12d5
-GST_PLUGINS_RS_TEXT_PLACEHOLDER_0_5_1_URL		:= https://crates.io/api/v1/crates/text_placeholder/0.5.1/download
+GST_PLUGINS_RS_TEXT_PLACEHOLDER_0_5_1_URL		:= $(call ptx/mirror, CRATESIO, text_placeholder/0.5.1/download)
 GST_PLUGINS_RS_TEXT_PLACEHOLDER_0_5_1_SOURCE	:= $(SRCDIR)/text_placeholder-0.5.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TEXT_PLACEHOLDER_0_5_1
 
 GST_PLUGINS_RS_TEXTDISTANCE_1_1_1_MD5		:= e074e1ce60d61ef63cdd99c58e11d50e
-GST_PLUGINS_RS_TEXTDISTANCE_1_1_1_URL		:= https://crates.io/api/v1/crates/textdistance/1.1.1/download
+GST_PLUGINS_RS_TEXTDISTANCE_1_1_1_URL		:= $(call ptx/mirror, CRATESIO, textdistance/1.1.1/download)
 GST_PLUGINS_RS_TEXTDISTANCE_1_1_1_SOURCE	:= $(SRCDIR)/textdistance-1.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TEXTDISTANCE_1_1_1
 
 GST_PLUGINS_RS_TEXTWRAP_0_16_2_MD5		:= 4b5ece77b3e731cba47059a5e2385b86
-GST_PLUGINS_RS_TEXTWRAP_0_16_2_URL		:= https://crates.io/api/v1/crates/textwrap/0.16.2/download
+GST_PLUGINS_RS_TEXTWRAP_0_16_2_URL		:= $(call ptx/mirror, CRATESIO, textwrap/0.16.2/download)
 GST_PLUGINS_RS_TEXTWRAP_0_16_2_SOURCE	:= $(SRCDIR)/textwrap-0.16.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TEXTWRAP_0_16_2
 
 GST_PLUGINS_RS_THISERROR_1_0_69_MD5		:= 9c02495b380dc51331dcd8789b26cbfb
-GST_PLUGINS_RS_THISERROR_1_0_69_URL		:= https://crates.io/api/v1/crates/thiserror/1.0.69/download
+GST_PLUGINS_RS_THISERROR_1_0_69_URL		:= $(call ptx/mirror, CRATESIO, thiserror/1.0.69/download)
 GST_PLUGINS_RS_THISERROR_1_0_69_SOURCE	:= $(SRCDIR)/thiserror-1.0.69.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_THISERROR_1_0_69
 
 GST_PLUGINS_RS_THISERROR_2_0_18_MD5		:= ffb6b46b564680efcda445f05682cb47
-GST_PLUGINS_RS_THISERROR_2_0_18_URL		:= https://crates.io/api/v1/crates/thiserror/2.0.18/download
+GST_PLUGINS_RS_THISERROR_2_0_18_URL		:= $(call ptx/mirror, CRATESIO, thiserror/2.0.18/download)
 GST_PLUGINS_RS_THISERROR_2_0_18_SOURCE	:= $(SRCDIR)/thiserror-2.0.18.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_THISERROR_2_0_18
 
 GST_PLUGINS_RS_THISERROR_IMPL_1_0_69_MD5		:= a4bb1b92a5b098fdaa5694733ea73e7a
-GST_PLUGINS_RS_THISERROR_IMPL_1_0_69_URL		:= https://crates.io/api/v1/crates/thiserror-impl/1.0.69/download
+GST_PLUGINS_RS_THISERROR_IMPL_1_0_69_URL		:= $(call ptx/mirror, CRATESIO, thiserror-impl/1.0.69/download)
 GST_PLUGINS_RS_THISERROR_IMPL_1_0_69_SOURCE	:= $(SRCDIR)/thiserror-impl-1.0.69.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_THISERROR_IMPL_1_0_69
 
 GST_PLUGINS_RS_THISERROR_IMPL_2_0_18_MD5		:= 355b878d5248a72c2d71840357bedfa0
-GST_PLUGINS_RS_THISERROR_IMPL_2_0_18_URL		:= https://crates.io/api/v1/crates/thiserror-impl/2.0.18/download
+GST_PLUGINS_RS_THISERROR_IMPL_2_0_18_URL		:= $(call ptx/mirror, CRATESIO, thiserror-impl/2.0.18/download)
 GST_PLUGINS_RS_THISERROR_IMPL_2_0_18_SOURCE	:= $(SRCDIR)/thiserror-impl-2.0.18.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_THISERROR_IMPL_2_0_18
 
 GST_PLUGINS_RS_THREAD_LOCAL_1_1_9_MD5		:= f6d8a5fadf6091837b8d5c33851ad571
-GST_PLUGINS_RS_THREAD_LOCAL_1_1_9_URL		:= https://crates.io/api/v1/crates/thread_local/1.1.9/download
+GST_PLUGINS_RS_THREAD_LOCAL_1_1_9_URL		:= $(call ptx/mirror, CRATESIO, thread_local/1.1.9/download)
 GST_PLUGINS_RS_THREAD_LOCAL_1_1_9_SOURCE	:= $(SRCDIR)/thread_local-1.1.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_THREAD_LOCAL_1_1_9
 
 GST_PLUGINS_RS_TIME_0_3_47_MD5		:= c78def4c8f29cd4fe7009412d6963258
-GST_PLUGINS_RS_TIME_0_3_47_URL		:= https://crates.io/api/v1/crates/time/0.3.47/download
+GST_PLUGINS_RS_TIME_0_3_47_URL		:= $(call ptx/mirror, CRATESIO, time/0.3.47/download)
 GST_PLUGINS_RS_TIME_0_3_47_SOURCE	:= $(SRCDIR)/time-0.3.47.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TIME_0_3_47
 
 GST_PLUGINS_RS_TIME_CORE_0_1_8_MD5		:= b1bb3a822a8b3650a7401dbc737764f0
-GST_PLUGINS_RS_TIME_CORE_0_1_8_URL		:= https://crates.io/api/v1/crates/time-core/0.1.8/download
+GST_PLUGINS_RS_TIME_CORE_0_1_8_URL		:= $(call ptx/mirror, CRATESIO, time-core/0.1.8/download)
 GST_PLUGINS_RS_TIME_CORE_0_1_8_SOURCE	:= $(SRCDIR)/time-core-0.1.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TIME_CORE_0_1_8
 
 GST_PLUGINS_RS_TIME_MACROS_0_2_27_MD5		:= 764181663f005b307e662dc71451ee12
-GST_PLUGINS_RS_TIME_MACROS_0_2_27_URL		:= https://crates.io/api/v1/crates/time-macros/0.2.27/download
+GST_PLUGINS_RS_TIME_MACROS_0_2_27_URL		:= $(call ptx/mirror, CRATESIO, time-macros/0.2.27/download)
 GST_PLUGINS_RS_TIME_MACROS_0_2_27_SOURCE	:= $(SRCDIR)/time-macros-0.2.27.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TIME_MACROS_0_2_27
 
 GST_PLUGINS_RS_TINY_KECCAK_2_0_2_MD5		:= 8a7c17cffeba1fdd2c8055eaeefbf948
-GST_PLUGINS_RS_TINY_KECCAK_2_0_2_URL		:= https://crates.io/api/v1/crates/tiny-keccak/2.0.2/download
+GST_PLUGINS_RS_TINY_KECCAK_2_0_2_URL		:= $(call ptx/mirror, CRATESIO, tiny-keccak/2.0.2/download)
 GST_PLUGINS_RS_TINY_KECCAK_2_0_2_SOURCE	:= $(SRCDIR)/tiny-keccak-2.0.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TINY_KECCAK_2_0_2
 
 GST_PLUGINS_RS_TINYSTR_0_8_2_MD5		:= 7134a4b036cb49118765602f8d954dcc
-GST_PLUGINS_RS_TINYSTR_0_8_2_URL		:= https://crates.io/api/v1/crates/tinystr/0.8.2/download
+GST_PLUGINS_RS_TINYSTR_0_8_2_URL		:= $(call ptx/mirror, CRATESIO, tinystr/0.8.2/download)
 GST_PLUGINS_RS_TINYSTR_0_8_2_SOURCE	:= $(SRCDIR)/tinystr-0.8.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TINYSTR_0_8_2
 
 GST_PLUGINS_RS_TINYVEC_1_10_0_MD5		:= 24bde53a22a1be2f22f8c0fae2b58c95
-GST_PLUGINS_RS_TINYVEC_1_10_0_URL		:= https://crates.io/api/v1/crates/tinyvec/1.10.0/download
+GST_PLUGINS_RS_TINYVEC_1_10_0_URL		:= $(call ptx/mirror, CRATESIO, tinyvec/1.10.0/download)
 GST_PLUGINS_RS_TINYVEC_1_10_0_SOURCE	:= $(SRCDIR)/tinyvec-1.10.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TINYVEC_1_10_0
 
 GST_PLUGINS_RS_TINYVEC_MACROS_0_1_1_MD5		:= c678a7da0ee4b850ebde0474144a0415
-GST_PLUGINS_RS_TINYVEC_MACROS_0_1_1_URL		:= https://crates.io/api/v1/crates/tinyvec_macros/0.1.1/download
+GST_PLUGINS_RS_TINYVEC_MACROS_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, tinyvec_macros/0.1.1/download)
 GST_PLUGINS_RS_TINYVEC_MACROS_0_1_1_SOURCE	:= $(SRCDIR)/tinyvec_macros-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TINYVEC_MACROS_0_1_1
 
 GST_PLUGINS_RS_TOKIO_1_49_0_MD5		:= 3b149d608e101ec2cb1fbac7b00e70a3
-GST_PLUGINS_RS_TOKIO_1_49_0_URL		:= https://crates.io/api/v1/crates/tokio/1.49.0/download
+GST_PLUGINS_RS_TOKIO_1_49_0_URL		:= $(call ptx/mirror, CRATESIO, tokio/1.49.0/download)
 GST_PLUGINS_RS_TOKIO_1_49_0_SOURCE	:= $(SRCDIR)/tokio-1.49.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOKIO_1_49_0
 
 GST_PLUGINS_RS_TOKIO_MACROS_2_6_0_MD5		:= 61335e2178b696ce487bae0403c89271
-GST_PLUGINS_RS_TOKIO_MACROS_2_6_0_URL		:= https://crates.io/api/v1/crates/tokio-macros/2.6.0/download
+GST_PLUGINS_RS_TOKIO_MACROS_2_6_0_URL		:= $(call ptx/mirror, CRATESIO, tokio-macros/2.6.0/download)
 GST_PLUGINS_RS_TOKIO_MACROS_2_6_0_SOURCE	:= $(SRCDIR)/tokio-macros-2.6.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOKIO_MACROS_2_6_0
 
 GST_PLUGINS_RS_TOKIO_RUSTLS_0_24_1_MD5		:= ba33dce68cff6856b109a88219627dc3
-GST_PLUGINS_RS_TOKIO_RUSTLS_0_24_1_URL		:= https://crates.io/api/v1/crates/tokio-rustls/0.24.1/download
+GST_PLUGINS_RS_TOKIO_RUSTLS_0_24_1_URL		:= $(call ptx/mirror, CRATESIO, tokio-rustls/0.24.1/download)
 GST_PLUGINS_RS_TOKIO_RUSTLS_0_24_1_SOURCE	:= $(SRCDIR)/tokio-rustls-0.24.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOKIO_RUSTLS_0_24_1
 
 GST_PLUGINS_RS_TOKIO_RUSTLS_0_25_0_MD5		:= 5ef71ea2a27d2b1c3070fd896434c118
-GST_PLUGINS_RS_TOKIO_RUSTLS_0_25_0_URL		:= https://crates.io/api/v1/crates/tokio-rustls/0.25.0/download
+GST_PLUGINS_RS_TOKIO_RUSTLS_0_25_0_URL		:= $(call ptx/mirror, CRATESIO, tokio-rustls/0.25.0/download)
 GST_PLUGINS_RS_TOKIO_RUSTLS_0_25_0_SOURCE	:= $(SRCDIR)/tokio-rustls-0.25.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOKIO_RUSTLS_0_25_0
 
 GST_PLUGINS_RS_TOKIO_RUSTLS_0_26_4_MD5		:= 4cfdcf6e7f8d4b6e8e810222fba4187e
-GST_PLUGINS_RS_TOKIO_RUSTLS_0_26_4_URL		:= https://crates.io/api/v1/crates/tokio-rustls/0.26.4/download
+GST_PLUGINS_RS_TOKIO_RUSTLS_0_26_4_URL		:= $(call ptx/mirror, CRATESIO, tokio-rustls/0.26.4/download)
 GST_PLUGINS_RS_TOKIO_RUSTLS_0_26_4_SOURCE	:= $(SRCDIR)/tokio-rustls-0.26.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOKIO_RUSTLS_0_26_4
 
 GST_PLUGINS_RS_TOKIO_STREAM_0_1_18_MD5		:= 83b0932eef1aa5c6453b77a6f2b33d54
-GST_PLUGINS_RS_TOKIO_STREAM_0_1_18_URL		:= https://crates.io/api/v1/crates/tokio-stream/0.1.18/download
+GST_PLUGINS_RS_TOKIO_STREAM_0_1_18_URL		:= $(call ptx/mirror, CRATESIO, tokio-stream/0.1.18/download)
 GST_PLUGINS_RS_TOKIO_STREAM_0_1_18_SOURCE	:= $(SRCDIR)/tokio-stream-0.1.18.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOKIO_STREAM_0_1_18
 
 GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_20_1_MD5		:= 45abc25ae9f7a0ad749d1d4259f0a9be
-GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_20_1_URL		:= https://crates.io/api/v1/crates/tokio-tungstenite/0.20.1/download
+GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, tokio-tungstenite/0.20.1/download)
 GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_20_1_SOURCE	:= $(SRCDIR)/tokio-tungstenite-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_20_1
 
 GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_27_0_MD5		:= 1f7768307e2e3d6d625f854e41655594
-GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_27_0_URL		:= https://crates.io/api/v1/crates/tokio-tungstenite/0.27.0/download
+GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_27_0_URL		:= $(call ptx/mirror, CRATESIO, tokio-tungstenite/0.27.0/download)
 GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_27_0_SOURCE	:= $(SRCDIR)/tokio-tungstenite-0.27.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_27_0
 
 GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_28_0_MD5		:= 4d0aee58eb5433b1823f1b0b8790a1e4
-GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_28_0_URL		:= https://crates.io/api/v1/crates/tokio-tungstenite/0.28.0/download
+GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_28_0_URL		:= $(call ptx/mirror, CRATESIO, tokio-tungstenite/0.28.0/download)
 GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_28_0_SOURCE	:= $(SRCDIR)/tokio-tungstenite-0.28.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOKIO_TUNGSTENITE_0_28_0
 
 GST_PLUGINS_RS_TOKIO_UTIL_0_7_18_MD5		:= abefbb2b01ea6cc7123fd2a6cd54cfc2
-GST_PLUGINS_RS_TOKIO_UTIL_0_7_18_URL		:= https://crates.io/api/v1/crates/tokio-util/0.7.18/download
+GST_PLUGINS_RS_TOKIO_UTIL_0_7_18_URL		:= $(call ptx/mirror, CRATESIO, tokio-util/0.7.18/download)
 GST_PLUGINS_RS_TOKIO_UTIL_0_7_18_SOURCE	:= $(SRCDIR)/tokio-util-0.7.18.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOKIO_UTIL_0_7_18
 
 GST_PLUGINS_RS_TOML_0_9_12_SPEC_1_1_0_MD5		:= 401ab5b99c35f92bef0caaaee956e683
-GST_PLUGINS_RS_TOML_0_9_12_SPEC_1_1_0_URL		:= https://crates.io/api/v1/crates/toml/0.9.12+spec-1.1.0/download
+GST_PLUGINS_RS_TOML_0_9_12_SPEC_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, toml/0.9.12+spec-1.1.0/download)
 GST_PLUGINS_RS_TOML_0_9_12_SPEC_1_1_0_SOURCE	:= $(SRCDIR)/toml-0.9.12+spec-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOML_0_9_12_SPEC_1_1_0
 
 GST_PLUGINS_RS_TOML_1_0_3_SPEC_1_1_0_MD5		:= 4b6b17edea13029daa775a87ff963323
-GST_PLUGINS_RS_TOML_1_0_3_SPEC_1_1_0_URL		:= https://crates.io/api/v1/crates/toml/1.0.3+spec-1.1.0/download
+GST_PLUGINS_RS_TOML_1_0_3_SPEC_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, toml/1.0.3+spec-1.1.0/download)
 GST_PLUGINS_RS_TOML_1_0_3_SPEC_1_1_0_SOURCE	:= $(SRCDIR)/toml-1.0.3+spec-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOML_1_0_3_SPEC_1_1_0
 
 GST_PLUGINS_RS_TOML_DATETIME_0_7_5_SPEC_1_1_0_MD5		:= 9bf537e7d26a16e35156d3a4b5c9338b
-GST_PLUGINS_RS_TOML_DATETIME_0_7_5_SPEC_1_1_0_URL		:= https://crates.io/api/v1/crates/toml_datetime/0.7.5+spec-1.1.0/download
+GST_PLUGINS_RS_TOML_DATETIME_0_7_5_SPEC_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, toml_datetime/0.7.5+spec-1.1.0/download)
 GST_PLUGINS_RS_TOML_DATETIME_0_7_5_SPEC_1_1_0_SOURCE	:= $(SRCDIR)/toml_datetime-0.7.5+spec-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOML_DATETIME_0_7_5_SPEC_1_1_0
 
 GST_PLUGINS_RS_TOML_DATETIME_1_0_0_SPEC_1_1_0_MD5		:= 84f3ee477cf324a2723d4ecc1fe1991d
-GST_PLUGINS_RS_TOML_DATETIME_1_0_0_SPEC_1_1_0_URL		:= https://crates.io/api/v1/crates/toml_datetime/1.0.0+spec-1.1.0/download
+GST_PLUGINS_RS_TOML_DATETIME_1_0_0_SPEC_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, toml_datetime/1.0.0+spec-1.1.0/download)
 GST_PLUGINS_RS_TOML_DATETIME_1_0_0_SPEC_1_1_0_SOURCE	:= $(SRCDIR)/toml_datetime-1.0.0+spec-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOML_DATETIME_1_0_0_SPEC_1_1_0
 
 GST_PLUGINS_RS_TOML_EDIT_0_23_10_SPEC_1_0_0_MD5		:= f0e3a73919cd3604abddc700049ac765
-GST_PLUGINS_RS_TOML_EDIT_0_23_10_SPEC_1_0_0_URL		:= https://crates.io/api/v1/crates/toml_edit/0.23.10+spec-1.0.0/download
+GST_PLUGINS_RS_TOML_EDIT_0_23_10_SPEC_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, toml_edit/0.23.10+spec-1.0.0/download)
 GST_PLUGINS_RS_TOML_EDIT_0_23_10_SPEC_1_0_0_SOURCE	:= $(SRCDIR)/toml_edit-0.23.10+spec-1.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOML_EDIT_0_23_10_SPEC_1_0_0
 
 GST_PLUGINS_RS_TOML_EDIT_0_24_1_SPEC_1_1_0_MD5		:= 069106cf7c6f420c83e4d43ce50543e8
-GST_PLUGINS_RS_TOML_EDIT_0_24_1_SPEC_1_1_0_URL		:= https://crates.io/api/v1/crates/toml_edit/0.24.1+spec-1.1.0/download
+GST_PLUGINS_RS_TOML_EDIT_0_24_1_SPEC_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, toml_edit/0.24.1+spec-1.1.0/download)
 GST_PLUGINS_RS_TOML_EDIT_0_24_1_SPEC_1_1_0_SOURCE	:= $(SRCDIR)/toml_edit-0.24.1+spec-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOML_EDIT_0_24_1_SPEC_1_1_0
 
 GST_PLUGINS_RS_TOML_PARSER_1_0_9_SPEC_1_1_0_MD5		:= a14201724d70a7f63441530315f30331
-GST_PLUGINS_RS_TOML_PARSER_1_0_9_SPEC_1_1_0_URL		:= https://crates.io/api/v1/crates/toml_parser/1.0.9+spec-1.1.0/download
+GST_PLUGINS_RS_TOML_PARSER_1_0_9_SPEC_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, toml_parser/1.0.9+spec-1.1.0/download)
 GST_PLUGINS_RS_TOML_PARSER_1_0_9_SPEC_1_1_0_SOURCE	:= $(SRCDIR)/toml_parser-1.0.9+spec-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOML_PARSER_1_0_9_SPEC_1_1_0
 
 GST_PLUGINS_RS_TOML_WRITER_1_0_6_SPEC_1_1_0_MD5		:= 3aace232a48239015af2b93472c71e3e
-GST_PLUGINS_RS_TOML_WRITER_1_0_6_SPEC_1_1_0_URL		:= https://crates.io/api/v1/crates/toml_writer/1.0.6+spec-1.1.0/download
+GST_PLUGINS_RS_TOML_WRITER_1_0_6_SPEC_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, toml_writer/1.0.6+spec-1.1.0/download)
 GST_PLUGINS_RS_TOML_WRITER_1_0_6_SPEC_1_1_0_SOURCE	:= $(SRCDIR)/toml_writer-1.0.6+spec-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOML_WRITER_1_0_6_SPEC_1_1_0
 
 GST_PLUGINS_RS_TOWER_0_5_3_MD5		:= 0a37accad74285decd09f362ee8a8e0b
-GST_PLUGINS_RS_TOWER_0_5_3_URL		:= https://crates.io/api/v1/crates/tower/0.5.3/download
+GST_PLUGINS_RS_TOWER_0_5_3_URL		:= $(call ptx/mirror, CRATESIO, tower/0.5.3/download)
 GST_PLUGINS_RS_TOWER_0_5_3_SOURCE	:= $(SRCDIR)/tower-0.5.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOWER_0_5_3
 
 GST_PLUGINS_RS_TOWER_HTTP_0_6_8_MD5		:= ac463750b7e51c69dc9f2ae3b793ed54
-GST_PLUGINS_RS_TOWER_HTTP_0_6_8_URL		:= https://crates.io/api/v1/crates/tower-http/0.6.8/download
+GST_PLUGINS_RS_TOWER_HTTP_0_6_8_URL		:= $(call ptx/mirror, CRATESIO, tower-http/0.6.8/download)
 GST_PLUGINS_RS_TOWER_HTTP_0_6_8_SOURCE	:= $(SRCDIR)/tower-http-0.6.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOWER_HTTP_0_6_8
 
 GST_PLUGINS_RS_TOWER_LAYER_0_3_3_MD5		:= e422d5db1722c13ac3ab6f9d6deee3c7
-GST_PLUGINS_RS_TOWER_LAYER_0_3_3_URL		:= https://crates.io/api/v1/crates/tower-layer/0.3.3/download
+GST_PLUGINS_RS_TOWER_LAYER_0_3_3_URL		:= $(call ptx/mirror, CRATESIO, tower-layer/0.3.3/download)
 GST_PLUGINS_RS_TOWER_LAYER_0_3_3_SOURCE	:= $(SRCDIR)/tower-layer-0.3.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOWER_LAYER_0_3_3
 
 GST_PLUGINS_RS_TOWER_SERVICE_0_3_3_MD5		:= efdf8f6fcb26ffb336db4d4437c6d537
-GST_PLUGINS_RS_TOWER_SERVICE_0_3_3_URL		:= https://crates.io/api/v1/crates/tower-service/0.3.3/download
+GST_PLUGINS_RS_TOWER_SERVICE_0_3_3_URL		:= $(call ptx/mirror, CRATESIO, tower-service/0.3.3/download)
 GST_PLUGINS_RS_TOWER_SERVICE_0_3_3_SOURCE	:= $(SRCDIR)/tower-service-0.3.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TOWER_SERVICE_0_3_3
 
 GST_PLUGINS_RS_TRACEL_ASH_0_38_0_1_3_296_MD5		:= c47b6423c6a78773377dbb4f6530aaef
-GST_PLUGINS_RS_TRACEL_ASH_0_38_0_1_3_296_URL		:= https://crates.io/api/v1/crates/tracel-ash/0.38.0+1.3.296/download
+GST_PLUGINS_RS_TRACEL_ASH_0_38_0_1_3_296_URL		:= $(call ptx/mirror, CRATESIO, tracel-ash/0.38.0+1.3.296/download)
 GST_PLUGINS_RS_TRACEL_ASH_0_38_0_1_3_296_SOURCE	:= $(SRCDIR)/tracel-ash-0.38.0+1.3.296.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACEL_ASH_0_38_0_1_3_296
 
 GST_PLUGINS_RS_TRACEL_LLVM_20_1_4_7_MD5		:= d0116bb598c6720b1184e8654573894f
-GST_PLUGINS_RS_TRACEL_LLVM_20_1_4_7_URL		:= https://crates.io/api/v1/crates/tracel-llvm/20.1.4-7/download
+GST_PLUGINS_RS_TRACEL_LLVM_20_1_4_7_URL		:= $(call ptx/mirror, CRATESIO, tracel-llvm/20.1.4-7/download)
 GST_PLUGINS_RS_TRACEL_LLVM_20_1_4_7_SOURCE	:= $(SRCDIR)/tracel-llvm-20.1.4-7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACEL_LLVM_20_1_4_7
 
 GST_PLUGINS_RS_TRACEL_LLVM_BUNDLER_20_1_4_7_MD5		:= 8185203038216400afe8acf2e7ec6fa9
-GST_PLUGINS_RS_TRACEL_LLVM_BUNDLER_20_1_4_7_URL		:= https://crates.io/api/v1/crates/tracel-llvm-bundler/20.1.4-7/download
+GST_PLUGINS_RS_TRACEL_LLVM_BUNDLER_20_1_4_7_URL		:= $(call ptx/mirror, CRATESIO, tracel-llvm-bundler/20.1.4-7/download)
 GST_PLUGINS_RS_TRACEL_LLVM_BUNDLER_20_1_4_7_SOURCE	:= $(SRCDIR)/tracel-llvm-bundler-20.1.4-7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACEL_LLVM_BUNDLER_20_1_4_7
 
 GST_PLUGINS_RS_TRACEL_MLIR_RS_20_1_4_7_MD5		:= 36d5f3753f1cb1fc53894d5595bbc613
-GST_PLUGINS_RS_TRACEL_MLIR_RS_20_1_4_7_URL		:= https://crates.io/api/v1/crates/tracel-mlir-rs/20.1.4-7/download
+GST_PLUGINS_RS_TRACEL_MLIR_RS_20_1_4_7_URL		:= $(call ptx/mirror, CRATESIO, tracel-mlir-rs/20.1.4-7/download)
 GST_PLUGINS_RS_TRACEL_MLIR_RS_20_1_4_7_SOURCE	:= $(SRCDIR)/tracel-mlir-rs-20.1.4-7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACEL_MLIR_RS_20_1_4_7
 
 GST_PLUGINS_RS_TRACEL_MLIR_RS_MACROS_20_1_4_7_MD5		:= 0d7a91be6a388959c59cdedded05151d
-GST_PLUGINS_RS_TRACEL_MLIR_RS_MACROS_20_1_4_7_URL		:= https://crates.io/api/v1/crates/tracel-mlir-rs-macros/20.1.4-7/download
+GST_PLUGINS_RS_TRACEL_MLIR_RS_MACROS_20_1_4_7_URL		:= $(call ptx/mirror, CRATESIO, tracel-mlir-rs-macros/20.1.4-7/download)
 GST_PLUGINS_RS_TRACEL_MLIR_RS_MACROS_20_1_4_7_SOURCE	:= $(SRCDIR)/tracel-mlir-rs-macros-20.1.4-7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACEL_MLIR_RS_MACROS_20_1_4_7
 
 GST_PLUGINS_RS_TRACEL_MLIR_SYS_20_1_4_7_MD5		:= 7b52bb9d1b57decb81badaff0d0c9092
-GST_PLUGINS_RS_TRACEL_MLIR_SYS_20_1_4_7_URL		:= https://crates.io/api/v1/crates/tracel-mlir-sys/20.1.4-7/download
+GST_PLUGINS_RS_TRACEL_MLIR_SYS_20_1_4_7_URL		:= $(call ptx/mirror, CRATESIO, tracel-mlir-sys/20.1.4-7/download)
 GST_PLUGINS_RS_TRACEL_MLIR_SYS_20_1_4_7_SOURCE	:= $(SRCDIR)/tracel-mlir-sys-20.1.4-7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACEL_MLIR_SYS_20_1_4_7
 
 GST_PLUGINS_RS_TRACEL_RSPIRV_0_12_1_SDK_1_4_341_0_MD5		:= ac99b2d7f3308a0f901a0ff1f1cc6c2e
-GST_PLUGINS_RS_TRACEL_RSPIRV_0_12_1_SDK_1_4_341_0_URL		:= https://crates.io/api/v1/crates/tracel-rspirv/0.12.1+sdk-1.4.341.0/download
+GST_PLUGINS_RS_TRACEL_RSPIRV_0_12_1_SDK_1_4_341_0_URL		:= $(call ptx/mirror, CRATESIO, tracel-rspirv/0.12.1+sdk-1.4.341.0/download)
 GST_PLUGINS_RS_TRACEL_RSPIRV_0_12_1_SDK_1_4_341_0_SOURCE	:= $(SRCDIR)/tracel-rspirv-0.12.1+sdk-1.4.341.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACEL_RSPIRV_0_12_1_SDK_1_4_341_0
 
 GST_PLUGINS_RS_TRACEL_TBLGEN_RS_20_1_4_7_MD5		:= b93ed0d276725c55d5e2a747fb650f04
-GST_PLUGINS_RS_TRACEL_TBLGEN_RS_20_1_4_7_URL		:= https://crates.io/api/v1/crates/tracel-tblgen-rs/20.1.4-7/download
+GST_PLUGINS_RS_TRACEL_TBLGEN_RS_20_1_4_7_URL		:= $(call ptx/mirror, CRATESIO, tracel-tblgen-rs/20.1.4-7/download)
 GST_PLUGINS_RS_TRACEL_TBLGEN_RS_20_1_4_7_SOURCE	:= $(SRCDIR)/tracel-tblgen-rs-20.1.4-7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACEL_TBLGEN_RS_20_1_4_7
 
 GST_PLUGINS_RS_TRACING_0_1_44_MD5		:= b984c15c692a0f99698c62d9414e2b60
-GST_PLUGINS_RS_TRACING_0_1_44_URL		:= https://crates.io/api/v1/crates/tracing/0.1.44/download
+GST_PLUGINS_RS_TRACING_0_1_44_URL		:= $(call ptx/mirror, CRATESIO, tracing/0.1.44/download)
 GST_PLUGINS_RS_TRACING_0_1_44_SOURCE	:= $(SRCDIR)/tracing-0.1.44.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACING_0_1_44
 
 GST_PLUGINS_RS_TRACING_ATTRIBUTES_0_1_31_MD5		:= 671eb267f94ea7044d7274f0c8be1493
-GST_PLUGINS_RS_TRACING_ATTRIBUTES_0_1_31_URL		:= https://crates.io/api/v1/crates/tracing-attributes/0.1.31/download
+GST_PLUGINS_RS_TRACING_ATTRIBUTES_0_1_31_URL		:= $(call ptx/mirror, CRATESIO, tracing-attributes/0.1.31/download)
 GST_PLUGINS_RS_TRACING_ATTRIBUTES_0_1_31_SOURCE	:= $(SRCDIR)/tracing-attributes-0.1.31.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACING_ATTRIBUTES_0_1_31
 
 GST_PLUGINS_RS_TRACING_CORE_0_1_36_MD5		:= 1c2814a474930e4380e07d61ebdf0da6
-GST_PLUGINS_RS_TRACING_CORE_0_1_36_URL		:= https://crates.io/api/v1/crates/tracing-core/0.1.36/download
+GST_PLUGINS_RS_TRACING_CORE_0_1_36_URL		:= $(call ptx/mirror, CRATESIO, tracing-core/0.1.36/download)
 GST_PLUGINS_RS_TRACING_CORE_0_1_36_SOURCE	:= $(SRCDIR)/tracing-core-0.1.36.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACING_CORE_0_1_36
 
 GST_PLUGINS_RS_TRACING_LOG_0_2_0_MD5		:= beede1fdd5ce9840d395abc905d8ab3e
-GST_PLUGINS_RS_TRACING_LOG_0_2_0_URL		:= https://crates.io/api/v1/crates/tracing-log/0.2.0/download
+GST_PLUGINS_RS_TRACING_LOG_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, tracing-log/0.2.0/download)
 GST_PLUGINS_RS_TRACING_LOG_0_2_0_SOURCE	:= $(SRCDIR)/tracing-log-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACING_LOG_0_2_0
 
 GST_PLUGINS_RS_TRACING_SUBSCRIBER_0_3_22_MD5		:= 6717fc8e33580e3b5cb2dc46b5a5851a
-GST_PLUGINS_RS_TRACING_SUBSCRIBER_0_3_22_URL		:= https://crates.io/api/v1/crates/tracing-subscriber/0.3.22/download
+GST_PLUGINS_RS_TRACING_SUBSCRIBER_0_3_22_URL		:= $(call ptx/mirror, CRATESIO, tracing-subscriber/0.3.22/download)
 GST_PLUGINS_RS_TRACING_SUBSCRIBER_0_3_22_SOURCE	:= $(SRCDIR)/tracing-subscriber-0.3.22.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRACING_SUBSCRIBER_0_3_22
 
 GST_PLUGINS_RS_TRANSPOSE_0_2_3_MD5		:= 7a09da27776f41e64bc590c0c6aa0549
-GST_PLUGINS_RS_TRANSPOSE_0_2_3_URL		:= https://crates.io/api/v1/crates/transpose/0.2.3/download
+GST_PLUGINS_RS_TRANSPOSE_0_2_3_URL		:= $(call ptx/mirror, CRATESIO, transpose/0.2.3/download)
 GST_PLUGINS_RS_TRANSPOSE_0_2_3_SOURCE	:= $(SRCDIR)/transpose-0.2.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRANSPOSE_0_2_3
 
 GST_PLUGINS_RS_TRY_LOCK_0_2_5_MD5		:= 6f09120aa341d58ea072539176058a00
-GST_PLUGINS_RS_TRY_LOCK_0_2_5_URL		:= https://crates.io/api/v1/crates/try-lock/0.2.5/download
+GST_PLUGINS_RS_TRY_LOCK_0_2_5_URL		:= $(call ptx/mirror, CRATESIO, try-lock/0.2.5/download)
 GST_PLUGINS_RS_TRY_LOCK_0_2_5_SOURCE	:= $(SRCDIR)/try-lock-0.2.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TRY_LOCK_0_2_5
 
 GST_PLUGINS_RS_TUNGSTENITE_0_20_1_MD5		:= 76e4f91d718e4f4256990887e321106b
-GST_PLUGINS_RS_TUNGSTENITE_0_20_1_URL		:= https://crates.io/api/v1/crates/tungstenite/0.20.1/download
+GST_PLUGINS_RS_TUNGSTENITE_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, tungstenite/0.20.1/download)
 GST_PLUGINS_RS_TUNGSTENITE_0_20_1_SOURCE	:= $(SRCDIR)/tungstenite-0.20.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TUNGSTENITE_0_20_1
 
 GST_PLUGINS_RS_TUNGSTENITE_0_27_0_MD5		:= fd1465eafcbbf4f6b6836391b91f41fe
-GST_PLUGINS_RS_TUNGSTENITE_0_27_0_URL		:= https://crates.io/api/v1/crates/tungstenite/0.27.0/download
+GST_PLUGINS_RS_TUNGSTENITE_0_27_0_URL		:= $(call ptx/mirror, CRATESIO, tungstenite/0.27.0/download)
 GST_PLUGINS_RS_TUNGSTENITE_0_27_0_SOURCE	:= $(SRCDIR)/tungstenite-0.27.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TUNGSTENITE_0_27_0
 
 GST_PLUGINS_RS_TUNGSTENITE_0_28_0_MD5		:= 082fd93497207ce8b8ccb64dde900c35
-GST_PLUGINS_RS_TUNGSTENITE_0_28_0_URL		:= https://crates.io/api/v1/crates/tungstenite/0.28.0/download
+GST_PLUGINS_RS_TUNGSTENITE_0_28_0_URL		:= $(call ptx/mirror, CRATESIO, tungstenite/0.28.0/download)
 GST_PLUGINS_RS_TUNGSTENITE_0_28_0_SOURCE	:= $(SRCDIR)/tungstenite-0.28.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TUNGSTENITE_0_28_0
 
 GST_PLUGINS_RS_TYPE_MAP_0_5_1_MD5		:= a0ca56df32f41ed0f81f997a80e783ff
-GST_PLUGINS_RS_TYPE_MAP_0_5_1_URL		:= https://crates.io/api/v1/crates/type-map/0.5.1/download
+GST_PLUGINS_RS_TYPE_MAP_0_5_1_URL		:= $(call ptx/mirror, CRATESIO, type-map/0.5.1/download)
 GST_PLUGINS_RS_TYPE_MAP_0_5_1_SOURCE	:= $(SRCDIR)/type-map-0.5.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TYPE_MAP_0_5_1
 
 GST_PLUGINS_RS_TYPED_ARENA_2_0_2_MD5		:= f527f2d51c624ef142c8a59820af1e0f
-GST_PLUGINS_RS_TYPED_ARENA_2_0_2_URL		:= https://crates.io/api/v1/crates/typed-arena/2.0.2/download
+GST_PLUGINS_RS_TYPED_ARENA_2_0_2_URL		:= $(call ptx/mirror, CRATESIO, typed-arena/2.0.2/download)
 GST_PLUGINS_RS_TYPED_ARENA_2_0_2_SOURCE	:= $(SRCDIR)/typed-arena-2.0.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TYPED_ARENA_2_0_2
 
 GST_PLUGINS_RS_TYPED_PATH_0_12_3_MD5		:= 1e20c55b1df19adb0b4b9dd181958b8d
-GST_PLUGINS_RS_TYPED_PATH_0_12_3_URL		:= https://crates.io/api/v1/crates/typed-path/0.12.3/download
+GST_PLUGINS_RS_TYPED_PATH_0_12_3_URL		:= $(call ptx/mirror, CRATESIO, typed-path/0.12.3/download)
 GST_PLUGINS_RS_TYPED_PATH_0_12_3_SOURCE	:= $(SRCDIR)/typed-path-0.12.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TYPED_PATH_0_12_3
 
 GST_PLUGINS_RS_TYPENUM_1_19_0_MD5		:= f9d969cfb6e7f4deafcb270dd18464d9
-GST_PLUGINS_RS_TYPENUM_1_19_0_URL		:= https://crates.io/api/v1/crates/typenum/1.19.0/download
+GST_PLUGINS_RS_TYPENUM_1_19_0_URL		:= $(call ptx/mirror, CRATESIO, typenum/1.19.0/download)
 GST_PLUGINS_RS_TYPENUM_1_19_0_SOURCE	:= $(SRCDIR)/typenum-1.19.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_TYPENUM_1_19_0
 
 GST_PLUGINS_RS_UNICASE_2_9_0_MD5		:= d2fef56363be148395a6b7e3a1aa59fa
-GST_PLUGINS_RS_UNICASE_2_9_0_URL		:= https://crates.io/api/v1/crates/unicase/2.9.0/download
+GST_PLUGINS_RS_UNICASE_2_9_0_URL		:= $(call ptx/mirror, CRATESIO, unicase/2.9.0/download)
 GST_PLUGINS_RS_UNICASE_2_9_0_SOURCE	:= $(SRCDIR)/unicase-2.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNICASE_2_9_0
 
 GST_PLUGINS_RS_UNICODE_IDENT_1_0_24_MD5		:= 49fb2204154a5fe5320366aa88b84291
-GST_PLUGINS_RS_UNICODE_IDENT_1_0_24_URL		:= https://crates.io/api/v1/crates/unicode-ident/1.0.24/download
+GST_PLUGINS_RS_UNICODE_IDENT_1_0_24_URL		:= $(call ptx/mirror, CRATESIO, unicode-ident/1.0.24/download)
 GST_PLUGINS_RS_UNICODE_IDENT_1_0_24_SOURCE	:= $(SRCDIR)/unicode-ident-1.0.24.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNICODE_IDENT_1_0_24
 
 GST_PLUGINS_RS_UNICODE_LINEBREAK_0_1_5_MD5		:= 8b76b9f2069aad02cce54546381fc94b
-GST_PLUGINS_RS_UNICODE_LINEBREAK_0_1_5_URL		:= https://crates.io/api/v1/crates/unicode-linebreak/0.1.5/download
+GST_PLUGINS_RS_UNICODE_LINEBREAK_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, unicode-linebreak/0.1.5/download)
 GST_PLUGINS_RS_UNICODE_LINEBREAK_0_1_5_SOURCE	:= $(SRCDIR)/unicode-linebreak-0.1.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNICODE_LINEBREAK_0_1_5
 
 GST_PLUGINS_RS_UNICODE_NORMALIZATION_0_1_25_MD5		:= 6dafa04351e818cda8806a5bff1dd916
-GST_PLUGINS_RS_UNICODE_NORMALIZATION_0_1_25_URL		:= https://crates.io/api/v1/crates/unicode-normalization/0.1.25/download
+GST_PLUGINS_RS_UNICODE_NORMALIZATION_0_1_25_URL		:= $(call ptx/mirror, CRATESIO, unicode-normalization/0.1.25/download)
 GST_PLUGINS_RS_UNICODE_NORMALIZATION_0_1_25_SOURCE	:= $(SRCDIR)/unicode-normalization-0.1.25.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNICODE_NORMALIZATION_0_1_25
 
 GST_PLUGINS_RS_UNICODE_SEGMENTATION_1_12_0_MD5		:= f2a271be7934b762ed05523370bf14c5
-GST_PLUGINS_RS_UNICODE_SEGMENTATION_1_12_0_URL		:= https://crates.io/api/v1/crates/unicode-segmentation/1.12.0/download
+GST_PLUGINS_RS_UNICODE_SEGMENTATION_1_12_0_URL		:= $(call ptx/mirror, CRATESIO, unicode-segmentation/1.12.0/download)
 GST_PLUGINS_RS_UNICODE_SEGMENTATION_1_12_0_SOURCE	:= $(SRCDIR)/unicode-segmentation-1.12.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNICODE_SEGMENTATION_1_12_0
 
 GST_PLUGINS_RS_UNICODE_WIDTH_0_2_2_MD5		:= 2a4b3962d2e873cc03ad5bd46fee8896
-GST_PLUGINS_RS_UNICODE_WIDTH_0_2_2_URL		:= https://crates.io/api/v1/crates/unicode-width/0.2.2/download
+GST_PLUGINS_RS_UNICODE_WIDTH_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, unicode-width/0.2.2/download)
 GST_PLUGINS_RS_UNICODE_WIDTH_0_2_2_SOURCE	:= $(SRCDIR)/unicode-width-0.2.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNICODE_WIDTH_0_2_2
 
 GST_PLUGINS_RS_UNICODE_XID_0_2_6_MD5		:= 41e2f0237e471d10d38bc7794d30f51a
-GST_PLUGINS_RS_UNICODE_XID_0_2_6_URL		:= https://crates.io/api/v1/crates/unicode-xid/0.2.6/download
+GST_PLUGINS_RS_UNICODE_XID_0_2_6_URL		:= $(call ptx/mirror, CRATESIO, unicode-xid/0.2.6/download)
 GST_PLUGINS_RS_UNICODE_XID_0_2_6_SOURCE	:= $(SRCDIR)/unicode-xid-0.2.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNICODE_XID_0_2_6
 
 GST_PLUGINS_RS_UNICODE_CATEGORIES_0_1_1_MD5		:= 5d5167f36e5fb271a426dfead24427fc
-GST_PLUGINS_RS_UNICODE_CATEGORIES_0_1_1_URL		:= https://crates.io/api/v1/crates/unicode_categories/0.1.1/download
+GST_PLUGINS_RS_UNICODE_CATEGORIES_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, unicode_categories/0.1.1/download)
 GST_PLUGINS_RS_UNICODE_CATEGORIES_0_1_1_SOURCE	:= $(SRCDIR)/unicode_categories-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNICODE_CATEGORIES_0_1_1
 
 GST_PLUGINS_RS_UNINDENT_0_2_4_MD5		:= 916099e0363f5e652be0e15d30613c99
-GST_PLUGINS_RS_UNINDENT_0_2_4_URL		:= https://crates.io/api/v1/crates/unindent/0.2.4/download
+GST_PLUGINS_RS_UNINDENT_0_2_4_URL		:= $(call ptx/mirror, CRATESIO, unindent/0.2.4/download)
 GST_PLUGINS_RS_UNINDENT_0_2_4_SOURCE	:= $(SRCDIR)/unindent-0.2.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNINDENT_0_2_4
 
 GST_PLUGINS_RS_UNIT_PREFIX_0_5_2_MD5		:= ecc097ff05d4a10fc068c77e32618314
-GST_PLUGINS_RS_UNIT_PREFIX_0_5_2_URL		:= https://crates.io/api/v1/crates/unit-prefix/0.5.2/download
+GST_PLUGINS_RS_UNIT_PREFIX_0_5_2_URL		:= $(call ptx/mirror, CRATESIO, unit-prefix/0.5.2/download)
 GST_PLUGINS_RS_UNIT_PREFIX_0_5_2_SOURCE	:= $(SRCDIR)/unit-prefix-0.5.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNIT_PREFIX_0_5_2
 
 GST_PLUGINS_RS_UNTRUSTED_0_9_0_MD5		:= 674e5a6b49cf5e0ebb1d6cc85f6ec786
-GST_PLUGINS_RS_UNTRUSTED_0_9_0_URL		:= https://crates.io/api/v1/crates/untrusted/0.9.0/download
+GST_PLUGINS_RS_UNTRUSTED_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, untrusted/0.9.0/download)
 GST_PLUGINS_RS_UNTRUSTED_0_9_0_SOURCE	:= $(SRCDIR)/untrusted-0.9.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNTRUSTED_0_9_0
 
 GST_PLUGINS_RS_UNTY_0_0_4_MD5		:= 298ece47f78bb0dff5b738ce5763481f
-GST_PLUGINS_RS_UNTY_0_0_4_URL		:= https://crates.io/api/v1/crates/unty/0.0.4/download
+GST_PLUGINS_RS_UNTY_0_0_4_URL		:= $(call ptx/mirror, CRATESIO, unty/0.0.4/download)
 GST_PLUGINS_RS_UNTY_0_0_4_SOURCE	:= $(SRCDIR)/unty-0.0.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UNTY_0_0_4
 
 GST_PLUGINS_RS_URL_2_5_8_MD5		:= 35628f01b0626542c0b974dac3e547e7
-GST_PLUGINS_RS_URL_2_5_8_URL		:= https://crates.io/api/v1/crates/url/2.5.8/download
+GST_PLUGINS_RS_URL_2_5_8_URL		:= $(call ptx/mirror, CRATESIO, url/2.5.8/download)
 GST_PLUGINS_RS_URL_2_5_8_SOURCE	:= $(SRCDIR)/url-2.5.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_URL_2_5_8
 
 GST_PLUGINS_RS_URL_ESCAPE_0_1_1_MD5		:= 711ef9c8320c1df4d29617ecef82df6c
-GST_PLUGINS_RS_URL_ESCAPE_0_1_1_URL		:= https://crates.io/api/v1/crates/url-escape/0.1.1/download
+GST_PLUGINS_RS_URL_ESCAPE_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, url-escape/0.1.1/download)
 GST_PLUGINS_RS_URL_ESCAPE_0_1_1_SOURCE	:= $(SRCDIR)/url-escape-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_URL_ESCAPE_0_1_1
 
 GST_PLUGINS_RS_URLENCODING_2_1_3_MD5		:= 2405e6bc8c9bf3a45a736a47be2136ee
-GST_PLUGINS_RS_URLENCODING_2_1_3_URL		:= https://crates.io/api/v1/crates/urlencoding/2.1.3/download
+GST_PLUGINS_RS_URLENCODING_2_1_3_URL		:= $(call ptx/mirror, CRATESIO, urlencoding/2.1.3/download)
 GST_PLUGINS_RS_URLENCODING_2_1_3_SOURCE	:= $(SRCDIR)/urlencoding-2.1.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_URLENCODING_2_1_3
 
 GST_PLUGINS_RS_UTF_8_0_7_6_MD5		:= 60b1e46c5dd84e50d42cd5f68b041336
-GST_PLUGINS_RS_UTF_8_0_7_6_URL		:= https://crates.io/api/v1/crates/utf-8/0.7.6/download
+GST_PLUGINS_RS_UTF_8_0_7_6_URL		:= $(call ptx/mirror, CRATESIO, utf-8/0.7.6/download)
 GST_PLUGINS_RS_UTF_8_0_7_6_SOURCE	:= $(SRCDIR)/utf-8-0.7.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UTF_8_0_7_6
 
 GST_PLUGINS_RS_UTF8_ITER_1_0_4_MD5		:= 04ee294e8d343a73ef89ed6f07acd9b1
-GST_PLUGINS_RS_UTF8_ITER_1_0_4_URL		:= https://crates.io/api/v1/crates/utf8_iter/1.0.4/download
+GST_PLUGINS_RS_UTF8_ITER_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, utf8_iter/1.0.4/download)
 GST_PLUGINS_RS_UTF8_ITER_1_0_4_SOURCE	:= $(SRCDIR)/utf8_iter-1.0.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UTF8_ITER_1_0_4
 
 GST_PLUGINS_RS_UTF8PARSE_0_2_2_MD5		:= 470f527a51d3921895bd2583fce8d9c4
-GST_PLUGINS_RS_UTF8PARSE_0_2_2_URL		:= https://crates.io/api/v1/crates/utf8parse/0.2.2/download
+GST_PLUGINS_RS_UTF8PARSE_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, utf8parse/0.2.2/download)
 GST_PLUGINS_RS_UTF8PARSE_0_2_2_SOURCE	:= $(SRCDIR)/utf8parse-0.2.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UTF8PARSE_0_2_2
 
 GST_PLUGINS_RS_UUID_1_21_0_MD5		:= 02e48856cb88bcd854899ce0ad886873
-GST_PLUGINS_RS_UUID_1_21_0_URL		:= https://crates.io/api/v1/crates/uuid/1.21.0/download
+GST_PLUGINS_RS_UUID_1_21_0_URL		:= $(call ptx/mirror, CRATESIO, uuid/1.21.0/download)
 GST_PLUGINS_RS_UUID_1_21_0_SOURCE	:= $(SRCDIR)/uuid-1.21.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_UUID_1_21_0
 
 GST_PLUGINS_RS_V_FRAME_0_3_9_MD5		:= c6f69494a21185699225494127ff838b
-GST_PLUGINS_RS_V_FRAME_0_3_9_URL		:= https://crates.io/api/v1/crates/v_frame/0.3.9/download
+GST_PLUGINS_RS_V_FRAME_0_3_9_URL		:= $(call ptx/mirror, CRATESIO, v_frame/0.3.9/download)
 GST_PLUGINS_RS_V_FRAME_0_3_9_SOURCE	:= $(SRCDIR)/v_frame-0.3.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_V_FRAME_0_3_9
 
 GST_PLUGINS_RS_VA_LIST_0_1_4_MD5		:= 2e2072385dccbbfff4ddf41b065fdcbe
-GST_PLUGINS_RS_VA_LIST_0_1_4_URL		:= https://crates.io/api/v1/crates/va_list/0.1.4/download
+GST_PLUGINS_RS_VA_LIST_0_1_4_URL		:= $(call ptx/mirror, CRATESIO, va_list/0.1.4/download)
 GST_PLUGINS_RS_VA_LIST_0_1_4_SOURCE	:= $(SRCDIR)/va_list-0.1.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VA_LIST_0_1_4
 
 GST_PLUGINS_RS_VALUABLE_0_1_1_MD5		:= 4a1c91b24c3025dc6bb6e0eb9711772a
-GST_PLUGINS_RS_VALUABLE_0_1_1_URL		:= https://crates.io/api/v1/crates/valuable/0.1.1/download
+GST_PLUGINS_RS_VALUABLE_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, valuable/0.1.1/download)
 GST_PLUGINS_RS_VALUABLE_0_1_1_SOURCE	:= $(SRCDIR)/valuable-0.1.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VALUABLE_0_1_1
 
 GST_PLUGINS_RS_VARIADICS_PLEASE_1_1_0_MD5		:= 0df763ddfbba607148171c75827ef255
-GST_PLUGINS_RS_VARIADICS_PLEASE_1_1_0_URL		:= https://crates.io/api/v1/crates/variadics_please/1.1.0/download
+GST_PLUGINS_RS_VARIADICS_PLEASE_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, variadics_please/1.1.0/download)
 GST_PLUGINS_RS_VARIADICS_PLEASE_1_1_0_SOURCE	:= $(SRCDIR)/variadics_please-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VARIADICS_PLEASE_1_1_0
 
 GST_PLUGINS_RS_VCPKG_0_2_15_MD5		:= e900a384ac7dbb320fe6a7279fbfef89
-GST_PLUGINS_RS_VCPKG_0_2_15_URL		:= https://crates.io/api/v1/crates/vcpkg/0.2.15/download
+GST_PLUGINS_RS_VCPKG_0_2_15_URL		:= $(call ptx/mirror, CRATESIO, vcpkg/0.2.15/download)
 GST_PLUGINS_RS_VCPKG_0_2_15_SOURCE	:= $(SRCDIR)/vcpkg-0.2.15.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VCPKG_0_2_15
 
 GST_PLUGINS_RS_VERGEN_9_0_6_MD5		:= 809218b4613e630f0b333e2fecced27a
-GST_PLUGINS_RS_VERGEN_9_0_6_URL		:= https://crates.io/api/v1/crates/vergen/9.0.6/download
+GST_PLUGINS_RS_VERGEN_9_0_6_URL		:= $(call ptx/mirror, CRATESIO, vergen/9.0.6/download)
 GST_PLUGINS_RS_VERGEN_9_0_6_SOURCE	:= $(SRCDIR)/vergen-9.0.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VERGEN_9_0_6
 
 GST_PLUGINS_RS_VERGEN_GITCL_1_0_8_MD5		:= 98c0f7317c130657f0059aeb8470352e
-GST_PLUGINS_RS_VERGEN_GITCL_1_0_8_URL		:= https://crates.io/api/v1/crates/vergen-gitcl/1.0.8/download
+GST_PLUGINS_RS_VERGEN_GITCL_1_0_8_URL		:= $(call ptx/mirror, CRATESIO, vergen-gitcl/1.0.8/download)
 GST_PLUGINS_RS_VERGEN_GITCL_1_0_8_SOURCE	:= $(SRCDIR)/vergen-gitcl-1.0.8.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VERGEN_GITCL_1_0_8
 
 GST_PLUGINS_RS_VERGEN_LIB_0_1_6_MD5		:= ce9ada747bd17bea6abba830739b8820
-GST_PLUGINS_RS_VERGEN_LIB_0_1_6_URL		:= https://crates.io/api/v1/crates/vergen-lib/0.1.6/download
+GST_PLUGINS_RS_VERGEN_LIB_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, vergen-lib/0.1.6/download)
 GST_PLUGINS_RS_VERGEN_LIB_0_1_6_SOURCE	:= $(SRCDIR)/vergen-lib-0.1.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VERGEN_LIB_0_1_6
 
 GST_PLUGINS_RS_VERSION_COMPARE_0_2_1_MD5		:= 0159bb7db20d41d475884d3027377161
-GST_PLUGINS_RS_VERSION_COMPARE_0_2_1_URL		:= https://crates.io/api/v1/crates/version-compare/0.2.1/download
+GST_PLUGINS_RS_VERSION_COMPARE_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, version-compare/0.2.1/download)
 GST_PLUGINS_RS_VERSION_COMPARE_0_2_1_SOURCE	:= $(SRCDIR)/version-compare-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VERSION_COMPARE_0_2_1
 
 GST_PLUGINS_RS_VERSION_CHECK_0_9_5_MD5		:= f9880f1c33a7bc7b0e6e086b504bf38f
-GST_PLUGINS_RS_VERSION_CHECK_0_9_5_URL		:= https://crates.io/api/v1/crates/version_check/0.9.5/download
+GST_PLUGINS_RS_VERSION_CHECK_0_9_5_URL		:= $(call ptx/mirror, CRATESIO, version_check/0.9.5/download)
 GST_PLUGINS_RS_VERSION_CHECK_0_9_5_SOURCE	:= $(SRCDIR)/version_check-0.9.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VERSION_CHECK_0_9_5
 
 GST_PLUGINS_RS_VOID_1_0_2_MD5		:= 689203efc084fc0f1d1f74f5d354ae75
-GST_PLUGINS_RS_VOID_1_0_2_URL		:= https://crates.io/api/v1/crates/void/1.0.2/download
+GST_PLUGINS_RS_VOID_1_0_2_URL		:= $(call ptx/mirror, CRATESIO, void/1.0.2/download)
 GST_PLUGINS_RS_VOID_1_0_2_SOURCE	:= $(SRCDIR)/void-1.0.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VOID_1_0_2
 
 GST_PLUGINS_RS_VSIMD_0_8_0_MD5		:= fd38d879e932077b2f6dea6ce5e9ef55
-GST_PLUGINS_RS_VSIMD_0_8_0_URL		:= https://crates.io/api/v1/crates/vsimd/0.8.0/download
+GST_PLUGINS_RS_VSIMD_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, vsimd/0.8.0/download)
 GST_PLUGINS_RS_VSIMD_0_8_0_SOURCE	:= $(SRCDIR)/vsimd-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VSIMD_0_8_0
 
 GST_PLUGINS_RS_VVDEC_0_6_11_MD5		:= 6720145bc98770a3a08ea7cdea0d5efa
-GST_PLUGINS_RS_VVDEC_0_6_11_URL		:= https://crates.io/api/v1/crates/vvdec/0.6.11/download
+GST_PLUGINS_RS_VVDEC_0_6_11_URL		:= $(call ptx/mirror, CRATESIO, vvdec/0.6.11/download)
 GST_PLUGINS_RS_VVDEC_0_6_11_SOURCE	:= $(SRCDIR)/vvdec-0.6.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VVDEC_0_6_11
 
 GST_PLUGINS_RS_VVDEC_SYS_0_7_0_MD5		:= a7e4f9955b5b54e8f26b70d7b41dddef
-GST_PLUGINS_RS_VVDEC_SYS_0_7_0_URL		:= https://crates.io/api/v1/crates/vvdec-sys/0.7.0/download
+GST_PLUGINS_RS_VVDEC_SYS_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, vvdec-sys/0.7.0/download)
 GST_PLUGINS_RS_VVDEC_SYS_0_7_0_SOURCE	:= $(SRCDIR)/vvdec-sys-0.7.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_VVDEC_SYS_0_7_0
 
 GST_PLUGINS_RS_WAKER_FN_1_2_0_MD5		:= 3f6532604aeeeb2e27936a1558899443
-GST_PLUGINS_RS_WAKER_FN_1_2_0_URL		:= https://crates.io/api/v1/crates/waker-fn/1.2.0/download
+GST_PLUGINS_RS_WAKER_FN_1_2_0_URL		:= $(call ptx/mirror, CRATESIO, waker-fn/1.2.0/download)
 GST_PLUGINS_RS_WAKER_FN_1_2_0_SOURCE	:= $(SRCDIR)/waker-fn-1.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WAKER_FN_1_2_0
 
 GST_PLUGINS_RS_WALKDIR_2_5_0_MD5		:= f38b27b8c9625110a51293658f1cc014
-GST_PLUGINS_RS_WALKDIR_2_5_0_URL		:= https://crates.io/api/v1/crates/walkdir/2.5.0/download
+GST_PLUGINS_RS_WALKDIR_2_5_0_URL		:= $(call ptx/mirror, CRATESIO, walkdir/2.5.0/download)
 GST_PLUGINS_RS_WALKDIR_2_5_0_SOURCE	:= $(SRCDIR)/walkdir-2.5.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WALKDIR_2_5_0
 
 GST_PLUGINS_RS_WANT_0_3_1_MD5		:= 4daa973c57624dc3d88eaa49dd86d3e1
-GST_PLUGINS_RS_WANT_0_3_1_URL		:= https://crates.io/api/v1/crates/want/0.3.1/download
+GST_PLUGINS_RS_WANT_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, want/0.3.1/download)
 GST_PLUGINS_RS_WANT_0_3_1_SOURCE	:= $(SRCDIR)/want-0.3.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WANT_0_3_1
 
 GST_PLUGINS_RS_WARP_0_4_2_MD5		:= c11f137aad255b48250a0789cb64942a
-GST_PLUGINS_RS_WARP_0_4_2_URL		:= https://crates.io/api/v1/crates/warp/0.4.2/download
+GST_PLUGINS_RS_WARP_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, warp/0.4.2/download)
 GST_PLUGINS_RS_WARP_0_4_2_SOURCE	:= $(SRCDIR)/warp-0.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WARP_0_4_2
 
 GST_PLUGINS_RS_WASI_0_11_1_WASI_SNAPSHOT_PREVIEW1_MD5		:= b3c17dbae6dcdda8e25963f21402905e
-GST_PLUGINS_RS_WASI_0_11_1_WASI_SNAPSHOT_PREVIEW1_URL		:= https://crates.io/api/v1/crates/wasi/0.11.1+wasi-snapshot-preview1/download
+GST_PLUGINS_RS_WASI_0_11_1_WASI_SNAPSHOT_PREVIEW1_URL		:= $(call ptx/mirror, CRATESIO, wasi/0.11.1+wasi-snapshot-preview1/download)
 GST_PLUGINS_RS_WASI_0_11_1_WASI_SNAPSHOT_PREVIEW1_SOURCE	:= $(SRCDIR)/wasi-0.11.1+wasi-snapshot-preview1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASI_0_11_1_WASI_SNAPSHOT_PREVIEW1
 
 GST_PLUGINS_RS_WASIP2_1_0_2_WASI_0_2_9_MD5		:= 9791431296dbe72aabda37a120a0d82f
-GST_PLUGINS_RS_WASIP2_1_0_2_WASI_0_2_9_URL		:= https://crates.io/api/v1/crates/wasip2/1.0.2+wasi-0.2.9/download
+GST_PLUGINS_RS_WASIP2_1_0_2_WASI_0_2_9_URL		:= $(call ptx/mirror, CRATESIO, wasip2/1.0.2+wasi-0.2.9/download)
 GST_PLUGINS_RS_WASIP2_1_0_2_WASI_0_2_9_SOURCE	:= $(SRCDIR)/wasip2-1.0.2+wasi-0.2.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASIP2_1_0_2_WASI_0_2_9
 
 GST_PLUGINS_RS_WASIP3_0_4_0_WASI_0_3_0_RC_2026_01_06_MD5		:= 7d06b6880c4da81ccb923260599e077e
-GST_PLUGINS_RS_WASIP3_0_4_0_WASI_0_3_0_RC_2026_01_06_URL		:= https://crates.io/api/v1/crates/wasip3/0.4.0+wasi-0.3.0-rc-2026-01-06/download
+GST_PLUGINS_RS_WASIP3_0_4_0_WASI_0_3_0_RC_2026_01_06_URL		:= $(call ptx/mirror, CRATESIO, wasip3/0.4.0+wasi-0.3.0-rc-2026-01-06/download)
 GST_PLUGINS_RS_WASIP3_0_4_0_WASI_0_3_0_RC_2026_01_06_SOURCE	:= $(SRCDIR)/wasip3-0.4.0+wasi-0.3.0-rc-2026-01-06.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASIP3_0_4_0_WASI_0_3_0_RC_2026_01_06
 
 GST_PLUGINS_RS_WASM_BINDGEN_0_2_114_MD5		:= 8b8107db45afa793b896ca85dd8689eb
-GST_PLUGINS_RS_WASM_BINDGEN_0_2_114_URL		:= https://crates.io/api/v1/crates/wasm-bindgen/0.2.114/download
+GST_PLUGINS_RS_WASM_BINDGEN_0_2_114_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen/0.2.114/download)
 GST_PLUGINS_RS_WASM_BINDGEN_0_2_114_SOURCE	:= $(SRCDIR)/wasm-bindgen-0.2.114.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASM_BINDGEN_0_2_114
 
 GST_PLUGINS_RS_WASM_BINDGEN_FUTURES_0_4_64_MD5		:= 1789b7b4e0bec507420d66ee1751ac88
-GST_PLUGINS_RS_WASM_BINDGEN_FUTURES_0_4_64_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-futures/0.4.64/download
+GST_PLUGINS_RS_WASM_BINDGEN_FUTURES_0_4_64_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-futures/0.4.64/download)
 GST_PLUGINS_RS_WASM_BINDGEN_FUTURES_0_4_64_SOURCE	:= $(SRCDIR)/wasm-bindgen-futures-0.4.64.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASM_BINDGEN_FUTURES_0_4_64
 
 GST_PLUGINS_RS_WASM_BINDGEN_MACRO_0_2_114_MD5		:= 546a0008daf3cb5698560a9395e1aec9
-GST_PLUGINS_RS_WASM_BINDGEN_MACRO_0_2_114_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-macro/0.2.114/download
+GST_PLUGINS_RS_WASM_BINDGEN_MACRO_0_2_114_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-macro/0.2.114/download)
 GST_PLUGINS_RS_WASM_BINDGEN_MACRO_0_2_114_SOURCE	:= $(SRCDIR)/wasm-bindgen-macro-0.2.114.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASM_BINDGEN_MACRO_0_2_114
 
 GST_PLUGINS_RS_WASM_BINDGEN_MACRO_SUPPORT_0_2_114_MD5		:= beb179692d7b65ed985d1d42a3996145
-GST_PLUGINS_RS_WASM_BINDGEN_MACRO_SUPPORT_0_2_114_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-macro-support/0.2.114/download
+GST_PLUGINS_RS_WASM_BINDGEN_MACRO_SUPPORT_0_2_114_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-macro-support/0.2.114/download)
 GST_PLUGINS_RS_WASM_BINDGEN_MACRO_SUPPORT_0_2_114_SOURCE	:= $(SRCDIR)/wasm-bindgen-macro-support-0.2.114.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASM_BINDGEN_MACRO_SUPPORT_0_2_114
 
 GST_PLUGINS_RS_WASM_BINDGEN_SHARED_0_2_114_MD5		:= 3d238c0a696560fa73a41e3067a34c7f
-GST_PLUGINS_RS_WASM_BINDGEN_SHARED_0_2_114_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-shared/0.2.114/download
+GST_PLUGINS_RS_WASM_BINDGEN_SHARED_0_2_114_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-shared/0.2.114/download)
 GST_PLUGINS_RS_WASM_BINDGEN_SHARED_0_2_114_SOURCE	:= $(SRCDIR)/wasm-bindgen-shared-0.2.114.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASM_BINDGEN_SHARED_0_2_114
 
 GST_PLUGINS_RS_WASM_ENCODER_0_244_0_MD5		:= 7b5a38af796f4880fd74ca356e49b17d
-GST_PLUGINS_RS_WASM_ENCODER_0_244_0_URL		:= https://crates.io/api/v1/crates/wasm-encoder/0.244.0/download
+GST_PLUGINS_RS_WASM_ENCODER_0_244_0_URL		:= $(call ptx/mirror, CRATESIO, wasm-encoder/0.244.0/download)
 GST_PLUGINS_RS_WASM_ENCODER_0_244_0_SOURCE	:= $(SRCDIR)/wasm-encoder-0.244.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASM_ENCODER_0_244_0
 
 GST_PLUGINS_RS_WASM_METADATA_0_244_0_MD5		:= fb315cd2f711aabf0a616536d1b0852d
-GST_PLUGINS_RS_WASM_METADATA_0_244_0_URL		:= https://crates.io/api/v1/crates/wasm-metadata/0.244.0/download
+GST_PLUGINS_RS_WASM_METADATA_0_244_0_URL		:= $(call ptx/mirror, CRATESIO, wasm-metadata/0.244.0/download)
 GST_PLUGINS_RS_WASM_METADATA_0_244_0_SOURCE	:= $(SRCDIR)/wasm-metadata-0.244.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASM_METADATA_0_244_0
 
 GST_PLUGINS_RS_WASM_STREAMS_0_4_2_MD5		:= 9eb0dd5a560b2592decf1593be222fa8
-GST_PLUGINS_RS_WASM_STREAMS_0_4_2_URL		:= https://crates.io/api/v1/crates/wasm-streams/0.4.2/download
+GST_PLUGINS_RS_WASM_STREAMS_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, wasm-streams/0.4.2/download)
 GST_PLUGINS_RS_WASM_STREAMS_0_4_2_SOURCE	:= $(SRCDIR)/wasm-streams-0.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASM_STREAMS_0_4_2
 
 GST_PLUGINS_RS_WASMPARSER_0_244_0_MD5		:= 338cd54f76768381231cd3b285a4284d
-GST_PLUGINS_RS_WASMPARSER_0_244_0_URL		:= https://crates.io/api/v1/crates/wasmparser/0.244.0/download
+GST_PLUGINS_RS_WASMPARSER_0_244_0_URL		:= $(call ptx/mirror, CRATESIO, wasmparser/0.244.0/download)
 GST_PLUGINS_RS_WASMPARSER_0_244_0_SOURCE	:= $(SRCDIR)/wasmparser-0.244.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WASMPARSER_0_244_0
 
 GST_PLUGINS_RS_WEB_SYS_0_3_91_MD5		:= 635418751467cc8e214e7ae2c72977e8
-GST_PLUGINS_RS_WEB_SYS_0_3_91_URL		:= https://crates.io/api/v1/crates/web-sys/0.3.91/download
+GST_PLUGINS_RS_WEB_SYS_0_3_91_URL		:= $(call ptx/mirror, CRATESIO, web-sys/0.3.91/download)
 GST_PLUGINS_RS_WEB_SYS_0_3_91_SOURCE	:= $(SRCDIR)/web-sys-0.3.91.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WEB_SYS_0_3_91
 
 GST_PLUGINS_RS_WEB_TIME_1_1_0_MD5		:= f342d4158de6be8103e82018d590ae3e
-GST_PLUGINS_RS_WEB_TIME_1_1_0_URL		:= https://crates.io/api/v1/crates/web-time/1.1.0/download
+GST_PLUGINS_RS_WEB_TIME_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, web-time/1.1.0/download)
 GST_PLUGINS_RS_WEB_TIME_1_1_0_SOURCE	:= $(SRCDIR)/web-time-1.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WEB_TIME_1_1_0
 
 GST_PLUGINS_RS_WEB_TRANSPORT_PROTO_0_5_4_MD5		:= ee204ad2843b89968cc043a37cc10c09
-GST_PLUGINS_RS_WEB_TRANSPORT_PROTO_0_5_4_URL		:= https://crates.io/api/v1/crates/web-transport-proto/0.5.4/download
+GST_PLUGINS_RS_WEB_TRANSPORT_PROTO_0_5_4_URL		:= $(call ptx/mirror, CRATESIO, web-transport-proto/0.5.4/download)
 GST_PLUGINS_RS_WEB_TRANSPORT_PROTO_0_5_4_SOURCE	:= $(SRCDIR)/web-transport-proto-0.5.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WEB_TRANSPORT_PROTO_0_5_4
 
 GST_PLUGINS_RS_WEB_TRANSPORT_QUINN_0_11_6_MD5		:= f511dadc95e7bdc08f599f9bf32f29a1
-GST_PLUGINS_RS_WEB_TRANSPORT_QUINN_0_11_6_URL		:= https://crates.io/api/v1/crates/web-transport-quinn/0.11.6/download
+GST_PLUGINS_RS_WEB_TRANSPORT_QUINN_0_11_6_URL		:= $(call ptx/mirror, CRATESIO, web-transport-quinn/0.11.6/download)
 GST_PLUGINS_RS_WEB_TRANSPORT_QUINN_0_11_6_SOURCE	:= $(SRCDIR)/web-transport-quinn-0.11.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WEB_TRANSPORT_QUINN_0_11_6
 
 GST_PLUGINS_RS_WEB_TRANSPORT_TRAIT_0_3_3_MD5		:= 14c57fe194e739bf20f87b9409e5a31f
-GST_PLUGINS_RS_WEB_TRANSPORT_TRAIT_0_3_3_URL		:= https://crates.io/api/v1/crates/web-transport-trait/0.3.3/download
+GST_PLUGINS_RS_WEB_TRANSPORT_TRAIT_0_3_3_URL		:= $(call ptx/mirror, CRATESIO, web-transport-trait/0.3.3/download)
 GST_PLUGINS_RS_WEB_TRANSPORT_TRAIT_0_3_3_SOURCE	:= $(SRCDIR)/web-transport-trait-0.3.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WEB_TRANSPORT_TRAIT_0_3_3
 
 GST_PLUGINS_RS_WEBM_ITERABLE_0_6_4_MD5		:= 51672c5f3d36305680b704b5c537fcc9
-GST_PLUGINS_RS_WEBM_ITERABLE_0_6_4_URL		:= https://crates.io/api/v1/crates/webm-iterable/0.6.4/download
+GST_PLUGINS_RS_WEBM_ITERABLE_0_6_4_URL		:= $(call ptx/mirror, CRATESIO, webm-iterable/0.6.4/download)
 GST_PLUGINS_RS_WEBM_ITERABLE_0_6_4_SOURCE	:= $(SRCDIR)/webm-iterable-0.6.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WEBM_ITERABLE_0_6_4
 
 GST_PLUGINS_RS_WEBPKI_0_22_4_MD5		:= 422adc6339e497723dd8d754b98f5679
-GST_PLUGINS_RS_WEBPKI_0_22_4_URL		:= https://crates.io/api/v1/crates/webpki/0.22.4/download
+GST_PLUGINS_RS_WEBPKI_0_22_4_URL		:= $(call ptx/mirror, CRATESIO, webpki/0.22.4/download)
 GST_PLUGINS_RS_WEBPKI_0_22_4_SOURCE	:= $(SRCDIR)/webpki-0.22.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WEBPKI_0_22_4
 
 GST_PLUGINS_RS_WEBPKI_ROOT_CERTS_1_0_6_MD5		:= 511141b3c2f721375050e1cd1186cf90
-GST_PLUGINS_RS_WEBPKI_ROOT_CERTS_1_0_6_URL		:= https://crates.io/api/v1/crates/webpki-root-certs/1.0.6/download
+GST_PLUGINS_RS_WEBPKI_ROOT_CERTS_1_0_6_URL		:= $(call ptx/mirror, CRATESIO, webpki-root-certs/1.0.6/download)
 GST_PLUGINS_RS_WEBPKI_ROOT_CERTS_1_0_6_SOURCE	:= $(SRCDIR)/webpki-root-certs-1.0.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WEBPKI_ROOT_CERTS_1_0_6
 
 GST_PLUGINS_RS_WEBPKI_ROOTS_0_26_11_MD5		:= c3d04b2891eee6dccd39ce6c9c2e46bd
-GST_PLUGINS_RS_WEBPKI_ROOTS_0_26_11_URL		:= https://crates.io/api/v1/crates/webpki-roots/0.26.11/download
+GST_PLUGINS_RS_WEBPKI_ROOTS_0_26_11_URL		:= $(call ptx/mirror, CRATESIO, webpki-roots/0.26.11/download)
 GST_PLUGINS_RS_WEBPKI_ROOTS_0_26_11_SOURCE	:= $(SRCDIR)/webpki-roots-0.26.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WEBPKI_ROOTS_0_26_11
 
 GST_PLUGINS_RS_WEBPKI_ROOTS_1_0_6_MD5		:= f2c08443aa890f9d70eb64c167c00d13
-GST_PLUGINS_RS_WEBPKI_ROOTS_1_0_6_URL		:= https://crates.io/api/v1/crates/webpki-roots/1.0.6/download
+GST_PLUGINS_RS_WEBPKI_ROOTS_1_0_6_URL		:= $(call ptx/mirror, CRATESIO, webpki-roots/1.0.6/download)
 GST_PLUGINS_RS_WEBPKI_ROOTS_1_0_6_SOURCE	:= $(SRCDIR)/webpki-roots-1.0.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WEBPKI_ROOTS_1_0_6
 
 GST_PLUGINS_RS_WEEZL_0_1_12_MD5		:= 91d3ab142f4932ea33dc82080dfaf915
-GST_PLUGINS_RS_WEEZL_0_1_12_URL		:= https://crates.io/api/v1/crates/weezl/0.1.12/download
+GST_PLUGINS_RS_WEEZL_0_1_12_URL		:= $(call ptx/mirror, CRATESIO, weezl/0.1.12/download)
 GST_PLUGINS_RS_WEEZL_0_1_12_SOURCE	:= $(SRCDIR)/weezl-0.1.12.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WEEZL_0_1_12
 
 GST_PLUGINS_RS_WGPU_26_0_1_MD5		:= 694fc98487b7ca7cb00b71eff07899fe
-GST_PLUGINS_RS_WGPU_26_0_1_URL		:= https://crates.io/api/v1/crates/wgpu/26.0.1/download
+GST_PLUGINS_RS_WGPU_26_0_1_URL		:= $(call ptx/mirror, CRATESIO, wgpu/26.0.1/download)
 GST_PLUGINS_RS_WGPU_26_0_1_SOURCE	:= $(SRCDIR)/wgpu-26.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WGPU_26_0_1
 
 GST_PLUGINS_RS_WGPU_CORE_26_0_1_MD5		:= 54f09fb599e6d32978d16c7fc782bc2c
-GST_PLUGINS_RS_WGPU_CORE_26_0_1_URL		:= https://crates.io/api/v1/crates/wgpu-core/26.0.1/download
+GST_PLUGINS_RS_WGPU_CORE_26_0_1_URL		:= $(call ptx/mirror, CRATESIO, wgpu-core/26.0.1/download)
 GST_PLUGINS_RS_WGPU_CORE_26_0_1_SOURCE	:= $(SRCDIR)/wgpu-core-26.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WGPU_CORE_26_0_1
 
 GST_PLUGINS_RS_WGPU_CORE_DEPS_APPLE_26_0_0_MD5		:= 01ce1f7c8db7513b19ba83b8f2d8dc0a
-GST_PLUGINS_RS_WGPU_CORE_DEPS_APPLE_26_0_0_URL		:= https://crates.io/api/v1/crates/wgpu-core-deps-apple/26.0.0/download
+GST_PLUGINS_RS_WGPU_CORE_DEPS_APPLE_26_0_0_URL		:= $(call ptx/mirror, CRATESIO, wgpu-core-deps-apple/26.0.0/download)
 GST_PLUGINS_RS_WGPU_CORE_DEPS_APPLE_26_0_0_SOURCE	:= $(SRCDIR)/wgpu-core-deps-apple-26.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WGPU_CORE_DEPS_APPLE_26_0_0
 
 GST_PLUGINS_RS_WGPU_CORE_DEPS_EMSCRIPTEN_26_0_0_MD5		:= e73fb66915422093f119a29b6de410c5
-GST_PLUGINS_RS_WGPU_CORE_DEPS_EMSCRIPTEN_26_0_0_URL		:= https://crates.io/api/v1/crates/wgpu-core-deps-emscripten/26.0.0/download
+GST_PLUGINS_RS_WGPU_CORE_DEPS_EMSCRIPTEN_26_0_0_URL		:= $(call ptx/mirror, CRATESIO, wgpu-core-deps-emscripten/26.0.0/download)
 GST_PLUGINS_RS_WGPU_CORE_DEPS_EMSCRIPTEN_26_0_0_SOURCE	:= $(SRCDIR)/wgpu-core-deps-emscripten-26.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WGPU_CORE_DEPS_EMSCRIPTEN_26_0_0
 
 GST_PLUGINS_RS_WGPU_CORE_DEPS_WINDOWS_LINUX_ANDROID_26_0_0_MD5		:= 69db1d12d7f79fc0662543a533ebe35b
-GST_PLUGINS_RS_WGPU_CORE_DEPS_WINDOWS_LINUX_ANDROID_26_0_0_URL		:= https://crates.io/api/v1/crates/wgpu-core-deps-windows-linux-android/26.0.0/download
+GST_PLUGINS_RS_WGPU_CORE_DEPS_WINDOWS_LINUX_ANDROID_26_0_0_URL		:= $(call ptx/mirror, CRATESIO, wgpu-core-deps-windows-linux-android/26.0.0/download)
 GST_PLUGINS_RS_WGPU_CORE_DEPS_WINDOWS_LINUX_ANDROID_26_0_0_SOURCE	:= $(SRCDIR)/wgpu-core-deps-windows-linux-android-26.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WGPU_CORE_DEPS_WINDOWS_LINUX_ANDROID_26_0_0
 
 GST_PLUGINS_RS_WGPU_HAL_26_0_6_MD5		:= ae8fc3392308da1dfb23800b587c47d6
-GST_PLUGINS_RS_WGPU_HAL_26_0_6_URL		:= https://crates.io/api/v1/crates/wgpu-hal/26.0.6/download
+GST_PLUGINS_RS_WGPU_HAL_26_0_6_URL		:= $(call ptx/mirror, CRATESIO, wgpu-hal/26.0.6/download)
 GST_PLUGINS_RS_WGPU_HAL_26_0_6_SOURCE	:= $(SRCDIR)/wgpu-hal-26.0.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WGPU_HAL_26_0_6
 
 GST_PLUGINS_RS_WGPU_TYPES_26_0_0_MD5		:= 9ad13c4378298e2feaa1cd4f8466bd2b
-GST_PLUGINS_RS_WGPU_TYPES_26_0_0_URL		:= https://crates.io/api/v1/crates/wgpu-types/26.0.0/download
+GST_PLUGINS_RS_WGPU_TYPES_26_0_0_URL		:= $(call ptx/mirror, CRATESIO, wgpu-types/26.0.0/download)
 GST_PLUGINS_RS_WGPU_TYPES_26_0_0_SOURCE	:= $(SRCDIR)/wgpu-types-26.0.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WGPU_TYPES_26_0_0
 
 GST_PLUGINS_RS_WHICH_4_4_2_MD5		:= 9f0ad88c4840b999e28531dee406432d
-GST_PLUGINS_RS_WHICH_4_4_2_URL		:= https://crates.io/api/v1/crates/which/4.4.2/download
+GST_PLUGINS_RS_WHICH_4_4_2_URL		:= $(call ptx/mirror, CRATESIO, which/4.4.2/download)
 GST_PLUGINS_RS_WHICH_4_4_2_SOURCE	:= $(SRCDIR)/which-4.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WHICH_4_4_2
 
 GST_PLUGINS_RS_WHISPER_RS_0_15_1_MD5		:= b86c3d3dbd68190e1cbc79fb1d813c61
-GST_PLUGINS_RS_WHISPER_RS_0_15_1_URL		:= https://crates.io/api/v1/crates/whisper-rs/0.15.1/download
+GST_PLUGINS_RS_WHISPER_RS_0_15_1_URL		:= $(call ptx/mirror, CRATESIO, whisper-rs/0.15.1/download)
 GST_PLUGINS_RS_WHISPER_RS_0_15_1_SOURCE	:= $(SRCDIR)/whisper-rs-0.15.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WHISPER_RS_0_15_1
 
 GST_PLUGINS_RS_WHISPER_RS_SYS_0_14_1_MD5		:= a308c242454885c1d39bf64e7510131b
-GST_PLUGINS_RS_WHISPER_RS_SYS_0_14_1_URL		:= https://crates.io/api/v1/crates/whisper-rs-sys/0.14.1/download
+GST_PLUGINS_RS_WHISPER_RS_SYS_0_14_1_URL		:= $(call ptx/mirror, CRATESIO, whisper-rs-sys/0.14.1/download)
 GST_PLUGINS_RS_WHISPER_RS_SYS_0_14_1_SOURCE	:= $(SRCDIR)/whisper-rs-sys-0.14.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WHISPER_RS_SYS_0_14_1
 
 GST_PLUGINS_RS_WINAPI_0_3_9_MD5		:= 0498c4a11448bfc35dc7bb2caa64c753
-GST_PLUGINS_RS_WINAPI_0_3_9_URL		:= https://crates.io/api/v1/crates/winapi/0.3.9/download
+GST_PLUGINS_RS_WINAPI_0_3_9_URL		:= $(call ptx/mirror, CRATESIO, winapi/0.3.9/download)
 GST_PLUGINS_RS_WINAPI_0_3_9_SOURCE	:= $(SRCDIR)/winapi-0.3.9.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINAPI_0_3_9
 
 GST_PLUGINS_RS_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_MD5		:= db96b50050277bf05a3c68534bbb9586
-GST_PLUGINS_RS_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_URL		:= https://crates.io/api/v1/crates/winapi-i686-pc-windows-gnu/0.4.0/download
+GST_PLUGINS_RS_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, winapi-i686-pc-windows-gnu/0.4.0/download)
 GST_PLUGINS_RS_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_SOURCE	:= $(SRCDIR)/winapi-i686-pc-windows-gnu-0.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINAPI_I686_PC_WINDOWS_GNU_0_4_0
 
 GST_PLUGINS_RS_WINAPI_UTIL_0_1_11_MD5		:= 119f519a2b99e0212a8def5baed07c3f
-GST_PLUGINS_RS_WINAPI_UTIL_0_1_11_URL		:= https://crates.io/api/v1/crates/winapi-util/0.1.11/download
+GST_PLUGINS_RS_WINAPI_UTIL_0_1_11_URL		:= $(call ptx/mirror, CRATESIO, winapi-util/0.1.11/download)
 GST_PLUGINS_RS_WINAPI_UTIL_0_1_11_SOURCE	:= $(SRCDIR)/winapi-util-0.1.11.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINAPI_UTIL_0_1_11
 
 GST_PLUGINS_RS_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_MD5		:= 09de9d01e7331ff3da11f58be8bef0df
-GST_PLUGINS_RS_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_URL		:= https://crates.io/api/v1/crates/winapi-x86_64-pc-windows-gnu/0.4.0/download
+GST_PLUGINS_RS_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, winapi-x86_64-pc-windows-gnu/0.4.0/download)
 GST_PLUGINS_RS_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_SOURCE	:= $(SRCDIR)/winapi-x86_64-pc-windows-gnu-0.4.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0
 
 GST_PLUGINS_RS_WINDOWS_0_58_0_MD5		:= b4d52cc1c492fefa5e29c90dbe875c4a
-GST_PLUGINS_RS_WINDOWS_0_58_0_URL		:= https://crates.io/api/v1/crates/windows/0.58.0/download
+GST_PLUGINS_RS_WINDOWS_0_58_0_URL		:= $(call ptx/mirror, CRATESIO, windows/0.58.0/download)
 GST_PLUGINS_RS_WINDOWS_0_58_0_SOURCE	:= $(SRCDIR)/windows-0.58.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_0_58_0
 
 GST_PLUGINS_RS_WINDOWS_0_61_3_MD5		:= 3dd29881ae92d9533f6d24072087ef70
-GST_PLUGINS_RS_WINDOWS_0_61_3_URL		:= https://crates.io/api/v1/crates/windows/0.61.3/download
+GST_PLUGINS_RS_WINDOWS_0_61_3_URL		:= $(call ptx/mirror, CRATESIO, windows/0.61.3/download)
 GST_PLUGINS_RS_WINDOWS_0_61_3_SOURCE	:= $(SRCDIR)/windows-0.61.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_0_61_3
 
 GST_PLUGINS_RS_WINDOWS_COLLECTIONS_0_2_0_MD5		:= 388022533f8d4d3bda39efd7e0ece6da
-GST_PLUGINS_RS_WINDOWS_COLLECTIONS_0_2_0_URL		:= https://crates.io/api/v1/crates/windows-collections/0.2.0/download
+GST_PLUGINS_RS_WINDOWS_COLLECTIONS_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, windows-collections/0.2.0/download)
 GST_PLUGINS_RS_WINDOWS_COLLECTIONS_0_2_0_SOURCE	:= $(SRCDIR)/windows-collections-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_COLLECTIONS_0_2_0
 
 GST_PLUGINS_RS_WINDOWS_CORE_0_58_0_MD5		:= 9ceb04bf70862f466ae9cab58f47744c
-GST_PLUGINS_RS_WINDOWS_CORE_0_58_0_URL		:= https://crates.io/api/v1/crates/windows-core/0.58.0/download
+GST_PLUGINS_RS_WINDOWS_CORE_0_58_0_URL		:= $(call ptx/mirror, CRATESIO, windows-core/0.58.0/download)
 GST_PLUGINS_RS_WINDOWS_CORE_0_58_0_SOURCE	:= $(SRCDIR)/windows-core-0.58.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_CORE_0_58_0
 
 GST_PLUGINS_RS_WINDOWS_CORE_0_61_2_MD5		:= 74820c7dae31dabf7552cdc97456d1a1
-GST_PLUGINS_RS_WINDOWS_CORE_0_61_2_URL		:= https://crates.io/api/v1/crates/windows-core/0.61.2/download
+GST_PLUGINS_RS_WINDOWS_CORE_0_61_2_URL		:= $(call ptx/mirror, CRATESIO, windows-core/0.61.2/download)
 GST_PLUGINS_RS_WINDOWS_CORE_0_61_2_SOURCE	:= $(SRCDIR)/windows-core-0.61.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_CORE_0_61_2
 
 GST_PLUGINS_RS_WINDOWS_CORE_0_62_2_MD5		:= d5806e699d67817275b601957b4c2af1
-GST_PLUGINS_RS_WINDOWS_CORE_0_62_2_URL		:= https://crates.io/api/v1/crates/windows-core/0.62.2/download
+GST_PLUGINS_RS_WINDOWS_CORE_0_62_2_URL		:= $(call ptx/mirror, CRATESIO, windows-core/0.62.2/download)
 GST_PLUGINS_RS_WINDOWS_CORE_0_62_2_SOURCE	:= $(SRCDIR)/windows-core-0.62.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_CORE_0_62_2
 
 GST_PLUGINS_RS_WINDOWS_FUTURE_0_2_1_MD5		:= 32bbff7f2cf96f7d7697bae69dc0140a
-GST_PLUGINS_RS_WINDOWS_FUTURE_0_2_1_URL		:= https://crates.io/api/v1/crates/windows-future/0.2.1/download
+GST_PLUGINS_RS_WINDOWS_FUTURE_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, windows-future/0.2.1/download)
 GST_PLUGINS_RS_WINDOWS_FUTURE_0_2_1_SOURCE	:= $(SRCDIR)/windows-future-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_FUTURE_0_2_1
 
 GST_PLUGINS_RS_WINDOWS_IMPLEMENT_0_58_0_MD5		:= 1288ae8374e8b35e382cd7ff5d598b4e
-GST_PLUGINS_RS_WINDOWS_IMPLEMENT_0_58_0_URL		:= https://crates.io/api/v1/crates/windows-implement/0.58.0/download
+GST_PLUGINS_RS_WINDOWS_IMPLEMENT_0_58_0_URL		:= $(call ptx/mirror, CRATESIO, windows-implement/0.58.0/download)
 GST_PLUGINS_RS_WINDOWS_IMPLEMENT_0_58_0_SOURCE	:= $(SRCDIR)/windows-implement-0.58.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_IMPLEMENT_0_58_0
 
 GST_PLUGINS_RS_WINDOWS_IMPLEMENT_0_60_2_MD5		:= 7bc5dd8d61a8c4722c16b4eac78b7960
-GST_PLUGINS_RS_WINDOWS_IMPLEMENT_0_60_2_URL		:= https://crates.io/api/v1/crates/windows-implement/0.60.2/download
+GST_PLUGINS_RS_WINDOWS_IMPLEMENT_0_60_2_URL		:= $(call ptx/mirror, CRATESIO, windows-implement/0.60.2/download)
 GST_PLUGINS_RS_WINDOWS_IMPLEMENT_0_60_2_SOURCE	:= $(SRCDIR)/windows-implement-0.60.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_IMPLEMENT_0_60_2
 
 GST_PLUGINS_RS_WINDOWS_INTERFACE_0_58_0_MD5		:= da089dd865fb0c8bb36b731ce7ae098d
-GST_PLUGINS_RS_WINDOWS_INTERFACE_0_58_0_URL		:= https://crates.io/api/v1/crates/windows-interface/0.58.0/download
+GST_PLUGINS_RS_WINDOWS_INTERFACE_0_58_0_URL		:= $(call ptx/mirror, CRATESIO, windows-interface/0.58.0/download)
 GST_PLUGINS_RS_WINDOWS_INTERFACE_0_58_0_SOURCE	:= $(SRCDIR)/windows-interface-0.58.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_INTERFACE_0_58_0
 
 GST_PLUGINS_RS_WINDOWS_INTERFACE_0_59_3_MD5		:= e334fcfe596d9bd0cbc67af57069ba51
-GST_PLUGINS_RS_WINDOWS_INTERFACE_0_59_3_URL		:= https://crates.io/api/v1/crates/windows-interface/0.59.3/download
+GST_PLUGINS_RS_WINDOWS_INTERFACE_0_59_3_URL		:= $(call ptx/mirror, CRATESIO, windows-interface/0.59.3/download)
 GST_PLUGINS_RS_WINDOWS_INTERFACE_0_59_3_SOURCE	:= $(SRCDIR)/windows-interface-0.59.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_INTERFACE_0_59_3
 
 GST_PLUGINS_RS_WINDOWS_LINK_0_1_3_MD5		:= 603b49a81b216125a7d92ef2b4b38039
-GST_PLUGINS_RS_WINDOWS_LINK_0_1_3_URL		:= https://crates.io/api/v1/crates/windows-link/0.1.3/download
+GST_PLUGINS_RS_WINDOWS_LINK_0_1_3_URL		:= $(call ptx/mirror, CRATESIO, windows-link/0.1.3/download)
 GST_PLUGINS_RS_WINDOWS_LINK_0_1_3_SOURCE	:= $(SRCDIR)/windows-link-0.1.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_LINK_0_1_3
 
 GST_PLUGINS_RS_WINDOWS_LINK_0_2_1_MD5		:= bb3780dd283a2faedb95ca3efcbb1196
-GST_PLUGINS_RS_WINDOWS_LINK_0_2_1_URL		:= https://crates.io/api/v1/crates/windows-link/0.2.1/download
+GST_PLUGINS_RS_WINDOWS_LINK_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, windows-link/0.2.1/download)
 GST_PLUGINS_RS_WINDOWS_LINK_0_2_1_SOURCE	:= $(SRCDIR)/windows-link-0.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_LINK_0_2_1
 
 GST_PLUGINS_RS_WINDOWS_NUMERICS_0_2_0_MD5		:= c52fb1ec46518c21f8af61b7ff86a5e3
-GST_PLUGINS_RS_WINDOWS_NUMERICS_0_2_0_URL		:= https://crates.io/api/v1/crates/windows-numerics/0.2.0/download
+GST_PLUGINS_RS_WINDOWS_NUMERICS_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, windows-numerics/0.2.0/download)
 GST_PLUGINS_RS_WINDOWS_NUMERICS_0_2_0_SOURCE	:= $(SRCDIR)/windows-numerics-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_NUMERICS_0_2_0
 
 GST_PLUGINS_RS_WINDOWS_REGISTRY_0_6_1_MD5		:= 36419c7557f53662ca947dfe5bac7d3c
-GST_PLUGINS_RS_WINDOWS_REGISTRY_0_6_1_URL		:= https://crates.io/api/v1/crates/windows-registry/0.6.1/download
+GST_PLUGINS_RS_WINDOWS_REGISTRY_0_6_1_URL		:= $(call ptx/mirror, CRATESIO, windows-registry/0.6.1/download)
 GST_PLUGINS_RS_WINDOWS_REGISTRY_0_6_1_SOURCE	:= $(SRCDIR)/windows-registry-0.6.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_REGISTRY_0_6_1
 
 GST_PLUGINS_RS_WINDOWS_RESULT_0_2_0_MD5		:= bec88d1b4f607b8ec490a6653b335e63
-GST_PLUGINS_RS_WINDOWS_RESULT_0_2_0_URL		:= https://crates.io/api/v1/crates/windows-result/0.2.0/download
+GST_PLUGINS_RS_WINDOWS_RESULT_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, windows-result/0.2.0/download)
 GST_PLUGINS_RS_WINDOWS_RESULT_0_2_0_SOURCE	:= $(SRCDIR)/windows-result-0.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_RESULT_0_2_0
 
 GST_PLUGINS_RS_WINDOWS_RESULT_0_3_4_MD5		:= 2cf4b2fb70efbaf9cfbaeba6f8dcf347
-GST_PLUGINS_RS_WINDOWS_RESULT_0_3_4_URL		:= https://crates.io/api/v1/crates/windows-result/0.3.4/download
+GST_PLUGINS_RS_WINDOWS_RESULT_0_3_4_URL		:= $(call ptx/mirror, CRATESIO, windows-result/0.3.4/download)
 GST_PLUGINS_RS_WINDOWS_RESULT_0_3_4_SOURCE	:= $(SRCDIR)/windows-result-0.3.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_RESULT_0_3_4
 
 GST_PLUGINS_RS_WINDOWS_RESULT_0_4_1_MD5		:= 91bcde189ce0574861e43a4909e3777f
-GST_PLUGINS_RS_WINDOWS_RESULT_0_4_1_URL		:= https://crates.io/api/v1/crates/windows-result/0.4.1/download
+GST_PLUGINS_RS_WINDOWS_RESULT_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, windows-result/0.4.1/download)
 GST_PLUGINS_RS_WINDOWS_RESULT_0_4_1_SOURCE	:= $(SRCDIR)/windows-result-0.4.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_RESULT_0_4_1
 
 GST_PLUGINS_RS_WINDOWS_STRINGS_0_1_0_MD5		:= 65d11d829b1d9b7a174b7a6f2616a261
-GST_PLUGINS_RS_WINDOWS_STRINGS_0_1_0_URL		:= https://crates.io/api/v1/crates/windows-strings/0.1.0/download
+GST_PLUGINS_RS_WINDOWS_STRINGS_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, windows-strings/0.1.0/download)
 GST_PLUGINS_RS_WINDOWS_STRINGS_0_1_0_SOURCE	:= $(SRCDIR)/windows-strings-0.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_STRINGS_0_1_0
 
 GST_PLUGINS_RS_WINDOWS_STRINGS_0_4_2_MD5		:= 16b2a1e77c38f1265b35c9c1f76166ec
-GST_PLUGINS_RS_WINDOWS_STRINGS_0_4_2_URL		:= https://crates.io/api/v1/crates/windows-strings/0.4.2/download
+GST_PLUGINS_RS_WINDOWS_STRINGS_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, windows-strings/0.4.2/download)
 GST_PLUGINS_RS_WINDOWS_STRINGS_0_4_2_SOURCE	:= $(SRCDIR)/windows-strings-0.4.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_STRINGS_0_4_2
 
 GST_PLUGINS_RS_WINDOWS_STRINGS_0_5_1_MD5		:= 339e4b43ded1edefd670d7219f541d2b
-GST_PLUGINS_RS_WINDOWS_STRINGS_0_5_1_URL		:= https://crates.io/api/v1/crates/windows-strings/0.5.1/download
+GST_PLUGINS_RS_WINDOWS_STRINGS_0_5_1_URL		:= $(call ptx/mirror, CRATESIO, windows-strings/0.5.1/download)
 GST_PLUGINS_RS_WINDOWS_STRINGS_0_5_1_SOURCE	:= $(SRCDIR)/windows-strings-0.5.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_STRINGS_0_5_1
 
 GST_PLUGINS_RS_WINDOWS_SYS_0_45_0_MD5		:= b58284cb8ce52b8de07e09f4f8fb9653
-GST_PLUGINS_RS_WINDOWS_SYS_0_45_0_URL		:= https://crates.io/api/v1/crates/windows-sys/0.45.0/download
+GST_PLUGINS_RS_WINDOWS_SYS_0_45_0_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.45.0/download)
 GST_PLUGINS_RS_WINDOWS_SYS_0_45_0_SOURCE	:= $(SRCDIR)/windows-sys-0.45.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_SYS_0_45_0
 
 GST_PLUGINS_RS_WINDOWS_SYS_0_52_0_MD5		:= 2376de634160158ece40c4bc2ab3eb41
-GST_PLUGINS_RS_WINDOWS_SYS_0_52_0_URL		:= https://crates.io/api/v1/crates/windows-sys/0.52.0/download
+GST_PLUGINS_RS_WINDOWS_SYS_0_52_0_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.52.0/download)
 GST_PLUGINS_RS_WINDOWS_SYS_0_52_0_SOURCE	:= $(SRCDIR)/windows-sys-0.52.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_SYS_0_52_0
 
 GST_PLUGINS_RS_WINDOWS_SYS_0_59_0_MD5		:= 73b177d6d000daaa8f05790414a887a3
-GST_PLUGINS_RS_WINDOWS_SYS_0_59_0_URL		:= https://crates.io/api/v1/crates/windows-sys/0.59.0/download
+GST_PLUGINS_RS_WINDOWS_SYS_0_59_0_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.59.0/download)
 GST_PLUGINS_RS_WINDOWS_SYS_0_59_0_SOURCE	:= $(SRCDIR)/windows-sys-0.59.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_SYS_0_59_0
 
 GST_PLUGINS_RS_WINDOWS_SYS_0_60_2_MD5		:= 5b8f032f5b1f775ec3c35d9d6fe1aba9
-GST_PLUGINS_RS_WINDOWS_SYS_0_60_2_URL		:= https://crates.io/api/v1/crates/windows-sys/0.60.2/download
+GST_PLUGINS_RS_WINDOWS_SYS_0_60_2_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.60.2/download)
 GST_PLUGINS_RS_WINDOWS_SYS_0_60_2_SOURCE	:= $(SRCDIR)/windows-sys-0.60.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_SYS_0_60_2
 
 GST_PLUGINS_RS_WINDOWS_SYS_0_61_2_MD5		:= dd7513efd3722e624cf5b4f57d67b2be
-GST_PLUGINS_RS_WINDOWS_SYS_0_61_2_URL		:= https://crates.io/api/v1/crates/windows-sys/0.61.2/download
+GST_PLUGINS_RS_WINDOWS_SYS_0_61_2_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.61.2/download)
 GST_PLUGINS_RS_WINDOWS_SYS_0_61_2_SOURCE	:= $(SRCDIR)/windows-sys-0.61.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_SYS_0_61_2
 
 GST_PLUGINS_RS_WINDOWS_TARGETS_0_42_2_MD5		:= a369d510325342310c7ab159bd181dae
-GST_PLUGINS_RS_WINDOWS_TARGETS_0_42_2_URL		:= https://crates.io/api/v1/crates/windows-targets/0.42.2/download
+GST_PLUGINS_RS_WINDOWS_TARGETS_0_42_2_URL		:= $(call ptx/mirror, CRATESIO, windows-targets/0.42.2/download)
 GST_PLUGINS_RS_WINDOWS_TARGETS_0_42_2_SOURCE	:= $(SRCDIR)/windows-targets-0.42.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_TARGETS_0_42_2
 
 GST_PLUGINS_RS_WINDOWS_TARGETS_0_52_6_MD5		:= 9e876a38acd8262d97e9302ecb4e0f72
-GST_PLUGINS_RS_WINDOWS_TARGETS_0_52_6_URL		:= https://crates.io/api/v1/crates/windows-targets/0.52.6/download
+GST_PLUGINS_RS_WINDOWS_TARGETS_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows-targets/0.52.6/download)
 GST_PLUGINS_RS_WINDOWS_TARGETS_0_52_6_SOURCE	:= $(SRCDIR)/windows-targets-0.52.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_TARGETS_0_52_6
 
 GST_PLUGINS_RS_WINDOWS_TARGETS_0_53_5_MD5		:= 523ad3a4f0c185bce7ae059a6819403b
-GST_PLUGINS_RS_WINDOWS_TARGETS_0_53_5_URL		:= https://crates.io/api/v1/crates/windows-targets/0.53.5/download
+GST_PLUGINS_RS_WINDOWS_TARGETS_0_53_5_URL		:= $(call ptx/mirror, CRATESIO, windows-targets/0.53.5/download)
 GST_PLUGINS_RS_WINDOWS_TARGETS_0_53_5_SOURCE	:= $(SRCDIR)/windows-targets-0.53.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_TARGETS_0_53_5
 
 GST_PLUGINS_RS_WINDOWS_THREADING_0_1_0_MD5		:= d3ab9ee9574ec33016d8ff866eaab8f5
-GST_PLUGINS_RS_WINDOWS_THREADING_0_1_0_URL		:= https://crates.io/api/v1/crates/windows-threading/0.1.0/download
+GST_PLUGINS_RS_WINDOWS_THREADING_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, windows-threading/0.1.0/download)
 GST_PLUGINS_RS_WINDOWS_THREADING_0_1_0_SOURCE	:= $(SRCDIR)/windows-threading-0.1.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_THREADING_0_1_0
 
 GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_42_2_MD5		:= 7968284877e481b58df1569b68b5dc26
-GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_42_2_URL		:= https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.42.2/download
+GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_42_2_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_gnullvm/0.42.2/download)
 GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_42_2_SOURCE	:= $(SRCDIR)/windows_aarch64_gnullvm-0.42.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_42_2
 
 GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_52_6_MD5		:= 8c8adde50f0a531c407c5b68ab928f0b
-GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.52.6/download
+GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_gnullvm/0.52.6/download)
 GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_52_6_SOURCE	:= $(SRCDIR)/windows_aarch64_gnullvm-0.52.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_52_6
 
 GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_53_1_MD5		:= cfbf635d826d2d14d6e71c9eb07b5c07
-GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.53.1/download
+GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_gnullvm/0.53.1/download)
 GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_53_1_SOURCE	:= $(SRCDIR)/windows_aarch64_gnullvm-0.53.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_AARCH64_GNULLVM_0_53_1
 
 GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_42_2_MD5		:= 34d06a94727c506c11e4710160e90f32
-GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_42_2_URL		:= https://crates.io/api/v1/crates/windows_aarch64_msvc/0.42.2/download
+GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_42_2_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_msvc/0.42.2/download)
 GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_42_2_SOURCE	:= $(SRCDIR)/windows_aarch64_msvc-0.42.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_42_2
 
 GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_52_6_MD5		:= 233b17dfcf7e49ac791eef30b7f406e3
-GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_aarch64_msvc/0.52.6/download
+GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_msvc/0.52.6/download)
 GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_52_6_SOURCE	:= $(SRCDIR)/windows_aarch64_msvc-0.52.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_52_6
 
 GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_53_1_MD5		:= 7cf393d79b04cdacd2593cbbca888b8f
-GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_aarch64_msvc/0.53.1/download
+GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_msvc/0.53.1/download)
 GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_53_1_SOURCE	:= $(SRCDIR)/windows_aarch64_msvc-0.53.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_AARCH64_MSVC_0_53_1
 
 GST_PLUGINS_RS_WINDOWS_I686_GNU_0_42_2_MD5		:= 017691b927b405669e1139b054a35f4a
-GST_PLUGINS_RS_WINDOWS_I686_GNU_0_42_2_URL		:= https://crates.io/api/v1/crates/windows_i686_gnu/0.42.2/download
+GST_PLUGINS_RS_WINDOWS_I686_GNU_0_42_2_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnu/0.42.2/download)
 GST_PLUGINS_RS_WINDOWS_I686_GNU_0_42_2_SOURCE	:= $(SRCDIR)/windows_i686_gnu-0.42.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_I686_GNU_0_42_2
 
 GST_PLUGINS_RS_WINDOWS_I686_GNU_0_52_6_MD5		:= 7cb99b00381f697eaf8a322ed3b8205c
-GST_PLUGINS_RS_WINDOWS_I686_GNU_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_i686_gnu/0.52.6/download
+GST_PLUGINS_RS_WINDOWS_I686_GNU_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnu/0.52.6/download)
 GST_PLUGINS_RS_WINDOWS_I686_GNU_0_52_6_SOURCE	:= $(SRCDIR)/windows_i686_gnu-0.52.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_I686_GNU_0_52_6
 
 GST_PLUGINS_RS_WINDOWS_I686_GNU_0_53_1_MD5		:= 5072812053c27c0ae184f10011158f47
-GST_PLUGINS_RS_WINDOWS_I686_GNU_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_i686_gnu/0.53.1/download
+GST_PLUGINS_RS_WINDOWS_I686_GNU_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnu/0.53.1/download)
 GST_PLUGINS_RS_WINDOWS_I686_GNU_0_53_1_SOURCE	:= $(SRCDIR)/windows_i686_gnu-0.53.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_I686_GNU_0_53_1
 
 GST_PLUGINS_RS_WINDOWS_I686_GNULLVM_0_52_6_MD5		:= 1baf62319b533f3d996993b82305e547
-GST_PLUGINS_RS_WINDOWS_I686_GNULLVM_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_i686_gnullvm/0.52.6/download
+GST_PLUGINS_RS_WINDOWS_I686_GNULLVM_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnullvm/0.52.6/download)
 GST_PLUGINS_RS_WINDOWS_I686_GNULLVM_0_52_6_SOURCE	:= $(SRCDIR)/windows_i686_gnullvm-0.52.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_I686_GNULLVM_0_52_6
 
 GST_PLUGINS_RS_WINDOWS_I686_GNULLVM_0_53_1_MD5		:= 4f3d8f9bfc552d9272e39c7ecbb9f026
-GST_PLUGINS_RS_WINDOWS_I686_GNULLVM_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_i686_gnullvm/0.53.1/download
+GST_PLUGINS_RS_WINDOWS_I686_GNULLVM_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnullvm/0.53.1/download)
 GST_PLUGINS_RS_WINDOWS_I686_GNULLVM_0_53_1_SOURCE	:= $(SRCDIR)/windows_i686_gnullvm-0.53.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_I686_GNULLVM_0_53_1
 
 GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_42_2_MD5		:= f56c70fbae23f08fb0912284333f7851
-GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_42_2_URL		:= https://crates.io/api/v1/crates/windows_i686_msvc/0.42.2/download
+GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_42_2_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_msvc/0.42.2/download)
 GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_42_2_SOURCE	:= $(SRCDIR)/windows_i686_msvc-0.42.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_42_2
 
 GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_52_6_MD5		:= 311ded6588844e072d3fb953a8f994da
-GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_i686_msvc/0.52.6/download
+GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_msvc/0.52.6/download)
 GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_52_6_SOURCE	:= $(SRCDIR)/windows_i686_msvc-0.52.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_52_6
 
 GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_53_1_MD5		:= 69339b524a4c46ac25d2c27292689032
-GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_i686_msvc/0.53.1/download
+GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_msvc/0.53.1/download)
 GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_53_1_SOURCE	:= $(SRCDIR)/windows_i686_msvc-0.53.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_I686_MSVC_0_53_1
 
 GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_42_2_MD5		:= d20c2b0f45a62cc15c503ea610706a8f
-GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_42_2_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnu/0.42.2/download
+GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_42_2_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnu/0.42.2/download)
 GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_42_2_SOURCE	:= $(SRCDIR)/windows_x86_64_gnu-0.42.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_42_2
 
 GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_52_6_MD5		:= 3f265cbde7668f38c1229043475470a9
-GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnu/0.52.6/download
+GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnu/0.52.6/download)
 GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_52_6_SOURCE	:= $(SRCDIR)/windows_x86_64_gnu-0.52.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_52_6
 
 GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_53_1_MD5		:= 4bfd23c349359d9c45430c723d03df97
-GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnu/0.53.1/download
+GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnu/0.53.1/download)
 GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_53_1_SOURCE	:= $(SRCDIR)/windows_x86_64_gnu-0.53.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_X86_64_GNU_0_53_1
 
 GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_42_2_MD5		:= ec7e437088dc741e6a0653e553abca4e
-GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_42_2_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.42.2/download
+GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_42_2_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnullvm/0.42.2/download)
 GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_42_2_SOURCE	:= $(SRCDIR)/windows_x86_64_gnullvm-0.42.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_42_2
 
 GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_52_6_MD5		:= 4e50e886c72204c268c15a3230001d71
-GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.52.6/download
+GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnullvm/0.52.6/download)
 GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_52_6_SOURCE	:= $(SRCDIR)/windows_x86_64_gnullvm-0.52.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_52_6
 
 GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_53_1_MD5		:= 60ee7d4891a496a45390bede684f8770
-GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.53.1/download
+GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnullvm/0.53.1/download)
 GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_53_1_SOURCE	:= $(SRCDIR)/windows_x86_64_gnullvm-0.53.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_X86_64_GNULLVM_0_53_1
 
 GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_42_2_MD5		:= 8cec8a187df7a7b971009a7693f60140
-GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_42_2_URL		:= https://crates.io/api/v1/crates/windows_x86_64_msvc/0.42.2/download
+GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_42_2_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_msvc/0.42.2/download)
 GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_42_2_SOURCE	:= $(SRCDIR)/windows_x86_64_msvc-0.42.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_42_2
 
 GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_52_6_MD5		:= b95760e9133ba1bb456d0f0cef74c9a4
-GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_x86_64_msvc/0.52.6/download
+GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_msvc/0.52.6/download)
 GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_52_6_SOURCE	:= $(SRCDIR)/windows_x86_64_msvc-0.52.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_52_6
 
 GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_53_1_MD5		:= ae65c2e2e666c0e6183014d48b278604
-GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_x86_64_msvc/0.53.1/download
+GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_msvc/0.53.1/download)
 GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_53_1_SOURCE	:= $(SRCDIR)/windows_x86_64_msvc-0.53.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINDOWS_X86_64_MSVC_0_53_1
 
 GST_PLUGINS_RS_WINNOW_0_7_14_MD5		:= 3d8503aea1fd88138c875d6ead04905f
-GST_PLUGINS_RS_WINNOW_0_7_14_URL		:= https://crates.io/api/v1/crates/winnow/0.7.14/download
+GST_PLUGINS_RS_WINNOW_0_7_14_URL		:= $(call ptx/mirror, CRATESIO, winnow/0.7.14/download)
 GST_PLUGINS_RS_WINNOW_0_7_14_SOURCE	:= $(SRCDIR)/winnow-0.7.14.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WINNOW_0_7_14
 
 GST_PLUGINS_RS_WIT_BINDGEN_0_51_0_MD5		:= 31654c3947cb364324c4beb563795897
-GST_PLUGINS_RS_WIT_BINDGEN_0_51_0_URL		:= https://crates.io/api/v1/crates/wit-bindgen/0.51.0/download
+GST_PLUGINS_RS_WIT_BINDGEN_0_51_0_URL		:= $(call ptx/mirror, CRATESIO, wit-bindgen/0.51.0/download)
 GST_PLUGINS_RS_WIT_BINDGEN_0_51_0_SOURCE	:= $(SRCDIR)/wit-bindgen-0.51.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WIT_BINDGEN_0_51_0
 
 GST_PLUGINS_RS_WIT_BINDGEN_CORE_0_51_0_MD5		:= 69f012ae935b27500554824ea32f921b
-GST_PLUGINS_RS_WIT_BINDGEN_CORE_0_51_0_URL		:= https://crates.io/api/v1/crates/wit-bindgen-core/0.51.0/download
+GST_PLUGINS_RS_WIT_BINDGEN_CORE_0_51_0_URL		:= $(call ptx/mirror, CRATESIO, wit-bindgen-core/0.51.0/download)
 GST_PLUGINS_RS_WIT_BINDGEN_CORE_0_51_0_SOURCE	:= $(SRCDIR)/wit-bindgen-core-0.51.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WIT_BINDGEN_CORE_0_51_0
 
 GST_PLUGINS_RS_WIT_BINDGEN_RUST_0_51_0_MD5		:= 51d94dcb279853c9c9234e876296db15
-GST_PLUGINS_RS_WIT_BINDGEN_RUST_0_51_0_URL		:= https://crates.io/api/v1/crates/wit-bindgen-rust/0.51.0/download
+GST_PLUGINS_RS_WIT_BINDGEN_RUST_0_51_0_URL		:= $(call ptx/mirror, CRATESIO, wit-bindgen-rust/0.51.0/download)
 GST_PLUGINS_RS_WIT_BINDGEN_RUST_0_51_0_SOURCE	:= $(SRCDIR)/wit-bindgen-rust-0.51.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WIT_BINDGEN_RUST_0_51_0
 
 GST_PLUGINS_RS_WIT_BINDGEN_RUST_MACRO_0_51_0_MD5		:= 06263c33fd2df33c2ee92c1a0637d33d
-GST_PLUGINS_RS_WIT_BINDGEN_RUST_MACRO_0_51_0_URL		:= https://crates.io/api/v1/crates/wit-bindgen-rust-macro/0.51.0/download
+GST_PLUGINS_RS_WIT_BINDGEN_RUST_MACRO_0_51_0_URL		:= $(call ptx/mirror, CRATESIO, wit-bindgen-rust-macro/0.51.0/download)
 GST_PLUGINS_RS_WIT_BINDGEN_RUST_MACRO_0_51_0_SOURCE	:= $(SRCDIR)/wit-bindgen-rust-macro-0.51.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WIT_BINDGEN_RUST_MACRO_0_51_0
 
 GST_PLUGINS_RS_WIT_COMPONENT_0_244_0_MD5		:= cbbaf61a6b68020a075b9c0ba517cb25
-GST_PLUGINS_RS_WIT_COMPONENT_0_244_0_URL		:= https://crates.io/api/v1/crates/wit-component/0.244.0/download
+GST_PLUGINS_RS_WIT_COMPONENT_0_244_0_URL		:= $(call ptx/mirror, CRATESIO, wit-component/0.244.0/download)
 GST_PLUGINS_RS_WIT_COMPONENT_0_244_0_SOURCE	:= $(SRCDIR)/wit-component-0.244.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WIT_COMPONENT_0_244_0
 
 GST_PLUGINS_RS_WIT_PARSER_0_244_0_MD5		:= 2d823c47bd508f4dc290f9e33429e166
-GST_PLUGINS_RS_WIT_PARSER_0_244_0_URL		:= https://crates.io/api/v1/crates/wit-parser/0.244.0/download
+GST_PLUGINS_RS_WIT_PARSER_0_244_0_URL		:= $(call ptx/mirror, CRATESIO, wit-parser/0.244.0/download)
 GST_PLUGINS_RS_WIT_PARSER_0_244_0_SOURCE	:= $(SRCDIR)/wit-parser-0.244.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WIT_PARSER_0_244_0
 
 GST_PLUGINS_RS_WRITEABLE_0_6_2_MD5		:= e2615fbbadc26d225d9fd59c87d00a91
-GST_PLUGINS_RS_WRITEABLE_0_6_2_URL		:= https://crates.io/api/v1/crates/writeable/0.6.2/download
+GST_PLUGINS_RS_WRITEABLE_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, writeable/0.6.2/download)
 GST_PLUGINS_RS_WRITEABLE_0_6_2_SOURCE	:= $(SRCDIR)/writeable-0.6.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_WRITEABLE_0_6_2
 
 GST_PLUGINS_RS_X509_PARSER_0_18_1_MD5		:= 327d370e858472dd7946807526f31070
-GST_PLUGINS_RS_X509_PARSER_0_18_1_URL		:= https://crates.io/api/v1/crates/x509-parser/0.18.1/download
+GST_PLUGINS_RS_X509_PARSER_0_18_1_URL		:= $(call ptx/mirror, CRATESIO, x509-parser/0.18.1/download)
 GST_PLUGINS_RS_X509_PARSER_0_18_1_SOURCE	:= $(SRCDIR)/x509-parser-0.18.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_X509_PARSER_0_18_1
 
 GST_PLUGINS_RS_XATTR_1_6_1_MD5		:= 6463c5d04e3a2c23d89fdcc4561a8718
-GST_PLUGINS_RS_XATTR_1_6_1_URL		:= https://crates.io/api/v1/crates/xattr/1.6.1/download
+GST_PLUGINS_RS_XATTR_1_6_1_URL		:= $(call ptx/mirror, CRATESIO, xattr/1.6.1/download)
 GST_PLUGINS_RS_XATTR_1_6_1_SOURCE	:= $(SRCDIR)/xattr-1.6.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_XATTR_1_6_1
 
 GST_PLUGINS_RS_XML_1_2_1_MD5		:= 4734a2f2d377e42b37daa0322dc0c2b9
-GST_PLUGINS_RS_XML_1_2_1_URL		:= https://crates.io/api/v1/crates/xml/1.2.1/download
+GST_PLUGINS_RS_XML_1_2_1_URL		:= $(call ptx/mirror, CRATESIO, xml/1.2.1/download)
 GST_PLUGINS_RS_XML_1_2_1_SOURCE	:= $(SRCDIR)/xml-1.2.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_XML_1_2_1
 
 GST_PLUGINS_RS_XML_RS_0_8_28_MD5		:= 07e2efdd9d67ad9bd620a8b5ee103170
-GST_PLUGINS_RS_XML_RS_0_8_28_URL		:= https://crates.io/api/v1/crates/xml-rs/0.8.28/download
+GST_PLUGINS_RS_XML_RS_0_8_28_URL		:= $(call ptx/mirror, CRATESIO, xml-rs/0.8.28/download)
 GST_PLUGINS_RS_XML_RS_0_8_28_SOURCE	:= $(SRCDIR)/xml-rs-0.8.28.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_XML_RS_0_8_28
 
 GST_PLUGINS_RS_XMLPARSER_0_13_6_MD5		:= 7988fedc32f8fc3678f11b76600ba611
-GST_PLUGINS_RS_XMLPARSER_0_13_6_URL		:= https://crates.io/api/v1/crates/xmlparser/0.13.6/download
+GST_PLUGINS_RS_XMLPARSER_0_13_6_URL		:= $(call ptx/mirror, CRATESIO, xmlparser/0.13.6/download)
 GST_PLUGINS_RS_XMLPARSER_0_13_6_SOURCE	:= $(SRCDIR)/xmlparser-0.13.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_XMLPARSER_0_13_6
 
 GST_PLUGINS_RS_XMLTREE_0_12_0_MD5		:= 543937341520c9197cbd6213a818c10b
-GST_PLUGINS_RS_XMLTREE_0_12_0_URL		:= https://crates.io/api/v1/crates/xmltree/0.12.0/download
+GST_PLUGINS_RS_XMLTREE_0_12_0_URL		:= $(call ptx/mirror, CRATESIO, xmltree/0.12.0/download)
 GST_PLUGINS_RS_XMLTREE_0_12_0_SOURCE	:= $(SRCDIR)/xmltree-0.12.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_XMLTREE_0_12_0
 
 GST_PLUGINS_RS_Y4M_0_8_0_MD5		:= 89b4034c1b5577f57b3014aaf583dabe
-GST_PLUGINS_RS_Y4M_0_8_0_URL		:= https://crates.io/api/v1/crates/y4m/0.8.0/download
+GST_PLUGINS_RS_Y4M_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, y4m/0.8.0/download)
 GST_PLUGINS_RS_Y4M_0_8_0_SOURCE	:= $(SRCDIR)/y4m-0.8.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_Y4M_0_8_0
 
 GST_PLUGINS_RS_YANSI_1_0_1_MD5		:= 72329d464b2313251d07d25f7d14723c
-GST_PLUGINS_RS_YANSI_1_0_1_URL		:= https://crates.io/api/v1/crates/yansi/1.0.1/download
+GST_PLUGINS_RS_YANSI_1_0_1_URL		:= $(call ptx/mirror, CRATESIO, yansi/1.0.1/download)
 GST_PLUGINS_RS_YANSI_1_0_1_SOURCE	:= $(SRCDIR)/yansi-1.0.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_YANSI_1_0_1
 
 GST_PLUGINS_RS_YASNA_0_5_2_MD5		:= aacb7214f194a80a1c4ebccde7c83170
-GST_PLUGINS_RS_YASNA_0_5_2_URL		:= https://crates.io/api/v1/crates/yasna/0.5.2/download
+GST_PLUGINS_RS_YASNA_0_5_2_URL		:= $(call ptx/mirror, CRATESIO, yasna/0.5.2/download)
 GST_PLUGINS_RS_YASNA_0_5_2_SOURCE	:= $(SRCDIR)/yasna-0.5.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_YASNA_0_5_2
 
 GST_PLUGINS_RS_YOKE_0_8_1_MD5		:= 8b0935b5978afaca3c715f95ba56876f
-GST_PLUGINS_RS_YOKE_0_8_1_URL		:= https://crates.io/api/v1/crates/yoke/0.8.1/download
+GST_PLUGINS_RS_YOKE_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, yoke/0.8.1/download)
 GST_PLUGINS_RS_YOKE_0_8_1_SOURCE	:= $(SRCDIR)/yoke-0.8.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_YOKE_0_8_1
 
 GST_PLUGINS_RS_YOKE_DERIVE_0_8_1_MD5		:= a1541495f4e0d9d59cd96e9e3295ed90
-GST_PLUGINS_RS_YOKE_DERIVE_0_8_1_URL		:= https://crates.io/api/v1/crates/yoke-derive/0.8.1/download
+GST_PLUGINS_RS_YOKE_DERIVE_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, yoke-derive/0.8.1/download)
 GST_PLUGINS_RS_YOKE_DERIVE_0_8_1_SOURCE	:= $(SRCDIR)/yoke-derive-0.8.1.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_YOKE_DERIVE_0_8_1
 
 GST_PLUGINS_RS_ZEROCOPY_0_8_40_MD5		:= 893abd3879be37e59c2dc34ba4301cac
-GST_PLUGINS_RS_ZEROCOPY_0_8_40_URL		:= https://crates.io/api/v1/crates/zerocopy/0.8.40/download
+GST_PLUGINS_RS_ZEROCOPY_0_8_40_URL		:= $(call ptx/mirror, CRATESIO, zerocopy/0.8.40/download)
 GST_PLUGINS_RS_ZEROCOPY_0_8_40_SOURCE	:= $(SRCDIR)/zerocopy-0.8.40.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZEROCOPY_0_8_40
 
 GST_PLUGINS_RS_ZEROCOPY_DERIVE_0_8_40_MD5		:= e73f23f11f2c9911c7068e4e7f5e39a4
-GST_PLUGINS_RS_ZEROCOPY_DERIVE_0_8_40_URL		:= https://crates.io/api/v1/crates/zerocopy-derive/0.8.40/download
+GST_PLUGINS_RS_ZEROCOPY_DERIVE_0_8_40_URL		:= $(call ptx/mirror, CRATESIO, zerocopy-derive/0.8.40/download)
 GST_PLUGINS_RS_ZEROCOPY_DERIVE_0_8_40_SOURCE	:= $(SRCDIR)/zerocopy-derive-0.8.40.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZEROCOPY_DERIVE_0_8_40
 
 GST_PLUGINS_RS_ZEROFROM_0_1_6_MD5		:= 585acef62e72bfa6bf712a966d968cc3
-GST_PLUGINS_RS_ZEROFROM_0_1_6_URL		:= https://crates.io/api/v1/crates/zerofrom/0.1.6/download
+GST_PLUGINS_RS_ZEROFROM_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, zerofrom/0.1.6/download)
 GST_PLUGINS_RS_ZEROFROM_0_1_6_SOURCE	:= $(SRCDIR)/zerofrom-0.1.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZEROFROM_0_1_6
 
 GST_PLUGINS_RS_ZEROFROM_DERIVE_0_1_6_MD5		:= e96c794b09413a6385abede6b7df704b
-GST_PLUGINS_RS_ZEROFROM_DERIVE_0_1_6_URL		:= https://crates.io/api/v1/crates/zerofrom-derive/0.1.6/download
+GST_PLUGINS_RS_ZEROFROM_DERIVE_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, zerofrom-derive/0.1.6/download)
 GST_PLUGINS_RS_ZEROFROM_DERIVE_0_1_6_SOURCE	:= $(SRCDIR)/zerofrom-derive-0.1.6.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZEROFROM_DERIVE_0_1_6
 
 GST_PLUGINS_RS_ZEROIZE_1_8_2_MD5		:= 3ad9b60f64ac41b16a2d842a626a2973
-GST_PLUGINS_RS_ZEROIZE_1_8_2_URL		:= https://crates.io/api/v1/crates/zeroize/1.8.2/download
+GST_PLUGINS_RS_ZEROIZE_1_8_2_URL		:= $(call ptx/mirror, CRATESIO, zeroize/1.8.2/download)
 GST_PLUGINS_RS_ZEROIZE_1_8_2_SOURCE	:= $(SRCDIR)/zeroize-1.8.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZEROIZE_1_8_2
 
 GST_PLUGINS_RS_ZEROIZE_DERIVE_1_4_3_MD5		:= 7aced686b38f6858821e24ed13934696
-GST_PLUGINS_RS_ZEROIZE_DERIVE_1_4_3_URL		:= https://crates.io/api/v1/crates/zeroize_derive/1.4.3/download
+GST_PLUGINS_RS_ZEROIZE_DERIVE_1_4_3_URL		:= $(call ptx/mirror, CRATESIO, zeroize_derive/1.4.3/download)
 GST_PLUGINS_RS_ZEROIZE_DERIVE_1_4_3_SOURCE	:= $(SRCDIR)/zeroize_derive-1.4.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZEROIZE_DERIVE_1_4_3
 
 GST_PLUGINS_RS_ZEROTRIE_0_2_3_MD5		:= 49888ab19f65f553d1cfb359614cd101
-GST_PLUGINS_RS_ZEROTRIE_0_2_3_URL		:= https://crates.io/api/v1/crates/zerotrie/0.2.3/download
+GST_PLUGINS_RS_ZEROTRIE_0_2_3_URL		:= $(call ptx/mirror, CRATESIO, zerotrie/0.2.3/download)
 GST_PLUGINS_RS_ZEROTRIE_0_2_3_SOURCE	:= $(SRCDIR)/zerotrie-0.2.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZEROTRIE_0_2_3
 
 GST_PLUGINS_RS_ZEROVEC_0_11_5_MD5		:= 5647038b458d8b9be05730039d286435
-GST_PLUGINS_RS_ZEROVEC_0_11_5_URL		:= https://crates.io/api/v1/crates/zerovec/0.11.5/download
+GST_PLUGINS_RS_ZEROVEC_0_11_5_URL		:= $(call ptx/mirror, CRATESIO, zerovec/0.11.5/download)
 GST_PLUGINS_RS_ZEROVEC_0_11_5_SOURCE	:= $(SRCDIR)/zerovec-0.11.5.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZEROVEC_0_11_5
 
 GST_PLUGINS_RS_ZEROVEC_DERIVE_0_11_2_MD5		:= e85e8b9ed2cc53268e9d92ea0282f277
-GST_PLUGINS_RS_ZEROVEC_DERIVE_0_11_2_URL		:= https://crates.io/api/v1/crates/zerovec-derive/0.11.2/download
+GST_PLUGINS_RS_ZEROVEC_DERIVE_0_11_2_URL		:= $(call ptx/mirror, CRATESIO, zerovec-derive/0.11.2/download)
 GST_PLUGINS_RS_ZEROVEC_DERIVE_0_11_2_SOURCE	:= $(SRCDIR)/zerovec-derive-0.11.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZEROVEC_DERIVE_0_11_2
 
 GST_PLUGINS_RS_ZIP_7_2_0_MD5		:= daa7395ac8f0770e6144fd0b9d5dd151
-GST_PLUGINS_RS_ZIP_7_2_0_URL		:= https://crates.io/api/v1/crates/zip/7.2.0/download
+GST_PLUGINS_RS_ZIP_7_2_0_URL		:= $(call ptx/mirror, CRATESIO, zip/7.2.0/download)
 GST_PLUGINS_RS_ZIP_7_2_0_SOURCE	:= $(SRCDIR)/zip-7.2.0.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZIP_7_2_0
 
 GST_PLUGINS_RS_ZLIB_RS_0_6_2_MD5		:= 003da7182edc4931288fa2566d5272b2
-GST_PLUGINS_RS_ZLIB_RS_0_6_2_URL		:= https://crates.io/api/v1/crates/zlib-rs/0.6.2/download
+GST_PLUGINS_RS_ZLIB_RS_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, zlib-rs/0.6.2/download)
 GST_PLUGINS_RS_ZLIB_RS_0_6_2_SOURCE	:= $(SRCDIR)/zlib-rs-0.6.2.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZLIB_RS_0_6_2
 
 GST_PLUGINS_RS_ZMIJ_1_0_21_MD5		:= 32acd71016240374c634eb6e82f34a6f
-GST_PLUGINS_RS_ZMIJ_1_0_21_URL		:= https://crates.io/api/v1/crates/zmij/1.0.21/download
+GST_PLUGINS_RS_ZMIJ_1_0_21_URL		:= $(call ptx/mirror, CRATESIO, zmij/1.0.21/download)
 GST_PLUGINS_RS_ZMIJ_1_0_21_SOURCE	:= $(SRCDIR)/zmij-1.0.21.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZMIJ_1_0_21
 
 GST_PLUGINS_RS_ZOPFLI_0_8_3_MD5		:= 51fdef81801df55fd73ff7ba5b908897
-GST_PLUGINS_RS_ZOPFLI_0_8_3_URL		:= https://crates.io/api/v1/crates/zopfli/0.8.3/download
+GST_PLUGINS_RS_ZOPFLI_0_8_3_URL		:= $(call ptx/mirror, CRATESIO, zopfli/0.8.3/download)
 GST_PLUGINS_RS_ZOPFLI_0_8_3_SOURCE	:= $(SRCDIR)/zopfli-0.8.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZOPFLI_0_8_3
 
 GST_PLUGINS_RS_ZSTD_0_13_3_MD5		:= 84a91e1c2f6ac3d93da10a68484c73a0
-GST_PLUGINS_RS_ZSTD_0_13_3_URL		:= https://crates.io/api/v1/crates/zstd/0.13.3/download
+GST_PLUGINS_RS_ZSTD_0_13_3_URL		:= $(call ptx/mirror, CRATESIO, zstd/0.13.3/download)
 GST_PLUGINS_RS_ZSTD_0_13_3_SOURCE	:= $(SRCDIR)/zstd-0.13.3.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZSTD_0_13_3
 
 GST_PLUGINS_RS_ZSTD_SAFE_7_2_4_MD5		:= ac61bd64667ed1622688b1adf7158dac
-GST_PLUGINS_RS_ZSTD_SAFE_7_2_4_URL		:= https://crates.io/api/v1/crates/zstd-safe/7.2.4/download
+GST_PLUGINS_RS_ZSTD_SAFE_7_2_4_URL		:= $(call ptx/mirror, CRATESIO, zstd-safe/7.2.4/download)
 GST_PLUGINS_RS_ZSTD_SAFE_7_2_4_SOURCE	:= $(SRCDIR)/zstd-safe-7.2.4.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZSTD_SAFE_7_2_4
 
 GST_PLUGINS_RS_ZSTD_SYS_2_0_16_ZSTD_1_5_7_MD5		:= 4395ac40e8baaa1091639e0ce6d46969
-GST_PLUGINS_RS_ZSTD_SYS_2_0_16_ZSTD_1_5_7_URL		:= https://crates.io/api/v1/crates/zstd-sys/2.0.16+zstd.1.5.7/download
+GST_PLUGINS_RS_ZSTD_SYS_2_0_16_ZSTD_1_5_7_URL		:= $(call ptx/mirror, CRATESIO, zstd-sys/2.0.16+zstd.1.5.7/download)
 GST_PLUGINS_RS_ZSTD_SYS_2_0_16_ZSTD_1_5_7_SOURCE	:= $(SRCDIR)/zstd-sys-2.0.16+zstd.1.5.7.crate
 GST_PLUGINS_RS_PARTS			+= GST_PLUGINS_RS_ZSTD_SYS_2_0_16_ZSTD_1_5_7
 
