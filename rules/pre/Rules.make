@@ -261,8 +261,8 @@ CROSS_MESON_USR := \
 	--wrap-mode nodownload \
 	-Dbackend=ninja \
 	-Dbuildtype=debugoptimized \
-	-Dpkgconfig.relocatable=true \
 	-Dlibdir=lib \
+	-Dpkgconfig.relocatable=true \
 	-Dprefix=/usr
 
 CROSS_MESON_ENV = \

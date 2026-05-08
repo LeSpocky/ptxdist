@@ -384,6 +384,7 @@ def handle_dir_configure(d, configure):
 
 def handle_dir_meson(d, meson_builddir):
 	arg = meson_builddir if os.path.exists(meson_builddir) else os.path.join(d, "meson.build")
+	header_args = []
 	args = []
 	p = subprocess.Popen([ os.path.join(sysroot_host, "bin", "meson"), "introspect", arg, "--buildoptions" ], stdout=subprocess.PIPE, universal_newlines=True)
 	options = json.load(p.stdout)
@@ -404,10 +405,13 @@ def handle_dir_meson(d, meson_builddir):
 			json.dump(value, i)
 			value = i.getvalue()
 
-		args.append("\t-D%s=%s\n" % (option["name"], value))
+		if args or option["section"] == "user":
+			args.append("\t-D%s=%s\n" % (option["name"], value))
+		else:
+			header_args.append("\t-D%s=%s\n" % (option["name"], value))
 
 	label = os.path.basename(d)
-	return (options, args, label)
+	return (options, sorted(header_args) + sorted(args, key= lambda s: s.split("=")[0]), label)
 
 def handle_dir_cmake(d, cmake_builddir):
 	if not os.path.exists(cmake_builddir):
