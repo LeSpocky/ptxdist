@@ -16,1507 +16,1507 @@ ifeq ($(HOST_CARGO_C_VERSION),0.9.27+cargo-0.74.0)
 HOST_CARGO_C_CARGO_LOCK_MD5 := b4da9f76a4b4fe2fe547be2980f2168c
 
 HOST_CARGO_C_ADLER_1_0_2_MD5		:= 669215548c64019c08c92b2c1afd3deb
-HOST_CARGO_C_ADLER_1_0_2_URL		:= https://crates.io/api/v1/crates/adler/1.0.2/download
+HOST_CARGO_C_ADLER_1_0_2_URL		:= $(call ptx/mirror, CRATESIO, adler/1.0.2/download)
 HOST_CARGO_C_ADLER_1_0_2_SOURCE	:= $(SRCDIR)/adler-1.0.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ADLER_1_0_2
 
 HOST_CARGO_C_AHASH_0_8_3_MD5		:= 25bbf8d0145ba2670ba039c768bb4f44
-HOST_CARGO_C_AHASH_0_8_3_URL		:= https://crates.io/api/v1/crates/ahash/0.8.3/download
+HOST_CARGO_C_AHASH_0_8_3_URL		:= $(call ptx/mirror, CRATESIO, ahash/0.8.3/download)
 HOST_CARGO_C_AHASH_0_8_3_SOURCE	:= $(SRCDIR)/ahash-0.8.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_AHASH_0_8_3
 
 HOST_CARGO_C_AHO_CORASICK_1_1_2_MD5		:= 95e5f8d0b7ab37171b8d3118542ba06a
-HOST_CARGO_C_AHO_CORASICK_1_1_2_URL		:= https://crates.io/api/v1/crates/aho-corasick/1.1.2/download
+HOST_CARGO_C_AHO_CORASICK_1_1_2_URL		:= $(call ptx/mirror, CRATESIO, aho-corasick/1.1.2/download)
 HOST_CARGO_C_AHO_CORASICK_1_1_2_SOURCE	:= $(SRCDIR)/aho-corasick-1.1.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_AHO_CORASICK_1_1_2
 
 HOST_CARGO_C_ANSTREAM_0_6_4_MD5		:= d18a8aaf56bfd7418a91540a0174402d
-HOST_CARGO_C_ANSTREAM_0_6_4_URL		:= https://crates.io/api/v1/crates/anstream/0.6.4/download
+HOST_CARGO_C_ANSTREAM_0_6_4_URL		:= $(call ptx/mirror, CRATESIO, anstream/0.6.4/download)
 HOST_CARGO_C_ANSTREAM_0_6_4_SOURCE	:= $(SRCDIR)/anstream-0.6.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTREAM_0_6_4
 
 HOST_CARGO_C_ANSTYLE_1_0_4_MD5		:= b4f71ffecd3694a82ffb62c357d997a8
-HOST_CARGO_C_ANSTYLE_1_0_4_URL		:= https://crates.io/api/v1/crates/anstyle/1.0.4/download
+HOST_CARGO_C_ANSTYLE_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, anstyle/1.0.4/download)
 HOST_CARGO_C_ANSTYLE_1_0_4_SOURCE	:= $(SRCDIR)/anstyle-1.0.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_1_0_4
 
 HOST_CARGO_C_ANSTYLE_PARSE_0_2_2_MD5		:= 316c95b1454a81db86a56d5af6734c94
-HOST_CARGO_C_ANSTYLE_PARSE_0_2_2_URL		:= https://crates.io/api/v1/crates/anstyle-parse/0.2.2/download
+HOST_CARGO_C_ANSTYLE_PARSE_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, anstyle-parse/0.2.2/download)
 HOST_CARGO_C_ANSTYLE_PARSE_0_2_2_SOURCE	:= $(SRCDIR)/anstyle-parse-0.2.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_PARSE_0_2_2
 
 HOST_CARGO_C_ANSTYLE_QUERY_1_0_0_MD5		:= d2453c99c7af98286c2dc9017a8dba6d
-HOST_CARGO_C_ANSTYLE_QUERY_1_0_0_URL		:= https://crates.io/api/v1/crates/anstyle-query/1.0.0/download
+HOST_CARGO_C_ANSTYLE_QUERY_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, anstyle-query/1.0.0/download)
 HOST_CARGO_C_ANSTYLE_QUERY_1_0_0_SOURCE	:= $(SRCDIR)/anstyle-query-1.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_QUERY_1_0_0
 
 HOST_CARGO_C_ANSTYLE_WINCON_3_0_1_MD5		:= b57fd47f132f32001e0d4bfc4621f1bf
-HOST_CARGO_C_ANSTYLE_WINCON_3_0_1_URL		:= https://crates.io/api/v1/crates/anstyle-wincon/3.0.1/download
+HOST_CARGO_C_ANSTYLE_WINCON_3_0_1_URL		:= $(call ptx/mirror, CRATESIO, anstyle-wincon/3.0.1/download)
 HOST_CARGO_C_ANSTYLE_WINCON_3_0_1_SOURCE	:= $(SRCDIR)/anstyle-wincon-3.0.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_WINCON_3_0_1
 
 HOST_CARGO_C_ANYHOW_1_0_75_MD5		:= 39a78bec5a0ae75f210c1f67250152b0
-HOST_CARGO_C_ANYHOW_1_0_75_URL		:= https://crates.io/api/v1/crates/anyhow/1.0.75/download
+HOST_CARGO_C_ANYHOW_1_0_75_URL		:= $(call ptx/mirror, CRATESIO, anyhow/1.0.75/download)
 HOST_CARGO_C_ANYHOW_1_0_75_SOURCE	:= $(SRCDIR)/anyhow-1.0.75.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANYHOW_1_0_75
 
 HOST_CARGO_C_ARC_SWAP_1_6_0_MD5		:= b7916cf807e8e1e3d0bc59b71f7f2500
-HOST_CARGO_C_ARC_SWAP_1_6_0_URL		:= https://crates.io/api/v1/crates/arc-swap/1.6.0/download
+HOST_CARGO_C_ARC_SWAP_1_6_0_URL		:= $(call ptx/mirror, CRATESIO, arc-swap/1.6.0/download)
 HOST_CARGO_C_ARC_SWAP_1_6_0_SOURCE	:= $(SRCDIR)/arc-swap-1.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ARC_SWAP_1_6_0
 
 HOST_CARGO_C_ARRAYVEC_0_5_2_MD5		:= c83252f91435a921e7e4434956010344
-HOST_CARGO_C_ARRAYVEC_0_5_2_URL		:= https://crates.io/api/v1/crates/arrayvec/0.5.2/download
+HOST_CARGO_C_ARRAYVEC_0_5_2_URL		:= $(call ptx/mirror, CRATESIO, arrayvec/0.5.2/download)
 HOST_CARGO_C_ARRAYVEC_0_5_2_SOURCE	:= $(SRCDIR)/arrayvec-0.5.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ARRAYVEC_0_5_2
 
 HOST_CARGO_C_AUTOCFG_1_1_0_MD5		:= 05d77ef52e90ad161fdd41b252420467
-HOST_CARGO_C_AUTOCFG_1_1_0_URL		:= https://crates.io/api/v1/crates/autocfg/1.1.0/download
+HOST_CARGO_C_AUTOCFG_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, autocfg/1.1.0/download)
 HOST_CARGO_C_AUTOCFG_1_1_0_SOURCE	:= $(SRCDIR)/autocfg-1.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_AUTOCFG_1_1_0
 
 HOST_CARGO_C_BASE16CT_0_2_0_MD5		:= 5a1ece5125e266d39693587725f0270d
-HOST_CARGO_C_BASE16CT_0_2_0_URL		:= https://crates.io/api/v1/crates/base16ct/0.2.0/download
+HOST_CARGO_C_BASE16CT_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, base16ct/0.2.0/download)
 HOST_CARGO_C_BASE16CT_0_2_0_SOURCE	:= $(SRCDIR)/base16ct-0.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BASE16CT_0_2_0
 
 HOST_CARGO_C_BASE64_0_21_4_MD5		:= ad633ecb9ddf3cbf53aa3d76cf07339a
-HOST_CARGO_C_BASE64_0_21_4_URL		:= https://crates.io/api/v1/crates/base64/0.21.4/download
+HOST_CARGO_C_BASE64_0_21_4_URL		:= $(call ptx/mirror, CRATESIO, base64/0.21.4/download)
 HOST_CARGO_C_BASE64_0_21_4_SOURCE	:= $(SRCDIR)/base64-0.21.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BASE64_0_21_4
 
 HOST_CARGO_C_BASE64CT_1_6_0_MD5		:= bd4c0e123b65937461c135ff7030a44e
-HOST_CARGO_C_BASE64CT_1_6_0_URL		:= https://crates.io/api/v1/crates/base64ct/1.6.0/download
+HOST_CARGO_C_BASE64CT_1_6_0_URL		:= $(call ptx/mirror, CRATESIO, base64ct/1.6.0/download)
 HOST_CARGO_C_BASE64CT_1_6_0_SOURCE	:= $(SRCDIR)/base64ct-1.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BASE64CT_1_6_0
 
 HOST_CARGO_C_BITFLAGS_1_3_2_MD5		:= a295edb6953237ebbdfa8e731229f9a3
-HOST_CARGO_C_BITFLAGS_1_3_2_URL		:= https://crates.io/api/v1/crates/bitflags/1.3.2/download
+HOST_CARGO_C_BITFLAGS_1_3_2_URL		:= $(call ptx/mirror, CRATESIO, bitflags/1.3.2/download)
 HOST_CARGO_C_BITFLAGS_1_3_2_SOURCE	:= $(SRCDIR)/bitflags-1.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BITFLAGS_1_3_2
 
 HOST_CARGO_C_BITFLAGS_2_4_0_MD5		:= b6a33f8009be15391bb7ca1a3c1f5bc4
-HOST_CARGO_C_BITFLAGS_2_4_0_URL		:= https://crates.io/api/v1/crates/bitflags/2.4.0/download
+HOST_CARGO_C_BITFLAGS_2_4_0_URL		:= $(call ptx/mirror, CRATESIO, bitflags/2.4.0/download)
 HOST_CARGO_C_BITFLAGS_2_4_0_SOURCE	:= $(SRCDIR)/bitflags-2.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BITFLAGS_2_4_0
 
 HOST_CARGO_C_BITMAPS_2_1_0_MD5		:= 1f3a8c93940230a06fdf5223a64000bf
-HOST_CARGO_C_BITMAPS_2_1_0_URL		:= https://crates.io/api/v1/crates/bitmaps/2.1.0/download
+HOST_CARGO_C_BITMAPS_2_1_0_URL		:= $(call ptx/mirror, CRATESIO, bitmaps/2.1.0/download)
 HOST_CARGO_C_BITMAPS_2_1_0_SOURCE	:= $(SRCDIR)/bitmaps-2.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BITMAPS_2_1_0
 
 HOST_CARGO_C_BLOCK_BUFFER_0_10_4_MD5		:= 023b03cf9968b29253a5dfe62051008d
-HOST_CARGO_C_BLOCK_BUFFER_0_10_4_URL		:= https://crates.io/api/v1/crates/block-buffer/0.10.4/download
+HOST_CARGO_C_BLOCK_BUFFER_0_10_4_URL		:= $(call ptx/mirror, CRATESIO, block-buffer/0.10.4/download)
 HOST_CARGO_C_BLOCK_BUFFER_0_10_4_SOURCE	:= $(SRCDIR)/block-buffer-0.10.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BLOCK_BUFFER_0_10_4
 
 HOST_CARGO_C_BSTR_1_7_0_MD5		:= 58b04c69758e02189595f45cce636284
-HOST_CARGO_C_BSTR_1_7_0_URL		:= https://crates.io/api/v1/crates/bstr/1.7.0/download
+HOST_CARGO_C_BSTR_1_7_0_URL		:= $(call ptx/mirror, CRATESIO, bstr/1.7.0/download)
 HOST_CARGO_C_BSTR_1_7_0_SOURCE	:= $(SRCDIR)/bstr-1.7.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BSTR_1_7_0
 
 HOST_CARGO_C_BTOI_0_4_3_MD5		:= 841b2dfaad47fc76cd42a45e074a1e78
-HOST_CARGO_C_BTOI_0_4_3_URL		:= https://crates.io/api/v1/crates/btoi/0.4.3/download
+HOST_CARGO_C_BTOI_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, btoi/0.4.3/download)
 HOST_CARGO_C_BTOI_0_4_3_SOURCE	:= $(SRCDIR)/btoi-0.4.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BTOI_0_4_3
 
 HOST_CARGO_C_BUMPALO_3_14_0_MD5		:= d8cacbb844fca8c0ca102c7576946131
-HOST_CARGO_C_BUMPALO_3_14_0_URL		:= https://crates.io/api/v1/crates/bumpalo/3.14.0/download
+HOST_CARGO_C_BUMPALO_3_14_0_URL		:= $(call ptx/mirror, CRATESIO, bumpalo/3.14.0/download)
 HOST_CARGO_C_BUMPALO_3_14_0_SOURCE	:= $(SRCDIR)/bumpalo-3.14.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BUMPALO_3_14_0
 
 HOST_CARGO_C_BYTES_1_5_0_MD5		:= 51ed49380bb7d086c005208e805983b2
-HOST_CARGO_C_BYTES_1_5_0_URL		:= https://crates.io/api/v1/crates/bytes/1.5.0/download
+HOST_CARGO_C_BYTES_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, bytes/1.5.0/download)
 HOST_CARGO_C_BYTES_1_5_0_SOURCE	:= $(SRCDIR)/bytes-1.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BYTES_1_5_0
 
 HOST_CARGO_C_BYTESIZE_1_3_0_MD5		:= 04c2dcc3c8184578320c53d63a07aed0
-HOST_CARGO_C_BYTESIZE_1_3_0_URL		:= https://crates.io/api/v1/crates/bytesize/1.3.0/download
+HOST_CARGO_C_BYTESIZE_1_3_0_URL		:= $(call ptx/mirror, CRATESIO, bytesize/1.3.0/download)
 HOST_CARGO_C_BYTESIZE_1_3_0_SOURCE	:= $(SRCDIR)/bytesize-1.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BYTESIZE_1_3_0
 
 HOST_CARGO_C_CARGO_0_74_0_MD5		:= c6ca92011b69e0d0028e2a347620e8e2
-HOST_CARGO_C_CARGO_0_74_0_URL		:= https://crates.io/api/v1/crates/cargo/0.74.0/download
+HOST_CARGO_C_CARGO_0_74_0_URL		:= $(call ptx/mirror, CRATESIO, cargo/0.74.0/download)
 HOST_CARGO_C_CARGO_0_74_0_SOURCE	:= $(SRCDIR)/cargo-0.74.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_0_74_0
 
 HOST_CARGO_C_CARGO_CREDENTIAL_0_3_0_MD5		:= f423e24f6ee81a2f5f16fa384f0f28a6
-HOST_CARGO_C_CARGO_CREDENTIAL_0_3_0_URL		:= https://crates.io/api/v1/crates/cargo-credential/0.3.0/download
+HOST_CARGO_C_CARGO_CREDENTIAL_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential/0.3.0/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_0_3_0_SOURCE	:= $(SRCDIR)/cargo-credential-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_0_3_0
 
 HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_3_1_MD5		:= a6a798b4a363c9c84610f2fa0d997fb9
-HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_3_1_URL		:= https://crates.io/api/v1/crates/cargo-credential-libsecret/0.3.1/download
+HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential-libsecret/0.3.1/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_3_1_SOURCE	:= $(SRCDIR)/cargo-credential-libsecret-0.3.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_3_1
 
 HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_3_0_MD5		:= ea60b53407f1caff878806625df8a21a
-HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_3_0_URL		:= https://crates.io/api/v1/crates/cargo-credential-macos-keychain/0.3.0/download
+HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential-macos-keychain/0.3.0/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_3_0_SOURCE	:= $(SRCDIR)/cargo-credential-macos-keychain-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_3_0
 
 HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_3_0_MD5		:= 38e81d5e5763ba8f7a07d849b34221ce
-HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_3_0_URL		:= https://crates.io/api/v1/crates/cargo-credential-wincred/0.3.0/download
+HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential-wincred/0.3.0/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_3_0_SOURCE	:= $(SRCDIR)/cargo-credential-wincred-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_3_0
 
 HOST_CARGO_C_CARGO_PLATFORM_0_1_4_MD5		:= 162e27a3dd223a7ddc053fba9b1f7429
-HOST_CARGO_C_CARGO_PLATFORM_0_1_4_URL		:= https://crates.io/api/v1/crates/cargo-platform/0.1.4/download
+HOST_CARGO_C_CARGO_PLATFORM_0_1_4_URL		:= $(call ptx/mirror, CRATESIO, cargo-platform/0.1.4/download)
 HOST_CARGO_C_CARGO_PLATFORM_0_1_4_SOURCE	:= $(SRCDIR)/cargo-platform-0.1.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_PLATFORM_0_1_4
 
 HOST_CARGO_C_CARGO_UTIL_0_2_6_MD5		:= 5effeaa8b9c6a39470fe7aff93e36c96
-HOST_CARGO_C_CARGO_UTIL_0_2_6_URL		:= https://crates.io/api/v1/crates/cargo-util/0.2.6/download
+HOST_CARGO_C_CARGO_UTIL_0_2_6_URL		:= $(call ptx/mirror, CRATESIO, cargo-util/0.2.6/download)
 HOST_CARGO_C_CARGO_UTIL_0_2_6_SOURCE	:= $(SRCDIR)/cargo-util-0.2.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_UTIL_0_2_6
 
 HOST_CARGO_C_CBINDGEN_0_26_0_MD5		:= 1f28e8d9b5c137d9e8d3265022051c34
-HOST_CARGO_C_CBINDGEN_0_26_0_URL		:= https://crates.io/api/v1/crates/cbindgen/0.26.0/download
+HOST_CARGO_C_CBINDGEN_0_26_0_URL		:= $(call ptx/mirror, CRATESIO, cbindgen/0.26.0/download)
 HOST_CARGO_C_CBINDGEN_0_26_0_SOURCE	:= $(SRCDIR)/cbindgen-0.26.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CBINDGEN_0_26_0
 
 HOST_CARGO_C_CC_1_0_83_MD5		:= 9241fa90ea8b17c00010be46c9aa1ac5
-HOST_CARGO_C_CC_1_0_83_URL		:= https://crates.io/api/v1/crates/cc/1.0.83/download
+HOST_CARGO_C_CC_1_0_83_URL		:= $(call ptx/mirror, CRATESIO, cc/1.0.83/download)
 HOST_CARGO_C_CC_1_0_83_SOURCE	:= $(SRCDIR)/cc-1.0.83.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CC_1_0_83
 
 HOST_CARGO_C_CFG_IF_1_0_0_MD5		:= 74634128440dbc3766bda76fdf0aaa05
-HOST_CARGO_C_CFG_IF_1_0_0_URL		:= https://crates.io/api/v1/crates/cfg-if/1.0.0/download
+HOST_CARGO_C_CFG_IF_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, cfg-if/1.0.0/download)
 HOST_CARGO_C_CFG_IF_1_0_0_SOURCE	:= $(SRCDIR)/cfg-if-1.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CFG_IF_1_0_0
 
 HOST_CARGO_C_CLAP_4_4_6_MD5		:= 166b8dd7c4ba1de91b063bf2735db503
-HOST_CARGO_C_CLAP_4_4_6_URL		:= https://crates.io/api/v1/crates/clap/4.4.6/download
+HOST_CARGO_C_CLAP_4_4_6_URL		:= $(call ptx/mirror, CRATESIO, clap/4.4.6/download)
 HOST_CARGO_C_CLAP_4_4_6_SOURCE	:= $(SRCDIR)/clap-4.4.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_4_4_6
 
 HOST_CARGO_C_CLAP_BUILDER_4_4_6_MD5		:= 50dd5ede0492efbc82a851a70f5a134f
-HOST_CARGO_C_CLAP_BUILDER_4_4_6_URL		:= https://crates.io/api/v1/crates/clap_builder/4.4.6/download
+HOST_CARGO_C_CLAP_BUILDER_4_4_6_URL		:= $(call ptx/mirror, CRATESIO, clap_builder/4.4.6/download)
 HOST_CARGO_C_CLAP_BUILDER_4_4_6_SOURCE	:= $(SRCDIR)/clap_builder-4.4.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_BUILDER_4_4_6
 
 HOST_CARGO_C_CLAP_DERIVE_4_4_2_MD5		:= a0023229d68c00e7aadfae5ea5aef3a2
-HOST_CARGO_C_CLAP_DERIVE_4_4_2_URL		:= https://crates.io/api/v1/crates/clap_derive/4.4.2/download
+HOST_CARGO_C_CLAP_DERIVE_4_4_2_URL		:= $(call ptx/mirror, CRATESIO, clap_derive/4.4.2/download)
 HOST_CARGO_C_CLAP_DERIVE_4_4_2_SOURCE	:= $(SRCDIR)/clap_derive-4.4.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_DERIVE_4_4_2
 
 HOST_CARGO_C_CLAP_LEX_0_5_1_MD5		:= f93412d10071ace7eea8167d499d05cd
-HOST_CARGO_C_CLAP_LEX_0_5_1_URL		:= https://crates.io/api/v1/crates/clap_lex/0.5.1/download
+HOST_CARGO_C_CLAP_LEX_0_5_1_URL		:= $(call ptx/mirror, CRATESIO, clap_lex/0.5.1/download)
 HOST_CARGO_C_CLAP_LEX_0_5_1_SOURCE	:= $(SRCDIR)/clap_lex-0.5.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_LEX_0_5_1
 
 HOST_CARGO_C_CLRU_0_6_1_MD5		:= b4b717e9ccaca16de32c52b11e851916
-HOST_CARGO_C_CLRU_0_6_1_URL		:= https://crates.io/api/v1/crates/clru/0.6.1/download
+HOST_CARGO_C_CLRU_0_6_1_URL		:= $(call ptx/mirror, CRATESIO, clru/0.6.1/download)
 HOST_CARGO_C_CLRU_0_6_1_SOURCE	:= $(SRCDIR)/clru-0.6.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLRU_0_6_1
 
 HOST_CARGO_C_COLORCHOICE_1_0_0_MD5		:= 010f6d0e98cc2a2b99907a23c6cd6bbc
-HOST_CARGO_C_COLORCHOICE_1_0_0_URL		:= https://crates.io/api/v1/crates/colorchoice/1.0.0/download
+HOST_CARGO_C_COLORCHOICE_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, colorchoice/1.0.0/download)
 HOST_CARGO_C_COLORCHOICE_1_0_0_SOURCE	:= $(SRCDIR)/colorchoice-1.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_COLORCHOICE_1_0_0
 
 HOST_CARGO_C_CONST_OID_0_9_5_MD5		:= 41522bc02ec95f6103452f24b16011ac
-HOST_CARGO_C_CONST_OID_0_9_5_URL		:= https://crates.io/api/v1/crates/const-oid/0.9.5/download
+HOST_CARGO_C_CONST_OID_0_9_5_URL		:= $(call ptx/mirror, CRATESIO, const-oid/0.9.5/download)
 HOST_CARGO_C_CONST_OID_0_9_5_SOURCE	:= $(SRCDIR)/const-oid-0.9.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CONST_OID_0_9_5
 
 HOST_CARGO_C_CORE_FOUNDATION_0_9_3_MD5		:= ae6dd0cd5319220586d8ace4c4be87ce
-HOST_CARGO_C_CORE_FOUNDATION_0_9_3_URL		:= https://crates.io/api/v1/crates/core-foundation/0.9.3/download
+HOST_CARGO_C_CORE_FOUNDATION_0_9_3_URL		:= $(call ptx/mirror, CRATESIO, core-foundation/0.9.3/download)
 HOST_CARGO_C_CORE_FOUNDATION_0_9_3_SOURCE	:= $(SRCDIR)/core-foundation-0.9.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CORE_FOUNDATION_0_9_3
 
 HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_4_MD5		:= b477cc1c7b45e2187b3cad0377b504d8
-HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_4_URL		:= https://crates.io/api/v1/crates/core-foundation-sys/0.8.4/download
+HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_4_URL		:= $(call ptx/mirror, CRATESIO, core-foundation-sys/0.8.4/download)
 HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_4_SOURCE	:= $(SRCDIR)/core-foundation-sys-0.8.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_4
 
 HOST_CARGO_C_CPUFEATURES_0_2_9_MD5		:= 45198b4ddb1004879a41ea4e67f63106
-HOST_CARGO_C_CPUFEATURES_0_2_9_URL		:= https://crates.io/api/v1/crates/cpufeatures/0.2.9/download
+HOST_CARGO_C_CPUFEATURES_0_2_9_URL		:= $(call ptx/mirror, CRATESIO, cpufeatures/0.2.9/download)
 HOST_CARGO_C_CPUFEATURES_0_2_9_SOURCE	:= $(SRCDIR)/cpufeatures-0.2.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CPUFEATURES_0_2_9
 
 HOST_CARGO_C_CRATES_IO_0_38_0_MD5		:= 01dabd4e130b33acab3c8a781400d3cb
-HOST_CARGO_C_CRATES_IO_0_38_0_URL		:= https://crates.io/api/v1/crates/crates-io/0.38.0/download
+HOST_CARGO_C_CRATES_IO_0_38_0_URL		:= $(call ptx/mirror, CRATESIO, crates-io/0.38.0/download)
 HOST_CARGO_C_CRATES_IO_0_38_0_SOURCE	:= $(SRCDIR)/crates-io-0.38.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRATES_IO_0_38_0
 
 HOST_CARGO_C_CRC32FAST_1_3_2_MD5		:= a9d6492a1bd21d93dbc27c32eabd0c70
-HOST_CARGO_C_CRC32FAST_1_3_2_URL		:= https://crates.io/api/v1/crates/crc32fast/1.3.2/download
+HOST_CARGO_C_CRC32FAST_1_3_2_URL		:= $(call ptx/mirror, CRATESIO, crc32fast/1.3.2/download)
 HOST_CARGO_C_CRC32FAST_1_3_2_SOURCE	:= $(SRCDIR)/crc32fast-1.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRC32FAST_1_3_2
 
 HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_8_MD5		:= 87789a9723d81ff7d65a093a085617ae
-HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_8_URL		:= https://crates.io/api/v1/crates/crossbeam-channel/0.5.8/download
+HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_8_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-channel/0.5.8/download)
 HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_8_SOURCE	:= $(SRCDIR)/crossbeam-channel-0.5.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_8
 
 HOST_CARGO_C_CROSSBEAM_UTILS_0_8_16_MD5		:= f0c49a1a8cb131110f9f14f440bf872c
-HOST_CARGO_C_CROSSBEAM_UTILS_0_8_16_URL		:= https://crates.io/api/v1/crates/crossbeam-utils/0.8.16/download
+HOST_CARGO_C_CROSSBEAM_UTILS_0_8_16_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-utils/0.8.16/download)
 HOST_CARGO_C_CROSSBEAM_UTILS_0_8_16_SOURCE	:= $(SRCDIR)/crossbeam-utils-0.8.16.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CROSSBEAM_UTILS_0_8_16
 
 HOST_CARGO_C_CRYPTO_BIGINT_0_5_3_MD5		:= 0c82b3ee0cafe577b2fef7c1b38a3619
-HOST_CARGO_C_CRYPTO_BIGINT_0_5_3_URL		:= https://crates.io/api/v1/crates/crypto-bigint/0.5.3/download
+HOST_CARGO_C_CRYPTO_BIGINT_0_5_3_URL		:= $(call ptx/mirror, CRATESIO, crypto-bigint/0.5.3/download)
 HOST_CARGO_C_CRYPTO_BIGINT_0_5_3_SOURCE	:= $(SRCDIR)/crypto-bigint-0.5.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRYPTO_BIGINT_0_5_3
 
 HOST_CARGO_C_CRYPTO_COMMON_0_1_6_MD5		:= 89e88633cab0e4b6f3d3878b84dffe8b
-HOST_CARGO_C_CRYPTO_COMMON_0_1_6_URL		:= https://crates.io/api/v1/crates/crypto-common/0.1.6/download
+HOST_CARGO_C_CRYPTO_COMMON_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, crypto-common/0.1.6/download)
 HOST_CARGO_C_CRYPTO_COMMON_0_1_6_SOURCE	:= $(SRCDIR)/crypto-common-0.1.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRYPTO_COMMON_0_1_6
 
 HOST_CARGO_C_CT_CODECS_1_1_1_MD5		:= 1fcb16ff3093c34c7265bb1be892096c
-HOST_CARGO_C_CT_CODECS_1_1_1_URL		:= https://crates.io/api/v1/crates/ct-codecs/1.1.1/download
+HOST_CARGO_C_CT_CODECS_1_1_1_URL		:= $(call ptx/mirror, CRATESIO, ct-codecs/1.1.1/download)
 HOST_CARGO_C_CT_CODECS_1_1_1_SOURCE	:= $(SRCDIR)/ct-codecs-1.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CT_CODECS_1_1_1
 
 HOST_CARGO_C_CURL_0_4_44_MD5		:= 2055aa2a8c9da89dadfd1e9012a26a20
-HOST_CARGO_C_CURL_0_4_44_URL		:= https://crates.io/api/v1/crates/curl/0.4.44/download
+HOST_CARGO_C_CURL_0_4_44_URL		:= $(call ptx/mirror, CRATESIO, curl/0.4.44/download)
 HOST_CARGO_C_CURL_0_4_44_SOURCE	:= $(SRCDIR)/curl-0.4.44.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CURL_0_4_44
 
 HOST_CARGO_C_CURL_SYS_0_4_67_CURL_8_3_0_MD5		:= 7b88a6cdc32a9eb596d3eaa8ce4e4e35
-HOST_CARGO_C_CURL_SYS_0_4_67_CURL_8_3_0_URL		:= https://crates.io/api/v1/crates/curl-sys/0.4.67+curl-8.3.0/download
+HOST_CARGO_C_CURL_SYS_0_4_67_CURL_8_3_0_URL		:= $(call ptx/mirror, CRATESIO, curl-sys/0.4.67+curl-8.3.0/download)
 HOST_CARGO_C_CURL_SYS_0_4_67_CURL_8_3_0_SOURCE	:= $(SRCDIR)/curl-sys-0.4.67+curl-8.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CURL_SYS_0_4_67_CURL_8_3_0
 
 HOST_CARGO_C_DER_0_7_8_MD5		:= b0bf0c6d53543de6ba1644de4481b1b8
-HOST_CARGO_C_DER_0_7_8_URL		:= https://crates.io/api/v1/crates/der/0.7.8/download
+HOST_CARGO_C_DER_0_7_8_URL		:= $(call ptx/mirror, CRATESIO, der/0.7.8/download)
 HOST_CARGO_C_DER_0_7_8_SOURCE	:= $(SRCDIR)/der-0.7.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DER_0_7_8
 
 HOST_CARGO_C_DERANGED_0_3_8_MD5		:= 4d2540a4d09452158bc01d50c6360f29
-HOST_CARGO_C_DERANGED_0_3_8_URL		:= https://crates.io/api/v1/crates/deranged/0.3.8/download
+HOST_CARGO_C_DERANGED_0_3_8_URL		:= $(call ptx/mirror, CRATESIO, deranged/0.3.8/download)
 HOST_CARGO_C_DERANGED_0_3_8_SOURCE	:= $(SRCDIR)/deranged-0.3.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DERANGED_0_3_8
 
 HOST_CARGO_C_DIGEST_0_10_7_MD5		:= 3d62bfbbe08bdcee55fcb8cda85554d9
-HOST_CARGO_C_DIGEST_0_10_7_URL		:= https://crates.io/api/v1/crates/digest/0.10.7/download
+HOST_CARGO_C_DIGEST_0_10_7_URL		:= $(call ptx/mirror, CRATESIO, digest/0.10.7/download)
 HOST_CARGO_C_DIGEST_0_10_7_SOURCE	:= $(SRCDIR)/digest-0.10.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DIGEST_0_10_7
 
 HOST_CARGO_C_DUNCE_1_0_4_MD5		:= 09fbe9408a658ae3e5d294812af2bc65
-HOST_CARGO_C_DUNCE_1_0_4_URL		:= https://crates.io/api/v1/crates/dunce/1.0.4/download
+HOST_CARGO_C_DUNCE_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, dunce/1.0.4/download)
 HOST_CARGO_C_DUNCE_1_0_4_SOURCE	:= $(SRCDIR)/dunce-1.0.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DUNCE_1_0_4
 
 HOST_CARGO_C_ECDSA_0_16_8_MD5		:= fe07b73ef5cd7680b91b301839cba087
-HOST_CARGO_C_ECDSA_0_16_8_URL		:= https://crates.io/api/v1/crates/ecdsa/0.16.8/download
+HOST_CARGO_C_ECDSA_0_16_8_URL		:= $(call ptx/mirror, CRATESIO, ecdsa/0.16.8/download)
 HOST_CARGO_C_ECDSA_0_16_8_SOURCE	:= $(SRCDIR)/ecdsa-0.16.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ECDSA_0_16_8
 
 HOST_CARGO_C_ED25519_COMPACT_2_0_4_MD5		:= df14066f562e566ef982f50f1c112286
-HOST_CARGO_C_ED25519_COMPACT_2_0_4_URL		:= https://crates.io/api/v1/crates/ed25519-compact/2.0.4/download
+HOST_CARGO_C_ED25519_COMPACT_2_0_4_URL		:= $(call ptx/mirror, CRATESIO, ed25519-compact/2.0.4/download)
 HOST_CARGO_C_ED25519_COMPACT_2_0_4_SOURCE	:= $(SRCDIR)/ed25519-compact-2.0.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ED25519_COMPACT_2_0_4
 
 HOST_CARGO_C_EITHER_1_9_0_MD5		:= 3c3ab76bd9ed94de350152f1af4c61e8
-HOST_CARGO_C_EITHER_1_9_0_URL		:= https://crates.io/api/v1/crates/either/1.9.0/download
+HOST_CARGO_C_EITHER_1_9_0_URL		:= $(call ptx/mirror, CRATESIO, either/1.9.0/download)
 HOST_CARGO_C_EITHER_1_9_0_SOURCE	:= $(SRCDIR)/either-1.9.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_EITHER_1_9_0
 
 HOST_CARGO_C_ELLIPTIC_CURVE_0_13_6_MD5		:= c66ddcb8d02f7436461a04a4fd8e3a5b
-HOST_CARGO_C_ELLIPTIC_CURVE_0_13_6_URL		:= https://crates.io/api/v1/crates/elliptic-curve/0.13.6/download
+HOST_CARGO_C_ELLIPTIC_CURVE_0_13_6_URL		:= $(call ptx/mirror, CRATESIO, elliptic-curve/0.13.6/download)
 HOST_CARGO_C_ELLIPTIC_CURVE_0_13_6_SOURCE	:= $(SRCDIR)/elliptic-curve-0.13.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ELLIPTIC_CURVE_0_13_6
 
 HOST_CARGO_C_EQUIVALENT_1_0_1_MD5		:= bdf329a72ecd0605c296f25e53136706
-HOST_CARGO_C_EQUIVALENT_1_0_1_URL		:= https://crates.io/api/v1/crates/equivalent/1.0.1/download
+HOST_CARGO_C_EQUIVALENT_1_0_1_URL		:= $(call ptx/mirror, CRATESIO, equivalent/1.0.1/download)
 HOST_CARGO_C_EQUIVALENT_1_0_1_SOURCE	:= $(SRCDIR)/equivalent-1.0.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_EQUIVALENT_1_0_1
 
 HOST_CARGO_C_ERRNO_0_3_5_MD5		:= 616ae19b360c12012591da557ee83f41
-HOST_CARGO_C_ERRNO_0_3_5_URL		:= https://crates.io/api/v1/crates/errno/0.3.5/download
+HOST_CARGO_C_ERRNO_0_3_5_URL		:= $(call ptx/mirror, CRATESIO, errno/0.3.5/download)
 HOST_CARGO_C_ERRNO_0_3_5_SOURCE	:= $(SRCDIR)/errno-0.3.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ERRNO_0_3_5
 
 HOST_CARGO_C_FASTER_HEX_0_8_1_MD5		:= 9c2fecb4fe5a01c05b72f1bd4985aaf3
-HOST_CARGO_C_FASTER_HEX_0_8_1_URL		:= https://crates.io/api/v1/crates/faster-hex/0.8.1/download
+HOST_CARGO_C_FASTER_HEX_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, faster-hex/0.8.1/download)
 HOST_CARGO_C_FASTER_HEX_0_8_1_SOURCE	:= $(SRCDIR)/faster-hex-0.8.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FASTER_HEX_0_8_1
 
 HOST_CARGO_C_FASTRAND_2_0_1_MD5		:= 80e1c1b89d858c93fc5946b4a8266504
-HOST_CARGO_C_FASTRAND_2_0_1_URL		:= https://crates.io/api/v1/crates/fastrand/2.0.1/download
+HOST_CARGO_C_FASTRAND_2_0_1_URL		:= $(call ptx/mirror, CRATESIO, fastrand/2.0.1/download)
 HOST_CARGO_C_FASTRAND_2_0_1_SOURCE	:= $(SRCDIR)/fastrand-2.0.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FASTRAND_2_0_1
 
 HOST_CARGO_C_FF_0_13_0_MD5		:= 108d90c246e09f46087613284e8651e7
-HOST_CARGO_C_FF_0_13_0_URL		:= https://crates.io/api/v1/crates/ff/0.13.0/download
+HOST_CARGO_C_FF_0_13_0_URL		:= $(call ptx/mirror, CRATESIO, ff/0.13.0/download)
 HOST_CARGO_C_FF_0_13_0_SOURCE	:= $(SRCDIR)/ff-0.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FF_0_13_0
 
 HOST_CARGO_C_FIAT_CRYPTO_0_2_1_MD5		:= a91dce22fbf7a307b1b8169715812952
-HOST_CARGO_C_FIAT_CRYPTO_0_2_1_URL		:= https://crates.io/api/v1/crates/fiat-crypto/0.2.1/download
+HOST_CARGO_C_FIAT_CRYPTO_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, fiat-crypto/0.2.1/download)
 HOST_CARGO_C_FIAT_CRYPTO_0_2_1_SOURCE	:= $(SRCDIR)/fiat-crypto-0.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FIAT_CRYPTO_0_2_1
 
 HOST_CARGO_C_FILETIME_0_2_22_MD5		:= 412f39c3faf2efd34b5fe184e36ccc2f
-HOST_CARGO_C_FILETIME_0_2_22_URL		:= https://crates.io/api/v1/crates/filetime/0.2.22/download
+HOST_CARGO_C_FILETIME_0_2_22_URL		:= $(call ptx/mirror, CRATESIO, filetime/0.2.22/download)
 HOST_CARGO_C_FILETIME_0_2_22_SOURCE	:= $(SRCDIR)/filetime-0.2.22.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FILETIME_0_2_22
 
 HOST_CARGO_C_FLATE2_1_0_27_MD5		:= 5464f1288cca25da28ec41595a001ce9
-HOST_CARGO_C_FLATE2_1_0_27_URL		:= https://crates.io/api/v1/crates/flate2/1.0.27/download
+HOST_CARGO_C_FLATE2_1_0_27_URL		:= $(call ptx/mirror, CRATESIO, flate2/1.0.27/download)
 HOST_CARGO_C_FLATE2_1_0_27_SOURCE	:= $(SRCDIR)/flate2-1.0.27.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FLATE2_1_0_27
 
 HOST_CARGO_C_FNV_1_0_7_MD5		:= 8dab3b3ec00dc56cffde0b0c410d47b5
-HOST_CARGO_C_FNV_1_0_7_URL		:= https://crates.io/api/v1/crates/fnv/1.0.7/download
+HOST_CARGO_C_FNV_1_0_7_URL		:= $(call ptx/mirror, CRATESIO, fnv/1.0.7/download)
 HOST_CARGO_C_FNV_1_0_7_SOURCE	:= $(SRCDIR)/fnv-1.0.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FNV_1_0_7
 
 HOST_CARGO_C_FOREIGN_TYPES_0_3_2_MD5		:= 78c898fdaa3968e23904bf8538c4a271
-HOST_CARGO_C_FOREIGN_TYPES_0_3_2_URL		:= https://crates.io/api/v1/crates/foreign-types/0.3.2/download
+HOST_CARGO_C_FOREIGN_TYPES_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, foreign-types/0.3.2/download)
 HOST_CARGO_C_FOREIGN_TYPES_0_3_2_SOURCE	:= $(SRCDIR)/foreign-types-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FOREIGN_TYPES_0_3_2
 
 HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_MD5		:= 667e86b8b8d96ab4e9605627ce7dcc9a
-HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_URL		:= https://crates.io/api/v1/crates/foreign-types-shared/0.1.1/download
+HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, foreign-types-shared/0.1.1/download)
 HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_SOURCE	:= $(SRCDIR)/foreign-types-shared-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1
 
 HOST_CARGO_C_FORM_URLENCODED_1_2_0_MD5		:= 77a086ceea2184ca4af0ff6cbfe9e2ec
-HOST_CARGO_C_FORM_URLENCODED_1_2_0_URL		:= https://crates.io/api/v1/crates/form_urlencoded/1.2.0/download
+HOST_CARGO_C_FORM_URLENCODED_1_2_0_URL		:= $(call ptx/mirror, CRATESIO, form_urlencoded/1.2.0/download)
 HOST_CARGO_C_FORM_URLENCODED_1_2_0_SOURCE	:= $(SRCDIR)/form_urlencoded-1.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FORM_URLENCODED_1_2_0
 
 HOST_CARGO_C_FWDANSI_1_1_0_MD5		:= 3f93db1614a21f9804653314895da4e4
-HOST_CARGO_C_FWDANSI_1_1_0_URL		:= https://crates.io/api/v1/crates/fwdansi/1.1.0/download
+HOST_CARGO_C_FWDANSI_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, fwdansi/1.1.0/download)
 HOST_CARGO_C_FWDANSI_1_1_0_SOURCE	:= $(SRCDIR)/fwdansi-1.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FWDANSI_1_1_0
 
 HOST_CARGO_C_GENERIC_ARRAY_0_14_7_MD5		:= 64a6d8fe0c9a450bcefa41894e17d7ac
-HOST_CARGO_C_GENERIC_ARRAY_0_14_7_URL		:= https://crates.io/api/v1/crates/generic-array/0.14.7/download
+HOST_CARGO_C_GENERIC_ARRAY_0_14_7_URL		:= $(call ptx/mirror, CRATESIO, generic-array/0.14.7/download)
 HOST_CARGO_C_GENERIC_ARRAY_0_14_7_SOURCE	:= $(SRCDIR)/generic-array-0.14.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GENERIC_ARRAY_0_14_7
 
 HOST_CARGO_C_GETRANDOM_0_2_10_MD5		:= f204ba6fc9394724826f177433fe9a98
-HOST_CARGO_C_GETRANDOM_0_2_10_URL		:= https://crates.io/api/v1/crates/getrandom/0.2.10/download
+HOST_CARGO_C_GETRANDOM_0_2_10_URL		:= $(call ptx/mirror, CRATESIO, getrandom/0.2.10/download)
 HOST_CARGO_C_GETRANDOM_0_2_10_SOURCE	:= $(SRCDIR)/getrandom-0.2.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GETRANDOM_0_2_10
 
 HOST_CARGO_C_GIT2_0_17_2_MD5		:= b3056d43e4b85c1052cf895c0016c2dc
-HOST_CARGO_C_GIT2_0_17_2_URL		:= https://crates.io/api/v1/crates/git2/0.17.2/download
+HOST_CARGO_C_GIT2_0_17_2_URL		:= $(call ptx/mirror, CRATESIO, git2/0.17.2/download)
 HOST_CARGO_C_GIT2_0_17_2_SOURCE	:= $(SRCDIR)/git2-0.17.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIT2_0_17_2
 
 HOST_CARGO_C_GIT2_CURL_0_18_0_MD5		:= 8dcbda2dbf2f8c477ce9c18c201ef871
-HOST_CARGO_C_GIT2_CURL_0_18_0_URL		:= https://crates.io/api/v1/crates/git2-curl/0.18.0/download
+HOST_CARGO_C_GIT2_CURL_0_18_0_URL		:= $(call ptx/mirror, CRATESIO, git2-curl/0.18.0/download)
 HOST_CARGO_C_GIT2_CURL_0_18_0_SOURCE	:= $(SRCDIR)/git2-curl-0.18.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIT2_CURL_0_18_0
 
 HOST_CARGO_C_GIX_0_45_1_MD5		:= 29a157994c1638dd93968b960eda1b7d
-HOST_CARGO_C_GIX_0_45_1_URL		:= https://crates.io/api/v1/crates/gix/0.45.1/download
+HOST_CARGO_C_GIX_0_45_1_URL		:= $(call ptx/mirror, CRATESIO, gix/0.45.1/download)
 HOST_CARGO_C_GIX_0_45_1_SOURCE	:= $(SRCDIR)/gix-0.45.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_0_45_1
 
 HOST_CARGO_C_GIX_ACTOR_0_21_0_MD5		:= 564df885ce2b773a310d5b74f8376f6f
-HOST_CARGO_C_GIX_ACTOR_0_21_0_URL		:= https://crates.io/api/v1/crates/gix-actor/0.21.0/download
+HOST_CARGO_C_GIX_ACTOR_0_21_0_URL		:= $(call ptx/mirror, CRATESIO, gix-actor/0.21.0/download)
 HOST_CARGO_C_GIX_ACTOR_0_21_0_SOURCE	:= $(SRCDIR)/gix-actor-0.21.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_ACTOR_0_21_0
 
 HOST_CARGO_C_GIX_ATTRIBUTES_0_13_1_MD5		:= 6a314c809543fe1868c0f445708b7a09
-HOST_CARGO_C_GIX_ATTRIBUTES_0_13_1_URL		:= https://crates.io/api/v1/crates/gix-attributes/0.13.1/download
+HOST_CARGO_C_GIX_ATTRIBUTES_0_13_1_URL		:= $(call ptx/mirror, CRATESIO, gix-attributes/0.13.1/download)
 HOST_CARGO_C_GIX_ATTRIBUTES_0_13_1_SOURCE	:= $(SRCDIR)/gix-attributes-0.13.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_ATTRIBUTES_0_13_1
 
 HOST_CARGO_C_GIX_BITMAP_0_2_7_MD5		:= 95619331e147520578cbf198728ba9e0
-HOST_CARGO_C_GIX_BITMAP_0_2_7_URL		:= https://crates.io/api/v1/crates/gix-bitmap/0.2.7/download
+HOST_CARGO_C_GIX_BITMAP_0_2_7_URL		:= $(call ptx/mirror, CRATESIO, gix-bitmap/0.2.7/download)
 HOST_CARGO_C_GIX_BITMAP_0_2_7_SOURCE	:= $(SRCDIR)/gix-bitmap-0.2.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_BITMAP_0_2_7
 
 HOST_CARGO_C_GIX_CHUNK_0_4_4_MD5		:= fdfa24f044aa3f4308fe6402e15ee409
-HOST_CARGO_C_GIX_CHUNK_0_4_4_URL		:= https://crates.io/api/v1/crates/gix-chunk/0.4.4/download
+HOST_CARGO_C_GIX_CHUNK_0_4_4_URL		:= $(call ptx/mirror, CRATESIO, gix-chunk/0.4.4/download)
 HOST_CARGO_C_GIX_CHUNK_0_4_4_SOURCE	:= $(SRCDIR)/gix-chunk-0.4.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CHUNK_0_4_4
 
 HOST_CARGO_C_GIX_COMMAND_0_2_9_MD5		:= b7d357cfa124a37aab9376e901b3cfea
-HOST_CARGO_C_GIX_COMMAND_0_2_9_URL		:= https://crates.io/api/v1/crates/gix-command/0.2.9/download
+HOST_CARGO_C_GIX_COMMAND_0_2_9_URL		:= $(call ptx/mirror, CRATESIO, gix-command/0.2.9/download)
 HOST_CARGO_C_GIX_COMMAND_0_2_9_SOURCE	:= $(SRCDIR)/gix-command-0.2.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_COMMAND_0_2_9
 
 HOST_CARGO_C_GIX_COMMITGRAPH_0_16_0_MD5		:= a174012b25bf0b2e1c91c750d6476b84
-HOST_CARGO_C_GIX_COMMITGRAPH_0_16_0_URL		:= https://crates.io/api/v1/crates/gix-commitgraph/0.16.0/download
+HOST_CARGO_C_GIX_COMMITGRAPH_0_16_0_URL		:= $(call ptx/mirror, CRATESIO, gix-commitgraph/0.16.0/download)
 HOST_CARGO_C_GIX_COMMITGRAPH_0_16_0_SOURCE	:= $(SRCDIR)/gix-commitgraph-0.16.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_COMMITGRAPH_0_16_0
 
 HOST_CARGO_C_GIX_CONFIG_0_23_0_MD5		:= 16ada207aa3a6a31088c1ccd7ed8c8bf
-HOST_CARGO_C_GIX_CONFIG_0_23_0_URL		:= https://crates.io/api/v1/crates/gix-config/0.23.0/download
+HOST_CARGO_C_GIX_CONFIG_0_23_0_URL		:= $(call ptx/mirror, CRATESIO, gix-config/0.23.0/download)
 HOST_CARGO_C_GIX_CONFIG_0_23_0_SOURCE	:= $(SRCDIR)/gix-config-0.23.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CONFIG_0_23_0
 
 HOST_CARGO_C_GIX_CONFIG_VALUE_0_12_5_MD5		:= 1ab4d0952040102109a321c578acfd13
-HOST_CARGO_C_GIX_CONFIG_VALUE_0_12_5_URL		:= https://crates.io/api/v1/crates/gix-config-value/0.12.5/download
+HOST_CARGO_C_GIX_CONFIG_VALUE_0_12_5_URL		:= $(call ptx/mirror, CRATESIO, gix-config-value/0.12.5/download)
 HOST_CARGO_C_GIX_CONFIG_VALUE_0_12_5_SOURCE	:= $(SRCDIR)/gix-config-value-0.12.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CONFIG_VALUE_0_12_5
 
 HOST_CARGO_C_GIX_CREDENTIALS_0_15_0_MD5		:= 0c9127c5c3e7b12a302b8bacdfe329df
-HOST_CARGO_C_GIX_CREDENTIALS_0_15_0_URL		:= https://crates.io/api/v1/crates/gix-credentials/0.15.0/download
+HOST_CARGO_C_GIX_CREDENTIALS_0_15_0_URL		:= $(call ptx/mirror, CRATESIO, gix-credentials/0.15.0/download)
 HOST_CARGO_C_GIX_CREDENTIALS_0_15_0_SOURCE	:= $(SRCDIR)/gix-credentials-0.15.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CREDENTIALS_0_15_0
 
 HOST_CARGO_C_GIX_DATE_0_5_1_MD5		:= bd8a14283b00ba8437736bc6c33b8890
-HOST_CARGO_C_GIX_DATE_0_5_1_URL		:= https://crates.io/api/v1/crates/gix-date/0.5.1/download
+HOST_CARGO_C_GIX_DATE_0_5_1_URL		:= $(call ptx/mirror, CRATESIO, gix-date/0.5.1/download)
 HOST_CARGO_C_GIX_DATE_0_5_1_SOURCE	:= $(SRCDIR)/gix-date-0.5.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DATE_0_5_1
 
 HOST_CARGO_C_GIX_DIFF_0_30_1_MD5		:= 9f3aa2df8409671a2ca576452f80c7ce
-HOST_CARGO_C_GIX_DIFF_0_30_1_URL		:= https://crates.io/api/v1/crates/gix-diff/0.30.1/download
+HOST_CARGO_C_GIX_DIFF_0_30_1_URL		:= $(call ptx/mirror, CRATESIO, gix-diff/0.30.1/download)
 HOST_CARGO_C_GIX_DIFF_0_30_1_SOURCE	:= $(SRCDIR)/gix-diff-0.30.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DIFF_0_30_1
 
 HOST_CARGO_C_GIX_DISCOVER_0_19_0_MD5		:= b0bd07b88e1b197b01a2a62b4a598773
-HOST_CARGO_C_GIX_DISCOVER_0_19_0_URL		:= https://crates.io/api/v1/crates/gix-discover/0.19.0/download
+HOST_CARGO_C_GIX_DISCOVER_0_19_0_URL		:= $(call ptx/mirror, CRATESIO, gix-discover/0.19.0/download)
 HOST_CARGO_C_GIX_DISCOVER_0_19_0_SOURCE	:= $(SRCDIR)/gix-discover-0.19.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DISCOVER_0_19_0
 
 HOST_CARGO_C_GIX_FEATURES_0_30_0_MD5		:= b8e628a8e7640f75226b01ace17b4bd9
-HOST_CARGO_C_GIX_FEATURES_0_30_0_URL		:= https://crates.io/api/v1/crates/gix-features/0.30.0/download
+HOST_CARGO_C_GIX_FEATURES_0_30_0_URL		:= $(call ptx/mirror, CRATESIO, gix-features/0.30.0/download)
 HOST_CARGO_C_GIX_FEATURES_0_30_0_SOURCE	:= $(SRCDIR)/gix-features-0.30.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_FEATURES_0_30_0
 
 HOST_CARGO_C_GIX_FS_0_2_0_MD5		:= 0ea872f56214963e252fe57e39b509f4
-HOST_CARGO_C_GIX_FS_0_2_0_URL		:= https://crates.io/api/v1/crates/gix-fs/0.2.0/download
+HOST_CARGO_C_GIX_FS_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, gix-fs/0.2.0/download)
 HOST_CARGO_C_GIX_FS_0_2_0_SOURCE	:= $(SRCDIR)/gix-fs-0.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_FS_0_2_0
 
 HOST_CARGO_C_GIX_GLOB_0_8_0_MD5		:= db6208575526f44e8578d3765aa53c8a
-HOST_CARGO_C_GIX_GLOB_0_8_0_URL		:= https://crates.io/api/v1/crates/gix-glob/0.8.0/download
+HOST_CARGO_C_GIX_GLOB_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, gix-glob/0.8.0/download)
 HOST_CARGO_C_GIX_GLOB_0_8_0_SOURCE	:= $(SRCDIR)/gix-glob-0.8.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_GLOB_0_8_0
 
 HOST_CARGO_C_GIX_HASH_0_11_4_MD5		:= 239c27ca36344e749a4744d18af2b97f
-HOST_CARGO_C_GIX_HASH_0_11_4_URL		:= https://crates.io/api/v1/crates/gix-hash/0.11.4/download
+HOST_CARGO_C_GIX_HASH_0_11_4_URL		:= $(call ptx/mirror, CRATESIO, gix-hash/0.11.4/download)
 HOST_CARGO_C_GIX_HASH_0_11_4_SOURCE	:= $(SRCDIR)/gix-hash-0.11.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_HASH_0_11_4
 
 HOST_CARGO_C_GIX_HASHTABLE_0_2_4_MD5		:= e5b34826b25900175223ebdd4debd3b0
-HOST_CARGO_C_GIX_HASHTABLE_0_2_4_URL		:= https://crates.io/api/v1/crates/gix-hashtable/0.2.4/download
+HOST_CARGO_C_GIX_HASHTABLE_0_2_4_URL		:= $(call ptx/mirror, CRATESIO, gix-hashtable/0.2.4/download)
 HOST_CARGO_C_GIX_HASHTABLE_0_2_4_SOURCE	:= $(SRCDIR)/gix-hashtable-0.2.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_HASHTABLE_0_2_4
 
 HOST_CARGO_C_GIX_IGNORE_0_3_0_MD5		:= 2873768369cf08280267aa9c25a6d9cc
-HOST_CARGO_C_GIX_IGNORE_0_3_0_URL		:= https://crates.io/api/v1/crates/gix-ignore/0.3.0/download
+HOST_CARGO_C_GIX_IGNORE_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, gix-ignore/0.3.0/download)
 HOST_CARGO_C_GIX_IGNORE_0_3_0_SOURCE	:= $(SRCDIR)/gix-ignore-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_IGNORE_0_3_0
 
 HOST_CARGO_C_GIX_INDEX_0_17_0_MD5		:= 2194c0f7fae1d8325b4b3716648384b4
-HOST_CARGO_C_GIX_INDEX_0_17_0_URL		:= https://crates.io/api/v1/crates/gix-index/0.17.0/download
+HOST_CARGO_C_GIX_INDEX_0_17_0_URL		:= $(call ptx/mirror, CRATESIO, gix-index/0.17.0/download)
 HOST_CARGO_C_GIX_INDEX_0_17_0_SOURCE	:= $(SRCDIR)/gix-index-0.17.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_INDEX_0_17_0
 
 HOST_CARGO_C_GIX_LOCK_6_0_0_MD5		:= d98a8f671082001a67491512812f9b5d
-HOST_CARGO_C_GIX_LOCK_6_0_0_URL		:= https://crates.io/api/v1/crates/gix-lock/6.0.0/download
+HOST_CARGO_C_GIX_LOCK_6_0_0_URL		:= $(call ptx/mirror, CRATESIO, gix-lock/6.0.0/download)
 HOST_CARGO_C_GIX_LOCK_6_0_0_SOURCE	:= $(SRCDIR)/gix-lock-6.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_LOCK_6_0_0
 
 HOST_CARGO_C_GIX_MAILMAP_0_13_0_MD5		:= 63a3a9f5d6d515f7c19c804ad01dc2dd
-HOST_CARGO_C_GIX_MAILMAP_0_13_0_URL		:= https://crates.io/api/v1/crates/gix-mailmap/0.13.0/download
+HOST_CARGO_C_GIX_MAILMAP_0_13_0_URL		:= $(call ptx/mirror, CRATESIO, gix-mailmap/0.13.0/download)
 HOST_CARGO_C_GIX_MAILMAP_0_13_0_SOURCE	:= $(SRCDIR)/gix-mailmap-0.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_MAILMAP_0_13_0
 
 HOST_CARGO_C_GIX_NEGOTIATE_0_2_1_MD5		:= 02c2520571177714ffb7ee8166ec5807
-HOST_CARGO_C_GIX_NEGOTIATE_0_2_1_URL		:= https://crates.io/api/v1/crates/gix-negotiate/0.2.1/download
+HOST_CARGO_C_GIX_NEGOTIATE_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, gix-negotiate/0.2.1/download)
 HOST_CARGO_C_GIX_NEGOTIATE_0_2_1_SOURCE	:= $(SRCDIR)/gix-negotiate-0.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_NEGOTIATE_0_2_1
 
 HOST_CARGO_C_GIX_OBJECT_0_30_0_MD5		:= e2fc608eafc74520c3423fa1a4c0906b
-HOST_CARGO_C_GIX_OBJECT_0_30_0_URL		:= https://crates.io/api/v1/crates/gix-object/0.30.0/download
+HOST_CARGO_C_GIX_OBJECT_0_30_0_URL		:= $(call ptx/mirror, CRATESIO, gix-object/0.30.0/download)
 HOST_CARGO_C_GIX_OBJECT_0_30_0_SOURCE	:= $(SRCDIR)/gix-object-0.30.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_OBJECT_0_30_0
 
 HOST_CARGO_C_GIX_ODB_0_46_0_MD5		:= 241d24cd77f93e1ffbc44e2e90b67538
-HOST_CARGO_C_GIX_ODB_0_46_0_URL		:= https://crates.io/api/v1/crates/gix-odb/0.46.0/download
+HOST_CARGO_C_GIX_ODB_0_46_0_URL		:= $(call ptx/mirror, CRATESIO, gix-odb/0.46.0/download)
 HOST_CARGO_C_GIX_ODB_0_46_0_SOURCE	:= $(SRCDIR)/gix-odb-0.46.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_ODB_0_46_0
 
 HOST_CARGO_C_GIX_PACK_0_36_0_MD5		:= dc4c36ed129de78480ed6bc70f6ec1d7
-HOST_CARGO_C_GIX_PACK_0_36_0_URL		:= https://crates.io/api/v1/crates/gix-pack/0.36.0/download
+HOST_CARGO_C_GIX_PACK_0_36_0_URL		:= $(call ptx/mirror, CRATESIO, gix-pack/0.36.0/download)
 HOST_CARGO_C_GIX_PACK_0_36_0_SOURCE	:= $(SRCDIR)/gix-pack-0.36.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PACK_0_36_0
 
 HOST_CARGO_C_GIX_PACKETLINE_0_16_6_MD5		:= 261e648c11d2ab150aa06616010e0a33
-HOST_CARGO_C_GIX_PACKETLINE_0_16_6_URL		:= https://crates.io/api/v1/crates/gix-packetline/0.16.6/download
+HOST_CARGO_C_GIX_PACKETLINE_0_16_6_URL		:= $(call ptx/mirror, CRATESIO, gix-packetline/0.16.6/download)
 HOST_CARGO_C_GIX_PACKETLINE_0_16_6_SOURCE	:= $(SRCDIR)/gix-packetline-0.16.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PACKETLINE_0_16_6
 
 HOST_CARGO_C_GIX_PATH_0_8_4_MD5		:= 0732ae23a0664d798bae79780aba58b4
-HOST_CARGO_C_GIX_PATH_0_8_4_URL		:= https://crates.io/api/v1/crates/gix-path/0.8.4/download
+HOST_CARGO_C_GIX_PATH_0_8_4_URL		:= $(call ptx/mirror, CRATESIO, gix-path/0.8.4/download)
 HOST_CARGO_C_GIX_PATH_0_8_4_SOURCE	:= $(SRCDIR)/gix-path-0.8.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PATH_0_8_4
 
 HOST_CARGO_C_GIX_PROMPT_0_5_5_MD5		:= 89ca2160b89bb87ab87da65fcf91fa87
-HOST_CARGO_C_GIX_PROMPT_0_5_5_URL		:= https://crates.io/api/v1/crates/gix-prompt/0.5.5/download
+HOST_CARGO_C_GIX_PROMPT_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, gix-prompt/0.5.5/download)
 HOST_CARGO_C_GIX_PROMPT_0_5_5_SOURCE	:= $(SRCDIR)/gix-prompt-0.5.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PROMPT_0_5_5
 
 HOST_CARGO_C_GIX_PROTOCOL_0_33_2_MD5		:= 139a8803d0610c56c08d6aadb1c55d9f
-HOST_CARGO_C_GIX_PROTOCOL_0_33_2_URL		:= https://crates.io/api/v1/crates/gix-protocol/0.33.2/download
+HOST_CARGO_C_GIX_PROTOCOL_0_33_2_URL		:= $(call ptx/mirror, CRATESIO, gix-protocol/0.33.2/download)
 HOST_CARGO_C_GIX_PROTOCOL_0_33_2_SOURCE	:= $(SRCDIR)/gix-protocol-0.33.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PROTOCOL_0_33_2
 
 HOST_CARGO_C_GIX_QUOTE_0_4_7_MD5		:= e2c41874b3aa8bf8001e6e72921b2c0d
-HOST_CARGO_C_GIX_QUOTE_0_4_7_URL		:= https://crates.io/api/v1/crates/gix-quote/0.4.7/download
+HOST_CARGO_C_GIX_QUOTE_0_4_7_URL		:= $(call ptx/mirror, CRATESIO, gix-quote/0.4.7/download)
 HOST_CARGO_C_GIX_QUOTE_0_4_7_SOURCE	:= $(SRCDIR)/gix-quote-0.4.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_QUOTE_0_4_7
 
 HOST_CARGO_C_GIX_REF_0_30_0_MD5		:= e234c86792af81bda4ecaf63c2c9e68a
-HOST_CARGO_C_GIX_REF_0_30_0_URL		:= https://crates.io/api/v1/crates/gix-ref/0.30.0/download
+HOST_CARGO_C_GIX_REF_0_30_0_URL		:= $(call ptx/mirror, CRATESIO, gix-ref/0.30.0/download)
 HOST_CARGO_C_GIX_REF_0_30_0_SOURCE	:= $(SRCDIR)/gix-ref-0.30.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REF_0_30_0
 
 HOST_CARGO_C_GIX_REFSPEC_0_11_0_MD5		:= baaf6005914951d7667b94fc56a38be8
-HOST_CARGO_C_GIX_REFSPEC_0_11_0_URL		:= https://crates.io/api/v1/crates/gix-refspec/0.11.0/download
+HOST_CARGO_C_GIX_REFSPEC_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, gix-refspec/0.11.0/download)
 HOST_CARGO_C_GIX_REFSPEC_0_11_0_SOURCE	:= $(SRCDIR)/gix-refspec-0.11.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REFSPEC_0_11_0
 
 HOST_CARGO_C_GIX_REVISION_0_15_2_MD5		:= abfb742f4b18f97c7918340537401870
-HOST_CARGO_C_GIX_REVISION_0_15_2_URL		:= https://crates.io/api/v1/crates/gix-revision/0.15.2/download
+HOST_CARGO_C_GIX_REVISION_0_15_2_URL		:= $(call ptx/mirror, CRATESIO, gix-revision/0.15.2/download)
 HOST_CARGO_C_GIX_REVISION_0_15_2_SOURCE	:= $(SRCDIR)/gix-revision-0.15.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REVISION_0_15_2
 
 HOST_CARGO_C_GIX_REVWALK_0_1_0_MD5		:= a77961a80927f8a6fa97ecdfa2305ea5
-HOST_CARGO_C_GIX_REVWALK_0_1_0_URL		:= https://crates.io/api/v1/crates/gix-revwalk/0.1.0/download
+HOST_CARGO_C_GIX_REVWALK_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, gix-revwalk/0.1.0/download)
 HOST_CARGO_C_GIX_REVWALK_0_1_0_SOURCE	:= $(SRCDIR)/gix-revwalk-0.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REVWALK_0_1_0
 
 HOST_CARGO_C_GIX_SEC_0_8_4_MD5		:= 83a0c9d31a22f42ffc476ced86ab88e5
-HOST_CARGO_C_GIX_SEC_0_8_4_URL		:= https://crates.io/api/v1/crates/gix-sec/0.8.4/download
+HOST_CARGO_C_GIX_SEC_0_8_4_URL		:= $(call ptx/mirror, CRATESIO, gix-sec/0.8.4/download)
 HOST_CARGO_C_GIX_SEC_0_8_4_SOURCE	:= $(SRCDIR)/gix-sec-0.8.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_SEC_0_8_4
 
 HOST_CARGO_C_GIX_TEMPFILE_6_0_0_MD5		:= f4c1b2b1bde31b3c5ac16b0b096b8ba6
-HOST_CARGO_C_GIX_TEMPFILE_6_0_0_URL		:= https://crates.io/api/v1/crates/gix-tempfile/6.0.0/download
+HOST_CARGO_C_GIX_TEMPFILE_6_0_0_URL		:= $(call ptx/mirror, CRATESIO, gix-tempfile/6.0.0/download)
 HOST_CARGO_C_GIX_TEMPFILE_6_0_0_SOURCE	:= $(SRCDIR)/gix-tempfile-6.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TEMPFILE_6_0_0
 
 HOST_CARGO_C_GIX_TRACE_0_1_3_MD5		:= 293cb9904aa49c272ad9362182327716
-HOST_CARGO_C_GIX_TRACE_0_1_3_URL		:= https://crates.io/api/v1/crates/gix-trace/0.1.3/download
+HOST_CARGO_C_GIX_TRACE_0_1_3_URL		:= $(call ptx/mirror, CRATESIO, gix-trace/0.1.3/download)
 HOST_CARGO_C_GIX_TRACE_0_1_3_SOURCE	:= $(SRCDIR)/gix-trace-0.1.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TRACE_0_1_3
 
 HOST_CARGO_C_GIX_TRANSPORT_0_32_0_MD5		:= 0bf1f0399684e970be6133e63f962d2f
-HOST_CARGO_C_GIX_TRANSPORT_0_32_0_URL		:= https://crates.io/api/v1/crates/gix-transport/0.32.0/download
+HOST_CARGO_C_GIX_TRANSPORT_0_32_0_URL		:= $(call ptx/mirror, CRATESIO, gix-transport/0.32.0/download)
 HOST_CARGO_C_GIX_TRANSPORT_0_32_0_SOURCE	:= $(SRCDIR)/gix-transport-0.32.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TRANSPORT_0_32_0
 
 HOST_CARGO_C_GIX_TRAVERSE_0_26_0_MD5		:= dfc7c30dd91f880ceebc5a81a132948c
-HOST_CARGO_C_GIX_TRAVERSE_0_26_0_URL		:= https://crates.io/api/v1/crates/gix-traverse/0.26.0/download
+HOST_CARGO_C_GIX_TRAVERSE_0_26_0_URL		:= $(call ptx/mirror, CRATESIO, gix-traverse/0.26.0/download)
 HOST_CARGO_C_GIX_TRAVERSE_0_26_0_SOURCE	:= $(SRCDIR)/gix-traverse-0.26.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TRAVERSE_0_26_0
 
 HOST_CARGO_C_GIX_URL_0_19_0_MD5		:= 1df7af5e46011c2bdd016d57c457f69a
-HOST_CARGO_C_GIX_URL_0_19_0_URL		:= https://crates.io/api/v1/crates/gix-url/0.19.0/download
+HOST_CARGO_C_GIX_URL_0_19_0_URL		:= $(call ptx/mirror, CRATESIO, gix-url/0.19.0/download)
 HOST_CARGO_C_GIX_URL_0_19_0_SOURCE	:= $(SRCDIR)/gix-url-0.19.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_URL_0_19_0
 
 HOST_CARGO_C_GIX_UTILS_0_1_5_MD5		:= 43eeb4e524a4eda9eac82c3b3af95e0e
-HOST_CARGO_C_GIX_UTILS_0_1_5_URL		:= https://crates.io/api/v1/crates/gix-utils/0.1.5/download
+HOST_CARGO_C_GIX_UTILS_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, gix-utils/0.1.5/download)
 HOST_CARGO_C_GIX_UTILS_0_1_5_SOURCE	:= $(SRCDIR)/gix-utils-0.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_UTILS_0_1_5
 
 HOST_CARGO_C_GIX_VALIDATE_0_7_7_MD5		:= 78c2ba802019e581e1e5305602b61037
-HOST_CARGO_C_GIX_VALIDATE_0_7_7_URL		:= https://crates.io/api/v1/crates/gix-validate/0.7.7/download
+HOST_CARGO_C_GIX_VALIDATE_0_7_7_URL		:= $(call ptx/mirror, CRATESIO, gix-validate/0.7.7/download)
 HOST_CARGO_C_GIX_VALIDATE_0_7_7_SOURCE	:= $(SRCDIR)/gix-validate-0.7.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_VALIDATE_0_7_7
 
 HOST_CARGO_C_GIX_WORKTREE_0_18_0_MD5		:= 10f71fda61c814f346b218015f9253a3
-HOST_CARGO_C_GIX_WORKTREE_0_18_0_URL		:= https://crates.io/api/v1/crates/gix-worktree/0.18.0/download
+HOST_CARGO_C_GIX_WORKTREE_0_18_0_URL		:= $(call ptx/mirror, CRATESIO, gix-worktree/0.18.0/download)
 HOST_CARGO_C_GIX_WORKTREE_0_18_0_SOURCE	:= $(SRCDIR)/gix-worktree-0.18.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_WORKTREE_0_18_0
 
 HOST_CARGO_C_GLOB_0_3_1_MD5		:= 2d6d28ec311884da69bcaf320ada8ad5
-HOST_CARGO_C_GLOB_0_3_1_URL		:= https://crates.io/api/v1/crates/glob/0.3.1/download
+HOST_CARGO_C_GLOB_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, glob/0.3.1/download)
 HOST_CARGO_C_GLOB_0_3_1_SOURCE	:= $(SRCDIR)/glob-0.3.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GLOB_0_3_1
 
 HOST_CARGO_C_GLOBSET_0_4_13_MD5		:= f4a1333bcf613415ae431b5b5c955709
-HOST_CARGO_C_GLOBSET_0_4_13_URL		:= https://crates.io/api/v1/crates/globset/0.4.13/download
+HOST_CARGO_C_GLOBSET_0_4_13_URL		:= $(call ptx/mirror, CRATESIO, globset/0.4.13/download)
 HOST_CARGO_C_GLOBSET_0_4_13_SOURCE	:= $(SRCDIR)/globset-0.4.13.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GLOBSET_0_4_13
 
 HOST_CARGO_C_GROUP_0_13_0_MD5		:= 974e766c6583278ac82a83632b75b65e
-HOST_CARGO_C_GROUP_0_13_0_URL		:= https://crates.io/api/v1/crates/group/0.13.0/download
+HOST_CARGO_C_GROUP_0_13_0_URL		:= $(call ptx/mirror, CRATESIO, group/0.13.0/download)
 HOST_CARGO_C_GROUP_0_13_0_SOURCE	:= $(SRCDIR)/group-0.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GROUP_0_13_0
 
 HOST_CARGO_C_HASHBROWN_0_12_3_MD5		:= 1b41b97d982520b7364a87a39e2a1ed8
-HOST_CARGO_C_HASHBROWN_0_12_3_URL		:= https://crates.io/api/v1/crates/hashbrown/0.12.3/download
+HOST_CARGO_C_HASHBROWN_0_12_3_URL		:= $(call ptx/mirror, CRATESIO, hashbrown/0.12.3/download)
 HOST_CARGO_C_HASHBROWN_0_12_3_SOURCE	:= $(SRCDIR)/hashbrown-0.12.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HASHBROWN_0_12_3
 
 HOST_CARGO_C_HASHBROWN_0_14_1_MD5		:= d4633fb342a692407e4684a48b32d06b
-HOST_CARGO_C_HASHBROWN_0_14_1_URL		:= https://crates.io/api/v1/crates/hashbrown/0.14.1/download
+HOST_CARGO_C_HASHBROWN_0_14_1_URL		:= $(call ptx/mirror, CRATESIO, hashbrown/0.14.1/download)
 HOST_CARGO_C_HASHBROWN_0_14_1_SOURCE	:= $(SRCDIR)/hashbrown-0.14.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HASHBROWN_0_14_1
 
 HOST_CARGO_C_HECK_0_4_1_MD5		:= b92fa50f56a1e06a7f1bf665442d4a73
-HOST_CARGO_C_HECK_0_4_1_URL		:= https://crates.io/api/v1/crates/heck/0.4.1/download
+HOST_CARGO_C_HECK_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, heck/0.4.1/download)
 HOST_CARGO_C_HECK_0_4_1_SOURCE	:= $(SRCDIR)/heck-0.4.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HECK_0_4_1
 
 HOST_CARGO_C_HEX_0_4_3_MD5		:= 1d3e530a3410fc95a6987d70f84a6332
-HOST_CARGO_C_HEX_0_4_3_URL		:= https://crates.io/api/v1/crates/hex/0.4.3/download
+HOST_CARGO_C_HEX_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, hex/0.4.3/download)
 HOST_CARGO_C_HEX_0_4_3_SOURCE	:= $(SRCDIR)/hex-0.4.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HEX_0_4_3
 
 HOST_CARGO_C_HKDF_0_12_3_MD5		:= 761cd5ae202c54efba117f5d68c57756
-HOST_CARGO_C_HKDF_0_12_3_URL		:= https://crates.io/api/v1/crates/hkdf/0.12.3/download
+HOST_CARGO_C_HKDF_0_12_3_URL		:= $(call ptx/mirror, CRATESIO, hkdf/0.12.3/download)
 HOST_CARGO_C_HKDF_0_12_3_SOURCE	:= $(SRCDIR)/hkdf-0.12.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HKDF_0_12_3
 
 HOST_CARGO_C_HMAC_0_12_1_MD5		:= 4e0c068ba38fa8e0aa6c46bce5e9d2ab
-HOST_CARGO_C_HMAC_0_12_1_URL		:= https://crates.io/api/v1/crates/hmac/0.12.1/download
+HOST_CARGO_C_HMAC_0_12_1_URL		:= $(call ptx/mirror, CRATESIO, hmac/0.12.1/download)
 HOST_CARGO_C_HMAC_0_12_1_SOURCE	:= $(SRCDIR)/hmac-0.12.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HMAC_0_12_1
 
 HOST_CARGO_C_HOME_0_5_5_MD5		:= 11681ec4554f1f934b25eeba3f558ea7
-HOST_CARGO_C_HOME_0_5_5_URL		:= https://crates.io/api/v1/crates/home/0.5.5/download
+HOST_CARGO_C_HOME_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, home/0.5.5/download)
 HOST_CARGO_C_HOME_0_5_5_SOURCE	:= $(SRCDIR)/home-0.5.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HOME_0_5_5
 
 HOST_CARGO_C_HTTP_AUTH_0_1_8_MD5		:= 945cc7977d487230b6761cba86fdff23
-HOST_CARGO_C_HTTP_AUTH_0_1_8_URL		:= https://crates.io/api/v1/crates/http-auth/0.1.8/download
+HOST_CARGO_C_HTTP_AUTH_0_1_8_URL		:= $(call ptx/mirror, CRATESIO, http-auth/0.1.8/download)
 HOST_CARGO_C_HTTP_AUTH_0_1_8_SOURCE	:= $(SRCDIR)/http-auth-0.1.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HTTP_AUTH_0_1_8
 
 HOST_CARGO_C_HUMANTIME_2_1_0_MD5		:= c01022fe0357c10ca1d48b16187f81bd
-HOST_CARGO_C_HUMANTIME_2_1_0_URL		:= https://crates.io/api/v1/crates/humantime/2.1.0/download
+HOST_CARGO_C_HUMANTIME_2_1_0_URL		:= $(call ptx/mirror, CRATESIO, humantime/2.1.0/download)
 HOST_CARGO_C_HUMANTIME_2_1_0_SOURCE	:= $(SRCDIR)/humantime-2.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HUMANTIME_2_1_0
 
 HOST_CARGO_C_IDNA_0_4_0_MD5		:= 6099af3f71f8900bbb9bd06d84655495
-HOST_CARGO_C_IDNA_0_4_0_URL		:= https://crates.io/api/v1/crates/idna/0.4.0/download
+HOST_CARGO_C_IDNA_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, idna/0.4.0/download)
 HOST_CARGO_C_IDNA_0_4_0_SOURCE	:= $(SRCDIR)/idna-0.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IDNA_0_4_0
 
 HOST_CARGO_C_IGNORE_0_4_20_MD5		:= bdee49940363352f112ccce7ee1f504d
-HOST_CARGO_C_IGNORE_0_4_20_URL		:= https://crates.io/api/v1/crates/ignore/0.4.20/download
+HOST_CARGO_C_IGNORE_0_4_20_URL		:= $(call ptx/mirror, CRATESIO, ignore/0.4.20/download)
 HOST_CARGO_C_IGNORE_0_4_20_SOURCE	:= $(SRCDIR)/ignore-0.4.20.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IGNORE_0_4_20
 
 HOST_CARGO_C_IM_RC_15_1_0_MD5		:= 25119b3f34f4d5298dade622e10a54c5
-HOST_CARGO_C_IM_RC_15_1_0_URL		:= https://crates.io/api/v1/crates/im-rc/15.1.0/download
+HOST_CARGO_C_IM_RC_15_1_0_URL		:= $(call ptx/mirror, CRATESIO, im-rc/15.1.0/download)
 HOST_CARGO_C_IM_RC_15_1_0_SOURCE	:= $(SRCDIR)/im-rc-15.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IM_RC_15_1_0
 
 HOST_CARGO_C_IMARA_DIFF_0_1_5_MD5		:= 4debd3be7deef9489df4d04841cbb631
-HOST_CARGO_C_IMARA_DIFF_0_1_5_URL		:= https://crates.io/api/v1/crates/imara-diff/0.1.5/download
+HOST_CARGO_C_IMARA_DIFF_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, imara-diff/0.1.5/download)
 HOST_CARGO_C_IMARA_DIFF_0_1_5_SOURCE	:= $(SRCDIR)/imara-diff-0.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IMARA_DIFF_0_1_5
 
 HOST_CARGO_C_INDEXMAP_1_9_3_MD5		:= 11ce8b5f52cd315e8f52985b834b87eb
-HOST_CARGO_C_INDEXMAP_1_9_3_URL		:= https://crates.io/api/v1/crates/indexmap/1.9.3/download
+HOST_CARGO_C_INDEXMAP_1_9_3_URL		:= $(call ptx/mirror, CRATESIO, indexmap/1.9.3/download)
 HOST_CARGO_C_INDEXMAP_1_9_3_SOURCE	:= $(SRCDIR)/indexmap-1.9.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_INDEXMAP_1_9_3
 
 HOST_CARGO_C_INDEXMAP_2_0_2_MD5		:= 649551b72728784a9c4c0a058e7bdb88
-HOST_CARGO_C_INDEXMAP_2_0_2_URL		:= https://crates.io/api/v1/crates/indexmap/2.0.2/download
+HOST_CARGO_C_INDEXMAP_2_0_2_URL		:= $(call ptx/mirror, CRATESIO, indexmap/2.0.2/download)
 HOST_CARGO_C_INDEXMAP_2_0_2_SOURCE	:= $(SRCDIR)/indexmap-2.0.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_INDEXMAP_2_0_2
 
 HOST_CARGO_C_IO_CLOSE_0_3_7_MD5		:= 7d58a2a23cd19ed8e889afdbeb7986b1
-HOST_CARGO_C_IO_CLOSE_0_3_7_URL		:= https://crates.io/api/v1/crates/io-close/0.3.7/download
+HOST_CARGO_C_IO_CLOSE_0_3_7_URL		:= $(call ptx/mirror, CRATESIO, io-close/0.3.7/download)
 HOST_CARGO_C_IO_CLOSE_0_3_7_SOURCE	:= $(SRCDIR)/io-close-0.3.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IO_CLOSE_0_3_7
 
 HOST_CARGO_C_ITERTOOLS_0_10_5_MD5		:= 20b9f5d97aaf06b0f580f12860b67ba8
-HOST_CARGO_C_ITERTOOLS_0_10_5_URL		:= https://crates.io/api/v1/crates/itertools/0.10.5/download
+HOST_CARGO_C_ITERTOOLS_0_10_5_URL		:= $(call ptx/mirror, CRATESIO, itertools/0.10.5/download)
 HOST_CARGO_C_ITERTOOLS_0_10_5_SOURCE	:= $(SRCDIR)/itertools-0.10.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ITERTOOLS_0_10_5
 
 HOST_CARGO_C_ITERTOOLS_0_11_0_MD5		:= d629ca093dfd23b5e9b4262c5f801928
-HOST_CARGO_C_ITERTOOLS_0_11_0_URL		:= https://crates.io/api/v1/crates/itertools/0.11.0/download
+HOST_CARGO_C_ITERTOOLS_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, itertools/0.11.0/download)
 HOST_CARGO_C_ITERTOOLS_0_11_0_SOURCE	:= $(SRCDIR)/itertools-0.11.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ITERTOOLS_0_11_0
 
 HOST_CARGO_C_ITOA_1_0_9_MD5		:= c6e20d23948f86627f5d4668e7ca43e3
-HOST_CARGO_C_ITOA_1_0_9_URL		:= https://crates.io/api/v1/crates/itoa/1.0.9/download
+HOST_CARGO_C_ITOA_1_0_9_URL		:= $(call ptx/mirror, CRATESIO, itoa/1.0.9/download)
 HOST_CARGO_C_ITOA_1_0_9_SOURCE	:= $(SRCDIR)/itoa-1.0.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ITOA_1_0_9
 
 HOST_CARGO_C_JOBSERVER_0_1_27_MD5		:= 9aaf13d622cd02548feaaca35687da9c
-HOST_CARGO_C_JOBSERVER_0_1_27_URL		:= https://crates.io/api/v1/crates/jobserver/0.1.27/download
+HOST_CARGO_C_JOBSERVER_0_1_27_URL		:= $(call ptx/mirror, CRATESIO, jobserver/0.1.27/download)
 HOST_CARGO_C_JOBSERVER_0_1_27_SOURCE	:= $(SRCDIR)/jobserver-0.1.27.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JOBSERVER_0_1_27
 
 HOST_CARGO_C_JS_SYS_0_3_64_MD5		:= d580c0380408c62e04e018eaaf4258af
-HOST_CARGO_C_JS_SYS_0_3_64_URL		:= https://crates.io/api/v1/crates/js-sys/0.3.64/download
+HOST_CARGO_C_JS_SYS_0_3_64_URL		:= $(call ptx/mirror, CRATESIO, js-sys/0.3.64/download)
 HOST_CARGO_C_JS_SYS_0_3_64_SOURCE	:= $(SRCDIR)/js-sys-0.3.64.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JS_SYS_0_3_64
 
 HOST_CARGO_C_KSTRING_2_0_0_MD5		:= 0c07198f804f9c9788567f8c061acaec
-HOST_CARGO_C_KSTRING_2_0_0_URL		:= https://crates.io/api/v1/crates/kstring/2.0.0/download
+HOST_CARGO_C_KSTRING_2_0_0_URL		:= $(call ptx/mirror, CRATESIO, kstring/2.0.0/download)
 HOST_CARGO_C_KSTRING_2_0_0_SOURCE	:= $(SRCDIR)/kstring-2.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_KSTRING_2_0_0
 
 HOST_CARGO_C_LAZY_STATIC_1_4_0_MD5		:= fba3b040a55c01be7376d3dd5c4d4920
-HOST_CARGO_C_LAZY_STATIC_1_4_0_URL		:= https://crates.io/api/v1/crates/lazy_static/1.4.0/download
+HOST_CARGO_C_LAZY_STATIC_1_4_0_URL		:= $(call ptx/mirror, CRATESIO, lazy_static/1.4.0/download)
 HOST_CARGO_C_LAZY_STATIC_1_4_0_SOURCE	:= $(SRCDIR)/lazy_static-1.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LAZY_STATIC_1_4_0
 
 HOST_CARGO_C_LAZYCELL_1_3_0_MD5		:= 23cc9e52c52465f5b225e62ab7cc3457
-HOST_CARGO_C_LAZYCELL_1_3_0_URL		:= https://crates.io/api/v1/crates/lazycell/1.3.0/download
+HOST_CARGO_C_LAZYCELL_1_3_0_URL		:= $(call ptx/mirror, CRATESIO, lazycell/1.3.0/download)
 HOST_CARGO_C_LAZYCELL_1_3_0_SOURCE	:= $(SRCDIR)/lazycell-1.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LAZYCELL_1_3_0
 
 HOST_CARGO_C_LIBC_0_2_149_MD5		:= dcc90b220c18170e3e13cc5cc7050c74
-HOST_CARGO_C_LIBC_0_2_149_URL		:= https://crates.io/api/v1/crates/libc/0.2.149/download
+HOST_CARGO_C_LIBC_0_2_149_URL		:= $(call ptx/mirror, CRATESIO, libc/0.2.149/download)
 HOST_CARGO_C_LIBC_0_2_149_SOURCE	:= $(SRCDIR)/libc-0.2.149.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBC_0_2_149
 
 HOST_CARGO_C_LIBGIT2_SYS_0_15_2_1_6_4_MD5		:= 025176d7b965c592a07ee3bb63fc7fb9
-HOST_CARGO_C_LIBGIT2_SYS_0_15_2_1_6_4_URL		:= https://crates.io/api/v1/crates/libgit2-sys/0.15.2+1.6.4/download
+HOST_CARGO_C_LIBGIT2_SYS_0_15_2_1_6_4_URL		:= $(call ptx/mirror, CRATESIO, libgit2-sys/0.15.2+1.6.4/download)
 HOST_CARGO_C_LIBGIT2_SYS_0_15_2_1_6_4_SOURCE	:= $(SRCDIR)/libgit2-sys-0.15.2+1.6.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBGIT2_SYS_0_15_2_1_6_4
 
 HOST_CARGO_C_LIBLOADING_0_8_1_MD5		:= feb5919f3a98172d047e10b0bc1ea5ae
-HOST_CARGO_C_LIBLOADING_0_8_1_URL		:= https://crates.io/api/v1/crates/libloading/0.8.1/download
+HOST_CARGO_C_LIBLOADING_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, libloading/0.8.1/download)
 HOST_CARGO_C_LIBLOADING_0_8_1_SOURCE	:= $(SRCDIR)/libloading-0.8.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBLOADING_0_8_1
 
 HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_8_1_55_1_MD5		:= 0a48707ad9a778c923bc175970db4f95
-HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_8_1_55_1_URL		:= https://crates.io/api/v1/crates/libnghttp2-sys/0.1.8+1.55.1/download
+HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_8_1_55_1_URL		:= $(call ptx/mirror, CRATESIO, libnghttp2-sys/0.1.8+1.55.1/download)
 HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_8_1_55_1_SOURCE	:= $(SRCDIR)/libnghttp2-sys-0.1.8+1.55.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_8_1_55_1
 
 HOST_CARGO_C_LIBSSH2_SYS_0_3_0_MD5		:= 73c81da3754295e39ea4a99517b1e794
-HOST_CARGO_C_LIBSSH2_SYS_0_3_0_URL		:= https://crates.io/api/v1/crates/libssh2-sys/0.3.0/download
+HOST_CARGO_C_LIBSSH2_SYS_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, libssh2-sys/0.3.0/download)
 HOST_CARGO_C_LIBSSH2_SYS_0_3_0_SOURCE	:= $(SRCDIR)/libssh2-sys-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBSSH2_SYS_0_3_0
 
 HOST_CARGO_C_LIBZ_SYS_1_1_12_MD5		:= 779addfdf18a31c1d8d3f53b7a8395e0
-HOST_CARGO_C_LIBZ_SYS_1_1_12_URL		:= https://crates.io/api/v1/crates/libz-sys/1.1.12/download
+HOST_CARGO_C_LIBZ_SYS_1_1_12_URL		:= $(call ptx/mirror, CRATESIO, libz-sys/1.1.12/download)
 HOST_CARGO_C_LIBZ_SYS_1_1_12_SOURCE	:= $(SRCDIR)/libz-sys-1.1.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBZ_SYS_1_1_12
 
 HOST_CARGO_C_LINUX_RAW_SYS_0_4_10_MD5		:= 70bd18c57397442e0abc67dfa1c99e0f
-HOST_CARGO_C_LINUX_RAW_SYS_0_4_10_URL		:= https://crates.io/api/v1/crates/linux-raw-sys/0.4.10/download
+HOST_CARGO_C_LINUX_RAW_SYS_0_4_10_URL		:= $(call ptx/mirror, CRATESIO, linux-raw-sys/0.4.10/download)
 HOST_CARGO_C_LINUX_RAW_SYS_0_4_10_SOURCE	:= $(SRCDIR)/linux-raw-sys-0.4.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LINUX_RAW_SYS_0_4_10
 
 HOST_CARGO_C_LOCK_API_0_4_10_MD5		:= 8d619139e1dec2be7ecd50cfe3efa2a0
-HOST_CARGO_C_LOCK_API_0_4_10_URL		:= https://crates.io/api/v1/crates/lock_api/0.4.10/download
+HOST_CARGO_C_LOCK_API_0_4_10_URL		:= $(call ptx/mirror, CRATESIO, lock_api/0.4.10/download)
 HOST_CARGO_C_LOCK_API_0_4_10_SOURCE	:= $(SRCDIR)/lock_api-0.4.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LOCK_API_0_4_10
 
 HOST_CARGO_C_LOG_0_4_20_MD5		:= 8ee79b4fe4c43d9ab09f16344612a656
-HOST_CARGO_C_LOG_0_4_20_URL		:= https://crates.io/api/v1/crates/log/0.4.20/download
+HOST_CARGO_C_LOG_0_4_20_URL		:= $(call ptx/mirror, CRATESIO, log/0.4.20/download)
 HOST_CARGO_C_LOG_0_4_20_SOURCE	:= $(SRCDIR)/log-0.4.20.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LOG_0_4_20
 
 HOST_CARGO_C_MATCHERS_0_1_0_MD5		:= 29614f150859d094548bed37e78f586b
-HOST_CARGO_C_MATCHERS_0_1_0_URL		:= https://crates.io/api/v1/crates/matchers/0.1.0/download
+HOST_CARGO_C_MATCHERS_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, matchers/0.1.0/download)
 HOST_CARGO_C_MATCHERS_0_1_0_SOURCE	:= $(SRCDIR)/matchers-0.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MATCHERS_0_1_0
 
 HOST_CARGO_C_MAYBE_ASYNC_0_2_7_MD5		:= 04f2c7d779358087ee3036303638258d
-HOST_CARGO_C_MAYBE_ASYNC_0_2_7_URL		:= https://crates.io/api/v1/crates/maybe-async/0.2.7/download
+HOST_CARGO_C_MAYBE_ASYNC_0_2_7_URL		:= $(call ptx/mirror, CRATESIO, maybe-async/0.2.7/download)
 HOST_CARGO_C_MAYBE_ASYNC_0_2_7_SOURCE	:= $(SRCDIR)/maybe-async-0.2.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MAYBE_ASYNC_0_2_7
 
 HOST_CARGO_C_MEMCHR_2_6_4_MD5		:= ab9a5f02cef3b8794d810332ebf26a03
-HOST_CARGO_C_MEMCHR_2_6_4_URL		:= https://crates.io/api/v1/crates/memchr/2.6.4/download
+HOST_CARGO_C_MEMCHR_2_6_4_URL		:= $(call ptx/mirror, CRATESIO, memchr/2.6.4/download)
 HOST_CARGO_C_MEMCHR_2_6_4_SOURCE	:= $(SRCDIR)/memchr-2.6.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MEMCHR_2_6_4
 
 HOST_CARGO_C_MEMMAP2_0_5_10_MD5		:= ddbd5203d6b18f74ea40a4a498cb3b83
-HOST_CARGO_C_MEMMAP2_0_5_10_URL		:= https://crates.io/api/v1/crates/memmap2/0.5.10/download
+HOST_CARGO_C_MEMMAP2_0_5_10_URL		:= $(call ptx/mirror, CRATESIO, memmap2/0.5.10/download)
 HOST_CARGO_C_MEMMAP2_0_5_10_SOURCE	:= $(SRCDIR)/memmap2-0.5.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MEMMAP2_0_5_10
 
 HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_MD5		:= 8b708bc4b33c5e1683467444c9ed41b0
-HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_URL		:= https://crates.io/api/v1/crates/minimal-lexical/0.2.1/download
+HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, minimal-lexical/0.2.1/download)
 HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_SOURCE	:= $(SRCDIR)/minimal-lexical-0.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1
 
 HOST_CARGO_C_MINIZ_OXIDE_0_7_1_MD5		:= eb7e04508518ed8f29935ec874e1740a
-HOST_CARGO_C_MINIZ_OXIDE_0_7_1_URL		:= https://crates.io/api/v1/crates/miniz_oxide/0.7.1/download
+HOST_CARGO_C_MINIZ_OXIDE_0_7_1_URL		:= $(call ptx/mirror, CRATESIO, miniz_oxide/0.7.1/download)
 HOST_CARGO_C_MINIZ_OXIDE_0_7_1_SOURCE	:= $(SRCDIR)/miniz_oxide-0.7.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MINIZ_OXIDE_0_7_1
 
 HOST_CARGO_C_MIOW_0_6_0_MD5		:= c14d50ef3ce9b2640d2a9d68c53834b9
-HOST_CARGO_C_MIOW_0_6_0_URL		:= https://crates.io/api/v1/crates/miow/0.6.0/download
+HOST_CARGO_C_MIOW_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, miow/0.6.0/download)
 HOST_CARGO_C_MIOW_0_6_0_SOURCE	:= $(SRCDIR)/miow-0.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MIOW_0_6_0
 
 HOST_CARGO_C_NOM_7_1_3_MD5		:= f17aecb8887cf0ecd823623160aed7db
-HOST_CARGO_C_NOM_7_1_3_URL		:= https://crates.io/api/v1/crates/nom/7.1.3/download
+HOST_CARGO_C_NOM_7_1_3_URL		:= $(call ptx/mirror, CRATESIO, nom/7.1.3/download)
 HOST_CARGO_C_NOM_7_1_3_SOURCE	:= $(SRCDIR)/nom-7.1.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NOM_7_1_3
 
 HOST_CARGO_C_NORMPATH_1_1_1_MD5		:= 8d526535233ee01e0f1402b5e8f4e8e9
-HOST_CARGO_C_NORMPATH_1_1_1_URL		:= https://crates.io/api/v1/crates/normpath/1.1.1/download
+HOST_CARGO_C_NORMPATH_1_1_1_URL		:= $(call ptx/mirror, CRATESIO, normpath/1.1.1/download)
 HOST_CARGO_C_NORMPATH_1_1_1_SOURCE	:= $(SRCDIR)/normpath-1.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NORMPATH_1_1_1
 
 HOST_CARGO_C_NU_ANSI_TERM_0_46_0_MD5		:= a56461a712a83abc691cf473d1835228
-HOST_CARGO_C_NU_ANSI_TERM_0_46_0_URL		:= https://crates.io/api/v1/crates/nu-ansi-term/0.46.0/download
+HOST_CARGO_C_NU_ANSI_TERM_0_46_0_URL		:= $(call ptx/mirror, CRATESIO, nu-ansi-term/0.46.0/download)
 HOST_CARGO_C_NU_ANSI_TERM_0_46_0_SOURCE	:= $(SRCDIR)/nu-ansi-term-0.46.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NU_ANSI_TERM_0_46_0
 
 HOST_CARGO_C_NUM_TRAITS_0_2_17_MD5		:= 512bcd4470f351b2049adeb39cfcdec4
-HOST_CARGO_C_NUM_TRAITS_0_2_17_URL		:= https://crates.io/api/v1/crates/num-traits/0.2.17/download
+HOST_CARGO_C_NUM_TRAITS_0_2_17_URL		:= $(call ptx/mirror, CRATESIO, num-traits/0.2.17/download)
 HOST_CARGO_C_NUM_TRAITS_0_2_17_SOURCE	:= $(SRCDIR)/num-traits-0.2.17.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NUM_TRAITS_0_2_17
 
 HOST_CARGO_C_NUM_THREADS_0_1_6_MD5		:= ae2471729f689287aec9da43f8106a4b
-HOST_CARGO_C_NUM_THREADS_0_1_6_URL		:= https://crates.io/api/v1/crates/num_threads/0.1.6/download
+HOST_CARGO_C_NUM_THREADS_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, num_threads/0.1.6/download)
 HOST_CARGO_C_NUM_THREADS_0_1_6_SOURCE	:= $(SRCDIR)/num_threads-0.1.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NUM_THREADS_0_1_6
 
 HOST_CARGO_C_ONCE_CELL_1_18_0_MD5		:= 2dc8aacabbc090f8025a4789d4d6d8f0
-HOST_CARGO_C_ONCE_CELL_1_18_0_URL		:= https://crates.io/api/v1/crates/once_cell/1.18.0/download
+HOST_CARGO_C_ONCE_CELL_1_18_0_URL		:= $(call ptx/mirror, CRATESIO, once_cell/1.18.0/download)
 HOST_CARGO_C_ONCE_CELL_1_18_0_SOURCE	:= $(SRCDIR)/once_cell-1.18.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ONCE_CELL_1_18_0
 
 HOST_CARGO_C_OPENER_0_6_1_MD5		:= fbd71c60eef7289eb6bcad7e74b20475
-HOST_CARGO_C_OPENER_0_6_1_URL		:= https://crates.io/api/v1/crates/opener/0.6.1/download
+HOST_CARGO_C_OPENER_0_6_1_URL		:= $(call ptx/mirror, CRATESIO, opener/0.6.1/download)
 HOST_CARGO_C_OPENER_0_6_1_SOURCE	:= $(SRCDIR)/opener-0.6.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENER_0_6_1
 
 HOST_CARGO_C_OPENSSL_0_10_57_MD5		:= 2131e3e9cb628d5db2c8664ee888bbe6
-HOST_CARGO_C_OPENSSL_0_10_57_URL		:= https://crates.io/api/v1/crates/openssl/0.10.57/download
+HOST_CARGO_C_OPENSSL_0_10_57_URL		:= $(call ptx/mirror, CRATESIO, openssl/0.10.57/download)
 HOST_CARGO_C_OPENSSL_0_10_57_SOURCE	:= $(SRCDIR)/openssl-0.10.57.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_0_10_57
 
 HOST_CARGO_C_OPENSSL_MACROS_0_1_1_MD5		:= 28d34115cfbbe0e8f80333591f2cdd84
-HOST_CARGO_C_OPENSSL_MACROS_0_1_1_URL		:= https://crates.io/api/v1/crates/openssl-macros/0.1.1/download
+HOST_CARGO_C_OPENSSL_MACROS_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, openssl-macros/0.1.1/download)
 HOST_CARGO_C_OPENSSL_MACROS_0_1_1_SOURCE	:= $(SRCDIR)/openssl-macros-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_MACROS_0_1_1
 
 HOST_CARGO_C_OPENSSL_PROBE_0_1_5_MD5		:= 907244c0d3791f3f981c7cc8e4cad0a3
-HOST_CARGO_C_OPENSSL_PROBE_0_1_5_URL		:= https://crates.io/api/v1/crates/openssl-probe/0.1.5/download
+HOST_CARGO_C_OPENSSL_PROBE_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, openssl-probe/0.1.5/download)
 HOST_CARGO_C_OPENSSL_PROBE_0_1_5_SOURCE	:= $(SRCDIR)/openssl-probe-0.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_PROBE_0_1_5
 
 HOST_CARGO_C_OPENSSL_SRC_300_1_5_3_1_3_MD5		:= c30757ad36c0697aeccec1e547811778
-HOST_CARGO_C_OPENSSL_SRC_300_1_5_3_1_3_URL		:= https://crates.io/api/v1/crates/openssl-src/300.1.5+3.1.3/download
+HOST_CARGO_C_OPENSSL_SRC_300_1_5_3_1_3_URL		:= $(call ptx/mirror, CRATESIO, openssl-src/300.1.5+3.1.3/download)
 HOST_CARGO_C_OPENSSL_SRC_300_1_5_3_1_3_SOURCE	:= $(SRCDIR)/openssl-src-300.1.5+3.1.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_SRC_300_1_5_3_1_3
 
 HOST_CARGO_C_OPENSSL_SYS_0_9_93_MD5		:= 1e88eca5c17b58b423a667bd278f82c4
-HOST_CARGO_C_OPENSSL_SYS_0_9_93_URL		:= https://crates.io/api/v1/crates/openssl-sys/0.9.93/download
+HOST_CARGO_C_OPENSSL_SYS_0_9_93_URL		:= $(call ptx/mirror, CRATESIO, openssl-sys/0.9.93/download)
 HOST_CARGO_C_OPENSSL_SYS_0_9_93_SOURCE	:= $(SRCDIR)/openssl-sys-0.9.93.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_SYS_0_9_93
 
 HOST_CARGO_C_ORDERED_FLOAT_2_10_1_MD5		:= 71624c8a64c75744a95f02a09614f220
-HOST_CARGO_C_ORDERED_FLOAT_2_10_1_URL		:= https://crates.io/api/v1/crates/ordered-float/2.10.1/download
+HOST_CARGO_C_ORDERED_FLOAT_2_10_1_URL		:= $(call ptx/mirror, CRATESIO, ordered-float/2.10.1/download)
 HOST_CARGO_C_ORDERED_FLOAT_2_10_1_SOURCE	:= $(SRCDIR)/ordered-float-2.10.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ORDERED_FLOAT_2_10_1
 
 HOST_CARGO_C_ORION_0_17_6_MD5		:= f8408c2543795bb080bebfba7e38e048
-HOST_CARGO_C_ORION_0_17_6_URL		:= https://crates.io/api/v1/crates/orion/0.17.6/download
+HOST_CARGO_C_ORION_0_17_6_URL		:= $(call ptx/mirror, CRATESIO, orion/0.17.6/download)
 HOST_CARGO_C_ORION_0_17_6_SOURCE	:= $(SRCDIR)/orion-0.17.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ORION_0_17_6
 
 HOST_CARGO_C_OS_INFO_3_7_0_MD5		:= 0aa601dab19b62c32def2e7be85d50b3
-HOST_CARGO_C_OS_INFO_3_7_0_URL		:= https://crates.io/api/v1/crates/os_info/3.7.0/download
+HOST_CARGO_C_OS_INFO_3_7_0_URL		:= $(call ptx/mirror, CRATESIO, os_info/3.7.0/download)
 HOST_CARGO_C_OS_INFO_3_7_0_SOURCE	:= $(SRCDIR)/os_info-3.7.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OS_INFO_3_7_0
 
 HOST_CARGO_C_OVERLOAD_0_1_1_MD5		:= 03a7ad2814bd9dd34e0acec8ca4f855e
-HOST_CARGO_C_OVERLOAD_0_1_1_URL		:= https://crates.io/api/v1/crates/overload/0.1.1/download
+HOST_CARGO_C_OVERLOAD_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, overload/0.1.1/download)
 HOST_CARGO_C_OVERLOAD_0_1_1_SOURCE	:= $(SRCDIR)/overload-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OVERLOAD_0_1_1
 
 HOST_CARGO_C_P384_0_13_0_MD5		:= 9822018c3ee7133a6f093f679d639da2
-HOST_CARGO_C_P384_0_13_0_URL		:= https://crates.io/api/v1/crates/p384/0.13.0/download
+HOST_CARGO_C_P384_0_13_0_URL		:= $(call ptx/mirror, CRATESIO, p384/0.13.0/download)
 HOST_CARGO_C_P384_0_13_0_SOURCE	:= $(SRCDIR)/p384-0.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_P384_0_13_0
 
 HOST_CARGO_C_PARKING_LOT_0_12_1_MD5		:= 1be45f99109d447849f4244b58c5a470
-HOST_CARGO_C_PARKING_LOT_0_12_1_URL		:= https://crates.io/api/v1/crates/parking_lot/0.12.1/download
+HOST_CARGO_C_PARKING_LOT_0_12_1_URL		:= $(call ptx/mirror, CRATESIO, parking_lot/0.12.1/download)
 HOST_CARGO_C_PARKING_LOT_0_12_1_SOURCE	:= $(SRCDIR)/parking_lot-0.12.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PARKING_LOT_0_12_1
 
 HOST_CARGO_C_PARKING_LOT_CORE_0_9_8_MD5		:= ad1239c8377e9764ee2924fadcc73c5f
-HOST_CARGO_C_PARKING_LOT_CORE_0_9_8_URL		:= https://crates.io/api/v1/crates/parking_lot_core/0.9.8/download
+HOST_CARGO_C_PARKING_LOT_CORE_0_9_8_URL		:= $(call ptx/mirror, CRATESIO, parking_lot_core/0.9.8/download)
 HOST_CARGO_C_PARKING_LOT_CORE_0_9_8_SOURCE	:= $(SRCDIR)/parking_lot_core-0.9.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PARKING_LOT_CORE_0_9_8
 
 HOST_CARGO_C_PASETORS_0_6_7_MD5		:= 0a72db8e62493c5ec5794f706068c8c9
-HOST_CARGO_C_PASETORS_0_6_7_URL		:= https://crates.io/api/v1/crates/pasetors/0.6.7/download
+HOST_CARGO_C_PASETORS_0_6_7_URL		:= $(call ptx/mirror, CRATESIO, pasetors/0.6.7/download)
 HOST_CARGO_C_PASETORS_0_6_7_SOURCE	:= $(SRCDIR)/pasetors-0.6.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PASETORS_0_6_7
 
 HOST_CARGO_C_PATHDIFF_0_2_1_MD5		:= c40bb551772810d818857841ea389f1e
-HOST_CARGO_C_PATHDIFF_0_2_1_URL		:= https://crates.io/api/v1/crates/pathdiff/0.2.1/download
+HOST_CARGO_C_PATHDIFF_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, pathdiff/0.2.1/download)
 HOST_CARGO_C_PATHDIFF_0_2_1_SOURCE	:= $(SRCDIR)/pathdiff-0.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PATHDIFF_0_2_1
 
 HOST_CARGO_C_PEM_RFC7468_0_7_0_MD5		:= a37720d4e4cbebd28ac9c7930137a9d6
-HOST_CARGO_C_PEM_RFC7468_0_7_0_URL		:= https://crates.io/api/v1/crates/pem-rfc7468/0.7.0/download
+HOST_CARGO_C_PEM_RFC7468_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, pem-rfc7468/0.7.0/download)
 HOST_CARGO_C_PEM_RFC7468_0_7_0_SOURCE	:= $(SRCDIR)/pem-rfc7468-0.7.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PEM_RFC7468_0_7_0
 
 HOST_CARGO_C_PERCENT_ENCODING_2_3_0_MD5		:= dbf9743d4883e5991e06b8ad80c5ae0e
-HOST_CARGO_C_PERCENT_ENCODING_2_3_0_URL		:= https://crates.io/api/v1/crates/percent-encoding/2.3.0/download
+HOST_CARGO_C_PERCENT_ENCODING_2_3_0_URL		:= $(call ptx/mirror, CRATESIO, percent-encoding/2.3.0/download)
 HOST_CARGO_C_PERCENT_ENCODING_2_3_0_SOURCE	:= $(SRCDIR)/percent-encoding-2.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PERCENT_ENCODING_2_3_0
 
 HOST_CARGO_C_PIN_PROJECT_LITE_0_2_13_MD5		:= ffc7c4e1b2639ba6c8579a1c47c5f97c
-HOST_CARGO_C_PIN_PROJECT_LITE_0_2_13_URL		:= https://crates.io/api/v1/crates/pin-project-lite/0.2.13/download
+HOST_CARGO_C_PIN_PROJECT_LITE_0_2_13_URL		:= $(call ptx/mirror, CRATESIO, pin-project-lite/0.2.13/download)
 HOST_CARGO_C_PIN_PROJECT_LITE_0_2_13_SOURCE	:= $(SRCDIR)/pin-project-lite-0.2.13.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PIN_PROJECT_LITE_0_2_13
 
 HOST_CARGO_C_PKCS8_0_10_2_MD5		:= 54148ff5f2a4a6f4f1e857b0bf854bf0
-HOST_CARGO_C_PKCS8_0_10_2_URL		:= https://crates.io/api/v1/crates/pkcs8/0.10.2/download
+HOST_CARGO_C_PKCS8_0_10_2_URL		:= $(call ptx/mirror, CRATESIO, pkcs8/0.10.2/download)
 HOST_CARGO_C_PKCS8_0_10_2_SOURCE	:= $(SRCDIR)/pkcs8-0.10.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PKCS8_0_10_2
 
 HOST_CARGO_C_PKG_CONFIG_0_3_27_MD5		:= 73d4dff694f3acab34c217b4f4943a37
-HOST_CARGO_C_PKG_CONFIG_0_3_27_URL		:= https://crates.io/api/v1/crates/pkg-config/0.3.27/download
+HOST_CARGO_C_PKG_CONFIG_0_3_27_URL		:= $(call ptx/mirror, CRATESIO, pkg-config/0.3.27/download)
 HOST_CARGO_C_PKG_CONFIG_0_3_27_SOURCE	:= $(SRCDIR)/pkg-config-0.3.27.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PKG_CONFIG_0_3_27
 
 HOST_CARGO_C_PPV_LITE86_0_2_17_MD5		:= 5c69337d37e58a380e00eac9ce0373bb
-HOST_CARGO_C_PPV_LITE86_0_2_17_URL		:= https://crates.io/api/v1/crates/ppv-lite86/0.2.17/download
+HOST_CARGO_C_PPV_LITE86_0_2_17_URL		:= $(call ptx/mirror, CRATESIO, ppv-lite86/0.2.17/download)
 HOST_CARGO_C_PPV_LITE86_0_2_17_SOURCE	:= $(SRCDIR)/ppv-lite86-0.2.17.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PPV_LITE86_0_2_17
 
 HOST_CARGO_C_PRIMEORDER_0_13_2_MD5		:= bac6e8db0938ee6a1c46de650bc12fa2
-HOST_CARGO_C_PRIMEORDER_0_13_2_URL		:= https://crates.io/api/v1/crates/primeorder/0.13.2/download
+HOST_CARGO_C_PRIMEORDER_0_13_2_URL		:= $(call ptx/mirror, CRATESIO, primeorder/0.13.2/download)
 HOST_CARGO_C_PRIMEORDER_0_13_2_SOURCE	:= $(SRCDIR)/primeorder-0.13.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PRIMEORDER_0_13_2
 
 HOST_CARGO_C_PROC_MACRO2_1_0_69_MD5		:= 41bd794efd88a8bcac5ddb16ee6e208f
-HOST_CARGO_C_PROC_MACRO2_1_0_69_URL		:= https://crates.io/api/v1/crates/proc-macro2/1.0.69/download
+HOST_CARGO_C_PROC_MACRO2_1_0_69_URL		:= $(call ptx/mirror, CRATESIO, proc-macro2/1.0.69/download)
 HOST_CARGO_C_PROC_MACRO2_1_0_69_SOURCE	:= $(SRCDIR)/proc-macro2-1.0.69.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PROC_MACRO2_1_0_69
 
 HOST_CARGO_C_PRODASH_25_0_2_MD5		:= db2b192f5acf39d22cabc25a4b546a79
-HOST_CARGO_C_PRODASH_25_0_2_URL		:= https://crates.io/api/v1/crates/prodash/25.0.2/download
+HOST_CARGO_C_PRODASH_25_0_2_URL		:= $(call ptx/mirror, CRATESIO, prodash/25.0.2/download)
 HOST_CARGO_C_PRODASH_25_0_2_SOURCE	:= $(SRCDIR)/prodash-25.0.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PRODASH_25_0_2
 
 HOST_CARGO_C_PULLDOWN_CMARK_0_9_3_MD5		:= d59a3d224e189dadcd35fc118cd3bf9d
-HOST_CARGO_C_PULLDOWN_CMARK_0_9_3_URL		:= https://crates.io/api/v1/crates/pulldown-cmark/0.9.3/download
+HOST_CARGO_C_PULLDOWN_CMARK_0_9_3_URL		:= $(call ptx/mirror, CRATESIO, pulldown-cmark/0.9.3/download)
 HOST_CARGO_C_PULLDOWN_CMARK_0_9_3_SOURCE	:= $(SRCDIR)/pulldown-cmark-0.9.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PULLDOWN_CMARK_0_9_3
 
 HOST_CARGO_C_QUOTE_1_0_33_MD5		:= 0ddb8bccd3198892d0dd0ec7151f7cd3
-HOST_CARGO_C_QUOTE_1_0_33_URL		:= https://crates.io/api/v1/crates/quote/1.0.33/download
+HOST_CARGO_C_QUOTE_1_0_33_URL		:= $(call ptx/mirror, CRATESIO, quote/1.0.33/download)
 HOST_CARGO_C_QUOTE_1_0_33_SOURCE	:= $(SRCDIR)/quote-1.0.33.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_QUOTE_1_0_33
 
 HOST_CARGO_C_RAND_0_8_5_MD5		:= ee7a5f842c39bc47c474196e83b0df5f
-HOST_CARGO_C_RAND_0_8_5_URL		:= https://crates.io/api/v1/crates/rand/0.8.5/download
+HOST_CARGO_C_RAND_0_8_5_URL		:= $(call ptx/mirror, CRATESIO, rand/0.8.5/download)
 HOST_CARGO_C_RAND_0_8_5_SOURCE	:= $(SRCDIR)/rand-0.8.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_0_8_5
 
 HOST_CARGO_C_RAND_CHACHA_0_3_1_MD5		:= e30085994bbeb4b7f4895d48216d5476
-HOST_CARGO_C_RAND_CHACHA_0_3_1_URL		:= https://crates.io/api/v1/crates/rand_chacha/0.3.1/download
+HOST_CARGO_C_RAND_CHACHA_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, rand_chacha/0.3.1/download)
 HOST_CARGO_C_RAND_CHACHA_0_3_1_SOURCE	:= $(SRCDIR)/rand_chacha-0.3.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_CHACHA_0_3_1
 
 HOST_CARGO_C_RAND_CORE_0_6_4_MD5		:= a1626b8f4d165b1b60d960862eba4cf0
-HOST_CARGO_C_RAND_CORE_0_6_4_URL		:= https://crates.io/api/v1/crates/rand_core/0.6.4/download
+HOST_CARGO_C_RAND_CORE_0_6_4_URL		:= $(call ptx/mirror, CRATESIO, rand_core/0.6.4/download)
 HOST_CARGO_C_RAND_CORE_0_6_4_SOURCE	:= $(SRCDIR)/rand_core-0.6.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_CORE_0_6_4
 
 HOST_CARGO_C_RAND_XOSHIRO_0_6_0_MD5		:= ca0ecc8e22d810207704d4cd743ca657
-HOST_CARGO_C_RAND_XOSHIRO_0_6_0_URL		:= https://crates.io/api/v1/crates/rand_xoshiro/0.6.0/download
+HOST_CARGO_C_RAND_XOSHIRO_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, rand_xoshiro/0.6.0/download)
 HOST_CARGO_C_RAND_XOSHIRO_0_6_0_SOURCE	:= $(SRCDIR)/rand_xoshiro-0.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_XOSHIRO_0_6_0
 
 HOST_CARGO_C_REDOX_SYSCALL_0_3_5_MD5		:= 782ea88d8e5b517b1c9e7d870e20e9e3
-HOST_CARGO_C_REDOX_SYSCALL_0_3_5_URL		:= https://crates.io/api/v1/crates/redox_syscall/0.3.5/download
+HOST_CARGO_C_REDOX_SYSCALL_0_3_5_URL		:= $(call ptx/mirror, CRATESIO, redox_syscall/0.3.5/download)
 HOST_CARGO_C_REDOX_SYSCALL_0_3_5_SOURCE	:= $(SRCDIR)/redox_syscall-0.3.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REDOX_SYSCALL_0_3_5
 
 HOST_CARGO_C_REGEX_1_10_0_MD5		:= a1a8053d298f150b85368772e2f30210
-HOST_CARGO_C_REGEX_1_10_0_URL		:= https://crates.io/api/v1/crates/regex/1.10.0/download
+HOST_CARGO_C_REGEX_1_10_0_URL		:= $(call ptx/mirror, CRATESIO, regex/1.10.0/download)
 HOST_CARGO_C_REGEX_1_10_0_SOURCE	:= $(SRCDIR)/regex-1.10.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_1_10_0
 
 HOST_CARGO_C_REGEX_AUTOMATA_0_1_10_MD5		:= 95f4b6766a27d814b4e54d1ccb3b7fc9
-HOST_CARGO_C_REGEX_AUTOMATA_0_1_10_URL		:= https://crates.io/api/v1/crates/regex-automata/0.1.10/download
+HOST_CARGO_C_REGEX_AUTOMATA_0_1_10_URL		:= $(call ptx/mirror, CRATESIO, regex-automata/0.1.10/download)
 HOST_CARGO_C_REGEX_AUTOMATA_0_1_10_SOURCE	:= $(SRCDIR)/regex-automata-0.1.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_AUTOMATA_0_1_10
 
 HOST_CARGO_C_REGEX_AUTOMATA_0_4_1_MD5		:= 243181ff950de6a82b5e275d3464b0b4
-HOST_CARGO_C_REGEX_AUTOMATA_0_4_1_URL		:= https://crates.io/api/v1/crates/regex-automata/0.4.1/download
+HOST_CARGO_C_REGEX_AUTOMATA_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, regex-automata/0.4.1/download)
 HOST_CARGO_C_REGEX_AUTOMATA_0_4_1_SOURCE	:= $(SRCDIR)/regex-automata-0.4.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_AUTOMATA_0_4_1
 
 HOST_CARGO_C_REGEX_SYNTAX_0_6_29_MD5		:= f2303650593b13e30a85e39d8c79c961
-HOST_CARGO_C_REGEX_SYNTAX_0_6_29_URL		:= https://crates.io/api/v1/crates/regex-syntax/0.6.29/download
+HOST_CARGO_C_REGEX_SYNTAX_0_6_29_URL		:= $(call ptx/mirror, CRATESIO, regex-syntax/0.6.29/download)
 HOST_CARGO_C_REGEX_SYNTAX_0_6_29_SOURCE	:= $(SRCDIR)/regex-syntax-0.6.29.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_SYNTAX_0_6_29
 
 HOST_CARGO_C_REGEX_SYNTAX_0_8_1_MD5		:= 9d4c0b80a9b06e7ffe25b80cc440a3d2
-HOST_CARGO_C_REGEX_SYNTAX_0_8_1_URL		:= https://crates.io/api/v1/crates/regex-syntax/0.8.1/download
+HOST_CARGO_C_REGEX_SYNTAX_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, regex-syntax/0.8.1/download)
 HOST_CARGO_C_REGEX_SYNTAX_0_8_1_SOURCE	:= $(SRCDIR)/regex-syntax-0.8.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_SYNTAX_0_8_1
 
 HOST_CARGO_C_RFC6979_0_4_0_MD5		:= 4320a9e82272686cb97d7af005f5360d
-HOST_CARGO_C_RFC6979_0_4_0_URL		:= https://crates.io/api/v1/crates/rfc6979/0.4.0/download
+HOST_CARGO_C_RFC6979_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, rfc6979/0.4.0/download)
 HOST_CARGO_C_RFC6979_0_4_0_SOURCE	:= $(SRCDIR)/rfc6979-0.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RFC6979_0_4_0
 
 HOST_CARGO_C_RUSTFIX_0_6_1_MD5		:= 6c746c1d8a3182a5b04dc70fcc3e9144
-HOST_CARGO_C_RUSTFIX_0_6_1_URL		:= https://crates.io/api/v1/crates/rustfix/0.6.1/download
+HOST_CARGO_C_RUSTFIX_0_6_1_URL		:= $(call ptx/mirror, CRATESIO, rustfix/0.6.1/download)
 HOST_CARGO_C_RUSTFIX_0_6_1_SOURCE	:= $(SRCDIR)/rustfix-0.6.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RUSTFIX_0_6_1
 
 HOST_CARGO_C_RUSTIX_0_38_18_MD5		:= 1799c9a762dbbf4ac3904237c2987d82
-HOST_CARGO_C_RUSTIX_0_38_18_URL		:= https://crates.io/api/v1/crates/rustix/0.38.18/download
+HOST_CARGO_C_RUSTIX_0_38_18_URL		:= $(call ptx/mirror, CRATESIO, rustix/0.38.18/download)
 HOST_CARGO_C_RUSTIX_0_38_18_SOURCE	:= $(SRCDIR)/rustix-0.38.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RUSTIX_0_38_18
 
 HOST_CARGO_C_RYU_1_0_15_MD5		:= 254042a2a29ae1d79b96a283c8cc251f
-HOST_CARGO_C_RYU_1_0_15_URL		:= https://crates.io/api/v1/crates/ryu/1.0.15/download
+HOST_CARGO_C_RYU_1_0_15_URL		:= $(call ptx/mirror, CRATESIO, ryu/1.0.15/download)
 HOST_CARGO_C_RYU_1_0_15_SOURCE	:= $(SRCDIR)/ryu-1.0.15.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RYU_1_0_15
 
 HOST_CARGO_C_SAME_FILE_1_0_6_MD5		:= 2d8d8b377d144f5e32b4f65a69eb0b24
-HOST_CARGO_C_SAME_FILE_1_0_6_URL		:= https://crates.io/api/v1/crates/same-file/1.0.6/download
+HOST_CARGO_C_SAME_FILE_1_0_6_URL		:= $(call ptx/mirror, CRATESIO, same-file/1.0.6/download)
 HOST_CARGO_C_SAME_FILE_1_0_6_SOURCE	:= $(SRCDIR)/same-file-1.0.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SAME_FILE_1_0_6
 
 HOST_CARGO_C_SCHANNEL_0_1_22_MD5		:= 46c6c4f754c1fd0e4957976207398d4b
-HOST_CARGO_C_SCHANNEL_0_1_22_URL		:= https://crates.io/api/v1/crates/schannel/0.1.22/download
+HOST_CARGO_C_SCHANNEL_0_1_22_URL		:= $(call ptx/mirror, CRATESIO, schannel/0.1.22/download)
 HOST_CARGO_C_SCHANNEL_0_1_22_SOURCE	:= $(SRCDIR)/schannel-0.1.22.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SCHANNEL_0_1_22
 
 HOST_CARGO_C_SCOPEGUARD_1_2_0_MD5		:= f1358be8c98b98837cbd2cf51e75f8b3
-HOST_CARGO_C_SCOPEGUARD_1_2_0_URL		:= https://crates.io/api/v1/crates/scopeguard/1.2.0/download
+HOST_CARGO_C_SCOPEGUARD_1_2_0_URL		:= $(call ptx/mirror, CRATESIO, scopeguard/1.2.0/download)
 HOST_CARGO_C_SCOPEGUARD_1_2_0_SOURCE	:= $(SRCDIR)/scopeguard-1.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SCOPEGUARD_1_2_0
 
 HOST_CARGO_C_SEC1_0_7_3_MD5		:= 46e0a2b34b2a6108cad9e2b1da756cab
-HOST_CARGO_C_SEC1_0_7_3_URL		:= https://crates.io/api/v1/crates/sec1/0.7.3/download
+HOST_CARGO_C_SEC1_0_7_3_URL		:= $(call ptx/mirror, CRATESIO, sec1/0.7.3/download)
 HOST_CARGO_C_SEC1_0_7_3_SOURCE	:= $(SRCDIR)/sec1-0.7.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SEC1_0_7_3
 
 HOST_CARGO_C_SECURITY_FRAMEWORK_2_9_2_MD5		:= 151939b0b34c1580b44863b7713be586
-HOST_CARGO_C_SECURITY_FRAMEWORK_2_9_2_URL		:= https://crates.io/api/v1/crates/security-framework/2.9.2/download
+HOST_CARGO_C_SECURITY_FRAMEWORK_2_9_2_URL		:= $(call ptx/mirror, CRATESIO, security-framework/2.9.2/download)
 HOST_CARGO_C_SECURITY_FRAMEWORK_2_9_2_SOURCE	:= $(SRCDIR)/security-framework-2.9.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SECURITY_FRAMEWORK_2_9_2
 
 HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_9_1_MD5		:= 2acfe0c857811f38afc675dd79f308e2
-HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_9_1_URL		:= https://crates.io/api/v1/crates/security-framework-sys/2.9.1/download
+HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_9_1_URL		:= $(call ptx/mirror, CRATESIO, security-framework-sys/2.9.1/download)
 HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_9_1_SOURCE	:= $(SRCDIR)/security-framework-sys-2.9.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_9_1
 
 HOST_CARGO_C_SEMVER_1_0_20_MD5		:= bf2aac00571a32be8a2fb842e194a728
-HOST_CARGO_C_SEMVER_1_0_20_URL		:= https://crates.io/api/v1/crates/semver/1.0.20/download
+HOST_CARGO_C_SEMVER_1_0_20_URL		:= $(call ptx/mirror, CRATESIO, semver/1.0.20/download)
 HOST_CARGO_C_SEMVER_1_0_20_SOURCE	:= $(SRCDIR)/semver-1.0.20.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SEMVER_1_0_20
 
 HOST_CARGO_C_SERDE_1_0_188_MD5		:= a0da7824f0a52f7712017aa48669cb32
-HOST_CARGO_C_SERDE_1_0_188_URL		:= https://crates.io/api/v1/crates/serde/1.0.188/download
+HOST_CARGO_C_SERDE_1_0_188_URL		:= $(call ptx/mirror, CRATESIO, serde/1.0.188/download)
 HOST_CARGO_C_SERDE_1_0_188_SOURCE	:= $(SRCDIR)/serde-1.0.188.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_1_0_188
 
 HOST_CARGO_C_SERDE_VALUE_0_7_0_MD5		:= eeda11db8ced625011d8b88d36765321
-HOST_CARGO_C_SERDE_VALUE_0_7_0_URL		:= https://crates.io/api/v1/crates/serde-value/0.7.0/download
+HOST_CARGO_C_SERDE_VALUE_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, serde-value/0.7.0/download)
 HOST_CARGO_C_SERDE_VALUE_0_7_0_SOURCE	:= $(SRCDIR)/serde-value-0.7.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_VALUE_0_7_0
 
 HOST_CARGO_C_SERDE_DERIVE_1_0_188_MD5		:= 8498aebd7ad22c00c2de49ac9c885112
-HOST_CARGO_C_SERDE_DERIVE_1_0_188_URL		:= https://crates.io/api/v1/crates/serde_derive/1.0.188/download
+HOST_CARGO_C_SERDE_DERIVE_1_0_188_URL		:= $(call ptx/mirror, CRATESIO, serde_derive/1.0.188/download)
 HOST_CARGO_C_SERDE_DERIVE_1_0_188_SOURCE	:= $(SRCDIR)/serde_derive-1.0.188.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_DERIVE_1_0_188
 
 HOST_CARGO_C_SERDE_IGNORED_0_1_9_MD5		:= 878e72949bf9df3456387dace426ceb4
-HOST_CARGO_C_SERDE_IGNORED_0_1_9_URL		:= https://crates.io/api/v1/crates/serde_ignored/0.1.9/download
+HOST_CARGO_C_SERDE_IGNORED_0_1_9_URL		:= $(call ptx/mirror, CRATESIO, serde_ignored/0.1.9/download)
 HOST_CARGO_C_SERDE_IGNORED_0_1_9_SOURCE	:= $(SRCDIR)/serde_ignored-0.1.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_IGNORED_0_1_9
 
 HOST_CARGO_C_SERDE_JSON_1_0_107_MD5		:= 0cdf23902dbcad8c20973170e10b612f
-HOST_CARGO_C_SERDE_JSON_1_0_107_URL		:= https://crates.io/api/v1/crates/serde_json/1.0.107/download
+HOST_CARGO_C_SERDE_JSON_1_0_107_URL		:= $(call ptx/mirror, CRATESIO, serde_json/1.0.107/download)
 HOST_CARGO_C_SERDE_JSON_1_0_107_SOURCE	:= $(SRCDIR)/serde_json-1.0.107.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_JSON_1_0_107
 
 HOST_CARGO_C_SERDE_SPANNED_0_6_3_MD5		:= 7b051001fdb16029a1ae8847aa345c99
-HOST_CARGO_C_SERDE_SPANNED_0_6_3_URL		:= https://crates.io/api/v1/crates/serde_spanned/0.6.3/download
+HOST_CARGO_C_SERDE_SPANNED_0_6_3_URL		:= $(call ptx/mirror, CRATESIO, serde_spanned/0.6.3/download)
 HOST_CARGO_C_SERDE_SPANNED_0_6_3_SOURCE	:= $(SRCDIR)/serde_spanned-0.6.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_SPANNED_0_6_3
 
 HOST_CARGO_C_SHA1_0_10_6_MD5		:= d7602381c0bc21d10603cc940a837b06
-HOST_CARGO_C_SHA1_0_10_6_URL		:= https://crates.io/api/v1/crates/sha1/0.10.6/download
+HOST_CARGO_C_SHA1_0_10_6_URL		:= $(call ptx/mirror, CRATESIO, sha1/0.10.6/download)
 HOST_CARGO_C_SHA1_0_10_6_SOURCE	:= $(SRCDIR)/sha1-0.10.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHA1_0_10_6
 
 HOST_CARGO_C_SHA1_SMOL_1_0_0_MD5		:= 74d8afce717ff89fb2cb5141f121782b
-HOST_CARGO_C_SHA1_SMOL_1_0_0_URL		:= https://crates.io/api/v1/crates/sha1_smol/1.0.0/download
+HOST_CARGO_C_SHA1_SMOL_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, sha1_smol/1.0.0/download)
 HOST_CARGO_C_SHA1_SMOL_1_0_0_SOURCE	:= $(SRCDIR)/sha1_smol-1.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHA1_SMOL_1_0_0
 
 HOST_CARGO_C_SHA2_0_10_8_MD5		:= 289b776935f2184c6ba2974877285013
-HOST_CARGO_C_SHA2_0_10_8_URL		:= https://crates.io/api/v1/crates/sha2/0.10.8/download
+HOST_CARGO_C_SHA2_0_10_8_URL		:= $(call ptx/mirror, CRATESIO, sha2/0.10.8/download)
 HOST_CARGO_C_SHA2_0_10_8_SOURCE	:= $(SRCDIR)/sha2-0.10.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHA2_0_10_8
 
 HOST_CARGO_C_SHARDED_SLAB_0_1_7_MD5		:= 96261f3cee18842060fd64d618e056d8
-HOST_CARGO_C_SHARDED_SLAB_0_1_7_URL		:= https://crates.io/api/v1/crates/sharded-slab/0.1.7/download
+HOST_CARGO_C_SHARDED_SLAB_0_1_7_URL		:= $(call ptx/mirror, CRATESIO, sharded-slab/0.1.7/download)
 HOST_CARGO_C_SHARDED_SLAB_0_1_7_SOURCE	:= $(SRCDIR)/sharded-slab-0.1.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHARDED_SLAB_0_1_7
 
 HOST_CARGO_C_SHELL_ESCAPE_0_1_5_MD5		:= 08abe36adae4caee78acf034c56a550b
-HOST_CARGO_C_SHELL_ESCAPE_0_1_5_URL		:= https://crates.io/api/v1/crates/shell-escape/0.1.5/download
+HOST_CARGO_C_SHELL_ESCAPE_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, shell-escape/0.1.5/download)
 HOST_CARGO_C_SHELL_ESCAPE_0_1_5_SOURCE	:= $(SRCDIR)/shell-escape-0.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHELL_ESCAPE_0_1_5
 
 HOST_CARGO_C_SIGNAL_HOOK_0_3_17_MD5		:= f60ab8537f924a65fbc0961e958d375b
-HOST_CARGO_C_SIGNAL_HOOK_0_3_17_URL		:= https://crates.io/api/v1/crates/signal-hook/0.3.17/download
+HOST_CARGO_C_SIGNAL_HOOK_0_3_17_URL		:= $(call ptx/mirror, CRATESIO, signal-hook/0.3.17/download)
 HOST_CARGO_C_SIGNAL_HOOK_0_3_17_SOURCE	:= $(SRCDIR)/signal-hook-0.3.17.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SIGNAL_HOOK_0_3_17
 
 HOST_CARGO_C_SIGNAL_HOOK_REGISTRY_1_4_1_MD5		:= 22e95901b912671da26457ac33e36a23
-HOST_CARGO_C_SIGNAL_HOOK_REGISTRY_1_4_1_URL		:= https://crates.io/api/v1/crates/signal-hook-registry/1.4.1/download
+HOST_CARGO_C_SIGNAL_HOOK_REGISTRY_1_4_1_URL		:= $(call ptx/mirror, CRATESIO, signal-hook-registry/1.4.1/download)
 HOST_CARGO_C_SIGNAL_HOOK_REGISTRY_1_4_1_SOURCE	:= $(SRCDIR)/signal-hook-registry-1.4.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SIGNAL_HOOK_REGISTRY_1_4_1
 
 HOST_CARGO_C_SIGNATURE_2_1_0_MD5		:= 8ca85e532cc1777713d250c8a5d771ad
-HOST_CARGO_C_SIGNATURE_2_1_0_URL		:= https://crates.io/api/v1/crates/signature/2.1.0/download
+HOST_CARGO_C_SIGNATURE_2_1_0_URL		:= $(call ptx/mirror, CRATESIO, signature/2.1.0/download)
 HOST_CARGO_C_SIGNATURE_2_1_0_SOURCE	:= $(SRCDIR)/signature-2.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SIGNATURE_2_1_0
 
 HOST_CARGO_C_SIZED_CHUNKS_0_6_5_MD5		:= c51211275ff1e841326726837820eed9
-HOST_CARGO_C_SIZED_CHUNKS_0_6_5_URL		:= https://crates.io/api/v1/crates/sized-chunks/0.6.5/download
+HOST_CARGO_C_SIZED_CHUNKS_0_6_5_URL		:= $(call ptx/mirror, CRATESIO, sized-chunks/0.6.5/download)
 HOST_CARGO_C_SIZED_CHUNKS_0_6_5_SOURCE	:= $(SRCDIR)/sized-chunks-0.6.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SIZED_CHUNKS_0_6_5
 
 HOST_CARGO_C_SMALLVEC_1_11_1_MD5		:= b09b846f58958a4c3930a69893297ae5
-HOST_CARGO_C_SMALLVEC_1_11_1_URL		:= https://crates.io/api/v1/crates/smallvec/1.11.1/download
+HOST_CARGO_C_SMALLVEC_1_11_1_URL		:= $(call ptx/mirror, CRATESIO, smallvec/1.11.1/download)
 HOST_CARGO_C_SMALLVEC_1_11_1_SOURCE	:= $(SRCDIR)/smallvec-1.11.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SMALLVEC_1_11_1
 
 HOST_CARGO_C_SOCKET2_0_4_9_MD5		:= 4acc1eadff484a737c93592e15b31f8a
-HOST_CARGO_C_SOCKET2_0_4_9_URL		:= https://crates.io/api/v1/crates/socket2/0.4.9/download
+HOST_CARGO_C_SOCKET2_0_4_9_URL		:= $(call ptx/mirror, CRATESIO, socket2/0.4.9/download)
 HOST_CARGO_C_SOCKET2_0_4_9_SOURCE	:= $(SRCDIR)/socket2-0.4.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SOCKET2_0_4_9
 
 HOST_CARGO_C_SPKI_0_7_2_MD5		:= e737e0ae0d5dc2a6a1559f788b2bb5fa
-HOST_CARGO_C_SPKI_0_7_2_URL		:= https://crates.io/api/v1/crates/spki/0.7.2/download
+HOST_CARGO_C_SPKI_0_7_2_URL		:= $(call ptx/mirror, CRATESIO, spki/0.7.2/download)
 HOST_CARGO_C_SPKI_0_7_2_SOURCE	:= $(SRCDIR)/spki-0.7.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SPKI_0_7_2
 
 HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_MD5		:= c9defe80406280bcfce4ecf31c0200b3
-HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_URL		:= https://crates.io/api/v1/crates/static_assertions/1.1.0/download
+HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, static_assertions/1.1.0/download)
 HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_SOURCE	:= $(SRCDIR)/static_assertions-1.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0
 
 HOST_CARGO_C_STRIP_ANSI_ESCAPES_0_1_1_MD5		:= 409984247a8d8f4e15a7e0d097a0447a
-HOST_CARGO_C_STRIP_ANSI_ESCAPES_0_1_1_URL		:= https://crates.io/api/v1/crates/strip-ansi-escapes/0.1.1/download
+HOST_CARGO_C_STRIP_ANSI_ESCAPES_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, strip-ansi-escapes/0.1.1/download)
 HOST_CARGO_C_STRIP_ANSI_ESCAPES_0_1_1_SOURCE	:= $(SRCDIR)/strip-ansi-escapes-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_STRIP_ANSI_ESCAPES_0_1_1
 
 HOST_CARGO_C_STRSIM_0_10_0_MD5		:= 82d98dc87dc8503400aa095f5aa70f13
-HOST_CARGO_C_STRSIM_0_10_0_URL		:= https://crates.io/api/v1/crates/strsim/0.10.0/download
+HOST_CARGO_C_STRSIM_0_10_0_URL		:= $(call ptx/mirror, CRATESIO, strsim/0.10.0/download)
 HOST_CARGO_C_STRSIM_0_10_0_SOURCE	:= $(SRCDIR)/strsim-0.10.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_STRSIM_0_10_0
 
 HOST_CARGO_C_SUBTLE_2_5_0_MD5		:= 24e0b498b23c398c49e3af66373c91cc
-HOST_CARGO_C_SUBTLE_2_5_0_URL		:= https://crates.io/api/v1/crates/subtle/2.5.0/download
+HOST_CARGO_C_SUBTLE_2_5_0_URL		:= $(call ptx/mirror, CRATESIO, subtle/2.5.0/download)
 HOST_CARGO_C_SUBTLE_2_5_0_SOURCE	:= $(SRCDIR)/subtle-2.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SUBTLE_2_5_0
 
 HOST_CARGO_C_SYN_1_0_109_MD5		:= 64d9f46e9ba78f68c30c486be3d8b7df
-HOST_CARGO_C_SYN_1_0_109_URL		:= https://crates.io/api/v1/crates/syn/1.0.109/download
+HOST_CARGO_C_SYN_1_0_109_URL		:= $(call ptx/mirror, CRATESIO, syn/1.0.109/download)
 HOST_CARGO_C_SYN_1_0_109_SOURCE	:= $(SRCDIR)/syn-1.0.109.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SYN_1_0_109
 
 HOST_CARGO_C_SYN_2_0_38_MD5		:= 799247562dd69b3b5f4d73f91095dfab
-HOST_CARGO_C_SYN_2_0_38_URL		:= https://crates.io/api/v1/crates/syn/2.0.38/download
+HOST_CARGO_C_SYN_2_0_38_URL		:= $(call ptx/mirror, CRATESIO, syn/2.0.38/download)
 HOST_CARGO_C_SYN_2_0_38_SOURCE	:= $(SRCDIR)/syn-2.0.38.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SYN_2_0_38
 
 HOST_CARGO_C_TAR_0_4_40_MD5		:= 08a17e86dfb5bf21d557636f2a545ebe
-HOST_CARGO_C_TAR_0_4_40_URL		:= https://crates.io/api/v1/crates/tar/0.4.40/download
+HOST_CARGO_C_TAR_0_4_40_URL		:= $(call ptx/mirror, CRATESIO, tar/0.4.40/download)
 HOST_CARGO_C_TAR_0_4_40_SOURCE	:= $(SRCDIR)/tar-0.4.40.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TAR_0_4_40
 
 HOST_CARGO_C_TEMPFILE_3_8_0_MD5		:= ce7327ca8031864d638b1e21fd44c4dd
-HOST_CARGO_C_TEMPFILE_3_8_0_URL		:= https://crates.io/api/v1/crates/tempfile/3.8.0/download
+HOST_CARGO_C_TEMPFILE_3_8_0_URL		:= $(call ptx/mirror, CRATESIO, tempfile/3.8.0/download)
 HOST_CARGO_C_TEMPFILE_3_8_0_SOURCE	:= $(SRCDIR)/tempfile-3.8.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TEMPFILE_3_8_0
 
 HOST_CARGO_C_TERMCOLOR_1_3_0_MD5		:= be0724e892719d0813323cbb4bfb5372
-HOST_CARGO_C_TERMCOLOR_1_3_0_URL		:= https://crates.io/api/v1/crates/termcolor/1.3.0/download
+HOST_CARGO_C_TERMCOLOR_1_3_0_URL		:= $(call ptx/mirror, CRATESIO, termcolor/1.3.0/download)
 HOST_CARGO_C_TERMCOLOR_1_3_0_SOURCE	:= $(SRCDIR)/termcolor-1.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TERMCOLOR_1_3_0
 
 HOST_CARGO_C_TERMINAL_SIZE_0_3_0_MD5		:= b7eae58d7a80112442643ee2ff481ef7
-HOST_CARGO_C_TERMINAL_SIZE_0_3_0_URL		:= https://crates.io/api/v1/crates/terminal_size/0.3.0/download
+HOST_CARGO_C_TERMINAL_SIZE_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, terminal_size/0.3.0/download)
 HOST_CARGO_C_TERMINAL_SIZE_0_3_0_SOURCE	:= $(SRCDIR)/terminal_size-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TERMINAL_SIZE_0_3_0
 
 HOST_CARGO_C_THISERROR_1_0_49_MD5		:= fe293b2c051a108a25477c0637b151c8
-HOST_CARGO_C_THISERROR_1_0_49_URL		:= https://crates.io/api/v1/crates/thiserror/1.0.49/download
+HOST_CARGO_C_THISERROR_1_0_49_URL		:= $(call ptx/mirror, CRATESIO, thiserror/1.0.49/download)
 HOST_CARGO_C_THISERROR_1_0_49_SOURCE	:= $(SRCDIR)/thiserror-1.0.49.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_THISERROR_1_0_49
 
 HOST_CARGO_C_THISERROR_IMPL_1_0_49_MD5		:= 2ab5bc29c5a16fd836e9c99a70ca6663
-HOST_CARGO_C_THISERROR_IMPL_1_0_49_URL		:= https://crates.io/api/v1/crates/thiserror-impl/1.0.49/download
+HOST_CARGO_C_THISERROR_IMPL_1_0_49_URL		:= $(call ptx/mirror, CRATESIO, thiserror-impl/1.0.49/download)
 HOST_CARGO_C_THISERROR_IMPL_1_0_49_SOURCE	:= $(SRCDIR)/thiserror-impl-1.0.49.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_THISERROR_IMPL_1_0_49
 
 HOST_CARGO_C_THREAD_LOCAL_1_1_7_MD5		:= 4375c6756918c2e9080870b4a7489d4e
-HOST_CARGO_C_THREAD_LOCAL_1_1_7_URL		:= https://crates.io/api/v1/crates/thread_local/1.1.7/download
+HOST_CARGO_C_THREAD_LOCAL_1_1_7_URL		:= $(call ptx/mirror, CRATESIO, thread_local/1.1.7/download)
 HOST_CARGO_C_THREAD_LOCAL_1_1_7_SOURCE	:= $(SRCDIR)/thread_local-1.1.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_THREAD_LOCAL_1_1_7
 
 HOST_CARGO_C_TIME_0_3_29_MD5		:= 6c217b66a5b956d8256d38e4e1498b2f
-HOST_CARGO_C_TIME_0_3_29_URL		:= https://crates.io/api/v1/crates/time/0.3.29/download
+HOST_CARGO_C_TIME_0_3_29_URL		:= $(call ptx/mirror, CRATESIO, time/0.3.29/download)
 HOST_CARGO_C_TIME_0_3_29_SOURCE	:= $(SRCDIR)/time-0.3.29.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TIME_0_3_29
 
 HOST_CARGO_C_TIME_CORE_0_1_2_MD5		:= 7818a75208424a6d05d1d868559f0adf
-HOST_CARGO_C_TIME_CORE_0_1_2_URL		:= https://crates.io/api/v1/crates/time-core/0.1.2/download
+HOST_CARGO_C_TIME_CORE_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, time-core/0.1.2/download)
 HOST_CARGO_C_TIME_CORE_0_1_2_SOURCE	:= $(SRCDIR)/time-core-0.1.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TIME_CORE_0_1_2
 
 HOST_CARGO_C_TIME_MACROS_0_2_15_MD5		:= ba32227234281a5599e11672869a05ee
-HOST_CARGO_C_TIME_MACROS_0_2_15_URL		:= https://crates.io/api/v1/crates/time-macros/0.2.15/download
+HOST_CARGO_C_TIME_MACROS_0_2_15_URL		:= $(call ptx/mirror, CRATESIO, time-macros/0.2.15/download)
 HOST_CARGO_C_TIME_MACROS_0_2_15_SOURCE	:= $(SRCDIR)/time-macros-0.2.15.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TIME_MACROS_0_2_15
 
 HOST_CARGO_C_TINYVEC_1_6_0_MD5		:= 5f0470696baaa4e5953bddbf196998f9
-HOST_CARGO_C_TINYVEC_1_6_0_URL		:= https://crates.io/api/v1/crates/tinyvec/1.6.0/download
+HOST_CARGO_C_TINYVEC_1_6_0_URL		:= $(call ptx/mirror, CRATESIO, tinyvec/1.6.0/download)
 HOST_CARGO_C_TINYVEC_1_6_0_SOURCE	:= $(SRCDIR)/tinyvec-1.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TINYVEC_1_6_0
 
 HOST_CARGO_C_TINYVEC_MACROS_0_1_1_MD5		:= c678a7da0ee4b850ebde0474144a0415
-HOST_CARGO_C_TINYVEC_MACROS_0_1_1_URL		:= https://crates.io/api/v1/crates/tinyvec_macros/0.1.1/download
+HOST_CARGO_C_TINYVEC_MACROS_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, tinyvec_macros/0.1.1/download)
 HOST_CARGO_C_TINYVEC_MACROS_0_1_1_SOURCE	:= $(SRCDIR)/tinyvec_macros-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TINYVEC_MACROS_0_1_1
 
 HOST_CARGO_C_TOML_0_5_11_MD5		:= b21820f2664242498beba7783b32bef4
-HOST_CARGO_C_TOML_0_5_11_URL		:= https://crates.io/api/v1/crates/toml/0.5.11/download
+HOST_CARGO_C_TOML_0_5_11_URL		:= $(call ptx/mirror, CRATESIO, toml/0.5.11/download)
 HOST_CARGO_C_TOML_0_5_11_SOURCE	:= $(SRCDIR)/toml-0.5.11.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_0_5_11
 
 HOST_CARGO_C_TOML_0_7_8_MD5		:= a5ef835225eff900c69ba627e62253c6
-HOST_CARGO_C_TOML_0_7_8_URL		:= https://crates.io/api/v1/crates/toml/0.7.8/download
+HOST_CARGO_C_TOML_0_7_8_URL		:= $(call ptx/mirror, CRATESIO, toml/0.7.8/download)
 HOST_CARGO_C_TOML_0_7_8_SOURCE	:= $(SRCDIR)/toml-0.7.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_0_7_8
 
 HOST_CARGO_C_TOML_DATETIME_0_6_3_MD5		:= cedd4c0c821849a65af49836d6a1bb63
-HOST_CARGO_C_TOML_DATETIME_0_6_3_URL		:= https://crates.io/api/v1/crates/toml_datetime/0.6.3/download
+HOST_CARGO_C_TOML_DATETIME_0_6_3_URL		:= $(call ptx/mirror, CRATESIO, toml_datetime/0.6.3/download)
 HOST_CARGO_C_TOML_DATETIME_0_6_3_SOURCE	:= $(SRCDIR)/toml_datetime-0.6.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_DATETIME_0_6_3
 
 HOST_CARGO_C_TOML_EDIT_0_19_15_MD5		:= 467f480ef05d416ac677d12315214f59
-HOST_CARGO_C_TOML_EDIT_0_19_15_URL		:= https://crates.io/api/v1/crates/toml_edit/0.19.15/download
+HOST_CARGO_C_TOML_EDIT_0_19_15_URL		:= $(call ptx/mirror, CRATESIO, toml_edit/0.19.15/download)
 HOST_CARGO_C_TOML_EDIT_0_19_15_SOURCE	:= $(SRCDIR)/toml_edit-0.19.15.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_EDIT_0_19_15
 
 HOST_CARGO_C_TRACING_0_1_37_MD5		:= 97e8197912c3d06f0b7486d07c31e182
-HOST_CARGO_C_TRACING_0_1_37_URL		:= https://crates.io/api/v1/crates/tracing/0.1.37/download
+HOST_CARGO_C_TRACING_0_1_37_URL		:= $(call ptx/mirror, CRATESIO, tracing/0.1.37/download)
 HOST_CARGO_C_TRACING_0_1_37_SOURCE	:= $(SRCDIR)/tracing-0.1.37.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_0_1_37
 
 HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_26_MD5		:= 7e1ba4025eafea2c81f7050a8cdd4b38
-HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_26_URL		:= https://crates.io/api/v1/crates/tracing-attributes/0.1.26/download
+HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_26_URL		:= $(call ptx/mirror, CRATESIO, tracing-attributes/0.1.26/download)
 HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_26_SOURCE	:= $(SRCDIR)/tracing-attributes-0.1.26.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_26
 
 HOST_CARGO_C_TRACING_CORE_0_1_31_MD5		:= b55d243e373f3a86b90ae141548f2bf5
-HOST_CARGO_C_TRACING_CORE_0_1_31_URL		:= https://crates.io/api/v1/crates/tracing-core/0.1.31/download
+HOST_CARGO_C_TRACING_CORE_0_1_31_URL		:= $(call ptx/mirror, CRATESIO, tracing-core/0.1.31/download)
 HOST_CARGO_C_TRACING_CORE_0_1_31_SOURCE	:= $(SRCDIR)/tracing-core-0.1.31.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_CORE_0_1_31
 
 HOST_CARGO_C_TRACING_LOG_0_1_3_MD5		:= 96f07664354435a127662981676765dd
-HOST_CARGO_C_TRACING_LOG_0_1_3_URL		:= https://crates.io/api/v1/crates/tracing-log/0.1.3/download
+HOST_CARGO_C_TRACING_LOG_0_1_3_URL		:= $(call ptx/mirror, CRATESIO, tracing-log/0.1.3/download)
 HOST_CARGO_C_TRACING_LOG_0_1_3_SOURCE	:= $(SRCDIR)/tracing-log-0.1.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_LOG_0_1_3
 
 HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_17_MD5		:= cfb1dd88e9da7deb48893f66216661c8
-HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_17_URL		:= https://crates.io/api/v1/crates/tracing-subscriber/0.3.17/download
+HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_17_URL		:= $(call ptx/mirror, CRATESIO, tracing-subscriber/0.3.17/download)
 HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_17_SOURCE	:= $(SRCDIR)/tracing-subscriber-0.3.17.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_17
 
 HOST_CARGO_C_TYPENUM_1_17_0_MD5		:= 6ebb8deee5a5a0d1c26b20eeee1926b3
-HOST_CARGO_C_TYPENUM_1_17_0_URL		:= https://crates.io/api/v1/crates/typenum/1.17.0/download
+HOST_CARGO_C_TYPENUM_1_17_0_URL		:= $(call ptx/mirror, CRATESIO, typenum/1.17.0/download)
 HOST_CARGO_C_TYPENUM_1_17_0_SOURCE	:= $(SRCDIR)/typenum-1.17.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TYPENUM_1_17_0
 
 HOST_CARGO_C_UNICASE_2_7_0_MD5		:= 05fc1fbfb646a394e35043182c63b5de
-HOST_CARGO_C_UNICASE_2_7_0_URL		:= https://crates.io/api/v1/crates/unicase/2.7.0/download
+HOST_CARGO_C_UNICASE_2_7_0_URL		:= $(call ptx/mirror, CRATESIO, unicase/2.7.0/download)
 HOST_CARGO_C_UNICASE_2_7_0_SOURCE	:= $(SRCDIR)/unicase-2.7.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICASE_2_7_0
 
 HOST_CARGO_C_UNICODE_BIDI_0_3_13_MD5		:= 04c5de5f2fcb441ced909a45cff020bd
-HOST_CARGO_C_UNICODE_BIDI_0_3_13_URL		:= https://crates.io/api/v1/crates/unicode-bidi/0.3.13/download
+HOST_CARGO_C_UNICODE_BIDI_0_3_13_URL		:= $(call ptx/mirror, CRATESIO, unicode-bidi/0.3.13/download)
 HOST_CARGO_C_UNICODE_BIDI_0_3_13_SOURCE	:= $(SRCDIR)/unicode-bidi-0.3.13.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_BIDI_0_3_13
 
 HOST_CARGO_C_UNICODE_BOM_2_0_2_MD5		:= 24d96a72c285ee29e79ea640d1c0391d
-HOST_CARGO_C_UNICODE_BOM_2_0_2_URL		:= https://crates.io/api/v1/crates/unicode-bom/2.0.2/download
+HOST_CARGO_C_UNICODE_BOM_2_0_2_URL		:= $(call ptx/mirror, CRATESIO, unicode-bom/2.0.2/download)
 HOST_CARGO_C_UNICODE_BOM_2_0_2_SOURCE	:= $(SRCDIR)/unicode-bom-2.0.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_BOM_2_0_2
 
 HOST_CARGO_C_UNICODE_IDENT_1_0_12_MD5		:= ca65153603a1a7240bbd9d2ce19f2d67
-HOST_CARGO_C_UNICODE_IDENT_1_0_12_URL		:= https://crates.io/api/v1/crates/unicode-ident/1.0.12/download
+HOST_CARGO_C_UNICODE_IDENT_1_0_12_URL		:= $(call ptx/mirror, CRATESIO, unicode-ident/1.0.12/download)
 HOST_CARGO_C_UNICODE_IDENT_1_0_12_SOURCE	:= $(SRCDIR)/unicode-ident-1.0.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_IDENT_1_0_12
 
 HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_22_MD5		:= c12d182417999fc365f952e701f6071f
-HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_22_URL		:= https://crates.io/api/v1/crates/unicode-normalization/0.1.22/download
+HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_22_URL		:= $(call ptx/mirror, CRATESIO, unicode-normalization/0.1.22/download)
 HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_22_SOURCE	:= $(SRCDIR)/unicode-normalization-0.1.22.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_22
 
 HOST_CARGO_C_UNICODE_WIDTH_0_1_11_MD5		:= 908ec8a89821b72f3a35726bab24461f
-HOST_CARGO_C_UNICODE_WIDTH_0_1_11_URL		:= https://crates.io/api/v1/crates/unicode-width/0.1.11/download
+HOST_CARGO_C_UNICODE_WIDTH_0_1_11_URL		:= $(call ptx/mirror, CRATESIO, unicode-width/0.1.11/download)
 HOST_CARGO_C_UNICODE_WIDTH_0_1_11_SOURCE	:= $(SRCDIR)/unicode-width-0.1.11.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_WIDTH_0_1_11
 
 HOST_CARGO_C_UNICODE_XID_0_2_4_MD5		:= 1fcc5c68ddd2899481f89c74a6f35ea6
-HOST_CARGO_C_UNICODE_XID_0_2_4_URL		:= https://crates.io/api/v1/crates/unicode-xid/0.2.4/download
+HOST_CARGO_C_UNICODE_XID_0_2_4_URL		:= $(call ptx/mirror, CRATESIO, unicode-xid/0.2.4/download)
 HOST_CARGO_C_UNICODE_XID_0_2_4_SOURCE	:= $(SRCDIR)/unicode-xid-0.2.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_XID_0_2_4
 
 HOST_CARGO_C_URL_2_4_1_MD5		:= efd4c5bfd0861c5cf7ac6a0823fb9c96
-HOST_CARGO_C_URL_2_4_1_URL		:= https://crates.io/api/v1/crates/url/2.4.1/download
+HOST_CARGO_C_URL_2_4_1_URL		:= $(call ptx/mirror, CRATESIO, url/2.4.1/download)
 HOST_CARGO_C_URL_2_4_1_SOURCE	:= $(SRCDIR)/url-2.4.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_URL_2_4_1
 
 HOST_CARGO_C_UTF8PARSE_0_2_1_MD5		:= ceee1159c41351d05f4cf705490867b3
-HOST_CARGO_C_UTF8PARSE_0_2_1_URL		:= https://crates.io/api/v1/crates/utf8parse/0.2.1/download
+HOST_CARGO_C_UTF8PARSE_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, utf8parse/0.2.1/download)
 HOST_CARGO_C_UTF8PARSE_0_2_1_SOURCE	:= $(SRCDIR)/utf8parse-0.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UTF8PARSE_0_2_1
 
 HOST_CARGO_C_VALUABLE_0_1_0_MD5		:= 4efc6e7a118524cecefa0023a18accf7
-HOST_CARGO_C_VALUABLE_0_1_0_URL		:= https://crates.io/api/v1/crates/valuable/0.1.0/download
+HOST_CARGO_C_VALUABLE_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, valuable/0.1.0/download)
 HOST_CARGO_C_VALUABLE_0_1_0_SOURCE	:= $(SRCDIR)/valuable-0.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_VALUABLE_0_1_0
 
 HOST_CARGO_C_VCPKG_0_2_15_MD5		:= e900a384ac7dbb320fe6a7279fbfef89
-HOST_CARGO_C_VCPKG_0_2_15_URL		:= https://crates.io/api/v1/crates/vcpkg/0.2.15/download
+HOST_CARGO_C_VCPKG_0_2_15_URL		:= $(call ptx/mirror, CRATESIO, vcpkg/0.2.15/download)
 HOST_CARGO_C_VCPKG_0_2_15_SOURCE	:= $(SRCDIR)/vcpkg-0.2.15.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_VCPKG_0_2_15
 
 HOST_CARGO_C_VERSION_CHECK_0_9_4_MD5		:= d18d362345c4fe512ef67b738b239fb8
-HOST_CARGO_C_VERSION_CHECK_0_9_4_URL		:= https://crates.io/api/v1/crates/version_check/0.9.4/download
+HOST_CARGO_C_VERSION_CHECK_0_9_4_URL		:= $(call ptx/mirror, CRATESIO, version_check/0.9.4/download)
 HOST_CARGO_C_VERSION_CHECK_0_9_4_SOURCE	:= $(SRCDIR)/version_check-0.9.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_VERSION_CHECK_0_9_4
 
 HOST_CARGO_C_VTE_0_10_1_MD5		:= 86a6d196e4dabf14f3b1366eee81b86c
-HOST_CARGO_C_VTE_0_10_1_URL		:= https://crates.io/api/v1/crates/vte/0.10.1/download
+HOST_CARGO_C_VTE_0_10_1_URL		:= $(call ptx/mirror, CRATESIO, vte/0.10.1/download)
 HOST_CARGO_C_VTE_0_10_1_SOURCE	:= $(SRCDIR)/vte-0.10.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_VTE_0_10_1
 
 HOST_CARGO_C_VTE_GENERATE_STATE_CHANGES_0_1_1_MD5		:= a29fec77b1e07caf7b682b881b676c06
-HOST_CARGO_C_VTE_GENERATE_STATE_CHANGES_0_1_1_URL		:= https://crates.io/api/v1/crates/vte_generate_state_changes/0.1.1/download
+HOST_CARGO_C_VTE_GENERATE_STATE_CHANGES_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, vte_generate_state_changes/0.1.1/download)
 HOST_CARGO_C_VTE_GENERATE_STATE_CHANGES_0_1_1_SOURCE	:= $(SRCDIR)/vte_generate_state_changes-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_VTE_GENERATE_STATE_CHANGES_0_1_1
 
 HOST_CARGO_C_WALKDIR_2_4_0_MD5		:= 96481ed810273371ed8b87f062a0dcda
-HOST_CARGO_C_WALKDIR_2_4_0_URL		:= https://crates.io/api/v1/crates/walkdir/2.4.0/download
+HOST_CARGO_C_WALKDIR_2_4_0_URL		:= $(call ptx/mirror, CRATESIO, walkdir/2.4.0/download)
 HOST_CARGO_C_WALKDIR_2_4_0_SOURCE	:= $(SRCDIR)/walkdir-2.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WALKDIR_2_4_0
 
 HOST_CARGO_C_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_MD5		:= e972ea58ec203bfa6c79c1207852298b
-HOST_CARGO_C_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_URL		:= https://crates.io/api/v1/crates/wasi/0.11.0+wasi-snapshot-preview1/download
+HOST_CARGO_C_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_URL		:= $(call ptx/mirror, CRATESIO, wasi/0.11.0+wasi-snapshot-preview1/download)
 HOST_CARGO_C_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_SOURCE	:= $(SRCDIR)/wasi-0.11.0+wasi-snapshot-preview1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1
 
 HOST_CARGO_C_WASM_BINDGEN_0_2_87_MD5		:= 64f9f5c520b25087ba70e4194d6aea9c
-HOST_CARGO_C_WASM_BINDGEN_0_2_87_URL		:= https://crates.io/api/v1/crates/wasm-bindgen/0.2.87/download
+HOST_CARGO_C_WASM_BINDGEN_0_2_87_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen/0.2.87/download)
 HOST_CARGO_C_WASM_BINDGEN_0_2_87_SOURCE	:= $(SRCDIR)/wasm-bindgen-0.2.87.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_0_2_87
 
 HOST_CARGO_C_WASM_BINDGEN_BACKEND_0_2_87_MD5		:= e1aaf0d487ef02def77307a74ee35606
-HOST_CARGO_C_WASM_BINDGEN_BACKEND_0_2_87_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-backend/0.2.87/download
+HOST_CARGO_C_WASM_BINDGEN_BACKEND_0_2_87_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-backend/0.2.87/download)
 HOST_CARGO_C_WASM_BINDGEN_BACKEND_0_2_87_SOURCE	:= $(SRCDIR)/wasm-bindgen-backend-0.2.87.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_BACKEND_0_2_87
 
 HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_87_MD5		:= e41541041285d9f05d372cdac02a4bf7
-HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_87_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-macro/0.2.87/download
+HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_87_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-macro/0.2.87/download)
 HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_87_SOURCE	:= $(SRCDIR)/wasm-bindgen-macro-0.2.87.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_87
 
 HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_87_MD5		:= b3139f7d066250bfaf96b99e913ee75d
-HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_87_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-macro-support/0.2.87/download
+HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_87_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-macro-support/0.2.87/download)
 HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_87_SOURCE	:= $(SRCDIR)/wasm-bindgen-macro-support-0.2.87.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_87
 
 HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_87_MD5		:= 4185de0682e5e5f3a9f13285218e59aa
-HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_87_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-shared/0.2.87/download
+HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_87_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-shared/0.2.87/download)
 HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_87_SOURCE	:= $(SRCDIR)/wasm-bindgen-shared-0.2.87.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_87
 
 HOST_CARGO_C_WINAPI_0_3_9_MD5		:= 0498c4a11448bfc35dc7bb2caa64c753
-HOST_CARGO_C_WINAPI_0_3_9_URL		:= https://crates.io/api/v1/crates/winapi/0.3.9/download
+HOST_CARGO_C_WINAPI_0_3_9_URL		:= $(call ptx/mirror, CRATESIO, winapi/0.3.9/download)
 HOST_CARGO_C_WINAPI_0_3_9_SOURCE	:= $(SRCDIR)/winapi-0.3.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINAPI_0_3_9
 
 HOST_CARGO_C_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_MD5		:= db96b50050277bf05a3c68534bbb9586
-HOST_CARGO_C_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_URL		:= https://crates.io/api/v1/crates/winapi-i686-pc-windows-gnu/0.4.0/download
+HOST_CARGO_C_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, winapi-i686-pc-windows-gnu/0.4.0/download)
 HOST_CARGO_C_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_SOURCE	:= $(SRCDIR)/winapi-i686-pc-windows-gnu-0.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINAPI_I686_PC_WINDOWS_GNU_0_4_0
 
 HOST_CARGO_C_WINAPI_UTIL_0_1_6_MD5		:= 306c0281447d1876e8220007b7a7e053
-HOST_CARGO_C_WINAPI_UTIL_0_1_6_URL		:= https://crates.io/api/v1/crates/winapi-util/0.1.6/download
+HOST_CARGO_C_WINAPI_UTIL_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, winapi-util/0.1.6/download)
 HOST_CARGO_C_WINAPI_UTIL_0_1_6_SOURCE	:= $(SRCDIR)/winapi-util-0.1.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINAPI_UTIL_0_1_6
 
 HOST_CARGO_C_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_MD5		:= 09de9d01e7331ff3da11f58be8bef0df
-HOST_CARGO_C_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_URL		:= https://crates.io/api/v1/crates/winapi-x86_64-pc-windows-gnu/0.4.0/download
+HOST_CARGO_C_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, winapi-x86_64-pc-windows-gnu/0.4.0/download)
 HOST_CARGO_C_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_SOURCE	:= $(SRCDIR)/winapi-x86_64-pc-windows-gnu-0.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0
 
 HOST_CARGO_C_WINDOWS_0_48_0_MD5		:= f4620d6217497ee2c54090cd353ceec4
-HOST_CARGO_C_WINDOWS_0_48_0_URL		:= https://crates.io/api/v1/crates/windows/0.48.0/download
+HOST_CARGO_C_WINDOWS_0_48_0_URL		:= $(call ptx/mirror, CRATESIO, windows/0.48.0/download)
 HOST_CARGO_C_WINDOWS_0_48_0_SOURCE	:= $(SRCDIR)/windows-0.48.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_0_48_0
 
 HOST_CARGO_C_WINDOWS_SYS_0_48_0_MD5		:= f2797ade0e36f1e5d6be9d11b5076582
-HOST_CARGO_C_WINDOWS_SYS_0_48_0_URL		:= https://crates.io/api/v1/crates/windows-sys/0.48.0/download
+HOST_CARGO_C_WINDOWS_SYS_0_48_0_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.48.0/download)
 HOST_CARGO_C_WINDOWS_SYS_0_48_0_SOURCE	:= $(SRCDIR)/windows-sys-0.48.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_SYS_0_48_0
 
 HOST_CARGO_C_WINDOWS_TARGETS_0_48_5_MD5		:= 24c64817e85ef77765ed0f26c31c9b4c
-HOST_CARGO_C_WINDOWS_TARGETS_0_48_5_URL		:= https://crates.io/api/v1/crates/windows-targets/0.48.5/download
+HOST_CARGO_C_WINDOWS_TARGETS_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows-targets/0.48.5/download)
 HOST_CARGO_C_WINDOWS_TARGETS_0_48_5_SOURCE	:= $(SRCDIR)/windows-targets-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_TARGETS_0_48_5
 
 HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_48_5_MD5		:= dae6d89034a6988042fd8be4cf5e037d
-HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.48.5/download
+HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_gnullvm/0.48.5/download)
 HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_48_5_SOURCE	:= $(SRCDIR)/windows_aarch64_gnullvm-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_48_5
 
 HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_48_5_MD5		:= de2839e16d9d7a9fd1c397da62f62b4a
-HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_aarch64_msvc/0.48.5/download
+HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_msvc/0.48.5/download)
 HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_48_5_SOURCE	:= $(SRCDIR)/windows_aarch64_msvc-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_48_5
 
 HOST_CARGO_C_WINDOWS_I686_GNU_0_48_5_MD5		:= e0c35ffb8cfdb74a39bf799811f79304
-HOST_CARGO_C_WINDOWS_I686_GNU_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_i686_gnu/0.48.5/download
+HOST_CARGO_C_WINDOWS_I686_GNU_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnu/0.48.5/download)
 HOST_CARGO_C_WINDOWS_I686_GNU_0_48_5_SOURCE	:= $(SRCDIR)/windows_i686_gnu-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_GNU_0_48_5
 
 HOST_CARGO_C_WINDOWS_I686_MSVC_0_48_5_MD5		:= d990172b607020701f9e84ca8e1c043c
-HOST_CARGO_C_WINDOWS_I686_MSVC_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_i686_msvc/0.48.5/download
+HOST_CARGO_C_WINDOWS_I686_MSVC_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_msvc/0.48.5/download)
 HOST_CARGO_C_WINDOWS_I686_MSVC_0_48_5_SOURCE	:= $(SRCDIR)/windows_i686_msvc-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_MSVC_0_48_5
 
 HOST_CARGO_C_WINDOWS_X86_64_GNU_0_48_5_MD5		:= 0a68848588e847ceccf504891584d00b
-HOST_CARGO_C_WINDOWS_X86_64_GNU_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnu/0.48.5/download
+HOST_CARGO_C_WINDOWS_X86_64_GNU_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnu/0.48.5/download)
 HOST_CARGO_C_WINDOWS_X86_64_GNU_0_48_5_SOURCE	:= $(SRCDIR)/windows_x86_64_gnu-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_GNU_0_48_5
 
 HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_48_5_MD5		:= 45b469ad607b912256b7c80141fa2d17
-HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.48.5/download
+HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnullvm/0.48.5/download)
 HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_48_5_SOURCE	:= $(SRCDIR)/windows_x86_64_gnullvm-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_48_5
 
 HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_48_5_MD5		:= 7799baff9a5664205d9110a2624e8989
-HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_x86_64_msvc/0.48.5/download
+HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_msvc/0.48.5/download)
 HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_48_5_SOURCE	:= $(SRCDIR)/windows_x86_64_msvc-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_48_5
 
 HOST_CARGO_C_WINNOW_0_5_16_MD5		:= 272835bd8732c792af0e7a46f823862e
-HOST_CARGO_C_WINNOW_0_5_16_URL		:= https://crates.io/api/v1/crates/winnow/0.5.16/download
+HOST_CARGO_C_WINNOW_0_5_16_URL		:= $(call ptx/mirror, CRATESIO, winnow/0.5.16/download)
 HOST_CARGO_C_WINNOW_0_5_16_SOURCE	:= $(SRCDIR)/winnow-0.5.16.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINNOW_0_5_16
 
 HOST_CARGO_C_ZEROIZE_1_6_0_MD5		:= 3ea38bd15c38388574094ce24a47c586
-HOST_CARGO_C_ZEROIZE_1_6_0_URL		:= https://crates.io/api/v1/crates/zeroize/1.6.0/download
+HOST_CARGO_C_ZEROIZE_1_6_0_URL		:= $(call ptx/mirror, CRATESIO, zeroize/1.6.0/download)
 HOST_CARGO_C_ZEROIZE_1_6_0_SOURCE	:= $(SRCDIR)/zeroize-1.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROIZE_1_6_0
 
@@ -1527,1667 +1527,1667 @@ ifeq ($(HOST_CARGO_C_VERSION),0.10.4+cargo-0.82.0)
 HOST_CARGO_C_CARGO_LOCK_MD5 := 10765b0a906b6e28373a8e162b80dc82
 
 HOST_CARGO_C_ADLER2_2_0_0_MD5		:= 579e59ba996675f454d456471924ea9d
-HOST_CARGO_C_ADLER2_2_0_0_URL		:= https://crates.io/api/v1/crates/adler2/2.0.0/download
+HOST_CARGO_C_ADLER2_2_0_0_URL		:= $(call ptx/mirror, CRATESIO, adler2/2.0.0/download)
 HOST_CARGO_C_ADLER2_2_0_0_SOURCE	:= $(SRCDIR)/adler2-2.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ADLER2_2_0_0
 
 HOST_CARGO_C_AHASH_0_8_11_MD5		:= adbb51e40b28255c49b2ad1d956eff19
-HOST_CARGO_C_AHASH_0_8_11_URL		:= https://crates.io/api/v1/crates/ahash/0.8.11/download
+HOST_CARGO_C_AHASH_0_8_11_URL		:= $(call ptx/mirror, CRATESIO, ahash/0.8.11/download)
 HOST_CARGO_C_AHASH_0_8_11_SOURCE	:= $(SRCDIR)/ahash-0.8.11.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_AHASH_0_8_11
 
 HOST_CARGO_C_AHO_CORASICK_1_1_3_MD5		:= 03b2d126766ed746706241b4c7487654
-HOST_CARGO_C_AHO_CORASICK_1_1_3_URL		:= https://crates.io/api/v1/crates/aho-corasick/1.1.3/download
+HOST_CARGO_C_AHO_CORASICK_1_1_3_URL		:= $(call ptx/mirror, CRATESIO, aho-corasick/1.1.3/download)
 HOST_CARGO_C_AHO_CORASICK_1_1_3_SOURCE	:= $(SRCDIR)/aho-corasick-1.1.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_AHO_CORASICK_1_1_3
 
 HOST_CARGO_C_ALLOCATOR_API2_0_2_18_MD5		:= 001e9b87bf3af37bc588654f4a5b50c0
-HOST_CARGO_C_ALLOCATOR_API2_0_2_18_URL		:= https://crates.io/api/v1/crates/allocator-api2/0.2.18/download
+HOST_CARGO_C_ALLOCATOR_API2_0_2_18_URL		:= $(call ptx/mirror, CRATESIO, allocator-api2/0.2.18/download)
 HOST_CARGO_C_ALLOCATOR_API2_0_2_18_SOURCE	:= $(SRCDIR)/allocator-api2-0.2.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ALLOCATOR_API2_0_2_18
 
 HOST_CARGO_C_ANNOTATE_SNIPPETS_0_11_4_MD5		:= f8c5610f871d7985ed467fd18ecb2b05
-HOST_CARGO_C_ANNOTATE_SNIPPETS_0_11_4_URL		:= https://crates.io/api/v1/crates/annotate-snippets/0.11.4/download
+HOST_CARGO_C_ANNOTATE_SNIPPETS_0_11_4_URL		:= $(call ptx/mirror, CRATESIO, annotate-snippets/0.11.4/download)
 HOST_CARGO_C_ANNOTATE_SNIPPETS_0_11_4_SOURCE	:= $(SRCDIR)/annotate-snippets-0.11.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANNOTATE_SNIPPETS_0_11_4
 
 HOST_CARGO_C_ANSTREAM_0_6_15_MD5		:= 64c9c06c903f9515ece3705342362a9e
-HOST_CARGO_C_ANSTREAM_0_6_15_URL		:= https://crates.io/api/v1/crates/anstream/0.6.15/download
+HOST_CARGO_C_ANSTREAM_0_6_15_URL		:= $(call ptx/mirror, CRATESIO, anstream/0.6.15/download)
 HOST_CARGO_C_ANSTREAM_0_6_15_SOURCE	:= $(SRCDIR)/anstream-0.6.15.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTREAM_0_6_15
 
 HOST_CARGO_C_ANSTYLE_1_0_8_MD5		:= 3d57cfa9d3c706404483c80170e1f7f9
-HOST_CARGO_C_ANSTYLE_1_0_8_URL		:= https://crates.io/api/v1/crates/anstyle/1.0.8/download
+HOST_CARGO_C_ANSTYLE_1_0_8_URL		:= $(call ptx/mirror, CRATESIO, anstyle/1.0.8/download)
 HOST_CARGO_C_ANSTYLE_1_0_8_SOURCE	:= $(SRCDIR)/anstyle-1.0.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_1_0_8
 
 HOST_CARGO_C_ANSTYLE_PARSE_0_2_5_MD5		:= e2c3ead6439544dad05a90db9f59cbdd
-HOST_CARGO_C_ANSTYLE_PARSE_0_2_5_URL		:= https://crates.io/api/v1/crates/anstyle-parse/0.2.5/download
+HOST_CARGO_C_ANSTYLE_PARSE_0_2_5_URL		:= $(call ptx/mirror, CRATESIO, anstyle-parse/0.2.5/download)
 HOST_CARGO_C_ANSTYLE_PARSE_0_2_5_SOURCE	:= $(SRCDIR)/anstyle-parse-0.2.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_PARSE_0_2_5
 
 HOST_CARGO_C_ANSTYLE_QUERY_1_1_1_MD5		:= 1eace5e9ecd352f139eef4c16e2c1660
-HOST_CARGO_C_ANSTYLE_QUERY_1_1_1_URL		:= https://crates.io/api/v1/crates/anstyle-query/1.1.1/download
+HOST_CARGO_C_ANSTYLE_QUERY_1_1_1_URL		:= $(call ptx/mirror, CRATESIO, anstyle-query/1.1.1/download)
 HOST_CARGO_C_ANSTYLE_QUERY_1_1_1_SOURCE	:= $(SRCDIR)/anstyle-query-1.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_QUERY_1_1_1
 
 HOST_CARGO_C_ANSTYLE_WINCON_3_0_4_MD5		:= 27ebd71018dd6d909d4332d755908610
-HOST_CARGO_C_ANSTYLE_WINCON_3_0_4_URL		:= https://crates.io/api/v1/crates/anstyle-wincon/3.0.4/download
+HOST_CARGO_C_ANSTYLE_WINCON_3_0_4_URL		:= $(call ptx/mirror, CRATESIO, anstyle-wincon/3.0.4/download)
 HOST_CARGO_C_ANSTYLE_WINCON_3_0_4_SOURCE	:= $(SRCDIR)/anstyle-wincon-3.0.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_WINCON_3_0_4
 
 HOST_CARGO_C_ANYHOW_1_0_86_MD5		:= 19bd0fc50aacf1d2af60bd5908442db6
-HOST_CARGO_C_ANYHOW_1_0_86_URL		:= https://crates.io/api/v1/crates/anyhow/1.0.86/download
+HOST_CARGO_C_ANYHOW_1_0_86_URL		:= $(call ptx/mirror, CRATESIO, anyhow/1.0.86/download)
 HOST_CARGO_C_ANYHOW_1_0_86_SOURCE	:= $(SRCDIR)/anyhow-1.0.86.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANYHOW_1_0_86
 
 HOST_CARGO_C_ARC_SWAP_1_7_1_MD5		:= a5f88692dcd3b16eed2f184509dce05b
-HOST_CARGO_C_ARC_SWAP_1_7_1_URL		:= https://crates.io/api/v1/crates/arc-swap/1.7.1/download
+HOST_CARGO_C_ARC_SWAP_1_7_1_URL		:= $(call ptx/mirror, CRATESIO, arc-swap/1.7.1/download)
 HOST_CARGO_C_ARC_SWAP_1_7_1_SOURCE	:= $(SRCDIR)/arc-swap-1.7.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ARC_SWAP_1_7_1
 
 HOST_CARGO_C_AUTOCFG_1_3_0_MD5		:= 88a8c7336f056de768ee2966cefd8303
-HOST_CARGO_C_AUTOCFG_1_3_0_URL		:= https://crates.io/api/v1/crates/autocfg/1.3.0/download
+HOST_CARGO_C_AUTOCFG_1_3_0_URL		:= $(call ptx/mirror, CRATESIO, autocfg/1.3.0/download)
 HOST_CARGO_C_AUTOCFG_1_3_0_SOURCE	:= $(SRCDIR)/autocfg-1.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_AUTOCFG_1_3_0
 
 HOST_CARGO_C_BASE16CT_0_2_0_MD5		:= 5a1ece5125e266d39693587725f0270d
-HOST_CARGO_C_BASE16CT_0_2_0_URL		:= https://crates.io/api/v1/crates/base16ct/0.2.0/download
+HOST_CARGO_C_BASE16CT_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, base16ct/0.2.0/download)
 HOST_CARGO_C_BASE16CT_0_2_0_SOURCE	:= $(SRCDIR)/base16ct-0.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BASE16CT_0_2_0
 
 HOST_CARGO_C_BASE64_0_22_1_MD5		:= 20084c4c04bcc06fd3d7ff662deca706
-HOST_CARGO_C_BASE64_0_22_1_URL		:= https://crates.io/api/v1/crates/base64/0.22.1/download
+HOST_CARGO_C_BASE64_0_22_1_URL		:= $(call ptx/mirror, CRATESIO, base64/0.22.1/download)
 HOST_CARGO_C_BASE64_0_22_1_SOURCE	:= $(SRCDIR)/base64-0.22.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BASE64_0_22_1
 
 HOST_CARGO_C_BASE64CT_1_6_0_MD5		:= bd4c0e123b65937461c135ff7030a44e
-HOST_CARGO_C_BASE64CT_1_6_0_URL		:= https://crates.io/api/v1/crates/base64ct/1.6.0/download
+HOST_CARGO_C_BASE64CT_1_6_0_URL		:= $(call ptx/mirror, CRATESIO, base64ct/1.6.0/download)
 HOST_CARGO_C_BASE64CT_1_6_0_SOURCE	:= $(SRCDIR)/base64ct-1.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BASE64CT_1_6_0
 
 HOST_CARGO_C_BITFLAGS_2_6_0_MD5		:= a765e0d59ae689aa9eb9722c6553e499
-HOST_CARGO_C_BITFLAGS_2_6_0_URL		:= https://crates.io/api/v1/crates/bitflags/2.6.0/download
+HOST_CARGO_C_BITFLAGS_2_6_0_URL		:= $(call ptx/mirror, CRATESIO, bitflags/2.6.0/download)
 HOST_CARGO_C_BITFLAGS_2_6_0_SOURCE	:= $(SRCDIR)/bitflags-2.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BITFLAGS_2_6_0
 
 HOST_CARGO_C_BITMAPS_2_1_0_MD5		:= 1f3a8c93940230a06fdf5223a64000bf
-HOST_CARGO_C_BITMAPS_2_1_0_URL		:= https://crates.io/api/v1/crates/bitmaps/2.1.0/download
+HOST_CARGO_C_BITMAPS_2_1_0_URL		:= $(call ptx/mirror, CRATESIO, bitmaps/2.1.0/download)
 HOST_CARGO_C_BITMAPS_2_1_0_SOURCE	:= $(SRCDIR)/bitmaps-2.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BITMAPS_2_1_0
 
 HOST_CARGO_C_BLOCK_BUFFER_0_10_4_MD5		:= 023b03cf9968b29253a5dfe62051008d
-HOST_CARGO_C_BLOCK_BUFFER_0_10_4_URL		:= https://crates.io/api/v1/crates/block-buffer/0.10.4/download
+HOST_CARGO_C_BLOCK_BUFFER_0_10_4_URL		:= $(call ptx/mirror, CRATESIO, block-buffer/0.10.4/download)
 HOST_CARGO_C_BLOCK_BUFFER_0_10_4_SOURCE	:= $(SRCDIR)/block-buffer-0.10.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BLOCK_BUFFER_0_10_4
 
 HOST_CARGO_C_BSTR_1_10_0_MD5		:= d5f24b25f3b9c60539df0dc5ea309be5
-HOST_CARGO_C_BSTR_1_10_0_URL		:= https://crates.io/api/v1/crates/bstr/1.10.0/download
+HOST_CARGO_C_BSTR_1_10_0_URL		:= $(call ptx/mirror, CRATESIO, bstr/1.10.0/download)
 HOST_CARGO_C_BSTR_1_10_0_SOURCE	:= $(SRCDIR)/bstr-1.10.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BSTR_1_10_0
 
 HOST_CARGO_C_BUMPALO_3_16_0_MD5		:= a3c12a0b2ddb55ec1b245f9950e7bdf1
-HOST_CARGO_C_BUMPALO_3_16_0_URL		:= https://crates.io/api/v1/crates/bumpalo/3.16.0/download
+HOST_CARGO_C_BUMPALO_3_16_0_URL		:= $(call ptx/mirror, CRATESIO, bumpalo/3.16.0/download)
 HOST_CARGO_C_BUMPALO_3_16_0_SOURCE	:= $(SRCDIR)/bumpalo-3.16.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BUMPALO_3_16_0
 
 HOST_CARGO_C_BYTEORDER_1_5_0_MD5		:= 45339d90b2b3a4f123af5ec459954102
-HOST_CARGO_C_BYTEORDER_1_5_0_URL		:= https://crates.io/api/v1/crates/byteorder/1.5.0/download
+HOST_CARGO_C_BYTEORDER_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, byteorder/1.5.0/download)
 HOST_CARGO_C_BYTEORDER_1_5_0_SOURCE	:= $(SRCDIR)/byteorder-1.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BYTEORDER_1_5_0
 
 HOST_CARGO_C_BYTES_1_7_1_MD5		:= dae5f58ddfc8f98be6fe365d378888d2
-HOST_CARGO_C_BYTES_1_7_1_URL		:= https://crates.io/api/v1/crates/bytes/1.7.1/download
+HOST_CARGO_C_BYTES_1_7_1_URL		:= $(call ptx/mirror, CRATESIO, bytes/1.7.1/download)
 HOST_CARGO_C_BYTES_1_7_1_SOURCE	:= $(SRCDIR)/bytes-1.7.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BYTES_1_7_1
 
 HOST_CARGO_C_BYTESIZE_1_3_0_MD5		:= 04c2dcc3c8184578320c53d63a07aed0
-HOST_CARGO_C_BYTESIZE_1_3_0_URL		:= https://crates.io/api/v1/crates/bytesize/1.3.0/download
+HOST_CARGO_C_BYTESIZE_1_3_0_URL		:= $(call ptx/mirror, CRATESIO, bytesize/1.3.0/download)
 HOST_CARGO_C_BYTESIZE_1_3_0_SOURCE	:= $(SRCDIR)/bytesize-1.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BYTESIZE_1_3_0
 
 HOST_CARGO_C_CARGO_0_82_0_MD5		:= caf6528362a008de1b3a3302effb3ff7
-HOST_CARGO_C_CARGO_0_82_0_URL		:= https://crates.io/api/v1/crates/cargo/0.82.0/download
+HOST_CARGO_C_CARGO_0_82_0_URL		:= $(call ptx/mirror, CRATESIO, cargo/0.82.0/download)
 HOST_CARGO_C_CARGO_0_82_0_SOURCE	:= $(SRCDIR)/cargo-0.82.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_0_82_0
 
 HOST_CARGO_C_CARGO_CREDENTIAL_0_4_6_MD5		:= 77884a6a5e16b7cc575ae5941bd5c1fe
-HOST_CARGO_C_CARGO_CREDENTIAL_0_4_6_URL		:= https://crates.io/api/v1/crates/cargo-credential/0.4.6/download
+HOST_CARGO_C_CARGO_CREDENTIAL_0_4_6_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential/0.4.6/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_0_4_6_SOURCE	:= $(SRCDIR)/cargo-credential-0.4.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_0_4_6
 
 HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_4_7_MD5		:= 7b80c6a1ed7d95e0f57654655d86d2e8
-HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_4_7_URL		:= https://crates.io/api/v1/crates/cargo-credential-libsecret/0.4.7/download
+HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_4_7_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential-libsecret/0.4.7/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_4_7_SOURCE	:= $(SRCDIR)/cargo-credential-libsecret-0.4.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_4_7
 
 HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_4_7_MD5		:= 1b319fe268e52aed983f6ef87cbca25f
-HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_4_7_URL		:= https://crates.io/api/v1/crates/cargo-credential-macos-keychain/0.4.7/download
+HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_4_7_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential-macos-keychain/0.4.7/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_4_7_SOURCE	:= $(SRCDIR)/cargo-credential-macos-keychain-0.4.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_4_7
 
 HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_4_7_MD5		:= aa9954fee03063b3410de53896412ced
-HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_4_7_URL		:= https://crates.io/api/v1/crates/cargo-credential-wincred/0.4.7/download
+HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_4_7_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential-wincred/0.4.7/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_4_7_SOURCE	:= $(SRCDIR)/cargo-credential-wincred-0.4.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_4_7
 
 HOST_CARGO_C_CARGO_PLATFORM_0_1_8_MD5		:= 704a72387b69a38dd7c18a6ebf85448d
-HOST_CARGO_C_CARGO_PLATFORM_0_1_8_URL		:= https://crates.io/api/v1/crates/cargo-platform/0.1.8/download
+HOST_CARGO_C_CARGO_PLATFORM_0_1_8_URL		:= $(call ptx/mirror, CRATESIO, cargo-platform/0.1.8/download)
 HOST_CARGO_C_CARGO_PLATFORM_0_1_8_SOURCE	:= $(SRCDIR)/cargo-platform-0.1.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_PLATFORM_0_1_8
 
 HOST_CARGO_C_CARGO_UTIL_0_2_14_MD5		:= f4123f70146bb99390192efff6367652
-HOST_CARGO_C_CARGO_UTIL_0_2_14_URL		:= https://crates.io/api/v1/crates/cargo-util/0.2.14/download
+HOST_CARGO_C_CARGO_UTIL_0_2_14_URL		:= $(call ptx/mirror, CRATESIO, cargo-util/0.2.14/download)
 HOST_CARGO_C_CARGO_UTIL_0_2_14_SOURCE	:= $(SRCDIR)/cargo-util-0.2.14.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_UTIL_0_2_14
 
 HOST_CARGO_C_CARGO_UTIL_SCHEMAS_0_5_0_MD5		:= fa53118ba5dda4c1ff47448496a87282
-HOST_CARGO_C_CARGO_UTIL_SCHEMAS_0_5_0_URL		:= https://crates.io/api/v1/crates/cargo-util-schemas/0.5.0/download
+HOST_CARGO_C_CARGO_UTIL_SCHEMAS_0_5_0_URL		:= $(call ptx/mirror, CRATESIO, cargo-util-schemas/0.5.0/download)
 HOST_CARGO_C_CARGO_UTIL_SCHEMAS_0_5_0_SOURCE	:= $(SRCDIR)/cargo-util-schemas-0.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_UTIL_SCHEMAS_0_5_0
 
 HOST_CARGO_C_CBINDGEN_0_27_0_MD5		:= 4a9fd25f020f4a3d461ef5915236a62f
-HOST_CARGO_C_CBINDGEN_0_27_0_URL		:= https://crates.io/api/v1/crates/cbindgen/0.27.0/download
+HOST_CARGO_C_CBINDGEN_0_27_0_URL		:= $(call ptx/mirror, CRATESIO, cbindgen/0.27.0/download)
 HOST_CARGO_C_CBINDGEN_0_27_0_SOURCE	:= $(SRCDIR)/cbindgen-0.27.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CBINDGEN_0_27_0
 
 HOST_CARGO_C_CC_1_1_16_MD5		:= 8de3f4281ffaf3e841f25e00ec35f8bd
-HOST_CARGO_C_CC_1_1_16_URL		:= https://crates.io/api/v1/crates/cc/1.1.16/download
+HOST_CARGO_C_CC_1_1_16_URL		:= $(call ptx/mirror, CRATESIO, cc/1.1.16/download)
 HOST_CARGO_C_CC_1_1_16_SOURCE	:= $(SRCDIR)/cc-1.1.16.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CC_1_1_16
 
 HOST_CARGO_C_CFG_IF_1_0_0_MD5		:= 74634128440dbc3766bda76fdf0aaa05
-HOST_CARGO_C_CFG_IF_1_0_0_URL		:= https://crates.io/api/v1/crates/cfg-if/1.0.0/download
+HOST_CARGO_C_CFG_IF_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, cfg-if/1.0.0/download)
 HOST_CARGO_C_CFG_IF_1_0_0_SOURCE	:= $(SRCDIR)/cfg-if-1.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CFG_IF_1_0_0
 
 HOST_CARGO_C_CLAP_4_5_17_MD5		:= 7b813c52a542db88e061c0fb20d5ad7e
-HOST_CARGO_C_CLAP_4_5_17_URL		:= https://crates.io/api/v1/crates/clap/4.5.17/download
+HOST_CARGO_C_CLAP_4_5_17_URL		:= $(call ptx/mirror, CRATESIO, clap/4.5.17/download)
 HOST_CARGO_C_CLAP_4_5_17_SOURCE	:= $(SRCDIR)/clap-4.5.17.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_4_5_17
 
 HOST_CARGO_C_CLAP_BUILDER_4_5_17_MD5		:= 0eefb31613be4bc92f6ff7ff7f606302
-HOST_CARGO_C_CLAP_BUILDER_4_5_17_URL		:= https://crates.io/api/v1/crates/clap_builder/4.5.17/download
+HOST_CARGO_C_CLAP_BUILDER_4_5_17_URL		:= $(call ptx/mirror, CRATESIO, clap_builder/4.5.17/download)
 HOST_CARGO_C_CLAP_BUILDER_4_5_17_SOURCE	:= $(SRCDIR)/clap_builder-4.5.17.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_BUILDER_4_5_17
 
 HOST_CARGO_C_CLAP_DERIVE_4_5_13_MD5		:= 7003229295eeee486c4144d09dd66a41
-HOST_CARGO_C_CLAP_DERIVE_4_5_13_URL		:= https://crates.io/api/v1/crates/clap_derive/4.5.13/download
+HOST_CARGO_C_CLAP_DERIVE_4_5_13_URL		:= $(call ptx/mirror, CRATESIO, clap_derive/4.5.13/download)
 HOST_CARGO_C_CLAP_DERIVE_4_5_13_SOURCE	:= $(SRCDIR)/clap_derive-4.5.13.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_DERIVE_4_5_13
 
 HOST_CARGO_C_CLAP_LEX_0_7_2_MD5		:= 8a3db8ec4d6912594fb2599bf2d6feba
-HOST_CARGO_C_CLAP_LEX_0_7_2_URL		:= https://crates.io/api/v1/crates/clap_lex/0.7.2/download
+HOST_CARGO_C_CLAP_LEX_0_7_2_URL		:= $(call ptx/mirror, CRATESIO, clap_lex/0.7.2/download)
 HOST_CARGO_C_CLAP_LEX_0_7_2_SOURCE	:= $(SRCDIR)/clap_lex-0.7.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_LEX_0_7_2
 
 HOST_CARGO_C_CLRU_0_6_2_MD5		:= 04baa08ff2d38dad4a10e7a27a9768d4
-HOST_CARGO_C_CLRU_0_6_2_URL		:= https://crates.io/api/v1/crates/clru/0.6.2/download
+HOST_CARGO_C_CLRU_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, clru/0.6.2/download)
 HOST_CARGO_C_CLRU_0_6_2_SOURCE	:= $(SRCDIR)/clru-0.6.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLRU_0_6_2
 
 HOST_CARGO_C_COLOR_PRINT_0_3_6_MD5		:= 603dc8e08934ea5ae9025f5456fa6679
-HOST_CARGO_C_COLOR_PRINT_0_3_6_URL		:= https://crates.io/api/v1/crates/color-print/0.3.6/download
+HOST_CARGO_C_COLOR_PRINT_0_3_6_URL		:= $(call ptx/mirror, CRATESIO, color-print/0.3.6/download)
 HOST_CARGO_C_COLOR_PRINT_0_3_6_SOURCE	:= $(SRCDIR)/color-print-0.3.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_COLOR_PRINT_0_3_6
 
 HOST_CARGO_C_COLOR_PRINT_PROC_MACRO_0_3_6_MD5		:= 8916bb4ab39f22fa9651fe98c92faa5e
-HOST_CARGO_C_COLOR_PRINT_PROC_MACRO_0_3_6_URL		:= https://crates.io/api/v1/crates/color-print-proc-macro/0.3.6/download
+HOST_CARGO_C_COLOR_PRINT_PROC_MACRO_0_3_6_URL		:= $(call ptx/mirror, CRATESIO, color-print-proc-macro/0.3.6/download)
 HOST_CARGO_C_COLOR_PRINT_PROC_MACRO_0_3_6_SOURCE	:= $(SRCDIR)/color-print-proc-macro-0.3.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_COLOR_PRINT_PROC_MACRO_0_3_6
 
 HOST_CARGO_C_COLORCHOICE_1_0_2_MD5		:= 83b095b5e7b8eed0c1e550128b940cc6
-HOST_CARGO_C_COLORCHOICE_1_0_2_URL		:= https://crates.io/api/v1/crates/colorchoice/1.0.2/download
+HOST_CARGO_C_COLORCHOICE_1_0_2_URL		:= $(call ptx/mirror, CRATESIO, colorchoice/1.0.2/download)
 HOST_CARGO_C_COLORCHOICE_1_0_2_SOURCE	:= $(SRCDIR)/colorchoice-1.0.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_COLORCHOICE_1_0_2
 
 HOST_CARGO_C_CONST_OID_0_9_6_MD5		:= 6ed0aab506ad1ec23e34c6aec4efd1d7
-HOST_CARGO_C_CONST_OID_0_9_6_URL		:= https://crates.io/api/v1/crates/const-oid/0.9.6/download
+HOST_CARGO_C_CONST_OID_0_9_6_URL		:= $(call ptx/mirror, CRATESIO, const-oid/0.9.6/download)
 HOST_CARGO_C_CONST_OID_0_9_6_SOURCE	:= $(SRCDIR)/const-oid-0.9.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CONST_OID_0_9_6
 
 HOST_CARGO_C_CORE_FOUNDATION_0_9_4_MD5		:= 4d7e3bc6c42f8a875a87246ed14d9948
-HOST_CARGO_C_CORE_FOUNDATION_0_9_4_URL		:= https://crates.io/api/v1/crates/core-foundation/0.9.4/download
+HOST_CARGO_C_CORE_FOUNDATION_0_9_4_URL		:= $(call ptx/mirror, CRATESIO, core-foundation/0.9.4/download)
 HOST_CARGO_C_CORE_FOUNDATION_0_9_4_SOURCE	:= $(SRCDIR)/core-foundation-0.9.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CORE_FOUNDATION_0_9_4
 
 HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_7_MD5		:= c5229cfccb6a1598e74a837dbc9e2797
-HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_7_URL		:= https://crates.io/api/v1/crates/core-foundation-sys/0.8.7/download
+HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_7_URL		:= $(call ptx/mirror, CRATESIO, core-foundation-sys/0.8.7/download)
 HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_7_SOURCE	:= $(SRCDIR)/core-foundation-sys-0.8.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_7
 
 HOST_CARGO_C_CPUFEATURES_0_2_13_MD5		:= aceb9dbc816de4f1cbebc8b168587a31
-HOST_CARGO_C_CPUFEATURES_0_2_13_URL		:= https://crates.io/api/v1/crates/cpufeatures/0.2.13/download
+HOST_CARGO_C_CPUFEATURES_0_2_13_URL		:= $(call ptx/mirror, CRATESIO, cpufeatures/0.2.13/download)
 HOST_CARGO_C_CPUFEATURES_0_2_13_SOURCE	:= $(SRCDIR)/cpufeatures-0.2.13.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CPUFEATURES_0_2_13
 
 HOST_CARGO_C_CRATES_IO_0_40_4_MD5		:= 43f25686207084b3290a2b488909129c
-HOST_CARGO_C_CRATES_IO_0_40_4_URL		:= https://crates.io/api/v1/crates/crates-io/0.40.4/download
+HOST_CARGO_C_CRATES_IO_0_40_4_URL		:= $(call ptx/mirror, CRATESIO, crates-io/0.40.4/download)
 HOST_CARGO_C_CRATES_IO_0_40_4_SOURCE	:= $(SRCDIR)/crates-io-0.40.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRATES_IO_0_40_4
 
 HOST_CARGO_C_CRC32FAST_1_4_2_MD5		:= f816d75ddc8831b6a300a739ddae267b
-HOST_CARGO_C_CRC32FAST_1_4_2_URL		:= https://crates.io/api/v1/crates/crc32fast/1.4.2/download
+HOST_CARGO_C_CRC32FAST_1_4_2_URL		:= $(call ptx/mirror, CRATESIO, crc32fast/1.4.2/download)
 HOST_CARGO_C_CRC32FAST_1_4_2_SOURCE	:= $(SRCDIR)/crc32fast-1.4.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRC32FAST_1_4_2
 
 HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_13_MD5		:= 442a035d4bebfb01fde2e9299563f73d
-HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_13_URL		:= https://crates.io/api/v1/crates/crossbeam-channel/0.5.13/download
+HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_13_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-channel/0.5.13/download)
 HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_13_SOURCE	:= $(SRCDIR)/crossbeam-channel-0.5.13.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_13
 
 HOST_CARGO_C_CROSSBEAM_DEQUE_0_8_5_MD5		:= 396f4f63322338c26d76b2f638646178
-HOST_CARGO_C_CROSSBEAM_DEQUE_0_8_5_URL		:= https://crates.io/api/v1/crates/crossbeam-deque/0.8.5/download
+HOST_CARGO_C_CROSSBEAM_DEQUE_0_8_5_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-deque/0.8.5/download)
 HOST_CARGO_C_CROSSBEAM_DEQUE_0_8_5_SOURCE	:= $(SRCDIR)/crossbeam-deque-0.8.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CROSSBEAM_DEQUE_0_8_5
 
 HOST_CARGO_C_CROSSBEAM_EPOCH_0_9_18_MD5		:= 44505199ec0964feb5488051b4ac92d5
-HOST_CARGO_C_CROSSBEAM_EPOCH_0_9_18_URL		:= https://crates.io/api/v1/crates/crossbeam-epoch/0.9.18/download
+HOST_CARGO_C_CROSSBEAM_EPOCH_0_9_18_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-epoch/0.9.18/download)
 HOST_CARGO_C_CROSSBEAM_EPOCH_0_9_18_SOURCE	:= $(SRCDIR)/crossbeam-epoch-0.9.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CROSSBEAM_EPOCH_0_9_18
 
 HOST_CARGO_C_CROSSBEAM_UTILS_0_8_20_MD5		:= c9a5747e504d7f3dadc1fc563ae3d6f3
-HOST_CARGO_C_CROSSBEAM_UTILS_0_8_20_URL		:= https://crates.io/api/v1/crates/crossbeam-utils/0.8.20/download
+HOST_CARGO_C_CROSSBEAM_UTILS_0_8_20_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-utils/0.8.20/download)
 HOST_CARGO_C_CROSSBEAM_UTILS_0_8_20_SOURCE	:= $(SRCDIR)/crossbeam-utils-0.8.20.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CROSSBEAM_UTILS_0_8_20
 
 HOST_CARGO_C_CRYPTO_BIGINT_0_5_5_MD5		:= d2695f81f5e7b7a44da337b59c56b363
-HOST_CARGO_C_CRYPTO_BIGINT_0_5_5_URL		:= https://crates.io/api/v1/crates/crypto-bigint/0.5.5/download
+HOST_CARGO_C_CRYPTO_BIGINT_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, crypto-bigint/0.5.5/download)
 HOST_CARGO_C_CRYPTO_BIGINT_0_5_5_SOURCE	:= $(SRCDIR)/crypto-bigint-0.5.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRYPTO_BIGINT_0_5_5
 
 HOST_CARGO_C_CRYPTO_COMMON_0_1_6_MD5		:= 89e88633cab0e4b6f3d3878b84dffe8b
-HOST_CARGO_C_CRYPTO_COMMON_0_1_6_URL		:= https://crates.io/api/v1/crates/crypto-common/0.1.6/download
+HOST_CARGO_C_CRYPTO_COMMON_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, crypto-common/0.1.6/download)
 HOST_CARGO_C_CRYPTO_COMMON_0_1_6_SOURCE	:= $(SRCDIR)/crypto-common-0.1.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRYPTO_COMMON_0_1_6
 
 HOST_CARGO_C_CT_CODECS_1_1_2_MD5		:= 4ff87b08398120ca53d49a4dee338034
-HOST_CARGO_C_CT_CODECS_1_1_2_URL		:= https://crates.io/api/v1/crates/ct-codecs/1.1.2/download
+HOST_CARGO_C_CT_CODECS_1_1_2_URL		:= $(call ptx/mirror, CRATESIO, ct-codecs/1.1.2/download)
 HOST_CARGO_C_CT_CODECS_1_1_2_SOURCE	:= $(SRCDIR)/ct-codecs-1.1.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CT_CODECS_1_1_2
 
 HOST_CARGO_C_CURL_0_4_46_MD5		:= 809c655613979bc5d65cb6d4afa24c91
-HOST_CARGO_C_CURL_0_4_46_URL		:= https://crates.io/api/v1/crates/curl/0.4.46/download
+HOST_CARGO_C_CURL_0_4_46_URL		:= $(call ptx/mirror, CRATESIO, curl/0.4.46/download)
 HOST_CARGO_C_CURL_0_4_46_SOURCE	:= $(SRCDIR)/curl-0.4.46.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CURL_0_4_46
 
 HOST_CARGO_C_CURL_SYS_0_4_74_CURL_8_9_0_MD5		:= e7d8d4d8acb7cea0a0c350d2202d5417
-HOST_CARGO_C_CURL_SYS_0_4_74_CURL_8_9_0_URL		:= https://crates.io/api/v1/crates/curl-sys/0.4.74+curl-8.9.0/download
+HOST_CARGO_C_CURL_SYS_0_4_74_CURL_8_9_0_URL		:= $(call ptx/mirror, CRATESIO, curl-sys/0.4.74+curl-8.9.0/download)
 HOST_CARGO_C_CURL_SYS_0_4_74_CURL_8_9_0_SOURCE	:= $(SRCDIR)/curl-sys-0.4.74+curl-8.9.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CURL_SYS_0_4_74_CURL_8_9_0
 
 HOST_CARGO_C_DBUS_0_9_7_MD5		:= b170c380ee4d59e4ed866afaa26a86c7
-HOST_CARGO_C_DBUS_0_9_7_URL		:= https://crates.io/api/v1/crates/dbus/0.9.7/download
+HOST_CARGO_C_DBUS_0_9_7_URL		:= $(call ptx/mirror, CRATESIO, dbus/0.9.7/download)
 HOST_CARGO_C_DBUS_0_9_7_SOURCE	:= $(SRCDIR)/dbus-0.9.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DBUS_0_9_7
 
 HOST_CARGO_C_DER_0_7_9_MD5		:= dde85204706c20baed5d666258a08b74
-HOST_CARGO_C_DER_0_7_9_URL		:= https://crates.io/api/v1/crates/der/0.7.9/download
+HOST_CARGO_C_DER_0_7_9_URL		:= $(call ptx/mirror, CRATESIO, der/0.7.9/download)
 HOST_CARGO_C_DER_0_7_9_SOURCE	:= $(SRCDIR)/der-0.7.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DER_0_7_9
 
 HOST_CARGO_C_DERANGED_0_3_11_MD5		:= d022bc79e1931c2bd4ebbe65cf3d2309
-HOST_CARGO_C_DERANGED_0_3_11_URL		:= https://crates.io/api/v1/crates/deranged/0.3.11/download
+HOST_CARGO_C_DERANGED_0_3_11_URL		:= $(call ptx/mirror, CRATESIO, deranged/0.3.11/download)
 HOST_CARGO_C_DERANGED_0_3_11_SOURCE	:= $(SRCDIR)/deranged-0.3.11.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DERANGED_0_3_11
 
 HOST_CARGO_C_DIGEST_0_10_7_MD5		:= 3d62bfbbe08bdcee55fcb8cda85554d9
-HOST_CARGO_C_DIGEST_0_10_7_URL		:= https://crates.io/api/v1/crates/digest/0.10.7/download
+HOST_CARGO_C_DIGEST_0_10_7_URL		:= $(call ptx/mirror, CRATESIO, digest/0.10.7/download)
 HOST_CARGO_C_DIGEST_0_10_7_SOURCE	:= $(SRCDIR)/digest-0.10.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DIGEST_0_10_7
 
 HOST_CARGO_C_DUNCE_1_0_5_MD5		:= 198d7f7c37f632bc83502b28870b6d60
-HOST_CARGO_C_DUNCE_1_0_5_URL		:= https://crates.io/api/v1/crates/dunce/1.0.5/download
+HOST_CARGO_C_DUNCE_1_0_5_URL		:= $(call ptx/mirror, CRATESIO, dunce/1.0.5/download)
 HOST_CARGO_C_DUNCE_1_0_5_SOURCE	:= $(SRCDIR)/dunce-1.0.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DUNCE_1_0_5
 
 HOST_CARGO_C_ECDSA_0_16_9_MD5		:= 3ce1c12d6f46952c4a394c8c3bb9437e
-HOST_CARGO_C_ECDSA_0_16_9_URL		:= https://crates.io/api/v1/crates/ecdsa/0.16.9/download
+HOST_CARGO_C_ECDSA_0_16_9_URL		:= $(call ptx/mirror, CRATESIO, ecdsa/0.16.9/download)
 HOST_CARGO_C_ECDSA_0_16_9_SOURCE	:= $(SRCDIR)/ecdsa-0.16.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ECDSA_0_16_9
 
 HOST_CARGO_C_ED25519_COMPACT_2_1_1_MD5		:= 857c96071a8fd39e7458707e9fae87b9
-HOST_CARGO_C_ED25519_COMPACT_2_1_1_URL		:= https://crates.io/api/v1/crates/ed25519-compact/2.1.1/download
+HOST_CARGO_C_ED25519_COMPACT_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, ed25519-compact/2.1.1/download)
 HOST_CARGO_C_ED25519_COMPACT_2_1_1_SOURCE	:= $(SRCDIR)/ed25519-compact-2.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ED25519_COMPACT_2_1_1
 
 HOST_CARGO_C_EITHER_1_13_0_MD5		:= 6d28dbfa9d67ad11061716672a7a1519
-HOST_CARGO_C_EITHER_1_13_0_URL		:= https://crates.io/api/v1/crates/either/1.13.0/download
+HOST_CARGO_C_EITHER_1_13_0_URL		:= $(call ptx/mirror, CRATESIO, either/1.13.0/download)
 HOST_CARGO_C_EITHER_1_13_0_SOURCE	:= $(SRCDIR)/either-1.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_EITHER_1_13_0
 
 HOST_CARGO_C_ELLIPTIC_CURVE_0_13_8_MD5		:= ffc9c1ed3a5f35182084b40ff2ff6111
-HOST_CARGO_C_ELLIPTIC_CURVE_0_13_8_URL		:= https://crates.io/api/v1/crates/elliptic-curve/0.13.8/download
+HOST_CARGO_C_ELLIPTIC_CURVE_0_13_8_URL		:= $(call ptx/mirror, CRATESIO, elliptic-curve/0.13.8/download)
 HOST_CARGO_C_ELLIPTIC_CURVE_0_13_8_SOURCE	:= $(SRCDIR)/elliptic-curve-0.13.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ELLIPTIC_CURVE_0_13_8
 
 HOST_CARGO_C_ENCODING_RS_0_8_34_MD5		:= 9a25a5393856f8a0bbc14d82e27414a6
-HOST_CARGO_C_ENCODING_RS_0_8_34_URL		:= https://crates.io/api/v1/crates/encoding_rs/0.8.34/download
+HOST_CARGO_C_ENCODING_RS_0_8_34_URL		:= $(call ptx/mirror, CRATESIO, encoding_rs/0.8.34/download)
 HOST_CARGO_C_ENCODING_RS_0_8_34_SOURCE	:= $(SRCDIR)/encoding_rs-0.8.34.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ENCODING_RS_0_8_34
 
 HOST_CARGO_C_EQUIVALENT_1_0_1_MD5		:= bdf329a72ecd0605c296f25e53136706
-HOST_CARGO_C_EQUIVALENT_1_0_1_URL		:= https://crates.io/api/v1/crates/equivalent/1.0.1/download
+HOST_CARGO_C_EQUIVALENT_1_0_1_URL		:= $(call ptx/mirror, CRATESIO, equivalent/1.0.1/download)
 HOST_CARGO_C_EQUIVALENT_1_0_1_SOURCE	:= $(SRCDIR)/equivalent-1.0.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_EQUIVALENT_1_0_1
 
 HOST_CARGO_C_ERASED_SERDE_0_4_5_MD5		:= 9437e2df9544e13b80709ea52f42580a
-HOST_CARGO_C_ERASED_SERDE_0_4_5_URL		:= https://crates.io/api/v1/crates/erased-serde/0.4.5/download
+HOST_CARGO_C_ERASED_SERDE_0_4_5_URL		:= $(call ptx/mirror, CRATESIO, erased-serde/0.4.5/download)
 HOST_CARGO_C_ERASED_SERDE_0_4_5_SOURCE	:= $(SRCDIR)/erased-serde-0.4.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ERASED_SERDE_0_4_5
 
 HOST_CARGO_C_ERRNO_0_3_9_MD5		:= bcd5fd8c2b279da10b5a4d7b67eb555e
-HOST_CARGO_C_ERRNO_0_3_9_URL		:= https://crates.io/api/v1/crates/errno/0.3.9/download
+HOST_CARGO_C_ERRNO_0_3_9_URL		:= $(call ptx/mirror, CRATESIO, errno/0.3.9/download)
 HOST_CARGO_C_ERRNO_0_3_9_SOURCE	:= $(SRCDIR)/errno-0.3.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ERRNO_0_3_9
 
 HOST_CARGO_C_FALLIBLE_ITERATOR_0_3_0_MD5		:= 4abeb2b6db91c4964c17ec4bf24248f4
-HOST_CARGO_C_FALLIBLE_ITERATOR_0_3_0_URL		:= https://crates.io/api/v1/crates/fallible-iterator/0.3.0/download
+HOST_CARGO_C_FALLIBLE_ITERATOR_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, fallible-iterator/0.3.0/download)
 HOST_CARGO_C_FALLIBLE_ITERATOR_0_3_0_SOURCE	:= $(SRCDIR)/fallible-iterator-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FALLIBLE_ITERATOR_0_3_0
 
 HOST_CARGO_C_FALLIBLE_STREAMING_ITERATOR_0_1_9_MD5		:= 7543e8639ad2e29866b522e20c35152a
-HOST_CARGO_C_FALLIBLE_STREAMING_ITERATOR_0_1_9_URL		:= https://crates.io/api/v1/crates/fallible-streaming-iterator/0.1.9/download
+HOST_CARGO_C_FALLIBLE_STREAMING_ITERATOR_0_1_9_URL		:= $(call ptx/mirror, CRATESIO, fallible-streaming-iterator/0.1.9/download)
 HOST_CARGO_C_FALLIBLE_STREAMING_ITERATOR_0_1_9_SOURCE	:= $(SRCDIR)/fallible-streaming-iterator-0.1.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FALLIBLE_STREAMING_ITERATOR_0_1_9
 
 HOST_CARGO_C_FASTER_HEX_0_9_0_MD5		:= b4944c105ff1b8614beeb153e7179027
-HOST_CARGO_C_FASTER_HEX_0_9_0_URL		:= https://crates.io/api/v1/crates/faster-hex/0.9.0/download
+HOST_CARGO_C_FASTER_HEX_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, faster-hex/0.9.0/download)
 HOST_CARGO_C_FASTER_HEX_0_9_0_SOURCE	:= $(SRCDIR)/faster-hex-0.9.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FASTER_HEX_0_9_0
 
 HOST_CARGO_C_FASTRAND_2_1_1_MD5		:= 3ef10447881b00471497237c64f44ac2
-HOST_CARGO_C_FASTRAND_2_1_1_URL		:= https://crates.io/api/v1/crates/fastrand/2.1.1/download
+HOST_CARGO_C_FASTRAND_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, fastrand/2.1.1/download)
 HOST_CARGO_C_FASTRAND_2_1_1_SOURCE	:= $(SRCDIR)/fastrand-2.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FASTRAND_2_1_1
 
 HOST_CARGO_C_FF_0_13_0_MD5		:= 108d90c246e09f46087613284e8651e7
-HOST_CARGO_C_FF_0_13_0_URL		:= https://crates.io/api/v1/crates/ff/0.13.0/download
+HOST_CARGO_C_FF_0_13_0_URL		:= $(call ptx/mirror, CRATESIO, ff/0.13.0/download)
 HOST_CARGO_C_FF_0_13_0_SOURCE	:= $(SRCDIR)/ff-0.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FF_0_13_0
 
 HOST_CARGO_C_FIAT_CRYPTO_0_2_9_MD5		:= c37409eb47cd1fad7d5b8b4297f44860
-HOST_CARGO_C_FIAT_CRYPTO_0_2_9_URL		:= https://crates.io/api/v1/crates/fiat-crypto/0.2.9/download
+HOST_CARGO_C_FIAT_CRYPTO_0_2_9_URL		:= $(call ptx/mirror, CRATESIO, fiat-crypto/0.2.9/download)
 HOST_CARGO_C_FIAT_CRYPTO_0_2_9_SOURCE	:= $(SRCDIR)/fiat-crypto-0.2.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FIAT_CRYPTO_0_2_9
 
 HOST_CARGO_C_FILETIME_0_2_25_MD5		:= 707c14d536067554f7fe03a8529cf426
-HOST_CARGO_C_FILETIME_0_2_25_URL		:= https://crates.io/api/v1/crates/filetime/0.2.25/download
+HOST_CARGO_C_FILETIME_0_2_25_URL		:= $(call ptx/mirror, CRATESIO, filetime/0.2.25/download)
 HOST_CARGO_C_FILETIME_0_2_25_SOURCE	:= $(SRCDIR)/filetime-0.2.25.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FILETIME_0_2_25
 
 HOST_CARGO_C_FLATE2_1_0_33_MD5		:= 987cd07b13068d49cd824156f187c4b2
-HOST_CARGO_C_FLATE2_1_0_33_URL		:= https://crates.io/api/v1/crates/flate2/1.0.33/download
+HOST_CARGO_C_FLATE2_1_0_33_URL		:= $(call ptx/mirror, CRATESIO, flate2/1.0.33/download)
 HOST_CARGO_C_FLATE2_1_0_33_SOURCE	:= $(SRCDIR)/flate2-1.0.33.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FLATE2_1_0_33
 
 HOST_CARGO_C_FNV_1_0_7_MD5		:= 8dab3b3ec00dc56cffde0b0c410d47b5
-HOST_CARGO_C_FNV_1_0_7_URL		:= https://crates.io/api/v1/crates/fnv/1.0.7/download
+HOST_CARGO_C_FNV_1_0_7_URL		:= $(call ptx/mirror, CRATESIO, fnv/1.0.7/download)
 HOST_CARGO_C_FNV_1_0_7_SOURCE	:= $(SRCDIR)/fnv-1.0.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FNV_1_0_7
 
 HOST_CARGO_C_FOREIGN_TYPES_0_3_2_MD5		:= 78c898fdaa3968e23904bf8538c4a271
-HOST_CARGO_C_FOREIGN_TYPES_0_3_2_URL		:= https://crates.io/api/v1/crates/foreign-types/0.3.2/download
+HOST_CARGO_C_FOREIGN_TYPES_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, foreign-types/0.3.2/download)
 HOST_CARGO_C_FOREIGN_TYPES_0_3_2_SOURCE	:= $(SRCDIR)/foreign-types-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FOREIGN_TYPES_0_3_2
 
 HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_MD5		:= 667e86b8b8d96ab4e9605627ce7dcc9a
-HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_URL		:= https://crates.io/api/v1/crates/foreign-types-shared/0.1.1/download
+HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, foreign-types-shared/0.1.1/download)
 HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_SOURCE	:= $(SRCDIR)/foreign-types-shared-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1
 
 HOST_CARGO_C_FORM_URLENCODED_1_2_1_MD5		:= c3e51926c9853b714191ef1bec90e2ce
-HOST_CARGO_C_FORM_URLENCODED_1_2_1_URL		:= https://crates.io/api/v1/crates/form_urlencoded/1.2.1/download
+HOST_CARGO_C_FORM_URLENCODED_1_2_1_URL		:= $(call ptx/mirror, CRATESIO, form_urlencoded/1.2.1/download)
 HOST_CARGO_C_FORM_URLENCODED_1_2_1_SOURCE	:= $(SRCDIR)/form_urlencoded-1.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FORM_URLENCODED_1_2_1
 
 HOST_CARGO_C_GENERIC_ARRAY_0_14_7_MD5		:= 64a6d8fe0c9a450bcefa41894e17d7ac
-HOST_CARGO_C_GENERIC_ARRAY_0_14_7_URL		:= https://crates.io/api/v1/crates/generic-array/0.14.7/download
+HOST_CARGO_C_GENERIC_ARRAY_0_14_7_URL		:= $(call ptx/mirror, CRATESIO, generic-array/0.14.7/download)
 HOST_CARGO_C_GENERIC_ARRAY_0_14_7_SOURCE	:= $(SRCDIR)/generic-array-0.14.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GENERIC_ARRAY_0_14_7
 
 HOST_CARGO_C_GETRANDOM_0_2_15_MD5		:= 3c67481b4433a3219846e41d09aaeaa9
-HOST_CARGO_C_GETRANDOM_0_2_15_URL		:= https://crates.io/api/v1/crates/getrandom/0.2.15/download
+HOST_CARGO_C_GETRANDOM_0_2_15_URL		:= $(call ptx/mirror, CRATESIO, getrandom/0.2.15/download)
 HOST_CARGO_C_GETRANDOM_0_2_15_SOURCE	:= $(SRCDIR)/getrandom-0.2.15.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GETRANDOM_0_2_15
 
 HOST_CARGO_C_GIT2_0_19_0_MD5		:= 18dc6e763804277ea7e0b6d605e2f48c
-HOST_CARGO_C_GIT2_0_19_0_URL		:= https://crates.io/api/v1/crates/git2/0.19.0/download
+HOST_CARGO_C_GIT2_0_19_0_URL		:= $(call ptx/mirror, CRATESIO, git2/0.19.0/download)
 HOST_CARGO_C_GIT2_0_19_0_SOURCE	:= $(SRCDIR)/git2-0.19.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIT2_0_19_0
 
 HOST_CARGO_C_GIT2_CURL_0_20_0_MD5		:= b48f497bd49c7c564a337336fa1452db
-HOST_CARGO_C_GIT2_CURL_0_20_0_URL		:= https://crates.io/api/v1/crates/git2-curl/0.20.0/download
+HOST_CARGO_C_GIT2_CURL_0_20_0_URL		:= $(call ptx/mirror, CRATESIO, git2-curl/0.20.0/download)
 HOST_CARGO_C_GIT2_CURL_0_20_0_SOURCE	:= $(SRCDIR)/git2-curl-0.20.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIT2_CURL_0_20_0
 
 HOST_CARGO_C_GIX_0_64_0_MD5		:= 15f21d672cd5a4cbf2e00e991deb5951
-HOST_CARGO_C_GIX_0_64_0_URL		:= https://crates.io/api/v1/crates/gix/0.64.0/download
+HOST_CARGO_C_GIX_0_64_0_URL		:= $(call ptx/mirror, CRATESIO, gix/0.64.0/download)
 HOST_CARGO_C_GIX_0_64_0_SOURCE	:= $(SRCDIR)/gix-0.64.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_0_64_0
 
 HOST_CARGO_C_GIX_ACTOR_0_31_5_MD5		:= c06e4b880b5df5aa06bb95cdc5e0cc45
-HOST_CARGO_C_GIX_ACTOR_0_31_5_URL		:= https://crates.io/api/v1/crates/gix-actor/0.31.5/download
+HOST_CARGO_C_GIX_ACTOR_0_31_5_URL		:= $(call ptx/mirror, CRATESIO, gix-actor/0.31.5/download)
 HOST_CARGO_C_GIX_ACTOR_0_31_5_SOURCE	:= $(SRCDIR)/gix-actor-0.31.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_ACTOR_0_31_5
 
 HOST_CARGO_C_GIX_ATTRIBUTES_0_22_5_MD5		:= 49ea26cef36fccd5e48654d71990a510
-HOST_CARGO_C_GIX_ATTRIBUTES_0_22_5_URL		:= https://crates.io/api/v1/crates/gix-attributes/0.22.5/download
+HOST_CARGO_C_GIX_ATTRIBUTES_0_22_5_URL		:= $(call ptx/mirror, CRATESIO, gix-attributes/0.22.5/download)
 HOST_CARGO_C_GIX_ATTRIBUTES_0_22_5_SOURCE	:= $(SRCDIR)/gix-attributes-0.22.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_ATTRIBUTES_0_22_5
 
 HOST_CARGO_C_GIX_BITMAP_0_2_11_MD5		:= 101226d32a04adc0a4232050dbf85056
-HOST_CARGO_C_GIX_BITMAP_0_2_11_URL		:= https://crates.io/api/v1/crates/gix-bitmap/0.2.11/download
+HOST_CARGO_C_GIX_BITMAP_0_2_11_URL		:= $(call ptx/mirror, CRATESIO, gix-bitmap/0.2.11/download)
 HOST_CARGO_C_GIX_BITMAP_0_2_11_SOURCE	:= $(SRCDIR)/gix-bitmap-0.2.11.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_BITMAP_0_2_11
 
 HOST_CARGO_C_GIX_CHUNK_0_4_8_MD5		:= 0f5f5b1f9ebc3d31770c7ae2e33d409c
-HOST_CARGO_C_GIX_CHUNK_0_4_8_URL		:= https://crates.io/api/v1/crates/gix-chunk/0.4.8/download
+HOST_CARGO_C_GIX_CHUNK_0_4_8_URL		:= $(call ptx/mirror, CRATESIO, gix-chunk/0.4.8/download)
 HOST_CARGO_C_GIX_CHUNK_0_4_8_SOURCE	:= $(SRCDIR)/gix-chunk-0.4.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CHUNK_0_4_8
 
 HOST_CARGO_C_GIX_COMMAND_0_3_9_MD5		:= 1b195f502cb635cc6ba02e1e9ca263ff
-HOST_CARGO_C_GIX_COMMAND_0_3_9_URL		:= https://crates.io/api/v1/crates/gix-command/0.3.9/download
+HOST_CARGO_C_GIX_COMMAND_0_3_9_URL		:= $(call ptx/mirror, CRATESIO, gix-command/0.3.9/download)
 HOST_CARGO_C_GIX_COMMAND_0_3_9_SOURCE	:= $(SRCDIR)/gix-command-0.3.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_COMMAND_0_3_9
 
 HOST_CARGO_C_GIX_COMMITGRAPH_0_24_3_MD5		:= f2a13be3bddfdcf149289112545c90b4
-HOST_CARGO_C_GIX_COMMITGRAPH_0_24_3_URL		:= https://crates.io/api/v1/crates/gix-commitgraph/0.24.3/download
+HOST_CARGO_C_GIX_COMMITGRAPH_0_24_3_URL		:= $(call ptx/mirror, CRATESIO, gix-commitgraph/0.24.3/download)
 HOST_CARGO_C_GIX_COMMITGRAPH_0_24_3_SOURCE	:= $(SRCDIR)/gix-commitgraph-0.24.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_COMMITGRAPH_0_24_3
 
 HOST_CARGO_C_GIX_CONFIG_0_38_0_MD5		:= 987899bb7fe6fcea02172df024f6ca81
-HOST_CARGO_C_GIX_CONFIG_0_38_0_URL		:= https://crates.io/api/v1/crates/gix-config/0.38.0/download
+HOST_CARGO_C_GIX_CONFIG_0_38_0_URL		:= $(call ptx/mirror, CRATESIO, gix-config/0.38.0/download)
 HOST_CARGO_C_GIX_CONFIG_0_38_0_SOURCE	:= $(SRCDIR)/gix-config-0.38.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CONFIG_0_38_0
 
 HOST_CARGO_C_GIX_CONFIG_VALUE_0_14_8_MD5		:= ef44c590e5ec37a0a6bb3d43eedce10b
-HOST_CARGO_C_GIX_CONFIG_VALUE_0_14_8_URL		:= https://crates.io/api/v1/crates/gix-config-value/0.14.8/download
+HOST_CARGO_C_GIX_CONFIG_VALUE_0_14_8_URL		:= $(call ptx/mirror, CRATESIO, gix-config-value/0.14.8/download)
 HOST_CARGO_C_GIX_CONFIG_VALUE_0_14_8_SOURCE	:= $(SRCDIR)/gix-config-value-0.14.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CONFIG_VALUE_0_14_8
 
 HOST_CARGO_C_GIX_CREDENTIALS_0_24_5_MD5		:= 56c2ebd8062da8a85fb5f63f436c534a
-HOST_CARGO_C_GIX_CREDENTIALS_0_24_5_URL		:= https://crates.io/api/v1/crates/gix-credentials/0.24.5/download
+HOST_CARGO_C_GIX_CREDENTIALS_0_24_5_URL		:= $(call ptx/mirror, CRATESIO, gix-credentials/0.24.5/download)
 HOST_CARGO_C_GIX_CREDENTIALS_0_24_5_SOURCE	:= $(SRCDIR)/gix-credentials-0.24.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CREDENTIALS_0_24_5
 
 HOST_CARGO_C_GIX_DATE_0_8_7_MD5		:= bfdbb059be182d0623fd78ef4814a4fd
-HOST_CARGO_C_GIX_DATE_0_8_7_URL		:= https://crates.io/api/v1/crates/gix-date/0.8.7/download
+HOST_CARGO_C_GIX_DATE_0_8_7_URL		:= $(call ptx/mirror, CRATESIO, gix-date/0.8.7/download)
 HOST_CARGO_C_GIX_DATE_0_8_7_SOURCE	:= $(SRCDIR)/gix-date-0.8.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DATE_0_8_7
 
 HOST_CARGO_C_GIX_DATE_0_9_0_MD5		:= 9ec0bbdb877e8bc55d560ba8f3aca61d
-HOST_CARGO_C_GIX_DATE_0_9_0_URL		:= https://crates.io/api/v1/crates/gix-date/0.9.0/download
+HOST_CARGO_C_GIX_DATE_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, gix-date/0.9.0/download)
 HOST_CARGO_C_GIX_DATE_0_9_0_SOURCE	:= $(SRCDIR)/gix-date-0.9.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DATE_0_9_0
 
 HOST_CARGO_C_GIX_DIFF_0_44_1_MD5		:= cbc8b5bf5b6317462c6b7c3b93339641
-HOST_CARGO_C_GIX_DIFF_0_44_1_URL		:= https://crates.io/api/v1/crates/gix-diff/0.44.1/download
+HOST_CARGO_C_GIX_DIFF_0_44_1_URL		:= $(call ptx/mirror, CRATESIO, gix-diff/0.44.1/download)
 HOST_CARGO_C_GIX_DIFF_0_44_1_SOURCE	:= $(SRCDIR)/gix-diff-0.44.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DIFF_0_44_1
 
 HOST_CARGO_C_GIX_DIR_0_6_0_MD5		:= 8e335e572cd05ff1a59aebcbdba63da3
-HOST_CARGO_C_GIX_DIR_0_6_0_URL		:= https://crates.io/api/v1/crates/gix-dir/0.6.0/download
+HOST_CARGO_C_GIX_DIR_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, gix-dir/0.6.0/download)
 HOST_CARGO_C_GIX_DIR_0_6_0_SOURCE	:= $(SRCDIR)/gix-dir-0.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DIR_0_6_0
 
 HOST_CARGO_C_GIX_DISCOVER_0_33_0_MD5		:= a0a2617ead009945e1c126286a462d68
-HOST_CARGO_C_GIX_DISCOVER_0_33_0_URL		:= https://crates.io/api/v1/crates/gix-discover/0.33.0/download
+HOST_CARGO_C_GIX_DISCOVER_0_33_0_URL		:= $(call ptx/mirror, CRATESIO, gix-discover/0.33.0/download)
 HOST_CARGO_C_GIX_DISCOVER_0_33_0_SOURCE	:= $(SRCDIR)/gix-discover-0.33.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DISCOVER_0_33_0
 
 HOST_CARGO_C_GIX_FEATURES_0_38_2_MD5		:= 3b3a12dacee5dccaa666e5826b190857
-HOST_CARGO_C_GIX_FEATURES_0_38_2_URL		:= https://crates.io/api/v1/crates/gix-features/0.38.2/download
+HOST_CARGO_C_GIX_FEATURES_0_38_2_URL		:= $(call ptx/mirror, CRATESIO, gix-features/0.38.2/download)
 HOST_CARGO_C_GIX_FEATURES_0_38_2_SOURCE	:= $(SRCDIR)/gix-features-0.38.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_FEATURES_0_38_2
 
 HOST_CARGO_C_GIX_FILTER_0_11_3_MD5		:= 98f9d0195996d53a8ac048a2617b2eeb
-HOST_CARGO_C_GIX_FILTER_0_11_3_URL		:= https://crates.io/api/v1/crates/gix-filter/0.11.3/download
+HOST_CARGO_C_GIX_FILTER_0_11_3_URL		:= $(call ptx/mirror, CRATESIO, gix-filter/0.11.3/download)
 HOST_CARGO_C_GIX_FILTER_0_11_3_SOURCE	:= $(SRCDIR)/gix-filter-0.11.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_FILTER_0_11_3
 
 HOST_CARGO_C_GIX_FS_0_11_3_MD5		:= 128cb74306ddaca878559397ac1e4270
-HOST_CARGO_C_GIX_FS_0_11_3_URL		:= https://crates.io/api/v1/crates/gix-fs/0.11.3/download
+HOST_CARGO_C_GIX_FS_0_11_3_URL		:= $(call ptx/mirror, CRATESIO, gix-fs/0.11.3/download)
 HOST_CARGO_C_GIX_FS_0_11_3_SOURCE	:= $(SRCDIR)/gix-fs-0.11.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_FS_0_11_3
 
 HOST_CARGO_C_GIX_GLOB_0_16_5_MD5		:= ed110fdc815a3c79395c3451319067f3
-HOST_CARGO_C_GIX_GLOB_0_16_5_URL		:= https://crates.io/api/v1/crates/gix-glob/0.16.5/download
+HOST_CARGO_C_GIX_GLOB_0_16_5_URL		:= $(call ptx/mirror, CRATESIO, gix-glob/0.16.5/download)
 HOST_CARGO_C_GIX_GLOB_0_16_5_SOURCE	:= $(SRCDIR)/gix-glob-0.16.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_GLOB_0_16_5
 
 HOST_CARGO_C_GIX_HASH_0_14_2_MD5		:= 2180948a1fe17db88e9f97870234f87a
-HOST_CARGO_C_GIX_HASH_0_14_2_URL		:= https://crates.io/api/v1/crates/gix-hash/0.14.2/download
+HOST_CARGO_C_GIX_HASH_0_14_2_URL		:= $(call ptx/mirror, CRATESIO, gix-hash/0.14.2/download)
 HOST_CARGO_C_GIX_HASH_0_14_2_SOURCE	:= $(SRCDIR)/gix-hash-0.14.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_HASH_0_14_2
 
 HOST_CARGO_C_GIX_HASHTABLE_0_5_2_MD5		:= adafc45a92f42b3377a06b041a2ab658
-HOST_CARGO_C_GIX_HASHTABLE_0_5_2_URL		:= https://crates.io/api/v1/crates/gix-hashtable/0.5.2/download
+HOST_CARGO_C_GIX_HASHTABLE_0_5_2_URL		:= $(call ptx/mirror, CRATESIO, gix-hashtable/0.5.2/download)
 HOST_CARGO_C_GIX_HASHTABLE_0_5_2_SOURCE	:= $(SRCDIR)/gix-hashtable-0.5.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_HASHTABLE_0_5_2
 
 HOST_CARGO_C_GIX_IGNORE_0_11_4_MD5		:= 5a602e57a0c78ee9669fad2b6eb7f623
-HOST_CARGO_C_GIX_IGNORE_0_11_4_URL		:= https://crates.io/api/v1/crates/gix-ignore/0.11.4/download
+HOST_CARGO_C_GIX_IGNORE_0_11_4_URL		:= $(call ptx/mirror, CRATESIO, gix-ignore/0.11.4/download)
 HOST_CARGO_C_GIX_IGNORE_0_11_4_SOURCE	:= $(SRCDIR)/gix-ignore-0.11.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_IGNORE_0_11_4
 
 HOST_CARGO_C_GIX_INDEX_0_33_1_MD5		:= 1dca8bc86f316d5d9f7a4a85096e0456
-HOST_CARGO_C_GIX_INDEX_0_33_1_URL		:= https://crates.io/api/v1/crates/gix-index/0.33.1/download
+HOST_CARGO_C_GIX_INDEX_0_33_1_URL		:= $(call ptx/mirror, CRATESIO, gix-index/0.33.1/download)
 HOST_CARGO_C_GIX_INDEX_0_33_1_SOURCE	:= $(SRCDIR)/gix-index-0.33.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_INDEX_0_33_1
 
 HOST_CARGO_C_GIX_LOCK_14_0_0_MD5		:= 6504e1fa6884d62eeb984429ca147f5d
-HOST_CARGO_C_GIX_LOCK_14_0_0_URL		:= https://crates.io/api/v1/crates/gix-lock/14.0.0/download
+HOST_CARGO_C_GIX_LOCK_14_0_0_URL		:= $(call ptx/mirror, CRATESIO, gix-lock/14.0.0/download)
 HOST_CARGO_C_GIX_LOCK_14_0_0_SOURCE	:= $(SRCDIR)/gix-lock-14.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_LOCK_14_0_0
 
 HOST_CARGO_C_GIX_MACROS_0_1_5_MD5		:= 3c46007dd2897bc50e97bd8c9a1f3688
-HOST_CARGO_C_GIX_MACROS_0_1_5_URL		:= https://crates.io/api/v1/crates/gix-macros/0.1.5/download
+HOST_CARGO_C_GIX_MACROS_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, gix-macros/0.1.5/download)
 HOST_CARGO_C_GIX_MACROS_0_1_5_SOURCE	:= $(SRCDIR)/gix-macros-0.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_MACROS_0_1_5
 
 HOST_CARGO_C_GIX_NEGOTIATE_0_13_2_MD5		:= 23f88f41f08c7299ef710390c97eabcc
-HOST_CARGO_C_GIX_NEGOTIATE_0_13_2_URL		:= https://crates.io/api/v1/crates/gix-negotiate/0.13.2/download
+HOST_CARGO_C_GIX_NEGOTIATE_0_13_2_URL		:= $(call ptx/mirror, CRATESIO, gix-negotiate/0.13.2/download)
 HOST_CARGO_C_GIX_NEGOTIATE_0_13_2_SOURCE	:= $(SRCDIR)/gix-negotiate-0.13.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_NEGOTIATE_0_13_2
 
 HOST_CARGO_C_GIX_OBJECT_0_42_3_MD5		:= 4f574268e4cda806c259fe125fad2424
-HOST_CARGO_C_GIX_OBJECT_0_42_3_URL		:= https://crates.io/api/v1/crates/gix-object/0.42.3/download
+HOST_CARGO_C_GIX_OBJECT_0_42_3_URL		:= $(call ptx/mirror, CRATESIO, gix-object/0.42.3/download)
 HOST_CARGO_C_GIX_OBJECT_0_42_3_SOURCE	:= $(SRCDIR)/gix-object-0.42.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_OBJECT_0_42_3
 
 HOST_CARGO_C_GIX_ODB_0_61_1_MD5		:= 05640b13a0acd3487fc52e4960dbbeb2
-HOST_CARGO_C_GIX_ODB_0_61_1_URL		:= https://crates.io/api/v1/crates/gix-odb/0.61.1/download
+HOST_CARGO_C_GIX_ODB_0_61_1_URL		:= $(call ptx/mirror, CRATESIO, gix-odb/0.61.1/download)
 HOST_CARGO_C_GIX_ODB_0_61_1_SOURCE	:= $(SRCDIR)/gix-odb-0.61.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_ODB_0_61_1
 
 HOST_CARGO_C_GIX_PACK_0_51_1_MD5		:= 0651f1ec4a8c291a8ef2b8019cdc837c
-HOST_CARGO_C_GIX_PACK_0_51_1_URL		:= https://crates.io/api/v1/crates/gix-pack/0.51.1/download
+HOST_CARGO_C_GIX_PACK_0_51_1_URL		:= $(call ptx/mirror, CRATESIO, gix-pack/0.51.1/download)
 HOST_CARGO_C_GIX_PACK_0_51_1_SOURCE	:= $(SRCDIR)/gix-pack-0.51.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PACK_0_51_1
 
 HOST_CARGO_C_GIX_PACKETLINE_0_17_6_MD5		:= 8158c000c640fe6051312a3b7daedd81
-HOST_CARGO_C_GIX_PACKETLINE_0_17_6_URL		:= https://crates.io/api/v1/crates/gix-packetline/0.17.6/download
+HOST_CARGO_C_GIX_PACKETLINE_0_17_6_URL		:= $(call ptx/mirror, CRATESIO, gix-packetline/0.17.6/download)
 HOST_CARGO_C_GIX_PACKETLINE_0_17_6_SOURCE	:= $(SRCDIR)/gix-packetline-0.17.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PACKETLINE_0_17_6
 
 HOST_CARGO_C_GIX_PACKETLINE_BLOCKING_0_17_5_MD5		:= 21e87390feca912ee816ff9a82731d8c
-HOST_CARGO_C_GIX_PACKETLINE_BLOCKING_0_17_5_URL		:= https://crates.io/api/v1/crates/gix-packetline-blocking/0.17.5/download
+HOST_CARGO_C_GIX_PACKETLINE_BLOCKING_0_17_5_URL		:= $(call ptx/mirror, CRATESIO, gix-packetline-blocking/0.17.5/download)
 HOST_CARGO_C_GIX_PACKETLINE_BLOCKING_0_17_5_SOURCE	:= $(SRCDIR)/gix-packetline-blocking-0.17.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PACKETLINE_BLOCKING_0_17_5
 
 HOST_CARGO_C_GIX_PATH_0_10_10_MD5		:= 306973142929c0d96b49240a4f41e855
-HOST_CARGO_C_GIX_PATH_0_10_10_URL		:= https://crates.io/api/v1/crates/gix-path/0.10.10/download
+HOST_CARGO_C_GIX_PATH_0_10_10_URL		:= $(call ptx/mirror, CRATESIO, gix-path/0.10.10/download)
 HOST_CARGO_C_GIX_PATH_0_10_10_SOURCE	:= $(SRCDIR)/gix-path-0.10.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PATH_0_10_10
 
 HOST_CARGO_C_GIX_PATHSPEC_0_7_7_MD5		:= 226c79aebfd626b4c94572bf3aebbfdd
-HOST_CARGO_C_GIX_PATHSPEC_0_7_7_URL		:= https://crates.io/api/v1/crates/gix-pathspec/0.7.7/download
+HOST_CARGO_C_GIX_PATHSPEC_0_7_7_URL		:= $(call ptx/mirror, CRATESIO, gix-pathspec/0.7.7/download)
 HOST_CARGO_C_GIX_PATHSPEC_0_7_7_SOURCE	:= $(SRCDIR)/gix-pathspec-0.7.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PATHSPEC_0_7_7
 
 HOST_CARGO_C_GIX_PROMPT_0_8_7_MD5		:= 3fa4d5044dff847ff6fef1a2d31c7771
-HOST_CARGO_C_GIX_PROMPT_0_8_7_URL		:= https://crates.io/api/v1/crates/gix-prompt/0.8.7/download
+HOST_CARGO_C_GIX_PROMPT_0_8_7_URL		:= $(call ptx/mirror, CRATESIO, gix-prompt/0.8.7/download)
 HOST_CARGO_C_GIX_PROMPT_0_8_7_SOURCE	:= $(SRCDIR)/gix-prompt-0.8.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PROMPT_0_8_7
 
 HOST_CARGO_C_GIX_PROTOCOL_0_45_3_MD5		:= 63ec81e48122d9da6c0e30350ba198df
-HOST_CARGO_C_GIX_PROTOCOL_0_45_3_URL		:= https://crates.io/api/v1/crates/gix-protocol/0.45.3/download
+HOST_CARGO_C_GIX_PROTOCOL_0_45_3_URL		:= $(call ptx/mirror, CRATESIO, gix-protocol/0.45.3/download)
 HOST_CARGO_C_GIX_PROTOCOL_0_45_3_SOURCE	:= $(SRCDIR)/gix-protocol-0.45.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PROTOCOL_0_45_3
 
 HOST_CARGO_C_GIX_QUOTE_0_4_12_MD5		:= 539588dc3151dd1a2eafb1abc1b328e7
-HOST_CARGO_C_GIX_QUOTE_0_4_12_URL		:= https://crates.io/api/v1/crates/gix-quote/0.4.12/download
+HOST_CARGO_C_GIX_QUOTE_0_4_12_URL		:= $(call ptx/mirror, CRATESIO, gix-quote/0.4.12/download)
 HOST_CARGO_C_GIX_QUOTE_0_4_12_SOURCE	:= $(SRCDIR)/gix-quote-0.4.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_QUOTE_0_4_12
 
 HOST_CARGO_C_GIX_REF_0_45_0_MD5		:= 3e7afbfddddc63455fc021e86fa8a0e4
-HOST_CARGO_C_GIX_REF_0_45_0_URL		:= https://crates.io/api/v1/crates/gix-ref/0.45.0/download
+HOST_CARGO_C_GIX_REF_0_45_0_URL		:= $(call ptx/mirror, CRATESIO, gix-ref/0.45.0/download)
 HOST_CARGO_C_GIX_REF_0_45_0_SOURCE	:= $(SRCDIR)/gix-ref-0.45.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REF_0_45_0
 
 HOST_CARGO_C_GIX_REFSPEC_0_23_1_MD5		:= 54e91302c58502f1eb25437487037e4e
-HOST_CARGO_C_GIX_REFSPEC_0_23_1_URL		:= https://crates.io/api/v1/crates/gix-refspec/0.23.1/download
+HOST_CARGO_C_GIX_REFSPEC_0_23_1_URL		:= $(call ptx/mirror, CRATESIO, gix-refspec/0.23.1/download)
 HOST_CARGO_C_GIX_REFSPEC_0_23_1_SOURCE	:= $(SRCDIR)/gix-refspec-0.23.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REFSPEC_0_23_1
 
 HOST_CARGO_C_GIX_REVISION_0_27_2_MD5		:= b0ec53820802257b4a2f2e43c591faf7
-HOST_CARGO_C_GIX_REVISION_0_27_2_URL		:= https://crates.io/api/v1/crates/gix-revision/0.27.2/download
+HOST_CARGO_C_GIX_REVISION_0_27_2_URL		:= $(call ptx/mirror, CRATESIO, gix-revision/0.27.2/download)
 HOST_CARGO_C_GIX_REVISION_0_27_2_SOURCE	:= $(SRCDIR)/gix-revision-0.27.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REVISION_0_27_2
 
 HOST_CARGO_C_GIX_REVWALK_0_13_2_MD5		:= a43d1cf7107f18b253ec558c21f09492
-HOST_CARGO_C_GIX_REVWALK_0_13_2_URL		:= https://crates.io/api/v1/crates/gix-revwalk/0.13.2/download
+HOST_CARGO_C_GIX_REVWALK_0_13_2_URL		:= $(call ptx/mirror, CRATESIO, gix-revwalk/0.13.2/download)
 HOST_CARGO_C_GIX_REVWALK_0_13_2_SOURCE	:= $(SRCDIR)/gix-revwalk-0.13.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REVWALK_0_13_2
 
 HOST_CARGO_C_GIX_SEC_0_10_8_MD5		:= 55514cbc770c9a1a3eccda12d839f859
-HOST_CARGO_C_GIX_SEC_0_10_8_URL		:= https://crates.io/api/v1/crates/gix-sec/0.10.8/download
+HOST_CARGO_C_GIX_SEC_0_10_8_URL		:= $(call ptx/mirror, CRATESIO, gix-sec/0.10.8/download)
 HOST_CARGO_C_GIX_SEC_0_10_8_SOURCE	:= $(SRCDIR)/gix-sec-0.10.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_SEC_0_10_8
 
 HOST_CARGO_C_GIX_SUBMODULE_0_12_0_MD5		:= 88d75dde8c6b2c54aa342e60238d89fd
-HOST_CARGO_C_GIX_SUBMODULE_0_12_0_URL		:= https://crates.io/api/v1/crates/gix-submodule/0.12.0/download
+HOST_CARGO_C_GIX_SUBMODULE_0_12_0_URL		:= $(call ptx/mirror, CRATESIO, gix-submodule/0.12.0/download)
 HOST_CARGO_C_GIX_SUBMODULE_0_12_0_SOURCE	:= $(SRCDIR)/gix-submodule-0.12.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_SUBMODULE_0_12_0
 
 HOST_CARGO_C_GIX_TEMPFILE_14_0_2_MD5		:= 1e642722f3eca4e8430b1fbf79f2e8a5
-HOST_CARGO_C_GIX_TEMPFILE_14_0_2_URL		:= https://crates.io/api/v1/crates/gix-tempfile/14.0.2/download
+HOST_CARGO_C_GIX_TEMPFILE_14_0_2_URL		:= $(call ptx/mirror, CRATESIO, gix-tempfile/14.0.2/download)
 HOST_CARGO_C_GIX_TEMPFILE_14_0_2_SOURCE	:= $(SRCDIR)/gix-tempfile-14.0.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TEMPFILE_14_0_2
 
 HOST_CARGO_C_GIX_TRACE_0_1_9_MD5		:= 22c18c8034a833c91bb51cbd1433fd13
-HOST_CARGO_C_GIX_TRACE_0_1_9_URL		:= https://crates.io/api/v1/crates/gix-trace/0.1.9/download
+HOST_CARGO_C_GIX_TRACE_0_1_9_URL		:= $(call ptx/mirror, CRATESIO, gix-trace/0.1.9/download)
 HOST_CARGO_C_GIX_TRACE_0_1_9_SOURCE	:= $(SRCDIR)/gix-trace-0.1.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TRACE_0_1_9
 
 HOST_CARGO_C_GIX_TRANSPORT_0_42_3_MD5		:= 3e8ccb40641c0990c9200c667e8a965d
-HOST_CARGO_C_GIX_TRANSPORT_0_42_3_URL		:= https://crates.io/api/v1/crates/gix-transport/0.42.3/download
+HOST_CARGO_C_GIX_TRANSPORT_0_42_3_URL		:= $(call ptx/mirror, CRATESIO, gix-transport/0.42.3/download)
 HOST_CARGO_C_GIX_TRANSPORT_0_42_3_SOURCE	:= $(SRCDIR)/gix-transport-0.42.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TRANSPORT_0_42_3
 
 HOST_CARGO_C_GIX_TRAVERSE_0_39_2_MD5		:= d8503dcb614aeb6cd075e3360e708dc3
-HOST_CARGO_C_GIX_TRAVERSE_0_39_2_URL		:= https://crates.io/api/v1/crates/gix-traverse/0.39.2/download
+HOST_CARGO_C_GIX_TRAVERSE_0_39_2_URL		:= $(call ptx/mirror, CRATESIO, gix-traverse/0.39.2/download)
 HOST_CARGO_C_GIX_TRAVERSE_0_39_2_SOURCE	:= $(SRCDIR)/gix-traverse-0.39.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TRAVERSE_0_39_2
 
 HOST_CARGO_C_GIX_URL_0_27_5_MD5		:= 66817b9ee2b91822bb6443fa34c4c027
-HOST_CARGO_C_GIX_URL_0_27_5_URL		:= https://crates.io/api/v1/crates/gix-url/0.27.5/download
+HOST_CARGO_C_GIX_URL_0_27_5_URL		:= $(call ptx/mirror, CRATESIO, gix-url/0.27.5/download)
 HOST_CARGO_C_GIX_URL_0_27_5_SOURCE	:= $(SRCDIR)/gix-url-0.27.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_URL_0_27_5
 
 HOST_CARGO_C_GIX_UTILS_0_1_12_MD5		:= 102dd5ccf7f0e35f281febc864643590
-HOST_CARGO_C_GIX_UTILS_0_1_12_URL		:= https://crates.io/api/v1/crates/gix-utils/0.1.12/download
+HOST_CARGO_C_GIX_UTILS_0_1_12_URL		:= $(call ptx/mirror, CRATESIO, gix-utils/0.1.12/download)
 HOST_CARGO_C_GIX_UTILS_0_1_12_SOURCE	:= $(SRCDIR)/gix-utils-0.1.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_UTILS_0_1_12
 
 HOST_CARGO_C_GIX_VALIDATE_0_8_5_MD5		:= 8136d042881d797047cdf7c74144af58
-HOST_CARGO_C_GIX_VALIDATE_0_8_5_URL		:= https://crates.io/api/v1/crates/gix-validate/0.8.5/download
+HOST_CARGO_C_GIX_VALIDATE_0_8_5_URL		:= $(call ptx/mirror, CRATESIO, gix-validate/0.8.5/download)
 HOST_CARGO_C_GIX_VALIDATE_0_8_5_SOURCE	:= $(SRCDIR)/gix-validate-0.8.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_VALIDATE_0_8_5
 
 HOST_CARGO_C_GIX_WORKTREE_0_34_1_MD5		:= 33aa2161d490d8fb29bbef38fa1f557e
-HOST_CARGO_C_GIX_WORKTREE_0_34_1_URL		:= https://crates.io/api/v1/crates/gix-worktree/0.34.1/download
+HOST_CARGO_C_GIX_WORKTREE_0_34_1_URL		:= $(call ptx/mirror, CRATESIO, gix-worktree/0.34.1/download)
 HOST_CARGO_C_GIX_WORKTREE_0_34_1_SOURCE	:= $(SRCDIR)/gix-worktree-0.34.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_WORKTREE_0_34_1
 
 HOST_CARGO_C_GLOB_0_3_1_MD5		:= 2d6d28ec311884da69bcaf320ada8ad5
-HOST_CARGO_C_GLOB_0_3_1_URL		:= https://crates.io/api/v1/crates/glob/0.3.1/download
+HOST_CARGO_C_GLOB_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, glob/0.3.1/download)
 HOST_CARGO_C_GLOB_0_3_1_SOURCE	:= $(SRCDIR)/glob-0.3.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GLOB_0_3_1
 
 HOST_CARGO_C_GLOBSET_0_4_14_MD5		:= 423ea3c18df8759400c3d0a381738c64
-HOST_CARGO_C_GLOBSET_0_4_14_URL		:= https://crates.io/api/v1/crates/globset/0.4.14/download
+HOST_CARGO_C_GLOBSET_0_4_14_URL		:= $(call ptx/mirror, CRATESIO, globset/0.4.14/download)
 HOST_CARGO_C_GLOBSET_0_4_14_SOURCE	:= $(SRCDIR)/globset-0.4.14.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GLOBSET_0_4_14
 
 HOST_CARGO_C_GROUP_0_13_0_MD5		:= 974e766c6583278ac82a83632b75b65e
-HOST_CARGO_C_GROUP_0_13_0_URL		:= https://crates.io/api/v1/crates/group/0.13.0/download
+HOST_CARGO_C_GROUP_0_13_0_URL		:= $(call ptx/mirror, CRATESIO, group/0.13.0/download)
 HOST_CARGO_C_GROUP_0_13_0_SOURCE	:= $(SRCDIR)/group-0.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GROUP_0_13_0
 
 HOST_CARGO_C_HASHBROWN_0_14_5_MD5		:= 0339cc04f4471f002e421e2328a86bf5
-HOST_CARGO_C_HASHBROWN_0_14_5_URL		:= https://crates.io/api/v1/crates/hashbrown/0.14.5/download
+HOST_CARGO_C_HASHBROWN_0_14_5_URL		:= $(call ptx/mirror, CRATESIO, hashbrown/0.14.5/download)
 HOST_CARGO_C_HASHBROWN_0_14_5_SOURCE	:= $(SRCDIR)/hashbrown-0.14.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HASHBROWN_0_14_5
 
 HOST_CARGO_C_HASHLINK_0_9_1_MD5		:= 820fed612601a95415de79471ddd9b82
-HOST_CARGO_C_HASHLINK_0_9_1_URL		:= https://crates.io/api/v1/crates/hashlink/0.9.1/download
+HOST_CARGO_C_HASHLINK_0_9_1_URL		:= $(call ptx/mirror, CRATESIO, hashlink/0.9.1/download)
 HOST_CARGO_C_HASHLINK_0_9_1_SOURCE	:= $(SRCDIR)/hashlink-0.9.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HASHLINK_0_9_1
 
 HOST_CARGO_C_HECK_0_4_1_MD5		:= b92fa50f56a1e06a7f1bf665442d4a73
-HOST_CARGO_C_HECK_0_4_1_URL		:= https://crates.io/api/v1/crates/heck/0.4.1/download
+HOST_CARGO_C_HECK_0_4_1_URL		:= $(call ptx/mirror, CRATESIO, heck/0.4.1/download)
 HOST_CARGO_C_HECK_0_4_1_SOURCE	:= $(SRCDIR)/heck-0.4.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HECK_0_4_1
 
 HOST_CARGO_C_HECK_0_5_0_MD5		:= ce5935e8063a452913a61e5405b33cb9
-HOST_CARGO_C_HECK_0_5_0_URL		:= https://crates.io/api/v1/crates/heck/0.5.0/download
+HOST_CARGO_C_HECK_0_5_0_URL		:= $(call ptx/mirror, CRATESIO, heck/0.5.0/download)
 HOST_CARGO_C_HECK_0_5_0_SOURCE	:= $(SRCDIR)/heck-0.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HECK_0_5_0
 
 HOST_CARGO_C_HEX_0_4_3_MD5		:= 1d3e530a3410fc95a6987d70f84a6332
-HOST_CARGO_C_HEX_0_4_3_URL		:= https://crates.io/api/v1/crates/hex/0.4.3/download
+HOST_CARGO_C_HEX_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, hex/0.4.3/download)
 HOST_CARGO_C_HEX_0_4_3_SOURCE	:= $(SRCDIR)/hex-0.4.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HEX_0_4_3
 
 HOST_CARGO_C_HKDF_0_12_4_MD5		:= 8cd6f472d6904b0c507a456dddb68eb6
-HOST_CARGO_C_HKDF_0_12_4_URL		:= https://crates.io/api/v1/crates/hkdf/0.12.4/download
+HOST_CARGO_C_HKDF_0_12_4_URL		:= $(call ptx/mirror, CRATESIO, hkdf/0.12.4/download)
 HOST_CARGO_C_HKDF_0_12_4_SOURCE	:= $(SRCDIR)/hkdf-0.12.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HKDF_0_12_4
 
 HOST_CARGO_C_HMAC_0_12_1_MD5		:= 4e0c068ba38fa8e0aa6c46bce5e9d2ab
-HOST_CARGO_C_HMAC_0_12_1_URL		:= https://crates.io/api/v1/crates/hmac/0.12.1/download
+HOST_CARGO_C_HMAC_0_12_1_URL		:= $(call ptx/mirror, CRATESIO, hmac/0.12.1/download)
 HOST_CARGO_C_HMAC_0_12_1_SOURCE	:= $(SRCDIR)/hmac-0.12.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HMAC_0_12_1
 
 HOST_CARGO_C_HOME_0_5_9_MD5		:= d81f9251921f8a289dcf69fe4ccc3788
-HOST_CARGO_C_HOME_0_5_9_URL		:= https://crates.io/api/v1/crates/home/0.5.9/download
+HOST_CARGO_C_HOME_0_5_9_URL		:= $(call ptx/mirror, CRATESIO, home/0.5.9/download)
 HOST_CARGO_C_HOME_0_5_9_SOURCE	:= $(SRCDIR)/home-0.5.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HOME_0_5_9
 
 HOST_CARGO_C_HTTP_AUTH_0_1_10_MD5		:= 791938196c6a3f4934408ae05f1cd5d8
-HOST_CARGO_C_HTTP_AUTH_0_1_10_URL		:= https://crates.io/api/v1/crates/http-auth/0.1.10/download
+HOST_CARGO_C_HTTP_AUTH_0_1_10_URL		:= $(call ptx/mirror, CRATESIO, http-auth/0.1.10/download)
 HOST_CARGO_C_HTTP_AUTH_0_1_10_SOURCE	:= $(SRCDIR)/http-auth-0.1.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HTTP_AUTH_0_1_10
 
 HOST_CARGO_C_HUMANTIME_2_1_0_MD5		:= c01022fe0357c10ca1d48b16187f81bd
-HOST_CARGO_C_HUMANTIME_2_1_0_URL		:= https://crates.io/api/v1/crates/humantime/2.1.0/download
+HOST_CARGO_C_HUMANTIME_2_1_0_URL		:= $(call ptx/mirror, CRATESIO, humantime/2.1.0/download)
 HOST_CARGO_C_HUMANTIME_2_1_0_SOURCE	:= $(SRCDIR)/humantime-2.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HUMANTIME_2_1_0
 
 HOST_CARGO_C_IDNA_0_5_0_MD5		:= b5305bde14813da51d536a9df564db69
-HOST_CARGO_C_IDNA_0_5_0_URL		:= https://crates.io/api/v1/crates/idna/0.5.0/download
+HOST_CARGO_C_IDNA_0_5_0_URL		:= $(call ptx/mirror, CRATESIO, idna/0.5.0/download)
 HOST_CARGO_C_IDNA_0_5_0_SOURCE	:= $(SRCDIR)/idna-0.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IDNA_0_5_0
 
 HOST_CARGO_C_IGNORE_0_4_22_MD5		:= b0e8879bc367bdad1fea51407ae22380
-HOST_CARGO_C_IGNORE_0_4_22_URL		:= https://crates.io/api/v1/crates/ignore/0.4.22/download
+HOST_CARGO_C_IGNORE_0_4_22_URL		:= $(call ptx/mirror, CRATESIO, ignore/0.4.22/download)
 HOST_CARGO_C_IGNORE_0_4_22_SOURCE	:= $(SRCDIR)/ignore-0.4.22.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IGNORE_0_4_22
 
 HOST_CARGO_C_IM_RC_15_1_0_MD5		:= 25119b3f34f4d5298dade622e10a54c5
-HOST_CARGO_C_IM_RC_15_1_0_URL		:= https://crates.io/api/v1/crates/im-rc/15.1.0/download
+HOST_CARGO_C_IM_RC_15_1_0_URL		:= $(call ptx/mirror, CRATESIO, im-rc/15.1.0/download)
 HOST_CARGO_C_IM_RC_15_1_0_SOURCE	:= $(SRCDIR)/im-rc-15.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IM_RC_15_1_0
 
 HOST_CARGO_C_INDEXMAP_2_5_0_MD5		:= fe29680d6c4b75cc9ffeceb588e1e01c
-HOST_CARGO_C_INDEXMAP_2_5_0_URL		:= https://crates.io/api/v1/crates/indexmap/2.5.0/download
+HOST_CARGO_C_INDEXMAP_2_5_0_URL		:= $(call ptx/mirror, CRATESIO, indexmap/2.5.0/download)
 HOST_CARGO_C_INDEXMAP_2_5_0_SOURCE	:= $(SRCDIR)/indexmap-2.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_INDEXMAP_2_5_0
 
 HOST_CARGO_C_IS_TERMINAL_POLYFILL_1_70_1_MD5		:= 83cd180e6991b62b1cc6d646bf4d0284
-HOST_CARGO_C_IS_TERMINAL_POLYFILL_1_70_1_URL		:= https://crates.io/api/v1/crates/is_terminal_polyfill/1.70.1/download
+HOST_CARGO_C_IS_TERMINAL_POLYFILL_1_70_1_URL		:= $(call ptx/mirror, CRATESIO, is_terminal_polyfill/1.70.1/download)
 HOST_CARGO_C_IS_TERMINAL_POLYFILL_1_70_1_SOURCE	:= $(SRCDIR)/is_terminal_polyfill-1.70.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IS_TERMINAL_POLYFILL_1_70_1
 
 HOST_CARGO_C_ITERTOOLS_0_13_0_MD5		:= 22c9fb2659929f432d5fe217d1cb74cf
-HOST_CARGO_C_ITERTOOLS_0_13_0_URL		:= https://crates.io/api/v1/crates/itertools/0.13.0/download
+HOST_CARGO_C_ITERTOOLS_0_13_0_URL		:= $(call ptx/mirror, CRATESIO, itertools/0.13.0/download)
 HOST_CARGO_C_ITERTOOLS_0_13_0_SOURCE	:= $(SRCDIR)/itertools-0.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ITERTOOLS_0_13_0
 
 HOST_CARGO_C_ITOA_1_0_11_MD5		:= 5d87e8530342ef2a980b1c96dafd27f0
-HOST_CARGO_C_ITOA_1_0_11_URL		:= https://crates.io/api/v1/crates/itoa/1.0.11/download
+HOST_CARGO_C_ITOA_1_0_11_URL		:= $(call ptx/mirror, CRATESIO, itoa/1.0.11/download)
 HOST_CARGO_C_ITOA_1_0_11_SOURCE	:= $(SRCDIR)/itoa-1.0.11.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ITOA_1_0_11
 
 HOST_CARGO_C_JIFF_0_1_12_MD5		:= af1ea911541f57099f81ed6e8fe480bc
-HOST_CARGO_C_JIFF_0_1_12_URL		:= https://crates.io/api/v1/crates/jiff/0.1.12/download
+HOST_CARGO_C_JIFF_0_1_12_URL		:= $(call ptx/mirror, CRATESIO, jiff/0.1.12/download)
 HOST_CARGO_C_JIFF_0_1_12_SOURCE	:= $(SRCDIR)/jiff-0.1.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JIFF_0_1_12
 
 HOST_CARGO_C_JIFF_TZDB_0_1_0_MD5		:= c9c58f8af8bc9eaa04fb4b7e61ad56a1
-HOST_CARGO_C_JIFF_TZDB_0_1_0_URL		:= https://crates.io/api/v1/crates/jiff-tzdb/0.1.0/download
+HOST_CARGO_C_JIFF_TZDB_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, jiff-tzdb/0.1.0/download)
 HOST_CARGO_C_JIFF_TZDB_0_1_0_SOURCE	:= $(SRCDIR)/jiff-tzdb-0.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JIFF_TZDB_0_1_0
 
 HOST_CARGO_C_JIFF_TZDB_PLATFORM_0_1_0_MD5		:= 39bc626af823fa43f79f8917b6b2e506
-HOST_CARGO_C_JIFF_TZDB_PLATFORM_0_1_0_URL		:= https://crates.io/api/v1/crates/jiff-tzdb-platform/0.1.0/download
+HOST_CARGO_C_JIFF_TZDB_PLATFORM_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, jiff-tzdb-platform/0.1.0/download)
 HOST_CARGO_C_JIFF_TZDB_PLATFORM_0_1_0_SOURCE	:= $(SRCDIR)/jiff-tzdb-platform-0.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JIFF_TZDB_PLATFORM_0_1_0
 
 HOST_CARGO_C_JOBSERVER_0_1_32_MD5		:= 371fb71b0651ef8bf26e827ec21b1f76
-HOST_CARGO_C_JOBSERVER_0_1_32_URL		:= https://crates.io/api/v1/crates/jobserver/0.1.32/download
+HOST_CARGO_C_JOBSERVER_0_1_32_URL		:= $(call ptx/mirror, CRATESIO, jobserver/0.1.32/download)
 HOST_CARGO_C_JOBSERVER_0_1_32_SOURCE	:= $(SRCDIR)/jobserver-0.1.32.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JOBSERVER_0_1_32
 
 HOST_CARGO_C_JS_SYS_0_3_70_MD5		:= 45a825695402aa13c026cc81b30ccfd6
-HOST_CARGO_C_JS_SYS_0_3_70_URL		:= https://crates.io/api/v1/crates/js-sys/0.3.70/download
+HOST_CARGO_C_JS_SYS_0_3_70_URL		:= $(call ptx/mirror, CRATESIO, js-sys/0.3.70/download)
 HOST_CARGO_C_JS_SYS_0_3_70_SOURCE	:= $(SRCDIR)/js-sys-0.3.70.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JS_SYS_0_3_70
 
 HOST_CARGO_C_KSTRING_2_0_2_MD5		:= 5a7af442aa87deb7aa2e47aa53ecb4b0
-HOST_CARGO_C_KSTRING_2_0_2_URL		:= https://crates.io/api/v1/crates/kstring/2.0.2/download
+HOST_CARGO_C_KSTRING_2_0_2_URL		:= $(call ptx/mirror, CRATESIO, kstring/2.0.2/download)
 HOST_CARGO_C_KSTRING_2_0_2_SOURCE	:= $(SRCDIR)/kstring-2.0.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_KSTRING_2_0_2
 
 HOST_CARGO_C_LAZY_STATIC_1_5_0_MD5		:= bb0c20f6e3faaa647d9c463c5501a8e0
-HOST_CARGO_C_LAZY_STATIC_1_5_0_URL		:= https://crates.io/api/v1/crates/lazy_static/1.5.0/download
+HOST_CARGO_C_LAZY_STATIC_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, lazy_static/1.5.0/download)
 HOST_CARGO_C_LAZY_STATIC_1_5_0_SOURCE	:= $(SRCDIR)/lazy_static-1.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LAZY_STATIC_1_5_0
 
 HOST_CARGO_C_LAZYCELL_1_3_0_MD5		:= 23cc9e52c52465f5b225e62ab7cc3457
-HOST_CARGO_C_LAZYCELL_1_3_0_URL		:= https://crates.io/api/v1/crates/lazycell/1.3.0/download
+HOST_CARGO_C_LAZYCELL_1_3_0_URL		:= $(call ptx/mirror, CRATESIO, lazycell/1.3.0/download)
 HOST_CARGO_C_LAZYCELL_1_3_0_SOURCE	:= $(SRCDIR)/lazycell-1.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LAZYCELL_1_3_0
 
 HOST_CARGO_C_LIBC_0_2_158_MD5		:= f87a00a9b24bb7ea2736fcacf57027ab
-HOST_CARGO_C_LIBC_0_2_158_URL		:= https://crates.io/api/v1/crates/libc/0.2.158/download
+HOST_CARGO_C_LIBC_0_2_158_URL		:= $(call ptx/mirror, CRATESIO, libc/0.2.158/download)
 HOST_CARGO_C_LIBC_0_2_158_SOURCE	:= $(SRCDIR)/libc-0.2.158.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBC_0_2_158
 
 HOST_CARGO_C_LIBDBUS_SYS_0_2_5_MD5		:= fd05e11da4cc641616b87a31223645bd
-HOST_CARGO_C_LIBDBUS_SYS_0_2_5_URL		:= https://crates.io/api/v1/crates/libdbus-sys/0.2.5/download
+HOST_CARGO_C_LIBDBUS_SYS_0_2_5_URL		:= $(call ptx/mirror, CRATESIO, libdbus-sys/0.2.5/download)
 HOST_CARGO_C_LIBDBUS_SYS_0_2_5_SOURCE	:= $(SRCDIR)/libdbus-sys-0.2.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBDBUS_SYS_0_2_5
 
 HOST_CARGO_C_LIBGIT2_SYS_0_17_0_1_8_1_MD5		:= 9165afe1f143b7104b3c0868b2cae924
-HOST_CARGO_C_LIBGIT2_SYS_0_17_0_1_8_1_URL		:= https://crates.io/api/v1/crates/libgit2-sys/0.17.0+1.8.1/download
+HOST_CARGO_C_LIBGIT2_SYS_0_17_0_1_8_1_URL		:= $(call ptx/mirror, CRATESIO, libgit2-sys/0.17.0+1.8.1/download)
 HOST_CARGO_C_LIBGIT2_SYS_0_17_0_1_8_1_SOURCE	:= $(SRCDIR)/libgit2-sys-0.17.0+1.8.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBGIT2_SYS_0_17_0_1_8_1
 
 HOST_CARGO_C_LIBLOADING_0_8_5_MD5		:= 497cb030511762f0e30f395fb9c092ec
-HOST_CARGO_C_LIBLOADING_0_8_5_URL		:= https://crates.io/api/v1/crates/libloading/0.8.5/download
+HOST_CARGO_C_LIBLOADING_0_8_5_URL		:= $(call ptx/mirror, CRATESIO, libloading/0.8.5/download)
 HOST_CARGO_C_LIBLOADING_0_8_5_SOURCE	:= $(SRCDIR)/libloading-0.8.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBLOADING_0_8_5
 
 HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_10_1_61_0_MD5		:= d7931ae20ea0df9dca67aa870c5e578f
-HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_10_1_61_0_URL		:= https://crates.io/api/v1/crates/libnghttp2-sys/0.1.10+1.61.0/download
+HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_10_1_61_0_URL		:= $(call ptx/mirror, CRATESIO, libnghttp2-sys/0.1.10+1.61.0/download)
 HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_10_1_61_0_SOURCE	:= $(SRCDIR)/libnghttp2-sys-0.1.10+1.61.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_10_1_61_0
 
 HOST_CARGO_C_LIBREDOX_0_1_3_MD5		:= b928626f9e8328e4085fc27cfc640c19
-HOST_CARGO_C_LIBREDOX_0_1_3_URL		:= https://crates.io/api/v1/crates/libredox/0.1.3/download
+HOST_CARGO_C_LIBREDOX_0_1_3_URL		:= $(call ptx/mirror, CRATESIO, libredox/0.1.3/download)
 HOST_CARGO_C_LIBREDOX_0_1_3_SOURCE	:= $(SRCDIR)/libredox-0.1.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBREDOX_0_1_3
 
 HOST_CARGO_C_LIBSQLITE3_SYS_0_28_0_MD5		:= 60dfb05876b9242282ded82fc74db945
-HOST_CARGO_C_LIBSQLITE3_SYS_0_28_0_URL		:= https://crates.io/api/v1/crates/libsqlite3-sys/0.28.0/download
+HOST_CARGO_C_LIBSQLITE3_SYS_0_28_0_URL		:= $(call ptx/mirror, CRATESIO, libsqlite3-sys/0.28.0/download)
 HOST_CARGO_C_LIBSQLITE3_SYS_0_28_0_SOURCE	:= $(SRCDIR)/libsqlite3-sys-0.28.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBSQLITE3_SYS_0_28_0
 
 HOST_CARGO_C_LIBSSH2_SYS_0_3_0_MD5		:= 73c81da3754295e39ea4a99517b1e794
-HOST_CARGO_C_LIBSSH2_SYS_0_3_0_URL		:= https://crates.io/api/v1/crates/libssh2-sys/0.3.0/download
+HOST_CARGO_C_LIBSSH2_SYS_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, libssh2-sys/0.3.0/download)
 HOST_CARGO_C_LIBSSH2_SYS_0_3_0_SOURCE	:= $(SRCDIR)/libssh2-sys-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBSSH2_SYS_0_3_0
 
 HOST_CARGO_C_LIBZ_SYS_1_1_20_MD5		:= 0af12a5e277bc37fef415940a42d1bf3
-HOST_CARGO_C_LIBZ_SYS_1_1_20_URL		:= https://crates.io/api/v1/crates/libz-sys/1.1.20/download
+HOST_CARGO_C_LIBZ_SYS_1_1_20_URL		:= $(call ptx/mirror, CRATESIO, libz-sys/1.1.20/download)
 HOST_CARGO_C_LIBZ_SYS_1_1_20_SOURCE	:= $(SRCDIR)/libz-sys-1.1.20.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBZ_SYS_1_1_20
 
 HOST_CARGO_C_LINUX_RAW_SYS_0_4_14_MD5		:= 6d16890925497732bdbedd7636c9546f
-HOST_CARGO_C_LINUX_RAW_SYS_0_4_14_URL		:= https://crates.io/api/v1/crates/linux-raw-sys/0.4.14/download
+HOST_CARGO_C_LINUX_RAW_SYS_0_4_14_URL		:= $(call ptx/mirror, CRATESIO, linux-raw-sys/0.4.14/download)
 HOST_CARGO_C_LINUX_RAW_SYS_0_4_14_SOURCE	:= $(SRCDIR)/linux-raw-sys-0.4.14.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LINUX_RAW_SYS_0_4_14
 
 HOST_CARGO_C_LOCK_API_0_4_12_MD5		:= eb44c81f81e4aecdbdbafeac9c0fdcab
-HOST_CARGO_C_LOCK_API_0_4_12_URL		:= https://crates.io/api/v1/crates/lock_api/0.4.12/download
+HOST_CARGO_C_LOCK_API_0_4_12_URL		:= $(call ptx/mirror, CRATESIO, lock_api/0.4.12/download)
 HOST_CARGO_C_LOCK_API_0_4_12_SOURCE	:= $(SRCDIR)/lock_api-0.4.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LOCK_API_0_4_12
 
 HOST_CARGO_C_LOG_0_4_22_MD5		:= efeb260cf6b2a13607ee12321e39cc8d
-HOST_CARGO_C_LOG_0_4_22_URL		:= https://crates.io/api/v1/crates/log/0.4.22/download
+HOST_CARGO_C_LOG_0_4_22_URL		:= $(call ptx/mirror, CRATESIO, log/0.4.22/download)
 HOST_CARGO_C_LOG_0_4_22_SOURCE	:= $(SRCDIR)/log-0.4.22.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LOG_0_4_22
 
 HOST_CARGO_C_MATCHERS_0_1_0_MD5		:= 29614f150859d094548bed37e78f586b
-HOST_CARGO_C_MATCHERS_0_1_0_URL		:= https://crates.io/api/v1/crates/matchers/0.1.0/download
+HOST_CARGO_C_MATCHERS_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, matchers/0.1.0/download)
 HOST_CARGO_C_MATCHERS_0_1_0_SOURCE	:= $(SRCDIR)/matchers-0.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MATCHERS_0_1_0
 
 HOST_CARGO_C_MAYBE_ASYNC_0_2_10_MD5		:= 171bb701365ec4b0c12ae5387e034c16
-HOST_CARGO_C_MAYBE_ASYNC_0_2_10_URL		:= https://crates.io/api/v1/crates/maybe-async/0.2.10/download
+HOST_CARGO_C_MAYBE_ASYNC_0_2_10_URL		:= $(call ptx/mirror, CRATESIO, maybe-async/0.2.10/download)
 HOST_CARGO_C_MAYBE_ASYNC_0_2_10_SOURCE	:= $(SRCDIR)/maybe-async-0.2.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MAYBE_ASYNC_0_2_10
 
 HOST_CARGO_C_MEMCHR_2_7_4_MD5		:= c0aab5e6eaaa6a2f3c7ed44f123d1c7d
-HOST_CARGO_C_MEMCHR_2_7_4_URL		:= https://crates.io/api/v1/crates/memchr/2.7.4/download
+HOST_CARGO_C_MEMCHR_2_7_4_URL		:= $(call ptx/mirror, CRATESIO, memchr/2.7.4/download)
 HOST_CARGO_C_MEMCHR_2_7_4_SOURCE	:= $(SRCDIR)/memchr-2.7.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MEMCHR_2_7_4
 
 HOST_CARGO_C_MEMMAP2_0_9_4_MD5		:= 5cf346df4658ff1ab6c0b3b3dba48f75
-HOST_CARGO_C_MEMMAP2_0_9_4_URL		:= https://crates.io/api/v1/crates/memmap2/0.9.4/download
+HOST_CARGO_C_MEMMAP2_0_9_4_URL		:= $(call ptx/mirror, CRATESIO, memmap2/0.9.4/download)
 HOST_CARGO_C_MEMMAP2_0_9_4_SOURCE	:= $(SRCDIR)/memmap2-0.9.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MEMMAP2_0_9_4
 
 HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_MD5		:= 8b708bc4b33c5e1683467444c9ed41b0
-HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_URL		:= https://crates.io/api/v1/crates/minimal-lexical/0.2.1/download
+HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, minimal-lexical/0.2.1/download)
 HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_SOURCE	:= $(SRCDIR)/minimal-lexical-0.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1
 
 HOST_CARGO_C_MINIZ_OXIDE_0_8_0_MD5		:= 7c3a27860a0082241f5c9a069e431fba
-HOST_CARGO_C_MINIZ_OXIDE_0_8_0_URL		:= https://crates.io/api/v1/crates/miniz_oxide/0.8.0/download
+HOST_CARGO_C_MINIZ_OXIDE_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, miniz_oxide/0.8.0/download)
 HOST_CARGO_C_MINIZ_OXIDE_0_8_0_SOURCE	:= $(SRCDIR)/miniz_oxide-0.8.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MINIZ_OXIDE_0_8_0
 
 HOST_CARGO_C_MIOW_0_6_0_MD5		:= c14d50ef3ce9b2640d2a9d68c53834b9
-HOST_CARGO_C_MIOW_0_6_0_URL		:= https://crates.io/api/v1/crates/miow/0.6.0/download
+HOST_CARGO_C_MIOW_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, miow/0.6.0/download)
 HOST_CARGO_C_MIOW_0_6_0_SOURCE	:= $(SRCDIR)/miow-0.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MIOW_0_6_0
 
 HOST_CARGO_C_NOM_7_1_3_MD5		:= f17aecb8887cf0ecd823623160aed7db
-HOST_CARGO_C_NOM_7_1_3_URL		:= https://crates.io/api/v1/crates/nom/7.1.3/download
+HOST_CARGO_C_NOM_7_1_3_URL		:= $(call ptx/mirror, CRATESIO, nom/7.1.3/download)
 HOST_CARGO_C_NOM_7_1_3_SOURCE	:= $(SRCDIR)/nom-7.1.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NOM_7_1_3
 
 HOST_CARGO_C_NORMPATH_1_3_0_MD5		:= 9a56f9ea516d7912a9e5257a455231c2
-HOST_CARGO_C_NORMPATH_1_3_0_URL		:= https://crates.io/api/v1/crates/normpath/1.3.0/download
+HOST_CARGO_C_NORMPATH_1_3_0_URL		:= $(call ptx/mirror, CRATESIO, normpath/1.3.0/download)
 HOST_CARGO_C_NORMPATH_1_3_0_SOURCE	:= $(SRCDIR)/normpath-1.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NORMPATH_1_3_0
 
 HOST_CARGO_C_NU_ANSI_TERM_0_46_0_MD5		:= a56461a712a83abc691cf473d1835228
-HOST_CARGO_C_NU_ANSI_TERM_0_46_0_URL		:= https://crates.io/api/v1/crates/nu-ansi-term/0.46.0/download
+HOST_CARGO_C_NU_ANSI_TERM_0_46_0_URL		:= $(call ptx/mirror, CRATESIO, nu-ansi-term/0.46.0/download)
 HOST_CARGO_C_NU_ANSI_TERM_0_46_0_SOURCE	:= $(SRCDIR)/nu-ansi-term-0.46.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NU_ANSI_TERM_0_46_0
 
 HOST_CARGO_C_NUM_CONV_0_1_0_MD5		:= 5b5de6cffe4726037a5ec6d6931c80f3
-HOST_CARGO_C_NUM_CONV_0_1_0_URL		:= https://crates.io/api/v1/crates/num-conv/0.1.0/download
+HOST_CARGO_C_NUM_CONV_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, num-conv/0.1.0/download)
 HOST_CARGO_C_NUM_CONV_0_1_0_SOURCE	:= $(SRCDIR)/num-conv-0.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NUM_CONV_0_1_0
 
 HOST_CARGO_C_NUM_TRAITS_0_2_19_MD5		:= e092b3abcc54806f2a35889d725bf95f
-HOST_CARGO_C_NUM_TRAITS_0_2_19_URL		:= https://crates.io/api/v1/crates/num-traits/0.2.19/download
+HOST_CARGO_C_NUM_TRAITS_0_2_19_URL		:= $(call ptx/mirror, CRATESIO, num-traits/0.2.19/download)
 HOST_CARGO_C_NUM_TRAITS_0_2_19_SOURCE	:= $(SRCDIR)/num-traits-0.2.19.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NUM_TRAITS_0_2_19
 
 HOST_CARGO_C_NUM_THREADS_0_1_7_MD5		:= 4578b5cccbe636b7e5becdf5543b3802
-HOST_CARGO_C_NUM_THREADS_0_1_7_URL		:= https://crates.io/api/v1/crates/num_threads/0.1.7/download
+HOST_CARGO_C_NUM_THREADS_0_1_7_URL		:= $(call ptx/mirror, CRATESIO, num_threads/0.1.7/download)
 HOST_CARGO_C_NUM_THREADS_0_1_7_SOURCE	:= $(SRCDIR)/num_threads-0.1.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NUM_THREADS_0_1_7
 
 HOST_CARGO_C_ONCE_CELL_1_19_0_MD5		:= 8390247ae7126c00e162732b249be9d7
-HOST_CARGO_C_ONCE_CELL_1_19_0_URL		:= https://crates.io/api/v1/crates/once_cell/1.19.0/download
+HOST_CARGO_C_ONCE_CELL_1_19_0_URL		:= $(call ptx/mirror, CRATESIO, once_cell/1.19.0/download)
 HOST_CARGO_C_ONCE_CELL_1_19_0_SOURCE	:= $(SRCDIR)/once_cell-1.19.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ONCE_CELL_1_19_0
 
 HOST_CARGO_C_OPENER_0_7_2_MD5		:= a997075a6ee099a1589014357bd5e6f8
-HOST_CARGO_C_OPENER_0_7_2_URL		:= https://crates.io/api/v1/crates/opener/0.7.2/download
+HOST_CARGO_C_OPENER_0_7_2_URL		:= $(call ptx/mirror, CRATESIO, opener/0.7.2/download)
 HOST_CARGO_C_OPENER_0_7_2_SOURCE	:= $(SRCDIR)/opener-0.7.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENER_0_7_2
 
 HOST_CARGO_C_OPENSSL_0_10_66_MD5		:= 8d069ba8d01c8c6c90ebfcb149a4573c
-HOST_CARGO_C_OPENSSL_0_10_66_URL		:= https://crates.io/api/v1/crates/openssl/0.10.66/download
+HOST_CARGO_C_OPENSSL_0_10_66_URL		:= $(call ptx/mirror, CRATESIO, openssl/0.10.66/download)
 HOST_CARGO_C_OPENSSL_0_10_66_SOURCE	:= $(SRCDIR)/openssl-0.10.66.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_0_10_66
 
 HOST_CARGO_C_OPENSSL_MACROS_0_1_1_MD5		:= 28d34115cfbbe0e8f80333591f2cdd84
-HOST_CARGO_C_OPENSSL_MACROS_0_1_1_URL		:= https://crates.io/api/v1/crates/openssl-macros/0.1.1/download
+HOST_CARGO_C_OPENSSL_MACROS_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, openssl-macros/0.1.1/download)
 HOST_CARGO_C_OPENSSL_MACROS_0_1_1_SOURCE	:= $(SRCDIR)/openssl-macros-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_MACROS_0_1_1
 
 HOST_CARGO_C_OPENSSL_PROBE_0_1_5_MD5		:= 907244c0d3791f3f981c7cc8e4cad0a3
-HOST_CARGO_C_OPENSSL_PROBE_0_1_5_URL		:= https://crates.io/api/v1/crates/openssl-probe/0.1.5/download
+HOST_CARGO_C_OPENSSL_PROBE_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, openssl-probe/0.1.5/download)
 HOST_CARGO_C_OPENSSL_PROBE_0_1_5_SOURCE	:= $(SRCDIR)/openssl-probe-0.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_PROBE_0_1_5
 
 HOST_CARGO_C_OPENSSL_SRC_300_3_2_3_3_2_MD5		:= 7d29c9fc3332563ba2d71558e8cf3ffd
-HOST_CARGO_C_OPENSSL_SRC_300_3_2_3_3_2_URL		:= https://crates.io/api/v1/crates/openssl-src/300.3.2+3.3.2/download
+HOST_CARGO_C_OPENSSL_SRC_300_3_2_3_3_2_URL		:= $(call ptx/mirror, CRATESIO, openssl-src/300.3.2+3.3.2/download)
 HOST_CARGO_C_OPENSSL_SRC_300_3_2_3_3_2_SOURCE	:= $(SRCDIR)/openssl-src-300.3.2+3.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_SRC_300_3_2_3_3_2
 
 HOST_CARGO_C_OPENSSL_SYS_0_9_103_MD5		:= 14e0218b195b6fca32e0972c7303d3de
-HOST_CARGO_C_OPENSSL_SYS_0_9_103_URL		:= https://crates.io/api/v1/crates/openssl-sys/0.9.103/download
+HOST_CARGO_C_OPENSSL_SYS_0_9_103_URL		:= $(call ptx/mirror, CRATESIO, openssl-sys/0.9.103/download)
 HOST_CARGO_C_OPENSSL_SYS_0_9_103_SOURCE	:= $(SRCDIR)/openssl-sys-0.9.103.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_SYS_0_9_103
 
 HOST_CARGO_C_ORDERED_FLOAT_2_10_1_MD5		:= 71624c8a64c75744a95f02a09614f220
-HOST_CARGO_C_ORDERED_FLOAT_2_10_1_URL		:= https://crates.io/api/v1/crates/ordered-float/2.10.1/download
+HOST_CARGO_C_ORDERED_FLOAT_2_10_1_URL		:= $(call ptx/mirror, CRATESIO, ordered-float/2.10.1/download)
 HOST_CARGO_C_ORDERED_FLOAT_2_10_1_SOURCE	:= $(SRCDIR)/ordered-float-2.10.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ORDERED_FLOAT_2_10_1
 
 HOST_CARGO_C_ORION_0_17_6_MD5		:= f8408c2543795bb080bebfba7e38e048
-HOST_CARGO_C_ORION_0_17_6_URL		:= https://crates.io/api/v1/crates/orion/0.17.6/download
+HOST_CARGO_C_ORION_0_17_6_URL		:= $(call ptx/mirror, CRATESIO, orion/0.17.6/download)
 HOST_CARGO_C_ORION_0_17_6_SOURCE	:= $(SRCDIR)/orion-0.17.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ORION_0_17_6
 
 HOST_CARGO_C_OS_INFO_3_8_2_MD5		:= 936913c779b00c6355ffbbb53023dcae
-HOST_CARGO_C_OS_INFO_3_8_2_URL		:= https://crates.io/api/v1/crates/os_info/3.8.2/download
+HOST_CARGO_C_OS_INFO_3_8_2_URL		:= $(call ptx/mirror, CRATESIO, os_info/3.8.2/download)
 HOST_CARGO_C_OS_INFO_3_8_2_SOURCE	:= $(SRCDIR)/os_info-3.8.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OS_INFO_3_8_2
 
 HOST_CARGO_C_OVERLOAD_0_1_1_MD5		:= 03a7ad2814bd9dd34e0acec8ca4f855e
-HOST_CARGO_C_OVERLOAD_0_1_1_URL		:= https://crates.io/api/v1/crates/overload/0.1.1/download
+HOST_CARGO_C_OVERLOAD_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, overload/0.1.1/download)
 HOST_CARGO_C_OVERLOAD_0_1_1_SOURCE	:= $(SRCDIR)/overload-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OVERLOAD_0_1_1
 
 HOST_CARGO_C_P384_0_13_0_MD5		:= 9822018c3ee7133a6f093f679d639da2
-HOST_CARGO_C_P384_0_13_0_URL		:= https://crates.io/api/v1/crates/p384/0.13.0/download
+HOST_CARGO_C_P384_0_13_0_URL		:= $(call ptx/mirror, CRATESIO, p384/0.13.0/download)
 HOST_CARGO_C_P384_0_13_0_SOURCE	:= $(SRCDIR)/p384-0.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_P384_0_13_0
 
 HOST_CARGO_C_PARKING_LOT_0_12_3_MD5		:= c63cc43554a8abcf7b1166626f0e3736
-HOST_CARGO_C_PARKING_LOT_0_12_3_URL		:= https://crates.io/api/v1/crates/parking_lot/0.12.3/download
+HOST_CARGO_C_PARKING_LOT_0_12_3_URL		:= $(call ptx/mirror, CRATESIO, parking_lot/0.12.3/download)
 HOST_CARGO_C_PARKING_LOT_0_12_3_SOURCE	:= $(SRCDIR)/parking_lot-0.12.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PARKING_LOT_0_12_3
 
 HOST_CARGO_C_PARKING_LOT_CORE_0_9_10_MD5		:= fe316e1d51e3dff1e0455d0142dd37e4
-HOST_CARGO_C_PARKING_LOT_CORE_0_9_10_URL		:= https://crates.io/api/v1/crates/parking_lot_core/0.9.10/download
+HOST_CARGO_C_PARKING_LOT_CORE_0_9_10_URL		:= $(call ptx/mirror, CRATESIO, parking_lot_core/0.9.10/download)
 HOST_CARGO_C_PARKING_LOT_CORE_0_9_10_SOURCE	:= $(SRCDIR)/parking_lot_core-0.9.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PARKING_LOT_CORE_0_9_10
 
 HOST_CARGO_C_PASETORS_0_6_8_MD5		:= 8bc06de4ec1fda57035d2bd07535d670
-HOST_CARGO_C_PASETORS_0_6_8_URL		:= https://crates.io/api/v1/crates/pasetors/0.6.8/download
+HOST_CARGO_C_PASETORS_0_6_8_URL		:= $(call ptx/mirror, CRATESIO, pasetors/0.6.8/download)
 HOST_CARGO_C_PASETORS_0_6_8_SOURCE	:= $(SRCDIR)/pasetors-0.6.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PASETORS_0_6_8
 
 HOST_CARGO_C_PATHDIFF_0_2_1_MD5		:= c40bb551772810d818857841ea389f1e
-HOST_CARGO_C_PATHDIFF_0_2_1_URL		:= https://crates.io/api/v1/crates/pathdiff/0.2.1/download
+HOST_CARGO_C_PATHDIFF_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, pathdiff/0.2.1/download)
 HOST_CARGO_C_PATHDIFF_0_2_1_SOURCE	:= $(SRCDIR)/pathdiff-0.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PATHDIFF_0_2_1
 
 HOST_CARGO_C_PEM_RFC7468_0_7_0_MD5		:= a37720d4e4cbebd28ac9c7930137a9d6
-HOST_CARGO_C_PEM_RFC7468_0_7_0_URL		:= https://crates.io/api/v1/crates/pem-rfc7468/0.7.0/download
+HOST_CARGO_C_PEM_RFC7468_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, pem-rfc7468/0.7.0/download)
 HOST_CARGO_C_PEM_RFC7468_0_7_0_SOURCE	:= $(SRCDIR)/pem-rfc7468-0.7.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PEM_RFC7468_0_7_0
 
 HOST_CARGO_C_PERCENT_ENCODING_2_3_1_MD5		:= 0ba30a94d7b8865c23e86d4d64e5b91e
-HOST_CARGO_C_PERCENT_ENCODING_2_3_1_URL		:= https://crates.io/api/v1/crates/percent-encoding/2.3.1/download
+HOST_CARGO_C_PERCENT_ENCODING_2_3_1_URL		:= $(call ptx/mirror, CRATESIO, percent-encoding/2.3.1/download)
 HOST_CARGO_C_PERCENT_ENCODING_2_3_1_SOURCE	:= $(SRCDIR)/percent-encoding-2.3.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PERCENT_ENCODING_2_3_1
 
 HOST_CARGO_C_PIN_PROJECT_LITE_0_2_14_MD5		:= a9a6ce6cd4b12f9c4f6840df87d5da0d
-HOST_CARGO_C_PIN_PROJECT_LITE_0_2_14_URL		:= https://crates.io/api/v1/crates/pin-project-lite/0.2.14/download
+HOST_CARGO_C_PIN_PROJECT_LITE_0_2_14_URL		:= $(call ptx/mirror, CRATESIO, pin-project-lite/0.2.14/download)
 HOST_CARGO_C_PIN_PROJECT_LITE_0_2_14_SOURCE	:= $(SRCDIR)/pin-project-lite-0.2.14.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PIN_PROJECT_LITE_0_2_14
 
 HOST_CARGO_C_PKCS8_0_10_2_MD5		:= 54148ff5f2a4a6f4f1e857b0bf854bf0
-HOST_CARGO_C_PKCS8_0_10_2_URL		:= https://crates.io/api/v1/crates/pkcs8/0.10.2/download
+HOST_CARGO_C_PKCS8_0_10_2_URL		:= $(call ptx/mirror, CRATESIO, pkcs8/0.10.2/download)
 HOST_CARGO_C_PKCS8_0_10_2_SOURCE	:= $(SRCDIR)/pkcs8-0.10.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PKCS8_0_10_2
 
 HOST_CARGO_C_PKG_CONFIG_0_3_30_MD5		:= 524ffd7a9b5b25c4d388686a5dde5cac
-HOST_CARGO_C_PKG_CONFIG_0_3_30_URL		:= https://crates.io/api/v1/crates/pkg-config/0.3.30/download
+HOST_CARGO_C_PKG_CONFIG_0_3_30_URL		:= $(call ptx/mirror, CRATESIO, pkg-config/0.3.30/download)
 HOST_CARGO_C_PKG_CONFIG_0_3_30_SOURCE	:= $(SRCDIR)/pkg-config-0.3.30.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PKG_CONFIG_0_3_30
 
 HOST_CARGO_C_POWERFMT_0_2_0_MD5		:= 30eb4de1c1a3bd214d7649b891abf444
-HOST_CARGO_C_POWERFMT_0_2_0_URL		:= https://crates.io/api/v1/crates/powerfmt/0.2.0/download
+HOST_CARGO_C_POWERFMT_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, powerfmt/0.2.0/download)
 HOST_CARGO_C_POWERFMT_0_2_0_SOURCE	:= $(SRCDIR)/powerfmt-0.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_POWERFMT_0_2_0
 
 HOST_CARGO_C_PPV_LITE86_0_2_20_MD5		:= 60ddef23e68d8cbb9f9f33b747fe1734
-HOST_CARGO_C_PPV_LITE86_0_2_20_URL		:= https://crates.io/api/v1/crates/ppv-lite86/0.2.20/download
+HOST_CARGO_C_PPV_LITE86_0_2_20_URL		:= $(call ptx/mirror, CRATESIO, ppv-lite86/0.2.20/download)
 HOST_CARGO_C_PPV_LITE86_0_2_20_SOURCE	:= $(SRCDIR)/ppv-lite86-0.2.20.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PPV_LITE86_0_2_20
 
 HOST_CARGO_C_PRIMEORDER_0_13_6_MD5		:= d226e4317502fe822b21daeda4d7488c
-HOST_CARGO_C_PRIMEORDER_0_13_6_URL		:= https://crates.io/api/v1/crates/primeorder/0.13.6/download
+HOST_CARGO_C_PRIMEORDER_0_13_6_URL		:= $(call ptx/mirror, CRATESIO, primeorder/0.13.6/download)
 HOST_CARGO_C_PRIMEORDER_0_13_6_SOURCE	:= $(SRCDIR)/primeorder-0.13.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PRIMEORDER_0_13_6
 
 HOST_CARGO_C_PROC_MACRO2_1_0_86_MD5		:= 480a3b8e8201739e157bb648f9243962
-HOST_CARGO_C_PROC_MACRO2_1_0_86_URL		:= https://crates.io/api/v1/crates/proc-macro2/1.0.86/download
+HOST_CARGO_C_PROC_MACRO2_1_0_86_URL		:= $(call ptx/mirror, CRATESIO, proc-macro2/1.0.86/download)
 HOST_CARGO_C_PROC_MACRO2_1_0_86_SOURCE	:= $(SRCDIR)/proc-macro2-1.0.86.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PROC_MACRO2_1_0_86
 
 HOST_CARGO_C_PRODASH_28_0_0_MD5		:= 533608bb3b2587c0aa148dc36cc16429
-HOST_CARGO_C_PRODASH_28_0_0_URL		:= https://crates.io/api/v1/crates/prodash/28.0.0/download
+HOST_CARGO_C_PRODASH_28_0_0_URL		:= $(call ptx/mirror, CRATESIO, prodash/28.0.0/download)
 HOST_CARGO_C_PRODASH_28_0_0_SOURCE	:= $(SRCDIR)/prodash-28.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PRODASH_28_0_0
 
 HOST_CARGO_C_QUOTE_1_0_37_MD5		:= ec5466d73ce9285f92a1458cdc1b4046
-HOST_CARGO_C_QUOTE_1_0_37_URL		:= https://crates.io/api/v1/crates/quote/1.0.37/download
+HOST_CARGO_C_QUOTE_1_0_37_URL		:= $(call ptx/mirror, CRATESIO, quote/1.0.37/download)
 HOST_CARGO_C_QUOTE_1_0_37_SOURCE	:= $(SRCDIR)/quote-1.0.37.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_QUOTE_1_0_37
 
 HOST_CARGO_C_RAND_0_8_5_MD5		:= ee7a5f842c39bc47c474196e83b0df5f
-HOST_CARGO_C_RAND_0_8_5_URL		:= https://crates.io/api/v1/crates/rand/0.8.5/download
+HOST_CARGO_C_RAND_0_8_5_URL		:= $(call ptx/mirror, CRATESIO, rand/0.8.5/download)
 HOST_CARGO_C_RAND_0_8_5_SOURCE	:= $(SRCDIR)/rand-0.8.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_0_8_5
 
 HOST_CARGO_C_RAND_CHACHA_0_3_1_MD5		:= e30085994bbeb4b7f4895d48216d5476
-HOST_CARGO_C_RAND_CHACHA_0_3_1_URL		:= https://crates.io/api/v1/crates/rand_chacha/0.3.1/download
+HOST_CARGO_C_RAND_CHACHA_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, rand_chacha/0.3.1/download)
 HOST_CARGO_C_RAND_CHACHA_0_3_1_SOURCE	:= $(SRCDIR)/rand_chacha-0.3.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_CHACHA_0_3_1
 
 HOST_CARGO_C_RAND_CORE_0_6_4_MD5		:= a1626b8f4d165b1b60d960862eba4cf0
-HOST_CARGO_C_RAND_CORE_0_6_4_URL		:= https://crates.io/api/v1/crates/rand_core/0.6.4/download
+HOST_CARGO_C_RAND_CORE_0_6_4_URL		:= $(call ptx/mirror, CRATESIO, rand_core/0.6.4/download)
 HOST_CARGO_C_RAND_CORE_0_6_4_SOURCE	:= $(SRCDIR)/rand_core-0.6.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_CORE_0_6_4
 
 HOST_CARGO_C_RAND_XOSHIRO_0_6_0_MD5		:= ca0ecc8e22d810207704d4cd743ca657
-HOST_CARGO_C_RAND_XOSHIRO_0_6_0_URL		:= https://crates.io/api/v1/crates/rand_xoshiro/0.6.0/download
+HOST_CARGO_C_RAND_XOSHIRO_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, rand_xoshiro/0.6.0/download)
 HOST_CARGO_C_RAND_XOSHIRO_0_6_0_SOURCE	:= $(SRCDIR)/rand_xoshiro-0.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_XOSHIRO_0_6_0
 
 HOST_CARGO_C_REDOX_SYSCALL_0_5_3_MD5		:= 949794da6e701af465ba6664e8e1b5de
-HOST_CARGO_C_REDOX_SYSCALL_0_5_3_URL		:= https://crates.io/api/v1/crates/redox_syscall/0.5.3/download
+HOST_CARGO_C_REDOX_SYSCALL_0_5_3_URL		:= $(call ptx/mirror, CRATESIO, redox_syscall/0.5.3/download)
 HOST_CARGO_C_REDOX_SYSCALL_0_5_3_SOURCE	:= $(SRCDIR)/redox_syscall-0.5.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REDOX_SYSCALL_0_5_3
 
 HOST_CARGO_C_REGEX_1_10_6_MD5		:= a5f742e592150e471690627bbb77c2b8
-HOST_CARGO_C_REGEX_1_10_6_URL		:= https://crates.io/api/v1/crates/regex/1.10.6/download
+HOST_CARGO_C_REGEX_1_10_6_URL		:= $(call ptx/mirror, CRATESIO, regex/1.10.6/download)
 HOST_CARGO_C_REGEX_1_10_6_SOURCE	:= $(SRCDIR)/regex-1.10.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_1_10_6
 
 HOST_CARGO_C_REGEX_AUTOMATA_0_1_10_MD5		:= 95f4b6766a27d814b4e54d1ccb3b7fc9
-HOST_CARGO_C_REGEX_AUTOMATA_0_1_10_URL		:= https://crates.io/api/v1/crates/regex-automata/0.1.10/download
+HOST_CARGO_C_REGEX_AUTOMATA_0_1_10_URL		:= $(call ptx/mirror, CRATESIO, regex-automata/0.1.10/download)
 HOST_CARGO_C_REGEX_AUTOMATA_0_1_10_SOURCE	:= $(SRCDIR)/regex-automata-0.1.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_AUTOMATA_0_1_10
 
 HOST_CARGO_C_REGEX_AUTOMATA_0_4_7_MD5		:= 158e2b15e6b75f6090767642138f75ff
-HOST_CARGO_C_REGEX_AUTOMATA_0_4_7_URL		:= https://crates.io/api/v1/crates/regex-automata/0.4.7/download
+HOST_CARGO_C_REGEX_AUTOMATA_0_4_7_URL		:= $(call ptx/mirror, CRATESIO, regex-automata/0.4.7/download)
 HOST_CARGO_C_REGEX_AUTOMATA_0_4_7_SOURCE	:= $(SRCDIR)/regex-automata-0.4.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_AUTOMATA_0_4_7
 
 HOST_CARGO_C_REGEX_SYNTAX_0_6_29_MD5		:= f2303650593b13e30a85e39d8c79c961
-HOST_CARGO_C_REGEX_SYNTAX_0_6_29_URL		:= https://crates.io/api/v1/crates/regex-syntax/0.6.29/download
+HOST_CARGO_C_REGEX_SYNTAX_0_6_29_URL		:= $(call ptx/mirror, CRATESIO, regex-syntax/0.6.29/download)
 HOST_CARGO_C_REGEX_SYNTAX_0_6_29_SOURCE	:= $(SRCDIR)/regex-syntax-0.6.29.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_SYNTAX_0_6_29
 
 HOST_CARGO_C_REGEX_SYNTAX_0_8_4_MD5		:= 05ec4163d860f882c88fcc77f78d6172
-HOST_CARGO_C_REGEX_SYNTAX_0_8_4_URL		:= https://crates.io/api/v1/crates/regex-syntax/0.8.4/download
+HOST_CARGO_C_REGEX_SYNTAX_0_8_4_URL		:= $(call ptx/mirror, CRATESIO, regex-syntax/0.8.4/download)
 HOST_CARGO_C_REGEX_SYNTAX_0_8_4_SOURCE	:= $(SRCDIR)/regex-syntax-0.8.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_SYNTAX_0_8_4
 
 HOST_CARGO_C_RFC6979_0_4_0_MD5		:= 4320a9e82272686cb97d7af005f5360d
-HOST_CARGO_C_RFC6979_0_4_0_URL		:= https://crates.io/api/v1/crates/rfc6979/0.4.0/download
+HOST_CARGO_C_RFC6979_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, rfc6979/0.4.0/download)
 HOST_CARGO_C_RFC6979_0_4_0_SOURCE	:= $(SRCDIR)/rfc6979-0.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RFC6979_0_4_0
 
 HOST_CARGO_C_RUSQLITE_0_31_0_MD5		:= 624ea23761970724e7c0d8003ff6fffb
-HOST_CARGO_C_RUSQLITE_0_31_0_URL		:= https://crates.io/api/v1/crates/rusqlite/0.31.0/download
+HOST_CARGO_C_RUSQLITE_0_31_0_URL		:= $(call ptx/mirror, CRATESIO, rusqlite/0.31.0/download)
 HOST_CARGO_C_RUSQLITE_0_31_0_SOURCE	:= $(SRCDIR)/rusqlite-0.31.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RUSQLITE_0_31_0
 
 HOST_CARGO_C_RUSTFIX_0_8_5_MD5		:= 070b856c03d3baed2cc372b743df48f8
-HOST_CARGO_C_RUSTFIX_0_8_5_URL		:= https://crates.io/api/v1/crates/rustfix/0.8.5/download
+HOST_CARGO_C_RUSTFIX_0_8_5_URL		:= $(call ptx/mirror, CRATESIO, rustfix/0.8.5/download)
 HOST_CARGO_C_RUSTFIX_0_8_5_SOURCE	:= $(SRCDIR)/rustfix-0.8.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RUSTFIX_0_8_5
 
 HOST_CARGO_C_RUSTIX_0_38_36_MD5		:= d721f68da2cb15f91930bcfad1ff3596
-HOST_CARGO_C_RUSTIX_0_38_36_URL		:= https://crates.io/api/v1/crates/rustix/0.38.36/download
+HOST_CARGO_C_RUSTIX_0_38_36_URL		:= $(call ptx/mirror, CRATESIO, rustix/0.38.36/download)
 HOST_CARGO_C_RUSTIX_0_38_36_SOURCE	:= $(SRCDIR)/rustix-0.38.36.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RUSTIX_0_38_36
 
 HOST_CARGO_C_RYU_1_0_18_MD5		:= 56de037d755aeb0b45169991f9567cd7
-HOST_CARGO_C_RYU_1_0_18_URL		:= https://crates.io/api/v1/crates/ryu/1.0.18/download
+HOST_CARGO_C_RYU_1_0_18_URL		:= $(call ptx/mirror, CRATESIO, ryu/1.0.18/download)
 HOST_CARGO_C_RYU_1_0_18_SOURCE	:= $(SRCDIR)/ryu-1.0.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RYU_1_0_18
 
 HOST_CARGO_C_SAME_FILE_1_0_6_MD5		:= 2d8d8b377d144f5e32b4f65a69eb0b24
-HOST_CARGO_C_SAME_FILE_1_0_6_URL		:= https://crates.io/api/v1/crates/same-file/1.0.6/download
+HOST_CARGO_C_SAME_FILE_1_0_6_URL		:= $(call ptx/mirror, CRATESIO, same-file/1.0.6/download)
 HOST_CARGO_C_SAME_FILE_1_0_6_SOURCE	:= $(SRCDIR)/same-file-1.0.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SAME_FILE_1_0_6
 
 HOST_CARGO_C_SCHANNEL_0_1_23_MD5		:= 6a0950fa3775d755dbbdbd24a2841786
-HOST_CARGO_C_SCHANNEL_0_1_23_URL		:= https://crates.io/api/v1/crates/schannel/0.1.23/download
+HOST_CARGO_C_SCHANNEL_0_1_23_URL		:= $(call ptx/mirror, CRATESIO, schannel/0.1.23/download)
 HOST_CARGO_C_SCHANNEL_0_1_23_SOURCE	:= $(SRCDIR)/schannel-0.1.23.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SCHANNEL_0_1_23
 
 HOST_CARGO_C_SCOPEGUARD_1_2_0_MD5		:= f1358be8c98b98837cbd2cf51e75f8b3
-HOST_CARGO_C_SCOPEGUARD_1_2_0_URL		:= https://crates.io/api/v1/crates/scopeguard/1.2.0/download
+HOST_CARGO_C_SCOPEGUARD_1_2_0_URL		:= $(call ptx/mirror, CRATESIO, scopeguard/1.2.0/download)
 HOST_CARGO_C_SCOPEGUARD_1_2_0_SOURCE	:= $(SRCDIR)/scopeguard-1.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SCOPEGUARD_1_2_0
 
 HOST_CARGO_C_SEC1_0_7_3_MD5		:= 46e0a2b34b2a6108cad9e2b1da756cab
-HOST_CARGO_C_SEC1_0_7_3_URL		:= https://crates.io/api/v1/crates/sec1/0.7.3/download
+HOST_CARGO_C_SEC1_0_7_3_URL		:= $(call ptx/mirror, CRATESIO, sec1/0.7.3/download)
 HOST_CARGO_C_SEC1_0_7_3_SOURCE	:= $(SRCDIR)/sec1-0.7.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SEC1_0_7_3
 
 HOST_CARGO_C_SECURITY_FRAMEWORK_2_11_1_MD5		:= 3b3ebed978a7c19de258926438888de5
-HOST_CARGO_C_SECURITY_FRAMEWORK_2_11_1_URL		:= https://crates.io/api/v1/crates/security-framework/2.11.1/download
+HOST_CARGO_C_SECURITY_FRAMEWORK_2_11_1_URL		:= $(call ptx/mirror, CRATESIO, security-framework/2.11.1/download)
 HOST_CARGO_C_SECURITY_FRAMEWORK_2_11_1_SOURCE	:= $(SRCDIR)/security-framework-2.11.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SECURITY_FRAMEWORK_2_11_1
 
 HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_11_1_MD5		:= bacf2c641bffbe4d891342ee2e0688e0
-HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_11_1_URL		:= https://crates.io/api/v1/crates/security-framework-sys/2.11.1/download
+HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_11_1_URL		:= $(call ptx/mirror, CRATESIO, security-framework-sys/2.11.1/download)
 HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_11_1_SOURCE	:= $(SRCDIR)/security-framework-sys-2.11.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_11_1
 
 HOST_CARGO_C_SEMVER_1_0_23_MD5		:= d3ccccba78e5375faf8e543884f9e84e
-HOST_CARGO_C_SEMVER_1_0_23_URL		:= https://crates.io/api/v1/crates/semver/1.0.23/download
+HOST_CARGO_C_SEMVER_1_0_23_URL		:= $(call ptx/mirror, CRATESIO, semver/1.0.23/download)
 HOST_CARGO_C_SEMVER_1_0_23_SOURCE	:= $(SRCDIR)/semver-1.0.23.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SEMVER_1_0_23
 
 HOST_CARGO_C_SERDE_1_0_209_MD5		:= 63ac7c73b26aae13a320ebbc5fb215a3
-HOST_CARGO_C_SERDE_1_0_209_URL		:= https://crates.io/api/v1/crates/serde/1.0.209/download
+HOST_CARGO_C_SERDE_1_0_209_URL		:= $(call ptx/mirror, CRATESIO, serde/1.0.209/download)
 HOST_CARGO_C_SERDE_1_0_209_SOURCE	:= $(SRCDIR)/serde-1.0.209.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_1_0_209
 
 HOST_CARGO_C_SERDE_UNTAGGED_0_1_6_MD5		:= 5736abfbc0096d2328905124eaeeb331
-HOST_CARGO_C_SERDE_UNTAGGED_0_1_6_URL		:= https://crates.io/api/v1/crates/serde-untagged/0.1.6/download
+HOST_CARGO_C_SERDE_UNTAGGED_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, serde-untagged/0.1.6/download)
 HOST_CARGO_C_SERDE_UNTAGGED_0_1_6_SOURCE	:= $(SRCDIR)/serde-untagged-0.1.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_UNTAGGED_0_1_6
 
 HOST_CARGO_C_SERDE_VALUE_0_7_0_MD5		:= eeda11db8ced625011d8b88d36765321
-HOST_CARGO_C_SERDE_VALUE_0_7_0_URL		:= https://crates.io/api/v1/crates/serde-value/0.7.0/download
+HOST_CARGO_C_SERDE_VALUE_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, serde-value/0.7.0/download)
 HOST_CARGO_C_SERDE_VALUE_0_7_0_SOURCE	:= $(SRCDIR)/serde-value-0.7.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_VALUE_0_7_0
 
 HOST_CARGO_C_SERDE_DERIVE_1_0_209_MD5		:= 46f5ef89ecea2d7813e6eccb896dd555
-HOST_CARGO_C_SERDE_DERIVE_1_0_209_URL		:= https://crates.io/api/v1/crates/serde_derive/1.0.209/download
+HOST_CARGO_C_SERDE_DERIVE_1_0_209_URL		:= $(call ptx/mirror, CRATESIO, serde_derive/1.0.209/download)
 HOST_CARGO_C_SERDE_DERIVE_1_0_209_SOURCE	:= $(SRCDIR)/serde_derive-1.0.209.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_DERIVE_1_0_209
 
 HOST_CARGO_C_SERDE_IGNORED_0_1_10_MD5		:= 597586743b4769a8f6c169803ad3bb2a
-HOST_CARGO_C_SERDE_IGNORED_0_1_10_URL		:= https://crates.io/api/v1/crates/serde_ignored/0.1.10/download
+HOST_CARGO_C_SERDE_IGNORED_0_1_10_URL		:= $(call ptx/mirror, CRATESIO, serde_ignored/0.1.10/download)
 HOST_CARGO_C_SERDE_IGNORED_0_1_10_SOURCE	:= $(SRCDIR)/serde_ignored-0.1.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_IGNORED_0_1_10
 
 HOST_CARGO_C_SERDE_JSON_1_0_128_MD5		:= d0ae58592f09d5bf6d1a943291ca02f2
-HOST_CARGO_C_SERDE_JSON_1_0_128_URL		:= https://crates.io/api/v1/crates/serde_json/1.0.128/download
+HOST_CARGO_C_SERDE_JSON_1_0_128_URL		:= $(call ptx/mirror, CRATESIO, serde_json/1.0.128/download)
 HOST_CARGO_C_SERDE_JSON_1_0_128_SOURCE	:= $(SRCDIR)/serde_json-1.0.128.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_JSON_1_0_128
 
 HOST_CARGO_C_SERDE_SPANNED_0_6_7_MD5		:= 5f7008c5bb010882e4cd393b8a1a49d1
-HOST_CARGO_C_SERDE_SPANNED_0_6_7_URL		:= https://crates.io/api/v1/crates/serde_spanned/0.6.7/download
+HOST_CARGO_C_SERDE_SPANNED_0_6_7_URL		:= $(call ptx/mirror, CRATESIO, serde_spanned/0.6.7/download)
 HOST_CARGO_C_SERDE_SPANNED_0_6_7_SOURCE	:= $(SRCDIR)/serde_spanned-0.6.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_SPANNED_0_6_7
 
 HOST_CARGO_C_SHA1_0_10_6_MD5		:= d7602381c0bc21d10603cc940a837b06
-HOST_CARGO_C_SHA1_0_10_6_URL		:= https://crates.io/api/v1/crates/sha1/0.10.6/download
+HOST_CARGO_C_SHA1_0_10_6_URL		:= $(call ptx/mirror, CRATESIO, sha1/0.10.6/download)
 HOST_CARGO_C_SHA1_0_10_6_SOURCE	:= $(SRCDIR)/sha1-0.10.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHA1_0_10_6
 
 HOST_CARGO_C_SHA1_SMOL_1_0_1_MD5		:= 3426961d0acb81854d9b734c59ba60f7
-HOST_CARGO_C_SHA1_SMOL_1_0_1_URL		:= https://crates.io/api/v1/crates/sha1_smol/1.0.1/download
+HOST_CARGO_C_SHA1_SMOL_1_0_1_URL		:= $(call ptx/mirror, CRATESIO, sha1_smol/1.0.1/download)
 HOST_CARGO_C_SHA1_SMOL_1_0_1_SOURCE	:= $(SRCDIR)/sha1_smol-1.0.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHA1_SMOL_1_0_1
 
 HOST_CARGO_C_SHA2_0_10_8_MD5		:= 289b776935f2184c6ba2974877285013
-HOST_CARGO_C_SHA2_0_10_8_URL		:= https://crates.io/api/v1/crates/sha2/0.10.8/download
+HOST_CARGO_C_SHA2_0_10_8_URL		:= $(call ptx/mirror, CRATESIO, sha2/0.10.8/download)
 HOST_CARGO_C_SHA2_0_10_8_SOURCE	:= $(SRCDIR)/sha2-0.10.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHA2_0_10_8
 
 HOST_CARGO_C_SHARDED_SLAB_0_1_7_MD5		:= 96261f3cee18842060fd64d618e056d8
-HOST_CARGO_C_SHARDED_SLAB_0_1_7_URL		:= https://crates.io/api/v1/crates/sharded-slab/0.1.7/download
+HOST_CARGO_C_SHARDED_SLAB_0_1_7_URL		:= $(call ptx/mirror, CRATESIO, sharded-slab/0.1.7/download)
 HOST_CARGO_C_SHARDED_SLAB_0_1_7_SOURCE	:= $(SRCDIR)/sharded-slab-0.1.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHARDED_SLAB_0_1_7
 
 HOST_CARGO_C_SHELL_ESCAPE_0_1_5_MD5		:= 08abe36adae4caee78acf034c56a550b
-HOST_CARGO_C_SHELL_ESCAPE_0_1_5_URL		:= https://crates.io/api/v1/crates/shell-escape/0.1.5/download
+HOST_CARGO_C_SHELL_ESCAPE_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, shell-escape/0.1.5/download)
 HOST_CARGO_C_SHELL_ESCAPE_0_1_5_SOURCE	:= $(SRCDIR)/shell-escape-0.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHELL_ESCAPE_0_1_5
 
 HOST_CARGO_C_SHELL_WORDS_1_1_0_MD5		:= ce622fdb8d18cd1c13ed8fadc5400c10
-HOST_CARGO_C_SHELL_WORDS_1_1_0_URL		:= https://crates.io/api/v1/crates/shell-words/1.1.0/download
+HOST_CARGO_C_SHELL_WORDS_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, shell-words/1.1.0/download)
 HOST_CARGO_C_SHELL_WORDS_1_1_0_SOURCE	:= $(SRCDIR)/shell-words-1.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHELL_WORDS_1_1_0
 
 HOST_CARGO_C_SHLEX_1_3_0_MD5		:= 6c623a8eed8450399ec323a72e96855c
-HOST_CARGO_C_SHLEX_1_3_0_URL		:= https://crates.io/api/v1/crates/shlex/1.3.0/download
+HOST_CARGO_C_SHLEX_1_3_0_URL		:= $(call ptx/mirror, CRATESIO, shlex/1.3.0/download)
 HOST_CARGO_C_SHLEX_1_3_0_SOURCE	:= $(SRCDIR)/shlex-1.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHLEX_1_3_0
 
 HOST_CARGO_C_SIGNATURE_2_2_0_MD5		:= a5f10909341dab15fcdee74b0409ec69
-HOST_CARGO_C_SIGNATURE_2_2_0_URL		:= https://crates.io/api/v1/crates/signature/2.2.0/download
+HOST_CARGO_C_SIGNATURE_2_2_0_URL		:= $(call ptx/mirror, CRATESIO, signature/2.2.0/download)
 HOST_CARGO_C_SIGNATURE_2_2_0_SOURCE	:= $(SRCDIR)/signature-2.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SIGNATURE_2_2_0
 
 HOST_CARGO_C_SIZED_CHUNKS_0_6_5_MD5		:= c51211275ff1e841326726837820eed9
-HOST_CARGO_C_SIZED_CHUNKS_0_6_5_URL		:= https://crates.io/api/v1/crates/sized-chunks/0.6.5/download
+HOST_CARGO_C_SIZED_CHUNKS_0_6_5_URL		:= $(call ptx/mirror, CRATESIO, sized-chunks/0.6.5/download)
 HOST_CARGO_C_SIZED_CHUNKS_0_6_5_SOURCE	:= $(SRCDIR)/sized-chunks-0.6.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SIZED_CHUNKS_0_6_5
 
 HOST_CARGO_C_SMALLVEC_1_13_2_MD5		:= 50d5a501f911bb592f0dce2d052c2aa8
-HOST_CARGO_C_SMALLVEC_1_13_2_URL		:= https://crates.io/api/v1/crates/smallvec/1.13.2/download
+HOST_CARGO_C_SMALLVEC_1_13_2_URL		:= $(call ptx/mirror, CRATESIO, smallvec/1.13.2/download)
 HOST_CARGO_C_SMALLVEC_1_13_2_SOURCE	:= $(SRCDIR)/smallvec-1.13.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SMALLVEC_1_13_2
 
 HOST_CARGO_C_SOCKET2_0_5_7_MD5		:= 746d5deb23a67c019e5b2381d76d4afa
-HOST_CARGO_C_SOCKET2_0_5_7_URL		:= https://crates.io/api/v1/crates/socket2/0.5.7/download
+HOST_CARGO_C_SOCKET2_0_5_7_URL		:= $(call ptx/mirror, CRATESIO, socket2/0.5.7/download)
 HOST_CARGO_C_SOCKET2_0_5_7_SOURCE	:= $(SRCDIR)/socket2-0.5.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SOCKET2_0_5_7
 
 HOST_CARGO_C_SPKI_0_7_3_MD5		:= ae35a16ea73fc405f1cf50fa35b70ddd
-HOST_CARGO_C_SPKI_0_7_3_URL		:= https://crates.io/api/v1/crates/spki/0.7.3/download
+HOST_CARGO_C_SPKI_0_7_3_URL		:= $(call ptx/mirror, CRATESIO, spki/0.7.3/download)
 HOST_CARGO_C_SPKI_0_7_3_SOURCE	:= $(SRCDIR)/spki-0.7.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SPKI_0_7_3
 
 HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_MD5		:= c9defe80406280bcfce4ecf31c0200b3
-HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_URL		:= https://crates.io/api/v1/crates/static_assertions/1.1.0/download
+HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, static_assertions/1.1.0/download)
 HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_SOURCE	:= $(SRCDIR)/static_assertions-1.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0
 
 HOST_CARGO_C_STRSIM_0_11_1_MD5		:= fbe5da24bd1beef6125107ee41118187
-HOST_CARGO_C_STRSIM_0_11_1_URL		:= https://crates.io/api/v1/crates/strsim/0.11.1/download
+HOST_CARGO_C_STRSIM_0_11_1_URL		:= $(call ptx/mirror, CRATESIO, strsim/0.11.1/download)
 HOST_CARGO_C_STRSIM_0_11_1_SOURCE	:= $(SRCDIR)/strsim-0.11.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_STRSIM_0_11_1
 
 HOST_CARGO_C_SUBTLE_2_6_1_MD5		:= 611730d5a0344bd87742297274631890
-HOST_CARGO_C_SUBTLE_2_6_1_URL		:= https://crates.io/api/v1/crates/subtle/2.6.1/download
+HOST_CARGO_C_SUBTLE_2_6_1_URL		:= $(call ptx/mirror, CRATESIO, subtle/2.6.1/download)
 HOST_CARGO_C_SUBTLE_2_6_1_SOURCE	:= $(SRCDIR)/subtle-2.6.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SUBTLE_2_6_1
 
 HOST_CARGO_C_SUPPORTS_HYPERLINKS_3_0_0_MD5		:= 82319ff2617041ec54d5eb3ff5f381e3
-HOST_CARGO_C_SUPPORTS_HYPERLINKS_3_0_0_URL		:= https://crates.io/api/v1/crates/supports-hyperlinks/3.0.0/download
+HOST_CARGO_C_SUPPORTS_HYPERLINKS_3_0_0_URL		:= $(call ptx/mirror, CRATESIO, supports-hyperlinks/3.0.0/download)
 HOST_CARGO_C_SUPPORTS_HYPERLINKS_3_0_0_SOURCE	:= $(SRCDIR)/supports-hyperlinks-3.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SUPPORTS_HYPERLINKS_3_0_0
 
 HOST_CARGO_C_SUPPORTS_UNICODE_3_0_0_MD5		:= 4f6fd5325554bf939f7518dc4f74dae5
-HOST_CARGO_C_SUPPORTS_UNICODE_3_0_0_URL		:= https://crates.io/api/v1/crates/supports-unicode/3.0.0/download
+HOST_CARGO_C_SUPPORTS_UNICODE_3_0_0_URL		:= $(call ptx/mirror, CRATESIO, supports-unicode/3.0.0/download)
 HOST_CARGO_C_SUPPORTS_UNICODE_3_0_0_SOURCE	:= $(SRCDIR)/supports-unicode-3.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SUPPORTS_UNICODE_3_0_0
 
 HOST_CARGO_C_SYN_2_0_77_MD5		:= 80c9bb4310021ed58b5ac2deb799bc8b
-HOST_CARGO_C_SYN_2_0_77_URL		:= https://crates.io/api/v1/crates/syn/2.0.77/download
+HOST_CARGO_C_SYN_2_0_77_URL		:= $(call ptx/mirror, CRATESIO, syn/2.0.77/download)
 HOST_CARGO_C_SYN_2_0_77_SOURCE	:= $(SRCDIR)/syn-2.0.77.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SYN_2_0_77
 
 HOST_CARGO_C_TAR_0_4_41_MD5		:= d7f7b399739aa7278de3688945c81922
-HOST_CARGO_C_TAR_0_4_41_URL		:= https://crates.io/api/v1/crates/tar/0.4.41/download
+HOST_CARGO_C_TAR_0_4_41_URL		:= $(call ptx/mirror, CRATESIO, tar/0.4.41/download)
 HOST_CARGO_C_TAR_0_4_41_SOURCE	:= $(SRCDIR)/tar-0.4.41.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TAR_0_4_41
 
 HOST_CARGO_C_TEMPFILE_3_12_0_MD5		:= 744c8676a49438f5c89891e2f788d69a
-HOST_CARGO_C_TEMPFILE_3_12_0_URL		:= https://crates.io/api/v1/crates/tempfile/3.12.0/download
+HOST_CARGO_C_TEMPFILE_3_12_0_URL		:= $(call ptx/mirror, CRATESIO, tempfile/3.12.0/download)
 HOST_CARGO_C_TEMPFILE_3_12_0_SOURCE	:= $(SRCDIR)/tempfile-3.12.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TEMPFILE_3_12_0
 
 HOST_CARGO_C_TERMINAL_SIZE_0_3_0_MD5		:= b7eae58d7a80112442643ee2ff481ef7
-HOST_CARGO_C_TERMINAL_SIZE_0_3_0_URL		:= https://crates.io/api/v1/crates/terminal_size/0.3.0/download
+HOST_CARGO_C_TERMINAL_SIZE_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, terminal_size/0.3.0/download)
 HOST_CARGO_C_TERMINAL_SIZE_0_3_0_SOURCE	:= $(SRCDIR)/terminal_size-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TERMINAL_SIZE_0_3_0
 
 HOST_CARGO_C_THISERROR_1_0_63_MD5		:= 5b4ddf181e910b8a0355923fe24ede58
-HOST_CARGO_C_THISERROR_1_0_63_URL		:= https://crates.io/api/v1/crates/thiserror/1.0.63/download
+HOST_CARGO_C_THISERROR_1_0_63_URL		:= $(call ptx/mirror, CRATESIO, thiserror/1.0.63/download)
 HOST_CARGO_C_THISERROR_1_0_63_SOURCE	:= $(SRCDIR)/thiserror-1.0.63.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_THISERROR_1_0_63
 
 HOST_CARGO_C_THISERROR_IMPL_1_0_63_MD5		:= 8075eac572b0aca416ab1c827ae95375
-HOST_CARGO_C_THISERROR_IMPL_1_0_63_URL		:= https://crates.io/api/v1/crates/thiserror-impl/1.0.63/download
+HOST_CARGO_C_THISERROR_IMPL_1_0_63_URL		:= $(call ptx/mirror, CRATESIO, thiserror-impl/1.0.63/download)
 HOST_CARGO_C_THISERROR_IMPL_1_0_63_SOURCE	:= $(SRCDIR)/thiserror-impl-1.0.63.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_THISERROR_IMPL_1_0_63
 
 HOST_CARGO_C_THREAD_LOCAL_1_1_8_MD5		:= 6739d2c377b9e20af9a23022e362aa33
-HOST_CARGO_C_THREAD_LOCAL_1_1_8_URL		:= https://crates.io/api/v1/crates/thread_local/1.1.8/download
+HOST_CARGO_C_THREAD_LOCAL_1_1_8_URL		:= $(call ptx/mirror, CRATESIO, thread_local/1.1.8/download)
 HOST_CARGO_C_THREAD_LOCAL_1_1_8_SOURCE	:= $(SRCDIR)/thread_local-1.1.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_THREAD_LOCAL_1_1_8
 
 HOST_CARGO_C_TIME_0_3_36_MD5		:= 19e6e4e45004e2b023e49e37c34b4e31
-HOST_CARGO_C_TIME_0_3_36_URL		:= https://crates.io/api/v1/crates/time/0.3.36/download
+HOST_CARGO_C_TIME_0_3_36_URL		:= $(call ptx/mirror, CRATESIO, time/0.3.36/download)
 HOST_CARGO_C_TIME_0_3_36_SOURCE	:= $(SRCDIR)/time-0.3.36.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TIME_0_3_36
 
 HOST_CARGO_C_TIME_CORE_0_1_2_MD5		:= 7818a75208424a6d05d1d868559f0adf
-HOST_CARGO_C_TIME_CORE_0_1_2_URL		:= https://crates.io/api/v1/crates/time-core/0.1.2/download
+HOST_CARGO_C_TIME_CORE_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, time-core/0.1.2/download)
 HOST_CARGO_C_TIME_CORE_0_1_2_SOURCE	:= $(SRCDIR)/time-core-0.1.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TIME_CORE_0_1_2
 
 HOST_CARGO_C_TIME_MACROS_0_2_18_MD5		:= cbfa351bd29e3779266c82b3996fc9ab
-HOST_CARGO_C_TIME_MACROS_0_2_18_URL		:= https://crates.io/api/v1/crates/time-macros/0.2.18/download
+HOST_CARGO_C_TIME_MACROS_0_2_18_URL		:= $(call ptx/mirror, CRATESIO, time-macros/0.2.18/download)
 HOST_CARGO_C_TIME_MACROS_0_2_18_SOURCE	:= $(SRCDIR)/time-macros-0.2.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TIME_MACROS_0_2_18
 
 HOST_CARGO_C_TINYVEC_1_8_0_MD5		:= 9de7b54918f327a684ef664a4fae3f5a
-HOST_CARGO_C_TINYVEC_1_8_0_URL		:= https://crates.io/api/v1/crates/tinyvec/1.8.0/download
+HOST_CARGO_C_TINYVEC_1_8_0_URL		:= $(call ptx/mirror, CRATESIO, tinyvec/1.8.0/download)
 HOST_CARGO_C_TINYVEC_1_8_0_SOURCE	:= $(SRCDIR)/tinyvec-1.8.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TINYVEC_1_8_0
 
 HOST_CARGO_C_TINYVEC_MACROS_0_1_1_MD5		:= c678a7da0ee4b850ebde0474144a0415
-HOST_CARGO_C_TINYVEC_MACROS_0_1_1_URL		:= https://crates.io/api/v1/crates/tinyvec_macros/0.1.1/download
+HOST_CARGO_C_TINYVEC_MACROS_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, tinyvec_macros/0.1.1/download)
 HOST_CARGO_C_TINYVEC_MACROS_0_1_1_SOURCE	:= $(SRCDIR)/tinyvec_macros-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TINYVEC_MACROS_0_1_1
 
 HOST_CARGO_C_TOML_0_8_19_MD5		:= fcc6926cb92e9a4a8aa57e2614fda0ec
-HOST_CARGO_C_TOML_0_8_19_URL		:= https://crates.io/api/v1/crates/toml/0.8.19/download
+HOST_CARGO_C_TOML_0_8_19_URL		:= $(call ptx/mirror, CRATESIO, toml/0.8.19/download)
 HOST_CARGO_C_TOML_0_8_19_SOURCE	:= $(SRCDIR)/toml-0.8.19.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_0_8_19
 
 HOST_CARGO_C_TOML_DATETIME_0_6_8_MD5		:= 3dc30b8ce4503073c466fb0735ab4920
-HOST_CARGO_C_TOML_DATETIME_0_6_8_URL		:= https://crates.io/api/v1/crates/toml_datetime/0.6.8/download
+HOST_CARGO_C_TOML_DATETIME_0_6_8_URL		:= $(call ptx/mirror, CRATESIO, toml_datetime/0.6.8/download)
 HOST_CARGO_C_TOML_DATETIME_0_6_8_SOURCE	:= $(SRCDIR)/toml_datetime-0.6.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_DATETIME_0_6_8
 
 HOST_CARGO_C_TOML_EDIT_0_22_20_MD5		:= a709158ea763bd3ec7f7e26ab8c9c82f
-HOST_CARGO_C_TOML_EDIT_0_22_20_URL		:= https://crates.io/api/v1/crates/toml_edit/0.22.20/download
+HOST_CARGO_C_TOML_EDIT_0_22_20_URL		:= $(call ptx/mirror, CRATESIO, toml_edit/0.22.20/download)
 HOST_CARGO_C_TOML_EDIT_0_22_20_SOURCE	:= $(SRCDIR)/toml_edit-0.22.20.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_EDIT_0_22_20
 
 HOST_CARGO_C_TRACING_0_1_40_MD5		:= 0a906c03436ec2dcc4c311c21fee0da2
-HOST_CARGO_C_TRACING_0_1_40_URL		:= https://crates.io/api/v1/crates/tracing/0.1.40/download
+HOST_CARGO_C_TRACING_0_1_40_URL		:= $(call ptx/mirror, CRATESIO, tracing/0.1.40/download)
 HOST_CARGO_C_TRACING_0_1_40_SOURCE	:= $(SRCDIR)/tracing-0.1.40.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_0_1_40
 
 HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_27_MD5		:= 9dd610282e23bbd40016697350c1babb
-HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_27_URL		:= https://crates.io/api/v1/crates/tracing-attributes/0.1.27/download
+HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_27_URL		:= $(call ptx/mirror, CRATESIO, tracing-attributes/0.1.27/download)
 HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_27_SOURCE	:= $(SRCDIR)/tracing-attributes-0.1.27.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_27
 
 HOST_CARGO_C_TRACING_CHROME_0_7_2_MD5		:= 51534ecc7b99f6ba320b65ac2593f82f
-HOST_CARGO_C_TRACING_CHROME_0_7_2_URL		:= https://crates.io/api/v1/crates/tracing-chrome/0.7.2/download
+HOST_CARGO_C_TRACING_CHROME_0_7_2_URL		:= $(call ptx/mirror, CRATESIO, tracing-chrome/0.7.2/download)
 HOST_CARGO_C_TRACING_CHROME_0_7_2_SOURCE	:= $(SRCDIR)/tracing-chrome-0.7.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_CHROME_0_7_2
 
 HOST_CARGO_C_TRACING_CORE_0_1_32_MD5		:= a6655e5e9845cb569991e87b5b38a1fc
-HOST_CARGO_C_TRACING_CORE_0_1_32_URL		:= https://crates.io/api/v1/crates/tracing-core/0.1.32/download
+HOST_CARGO_C_TRACING_CORE_0_1_32_URL		:= $(call ptx/mirror, CRATESIO, tracing-core/0.1.32/download)
 HOST_CARGO_C_TRACING_CORE_0_1_32_SOURCE	:= $(SRCDIR)/tracing-core-0.1.32.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_CORE_0_1_32
 
 HOST_CARGO_C_TRACING_LOG_0_2_0_MD5		:= beede1fdd5ce9840d395abc905d8ab3e
-HOST_CARGO_C_TRACING_LOG_0_2_0_URL		:= https://crates.io/api/v1/crates/tracing-log/0.2.0/download
+HOST_CARGO_C_TRACING_LOG_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, tracing-log/0.2.0/download)
 HOST_CARGO_C_TRACING_LOG_0_2_0_SOURCE	:= $(SRCDIR)/tracing-log-0.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_LOG_0_2_0
 
 HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_18_MD5		:= 7e2eeef14bb62adaf15f1e921538adaa
-HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_18_URL		:= https://crates.io/api/v1/crates/tracing-subscriber/0.3.18/download
+HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_18_URL		:= $(call ptx/mirror, CRATESIO, tracing-subscriber/0.3.18/download)
 HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_18_SOURCE	:= $(SRCDIR)/tracing-subscriber-0.3.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_18
 
 HOST_CARGO_C_TYPEID_1_0_2_MD5		:= 4e56ae1f16966fd35afe97544e5bc369
-HOST_CARGO_C_TYPEID_1_0_2_URL		:= https://crates.io/api/v1/crates/typeid/1.0.2/download
+HOST_CARGO_C_TYPEID_1_0_2_URL		:= $(call ptx/mirror, CRATESIO, typeid/1.0.2/download)
 HOST_CARGO_C_TYPEID_1_0_2_SOURCE	:= $(SRCDIR)/typeid-1.0.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TYPEID_1_0_2
 
 HOST_CARGO_C_TYPENUM_1_17_0_MD5		:= 6ebb8deee5a5a0d1c26b20eeee1926b3
-HOST_CARGO_C_TYPENUM_1_17_0_URL		:= https://crates.io/api/v1/crates/typenum/1.17.0/download
+HOST_CARGO_C_TYPENUM_1_17_0_URL		:= $(call ptx/mirror, CRATESIO, typenum/1.17.0/download)
 HOST_CARGO_C_TYPENUM_1_17_0_SOURCE	:= $(SRCDIR)/typenum-1.17.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TYPENUM_1_17_0
 
 HOST_CARGO_C_UNICASE_2_7_0_MD5		:= 05fc1fbfb646a394e35043182c63b5de
-HOST_CARGO_C_UNICASE_2_7_0_URL		:= https://crates.io/api/v1/crates/unicase/2.7.0/download
+HOST_CARGO_C_UNICASE_2_7_0_URL		:= $(call ptx/mirror, CRATESIO, unicase/2.7.0/download)
 HOST_CARGO_C_UNICASE_2_7_0_SOURCE	:= $(SRCDIR)/unicase-2.7.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICASE_2_7_0
 
 HOST_CARGO_C_UNICODE_BIDI_0_3_15_MD5		:= 8a607889ac525c2286e2f7c88f89d931
-HOST_CARGO_C_UNICODE_BIDI_0_3_15_URL		:= https://crates.io/api/v1/crates/unicode-bidi/0.3.15/download
+HOST_CARGO_C_UNICODE_BIDI_0_3_15_URL		:= $(call ptx/mirror, CRATESIO, unicode-bidi/0.3.15/download)
 HOST_CARGO_C_UNICODE_BIDI_0_3_15_SOURCE	:= $(SRCDIR)/unicode-bidi-0.3.15.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_BIDI_0_3_15
 
 HOST_CARGO_C_UNICODE_BOM_2_0_3_MD5		:= c3d42808c0c5cc0283666964f83df775
-HOST_CARGO_C_UNICODE_BOM_2_0_3_URL		:= https://crates.io/api/v1/crates/unicode-bom/2.0.3/download
+HOST_CARGO_C_UNICODE_BOM_2_0_3_URL		:= $(call ptx/mirror, CRATESIO, unicode-bom/2.0.3/download)
 HOST_CARGO_C_UNICODE_BOM_2_0_3_SOURCE	:= $(SRCDIR)/unicode-bom-2.0.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_BOM_2_0_3
 
 HOST_CARGO_C_UNICODE_IDENT_1_0_12_MD5		:= ca65153603a1a7240bbd9d2ce19f2d67
-HOST_CARGO_C_UNICODE_IDENT_1_0_12_URL		:= https://crates.io/api/v1/crates/unicode-ident/1.0.12/download
+HOST_CARGO_C_UNICODE_IDENT_1_0_12_URL		:= $(call ptx/mirror, CRATESIO, unicode-ident/1.0.12/download)
 HOST_CARGO_C_UNICODE_IDENT_1_0_12_SOURCE	:= $(SRCDIR)/unicode-ident-1.0.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_IDENT_1_0_12
 
 HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_23_MD5		:= 97fa43aa1afabd1f5f3d1070389b42ba
-HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_23_URL		:= https://crates.io/api/v1/crates/unicode-normalization/0.1.23/download
+HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_23_URL		:= $(call ptx/mirror, CRATESIO, unicode-normalization/0.1.23/download)
 HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_23_SOURCE	:= $(SRCDIR)/unicode-normalization-0.1.23.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_23
 
 HOST_CARGO_C_UNICODE_WIDTH_0_1_13_MD5		:= e250b0b2e22ab75a9ea8aed21d77b3ee
-HOST_CARGO_C_UNICODE_WIDTH_0_1_13_URL		:= https://crates.io/api/v1/crates/unicode-width/0.1.13/download
+HOST_CARGO_C_UNICODE_WIDTH_0_1_13_URL		:= $(call ptx/mirror, CRATESIO, unicode-width/0.1.13/download)
 HOST_CARGO_C_UNICODE_WIDTH_0_1_13_SOURCE	:= $(SRCDIR)/unicode-width-0.1.13.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_WIDTH_0_1_13
 
 HOST_CARGO_C_UNICODE_XID_0_2_5_MD5		:= 00d5d49cf161f5675bc94eaaa07dd544
-HOST_CARGO_C_UNICODE_XID_0_2_5_URL		:= https://crates.io/api/v1/crates/unicode-xid/0.2.5/download
+HOST_CARGO_C_UNICODE_XID_0_2_5_URL		:= $(call ptx/mirror, CRATESIO, unicode-xid/0.2.5/download)
 HOST_CARGO_C_UNICODE_XID_0_2_5_SOURCE	:= $(SRCDIR)/unicode-xid-0.2.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_XID_0_2_5
 
 HOST_CARGO_C_URL_2_5_2_MD5		:= 8a83a7122dc03fdd42e5ba67680e5300
-HOST_CARGO_C_URL_2_5_2_URL		:= https://crates.io/api/v1/crates/url/2.5.2/download
+HOST_CARGO_C_URL_2_5_2_URL		:= $(call ptx/mirror, CRATESIO, url/2.5.2/download)
 HOST_CARGO_C_URL_2_5_2_SOURCE	:= $(SRCDIR)/url-2.5.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_URL_2_5_2
 
 HOST_CARGO_C_UTF8PARSE_0_2_2_MD5		:= 470f527a51d3921895bd2583fce8d9c4
-HOST_CARGO_C_UTF8PARSE_0_2_2_URL		:= https://crates.io/api/v1/crates/utf8parse/0.2.2/download
+HOST_CARGO_C_UTF8PARSE_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, utf8parse/0.2.2/download)
 HOST_CARGO_C_UTF8PARSE_0_2_2_SOURCE	:= $(SRCDIR)/utf8parse-0.2.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UTF8PARSE_0_2_2
 
 HOST_CARGO_C_VALUABLE_0_1_0_MD5		:= 4efc6e7a118524cecefa0023a18accf7
-HOST_CARGO_C_VALUABLE_0_1_0_URL		:= https://crates.io/api/v1/crates/valuable/0.1.0/download
+HOST_CARGO_C_VALUABLE_0_1_0_URL		:= $(call ptx/mirror, CRATESIO, valuable/0.1.0/download)
 HOST_CARGO_C_VALUABLE_0_1_0_SOURCE	:= $(SRCDIR)/valuable-0.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_VALUABLE_0_1_0
 
 HOST_CARGO_C_VCPKG_0_2_15_MD5		:= e900a384ac7dbb320fe6a7279fbfef89
-HOST_CARGO_C_VCPKG_0_2_15_URL		:= https://crates.io/api/v1/crates/vcpkg/0.2.15/download
+HOST_CARGO_C_VCPKG_0_2_15_URL		:= $(call ptx/mirror, CRATESIO, vcpkg/0.2.15/download)
 HOST_CARGO_C_VCPKG_0_2_15_SOURCE	:= $(SRCDIR)/vcpkg-0.2.15.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_VCPKG_0_2_15
 
 HOST_CARGO_C_VERSION_CHECK_0_9_5_MD5		:= f9880f1c33a7bc7b0e6e086b504bf38f
-HOST_CARGO_C_VERSION_CHECK_0_9_5_URL		:= https://crates.io/api/v1/crates/version_check/0.9.5/download
+HOST_CARGO_C_VERSION_CHECK_0_9_5_URL		:= $(call ptx/mirror, CRATESIO, version_check/0.9.5/download)
 HOST_CARGO_C_VERSION_CHECK_0_9_5_SOURCE	:= $(SRCDIR)/version_check-0.9.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_VERSION_CHECK_0_9_5
 
 HOST_CARGO_C_WALKDIR_2_5_0_MD5		:= f38b27b8c9625110a51293658f1cc014
-HOST_CARGO_C_WALKDIR_2_5_0_URL		:= https://crates.io/api/v1/crates/walkdir/2.5.0/download
+HOST_CARGO_C_WALKDIR_2_5_0_URL		:= $(call ptx/mirror, CRATESIO, walkdir/2.5.0/download)
 HOST_CARGO_C_WALKDIR_2_5_0_SOURCE	:= $(SRCDIR)/walkdir-2.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WALKDIR_2_5_0
 
 HOST_CARGO_C_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_MD5		:= e972ea58ec203bfa6c79c1207852298b
-HOST_CARGO_C_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_URL		:= https://crates.io/api/v1/crates/wasi/0.11.0+wasi-snapshot-preview1/download
+HOST_CARGO_C_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_URL		:= $(call ptx/mirror, CRATESIO, wasi/0.11.0+wasi-snapshot-preview1/download)
 HOST_CARGO_C_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1_SOURCE	:= $(SRCDIR)/wasi-0.11.0+wasi-snapshot-preview1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASI_0_11_0_WASI_SNAPSHOT_PREVIEW1
 
 HOST_CARGO_C_WASM_BINDGEN_0_2_93_MD5		:= 6c096ffbebd1eaef4fd4570ee127c7f7
-HOST_CARGO_C_WASM_BINDGEN_0_2_93_URL		:= https://crates.io/api/v1/crates/wasm-bindgen/0.2.93/download
+HOST_CARGO_C_WASM_BINDGEN_0_2_93_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen/0.2.93/download)
 HOST_CARGO_C_WASM_BINDGEN_0_2_93_SOURCE	:= $(SRCDIR)/wasm-bindgen-0.2.93.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_0_2_93
 
 HOST_CARGO_C_WASM_BINDGEN_BACKEND_0_2_93_MD5		:= 60c58ee8cdca36db589e87c79c9efff4
-HOST_CARGO_C_WASM_BINDGEN_BACKEND_0_2_93_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-backend/0.2.93/download
+HOST_CARGO_C_WASM_BINDGEN_BACKEND_0_2_93_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-backend/0.2.93/download)
 HOST_CARGO_C_WASM_BINDGEN_BACKEND_0_2_93_SOURCE	:= $(SRCDIR)/wasm-bindgen-backend-0.2.93.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_BACKEND_0_2_93
 
 HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_93_MD5		:= 6f4e8fbcd987fe542119b0338f374ec0
-HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_93_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-macro/0.2.93/download
+HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_93_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-macro/0.2.93/download)
 HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_93_SOURCE	:= $(SRCDIR)/wasm-bindgen-macro-0.2.93.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_93
 
 HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_93_MD5		:= e1c3e3ab6fe16b9c4d43b10dddb2b50c
-HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_93_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-macro-support/0.2.93/download
+HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_93_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-macro-support/0.2.93/download)
 HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_93_SOURCE	:= $(SRCDIR)/wasm-bindgen-macro-support-0.2.93.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_93
 
 HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_93_MD5		:= 044de2128be1885b0576bc4a6cba36ea
-HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_93_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-shared/0.2.93/download
+HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_93_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-shared/0.2.93/download)
 HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_93_SOURCE	:= $(SRCDIR)/wasm-bindgen-shared-0.2.93.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_93
 
 HOST_CARGO_C_WINAPI_0_3_9_MD5		:= 0498c4a11448bfc35dc7bb2caa64c753
-HOST_CARGO_C_WINAPI_0_3_9_URL		:= https://crates.io/api/v1/crates/winapi/0.3.9/download
+HOST_CARGO_C_WINAPI_0_3_9_URL		:= $(call ptx/mirror, CRATESIO, winapi/0.3.9/download)
 HOST_CARGO_C_WINAPI_0_3_9_SOURCE	:= $(SRCDIR)/winapi-0.3.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINAPI_0_3_9
 
 HOST_CARGO_C_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_MD5		:= db96b50050277bf05a3c68534bbb9586
-HOST_CARGO_C_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_URL		:= https://crates.io/api/v1/crates/winapi-i686-pc-windows-gnu/0.4.0/download
+HOST_CARGO_C_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, winapi-i686-pc-windows-gnu/0.4.0/download)
 HOST_CARGO_C_WINAPI_I686_PC_WINDOWS_GNU_0_4_0_SOURCE	:= $(SRCDIR)/winapi-i686-pc-windows-gnu-0.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINAPI_I686_PC_WINDOWS_GNU_0_4_0
 
 HOST_CARGO_C_WINAPI_UTIL_0_1_9_MD5		:= e908e1808f2a480449f8d86281ae24ef
-HOST_CARGO_C_WINAPI_UTIL_0_1_9_URL		:= https://crates.io/api/v1/crates/winapi-util/0.1.9/download
+HOST_CARGO_C_WINAPI_UTIL_0_1_9_URL		:= $(call ptx/mirror, CRATESIO, winapi-util/0.1.9/download)
 HOST_CARGO_C_WINAPI_UTIL_0_1_9_SOURCE	:= $(SRCDIR)/winapi-util-0.1.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINAPI_UTIL_0_1_9
 
 HOST_CARGO_C_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_MD5		:= 09de9d01e7331ff3da11f58be8bef0df
-HOST_CARGO_C_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_URL		:= https://crates.io/api/v1/crates/winapi-x86_64-pc-windows-gnu/0.4.0/download
+HOST_CARGO_C_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, winapi-x86_64-pc-windows-gnu/0.4.0/download)
 HOST_CARGO_C_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0_SOURCE	:= $(SRCDIR)/winapi-x86_64-pc-windows-gnu-0.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINAPI_X86_64_PC_WINDOWS_GNU_0_4_0
 
 HOST_CARGO_C_WINDOWS_SYS_0_48_0_MD5		:= f2797ade0e36f1e5d6be9d11b5076582
-HOST_CARGO_C_WINDOWS_SYS_0_48_0_URL		:= https://crates.io/api/v1/crates/windows-sys/0.48.0/download
+HOST_CARGO_C_WINDOWS_SYS_0_48_0_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.48.0/download)
 HOST_CARGO_C_WINDOWS_SYS_0_48_0_SOURCE	:= $(SRCDIR)/windows-sys-0.48.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_SYS_0_48_0
 
 HOST_CARGO_C_WINDOWS_SYS_0_52_0_MD5		:= 2376de634160158ece40c4bc2ab3eb41
-HOST_CARGO_C_WINDOWS_SYS_0_52_0_URL		:= https://crates.io/api/v1/crates/windows-sys/0.52.0/download
+HOST_CARGO_C_WINDOWS_SYS_0_52_0_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.52.0/download)
 HOST_CARGO_C_WINDOWS_SYS_0_52_0_SOURCE	:= $(SRCDIR)/windows-sys-0.52.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_SYS_0_52_0
 
 HOST_CARGO_C_WINDOWS_SYS_0_59_0_MD5		:= 73b177d6d000daaa8f05790414a887a3
-HOST_CARGO_C_WINDOWS_SYS_0_59_0_URL		:= https://crates.io/api/v1/crates/windows-sys/0.59.0/download
+HOST_CARGO_C_WINDOWS_SYS_0_59_0_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.59.0/download)
 HOST_CARGO_C_WINDOWS_SYS_0_59_0_SOURCE	:= $(SRCDIR)/windows-sys-0.59.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_SYS_0_59_0
 
 HOST_CARGO_C_WINDOWS_TARGETS_0_48_5_MD5		:= 24c64817e85ef77765ed0f26c31c9b4c
-HOST_CARGO_C_WINDOWS_TARGETS_0_48_5_URL		:= https://crates.io/api/v1/crates/windows-targets/0.48.5/download
+HOST_CARGO_C_WINDOWS_TARGETS_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows-targets/0.48.5/download)
 HOST_CARGO_C_WINDOWS_TARGETS_0_48_5_SOURCE	:= $(SRCDIR)/windows-targets-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_TARGETS_0_48_5
 
 HOST_CARGO_C_WINDOWS_TARGETS_0_52_6_MD5		:= 9e876a38acd8262d97e9302ecb4e0f72
-HOST_CARGO_C_WINDOWS_TARGETS_0_52_6_URL		:= https://crates.io/api/v1/crates/windows-targets/0.52.6/download
+HOST_CARGO_C_WINDOWS_TARGETS_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows-targets/0.52.6/download)
 HOST_CARGO_C_WINDOWS_TARGETS_0_52_6_SOURCE	:= $(SRCDIR)/windows-targets-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_TARGETS_0_52_6
 
 HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_48_5_MD5		:= dae6d89034a6988042fd8be4cf5e037d
-HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.48.5/download
+HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_gnullvm/0.48.5/download)
 HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_48_5_SOURCE	:= $(SRCDIR)/windows_aarch64_gnullvm-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_48_5
 
 HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_52_6_MD5		:= 8c8adde50f0a531c407c5b68ab928f0b
-HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.52.6/download
+HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_gnullvm/0.52.6/download)
 HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_52_6_SOURCE	:= $(SRCDIR)/windows_aarch64_gnullvm-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_52_6
 
 HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_48_5_MD5		:= de2839e16d9d7a9fd1c397da62f62b4a
-HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_aarch64_msvc/0.48.5/download
+HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_msvc/0.48.5/download)
 HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_48_5_SOURCE	:= $(SRCDIR)/windows_aarch64_msvc-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_48_5
 
 HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_52_6_MD5		:= 233b17dfcf7e49ac791eef30b7f406e3
-HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_aarch64_msvc/0.52.6/download
+HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_msvc/0.52.6/download)
 HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_52_6_SOURCE	:= $(SRCDIR)/windows_aarch64_msvc-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_52_6
 
 HOST_CARGO_C_WINDOWS_I686_GNU_0_48_5_MD5		:= e0c35ffb8cfdb74a39bf799811f79304
-HOST_CARGO_C_WINDOWS_I686_GNU_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_i686_gnu/0.48.5/download
+HOST_CARGO_C_WINDOWS_I686_GNU_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnu/0.48.5/download)
 HOST_CARGO_C_WINDOWS_I686_GNU_0_48_5_SOURCE	:= $(SRCDIR)/windows_i686_gnu-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_GNU_0_48_5
 
 HOST_CARGO_C_WINDOWS_I686_GNU_0_52_6_MD5		:= 7cb99b00381f697eaf8a322ed3b8205c
-HOST_CARGO_C_WINDOWS_I686_GNU_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_i686_gnu/0.52.6/download
+HOST_CARGO_C_WINDOWS_I686_GNU_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnu/0.52.6/download)
 HOST_CARGO_C_WINDOWS_I686_GNU_0_52_6_SOURCE	:= $(SRCDIR)/windows_i686_gnu-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_GNU_0_52_6
 
 HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_52_6_MD5		:= 1baf62319b533f3d996993b82305e547
-HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_i686_gnullvm/0.52.6/download
+HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnullvm/0.52.6/download)
 HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_52_6_SOURCE	:= $(SRCDIR)/windows_i686_gnullvm-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_52_6
 
 HOST_CARGO_C_WINDOWS_I686_MSVC_0_48_5_MD5		:= d990172b607020701f9e84ca8e1c043c
-HOST_CARGO_C_WINDOWS_I686_MSVC_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_i686_msvc/0.48.5/download
+HOST_CARGO_C_WINDOWS_I686_MSVC_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_msvc/0.48.5/download)
 HOST_CARGO_C_WINDOWS_I686_MSVC_0_48_5_SOURCE	:= $(SRCDIR)/windows_i686_msvc-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_MSVC_0_48_5
 
 HOST_CARGO_C_WINDOWS_I686_MSVC_0_52_6_MD5		:= 311ded6588844e072d3fb953a8f994da
-HOST_CARGO_C_WINDOWS_I686_MSVC_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_i686_msvc/0.52.6/download
+HOST_CARGO_C_WINDOWS_I686_MSVC_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_msvc/0.52.6/download)
 HOST_CARGO_C_WINDOWS_I686_MSVC_0_52_6_SOURCE	:= $(SRCDIR)/windows_i686_msvc-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_MSVC_0_52_6
 
 HOST_CARGO_C_WINDOWS_X86_64_GNU_0_48_5_MD5		:= 0a68848588e847ceccf504891584d00b
-HOST_CARGO_C_WINDOWS_X86_64_GNU_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnu/0.48.5/download
+HOST_CARGO_C_WINDOWS_X86_64_GNU_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnu/0.48.5/download)
 HOST_CARGO_C_WINDOWS_X86_64_GNU_0_48_5_SOURCE	:= $(SRCDIR)/windows_x86_64_gnu-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_GNU_0_48_5
 
 HOST_CARGO_C_WINDOWS_X86_64_GNU_0_52_6_MD5		:= 3f265cbde7668f38c1229043475470a9
-HOST_CARGO_C_WINDOWS_X86_64_GNU_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnu/0.52.6/download
+HOST_CARGO_C_WINDOWS_X86_64_GNU_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnu/0.52.6/download)
 HOST_CARGO_C_WINDOWS_X86_64_GNU_0_52_6_SOURCE	:= $(SRCDIR)/windows_x86_64_gnu-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_GNU_0_52_6
 
 HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_48_5_MD5		:= 45b469ad607b912256b7c80141fa2d17
-HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.48.5/download
+HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnullvm/0.48.5/download)
 HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_48_5_SOURCE	:= $(SRCDIR)/windows_x86_64_gnullvm-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_48_5
 
 HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_52_6_MD5		:= 4e50e886c72204c268c15a3230001d71
-HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.52.6/download
+HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnullvm/0.52.6/download)
 HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_52_6_SOURCE	:= $(SRCDIR)/windows_x86_64_gnullvm-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_52_6
 
 HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_48_5_MD5		:= 7799baff9a5664205d9110a2624e8989
-HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_48_5_URL		:= https://crates.io/api/v1/crates/windows_x86_64_msvc/0.48.5/download
+HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_48_5_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_msvc/0.48.5/download)
 HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_48_5_SOURCE	:= $(SRCDIR)/windows_x86_64_msvc-0.48.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_48_5
 
 HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_52_6_MD5		:= b95760e9133ba1bb456d0f0cef74c9a4
-HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_x86_64_msvc/0.52.6/download
+HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_msvc/0.52.6/download)
 HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_52_6_SOURCE	:= $(SRCDIR)/windows_x86_64_msvc-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_52_6
 
 HOST_CARGO_C_WINNOW_0_6_18_MD5		:= 0967e0df46d1af4eec8dab6b12241600
-HOST_CARGO_C_WINNOW_0_6_18_URL		:= https://crates.io/api/v1/crates/winnow/0.6.18/download
+HOST_CARGO_C_WINNOW_0_6_18_URL		:= $(call ptx/mirror, CRATESIO, winnow/0.6.18/download)
 HOST_CARGO_C_WINNOW_0_6_18_SOURCE	:= $(SRCDIR)/winnow-0.6.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINNOW_0_6_18
 
 HOST_CARGO_C_ZEROCOPY_0_7_35_MD5		:= 74ea77ca2056e0f68d6aa6f341c5ee3b
-HOST_CARGO_C_ZEROCOPY_0_7_35_URL		:= https://crates.io/api/v1/crates/zerocopy/0.7.35/download
+HOST_CARGO_C_ZEROCOPY_0_7_35_URL		:= $(call ptx/mirror, CRATESIO, zerocopy/0.7.35/download)
 HOST_CARGO_C_ZEROCOPY_0_7_35_SOURCE	:= $(SRCDIR)/zerocopy-0.7.35.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROCOPY_0_7_35
 
 HOST_CARGO_C_ZEROCOPY_DERIVE_0_7_35_MD5		:= 8b9abf87faaabfcedea7b9ac6381752d
-HOST_CARGO_C_ZEROCOPY_DERIVE_0_7_35_URL		:= https://crates.io/api/v1/crates/zerocopy-derive/0.7.35/download
+HOST_CARGO_C_ZEROCOPY_DERIVE_0_7_35_URL		:= $(call ptx/mirror, CRATESIO, zerocopy-derive/0.7.35/download)
 HOST_CARGO_C_ZEROCOPY_DERIVE_0_7_35_SOURCE	:= $(SRCDIR)/zerocopy-derive-0.7.35.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROCOPY_DERIVE_0_7_35
 
 HOST_CARGO_C_ZEROIZE_1_8_1_MD5		:= fc484f491cd0c91e5d7343776e055a77
-HOST_CARGO_C_ZEROIZE_1_8_1_URL		:= https://crates.io/api/v1/crates/zeroize/1.8.1/download
+HOST_CARGO_C_ZEROIZE_1_8_1_URL		:= $(call ptx/mirror, CRATESIO, zeroize/1.8.1/download)
 HOST_CARGO_C_ZEROIZE_1_8_1_SOURCE	:= $(SRCDIR)/zeroize-1.8.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROIZE_1_8_1
 
@@ -3198,1997 +3198,1997 @@ ifeq ($(HOST_CARGO_C_VERSION),0.10.20+cargo-0.94.0)
 HOST_CARGO_C_CARGO_LOCK_MD5 := 021854be3ef40003288171a6c5c65181
 
 HOST_CARGO_C_ADLER2_2_0_1_MD5		:= 873036bd52f5fd829bd41b3c2ca0bc08
-HOST_CARGO_C_ADLER2_2_0_1_URL		:= https://crates.io/api/v1/crates/adler2/2.0.1/download
+HOST_CARGO_C_ADLER2_2_0_1_URL		:= $(call ptx/mirror, CRATESIO, adler2/2.0.1/download)
 HOST_CARGO_C_ADLER2_2_0_1_SOURCE	:= $(SRCDIR)/adler2-2.0.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ADLER2_2_0_1
 
 HOST_CARGO_C_AHO_CORASICK_1_1_4_MD5		:= 2fb8e2b2c327d642027d27dd82160195
-HOST_CARGO_C_AHO_CORASICK_1_1_4_URL		:= https://crates.io/api/v1/crates/aho-corasick/1.1.4/download
+HOST_CARGO_C_AHO_CORASICK_1_1_4_URL		:= $(call ptx/mirror, CRATESIO, aho-corasick/1.1.4/download)
 HOST_CARGO_C_AHO_CORASICK_1_1_4_SOURCE	:= $(SRCDIR)/aho-corasick-1.1.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_AHO_CORASICK_1_1_4
 
 HOST_CARGO_C_ALLOCATOR_API2_0_2_21_MD5		:= a4cce839af1f5a83a1bf73de16819a75
-HOST_CARGO_C_ALLOCATOR_API2_0_2_21_URL		:= https://crates.io/api/v1/crates/allocator-api2/0.2.21/download
+HOST_CARGO_C_ALLOCATOR_API2_0_2_21_URL		:= $(call ptx/mirror, CRATESIO, allocator-api2/0.2.21/download)
 HOST_CARGO_C_ALLOCATOR_API2_0_2_21_SOURCE	:= $(SRCDIR)/allocator-api2-0.2.21.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ALLOCATOR_API2_0_2_21
 
 HOST_CARGO_C_ANDROID_SYSTEM_PROPERTIES_0_1_5_MD5		:= bf23cd323c33a8c283c41bb9b79e4ce4
-HOST_CARGO_C_ANDROID_SYSTEM_PROPERTIES_0_1_5_URL		:= https://crates.io/api/v1/crates/android_system_properties/0.1.5/download
+HOST_CARGO_C_ANDROID_SYSTEM_PROPERTIES_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, android_system_properties/0.1.5/download)
 HOST_CARGO_C_ANDROID_SYSTEM_PROPERTIES_0_1_5_SOURCE	:= $(SRCDIR)/android_system_properties-0.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANDROID_SYSTEM_PROPERTIES_0_1_5
 
 HOST_CARGO_C_ANNOTATE_SNIPPETS_0_12_10_MD5		:= 779fed6fb46bbe024166b1eeea17cca9
-HOST_CARGO_C_ANNOTATE_SNIPPETS_0_12_10_URL		:= https://crates.io/api/v1/crates/annotate-snippets/0.12.10/download
+HOST_CARGO_C_ANNOTATE_SNIPPETS_0_12_10_URL		:= $(call ptx/mirror, CRATESIO, annotate-snippets/0.12.10/download)
 HOST_CARGO_C_ANNOTATE_SNIPPETS_0_12_10_SOURCE	:= $(SRCDIR)/annotate-snippets-0.12.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANNOTATE_SNIPPETS_0_12_10
 
 HOST_CARGO_C_ANSTREAM_0_6_21_MD5		:= 082b8b397447a875d587f5f6447092db
-HOST_CARGO_C_ANSTREAM_0_6_21_URL		:= https://crates.io/api/v1/crates/anstream/0.6.21/download
+HOST_CARGO_C_ANSTREAM_0_6_21_URL		:= $(call ptx/mirror, CRATESIO, anstream/0.6.21/download)
 HOST_CARGO_C_ANSTREAM_0_6_21_SOURCE	:= $(SRCDIR)/anstream-0.6.21.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTREAM_0_6_21
 
 HOST_CARGO_C_ANSTYLE_1_0_13_MD5		:= 8f73a79f90605665cbc9650aafa9ca45
-HOST_CARGO_C_ANSTYLE_1_0_13_URL		:= https://crates.io/api/v1/crates/anstyle/1.0.13/download
+HOST_CARGO_C_ANSTYLE_1_0_13_URL		:= $(call ptx/mirror, CRATESIO, anstyle/1.0.13/download)
 HOST_CARGO_C_ANSTYLE_1_0_13_SOURCE	:= $(SRCDIR)/anstyle-1.0.13.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_1_0_13
 
 HOST_CARGO_C_ANSTYLE_PARSE_0_2_7_MD5		:= 27ce951824c9152083803a3f33f60d1c
-HOST_CARGO_C_ANSTYLE_PARSE_0_2_7_URL		:= https://crates.io/api/v1/crates/anstyle-parse/0.2.7/download
+HOST_CARGO_C_ANSTYLE_PARSE_0_2_7_URL		:= $(call ptx/mirror, CRATESIO, anstyle-parse/0.2.7/download)
 HOST_CARGO_C_ANSTYLE_PARSE_0_2_7_SOURCE	:= $(SRCDIR)/anstyle-parse-0.2.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_PARSE_0_2_7
 
 HOST_CARGO_C_ANSTYLE_QUERY_1_1_5_MD5		:= c7aa5d86dfe62f20aebe2f9e8f2981d6
-HOST_CARGO_C_ANSTYLE_QUERY_1_1_5_URL		:= https://crates.io/api/v1/crates/anstyle-query/1.1.5/download
+HOST_CARGO_C_ANSTYLE_QUERY_1_1_5_URL		:= $(call ptx/mirror, CRATESIO, anstyle-query/1.1.5/download)
 HOST_CARGO_C_ANSTYLE_QUERY_1_1_5_SOURCE	:= $(SRCDIR)/anstyle-query-1.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_QUERY_1_1_5
 
 HOST_CARGO_C_ANSTYLE_WINCON_3_0_11_MD5		:= c03b3c2d00cf63a83ca2798fd7693603
-HOST_CARGO_C_ANSTYLE_WINCON_3_0_11_URL		:= https://crates.io/api/v1/crates/anstyle-wincon/3.0.11/download
+HOST_CARGO_C_ANSTYLE_WINCON_3_0_11_URL		:= $(call ptx/mirror, CRATESIO, anstyle-wincon/3.0.11/download)
 HOST_CARGO_C_ANSTYLE_WINCON_3_0_11_SOURCE	:= $(SRCDIR)/anstyle-wincon-3.0.11.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANSTYLE_WINCON_3_0_11
 
 HOST_CARGO_C_ANYHOW_1_0_100_MD5		:= 7ece2a1deec12148567225c9b3bfba8f
-HOST_CARGO_C_ANYHOW_1_0_100_URL		:= https://crates.io/api/v1/crates/anyhow/1.0.100/download
+HOST_CARGO_C_ANYHOW_1_0_100_URL		:= $(call ptx/mirror, CRATESIO, anyhow/1.0.100/download)
 HOST_CARGO_C_ANYHOW_1_0_100_SOURCE	:= $(SRCDIR)/anyhow-1.0.100.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ANYHOW_1_0_100
 
 HOST_CARGO_C_ARC_SWAP_1_8_0_MD5		:= a48aad29f4682d0733b83e0cbea555a6
-HOST_CARGO_C_ARC_SWAP_1_8_0_URL		:= https://crates.io/api/v1/crates/arc-swap/1.8.0/download
+HOST_CARGO_C_ARC_SWAP_1_8_0_URL		:= $(call ptx/mirror, CRATESIO, arc-swap/1.8.0/download)
 HOST_CARGO_C_ARC_SWAP_1_8_0_SOURCE	:= $(SRCDIR)/arc-swap-1.8.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ARC_SWAP_1_8_0
 
 HOST_CARGO_C_ARRAYREF_0_3_9_MD5		:= 7d0eee1c60dce32fb616e46829b973f6
-HOST_CARGO_C_ARRAYREF_0_3_9_URL		:= https://crates.io/api/v1/crates/arrayref/0.3.9/download
+HOST_CARGO_C_ARRAYREF_0_3_9_URL		:= $(call ptx/mirror, CRATESIO, arrayref/0.3.9/download)
 HOST_CARGO_C_ARRAYREF_0_3_9_SOURCE	:= $(SRCDIR)/arrayref-0.3.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ARRAYREF_0_3_9
 
 HOST_CARGO_C_ARRAYVEC_0_7_6_MD5		:= 3ce13f8504b72552464acf5c8a29fe72
-HOST_CARGO_C_ARRAYVEC_0_7_6_URL		:= https://crates.io/api/v1/crates/arrayvec/0.7.6/download
+HOST_CARGO_C_ARRAYVEC_0_7_6_URL		:= $(call ptx/mirror, CRATESIO, arrayvec/0.7.6/download)
 HOST_CARGO_C_ARRAYVEC_0_7_6_SOURCE	:= $(SRCDIR)/arrayvec-0.7.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ARRAYVEC_0_7_6
 
 HOST_CARGO_C_AUTOCFG_1_5_0_MD5		:= 3e70bb53cab36a3ef2a02dfce21bc472
-HOST_CARGO_C_AUTOCFG_1_5_0_URL		:= https://crates.io/api/v1/crates/autocfg/1.5.0/download
+HOST_CARGO_C_AUTOCFG_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, autocfg/1.5.0/download)
 HOST_CARGO_C_AUTOCFG_1_5_0_SOURCE	:= $(SRCDIR)/autocfg-1.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_AUTOCFG_1_5_0
 
 HOST_CARGO_C_BASE16CT_0_2_0_MD5		:= 5a1ece5125e266d39693587725f0270d
-HOST_CARGO_C_BASE16CT_0_2_0_URL		:= https://crates.io/api/v1/crates/base16ct/0.2.0/download
+HOST_CARGO_C_BASE16CT_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, base16ct/0.2.0/download)
 HOST_CARGO_C_BASE16CT_0_2_0_SOURCE	:= $(SRCDIR)/base16ct-0.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BASE16CT_0_2_0
 
 HOST_CARGO_C_BASE64_0_22_1_MD5		:= 20084c4c04bcc06fd3d7ff662deca706
-HOST_CARGO_C_BASE64_0_22_1_URL		:= https://crates.io/api/v1/crates/base64/0.22.1/download
+HOST_CARGO_C_BASE64_0_22_1_URL		:= $(call ptx/mirror, CRATESIO, base64/0.22.1/download)
 HOST_CARGO_C_BASE64_0_22_1_SOURCE	:= $(SRCDIR)/base64-0.22.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BASE64_0_22_1
 
 HOST_CARGO_C_BASE64CT_1_8_3_MD5		:= 08a6eb0bc8d7d522bfee7589d357f00d
-HOST_CARGO_C_BASE64CT_1_8_3_URL		:= https://crates.io/api/v1/crates/base64ct/1.8.3/download
+HOST_CARGO_C_BASE64CT_1_8_3_URL		:= $(call ptx/mirror, CRATESIO, base64ct/1.8.3/download)
 HOST_CARGO_C_BASE64CT_1_8_3_SOURCE	:= $(SRCDIR)/base64ct-1.8.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BASE64CT_1_8_3
 
 HOST_CARGO_C_BITFLAGS_2_10_0_MD5		:= 4b7db26ac6bd77342b51188882fa5678
-HOST_CARGO_C_BITFLAGS_2_10_0_URL		:= https://crates.io/api/v1/crates/bitflags/2.10.0/download
+HOST_CARGO_C_BITFLAGS_2_10_0_URL		:= $(call ptx/mirror, CRATESIO, bitflags/2.10.0/download)
 HOST_CARGO_C_BITFLAGS_2_10_0_SOURCE	:= $(SRCDIR)/bitflags-2.10.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BITFLAGS_2_10_0
 
 HOST_CARGO_C_BITMAPS_2_1_0_MD5		:= 1f3a8c93940230a06fdf5223a64000bf
-HOST_CARGO_C_BITMAPS_2_1_0_URL		:= https://crates.io/api/v1/crates/bitmaps/2.1.0/download
+HOST_CARGO_C_BITMAPS_2_1_0_URL		:= $(call ptx/mirror, CRATESIO, bitmaps/2.1.0/download)
 HOST_CARGO_C_BITMAPS_2_1_0_SOURCE	:= $(SRCDIR)/bitmaps-2.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BITMAPS_2_1_0
 
 HOST_CARGO_C_BLAKE3_1_8_3_MD5		:= e477cfff344b3da39d6148fa0355d334
-HOST_CARGO_C_BLAKE3_1_8_3_URL		:= https://crates.io/api/v1/crates/blake3/1.8.3/download
+HOST_CARGO_C_BLAKE3_1_8_3_URL		:= $(call ptx/mirror, CRATESIO, blake3/1.8.3/download)
 HOST_CARGO_C_BLAKE3_1_8_3_SOURCE	:= $(SRCDIR)/blake3-1.8.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BLAKE3_1_8_3
 
 HOST_CARGO_C_BLOCK_BUFFER_0_10_4_MD5		:= 023b03cf9968b29253a5dfe62051008d
-HOST_CARGO_C_BLOCK_BUFFER_0_10_4_URL		:= https://crates.io/api/v1/crates/block-buffer/0.10.4/download
+HOST_CARGO_C_BLOCK_BUFFER_0_10_4_URL		:= $(call ptx/mirror, CRATESIO, block-buffer/0.10.4/download)
 HOST_CARGO_C_BLOCK_BUFFER_0_10_4_SOURCE	:= $(SRCDIR)/block-buffer-0.10.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BLOCK_BUFFER_0_10_4
 
 HOST_CARGO_C_BLOCK2_0_6_2_MD5		:= 4dd4175ec3e2840e7a0f49141b8d59dd
-HOST_CARGO_C_BLOCK2_0_6_2_URL		:= https://crates.io/api/v1/crates/block2/0.6.2/download
+HOST_CARGO_C_BLOCK2_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, block2/0.6.2/download)
 HOST_CARGO_C_BLOCK2_0_6_2_SOURCE	:= $(SRCDIR)/block2-0.6.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BLOCK2_0_6_2
 
 HOST_CARGO_C_BSTR_1_12_1_MD5		:= 039b68ad4423e03069a58f9c91041d11
-HOST_CARGO_C_BSTR_1_12_1_URL		:= https://crates.io/api/v1/crates/bstr/1.12.1/download
+HOST_CARGO_C_BSTR_1_12_1_URL		:= $(call ptx/mirror, CRATESIO, bstr/1.12.1/download)
 HOST_CARGO_C_BSTR_1_12_1_SOURCE	:= $(SRCDIR)/bstr-1.12.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BSTR_1_12_1
 
 HOST_CARGO_C_BUMPALO_3_19_1_MD5		:= 1edac1c7c686e543e15cf524e4f62124
-HOST_CARGO_C_BUMPALO_3_19_1_URL		:= https://crates.io/api/v1/crates/bumpalo/3.19.1/download
+HOST_CARGO_C_BUMPALO_3_19_1_URL		:= $(call ptx/mirror, CRATESIO, bumpalo/3.19.1/download)
 HOST_CARGO_C_BUMPALO_3_19_1_SOURCE	:= $(SRCDIR)/bumpalo-3.19.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BUMPALO_3_19_1
 
 HOST_CARGO_C_BYTEORDER_1_5_0_MD5		:= 45339d90b2b3a4f123af5ec459954102
-HOST_CARGO_C_BYTEORDER_1_5_0_URL		:= https://crates.io/api/v1/crates/byteorder/1.5.0/download
+HOST_CARGO_C_BYTEORDER_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, byteorder/1.5.0/download)
 HOST_CARGO_C_BYTEORDER_1_5_0_SOURCE	:= $(SRCDIR)/byteorder-1.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BYTEORDER_1_5_0
 
 HOST_CARGO_C_BYTES_1_11_0_MD5		:= 050c263ae11180b425297e7c22a8c4c8
-HOST_CARGO_C_BYTES_1_11_0_URL		:= https://crates.io/api/v1/crates/bytes/1.11.0/download
+HOST_CARGO_C_BYTES_1_11_0_URL		:= $(call ptx/mirror, CRATESIO, bytes/1.11.0/download)
 HOST_CARGO_C_BYTES_1_11_0_SOURCE	:= $(SRCDIR)/bytes-1.11.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_BYTES_1_11_0
 
 HOST_CARGO_C_CAMINO_1_2_2_MD5		:= c0b1ce0eed193481052a1d11e1e63311
-HOST_CARGO_C_CAMINO_1_2_2_URL		:= https://crates.io/api/v1/crates/camino/1.2.2/download
+HOST_CARGO_C_CAMINO_1_2_2_URL		:= $(call ptx/mirror, CRATESIO, camino/1.2.2/download)
 HOST_CARGO_C_CAMINO_1_2_2_SOURCE	:= $(SRCDIR)/camino-1.2.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CAMINO_1_2_2
 
 HOST_CARGO_C_CARGO_0_94_0_MD5		:= 52c8053f1cbc82ca261cbb105de4059d
-HOST_CARGO_C_CARGO_0_94_0_URL		:= https://crates.io/api/v1/crates/cargo/0.94.0/download
+HOST_CARGO_C_CARGO_0_94_0_URL		:= $(call ptx/mirror, CRATESIO, cargo/0.94.0/download)
 HOST_CARGO_C_CARGO_0_94_0_SOURCE	:= $(SRCDIR)/cargo-0.94.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_0_94_0
 
 HOST_CARGO_C_CARGO_CREDENTIAL_0_4_9_MD5		:= 1ceeca1cd9aecea0b06183ae3ee4a8c1
-HOST_CARGO_C_CARGO_CREDENTIAL_0_4_9_URL		:= https://crates.io/api/v1/crates/cargo-credential/0.4.9/download
+HOST_CARGO_C_CARGO_CREDENTIAL_0_4_9_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential/0.4.9/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_0_4_9_SOURCE	:= $(SRCDIR)/cargo-credential-0.4.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_0_4_9
 
 HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_5_4_MD5		:= ee30235a1344608732b62bfaee99fd17
-HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_5_4_URL		:= https://crates.io/api/v1/crates/cargo-credential-libsecret/0.5.4/download
+HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_5_4_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential-libsecret/0.5.4/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_5_4_SOURCE	:= $(SRCDIR)/cargo-credential-libsecret-0.5.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_LIBSECRET_0_5_4
 
 HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_4_19_MD5		:= 5364177d8b487a4695bed109d2c99460
-HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_4_19_URL		:= https://crates.io/api/v1/crates/cargo-credential-macos-keychain/0.4.19/download
+HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_4_19_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential-macos-keychain/0.4.19/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_4_19_SOURCE	:= $(SRCDIR)/cargo-credential-macos-keychain-0.4.19.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_MACOS_KEYCHAIN_0_4_19
 
 HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_4_19_MD5		:= b6c28f1d9a0a24d5d9b0aed929ac598b
-HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_4_19_URL		:= https://crates.io/api/v1/crates/cargo-credential-wincred/0.4.19/download
+HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_4_19_URL		:= $(call ptx/mirror, CRATESIO, cargo-credential-wincred/0.4.19/download)
 HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_4_19_SOURCE	:= $(SRCDIR)/cargo-credential-wincred-0.4.19.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_CREDENTIAL_WINCRED_0_4_19
 
 HOST_CARGO_C_CARGO_PLATFORM_0_3_2_MD5		:= 6b419d9ffab6d2b90a132fd3e0a8748a
-HOST_CARGO_C_CARGO_PLATFORM_0_3_2_URL		:= https://crates.io/api/v1/crates/cargo-platform/0.3.2/download
+HOST_CARGO_C_CARGO_PLATFORM_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, cargo-platform/0.3.2/download)
 HOST_CARGO_C_CARGO_PLATFORM_0_3_2_SOURCE	:= $(SRCDIR)/cargo-platform-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_PLATFORM_0_3_2
 
 HOST_CARGO_C_CARGO_UTIL_0_2_26_MD5		:= 414d717d668fb110d849f1af9fc06336
-HOST_CARGO_C_CARGO_UTIL_0_2_26_URL		:= https://crates.io/api/v1/crates/cargo-util/0.2.26/download
+HOST_CARGO_C_CARGO_UTIL_0_2_26_URL		:= $(call ptx/mirror, CRATESIO, cargo-util/0.2.26/download)
 HOST_CARGO_C_CARGO_UTIL_0_2_26_SOURCE	:= $(SRCDIR)/cargo-util-0.2.26.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_UTIL_0_2_26
 
 HOST_CARGO_C_CARGO_UTIL_SCHEMAS_0_11_0_MD5		:= 3a18fa3e97f9e30fc4da8d56562a028c
-HOST_CARGO_C_CARGO_UTIL_SCHEMAS_0_11_0_URL		:= https://crates.io/api/v1/crates/cargo-util-schemas/0.11.0/download
+HOST_CARGO_C_CARGO_UTIL_SCHEMAS_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, cargo-util-schemas/0.11.0/download)
 HOST_CARGO_C_CARGO_UTIL_SCHEMAS_0_11_0_SOURCE	:= $(SRCDIR)/cargo-util-schemas-0.11.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CARGO_UTIL_SCHEMAS_0_11_0
 
 HOST_CARGO_C_CBINDGEN_0_29_2_MD5		:= 26aa3e69289693c82dfd10b2292affd9
-HOST_CARGO_C_CBINDGEN_0_29_2_URL		:= https://crates.io/api/v1/crates/cbindgen/0.29.2/download
+HOST_CARGO_C_CBINDGEN_0_29_2_URL		:= $(call ptx/mirror, CRATESIO, cbindgen/0.29.2/download)
 HOST_CARGO_C_CBINDGEN_0_29_2_SOURCE	:= $(SRCDIR)/cbindgen-0.29.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CBINDGEN_0_29_2
 
 HOST_CARGO_C_CC_1_2_54_MD5		:= 55eda46883b1aec482e35b1277f35d98
-HOST_CARGO_C_CC_1_2_54_URL		:= https://crates.io/api/v1/crates/cc/1.2.54/download
+HOST_CARGO_C_CC_1_2_54_URL		:= $(call ptx/mirror, CRATESIO, cc/1.2.54/download)
 HOST_CARGO_C_CC_1_2_54_SOURCE	:= $(SRCDIR)/cc-1.2.54.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CC_1_2_54
 
 HOST_CARGO_C_CFG_IF_1_0_4_MD5		:= 7dbc461580b8ee7d163a6e02524c6d90
-HOST_CARGO_C_CFG_IF_1_0_4_URL		:= https://crates.io/api/v1/crates/cfg-if/1.0.4/download
+HOST_CARGO_C_CFG_IF_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, cfg-if/1.0.4/download)
 HOST_CARGO_C_CFG_IF_1_0_4_SOURCE	:= $(SRCDIR)/cfg-if-1.0.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CFG_IF_1_0_4
 
 HOST_CARGO_C_CFG_ALIASES_0_2_1_MD5		:= f5215c4283a1984b95043a7185245e00
-HOST_CARGO_C_CFG_ALIASES_0_2_1_URL		:= https://crates.io/api/v1/crates/cfg_aliases/0.2.1/download
+HOST_CARGO_C_CFG_ALIASES_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, cfg_aliases/0.2.1/download)
 HOST_CARGO_C_CFG_ALIASES_0_2_1_SOURCE	:= $(SRCDIR)/cfg_aliases-0.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CFG_ALIASES_0_2_1
 
 HOST_CARGO_C_CLAP_4_5_54_MD5		:= 81b6c40f5d53676b4cf3d7e358bd54e2
-HOST_CARGO_C_CLAP_4_5_54_URL		:= https://crates.io/api/v1/crates/clap/4.5.54/download
+HOST_CARGO_C_CLAP_4_5_54_URL		:= $(call ptx/mirror, CRATESIO, clap/4.5.54/download)
 HOST_CARGO_C_CLAP_4_5_54_SOURCE	:= $(SRCDIR)/clap-4.5.54.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_4_5_54
 
 HOST_CARGO_C_CLAP_BUILDER_4_5_54_MD5		:= 30baf0a4469c006cd5d171f7a129945d
-HOST_CARGO_C_CLAP_BUILDER_4_5_54_URL		:= https://crates.io/api/v1/crates/clap_builder/4.5.54/download
+HOST_CARGO_C_CLAP_BUILDER_4_5_54_URL		:= $(call ptx/mirror, CRATESIO, clap_builder/4.5.54/download)
 HOST_CARGO_C_CLAP_BUILDER_4_5_54_SOURCE	:= $(SRCDIR)/clap_builder-4.5.54.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_BUILDER_4_5_54
 
 HOST_CARGO_C_CLAP_COMPLETE_4_5_65_MD5		:= b7552312eade0e0219369452cf32e2f2
-HOST_CARGO_C_CLAP_COMPLETE_4_5_65_URL		:= https://crates.io/api/v1/crates/clap_complete/4.5.65/download
+HOST_CARGO_C_CLAP_COMPLETE_4_5_65_URL		:= $(call ptx/mirror, CRATESIO, clap_complete/4.5.65/download)
 HOST_CARGO_C_CLAP_COMPLETE_4_5_65_SOURCE	:= $(SRCDIR)/clap_complete-4.5.65.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_COMPLETE_4_5_65
 
 HOST_CARGO_C_CLAP_DERIVE_4_5_49_MD5		:= 4bff8de0233dc9e6dba69fba8dac9f8a
-HOST_CARGO_C_CLAP_DERIVE_4_5_49_URL		:= https://crates.io/api/v1/crates/clap_derive/4.5.49/download
+HOST_CARGO_C_CLAP_DERIVE_4_5_49_URL		:= $(call ptx/mirror, CRATESIO, clap_derive/4.5.49/download)
 HOST_CARGO_C_CLAP_DERIVE_4_5_49_SOURCE	:= $(SRCDIR)/clap_derive-4.5.49.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_DERIVE_4_5_49
 
 HOST_CARGO_C_CLAP_LEX_0_7_7_MD5		:= 262f1e926bf76ae3344fe5cb1f5a8b47
-HOST_CARGO_C_CLAP_LEX_0_7_7_URL		:= https://crates.io/api/v1/crates/clap_lex/0.7.7/download
+HOST_CARGO_C_CLAP_LEX_0_7_7_URL		:= $(call ptx/mirror, CRATESIO, clap_lex/0.7.7/download)
 HOST_CARGO_C_CLAP_LEX_0_7_7_SOURCE	:= $(SRCDIR)/clap_lex-0.7.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLAP_LEX_0_7_7
 
 HOST_CARGO_C_CLRU_0_6_2_MD5		:= 04baa08ff2d38dad4a10e7a27a9768d4
-HOST_CARGO_C_CLRU_0_6_2_URL		:= https://crates.io/api/v1/crates/clru/0.6.2/download
+HOST_CARGO_C_CLRU_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, clru/0.6.2/download)
 HOST_CARGO_C_CLRU_0_6_2_SOURCE	:= $(SRCDIR)/clru-0.6.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CLRU_0_6_2
 
 HOST_CARGO_C_COLOR_PRINT_0_3_7_MD5		:= e0d923764896bf9120ee2e2f16ce1a42
-HOST_CARGO_C_COLOR_PRINT_0_3_7_URL		:= https://crates.io/api/v1/crates/color-print/0.3.7/download
+HOST_CARGO_C_COLOR_PRINT_0_3_7_URL		:= $(call ptx/mirror, CRATESIO, color-print/0.3.7/download)
 HOST_CARGO_C_COLOR_PRINT_0_3_7_SOURCE	:= $(SRCDIR)/color-print-0.3.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_COLOR_PRINT_0_3_7
 
 HOST_CARGO_C_COLOR_PRINT_PROC_MACRO_0_3_7_MD5		:= aa0e860140ab785ff2409a638477575f
-HOST_CARGO_C_COLOR_PRINT_PROC_MACRO_0_3_7_URL		:= https://crates.io/api/v1/crates/color-print-proc-macro/0.3.7/download
+HOST_CARGO_C_COLOR_PRINT_PROC_MACRO_0_3_7_URL		:= $(call ptx/mirror, CRATESIO, color-print-proc-macro/0.3.7/download)
 HOST_CARGO_C_COLOR_PRINT_PROC_MACRO_0_3_7_SOURCE	:= $(SRCDIR)/color-print-proc-macro-0.3.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_COLOR_PRINT_PROC_MACRO_0_3_7
 
 HOST_CARGO_C_COLORCHOICE_1_0_4_MD5		:= b69f87eec94e36408135e81035235621
-HOST_CARGO_C_COLORCHOICE_1_0_4_URL		:= https://crates.io/api/v1/crates/colorchoice/1.0.4/download
+HOST_CARGO_C_COLORCHOICE_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, colorchoice/1.0.4/download)
 HOST_CARGO_C_COLORCHOICE_1_0_4_SOURCE	:= $(SRCDIR)/colorchoice-1.0.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_COLORCHOICE_1_0_4
 
 HOST_CARGO_C_CONST_OID_0_9_6_MD5		:= 6ed0aab506ad1ec23e34c6aec4efd1d7
-HOST_CARGO_C_CONST_OID_0_9_6_URL		:= https://crates.io/api/v1/crates/const-oid/0.9.6/download
+HOST_CARGO_C_CONST_OID_0_9_6_URL		:= $(call ptx/mirror, CRATESIO, const-oid/0.9.6/download)
 HOST_CARGO_C_CONST_OID_0_9_6_SOURCE	:= $(SRCDIR)/const-oid-0.9.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CONST_OID_0_9_6
 
 HOST_CARGO_C_CONSTANT_TIME_EQ_0_4_2_MD5		:= 4980e7451af9ebe5fc0fc9467cb05191
-HOST_CARGO_C_CONSTANT_TIME_EQ_0_4_2_URL		:= https://crates.io/api/v1/crates/constant_time_eq/0.4.2/download
+HOST_CARGO_C_CONSTANT_TIME_EQ_0_4_2_URL		:= $(call ptx/mirror, CRATESIO, constant_time_eq/0.4.2/download)
 HOST_CARGO_C_CONSTANT_TIME_EQ_0_4_2_SOURCE	:= $(SRCDIR)/constant_time_eq-0.4.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CONSTANT_TIME_EQ_0_4_2
 
 HOST_CARGO_C_CORE_FOUNDATION_0_10_1_MD5		:= e37baa1796debe9e6f5b94fdb25c2ff3
-HOST_CARGO_C_CORE_FOUNDATION_0_10_1_URL		:= https://crates.io/api/v1/crates/core-foundation/0.10.1/download
+HOST_CARGO_C_CORE_FOUNDATION_0_10_1_URL		:= $(call ptx/mirror, CRATESIO, core-foundation/0.10.1/download)
 HOST_CARGO_C_CORE_FOUNDATION_0_10_1_SOURCE	:= $(SRCDIR)/core-foundation-0.10.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CORE_FOUNDATION_0_10_1
 
 HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_7_MD5		:= c5229cfccb6a1598e74a837dbc9e2797
-HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_7_URL		:= https://crates.io/api/v1/crates/core-foundation-sys/0.8.7/download
+HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_7_URL		:= $(call ptx/mirror, CRATESIO, core-foundation-sys/0.8.7/download)
 HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_7_SOURCE	:= $(SRCDIR)/core-foundation-sys-0.8.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CORE_FOUNDATION_SYS_0_8_7
 
 HOST_CARGO_C_CPUFEATURES_0_2_17_MD5		:= 08c18a18f452c41072b08e8367778c6a
-HOST_CARGO_C_CPUFEATURES_0_2_17_URL		:= https://crates.io/api/v1/crates/cpufeatures/0.2.17/download
+HOST_CARGO_C_CPUFEATURES_0_2_17_URL		:= $(call ptx/mirror, CRATESIO, cpufeatures/0.2.17/download)
 HOST_CARGO_C_CPUFEATURES_0_2_17_SOURCE	:= $(SRCDIR)/cpufeatures-0.2.17.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CPUFEATURES_0_2_17
 
 HOST_CARGO_C_CRATES_IO_0_40_16_MD5		:= 4070eb8cc3721317588419af8ec2ff35
-HOST_CARGO_C_CRATES_IO_0_40_16_URL		:= https://crates.io/api/v1/crates/crates-io/0.40.16/download
+HOST_CARGO_C_CRATES_IO_0_40_16_URL		:= $(call ptx/mirror, CRATESIO, crates-io/0.40.16/download)
 HOST_CARGO_C_CRATES_IO_0_40_16_SOURCE	:= $(SRCDIR)/crates-io-0.40.16.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRATES_IO_0_40_16
 
 HOST_CARGO_C_CRC32FAST_1_5_0_MD5		:= b2a8b4dcf41563d959ae386da42eeb83
-HOST_CARGO_C_CRC32FAST_1_5_0_URL		:= https://crates.io/api/v1/crates/crc32fast/1.5.0/download
+HOST_CARGO_C_CRC32FAST_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, crc32fast/1.5.0/download)
 HOST_CARGO_C_CRC32FAST_1_5_0_SOURCE	:= $(SRCDIR)/crc32fast-1.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRC32FAST_1_5_0
 
 HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_15_MD5		:= 4be201623382079bbea72558343cd19a
-HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_15_URL		:= https://crates.io/api/v1/crates/crossbeam-channel/0.5.15/download
+HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_15_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-channel/0.5.15/download)
 HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_15_SOURCE	:= $(SRCDIR)/crossbeam-channel-0.5.15.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CROSSBEAM_CHANNEL_0_5_15
 
 HOST_CARGO_C_CROSSBEAM_DEQUE_0_8_6_MD5		:= 3975562a4eb5f04b174ad599a0da8fd6
-HOST_CARGO_C_CROSSBEAM_DEQUE_0_8_6_URL		:= https://crates.io/api/v1/crates/crossbeam-deque/0.8.6/download
+HOST_CARGO_C_CROSSBEAM_DEQUE_0_8_6_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-deque/0.8.6/download)
 HOST_CARGO_C_CROSSBEAM_DEQUE_0_8_6_SOURCE	:= $(SRCDIR)/crossbeam-deque-0.8.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CROSSBEAM_DEQUE_0_8_6
 
 HOST_CARGO_C_CROSSBEAM_EPOCH_0_9_18_MD5		:= 44505199ec0964feb5488051b4ac92d5
-HOST_CARGO_C_CROSSBEAM_EPOCH_0_9_18_URL		:= https://crates.io/api/v1/crates/crossbeam-epoch/0.9.18/download
+HOST_CARGO_C_CROSSBEAM_EPOCH_0_9_18_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-epoch/0.9.18/download)
 HOST_CARGO_C_CROSSBEAM_EPOCH_0_9_18_SOURCE	:= $(SRCDIR)/crossbeam-epoch-0.9.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CROSSBEAM_EPOCH_0_9_18
 
 HOST_CARGO_C_CROSSBEAM_UTILS_0_8_21_MD5		:= 897be1152015ad66fa30dbdc224af39d
-HOST_CARGO_C_CROSSBEAM_UTILS_0_8_21_URL		:= https://crates.io/api/v1/crates/crossbeam-utils/0.8.21/download
+HOST_CARGO_C_CROSSBEAM_UTILS_0_8_21_URL		:= $(call ptx/mirror, CRATESIO, crossbeam-utils/0.8.21/download)
 HOST_CARGO_C_CROSSBEAM_UTILS_0_8_21_SOURCE	:= $(SRCDIR)/crossbeam-utils-0.8.21.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CROSSBEAM_UTILS_0_8_21
 
 HOST_CARGO_C_CRYPTO_BIGINT_0_5_5_MD5		:= d2695f81f5e7b7a44da337b59c56b363
-HOST_CARGO_C_CRYPTO_BIGINT_0_5_5_URL		:= https://crates.io/api/v1/crates/crypto-bigint/0.5.5/download
+HOST_CARGO_C_CRYPTO_BIGINT_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, crypto-bigint/0.5.5/download)
 HOST_CARGO_C_CRYPTO_BIGINT_0_5_5_SOURCE	:= $(SRCDIR)/crypto-bigint-0.5.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRYPTO_BIGINT_0_5_5
 
 HOST_CARGO_C_CRYPTO_COMMON_0_1_6_MD5		:= 89e88633cab0e4b6f3d3878b84dffe8b
-HOST_CARGO_C_CRYPTO_COMMON_0_1_6_URL		:= https://crates.io/api/v1/crates/crypto-common/0.1.6/download
+HOST_CARGO_C_CRYPTO_COMMON_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, crypto-common/0.1.6/download)
 HOST_CARGO_C_CRYPTO_COMMON_0_1_6_SOURCE	:= $(SRCDIR)/crypto-common-0.1.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CRYPTO_COMMON_0_1_6
 
 HOST_CARGO_C_CT_CODECS_1_1_6_MD5		:= 9f69c2e1c716eae583e2efd7f427e977
-HOST_CARGO_C_CT_CODECS_1_1_6_URL		:= https://crates.io/api/v1/crates/ct-codecs/1.1.6/download
+HOST_CARGO_C_CT_CODECS_1_1_6_URL		:= $(call ptx/mirror, CRATESIO, ct-codecs/1.1.6/download)
 HOST_CARGO_C_CT_CODECS_1_1_6_SOURCE	:= $(SRCDIR)/ct-codecs-1.1.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CT_CODECS_1_1_6
 
 HOST_CARGO_C_CURL_0_4_49_MD5		:= a80faae9c849bf1f406cc0fd8db321e6
-HOST_CARGO_C_CURL_0_4_49_URL		:= https://crates.io/api/v1/crates/curl/0.4.49/download
+HOST_CARGO_C_CURL_0_4_49_URL		:= $(call ptx/mirror, CRATESIO, curl/0.4.49/download)
 HOST_CARGO_C_CURL_0_4_49_SOURCE	:= $(SRCDIR)/curl-0.4.49.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CURL_0_4_49
 
 HOST_CARGO_C_CURL_SYS_0_4_85_CURL_8_18_0_MD5		:= 62bf48f2516545bf45360bac2944634a
-HOST_CARGO_C_CURL_SYS_0_4_85_CURL_8_18_0_URL		:= https://crates.io/api/v1/crates/curl-sys/0.4.85+curl-8.18.0/download
+HOST_CARGO_C_CURL_SYS_0_4_85_CURL_8_18_0_URL		:= $(call ptx/mirror, CRATESIO, curl-sys/0.4.85+curl-8.18.0/download)
 HOST_CARGO_C_CURL_SYS_0_4_85_CURL_8_18_0_SOURCE	:= $(SRCDIR)/curl-sys-0.4.85+curl-8.18.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_CURL_SYS_0_4_85_CURL_8_18_0
 
 HOST_CARGO_C_DASHMAP_6_1_0_MD5		:= 87b6473f5edcf8d9ac8acd81f0b32dee
-HOST_CARGO_C_DASHMAP_6_1_0_URL		:= https://crates.io/api/v1/crates/dashmap/6.1.0/download
+HOST_CARGO_C_DASHMAP_6_1_0_URL		:= $(call ptx/mirror, CRATESIO, dashmap/6.1.0/download)
 HOST_CARGO_C_DASHMAP_6_1_0_SOURCE	:= $(SRCDIR)/dashmap-6.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DASHMAP_6_1_0
 
 HOST_CARGO_C_DER_0_7_10_MD5		:= aac304f4d342ddf73b37e26385b3d585
-HOST_CARGO_C_DER_0_7_10_URL		:= https://crates.io/api/v1/crates/der/0.7.10/download
+HOST_CARGO_C_DER_0_7_10_URL		:= $(call ptx/mirror, CRATESIO, der/0.7.10/download)
 HOST_CARGO_C_DER_0_7_10_SOURCE	:= $(SRCDIR)/der-0.7.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DER_0_7_10
 
 HOST_CARGO_C_DERANGED_0_5_5_MD5		:= e69c9d06bd1248b3d4397ecf760e05d5
-HOST_CARGO_C_DERANGED_0_5_5_URL		:= https://crates.io/api/v1/crates/deranged/0.5.5/download
+HOST_CARGO_C_DERANGED_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, deranged/0.5.5/download)
 HOST_CARGO_C_DERANGED_0_5_5_SOURCE	:= $(SRCDIR)/deranged-0.5.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DERANGED_0_5_5
 
 HOST_CARGO_C_DIGEST_0_10_7_MD5		:= 3d62bfbbe08bdcee55fcb8cda85554d9
-HOST_CARGO_C_DIGEST_0_10_7_URL		:= https://crates.io/api/v1/crates/digest/0.10.7/download
+HOST_CARGO_C_DIGEST_0_10_7_URL		:= $(call ptx/mirror, CRATESIO, digest/0.10.7/download)
 HOST_CARGO_C_DIGEST_0_10_7_SOURCE	:= $(SRCDIR)/digest-0.10.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DIGEST_0_10_7
 
 HOST_CARGO_C_DISPATCH2_0_3_0_MD5		:= 96890e73570699190d932884a85c3cfb
-HOST_CARGO_C_DISPATCH2_0_3_0_URL		:= https://crates.io/api/v1/crates/dispatch2/0.3.0/download
+HOST_CARGO_C_DISPATCH2_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, dispatch2/0.3.0/download)
 HOST_CARGO_C_DISPATCH2_0_3_0_SOURCE	:= $(SRCDIR)/dispatch2-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DISPATCH2_0_3_0
 
 HOST_CARGO_C_DISPLAYDOC_0_2_5_MD5		:= 145b7bd67e6356f3510a7d8fa9bb7926
-HOST_CARGO_C_DISPLAYDOC_0_2_5_URL		:= https://crates.io/api/v1/crates/displaydoc/0.2.5/download
+HOST_CARGO_C_DISPLAYDOC_0_2_5_URL		:= $(call ptx/mirror, CRATESIO, displaydoc/0.2.5/download)
 HOST_CARGO_C_DISPLAYDOC_0_2_5_SOURCE	:= $(SRCDIR)/displaydoc-0.2.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DISPLAYDOC_0_2_5
 
 HOST_CARGO_C_DUNCE_1_0_5_MD5		:= 198d7f7c37f632bc83502b28870b6d60
-HOST_CARGO_C_DUNCE_1_0_5_URL		:= https://crates.io/api/v1/crates/dunce/1.0.5/download
+HOST_CARGO_C_DUNCE_1_0_5_URL		:= $(call ptx/mirror, CRATESIO, dunce/1.0.5/download)
 HOST_CARGO_C_DUNCE_1_0_5_SOURCE	:= $(SRCDIR)/dunce-1.0.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_DUNCE_1_0_5
 
 HOST_CARGO_C_ECDSA_0_16_9_MD5		:= 3ce1c12d6f46952c4a394c8c3bb9437e
-HOST_CARGO_C_ECDSA_0_16_9_URL		:= https://crates.io/api/v1/crates/ecdsa/0.16.9/download
+HOST_CARGO_C_ECDSA_0_16_9_URL		:= $(call ptx/mirror, CRATESIO, ecdsa/0.16.9/download)
 HOST_CARGO_C_ECDSA_0_16_9_SOURCE	:= $(SRCDIR)/ecdsa-0.16.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ECDSA_0_16_9
 
 HOST_CARGO_C_ED25519_COMPACT_2_2_0_MD5		:= f79c7cf51f179534da00cb33c5861b0a
-HOST_CARGO_C_ED25519_COMPACT_2_2_0_URL		:= https://crates.io/api/v1/crates/ed25519-compact/2.2.0/download
+HOST_CARGO_C_ED25519_COMPACT_2_2_0_URL		:= $(call ptx/mirror, CRATESIO, ed25519-compact/2.2.0/download)
 HOST_CARGO_C_ED25519_COMPACT_2_2_0_SOURCE	:= $(SRCDIR)/ed25519-compact-2.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ED25519_COMPACT_2_2_0
 
 HOST_CARGO_C_EITHER_1_15_0_MD5		:= 96c3c9f009928f02773032f341666861
-HOST_CARGO_C_EITHER_1_15_0_URL		:= https://crates.io/api/v1/crates/either/1.15.0/download
+HOST_CARGO_C_EITHER_1_15_0_URL		:= $(call ptx/mirror, CRATESIO, either/1.15.0/download)
 HOST_CARGO_C_EITHER_1_15_0_SOURCE	:= $(SRCDIR)/either-1.15.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_EITHER_1_15_0
 
 HOST_CARGO_C_ELLIPTIC_CURVE_0_13_8_MD5		:= ffc9c1ed3a5f35182084b40ff2ff6111
-HOST_CARGO_C_ELLIPTIC_CURVE_0_13_8_URL		:= https://crates.io/api/v1/crates/elliptic-curve/0.13.8/download
+HOST_CARGO_C_ELLIPTIC_CURVE_0_13_8_URL		:= $(call ptx/mirror, CRATESIO, elliptic-curve/0.13.8/download)
 HOST_CARGO_C_ELLIPTIC_CURVE_0_13_8_SOURCE	:= $(SRCDIR)/elliptic-curve-0.13.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ELLIPTIC_CURVE_0_13_8
 
 HOST_CARGO_C_ENCODING_RS_0_8_35_MD5		:= 916cd597e92b97a987a1a8f8f2d40805
-HOST_CARGO_C_ENCODING_RS_0_8_35_URL		:= https://crates.io/api/v1/crates/encoding_rs/0.8.35/download
+HOST_CARGO_C_ENCODING_RS_0_8_35_URL		:= $(call ptx/mirror, CRATESIO, encoding_rs/0.8.35/download)
 HOST_CARGO_C_ENCODING_RS_0_8_35_SOURCE	:= $(SRCDIR)/encoding_rs-0.8.35.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ENCODING_RS_0_8_35
 
 HOST_CARGO_C_EQUIVALENT_1_0_2_MD5		:= 8ea35f559a34b5a0ba1b063e001773ca
-HOST_CARGO_C_EQUIVALENT_1_0_2_URL		:= https://crates.io/api/v1/crates/equivalent/1.0.2/download
+HOST_CARGO_C_EQUIVALENT_1_0_2_URL		:= $(call ptx/mirror, CRATESIO, equivalent/1.0.2/download)
 HOST_CARGO_C_EQUIVALENT_1_0_2_SOURCE	:= $(SRCDIR)/equivalent-1.0.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_EQUIVALENT_1_0_2
 
 HOST_CARGO_C_ERASED_SERDE_0_4_9_MD5		:= 0d268119480cd763d66547764345e212
-HOST_CARGO_C_ERASED_SERDE_0_4_9_URL		:= https://crates.io/api/v1/crates/erased-serde/0.4.9/download
+HOST_CARGO_C_ERASED_SERDE_0_4_9_URL		:= $(call ptx/mirror, CRATESIO, erased-serde/0.4.9/download)
 HOST_CARGO_C_ERASED_SERDE_0_4_9_SOURCE	:= $(SRCDIR)/erased-serde-0.4.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ERASED_SERDE_0_4_9
 
 HOST_CARGO_C_ERRNO_0_3_14_MD5		:= dceddd3d936c2195d6fd507e3773bc4e
-HOST_CARGO_C_ERRNO_0_3_14_URL		:= https://crates.io/api/v1/crates/errno/0.3.14/download
+HOST_CARGO_C_ERRNO_0_3_14_URL		:= $(call ptx/mirror, CRATESIO, errno/0.3.14/download)
 HOST_CARGO_C_ERRNO_0_3_14_SOURCE	:= $(SRCDIR)/errno-0.3.14.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ERRNO_0_3_14
 
 HOST_CARGO_C_FALLIBLE_ITERATOR_0_3_0_MD5		:= 4abeb2b6db91c4964c17ec4bf24248f4
-HOST_CARGO_C_FALLIBLE_ITERATOR_0_3_0_URL		:= https://crates.io/api/v1/crates/fallible-iterator/0.3.0/download
+HOST_CARGO_C_FALLIBLE_ITERATOR_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, fallible-iterator/0.3.0/download)
 HOST_CARGO_C_FALLIBLE_ITERATOR_0_3_0_SOURCE	:= $(SRCDIR)/fallible-iterator-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FALLIBLE_ITERATOR_0_3_0
 
 HOST_CARGO_C_FALLIBLE_STREAMING_ITERATOR_0_1_9_MD5		:= 7543e8639ad2e29866b522e20c35152a
-HOST_CARGO_C_FALLIBLE_STREAMING_ITERATOR_0_1_9_URL		:= https://crates.io/api/v1/crates/fallible-streaming-iterator/0.1.9/download
+HOST_CARGO_C_FALLIBLE_STREAMING_ITERATOR_0_1_9_URL		:= $(call ptx/mirror, CRATESIO, fallible-streaming-iterator/0.1.9/download)
 HOST_CARGO_C_FALLIBLE_STREAMING_ITERATOR_0_1_9_SOURCE	:= $(SRCDIR)/fallible-streaming-iterator-0.1.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FALLIBLE_STREAMING_ITERATOR_0_1_9
 
 HOST_CARGO_C_FASTER_HEX_0_10_0_MD5		:= ed115f03f4c1d744f740d1d8d3a86f2b
-HOST_CARGO_C_FASTER_HEX_0_10_0_URL		:= https://crates.io/api/v1/crates/faster-hex/0.10.0/download
+HOST_CARGO_C_FASTER_HEX_0_10_0_URL		:= $(call ptx/mirror, CRATESIO, faster-hex/0.10.0/download)
 HOST_CARGO_C_FASTER_HEX_0_10_0_SOURCE	:= $(SRCDIR)/faster-hex-0.10.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FASTER_HEX_0_10_0
 
 HOST_CARGO_C_FASTRAND_2_3_0_MD5		:= b0a1ffd6b0b5fe67e3dac04cd26b3099
-HOST_CARGO_C_FASTRAND_2_3_0_URL		:= https://crates.io/api/v1/crates/fastrand/2.3.0/download
+HOST_CARGO_C_FASTRAND_2_3_0_URL		:= $(call ptx/mirror, CRATESIO, fastrand/2.3.0/download)
 HOST_CARGO_C_FASTRAND_2_3_0_SOURCE	:= $(SRCDIR)/fastrand-2.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FASTRAND_2_3_0
 
 HOST_CARGO_C_FF_0_13_1_MD5		:= cf30752b676b464fb117fd301b645e64
-HOST_CARGO_C_FF_0_13_1_URL		:= https://crates.io/api/v1/crates/ff/0.13.1/download
+HOST_CARGO_C_FF_0_13_1_URL		:= $(call ptx/mirror, CRATESIO, ff/0.13.1/download)
 HOST_CARGO_C_FF_0_13_1_SOURCE	:= $(SRCDIR)/ff-0.13.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FF_0_13_1
 
 HOST_CARGO_C_FIAT_CRYPTO_0_3_0_MD5		:= 668ec7ac6575dceae0e296dfb8a3603a
-HOST_CARGO_C_FIAT_CRYPTO_0_3_0_URL		:= https://crates.io/api/v1/crates/fiat-crypto/0.3.0/download
+HOST_CARGO_C_FIAT_CRYPTO_0_3_0_URL		:= $(call ptx/mirror, CRATESIO, fiat-crypto/0.3.0/download)
 HOST_CARGO_C_FIAT_CRYPTO_0_3_0_SOURCE	:= $(SRCDIR)/fiat-crypto-0.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FIAT_CRYPTO_0_3_0
 
 HOST_CARGO_C_FILETIME_0_2_27_MD5		:= 3af57da2cb839fc49bbf046dc80ba6f1
-HOST_CARGO_C_FILETIME_0_2_27_URL		:= https://crates.io/api/v1/crates/filetime/0.2.27/download
+HOST_CARGO_C_FILETIME_0_2_27_URL		:= $(call ptx/mirror, CRATESIO, filetime/0.2.27/download)
 HOST_CARGO_C_FILETIME_0_2_27_SOURCE	:= $(SRCDIR)/filetime-0.2.27.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FILETIME_0_2_27
 
 HOST_CARGO_C_FIND_MSVC_TOOLS_0_1_8_MD5		:= efc4c5787d82f3874d40b84bf08e1622
-HOST_CARGO_C_FIND_MSVC_TOOLS_0_1_8_URL		:= https://crates.io/api/v1/crates/find-msvc-tools/0.1.8/download
+HOST_CARGO_C_FIND_MSVC_TOOLS_0_1_8_URL		:= $(call ptx/mirror, CRATESIO, find-msvc-tools/0.1.8/download)
 HOST_CARGO_C_FIND_MSVC_TOOLS_0_1_8_SOURCE	:= $(SRCDIR)/find-msvc-tools-0.1.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FIND_MSVC_TOOLS_0_1_8
 
 HOST_CARGO_C_FLATE2_1_1_8_MD5		:= 759f57520d76181fbb00b71ec8f4ff0c
-HOST_CARGO_C_FLATE2_1_1_8_URL		:= https://crates.io/api/v1/crates/flate2/1.1.8/download
+HOST_CARGO_C_FLATE2_1_1_8_URL		:= $(call ptx/mirror, CRATESIO, flate2/1.1.8/download)
 HOST_CARGO_C_FLATE2_1_1_8_SOURCE	:= $(SRCDIR)/flate2-1.1.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FLATE2_1_1_8
 
 HOST_CARGO_C_FNV_1_0_7_MD5		:= 8dab3b3ec00dc56cffde0b0c410d47b5
-HOST_CARGO_C_FNV_1_0_7_URL		:= https://crates.io/api/v1/crates/fnv/1.0.7/download
+HOST_CARGO_C_FNV_1_0_7_URL		:= $(call ptx/mirror, CRATESIO, fnv/1.0.7/download)
 HOST_CARGO_C_FNV_1_0_7_SOURCE	:= $(SRCDIR)/fnv-1.0.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FNV_1_0_7
 
 HOST_CARGO_C_FOLDHASH_0_1_5_MD5		:= fc53a85c912427e1af1278d8f9ef2aa4
-HOST_CARGO_C_FOLDHASH_0_1_5_URL		:= https://crates.io/api/v1/crates/foldhash/0.1.5/download
+HOST_CARGO_C_FOLDHASH_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, foldhash/0.1.5/download)
 HOST_CARGO_C_FOLDHASH_0_1_5_SOURCE	:= $(SRCDIR)/foldhash-0.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FOLDHASH_0_1_5
 
 HOST_CARGO_C_FOLDHASH_0_2_0_MD5		:= e36ee995fbd928f67773e5dbca035c5e
-HOST_CARGO_C_FOLDHASH_0_2_0_URL		:= https://crates.io/api/v1/crates/foldhash/0.2.0/download
+HOST_CARGO_C_FOLDHASH_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, foldhash/0.2.0/download)
 HOST_CARGO_C_FOLDHASH_0_2_0_SOURCE	:= $(SRCDIR)/foldhash-0.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FOLDHASH_0_2_0
 
 HOST_CARGO_C_FOREIGN_TYPES_0_3_2_MD5		:= 78c898fdaa3968e23904bf8538c4a271
-HOST_CARGO_C_FOREIGN_TYPES_0_3_2_URL		:= https://crates.io/api/v1/crates/foreign-types/0.3.2/download
+HOST_CARGO_C_FOREIGN_TYPES_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, foreign-types/0.3.2/download)
 HOST_CARGO_C_FOREIGN_TYPES_0_3_2_SOURCE	:= $(SRCDIR)/foreign-types-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FOREIGN_TYPES_0_3_2
 
 HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_MD5		:= 667e86b8b8d96ab4e9605627ce7dcc9a
-HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_URL		:= https://crates.io/api/v1/crates/foreign-types-shared/0.1.1/download
+HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, foreign-types-shared/0.1.1/download)
 HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1_SOURCE	:= $(SRCDIR)/foreign-types-shared-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FOREIGN_TYPES_SHARED_0_1_1
 
 HOST_CARGO_C_FORM_URLENCODED_1_2_2_MD5		:= 50f998a859c3e57218745ba77c370e2b
-HOST_CARGO_C_FORM_URLENCODED_1_2_2_URL		:= https://crates.io/api/v1/crates/form_urlencoded/1.2.2/download
+HOST_CARGO_C_FORM_URLENCODED_1_2_2_URL		:= $(call ptx/mirror, CRATESIO, form_urlencoded/1.2.2/download)
 HOST_CARGO_C_FORM_URLENCODED_1_2_2_SOURCE	:= $(SRCDIR)/form_urlencoded-1.2.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_FORM_URLENCODED_1_2_2
 
 HOST_CARGO_C_GENERIC_ARRAY_0_14_9_MD5		:= 7e517801cf63d14b415ee05fefcb8831
-HOST_CARGO_C_GENERIC_ARRAY_0_14_9_URL		:= https://crates.io/api/v1/crates/generic-array/0.14.9/download
+HOST_CARGO_C_GENERIC_ARRAY_0_14_9_URL		:= $(call ptx/mirror, CRATESIO, generic-array/0.14.9/download)
 HOST_CARGO_C_GENERIC_ARRAY_0_14_9_SOURCE	:= $(SRCDIR)/generic-array-0.14.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GENERIC_ARRAY_0_14_9
 
 HOST_CARGO_C_GETRANDOM_0_2_17_MD5		:= e9a474ff4fa06cae9de697c1a96a6181
-HOST_CARGO_C_GETRANDOM_0_2_17_URL		:= https://crates.io/api/v1/crates/getrandom/0.2.17/download
+HOST_CARGO_C_GETRANDOM_0_2_17_URL		:= $(call ptx/mirror, CRATESIO, getrandom/0.2.17/download)
 HOST_CARGO_C_GETRANDOM_0_2_17_SOURCE	:= $(SRCDIR)/getrandom-0.2.17.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GETRANDOM_0_2_17
 
 HOST_CARGO_C_GETRANDOM_0_3_4_MD5		:= 9a421286bfaf7199053b6fa7a3e690cb
-HOST_CARGO_C_GETRANDOM_0_3_4_URL		:= https://crates.io/api/v1/crates/getrandom/0.3.4/download
+HOST_CARGO_C_GETRANDOM_0_3_4_URL		:= $(call ptx/mirror, CRATESIO, getrandom/0.3.4/download)
 HOST_CARGO_C_GETRANDOM_0_3_4_SOURCE	:= $(SRCDIR)/getrandom-0.3.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GETRANDOM_0_3_4
 
 HOST_CARGO_C_GIT2_0_20_3_MD5		:= 3377d7a8ae9a6d9919d3d1c0943e71b7
-HOST_CARGO_C_GIT2_0_20_3_URL		:= https://crates.io/api/v1/crates/git2/0.20.3/download
+HOST_CARGO_C_GIT2_0_20_3_URL		:= $(call ptx/mirror, CRATESIO, git2/0.20.3/download)
 HOST_CARGO_C_GIT2_0_20_3_SOURCE	:= $(SRCDIR)/git2-0.20.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIT2_0_20_3
 
 HOST_CARGO_C_GIT2_CURL_0_21_0_MD5		:= cf4d664e68057ae59ac389b7d133e013
-HOST_CARGO_C_GIT2_CURL_0_21_0_URL		:= https://crates.io/api/v1/crates/git2-curl/0.21.0/download
+HOST_CARGO_C_GIT2_CURL_0_21_0_URL		:= $(call ptx/mirror, CRATESIO, git2-curl/0.21.0/download)
 HOST_CARGO_C_GIT2_CURL_0_21_0_SOURCE	:= $(SRCDIR)/git2-curl-0.21.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIT2_CURL_0_21_0
 
 HOST_CARGO_C_GIX_0_74_1_MD5		:= e3d83cbf17e340cce0ce8fc83e3633d1
-HOST_CARGO_C_GIX_0_74_1_URL		:= https://crates.io/api/v1/crates/gix/0.74.1/download
+HOST_CARGO_C_GIX_0_74_1_URL		:= $(call ptx/mirror, CRATESIO, gix/0.74.1/download)
 HOST_CARGO_C_GIX_0_74_1_SOURCE	:= $(SRCDIR)/gix-0.74.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_0_74_1
 
 HOST_CARGO_C_GIX_ACTOR_0_35_6_MD5		:= 868cd9e4d56b34f9cd04d9bfa8562bce
-HOST_CARGO_C_GIX_ACTOR_0_35_6_URL		:= https://crates.io/api/v1/crates/gix-actor/0.35.6/download
+HOST_CARGO_C_GIX_ACTOR_0_35_6_URL		:= $(call ptx/mirror, CRATESIO, gix-actor/0.35.6/download)
 HOST_CARGO_C_GIX_ACTOR_0_35_6_SOURCE	:= $(SRCDIR)/gix-actor-0.35.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_ACTOR_0_35_6
 
 HOST_CARGO_C_GIX_ATTRIBUTES_0_28_1_MD5		:= 53a08944de32a98ce5bf39f0869ba423
-HOST_CARGO_C_GIX_ATTRIBUTES_0_28_1_URL		:= https://crates.io/api/v1/crates/gix-attributes/0.28.1/download
+HOST_CARGO_C_GIX_ATTRIBUTES_0_28_1_URL		:= $(call ptx/mirror, CRATESIO, gix-attributes/0.28.1/download)
 HOST_CARGO_C_GIX_ATTRIBUTES_0_28_1_SOURCE	:= $(SRCDIR)/gix-attributes-0.28.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_ATTRIBUTES_0_28_1
 
 HOST_CARGO_C_GIX_BITMAP_0_2_15_MD5		:= 2e796772cc7a59cd77486bd785f3ad4b
-HOST_CARGO_C_GIX_BITMAP_0_2_15_URL		:= https://crates.io/api/v1/crates/gix-bitmap/0.2.15/download
+HOST_CARGO_C_GIX_BITMAP_0_2_15_URL		:= $(call ptx/mirror, CRATESIO, gix-bitmap/0.2.15/download)
 HOST_CARGO_C_GIX_BITMAP_0_2_15_SOURCE	:= $(SRCDIR)/gix-bitmap-0.2.15.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_BITMAP_0_2_15
 
 HOST_CARGO_C_GIX_CHUNK_0_4_12_MD5		:= adf07c202e24f7ad5d4bb8b95752e9bd
-HOST_CARGO_C_GIX_CHUNK_0_4_12_URL		:= https://crates.io/api/v1/crates/gix-chunk/0.4.12/download
+HOST_CARGO_C_GIX_CHUNK_0_4_12_URL		:= $(call ptx/mirror, CRATESIO, gix-chunk/0.4.12/download)
 HOST_CARGO_C_GIX_CHUNK_0_4_12_SOURCE	:= $(SRCDIR)/gix-chunk-0.4.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CHUNK_0_4_12
 
 HOST_CARGO_C_GIX_COMMAND_0_6_5_MD5		:= 1a9c8d17e8c30f0b51e5d2041bee601f
-HOST_CARGO_C_GIX_COMMAND_0_6_5_URL		:= https://crates.io/api/v1/crates/gix-command/0.6.5/download
+HOST_CARGO_C_GIX_COMMAND_0_6_5_URL		:= $(call ptx/mirror, CRATESIO, gix-command/0.6.5/download)
 HOST_CARGO_C_GIX_COMMAND_0_6_5_SOURCE	:= $(SRCDIR)/gix-command-0.6.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_COMMAND_0_6_5
 
 HOST_CARGO_C_GIX_COMMITGRAPH_0_30_1_MD5		:= 54ce68123def413970d3fc89039abe56
-HOST_CARGO_C_GIX_COMMITGRAPH_0_30_1_URL		:= https://crates.io/api/v1/crates/gix-commitgraph/0.30.1/download
+HOST_CARGO_C_GIX_COMMITGRAPH_0_30_1_URL		:= $(call ptx/mirror, CRATESIO, gix-commitgraph/0.30.1/download)
 HOST_CARGO_C_GIX_COMMITGRAPH_0_30_1_SOURCE	:= $(SRCDIR)/gix-commitgraph-0.30.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_COMMITGRAPH_0_30_1
 
 HOST_CARGO_C_GIX_CONFIG_0_47_1_MD5		:= 9c9efaaf2a9a2506a521da1dfebdd891
-HOST_CARGO_C_GIX_CONFIG_0_47_1_URL		:= https://crates.io/api/v1/crates/gix-config/0.47.1/download
+HOST_CARGO_C_GIX_CONFIG_0_47_1_URL		:= $(call ptx/mirror, CRATESIO, gix-config/0.47.1/download)
 HOST_CARGO_C_GIX_CONFIG_0_47_1_SOURCE	:= $(SRCDIR)/gix-config-0.47.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CONFIG_0_47_1
 
 HOST_CARGO_C_GIX_CONFIG_VALUE_0_15_3_MD5		:= f57bb4f4431d6fb9147544125620273e
-HOST_CARGO_C_GIX_CONFIG_VALUE_0_15_3_URL		:= https://crates.io/api/v1/crates/gix-config-value/0.15.3/download
+HOST_CARGO_C_GIX_CONFIG_VALUE_0_15_3_URL		:= $(call ptx/mirror, CRATESIO, gix-config-value/0.15.3/download)
 HOST_CARGO_C_GIX_CONFIG_VALUE_0_15_3_SOURCE	:= $(SRCDIR)/gix-config-value-0.15.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CONFIG_VALUE_0_15_3
 
 HOST_CARGO_C_GIX_CREDENTIALS_0_31_1_MD5		:= 66e04eeb9073dcf8be246882093e677d
-HOST_CARGO_C_GIX_CREDENTIALS_0_31_1_URL		:= https://crates.io/api/v1/crates/gix-credentials/0.31.1/download
+HOST_CARGO_C_GIX_CREDENTIALS_0_31_1_URL		:= $(call ptx/mirror, CRATESIO, gix-credentials/0.31.1/download)
 HOST_CARGO_C_GIX_CREDENTIALS_0_31_1_SOURCE	:= $(SRCDIR)/gix-credentials-0.31.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_CREDENTIALS_0_31_1
 
 HOST_CARGO_C_GIX_DATE_0_10_7_MD5		:= 0a96381ae1f17e06060acde00c4e47ff
-HOST_CARGO_C_GIX_DATE_0_10_7_URL		:= https://crates.io/api/v1/crates/gix-date/0.10.7/download
+HOST_CARGO_C_GIX_DATE_0_10_7_URL		:= $(call ptx/mirror, CRATESIO, gix-date/0.10.7/download)
 HOST_CARGO_C_GIX_DATE_0_10_7_SOURCE	:= $(SRCDIR)/gix-date-0.10.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DATE_0_10_7
 
 HOST_CARGO_C_GIX_DIFF_0_54_1_MD5		:= 06f7ad4b7f7fc96b434fdfd43808f527
-HOST_CARGO_C_GIX_DIFF_0_54_1_URL		:= https://crates.io/api/v1/crates/gix-diff/0.54.1/download
+HOST_CARGO_C_GIX_DIFF_0_54_1_URL		:= $(call ptx/mirror, CRATESIO, gix-diff/0.54.1/download)
 HOST_CARGO_C_GIX_DIFF_0_54_1_SOURCE	:= $(SRCDIR)/gix-diff-0.54.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DIFF_0_54_1
 
 HOST_CARGO_C_GIX_DIR_0_16_0_MD5		:= 35838975c15aef36163d6a9b87dea432
-HOST_CARGO_C_GIX_DIR_0_16_0_URL		:= https://crates.io/api/v1/crates/gix-dir/0.16.0/download
+HOST_CARGO_C_GIX_DIR_0_16_0_URL		:= $(call ptx/mirror, CRATESIO, gix-dir/0.16.0/download)
 HOST_CARGO_C_GIX_DIR_0_16_0_SOURCE	:= $(SRCDIR)/gix-dir-0.16.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DIR_0_16_0
 
 HOST_CARGO_C_GIX_DISCOVER_0_42_0_MD5		:= 1eea6d0437bb54f1047b64b0df4509f8
-HOST_CARGO_C_GIX_DISCOVER_0_42_0_URL		:= https://crates.io/api/v1/crates/gix-discover/0.42.0/download
+HOST_CARGO_C_GIX_DISCOVER_0_42_0_URL		:= $(call ptx/mirror, CRATESIO, gix-discover/0.42.0/download)
 HOST_CARGO_C_GIX_DISCOVER_0_42_0_SOURCE	:= $(SRCDIR)/gix-discover-0.42.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_DISCOVER_0_42_0
 
 HOST_CARGO_C_GIX_FEATURES_0_44_1_MD5		:= 5447687b7c546e4c1520f35a0b492093
-HOST_CARGO_C_GIX_FEATURES_0_44_1_URL		:= https://crates.io/api/v1/crates/gix-features/0.44.1/download
+HOST_CARGO_C_GIX_FEATURES_0_44_1_URL		:= $(call ptx/mirror, CRATESIO, gix-features/0.44.1/download)
 HOST_CARGO_C_GIX_FEATURES_0_44_1_SOURCE	:= $(SRCDIR)/gix-features-0.44.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_FEATURES_0_44_1
 
 HOST_CARGO_C_GIX_FILTER_0_21_0_MD5		:= 6c60c6919688eea22b128100e64d4d43
-HOST_CARGO_C_GIX_FILTER_0_21_0_URL		:= https://crates.io/api/v1/crates/gix-filter/0.21.0/download
+HOST_CARGO_C_GIX_FILTER_0_21_0_URL		:= $(call ptx/mirror, CRATESIO, gix-filter/0.21.0/download)
 HOST_CARGO_C_GIX_FILTER_0_21_0_SOURCE	:= $(SRCDIR)/gix-filter-0.21.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_FILTER_0_21_0
 
 HOST_CARGO_C_GIX_FS_0_17_0_MD5		:= 8b320ef2ee762cd33c25d4280dcf7103
-HOST_CARGO_C_GIX_FS_0_17_0_URL		:= https://crates.io/api/v1/crates/gix-fs/0.17.0/download
+HOST_CARGO_C_GIX_FS_0_17_0_URL		:= $(call ptx/mirror, CRATESIO, gix-fs/0.17.0/download)
 HOST_CARGO_C_GIX_FS_0_17_0_SOURCE	:= $(SRCDIR)/gix-fs-0.17.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_FS_0_17_0
 
 HOST_CARGO_C_GIX_GLOB_0_22_1_MD5		:= 1f6986d4f16e65f7a88e3af255456ad6
-HOST_CARGO_C_GIX_GLOB_0_22_1_URL		:= https://crates.io/api/v1/crates/gix-glob/0.22.1/download
+HOST_CARGO_C_GIX_GLOB_0_22_1_URL		:= $(call ptx/mirror, CRATESIO, gix-glob/0.22.1/download)
 HOST_CARGO_C_GIX_GLOB_0_22_1_SOURCE	:= $(SRCDIR)/gix-glob-0.22.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_GLOB_0_22_1
 
 HOST_CARGO_C_GIX_HASH_0_20_1_MD5		:= 440b29e359252352e26c9e4cd505c3c1
-HOST_CARGO_C_GIX_HASH_0_20_1_URL		:= https://crates.io/api/v1/crates/gix-hash/0.20.1/download
+HOST_CARGO_C_GIX_HASH_0_20_1_URL		:= $(call ptx/mirror, CRATESIO, gix-hash/0.20.1/download)
 HOST_CARGO_C_GIX_HASH_0_20_1_SOURCE	:= $(SRCDIR)/gix-hash-0.20.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_HASH_0_20_1
 
 HOST_CARGO_C_GIX_HASHTABLE_0_10_0_MD5		:= 64ea03a70ce9c4e29cb2cd26f73943e3
-HOST_CARGO_C_GIX_HASHTABLE_0_10_0_URL		:= https://crates.io/api/v1/crates/gix-hashtable/0.10.0/download
+HOST_CARGO_C_GIX_HASHTABLE_0_10_0_URL		:= $(call ptx/mirror, CRATESIO, gix-hashtable/0.10.0/download)
 HOST_CARGO_C_GIX_HASHTABLE_0_10_0_SOURCE	:= $(SRCDIR)/gix-hashtable-0.10.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_HASHTABLE_0_10_0
 
 HOST_CARGO_C_GIX_IGNORE_0_17_1_MD5		:= 95dc0d964c26e115d178e68959d06159
-HOST_CARGO_C_GIX_IGNORE_0_17_1_URL		:= https://crates.io/api/v1/crates/gix-ignore/0.17.1/download
+HOST_CARGO_C_GIX_IGNORE_0_17_1_URL		:= $(call ptx/mirror, CRATESIO, gix-ignore/0.17.1/download)
 HOST_CARGO_C_GIX_IGNORE_0_17_1_SOURCE	:= $(SRCDIR)/gix-ignore-0.17.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_IGNORE_0_17_1
 
 HOST_CARGO_C_GIX_INDEX_0_42_1_MD5		:= 00b12fedd0e6489ca79d4e33a3546156
-HOST_CARGO_C_GIX_INDEX_0_42_1_URL		:= https://crates.io/api/v1/crates/gix-index/0.42.1/download
+HOST_CARGO_C_GIX_INDEX_0_42_1_URL		:= $(call ptx/mirror, CRATESIO, gix-index/0.42.1/download)
 HOST_CARGO_C_GIX_INDEX_0_42_1_SOURCE	:= $(SRCDIR)/gix-index-0.42.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_INDEX_0_42_1
 
 HOST_CARGO_C_GIX_LOCK_19_0_0_MD5		:= 9efa911a666e26e03bb867c1e50607fa
-HOST_CARGO_C_GIX_LOCK_19_0_0_URL		:= https://crates.io/api/v1/crates/gix-lock/19.0.0/download
+HOST_CARGO_C_GIX_LOCK_19_0_0_URL		:= $(call ptx/mirror, CRATESIO, gix-lock/19.0.0/download)
 HOST_CARGO_C_GIX_LOCK_19_0_0_SOURCE	:= $(SRCDIR)/gix-lock-19.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_LOCK_19_0_0
 
 HOST_CARGO_C_GIX_NEGOTIATE_0_22_0_MD5		:= 177c2a38f95bad628d88245b37dfc935
-HOST_CARGO_C_GIX_NEGOTIATE_0_22_0_URL		:= https://crates.io/api/v1/crates/gix-negotiate/0.22.0/download
+HOST_CARGO_C_GIX_NEGOTIATE_0_22_0_URL		:= $(call ptx/mirror, CRATESIO, gix-negotiate/0.22.0/download)
 HOST_CARGO_C_GIX_NEGOTIATE_0_22_0_SOURCE	:= $(SRCDIR)/gix-negotiate-0.22.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_NEGOTIATE_0_22_0
 
 HOST_CARGO_C_GIX_OBJECT_0_51_1_MD5		:= a7f369649819b98b41862b58e51462de
-HOST_CARGO_C_GIX_OBJECT_0_51_1_URL		:= https://crates.io/api/v1/crates/gix-object/0.51.1/download
+HOST_CARGO_C_GIX_OBJECT_0_51_1_URL		:= $(call ptx/mirror, CRATESIO, gix-object/0.51.1/download)
 HOST_CARGO_C_GIX_OBJECT_0_51_1_SOURCE	:= $(SRCDIR)/gix-object-0.51.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_OBJECT_0_51_1
 
 HOST_CARGO_C_GIX_ODB_0_71_1_MD5		:= ffee4975e5550880983157b73944b8e5
-HOST_CARGO_C_GIX_ODB_0_71_1_URL		:= https://crates.io/api/v1/crates/gix-odb/0.71.1/download
+HOST_CARGO_C_GIX_ODB_0_71_1_URL		:= $(call ptx/mirror, CRATESIO, gix-odb/0.71.1/download)
 HOST_CARGO_C_GIX_ODB_0_71_1_SOURCE	:= $(SRCDIR)/gix-odb-0.71.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_ODB_0_71_1
 
 HOST_CARGO_C_GIX_PACK_0_61_1_MD5		:= 9a2acbd531bf44e5720a6220a4dcd6d3
-HOST_CARGO_C_GIX_PACK_0_61_1_URL		:= https://crates.io/api/v1/crates/gix-pack/0.61.1/download
+HOST_CARGO_C_GIX_PACK_0_61_1_URL		:= $(call ptx/mirror, CRATESIO, gix-pack/0.61.1/download)
 HOST_CARGO_C_GIX_PACK_0_61_1_SOURCE	:= $(SRCDIR)/gix-pack-0.61.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PACK_0_61_1
 
 HOST_CARGO_C_GIX_PACKETLINE_0_19_3_MD5		:= bd8a96aadb5dfb3b92c5d2b826fdc412
-HOST_CARGO_C_GIX_PACKETLINE_0_19_3_URL		:= https://crates.io/api/v1/crates/gix-packetline/0.19.3/download
+HOST_CARGO_C_GIX_PACKETLINE_0_19_3_URL		:= $(call ptx/mirror, CRATESIO, gix-packetline/0.19.3/download)
 HOST_CARGO_C_GIX_PACKETLINE_0_19_3_SOURCE	:= $(SRCDIR)/gix-packetline-0.19.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PACKETLINE_0_19_3
 
 HOST_CARGO_C_GIX_PACKETLINE_BLOCKING_0_19_3_MD5		:= cc20c5c5646572050707693d698e5115
-HOST_CARGO_C_GIX_PACKETLINE_BLOCKING_0_19_3_URL		:= https://crates.io/api/v1/crates/gix-packetline-blocking/0.19.3/download
+HOST_CARGO_C_GIX_PACKETLINE_BLOCKING_0_19_3_URL		:= $(call ptx/mirror, CRATESIO, gix-packetline-blocking/0.19.3/download)
 HOST_CARGO_C_GIX_PACKETLINE_BLOCKING_0_19_3_SOURCE	:= $(SRCDIR)/gix-packetline-blocking-0.19.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PACKETLINE_BLOCKING_0_19_3
 
 HOST_CARGO_C_GIX_PATH_0_10_22_MD5		:= e18271fce11ae27709b7b07565c3185c
-HOST_CARGO_C_GIX_PATH_0_10_22_URL		:= https://crates.io/api/v1/crates/gix-path/0.10.22/download
+HOST_CARGO_C_GIX_PATH_0_10_22_URL		:= $(call ptx/mirror, CRATESIO, gix-path/0.10.22/download)
 HOST_CARGO_C_GIX_PATH_0_10_22_SOURCE	:= $(SRCDIR)/gix-path-0.10.22.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PATH_0_10_22
 
 HOST_CARGO_C_GIX_PATHSPEC_0_13_0_MD5		:= 0bfb246c67a5a6b25d178644455405ff
-HOST_CARGO_C_GIX_PATHSPEC_0_13_0_URL		:= https://crates.io/api/v1/crates/gix-pathspec/0.13.0/download
+HOST_CARGO_C_GIX_PATHSPEC_0_13_0_URL		:= $(call ptx/mirror, CRATESIO, gix-pathspec/0.13.0/download)
 HOST_CARGO_C_GIX_PATHSPEC_0_13_0_SOURCE	:= $(SRCDIR)/gix-pathspec-0.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PATHSPEC_0_13_0
 
 HOST_CARGO_C_GIX_PROMPT_0_11_2_MD5		:= 015f5d3166db1c865f1ce9b86a476d9f
-HOST_CARGO_C_GIX_PROMPT_0_11_2_URL		:= https://crates.io/api/v1/crates/gix-prompt/0.11.2/download
+HOST_CARGO_C_GIX_PROMPT_0_11_2_URL		:= $(call ptx/mirror, CRATESIO, gix-prompt/0.11.2/download)
 HOST_CARGO_C_GIX_PROMPT_0_11_2_SOURCE	:= $(SRCDIR)/gix-prompt-0.11.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PROMPT_0_11_2
 
 HOST_CARGO_C_GIX_PROTOCOL_0_52_1_MD5		:= 0940011c55397dc44fd50d7f1ce33ec0
-HOST_CARGO_C_GIX_PROTOCOL_0_52_1_URL		:= https://crates.io/api/v1/crates/gix-protocol/0.52.1/download
+HOST_CARGO_C_GIX_PROTOCOL_0_52_1_URL		:= $(call ptx/mirror, CRATESIO, gix-protocol/0.52.1/download)
 HOST_CARGO_C_GIX_PROTOCOL_0_52_1_SOURCE	:= $(SRCDIR)/gix-protocol-0.52.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_PROTOCOL_0_52_1
 
 HOST_CARGO_C_GIX_QUOTE_0_6_1_MD5		:= 8c4b661f5ae47aa3f8257d1e5a669503
-HOST_CARGO_C_GIX_QUOTE_0_6_1_URL		:= https://crates.io/api/v1/crates/gix-quote/0.6.1/download
+HOST_CARGO_C_GIX_QUOTE_0_6_1_URL		:= $(call ptx/mirror, CRATESIO, gix-quote/0.6.1/download)
 HOST_CARGO_C_GIX_QUOTE_0_6_1_SOURCE	:= $(SRCDIR)/gix-quote-0.6.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_QUOTE_0_6_1
 
 HOST_CARGO_C_GIX_REF_0_54_1_MD5		:= 7b938fb3e50ae96ae33a84a335a69273
-HOST_CARGO_C_GIX_REF_0_54_1_URL		:= https://crates.io/api/v1/crates/gix-ref/0.54.1/download
+HOST_CARGO_C_GIX_REF_0_54_1_URL		:= $(call ptx/mirror, CRATESIO, gix-ref/0.54.1/download)
 HOST_CARGO_C_GIX_REF_0_54_1_SOURCE	:= $(SRCDIR)/gix-ref-0.54.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REF_0_54_1
 
 HOST_CARGO_C_GIX_REFSPEC_0_32_0_MD5		:= f18cf04acab6a6480ca2bd0f3ccac39d
-HOST_CARGO_C_GIX_REFSPEC_0_32_0_URL		:= https://crates.io/api/v1/crates/gix-refspec/0.32.0/download
+HOST_CARGO_C_GIX_REFSPEC_0_32_0_URL		:= $(call ptx/mirror, CRATESIO, gix-refspec/0.32.0/download)
 HOST_CARGO_C_GIX_REFSPEC_0_32_0_SOURCE	:= $(SRCDIR)/gix-refspec-0.32.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REFSPEC_0_32_0
 
 HOST_CARGO_C_GIX_REVISION_0_36_1_MD5		:= 58caeef2f3a02b37e2863557d45ed909
-HOST_CARGO_C_GIX_REVISION_0_36_1_URL		:= https://crates.io/api/v1/crates/gix-revision/0.36.1/download
+HOST_CARGO_C_GIX_REVISION_0_36_1_URL		:= $(call ptx/mirror, CRATESIO, gix-revision/0.36.1/download)
 HOST_CARGO_C_GIX_REVISION_0_36_1_SOURCE	:= $(SRCDIR)/gix-revision-0.36.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REVISION_0_36_1
 
 HOST_CARGO_C_GIX_REVWALK_0_22_0_MD5		:= ae57debce7d2138130a882e87c1d04a0
-HOST_CARGO_C_GIX_REVWALK_0_22_0_URL		:= https://crates.io/api/v1/crates/gix-revwalk/0.22.0/download
+HOST_CARGO_C_GIX_REVWALK_0_22_0_URL		:= $(call ptx/mirror, CRATESIO, gix-revwalk/0.22.0/download)
 HOST_CARGO_C_GIX_REVWALK_0_22_0_SOURCE	:= $(SRCDIR)/gix-revwalk-0.22.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_REVWALK_0_22_0
 
 HOST_CARGO_C_GIX_SEC_0_12_2_MD5		:= 0c92d9098743e8dbf18db5fe54f8ed3f
-HOST_CARGO_C_GIX_SEC_0_12_2_URL		:= https://crates.io/api/v1/crates/gix-sec/0.12.2/download
+HOST_CARGO_C_GIX_SEC_0_12_2_URL		:= $(call ptx/mirror, CRATESIO, gix-sec/0.12.2/download)
 HOST_CARGO_C_GIX_SEC_0_12_2_SOURCE	:= $(SRCDIR)/gix-sec-0.12.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_SEC_0_12_2
 
 HOST_CARGO_C_GIX_SHALLOW_0_6_0_MD5		:= a3ace62cd04f99527ea4e8ba62421d5a
-HOST_CARGO_C_GIX_SHALLOW_0_6_0_URL		:= https://crates.io/api/v1/crates/gix-shallow/0.6.0/download
+HOST_CARGO_C_GIX_SHALLOW_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, gix-shallow/0.6.0/download)
 HOST_CARGO_C_GIX_SHALLOW_0_6_0_SOURCE	:= $(SRCDIR)/gix-shallow-0.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_SHALLOW_0_6_0
 
 HOST_CARGO_C_GIX_STATUS_0_21_1_MD5		:= b05c4078897314ebcf5581d04eaaa944
-HOST_CARGO_C_GIX_STATUS_0_21_1_URL		:= https://crates.io/api/v1/crates/gix-status/0.21.1/download
+HOST_CARGO_C_GIX_STATUS_0_21_1_URL		:= $(call ptx/mirror, CRATESIO, gix-status/0.21.1/download)
 HOST_CARGO_C_GIX_STATUS_0_21_1_SOURCE	:= $(SRCDIR)/gix-status-0.21.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_STATUS_0_21_1
 
 HOST_CARGO_C_GIX_SUBMODULE_0_21_0_MD5		:= 391972f71060793ba0a734d05b00f05c
-HOST_CARGO_C_GIX_SUBMODULE_0_21_0_URL		:= https://crates.io/api/v1/crates/gix-submodule/0.21.0/download
+HOST_CARGO_C_GIX_SUBMODULE_0_21_0_URL		:= $(call ptx/mirror, CRATESIO, gix-submodule/0.21.0/download)
 HOST_CARGO_C_GIX_SUBMODULE_0_21_0_SOURCE	:= $(SRCDIR)/gix-submodule-0.21.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_SUBMODULE_0_21_0
 
 HOST_CARGO_C_GIX_TEMPFILE_19_0_1_MD5		:= 45bbdac99168785eb354e7e117f81a40
-HOST_CARGO_C_GIX_TEMPFILE_19_0_1_URL		:= https://crates.io/api/v1/crates/gix-tempfile/19.0.1/download
+HOST_CARGO_C_GIX_TEMPFILE_19_0_1_URL		:= $(call ptx/mirror, CRATESIO, gix-tempfile/19.0.1/download)
 HOST_CARGO_C_GIX_TEMPFILE_19_0_1_SOURCE	:= $(SRCDIR)/gix-tempfile-19.0.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TEMPFILE_19_0_1
 
 HOST_CARGO_C_GIX_TRACE_0_1_17_MD5		:= 2ee7ee7cf03275e90e7811e3ffee898e
-HOST_CARGO_C_GIX_TRACE_0_1_17_URL		:= https://crates.io/api/v1/crates/gix-trace/0.1.17/download
+HOST_CARGO_C_GIX_TRACE_0_1_17_URL		:= $(call ptx/mirror, CRATESIO, gix-trace/0.1.17/download)
 HOST_CARGO_C_GIX_TRACE_0_1_17_SOURCE	:= $(SRCDIR)/gix-trace-0.1.17.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TRACE_0_1_17
 
 HOST_CARGO_C_GIX_TRANSPORT_0_49_1_MD5		:= d1d9f84f7891be7ae4546ecae7007e04
-HOST_CARGO_C_GIX_TRANSPORT_0_49_1_URL		:= https://crates.io/api/v1/crates/gix-transport/0.49.1/download
+HOST_CARGO_C_GIX_TRANSPORT_0_49_1_URL		:= $(call ptx/mirror, CRATESIO, gix-transport/0.49.1/download)
 HOST_CARGO_C_GIX_TRANSPORT_0_49_1_SOURCE	:= $(SRCDIR)/gix-transport-0.49.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TRANSPORT_0_49_1
 
 HOST_CARGO_C_GIX_TRAVERSE_0_48_0_MD5		:= db385df70c8e06a42096264d456adfd2
-HOST_CARGO_C_GIX_TRAVERSE_0_48_0_URL		:= https://crates.io/api/v1/crates/gix-traverse/0.48.0/download
+HOST_CARGO_C_GIX_TRAVERSE_0_48_0_URL		:= $(call ptx/mirror, CRATESIO, gix-traverse/0.48.0/download)
 HOST_CARGO_C_GIX_TRAVERSE_0_48_0_SOURCE	:= $(SRCDIR)/gix-traverse-0.48.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_TRAVERSE_0_48_0
 
 HOST_CARGO_C_GIX_URL_0_33_2_MD5		:= d35e725992bc72597d75f99bcbc48766
-HOST_CARGO_C_GIX_URL_0_33_2_URL		:= https://crates.io/api/v1/crates/gix-url/0.33.2/download
+HOST_CARGO_C_GIX_URL_0_33_2_URL		:= $(call ptx/mirror, CRATESIO, gix-url/0.33.2/download)
 HOST_CARGO_C_GIX_URL_0_33_2_SOURCE	:= $(SRCDIR)/gix-url-0.33.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_URL_0_33_2
 
 HOST_CARGO_C_GIX_UTILS_0_3_1_MD5		:= b29a61f6596085afa41188f1b2ca95e8
-HOST_CARGO_C_GIX_UTILS_0_3_1_URL		:= https://crates.io/api/v1/crates/gix-utils/0.3.1/download
+HOST_CARGO_C_GIX_UTILS_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, gix-utils/0.3.1/download)
 HOST_CARGO_C_GIX_UTILS_0_3_1_SOURCE	:= $(SRCDIR)/gix-utils-0.3.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_UTILS_0_3_1
 
 HOST_CARGO_C_GIX_VALIDATE_0_10_1_MD5		:= 40561df34efcaafa9d75d2c5d2d182bf
-HOST_CARGO_C_GIX_VALIDATE_0_10_1_URL		:= https://crates.io/api/v1/crates/gix-validate/0.10.1/download
+HOST_CARGO_C_GIX_VALIDATE_0_10_1_URL		:= $(call ptx/mirror, CRATESIO, gix-validate/0.10.1/download)
 HOST_CARGO_C_GIX_VALIDATE_0_10_1_SOURCE	:= $(SRCDIR)/gix-validate-0.10.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_VALIDATE_0_10_1
 
 HOST_CARGO_C_GIX_WORKTREE_0_43_1_MD5		:= d8503ea3ddf40687fcbcda06cd7fc596
-HOST_CARGO_C_GIX_WORKTREE_0_43_1_URL		:= https://crates.io/api/v1/crates/gix-worktree/0.43.1/download
+HOST_CARGO_C_GIX_WORKTREE_0_43_1_URL		:= $(call ptx/mirror, CRATESIO, gix-worktree/0.43.1/download)
 HOST_CARGO_C_GIX_WORKTREE_0_43_1_SOURCE	:= $(SRCDIR)/gix-worktree-0.43.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GIX_WORKTREE_0_43_1
 
 HOST_CARGO_C_GLOB_0_3_3_MD5		:= 57552c44152b62cf7fdf28a3582457f4
-HOST_CARGO_C_GLOB_0_3_3_URL		:= https://crates.io/api/v1/crates/glob/0.3.3/download
+HOST_CARGO_C_GLOB_0_3_3_URL		:= $(call ptx/mirror, CRATESIO, glob/0.3.3/download)
 HOST_CARGO_C_GLOB_0_3_3_SOURCE	:= $(SRCDIR)/glob-0.3.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GLOB_0_3_3
 
 HOST_CARGO_C_GLOBSET_0_4_18_MD5		:= fdf1f3c476872eca710a068ecdede29d
-HOST_CARGO_C_GLOBSET_0_4_18_URL		:= https://crates.io/api/v1/crates/globset/0.4.18/download
+HOST_CARGO_C_GLOBSET_0_4_18_URL		:= $(call ptx/mirror, CRATESIO, globset/0.4.18/download)
 HOST_CARGO_C_GLOBSET_0_4_18_SOURCE	:= $(SRCDIR)/globset-0.4.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GLOBSET_0_4_18
 
 HOST_CARGO_C_GROUP_0_13_0_MD5		:= 974e766c6583278ac82a83632b75b65e
-HOST_CARGO_C_GROUP_0_13_0_URL		:= https://crates.io/api/v1/crates/group/0.13.0/download
+HOST_CARGO_C_GROUP_0_13_0_URL		:= $(call ptx/mirror, CRATESIO, group/0.13.0/download)
 HOST_CARGO_C_GROUP_0_13_0_SOURCE	:= $(SRCDIR)/group-0.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_GROUP_0_13_0
 
 HOST_CARGO_C_HASH32_0_3_1_MD5		:= 302cd0fb3cf96dfb6f67c7c096ffdd44
-HOST_CARGO_C_HASH32_0_3_1_URL		:= https://crates.io/api/v1/crates/hash32/0.3.1/download
+HOST_CARGO_C_HASH32_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, hash32/0.3.1/download)
 HOST_CARGO_C_HASH32_0_3_1_SOURCE	:= $(SRCDIR)/hash32-0.3.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HASH32_0_3_1
 
 HOST_CARGO_C_HASHBROWN_0_14_5_MD5		:= 0339cc04f4471f002e421e2328a86bf5
-HOST_CARGO_C_HASHBROWN_0_14_5_URL		:= https://crates.io/api/v1/crates/hashbrown/0.14.5/download
+HOST_CARGO_C_HASHBROWN_0_14_5_URL		:= $(call ptx/mirror, CRATESIO, hashbrown/0.14.5/download)
 HOST_CARGO_C_HASHBROWN_0_14_5_SOURCE	:= $(SRCDIR)/hashbrown-0.14.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HASHBROWN_0_14_5
 
 HOST_CARGO_C_HASHBROWN_0_15_5_MD5		:= ff62c1415be32ef6642213c9ae175170
-HOST_CARGO_C_HASHBROWN_0_15_5_URL		:= https://crates.io/api/v1/crates/hashbrown/0.15.5/download
+HOST_CARGO_C_HASHBROWN_0_15_5_URL		:= $(call ptx/mirror, CRATESIO, hashbrown/0.15.5/download)
 HOST_CARGO_C_HASHBROWN_0_15_5_SOURCE	:= $(SRCDIR)/hashbrown-0.15.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HASHBROWN_0_15_5
 
 HOST_CARGO_C_HASHBROWN_0_16_1_MD5		:= 5f183ccef8add67a9c1eae2fd04231ef
-HOST_CARGO_C_HASHBROWN_0_16_1_URL		:= https://crates.io/api/v1/crates/hashbrown/0.16.1/download
+HOST_CARGO_C_HASHBROWN_0_16_1_URL		:= $(call ptx/mirror, CRATESIO, hashbrown/0.16.1/download)
 HOST_CARGO_C_HASHBROWN_0_16_1_SOURCE	:= $(SRCDIR)/hashbrown-0.16.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HASHBROWN_0_16_1
 
 HOST_CARGO_C_HASHLINK_0_10_0_MD5		:= 6fe6b181928a9a50d6bd9b56d9c01427
-HOST_CARGO_C_HASHLINK_0_10_0_URL		:= https://crates.io/api/v1/crates/hashlink/0.10.0/download
+HOST_CARGO_C_HASHLINK_0_10_0_URL		:= $(call ptx/mirror, CRATESIO, hashlink/0.10.0/download)
 HOST_CARGO_C_HASHLINK_0_10_0_SOURCE	:= $(SRCDIR)/hashlink-0.10.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HASHLINK_0_10_0
 
 HOST_CARGO_C_HEAPLESS_0_8_0_MD5		:= e42194e3cfdfdb40e8b2dec80ab3172b
-HOST_CARGO_C_HEAPLESS_0_8_0_URL		:= https://crates.io/api/v1/crates/heapless/0.8.0/download
+HOST_CARGO_C_HEAPLESS_0_8_0_URL		:= $(call ptx/mirror, CRATESIO, heapless/0.8.0/download)
 HOST_CARGO_C_HEAPLESS_0_8_0_SOURCE	:= $(SRCDIR)/heapless-0.8.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HEAPLESS_0_8_0
 
 HOST_CARGO_C_HECK_0_5_0_MD5		:= ce5935e8063a452913a61e5405b33cb9
-HOST_CARGO_C_HECK_0_5_0_URL		:= https://crates.io/api/v1/crates/heck/0.5.0/download
+HOST_CARGO_C_HECK_0_5_0_URL		:= $(call ptx/mirror, CRATESIO, heck/0.5.0/download)
 HOST_CARGO_C_HECK_0_5_0_SOURCE	:= $(SRCDIR)/heck-0.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HECK_0_5_0
 
 HOST_CARGO_C_HEX_0_4_3_MD5		:= 1d3e530a3410fc95a6987d70f84a6332
-HOST_CARGO_C_HEX_0_4_3_URL		:= https://crates.io/api/v1/crates/hex/0.4.3/download
+HOST_CARGO_C_HEX_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, hex/0.4.3/download)
 HOST_CARGO_C_HEX_0_4_3_SOURCE	:= $(SRCDIR)/hex-0.4.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HEX_0_4_3
 
 HOST_CARGO_C_HKDF_0_12_4_MD5		:= 8cd6f472d6904b0c507a456dddb68eb6
-HOST_CARGO_C_HKDF_0_12_4_URL		:= https://crates.io/api/v1/crates/hkdf/0.12.4/download
+HOST_CARGO_C_HKDF_0_12_4_URL		:= $(call ptx/mirror, CRATESIO, hkdf/0.12.4/download)
 HOST_CARGO_C_HKDF_0_12_4_SOURCE	:= $(SRCDIR)/hkdf-0.12.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HKDF_0_12_4
 
 HOST_CARGO_C_HMAC_0_12_1_MD5		:= 4e0c068ba38fa8e0aa6c46bce5e9d2ab
-HOST_CARGO_C_HMAC_0_12_1_URL		:= https://crates.io/api/v1/crates/hmac/0.12.1/download
+HOST_CARGO_C_HMAC_0_12_1_URL		:= $(call ptx/mirror, CRATESIO, hmac/0.12.1/download)
 HOST_CARGO_C_HMAC_0_12_1_SOURCE	:= $(SRCDIR)/hmac-0.12.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HMAC_0_12_1
 
 HOST_CARGO_C_HOME_0_5_12_MD5		:= f5956eb9324f20e363d9a4ff26b7bd03
-HOST_CARGO_C_HOME_0_5_12_URL		:= https://crates.io/api/v1/crates/home/0.5.12/download
+HOST_CARGO_C_HOME_0_5_12_URL		:= $(call ptx/mirror, CRATESIO, home/0.5.12/download)
 HOST_CARGO_C_HOME_0_5_12_SOURCE	:= $(SRCDIR)/home-0.5.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HOME_0_5_12
 
 HOST_CARGO_C_HTTP_AUTH_0_1_10_MD5		:= 791938196c6a3f4934408ae05f1cd5d8
-HOST_CARGO_C_HTTP_AUTH_0_1_10_URL		:= https://crates.io/api/v1/crates/http-auth/0.1.10/download
+HOST_CARGO_C_HTTP_AUTH_0_1_10_URL		:= $(call ptx/mirror, CRATESIO, http-auth/0.1.10/download)
 HOST_CARGO_C_HTTP_AUTH_0_1_10_SOURCE	:= $(SRCDIR)/http-auth-0.1.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_HTTP_AUTH_0_1_10
 
 HOST_CARGO_C_ICU_COLLECTIONS_2_1_1_MD5		:= 49dca09da2b9035986fe978a39c91c50
-HOST_CARGO_C_ICU_COLLECTIONS_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_collections/2.1.1/download
+HOST_CARGO_C_ICU_COLLECTIONS_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_collections/2.1.1/download)
 HOST_CARGO_C_ICU_COLLECTIONS_2_1_1_SOURCE	:= $(SRCDIR)/icu_collections-2.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ICU_COLLECTIONS_2_1_1
 
 HOST_CARGO_C_ICU_LOCALE_CORE_2_1_1_MD5		:= 750cde2aa62779cd0393f8fb43c21048
-HOST_CARGO_C_ICU_LOCALE_CORE_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_locale_core/2.1.1/download
+HOST_CARGO_C_ICU_LOCALE_CORE_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_locale_core/2.1.1/download)
 HOST_CARGO_C_ICU_LOCALE_CORE_2_1_1_SOURCE	:= $(SRCDIR)/icu_locale_core-2.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ICU_LOCALE_CORE_2_1_1
 
 HOST_CARGO_C_ICU_NORMALIZER_2_1_1_MD5		:= ca611f40ae8d26d9d2ebabf12532cee1
-HOST_CARGO_C_ICU_NORMALIZER_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_normalizer/2.1.1/download
+HOST_CARGO_C_ICU_NORMALIZER_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_normalizer/2.1.1/download)
 HOST_CARGO_C_ICU_NORMALIZER_2_1_1_SOURCE	:= $(SRCDIR)/icu_normalizer-2.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ICU_NORMALIZER_2_1_1
 
 HOST_CARGO_C_ICU_NORMALIZER_DATA_2_1_1_MD5		:= 7a314fd97a06316b612d31d7b06cf373
-HOST_CARGO_C_ICU_NORMALIZER_DATA_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_normalizer_data/2.1.1/download
+HOST_CARGO_C_ICU_NORMALIZER_DATA_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_normalizer_data/2.1.1/download)
 HOST_CARGO_C_ICU_NORMALIZER_DATA_2_1_1_SOURCE	:= $(SRCDIR)/icu_normalizer_data-2.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ICU_NORMALIZER_DATA_2_1_1
 
 HOST_CARGO_C_ICU_PROPERTIES_2_1_2_MD5		:= d699b75845a054f315a8e0148229bb7b
-HOST_CARGO_C_ICU_PROPERTIES_2_1_2_URL		:= https://crates.io/api/v1/crates/icu_properties/2.1.2/download
+HOST_CARGO_C_ICU_PROPERTIES_2_1_2_URL		:= $(call ptx/mirror, CRATESIO, icu_properties/2.1.2/download)
 HOST_CARGO_C_ICU_PROPERTIES_2_1_2_SOURCE	:= $(SRCDIR)/icu_properties-2.1.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ICU_PROPERTIES_2_1_2
 
 HOST_CARGO_C_ICU_PROPERTIES_DATA_2_1_2_MD5		:= 03613ec559ee51a45bb61ee07f1fd045
-HOST_CARGO_C_ICU_PROPERTIES_DATA_2_1_2_URL		:= https://crates.io/api/v1/crates/icu_properties_data/2.1.2/download
+HOST_CARGO_C_ICU_PROPERTIES_DATA_2_1_2_URL		:= $(call ptx/mirror, CRATESIO, icu_properties_data/2.1.2/download)
 HOST_CARGO_C_ICU_PROPERTIES_DATA_2_1_2_SOURCE	:= $(SRCDIR)/icu_properties_data-2.1.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ICU_PROPERTIES_DATA_2_1_2
 
 HOST_CARGO_C_ICU_PROVIDER_2_1_1_MD5		:= 68642bdd8c6d8feda2d737b4aecede40
-HOST_CARGO_C_ICU_PROVIDER_2_1_1_URL		:= https://crates.io/api/v1/crates/icu_provider/2.1.1/download
+HOST_CARGO_C_ICU_PROVIDER_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, icu_provider/2.1.1/download)
 HOST_CARGO_C_ICU_PROVIDER_2_1_1_SOURCE	:= $(SRCDIR)/icu_provider-2.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ICU_PROVIDER_2_1_1
 
 HOST_CARGO_C_IDNA_1_1_0_MD5		:= f25c179049fc3742f9c1ac8e3fd038ae
-HOST_CARGO_C_IDNA_1_1_0_URL		:= https://crates.io/api/v1/crates/idna/1.1.0/download
+HOST_CARGO_C_IDNA_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, idna/1.1.0/download)
 HOST_CARGO_C_IDNA_1_1_0_SOURCE	:= $(SRCDIR)/idna-1.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IDNA_1_1_0
 
 HOST_CARGO_C_IDNA_ADAPTER_1_2_1_MD5		:= b1b2c3e3512162c97ebc6bc9944cad1e
-HOST_CARGO_C_IDNA_ADAPTER_1_2_1_URL		:= https://crates.io/api/v1/crates/idna_adapter/1.2.1/download
+HOST_CARGO_C_IDNA_ADAPTER_1_2_1_URL		:= $(call ptx/mirror, CRATESIO, idna_adapter/1.2.1/download)
 HOST_CARGO_C_IDNA_ADAPTER_1_2_1_SOURCE	:= $(SRCDIR)/idna_adapter-1.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IDNA_ADAPTER_1_2_1
 
 HOST_CARGO_C_IGNORE_0_4_25_MD5		:= f28afe09de1fc3658da6d032131af629
-HOST_CARGO_C_IGNORE_0_4_25_URL		:= https://crates.io/api/v1/crates/ignore/0.4.25/download
+HOST_CARGO_C_IGNORE_0_4_25_URL		:= $(call ptx/mirror, CRATESIO, ignore/0.4.25/download)
 HOST_CARGO_C_IGNORE_0_4_25_SOURCE	:= $(SRCDIR)/ignore-0.4.25.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IGNORE_0_4_25
 
 HOST_CARGO_C_IM_RC_15_1_0_MD5		:= 25119b3f34f4d5298dade622e10a54c5
-HOST_CARGO_C_IM_RC_15_1_0_URL		:= https://crates.io/api/v1/crates/im-rc/15.1.0/download
+HOST_CARGO_C_IM_RC_15_1_0_URL		:= $(call ptx/mirror, CRATESIO, im-rc/15.1.0/download)
 HOST_CARGO_C_IM_RC_15_1_0_SOURCE	:= $(SRCDIR)/im-rc-15.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IM_RC_15_1_0
 
 HOST_CARGO_C_IMARA_DIFF_0_1_8_MD5		:= a1c2c6d256feec6af388d2b1348216cd
-HOST_CARGO_C_IMARA_DIFF_0_1_8_URL		:= https://crates.io/api/v1/crates/imara-diff/0.1.8/download
+HOST_CARGO_C_IMARA_DIFF_0_1_8_URL		:= $(call ptx/mirror, CRATESIO, imara-diff/0.1.8/download)
 HOST_CARGO_C_IMARA_DIFF_0_1_8_SOURCE	:= $(SRCDIR)/imara-diff-0.1.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IMARA_DIFF_0_1_8
 
 HOST_CARGO_C_IMPLIB_0_4_0_MD5		:= 5a5f52b45bc346f4ebfda7850394701b
-HOST_CARGO_C_IMPLIB_0_4_0_URL		:= https://crates.io/api/v1/crates/implib/0.4.0/download
+HOST_CARGO_C_IMPLIB_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, implib/0.4.0/download)
 HOST_CARGO_C_IMPLIB_0_4_0_SOURCE	:= $(SRCDIR)/implib-0.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IMPLIB_0_4_0
 
 HOST_CARGO_C_INDEXMAP_2_13_0_MD5		:= db0326fdcb5eca7e5fa11b9745dadd42
-HOST_CARGO_C_INDEXMAP_2_13_0_URL		:= https://crates.io/api/v1/crates/indexmap/2.13.0/download
+HOST_CARGO_C_INDEXMAP_2_13_0_URL		:= $(call ptx/mirror, CRATESIO, indexmap/2.13.0/download)
 HOST_CARGO_C_INDEXMAP_2_13_0_SOURCE	:= $(SRCDIR)/indexmap-2.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_INDEXMAP_2_13_0
 
 HOST_CARGO_C_IS_EXECUTABLE_1_0_5_MD5		:= bdf71f1d76db11308337275c39b6b820
-HOST_CARGO_C_IS_EXECUTABLE_1_0_5_URL		:= https://crates.io/api/v1/crates/is_executable/1.0.5/download
+HOST_CARGO_C_IS_EXECUTABLE_1_0_5_URL		:= $(call ptx/mirror, CRATESIO, is_executable/1.0.5/download)
 HOST_CARGO_C_IS_EXECUTABLE_1_0_5_SOURCE	:= $(SRCDIR)/is_executable-1.0.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IS_EXECUTABLE_1_0_5
 
 HOST_CARGO_C_IS_TERMINAL_POLYFILL_1_70_2_MD5		:= 164c3046a7f9720ce6c4240a8433a923
-HOST_CARGO_C_IS_TERMINAL_POLYFILL_1_70_2_URL		:= https://crates.io/api/v1/crates/is_terminal_polyfill/1.70.2/download
+HOST_CARGO_C_IS_TERMINAL_POLYFILL_1_70_2_URL		:= $(call ptx/mirror, CRATESIO, is_terminal_polyfill/1.70.2/download)
 HOST_CARGO_C_IS_TERMINAL_POLYFILL_1_70_2_SOURCE	:= $(SRCDIR)/is_terminal_polyfill-1.70.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_IS_TERMINAL_POLYFILL_1_70_2
 
 HOST_CARGO_C_ITERTOOLS_0_14_0_MD5		:= 46ad4f3e5384660617259ff0e3ff902b
-HOST_CARGO_C_ITERTOOLS_0_14_0_URL		:= https://crates.io/api/v1/crates/itertools/0.14.0/download
+HOST_CARGO_C_ITERTOOLS_0_14_0_URL		:= $(call ptx/mirror, CRATESIO, itertools/0.14.0/download)
 HOST_CARGO_C_ITERTOOLS_0_14_0_SOURCE	:= $(SRCDIR)/itertools-0.14.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ITERTOOLS_0_14_0
 
 HOST_CARGO_C_ITOA_1_0_17_MD5		:= 7adb8a4c6ab02e9b85282feb836ab048
-HOST_CARGO_C_ITOA_1_0_17_URL		:= https://crates.io/api/v1/crates/itoa/1.0.17/download
+HOST_CARGO_C_ITOA_1_0_17_URL		:= $(call ptx/mirror, CRATESIO, itoa/1.0.17/download)
 HOST_CARGO_C_ITOA_1_0_17_SOURCE	:= $(SRCDIR)/itoa-1.0.17.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ITOA_1_0_17
 
 HOST_CARGO_C_JIFF_0_2_18_MD5		:= c6d9b00df3fa698d3b37e9a4c11e2381
-HOST_CARGO_C_JIFF_0_2_18_URL		:= https://crates.io/api/v1/crates/jiff/0.2.18/download
+HOST_CARGO_C_JIFF_0_2_18_URL		:= $(call ptx/mirror, CRATESIO, jiff/0.2.18/download)
 HOST_CARGO_C_JIFF_0_2_18_SOURCE	:= $(SRCDIR)/jiff-0.2.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JIFF_0_2_18
 
 HOST_CARGO_C_JIFF_STATIC_0_2_18_MD5		:= 80349c1371622619d46f0e9543de722a
-HOST_CARGO_C_JIFF_STATIC_0_2_18_URL		:= https://crates.io/api/v1/crates/jiff-static/0.2.18/download
+HOST_CARGO_C_JIFF_STATIC_0_2_18_URL		:= $(call ptx/mirror, CRATESIO, jiff-static/0.2.18/download)
 HOST_CARGO_C_JIFF_STATIC_0_2_18_SOURCE	:= $(SRCDIR)/jiff-static-0.2.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JIFF_STATIC_0_2_18
 
 HOST_CARGO_C_JIFF_TZDB_0_1_5_MD5		:= 73cfe1110fa8b2e79e1c70d44fc09e1d
-HOST_CARGO_C_JIFF_TZDB_0_1_5_URL		:= https://crates.io/api/v1/crates/jiff-tzdb/0.1.5/download
+HOST_CARGO_C_JIFF_TZDB_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, jiff-tzdb/0.1.5/download)
 HOST_CARGO_C_JIFF_TZDB_0_1_5_SOURCE	:= $(SRCDIR)/jiff-tzdb-0.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JIFF_TZDB_0_1_5
 
 HOST_CARGO_C_JIFF_TZDB_PLATFORM_0_1_3_MD5		:= c634fda75a5f26694cb07903221791f6
-HOST_CARGO_C_JIFF_TZDB_PLATFORM_0_1_3_URL		:= https://crates.io/api/v1/crates/jiff-tzdb-platform/0.1.3/download
+HOST_CARGO_C_JIFF_TZDB_PLATFORM_0_1_3_URL		:= $(call ptx/mirror, CRATESIO, jiff-tzdb-platform/0.1.3/download)
 HOST_CARGO_C_JIFF_TZDB_PLATFORM_0_1_3_SOURCE	:= $(SRCDIR)/jiff-tzdb-platform-0.1.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JIFF_TZDB_PLATFORM_0_1_3
 
 HOST_CARGO_C_JOBSERVER_0_1_34_MD5		:= b20f8542fa832b16de4b865c2a16b158
-HOST_CARGO_C_JOBSERVER_0_1_34_URL		:= https://crates.io/api/v1/crates/jobserver/0.1.34/download
+HOST_CARGO_C_JOBSERVER_0_1_34_URL		:= $(call ptx/mirror, CRATESIO, jobserver/0.1.34/download)
 HOST_CARGO_C_JOBSERVER_0_1_34_SOURCE	:= $(SRCDIR)/jobserver-0.1.34.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JOBSERVER_0_1_34
 
 HOST_CARGO_C_JS_SYS_0_3_85_MD5		:= 3b557599337fd56e75dae86365fc1340
-HOST_CARGO_C_JS_SYS_0_3_85_URL		:= https://crates.io/api/v1/crates/js-sys/0.3.85/download
+HOST_CARGO_C_JS_SYS_0_3_85_URL		:= $(call ptx/mirror, CRATESIO, js-sys/0.3.85/download)
 HOST_CARGO_C_JS_SYS_0_3_85_SOURCE	:= $(SRCDIR)/js-sys-0.3.85.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_JS_SYS_0_3_85
 
 HOST_CARGO_C_KSTRING_2_0_2_MD5		:= 5a7af442aa87deb7aa2e47aa53ecb4b0
-HOST_CARGO_C_KSTRING_2_0_2_URL		:= https://crates.io/api/v1/crates/kstring/2.0.2/download
+HOST_CARGO_C_KSTRING_2_0_2_URL		:= $(call ptx/mirror, CRATESIO, kstring/2.0.2/download)
 HOST_CARGO_C_KSTRING_2_0_2_SOURCE	:= $(SRCDIR)/kstring-2.0.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_KSTRING_2_0_2
 
 HOST_CARGO_C_LAZY_STATIC_1_5_0_MD5		:= bb0c20f6e3faaa647d9c463c5501a8e0
-HOST_CARGO_C_LAZY_STATIC_1_5_0_URL		:= https://crates.io/api/v1/crates/lazy_static/1.5.0/download
+HOST_CARGO_C_LAZY_STATIC_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, lazy_static/1.5.0/download)
 HOST_CARGO_C_LAZY_STATIC_1_5_0_SOURCE	:= $(SRCDIR)/lazy_static-1.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LAZY_STATIC_1_5_0
 
 HOST_CARGO_C_LIBC_0_2_180_MD5		:= 023d47313f3d4b5a79426b37ddd8d38d
-HOST_CARGO_C_LIBC_0_2_180_URL		:= https://crates.io/api/v1/crates/libc/0.2.180/download
+HOST_CARGO_C_LIBC_0_2_180_URL		:= $(call ptx/mirror, CRATESIO, libc/0.2.180/download)
 HOST_CARGO_C_LIBC_0_2_180_SOURCE	:= $(SRCDIR)/libc-0.2.180.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBC_0_2_180
 
 HOST_CARGO_C_LIBGIT2_SYS_0_18_3_1_9_2_MD5		:= 55650358fe8a80e608874b05c5a4de1d
-HOST_CARGO_C_LIBGIT2_SYS_0_18_3_1_9_2_URL		:= https://crates.io/api/v1/crates/libgit2-sys/0.18.3+1.9.2/download
+HOST_CARGO_C_LIBGIT2_SYS_0_18_3_1_9_2_URL		:= $(call ptx/mirror, CRATESIO, libgit2-sys/0.18.3+1.9.2/download)
 HOST_CARGO_C_LIBGIT2_SYS_0_18_3_1_9_2_SOURCE	:= $(SRCDIR)/libgit2-sys-0.18.3+1.9.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBGIT2_SYS_0_18_3_1_9_2
 
 HOST_CARGO_C_LIBLOADING_0_8_9_MD5		:= 606f51fd52eefaa3fefcb9722f6a09a8
-HOST_CARGO_C_LIBLOADING_0_8_9_URL		:= https://crates.io/api/v1/crates/libloading/0.8.9/download
+HOST_CARGO_C_LIBLOADING_0_8_9_URL		:= $(call ptx/mirror, CRATESIO, libloading/0.8.9/download)
 HOST_CARGO_C_LIBLOADING_0_8_9_SOURCE	:= $(SRCDIR)/libloading-0.8.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBLOADING_0_8_9
 
 HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_11_1_64_0_MD5		:= 216388b24bf02eab97591ec9e6f4473a
-HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_11_1_64_0_URL		:= https://crates.io/api/v1/crates/libnghttp2-sys/0.1.11+1.64.0/download
+HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_11_1_64_0_URL		:= $(call ptx/mirror, CRATESIO, libnghttp2-sys/0.1.11+1.64.0/download)
 HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_11_1_64_0_SOURCE	:= $(SRCDIR)/libnghttp2-sys-0.1.11+1.64.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBNGHTTP2_SYS_0_1_11_1_64_0
 
 HOST_CARGO_C_LIBREDOX_0_1_12_MD5		:= 7700f05c27a07f60e516b311ca036365
-HOST_CARGO_C_LIBREDOX_0_1_12_URL		:= https://crates.io/api/v1/crates/libredox/0.1.12/download
+HOST_CARGO_C_LIBREDOX_0_1_12_URL		:= $(call ptx/mirror, CRATESIO, libredox/0.1.12/download)
 HOST_CARGO_C_LIBREDOX_0_1_12_SOURCE	:= $(SRCDIR)/libredox-0.1.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBREDOX_0_1_12
 
 HOST_CARGO_C_LIBSQLITE3_SYS_0_35_0_MD5		:= e05b9e89062142a3c133db4eefa0231d
-HOST_CARGO_C_LIBSQLITE3_SYS_0_35_0_URL		:= https://crates.io/api/v1/crates/libsqlite3-sys/0.35.0/download
+HOST_CARGO_C_LIBSQLITE3_SYS_0_35_0_URL		:= $(call ptx/mirror, CRATESIO, libsqlite3-sys/0.35.0/download)
 HOST_CARGO_C_LIBSQLITE3_SYS_0_35_0_SOURCE	:= $(SRCDIR)/libsqlite3-sys-0.35.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBSQLITE3_SYS_0_35_0
 
 HOST_CARGO_C_LIBSSH2_SYS_0_3_1_MD5		:= 84b3d538dac305547cf9e817b2c5c62d
-HOST_CARGO_C_LIBSSH2_SYS_0_3_1_URL		:= https://crates.io/api/v1/crates/libssh2-sys/0.3.1/download
+HOST_CARGO_C_LIBSSH2_SYS_0_3_1_URL		:= $(call ptx/mirror, CRATESIO, libssh2-sys/0.3.1/download)
 HOST_CARGO_C_LIBSSH2_SYS_0_3_1_SOURCE	:= $(SRCDIR)/libssh2-sys-0.3.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBSSH2_SYS_0_3_1
 
 HOST_CARGO_C_LIBZ_RS_SYS_0_5_5_MD5		:= 49fd54ec16ca78c5caad40cfa4179160
-HOST_CARGO_C_LIBZ_RS_SYS_0_5_5_URL		:= https://crates.io/api/v1/crates/libz-rs-sys/0.5.5/download
+HOST_CARGO_C_LIBZ_RS_SYS_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, libz-rs-sys/0.5.5/download)
 HOST_CARGO_C_LIBZ_RS_SYS_0_5_5_SOURCE	:= $(SRCDIR)/libz-rs-sys-0.5.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBZ_RS_SYS_0_5_5
 
 HOST_CARGO_C_LIBZ_SYS_1_1_23_MD5		:= 8c47abaf73ccb6dddcb1ed884b781be3
-HOST_CARGO_C_LIBZ_SYS_1_1_23_URL		:= https://crates.io/api/v1/crates/libz-sys/1.1.23/download
+HOST_CARGO_C_LIBZ_SYS_1_1_23_URL		:= $(call ptx/mirror, CRATESIO, libz-sys/1.1.23/download)
 HOST_CARGO_C_LIBZ_SYS_1_1_23_SOURCE	:= $(SRCDIR)/libz-sys-1.1.23.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LIBZ_SYS_1_1_23
 
 HOST_CARGO_C_LINUX_RAW_SYS_0_11_0_MD5		:= 5e2165f6a9d5646d361d7aabe3d9be7c
-HOST_CARGO_C_LINUX_RAW_SYS_0_11_0_URL		:= https://crates.io/api/v1/crates/linux-raw-sys/0.11.0/download
+HOST_CARGO_C_LINUX_RAW_SYS_0_11_0_URL		:= $(call ptx/mirror, CRATESIO, linux-raw-sys/0.11.0/download)
 HOST_CARGO_C_LINUX_RAW_SYS_0_11_0_SOURCE	:= $(SRCDIR)/linux-raw-sys-0.11.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LINUX_RAW_SYS_0_11_0
 
 HOST_CARGO_C_LITEMAP_0_8_1_MD5		:= 7d20f46219d84067cb62dc1032f19c72
-HOST_CARGO_C_LITEMAP_0_8_1_URL		:= https://crates.io/api/v1/crates/litemap/0.8.1/download
+HOST_CARGO_C_LITEMAP_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, litemap/0.8.1/download)
 HOST_CARGO_C_LITEMAP_0_8_1_SOURCE	:= $(SRCDIR)/litemap-0.8.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LITEMAP_0_8_1
 
 HOST_CARGO_C_LOCK_API_0_4_14_MD5		:= 3e106da1aa25437329bf9cab094e6216
-HOST_CARGO_C_LOCK_API_0_4_14_URL		:= https://crates.io/api/v1/crates/lock_api/0.4.14/download
+HOST_CARGO_C_LOCK_API_0_4_14_URL		:= $(call ptx/mirror, CRATESIO, lock_api/0.4.14/download)
 HOST_CARGO_C_LOCK_API_0_4_14_SOURCE	:= $(SRCDIR)/lock_api-0.4.14.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LOCK_API_0_4_14
 
 HOST_CARGO_C_LOG_0_4_29_MD5		:= 421029191180ccd11cd28d7186a0640a
-HOST_CARGO_C_LOG_0_4_29_URL		:= https://crates.io/api/v1/crates/log/0.4.29/download
+HOST_CARGO_C_LOG_0_4_29_URL		:= $(call ptx/mirror, CRATESIO, log/0.4.29/download)
 HOST_CARGO_C_LOG_0_4_29_SOURCE	:= $(SRCDIR)/log-0.4.29.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_LOG_0_4_29
 
 HOST_CARGO_C_MATCHERS_0_2_0_MD5		:= 775cccc2de63ac894d5c2fc2c6864a73
-HOST_CARGO_C_MATCHERS_0_2_0_URL		:= https://crates.io/api/v1/crates/matchers/0.2.0/download
+HOST_CARGO_C_MATCHERS_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, matchers/0.2.0/download)
 HOST_CARGO_C_MATCHERS_0_2_0_SOURCE	:= $(SRCDIR)/matchers-0.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MATCHERS_0_2_0
 
 HOST_CARGO_C_MAYBE_ASYNC_0_2_10_MD5		:= 171bb701365ec4b0c12ae5387e034c16
-HOST_CARGO_C_MAYBE_ASYNC_0_2_10_URL		:= https://crates.io/api/v1/crates/maybe-async/0.2.10/download
+HOST_CARGO_C_MAYBE_ASYNC_0_2_10_URL		:= $(call ptx/mirror, CRATESIO, maybe-async/0.2.10/download)
 HOST_CARGO_C_MAYBE_ASYNC_0_2_10_SOURCE	:= $(SRCDIR)/maybe-async-0.2.10.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MAYBE_ASYNC_0_2_10
 
 HOST_CARGO_C_MEMCHR_2_7_6_MD5		:= 09ea9959a92a4b020eaf12d2aae7a2b5
-HOST_CARGO_C_MEMCHR_2_7_6_URL		:= https://crates.io/api/v1/crates/memchr/2.7.6/download
+HOST_CARGO_C_MEMCHR_2_7_6_URL		:= $(call ptx/mirror, CRATESIO, memchr/2.7.6/download)
 HOST_CARGO_C_MEMCHR_2_7_6_SOURCE	:= $(SRCDIR)/memchr-2.7.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MEMCHR_2_7_6
 
 HOST_CARGO_C_MEMMAP2_0_9_9_MD5		:= a9ed35e5b6d4bbc7435bdf7c8d31d026
-HOST_CARGO_C_MEMMAP2_0_9_9_URL		:= https://crates.io/api/v1/crates/memmap2/0.9.9/download
+HOST_CARGO_C_MEMMAP2_0_9_9_URL		:= $(call ptx/mirror, CRATESIO, memmap2/0.9.9/download)
 HOST_CARGO_C_MEMMAP2_0_9_9_SOURCE	:= $(SRCDIR)/memmap2-0.9.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MEMMAP2_0_9_9
 
 HOST_CARGO_C_MEMOFFSET_0_9_1_MD5		:= 1fb91af1c97373201990f1baedc58c35
-HOST_CARGO_C_MEMOFFSET_0_9_1_URL		:= https://crates.io/api/v1/crates/memoffset/0.9.1/download
+HOST_CARGO_C_MEMOFFSET_0_9_1_URL		:= $(call ptx/mirror, CRATESIO, memoffset/0.9.1/download)
 HOST_CARGO_C_MEMOFFSET_0_9_1_SOURCE	:= $(SRCDIR)/memoffset-0.9.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MEMOFFSET_0_9_1
 
 HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_MD5		:= 8b708bc4b33c5e1683467444c9ed41b0
-HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_URL		:= https://crates.io/api/v1/crates/minimal-lexical/0.2.1/download
+HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, minimal-lexical/0.2.1/download)
 HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1_SOURCE	:= $(SRCDIR)/minimal-lexical-0.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MINIMAL_LEXICAL_0_2_1
 
 HOST_CARGO_C_MINIZ_OXIDE_0_8_9_MD5		:= dc106924da0261fec2bb0fe52fcbd9e6
-HOST_CARGO_C_MINIZ_OXIDE_0_8_9_URL		:= https://crates.io/api/v1/crates/miniz_oxide/0.8.9/download
+HOST_CARGO_C_MINIZ_OXIDE_0_8_9_URL		:= $(call ptx/mirror, CRATESIO, miniz_oxide/0.8.9/download)
 HOST_CARGO_C_MINIZ_OXIDE_0_8_9_SOURCE	:= $(SRCDIR)/miniz_oxide-0.8.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MINIZ_OXIDE_0_8_9
 
 HOST_CARGO_C_MIOW_0_6_1_MD5		:= ff2c20c1cc4f3596b05e863419311e70
-HOST_CARGO_C_MIOW_0_6_1_URL		:= https://crates.io/api/v1/crates/miow/0.6.1/download
+HOST_CARGO_C_MIOW_0_6_1_URL		:= $(call ptx/mirror, CRATESIO, miow/0.6.1/download)
 HOST_CARGO_C_MIOW_0_6_1_SOURCE	:= $(SRCDIR)/miow-0.6.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_MIOW_0_6_1
 
 HOST_CARGO_C_NIX_0_30_1_MD5		:= 87955f326fc2aa9627d446518454080f
-HOST_CARGO_C_NIX_0_30_1_URL		:= https://crates.io/api/v1/crates/nix/0.30.1/download
+HOST_CARGO_C_NIX_0_30_1_URL		:= $(call ptx/mirror, CRATESIO, nix/0.30.1/download)
 HOST_CARGO_C_NIX_0_30_1_SOURCE	:= $(SRCDIR)/nix-0.30.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NIX_0_30_1
 
 HOST_CARGO_C_NOM_7_1_3_MD5		:= f17aecb8887cf0ecd823623160aed7db
-HOST_CARGO_C_NOM_7_1_3_URL		:= https://crates.io/api/v1/crates/nom/7.1.3/download
+HOST_CARGO_C_NOM_7_1_3_URL		:= $(call ptx/mirror, CRATESIO, nom/7.1.3/download)
 HOST_CARGO_C_NOM_7_1_3_SOURCE	:= $(SRCDIR)/nom-7.1.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NOM_7_1_3
 
 HOST_CARGO_C_NORMPATH_1_5_0_MD5		:= 6b240df8528ff4020da2f816560cab77
-HOST_CARGO_C_NORMPATH_1_5_0_URL		:= https://crates.io/api/v1/crates/normpath/1.5.0/download
+HOST_CARGO_C_NORMPATH_1_5_0_URL		:= $(call ptx/mirror, CRATESIO, normpath/1.5.0/download)
 HOST_CARGO_C_NORMPATH_1_5_0_SOURCE	:= $(SRCDIR)/normpath-1.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NORMPATH_1_5_0
 
 HOST_CARGO_C_NU_ANSI_TERM_0_50_3_MD5		:= 0f3c49558a5f7e9a6bc42c7e99a6d071
-HOST_CARGO_C_NU_ANSI_TERM_0_50_3_URL		:= https://crates.io/api/v1/crates/nu-ansi-term/0.50.3/download
+HOST_CARGO_C_NU_ANSI_TERM_0_50_3_URL		:= $(call ptx/mirror, CRATESIO, nu-ansi-term/0.50.3/download)
 HOST_CARGO_C_NU_ANSI_TERM_0_50_3_SOURCE	:= $(SRCDIR)/nu-ansi-term-0.50.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NU_ANSI_TERM_0_50_3
 
 HOST_CARGO_C_NUM_CONV_0_2_0_MD5		:= 5b58e4f18091c0fa3579419f24cfaef9
-HOST_CARGO_C_NUM_CONV_0_2_0_URL		:= https://crates.io/api/v1/crates/num-conv/0.2.0/download
+HOST_CARGO_C_NUM_CONV_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, num-conv/0.2.0/download)
 HOST_CARGO_C_NUM_CONV_0_2_0_SOURCE	:= $(SRCDIR)/num-conv-0.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NUM_CONV_0_2_0
 
 HOST_CARGO_C_NUM_TRAITS_0_2_19_MD5		:= e092b3abcc54806f2a35889d725bf95f
-HOST_CARGO_C_NUM_TRAITS_0_2_19_URL		:= https://crates.io/api/v1/crates/num-traits/0.2.19/download
+HOST_CARGO_C_NUM_TRAITS_0_2_19_URL		:= $(call ptx/mirror, CRATESIO, num-traits/0.2.19/download)
 HOST_CARGO_C_NUM_TRAITS_0_2_19_SOURCE	:= $(SRCDIR)/num-traits-0.2.19.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_NUM_TRAITS_0_2_19
 
 HOST_CARGO_C_OBJC2_0_6_3_MD5		:= 8eb47450fc77283b887265c5b16215a0
-HOST_CARGO_C_OBJC2_0_6_3_URL		:= https://crates.io/api/v1/crates/objc2/0.6.3/download
+HOST_CARGO_C_OBJC2_0_6_3_URL		:= $(call ptx/mirror, CRATESIO, objc2/0.6.3/download)
 HOST_CARGO_C_OBJC2_0_6_3_SOURCE	:= $(SRCDIR)/objc2-0.6.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_0_6_3
 
 HOST_CARGO_C_OBJC2_CLOUD_KIT_0_3_2_MD5		:= 8fe4d34cb1b6b1f8bd7b75438e802a5d
-HOST_CARGO_C_OBJC2_CLOUD_KIT_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-cloud-kit/0.3.2/download
+HOST_CARGO_C_OBJC2_CLOUD_KIT_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-cloud-kit/0.3.2/download)
 HOST_CARGO_C_OBJC2_CLOUD_KIT_0_3_2_SOURCE	:= $(SRCDIR)/objc2-cloud-kit-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_CLOUD_KIT_0_3_2
 
 HOST_CARGO_C_OBJC2_CORE_DATA_0_3_2_MD5		:= fc2d13376ee1d3d66eb270d3efe249cf
-HOST_CARGO_C_OBJC2_CORE_DATA_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-core-data/0.3.2/download
+HOST_CARGO_C_OBJC2_CORE_DATA_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-core-data/0.3.2/download)
 HOST_CARGO_C_OBJC2_CORE_DATA_0_3_2_SOURCE	:= $(SRCDIR)/objc2-core-data-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_CORE_DATA_0_3_2
 
 HOST_CARGO_C_OBJC2_CORE_FOUNDATION_0_3_2_MD5		:= 03ac333203202f17d0eb0b3eeed8215a
-HOST_CARGO_C_OBJC2_CORE_FOUNDATION_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-core-foundation/0.3.2/download
+HOST_CARGO_C_OBJC2_CORE_FOUNDATION_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-core-foundation/0.3.2/download)
 HOST_CARGO_C_OBJC2_CORE_FOUNDATION_0_3_2_SOURCE	:= $(SRCDIR)/objc2-core-foundation-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_CORE_FOUNDATION_0_3_2
 
 HOST_CARGO_C_OBJC2_CORE_GRAPHICS_0_3_2_MD5		:= 7c144158a93c787d2b71f27bac7c9462
-HOST_CARGO_C_OBJC2_CORE_GRAPHICS_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-core-graphics/0.3.2/download
+HOST_CARGO_C_OBJC2_CORE_GRAPHICS_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-core-graphics/0.3.2/download)
 HOST_CARGO_C_OBJC2_CORE_GRAPHICS_0_3_2_SOURCE	:= $(SRCDIR)/objc2-core-graphics-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_CORE_GRAPHICS_0_3_2
 
 HOST_CARGO_C_OBJC2_CORE_IMAGE_0_3_2_MD5		:= 84140dc7a6369c87c9dee5a23b2eaabd
-HOST_CARGO_C_OBJC2_CORE_IMAGE_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-core-image/0.3.2/download
+HOST_CARGO_C_OBJC2_CORE_IMAGE_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-core-image/0.3.2/download)
 HOST_CARGO_C_OBJC2_CORE_IMAGE_0_3_2_SOURCE	:= $(SRCDIR)/objc2-core-image-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_CORE_IMAGE_0_3_2
 
 HOST_CARGO_C_OBJC2_CORE_LOCATION_0_3_2_MD5		:= 8ae09ce8e53f89a354f0b5ccab47ee16
-HOST_CARGO_C_OBJC2_CORE_LOCATION_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-core-location/0.3.2/download
+HOST_CARGO_C_OBJC2_CORE_LOCATION_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-core-location/0.3.2/download)
 HOST_CARGO_C_OBJC2_CORE_LOCATION_0_3_2_SOURCE	:= $(SRCDIR)/objc2-core-location-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_CORE_LOCATION_0_3_2
 
 HOST_CARGO_C_OBJC2_CORE_TEXT_0_3_2_MD5		:= 6d2f1986eec621615ab0fe3bc834c67f
-HOST_CARGO_C_OBJC2_CORE_TEXT_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-core-text/0.3.2/download
+HOST_CARGO_C_OBJC2_CORE_TEXT_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-core-text/0.3.2/download)
 HOST_CARGO_C_OBJC2_CORE_TEXT_0_3_2_SOURCE	:= $(SRCDIR)/objc2-core-text-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_CORE_TEXT_0_3_2
 
 HOST_CARGO_C_OBJC2_ENCODE_4_1_0_MD5		:= 5d9728c30b0b7db1def672b428b6e6b2
-HOST_CARGO_C_OBJC2_ENCODE_4_1_0_URL		:= https://crates.io/api/v1/crates/objc2-encode/4.1.0/download
+HOST_CARGO_C_OBJC2_ENCODE_4_1_0_URL		:= $(call ptx/mirror, CRATESIO, objc2-encode/4.1.0/download)
 HOST_CARGO_C_OBJC2_ENCODE_4_1_0_SOURCE	:= $(SRCDIR)/objc2-encode-4.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_ENCODE_4_1_0
 
 HOST_CARGO_C_OBJC2_FOUNDATION_0_3_2_MD5		:= 8abb667c3c7bfd396a05602d67416045
-HOST_CARGO_C_OBJC2_FOUNDATION_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-foundation/0.3.2/download
+HOST_CARGO_C_OBJC2_FOUNDATION_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-foundation/0.3.2/download)
 HOST_CARGO_C_OBJC2_FOUNDATION_0_3_2_SOURCE	:= $(SRCDIR)/objc2-foundation-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_FOUNDATION_0_3_2
 
 HOST_CARGO_C_OBJC2_IO_SURFACE_0_3_2_MD5		:= 994d1d5347b5e197192d65e632b8e80f
-HOST_CARGO_C_OBJC2_IO_SURFACE_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-io-surface/0.3.2/download
+HOST_CARGO_C_OBJC2_IO_SURFACE_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-io-surface/0.3.2/download)
 HOST_CARGO_C_OBJC2_IO_SURFACE_0_3_2_SOURCE	:= $(SRCDIR)/objc2-io-surface-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_IO_SURFACE_0_3_2
 
 HOST_CARGO_C_OBJC2_QUARTZ_CORE_0_3_2_MD5		:= c61be5c0172f8ef1ef010a1e29447d7f
-HOST_CARGO_C_OBJC2_QUARTZ_CORE_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-quartz-core/0.3.2/download
+HOST_CARGO_C_OBJC2_QUARTZ_CORE_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-quartz-core/0.3.2/download)
 HOST_CARGO_C_OBJC2_QUARTZ_CORE_0_3_2_SOURCE	:= $(SRCDIR)/objc2-quartz-core-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_QUARTZ_CORE_0_3_2
 
 HOST_CARGO_C_OBJC2_UI_KIT_0_3_2_MD5		:= 4c0f4f83c5144f00201143c79cf9967c
-HOST_CARGO_C_OBJC2_UI_KIT_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-ui-kit/0.3.2/download
+HOST_CARGO_C_OBJC2_UI_KIT_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-ui-kit/0.3.2/download)
 HOST_CARGO_C_OBJC2_UI_KIT_0_3_2_SOURCE	:= $(SRCDIR)/objc2-ui-kit-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_UI_KIT_0_3_2
 
 HOST_CARGO_C_OBJC2_USER_NOTIFICATIONS_0_3_2_MD5		:= b2d7468552eb76e69d466c792a2eb69f
-HOST_CARGO_C_OBJC2_USER_NOTIFICATIONS_0_3_2_URL		:= https://crates.io/api/v1/crates/objc2-user-notifications/0.3.2/download
+HOST_CARGO_C_OBJC2_USER_NOTIFICATIONS_0_3_2_URL		:= $(call ptx/mirror, CRATESIO, objc2-user-notifications/0.3.2/download)
 HOST_CARGO_C_OBJC2_USER_NOTIFICATIONS_0_3_2_SOURCE	:= $(SRCDIR)/objc2-user-notifications-0.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJC2_USER_NOTIFICATIONS_0_3_2
 
 HOST_CARGO_C_OBJECT_0_37_3_MD5		:= 5c16a07e83766851ccb68168ebab6e65
-HOST_CARGO_C_OBJECT_0_37_3_URL		:= https://crates.io/api/v1/crates/object/0.37.3/download
+HOST_CARGO_C_OBJECT_0_37_3_URL		:= $(call ptx/mirror, CRATESIO, object/0.37.3/download)
 HOST_CARGO_C_OBJECT_0_37_3_SOURCE	:= $(SRCDIR)/object-0.37.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJECT_0_37_3
 
 HOST_CARGO_C_OBJECT_0_38_1_MD5		:= 8119bcfffb5e30028bd63890cf6b4072
-HOST_CARGO_C_OBJECT_0_38_1_URL		:= https://crates.io/api/v1/crates/object/0.38.1/download
+HOST_CARGO_C_OBJECT_0_38_1_URL		:= $(call ptx/mirror, CRATESIO, object/0.38.1/download)
 HOST_CARGO_C_OBJECT_0_38_1_SOURCE	:= $(SRCDIR)/object-0.38.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OBJECT_0_38_1
 
 HOST_CARGO_C_ONCE_CELL_1_21_3_MD5		:= 76f8e4dcc29ab304e065cced86a344d2
-HOST_CARGO_C_ONCE_CELL_1_21_3_URL		:= https://crates.io/api/v1/crates/once_cell/1.21.3/download
+HOST_CARGO_C_ONCE_CELL_1_21_3_URL		:= $(call ptx/mirror, CRATESIO, once_cell/1.21.3/download)
 HOST_CARGO_C_ONCE_CELL_1_21_3_SOURCE	:= $(SRCDIR)/once_cell-1.21.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ONCE_CELL_1_21_3
 
 HOST_CARGO_C_ONCE_CELL_POLYFILL_1_70_2_MD5		:= 6760292aaf3f1484be67db2635c1ba47
-HOST_CARGO_C_ONCE_CELL_POLYFILL_1_70_2_URL		:= https://crates.io/api/v1/crates/once_cell_polyfill/1.70.2/download
+HOST_CARGO_C_ONCE_CELL_POLYFILL_1_70_2_URL		:= $(call ptx/mirror, CRATESIO, once_cell_polyfill/1.70.2/download)
 HOST_CARGO_C_ONCE_CELL_POLYFILL_1_70_2_SOURCE	:= $(SRCDIR)/once_cell_polyfill-1.70.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ONCE_CELL_POLYFILL_1_70_2
 
 HOST_CARGO_C_OPENER_0_8_3_MD5		:= 0bfcdefd27b11c90e9110f85e0eac85d
-HOST_CARGO_C_OPENER_0_8_3_URL		:= https://crates.io/api/v1/crates/opener/0.8.3/download
+HOST_CARGO_C_OPENER_0_8_3_URL		:= $(call ptx/mirror, CRATESIO, opener/0.8.3/download)
 HOST_CARGO_C_OPENER_0_8_3_SOURCE	:= $(SRCDIR)/opener-0.8.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENER_0_8_3
 
 HOST_CARGO_C_OPENSSL_0_10_75_MD5		:= 408a6fa73887499f02f966cd177940d4
-HOST_CARGO_C_OPENSSL_0_10_75_URL		:= https://crates.io/api/v1/crates/openssl/0.10.75/download
+HOST_CARGO_C_OPENSSL_0_10_75_URL		:= $(call ptx/mirror, CRATESIO, openssl/0.10.75/download)
 HOST_CARGO_C_OPENSSL_0_10_75_SOURCE	:= $(SRCDIR)/openssl-0.10.75.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_0_10_75
 
 HOST_CARGO_C_OPENSSL_MACROS_0_1_1_MD5		:= 28d34115cfbbe0e8f80333591f2cdd84
-HOST_CARGO_C_OPENSSL_MACROS_0_1_1_URL		:= https://crates.io/api/v1/crates/openssl-macros/0.1.1/download
+HOST_CARGO_C_OPENSSL_MACROS_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, openssl-macros/0.1.1/download)
 HOST_CARGO_C_OPENSSL_MACROS_0_1_1_SOURCE	:= $(SRCDIR)/openssl-macros-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_MACROS_0_1_1
 
 HOST_CARGO_C_OPENSSL_PROBE_0_1_6_MD5		:= 3d95144c0cb9d673d59fdaa60ec8f46d
-HOST_CARGO_C_OPENSSL_PROBE_0_1_6_URL		:= https://crates.io/api/v1/crates/openssl-probe/0.1.6/download
+HOST_CARGO_C_OPENSSL_PROBE_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, openssl-probe/0.1.6/download)
 HOST_CARGO_C_OPENSSL_PROBE_0_1_6_SOURCE	:= $(SRCDIR)/openssl-probe-0.1.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_PROBE_0_1_6
 
 HOST_CARGO_C_OPENSSL_SRC_300_5_4_3_5_4_MD5		:= 10a77c7ac9d24e383ee49fa320c9f890
-HOST_CARGO_C_OPENSSL_SRC_300_5_4_3_5_4_URL		:= https://crates.io/api/v1/crates/openssl-src/300.5.4+3.5.4/download
+HOST_CARGO_C_OPENSSL_SRC_300_5_4_3_5_4_URL		:= $(call ptx/mirror, CRATESIO, openssl-src/300.5.4+3.5.4/download)
 HOST_CARGO_C_OPENSSL_SRC_300_5_4_3_5_4_SOURCE	:= $(SRCDIR)/openssl-src-300.5.4+3.5.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_SRC_300_5_4_3_5_4
 
 HOST_CARGO_C_OPENSSL_SYS_0_9_111_MD5		:= 1b5d154d38152668c9f9a82ac112c66a
-HOST_CARGO_C_OPENSSL_SYS_0_9_111_URL		:= https://crates.io/api/v1/crates/openssl-sys/0.9.111/download
+HOST_CARGO_C_OPENSSL_SYS_0_9_111_URL		:= $(call ptx/mirror, CRATESIO, openssl-sys/0.9.111/download)
 HOST_CARGO_C_OPENSSL_SYS_0_9_111_SOURCE	:= $(SRCDIR)/openssl-sys-0.9.111.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OPENSSL_SYS_0_9_111
 
 HOST_CARGO_C_ORDERED_FLOAT_2_10_1_MD5		:= 71624c8a64c75744a95f02a09614f220
-HOST_CARGO_C_ORDERED_FLOAT_2_10_1_URL		:= https://crates.io/api/v1/crates/ordered-float/2.10.1/download
+HOST_CARGO_C_ORDERED_FLOAT_2_10_1_URL		:= $(call ptx/mirror, CRATESIO, ordered-float/2.10.1/download)
 HOST_CARGO_C_ORDERED_FLOAT_2_10_1_SOURCE	:= $(SRCDIR)/ordered-float-2.10.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ORDERED_FLOAT_2_10_1
 
 HOST_CARGO_C_ORION_0_17_12_MD5		:= 4934769a9190fb6b8119ca0a3065a635
-HOST_CARGO_C_ORION_0_17_12_URL		:= https://crates.io/api/v1/crates/orion/0.17.12/download
+HOST_CARGO_C_ORION_0_17_12_URL		:= $(call ptx/mirror, CRATESIO, orion/0.17.12/download)
 HOST_CARGO_C_ORION_0_17_12_SOURCE	:= $(SRCDIR)/orion-0.17.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ORION_0_17_12
 
 HOST_CARGO_C_OS_INFO_3_14_0_MD5		:= 50d7838b3e0069a67231de29ee1393cd
-HOST_CARGO_C_OS_INFO_3_14_0_URL		:= https://crates.io/api/v1/crates/os_info/3.14.0/download
+HOST_CARGO_C_OS_INFO_3_14_0_URL		:= $(call ptx/mirror, CRATESIO, os_info/3.14.0/download)
 HOST_CARGO_C_OS_INFO_3_14_0_SOURCE	:= $(SRCDIR)/os_info-3.14.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_OS_INFO_3_14_0
 
 HOST_CARGO_C_P384_0_13_1_MD5		:= 96344c60bcd0d87781aa654f64dd2c22
-HOST_CARGO_C_P384_0_13_1_URL		:= https://crates.io/api/v1/crates/p384/0.13.1/download
+HOST_CARGO_C_P384_0_13_1_URL		:= $(call ptx/mirror, CRATESIO, p384/0.13.1/download)
 HOST_CARGO_C_P384_0_13_1_SOURCE	:= $(SRCDIR)/p384-0.13.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_P384_0_13_1
 
 HOST_CARGO_C_PARKING_LOT_0_12_5_MD5		:= 439ec4865e007e2470fdc635f282599e
-HOST_CARGO_C_PARKING_LOT_0_12_5_URL		:= https://crates.io/api/v1/crates/parking_lot/0.12.5/download
+HOST_CARGO_C_PARKING_LOT_0_12_5_URL		:= $(call ptx/mirror, CRATESIO, parking_lot/0.12.5/download)
 HOST_CARGO_C_PARKING_LOT_0_12_5_SOURCE	:= $(SRCDIR)/parking_lot-0.12.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PARKING_LOT_0_12_5
 
 HOST_CARGO_C_PARKING_LOT_CORE_0_9_12_MD5		:= 9d5019b2e6c4e1352ccff8b64b88e2cf
-HOST_CARGO_C_PARKING_LOT_CORE_0_9_12_URL		:= https://crates.io/api/v1/crates/parking_lot_core/0.9.12/download
+HOST_CARGO_C_PARKING_LOT_CORE_0_9_12_URL		:= $(call ptx/mirror, CRATESIO, parking_lot_core/0.9.12/download)
 HOST_CARGO_C_PARKING_LOT_CORE_0_9_12_SOURCE	:= $(SRCDIR)/parking_lot_core-0.9.12.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PARKING_LOT_CORE_0_9_12
 
 HOST_CARGO_C_PASETORS_0_7_7_MD5		:= 2f61ae377e2434963cef64a628803957
-HOST_CARGO_C_PASETORS_0_7_7_URL		:= https://crates.io/api/v1/crates/pasetors/0.7.7/download
+HOST_CARGO_C_PASETORS_0_7_7_URL		:= $(call ptx/mirror, CRATESIO, pasetors/0.7.7/download)
 HOST_CARGO_C_PASETORS_0_7_7_SOURCE	:= $(SRCDIR)/pasetors-0.7.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PASETORS_0_7_7
 
 HOST_CARGO_C_PATHDIFF_0_2_3_MD5		:= 2d2ee59e7cd5c7adb3ab4188a78182bf
-HOST_CARGO_C_PATHDIFF_0_2_3_URL		:= https://crates.io/api/v1/crates/pathdiff/0.2.3/download
+HOST_CARGO_C_PATHDIFF_0_2_3_URL		:= $(call ptx/mirror, CRATESIO, pathdiff/0.2.3/download)
 HOST_CARGO_C_PATHDIFF_0_2_3_SOURCE	:= $(SRCDIR)/pathdiff-0.2.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PATHDIFF_0_2_3
 
 HOST_CARGO_C_PEM_RFC7468_0_7_0_MD5		:= a37720d4e4cbebd28ac9c7930137a9d6
-HOST_CARGO_C_PEM_RFC7468_0_7_0_URL		:= https://crates.io/api/v1/crates/pem-rfc7468/0.7.0/download
+HOST_CARGO_C_PEM_RFC7468_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, pem-rfc7468/0.7.0/download)
 HOST_CARGO_C_PEM_RFC7468_0_7_0_SOURCE	:= $(SRCDIR)/pem-rfc7468-0.7.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PEM_RFC7468_0_7_0
 
 HOST_CARGO_C_PERCENT_ENCODING_2_3_2_MD5		:= ef8998050cc1339f2187fcb43e927f1b
-HOST_CARGO_C_PERCENT_ENCODING_2_3_2_URL		:= https://crates.io/api/v1/crates/percent-encoding/2.3.2/download
+HOST_CARGO_C_PERCENT_ENCODING_2_3_2_URL		:= $(call ptx/mirror, CRATESIO, percent-encoding/2.3.2/download)
 HOST_CARGO_C_PERCENT_ENCODING_2_3_2_SOURCE	:= $(SRCDIR)/percent-encoding-2.3.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PERCENT_ENCODING_2_3_2
 
 HOST_CARGO_C_PIN_PROJECT_LITE_0_2_16_MD5		:= f6c8ce4c412ca548e42dfd896c92112e
-HOST_CARGO_C_PIN_PROJECT_LITE_0_2_16_URL		:= https://crates.io/api/v1/crates/pin-project-lite/0.2.16/download
+HOST_CARGO_C_PIN_PROJECT_LITE_0_2_16_URL		:= $(call ptx/mirror, CRATESIO, pin-project-lite/0.2.16/download)
 HOST_CARGO_C_PIN_PROJECT_LITE_0_2_16_SOURCE	:= $(SRCDIR)/pin-project-lite-0.2.16.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PIN_PROJECT_LITE_0_2_16
 
 HOST_CARGO_C_PKCS8_0_10_2_MD5		:= 54148ff5f2a4a6f4f1e857b0bf854bf0
-HOST_CARGO_C_PKCS8_0_10_2_URL		:= https://crates.io/api/v1/crates/pkcs8/0.10.2/download
+HOST_CARGO_C_PKCS8_0_10_2_URL		:= $(call ptx/mirror, CRATESIO, pkcs8/0.10.2/download)
 HOST_CARGO_C_PKCS8_0_10_2_SOURCE	:= $(SRCDIR)/pkcs8-0.10.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PKCS8_0_10_2
 
 HOST_CARGO_C_PKG_CONFIG_0_3_32_MD5		:= c0cc536bbce6c848a2957222de166961
-HOST_CARGO_C_PKG_CONFIG_0_3_32_URL		:= https://crates.io/api/v1/crates/pkg-config/0.3.32/download
+HOST_CARGO_C_PKG_CONFIG_0_3_32_URL		:= $(call ptx/mirror, CRATESIO, pkg-config/0.3.32/download)
 HOST_CARGO_C_PKG_CONFIG_0_3_32_SOURCE	:= $(SRCDIR)/pkg-config-0.3.32.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PKG_CONFIG_0_3_32
 
 HOST_CARGO_C_PORTABLE_ATOMIC_1_13_0_MD5		:= 0f4ade4144773c2c50e55a882cc29969
-HOST_CARGO_C_PORTABLE_ATOMIC_1_13_0_URL		:= https://crates.io/api/v1/crates/portable-atomic/1.13.0/download
+HOST_CARGO_C_PORTABLE_ATOMIC_1_13_0_URL		:= $(call ptx/mirror, CRATESIO, portable-atomic/1.13.0/download)
 HOST_CARGO_C_PORTABLE_ATOMIC_1_13_0_SOURCE	:= $(SRCDIR)/portable-atomic-1.13.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PORTABLE_ATOMIC_1_13_0
 
 HOST_CARGO_C_PORTABLE_ATOMIC_UTIL_0_2_4_MD5		:= a7ec81031748a0e2c1695ccf4c795100
-HOST_CARGO_C_PORTABLE_ATOMIC_UTIL_0_2_4_URL		:= https://crates.io/api/v1/crates/portable-atomic-util/0.2.4/download
+HOST_CARGO_C_PORTABLE_ATOMIC_UTIL_0_2_4_URL		:= $(call ptx/mirror, CRATESIO, portable-atomic-util/0.2.4/download)
 HOST_CARGO_C_PORTABLE_ATOMIC_UTIL_0_2_4_SOURCE	:= $(SRCDIR)/portable-atomic-util-0.2.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PORTABLE_ATOMIC_UTIL_0_2_4
 
 HOST_CARGO_C_POTENTIAL_UTF_0_1_4_MD5		:= 3fc6b20d8adff029d6efe97abfe3b504
-HOST_CARGO_C_POTENTIAL_UTF_0_1_4_URL		:= https://crates.io/api/v1/crates/potential_utf/0.1.4/download
+HOST_CARGO_C_POTENTIAL_UTF_0_1_4_URL		:= $(call ptx/mirror, CRATESIO, potential_utf/0.1.4/download)
 HOST_CARGO_C_POTENTIAL_UTF_0_1_4_SOURCE	:= $(SRCDIR)/potential_utf-0.1.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_POTENTIAL_UTF_0_1_4
 
 HOST_CARGO_C_POWERFMT_0_2_0_MD5		:= 30eb4de1c1a3bd214d7649b891abf444
-HOST_CARGO_C_POWERFMT_0_2_0_URL		:= https://crates.io/api/v1/crates/powerfmt/0.2.0/download
+HOST_CARGO_C_POWERFMT_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, powerfmt/0.2.0/download)
 HOST_CARGO_C_POWERFMT_0_2_0_SOURCE	:= $(SRCDIR)/powerfmt-0.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_POWERFMT_0_2_0
 
 HOST_CARGO_C_PPV_LITE86_0_2_21_MD5		:= 24b98ea919f5970d55ff176be1d551b1
-HOST_CARGO_C_PPV_LITE86_0_2_21_URL		:= https://crates.io/api/v1/crates/ppv-lite86/0.2.21/download
+HOST_CARGO_C_PPV_LITE86_0_2_21_URL		:= $(call ptx/mirror, CRATESIO, ppv-lite86/0.2.21/download)
 HOST_CARGO_C_PPV_LITE86_0_2_21_SOURCE	:= $(SRCDIR)/ppv-lite86-0.2.21.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PPV_LITE86_0_2_21
 
 HOST_CARGO_C_PRIMEORDER_0_13_6_MD5		:= d226e4317502fe822b21daeda4d7488c
-HOST_CARGO_C_PRIMEORDER_0_13_6_URL		:= https://crates.io/api/v1/crates/primeorder/0.13.6/download
+HOST_CARGO_C_PRIMEORDER_0_13_6_URL		:= $(call ptx/mirror, CRATESIO, primeorder/0.13.6/download)
 HOST_CARGO_C_PRIMEORDER_0_13_6_SOURCE	:= $(SRCDIR)/primeorder-0.13.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PRIMEORDER_0_13_6
 
 HOST_CARGO_C_PROC_MACRO2_1_0_106_MD5		:= f5948ef8f9b14504ab34f71ad4a4bd18
-HOST_CARGO_C_PROC_MACRO2_1_0_106_URL		:= https://crates.io/api/v1/crates/proc-macro2/1.0.106/download
+HOST_CARGO_C_PROC_MACRO2_1_0_106_URL		:= $(call ptx/mirror, CRATESIO, proc-macro2/1.0.106/download)
 HOST_CARGO_C_PROC_MACRO2_1_0_106_SOURCE	:= $(SRCDIR)/proc-macro2-1.0.106.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PROC_MACRO2_1_0_106
 
 HOST_CARGO_C_PRODASH_30_0_1_MD5		:= 4ed1562f303d222dfd326bf373f0377b
-HOST_CARGO_C_PRODASH_30_0_1_URL		:= https://crates.io/api/v1/crates/prodash/30.0.1/download
+HOST_CARGO_C_PRODASH_30_0_1_URL		:= $(call ptx/mirror, CRATESIO, prodash/30.0.1/download)
 HOST_CARGO_C_PRODASH_30_0_1_SOURCE	:= $(SRCDIR)/prodash-30.0.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_PRODASH_30_0_1
 
 HOST_CARGO_C_QUOTE_1_0_44_MD5		:= 93f2bf917de2581c31f5b40f88ccdbd1
-HOST_CARGO_C_QUOTE_1_0_44_URL		:= https://crates.io/api/v1/crates/quote/1.0.44/download
+HOST_CARGO_C_QUOTE_1_0_44_URL		:= $(call ptx/mirror, CRATESIO, quote/1.0.44/download)
 HOST_CARGO_C_QUOTE_1_0_44_SOURCE	:= $(SRCDIR)/quote-1.0.44.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_QUOTE_1_0_44
 
 HOST_CARGO_C_R_EFI_5_3_0_MD5		:= 751468b1f120283e4f6f266867a03837
-HOST_CARGO_C_R_EFI_5_3_0_URL		:= https://crates.io/api/v1/crates/r-efi/5.3.0/download
+HOST_CARGO_C_R_EFI_5_3_0_URL		:= $(call ptx/mirror, CRATESIO, r-efi/5.3.0/download)
 HOST_CARGO_C_R_EFI_5_3_0_SOURCE	:= $(SRCDIR)/r-efi-5.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_R_EFI_5_3_0
 
 HOST_CARGO_C_RAND_0_9_2_MD5		:= a6290a543b60d161a9817d1592189855
-HOST_CARGO_C_RAND_0_9_2_URL		:= https://crates.io/api/v1/crates/rand/0.9.2/download
+HOST_CARGO_C_RAND_0_9_2_URL		:= $(call ptx/mirror, CRATESIO, rand/0.9.2/download)
 HOST_CARGO_C_RAND_0_9_2_SOURCE	:= $(SRCDIR)/rand-0.9.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_0_9_2
 
 HOST_CARGO_C_RAND_CHACHA_0_9_0_MD5		:= 6072cecb286422299a2fd6c98319bd0d
-HOST_CARGO_C_RAND_CHACHA_0_9_0_URL		:= https://crates.io/api/v1/crates/rand_chacha/0.9.0/download
+HOST_CARGO_C_RAND_CHACHA_0_9_0_URL		:= $(call ptx/mirror, CRATESIO, rand_chacha/0.9.0/download)
 HOST_CARGO_C_RAND_CHACHA_0_9_0_SOURCE	:= $(SRCDIR)/rand_chacha-0.9.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_CHACHA_0_9_0
 
 HOST_CARGO_C_RAND_CORE_0_6_4_MD5		:= a1626b8f4d165b1b60d960862eba4cf0
-HOST_CARGO_C_RAND_CORE_0_6_4_URL		:= https://crates.io/api/v1/crates/rand_core/0.6.4/download
+HOST_CARGO_C_RAND_CORE_0_6_4_URL		:= $(call ptx/mirror, CRATESIO, rand_core/0.6.4/download)
 HOST_CARGO_C_RAND_CORE_0_6_4_SOURCE	:= $(SRCDIR)/rand_core-0.6.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_CORE_0_6_4
 
 HOST_CARGO_C_RAND_CORE_0_9_5_MD5		:= 3dd34cc681354af2b132dbf85f068a4a
-HOST_CARGO_C_RAND_CORE_0_9_5_URL		:= https://crates.io/api/v1/crates/rand_core/0.9.5/download
+HOST_CARGO_C_RAND_CORE_0_9_5_URL		:= $(call ptx/mirror, CRATESIO, rand_core/0.9.5/download)
 HOST_CARGO_C_RAND_CORE_0_9_5_SOURCE	:= $(SRCDIR)/rand_core-0.9.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_CORE_0_9_5
 
 HOST_CARGO_C_RAND_XOSHIRO_0_6_0_MD5		:= ca0ecc8e22d810207704d4cd743ca657
-HOST_CARGO_C_RAND_XOSHIRO_0_6_0_URL		:= https://crates.io/api/v1/crates/rand_xoshiro/0.6.0/download
+HOST_CARGO_C_RAND_XOSHIRO_0_6_0_URL		:= $(call ptx/mirror, CRATESIO, rand_xoshiro/0.6.0/download)
 HOST_CARGO_C_RAND_XOSHIRO_0_6_0_SOURCE	:= $(SRCDIR)/rand_xoshiro-0.6.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RAND_XOSHIRO_0_6_0
 
 HOST_CARGO_C_REDOX_SYSCALL_0_5_18_MD5		:= 56eeea4cebc8f0fe1d09207656f78ece
-HOST_CARGO_C_REDOX_SYSCALL_0_5_18_URL		:= https://crates.io/api/v1/crates/redox_syscall/0.5.18/download
+HOST_CARGO_C_REDOX_SYSCALL_0_5_18_URL		:= $(call ptx/mirror, CRATESIO, redox_syscall/0.5.18/download)
 HOST_CARGO_C_REDOX_SYSCALL_0_5_18_SOURCE	:= $(SRCDIR)/redox_syscall-0.5.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REDOX_SYSCALL_0_5_18
 
 HOST_CARGO_C_REDOX_SYSCALL_0_7_0_MD5		:= dd2ac5229d5892f9c873ca2f665d2235
-HOST_CARGO_C_REDOX_SYSCALL_0_7_0_URL		:= https://crates.io/api/v1/crates/redox_syscall/0.7.0/download
+HOST_CARGO_C_REDOX_SYSCALL_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, redox_syscall/0.7.0/download)
 HOST_CARGO_C_REDOX_SYSCALL_0_7_0_SOURCE	:= $(SRCDIR)/redox_syscall-0.7.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REDOX_SYSCALL_0_7_0
 
 HOST_CARGO_C_REGEX_1_12_2_MD5		:= fa1ef10465c00f2a3bac42b79e37b36d
-HOST_CARGO_C_REGEX_1_12_2_URL		:= https://crates.io/api/v1/crates/regex/1.12.2/download
+HOST_CARGO_C_REGEX_1_12_2_URL		:= $(call ptx/mirror, CRATESIO, regex/1.12.2/download)
 HOST_CARGO_C_REGEX_1_12_2_SOURCE	:= $(SRCDIR)/regex-1.12.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_1_12_2
 
 HOST_CARGO_C_REGEX_AUTOMATA_0_4_13_MD5		:= 19e088c4bd35dc2ed9abdfe6a084f50f
-HOST_CARGO_C_REGEX_AUTOMATA_0_4_13_URL		:= https://crates.io/api/v1/crates/regex-automata/0.4.13/download
+HOST_CARGO_C_REGEX_AUTOMATA_0_4_13_URL		:= $(call ptx/mirror, CRATESIO, regex-automata/0.4.13/download)
 HOST_CARGO_C_REGEX_AUTOMATA_0_4_13_SOURCE	:= $(SRCDIR)/regex-automata-0.4.13.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_AUTOMATA_0_4_13
 
 HOST_CARGO_C_REGEX_SYNTAX_0_8_8_MD5		:= 185f5eacb104bf57aac0702e59e1a29e
-HOST_CARGO_C_REGEX_SYNTAX_0_8_8_URL		:= https://crates.io/api/v1/crates/regex-syntax/0.8.8/download
+HOST_CARGO_C_REGEX_SYNTAX_0_8_8_URL		:= $(call ptx/mirror, CRATESIO, regex-syntax/0.8.8/download)
 HOST_CARGO_C_REGEX_SYNTAX_0_8_8_SOURCE	:= $(SRCDIR)/regex-syntax-0.8.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_REGEX_SYNTAX_0_8_8
 
 HOST_CARGO_C_RFC6979_0_4_0_MD5		:= 4320a9e82272686cb97d7af005f5360d
-HOST_CARGO_C_RFC6979_0_4_0_URL		:= https://crates.io/api/v1/crates/rfc6979/0.4.0/download
+HOST_CARGO_C_RFC6979_0_4_0_URL		:= $(call ptx/mirror, CRATESIO, rfc6979/0.4.0/download)
 HOST_CARGO_C_RFC6979_0_4_0_SOURCE	:= $(SRCDIR)/rfc6979-0.4.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RFC6979_0_4_0
 
 HOST_CARGO_C_RUSQLITE_0_37_0_MD5		:= fd8d8d80cf7d6d9ba1535dc8f3dea13f
-HOST_CARGO_C_RUSQLITE_0_37_0_URL		:= https://crates.io/api/v1/crates/rusqlite/0.37.0/download
+HOST_CARGO_C_RUSQLITE_0_37_0_URL		:= $(call ptx/mirror, CRATESIO, rusqlite/0.37.0/download)
 HOST_CARGO_C_RUSQLITE_0_37_0_SOURCE	:= $(SRCDIR)/rusqlite-0.37.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RUSQLITE_0_37_0
 
 HOST_CARGO_C_RUSTC_HASH_2_1_1_MD5		:= 9f5da5d4deefacf77ae9ca3cbe5c7c6a
-HOST_CARGO_C_RUSTC_HASH_2_1_1_URL		:= https://crates.io/api/v1/crates/rustc-hash/2.1.1/download
+HOST_CARGO_C_RUSTC_HASH_2_1_1_URL		:= $(call ptx/mirror, CRATESIO, rustc-hash/2.1.1/download)
 HOST_CARGO_C_RUSTC_HASH_2_1_1_SOURCE	:= $(SRCDIR)/rustc-hash-2.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RUSTC_HASH_2_1_1
 
 HOST_CARGO_C_RUSTC_STABLE_HASH_0_1_2_MD5		:= 05870b8bafb880619338050d2546d473
-HOST_CARGO_C_RUSTC_STABLE_HASH_0_1_2_URL		:= https://crates.io/api/v1/crates/rustc-stable-hash/0.1.2/download
+HOST_CARGO_C_RUSTC_STABLE_HASH_0_1_2_URL		:= $(call ptx/mirror, CRATESIO, rustc-stable-hash/0.1.2/download)
 HOST_CARGO_C_RUSTC_STABLE_HASH_0_1_2_SOURCE	:= $(SRCDIR)/rustc-stable-hash-0.1.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RUSTC_STABLE_HASH_0_1_2
 
 HOST_CARGO_C_RUSTFIX_0_9_4_MD5		:= 134b72b77564e5412ae6537dc5c5110f
-HOST_CARGO_C_RUSTFIX_0_9_4_URL		:= https://crates.io/api/v1/crates/rustfix/0.9.4/download
+HOST_CARGO_C_RUSTFIX_0_9_4_URL		:= $(call ptx/mirror, CRATESIO, rustfix/0.9.4/download)
 HOST_CARGO_C_RUSTFIX_0_9_4_SOURCE	:= $(SRCDIR)/rustfix-0.9.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RUSTFIX_0_9_4
 
 HOST_CARGO_C_RUSTIX_1_1_3_MD5		:= ad77627a08324de6cddb4f66813f3219
-HOST_CARGO_C_RUSTIX_1_1_3_URL		:= https://crates.io/api/v1/crates/rustix/1.1.3/download
+HOST_CARGO_C_RUSTIX_1_1_3_URL		:= $(call ptx/mirror, CRATESIO, rustix/1.1.3/download)
 HOST_CARGO_C_RUSTIX_1_1_3_SOURCE	:= $(SRCDIR)/rustix-1.1.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RUSTIX_1_1_3
 
 HOST_CARGO_C_RUSTVERSION_1_0_22_MD5		:= e662b1464700d377cb89a8a9b59bd8c0
-HOST_CARGO_C_RUSTVERSION_1_0_22_URL		:= https://crates.io/api/v1/crates/rustversion/1.0.22/download
+HOST_CARGO_C_RUSTVERSION_1_0_22_URL		:= $(call ptx/mirror, CRATESIO, rustversion/1.0.22/download)
 HOST_CARGO_C_RUSTVERSION_1_0_22_SOURCE	:= $(SRCDIR)/rustversion-1.0.22.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_RUSTVERSION_1_0_22
 
 HOST_CARGO_C_SAME_FILE_1_0_6_MD5		:= 2d8d8b377d144f5e32b4f65a69eb0b24
-HOST_CARGO_C_SAME_FILE_1_0_6_URL		:= https://crates.io/api/v1/crates/same-file/1.0.6/download
+HOST_CARGO_C_SAME_FILE_1_0_6_URL		:= $(call ptx/mirror, CRATESIO, same-file/1.0.6/download)
 HOST_CARGO_C_SAME_FILE_1_0_6_SOURCE	:= $(SRCDIR)/same-file-1.0.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SAME_FILE_1_0_6
 
 HOST_CARGO_C_SCHANNEL_0_1_28_MD5		:= c4526bf321f0061a0670fc4abedfd26f
-HOST_CARGO_C_SCHANNEL_0_1_28_URL		:= https://crates.io/api/v1/crates/schannel/0.1.28/download
+HOST_CARGO_C_SCHANNEL_0_1_28_URL		:= $(call ptx/mirror, CRATESIO, schannel/0.1.28/download)
 HOST_CARGO_C_SCHANNEL_0_1_28_SOURCE	:= $(SRCDIR)/schannel-0.1.28.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SCHANNEL_0_1_28
 
 HOST_CARGO_C_SCOPEGUARD_1_2_0_MD5		:= f1358be8c98b98837cbd2cf51e75f8b3
-HOST_CARGO_C_SCOPEGUARD_1_2_0_URL		:= https://crates.io/api/v1/crates/scopeguard/1.2.0/download
+HOST_CARGO_C_SCOPEGUARD_1_2_0_URL		:= $(call ptx/mirror, CRATESIO, scopeguard/1.2.0/download)
 HOST_CARGO_C_SCOPEGUARD_1_2_0_SOURCE	:= $(SRCDIR)/scopeguard-1.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SCOPEGUARD_1_2_0
 
 HOST_CARGO_C_SEC1_0_7_3_MD5		:= 46e0a2b34b2a6108cad9e2b1da756cab
-HOST_CARGO_C_SEC1_0_7_3_URL		:= https://crates.io/api/v1/crates/sec1/0.7.3/download
+HOST_CARGO_C_SEC1_0_7_3_URL		:= $(call ptx/mirror, CRATESIO, sec1/0.7.3/download)
 HOST_CARGO_C_SEC1_0_7_3_SOURCE	:= $(SRCDIR)/sec1-0.7.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SEC1_0_7_3
 
 HOST_CARGO_C_SECURITY_FRAMEWORK_3_5_1_MD5		:= ec6f47cf9077248b8a9283ee032721b9
-HOST_CARGO_C_SECURITY_FRAMEWORK_3_5_1_URL		:= https://crates.io/api/v1/crates/security-framework/3.5.1/download
+HOST_CARGO_C_SECURITY_FRAMEWORK_3_5_1_URL		:= $(call ptx/mirror, CRATESIO, security-framework/3.5.1/download)
 HOST_CARGO_C_SECURITY_FRAMEWORK_3_5_1_SOURCE	:= $(SRCDIR)/security-framework-3.5.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SECURITY_FRAMEWORK_3_5_1
 
 HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_15_0_MD5		:= 731942f74c4b155418a04d0835423c37
-HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_15_0_URL		:= https://crates.io/api/v1/crates/security-framework-sys/2.15.0/download
+HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_15_0_URL		:= $(call ptx/mirror, CRATESIO, security-framework-sys/2.15.0/download)
 HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_15_0_SOURCE	:= $(SRCDIR)/security-framework-sys-2.15.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SECURITY_FRAMEWORK_SYS_2_15_0
 
 HOST_CARGO_C_SEMVER_1_0_27_MD5		:= 47a71e25c316729a529ade4ce1ba5f5c
-HOST_CARGO_C_SEMVER_1_0_27_URL		:= https://crates.io/api/v1/crates/semver/1.0.27/download
+HOST_CARGO_C_SEMVER_1_0_27_URL		:= $(call ptx/mirror, CRATESIO, semver/1.0.27/download)
 HOST_CARGO_C_SEMVER_1_0_27_SOURCE	:= $(SRCDIR)/semver-1.0.27.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SEMVER_1_0_27
 
 HOST_CARGO_C_SERDE_1_0_228_MD5		:= d156b7c4a314664880656902717747ed
-HOST_CARGO_C_SERDE_1_0_228_URL		:= https://crates.io/api/v1/crates/serde/1.0.228/download
+HOST_CARGO_C_SERDE_1_0_228_URL		:= $(call ptx/mirror, CRATESIO, serde/1.0.228/download)
 HOST_CARGO_C_SERDE_1_0_228_SOURCE	:= $(SRCDIR)/serde-1.0.228.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_1_0_228
 
 HOST_CARGO_C_SERDE_UNTAGGED_0_1_9_MD5		:= 0e63b0ab2d45b9d2ab101e57502e0d0d
-HOST_CARGO_C_SERDE_UNTAGGED_0_1_9_URL		:= https://crates.io/api/v1/crates/serde-untagged/0.1.9/download
+HOST_CARGO_C_SERDE_UNTAGGED_0_1_9_URL		:= $(call ptx/mirror, CRATESIO, serde-untagged/0.1.9/download)
 HOST_CARGO_C_SERDE_UNTAGGED_0_1_9_SOURCE	:= $(SRCDIR)/serde-untagged-0.1.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_UNTAGGED_0_1_9
 
 HOST_CARGO_C_SERDE_VALUE_0_7_0_MD5		:= eeda11db8ced625011d8b88d36765321
-HOST_CARGO_C_SERDE_VALUE_0_7_0_URL		:= https://crates.io/api/v1/crates/serde-value/0.7.0/download
+HOST_CARGO_C_SERDE_VALUE_0_7_0_URL		:= $(call ptx/mirror, CRATESIO, serde-value/0.7.0/download)
 HOST_CARGO_C_SERDE_VALUE_0_7_0_SOURCE	:= $(SRCDIR)/serde-value-0.7.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_VALUE_0_7_0
 
 HOST_CARGO_C_SERDE_CORE_1_0_228_MD5		:= 60d4c4f575afc314d644677feb1289c1
-HOST_CARGO_C_SERDE_CORE_1_0_228_URL		:= https://crates.io/api/v1/crates/serde_core/1.0.228/download
+HOST_CARGO_C_SERDE_CORE_1_0_228_URL		:= $(call ptx/mirror, CRATESIO, serde_core/1.0.228/download)
 HOST_CARGO_C_SERDE_CORE_1_0_228_SOURCE	:= $(SRCDIR)/serde_core-1.0.228.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_CORE_1_0_228
 
 HOST_CARGO_C_SERDE_DERIVE_1_0_228_MD5		:= 45ca53c87e6fb9748e740a9298e2c14c
-HOST_CARGO_C_SERDE_DERIVE_1_0_228_URL		:= https://crates.io/api/v1/crates/serde_derive/1.0.228/download
+HOST_CARGO_C_SERDE_DERIVE_1_0_228_URL		:= $(call ptx/mirror, CRATESIO, serde_derive/1.0.228/download)
 HOST_CARGO_C_SERDE_DERIVE_1_0_228_SOURCE	:= $(SRCDIR)/serde_derive-1.0.228.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_DERIVE_1_0_228
 
 HOST_CARGO_C_SERDE_IGNORED_0_1_14_MD5		:= 82600f69c4d3a3f1d0f324403ee34530
-HOST_CARGO_C_SERDE_IGNORED_0_1_14_URL		:= https://crates.io/api/v1/crates/serde_ignored/0.1.14/download
+HOST_CARGO_C_SERDE_IGNORED_0_1_14_URL		:= $(call ptx/mirror, CRATESIO, serde_ignored/0.1.14/download)
 HOST_CARGO_C_SERDE_IGNORED_0_1_14_SOURCE	:= $(SRCDIR)/serde_ignored-0.1.14.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_IGNORED_0_1_14
 
 HOST_CARGO_C_SERDE_JSON_1_0_149_MD5		:= 10164f24ab04c289c629028667a273ca
-HOST_CARGO_C_SERDE_JSON_1_0_149_URL		:= https://crates.io/api/v1/crates/serde_json/1.0.149/download
+HOST_CARGO_C_SERDE_JSON_1_0_149_URL		:= $(call ptx/mirror, CRATESIO, serde_json/1.0.149/download)
 HOST_CARGO_C_SERDE_JSON_1_0_149_SOURCE	:= $(SRCDIR)/serde_json-1.0.149.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_JSON_1_0_149
 
 HOST_CARGO_C_SERDE_SPANNED_1_0_4_MD5		:= 15603a17a0d683c7c50d4b7db22ddf58
-HOST_CARGO_C_SERDE_SPANNED_1_0_4_URL		:= https://crates.io/api/v1/crates/serde_spanned/1.0.4/download
+HOST_CARGO_C_SERDE_SPANNED_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, serde_spanned/1.0.4/download)
 HOST_CARGO_C_SERDE_SPANNED_1_0_4_SOURCE	:= $(SRCDIR)/serde_spanned-1.0.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SERDE_SPANNED_1_0_4
 
 HOST_CARGO_C_SHA1_0_10_6_MD5		:= d7602381c0bc21d10603cc940a837b06
-HOST_CARGO_C_SHA1_0_10_6_URL		:= https://crates.io/api/v1/crates/sha1/0.10.6/download
+HOST_CARGO_C_SHA1_0_10_6_URL		:= $(call ptx/mirror, CRATESIO, sha1/0.10.6/download)
 HOST_CARGO_C_SHA1_0_10_6_SOURCE	:= $(SRCDIR)/sha1-0.10.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHA1_0_10_6
 
 HOST_CARGO_C_SHA1_CHECKED_0_10_0_MD5		:= 40b13e06b6e4fe908700b97581a0149f
-HOST_CARGO_C_SHA1_CHECKED_0_10_0_URL		:= https://crates.io/api/v1/crates/sha1-checked/0.10.0/download
+HOST_CARGO_C_SHA1_CHECKED_0_10_0_URL		:= $(call ptx/mirror, CRATESIO, sha1-checked/0.10.0/download)
 HOST_CARGO_C_SHA1_CHECKED_0_10_0_SOURCE	:= $(SRCDIR)/sha1-checked-0.10.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHA1_CHECKED_0_10_0
 
 HOST_CARGO_C_SHA2_0_10_9_MD5		:= 295e503f197dd34556876b97c60b87c1
-HOST_CARGO_C_SHA2_0_10_9_URL		:= https://crates.io/api/v1/crates/sha2/0.10.9/download
+HOST_CARGO_C_SHA2_0_10_9_URL		:= $(call ptx/mirror, CRATESIO, sha2/0.10.9/download)
 HOST_CARGO_C_SHA2_0_10_9_SOURCE	:= $(SRCDIR)/sha2-0.10.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHA2_0_10_9
 
 HOST_CARGO_C_SHARDED_SLAB_0_1_7_MD5		:= 96261f3cee18842060fd64d618e056d8
-HOST_CARGO_C_SHARDED_SLAB_0_1_7_URL		:= https://crates.io/api/v1/crates/sharded-slab/0.1.7/download
+HOST_CARGO_C_SHARDED_SLAB_0_1_7_URL		:= $(call ptx/mirror, CRATESIO, sharded-slab/0.1.7/download)
 HOST_CARGO_C_SHARDED_SLAB_0_1_7_SOURCE	:= $(SRCDIR)/sharded-slab-0.1.7.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHARDED_SLAB_0_1_7
 
 HOST_CARGO_C_SHELL_ESCAPE_0_1_5_MD5		:= 08abe36adae4caee78acf034c56a550b
-HOST_CARGO_C_SHELL_ESCAPE_0_1_5_URL		:= https://crates.io/api/v1/crates/shell-escape/0.1.5/download
+HOST_CARGO_C_SHELL_ESCAPE_0_1_5_URL		:= $(call ptx/mirror, CRATESIO, shell-escape/0.1.5/download)
 HOST_CARGO_C_SHELL_ESCAPE_0_1_5_SOURCE	:= $(SRCDIR)/shell-escape-0.1.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHELL_ESCAPE_0_1_5
 
 HOST_CARGO_C_SHELL_WORDS_1_1_1_MD5		:= baea6ab0ad0e707176e0852b62342432
-HOST_CARGO_C_SHELL_WORDS_1_1_1_URL		:= https://crates.io/api/v1/crates/shell-words/1.1.1/download
+HOST_CARGO_C_SHELL_WORDS_1_1_1_URL		:= $(call ptx/mirror, CRATESIO, shell-words/1.1.1/download)
 HOST_CARGO_C_SHELL_WORDS_1_1_1_SOURCE	:= $(SRCDIR)/shell-words-1.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHELL_WORDS_1_1_1
 
 HOST_CARGO_C_SHLEX_1_3_0_MD5		:= 6c623a8eed8450399ec323a72e96855c
-HOST_CARGO_C_SHLEX_1_3_0_URL		:= https://crates.io/api/v1/crates/shlex/1.3.0/download
+HOST_CARGO_C_SHLEX_1_3_0_URL		:= $(call ptx/mirror, CRATESIO, shlex/1.3.0/download)
 HOST_CARGO_C_SHLEX_1_3_0_SOURCE	:= $(SRCDIR)/shlex-1.3.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SHLEX_1_3_0
 
 HOST_CARGO_C_SIGNATURE_2_2_0_MD5		:= a5f10909341dab15fcdee74b0409ec69
-HOST_CARGO_C_SIGNATURE_2_2_0_URL		:= https://crates.io/api/v1/crates/signature/2.2.0/download
+HOST_CARGO_C_SIGNATURE_2_2_0_URL		:= $(call ptx/mirror, CRATESIO, signature/2.2.0/download)
 HOST_CARGO_C_SIGNATURE_2_2_0_SOURCE	:= $(SRCDIR)/signature-2.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SIGNATURE_2_2_0
 
 HOST_CARGO_C_SIMD_ADLER32_0_3_8_MD5		:= c21092e1613c25704d1b7295a9775868
-HOST_CARGO_C_SIMD_ADLER32_0_3_8_URL		:= https://crates.io/api/v1/crates/simd-adler32/0.3.8/download
+HOST_CARGO_C_SIMD_ADLER32_0_3_8_URL		:= $(call ptx/mirror, CRATESIO, simd-adler32/0.3.8/download)
 HOST_CARGO_C_SIMD_ADLER32_0_3_8_SOURCE	:= $(SRCDIR)/simd-adler32-0.3.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SIMD_ADLER32_0_3_8
 
 HOST_CARGO_C_SIZED_CHUNKS_0_6_5_MD5		:= c51211275ff1e841326726837820eed9
-HOST_CARGO_C_SIZED_CHUNKS_0_6_5_URL		:= https://crates.io/api/v1/crates/sized-chunks/0.6.5/download
+HOST_CARGO_C_SIZED_CHUNKS_0_6_5_URL		:= $(call ptx/mirror, CRATESIO, sized-chunks/0.6.5/download)
 HOST_CARGO_C_SIZED_CHUNKS_0_6_5_SOURCE	:= $(SRCDIR)/sized-chunks-0.6.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SIZED_CHUNKS_0_6_5
 
 HOST_CARGO_C_SMALLVEC_1_15_1_MD5		:= bff9f5bd01b620680a98b1c59d92df7c
-HOST_CARGO_C_SMALLVEC_1_15_1_URL		:= https://crates.io/api/v1/crates/smallvec/1.15.1/download
+HOST_CARGO_C_SMALLVEC_1_15_1_URL		:= $(call ptx/mirror, CRATESIO, smallvec/1.15.1/download)
 HOST_CARGO_C_SMALLVEC_1_15_1_SOURCE	:= $(SRCDIR)/smallvec-1.15.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SMALLVEC_1_15_1
 
 HOST_CARGO_C_SOCKET2_0_6_2_MD5		:= f152e30ff3fb6d222c5c079dac081b34
-HOST_CARGO_C_SOCKET2_0_6_2_URL		:= https://crates.io/api/v1/crates/socket2/0.6.2/download
+HOST_CARGO_C_SOCKET2_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, socket2/0.6.2/download)
 HOST_CARGO_C_SOCKET2_0_6_2_SOURCE	:= $(SRCDIR)/socket2-0.6.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SOCKET2_0_6_2
 
 HOST_CARGO_C_SPKI_0_7_3_MD5		:= ae35a16ea73fc405f1cf50fa35b70ddd
-HOST_CARGO_C_SPKI_0_7_3_URL		:= https://crates.io/api/v1/crates/spki/0.7.3/download
+HOST_CARGO_C_SPKI_0_7_3_URL		:= $(call ptx/mirror, CRATESIO, spki/0.7.3/download)
 HOST_CARGO_C_SPKI_0_7_3_SOURCE	:= $(SRCDIR)/spki-0.7.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SPKI_0_7_3
 
 HOST_CARGO_C_STABLE_DEREF_TRAIT_1_2_1_MD5		:= e504675031766787830ccf420f6d8ca2
-HOST_CARGO_C_STABLE_DEREF_TRAIT_1_2_1_URL		:= https://crates.io/api/v1/crates/stable_deref_trait/1.2.1/download
+HOST_CARGO_C_STABLE_DEREF_TRAIT_1_2_1_URL		:= $(call ptx/mirror, CRATESIO, stable_deref_trait/1.2.1/download)
 HOST_CARGO_C_STABLE_DEREF_TRAIT_1_2_1_SOURCE	:= $(SRCDIR)/stable_deref_trait-1.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_STABLE_DEREF_TRAIT_1_2_1
 
 HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_MD5		:= c9defe80406280bcfce4ecf31c0200b3
-HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_URL		:= https://crates.io/api/v1/crates/static_assertions/1.1.0/download
+HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, static_assertions/1.1.0/download)
 HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0_SOURCE	:= $(SRCDIR)/static_assertions-1.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_STATIC_ASSERTIONS_1_1_0
 
 HOST_CARGO_C_STRSIM_0_11_1_MD5		:= fbe5da24bd1beef6125107ee41118187
-HOST_CARGO_C_STRSIM_0_11_1_URL		:= https://crates.io/api/v1/crates/strsim/0.11.1/download
+HOST_CARGO_C_STRSIM_0_11_1_URL		:= $(call ptx/mirror, CRATESIO, strsim/0.11.1/download)
 HOST_CARGO_C_STRSIM_0_11_1_SOURCE	:= $(SRCDIR)/strsim-0.11.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_STRSIM_0_11_1
 
 HOST_CARGO_C_SUBTLE_2_6_1_MD5		:= 611730d5a0344bd87742297274631890
-HOST_CARGO_C_SUBTLE_2_6_1_URL		:= https://crates.io/api/v1/crates/subtle/2.6.1/download
+HOST_CARGO_C_SUBTLE_2_6_1_URL		:= $(call ptx/mirror, CRATESIO, subtle/2.6.1/download)
 HOST_CARGO_C_SUBTLE_2_6_1_SOURCE	:= $(SRCDIR)/subtle-2.6.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SUBTLE_2_6_1
 
 HOST_CARGO_C_SUPPORTS_HYPERLINKS_3_2_0_MD5		:= a222be8336993845042b2faf424a7897
-HOST_CARGO_C_SUPPORTS_HYPERLINKS_3_2_0_URL		:= https://crates.io/api/v1/crates/supports-hyperlinks/3.2.0/download
+HOST_CARGO_C_SUPPORTS_HYPERLINKS_3_2_0_URL		:= $(call ptx/mirror, CRATESIO, supports-hyperlinks/3.2.0/download)
 HOST_CARGO_C_SUPPORTS_HYPERLINKS_3_2_0_SOURCE	:= $(SRCDIR)/supports-hyperlinks-3.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SUPPORTS_HYPERLINKS_3_2_0
 
 HOST_CARGO_C_SUPPORTS_UNICODE_3_0_0_MD5		:= 4f6fd5325554bf939f7518dc4f74dae5
-HOST_CARGO_C_SUPPORTS_UNICODE_3_0_0_URL		:= https://crates.io/api/v1/crates/supports-unicode/3.0.0/download
+HOST_CARGO_C_SUPPORTS_UNICODE_3_0_0_URL		:= $(call ptx/mirror, CRATESIO, supports-unicode/3.0.0/download)
 HOST_CARGO_C_SUPPORTS_UNICODE_3_0_0_SOURCE	:= $(SRCDIR)/supports-unicode-3.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SUPPORTS_UNICODE_3_0_0
 
 HOST_CARGO_C_SYN_2_0_114_MD5		:= ebe57a18889cf2f2bea7618a91acd735
-HOST_CARGO_C_SYN_2_0_114_URL		:= https://crates.io/api/v1/crates/syn/2.0.114/download
+HOST_CARGO_C_SYN_2_0_114_URL		:= $(call ptx/mirror, CRATESIO, syn/2.0.114/download)
 HOST_CARGO_C_SYN_2_0_114_SOURCE	:= $(SRCDIR)/syn-2.0.114.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SYN_2_0_114
 
 HOST_CARGO_C_SYNSTRUCTURE_0_13_2_MD5		:= 99f5ad699ad94698b60f39bba715ca45
-HOST_CARGO_C_SYNSTRUCTURE_0_13_2_URL		:= https://crates.io/api/v1/crates/synstructure/0.13.2/download
+HOST_CARGO_C_SYNSTRUCTURE_0_13_2_URL		:= $(call ptx/mirror, CRATESIO, synstructure/0.13.2/download)
 HOST_CARGO_C_SYNSTRUCTURE_0_13_2_SOURCE	:= $(SRCDIR)/synstructure-0.13.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_SYNSTRUCTURE_0_13_2
 
 HOST_CARGO_C_TAR_0_4_44_MD5		:= 4659adaaaaee37c38748a2833f5f015b
-HOST_CARGO_C_TAR_0_4_44_URL		:= https://crates.io/api/v1/crates/tar/0.4.44/download
+HOST_CARGO_C_TAR_0_4_44_URL		:= $(call ptx/mirror, CRATESIO, tar/0.4.44/download)
 HOST_CARGO_C_TAR_0_4_44_SOURCE	:= $(SRCDIR)/tar-0.4.44.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TAR_0_4_44
 
 HOST_CARGO_C_TEMPFILE_3_24_0_MD5		:= 1cd5c4ca4c47e7643a521d5842b20bcc
-HOST_CARGO_C_TEMPFILE_3_24_0_URL		:= https://crates.io/api/v1/crates/tempfile/3.24.0/download
+HOST_CARGO_C_TEMPFILE_3_24_0_URL		:= $(call ptx/mirror, CRATESIO, tempfile/3.24.0/download)
 HOST_CARGO_C_TEMPFILE_3_24_0_SOURCE	:= $(SRCDIR)/tempfile-3.24.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TEMPFILE_3_24_0
 
 HOST_CARGO_C_TERMINAL_SIZE_0_4_3_MD5		:= bb56b7d479e9fa872a035b46f04a3fbd
-HOST_CARGO_C_TERMINAL_SIZE_0_4_3_URL		:= https://crates.io/api/v1/crates/terminal_size/0.4.3/download
+HOST_CARGO_C_TERMINAL_SIZE_0_4_3_URL		:= $(call ptx/mirror, CRATESIO, terminal_size/0.4.3/download)
 HOST_CARGO_C_TERMINAL_SIZE_0_4_3_SOURCE	:= $(SRCDIR)/terminal_size-0.4.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TERMINAL_SIZE_0_4_3
 
 HOST_CARGO_C_THISERROR_2_0_18_MD5		:= ffb6b46b564680efcda445f05682cb47
-HOST_CARGO_C_THISERROR_2_0_18_URL		:= https://crates.io/api/v1/crates/thiserror/2.0.18/download
+HOST_CARGO_C_THISERROR_2_0_18_URL		:= $(call ptx/mirror, CRATESIO, thiserror/2.0.18/download)
 HOST_CARGO_C_THISERROR_2_0_18_SOURCE	:= $(SRCDIR)/thiserror-2.0.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_THISERROR_2_0_18
 
 HOST_CARGO_C_THISERROR_IMPL_2_0_18_MD5		:= 355b878d5248a72c2d71840357bedfa0
-HOST_CARGO_C_THISERROR_IMPL_2_0_18_URL		:= https://crates.io/api/v1/crates/thiserror-impl/2.0.18/download
+HOST_CARGO_C_THISERROR_IMPL_2_0_18_URL		:= $(call ptx/mirror, CRATESIO, thiserror-impl/2.0.18/download)
 HOST_CARGO_C_THISERROR_IMPL_2_0_18_SOURCE	:= $(SRCDIR)/thiserror-impl-2.0.18.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_THISERROR_IMPL_2_0_18
 
 HOST_CARGO_C_THREAD_LOCAL_1_1_9_MD5		:= f6d8a5fadf6091837b8d5c33851ad571
-HOST_CARGO_C_THREAD_LOCAL_1_1_9_URL		:= https://crates.io/api/v1/crates/thread_local/1.1.9/download
+HOST_CARGO_C_THREAD_LOCAL_1_1_9_URL		:= $(call ptx/mirror, CRATESIO, thread_local/1.1.9/download)
 HOST_CARGO_C_THREAD_LOCAL_1_1_9_SOURCE	:= $(SRCDIR)/thread_local-1.1.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_THREAD_LOCAL_1_1_9
 
 HOST_CARGO_C_TIME_0_3_46_MD5		:= 5cf4f93481e823b61349407106c1f3ae
-HOST_CARGO_C_TIME_0_3_46_URL		:= https://crates.io/api/v1/crates/time/0.3.46/download
+HOST_CARGO_C_TIME_0_3_46_URL		:= $(call ptx/mirror, CRATESIO, time/0.3.46/download)
 HOST_CARGO_C_TIME_0_3_46_SOURCE	:= $(SRCDIR)/time-0.3.46.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TIME_0_3_46
 
 HOST_CARGO_C_TIME_CORE_0_1_8_MD5		:= b1bb3a822a8b3650a7401dbc737764f0
-HOST_CARGO_C_TIME_CORE_0_1_8_URL		:= https://crates.io/api/v1/crates/time-core/0.1.8/download
+HOST_CARGO_C_TIME_CORE_0_1_8_URL		:= $(call ptx/mirror, CRATESIO, time-core/0.1.8/download)
 HOST_CARGO_C_TIME_CORE_0_1_8_SOURCE	:= $(SRCDIR)/time-core-0.1.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TIME_CORE_0_1_8
 
 HOST_CARGO_C_TIME_MACROS_0_2_26_MD5		:= 2530b10003464733d722b3ac2a3cb398
-HOST_CARGO_C_TIME_MACROS_0_2_26_URL		:= https://crates.io/api/v1/crates/time-macros/0.2.26/download
+HOST_CARGO_C_TIME_MACROS_0_2_26_URL		:= $(call ptx/mirror, CRATESIO, time-macros/0.2.26/download)
 HOST_CARGO_C_TIME_MACROS_0_2_26_SOURCE	:= $(SRCDIR)/time-macros-0.2.26.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TIME_MACROS_0_2_26
 
 HOST_CARGO_C_TINYSTR_0_8_2_MD5		:= 7134a4b036cb49118765602f8d954dcc
-HOST_CARGO_C_TINYSTR_0_8_2_URL		:= https://crates.io/api/v1/crates/tinystr/0.8.2/download
+HOST_CARGO_C_TINYSTR_0_8_2_URL		:= $(call ptx/mirror, CRATESIO, tinystr/0.8.2/download)
 HOST_CARGO_C_TINYSTR_0_8_2_SOURCE	:= $(SRCDIR)/tinystr-0.8.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TINYSTR_0_8_2
 
 HOST_CARGO_C_TINYVEC_1_10_0_MD5		:= 24bde53a22a1be2f22f8c0fae2b58c95
-HOST_CARGO_C_TINYVEC_1_10_0_URL		:= https://crates.io/api/v1/crates/tinyvec/1.10.0/download
+HOST_CARGO_C_TINYVEC_1_10_0_URL		:= $(call ptx/mirror, CRATESIO, tinyvec/1.10.0/download)
 HOST_CARGO_C_TINYVEC_1_10_0_SOURCE	:= $(SRCDIR)/tinyvec-1.10.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TINYVEC_1_10_0
 
 HOST_CARGO_C_TINYVEC_MACROS_0_1_1_MD5		:= c678a7da0ee4b850ebde0474144a0415
-HOST_CARGO_C_TINYVEC_MACROS_0_1_1_URL		:= https://crates.io/api/v1/crates/tinyvec_macros/0.1.1/download
+HOST_CARGO_C_TINYVEC_MACROS_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, tinyvec_macros/0.1.1/download)
 HOST_CARGO_C_TINYVEC_MACROS_0_1_1_SOURCE	:= $(SRCDIR)/tinyvec_macros-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TINYVEC_MACROS_0_1_1
 
 HOST_CARGO_C_TOML_0_9_11_SPEC_1_1_0_MD5		:= afa8d78174de7ca152bdd5ead7350734
-HOST_CARGO_C_TOML_0_9_11_SPEC_1_1_0_URL		:= https://crates.io/api/v1/crates/toml/0.9.11+spec-1.1.0/download
+HOST_CARGO_C_TOML_0_9_11_SPEC_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, toml/0.9.11+spec-1.1.0/download)
 HOST_CARGO_C_TOML_0_9_11_SPEC_1_1_0_SOURCE	:= $(SRCDIR)/toml-0.9.11+spec-1.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_0_9_11_SPEC_1_1_0
 
 HOST_CARGO_C_TOML_DATETIME_0_7_5_SPEC_1_1_0_MD5		:= 9bf537e7d26a16e35156d3a4b5c9338b
-HOST_CARGO_C_TOML_DATETIME_0_7_5_SPEC_1_1_0_URL		:= https://crates.io/api/v1/crates/toml_datetime/0.7.5+spec-1.1.0/download
+HOST_CARGO_C_TOML_DATETIME_0_7_5_SPEC_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, toml_datetime/0.7.5+spec-1.1.0/download)
 HOST_CARGO_C_TOML_DATETIME_0_7_5_SPEC_1_1_0_SOURCE	:= $(SRCDIR)/toml_datetime-0.7.5+spec-1.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_DATETIME_0_7_5_SPEC_1_1_0
 
 HOST_CARGO_C_TOML_EDIT_0_23_10_SPEC_1_0_0_MD5		:= f0e3a73919cd3604abddc700049ac765
-HOST_CARGO_C_TOML_EDIT_0_23_10_SPEC_1_0_0_URL		:= https://crates.io/api/v1/crates/toml_edit/0.23.10+spec-1.0.0/download
+HOST_CARGO_C_TOML_EDIT_0_23_10_SPEC_1_0_0_URL		:= $(call ptx/mirror, CRATESIO, toml_edit/0.23.10+spec-1.0.0/download)
 HOST_CARGO_C_TOML_EDIT_0_23_10_SPEC_1_0_0_SOURCE	:= $(SRCDIR)/toml_edit-0.23.10+spec-1.0.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_EDIT_0_23_10_SPEC_1_0_0
 
 HOST_CARGO_C_TOML_PARSER_1_0_6_SPEC_1_1_0_MD5		:= d68794323cd4f09c15e561fff26ac5cd
-HOST_CARGO_C_TOML_PARSER_1_0_6_SPEC_1_1_0_URL		:= https://crates.io/api/v1/crates/toml_parser/1.0.6+spec-1.1.0/download
+HOST_CARGO_C_TOML_PARSER_1_0_6_SPEC_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, toml_parser/1.0.6+spec-1.1.0/download)
 HOST_CARGO_C_TOML_PARSER_1_0_6_SPEC_1_1_0_SOURCE	:= $(SRCDIR)/toml_parser-1.0.6+spec-1.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_PARSER_1_0_6_SPEC_1_1_0
 
 HOST_CARGO_C_TOML_WRITER_1_0_6_SPEC_1_1_0_MD5		:= 3aace232a48239015af2b93472c71e3e
-HOST_CARGO_C_TOML_WRITER_1_0_6_SPEC_1_1_0_URL		:= https://crates.io/api/v1/crates/toml_writer/1.0.6+spec-1.1.0/download
+HOST_CARGO_C_TOML_WRITER_1_0_6_SPEC_1_1_0_URL		:= $(call ptx/mirror, CRATESIO, toml_writer/1.0.6+spec-1.1.0/download)
 HOST_CARGO_C_TOML_WRITER_1_0_6_SPEC_1_1_0_SOURCE	:= $(SRCDIR)/toml_writer-1.0.6+spec-1.1.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TOML_WRITER_1_0_6_SPEC_1_1_0
 
 HOST_CARGO_C_TRACING_0_1_44_MD5		:= b984c15c692a0f99698c62d9414e2b60
-HOST_CARGO_C_TRACING_0_1_44_URL		:= https://crates.io/api/v1/crates/tracing/0.1.44/download
+HOST_CARGO_C_TRACING_0_1_44_URL		:= $(call ptx/mirror, CRATESIO, tracing/0.1.44/download)
 HOST_CARGO_C_TRACING_0_1_44_SOURCE	:= $(SRCDIR)/tracing-0.1.44.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_0_1_44
 
 HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_31_MD5		:= 671eb267f94ea7044d7274f0c8be1493
-HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_31_URL		:= https://crates.io/api/v1/crates/tracing-attributes/0.1.31/download
+HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_31_URL		:= $(call ptx/mirror, CRATESIO, tracing-attributes/0.1.31/download)
 HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_31_SOURCE	:= $(SRCDIR)/tracing-attributes-0.1.31.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_ATTRIBUTES_0_1_31
 
 HOST_CARGO_C_TRACING_CHROME_0_7_2_MD5		:= 51534ecc7b99f6ba320b65ac2593f82f
-HOST_CARGO_C_TRACING_CHROME_0_7_2_URL		:= https://crates.io/api/v1/crates/tracing-chrome/0.7.2/download
+HOST_CARGO_C_TRACING_CHROME_0_7_2_URL		:= $(call ptx/mirror, CRATESIO, tracing-chrome/0.7.2/download)
 HOST_CARGO_C_TRACING_CHROME_0_7_2_SOURCE	:= $(SRCDIR)/tracing-chrome-0.7.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_CHROME_0_7_2
 
 HOST_CARGO_C_TRACING_CORE_0_1_36_MD5		:= 1c2814a474930e4380e07d61ebdf0da6
-HOST_CARGO_C_TRACING_CORE_0_1_36_URL		:= https://crates.io/api/v1/crates/tracing-core/0.1.36/download
+HOST_CARGO_C_TRACING_CORE_0_1_36_URL		:= $(call ptx/mirror, CRATESIO, tracing-core/0.1.36/download)
 HOST_CARGO_C_TRACING_CORE_0_1_36_SOURCE	:= $(SRCDIR)/tracing-core-0.1.36.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_CORE_0_1_36
 
 HOST_CARGO_C_TRACING_LOG_0_2_0_MD5		:= beede1fdd5ce9840d395abc905d8ab3e
-HOST_CARGO_C_TRACING_LOG_0_2_0_URL		:= https://crates.io/api/v1/crates/tracing-log/0.2.0/download
+HOST_CARGO_C_TRACING_LOG_0_2_0_URL		:= $(call ptx/mirror, CRATESIO, tracing-log/0.2.0/download)
 HOST_CARGO_C_TRACING_LOG_0_2_0_SOURCE	:= $(SRCDIR)/tracing-log-0.2.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_LOG_0_2_0
 
 HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_22_MD5		:= 6717fc8e33580e3b5cb2dc46b5a5851a
-HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_22_URL		:= https://crates.io/api/v1/crates/tracing-subscriber/0.3.22/download
+HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_22_URL		:= $(call ptx/mirror, CRATESIO, tracing-subscriber/0.3.22/download)
 HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_22_SOURCE	:= $(SRCDIR)/tracing-subscriber-0.3.22.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TRACING_SUBSCRIBER_0_3_22
 
 HOST_CARGO_C_TYPEID_1_0_3_MD5		:= 80658754ba25f4a3c7c78c26ef5ae27f
-HOST_CARGO_C_TYPEID_1_0_3_URL		:= https://crates.io/api/v1/crates/typeid/1.0.3/download
+HOST_CARGO_C_TYPEID_1_0_3_URL		:= $(call ptx/mirror, CRATESIO, typeid/1.0.3/download)
 HOST_CARGO_C_TYPEID_1_0_3_SOURCE	:= $(SRCDIR)/typeid-1.0.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TYPEID_1_0_3
 
 HOST_CARGO_C_TYPENUM_1_19_0_MD5		:= f9d969cfb6e7f4deafcb270dd18464d9
-HOST_CARGO_C_TYPENUM_1_19_0_URL		:= https://crates.io/api/v1/crates/typenum/1.19.0/download
+HOST_CARGO_C_TYPENUM_1_19_0_URL		:= $(call ptx/mirror, CRATESIO, typenum/1.19.0/download)
 HOST_CARGO_C_TYPENUM_1_19_0_SOURCE	:= $(SRCDIR)/typenum-1.19.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_TYPENUM_1_19_0
 
 HOST_CARGO_C_UNICASE_2_9_0_MD5		:= d2fef56363be148395a6b7e3a1aa59fa
-HOST_CARGO_C_UNICASE_2_9_0_URL		:= https://crates.io/api/v1/crates/unicase/2.9.0/download
+HOST_CARGO_C_UNICASE_2_9_0_URL		:= $(call ptx/mirror, CRATESIO, unicase/2.9.0/download)
 HOST_CARGO_C_UNICASE_2_9_0_SOURCE	:= $(SRCDIR)/unicase-2.9.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICASE_2_9_0
 
 HOST_CARGO_C_UNICODE_BOM_2_0_3_MD5		:= c3d42808c0c5cc0283666964f83df775
-HOST_CARGO_C_UNICODE_BOM_2_0_3_URL		:= https://crates.io/api/v1/crates/unicode-bom/2.0.3/download
+HOST_CARGO_C_UNICODE_BOM_2_0_3_URL		:= $(call ptx/mirror, CRATESIO, unicode-bom/2.0.3/download)
 HOST_CARGO_C_UNICODE_BOM_2_0_3_SOURCE	:= $(SRCDIR)/unicode-bom-2.0.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_BOM_2_0_3
 
 HOST_CARGO_C_UNICODE_IDENT_1_0_22_MD5		:= a1a21f38fccf487fac84ad67e8ae7be3
-HOST_CARGO_C_UNICODE_IDENT_1_0_22_URL		:= https://crates.io/api/v1/crates/unicode-ident/1.0.22/download
+HOST_CARGO_C_UNICODE_IDENT_1_0_22_URL		:= $(call ptx/mirror, CRATESIO, unicode-ident/1.0.22/download)
 HOST_CARGO_C_UNICODE_IDENT_1_0_22_SOURCE	:= $(SRCDIR)/unicode-ident-1.0.22.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_IDENT_1_0_22
 
 HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_25_MD5		:= 6dafa04351e818cda8806a5bff1dd916
-HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_25_URL		:= https://crates.io/api/v1/crates/unicode-normalization/0.1.25/download
+HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_25_URL		:= $(call ptx/mirror, CRATESIO, unicode-normalization/0.1.25/download)
 HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_25_SOURCE	:= $(SRCDIR)/unicode-normalization-0.1.25.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_NORMALIZATION_0_1_25
 
 HOST_CARGO_C_UNICODE_WIDTH_0_2_2_MD5		:= 2a4b3962d2e873cc03ad5bd46fee8896
-HOST_CARGO_C_UNICODE_WIDTH_0_2_2_URL		:= https://crates.io/api/v1/crates/unicode-width/0.2.2/download
+HOST_CARGO_C_UNICODE_WIDTH_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, unicode-width/0.2.2/download)
 HOST_CARGO_C_UNICODE_WIDTH_0_2_2_SOURCE	:= $(SRCDIR)/unicode-width-0.2.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UNICODE_WIDTH_0_2_2
 
 HOST_CARGO_C_URL_2_5_8_MD5		:= 35628f01b0626542c0b974dac3e547e7
-HOST_CARGO_C_URL_2_5_8_URL		:= https://crates.io/api/v1/crates/url/2.5.8/download
+HOST_CARGO_C_URL_2_5_8_URL		:= $(call ptx/mirror, CRATESIO, url/2.5.8/download)
 HOST_CARGO_C_URL_2_5_8_SOURCE	:= $(SRCDIR)/url-2.5.8.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_URL_2_5_8
 
 HOST_CARGO_C_UTF8_ITER_1_0_4_MD5		:= 04ee294e8d343a73ef89ed6f07acd9b1
-HOST_CARGO_C_UTF8_ITER_1_0_4_URL		:= https://crates.io/api/v1/crates/utf8_iter/1.0.4/download
+HOST_CARGO_C_UTF8_ITER_1_0_4_URL		:= $(call ptx/mirror, CRATESIO, utf8_iter/1.0.4/download)
 HOST_CARGO_C_UTF8_ITER_1_0_4_SOURCE	:= $(SRCDIR)/utf8_iter-1.0.4.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UTF8_ITER_1_0_4
 
 HOST_CARGO_C_UTF8PARSE_0_2_2_MD5		:= 470f527a51d3921895bd2583fce8d9c4
-HOST_CARGO_C_UTF8PARSE_0_2_2_URL		:= https://crates.io/api/v1/crates/utf8parse/0.2.2/download
+HOST_CARGO_C_UTF8PARSE_0_2_2_URL		:= $(call ptx/mirror, CRATESIO, utf8parse/0.2.2/download)
 HOST_CARGO_C_UTF8PARSE_0_2_2_SOURCE	:= $(SRCDIR)/utf8parse-0.2.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_UTF8PARSE_0_2_2
 
 HOST_CARGO_C_VALUABLE_0_1_1_MD5		:= 4a1c91b24c3025dc6bb6e0eb9711772a
-HOST_CARGO_C_VALUABLE_0_1_1_URL		:= https://crates.io/api/v1/crates/valuable/0.1.1/download
+HOST_CARGO_C_VALUABLE_0_1_1_URL		:= $(call ptx/mirror, CRATESIO, valuable/0.1.1/download)
 HOST_CARGO_C_VALUABLE_0_1_1_SOURCE	:= $(SRCDIR)/valuable-0.1.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_VALUABLE_0_1_1
 
 HOST_CARGO_C_VCPKG_0_2_15_MD5		:= e900a384ac7dbb320fe6a7279fbfef89
-HOST_CARGO_C_VCPKG_0_2_15_URL		:= https://crates.io/api/v1/crates/vcpkg/0.2.15/download
+HOST_CARGO_C_VCPKG_0_2_15_URL		:= $(call ptx/mirror, CRATESIO, vcpkg/0.2.15/download)
 HOST_CARGO_C_VCPKG_0_2_15_SOURCE	:= $(SRCDIR)/vcpkg-0.2.15.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_VCPKG_0_2_15
 
 HOST_CARGO_C_VERSION_CHECK_0_9_5_MD5		:= f9880f1c33a7bc7b0e6e086b504bf38f
-HOST_CARGO_C_VERSION_CHECK_0_9_5_URL		:= https://crates.io/api/v1/crates/version_check/0.9.5/download
+HOST_CARGO_C_VERSION_CHECK_0_9_5_URL		:= $(call ptx/mirror, CRATESIO, version_check/0.9.5/download)
 HOST_CARGO_C_VERSION_CHECK_0_9_5_SOURCE	:= $(SRCDIR)/version_check-0.9.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_VERSION_CHECK_0_9_5
 
 HOST_CARGO_C_WALKDIR_2_5_0_MD5		:= f38b27b8c9625110a51293658f1cc014
-HOST_CARGO_C_WALKDIR_2_5_0_URL		:= https://crates.io/api/v1/crates/walkdir/2.5.0/download
+HOST_CARGO_C_WALKDIR_2_5_0_URL		:= $(call ptx/mirror, CRATESIO, walkdir/2.5.0/download)
 HOST_CARGO_C_WALKDIR_2_5_0_SOURCE	:= $(SRCDIR)/walkdir-2.5.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WALKDIR_2_5_0
 
 HOST_CARGO_C_WASI_0_11_1_WASI_SNAPSHOT_PREVIEW1_MD5		:= b3c17dbae6dcdda8e25963f21402905e
-HOST_CARGO_C_WASI_0_11_1_WASI_SNAPSHOT_PREVIEW1_URL		:= https://crates.io/api/v1/crates/wasi/0.11.1+wasi-snapshot-preview1/download
+HOST_CARGO_C_WASI_0_11_1_WASI_SNAPSHOT_PREVIEW1_URL		:= $(call ptx/mirror, CRATESIO, wasi/0.11.1+wasi-snapshot-preview1/download)
 HOST_CARGO_C_WASI_0_11_1_WASI_SNAPSHOT_PREVIEW1_SOURCE	:= $(SRCDIR)/wasi-0.11.1+wasi-snapshot-preview1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASI_0_11_1_WASI_SNAPSHOT_PREVIEW1
 
 HOST_CARGO_C_WASIP2_1_0_2_WASI_0_2_9_MD5		:= 9791431296dbe72aabda37a120a0d82f
-HOST_CARGO_C_WASIP2_1_0_2_WASI_0_2_9_URL		:= https://crates.io/api/v1/crates/wasip2/1.0.2+wasi-0.2.9/download
+HOST_CARGO_C_WASIP2_1_0_2_WASI_0_2_9_URL		:= $(call ptx/mirror, CRATESIO, wasip2/1.0.2+wasi-0.2.9/download)
 HOST_CARGO_C_WASIP2_1_0_2_WASI_0_2_9_SOURCE	:= $(SRCDIR)/wasip2-1.0.2+wasi-0.2.9.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASIP2_1_0_2_WASI_0_2_9
 
 HOST_CARGO_C_WASM_BINDGEN_0_2_108_MD5		:= 83475d3c2569ee429bd559aa1db56a0a
-HOST_CARGO_C_WASM_BINDGEN_0_2_108_URL		:= https://crates.io/api/v1/crates/wasm-bindgen/0.2.108/download
+HOST_CARGO_C_WASM_BINDGEN_0_2_108_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen/0.2.108/download)
 HOST_CARGO_C_WASM_BINDGEN_0_2_108_SOURCE	:= $(SRCDIR)/wasm-bindgen-0.2.108.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_0_2_108
 
 HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_108_MD5		:= 8f27a51c42eb0d7b88f8a66454bcb8f7
-HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_108_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-macro/0.2.108/download
+HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_108_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-macro/0.2.108/download)
 HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_108_SOURCE	:= $(SRCDIR)/wasm-bindgen-macro-0.2.108.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_MACRO_0_2_108
 
 HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_108_MD5		:= 12f5700383069223063d43087076f633
-HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_108_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-macro-support/0.2.108/download
+HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_108_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-macro-support/0.2.108/download)
 HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_108_SOURCE	:= $(SRCDIR)/wasm-bindgen-macro-support-0.2.108.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_MACRO_SUPPORT_0_2_108
 
 HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_108_MD5		:= 80c1ad1aeea9e0b966e58b402ecb8f44
-HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_108_URL		:= https://crates.io/api/v1/crates/wasm-bindgen-shared/0.2.108/download
+HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_108_URL		:= $(call ptx/mirror, CRATESIO, wasm-bindgen-shared/0.2.108/download)
 HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_108_SOURCE	:= $(SRCDIR)/wasm-bindgen-shared-0.2.108.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WASM_BINDGEN_SHARED_0_2_108
 
 HOST_CARGO_C_WINAPI_UTIL_0_1_11_MD5		:= 119f519a2b99e0212a8def5baed07c3f
-HOST_CARGO_C_WINAPI_UTIL_0_1_11_URL		:= https://crates.io/api/v1/crates/winapi-util/0.1.11/download
+HOST_CARGO_C_WINAPI_UTIL_0_1_11_URL		:= $(call ptx/mirror, CRATESIO, winapi-util/0.1.11/download)
 HOST_CARGO_C_WINAPI_UTIL_0_1_11_SOURCE	:= $(SRCDIR)/winapi-util-0.1.11.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINAPI_UTIL_0_1_11
 
 HOST_CARGO_C_WINDOWS_LINK_0_2_1_MD5		:= bb3780dd283a2faedb95ca3efcbb1196
-HOST_CARGO_C_WINDOWS_LINK_0_2_1_URL		:= https://crates.io/api/v1/crates/windows-link/0.2.1/download
+HOST_CARGO_C_WINDOWS_LINK_0_2_1_URL		:= $(call ptx/mirror, CRATESIO, windows-link/0.2.1/download)
 HOST_CARGO_C_WINDOWS_LINK_0_2_1_SOURCE	:= $(SRCDIR)/windows-link-0.2.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_LINK_0_2_1
 
 HOST_CARGO_C_WINDOWS_SYS_0_59_0_MD5		:= 73b177d6d000daaa8f05790414a887a3
-HOST_CARGO_C_WINDOWS_SYS_0_59_0_URL		:= https://crates.io/api/v1/crates/windows-sys/0.59.0/download
+HOST_CARGO_C_WINDOWS_SYS_0_59_0_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.59.0/download)
 HOST_CARGO_C_WINDOWS_SYS_0_59_0_SOURCE	:= $(SRCDIR)/windows-sys-0.59.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_SYS_0_59_0
 
 HOST_CARGO_C_WINDOWS_SYS_0_60_2_MD5		:= 5b8f032f5b1f775ec3c35d9d6fe1aba9
-HOST_CARGO_C_WINDOWS_SYS_0_60_2_URL		:= https://crates.io/api/v1/crates/windows-sys/0.60.2/download
+HOST_CARGO_C_WINDOWS_SYS_0_60_2_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.60.2/download)
 HOST_CARGO_C_WINDOWS_SYS_0_60_2_SOURCE	:= $(SRCDIR)/windows-sys-0.60.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_SYS_0_60_2
 
 HOST_CARGO_C_WINDOWS_SYS_0_61_2_MD5		:= dd7513efd3722e624cf5b4f57d67b2be
-HOST_CARGO_C_WINDOWS_SYS_0_61_2_URL		:= https://crates.io/api/v1/crates/windows-sys/0.61.2/download
+HOST_CARGO_C_WINDOWS_SYS_0_61_2_URL		:= $(call ptx/mirror, CRATESIO, windows-sys/0.61.2/download)
 HOST_CARGO_C_WINDOWS_SYS_0_61_2_SOURCE	:= $(SRCDIR)/windows-sys-0.61.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_SYS_0_61_2
 
 HOST_CARGO_C_WINDOWS_TARGETS_0_52_6_MD5		:= 9e876a38acd8262d97e9302ecb4e0f72
-HOST_CARGO_C_WINDOWS_TARGETS_0_52_6_URL		:= https://crates.io/api/v1/crates/windows-targets/0.52.6/download
+HOST_CARGO_C_WINDOWS_TARGETS_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows-targets/0.52.6/download)
 HOST_CARGO_C_WINDOWS_TARGETS_0_52_6_SOURCE	:= $(SRCDIR)/windows-targets-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_TARGETS_0_52_6
 
 HOST_CARGO_C_WINDOWS_TARGETS_0_53_5_MD5		:= 523ad3a4f0c185bce7ae059a6819403b
-HOST_CARGO_C_WINDOWS_TARGETS_0_53_5_URL		:= https://crates.io/api/v1/crates/windows-targets/0.53.5/download
+HOST_CARGO_C_WINDOWS_TARGETS_0_53_5_URL		:= $(call ptx/mirror, CRATESIO, windows-targets/0.53.5/download)
 HOST_CARGO_C_WINDOWS_TARGETS_0_53_5_SOURCE	:= $(SRCDIR)/windows-targets-0.53.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_TARGETS_0_53_5
 
 HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_52_6_MD5		:= 8c8adde50f0a531c407c5b68ab928f0b
-HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.52.6/download
+HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_gnullvm/0.52.6/download)
 HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_52_6_SOURCE	:= $(SRCDIR)/windows_aarch64_gnullvm-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_52_6
 
 HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_53_1_MD5		:= cfbf635d826d2d14d6e71c9eb07b5c07
-HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_aarch64_gnullvm/0.53.1/download
+HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_gnullvm/0.53.1/download)
 HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_53_1_SOURCE	:= $(SRCDIR)/windows_aarch64_gnullvm-0.53.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_AARCH64_GNULLVM_0_53_1
 
 HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_52_6_MD5		:= 233b17dfcf7e49ac791eef30b7f406e3
-HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_aarch64_msvc/0.52.6/download
+HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_msvc/0.52.6/download)
 HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_52_6_SOURCE	:= $(SRCDIR)/windows_aarch64_msvc-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_52_6
 
 HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_53_1_MD5		:= 7cf393d79b04cdacd2593cbbca888b8f
-HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_aarch64_msvc/0.53.1/download
+HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_aarch64_msvc/0.53.1/download)
 HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_53_1_SOURCE	:= $(SRCDIR)/windows_aarch64_msvc-0.53.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_AARCH64_MSVC_0_53_1
 
 HOST_CARGO_C_WINDOWS_I686_GNU_0_52_6_MD5		:= 7cb99b00381f697eaf8a322ed3b8205c
-HOST_CARGO_C_WINDOWS_I686_GNU_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_i686_gnu/0.52.6/download
+HOST_CARGO_C_WINDOWS_I686_GNU_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnu/0.52.6/download)
 HOST_CARGO_C_WINDOWS_I686_GNU_0_52_6_SOURCE	:= $(SRCDIR)/windows_i686_gnu-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_GNU_0_52_6
 
 HOST_CARGO_C_WINDOWS_I686_GNU_0_53_1_MD5		:= 5072812053c27c0ae184f10011158f47
-HOST_CARGO_C_WINDOWS_I686_GNU_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_i686_gnu/0.53.1/download
+HOST_CARGO_C_WINDOWS_I686_GNU_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnu/0.53.1/download)
 HOST_CARGO_C_WINDOWS_I686_GNU_0_53_1_SOURCE	:= $(SRCDIR)/windows_i686_gnu-0.53.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_GNU_0_53_1
 
 HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_52_6_MD5		:= 1baf62319b533f3d996993b82305e547
-HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_i686_gnullvm/0.52.6/download
+HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnullvm/0.52.6/download)
 HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_52_6_SOURCE	:= $(SRCDIR)/windows_i686_gnullvm-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_52_6
 
 HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_53_1_MD5		:= 4f3d8f9bfc552d9272e39c7ecbb9f026
-HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_i686_gnullvm/0.53.1/download
+HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_gnullvm/0.53.1/download)
 HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_53_1_SOURCE	:= $(SRCDIR)/windows_i686_gnullvm-0.53.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_GNULLVM_0_53_1
 
 HOST_CARGO_C_WINDOWS_I686_MSVC_0_52_6_MD5		:= 311ded6588844e072d3fb953a8f994da
-HOST_CARGO_C_WINDOWS_I686_MSVC_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_i686_msvc/0.52.6/download
+HOST_CARGO_C_WINDOWS_I686_MSVC_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_msvc/0.52.6/download)
 HOST_CARGO_C_WINDOWS_I686_MSVC_0_52_6_SOURCE	:= $(SRCDIR)/windows_i686_msvc-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_MSVC_0_52_6
 
 HOST_CARGO_C_WINDOWS_I686_MSVC_0_53_1_MD5		:= 69339b524a4c46ac25d2c27292689032
-HOST_CARGO_C_WINDOWS_I686_MSVC_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_i686_msvc/0.53.1/download
+HOST_CARGO_C_WINDOWS_I686_MSVC_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_i686_msvc/0.53.1/download)
 HOST_CARGO_C_WINDOWS_I686_MSVC_0_53_1_SOURCE	:= $(SRCDIR)/windows_i686_msvc-0.53.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_I686_MSVC_0_53_1
 
 HOST_CARGO_C_WINDOWS_X86_64_GNU_0_52_6_MD5		:= 3f265cbde7668f38c1229043475470a9
-HOST_CARGO_C_WINDOWS_X86_64_GNU_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnu/0.52.6/download
+HOST_CARGO_C_WINDOWS_X86_64_GNU_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnu/0.52.6/download)
 HOST_CARGO_C_WINDOWS_X86_64_GNU_0_52_6_SOURCE	:= $(SRCDIR)/windows_x86_64_gnu-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_GNU_0_52_6
 
 HOST_CARGO_C_WINDOWS_X86_64_GNU_0_53_1_MD5		:= 4bfd23c349359d9c45430c723d03df97
-HOST_CARGO_C_WINDOWS_X86_64_GNU_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnu/0.53.1/download
+HOST_CARGO_C_WINDOWS_X86_64_GNU_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnu/0.53.1/download)
 HOST_CARGO_C_WINDOWS_X86_64_GNU_0_53_1_SOURCE	:= $(SRCDIR)/windows_x86_64_gnu-0.53.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_GNU_0_53_1
 
 HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_52_6_MD5		:= 4e50e886c72204c268c15a3230001d71
-HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.52.6/download
+HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnullvm/0.52.6/download)
 HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_52_6_SOURCE	:= $(SRCDIR)/windows_x86_64_gnullvm-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_52_6
 
 HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_53_1_MD5		:= 60ee7d4891a496a45390bede684f8770
-HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_x86_64_gnullvm/0.53.1/download
+HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_gnullvm/0.53.1/download)
 HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_53_1_SOURCE	:= $(SRCDIR)/windows_x86_64_gnullvm-0.53.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_GNULLVM_0_53_1
 
 HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_52_6_MD5		:= b95760e9133ba1bb456d0f0cef74c9a4
-HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_52_6_URL		:= https://crates.io/api/v1/crates/windows_x86_64_msvc/0.52.6/download
+HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_52_6_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_msvc/0.52.6/download)
 HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_52_6_SOURCE	:= $(SRCDIR)/windows_x86_64_msvc-0.52.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_52_6
 
 HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_53_1_MD5		:= ae65c2e2e666c0e6183014d48b278604
-HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_53_1_URL		:= https://crates.io/api/v1/crates/windows_x86_64_msvc/0.53.1/download
+HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_53_1_URL		:= $(call ptx/mirror, CRATESIO, windows_x86_64_msvc/0.53.1/download)
 HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_53_1_SOURCE	:= $(SRCDIR)/windows_x86_64_msvc-0.53.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINDOWS_X86_64_MSVC_0_53_1
 
 HOST_CARGO_C_WINNOW_0_7_14_MD5		:= 3d8503aea1fd88138c875d6ead04905f
-HOST_CARGO_C_WINNOW_0_7_14_URL		:= https://crates.io/api/v1/crates/winnow/0.7.14/download
+HOST_CARGO_C_WINNOW_0_7_14_URL		:= $(call ptx/mirror, CRATESIO, winnow/0.7.14/download)
 HOST_CARGO_C_WINNOW_0_7_14_SOURCE	:= $(SRCDIR)/winnow-0.7.14.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WINNOW_0_7_14
 
 HOST_CARGO_C_WIT_BINDGEN_0_51_0_MD5		:= 31654c3947cb364324c4beb563795897
-HOST_CARGO_C_WIT_BINDGEN_0_51_0_URL		:= https://crates.io/api/v1/crates/wit-bindgen/0.51.0/download
+HOST_CARGO_C_WIT_BINDGEN_0_51_0_URL		:= $(call ptx/mirror, CRATESIO, wit-bindgen/0.51.0/download)
 HOST_CARGO_C_WIT_BINDGEN_0_51_0_SOURCE	:= $(SRCDIR)/wit-bindgen-0.51.0.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WIT_BINDGEN_0_51_0
 
 HOST_CARGO_C_WRITEABLE_0_6_2_MD5		:= e2615fbbadc26d225d9fd59c87d00a91
-HOST_CARGO_C_WRITEABLE_0_6_2_URL		:= https://crates.io/api/v1/crates/writeable/0.6.2/download
+HOST_CARGO_C_WRITEABLE_0_6_2_URL		:= $(call ptx/mirror, CRATESIO, writeable/0.6.2/download)
 HOST_CARGO_C_WRITEABLE_0_6_2_SOURCE	:= $(SRCDIR)/writeable-0.6.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_WRITEABLE_0_6_2
 
 HOST_CARGO_C_YOKE_0_8_1_MD5		:= 8b0935b5978afaca3c715f95ba56876f
-HOST_CARGO_C_YOKE_0_8_1_URL		:= https://crates.io/api/v1/crates/yoke/0.8.1/download
+HOST_CARGO_C_YOKE_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, yoke/0.8.1/download)
 HOST_CARGO_C_YOKE_0_8_1_SOURCE	:= $(SRCDIR)/yoke-0.8.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_YOKE_0_8_1
 
 HOST_CARGO_C_YOKE_DERIVE_0_8_1_MD5		:= a1541495f4e0d9d59cd96e9e3295ed90
-HOST_CARGO_C_YOKE_DERIVE_0_8_1_URL		:= https://crates.io/api/v1/crates/yoke-derive/0.8.1/download
+HOST_CARGO_C_YOKE_DERIVE_0_8_1_URL		:= $(call ptx/mirror, CRATESIO, yoke-derive/0.8.1/download)
 HOST_CARGO_C_YOKE_DERIVE_0_8_1_SOURCE	:= $(SRCDIR)/yoke-derive-0.8.1.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_YOKE_DERIVE_0_8_1
 
 HOST_CARGO_C_ZEROCOPY_0_8_33_MD5		:= a459d60276d931101abd75a7811c7cae
-HOST_CARGO_C_ZEROCOPY_0_8_33_URL		:= https://crates.io/api/v1/crates/zerocopy/0.8.33/download
+HOST_CARGO_C_ZEROCOPY_0_8_33_URL		:= $(call ptx/mirror, CRATESIO, zerocopy/0.8.33/download)
 HOST_CARGO_C_ZEROCOPY_0_8_33_SOURCE	:= $(SRCDIR)/zerocopy-0.8.33.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROCOPY_0_8_33
 
 HOST_CARGO_C_ZEROCOPY_DERIVE_0_8_33_MD5		:= 5719ef83fb79d1175f74f070e5db3b06
-HOST_CARGO_C_ZEROCOPY_DERIVE_0_8_33_URL		:= https://crates.io/api/v1/crates/zerocopy-derive/0.8.33/download
+HOST_CARGO_C_ZEROCOPY_DERIVE_0_8_33_URL		:= $(call ptx/mirror, CRATESIO, zerocopy-derive/0.8.33/download)
 HOST_CARGO_C_ZEROCOPY_DERIVE_0_8_33_SOURCE	:= $(SRCDIR)/zerocopy-derive-0.8.33.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROCOPY_DERIVE_0_8_33
 
 HOST_CARGO_C_ZEROFROM_0_1_6_MD5		:= 585acef62e72bfa6bf712a966d968cc3
-HOST_CARGO_C_ZEROFROM_0_1_6_URL		:= https://crates.io/api/v1/crates/zerofrom/0.1.6/download
+HOST_CARGO_C_ZEROFROM_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, zerofrom/0.1.6/download)
 HOST_CARGO_C_ZEROFROM_0_1_6_SOURCE	:= $(SRCDIR)/zerofrom-0.1.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROFROM_0_1_6
 
 HOST_CARGO_C_ZEROFROM_DERIVE_0_1_6_MD5		:= e96c794b09413a6385abede6b7df704b
-HOST_CARGO_C_ZEROFROM_DERIVE_0_1_6_URL		:= https://crates.io/api/v1/crates/zerofrom-derive/0.1.6/download
+HOST_CARGO_C_ZEROFROM_DERIVE_0_1_6_URL		:= $(call ptx/mirror, CRATESIO, zerofrom-derive/0.1.6/download)
 HOST_CARGO_C_ZEROFROM_DERIVE_0_1_6_SOURCE	:= $(SRCDIR)/zerofrom-derive-0.1.6.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROFROM_DERIVE_0_1_6
 
 HOST_CARGO_C_ZEROIZE_1_8_2_MD5		:= 3ad9b60f64ac41b16a2d842a626a2973
-HOST_CARGO_C_ZEROIZE_1_8_2_URL		:= https://crates.io/api/v1/crates/zeroize/1.8.2/download
+HOST_CARGO_C_ZEROIZE_1_8_2_URL		:= $(call ptx/mirror, CRATESIO, zeroize/1.8.2/download)
 HOST_CARGO_C_ZEROIZE_1_8_2_SOURCE	:= $(SRCDIR)/zeroize-1.8.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROIZE_1_8_2
 
 HOST_CARGO_C_ZEROTRIE_0_2_3_MD5		:= 49888ab19f65f553d1cfb359614cd101
-HOST_CARGO_C_ZEROTRIE_0_2_3_URL		:= https://crates.io/api/v1/crates/zerotrie/0.2.3/download
+HOST_CARGO_C_ZEROTRIE_0_2_3_URL		:= $(call ptx/mirror, CRATESIO, zerotrie/0.2.3/download)
 HOST_CARGO_C_ZEROTRIE_0_2_3_SOURCE	:= $(SRCDIR)/zerotrie-0.2.3.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROTRIE_0_2_3
 
 HOST_CARGO_C_ZEROVEC_0_11_5_MD5		:= 5647038b458d8b9be05730039d286435
-HOST_CARGO_C_ZEROVEC_0_11_5_URL		:= https://crates.io/api/v1/crates/zerovec/0.11.5/download
+HOST_CARGO_C_ZEROVEC_0_11_5_URL		:= $(call ptx/mirror, CRATESIO, zerovec/0.11.5/download)
 HOST_CARGO_C_ZEROVEC_0_11_5_SOURCE	:= $(SRCDIR)/zerovec-0.11.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROVEC_0_11_5
 
 HOST_CARGO_C_ZEROVEC_DERIVE_0_11_2_MD5		:= e85e8b9ed2cc53268e9d92ea0282f277
-HOST_CARGO_C_ZEROVEC_DERIVE_0_11_2_URL		:= https://crates.io/api/v1/crates/zerovec-derive/0.11.2/download
+HOST_CARGO_C_ZEROVEC_DERIVE_0_11_2_URL		:= $(call ptx/mirror, CRATESIO, zerovec-derive/0.11.2/download)
 HOST_CARGO_C_ZEROVEC_DERIVE_0_11_2_SOURCE	:= $(SRCDIR)/zerovec-derive-0.11.2.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZEROVEC_DERIVE_0_11_2
 
 HOST_CARGO_C_ZLIB_RS_0_5_5_MD5		:= 649de92d60aab695d3b3f35450abf53e
-HOST_CARGO_C_ZLIB_RS_0_5_5_URL		:= https://crates.io/api/v1/crates/zlib-rs/0.5.5/download
+HOST_CARGO_C_ZLIB_RS_0_5_5_URL		:= $(call ptx/mirror, CRATESIO, zlib-rs/0.5.5/download)
 HOST_CARGO_C_ZLIB_RS_0_5_5_SOURCE	:= $(SRCDIR)/zlib-rs-0.5.5.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZLIB_RS_0_5_5
 
 HOST_CARGO_C_ZMIJ_1_0_16_MD5		:= 9cee64dcd1783496d50daeed1273f863
-HOST_CARGO_C_ZMIJ_1_0_16_URL		:= https://crates.io/api/v1/crates/zmij/1.0.16/download
+HOST_CARGO_C_ZMIJ_1_0_16_URL		:= $(call ptx/mirror, CRATESIO, zmij/1.0.16/download)
 HOST_CARGO_C_ZMIJ_1_0_16_SOURCE	:= $(SRCDIR)/zmij-1.0.16.crate
 HOST_CARGO_C_PARTS			+= HOST_CARGO_C_ZMIJ_1_0_16
 
