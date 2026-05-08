@@ -140,8 +140,8 @@ node [ shape=point fixedsize=true width=0.1 ];
         return tmp[0], tmp[1] if len(tmp) > 1 else '*'
 
     def create_cpe_ids(self, pkg):
-        # if there is nothing to download then a CPE ID makes no sense
-        if 'url' not in pkg:
+        # if there is nothing to download or no version then a CPE ID makes no sense
+        if 'url' not in pkg or 'version' not in pkg:
             return []
         version, update = self.get_cve_version(pkg)
         return [f'cpe:2.3:*:{vendor}:{product}:{version}:{update}:*:*:*:*:*:*' for vendor, product in self.get_cve_products(pkg)]
