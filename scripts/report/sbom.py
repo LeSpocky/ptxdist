@@ -22,7 +22,7 @@ class SbomGenerator(Generator):
     GITHUB_RELEASE = re.compile(
         'https://github.com/([^/]*)/([^/]*)/releases/download/([^/]*)/.*')
     CARGO_RELEASE = re.compile(
-        'https://crates.io/api/v1/crates/([^/]*)/([^/]*)/download')
+        'https://(crates.io/api/v1|static.crates.io)/crates/([^/]*)/([^/]*)/download')
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -46,10 +46,10 @@ class SbomGenerator(Generator):
                     f'pkg:github/{m.group(1)}/{m.group(2)}@{m.group(3)}')
 
             elif m := self.CARGO_RELEASE.match(url):
-                purls.append(f'pkg:cargo/{m.group(1)}@{m.group(2)}')
+                purls.append(f'pkg:cargo/{m.group(2)}@{m.group(3)}')
 
             else:
-                if url.startswith('https://files.pythonhosted.org') or url.startswith('https://github.com') or url.startswith('https://crates.io'):
+                if url.startswith('https://files.pythonhosted.org') or url.startswith('https://github.com') or url.startswith('https://crates.io') or url.startswith('https://static.crates.io') :
                     raise ReportException(
                         f'{pkg["name"]}: url "{url}" should match purl pattern')
 
