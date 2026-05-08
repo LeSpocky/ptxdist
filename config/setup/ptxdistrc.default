@@ -42,6 +42,7 @@ PTXCONF_SETUP_KERNELMIRROR="https://mirrors.edge.kernel.org/pub/linux https://ww
 PTXCONF_SETUP_PYPIMIRROR="https://files.pythonhosted.org/packages/source"
 PTXCONF_SETUP_SFMIRROR="http://downloads.sourceforge.net/sourceforge"
 PTXCONF_SETUP_XORGMIRROR="https://ftp.x.org/archive https://xorg.freedesktop.org/releases"
+PTXCONF_SETUP_CRATESIOMIRROR="https://static.crates.io/crates"
 PTXCONF_SETUP_CHECK_ALWAYS=y
 # PTXCONF_SETUP_CHECK_NOTEMPTY is not set
 # PTXCONF_SETUP_CHECK_NEVER is not set

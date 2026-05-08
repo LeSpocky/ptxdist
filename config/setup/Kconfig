@@ -186,6 +186,13 @@ config SETUP_XORGMIRROR
 	help
 	  For all x.org related packages enter an available mirror here.
 
+config SETUP_CRATESIOMIRROR
+	string
+	default "https://static.crates.io/crates"
+	prompt "crates.io Mirror"
+	help
+	  For all rust packages from crates.io enter an available mirror here.
+
 choice
 	prompt "archive check"
 	default SETUP_CHECK_ALWAYS

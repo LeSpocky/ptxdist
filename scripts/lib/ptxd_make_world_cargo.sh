@@ -52,7 +52,7 @@ ptxd_make_world_cargo_sync_package() {
     local path PACKAGE ORIG_PACKAGE FULL_PACKAGE extra
 
     if [ -z "${url}" ]; then
-	url="https://crates.io/api/v1/crates/${package}/${version}/download"
+	url="\$(call ptx/mirror, CRATESIO, ${package}/${version}/download)"
     else
 	package="${url##*/}"
 	package="${package%%.git}"
