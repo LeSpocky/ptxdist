@@ -14,15 +14,15 @@ PACKAGES-$(PTXCONF_SOCKPERF) += sockperf
 #
 # Paths and names
 #
-SOCKPERF_VERSION        := 3.10
-SOCKPERF_MD5            := c589f072adf8c00eb95ef83c2d371f28
-SOCKPERF                := sockperf-$(SOCKPERF_VERSION)
-SOCKPERF_SUFFIX         := tar.gz
-SOCKPERF_URL            := https://github.com/Mellanox/sockperf/archive/refs/tags/$(SOCKPERF_VERSION).$(SOCKPERF_SUFFIX)
-SOCKPERF_SOURCE         := $(SRCDIR)/$(SOCKPERF).$(SOCKPERF_SUFFIX)
-SOCKPERF_DIR            := $(BUILDDIR)/$(SOCKPERF)
-SOCKPERF_LICENSE        := BSD-3-Clause
-SOCKPERF_LICENSE_FILES  := file://copying;md5=13ab6d8129b2b03a18ec815d88b545ce
+SOCKPERF_VERSION	:= 3.10
+SOCKPERF_MD5		:= c589f072adf8c00eb95ef83c2d371f28
+SOCKPERF		:= sockperf-$(SOCKPERF_VERSION)
+SOCKPERF_SUFFIX		:= tar.gz
+SOCKPERF_URL		:= https://github.com/Mellanox/sockperf/archive/refs/tags/$(SOCKPERF_VERSION).$(SOCKPERF_SUFFIX)
+SOCKPERF_SOURCE		:= $(SRCDIR)/$(SOCKPERF).$(SOCKPERF_SUFFIX)
+SOCKPERF_DIR		:= $(BUILDDIR)/$(SOCKPERF)
+SOCKPERF_LICENSE	:= BSD-3-Clause
+SOCKPERF_LICENSE_FILES	:= file://copying;md5=13ab6d8129b2b03a18ec815d88b545ce
 
 # ----------------------------------------------------------------------------
 # Prepare
