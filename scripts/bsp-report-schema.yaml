@@ -123,10 +123,17 @@ properties:
             patches:
             - source
             source:
-            - md5
             - sources
-            - md5s
             - url
+          anyOf:
+          - dependentRequired:
+              source:
+              - md5
+              - md5s
+          - dependentRequired:
+              source:
+              - sha256
+              - sha256s
         - if:
             properties:
               license-section:
@@ -160,6 +167,12 @@ $defs:
   md5s:
     type: string
     pattern: '^([a-f0-9]{32}( [a-f0-9]{32})*|none)$'
+  sha256:
+    type: string
+    pattern: '^[a-f0-9]{64}$'
+  sha256s:
+    type: string
+    pattern: '^([a-f0-9]{64}( [a-f0-9]{64})*|none)$'
   url:
     type: string
     pattern: '^(file|ftp|git|git\+file|https?|git\+https?|lndir|ssh|svn)://[^\s]+$'
@@ -212,6 +225,12 @@ $defs:
         type: array
         items:
           $ref: '#/$defs/md5s'
+      sha256:
+        $ref: '#/$defs/sha256s'
+      sha256s:
+        type: array
+        items:
+          $ref: '#/$defs/sha256s'
       sources:
         type: array
         items:
