@@ -14,14 +14,14 @@ PACKAGES-$(PTXCONF_SQLITECPP) += sqlitecpp
 #
 # Paths and names
 #
-SQLITECPP_VERSION   := 2.4.0
-SQLITECPP_MD5       := aa0da9aa79bd76bc09446de418b6be08
-SQLITECPP           := sqlitecpp-$(SQLITECPP_VERSION)
-SQLITECPP_SUFFIX    := tar.gz
-SQLITECPP_URL       := https://github.com/SRombauts/SQLiteCpp/archive/$(SQLITECPP_VERSION).$(SQLITECPP_SUFFIX)
-SQLITECPP_SOURCE    := $(SRCDIR)/$(SQLITECPP).tar.gz
-SQLITECPP_DIR       := $(BUILDDIR)/$(SQLITECPP)
-SQLITECPP_LICENSE   := MIT
+SQLITECPP_VERSION	:= 2.4.0
+SQLITECPP_MD5		:= aa0da9aa79bd76bc09446de418b6be08
+SQLITECPP		:= sqlitecpp-$(SQLITECPP_VERSION)
+SQLITECPP_SUFFIX	:= tar.gz
+SQLITECPP_URL		:= https://github.com/SRombauts/SQLiteCpp/archive/$(SQLITECPP_VERSION).$(SQLITECPP_SUFFIX)
+SQLITECPP_SOURCE	:= $(SRCDIR)/$(SQLITECPP).tar.gz
+SQLITECPP_DIR		:= $(BUILDDIR)/$(SQLITECPP)
+SQLITECPP_LICENSE	:= MIT
 
 # ----------------------------------------------------------------------------
 # Prepare
