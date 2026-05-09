@@ -46,7 +46,7 @@ ptxd_make_world_update_checksum() {
     if [ "${count}" -gt 1 ]; then
 	ptxd_bailout "Could not update checksum for '${pkg_label}': ${pkg_PKG}_${SUFFIX} found ${count} times in '$(ptxd_print_path ${pkg_makefile})'."
     fi
-    sed -i "s/^\(\<${pkg_PKG}_${SUFFIX}[ 	]*:=\) *[a-f0-9]*\$/\1 ${checksum}/" "${pkg_makefile}"
+    sed -i "s/^\(\<${pkg_PKG}_${SUFFIX}[ 	]*:=\)\( *[a-f0-9]*\)\+\$/\1 ${checksum}/" "${pkg_makefile}"
     if ! grep -q "${checksum}\$" "${pkg_makefile}"; then
 	ptxd_bailout "Could not update checksum for '${pkg_label}': ${pkg_PKG}_${SUFFIX} not found"
     fi
