@@ -8,15 +8,15 @@
 
 PACKAGES-$(PTXCONF_GIFLIB) += giflib
 
-GIFLIB_VERSION       := 5.1.4
-GIFLIB_MD5           := 8985c9411fdb2178b89d3348da9a06b0
-GIFLIB               := giflib-$(GIFLIB_VERSION)
-GIFLIB_SUFFIX        := tar.gz
-GIFLIB_URL           := $(call ptx/mirror, SF, giflib/$(GIFLIB).$(GIFLIB_SUFFIX))
-GIFLIB_SOURCE        := $(SRCDIR)/$(GIFLIB).$(GIFLIB_SUFFIX)
-GIFLIB_DIR           := $(BUILDDIR)/$(GIFLIB)
-GIFLIB_LICENSE       := MIT
-GIFLIB_LICENSE_FILES := file://COPYING;md5=ae11c61b04b2917be39b11f78d71519a
+GIFLIB_VERSION		:= 5.1.4
+GIFLIB_MD5		:= 8985c9411fdb2178b89d3348da9a06b0
+GIFLIB			:= giflib-$(GIFLIB_VERSION)
+GIFLIB_SUFFIX		:= tar.gz
+GIFLIB_URL		:= $(call ptx/mirror, SF, giflib/$(GIFLIB).$(GIFLIB_SUFFIX))
+GIFLIB_SOURCE		:= $(SRCDIR)/$(GIFLIB).$(GIFLIB_SUFFIX)
+GIFLIB_DIR		:= $(BUILDDIR)/$(GIFLIB)
+GIFLIB_LICENSE		:= MIT
+GIFLIB_LICENSE_FILES	:= file://COPYING;md5=ae11c61b04b2917be39b11f78d71519a
 
 # ----------------------------------------------------------------------------
 # Prepare
