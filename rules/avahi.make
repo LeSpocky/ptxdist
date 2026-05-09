@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_AVAHI) += avahi
 # Paths and names
 #
 AVAHI_VERSION	:= 0.8
-AVAHI_MD5	:= 229c6aa30674fc43c202b22c5f8c2be7
+AVAHI_SHA256	:= 060309d7a333d38d951bc27598c677af1796934dbd98e1024e7ad8de798fedda
 AVAHI		:= avahi-$(AVAHI_VERSION)
 AVAHI_SUFFIX	:= tar.gz
 AVAHI_URL	:= http://avahi.org/download/$(AVAHI).$(AVAHI_SUFFIX)

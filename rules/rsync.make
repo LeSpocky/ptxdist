@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_RSYNC) += rsync
 # Paths and names
 #
 RSYNC_VERSION	:= 2.6.9
-RSYNC_MD5	:= 996d8d8831dbca17910094e56dcb5942
+RSYNC_SHA256	:= ca437301becd890e73300bc69a39189ff1564baa761948ff149b3dd7bde633f9
 RSYNC		:= rsync-$(RSYNC_VERSION)
 RSYNC_SUFFIX	:= tar.gz
 RSYNC_URL	:= https://www.samba.org/ftp/rsync/src/$(RSYNC).$(RSYNC_SUFFIX)

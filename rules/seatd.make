@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_SEATD) += seatd
 # Paths and names
 #
 SEATD_VERSION		:= 0.9.1
-SEATD_MD5		:= 964a9c59cdfe39f9130508c274e8ae21
+SEATD_SHA256		:= 819979c922a0be258aed133d93920bce6a3d3565a60588d6d372ce9db2712cd3
 SEATD			:= seatd-$(SEATD_VERSION)
 SEATD_SUFFIX		:= tar.gz
 SEATD_URL		:= https://git.sr.ht/~kennylevinsen/seatd/archive/$(SEATD_VERSION).$(SEATD_SUFFIX)

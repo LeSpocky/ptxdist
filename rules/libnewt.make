@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBNEWT) += libnewt
 # Paths and names
 #
 LIBNEWT_VERSION	:= 0.52.21
-LIBNEWT_MD5	:= a0a5fd6b53bb167a65e15996b249ebb5
+LIBNEWT_SHA256	:= 265eb46b55d7eaeb887fca7a1d51fe115658882dfe148164b6c49fccac5abb31
 LIBNEWT		:= newt-$(LIBNEWT_VERSION)
 LIBNEWT_SUFFIX	:= tar.gz
 LIBNEWT_URL	:= https://releases.pagure.org/newt/$(LIBNEWT).$(LIBNEWT_SUFFIX)

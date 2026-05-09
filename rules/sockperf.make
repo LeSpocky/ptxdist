@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SOCKPERF) += sockperf
 # Paths and names
 #
 SOCKPERF_VERSION	:= 3.10
-SOCKPERF_MD5		:= c589f072adf8c00eb95ef83c2d371f28
+SOCKPERF_SHA256		:= 5373385e78921ba7156e03629daa0a2243b388d4c2b0c8ff99218d2a3e3be7a1
 SOCKPERF		:= sockperf-$(SOCKPERF_VERSION)
 SOCKPERF_SUFFIX		:= tar.gz
 SOCKPERF_URL		:= https://github.com/Mellanox/sockperf/archive/refs/tags/$(SOCKPERF_VERSION).$(SOCKPERF_SUFFIX)

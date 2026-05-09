@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_CEREAL) += cereal
 # Paths and names
 #
 CEREAL_VERSION		:= 1.3.0
-CEREAL_MD5		:= 4342e811f245403646c4175258f413f1
+CEREAL_SHA256		:= 329ea3e3130b026c03a4acc50e168e7daff4e6e661bc6a7dfec0d77b570851d5
 CEREAL			:= cereal-$(CEREAL_VERSION)
 CEREAL_SUFFIX		:= tar.gz
 CEREAL_URL		:= https://github.com/USCiLab/cereal/archive/refs/tags/v$(CEREAL_VERSION).$(CEREAL_SUFFIX)

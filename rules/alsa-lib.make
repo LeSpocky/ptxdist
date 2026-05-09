@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_ALSA_LIB) += alsa-lib
 # Paths and names
 #
 ALSA_LIB_VERSION	:= 1.2.15.3
-ALSA_LIB_MD5		:= ffa5bcb190fa08fe7d3979ceeceb2648
+ALSA_LIB_SHA256		:= 7b079d614d582cade7ab8db2364e65271d0877a37df8757ac4ac0c8970be861e
 ALSA_LIB		:= alsa-lib-$(ALSA_LIB_VERSION)
 ALSA_LIB_SUFFIX		:= tar.bz2
 ALSA_LIB_URL		:= https://www.alsa-project.org/files/pub/lib/$(ALSA_LIB).$(ALSA_LIB_SUFFIX)

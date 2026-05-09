@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SSHPASS) += sshpass
 # Paths and names
 #
 SSHPASS_VERSION		:= 1.10
-SSHPASS_MD5		:= e435c55deb6e2e410508ecc5da3066f8
+SSHPASS_SHA256		:= ad1106c203cbb56185ca3bad8c6ccafca3b4064696194da879f81c8d7bdfeeda
 SSHPASS			:= sshpass-$(SSHPASS_VERSION)
 SSHPASS_SUFFIX		:= tar.gz
 SSHPASS_URL		:= $(call ptx/mirror, SF, sshpass/$(SSHPASS).$(SSHPASS_SUFFIX))

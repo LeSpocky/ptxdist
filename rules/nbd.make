@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_NBD) += nbd
 # Paths and names
 #
 NBD_VERSION	:= 3.26.1
-NBD_MD5		:= 9a15e88f2b63d467ce5a6db1da8a2f0f
+NBD_SHA256	:= f0cf509fa5b20b1a07f7904eb637e9b47d3e30b6ed6f00075af5d8b701c78fef
 NBD		:= nbd-$(NBD_VERSION)
 NBD_SUFFIX	:= tar.xz
 NBD_URL		:= https://github.com/NetworkBlockDevice/nbd/releases/download/$(NBD)/$(NBD).$(NBD_SUFFIX)

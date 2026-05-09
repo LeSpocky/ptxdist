@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_OPKG) += opkg
 # Paths and names
 #
 OPKG_VERSION	:= 0.9.0
-OPKG_MD5	:= 3a100d77beaedd4820599d91bc53e302
+OPKG_SHA256	:= a196d6bc65d6d6fa308b983b9a881dc6617fcefe5bea47cb0a45e9b7b5b1f5d4
 OPKG		:= opkg-$(OPKG_VERSION)
 OPKG_SUFFIX	:= tar.gz
 OPKG_URL	:= git+https://git.yoctoproject.org/opkg;tag=v$(OPKG_VERSION)

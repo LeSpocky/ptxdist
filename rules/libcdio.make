@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBCDIO) += libcdio
 # Paths and names
 #
 LIBCDIO_VERSION		:= 2.2.0
-LIBCDIO_MD5		:= 9364577aca7cbcdb5c01b7b1233b9fa4
+LIBCDIO_SHA256		:= 1b6c58137f71721ddb78773432d26252ee6500d92d227d4c4892631c30ea7abb
 LIBCDIO			:= libcdio-$(LIBCDIO_VERSION)
 LIBCDIO_SUFFIX		:= tar.gz
 LIBCDIO_URL		:= https://github.com/libcdio/libcdio/releases/download/$(LIBCDIO_VERSION)/$(LIBCDIO).$(LIBCDIO_SUFFIX)

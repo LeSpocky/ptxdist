@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SDL2_MIXER) += sdl2-mixer
 # Paths and names
 #
 SDL2_MIXER_VERSION	:= 2.0.4
-SDL2_MIXER_MD5		:= a36e8410cac46b00a4d01752b32c3eb1
+SDL2_MIXER_SHA256	:= b4cf5a382c061cd75081cf246c2aa2f9df8db04bdda8dcdc6b6cca55bede2419
 SDL2_MIXER		:= SDL2_mixer-$(SDL2_MIXER_VERSION)
 SDL2_MIXER_SUFFIX	:= tar.gz
 SDL2_MIXER_URL		:= https://www.libsdl.org/projects/SDL_mixer/release/$(SDL2_MIXER).$(SDL2_MIXER_SUFFIX)

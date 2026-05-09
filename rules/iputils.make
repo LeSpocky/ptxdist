@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_IPUTILS) += iputils
 # Paths and names
 #
 IPUTILS_VERSION	:= s20200821
-IPUTILS_MD5	:= 85a5ce27f92d8fa2770dd290acd4c1e3
+IPUTILS_SHA256	:= f265da0d02dd2259efd8c57a9c2e0c8bb3361abb14639fcffb26707be5783a5b
 IPUTILS		:= iputils-$(IPUTILS_VERSION)
 IPUTILS_SUFFIX	:= tar.gz
 IPUTILS_URL	:= https://codeload.github.com/iputils/iputils/$(IPUTILS_SUFFIX)/$(IPUTILS_VERSION)

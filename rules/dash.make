@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_DASH) += dash
 # Paths and names
 #
 DASH_VERSION	:= 0.5.5.1
-DASH_MD5	:= 7ac832b440b91f5a52cf8eb68e172616
+DASH_SHA256	:= 1c6717a1014c73aa16bc78a4767f1e00b40ff2a01a6c2cf2cce9a5335c24493f
 DASH		:= dash-$(DASH_VERSION)
 DASH_SUFFIX	:= tar.gz
 DASH_URL	:= http://gondor.apana.org.au/~herbert/dash/files/$(DASH).$(DASH_SUFFIX)

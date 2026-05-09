@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_GPGME) += gpgme
 # Paths and names
 #
 GPGME_VERSION	:= 1.23.2
-GPGME_MD5	:= 01a8c05b409847e87daf0543e91f8c37
+GPGME_SHA256	:= 9499e8b1f33cccb6815527a1bc16049d35a6198a6c5fae0185f2bd561bce5224
 GPGME		:= gpgme-$(GPGME_VERSION)
 GPGME_SUFFIX	:= tar.bz2
 GPGME_URL	:= https://www.gnupg.org/ftp/gcrypt/gpgme/$(GPGME).$(GPGME_SUFFIX)

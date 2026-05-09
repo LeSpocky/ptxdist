@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_EFIVAR) += efivar
 # Paths and names
 #
 EFIVAR_VERSION	:= 39
-EFIVAR_MD5	:= a8fc3e79336cd6e738ab44f9bc96a5aa
+EFIVAR_SHA256	:= c9edd15f2eeeea63232f3e669a48e992c7be9aff57ee22672ac31f5eca1609a6
 EFIVAR		:= efivar-$(EFIVAR_VERSION)
 EFIVAR_SUFFIX	:= tar.gz
 EFIVAR_URL	:= https://github.com/rhboot/efivar/archive/refs/tags/$(EFIVAR_VERSION).$(EFIVAR_SUFFIX)

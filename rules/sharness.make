@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SHARNESS) += sharness
 # Paths and names
 #
 SHARNESS_VERSION	:= 1.2.1
-SHARNESS_MD5		:= b816b21b278688b80453dfd5fbb69556
+SHARNESS_SHA256		:= 94d6f94f2199745e0e1a50e5bb3cc12edcac2177e1d410278652ba7a0a3a90ec
 SHARNESS		:= sharness-$(SHARNESS_VERSION)
 SHARNESS_SUFFIX		:= tar.gz
 SHARNESS_URL		:= https://github.com/felipec/sharness/archive/refs/tags/v$(SHARNESS_VERSION).$(SHARNESS_SUFFIX)

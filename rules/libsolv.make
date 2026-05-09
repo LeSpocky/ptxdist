@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBSOLV) += libsolv
 # Paths and names
 #
 LIBSOLV_VERSION	:= 0.7.35
-LIBSOLV_MD5	:= 442f8283a03bae0b0591536a9aac4c29
+LIBSOLV_SHA256	:= e6ef552846f908beb3bbf6ca718b6dd431bd8a281086d82af9a6d2a3ba919be5
 LIBSOLV		:= libsolv-$(LIBSOLV_VERSION)
 LIBSOLV_SUFFIX	:= tar.gz
 LIBSOLV_URL	:= https://github.com/openSUSE/libsolv/archive/refs/tags/$(LIBSOLV_VERSION).$(LIBSOLV_SUFFIX)

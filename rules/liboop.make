@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBOOP) += liboop
 # Paths and names
 #
 LIBOOP_VERSION	:= 1.0.1
-LIBOOP_MD5	:= f2b3dff17355fd9a6e2229caca8993f0
+LIBOOP_SHA256	:= 56af16ad65e7397dadc8268e37ff6f67431db390c60c75e21a33e12b0e0d17e0
 LIBOOP		:= liboop-$(LIBOOP_VERSION)
 LIBOOP_SUFFIX	:= tar.gz
 LIBOOP_URL	:= http://ftp.lysator.liu.se/pub/liboop/$(LIBOOP).$(LIBOOP_SUFFIX)

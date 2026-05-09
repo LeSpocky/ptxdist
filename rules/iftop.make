@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_IFTOP) += iftop
 # Paths and names
 #
 IFTOP_VERSION	:= 1.0pre4
-IFTOP_MD5	:= 7e6decb4958e8a4890cccac335239f24
+IFTOP_SHA256	:= f733eeea371a7577f8fe353d86dd88d16f5b2a2e702bd96f5ffb2c197d9b4f97
 IFTOP		:= iftop-$(IFTOP_VERSION)
 IFTOP_SUFFIX	:= tar.gz
 IFTOP_URL	:= http://www.ex-parrot.com/pdw/iftop/download/$(IFTOP).$(IFTOP_SUFFIX)

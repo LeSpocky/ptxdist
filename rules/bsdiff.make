@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_BSDIFF) += bsdiff
 # Paths and names
 #
 BSDIFF_VERSION	:= 4.3
-BSDIFF_MD5	:= e6d812394f0e0ecc8d5df255aa1db22a
+BSDIFF_SHA256	:= 18821588b2dc5bf159aa37d3bcb7b885d85ffd1e19f23a0c57a58723fea85f48
 BSDIFF		:= bsdiff-$(BSDIFF_VERSION)
 BSDIFF_SUFFIX	:= tar.gz
 BSDIFF_URL	:= http://www.daemonology.net/bsdiff/$(BSDIFF).$(BSDIFF_SUFFIX)

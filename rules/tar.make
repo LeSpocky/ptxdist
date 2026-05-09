@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_TAR) += tar
 # Paths and names
 #
 TAR_VERSION	:= 1.35
-TAR_MD5		:= a2d8042658cfd8ea939e6d911eaf4152
+TAR_SHA256	:= 4d62ff37342ec7aed748535323930c7cf94acf71c3591882b26a7ea50f3edc16
 TAR		:= tar-$(TAR_VERSION)
 TAR_SUFFIX	:= tar.xz
 TAR_URL		:= $(call ptx/mirror, GNU, tar/$(TAR).$(TAR_SUFFIX))

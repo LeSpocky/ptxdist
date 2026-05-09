@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_SJINN) += sjinn
 # Paths and names
 #
 SJINN_VERSION	:= 1.01
-SJINN_MD5	:= b38969d4a614b660919090ba0c8d5c7d
+SJINN_SHA256	:= 0ba8aaf1ce4312f712b9a826151fcde94df7a8f83eaea335a4260c87e14a4123
 SJINN		:= sjinn-$(SJINN_VERSION)
 SJINN_SUFFIX	:= tar.gz
 SJINN_URL	:= $(call ptx/mirror, SF, sjinn/$(SJINN).$(SJINN_SUFFIX))

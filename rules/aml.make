@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_AML) += aml
 # Paths and names
 #
 AML_VERSION	:= 0.3.0
-AML_MD5		:= 72fad42e1b5efc3055055df6a7b5f1d8
+AML_SHA256	:= cba1ca1689d4031faf37bb7a184559106b6d2f462ae8890a9fa16e3022ca1eb0
 AML		:= aml-$(AML_VERSION)
 AML_SUFFIX	:= tar.gz
 AML_URL		:= https://github.com/any1/aml/archive/refs/tags/v$(AML_VERSION).$(AML_SUFFIX)

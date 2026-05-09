@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_REDIS) += redis
 # Paths and names
 #
 REDIS_VERSION		:= 7.2.2
-REDIS_MD5		:= 5ece867a53b30f31266a2130fd10568d
+REDIS_SHA256		:= ca999be08800edc6d265379c4c7aafad92f0ee400692e4e2d69829ab4b4c3d08
 REDIS			:= redis-$(REDIS_VERSION)
 REDIS_SUFFIX		:= tar.gz
 REDIS_URL		:= https://download.redis.io/releases/$(REDIS).$(REDIS_SUFFIX)

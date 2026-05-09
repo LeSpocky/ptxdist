@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_UHUBCTL) += uhubctl
 # Paths and names
 #
 UHUBCTL_VERSION	:= 2.5.0
-UHUBCTL_MD5	:= e4e66d445ba8fda181ce4aa4abcd4247
+UHUBCTL_SHA256	:= d4452252f7862f7a45dd9c62f2ea7cd3a57ab5f5ab0e54a857d4c695699bbba3
 UHUBCTL		:= uhubctl-$(UHUBCTL_VERSION)
 UHUBCTL_SUFFIX	:= tar.gz
 UHUBCTL_URL	:= https://github.com/mvp/uhubctl/archive/v$(UHUBCTL_VERSION).$(UHUBCTL_SUFFIX)

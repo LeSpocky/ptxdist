@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_HUB_CTRL) += hub-ctrl
 # Paths and names
 #
 HUB_CTRL_VERSION	:= 2014.07.0
-HUB_CTRL_MD5		:= 6e00505d2888bca1646a1e388fcc1e0a
+HUB_CTRL_SHA256		:= ef1ad703e26c589eb678b170c360aedc83e8ca3757ecdb3d92536977ec4370a6
 HUB_CTRL		:= hub-ctrl-$(HUB_CTRL_VERSION)
 HUB_CTRL_SUFFIX		:= tar.bz2
 HUB_CTRL_URL		:= http://www.pengutronix.de/software/ptxdist/temporary-src/$(HUB_CTRL).$(HUB_CTRL_SUFFIX)

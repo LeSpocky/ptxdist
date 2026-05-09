@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SYSSTAT) += sysstat
 # Paths and names
 #
 SYSSTAT_VERSION	:= 12.7.9
-SYSSTAT_MD5	:= 5949fbec8e233960d31f4d559f4627b0
+SYSSTAT_SHA256	:= e48fc69401135dc08d2cd4ff58dbdbfce9b7485f76fc9049d97848e313c08dda
 SYSSTAT		:= sysstat-$(SYSSTAT_VERSION)
 SYSSTAT_SUFFIX	:= tar.gz
 SYSSTAT_URL	:= https://github.com/sysstat/sysstat/archive/refs/tags/v$(SYSSTAT_VERSION).$(SYSSTAT_SUFFIX)

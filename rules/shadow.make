@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SHADOW) += shadow
 # Paths and names
 #
 SHADOW_VERSION	:= 4.8.1
-SHADOW_MD5	:= 4b05eff8a427cf50e615bda324b5bc45
+SHADOW_SHA256	:= a3ad4630bdc41372f02a647278a8c3514844295d36eefe68ece6c3a641c1ae62
 SHADOW		:= shadow-$(SHADOW_VERSION)
 SHADOW_SUFFIX	:= tar.xz
 SHADOW_URL	:= https://github.com/shadow-maint/shadow/releases/download/$(SHADOW_VERSION)/$(SHADOW).$(SHADOW_SUFFIX)

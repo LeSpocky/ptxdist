@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_CASYNC) += casync
 # Paths and names
 #
 CASYNC_VERSION	:= 0efa7abffe5fffbde8c457d3c8fafbdde0bb6e4f
-CASYNC_MD5	:= 9b28d76355acfb56ba6ddfcb95951c13
+CASYNC_SHA256	:= 5d58def4c5ca902b35a97178d4619b9298a35b27d5748a2cc346bd36c2e38e9c
 CASYNC		:= casync-$(CASYNC_VERSION)
 CASYNC_SUFFIX	:= tar.gz
 CASYNC_URL	:= https://github.com/systemd/casync/archive/$(CASYNC_VERSION).$(CASYNC_SUFFIX)

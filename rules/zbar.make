@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_ZBAR) += zbar
 # Paths and names
 #
 ZBAR_VERSION	:= 0.23.93
-ZBAR_MD5	:= e8cc283fcfc53177b95e8980e6a8f23c
+ZBAR_SHA256	:= 83be8f85fc7c288fd91f98d52fc55db7eedbddcf10a83d9221d7034636683fa0
 ZBAR		:= zbar-$(ZBAR_VERSION)
 ZBAR_SUFFIX	:= tar.bz2
 ZBAR_URL	:= https://linuxtv.org/downloads/zbar/$(ZBAR).$(ZBAR_SUFFIX)

@@ -13,7 +13,7 @@ PACKAGES-$(PTXCONF_LIBMXML) += libmxml
 # Paths and names
 #
 LIBMXML_VERSION	:= 4.0.4
-LIBMXML_MD5	:= 7052a4bee080d2d86c40a95c9d5d88bc
+LIBMXML_SHA256	:= c8d1728d6ccf71a862a1538bd5e132daa2181bb42fe14b078baa2ec1510c0150
 LIBMXML		:= mxml-$(LIBMXML_VERSION)
 LIBMXML_SUFFIX	:= tar.gz
 LIBMXML_URL	:= https://github.com/michaelrsweet/mxml/releases/download/v$(LIBMXML_VERSION)/$(LIBMXML).$(LIBMXML_SUFFIX)

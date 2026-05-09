@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_STRESS) += stress
 # Paths and names
 #
 STRESS_VERSION	:= 1.0.7
-STRESS_MD5	:= 4104cf194d249d8064683b6c28f374a3
+STRESS_SHA256	:= cdaa56671506133e2ed8e1e318d793c2a21c4a00adc53f31ffdef1ece8ace0b1
 STRESS		:= stress-$(STRESS_VERSION)
 STRESS_SUFFIX	:= tar.gz
 STRESS_URL	:= https://github.com/resurrecting-open-source-projects/stress/archive/$(STRESS_VERSION).$(STRESS_SUFFIX)

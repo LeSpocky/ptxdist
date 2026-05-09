@@ -17,7 +17,7 @@ PACKAGES-$(PTXCONF_NANO) += nano
 #
 NANO_VERSION	:= 9.0
 NANO_MAJOR		:= $(word 1,$(subst ., ,$(NANO_VERSION)))
-NANO_MD5		:= fe956d0e4807a96d9cf78849aaf04d54
+NANO_SHA256		:= 9f384374b496110a25b73ad5a5febb384783c6e3188b37063f677ac908013fde
 NANO			:= nano-$(NANO_VERSION)
 NANO_SUFFIX		:= tar.xz
 NANO_URL		:= https://www.nano-editor.org/dist/v$(NANO_MAJOR)/$(NANO).$(NANO_SUFFIX)

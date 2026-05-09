@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LXC) += lxc
 # Paths and names
 #
 LXC_VERSION	:= 3.0.1
-LXC_MD5		:= 8eb396dde561e5832ba2d505513a1935
+LXC_SHA256	:= 45986c49be1c048fa127bd3e7ea1bd3347e25765c008a09a2e4c233151a2d5db
 LXC		:= lxc-$(LXC_VERSION)
 LXC_SUFFIX	:= tar.gz
 LXC_URL		:= https://linuxcontainers.org/downloads/lxc/$(LXC).$(LXC_SUFFIX)

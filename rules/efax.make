@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_EFAX) += efax
 # Paths and names
 #
 EFAX_VERSION	:= 0.9
-EFAX_MD5	:= 23bd3767f87c455c58ccae7f88bce725
+EFAX_SHA256	:= 880a2ee36eb43c532c8520efd78308d2b6416f93d4ed1ae0f0dcd73ab4e9c6cb
 EFAX		:= efax-$(EFAX_VERSION)
 EFAX_SUFFIX	:= tar.gz
 EFAX_URL	:= https://www.ibiblio.org/pub/Linux/apps/serialcomm/fax/$(EFAX).$(EFAX_SUFFIX)

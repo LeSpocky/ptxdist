@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_STRESS_NG) += stress-ng
 # Paths and names
 #
 STRESS_NG_VERSION	:= 0.19.05
-STRESS_NG_MD5		:= 476610bc19136bff42cda60cdd0493af
+STRESS_NG_SHA256	:= 9712c5505602c6db8017c15a2659a3185f5a4f81ddde745e9f45f9e10a9f86c4
 STRESS_NG		:= stress-ng-$(STRESS_NG_VERSION)
 STRESS_NG_SUFFIX	:= tar.gz
 STRESS_NG_URL		:= https://github.com/ColinIanKing/stress-ng/archive/refs/tags/V$(STRESS_NG_VERSION).$(STRESS_NG_SUFFIX)

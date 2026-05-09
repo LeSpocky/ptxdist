@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_PLATSCH) += platsch
 # Paths and names
 #
 PLATSCH_VERSION	:= v2024.08.0
-PLATSCH_MD5		:= f71c2c60acb8ef221f3cc5612e6a920e
+PLATSCH_SHA256		:= eaec790b34b8ba2b8fcac55e2624fc0c556e712ec22944c72ef0a6aa83570e8f
 PLATSCH		:= platsch-$(PLATSCH_VERSION)
 PLATSCH_SUFFIX	:= tar.gz
 PLATSCH_URL		:= https://github.com/pengutronix/platsch/archive/refs/tags/$(PLATSCH_VERSION).$(PLATSCH_SUFFIX)

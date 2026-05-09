@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_CPPZMQ) += cppzmq
 # Paths and names
 #
 CPPZMQ_VERSION	:= ee47ae4cddc3
-CPPZMQ_MD5	:= cf5d2f77caaa0749e522c143fd5260c8
+CPPZMQ_SHA256	:= 04b3b180c31f90ad370236ee250e4e28d4dce2a3c82094746185d47d64263e59
 CPPZMQ		:= cppzmq-$(CPPZMQ_VERSION)
 CPPZMQ_SUFFIX	:= tar.gz
 CPPZMQ_URL	:= https://github.com/zeromq/cppzmq.git;tag=$(CPPZMQ_VERSION)

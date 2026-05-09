@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_BC) += bc
 # Paths and names
 #
 BC_VERSION	:= 1.08.1
-BC_MD5		:= 26c11787a7a1d76de8a2ac3a7ba92098
+BC_SHA256	:= 515430115b3334c636317503460a0950dff79940aa3259ce2c1aa67c2881d023
 BC		:= bc-$(BC_VERSION)
 BC_SUFFIX	:= tar.xz
 BC_URL		:= $(call ptx/mirror, GNU, bc/$(BC).$(BC_SUFFIX))

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SPEEXDSP) += speexdsp
 # Paths and names
 #
 SPEEXDSP_VERSION	:= 1.2.1
-SPEEXDSP_MD5		:= e6eb5ddef743a362c8018f260b91dca5
+SPEEXDSP_SHA256		:= 8c777343e4a6399569c72abc38a95b24db56882c83dbdb6c6424a5f4aeb54d3d
 SPEEXDSP		:= speexdsp-$(SPEEXDSP_VERSION)
 SPEEXDSP_SUFFIX		:= tar.gz
 SPEEXDSP_URL		:= http://downloads.xiph.org/releases/speex//$(SPEEXDSP).$(SPEEXDSP_SUFFIX)

@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_SETMIXER) += setmixer
 # Paths and names
 #
 SETMIXER_VERSION	:= 27DEC94ds1
-SETMIXER_MD5		:= 2e0792ae48e74933ddcdfc3d42e73cfb
+SETMIXER_SHA256		:= e9a570ecb5e02420414fa2aad650d2efd81587777bbe53b6de38423adb493d03
 SETMIXER		:= setmixer_$(SETMIXER_VERSION).orig
 SETMIXER_SUFFIX		:= tar.gz
 SETMIXER_URL		:= http://www.pengutronix.de/software/ptxdist/temporary-src/$(SETMIXER).$(SETMIXER_SUFFIX)

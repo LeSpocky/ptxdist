@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBEXIF) += libexif
 # Paths and names
 #
 LIBEXIF_VERSION		:= 0.6.21
-LIBEXIF_MD5		:= 27339b89850f28c8f1c237f233e05b27
+LIBEXIF_SHA256		:= 16cdaeb62eb3e6dfab2435f7d7bccd2f37438d21c5218ec4e58efa9157d4d41a
 LIBEXIF			:= libexif-$(LIBEXIF_VERSION)
 LIBEXIF_SUFFIX		:= tar.bz2
 LIBEXIF_URL		:= http://sourceforge.net/projects/libexif/files/libexif/$(LIBEXIF_VERSION)/$(LIBEXIF).$(LIBEXIF_SUFFIX)

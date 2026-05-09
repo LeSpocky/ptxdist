@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_INOTIFY_TOOLS) += inotify-tools
 # Paths and names
 #
 INOTIFY_TOOLS_VERSION		:= 4.23.9.0
-INOTIFY_TOOLS_MD5		:= 66ff78fc6595fefe715f505357b9714a
+INOTIFY_TOOLS_SHA256		:= 1dfa33f80b6797ce2f6c01f454fd486d30be4dca1b0c5c2ea9ba3c30a5c39855
 INOTIFY_TOOLS			:= inotify-tools-$(INOTIFY_TOOLS_VERSION)
 INOTIFY_TOOLS_SUFFIX		:= tar.gz
 INOTIFY_TOOLS_URL		:= https://github.com/inotify-tools/inotify-tools/archive/refs/tags/$(INOTIFY_TOOLS_VERSION).$(INOTIFY_TOOLS_SUFFIX)

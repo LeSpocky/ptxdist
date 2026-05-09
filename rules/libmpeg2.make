@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBMPEG2) += libmpeg2
 # Paths and names
 #
 LIBMPEG2_VERSION	:= 0.5.1
-LIBMPEG2_MD5		:= 0f92c7454e58379b4a5a378485bbd8ef
+LIBMPEG2_SHA256		:= dee22e893cb5fc2b2b6ebd60b88478ab8556cb3b93f9a0d7ce8f3b61851871d4
 LIBMPEG2		:= libmpeg2-$(LIBMPEG2_VERSION)
 LIBMPEG2_SUFFIX		:= tar.gz
 LIBMPEG2_URL		:= https://download.videolan.org/contrib/libmpeg2/$(LIBMPEG2).$(LIBMPEG2_SUFFIX)

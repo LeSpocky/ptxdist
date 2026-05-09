@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBDMTX) += libdmtx
 # Paths and names
 #
 LIBDMTX_VERSION	:= 0.7.2
-LIBDMTX_MD5	:= 8e7544ff8b6ffac66f39edb58cb96167
+LIBDMTX_SHA256	:= f5cc2b9f9fce64a174b7d69f5e5f34d0587e03efa1fff572a9d09fe5cb1af885
 LIBDMTX		:= libdmtx-$(LIBDMTX_VERSION)
 LIBDMTX_SUFFIX	:= tar.gz
 LIBDMTX_URL	:= https://github.com/dmtx/libdmtx/archive/v$(LIBDMTX_VERSION).$(LIBDMTX_SUFFIX)

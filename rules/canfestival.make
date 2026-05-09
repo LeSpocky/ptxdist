@@ -19,7 +19,7 @@ endif
 #
 # There are not tags. Use the commit date instaed
 CANFESTIVAL_VERSION	:= 20150803-g7a705265f727
-CANFESTIVAL_MD5		:= 3f5e16c45bd9bdbe2513dbd0e670c12a
+CANFESTIVAL_SHA256	:= d1d3cde337c097d78c63f0a6652b3a05f2c4ed27588f3917cbd03570a41463c2
 CANFESTIVAL		:= canfestival-$(CANFESTIVAL_VERSION)
 CANFESTIVAL_SUFFIX	:= tar.gz
 CANFESTIVAL_URL		:= https://github.com/beremiz/canfestival/archive/canfestival-$(CANFESTIVAL_VERSION).$(CANFESTIVAL_SUFFIX)

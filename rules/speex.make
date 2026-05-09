@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SPEEX) += speex
 # Paths and names
 #
 SPEEX_VERSION	:= 1.2.1
-SPEEX_MD5	:= fe7bf610883ff202092b92c72fe0fe3e
+SPEEX_SHA256	:= 4b44d4f2b38a370a2d98a78329fefc56a0cf93d1c1be70029217baae6628feea
 SPEEX		:= speex-$(SPEEX_VERSION)
 SPEEX_SUFFIX	:= tar.gz
 SPEEX_URL	:= http://downloads.xiph.org/releases/speex/$(SPEEX).$(SPEEX_SUFFIX)

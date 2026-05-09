@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_CIFS_UTILS) += cifs-utils
 # Paths and names
 #
 CIFS_UTILS_VERSION	:= 7.4
-CIFS_UTILS_MD5		:= ced910b43321c604a9c402beac45cb4e
+CIFS_UTILS_SHA256	:= 53353d05c30b4fc9dac006a8f0c5054cdd8a1834c176313c91e4694025c4b891
 CIFS_UTILS		:= cifs-utils-$(CIFS_UTILS_VERSION)
 CIFS_UTILS_SUFFIX	:= tar.bz2
 CIFS_UTILS_URL		:= https://ftp.samba.org/pub/linux-cifs/cifs-utils/$(CIFS_UTILS).$(CIFS_UTILS_SUFFIX)

@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_GREP) += grep
 # Paths and names
 #
 GREP_VERSION		:= 3.12
-GREP_MD5		:= 5d9301ed9d209c4a88c8d3a6fd08b9ac
+GREP_SHA256		:= 2649b27c0e90e632eadcd757be06c6e9a4f48d941de51e7c0f83ff76408a07b9
 GREP			:= grep-$(GREP_VERSION)
 GREP_SUFFIX		:= tar.xz
 GREP_URL		:= $(call ptx/mirror, GNU, grep/$(GREP).$(GREP_SUFFIX))

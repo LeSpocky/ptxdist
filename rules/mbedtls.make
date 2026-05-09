@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_MBEDTLS) += mbedtls
 # Paths and names
 #
 MBEDTLS_VERSION		:= 2.28.0
-MBEDTLS_MD5		:= d64054513df877458493dbb28e2935fa
+MBEDTLS_SHA256		:= 6519579b836ed78cc549375c7c18b111df5717e86ca0eeff4cb64b2674f424cc
 MBEDTLS			:= mbedtls-$(MBEDTLS_VERSION)
 MBEDTLS_SUFFIX		:= tar.gz
 MBEDTLS_URL		:= https://github.com/Mbed-TLS/mbedtls/archive/refs/tags/v$(MBEDTLS_VERSION).$(MBEDTLS_SUFFIX)

@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_SED) += sed
 # Paths and names
 #
 SED_VERSION	:= 4.9
-SED_MD5		:= a50000a406f767bfa35db319704ef7b5
+SED_SHA256	:= d1478a18f033a73ac16822901f6533d30b6be561bcbce46ffd7abce93602282e
 SED		:= sed-$(SED_VERSION)
 SED_SUFFIX	:= tar.gz
 SED_URL		:= $(call ptx/mirror, GNU, sed/$(SED).$(SED_SUFFIX))

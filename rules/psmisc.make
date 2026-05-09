@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_PSMISC) += psmisc
 # Paths and names
 #
 PSMISC_VERSION	:= 23.5
-PSMISC_MD5	:= 014f0b5d5ab32478a2c57812ad01e1fb
+PSMISC_SHA256	:= dc37ecc2f7e4a90a94956accc6e1c77adb71316b7c9cbd39b26738db0c3ae58b
 PSMISC		:= psmisc-$(PSMISC_VERSION)
 PSMISC_SUFFIX	:= tar.xz
 PSMISC_URL	:= $(call ptx/mirror, SF, psmisc/$(PSMISC).$(PSMISC_SUFFIX))

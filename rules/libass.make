@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBASS) += libass
 # Paths and names
 #
 LIBASS_VERSION		:= 0.17.1
-LIBASS_MD5		:= e920cfac44bf9e729d9a0aeed22d9ddb
+LIBASS_SHA256		:= 5ba42655d7e8c5e87bba3ffc8a2b1bc19c29904240126bb0d4b924f39429219f
 LIBASS			:= libass-$(LIBASS_VERSION)
 LIBASS_SUFFIX		:= tar.gz
 LIBASS_URL		:= https://github.com/libass/libass/archive/$(LIBASS_VERSION).$(LIBASS_SUFFIX)

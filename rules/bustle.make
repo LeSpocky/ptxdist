@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_BUSTLE) += bustle
 # Paths and names
 #
 BUSTLE_VERSION	:= 0.2.4
-BUSTLE_MD5	:= 1abc206b121b46b6d3f4aecababc35d0
+BUSTLE_SHA256	:= 0ef8c94062eeffcbe1bf76dbb6191e56e281f462d2a17bf56d471f2181e42324
 BUSTLE		:= bustle-$(BUSTLE_VERSION)
 BUSTLE_SUFFIX	:= tar.gz
 BUSTLE_URL	:= http://www.willthompson.co.uk/bustle/releases/$(BUSTLE).$(BUSTLE_SUFFIX)

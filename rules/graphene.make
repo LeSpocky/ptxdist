@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_GRAPHENE) += graphene
 # Paths and names
 #
 GRAPHENE_VERSION	:= 1.10.8
-GRAPHENE_MD5		:= 32660faa6ab717ee1600566ede027e9d
+GRAPHENE_SHA256		:= 922dc109d2dc5dc56617a29bd716c79dd84db31721a8493a13a5f79109a4a4ed
 GRAPHENE		:= graphene-$(GRAPHENE_VERSION)
 GRAPHENE_SUFFIX		:= tar.gz
 GRAPHENE_URL		:= https://github.com/ebassi/graphene/archive/refs/tags/$(GRAPHENE_VERSION).$(GRAPHENE_SUFFIX)

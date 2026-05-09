@@ -17,7 +17,7 @@ PACKAGES-$(PTXCONF_GPSD) += gpsd
 # Paths and names
 #
 GPSD_VERSION	:= 3.23.1
-GPSD_MD5	:= 7984a35e7104b46c2cb570fb30c4be03
+GPSD_SHA256	:= ca2c466df783c57b8a07ad3f5c67943186d05befdc377de938ed111d1358a8c1
 GPSD		:= gpsd-$(GPSD_VERSION)
 GPSD_SUFFIX	:= tar.xz
 GPSD_URL	:= http://download.savannah.gnu.org/releases/gpsd/$(GPSD).$(GPSD_SUFFIX)

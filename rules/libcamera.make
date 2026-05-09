@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBCAMERA) += libcamera
 # Paths and names
 #
 LIBCAMERA_VERSION	:= 0.7.0
-LIBCAMERA_MD5		:= bc0b8b2f8210d8c4de607ecc8c9bbec4
+LIBCAMERA_SHA256	:= ebd90a3aa2ca87a39323ffb7a4f5bbf72090b43a2431133759620b63e982db87
 LIBCAMERA		:= libcamera-$(LIBCAMERA_VERSION)
 LIBCAMERA_SUFFIX	:= tar.gz
 LIBCAMERA_URL		:= https://gitlab.freedesktop.org/camera/libcamera/-/archive/v$(LIBCAMERA_VERSION)/$(LIBCAMERA).$(LIBCAMERA_SUFFIX)

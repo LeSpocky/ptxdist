@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_NUMACTL) += numactl
 # Paths and names
 #
 NUMACTL_VERSION	:= 2.0.14
-NUMACTL_MD5	:= f65f3501a82df8c3ee7cc74dc6a55636
+NUMACTL_SHA256	:= 826bd148c1b6231e1284e42a4db510207747484b112aee25ed6b1078756bcff6
 NUMACTL		:= numactl-$(NUMACTL_VERSION)
 NUMACTL_SUFFIX	:= tar.gz
 NUMACTL_URL	:= https://github.com/numactl/numactl/releases/download/v$(NUMACTL_VERSION)/$(NUMACTL).$(NUMACTL_SUFFIX)

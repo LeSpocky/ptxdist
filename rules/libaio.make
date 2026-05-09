@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBAIO) += libaio
 # Paths and names
 #
 LIBAIO_VERSION		:= 0.3.113
-LIBAIO_MD5		:= 4422d9f1655f358d74ff48af2a3b9f49
+LIBAIO_SHA256		:= 716c7059703247344eb066b54ecbc3ca2134f0103307192e6c2b7dab5f9528ab
 LIBAIO			:= libaio-$(LIBAIO_VERSION)
 LIBAIO_SUFFIX		:= tar.gz
 LIBAIO_URL		:= https://pagure.io/libaio/archive/$(LIBAIO)/libaio-$(LIBAIO).$(LIBAIO_SUFFIX)

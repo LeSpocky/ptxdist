@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_MONIT) += monit
 # Paths and names
 #
 MONIT_VERSION	:= 5.35.2
-MONIT_MD5	:= d89fee3644f542156d42d99d93026d6e
+MONIT_SHA256	:= 4dfef54329e63d9772a9e1c36ac99bc41173b79963dc0d8235f2c32f4b9e078f
 MONIT		:= monit-$(MONIT_VERSION)
 MONIT_SUFFIX	:= tar.gz
 MONIT_URL	:= http://mmonit.com/monit/dist/$(MONIT).$(MONIT_SUFFIX)

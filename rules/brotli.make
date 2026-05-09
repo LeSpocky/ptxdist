@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_BROTLI) += brotli
 # Paths and names
 #
 BROTLI_VERSION		:= 1.1.0
-BROTLI_MD5		:= 3a6a3dba82a3604792d3cb0bd41bca60
+BROTLI_SHA256		:= e720a6ca29428b803f4ad165371771f5398faba397edf6778837a18599ea13ff
 BROTLI			:= brotli-$(BROTLI_VERSION)
 BROTLI_SUFFIX		:= tar.gz
 BROTLI_URL		:= https://github.com/google/brotli/archive/refs/tags/v$(BROTLI_VERSION).$(BROTLI_SUFFIX)

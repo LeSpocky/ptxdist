@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBBSD) += libbsd
 # Paths and names
 #
 LIBBSD_VERSION	:= 0.12.2
-LIBBSD_MD5	:= 1aa07d44ee00e2cc1ae3ac10baae7a68
+LIBBSD_SHA256	:= b88cc9163d0c652aaf39a99991d974ddba1c3a9711db8f1b5838af2a14731014
 LIBBSD		:= libbsd-$(LIBBSD_VERSION)
 LIBBSD_SUFFIX	:= tar.xz
 LIBBSD_URL	:= https://libbsd.freedesktop.org/releases/$(LIBBSD).$(LIBBSD_SUFFIX)

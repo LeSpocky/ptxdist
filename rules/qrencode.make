@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_QRENCODE) += qrencode
 # Paths and names
 #
 QRENCODE_VERSION	:= 4.1.1
-QRENCODE_MD5		:= a046d19b4ad90d9f28ee0b3f29b60da6
+QRENCODE_SHA256		:= da448ed4f52aba6bcb0cd48cac0dd51b8692bccc4cd127431402fca6f8171e8e
 QRENCODE		:= qrencode-$(QRENCODE_VERSION)
 QRENCODE_SUFFIX		:= tar.gz
 QRENCODE_URL		:= https://github.com/fukuchi/libqrencode/archive/refs/tags/v$(QRENCODE_VERSION).$(QRENCODE_SUFFIX)

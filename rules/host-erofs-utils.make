@@ -15,7 +15,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_EROFS_UTILS) += host-erofs-utils
 # Paths and names
 #
 HOST_EROFS_UTILS_VERSION	:= 1.8.5
-HOST_EROFS_UTILS_MD5		:= a4a4d803bc5120ffacc05a453a505ff7
+HOST_EROFS_UTILS_SHA256		:= cd8611270e9c86fe062f647103ca6ada9ed710e4430fdd5960d514777919200d
 HOST_EROFS_UTILS		:= erofs-utils-$(HOST_EROFS_UTILS_VERSION)
 HOST_EROFS_UTILS_SUFFIX		:= tar.gz
 HOST_EROFS_UTILS_URL		:= https://web.git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git/snapshot/$(HOST_EROFS_UTILS).$(HOST_EROFS_UTILS_SUFFIX)

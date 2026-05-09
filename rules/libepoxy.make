@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBEPOXY) += libepoxy
 # Paths and names
 #
 LIBEPOXY_VERSION	:= 1.5.10
-LIBEPOXY_MD5		:= f0730aad115c952e77591fcc805b1dc1
+LIBEPOXY_SHA256		:= a7ced37f4102b745ac86d6a70a9da399cc139ff168ba6b8002b4d8d43c900c15
 LIBEPOXY		:= libepoxy-$(LIBEPOXY_VERSION)
 LIBEPOXY_SUFFIX		:= tar.gz
 LIBEPOXY_URL		:= https://github.com/anholt/libepoxy/archive/refs/tags/$(LIBEPOXY_VERSION).$(LIBEPOXY_SUFFIX)

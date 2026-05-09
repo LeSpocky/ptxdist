@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_HTOP) += htop
 # Paths and names
 #
 HTOP_VERSION		:= 3.4.1
-HTOP_MD5		:= c3e003d9e265774dd808e934d1780774
+HTOP_SHA256		:= af9ec878f831b7c27d33e775c668ec79d569aa781861c995a0fbadc1bdb666cf
 HTOP			:= htop-$(HTOP_VERSION)
 HTOP_SUFFIX		:= tar.gz
 HTOP_URL		:= https://github.com/htop-dev/htop/archive/$(HTOP_VERSION).$(HTOP_SUFFIX)

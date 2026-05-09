@@ -17,7 +17,7 @@ PACKAGES-$(PTXCONF_HEXEDIT) += hexedit
 # Paths and names
 #
 HEXEDIT_VERSION	:= 1.4.2
-HEXEDIT_MD5	:= 6fa1ce9c8c0306f3392f1ea002c80370
+HEXEDIT_SHA256	:= c81ffb36af9243aefc0887e33dd8e41c4b22d091f1f27d413cbda443b0440d66
 HEXEDIT		:= hexedit-$(HEXEDIT_VERSION)
 HEXEDIT_SUFFIX	:= tar.gz
 HEXEDIT_URL	:= https://github.com/pixel/hexedit/archive/$(HEXEDIT_VERSION).$(HEXEDIT_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBESTR) += libestr
 # Paths and names
 #
 LIBESTR_VERSION		:= 0.1.10
-LIBESTR_MD5		:= f4c9165a23587e77f7efe65d676d5e8e
+LIBESTR_SHA256		:= bd655e126e750edd18544b88eb1568d200a424a0c23f665eb14bbece07ac703c
 LIBESTR			:= libestr-$(LIBESTR_VERSION)
 LIBESTR_SUFFIX		:= tar.gz
 LIBESTR_URL		:= https://libestr.adiscon.com/files/download/$(LIBESTR).$(LIBESTR_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBFTDI1) += libftdi1
 # Paths and names
 #
 LIBFTDI1_VERSION	:= 1.5
-LIBFTDI1_MD5		:= f515d7d69170a9afc8b273e8f1466a80
+LIBFTDI1_SHA256		:= 7c7091e9c86196148bd41177b4590dccb1510bfe6cea5bf7407ff194482eb049
 LIBFTDI1		:= libftdi1-$(LIBFTDI1_VERSION)
 LIBFTDI1_SUFFIX		:= tar.bz2
 LIBFTDI1_URL		:= https://www.intra2net.com/en/developer/libftdi/download/$(LIBFTDI1).$(LIBFTDI1_SUFFIX)

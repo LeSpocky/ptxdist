@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_ARMADILLO) += armadillo
 # Paths and names
 #
 ARMADILLO_VERSION	:= 12.6.6
-ARMADILLO_MD5		:= 79925f9cf0c7276fd4f120b978a3ef3c
+ARMADILLO_SHA256	:= 3858b0fd431772af032ad3f35c2aeb54e8dabea59169e7d1e9fccd78bc82ad35
 ARMADILLO		:= armadillo-$(ARMADILLO_VERSION)
 ARMADILLO_SUFFIX	:= tar.xz
 ARMADILLO_URL		:= https://sourceforge.net/projects/arma/files/$(ARMADILLO).$(ARMADILLO_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_ABSEIL_CPP) += abseil-cpp
 # Paths and names
 #
 ABSEIL_CPP_VERSION		:= 20250814.1
-ABSEIL_CPP_MD5			:= d4d3c25f78e28d61ad83e54cd1116933
+ABSEIL_CPP_SHA256		:= 1692f77d1739bacf3f94337188b78583cf09bab7e420d2dc6c5605a4f86785a1
 ABSEIL_CPP			:= abseil-cpp-$(ABSEIL_CPP_VERSION)
 ABSEIL_CPP_SUFFIX		:= tar.gz
 ABSEIL_CPP_URL			:= https://github.com/abseil/abseil-cpp/archive/refs/tags/$(ABSEIL_CPP_VERSION).$(ABSEIL_CPP_SUFFIX)

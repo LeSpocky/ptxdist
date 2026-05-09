@@ -12,7 +12,7 @@ PACKAGES-$(PTXCONF_IMX_UUC) += imx-uuc
 # Paths and names
 #
 IMX_UUC_VERSION		:= 2019-11-07-gd6afb27e55d73d7ad08cd2dd51c784d8ec9694dc
-IMX_UUC_MD5		:= 1a807ab59464385309b92794b43b5caa
+IMX_UUC_SHA256		:= 7f4d4838d4bf489932ef4a242677db30ad8d9ffd76065e07f4ddee3e6c35db82
 IMX_UUC			:= imx-uuc-$(IMX_UUC_VERSION)
 IMX_UUC_SUFFIX		:= tar.gz
 IMX_UUC_URL		:= https://github.com/NXPmicro/imx-uuc/archive/$(IMX_UUC).$(IMX_UUC_SUFFIX)

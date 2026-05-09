@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBTSM) += libtsm
 # Paths and names
 #
 LIBTSM_VERSION		:= 4.4.1
-LIBTSM_MD5		:= b821ba5e7f55b0c1118ac23a1668ce41
+LIBTSM_SHA256		:= 20f5c6fd69c4a701c25981ad6f3976f2578cdffb4b138c341b85d3a3b8a0017c
 LIBTSM			:= libtsm-$(LIBTSM_VERSION)
 LIBTSM_SUFFIX		:= tar.gz
 LIBTSM_URL		:= https://github.com/kmscon/libtsm/archive/refs/tags/v$(LIBTSM_VERSION).$(LIBTSM_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBTAR) += libtar
 # Paths and names
 #
 LIBTAR_VERSION	:= 1.2.20
-LIBTAR_MD5	:= dcdcdf8cfbbd3df3862198b0897071b6
+LIBTAR_SHA256	:= 3152fc61cf03c82efbf99645596efdadba297eac3e85a52ae189902a072c9a16
 LIBTAR		:= libtar-$(LIBTAR_VERSION)
 LIBTAR_SUFFIX	:= tar.gz
 LIBTAR_URL	:= git://repo.or.cz/libtar.git;tag=v$(LIBTAR_VERSION)

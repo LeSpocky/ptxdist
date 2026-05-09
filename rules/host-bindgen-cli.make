@@ -15,7 +15,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_BINDGEN_CLI) += host-bindgen-cli
 # Paths and names
 #
 HOST_BINDGEN_CLI_VERSION	:= 0.71.1
-HOST_BINDGEN_CLI_MD5		:= 5a487a1bb262a78b0d1a58e2feef8940
+HOST_BINDGEN_CLI_SHA256		:= fded10ca0956afd0cbe5cf89cc71ae1a679e65b8216c651fca17ba7de8ac54dc
 HOST_BINDGEN_CLI		:= bindgen-cli-$(HOST_BINDGEN_CLI_VERSION)
 HOST_BINDGEN_CLI_SUFFIX		:= tar.gz
 HOST_BINDGEN_CLI_URL		:= https://crates.io/api/v1/crates/bindgen-cli/$(HOST_BINDGEN_CLI_VERSION)/download

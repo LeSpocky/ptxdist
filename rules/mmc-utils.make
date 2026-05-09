@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_MMC_UTILS) += mmc-utils
 #
 # No tags: use a fake descriptive commit-ish to include the date
 MMC_UTILS_VERSION	:= 2022-09-27-gdfc3b6ecda84
-MMC_UTILS_MD5		:= 791e4c512cb044045ae34d7f4b781ac1
+MMC_UTILS_SHA256	:= 09e06f471223d261c462a7a7e9c815671f6d03dcdf64f13fd4c9c300aaa29ead
 MMC_UTILS		:= mmc-utils-$(MMC_UTILS_VERSION)
 MMC_UTILS_SUFFIX	:= tar.gz
 MMC_UTILS_URL		:= https://git.kernel.org/pub/scm/utils/mmc/mmc-utils.git/snapshot/$(MMC_UTILS).$(MMC_UTILS_SUFFIX)

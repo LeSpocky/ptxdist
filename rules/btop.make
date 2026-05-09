@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_BTOP) += btop
 # Paths and names
 #
 BTOP_VERSION	:= 1.3.2
-BTOP_MD5	:= 04ff8d32e7bf748705fe34dfea50c628
+BTOP_SHA256	:= 331d18488b1dc7f06cfa12cff909230816a24c57790ba3e8224b117e3f0ae03e
 BTOP		:= btop-$(BTOP_VERSION)
 BTOP_SUFFIX	:= tar.gz
 BTOP_URL	:= https://github.com/aristocratos/btop/archive/v$(BTOP_VERSION).$(BTOP_SUFFIX)

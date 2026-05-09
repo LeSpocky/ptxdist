@@ -17,7 +17,7 @@ PACKAGES-$(PTXCONF_IMA_EVM_UTILS) += ima-evm-utils
 # Paths and names
 #
 IMA_EVM_UTILS_VERSION	:= 1.3.2
-IMA_EVM_UTILS_MD5	:= 55cc0e2c77a725f722833c3b4a36038c
+IMA_EVM_UTILS_SHA256	:= c2b206e7f9fbe62a938b7ae59e31906fefae4d5351fe01db739bd8346b75d4a7
 IMA_EVM_UTILS		:= ima-evm-utils-$(IMA_EVM_UTILS_VERSION)
 IMA_EVM_UTILS_SUFFIX	:= tar.gz
 IMA_EVM_UTILS_URL	:= $(call ptx/mirror, SF, linux-ima/ima-evm-utils/$(IMA_EVM_UTILS).$(IMA_EVM_UTILS_SUFFIX))

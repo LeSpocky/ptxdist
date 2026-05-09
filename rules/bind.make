@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_BIND) += bind
 # Paths and names
 #
 BIND_VERSION		:= 9.11.37
-BIND_MD5		:= 0a11e9596c46d6728fa3b0989ee75197
+BIND_SHA256		:= 0d8efbe7ec166ada90e46add4267b7e7c934790cba9bd5af6b8380a4fbfb5aff
 BIND			:= bind-$(BIND_VERSION)
 BIND_SUFFIX		:= tar.gz
 BIND_URL		:= https://ftp.isc.org/isc/bind9/$(BIND_VERSION)/$(BIND).$(BIND_SUFFIX)

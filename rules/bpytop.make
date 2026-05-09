@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_BPYTOP) += bpytop
 # Paths and names
 #
 BPYTOP_VERSION	:= 1.0.26
-BPYTOP_MD5	:= 0f726e1e5c9830a1a346182abdc259a0
+BPYTOP_SHA256	:= f0ff729a8e14d2112f3a45a461cb3025895aee28b0c0e52d54c387aa6a80e586
 BPYTOP		:= bpytop-$(BPYTOP_VERSION)
 BPYTOP_SUFFIX	:= tar.gz
 BPYTOP_URL	:= https://github.com/aristocratos/bpytop/archive/v$(BPYTOP_VERSION).$(BPYTOP_SUFFIX)

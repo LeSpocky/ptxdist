@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBBSON) += libbson
 # Paths and names
 #
 LIBBSON_VERSION		:= 1.23.4
-LIBBSON_MD5		:= 28f2f253777e8d80839c41239de44188
+LIBBSON_SHA256		:= 209406c91fcf7c63aa633179a0a6b1b36ba237fb77e0470fd81f7299a408e334
 LIBBSON			:= libbson-$(LIBBSON_VERSION)
 LIBBSON_SUFFIX		:= tar.gz
 LIBBSON_URL		:= https://github.com/mongodb/mongo-c-driver/releases/download/$(LIBBSON_VERSION)/mongo-c-driver-$(LIBBSON_VERSION).$(LIBBSON_SUFFIX)

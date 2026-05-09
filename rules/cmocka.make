@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_CMOCKA) += cmocka
 # Paths and names
 #
 CMOCKA_VERSION		:= 1.1.8
-CMOCKA_MD5		:= 976fe5a166f9729c350119d997256d2f
+CMOCKA_SHA256		:= 58435b558766d7f4c729ba163bdf3aec38bed3bc766dab684e3526ed0aa7c780
 CMOCKA			:= cmocka-$(CMOCKA_VERSION)
 CMOCKA_SUFFIX		:= tar.xz
 CMOCKA_URL		:= https://cmocka.org/files/$(basename $(CMOCKA_VERSION))/$(CMOCKA).$(CMOCKA_SUFFIX)

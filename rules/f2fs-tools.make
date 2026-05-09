@@ -17,7 +17,7 @@ endif
 # Paths and names
 #
 F2FS_TOOLS_VERSION	:= 1.16.0
-F2FS_TOOLS_MD5		:= 5b05b9331a18564c635b3bf8305c3910
+F2FS_TOOLS_SHA256	:= 208c7a07e95383fbd7b466b5681590789dcb41f41bf197369c41a95383b57c5e
 F2FS_TOOLS		:= f2fs-tools-$(F2FS_TOOLS_VERSION)
 F2FS_TOOLS_SUFFIX	:= tar.gz
 F2FS_TOOLS_URL		:= https://git.kernel.org/pub/scm/linux/kernel/git/jaegeuk/f2fs-tools.git/snapshot/$(F2FS_TOOLS).$(F2FS_TOOLS_SUFFIX)

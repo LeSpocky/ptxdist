@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_PULSEAUDIO) += pulseaudio
 # Paths and names
 #
 PULSEAUDIO_VERSION	:= 17.0
-PULSEAUDIO_MD5		:= c4a3596a26ff4b9dcd0c394dd1d4f8ee
+PULSEAUDIO_SHA256	:= 053794d6671a3e397d849e478a80b82a63cb9d8ca296bd35b73317bb5ceb87b5
 PULSEAUDIO		:= pulseaudio-$(PULSEAUDIO_VERSION)
 PULSEAUDIO_SUFFIX	:= tar.xz
 PULSEAUDIO_URL		:= http://www.freedesktop.org/software/pulseaudio/releases/$(PULSEAUDIO).$(PULSEAUDIO_SUFFIX)

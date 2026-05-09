@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_DBUS_GLIB) += dbus-glib
 # Paths and names
 #
 DBUS_GLIB_VERSION	:= 0.114
-DBUS_GLIB_MD5		:= 188792077e880a8c0359288d7819dab3
+DBUS_GLIB_SHA256	:= c09c5c085b2a0e391b8ee7d783a1d63fe444e96717cc1814d61b5e8fc2827a7c
 DBUS_GLIB		:= dbus-glib-$(DBUS_GLIB_VERSION)
 DBUS_GLIB_SUFFIX	:= tar.gz
 DBUS_GLIB_URL		:= https://dbus.freedesktop.org/releases/dbus-glib/$(DBUS_GLIB).$(DBUS_GLIB_SUFFIX)

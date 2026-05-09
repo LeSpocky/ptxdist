@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBTRACEEVENT) += libtraceevent
 # Paths and names
 #
 LIBTRACEEVENT_VERSION	:= 1.8.4
-LIBTRACEEVENT_MD5 	:= 2efaa25168e20ad5501393a25ed1cd01
+LIBTRACEEVENT_SHA256	:= d4d206a9bf53f613f7e2e6bc10c8909c895456f2ea37e03f6741de77c9c9532f
 LIBTRACEEVENT		:= libtraceevent-$(LIBTRACEEVENT_VERSION)
 LIBTRACEEVENT_SUFFIX	:= tar.xz
 LIBTRACEEVENT_URL	:= https://git.kernel.org/pub/scm/libs/libtrace/libtraceevent.git;tag=libtraceevent-$(LIBTRACEEVENT_VERSION)

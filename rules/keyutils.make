@@ -12,7 +12,7 @@ PACKAGES-$(PTXCONF_KEYUTILS) += keyutils
 # Paths and names
 #
 KEYUTILS_VERSION	:= 1.6.3
-KEYUTILS_MD5		:= 6b70b2b381c1b6d9adfaf66d5d3e7c00
+KEYUTILS_SHA256		:= a61d5706136ae4c05bd48f86186bcfdbd88dd8bd5107e3e195c924cfc1b39bb4
 KEYUTILS		:= keyutils-$(KEYUTILS_VERSION)
 KEYUTILS_SUFFIX		:= tar.gz
 KEYUTILS_URL		:= https://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/snapshot/$(KEYUTILS).$(KEYUTILS_SUFFIX)

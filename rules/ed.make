@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_ED) += ed
 # Paths and names
 #
 ED_VERSION	:= 1.14.2
-ED_MD5		:= 273d04778b2a51f7c3cbfcd2001876bf
+ED_SHA256	:= f57962ba930d70d02fc71d6be5c5f2346b16992a455ab9c43be7061dec9810db
 ED		:= ed-$(ED_VERSION)
 ED_SUFFIX	:= tar.lz
 ED_URL		:= $(call ptx/mirror, GNU, ed/$(ED).$(ED_SUFFIX))

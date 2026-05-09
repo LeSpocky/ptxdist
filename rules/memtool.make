@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_MEMTOOL) += memtool
 # Paths and names
 #
 MEMTOOL_VERSION	:= 2018.03.0
-MEMTOOL_MD5	:= b3b16018cda270fa1d375ea09b67d6ae
+MEMTOOL_SHA256	:= 87cb7175266ff3a00a9c1f541c4c6c93693ffbe8dcc0d97a60d13c45ff860900
 MEMTOOL		:= memtool-$(MEMTOOL_VERSION)
 MEMTOOL_SUFFIX	:= tar.xz
 MEMTOOL_URL	:= http://www.pengutronix.de/software/memtool/downloads/$(MEMTOOL).$(MEMTOOL_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_FBTERM) += fbterm
 # Paths and names
 #
 FBTERM_VERSION	:= 1.7.0
-FBTERM_MD5	:= c36bae75a450df0519b4527cccaf7572
+FBTERM_SHA256	:= 720f600817217257aa4c822e67814495dcb6c8d6326cdde5fe3ba1e457d9915d
 FBTERM		:= fbterm-$(FBTERM_VERSION)
 FBTERM_SUFFIX	:= tar.gz
 FBTERM_URL	:= https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/fbterm/$(FBTERM).$(FBTERM_SUFFIX)

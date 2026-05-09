@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_TSLIB) += tslib
 # Paths and names
 #
 TSLIB_VERSION	:= 1.23
-TSLIB_MD5	:= 1e17bfb7346bceeecfa18b7f6c9b05df
+TSLIB_SHA256	:= 39033685f78f9ceabe25430ebeec8788be860752ea992d964d22718ef8562b72
 TSLIB		:= tslib-$(TSLIB_VERSION)
 TSLIB_SUFFIX	:= tar.bz2
 TSLIB_URL	:= https://github.com/libts/tslib/releases/download/$(TSLIB_VERSION)/$(TSLIB).$(TSLIB_SUFFIX)

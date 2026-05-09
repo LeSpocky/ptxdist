@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_C_ARES) += c-ares
 # Paths and names
 #
 C_ARES_VERSION	:= 1.34.6
-C_ARES_MD5	:= 85fda96ad3859edb262f68284d11b971
+C_ARES_SHA256	:= 912dd7cc3b3e8a79c52fd7fb9c0f4ecf0aaa73e45efda880266a2d6e26b84ef5
 C_ARES		:= c-ares-$(C_ARES_VERSION)
 C_ARES_SUFFIX	:= tar.gz
 C_ARES_URL	:= https://github.com/c-ares/c-ares/releases/download/v$(C_ARES_VERSION)/$(C_ARES).$(C_ARES_SUFFIX)

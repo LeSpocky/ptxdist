@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_POLKIT) += polkit
 # Paths and names
 #
 POLKIT_VERSION	:= 124
-POLKIT_MD5	:= 97db655618e1483706fbc764787c7d6e
+POLKIT_SHA256	:= 72457d96a0538fd03a3ca96a6bf9b7faf82184d4d67c793eb759168e4fd49e20
 POLKIT		:= polkit-$(POLKIT_VERSION)
 POLKIT_SUFFIX	:= tar.gz
 POLKIT_URL	:= https://github.com/polkit-org/polkit/archive/refs/tags/$(POLKIT_VERSION).$(POLKIT_SUFFIX)

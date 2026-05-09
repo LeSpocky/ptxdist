@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_UDISKS) += udisks
 # Paths and names
 #
 UDISKS_VERSION		:= 2.10.1
-UDISKS_MD5		:= 613af9bfea52cde74d2ac34d96de544d
+UDISKS_SHA256		:= b75734ccf602540dedb4068bec206adcb508a4c003725e117ae8f994d92d8ece
 UDISKS			:= udisks-$(UDISKS_VERSION)
 UDISKS_SUFFIX		:= tar.bz2
 UDISKS_URL		:= https://github.com/storaged-project/udisks/releases/download/$(UDISKS)/$(UDISKS).$(UDISKS_SUFFIX)

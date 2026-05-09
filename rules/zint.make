@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_ZINT) += zint
 # Paths and names
 #
 ZINT_VERSION		:= 2.15.0
-ZINT_MD5		:= ea0065f7ea67fca17a443bc064252340
+ZINT_SHA256		:= bce37d9b86e6127cac63c8b6267ac421116d4ac086519d726eb724f5462d98c7
 ZINT			:= zint-$(ZINT_VERSION)
 ZINT_SUFFIX		:= tar.gz
 ZINT_URL		:= https://sourceforge.net/projects/zint/files/zint/$(ZINT_VERSION)/$(ZINT)-src.$(ZINT_SUFFIX)

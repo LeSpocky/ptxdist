@@ -17,7 +17,7 @@ PACKAGES-$(PTXCONF_FIGLET) += figlet
 # Paths and names
 #
 FIGLET_VERSION		:= 2.2.5
-FIGLET_MD5		:= eaaeb356007755c9770a842aefd8ed5f d88cb33a14f1469fff975d021ae2858e
+FIGLET_SHA256		:= 4d366c4a618ecdd6fdb81cde90edc54dbff9764efb635b3be47a929473f13930 bf88c40fd0f077dab2712f54f8d39ac952e4e9f2e1882f1195be9e5e4257417d
 FIGLET			:= figlet-$(FIGLET_VERSION)
 FIGLET_SUFFIX		:= tar.gz
 FIGLET_URL		:= https://github.com/cmatsuoka/figlet/archive/refs/tags/$(FIGLET_VERSION).$(FIGLET_SUFFIX)

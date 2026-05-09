@@ -17,7 +17,7 @@ endif
 # Paths and names
 #
 PLY_VERSION	:= 2.1.0
-PLY_MD5		:= cd7b5258d636db5d330f45ec858f9a5c
+PLY_SHA256	:= 7438174976fc1485c383da904a23e97967708d29147b246acefca6eb818cdadf
 PLY		:= ply-$(PLY_VERSION)
 PLY_SUFFIX	:= tar.gz
 PLY_URL		:= https://github.com/wkz/ply/releases/download/$(PLY_VERSION)/$(PLY).$(PLY_SUFFIX)

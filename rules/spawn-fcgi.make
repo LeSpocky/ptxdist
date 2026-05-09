@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SPAWN_FCGI) += spawn-fcgi
 # Paths and names
 #
 SPAWN_FCGI_VERSION	:= 1.6.4
-SPAWN_FCGI_MD5		:= a67c098a50cd625fd12adf61b5dd4c32
+SPAWN_FCGI_SHA256	:= 423b0c317e0084773b483985cc21930c4b8dfcb411f7353d6ee6fc41d9cb9d45
 SPAWN_FCGI		:= spawn-fcgi-$(SPAWN_FCGI_VERSION)
 SPAWN_FCGI_SUFFIX	:= tar.xz
 SPAWN_FCGI_URL		:= https://download.lighttpd.net/spawn-fcgi/releases-1.6.x/$(SPAWN_FCGI).$(SPAWN_FCGI_SUFFIX)

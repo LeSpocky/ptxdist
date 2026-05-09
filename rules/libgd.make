@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBGD) += libgd
 # Paths and names
 #
 LIBGD_VERSION	:= 2.2.4
-LIBGD_MD5	:= 0a3c307b5075edbe1883543dd1153c02
+LIBGD_SHA256	:= 487a650aa614217ed08ab1bd1aa5d282f9d379cfd95c756aed0b43406381be65
 LIBGD		:= gd-$(LIBGD_VERSION)
 LIBGD_SUFFIX	:= tar.gz
 LIBGD_URL	:= https://github.com/libgd/libgd/releases/download/$(LIBGD)/libgd-$(LIBGD_VERSION).$(LIBGD_SUFFIX)

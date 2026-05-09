@@ -18,7 +18,7 @@ PACKAGES-$(PTXCONF_RT_TESTS) += rt-tests
 # Paths and names
 #
 RT_TESTS_VERSION	:= 2.9
-RT_TESTS_MD5		:= b2e16d8e57533370600a149e6b99fd6b
+RT_TESTS_SHA256		:= fbe9fcf7bac930e2b789afd24f8a2206ac42a4acd5017d72b106cfbccdb43a00
 RT_TESTS		:= rt-tests-$(RT_TESTS_VERSION)
 RT_TESTS_SUFFIX		:= tar.xz
 RT_TESTS_URL		:= \

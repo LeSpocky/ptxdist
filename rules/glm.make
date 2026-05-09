@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_GLM) += glm
 # Paths and names
 #
 GLM_VERSION	:= 1.0.1
-GLM_MD5		:= f824ac50e16310a95279032f82cbd341
+GLM_SHA256	:= 9f3174561fd26904b23f0db5e560971cbf9b3cbda0b280f04d5c379d03bf234c
 GLM		:= glm-$(GLM_VERSION)
 GLM_SUFFIX	:= tar.gz
 GLM_URL		:= https://github.com/g-truc/glm/archive/refs/tags/$(GLM_VERSION).$(GLM_SUFFIX)

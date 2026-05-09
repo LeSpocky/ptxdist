@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_FLEX) += flex
 # Paths and names
 #
 FLEX_VERSION	:= 2.6.4
-FLEX_MD5	:= 2882e3179748cc9f9c23ec593d6adc8d
+FLEX_SHA256	:= e87aae032bf07c26f85ac0ed3250998c37621d95f8bd748b31f15b33c45ee995
 FLEX		:= flex-$(FLEX_VERSION)
 FLEX_SUFFIX	:= tar.gz
 FLEX_URL	:= https://github.com/westes/flex/releases/download/v$(FLEX_VERSION)/$(FLEX).$(FLEX_SUFFIX)

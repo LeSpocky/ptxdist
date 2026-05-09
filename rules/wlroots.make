@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_WLROOTS) += wlroots
 # Paths and names
 #
 WLROOTS_VERSION	:= 0.16.0
-WLROOTS_MD5	:= 2f9263c6ed2f2da2957988ee3f7bde1f
+WLROOTS_SHA256	:= 3be91163208577761969a8ae499d737c4dbb764f73c46aa8f76a512ee36b7da4
 WLROOTS		:= wlroots-$(WLROOTS_VERSION)
 WLROOTS_SUFFIX	:= tar.bz2
 WLROOTS_URL	:= https://gitlab.freedesktop.org/wlroots/wlroots/-/archive/$(WLROOTS_VERSION)/$(WLROOTS).$(WLROOTS_SUFFIX)

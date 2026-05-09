@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_XZ) += xz
 # Paths and names
 #
 XZ_VERSION	:= 5.8.1
-XZ_MD5		:= 1be5d8137d7b5e91fa9ff8a6fdc4895b
+XZ_SHA256	:= bdbc23fbf9098843357e71e49685724fda2c320c29cb1b25fd90505f14bb0b3d
 XZ		:= xz-$(XZ_VERSION)
 XZ_SUFFIX	:= tar.gz
 XZ_URL		:= https://github.com/tukaani-project/xz/archive/refs/tags/v$(XZ_VERSION).$(XZ_SUFFIX)

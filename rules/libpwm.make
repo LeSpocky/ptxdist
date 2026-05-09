@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBPWM) += libpwm
 # Paths and names
 #
 LIBPWM_VERSION		:= 1.0-rc2
-LIBPWM_MD5		:= ccf05e263bd26418311e0e93848b3a71
+LIBPWM_SHA256		:= 5409db8d1d690bb45d4f8e4c923895cc1b692cd221b3146380eced956ccc61e0
 LIBPWM			:= libpwm-$(LIBPWM_VERSION)
 LIBPWM_SUFFIX		:= tar.xz
 LIBPWM_URL		:= $(call ptx/mirror, KERNEL, kernel/people/ukleinek/libpwm/libpwm-$(LIBPWM_VERSION).tar.xz)

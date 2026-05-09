@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_FBUTILS) += fbutils
 # Paths and names
 #
 FBUTILS_VERSION	:= 20041102-1
-FBUTILS_MD5	:= 5a1e431eee0673a07a4f72c751d7a8eb
+FBUTILS_SHA256	:= 040ec5c78c516f1dfd999b061f0098ac1956125ebc4b07b9509a1de98e9c6d49
 FBUTILS		:= fbutils-$(FBUTILS_VERSION)
 FBUTILS_SUFFIX	:= tar.gz
 FBUTILS_URL	:= http://www.pengutronix.de/software/ptxdist/temporary-src/$(FBUTILS).$(FBUTILS_SUFFIX)

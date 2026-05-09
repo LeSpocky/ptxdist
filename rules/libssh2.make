@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBSSH2) += libssh2
 # Paths and names
 #
 LIBSSH2_VERSION		:= 1.11.1
-LIBSSH2_MD5		:= 38857d10b5c5deb198d6989dacace2e6
+LIBSSH2_SHA256		:= d9ec76cbe34db98eec3539fe2c899d26b0c837cb3eb466a56b0f109cabf658f7
 LIBSSH2			:= libssh2-$(LIBSSH2_VERSION)
 LIBSSH2_SUFFIX		:= tar.gz
 LIBSSH2_URL		:= http://www.libssh2.org/download/$(LIBSSH2).$(LIBSSH2_SUFFIX)

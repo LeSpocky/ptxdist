@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_TCLAP) += tclap
 # Paths and names
 #
 TCLAP_VERSION	:= 1.2.1
-TCLAP_MD5	:= eb0521d029bf3b1cc0dcaa7e42abf82a
+TCLAP_SHA256	:= 9f9f0fe3719e8a89d79b6ca30cf2d16620fba3db5b9610f9b51dd2cd033deebb
 TCLAP		:= tclap-$(TCLAP_VERSION)
 TCLAP_SUFFIX	:= tar.gz
 TCLAP_URL	:= $(call ptx/mirror, SF, tclap/$(TCLAP).$(TCLAP_SUFFIX))

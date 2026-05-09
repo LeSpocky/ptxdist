@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBGSLOOP) += libgsloop
 # Paths and names
 #
 LIBGSLOOP_VERSION	:= 0.0.9
-LIBGSLOOP_MD5		:= baeede921dfd5bf17d3bbdeaa41279c0
+LIBGSLOOP_SHA256	:= d109399eae4de9dc6cf19d92069019f46b1e921eb434fe425cbe4d06800fd2df
 LIBGSLOOP		:= libgsloop-$(LIBGSLOOP_VERSION)
 LIBGSLOOP_SUFFIX	:= tar.bz2
 LIBGSLOOP_URL		:= http://www.pengutronix.de/software/libgsloop/download/$(LIBGSLOOP).$(LIBGSLOOP_SUFFIX)

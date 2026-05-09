@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_JVISU) += jvisu
 # Paths and names
 #
 JVISU_VERSION	:= 1.0.1
-JVISU_MD5	:= 1d615bfac83909cf7d07d1fe20333942
+JVISU_SHA256	:= 3f71123e984296f59dddb073d4a39af3401b7b614c7ca04f61975a50ed450234
 JVISU		:= JVisu-$(JVISU_VERSION)
 JVISU_SUFFIX	:= tgz
 JVISU_URL	:= http://www.pengutronix.de/software/jvisu/download/archive/$(JVISU).$(JVISU_SUFFIX)

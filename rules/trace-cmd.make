@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_TRACE_CMD) += trace-cmd
 # Paths and names
 #
 TRACE_CMD_VERSION	:= 3.3.1
-TRACE_CMD_MD5		:= 1164436073ca46527588c401856d94bd
+TRACE_CMD_SHA256	:= 2efe103389367e93c764c4a788880ba51018a65dec21b0411965a5f06a6338c1
 TRACE_CMD		:= trace-cmd-v$(TRACE_CMD_VERSION)
 TRACE_CMD_SUFFIX	:= tar.gz
 TRACE_CMD_URL		:= https://git.kernel.org/pub/scm/utils/trace-cmd/trace-cmd.git/snapshot/$(TRACE_CMD).$(TRACE_CMD_SUFFIX)

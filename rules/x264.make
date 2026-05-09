@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_X264) += x264
 # Paths and names
 #
 X264_VERSION	:= 2025-08-27-g31e19f92f00c7
-X264_MD5	:= 540aaf514c058f0c0ecbd63f70320783
+X264_SHA256	:= aa4721e8d599a4deb2cc21d6e9254b5b760d3c51a426371f66d0db71f810b861
 X264		:= x264-$(X264_VERSION)
 X264_SUFFIX	:= tar.gz
 X264_URL	:= https://code.videolan.org/videolan/x264/-/archive/$(X264_VERSION)/$(X264).$(X264_SUFFIX)

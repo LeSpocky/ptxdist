@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_CUPS) += cups
 #
 CUPS_VERSION	:= 2.2.5
 CUPS		:= cups-$(CUPS_VERSION)
-CUPS_MD5	:= 76294dff74c3baf3fdf7c626cd48b873
+CUPS_SHA256	:= a8795e2aa54dcfbdc9ff254a770f0d7154e35c981bca5b3369050c5193ab5a21
 CUPS_SUFFIX	:= tar.gz
 CUPS_URL	:= https://github.com/apple/cups/releases/download/v$(CUPS_VERSION)/$(CUPS)-source.$(CUPS_SUFFIX)
 CUPS_SOURCE	:= $(SRCDIR)/$(CUPS)-source.$(CUPS_SUFFIX)

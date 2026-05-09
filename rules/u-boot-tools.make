@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_U_BOOT_TOOLS) += u-boot-tools
 # Paths and names
 #
 U_BOOT_TOOLS_VERSION	:= 2025.04
-U_BOOT_TOOLS_MD5	:= da2cd684d4aa6195015fecd3efb1d0f0
+U_BOOT_TOOLS_SHA256	:= 439d3bef296effd54130be6a731c5b118be7fddd7fcc663ccbc5fb18294d8718
 U_BOOT_TOOLS		:= u-boot-$(U_BOOT_TOOLS_VERSION)
 U_BOOT_TOOLS_SUFFIX	:= tar.bz2
 U_BOOT_TOOLS_URL	:= https://ftp.denx.de/pub/u-boot/$(U_BOOT_TOOLS).$(U_BOOT_TOOLS_SUFFIX)

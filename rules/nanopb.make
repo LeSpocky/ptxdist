@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_NANOPB) += nanopb
 # Paths and names
 #
 NANOPB_VERSION		:= 0.4.9.1
-NANOPB_MD5		:= 97b043a99b26eb1722460ee4c826ddba
+NANOPB_SHA256		:= 882cd8473ad932b24787e676a808e4fb29c12e086d20bcbfbacc66c183094b5c
 NANOPB			:= nanopb-$(NANOPB_VERSION)
 NANOPB_SUFFIX		:= tar.gz
 NANOPB_URL		:= https://jpa.kapsi.fi/nanopb/download/$(NANOPB).$(NANOPB_SUFFIX)

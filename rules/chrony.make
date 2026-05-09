@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_CHRONY) += chrony
 # Paths and names
 #
 CHRONY_VERSION	:= 4.8
-CHRONY_MD5	:= 0ad862b6d40b84abe145b13d9f1d8025
+CHRONY_SHA256	:= 33ea8eb2a4daeaa506e8fcafd5d6d89027ed6f2f0609645c6f149b560d301706
 CHRONY		:= chrony-$(CHRONY_VERSION)
 CHRONY_SUFFIX	:= tar.gz
 CHRONY_URL	:= https://chrony-project.org/releases/$(CHRONY).$(CHRONY_SUFFIX)

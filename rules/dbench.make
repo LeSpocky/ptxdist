@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_DBENCH) += dbench
 # Paths and names
 #
 DBENCH_VERSION	:= 3.04
-DBENCH_MD5	:= efd0c958da79c1cd941ecd3f63e637ae
+DBENCH_SHA256	:= 055e411081ae25fd358dd0f4c1547ee1bd7429bea0f1fad9156a50a09ddd668b
 DBENCH		:= dbench-$(DBENCH_VERSION)
 DBENCH_SUFFIX	:= tar.gz
 DBENCH_URL	:= https://www.samba.org/ftp/tridge/dbench/$(DBENCH).$(DBENCH_SUFFIX)

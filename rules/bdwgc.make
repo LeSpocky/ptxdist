@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_BDWGC) += bdwgc
 # Paths and names
 #
 BDWGC_VERSION	:= 8.2.4
-BDWGC_MD5	:= 8901a6ed29ac35842420054772ea3441
+BDWGC_SHA256	:= 3d0d3cdbe077403d3106bb40f0cbb563413d6efdbb2a7e1cd6886595dec48fc2
 BDWGC		:= gc-$(BDWGC_VERSION)
 BDWGC_SUFFIX	:= tar.gz
 BDWGC_URL	:= https://github.com/ivmai/bdwgc/releases/download/v$(BDWGC_VERSION)/$(BDWGC).$(BDWGC_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_VIM) += vim
 # Paths and names
 #
 VIM_VERSION	:= 9.1.1868
-VIM_MD5		:= eb7cbc69d825dd7ef330005557b2ba0a
+VIM_SHA256	:= cf1a6120d1d058b53f9a1677fc4f34d71a19623ed8f129fa65559120f7f75282
 VIM		:= vim-$(VIM_VERSION)
 VIM_SUFFIX	:= tar.gz
 VIM_URL		:= https://github.com/vim/vim/archive/refs/tags/v$(VIM_VERSION).$(VIM_SUFFIX)

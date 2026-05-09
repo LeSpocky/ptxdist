@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_MMPONG) += mmpong
 # Paths and names
 #
 MMPONG_VERSION	:= 0.9
-MMPONG_MD5	:= c06d21b85b838eb8e35d944dd08a8997
+MMPONG_SHA256	:= 86a3b32ce72ab24105b9ed9d8eb76afa996ebe6075243f998a7e7829b7ab0ca8
 MMPONG		:= mmpong-$(MMPONG_VERSION)
 MMPONG_SUFFIX	:= tar.gz
 MMPONG_URL	:= http://www.pengutronix.de/software/ptxdist/temporary-src/$(MMPONG).$(MMPONG_SUFFIX)

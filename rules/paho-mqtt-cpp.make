@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_PAHO_MQTT_CPP) += paho-mqtt-cpp
 # Paths and names
 #
 PAHO_MQTT_CPP_VERSION	:= 1.5.3
-PAHO_MQTT_CPP_MD5	:= 5e854904a4eb7eae6a1bf4cfcdff28da
+PAHO_MQTT_CPP_SHA256	:= 8aab7761bcb43e2d65dbf266c8623d345f7612411363a97aa66370fb9822d0b9
 PAHO_MQTT_CPP		:= paho.mqtt.cpp-$(PAHO_MQTT_CPP_VERSION)
 PAHO_MQTT_CPP_SUFFIX	:= tar.gz
 PAHO_MQTT_CPP_URL	:= https://github.com/eclipse/paho.mqtt.cpp/archive/v$(PAHO_MQTT_CPP_VERSION).$(PAHO_MQTT_CPP_SUFFIX)

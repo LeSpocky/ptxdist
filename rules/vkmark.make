@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_VKMARK) += vkmark
 # Paths and names
 #
 VKMARK_VERSION		:= 2025.01
-VKMARK_MD5		:= c36c2953f99004e72aca985c0a6507d3
+VKMARK_SHA256		:= 1ae362844344d0f9878b7a3f13005f77eae705108892a4e8abf237d452d37edc
 VKMARK			:= vkmark-$(VKMARK_VERSION)
 VKMARK_SUFFIX		:= tar.gz
 VKMARK_URL		:= https://github.com/vkmark/vkmark/archive/refs/tags/$(VKMARK_VERSION).$(VKMARK_SUFFIX)

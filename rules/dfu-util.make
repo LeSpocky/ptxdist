@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_DFU_UTIL) += dfu-util
 # Paths and names
 #
 DFU_UTIL_VERSION	:= 0.11
-DFU_UTIL_MD5		:= 31c983543a1fe8f03260ca4d56ad4f43
+DFU_UTIL_SHA256		:= b4b53ba21a82ef7e3d4c47df2952adf5fa494f499b6b0b57c58c5d04ae8ff19e
 DFU_UTIL		:= dfu-util-$(DFU_UTIL_VERSION)
 DFU_UTIL_SUFFIX		:= tar.gz
 DFU_UTIL_URL		:= https://dfu-util.sourceforge.net/releases/$(DFU_UTIL).$(DFU_UTIL_SUFFIX)

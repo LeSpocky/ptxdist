@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_CRDA) += crda
 # Paths and names
 #
 CRDA_VERSION	:= 4.15
-CRDA_MD5	:= 30797103dfaae807b6ece1a695518dc1
+CRDA_SHA256	:= 99eb58f774f6016c380def0d80fffd573d2be0ad5f117b678c1968ed5657af82
 CRDA		:= crda-$(CRDA_VERSION)
 CRDA_SUFFIX	:= tar.gz
 CRDA_URL	:= https://git.kernel.org/pub/scm/linux/kernel/git/mcgrof/crda.git/snapshot/$(CRDA).$(CRDA_SUFFIX)
@@ -27,7 +27,7 @@ CRDA_LICENSE_FILES := \
 	file://copyleft-next-0.3.0;md5=8743a2c359037d4d329a31e79eabeffe
 
 CRDA_REGDB_VERSION	:= 2025.10.07
-CRDA_REGDB_MD5		:= 2ade668bfc93a1518c3af6a921786ecd
+CRDA_REGDB_SHA256	:= 7c3dff164d35db9fa99eaf8bf3b0293cd7401a7af7dff3f4b9bdb341022281ef
 CRDA_REGDB		:= wireless-regdb-$(CRDA_REGDB_VERSION)
 CRDA_REGDB_SUFFIX	:= tar.gz
 CRDA_REGDB_URL		:= \

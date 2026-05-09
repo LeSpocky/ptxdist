@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SPDLOG) += spdlog
 # Paths and names
 #
 SPDLOG_VERSION		:= 1.15.3
-SPDLOG_MD5		:= fffda902bb4a04ce814ddd5328d95e8a
+SPDLOG_SHA256		:= 15a04e69c222eb6c01094b5c7ff8a249b36bb22788d72519646fb85feb267e67
 SPDLOG			:= spdlog-$(SPDLOG_VERSION)
 SPDLOG_SUFFIX		:= tar.gz
 SPDLOG_URL		:= https://github.com/gabime/spdlog/archive/refs/tags/v$(SPDLOG_VERSION).$(SPDLOG_SUFFIX)

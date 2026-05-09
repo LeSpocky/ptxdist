@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LSHW) += lshw
 # Paths and names
 #
 LSHW_VERSION	:= B.02.19.2
-LSHW_MD5	:= 8c70d46e906688309095c73ecb9396e3
+LSHW_SHA256	:= 9bb347ac87142339a366a1759ac845e3dbb337ec000aa1b99b50ac6758a80f80
 LSHW		:= lshw-$(LSHW_VERSION)
 LSHW_SUFFIX	:= tar.gz
 LSHW_URL	:= https://www.ezix.org/software/files/$(LSHW).$(LSHW_SUFFIX)

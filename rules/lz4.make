@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LZ4) += lz4
 # Paths and names
 #
 LZ4_VERSION	:= 1.10.0
-LZ4_MD5		:= dead9f5f1966d9ae56e1e32761e4e675
+LZ4_SHA256	:= 537512904744b35e232912055ccf8ec66d768639ff3abe5788d90d792ec5f48b
 LZ4		:= lz4-$(LZ4_VERSION)
 LZ4_SUFFIX	:= tar.gz
 LZ4_URL		:= https://github.com/lz4/lz4/archive/v$(LZ4_VERSION).$(LZ4_SUFFIX)

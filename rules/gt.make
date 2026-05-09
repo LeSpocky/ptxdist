@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_GT) += gt
 #
 # No tags: use a fake descriptive commit-ish to include the date
 GT_VERSION	:= 2021-09-30-g7247547a
-GT_MD5		:= ac390e90cc866ca95cf4821fbf25812b
+GT_SHA256	:= fca46f4867b981e950d36dd29f6ba5a5999d3323835688e6a14a92ff3f1f42cd
 GT		:= gt-$(GT_VERSION)
 GT_SUFFIX	:= tar.gz
 GT_URL		:= https://github.com/linux-usb-gadgets/gt/archive/$(GT_VERSION).$(GT_SUFFIX)

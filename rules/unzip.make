@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_UNZIP) += unzip
 # Paths and names
 #
 UNZIP_VERSION		:= 6.0
-UNZIP_MD5		:= 62b490407489521db863b523a7f86375
+UNZIP_SHA256		:= 036d96991646d0449ed0aa952e4fbe21b476ce994abc276e49d30e686708bd37
 UNZIP			:= unzip$(subst .,,$(UNZIP_VERSION))
 UNZIP_SUFFIX		:= tar.gz
 UNZIP_URL		:= $(call ptx/mirror, SF, infozip/$(UNZIP).$(UNZIP_SUFFIX))

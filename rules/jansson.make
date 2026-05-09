@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_JANSSON) += jansson
 # Paths and names
 #
 JANSSON_VERSION	:= 2.14.1
-JANSSON_MD5	:= 6a4307413fedc78342b5555cec9474a0
+JANSSON_SHA256	:= 979210eaffdffbcf54cfc34d047fccde13f21b529a381df26db871d886f729a4
 JANSSON		:= jansson-$(JANSSON_VERSION)
 JANSSON_SUFFIX	:= tar.gz
 JANSSON_URL	:= https://github.com/akheron/jansson/archive/refs/tags/v$(JANSSON_VERSION).$(JANSSON_SUFFIX)

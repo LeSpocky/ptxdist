@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBTRACEFS) += libtracefs
 # Paths and names
 #
 LIBTRACEFS_VERSION	:= 1.8.1
-LIBTRACEFS_MD5		:= d16612bef28cb49e898558fe362496cc
+LIBTRACEFS_SHA256	:= ad962e1ac6ce53d3a1d753bf60e81fa5664a5e990c29d3ee05bc869be2a86e27
 LIBTRACEFS		:= libtracefs-$(LIBTRACEFS_VERSION)
 LIBTRACEFS_SUFFIX	:= tar.xz
 LIBTRACEFS_URL		:= https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git;tag=libtracefs-$(LIBTRACEFS_VERSION)

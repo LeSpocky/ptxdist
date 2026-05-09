@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_PNPUTILS) += pnputils
 # Paths and names
 #
 PNPUTILS_VERSION	:= 0.1
-PNPUTILS_MD5		:= 7fd1e18cc8b9eddcccb355654291fac3
+PNPUTILS_SHA256		:= c840abd51dc2e8bda928b857bf7c332475af879350fde61253fb092fc75aa934
 PNPUTILS		:= pnputils-$(PNPUTILS_VERSION)
 PNPUTILS_SUFFIX		:= tar.bz2
 PNPUTILS_URL		:= http://www.pengutronix.de/software/ptxdist/temporary-src/$(PNPUTILS).$(PNPUTILS_SUFFIX)

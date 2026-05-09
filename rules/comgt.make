@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_COMGT) += comgt
 # Paths and names
 #
 COMGT_VERSION	:= 0.32
-COMGT_MD5	:= db2452680c3d953631299e331daf49ef
+COMGT_SHA256	:= 0cedb2a5aa608510da66a99aab74df3db363df495032e57e791a2ff55f1d7913
 COMGT		:= comgt.$(COMGT_VERSION)
 COMGT_SUFFIX	:= tgz
 COMGT_URL	:= $(call ptx/mirror, SF, comgt/$(COMGT).$(COMGT_SUFFIX))

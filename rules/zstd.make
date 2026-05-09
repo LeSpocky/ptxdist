@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_ZSTD) += zstd
 # Paths and names
 #
 ZSTD_VERSION		:= 1.5.7
-ZSTD_MD5		:= 619a019adbbc4536e7fb93cdbb01af3e
+ZSTD_SHA256		:= 37d7284556b20954e56e1ca85b80226768902e2edabd3b649e9e72c0c9012ee3
 ZSTD			:= zstd-$(ZSTD_VERSION)
 ZSTD_SUFFIX		:= tar.gz
 ZSTD_URL		:= https://github.com/facebook/zstd/archive/v$(ZSTD_VERSION).$(ZSTD_SUFFIX)

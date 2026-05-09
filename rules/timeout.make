@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_TIMEOUT) += timeout
 # Paths and names
 #
 TIMEOUT_VERSION	:= 1.18
-TIMEOUT_MD5	:= 81d747a0add4c2a9e5071eda5c412658
+TIMEOUT_SHA256	:= 4be437e92ef917f2bf04ef64ec9f0ffac180434e616f3fb58fde7b75b00ddb37
 TIMEOUT		:= tct-$(TIMEOUT_VERSION)
 TIMEOUT_SUFFIX	:= tar.gz
 TIMEOUT_URL	:= http://www.porcupine.org/forensics/$(TIMEOUT).$(TIMEOUT_SUFFIX)

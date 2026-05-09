@@ -15,7 +15,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_MXS_UTILS) += host-mxs-utils
 # Paths and names
 #
 HOST_MXS_UTILS_VERSION	:= 2011.08.0
-HOST_MXS_UTILS_MD5	:= 2266e2cde13bcb43a76dab6ae2b4ef03
+HOST_MXS_UTILS_SHA256	:= f16bd189e9b3e88bcdb6577a44c7de2d997670fc92db4e6c4bb3aa439ba31f39
 HOST_MXS_UTILS		:= mxs-utils-$(HOST_MXS_UTILS_VERSION)
 HOST_MXS_UTILS_SUFFIX	:= tar.bz2
 HOST_MXS_UTILS_URL	:= http://www.pengutronix.de/software/mxs-utils/download/$(HOST_MXS_UTILS).$(HOST_MXS_UTILS_SUFFIX)

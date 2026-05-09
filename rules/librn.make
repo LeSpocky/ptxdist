@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_LIBRN) += librn
 # Paths and names
 #
 LIBRN_VERSION	:= 0.5.3
-LIBRN_MD5	:= a357a6ceb4b6becae2f64d0fed9a8111
+LIBRN_SHA256	:= d3ddeeaa1b6352b778e124b821c8fa4a937d8e3e59e87b42a1dd7403e92526fa
 LIBRN		:= librn-$(LIBRN_VERSION)
 LIBRN_SUFFIX	:= tar.bz2
 LIBRN_URL	:= http://www.pengutronix.de/software/librn/download/$(LIBRN).$(LIBRN_SUFFIX)

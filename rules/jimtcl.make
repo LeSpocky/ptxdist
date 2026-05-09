@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_JIMTCL) += jimtcl
 # Paths and names
 #
 JIMTCL_VERSION	:= 0.83
-JIMTCL_MD5	:= d71bbf22ce74b5e8d90962990be3af43
+JIMTCL_SHA256	:= 6f2df00009f5ac4ad654c1ae1d2f8ed18191de38d1f5a88a54ea99cc16936686
 JIMTCL		:= jimtcl-$(JIMTCL_VERSION)
 JIMTCL_SUFFIX	:= tar.gz
 JIMTCL_URL	:= https://github.com/msteveb/jimtcl/archive/refs/tags/$(JIMTCL_VERSION).$(JIMTCL_SUFFIX)

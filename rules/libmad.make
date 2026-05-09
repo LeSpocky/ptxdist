@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBMAD) += libmad
 # Paths and names
 #
 LIBMAD_VERSION	:= 0.15.1b
-LIBMAD_MD5	:= 1be543bc30c56fb6bea1d7bf6a64e66c
+LIBMAD_SHA256	:= bbfac3ed6bfbc2823d3775ebb931087371e142bb0e9bb1bee51a76a6e0078690
 LIBMAD		:= libmad-$(LIBMAD_VERSION)
 LIBMAD_SUFFIX	:= tar.gz
 LIBMAD_URL	:=  $(call ptx/mirror, SF, mad/libmad/$(LIBMAD_VERSION)/$(LIBMAD).$(LIBMAD_SUFFIX))

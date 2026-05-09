@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_MXT_APP) += mxt-app
 # Paths and names
 #
 MXT_APP_VERSION	:= 1.28
-MXT_APP_MD5	:= a56f6b28f193a7c21cd83cbe02f33dcc
+MXT_APP_SHA256	:= 8eff19a449fa86ef0093093264edbfe32d109c72446c85b2826be5ace95ae20d
 MXT_APP		:= mxt-app-$(MXT_APP_VERSION)
 MXT_APP_SUFFIX	:= tar.gz
 MXT_APP_URL	:= https://github.com/atmel-maxtouch/mxt-app/archive/v$(MXT_APP_VERSION).$(MXT_APP_SUFFIX)

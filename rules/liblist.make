@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_LIBLIST) += liblist
 # Paths and names
 #
 LIBLIST_VERSION	:= 1.0.3
-LIBLIST_MD5	:= 2db72c0718f6ecb16077fec055638e9f
+LIBLIST_SHA256	:= 30ddb8b1e9489cc3b02045704335a6728b9850e38ce4483fddfa7bab92c31ecf
 LIBLIST		:= liblist-$(LIBLIST_VERSION)
 LIBLIST_SUFFIX	:= tar.gz
 LIBLIST_URL	:= http://www.pengutronix.de/software/liblist/download/$(LIBLIST).$(LIBLIST_SUFFIX)

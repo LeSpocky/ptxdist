@@ -17,7 +17,7 @@ PACKAGES-$(PTXCONF_KMSCUBE) += kmscube
 # No tags: use a fake descriptive commit-ish to include the date
 KMSCUBE_VERSION	:= 2020-10-28-ge6386d1b
 KMSCUBE		:= kmscube-$(KMSCUBE_VERSION)
-KMSCUBE_MD5	:= cd5fbb6e53545f29e22e20aea3309570
+KMSCUBE_SHA256	:= 60b61347b00cf4452400d01cdc70faa470319ecdf30a2361bf29d565cfff76a9
 KMSCUBE_SUFFIX	:= tar.gz
 KMSCUBE_URL	:= https://gitlab.freedesktop.org/mesa/kmscube/-/archive/$(KMSCUBE_VERSION)/$(KMSCUBE).$(KMSCUBE_SUFFIX)
 KMSCUBE_SOURCE	:= $(SRCDIR)/$(KMSCUBE).$(KMSCUBE_SUFFIX)

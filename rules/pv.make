@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_PV) += pv
 # Paths and names
 #
 PV_VERSION		:= 1.9.31
-PV_MD5			:= 9ea909b3dade3f3fba407a03c01a9bcf
+PV_SHA256		:= a35e92ec4ac0e8f380e8e840088167ae01014bfa008a3a9d6506b848079daedf
 PV			:= pv-$(PV_VERSION)
 PV_SUFFIX		:= tar.gz
 PV_URL			:= https://www.ivarch.com/programs/sources/$(PV).$(PV_SUFFIX)

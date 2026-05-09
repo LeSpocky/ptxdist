@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_XORG_LIB_XV) += xorg-lib-xv
 # Paths and names
 #
 XORG_LIB_XV_VERSION	:= 1.0.11
-XORG_LIB_XV_MD5		:= 210b6ef30dda2256d54763136faa37b9
+XORG_LIB_XV_SHA256	:= d26c13eac99ac4504c532e8e76a1c8e4bd526471eb8a0a4ff2a88db60cb0b088
 XORG_LIB_XV		:= libXv-$(XORG_LIB_XV_VERSION)
 XORG_LIB_XV_SUFFIX	:= tar.bz2
 XORG_LIB_XV_URL		:= $(call ptx/mirror, XORG, individual/lib/$(XORG_LIB_XV).$(XORG_LIB_XV_SUFFIX))

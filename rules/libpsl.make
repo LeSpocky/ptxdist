@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBPSL) += libpsl
 # Paths and names
 #
 LIBPSL_VERSION	:= 0.21.5
-LIBPSL_MD5	:= 870a798ee9860b6e77896548428dba7b
+LIBPSL_SHA256	:= 1dcc9ceae8b128f3c0b3f654decd0e1e891afc6ff81098f227ef260449dae208
 LIBPSL		:= libpsl-$(LIBPSL_VERSION)
 LIBPSL_SUFFIX	:= tar.gz
 LIBPSL_URL	:= https://github.com/rockdaboot/libpsl/releases/download/$(LIBPSL_VERSION)/$(LIBPSL).$(LIBPSL_SUFFIX)

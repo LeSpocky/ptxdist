@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_FUSE_ZIP) += fuse-zip
 # Paths and names
 #
 FUSE_ZIP_VERSION	:= 0.4.2
-FUSE_ZIP_MD5	:= 673a351e4116d5576a92d62d21208afe
+FUSE_ZIP_SHA256	:= 3d4ee113d4c7918ad3c660f8088473d5fabf67b3476fef16ec7f5bd8a4182fdc
 FUSE_ZIP	:= fuse-zip-$(FUSE_ZIP_VERSION)
 FUSE_ZIP_SUFFIX	:= tar.gz
 FUSE_ZIP_URL	:= https://bitbucket.org/agalanin/fuse-zip/downloads/$(FUSE_ZIP).$(FUSE_ZIP_SUFFIX)

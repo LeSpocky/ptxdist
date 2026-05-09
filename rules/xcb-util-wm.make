@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_XCB_UTIL_WM) += xcb-util-wm
 # Paths and names
 #
 XCB_UTIL_WM_VERSION	:= 0.4.1
-XCB_UTIL_WM_MD5		:= 87b19a1cd7bfcb65a24e36c300e03129
+XCB_UTIL_WM_SHA256	:= 28bf8179640eaa89276d2b0f1ce4285103d136be6c98262b6151aaee1d3c2a3f
 XCB_UTIL_WM		:= xcb-util-wm-$(XCB_UTIL_WM_VERSION)
 XCB_UTIL_WM_SUFFIX	:= tar.bz2
 XCB_UTIL_WM_URL		:= https://xcb.freedesktop.org/dist/$(XCB_UTIL_WM).$(XCB_UTIL_WM_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBUSBGX) += libusbgx
 # Paths and names
 #
 LIBUSBGX_VERSION	:= 0.3.0
-LIBUSBGX_MD5		:= f2ca9c639e6fc6ee9dbecb545fa61637
+LIBUSBGX_SHA256		:= 23d72c415ffd80d752efccc9bb5a6afdece6a83a31975344ef31a4967d189e3c
 LIBUSBGX		:= libusbgx-v$(LIBUSBGX_VERSION)
 LIBUSBGX_SUFFIX		:= tar.gz
 LIBUSBGX_URL		:= https://github.com/linux-usb-gadgets/libusbgx/archive/refs/tags/libusbgx-v$(LIBUSBGX_VERSION).$(LIBUSBGX_SUFFIX)

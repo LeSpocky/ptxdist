@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_BLKTRACE) += blktrace
 # Paths and names
 #
 BLKTRACE_VERSION	:= 1.2.0
-BLKTRACE_MD5		:= f52e02797a5c4d114b898416f6a1b818
+BLKTRACE_SHA256		:= 2311f66ce49ae9231b68be7646bab1ca5c2a21103ddc275052ff78ee007118a0
 BLKTRACE		:= blktrace-$(BLKTRACE_VERSION)
 BLKTRACE_SUFFIX		:= tar.gz
 BLKTRACE_URL		:= https://git.kernel.org/pub/scm/linux/kernel/git/axboe/blktrace.git/snapshot/$(BLKTRACE).$(BLKTRACE_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBPCAP) += libpcap
 # Paths and names
 #
 LIBPCAP_VERSION	:= 1.10.6
-LIBPCAP_MD5	:= f49b1c1877dcbb3b7f5147429aa047f9
+LIBPCAP_SHA256	:= 872dd11337fe1ab02ad9d4fee047c9da244d695c6ddf34e2ebb733efd4ed8aa9
 LIBPCAP		:= libpcap-$(LIBPCAP_VERSION)
 LIBPCAP_SUFFIX	:= tar.gz
 LIBPCAP_URL	:= https://www.tcpdump.org/release/$(LIBPCAP).$(LIBPCAP_SUFFIX)

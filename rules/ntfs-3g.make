@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_NTFS_3G) += ntfs-3g
 # Paths and names
 #
 NTFS_3G_VERSION	:= 2022.10.3
-NTFS_3G_MD5	:= a038af61be7584b79f8922ff11244090
+NTFS_3G_SHA256	:= f20e36ee68074b845e3629e6bced4706ad053804cbaf062fbae60738f854170c
 NTFS_3G		:= ntfs-3g_ntfsprogs-$(NTFS_3G_VERSION)
 NTFS_3G_SUFFIX	:= tgz
 NTFS_3G_URL	:= https://download.tuxera.com/opensource/$(NTFS_3G).$(NTFS_3G_SUFFIX)

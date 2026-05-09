@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_QPDF) += qpdf
 # Paths and names
 #
 QPDF_VERSION	:= 8.4.2
-QPDF_MD5	:= 41160fbd4450d4988f0705d394069ad4
+QPDF_SHA256	:= 69a30a65ef9398e6dbf151f1f6a31321cbc0f49b6cc0689ce10ea958bfd13ec3
 QPDF		:= qpdf-$(QPDF_VERSION)
 QPDF_SUFFIX	:= tar.gz
 QPDF_URL	:= $(call ptx/mirror, SF, /qpdf/qpdf/$(QPDF_VERSION)/$(QPDF).$(QPDF_SUFFIX))

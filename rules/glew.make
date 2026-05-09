@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_GLEW) += glew
 # Paths and names
 #
 GLEW_VERSION	:= 1.10.0
-GLEW_MD5	:= 2f09e5e6cb1b9f3611bcac79bc9c2d5d
+GLEW_SHA256	:= 99c41320b63f6860869b5fb9af9a1854b15582796c64ee3dfd7096dc0c89f307
 GLEW		:= glew-$(GLEW_VERSION)
 GLEW_SUFFIX	:= tgz
 GLEW_URL	:= $(call ptx/mirror, SF, glew/$(GLEW_VERSION)/$(GLEW).$(GLEW_SUFFIX))

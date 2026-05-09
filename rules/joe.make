@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_JOE) += joe
 # Paths and names
 #
 JOE_VERSION	:= 3.5
-JOE_MD5		:= 9bdffecce7ef910feaa06452d48843de
+JOE_SHA256	:= a295f1c5e0cb0f0ae0446c419a248517cb04ae1881f982964a7a7595cde9f2e6
 JOE		:= joe-$(JOE_VERSION)
 JOE_SUFFIX	:= tar.gz
 JOE_URL		:= $(call ptx/mirror, SF, joe-editor/$(JOE).$(JOE_SUFFIX))

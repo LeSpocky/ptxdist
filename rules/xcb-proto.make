@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_XCB_PROTO) += xcb-proto
 # Paths and names
 #
 XCB_PROTO_VERSION	:= 1.17.0
-XCB_PROTO_MD5		:= c415553d2ee1a8cea43c3234a079b53f
+XCB_PROTO_SHA256	:= 2c1bacd2110f4799f74de6ebb714b94cf6f80fb112316b1219480fd22562148c
 XCB_PROTO		:= xcb-proto-$(XCB_PROTO_VERSION)
 XCB_PROTO_SUFFIX	:= tar.xz
 XCB_PROTO_URL		:= https://www.x.org/archive/individual/proto/$(XCB_PROTO).$(XCB_PROTO_SUFFIX)

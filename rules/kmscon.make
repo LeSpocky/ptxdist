@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_KMSCON) += kmscon
 # Paths and names
 #
 KMSCON_VERSION		:= 9.3.0
-KMSCON_MD5		:= 35107b31e9c9f930df701473ee0e6565
+KMSCON_SHA256		:= 72d968a3b057c8b178381c84cb8584b3b5e75c4133cd9728fa3647690b9b146b
 KMSCON			:= kmscon-$(KMSCON_VERSION)
 KMSCON_SUFFIX		:= tar.gz
 KMSCON_URL		:= https://github.com/kmscon/kmscon/archive/refs/tags/v$(KMSCON_VERSION).$(KMSCON_SUFFIX)

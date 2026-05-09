@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBSODIUM) += libsodium
 # Paths and names
 #
 LIBSODIUM_VERSION	:= 1.0.20
-LIBSODIUM_MD5		:= 597f2c7811f84e63e45e2277dfb5da46
+LIBSODIUM_SHA256	:= ebb65ef6ca439333c2bb41a0c1990587288da07f6c7fd07cb3a18cc18d30ce19
 LIBSODIUM		:= libsodium-$(LIBSODIUM_VERSION)
 LIBSODIUM_SUFFIX	:= tar.gz
 LIBSODIUM_URL		:= https://download.libsodium.org/libsodium/releases/$(LIBSODIUM).$(LIBSODIUM_SUFFIX)

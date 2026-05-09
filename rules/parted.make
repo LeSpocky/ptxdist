@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_PARTED) += parted
 # Paths and names
 #
 PARTED_VERSION	:= 3.6
-PARTED_MD5	:= 93d2d8f22baebc5eb65b85da05a79e4e
+PARTED_SHA256	:= 3b43dbe33cca0f9a18601ebab56b7852b128ec1a3df3a9b30ccde5e73359e612
 PARTED		:= parted-$(PARTED_VERSION)
 PARTED_SUFFIX	:= tar.xz
 PARTED_URL	:= $(call ptx/mirror, GNU, parted/$(PARTED).$(PARTED_SUFFIX))

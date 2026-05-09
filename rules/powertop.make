@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_POWERTOP) += powertop
 # Paths and names
 #
 POWERTOP_VERSION	:= 2.15
-POWERTOP_MD5		:= a8008e2b16fb648c03faeec3c1047521
+POWERTOP_SHA256		:= e58ab3fd7b8ff5f4dd0d17f11848817e7d83c0a6918145ac81de03b5dccf8f49
 POWERTOP		:= powertop-v$(POWERTOP_VERSION)
 POWERTOP_SUFFIX		:= tar.gz
 POWERTOP_URL		:= https://github.com/fenrus75/powertop/archive/refs/tags/v$(POWERTOP_VERSION).$(POWERTOP_SUFFIX)

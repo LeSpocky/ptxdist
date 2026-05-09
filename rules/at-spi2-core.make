@@ -18,7 +18,7 @@ PACKAGES-$(PTXCONF_AT_SPI2_CORE) += at-spi2-core
 # Paths and names
 #
 AT_SPI2_CORE_VERSION	:= 2.58.1
-AT_SPI2_CORE_MD5	:= f2652694adb33d8d2d19b9ce96a38cdf
+AT_SPI2_CORE_SHA256	:= 7f374a6a38cd70ff4b32c9d3a0310bfa804d946fed4c9e69a7d49facdcb95e9c
 AT_SPI2_CORE		:= at-spi2-core-$(AT_SPI2_CORE_VERSION)
 AT_SPI2_CORE_SUFFIX	:= tar.xz
 AT_SPI2_CORE_URL	:= $(call ptx/mirror, GNOME, at-spi2-core/$(basename $(AT_SPI2_CORE_VERSION))/$(AT_SPI2_CORE).$(AT_SPI2_CORE_SUFFIX))

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_PROTOBUF_C) += protobuf-c
 # Paths and names
 #
 PROTOBUF_C_VERSION	:= 1.5.2
-PROTOBUF_C_MD5		:= 0612ee47cccaaf4ad1c4f0c8bdc13abf
+PROTOBUF_C_SHA256	:= e2c86271873a79c92b58fef7ebf8de1aa0df4738347a8bd5d4e65a80a16d0d24
 PROTOBUF_C		:= protobuf-c-$(PROTOBUF_C_VERSION)
 PROTOBUF_C_SUFFIX	:= tar.gz
 PROTOBUF_C_URL		:= https://github.com/protobuf-c/protobuf-c/releases/download/v$(PROTOBUF_C_VERSION)/protobuf-c-$(PROTOBUF_C_VERSION).$(PROTOBUF_C_SUFFIX)

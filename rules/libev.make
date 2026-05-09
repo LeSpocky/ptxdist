@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBEV) += libev
 # Paths and names
 #
 LIBEV_VERSION	:= 4.24
-LIBEV_MD5	:= 94459a5a22db041dec6f98424d6efe54
+LIBEV_SHA256	:= 973593d3479abdf657674a55afe5f78624b0e440614e2b8cb3a07f16d4d7f821
 LIBEV		:= libev-$(LIBEV_VERSION)
 LIBEV_SUFFIX	:= tar.gz
 LIBEV_URL	:= http://dist.schmorp.de/libev/Attic/$(LIBEV).$(LIBEV_SUFFIX)

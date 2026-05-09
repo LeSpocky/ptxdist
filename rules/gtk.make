@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_GTK) += gtk
 # Paths and names
 #
 GTK_VERSION	:= 3.24.51
-GTK_MD5		:= a181df87c7d0dc0e7868ea2855083241
+GTK_SHA256	:= 33e5a1fc701ecf264f8a5b879bf11a37673f7aedf0d6b96f63289dee2266abfe
 GTK		:= gtk+-$(GTK_VERSION)
 GTK_SUFFIX	:= tar.bz2
 GTK_URL		:= https://gitlab.gnome.org/GNOME/gtk/-/archive/$(GTK_VERSION)/$(GTK).$(GTK_SUFFIX)

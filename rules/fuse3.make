@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_FUSE3) += fuse3
 # Paths and names
 #
 FUSE3_VERSION	:= 3.17.4
-FUSE3_MD5	:= c894181418bf0bc11f98938fc30d37df
+FUSE3_SHA256	:= df9e40ae927b73dc702d0bce7925c0c618af47ad0b13204fbf2be66e54d8528b
 FUSE3		:= fuse-$(FUSE3_VERSION)
 FUSE3_SUFFIX	:= tar.gz
 FUSE3_URL	:= https://github.com/libfuse/libfuse/releases/download/$(FUSE3)/$(FUSE3).$(FUSE3_SUFFIX)

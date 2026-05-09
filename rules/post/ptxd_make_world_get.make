@@ -24,11 +24,13 @@ endif
 $(STATEDIR)/%.get:
 	@$(call targetinfo)
 	@$(foreach part,$($(PTX_MAP_TO_PACKAGE_$(*))_PARTS), \
-		$(call world/get, $(part))$(ptx/nl))
+		$(call world/get, $(part), $(PTX_MAP_TO_PACKAGE_$(*)))$(ptx/nl))
 	@$(call touch)
 
 world/get = \
 	$(call world/env, $(1)) \
+	pkg_main_PKG=$(strip $(2)) \
+	pkg_makefile=$($(strip $(2))_MAKEFILE) \
 	ptxd_make_get_mirror=$(PTXCONF_SETUP_PTXMIRROR) \
 	ptxd_make_world_get
 

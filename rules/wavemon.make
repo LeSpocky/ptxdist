@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_WAVEMON) += wavemon
 # Paths and names
 #
 WAVEMON_VERSION		:= 0.7.5
-WAVEMON_MD5		:= 77d4a0f099ca98cf98a915adc70694ba
+WAVEMON_SHA256		:= 6dba1ba237833ba6c2e2345be21044ff4a1fef2a1c049508d74e64a500e82e2c
 WAVEMON			:= wavemon-$(WAVEMON_VERSION)
 WAVEMON_SUFFIX		:= tar.bz2
 WAVEMON_URL		:= https://github.com/uoaerg/wavemon/releases/download/v$(WAVEMON_VERSION)/$(WAVEMON).$(WAVEMON_SUFFIX)

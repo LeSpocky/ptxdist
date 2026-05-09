@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_NVME_CLI) += nvme-cli
 # Paths and names
 #
 NVME_CLI_VERSION	:= 1.7
-NVME_CLI_MD5		:= ec64bc935957f6bc52109bde704a5a42
+NVME_CLI_SHA256		:= 3a139d40ffff48d2f0b06339fd3be3ed219241ce6838f0ea173d7459c9984ea2
 NVME_CLI		:= nvme-cli-$(NVME_CLI_VERSION)
 NVME_CLI_SUFFIX		:= tar.gz
 NVME_CLI_URL		:= https://github.com/linux-nvme/nvme-cli/archive/v$(NVME_CLI_VERSION).$(NVME_CLI_SUFFIX)

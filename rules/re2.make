@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_RE2) += re2
 # Paths and names
 #
 RE2_VERSION		:= 2025-11-05
-RE2_MD5			:= 2a26009d8c226fd0a8721fbce7132a83
+RE2_SHA256		:= 87f6029d2f6de8aa023654240a03ada90e876ce9a4676e258dd01ea4c26ffd67
 RE2			:= re2-$(RE2_VERSION)
 RE2_SUFFIX		:= tar.gz
 RE2_URL			:= https://github.com/google/re2/archive/$(RE2_VERSION).$(RE2_SUFFIX)

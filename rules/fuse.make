@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_FUSE) += fuse
 # Paths and names
 #
 FUSE_VERSION	:= 2.9.9
-FUSE_MD5	:= 8000410aadc9231fd48495f7642f3312
+FUSE_SHA256	:= d0e69d5d608cc22ff4843791ad097f554dd32540ddc9bed7638cc6fea7c1b4b5
 FUSE		:= fuse-$(FUSE_VERSION)
 FUSE_SUFFIX	:= tar.gz
 FUSE_URL	:= https://github.com/libfuse/libfuse/releases/download/$(FUSE)/$(FUSE).$(FUSE_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_AUTOSSH) += autossh
 # Paths and names
 #
 AUTOSSH_VERSION		:= 1.4g
-AUTOSSH_MD5		:= 2b804bc1bf6d2f2afaa526d02df7c0a2
+AUTOSSH_SHA256		:= 5fc3cee3361ca1615af862364c480593171d0c54ec156de79fc421e31ae21277
 AUTOSSH			:= autossh-$(AUTOSSH_VERSION)
 AUTOSSH_SUFFIX		:= tgz
 AUTOSSH_URL		:= https://www.harding.motd.ca/autossh/$(AUTOSSH).$(AUTOSSH_SUFFIX)

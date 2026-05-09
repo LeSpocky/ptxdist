@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_HARFBUZZ) += harfbuzz
 # Paths and names
 #
 HARFBUZZ_VERSION	:= 12.1.0
-HARFBUZZ_MD5		:= 8ef2de36c31dc731bdc0b24f6ac66b75
+HARFBUZZ_SHA256		:= e5c81b7f6e0b102dfb000cfa424538b8e896ab78a2f4b8a5ec8cae62ab43369e
 HARFBUZZ		:= harfbuzz-$(HARFBUZZ_VERSION)
 HARFBUZZ_SUFFIX		:= tar.xz
 HARFBUZZ_URL		:= https://github.com/harfbuzz/harfbuzz/releases/download/$(HARFBUZZ_VERSION)/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)

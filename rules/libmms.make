@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBMMS) += libmms
 # Paths and names
 #
 LIBMMS_VERSION	:= 0.6.4
-LIBMMS_MD5	:= d6b665b335a6360e000976e770da7691
+LIBMMS_SHA256	:= 3c05e05aebcbfcc044d9e8c2d4646cd8359be39a3f0ba8ce4e72a9094bee704f
 LIBMMS		:= libmms-$(LIBMMS_VERSION)
 LIBMMS_SUFFIX	:= tar.gz
 LIBMMS_URL	:= $(call ptx/mirror, SF, libmms/libmms-$(LIBMMS_VERSION).$(LIBMMS_SUFFIX))

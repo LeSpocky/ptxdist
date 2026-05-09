@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_ICU) += icu
 # Paths and names
 #
 ICU_VERSION	:= 77.1
-ICU_MD5		:= bc0132b4c43db8455d2446c3bae58898
+ICU_SHA256	:= 588e431f77327c39031ffbb8843c0e3bc122c211374485fa87dc5f3faff24061
 ICU		:= icu4c-$(subst .,_,$(ICU_VERSION))-src
 ICU_SUFFIX	:= tgz
 ICU_URL		:= https://github.com/unicode-org/icu/releases/download/release-$(subst .,-,$(ICU_VERSION))/$(ICU).$(ICU_SUFFIX)

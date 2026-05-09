@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_KBD) += kbd
 # Paths and names
 #
 KBD_VERSION	:= 2.6.4
-KBD_MD5		:= b0f037ce1ad751b2ced0b7ab8efac818
+KBD_SHA256	:= 99b2a39e1c5475ffe8e1bb2004345cb8849c3cc1aedbe541beee2d45e270975f
 KBD		:= kbd-$(KBD_VERSION)
 KBD_SUFFIX	:= tar.gz
 KBD_URL		:= $(call ptx/mirror, KERNEL, utils/kbd/$(KBD).$(KBD_SUFFIX))

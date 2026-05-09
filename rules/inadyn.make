@@ -17,7 +17,7 @@ PACKAGES-$(PTXCONF_INADYN) += inadyn
 # Paths and names
 #
 INADYN_VERSION	:= 1.96.2
-INADYN_MD5	:= fecb4c970811cb0c8b8d2ffcd7792879
+INADYN_SHA256	:= c940f216bb2140f8154c85c26e2eb2bbed04ff47b0b2bef22f8080778eb8f7c5
 INADYN		:= inadyn-$(INADYN_VERSION)
 INADYN_SUFFIX	:= tar.bz2
 INADYN_URL	:= http://www.pengutronix.de/software/ptxdist/temporary-src/$(INADYN).$(INADYN_SUFFIX)

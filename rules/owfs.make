@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_OWFS) += owfs
 # Paths and names
 #
 OWFS_VERSION	:= 3.2p3
-OWFS_MD5	:= ea0c96fdc3e0bb386a135fa90aeb97f8
+OWFS_SHA256	:= b8d33eba57d4a2f6c8a11ff23f233e3248bd75a42c8219b058a888846edd8717
 OWFS		:= owfs-$(OWFS_VERSION)
 OWFS_SUFFIX	:= tar.gz
 OWFS_URL	:= https://github.com/owfs/owfs/releases/download/v$(OWFS_VERSION)/$(OWFS).$(OWFS_SUFFIX)

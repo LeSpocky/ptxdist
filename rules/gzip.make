@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_GZIP) += gzip
 # Paths and names
 #
 GZIP_VERSION	:= 1.14
-GZIP_MD5	:= 4bf5a10f287501ee8e8ebe00ef62b2c2
+GZIP_SHA256	:= 01a7b881bd220bfdf615f97b8718f80bdfd3f6add385b993dcf6efd14e8c0ac6
 GZIP		:= gzip-$(GZIP_VERSION)
 GZIP_SUFFIX	:= tar.xz
 GZIP_URL	:= $(call ptx/mirror, GNU, gzip/$(GZIP).$(GZIP_SUFFIX))

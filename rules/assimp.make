@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_ASSIMP) += assimp
 # Paths and names
 #
 ASSIMP_VERSION	:= 5.4.3
-ASSIMP_MD5	:= fd64a9a57a3d81940ba7fc4a3a946502
+ASSIMP_SHA256	:= 66dfbaee288f2bc43172440a55d0235dfc7bf885dda6435c038e8000e79582cb
 ASSIMP		:= assimp-$(ASSIMP_VERSION)
 ASSIMP_SUFFIX	:= tar.gz
 ASSIMP_URL	:= https://github.com/assimp/assimp/archive/refs/tags/v$(ASSIMP_VERSION).$(ASSIMP_SUFFIX)

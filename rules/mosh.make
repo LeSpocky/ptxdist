@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_MOSH) += mosh
 # Paths and names
 #
 MOSH_VERSION	:= 1.3.2
-MOSH_MD5	:= 5122f4d2b973ab7c38dcdac8c35cb61e
+MOSH_SHA256	:= da600573dfa827d88ce114e0fed30210689381bbdcff543c931e4d6a2e851216
 MOSH		:= mosh-$(MOSH_VERSION)
 MOSH_SUFFIX	:= tar.gz
 MOSH_URL	:= https://github.com/mobile-shell/mosh/releases/download/$(MOSH)/$(MOSH).$(MOSH_SUFFIX)

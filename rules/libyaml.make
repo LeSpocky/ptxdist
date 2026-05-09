@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBYAML) += libyaml
 # Paths and names
 #
 LIBYAML_VERSION	:= 0.2.5
-LIBYAML_MD5	:= 163fc1e22153d3e2cebfe5cbb43a1769
+LIBYAML_SHA256	:= fa240dbf262be053f3898006d502d514936c818e422afdcf33921c63bed9bf2e
 LIBYAML		:= libyaml-$(LIBYAML_VERSION)
 LIBYAML_SUFFIX	:= tar.gz
 LIBYAML_URL	:= https://github.com/yaml/libyaml/archive/$(LIBYAML_VERSION).$(LIBYAML_SUFFIX)

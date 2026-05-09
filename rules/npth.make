@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_NPTH) += npth
 # Paths and names
 #
 NPTH_VERSION		:= 1.8
-NPTH_MD5		:= cb4fc0402be5ba67544e499cb2c1a74d
+NPTH_SHA256		:= 8bd24b4f23a3065d6e5b26e98aba9ce783ea4fd781069c1b35d149694e90ca3e
 NPTH			:= npth-$(NPTH_VERSION)
 NPTH_SUFFIX		:= tar.bz2
 NPTH_URL		:= https://www.gnupg.org/ftp/gcrypt/npth/$(NPTH).$(NPTH_SUFFIX)

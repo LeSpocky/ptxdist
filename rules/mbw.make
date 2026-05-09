@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_MBW) += mbw
 # Paths and names
 #
 MBW_VERSION	:= 1.4
-MBW_MD5		:= 83b5dfbcdc2d5e4f332ce56135f0a587
+MBW_SHA256	:= 41b7f071072bf8065cecce3278bec39ff69149c911a27675fc8f74fd57bedcb5
 MBW		:= mbw-$(MBW_VERSION)
 MBW_SUFFIX	:= tar.gz
 MBW_URL		:= https://github.com/raas/mbw/releases/download/v$(MBW_VERSION)/$(MBW).$(MBW_SUFFIX)

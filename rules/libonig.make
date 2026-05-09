@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBONIG) += libonig
 # Paths and names
 #
 LIBONIG_VERSION		:= 6.9.10
-LIBONIG_MD5		:= 46c48d072eafe29a0dd0489df7f6f212
+LIBONIG_SHA256		:= 2a5cfc5ae259e4e97f86b68dfffc152cdaffe94e2060b770cb827238d769fc05
 LIBONIG			:= onig-$(LIBONIG_VERSION)
 LIBONIG_SUFFIX		:= tar.gz
 LIBONIG_URL		:= https://github.com/kkos/oniguruma/releases/download/v$(LIBONIG_VERSION)/$(LIBONIG).$(LIBONIG_SUFFIX)

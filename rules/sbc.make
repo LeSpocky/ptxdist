@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SBC) += sbc
 # Paths and names
 #
 SBC_VERSION	:= 1.3
-SBC_MD5		:= 2d8b7841f2c11ab287718d562f2b981c
+SBC_SHA256	:= e61022cf576f14190241e7071753fdacdce5d1dea89ffd704110fc50be689309
 SBC		:= sbc-$(SBC_VERSION)
 SBC_SUFFIX	:= tar.xz
 SBC_URL		:= $(call ptx/mirror, KERNEL, bluetooth/$(SBC).$(SBC_SUFFIX))

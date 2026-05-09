@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_MEMTEST) += memtest
 # Paths and names
 #
 MEMTEST_VERSION		:= 0.0.4
-MEMTEST_MD5		:= 99bfee929133eff2938877d8c9a04ca0
+MEMTEST_SHA256		:= 6daadade104a3d40ea5bcf99301b699791d5de394216d64f538ae11c3b1511f2
 MEMTEST			:= memtest-$(MEMTEST_VERSION)
 MEMTEST_SUFFIX		:= tar.bz2
 MEMTEST_URL		:= http://www.madsgroup.org/~quintela/memtest/$(MEMTEST).$(MEMTEST_SUFFIX)

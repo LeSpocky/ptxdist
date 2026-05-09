@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_GSTREAMER1) += gstreamer1
 # Paths and names
 #
 GSTREAMER1_VERSION	:= 1.28.2
-GSTREAMER1_MD5		:= 4fa27db324468d80fca694af2a335208
+GSTREAMER1_SHA256	:= ce5cd44d4ffeafdcc3dddaa072b2179c0b7cb1abf4e6c5d18d4375f8a39fe491
 GSTREAMER1		:= gstreamer-$(GSTREAMER1_VERSION)
 GSTREAMER1_SUFFIX	:= tar.xz
 GSTREAMER1_URL		:= https://gstreamer.freedesktop.org/src/gstreamer/$(GSTREAMER1).$(GSTREAMER1_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_PAM) += pam
 # Paths and names
 #
 PAM_VERSION	:= 1.7.1
-PAM_MD5		:= dacf0f92ca7f647f9f4e54397b417e0b
+PAM_SHA256	:= 82aadd97eb697965b577069c12046a4dd1be68361a9978c708698d2a1ee9b6d1
 PAM		:= Linux-PAM-$(PAM_VERSION)
 PAM_SUFFIX	:= tar.gz
 PAM_URL		:= https://github.com/linux-pam/linux-pam/archive/refs/tags/v$(PAM_VERSION).$(PAM_SUFFIX)

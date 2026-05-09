@@ -17,7 +17,7 @@ endif
 # Paths and names
 #
 JAMVM_VERSION	:= 1.5.4
-JAMVM_MD5	:= 7654e9657691f5f09c4f481ed4686176
+JAMVM_SHA256	:= 7865693698bc4322cabe1014a4b7ebdec1bc1daf45f1a4457b6e908a4446b124
 JAMVM		:= jamvm-$(JAMVM_VERSION)
 JAMVM_SUFFIX	:= tar.gz
 JAMVM_URL	:= $(call ptx/mirror, SF, jamvm/$(JAMVM).$(JAMVM_SUFFIX))

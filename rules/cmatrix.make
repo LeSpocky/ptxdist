@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_CMATRIX) += cmatrix
 # Paths and names
 #
 CMATRIX_VERSION	:= 1.2a
-CMATRIX_MD5	:= ebfb5733104a258173a9ccf2669968a1
+CMATRIX_SHA256	:= 1fa6e6caea254b6fe70a492efddc1b40ad7ccb950a5adfd80df75b640577064c
 CMATRIX		:= cmatrix-$(CMATRIX_VERSION)
 CMATRIX_SUFFIX	:= tar.gz
 CMATRIX_URL	:= $(call ptx/mirror, SF, cmatrix/cmatrix/1.2a/$(CMATRIX).$(CMATRIX_SUFFIX))

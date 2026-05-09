@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_CPPUTEST) += cpputest
 # Paths and names
 #
 CPPUTEST_VERSION	:= 3.8
-CPPUTEST_MD5		:= fc34eab33c08e8dcd83698988e9a33c5 e8fdbbb5dd37d32d65919f240f984905
+CPPUTEST_SHA256		:= c81dccc5a1bfc7fc6511590c0a61def5f78e3fb19cb8e1f889d8d3395a476456
 CPPUTEST		:= cpputest-$(CPPUTEST_VERSION)
 CPPUTEST_SUFFIX		:= tar.gz
 CPPUTEST_URL		:= https://github.com/cpputest/cpputest/releases/download/v$(CPPUTEST_VERSION)/$(CPPUTEST).$(CPPUTEST_SUFFIX)

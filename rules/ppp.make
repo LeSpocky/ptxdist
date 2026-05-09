@@ -17,7 +17,7 @@ PACKAGES-$(PTXCONF_PPP) += ppp
 # Paths and names
 #
 PPP_VERSION	:= 2.5.2
-PPP_MD5		:= 28744065f8062622e2ab59901a310b2a
+PPP_SHA256	:= 47da358de54a10cb10bf6ff2cf9b1c03c0d3555518f6182e8f701b8e55733cb2
 PPP		:= ppp-$(PPP_VERSION)
 PPP_SUFFIX	:= tar.gz
 PPP_URL		:= https://www.samba.org/ftp/ppp/$(PPP).$(PPP_SUFFIX)

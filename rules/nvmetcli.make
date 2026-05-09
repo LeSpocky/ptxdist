@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_NVMETCLI) += nvmetcli
 # Paths and names
 #
 NVMETCLI_VERSION	:= 0.8
-NVMETCLI_MD5		:= acc0b236485f1a08ce9a70113abe55cc
+NVMETCLI_SHA256		:= 5c5ae2a991dbb43119a59d568fafdc468aedb81ef671eb9928e758fed4bd6e99
 NVMETCLI		:= nvmetcli-$(NVMETCLI_VERSION)
 NVMETCLI_SUFFIX		:= tar.gz
 NVMETCLI_URL		:= git://git.infradead.org/users/hch/nvmetcli.git;tag=v$(NVMETCLI_VERSION)

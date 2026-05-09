@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBXCB) += libxcb
 # Paths and names
 #
 LIBXCB_VERSION		:= 1.17.0
-LIBXCB_MD5		:= 96565523e9f9b701fcb35d31f1d4086e
+LIBXCB_SHA256		:= 599ebf9996710fea71622e6e184f3a8ad5b43d0e5fa8c4e407123c88a59a6d55
 LIBXCB			:= libxcb-$(LIBXCB_VERSION)
 LIBXCB_SUFFIX		:= tar.xz
 LIBXCB_URL		:= https://xcb.freedesktop.org/dist/$(LIBXCB).$(LIBXCB_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBSYSFS) += libsysfs
 # Paths and names
 #
 LIBSYSFS_VERSION	:= 2.1.0
-LIBSYSFS_MD5		:= 14e7dcd0436d2f49aa403f67e1ef7ddc
+LIBSYSFS_SHA256		:= e865de2c1f559fff0d3fc936e660c0efaf7afe662064f2fb97ccad1ec28d208a
 LIBSYSFS		:= sysfsutils-$(LIBSYSFS_VERSION)
 LIBSYSFS_SUFFIX		:= tar.gz
 LIBSYSFS_URL		:= $(call ptx/mirror, SF, linux-diag/$(LIBSYSFS).$(LIBSYSFS_SUFFIX))

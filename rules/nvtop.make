@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_NVTOP) += nvtop
 # Paths and names
 #
 NVTOP_VERSION	:= 3.2.0
-NVTOP_MD5	:= a4c0fcd4a4737ca682c2bf19da7c0bdb
+NVTOP_SHA256	:= d26df685455023cedc4dda033862dcddb67402fbdb685da70da78492f73c41d0
 NVTOP		:= nvtop-$(NVTOP_VERSION)
 NVTOP_SUFFIX	:= tar.gz
 NVTOP_URL	:= https://github.com/Syllo/nvtop/archive/refs/tags/$(NVTOP_VERSION).$(NVTOP_SUFFIX)

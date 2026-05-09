@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_BEEP) += beep
 # Paths and names
 #
 BEEP_VERSION	:= 1.4.12
-BEEP_MD5	:= a817f05c5473a23d700778b2c0108cc4
+BEEP_SHA256	:= 6188d0f0c180db7a30467b5b6065a3cb5d2665b937d2e8c40366efb52bf689fe
 BEEP		:= beep-$(BEEP_VERSION)
 BEEP_SUFFIX	:= tar.gz
 BEEP_URL	:= https://github.com/spkr-beep/beep/archive/refs/tags/v$(BEEP_VERSION).$(BEEP_SUFFIX)

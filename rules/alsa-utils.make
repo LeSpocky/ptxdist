@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_ALSA_UTILS) += alsa-utils
 # Paths and names
 #
 ALSA_UTILS_VERSION	:= 1.2.15.2
-ALSA_UTILS_MD5		:= 7bf18ad61bda2bdd16c5a2b2f9d00456
+ALSA_UTILS_SHA256	:= 7aaaafbfb01942113ec0c31e51f705910e81079205088ca2f8f137a3869e1a3a
 ALSA_UTILS		:= alsa-utils-$(ALSA_UTILS_VERSION)
 ALSA_UTILS_SUFFIX	:= tar.bz2
 ALSA_UTILS_URL		:= https://www.alsa-project.org/files/pub/utils/$(ALSA_UTILS).$(ALSA_UTILS_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBAO) += libao
 # Paths and names
 #
 LIBAO_VERSION	:= 1.1.0
-LIBAO_MD5	:= 2b2508c29bc97e4dc218fa162cf883c8
+LIBAO_SHA256	:= 29de5bb9b1726ba890455ef7e562d877df87811febb0d99ee69164b88c171bd4
 LIBAO		:= libao-$(LIBAO_VERSION)
 LIBAO_SUFFIX	:= tar.gz
 LIBAO_URL	:= http://downloads.xiph.org/releases/ao/$(LIBAO).$(LIBAO_SUFFIX)

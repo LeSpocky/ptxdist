@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_FBGRAB) += fbgrab
 # Paths and names
 #
 FBGRAB_VERSION	:= 1.3.1
-FBGRAB_MD5	:= d2f1f9a096954c252335317216dcd501
+FBGRAB_SHA256	:= 3314a932f830e32feaf36914e1b43326529fe35b7eb7410ff55f16c930ddfbcb
 FBGRAB		:= fbgrab-$(FBGRAB_VERSION)
 FBGRAB_SUFFIX	:= tar.gz
 FBGRAB_URL	:= https://github.com/GunnarMonell/fbgrab/archive/$(FBGRAB_VERSION).$(FBGRAB_SUFFIX)

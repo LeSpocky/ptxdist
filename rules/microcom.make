@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_MICROCOM) += microcom
 # Paths and names
 #
 MICROCOM_VERSION	:= 2019.01.0
-MICROCOM_MD5		:= 8e8c58b4d95d4466097dec3c7ed03ccd
+MICROCOM_SHA256		:= 87e6bacc545d110ae2bc4443e29d7ccac3c5737a40056d6eef1231e3d8667210
 MICROCOM		:= microcom-$(MICROCOM_VERSION)
 MICROCOM_SUFFIX		:= tar.xz
 MICROCOM_URL		:= https://github.com/pengutronix/microcom/releases/download/v$(MICROCOM_VERSION)/microcom-$(MICROCOM_VERSION).$(MICROCOM_SUFFIX)

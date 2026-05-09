@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_SDL2_NET) += sdl2-net
 # Paths and names
 #
 SDL2_NET_VERSION	:= 2.0.1
-SDL2_NET_MD5		:= 5c1d9d1cfa63301b141cb5c0de2ea7c4
+SDL2_NET_SHA256		:= 15ce8a7e5a23dafe8177c8df6e6c79b6749a03fff1e8196742d3571657609d21
 SDL2_NET		:= SDL2_net-$(SDL2_NET_VERSION)
 SDL2_NET_SUFFIX	:= tar.gz
 SDL2_NET_URL		:= https://www.libsdl.org/projects/SDL_net/release/$(SDL2_NET).$(SDL2_NET_SUFFIX)

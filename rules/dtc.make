@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_DTC) += dtc
 # Paths and names
 #
 DTC_VERSION	:= 1.7.2
-DTC_MD5		:= a35aefd37cab86013a10ebdfc599f0c4
+DTC_SHA256	:= 8f1486962f093f28a2f79f01c1fd82f144ef640ceabe555536d43362212ceb7c
 DTC		:= dtc-$(DTC_VERSION)
 DTC_SUFFIX	:= tar.gz
 DTC_URL		:= https://git.kernel.org/pub/scm/utils/dtc/dtc.git/snapshot/$(DTC).$(DTC_SUFFIX)

@@ -4,6 +4,7 @@
 
 config EVENTLOG
 	tristate
+	prompt "eventlog"
 	help
 	  Part of syslog-ng.
 

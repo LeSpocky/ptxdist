@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_FLAC) += flac
 # Paths and names
 #
 FLAC_VERSION	:= 1.5.0
-FLAC_MD5	:= 0bb45bcf74338b00efeec121fff27367
+FLAC_SHA256	:= f2c1c76592a82ffff8413ba3c4a1299b6c7ab06c734dee03fd88630485c2b920
 FLAC		:= flac-$(FLAC_VERSION)
 FLAC_SUFFIX	:= tar.xz
 FLAC_URL	:= http://downloads.xiph.org/releases/flac/$(FLAC).$(FLAC_SUFFIX)

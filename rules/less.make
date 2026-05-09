@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LESS) += less
 # Paths and names
 #
 LESS_VERSION	:= 679
-LESS_MD5	:= 0386dc14f6a081a94dfb4c2413864eed
+LESS_SHA256	:= 9b68820c34fa8a0af6b0e01b74f0298bcdd40a0489c61649b47058908a153d78
 LESS		:= less-$(LESS_VERSION)
 LESS_SUFFIX	:= tar.gz
 LESS_URL	:= https://greenwoodsoftware.com/less/$(LESS).$(LESS_SUFFIX)

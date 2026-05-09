@@ -18,7 +18,7 @@ PACKAGES-$(PTXCONF_LIBPAPER) += libpaper
 # unusual versioning.
 #
 LIBPAPER_VERSION	:= 1.1.24+nmu5
-LIBPAPER_MD5		:= 38bc55688c0fc5544edaa5a951a45fbd
+LIBPAPER_SHA256		:= e29deda4cd7350189c71af0925cbf4a4473f9841d1419a922e1e8ff1954db1f2
 LIBPAPER		:= libpaper-$(LIBPAPER_VERSION)
 LIBPAPER_SUFFIX		:= tar.gz
 LIBPAPER_URL		:= http://snapshot.debian.org/archive/debian-debug/20161113T151229Z/pool/main/libp/libpaper/libpaper_$(LIBPAPER_VERSION).$(LIBPAPER_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_TMUX) += tmux
 # Paths and names
 #
 TMUX_VERSION	:= 3.4
-TMUX_MD5	:= f6e35f957f91af5bb07cb8449228f5cd
+TMUX_SHA256	:= 551ab8dea0bf505c0ad6b7bb35ef567cdde0ccb84357df142c254f35a23e19aa
 TMUX		:= tmux-$(TMUX_VERSION)
 TMUX_SUFFIX	:= tar.gz
 TMUX_URL	:= https://github.com/tmux/tmux/releases/download/$(TMUX_VERSION)/$(TMUX).$(TMUX_SUFFIX)

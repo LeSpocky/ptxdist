@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBNVME) += libnvme
 # Paths and names
 #
 LIBNVME_VERSION		:= 1.8
-LIBNVME_MD5		:= ff72b83dc2ada1da0bd528570154eed3
+LIBNVME_SHA256		:= d59939a280eec41eb7a716e1681d0d0c612099385204ffb55d07134a6be08d75
 LIBNVME			:= libnvme-$(LIBNVME_VERSION)
 LIBNVME_SUFFIX		:= tar.gz
 LIBNVME_URL		:= https://github.com/linux-nvme/libnvme/archive/refs/tags/v$(LIBNVME_VERSION).$(LIBNVME_SUFFIX)

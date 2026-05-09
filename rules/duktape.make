@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_DUKTAPE) += duktape
 # Paths and names
 #
 DUKTAPE_VERSION		:= 2.7.0
-DUKTAPE_MD5		:= b3200b02ab80125b694bae887d7c1ca6
+DUKTAPE_SHA256		:= 90f8d2fa8b5567c6899830ddef2c03f3c27960b11aca222fa17aa7ac613c2890
 DUKTAPE			:= duktape-$(DUKTAPE_VERSION)
 DUKTAPE_SUFFIX		:= tar.xz
 DUKTAPE_URL		:= https://github.com/svaarala/duktape/releases/download/v$(DUKTAPE_VERSION)/$(DUKTAPE).$(DUKTAPE_SUFFIX)

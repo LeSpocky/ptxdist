@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_HAPROXY) += haproxy
 # Paths and names
 #
 HAPROXY_VERSION		:= 2.7.2
-HAPROXY_MD5		:= 0b6e16bbc45cb65e7d5b43d6ed1ff071
+HAPROXY_SHA256		:= 63bc6ec0302d0ebbe1fa769c19606640de834ac8cb07447b80799cb563dc0f3f
 HAPROXY			:= haproxy-$(HAPROXY_VERSION)
 HAPROXY_SUFFIX		:= tar.gz
 HAPROXY_URL		:= https://www.haproxy.org/download/$(basename $(HAPROXY_VERSION))/src/$(HAPROXY).$(HAPROXY_SUFFIX)

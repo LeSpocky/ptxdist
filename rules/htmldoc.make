@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_HTMLDOC) += htmldoc
 # Paths and names
 #
 HTMLDOC_VERSION		:= 1.9.16
-HTMLDOC_MD5		:= 9d82dd05321ca44594d9d1841868b2d5
+HTMLDOC_SHA256		:= b1086385c4c16cdabe428ab1aa041266baebee39f222cf6a3947b41027b7dae3
 HTMLDOC			:= htmldoc-$(HTMLDOC_VERSION)
 HTMLDOC_SUFFIX		:= tar.gz
 HTMLDOC_URL		:= https://github.com/michaelrsweet/htmldoc/releases/download/v$(HTMLDOC_VERSION)/$(HTMLDOC)-source.$(HTMLDOC_SUFFIX)

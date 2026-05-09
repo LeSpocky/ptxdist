@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBSHOUT) += libshout
 # Paths and names
 #
 LIBSHOUT_VERSION	:= 2.4.6
-LIBSHOUT_MD5		:= 4a66a369a01ce790e578221fa2c8ea60
+LIBSHOUT_SHA256		:= 39cbd4f0efdfddc9755d88217e47f8f2d7108fa767f9d58a2ba26a16d8f7c910
 LIBSHOUT		:= libshout-$(LIBSHOUT_VERSION)
 LIBSHOUT_SUFFIX		:= tar.gz
 LIBSHOUT_URL		:= http://downloads.xiph.org/releases/libshout/$(LIBSHOUT).$(LIBSHOUT_SUFFIX)

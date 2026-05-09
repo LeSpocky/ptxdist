@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_FRIBIDI) += fribidi
 # Paths and names
 #
 FRIBIDI_VERSION	:= 1.0.16
-FRIBIDI_MD5	:= 333ad150991097a627755b752b87f9ff
+FRIBIDI_SHA256	:= 1b1cde5b235d40479e91be2f0e88a309e3214c8ab470ec8a2744d82a5a9ea05c
 FRIBIDI		:= fribidi-$(FRIBIDI_VERSION)
 FRIBIDI_SUFFIX	:= tar.xz
 FRIBIDI_URL	:= https://github.com/fribidi/fribidi/releases/download/v$(FRIBIDI_VERSION)/$(FRIBIDI).$(FRIBIDI_SUFFIX)

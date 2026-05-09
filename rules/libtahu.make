@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBTAHU) += libtahu
 # Paths and names
 #
 LIBTAHU_VERSION	:= 1.0.1
-LIBTAHU_MD5	:= 7e980ed17e34a78d6d61c000e4957292
+LIBTAHU_SHA256	:= d5238f5ca83c0e3c8743c3ad6f94251a17398a083edaa45b3494b9f185da050f
 LIBTAHU		:= libtahu-$(LIBTAHU_VERSION)
 LIBTAHU_SUFFIX	:= tar.gz
 LIBTAHU_URL	:= https://github.com/eclipse/tahu/archive/refs/tags/v$(LIBTAHU_VERSION).$(LIBTAHU_SUFFIX)

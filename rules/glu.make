@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_GLU) += glu
 # Paths and names
 #
 GLU_VERSION	:= 9.0.2
-GLU_MD5		:= 2b0f13fa5b949bfb3a995927c6e35125
+GLU_SHA256	:= 6e7280ff585c6a1d9dfcdf2fca489251634b3377bfc33c29e4002466a38d02d4
 GLU		:= glu-$(GLU_VERSION)
 GLU_SUFFIX	:= tar.xz
 GLU_URL		:= https://mesa.freedesktop.org/archive/glu/$(GLU).$(GLU_SUFFIX)

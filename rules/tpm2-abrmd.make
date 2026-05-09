@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_TPM2_ABRMD) += tpm2-abrmd
 # Paths and names
 #
 TPM2_ABRMD_VERSION		:= 2.3.0
-TPM2_ABRMD_MD5			:= 1326e92638d4f55cc4553260e5c24b6c
+TPM2_ABRMD_SHA256		:= 63cb59be1fd21e6ae233c37a0aa4a59883a4885a7bfd2c7e69979c5048518d50
 TPM2_ABRMD			:= tpm2-abrmd-$(TPM2_ABRMD_VERSION)
 TPM2_ABRMD_SUFFIX		:= tar.gz
 TPM2_ABRMD_URL			:= https://github.com/tpm2-software/tpm2-abrmd/releases/download/$(TPM2_ABRMD_VERSION)/$(TPM2_ABRMD).$(TPM2_ABRMD_SUFFIX)

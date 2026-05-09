@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_GAWK) += gawk
 # Paths and names
 #
 GAWK_VERSION	:= 5.3.2
-GAWK_MD5	:= b7014650c5f45e5d4837c31209dc0037
+GAWK_SHA256	:= f8c3486509de705192138b00ef2c00bbbdd0e84c30d5c07d23fc73a9dc4cc9cc
 GAWK		:= gawk-$(GAWK_VERSION)
 GAWK_SUFFIX	:= tar.xz
 GAWK_URL	:= $(call ptx/mirror, GNU, gawk/$(GAWK).$(GAWK_SUFFIX))

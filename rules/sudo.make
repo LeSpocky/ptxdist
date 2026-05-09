@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_SUDO) += sudo
 # Paths and names
 #
 SUDO_VERSION	:= 1.9.17p2
-SUDO_MD5	:= dcbf46f739ae06b076e1a11cbb271a10
+SUDO_SHA256	:= 4a38a1ab3adb1199257edc2a7c4a2bd714665eb605b04368843b06dada2cfcfb
 SUDO		:= sudo-$(SUDO_VERSION)
 SUDO_SUFFIX	:= tar.gz
 SUDO_URL	:= \

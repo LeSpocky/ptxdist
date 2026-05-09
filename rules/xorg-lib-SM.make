@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_XORG_LIB_SM) += xorg-lib-sm
 # Paths and names
 #
 XORG_LIB_SM_VERSION	:= 1.2.6
-XORG_LIB_SM_MD5		:= 3aeeea05091db1c69e6f768e0950a431
+XORG_LIB_SM_SHA256	:= be7c0abdb15cbfd29ac62573c1c82e877f9d4047ad15321e7ea97d1e43d835be
 XORG_LIB_SM		:= libSM-$(XORG_LIB_SM_VERSION)
 XORG_LIB_SM_SUFFIX	:= tar.xz
 XORG_LIB_SM_URL		:= $(call ptx/mirror, XORG, individual/lib/$(XORG_LIB_SM).$(XORG_LIB_SM_SUFFIX))

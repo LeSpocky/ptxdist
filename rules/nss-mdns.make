@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_NSS_MDNS) += nss-mdns
 # Paths and names
 #
 NSS_MDNS_VERSION	:= 0.10
-NSS_MDNS_MD5		:= 03938f17646efbb50aa70ba5f99f51d7
+NSS_MDNS_SHA256		:= 1e683c2e7c3921814706d62fbbd3e9cbf493a75fa00255e0e715508d8134fa6d
 NSS_MDNS		:= nss-mdns-$(NSS_MDNS_VERSION)
 NSS_MDNS_SUFFIX		:= tar.gz
 NSS_MDNS_URL		:= http://0pointer.de/lennart/projects/nss-mdns/$(NSS_MDNS).$(NSS_MDNS_SUFFIX)

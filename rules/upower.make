@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_UPOWER) += upower
 # Paths and names
 #
 UPOWER_VERSION	:= 0.99.11
-UPOWER_MD5	:= abe6acb617f11f2e8dbd9846fcf86e24
+UPOWER_SHA256	:= 64b5ffbfccd5bdb15d925777979a4dbee1a957f9eaeb158dc76175267eddbdef
 UPOWER		:= upower-$(UPOWER_VERSION)
 UPOWER_SUFFIX	:= tar.xz
 UPOWER_URL	:= https://gitlab.freedesktop.org/upower/upower/uploads/93cfe7c8d66ed486001c4f3f55399b7a/$(UPOWER).$(UPOWER_SUFFIX)

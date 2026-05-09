@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_MOSQUITTO) += mosquitto
 # Paths and names
 #
 MOSQUITTO_VERSION	:= 2.0.14
-MOSQUITTO_MD5		:= abe42d8cdb4ec973bdbecc6da29cb98f
+MOSQUITTO_SHA256	:= d0dde8fdb12caf6e2426b4f28081919a2fce3448773bdb8af0d3cd5fe5776925
 MOSQUITTO		:= mosquitto-$(MOSQUITTO_VERSION)
 MOSQUITTO_SUFFIX	:= tar.gz
 MOSQUITTO_URL		:= https://mosquitto.org/files/source/$(MOSQUITTO).$(MOSQUITTO_SUFFIX)

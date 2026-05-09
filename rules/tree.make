@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_TREE) += tree
 # Paths and names
 #
 TREE_VERSION	:= 2.1.0
-TREE_MD5	:= 50aa5cdb28df6340ef67a3a3ec953ffc
+TREE_SHA256	:= 0160c535bff2b0dc6a830b9944e981e3427380f63e748da96ced7071faebabf6
 TREE		:= tree-$(TREE_VERSION)
 TREE_SUFFIX	:= tgz
 TREE_URL	:= http://oldmanprogrammer.net/tar/tree/$(TREE).$(TREE_SUFFIX)

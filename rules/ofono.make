@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_OFONO) += ofono
 # Paths and names
 #
 OFONO_VERSION		:= 1.32
-OFONO_MD5		:= 7496b3b89ab84bfb4ccfc26cda3fdf5e
+OFONO_SHA256		:= f7d775887b7b80cf3b82e3f0a6c2696c6d01963d222ca2217919d21b9e803042
 OFONO			:= ofono-$(OFONO_VERSION)
 OFONO_SUFFIX		:= tar.xz
 OFONO_URL		:= $(call ptx/mirror, KERNEL, network/ofono/$(OFONO).$(OFONO_SUFFIX))

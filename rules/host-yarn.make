@@ -17,7 +17,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_YARN) += host-yarn
 # Paths and names
 #
 HOST_YARN_VERSION	:= 1.21.1
-HOST_YARN_MD5		:= cf49e663e0f56aa15f1740c77354ebe2
+HOST_YARN_SHA256	:= 87d18b6adcde2db2b274e1dc1d7e025730f9e70c8b8970483a7d7fb65db98746
 HOST_YARN		:= yarn-$(HOST_YARN_VERSION)
 HOST_YARN_SUFFIX	:= js
 HOST_YARN_URL		:= https://github.com/yarnpkg/yarn/releases/download/v$(HOST_YARN_VERSION)/$(HOST_YARN).$(HOST_YARN_SUFFIX)

@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LSOF) += lsof
 # Paths and names
 #
 LSOF_VERSION	:= 4.99.5
-LSOF_MD5	:= 00f5844ae3520b5699c249dd424500c2
+LSOF_SHA256	:= 4682c2491ec8b3d62f84e135afc1d9ead1bad5f034b50716f0c3826a4ee7d229
 LSOF_SUFFIX	:= tar.gz
 LSOF		:= lsof-$(LSOF_VERSION)
 LSOF_URL	:= https://github.com/lsof-org/lsof/releases/download/$(LSOF_VERSION)/$(LSOF).$(LSOF_SUFFIX)

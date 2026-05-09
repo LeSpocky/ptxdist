@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_EVTEST) += evtest
 # Paths and names
 #
 EVTEST_VERSION	:= 1.36
-EVTEST_MD5	:= ebd8a804185bfcf19ed20b4789f7e9fc
+EVTEST_SHA256	:= aacb3bc8cc82db7890a911f743a24292a4b53b323be20f38c92d47b9392b0ba7
 EVTEST		:= evtest-$(EVTEST_VERSION)
 EVTEST_SUFFIX	:= tar.bz2
 EVTEST_URL	:= https://gitlab.freedesktop.org/libevdev/evtest/-/archive/evtest-$(EVTEST_VERSION)/evtest-$(EVTEST).$(EVTEST_SUFFIX)

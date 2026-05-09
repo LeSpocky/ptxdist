@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LCMS) += lcms
 # Paths and names
 #
 LCMS_VERSION		:= 2.17
-LCMS_MD5		:= 9f44275ee8ac122817e94fdc50ecce13
+LCMS_SHA256		:= d11af569e42a1baa1650d20ad61d12e41af4fead4aa7964a01f93b08b53ab074
 LCMS			:= lcms2-$(LCMS_VERSION)
 LCMS_SUFFIX		:= tar.gz
 LCMS_URL		:= $(call ptx/mirror, SF, lcms/$(LCMS).$(LCMS_SUFFIX))

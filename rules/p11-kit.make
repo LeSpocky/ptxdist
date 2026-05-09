@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_P11_KIT) += p11-kit
 # Paths and names
 #
 P11_KIT_VERSION		:= 0.25.5
-P11_KIT_MD5		:= e9c5675508fcd8be54aa4c8cb8e794fc
+P11_KIT_SHA256		:= 04d0a86450cdb1be018f26af6699857171a188ac6d5b8c90786a60854e1198e5
 P11_KIT			:= p11-kit-$(P11_KIT_VERSION)
 P11_KIT_SUFFIX		:= tar.xz
 P11_KIT_URL		:= https://github.com/p11-glue/p11-kit/releases/download/$(P11_KIT_VERSION)/$(P11_KIT).$(P11_KIT_SUFFIX)

@@ -17,7 +17,7 @@ PACKAGES-$(PTXCONF_ARCH_RISCV)-$(PTXCONF_MONGODB) += mongodb
 # Paths and names
 #
 MONGODB_VERSION		:= 7.2.2
-MONGODB_MD5		:= c46c7daf888a33e2b295c25ece6382a1
+MONGODB_SHA256		:= f27f31b6fe7e480e1818d0e24b95f4bfec3247dbd8755da31a8e4c46721de366
 MONGODB			:= mongodb-$(MONGODB_VERSION)
 MONGODB_SUFFIX		:= tar.gz
 MONGODB_URL		:= https://github.com/mongodb/mongo/archive/refs/tags/r$(MONGODB_VERSION).$(MONGODB_SUFFIX)

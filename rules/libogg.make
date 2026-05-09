@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBOGG) += libogg
 # Paths and names
 #
 LIBOGG_VERSION	:= 1.3.6
-LIBOGG_MD5	:= e2ab08345a440d32e88b2156cf499eb9
+LIBOGG_SHA256	:= 83e6704730683d004d20e21b8f7f55dcb3383cdf84c0daedf30bde175f774638
 LIBOGG		:= libogg-$(LIBOGG_VERSION)
 LIBOGG_SUFFIX	:= tar.gz
 LIBOGG_URL	:= http://downloads.xiph.org/releases/ogg/$(LIBOGG).$(LIBOGG_SUFFIX)

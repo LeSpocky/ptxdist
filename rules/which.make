@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_WHICH) += which
 # Paths and names
 #
 WHICH_VERSION	:= 2.21
-WHICH_MD5	:= 097ff1a324ae02e0a3b0369f07a7544a
+WHICH_SHA256	:= f4a245b94124b377d8b49646bf421f9155d36aa7614b6ebf83705d3ffc76eaad
 WHICH		:= which-$(WHICH_VERSION)
 WHICH_SUFFIX	:= tar.gz
 WHICH_URL	:= $(call ptx/mirror, GNU, which/$(WHICH).$(WHICH_SUFFIX))

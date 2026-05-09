@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_LIBWEBP) += libwebp
 # Paths and names
 #
 LIBWEBP_VERSION		:= 1.6.0
-LIBWEBP_MD5		:= cceb6447180f961473b181c9ef38b630
+LIBWEBP_SHA256		:= e4ab7009bf0629fd11982d4c2aa83964cf244cffba7347ecd39019a9e38c4564
 LIBWEBP			:= libwebp-$(LIBWEBP_VERSION)
 LIBWEBP_SUFFIX		:= tar.gz
 LIBWEBP_URL		:= http://downloads.webmproject.org/releases/webp/$(LIBWEBP).$(LIBWEBP_SUFFIX)

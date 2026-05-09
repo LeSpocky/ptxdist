@@ -16,7 +16,7 @@ PACKAGES-$(PTXCONF_LINUXPTP) += linuxptp
 # Paths and names
 #
 LINUXPTP_VERSION	:= 3.1.1
-LINUXPTP_MD5		:= 3b79ab5e77c5b5cf06bc1c8350d405bb
+LINUXPTP_SHA256		:= 94d6855f9b7f2d8e9b0ca6d384e3fae6226ce6fc012dbad02608bdef3be1c0d9
 LINUXPTP		:= linuxptp-$(LINUXPTP_VERSION)
 LINUXPTP_SUFFIX		:= tgz
 LINUXPTP_URL		:= $(call ptx/mirror, SF, linuxptp/$(LINUXPTP).$(LINUXPTP_SUFFIX))
