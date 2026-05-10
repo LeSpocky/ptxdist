@@ -3,6 +3,7 @@
 config TPM2_ABRMD
 	tristate
 	select HOST_AUTOTOOLS_AUTOCONF_ARCHIVE
+	select HOST_GLIB
 	select DBUS
 	select GLIB
 	select TPM2_TSS
