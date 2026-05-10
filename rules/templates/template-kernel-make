@@ -15,7 +15,7 @@ PACKAGES-$(PTXCONF_KERNEL_@PACKAGE@) += kernel-@package@
 # Paths and names
 #
 KERNEL_@PACKAGE@_VERSION	:= @VERSION@
-KERNEL_@PACKAGE@_MD5		:=
+KERNEL_@PACKAGE@_SHA256		:=
 KERNEL_@PACKAGE@		:= linux-@package@-$(KERNEL_@PACKAGE@_VERSION)
 KERNEL_@PACKAGE@_SUFFIX		:= tar.xz
 KERNEL_@PACKAGE@_URL		:= $(call kernel-url, KERNEL_@PACKAGE@)
