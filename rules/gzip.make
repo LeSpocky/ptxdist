@@ -28,6 +28,10 @@ GZIP_LICENSE_FILES	:= file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
 # Prepare
 # ----------------------------------------------------------------------------
 
+GZIP_CONF_ENV	:= \
+	$(CROSS_ENV) \
+	ac_cv_prog_LESS=less
+
 #
 # autoconf
 #
