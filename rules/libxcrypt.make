@@ -22,7 +22,7 @@ LIBXCRYPT_URL		:= https://github.com/besser82/libxcrypt/releases/download/v$(LIB
 LIBXCRYPT_SOURCE	:= $(SRCDIR)/$(LIBXCRYPT).$(LIBXCRYPT_SUFFIX)
 LIBXCRYPT_DIR		:= $(BUILDDIR)/$(LIBXCRYPT)
 LIBXCRYPT_LICENSE	:= LGPL-2.1-or-later AND BSD-3-Clause AND BSD-2-Clause AND 0BSD AND public_domain
-LIBXCRYPT_LICENSE_MD5	:= file://LICENSING;md5=3bb6614cf5880cbf1b9dbd9e3d145e2c
+LIBXCRYPT_LICENSE_FILES	:= file://LICENSING;md5=b65434749329c34b5d32c2df3f1b4112
 
 # ----------------------------------------------------------------------------
 # Prepare
