@@ -4,6 +4,7 @@ config GLIB_NETWORKING
 	tristate
 	select HOST_MESON
 	select HOST_INTLTOOL
+	select HOST_GLIB
 	select GLIB
 	select GNUTLS
 	select CA_CERTIFICATES		if RUNTIME
