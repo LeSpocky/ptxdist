@@ -90,10 +90,10 @@ ptxd_make_world_cargo_sync_package() {
 	echo
 	ptxd_make_get "${path}" "${url}"
     fi
-    set -- $(md5sum "${path}")
-    md5="${1}"
+    set -- $(sha256sum "${path}")
+    sha256="${1}"
     cat << EOF >&${makefilefd}
-${PKG}_${PACKAGE}_MD5		:= ${md5}
+${PKG}_${PACKAGE}_SHA256	:= ${sha256}
 ${PKG}_${PACKAGE}_URL		:= ${url}
 ${PKG}_${PACKAGE}_SOURCE	:= \$(SRCDIR)${path#${PTXDIST_SRCDIR}}
 ${PKG}_PARTS			+= ${PKG}_${PACKAGE}
