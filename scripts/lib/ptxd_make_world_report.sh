@@ -99,14 +99,8 @@ ptxd_make_world_report_yaml() {
     do_echo "md5:" "${pkg_md5}"
     do_echo "sha256:" "${pkg_sha256}"
     do_echo "source:" "${pkg_src}"
-    if [ -n "${pkg_md5s}" -a "${pkg_md5s}" != ":" ]; then
-	echo "md5s:"
-	awk "BEGIN { RS=\" *:\\\\s*\"; FS=\":\" } { if (\$1) print \"- '\" \$1 \"'\" }" <<<"${pkg_md5s}"
-    fi
-    if [ -n "${pkg_sha256s}" -a "${pkg_sha256s}" != ":" ]; then
-	echo "sha256s:"
-	awk "BEGIN { RS=\" *:\\\\s*\"; FS=\":\" } { if (\$1) print \"- '\" \$1 \"'\" }" <<<"${pkg_sha256s}"
-    fi
+    awk "BEGIN { RS=\" *:\\\\s*\"; FS=\":\" } { if (length(\$1) > 1) { if (!n) { print \"md5s:\"; n=1 } print \"- '\" \$1 \"'\" } }" <<<"${pkg_md5s}"
+    awk "BEGIN { RS=\" *:\\\\s*\"; FS=\":\" } { if (length(\$1) > 1) { if (!n) { print \"sha256s:\"; n=1 } print \"- '\" \$1 \"'\" } }" <<<"${pkg_sha256s}"
     do_list "sources:" "${pkg_srcs}"
     if [ -e "${tmp_report}" ]; then
 	echo "source-packages:"
