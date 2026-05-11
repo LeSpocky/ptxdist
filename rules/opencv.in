@@ -14,9 +14,7 @@ menuconfig OPENCV
 	select QT5_GUI			if OPENCV_QT
 	select GSTREAMER1		if OPENCV_GSTREAMER
 	select GST_PLUGINS_BASE1	if OPENCV_GSTREAMER
-	select V4L_UTILS		if OPENCV_V4L_LIBV4L2
-	select V4L_UTILS_LIBV4L2	if OPENCV_V4L_LIBV4L2
-	select PYTHON3_NUMPY	if OPENCV_PYTHON
+	select PYTHON3_NUMPY		if OPENCV_PYTHON
 	help
 	  Open Source Computer Vision Library
 
@@ -59,6 +57,7 @@ config OPENCV_IMGPROC
 config OPENCV_IMGCODECS
 	bool
 	prompt "imgcodecs"
+	select OPENCV_IMGPROC
 	help
 	  Image Codecs
 
@@ -88,7 +87,6 @@ config OPENCV_STITCHING
 	prompt "stitching"
 	select OPENCV_CALIB3D
 	select OPENCV_FEATURES2D
-	select OPENCV_OBJDETECT
 	help
 	  Images stitching
 
@@ -109,30 +107,23 @@ config OPENCV_VIDEOIO
 config OPENCV_DNN
 	bool
 	prompt "DNN"
+	select OPENCV_IMGPROC
 	help
 	  Deep Neural Network Library
 
 config OPENCV_GSTREAMER
 	bool
 	prompt "gstreamer"
+	select OPENCV_VIDEOIO
 	help
 	  Gstreamer Support
 
 config OPENCV_V4L
 	bool
 	prompt "v4l"
-	select OPENCV_VIDEO
+	select OPENCV_VIDEOIO
 	help
 	  Video4Linux Support
-
-config OPENCV_V4L_LIBV4L2
-	bool
-	prompt "libv4l2"
-	depends on OPENCV_V4L
-	help
-	  For embedded use cases it often makes sense to explicitly not
-	  use libv4l, because the colorspace conversions in software adds
-	  unexpected overhead.
 
 config OPENCV_QT
 	bool
@@ -146,21 +137,4 @@ config OPENCV_PYTHON
 	help
 	  Python bindings
 
-config OPENCV_EXAMPLES
-	bool
-	prompt "Build Examples"
-	select OPENCV_IMGPROC
-	select OPENCV_FLANN
-	select OPENCV_IMGCODECS
-	select OPENCV_VIDEOIO
-	select OPENCV_HIGHGUI
-	select OPENCV_ML
-	select OPENCV_VIDEO
-	select OPENCV_OBJDETECT
-	select OPENCV_PHOTO
-	select OPENCV_FEATURES2D
-	select OPENCV_CALIB3D
-	select OPENCV_STITCHING
-	help
-	  Build the OpenCV example applications and install them into /usr/share/opencv/examples.
 endif
