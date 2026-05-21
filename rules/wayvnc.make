@@ -14,14 +14,15 @@ PACKAGES-$(PTXCONF_WAYVNC) += wayvnc
 #
 # Paths and names
 #
-WAYVNC_VERSION	:= 0.9.1
-WAYVNC_SHA256	:= aaaca02d36e54ec6ecf457dc266251946d895ac91521fbabb3470c3c09b3753c
+WAYVNC_VERSION	:= 0.10.0
+WAYVNC_SHA256	:= fcfda018d0e07ec00a80071420c8cc2a75885dc6d5e55bb50a9b12353754338f
 WAYVNC		:= wayvnc-$(WAYVNC_VERSION)
 WAYVNC_SUFFIX	:= tar.gz
 WAYVNC_URL	:= https://github.com/any1/wayvnc/archive/refs/tags/v$(WAYVNC_VERSION).$(WAYVNC_SUFFIX)
 WAYVNC_SOURCE	:= $(SRCDIR)/$(WAYVNC).$(WAYVNC_SUFFIX)
 WAYVNC_DIR	:= $(BUILDDIR)/$(WAYVNC)
 WAYVNC_LICENSE	:= ISC
+WAYVNC_LICENSE_FILES	:= file://COPYING;md5=94fc374e7174f41e3afe0f027ee59ff7
 
 # ----------------------------------------------------------------------------
 # Prepare
