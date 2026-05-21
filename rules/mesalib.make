@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_MESALIB) += mesalib
 #
 # Paths and names
 #
-MESALIB_VERSION	:= 26.0.6
-MESALIB_SHA256	:= 1d3c3b8a8363b8cc354175bb4a684ad8b035211cc1d6fa17aeb9b9623c513f89
+MESALIB_VERSION	:= 26.1.1
+MESALIB_SHA256	:= 8bd36c031cc6d0edfec04617527609454ee3a09ad53bdf983b45fc2c1e129b2e
 MESALIB		:= mesa-$(MESALIB_VERSION)
 MESALIB_SUFFIX	:= tar.xz
 MESALIB_URL	:= \
@@ -206,6 +206,7 @@ MESALIB_MESON_CROSS_FILE := $(call ptx/get-alternative, config/meson, mesalib-cr
 MESALIB_CONF_TOOL	:= meson
 MESALIB_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
+	-Dallow-broken-lto=false \
 	-Dallow-fallback-for=[] \
 	-Dallow-kcmp=enabled \
 	-Damd-use-llvm=true \
@@ -261,6 +262,7 @@ MESALIB_CONF_OPT	:= \
 	-Dinstall-precomp-compiler=false \
 	-Dintel-elk=true \
 	-Dintel-rt=disabled \
+	-Dintel-virtio-experimental=false \
 	-Dlegacy-wayland=[] \
 	-Dlibgbm-external=false \
 	-Dlibunwind=disabled \
