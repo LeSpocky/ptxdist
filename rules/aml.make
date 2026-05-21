@@ -14,14 +14,15 @@ PACKAGES-$(PTXCONF_AML) += aml
 #
 # Paths and names
 #
-AML_VERSION	:= 0.3.0
-AML_SHA256	:= cba1ca1689d4031faf37bb7a184559106b6d2f462ae8890a9fa16e3022ca1eb0
+AML_VERSION	:= 1.0.0
+AML_SHA256	:= b2b8f743213af39f40e8bc611147d69e2ea9e010b9b19cb65246582338f28d96
 AML		:= aml-$(AML_VERSION)
 AML_SUFFIX	:= tar.gz
 AML_URL		:= https://github.com/any1/aml/archive/refs/tags/v$(AML_VERSION).$(AML_SUFFIX)
 AML_SOURCE	:= $(SRCDIR)/$(AML).$(AML_SUFFIX)
 AML_DIR		:= $(BUILDDIR)/$(AML)
 AML_LICENSE	:= ISC
+AML_LICENSE_FILES	:= file://COPYING;md5=e6f3cfaa39204b96e14b68b9d50d3e4e
 
 # ----------------------------------------------------------------------------
 # Prepare
