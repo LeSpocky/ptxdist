@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_KMSCON) += kmscon
 #
 # Paths and names
 #
-KMSCON_VERSION		:= 9.3.0
-KMSCON_SHA256		:= 72d968a3b057c8b178381c84cb8584b3b5e75c4133cd9728fa3647690b9b146b
+KMSCON_VERSION		:= 10.0.0
+KMSCON_SHA256		:= 7074956472c42d14977922f9ef6d2ec101f8d88e549f0108c1f51cb9d2b437dd
 KMSCON			:= kmscon-$(KMSCON_VERSION)
 KMSCON_SUFFIX		:= tar.gz
 KMSCON_URL		:= https://github.com/kmscon/kmscon/archive/refs/tags/v$(KMSCON_VERSION).$(KMSCON_SUFFIX)
@@ -40,13 +40,13 @@ KMSCON_CONF_OPT		:=  \
 	-Dwerror=false \
 	-Dextra_debug=false \
 	-Dtests=false \
-	-Dmulti_seat=$(call ptx/endis, PTXCONF_KMSCON_MULTI_SEAT)d \
-	-Delogind=disabled \
+	-Dlibseat=$(call ptx/endis, PTXCONF_KMSCON_LIBSEAT)d \
 	-Dvideo_fbdev=disabled \
 	-Dvideo_drm2d=enabled \
 	-Dvideo_drm3d=$(call ptx/endis, PTXCONF_KMSCON_DRM3D)d \
 	-Drenderer_gltex=$(call ptx/endis, PTXCONF_KMSCON_GLTEX)d \
 	-Dfont_unifont=$(call ptx/endis, PTXCONF_KMSCON_UNIFONT)d \
+	-Dfont_freetype=$(call ptx/endis, PTXCONF_KMSCON_FREETYPE)d \
 	-Dfont_pango=$(call ptx/endis, PTXCONF_KMSCON_PANGO)d \
 	-Dsession_dummy=disabled \
 	-Dsession_terminal=enabled

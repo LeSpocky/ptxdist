@@ -7,12 +7,12 @@ menuconfig KMSCON
 	select LIBDRM
 	select LIBTSM
 	select LIBXKBCOMMON
-	select SYSTEMD			if KMSCON_MULTI_SEAT
-	select SYSTEMD_LOGIND		if KMSCON_MULTI_SEAT && RUNTIME
+	select SEATD			if KMSCON_LIBSEAT
 	select MESALIB			if KMSCON_DRM3D || KMSCON_GLTEX
 	select MESALIB_GBM		if KMSCON_DRM3D
 	select MESALIB_EGL		if KMSCON_DRM3D
 	select MESALIB_GLES2		if KMSCON_DRM3D || KMSCON_GLTEX
+	select FREETYPE			if KMSCON_FREETYPE
 	select PANGO			if KMSCON_PANGO
 	select UDEV
 	select UDEV_LIBUDEV
@@ -34,11 +34,17 @@ config KMSCON_GLTEX
 	help
 	  gltex renderer
 
-config KMSCON_MULTI_SEAT
+config KMSCON_LIBSEAT
 	bool
-	prompt "multi-seat"
+	prompt "libseat"
 	help
-	  Multi-seat support with systemd
+	  Use libseat to integrate with systemd-logind or seatd
+
+config KMSCON_FREETYPE
+	bool
+	prompt "freetype"
+	help
+	  freetype font backend
 
 config KMSCON_PANGO
 	bool
