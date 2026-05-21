@@ -14,14 +14,15 @@ PACKAGES-$(PTXCONF_NEATVNC) += neatvnc
 #
 # Paths and names
 #
-NEATVNC_VERSION	:= 0.9.5
-NEATVNC_SHA256	:= 8150a30bfbd350b046680650b52afcce5ae44d328cb396fb571c6f9b99811357
+NEATVNC_VERSION	:= 1.0.0
+NEATVNC_SHA256	:= 993dedc30e72981650770c04438e9759537e4677010e2dab5e792c39afe74601
 NEATVNC		:= neatvnc-$(NEATVNC_VERSION)
 NEATVNC_SUFFIX	:= tar.gz
 NEATVNC_URL	:= https://github.com/any1/neatvnc/archive/refs/tags/v$(NEATVNC_VERSION).$(NEATVNC_SUFFIX)
 NEATVNC_SOURCE	:= $(SRCDIR)/$(NEATVNC).$(NEATVNC_SUFFIX)
 NEATVNC_DIR	:= $(BUILDDIR)/$(NEATVNC)
 NEATVNC_LICENSE	:= ISC
+NEATVNC_LICENSE_FILES	:= file://COPYING;md5=94fc374e7174f41e3afe0f027ee59ff7
 
 # ----------------------------------------------------------------------------
 # Prepare
