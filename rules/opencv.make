@@ -21,9 +21,7 @@ OPENCV_VERSION		:= 4.13.0
 OPENCV_SHA256		:= 431cb489d275da26526581c6735d7d7c0b00f190fe940b3217d386b77aef52c7
 OPENCV			:= opencv-$(OPENCV_VERSION)
 OPENCV_SUFFIX		:= zip
-OPENCV_URL		:= \
-	$(call ptx/mirror, SF, opencvlibrary/opencv-unix/$(OPENCV_VERSION)/$(OPENCV).$(OPENCV_SUFFIX)) \
-	https://github.com/opencv/opencv/archive/$(OPENCV_VERSION).$(OPENCV_SUFFIX)
+OPENCV_URL		:= https://github.com/opencv/opencv/archive/$(OPENCV_VERSION).$(OPENCV_SUFFIX)
 OPENCV_SOURCE		:= $(SRCDIR)/$(OPENCV).$(OPENCV_SUFFIX)
 OPENCV_DIR		:= $(BUILDDIR)/$(OPENCV)
 OPENCV_BUILD_DIR	:= $(OPENCV_DIR)-build
