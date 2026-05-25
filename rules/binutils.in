@@ -10,6 +10,16 @@ menuconfig BINUTILS
 
 if BINUTILS
 
+config BINUTILS_TOOLCHAIN_VERSION
+	bool
+	prompt "use toolchain binutils version & hash"
+	help
+	  Take the version and source archive hash from the toolchain
+	  ptxconfig file.
+	  Note: This only works with OSELAS.Toolchain 2025.11.0 and later.
+	  Older toolchains used a different archive compression and the hash
+	  will not match.
+
 config BINUTILS_READELF
 	bool
 	prompt "readelf"

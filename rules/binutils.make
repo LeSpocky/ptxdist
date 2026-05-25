@@ -22,9 +22,11 @@ endif
 #
 # Paths and names
 #
+ifndef PTXCONF_BINUTILS_TOOLCHAIN_VERSION
 BINUTILS_VERSION	:= $(or $(call ptx/force-sh, $(CROSS_LD) -v | sed -e 's/.* \(.*\)$$/\1/g'),unknown)
 BINUTILS_MD5		:= none
-ifeq ($(BINUTILS_VERSION),$(TOOLCHAIN_CROSS_BINUTILS_VERSION))
+else
+BINUTILS_VERSION	:= $(TOOLCHAIN_CROSS_BINUTILS_VERSION)
 BINUTILS_MD5		:= $(TOOLCHAIN_CROSS_BINUTILS_MD5)
 endif
 BINUTILS		:= binutils-$(BINUTILS_VERSION)
