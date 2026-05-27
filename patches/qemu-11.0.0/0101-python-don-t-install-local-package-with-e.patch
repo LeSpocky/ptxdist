@@ -1,0 +1,26 @@
+From: Michael Olbrich <m.olbrich@pengutronix.de>
+Date: Wed, 27 May 2026 16:44:18 +0200
+Subject: [PATCH] python: don't install local package with '-e'
+
+For some reason, this causes pip to try to download setuptools, if the
+system setuptools (not the one in the ptxdist venv) are too old for pip
+itself.
+
+Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
+---
+ python/scripts/mkvenv.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/python/scripts/mkvenv.py b/python/scripts/mkvenv.py
+index 8ed6a3545059..f93a170a64d0 100644
+--- a/python/scripts/mkvenv.py
++++ b/python/scripts/mkvenv.py
+@@ -800,7 +800,7 @@ def _do_ensure(
+         env['PIP_CONFIG_SETTINGS'] = "editable_mode=compat"
+         pip_install(
+             args=["--no-build-isolation",
+-                  "-e"] + local_packages,
++                  ] + local_packages,
+             online=online,
+             wheels_dir=wheels_dir,
+             env=env,

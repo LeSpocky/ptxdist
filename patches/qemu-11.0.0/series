@@ -3,4 +3,5 @@
 #tag:upstream --start-number 1
 #tag:ptxdist --start-number 100
 0100-9pfs-allow-real-symlinks-for-security_model-mapped-f.patch
-# 7c1abd8b5f5ef26378050b669cba203a  - git-ptx-patches magic
+0101-python-don-t-install-local-package-with-e.patch
+# 5311459396078b0a939589c7bfaa4afc  - git-ptx-patches magic
