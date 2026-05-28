@@ -21,12 +21,14 @@ HOST_PACKAGES-$(PTXCONF_HOST_SOFTHSM) += host-softhsm
 HOST_SOFTHSM_CONF_TOOL	:= autoconf
 HOST_SOFTHSM_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
-	--disable-non-paged-memory \
 	--disable-gost \
+	--disable-non-paged-memory \
+	--disable-visibility \
+	--with-p11-kit=/share/p11-kit/modules \
 	--with-crypto-backend=openssl \
-	--with-objectstore-backend-db \
 	--without-migrate \
-	--with-p11-kit=/share/p11-kit/modules
+	--with-objectstore-backend-db
+
 HOST_SOFTHSM_CPPFLAGS := \
 	-DDEBUG_LOG_STDERR=1
 
