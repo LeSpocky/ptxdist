@@ -39,6 +39,7 @@ HOST_SOFTHSM_CPPFLAGS := \
 $(STATEDIR)/host-softhsm.install:
 	@$(call targetinfo)
 	@$(call world/install, HOST_SOFTHSM)
+	@mkdir -p $(HOST_SOFTHSM_PKGDIR)/usr/ssl
 	@{ \
 	echo 'openssl_conf = openssl_init'; \
 	echo ''; \
@@ -53,10 +54,17 @@ $(STATEDIR)/host-softhsm.install:
 	echo 'activate = 1'; \
 	echo ''; \
 	echo '[pkcs11_sect]'; \
-	echo "module = $(PTXDIST_SYSROOT_HOST)/usr/lib/ossl-modules/pkcs11.so"; \
+	echo "module = @SYSROOT@/usr/lib/ossl-modules/pkcs11.so"; \
 	echo 'activate = 1'; \
 	echo 'pkcs11-module-block-operations = digest'; \
-	} > $(PTXDIST_SYSROOT_HOST)/usr/ssl/openssl-pkcs11.cnf
+	} > $(HOST_SOFTHSM_PKGDIR)/usr/ssl/openssl-pkcs11.cnf
+	@$(call touch)
+
+$(STATEDIR)/host-softhsm.install.post:
+	@$(call targetinfo)
+	@$(call world/install.post, HOST_SOFTHSM)
+	@sed -i 's;@SYSROOT@;$(PTXDIST_SYSROOT_HOST);' \
+		$(PTXDIST_SYSROOT_HOST)/usr/ssl/openssl-pkcs11.cnf
 	@$(call touch)
 
 # vim: syntax=make
