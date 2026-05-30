@@ -161,7 +161,12 @@ config BUSYBOX_FDISK_SUPPORT_LARGE_DISKS
 	bool "Support over 4GB disks"
 	default y
 	depends on BUSYBOX_FDISK
-	depends on !BUSYBOX_LFS   # with LFS no special code is needed
+	depends on !BUSYBOX_LFS   # with BUSYBOX_LFS no special code is needed
+
+config BUSYBOX_FEATURE_FDISK_BLKSIZE
+	bool "Support -s option to list sizes"
+	default y
+	depends on BUSYBOX_FDISK
 
 config BUSYBOX_FEATURE_FDISK_WRITABLE
 	bool "Write support"
@@ -371,6 +376,11 @@ config BUSYBOX_LOSETUP
 	losetup is used to associate or detach a loop device with a regular
 	file or block device, and to query the status of a loop device. This
 	version does not currently support enabling data encryption.
+config BUSYBOX_LSBLK
+	bool "lsblk (2.5 kb)"
+	default y
+	help
+	List information about all available or specified block devices.
 config BUSYBOX_LSPCI
 	bool "lspci (6.4 kb)"
 	default y
@@ -888,6 +898,11 @@ config BUSYBOX_UNSHARE
 	select BUSYBOX_LONG_OPTS
 	help
 	Run program with some namespaces unshared from parent.
+config BUSYBOX_UUIDGEN
+	bool "uuidgen (1.1 kb)"
+	default y
+	help
+	Generate a UUID (Universally Unique Identifier) in RFC 4122 format.
 config BUSYBOX_WALL
 	bool "wall (2.9 kb)"
 	default y

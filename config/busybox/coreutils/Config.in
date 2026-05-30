@@ -485,6 +485,12 @@ config BUSYBOX_SHA256SUM
 	help
 	Compute and check SHA256 message digest
 
+config BUSYBOX_SHA384SUM
+	bool "sha384sum (7.3 kb)"
+	default y
+	help
+	Compute and check SHA384 message digest
+
 config BUSYBOX_SHA512SUM
 	bool "sha512sum (7.3 kb)"
 	default y
@@ -497,13 +503,13 @@ config BUSYBOX_SHA3SUM
 	help
 	Compute and check SHA3 message digest
 
-comment "Common options for md5sum, sha1sum, sha256sum, sha512sum, sha3sum"
-	depends on BUSYBOX_MD5SUM || BUSYBOX_SHA1SUM || BUSYBOX_SHA256SUM || BUSYBOX_SHA512SUM || BUSYBOX_SHA3SUM
+comment "Common options for md5sum, sha1sum, sha256sum, ..., sha3sum"
+	depends on BUSYBOX_MD5SUM || BUSYBOX_SHA1SUM || BUSYBOX_SHA256SUM || BUSYBOX_SHA384SUM || BUSYBOX_SHA512SUM || BUSYBOX_SHA3SUM
 
 config BUSYBOX_FEATURE_MD5_SHA1_SUM_CHECK
 	bool "Enable -c, -s and -w options"
 	default y
-	depends on BUSYBOX_MD5SUM || BUSYBOX_SHA1SUM || BUSYBOX_SHA256SUM || BUSYBOX_SHA512SUM || BUSYBOX_SHA3SUM
+	depends on BUSYBOX_MD5SUM || BUSYBOX_SHA1SUM || BUSYBOX_SHA256SUM || BUSYBOX_SHA384SUM || BUSYBOX_SHA512SUM || BUSYBOX_SHA3SUM
 	help
 	Enabling the -c options allows files to be checked
 	against pre-calculated hash values.
@@ -875,7 +881,7 @@ config BUSYBOX_UNAME_OSNAME
 	depends on BUSYBOX_UNAME
 	help
 	Sets the operating system name reported by uname -o.  The
-	default is "
+	default is "GNU/Linux".
 
 config BUSYBOX_BB_ARCH
 	bool "arch (1.4 kb)"

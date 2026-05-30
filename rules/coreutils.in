@@ -206,6 +206,10 @@ comment "busybox' tty is selected!"
 config COREUTILS_SHA384SUM
 	bool
 	prompt "sha384sum"
+	depends on !BUSYBOX_SHA384SUM || ALLYES
+
+comment "busybox' sha384sum is selected!"
+	depends on BUSYBOX_SHA384SUM
 
 config COREUTILS_CUT
 	bool

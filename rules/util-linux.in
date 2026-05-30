@@ -248,9 +248,13 @@ config UTIL_LINUX_LSBLK
 	select UTIL_LINUX_LIBSMARTCOLS
 	select UTIL_LINUX_LIBTCOLORS
 	prompt "lsblk"
+	depends on !BUSYBOX_LSBLK || ALLYES
 	help
 	  The lsblk command lists information about all available or the
 	  specified block devices.
+
+comment "BusyBox' lsblk is selected!"
+	depends on BUSYBOX_LSBLK
 
 config UTIL_LINUX_MCOOKIE
 	bool
@@ -273,8 +277,12 @@ config UTIL_LINUX_UUIDGEN
 	bool
 	select UTIL_LINUX_LIBUUID
 	prompt "uuidgen"
+	depends on !BUSYBOX_UUIDGEN || ALLYES
 	help
 	  uuidgen is a command-line utility to create a new UUID value.
+
+comment "BusyBox' uuidgen is selected!"
+	depends on BUSYBOX_UUIDGEN
 
 config UTIL_LINUX_WAITPID
 	bool

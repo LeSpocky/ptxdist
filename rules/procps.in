@@ -160,9 +160,13 @@ comment "busybox' uptime is selected!"
 config PROCPS_VMSTAT
 	bool
 	prompt "vmstat"
+	depends on !BUSYBOX_VMSTAT || ALLYES
 	help
 	  vmstat reports information about processes, memory,
 	  paging, block IO, traps, disks and cpu activity.
+
+comment "busybox' vmstat is selected!"
+	depends on BUSYBOX_VMSTAT
 
 config PROCPS_W
 	bool
