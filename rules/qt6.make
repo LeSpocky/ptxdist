@@ -1169,7 +1169,9 @@ QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTSVG)				+= imageformats/libqsvg
 ### QtVirtualKeyboard ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTVIRTUALKEYBOARD)		+= Qt6VirtualKeyboard
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTVIRTUALKEYBOARD)		+= Qt6VirtualKeyboardSettings
+QT6_LIBS-$(PTXCONF_QT6_MODULE_QTVIRTUALKEYBOARD)		+= Qt6LabsFolderListModel
 QT6_PLUGINS-$(PTXCONF_QT6_MODULE_QTVIRTUALKEYBOARD)		+= platforminputcontexts/libqtvirtualkeyboardplugin
+QT6_QML-$(PTXCONF_QT6_MODULE_QTVIRTUALKEYBOARD)			+= Qt/labs/folderlistmodel
 
 ### QtWayland ###
 QT6_LIBS-$(PTXCONF_QT6_MODULE_QTWAYLAND)			+= Qt6WaylandClient
