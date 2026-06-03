@@ -10,7 +10,7 @@
 #
 HOST_PACKAGES-$(PTXCONF_HOST_TF_A) += host-tf-a
 
-HOST_TF_A_MAKE_OPT = fiptool
+HOST_TF_A_MAKE_OPT = fiptool CC=gcc
 
 $(STATEDIR)/host-tf-a.install:
 	@$(call targetinfo)
