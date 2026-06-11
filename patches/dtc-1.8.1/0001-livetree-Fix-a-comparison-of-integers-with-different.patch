@@ -1,0 +1,37 @@
+From: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+Date: Mon, 8 Jun 2026 18:33:05 +0200
+Subject: [PATCH] livetree: Fix a comparison of integers with different
+ signedness
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+On some architectures we have:
+
+	livetree.c: In function 'fixup_phandles':
+	livetree.c:1237:54: error: comparison of integer expressions of different signedness: 'long int' and 'unsigned int' [-Werror=sign-compare]
+	 1237 |                         if (offset < 0 || offset + 4 > p->val.len) {
+	      |                                                      ^
+	cc1: all warnings being treated as errors
+	make: *** [Makefile:307: livetree.o] Error 1
+
+Fixes: a26ef6400bd8 ("Restore phandle references from __fixups__ node")
+Closes: https://github.com/dgibson/dtc/issues/186
+Signed-off-by: Uwe Kleine-König <u.kleine-koenig@baylibre.com>
+---
+ livetree.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/livetree.c b/livetree.c
+index 5d72abceb526..8baed1fca8c5 100644
+--- a/livetree.c
++++ b/livetree.c
+@@ -1234,7 +1234,7 @@ void fixup_phandles(struct dt_info *dti, const char *name)
+ 				continue;
+ 
+ 			offset = strtol(soffset, NULL, 0);
+-			if (offset < 0 || offset + 4 > p->val.len) {
++			if (offset < 0 || (unsigned int)offset + 4 > p->val.len) {
+ 				if (quiet < 1)
+ 					fprintf(stderr,
+ 						"Warning: Label %s contains invalid offset for property %s in node %s\n",

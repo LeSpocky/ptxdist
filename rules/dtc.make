@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_DTC) += dtc
 #
 # Paths and names
 #
-DTC_VERSION	:= 1.7.2
-DTC_SHA256	:= 8f1486962f093f28a2f79f01c1fd82f144ef640ceabe555536d43362212ceb7c
+DTC_VERSION	:= 1.8.1
+DTC_SHA256	:= 74b50bb19134f6562490afea53e59953dd6c4afb17e5ccb60be32221262d3390
 DTC		:= dtc-$(DTC_VERSION)
 DTC_SUFFIX	:= tar.gz
 DTC_URL		:= https://git.kernel.org/pub/scm/utils/dtc/dtc.git/snapshot/$(DTC).$(DTC_SUFFIX)
@@ -24,7 +24,7 @@ DTC_SOURCE	:= $(SRCDIR)/$(DTC).$(DTC_SUFFIX)
 DTC_DIR		:= $(BUILDDIR)/$(DTC)
 DTC_LICENSE	:= GPL-2.0-or-later OR BSD-2-Clause
 DTC_LICENSE_FILES := \
-	file://README.license;md5=a1eb22e37f09df5b5511b8a278992d0e \
+	file://README.license;md5=a5696bd07fcc7285cbbacc42c2132248 \
 	file://GPL;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
 	file://BSD-2-Clause;md5=5d6306d1b08f8df623178dfd81880927
 
