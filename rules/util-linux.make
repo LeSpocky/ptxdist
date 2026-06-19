@@ -16,10 +16,11 @@ PACKAGES-$(PTXCONF_UTIL_LINUX) += util-linux
 # Paths and names
 #
 UTIL_LINUX_VERSION	:= 2.42.1
-UTIL_LINUX_SHA256	:= 138a3bd9049afa5eeeea73f1e9c0ed7bddf3e55ba4ec29924965a932ec738f01
+UTIL_LINUX_SHA256	:= 82e9158eb12a9b0b569d84e1687fed9dd18fe89ccd8ef5ac3427218a7c0d7f7f
 UTIL_LINUX		:= util-linux-$(UTIL_LINUX_VERSION)
-UTIL_LINUX_SUFFIX	:= tar.gz
-UTIL_LINUX_URL		:= https://git.kernel.org/pub/scm/utils/util-linux/util-linux.git/snapshot/$(UTIL_LINUX).$(UTIL_LINUX_SUFFIX)
+UTIL_LINUX_SUFFIX	:= tar.xz
+UTIL_LINUX_BASENAME	:= v$(if $(filter 2,$(basename $(UTIL_LINUX_VERSION))),$(UTIL_LINUX_VERSION),$(basename $(UTIL_LINUX_VERSION)))
+UTIL_LINUX_URL		:= $(call ptx/mirror, KERNEL, utils/util-linux/$(UTIL_LINUX_BASENAME)/$(UTIL_LINUX).$(UTIL_LINUX_SUFFIX))
 UTIL_LINUX_SOURCE	:= $(SRCDIR)/$(UTIL_LINUX).$(UTIL_LINUX_SUFFIX)
 UTIL_LINUX_DIR		:= $(BUILDDIR)/$(UTIL_LINUX)
 UTIL_LINUX_LICENSE	:= GPL-2.0-only AND GPL-2.0-or-later AND LGPL-2.0-or-later AND BSD-3-Clause AND BSD-4-Clause AND MIT AND ISC AND public_domain
