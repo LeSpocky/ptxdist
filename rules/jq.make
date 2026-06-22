@@ -34,7 +34,7 @@ JQ_LICENSE_FILES := file://COPYING;md5=cf7fcb0a1def4a7ad62c028f7d0dca47
 JQ_CONF_TOOL	:= autoconf
 JQ_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-largefile \
+	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-valgrind \
 	--disable-asan \
 	--disable-ubsan \
