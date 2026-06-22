@@ -22,6 +22,11 @@ LIBNET_SUFFIX	:= tar.gz
 LIBNET_URL	:= https://github.com/libnet/libnet/releases/download/v$(LIBNET_VERSION)/$(LIBNET).$(LIBNET_SUFFIX)
 LIBNET_SOURCE	:= $(SRCDIR)/$(LIBNET).$(LIBNET_SUFFIX)
 LIBNET_DIR	:= $(BUILDDIR)/$(LIBNET)
+LIBNET_LICENSE	:= BSD-2-Clause AND BSD-3-Clause AND MIT-CMU
+LIBNET_LICENSE_FILES := \
+	file://LICENSE;md5=07f291bf6e78efa05cec668cf6a09acc \
+	file://src/libnet_link_linux.c;startline=7;endline=32;md5=8100f4b58c857a134acd5628b181f3a4 \
+	file://src/libnet_asn1.c;startline=14;endline=31;md5=0c3ffb558473335f995286c9b8572509
 
 # ----------------------------------------------------------------------------
 # Prepare
