@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_JQ) += jq
 #
 # Paths and names
 #
-JQ_VERSION	:= 1.8.1
-JQ_SHA256	:= 2be64e7129cecb11d5906290eba10af694fb9e3e7f9fc208a311dc33ca837eb0
+JQ_VERSION	:= 1.8.2
+JQ_SHA256	:= 71b8d6e8f5fe81f6c6d0d110e3892251f6ce76ed095abd315e26e6e1193af3af
 JQ		:= jq-$(JQ_VERSION)
 JQ_SUFFIX	:= tar.gz
 JQ_URL		:= https://github.com/jqlang/jq/releases/download/$(JQ)/$(JQ).$(JQ_SUFFIX)
