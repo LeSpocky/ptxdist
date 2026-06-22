@@ -15,11 +15,11 @@ PACKAGES-$(PTXCONF_LIBNET) += libnet
 #
 # Paths and names
 #
-LIBNET_VERSION	:= 1.1.6
-LIBNET_SHA256	:= d392bb5825c4b6b672fc93a0268433c86dc964e1500c279dc6d0711ea6ec467a
+LIBNET_VERSION	:= 1.3
+LIBNET_SHA256	:= ad1e2dd9b500c58ee462acd839d0a0ea9a2b9248a1287840bc601e774fb6b28f
 LIBNET		:= libnet-$(LIBNET_VERSION)
 LIBNET_SUFFIX	:= tar.gz
-LIBNET_URL	:= $(call ptx/mirror, SF, libnet-dev/$(LIBNET).$(LIBNET_SUFFIX))
+LIBNET_URL	:= https://github.com/libnet/libnet/releases/download/v$(LIBNET_VERSION)/$(LIBNET).$(LIBNET_SUFFIX)
 LIBNET_SOURCE	:= $(SRCDIR)/$(LIBNET).$(LIBNET_SUFFIX)
 LIBNET_DIR	:= $(BUILDDIR)/$(LIBNET)
 
@@ -34,7 +34,18 @@ LIBNET_CONF_ENV		:= \
 
 LIBNET_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-doxygen-doc \
+	--disable-doxygen-dot \
+	--disable-doxygen-man \
+	--disable-doxygen-rtf \
+	--disable-doxygen-xml \
+	--disable-doxygen-chm \
+	--disable-doxygen-chi \
+	--disable-doxygen-html \
+	--disable-doxygen-ps \
+	--disable-doxygen-pdf \
 	--disable-samples \
+	--disable-tests \
 	--with-link-layer=linux
 
 # ----------------------------------------------------------------------------
