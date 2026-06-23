@@ -1,0 +1,9 @@
+## SECTION=shell_and_console
+
+config BUBBLEWRAP
+	tristate
+	select HOST_MESON
+	select LIBCAP
+	prompt "bubblewrap"
+	help
+	  Low-level unprivileged sandboxing tool
