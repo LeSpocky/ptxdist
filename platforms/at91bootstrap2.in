@@ -4,7 +4,7 @@ menuconfig AT91BOOTSTRAP2
 	select BOOTLOADER
 	select HOST_SYSTEM_PYTHON3
 	tristate
-	prompt "AT91 bootstrap 3.x            "
+	prompt "AT91 bootstrap 3.x / 4.x      "
 	help
 	  Note: this is for AT91 bootstrap version 3.4 or later.
 
