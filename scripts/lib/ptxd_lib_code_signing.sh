@@ -237,7 +237,7 @@ cs_import_pubkey_from_pem() {
 
     openssl pkey \
 	"${openssl_keyopt[@]}" \
-	-in "${pem}" -inform pem -pubout -outform der -out "/proc/self/fd/${tmpfd}"
+	-pubin -in "${pem}" -inform pem -pubout -outform der -out "/proc/self/fd/${tmpfd}"
     softhsm_pkcs11_tool --type pubkey --write-object "/proc/self/fd/${tmpfd}" --label "${role}"
     check_pipe_status
 }
