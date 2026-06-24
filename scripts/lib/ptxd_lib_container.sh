@@ -104,7 +104,7 @@ ptxd_run_in_container()
 		cmd+=( --volume="${PTXDIST_SRCDIR}:${srcdir}" )
 	fi
 
-	devpkg_prefix="$(ptxd_get_ptxconf PTXCONF_PROJECT_DEVPKGDIR)" || return 0
+	devpkg_prefix="$(ptxd_get_ptxconf PTXCONF_PROJECT_DEVPKGDIR)"
 	if [ -d "${devpkg_prefix}" ]; then
 		cmd+=( --volume="${devpkg_prefix}:${devpkg_prefix}" )
 	fi
