@@ -79,6 +79,7 @@ menuconfig QT6
 	select UDEV			if QT6_LIBUDEV
 	select UDEV_LIBUDEV		if QT6_LIBUDEV
 	select WAYLAND			if QT6_MODULE_QTWAYLAND
+	select VULKAN_LOADER		if QT6_VULKAN
 
 	select QT6_MODULE_QTBASE
 	select QT6_MODULE_QTBASE_SQL	if QT6_MODULE_QTDECLARATIVE
@@ -148,6 +149,10 @@ config QT6_OPENSSL
 config QT6_OPENGL
 	bool
 	prompt "OpenGL ES2 support"
+
+config QT6_VULKAN
+	bool
+	prompt "Vulkan support"
 
 config QT6_TEST
 	bool
