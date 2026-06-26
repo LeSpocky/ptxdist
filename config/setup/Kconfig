@@ -174,7 +174,7 @@ config SETUP_PYPIMIRROR
 
 config SETUP_SFMIRROR
 	string
-	default "http://downloads.sourceforge.net/sourceforge"
+	default "https://downloads.sourceforge.net/sourceforge"
 	prompt "Sourceforge Mirror"
 	help
 	  For all Sourceforge related packages enter an available mirror here.
