@@ -233,8 +233,7 @@ ptxd_kconfig_create_config() {
 	else
 	    touch "${target}"
 	fi
-    fi &&
-    stat -c '%y' "${target}" > "${target}.stamp"
+    fi
 }
 export -f ptxd_kconfig_create_config
 
@@ -457,14 +456,6 @@ ptxd_kconfig_update_config() {
     local target_config="${1}"
     local config="${2}"
     local base_config="${3}"
-    local stamp="$(stat -c '%y' "${target_config}")"
-    local old_stamp="$(<"${target_config}.stamp")"
-
-    if [ "${stamp}" == "${old_stamp}" ]; then
-	rm  -f "${target_config}.stamp"
-	return
-    fi
-    rm  -f "${target_config}.stamp"
 
     if [ "${base_config}" = "${config}" -o -z "${base_config}" ]; then
 	ptxd_kconfig_save_config "${target_config}" "${config}" &&
