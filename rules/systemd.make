@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_SYSTEMD) += systemd
 #
 # Paths and names
 #
-SYSTEMD_VERSION		:= 258
+SYSTEMD_VERSION		:= 261
 SYSTEMD_VERSION_MAJOR	:= $(firstword $(subst -, ,$(subst ., ,$(SYSTEMD_VERSION))))
-SYSTEMD_SHA256		:= 07a580cf21856f468f82b77b82973a926f42ccc696462459b53f8b88893dff8e
+SYSTEMD_SHA256		:= f1c2e6a0d19ea5cae946386eb288432de12f3c6b7730cdb0d2a06f8ab8e3f8dc
 SYSTEMD			:= systemd-$(SYSTEMD_VERSION)
 SYSTEMD_SUFFIX		:= tar.gz
 #ifeq ($(SYSTEMD_VERSION),$(SYSTEMD_VERSION_MAJOR))
@@ -29,8 +29,8 @@ SYSTEMD_SOURCE		:= $(SRCDIR)/$(SYSTEMD).$(SYSTEMD_SUFFIX)
 SYSTEMD_DIR		:= $(BUILDDIR)/$(SYSTEMD)
 SYSTEMD_LICENSE		:= GPL-2.0-or-later AND LGPL-2.1-only
 SYSTEMD_LICENSE_FILES	:= \
-	file://LICENSE.GPL2;md5=751419260aa954499f7abaabaa882bbe \
-	file://LICENSE.LGPL2.1;md5=4fbd65380cdd255951079008b364516c
+	file://LICENSE.GPL2;md5=c09786363500a9acc29b147e6e72d2c6 \
+	file://LICENSE.LGPL2.1;md5=be0aaf4a380f73f7e00b420a007368f2
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -46,9 +46,11 @@ SYSTEMD_CONF_TOOL	:= meson
 SYSTEMD_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
 	-Dacl=$(call ptx/endis,PTXCONF_SYSTEMD_UNITS_USER)d \
+	-Dadm-gid=4 \
 	-Dadm-group=true \
 	-Danalyze=true \
 	-Dapparmor=disabled \
+	-Daudio-gid=115 \
 	-Daudit=disabled \
 	-Dbacklight=false \
 	-Dbinfmt=false \
@@ -59,7 +61,9 @@ SYSTEMD_CONF_OPT	:= \
 	-Dbump-proc-sys-fs-file-max=true \
 	-Dbump-proc-sys-fs-nr-open=true \
 	-Dbzip2=disabled \
+	-Dcdrom-gid=105 \
 	-Dcertificate-root=/etc/ssl \
+	-Dclock-gid=221 \
 	-Dclock-valid-range-usec-max=$(call ptx/ifdef, PTXDIST_Y2038,946728000000000,473364000000000) \
 	-Dcompat-mutable-uid-boundaries=false \
 	-Dcoredump=$(call ptx/truefalse,PTXCONF_SYSTEMD_COREDUMP) \
@@ -68,6 +72,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Ddbuspolicydir=/usr/share/dbus-1/system.d \
 	-Ddbussessionservicedir=/usr/share/dbus-1/services \
 	-Ddbussystemservicedir=/usr/share/dbus-1/system-services \
+	-Ddefault-compression=auto \
 	-Ddefault-dns-over-tls=no \
 	-Ddefault-dnssec=no \
 	-Ddefault-keymap=us \
@@ -80,6 +85,8 @@ SYSTEMD_CONF_OPT	:= \
 	-Ddefault-network=false \
 	-Ddefault-user-shell=/bin/sh \
 	-Ddev-kvm-mode=0660 \
+	-Ddialout-gid=106 \
+	-Ddisk-gid=107 \
 	-Ddns-over-tls=false \
 	-Ddns-servers= \
 	-Defi=false \
@@ -103,17 +110,22 @@ SYSTEMD_CONF_OPT	:= \
 	-Dhwdb=$(call ptx/truefalse,PTXCONF_SYSTEMD_UDEV_HWDB) \
 	-Didn=false \
 	-Dima=false \
+	-Dimds=disabled \
 	-Dimportd=disabled \
 	-Dinitrd=false \
+	-Dinput-gid=116 \
 	-Dinstall-sysconfdir=true \
 	-Dinstall-tests=false \
 	-Dipe=true \
 	-Dkernel-install=false \
 	-Dkexec-path=/usr/sbin/kexec \
+	-Dkmem-gid=109 \
 	-Dkmod=enabled \
 	-Dkmod-path=/usr/bin/kmod \
+	-Dkvm-gid=36 \
 	-Dldconfig=false \
 	-Dlibarchive=disabled \
+	-Dlibc=glibc \
 	-Dlibcryptsetup=disabled \
 	-Dlibcurl=$(call ptx/endis,PTXCONF_SYSTEMD_LIBCURL)d \
 	-Dlibfido2=disabled \
@@ -135,6 +147,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dlog-message-verification=disabled \
 	-Dlog-trace=false \
 	-Dlogind=$(call ptx/truefalse,PTXCONF_SYSTEMD_LOGIND) \
+	-Dlp-gid=110 \
 	-Dlz4=$(call ptx/endis,PTXCONF_SYSTEMD_LZ4)d \
 	-Dmachined=$(call ptx/truefalse,PTXCONF_SYSTEMD_NSPAWN) \
 	-Dman=disabled \
@@ -171,6 +184,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dquotaon-path=/usr/sbin/quotaon \
 	-Drandomseed=$(call ptx/falsetrue,PTXCONF_SYSTEMD_DISABLE_RANDOM_SEED) \
 	-Dremote=$(call ptx/endis,PTXCONF_SYSTEMD_JOURNAL_REMOTE)d \
+	-Drender-gid=209 \
 	-Drepart=$(call ptx/endis,PTXCONF_SYSTEMD_REPART)d \
 	-Dresolve=$(call ptx/truefalse,PTXCONF_SYSTEMD_RESOLVED) \
 	-Drfkill=false \
@@ -178,6 +192,7 @@ SYSTEMD_CONF_OPT	:= \
 	-Dselinux=$(call ptx/endis,PTXCONF_GLOBAL_SELINUX)d \
 	-Dservice-watchdog=3min \
 	-Dsetfont-path=/usr/bin/setfont \
+	-Dsgx-gid=214 \
 	-Dshared-lib-tag=$(SYSTEMD_VERSION_MAJOR) \
 	-Dslow-tests=false \
 	-Dsmack=false \
@@ -194,9 +209,16 @@ SYSTEMD_CONF_OPT	:= \
 	-Dsystem-alloc-uid-min=1 \
 	-Dsystem-gid-max=999 \
 	-Dsystem-uid-max=999 \
+	-Dsystemd-journal-gid=201 \
+	-Dsystemd-network-uid=202 \
+	-Dsystemd-resolve-uid=203 \
+	-Dsystemd-timesync-uid=204 \
+	-Dsysupdate=disabled \
+	-Dsysupdated=disabled \
 	-Dsysusers=false \
 	-Dsysvinit-path= \
 	-Dsysvrcnd-path= \
+	-Dtape-gid=111 \
 	-Dtests=false \
 	-Dtime-epoch=$(SOURCE_DATE_EPOCH) \
 	-Dtimedated=$(call ptx/truefalse,PTXCONF_SYSTEMD_TIMEDATE) \
@@ -210,12 +232,15 @@ SYSTEMD_CONF_OPT	:= \
 	-Dumount-path=/usr/bin/umount \
 	-Durlify=false \
 	-Duserdb=false \
-	-Dusers-gid=-1 \
+	-Dusers-gid=100 \
 	-Dutmp=false \
+	-Dutmp-gid=43 \
 	-Dvconsole=$(call ptx/truefalse,PTXCONF_SYSTEMD_VCONSOLE) \
 	-Dversion-tag=$(SYSTEMD_VERSION) \
+	-Dvideo-gid=113 \
 	-Dvmspawn=$(call ptx/endis,PTXCONF_SYSTEMD_NSPAWN)d \
-	-Dwheel-group=false \
+	-Dwheel-gid=10 \
+	-Dwheel-group=true \
 	-Dxdg-autostart=false \
 	-Dxenctrl=disabled \
 	-Dxkbcommon=disabled \
@@ -432,6 +457,7 @@ endif
 #	# systemd expects this directory to exist.
 	@$(call install_copy, systemd, 0, 0, 0755, /var/lib/systemd)
 	@$(call install_copy, systemd, 0, 0, 0755, /var/lib/systemd/coredump)
+	@$(call install_copy, systemd, 0, 0, 0755, /var/lib/systemd/network)
 	@$(call install_copy, systemd, 0, 0, 0700, /var/lib/machines)
 	@$(call install_copy, systemd, 0, 0, 0700, /var/lib/private)
 	@$(call install_copy, systemd, 0, 0, 0700, /var/cache/private)
