@@ -883,7 +883,7 @@ ptxd_install_find() {
     find "${src}" ! -path "${src}" -a \( \
 		-path "*/.svn" -prune -o -path "*/.git" -prune -o \
 		-path "*/.pc" -prune -o -path "*/CVS" -prune \
-		"${glob[@]}" \) | while read file; do
+		"${glob[@]}" \) | while read -r file; do
 	local dst_file="${dst}${file#${src}}"
 	ptxd_install_generic "${file}" "${dst_file}" "${usr}" "${grp}" "${strip}" || return
     done
