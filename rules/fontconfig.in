@@ -7,7 +7,6 @@ menuconfig FONTCONFIG
 	select HOST_MESON
 	select FREETYPE
 	select EXPAT
-	select LIBUUID
 	select RC_ONCE		if FONTCONFIG_UTILS && RUNTIME
 	help
 	  Fontconfig is a font configuration and
