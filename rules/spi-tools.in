@@ -1,0 +1,7 @@
+## SECTION=shell_and_console
+config SPI_TOOLS
+	tristate
+	select HOST_CMAKE
+	prompt "spi-tools"
+	help
+	  Simple command line tools to help using Linux spidev devices.
