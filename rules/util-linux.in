@@ -7,8 +7,6 @@ menuconfig UTIL_LINUX
 	select LIBC_CRYPT			if UTIL_LINUX_SULOGIN
 	select LIBCAP_NG			if UTIL_LINUX_SETPRIV
 	select HOST_MESON
-	select UTIL_LINUX_LIBBLKID
-	select UTIL_LINUX_LIBUUID		if UTIL_LINUX_MKSWAP_UUID
 	select NCURSES				if UTIL_LINUX_USES_NCURSES
 	select PAM				if UTIL_LINUX_USES_PAM
 
@@ -21,12 +19,14 @@ config UTIL_LINUX_LIBUUID
 	bool
 
 config UTIL_LINUX_LIBMOUNT
+	select UTIL_LINUX_LIBBLKID
 	bool
 
 config UTIL_LINUX_LIBSMARTCOLS
 	bool
 
 config UTIL_LINUX_LIBFDISK
+	select UTIL_LINUX_LIBBLKID
 	select UTIL_LINUX_LIBUUID
 	bool
 
@@ -133,6 +133,7 @@ config UTIL_LINUX_MKFS
 
 config UTIL_LINUX_MKSWAP
 	bool
+	select UTIL_LINUX_LIBBLKID
 	prompt "mkswap"
 	depends on !BUSYBOX_MKSWAP || ALLYES
 	help
@@ -140,6 +141,7 @@ config UTIL_LINUX_MKSWAP
 
 config UTIL_LINUX_MKSWAP_UUID
 	bool
+	select UTIL_LINUX_LIBUUID
 	prompt "enable uuid support for mkswap"
 	depends on UTIL_LINUX_MKSWAP
 	help
@@ -334,6 +336,7 @@ comment "sys-utils"
 
 config UTIL_LINUX_BLKDISCARD
 	bool
+	select UTIL_LINUX_LIBBLKID
 	depends on !BUSYBOX_BLKDISCARD || ALLYES
 	prompt "blkdiscard"
 	help
@@ -386,6 +389,7 @@ comment "BusyBox' fsfreeze is selected!"
 config UTIL_LINUX_FSTRIM
 	bool
 	prompt "fstrim"
+	select UTIL_LINUX_LIBMOUNT
 	depends on !BUSYBOX_FSTRIM || ALLYES
 	help
 	  fstrim is used on a mounted filesystem to discard (or "trim")
@@ -485,6 +489,7 @@ config UTIL_LINUX_LSIRQ
 
 config UTIL_LINUX_LSNS
 	bool
+	select UTIL_LINUX_LIBMOUNT
 	prompt "lsns"
 	help
 	  lsns is a tool to list namespace information.
