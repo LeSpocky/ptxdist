@@ -12,7 +12,7 @@ menuconfig PULSEAUDIO
 	select ALSA_LIB_UCM
 	select LIBCAP
 	select LIBSNDFILE
-	select ORC
+	select ORC			if PULSEAUDIO_DAEMON
 	select LIBLTDL			if PULSEAUDIO_DAEMON
 	select SYSTEMD			if PULSEAUDIO_SYSTEMD
 	select SBC			if PULSEAUDIO_BLUETOOTH
