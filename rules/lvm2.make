@@ -163,7 +163,10 @@ ifdef PTXCONF_LVM2_LVM_TOOLS
 endif
 
 	@$(call install_lib, lvm2, 0, 0, 0644, libdevmapper)
+
+ifdef PTXCONF_LVM2_LIBDEVMAPPER_EVENT
 	@$(call install_lib, lvm2, 0, 0, 0644, libdevmapper-event)
+endif
 
 ifdef PTXCONF_LVM2_STARTSCRIPT
 	@$(call install_alternative, lvm2, 0, 0, 0755, /etc/init.d/lvm2)
