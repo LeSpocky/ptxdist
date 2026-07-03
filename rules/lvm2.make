@@ -90,6 +90,11 @@ LVM2_CONF_OPT := \
 	--with-device-gid=$(PTXCONF_LVM2_DEVICE_GID) \
 	--with-device-mode=$(PTXCONF_LVM2_DEVICE_MODE)
 
+ifndef PTXCONF_LVM2_LVM_TOOLS
+LVM2_MAKE_OPT := device-mapper
+LVM2_INSTALL_OPT := install_device-mapper
+endif
+
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
@@ -153,9 +158,9 @@ ifdef PTXCONF_LVM2_LVM_TOOLS
 	@$(call install_link, lvm2, lvm, /usr/sbin/vgs)
 	@$(call install_link, lvm2, lvm, /usr/sbin/vgscan)
 	@$(call install_link, lvm2, lvm, /usr/sbin/vgsplit)
-endif
 
 	@$(call install_alternative, lvm2, 0, 0, 0644, /etc/lvm/lvm.conf)
+endif
 
 	@$(call install_lib, lvm2, 0, 0, 0644, libdevmapper)
 	@$(call install_lib, lvm2, 0, 0, 0644, libdevmapper-event)

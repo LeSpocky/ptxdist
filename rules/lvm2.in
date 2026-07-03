@@ -4,10 +4,10 @@ menuconfig LVM2
 	tristate
 	select LIBC_DL
 	select GCCLIBS_GCC_S
-	select LIBAIO
+	select LIBAIO			if LVM2_LVM_TOOLS
 	select READLINE
 	select NCURSES
-	select SYSTEMD if LVM2_SYSTEMD
+	select SYSTEMD			if LVM2_SYSTEMD
 	prompt "lvm2                          "
 	help
 	  LVM2 refers to a new userspace toolset that provide logical volume management
