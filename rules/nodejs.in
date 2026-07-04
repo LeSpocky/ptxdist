@@ -8,9 +8,11 @@ config NODEJS
 	select HOST_QEMU_USR
 	select BROTLI
 	select C_ARES
+	select LIBFFI
 	select LIBUV
 	select OPENSSL
 	select ZLIB
+	select ZSTD
 	help
 	  Node.js is an open-source, cross-platform, JavaScript runtime
 	  environment that executes JavaScript code outside of a browser.

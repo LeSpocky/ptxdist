@@ -17,16 +17,16 @@ endif
 #
 # Paths and names
 #
-NODEJS_VERSION		:= v20.19.2
-NODEJS_SHA256		:= 4a7ff611d5180f4e420204fa6f22f9f9deb2ac5e98619dd9a4de87edf5b03b6e
+NODEJS_VERSION		:= v26.4.0
+NODEJS_SHA256		:= 9eceb3621024069d91035b5471d2ebe86aa04d22dbeba72a782eaf36ff9183ac
 NODEJS			:= node-$(NODEJS_VERSION)
 NODEJS_SUFFIX		:= tar.xz
 NODEJS_URL		:= http://nodejs.org/dist/$(NODEJS_VERSION)/$(NODEJS).$(NODEJS_SUFFIX)
 NODEJS_SOURCE		:= $(SRCDIR)/$(NODEJS).$(NODEJS_SUFFIX)
 NODEJS_DIR		:= $(BUILDDIR)/$(NODEJS)
-NODEJS_LICENSE		:= MIT AND ISC AND BSD-3-Clause AND BSD-2-Clause AND Apache-2.0 AND Unicode-3.0 AND NAIST-2003
+NODEJS_LICENSE		:= MIT AND ISC AND BSD-3-Clause AND BSD-2-Clause AND Apache-2.0 AND Unicode-3.0 AND NAIST-2003 AND BlueOak-1.0.0
 NODEJS_LICENSE_FILES	:= \
-	file://LICENSE;md5=ac91fab5dbaf757274d2b29888f943ef
+	file://LICENSE;md5=76c62fa4c329393e905512b36f8378b7
 
 node/env = \
 	$(CROSS_ENV) \
@@ -56,10 +56,17 @@ NODEJS_ARM_FLOAT_ABI = $(shell ptxd_cross_cc_v | sed -n "s/COLLECT_GCC_OPTIONS=.
 NODEJS_ARM_FPU = $(shell ptxd_cross_cc_v | sed -n "s/COLLECT_GCC_OPTIONS=.*'-mfpu=\([^']*\)'.*/\1/p" | tail -n1)
 endif
 
+NODEJS_CONF_ENV := \
+	$(CROSS_ENV) \
+	LINK=$(PTXCONF_COMPILER_PREFIX)g++
+
+NODEJS_MAKE_ENV := \
+	ICECC_REMOTE_CPP=0
+
 NODEJS_CONF_OPT := \
 	--prefix=/usr \
 	--dest-cpu=$(NODEJS_ARCH) \
-	--cross-compiling \
+	--no-cross-compiling \
 	--dest-os=linux \
 	$(call ptx/ifdef,PTXCONF_ARCH_ARM,--with-arm-float-abi=$(NODEJS_ARM_FLOAT_ABI)) \
 	$(call ptx/ifdef,PTXCONF_ARCH_ARM,--with-arm-fpu=$(NODEJS_ARM_FPU)) \
@@ -70,14 +77,9 @@ NODEJS_CONF_OPT := \
 	--shared-zlib \
 	--shared-brotli \
 	--shared-cares \
+	--shared-ffi \
+	--shared-zstd \
 	--with-intl=none
-
-ifdef PTXCONF_GLOBAL_LARGE_FILE
-# these flags are supposed to come from libuv but that does not work with shared libuv
-NODEJS_CPPFLAGS := \
-	-D_LARGEFILE_SOURCE \
-	-D_FILE_OFFSET_BITS=64
-endif
 
 $(STATEDIR)/nodejs.prepare:
 	@$(call targetinfo)

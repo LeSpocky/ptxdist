@@ -4,6 +4,5 @@
 0001-Disable-running-gyp-on-shared-deps.patch
 0002-v8-don-t-override-ARM-CFLAGS.patch
 #tag:ptxdist --start-number 100
-0100-HACK-don-t-add-LD_LIBRARY_PATH-for-external-tools.patch
-0101-run-native-code-generators-with-qemu.patch
-# 9987788495828c11410721504d543da5  - git-ptx-patches magic
+0100-run-native-code-generators-with-qemu.patch
+# acc406451d6fbd76f2530029ea2d8a7e  - git-ptx-patches magic

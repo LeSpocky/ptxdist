@@ -1,5 +1,5 @@
 From: Michael Olbrich <m.olbrich@pengutronix.de>
-Date: Sat, 4 Feb 2023 16:18:21 +0100
+Date: Sun, 5 Jul 2026 08:07:02 +0200
 Subject: [PATCH] run native code generators with qemu
 
 Host tools cannot be used because they would generate code based on
@@ -8,30 +8,14 @@ properties of the host architecture, e.g. pointer size.
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
  node.gyp                 | 3 +++
- tools/v8_gypfiles/v8.gyp | 5 +++++
- 2 files changed, 8 insertions(+)
+ tools/v8_gypfiles/v8.gyp | 3 +++
+ 2 files changed, 6 insertions(+)
 
 diff --git a/node.gyp b/node.gyp
-index e88c7ded109c..9d78b5f2421a 100644
+index 1779a57cce36..befd205342d9 100644
 --- a/node.gyp
 +++ b/node.gyp
-@@ -688,6 +688,7 @@
-                   'action_name': 'node_mksnapshot',
-                   'process_outputs_as_sources': 1,
-                   'inputs': [
-+                    '<(PRODUCT_DIR)/tool-wrapper',
-                     '<(node_mksnapshot_exec)',
-                     '<(node_snapshot_main)',
-                   ],
-@@ -991,6 +992,7 @@
-           'action_name': 'node_js2c',
-           'process_outputs_as_sources': 1,
-           'inputs': [
-+            '<(PRODUCT_DIR)/tool-wrapper',
-             '<(node_js2c_exec)',
-             '<@(library_files)',
-             '<@(deps_files)',
-@@ -1000,6 +1002,7 @@
+@@ -1073,6 +1073,7 @@
              '<(SHARED_INTERMEDIATE_DIR)/node_javascript.cc',
            ],
            'action': [
@@ -39,19 +23,27 @@ index e88c7ded109c..9d78b5f2421a 100644
              '<(node_js2c_exec)',
              '<@(_outputs)',
              'lib',
+@@ -1139,6 +1140,7 @@
+                     '<(SHARED_INTERMEDIATE_DIR)/node_snapshot.cc',
+                   ],
+                   'action': [
++                    '<(PRODUCT_DIR)/tool-wrapper',
+                     '<(node_mksnapshot_exec)',
+                     '--build-snapshot',
+                     '<(node_snapshot_main)',
+@@ -1152,6 +1154,7 @@
+                   'action_name': 'node_mksnapshot',
+                   'process_outputs_as_sources': 1,
+                   'inputs': [
++                    '<(PRODUCT_DIR)/tool-wrapper',
+                     '<(node_mksnapshot_exec)',
+                   ],
+                   'outputs': [
 diff --git a/tools/v8_gypfiles/v8.gyp b/tools/v8_gypfiles/v8.gyp
-index 9120a6890841..bc41339d06d7 100644
+index 945aa0aa501d..99b1f05d85f6 100644
 --- a/tools/v8_gypfiles/v8.gyp
 +++ b/tools/v8_gypfiles/v8.gyp
-@@ -94,6 +94,7 @@
-         {
-           'action_name': 'run_torque_action',
-           'inputs': [  # Order matters.
-+            '<(PRODUCT_DIR)/tool-wrapper',
-             '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)torque<(EXECUTABLE_SUFFIX)',
-             '<@(torque_files)',
-           ],
-@@ -125,6 +126,7 @@
+@@ -149,6 +149,7 @@
              '<@(torque_outputs_inc)',
            ],
            'action': [
@@ -59,7 +51,7 @@ index 9120a6890841..bc41339d06d7 100644
              '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)torque<(EXECUTABLE_SUFFIX)',
              '-o', '<(SHARED_INTERMEDIATE_DIR)/torque-generated',
              '-v8-root', '<(V8_ROOT)',
-@@ -237,6 +239,7 @@
+@@ -261,6 +262,7 @@
          {
            'action_name': 'generate_bytecode_builtins_list_action',
            'inputs': [
@@ -67,19 +59,11 @@ index 9120a6890841..bc41339d06d7 100644
              '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)bytecode_builtins_list_generator<(EXECUTABLE_SUFFIX)',
            ],
            'outputs': [
-@@ -414,6 +417,7 @@
+@@ -409,6 +411,7 @@
              ],
            },
            'inputs': [
 +            '<(PRODUCT_DIR)/tool-wrapper',
              '<(mksnapshot_exec)',
-           ],
-           'outputs': [
-@@ -1699,6 +1703,7 @@
-         {
-           'action_name': 'run_gen-regexp-special-case_action',
-           'inputs': [
-+            '<(PRODUCT_DIR)/tool-wrapper',
-             '<(PRODUCT_DIR)/<(EXECUTABLE_PREFIX)gen-regexp-special-case<(EXECUTABLE_SUFFIX)',
            ],
            'outputs': [

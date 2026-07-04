@@ -23,13 +23,14 @@ HOST_NODEJS_MAKE_ENV	:= \
 HOST_NODEJS_CONF_TOOL	:= autoconf
 HOST_NODEJS_CONF_OPT	:= \
 	--prefix=/usr \
-	--libdir=lib \
 	--no-cross-compiling \
 	--dest-os=linux \
 	--shared \
+	--libdir=lib \
 	--shared-openssl \
 	--shared-zlib \
-	--shared-cares
+	--shared-cares \
+	--with-intl=none
 
 $(STATEDIR)/host-nodejs.prepare:
 	@$(call targetinfo)
@@ -39,22 +40,6 @@ $(STATEDIR)/host-nodejs.prepare:
 	@echo -e '#!/bin/sh\nexec "$${@}"' > \
 		$(HOST_NODEJS_DIR)/out/Release/tool-wrapper
 	@chmod +x $(HOST_NODEJS_DIR)/out/Release/tool-wrapper
-
-	@$(call touch)
-
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/host-nodejs.install:
-	@$(call targetinfo)
-	@$(call world/install, HOST_NODEJS)
-
-#	# Needed to cross-compile for target.
-	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/bytecode_builtins_list_generator $(HOST_NODEJS_PKGDIR)/usr/bin/
-	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/node_mksnapshot $(HOST_NODEJS_PKGDIR)/usr/bin/
-	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/mksnapshot $(HOST_NODEJS_PKGDIR)/usr/bin/
-	@install -pm 0755 $(HOST_NODEJS_DIR)/out/Release/torque $(HOST_NODEJS_PKGDIR)/usr/bin/
 
 	@$(call touch)
 
