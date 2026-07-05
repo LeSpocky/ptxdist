@@ -4,6 +4,7 @@ config HOST_SHARED_MIME_INFO
 	tristate
 	default y if ALLYES
 	select HOST_MESON
+	select HOST_GETTEXT
 	select HOST_GLIB
 	select HOST_LIBXML2
 
