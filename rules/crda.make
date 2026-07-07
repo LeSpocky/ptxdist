@@ -51,7 +51,7 @@ CRDA_MAKE_ENV	:= \
 	RUNTIME_PUBKEY_ONLY=1
 
 CRDA_MAKE_OPT	:= all_noverify
-CRDA_CFLAGS	:= -Wno-error=deprecated-declarations
+CRDA_CFLAGS	:= -Wno-error=deprecated-declarations -Wno-error=unused-but-set-variable
 
 # ----------------------------------------------------------------------------
 # Install
