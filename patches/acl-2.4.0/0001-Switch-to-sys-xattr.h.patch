@@ -7,47 +7,32 @@ that libacl uses have been provided by libc.
 This commit switches the code to use libc and leave libxattr
 behind.
 ---
- configure.ac            |  4 ++--
- libacl/Makemodule.am    |  4 ++--
+ configure.ac            |  5 +++--
  libacl/error_context.h  | 53 +++++++++++++++++++++++++++++++++++++++++++++++++
- libacl/perm_copy_fd.c   |  7 +------
- libacl/perm_copy_file.c |  7 +------
- 5 files changed, 59 insertions(+), 16 deletions(-)
+ libacl/perm_copy_fd.c   |  2 +-
+ libacl/perm_copy_file.c |  2 +-
+ 4 files changed, 58 insertions(+), 4 deletions(-)
  create mode 100644 libacl/error_context.h
 
 diff --git a/configure.ac b/configure.ac
-index 96fd96a424c5..21694dabefe5 100644
+index c1a46982833c..0f7f42514a16 100644
 --- a/configure.ac
 +++ b/configure.ac
-@@ -53,8 +53,8 @@ AS_IF([test $# -ne 3 -o ${#1} -gt 1 -o ${#2} -gt 1 -o ${#3} -gt 2],
+@@ -83,8 +83,9 @@ AS_IF([test $# -ne 3 -o ${#1} -gt 1 -o ${#2} -gt 1 -o ${#3} -gt 2],
  LT_REVISION=$(printf "%d%d%02d" "$1" "$2" "$3")
  AC_SUBST(LT_REVISION)
  
 -AC_PACKAGE_NEED_ATTR_ERROR_H
--AC_PACKAGE_NEED_GETXATTR_LIBATTR
-+AC_CHECK_HEADERS([sys/xattr.h],,
-+                 [AC_MSG_ERROR([sys/xattr.h header not found])])
- 
+-
++AC_CHECK_HEADERS([sys/xattr.h],, 
++	[AC_MSG_ERROR([sys/xattr.h header not found])])
++ 
  AC_CONFIG_COMMANDS([include/acl],
  	[dnl
-diff --git a/libacl/Makemodule.am b/libacl/Makemodule.am
-index 604f829ac7ce..700581eee84f 100644
---- a/libacl/Makemodule.am
-+++ b/libacl/Makemodule.am
-@@ -76,8 +76,8 @@ libacl_la_DEPENDENCIES = exports libmisc.la
- libacl_la_SOURCES = $(CFILES) $(HFILES)
- ## Since libacl translates its error messages, we have to link libintl.
- ## See the AM_GNU_GETTEXT documentation for details.
--libacl_la_LIBADD = -lattr libmisc.la $(LTLIBINTL)
-+libacl_la_LIBADD = libmisc.la $(LTLIBINTL)
- libacl_la_CFLAGS = $(AM_CFLAGS) -include $(srcdir)/libacl/perm_copy.h
--libacl_la_LDFLAGS = \
-+libacl_la_LDFLAGS = -no-undefined \
- 	-Wl,--version-script,$(top_srcdir)/exports \
- 	-version-info $(LTVERSION)
+ 	rm -rf include/acl
 diff --git a/libacl/error_context.h b/libacl/error_context.h
 new file mode 100644
-index 000000000000..fa383f4cb5db
+index 000000000000..65f00e7c0832
 --- /dev/null
 +++ b/libacl/error_context.h
 @@ -0,0 +1,53 @@
@@ -105,56 +90,28 @@ index 000000000000..fa383f4cb5db
 +
 +#endif  /* __ERROR_CONTEXT_T */
 diff --git a/libacl/perm_copy_fd.c b/libacl/perm_copy_fd.c
-index 701bed2532e4..aa4630b798ea 100644
+index 34187f4181b7..671f4d9f7ea9 100644
 --- a/libacl/perm_copy_fd.c
 +++ b/libacl/perm_copy_fd.c
-@@ -16,9 +16,8 @@
-   License along with this library; if not, see <https://www.gnu.org/licenses/>.
- */
- 
--#if defined (HAVE_CONFIG_H)
- #include "config.h"
--#endif
-+
- #if defined(HAVE_LIBACL_LIBACL_H)
- # include "libacl.h"
- #endif
-@@ -38,11 +37,7 @@
- #endif
+@@ -27,7 +27,7 @@
+ #include "fchmodat_compat.h"
  
  #define ERROR_CONTEXT_MACROS
--#ifdef HAVE_ATTR_ERROR_CONTEXT_H
 -#include <attr/error_context.h>
--#else
- #include "error_context.h"
--#endif
++#include "error_context.h"
  
- #if !defined(ENOTSUP)
- # define ENOTSUP (-1)
+ /* Set the access control list of path to the permissions defined by mode.  */
+ static int
 diff --git a/libacl/perm_copy_file.c b/libacl/perm_copy_file.c
-index ba59d3647952..1af6a6a7e0f2 100644
+index 507ccb0c1037..7b41b97b5c11 100644
 --- a/libacl/perm_copy_file.c
 +++ b/libacl/perm_copy_file.c
-@@ -16,9 +16,8 @@
-   License along with this library; if not, see <https://www.gnu.org/licenses/>.
- */
- 
--#if defined (HAVE_CONFIG_H)
- #include "config.h"
--#endif
-+
- #if defined(HAVE_LIBACL_LIBACL_H)
- # include "libacl.h"
- #endif
-@@ -38,11 +37,7 @@
- #endif
+@@ -25,7 +25,7 @@
+ #include "libacl.h"
  
  #define ERROR_CONTEXT_MACROS
--#ifdef HAVE_ATTR_ERROR_CONTEXT_H
 -#include <attr/error_context.h>
--#else
- #include "error_context.h"
--#endif
++#include "error_context.h"
  
- #if !defined(ENOTSUP)
- # define ENOTSUP (-1)
+ /* Set the access control list of path to the permissions defined by mode.  */
+ static int
