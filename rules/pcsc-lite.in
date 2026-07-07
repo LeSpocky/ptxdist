@@ -2,6 +2,7 @@
 
 menuconfig PCSC_LITE
 	tristate "pcsc-lite                     "
+	select HOST_MESON
 	select SYSTEMD		if PCSC_LITE_SYSTEMD_UNIT
 	select UDEV		if PCSC_LITE_LIBUDEV
 	select UDEV_LIBUDEV	if PCSC_LITE_LIBUDEV

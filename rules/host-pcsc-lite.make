@@ -18,11 +18,15 @@ HOST_PACKAGES-$(PTXCONF_HOST_PCSC_LITE) += host-pcsc-lite
 #
 # autoconf
 #
-HOST_PCSC_LITE_CONF_TOOL := autoconf
+HOST_PCSC_LITE_CONF_TOOL := meson
 HOST_PCSC_LITE_CONF_OPT := \
-	$(HOST_AUTOCONF) \
-	--disable-libusb \
-	--disable-libudev \
-	--disable-libsystemd
+	$(HOST_MESON_OPT) \
+	-Dlibsystemd=false \
+	-Dlibudev=false \
+	-Dlibusb=false \
+	-Dpolkit=false \
+	-Dserial=false \
+	-Dsystemdunit=system \
+	-Dusb=false
 
 # vim: syntax=make

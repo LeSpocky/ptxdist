@@ -15,11 +15,11 @@ PACKAGES-$(PTXCONF_PCSC_LITE) += pcsc-lite
 #
 # Paths and names
 #
-PCSC_LITE_VERSION	:= 1.9.8
-PCSC_LITE_SHA256	:= 502d80c557ecbee285eb99fe8703eeb667bcfe067577467b50efe3420d1b2289
-PCSC_LITE_SUFFIX	:= tar.bz2
+PCSC_LITE_VERSION	:= 2.5.1
+PCSC_LITE_SHA256	:= 78cd514e1b549292696a5c549d42d69a44fd084aa06ccd1af2ff6c2208282581
+PCSC_LITE_SUFFIX	:= tar.gz
 PCSC_LITE		:= pcsc-lite-$(PCSC_LITE_VERSION)
-PCSC_LITE_URL		:= https://pcsclite.apdu.fr/files/$(PCSC_LITE).$(PCSC_LITE_SUFFIX)
+PCSC_LITE_URL		:= https://github.com/LudovicRousseau/PCSC/archive/refs/tags/$(PCSC_LITE_VERSION).$(PCSC_LITE_SUFFIX)
 PCSC_LITE_SOURCE	:= $(SRCDIR)/$(PCSC_LITE).$(PCSC_LITE_SUFFIX)
 PCSC_LITE_DIR		:= $(BUILDDIR)/$(PCSC_LITE)
 PCSC_LITE_BUILD_OOT	:= YES
@@ -30,23 +30,26 @@ PCSC_LITE_LICENSE	:= BSD-3-Clause AND BSD-2-Clause AND MIT AND ISC
 # Prepare
 # ----------------------------------------------------------------------------
 
+PCSC_LITE_CONF_ENV := \
+	$(CROSS_ENV) \
+	PTXDIST_PKG_CONFIG_VAR_NO_SYSROOT=systemdsystemunitdir
+
 #
 # autoconf
 #
-PCSC_LITE_CONF_TOOL := autoconf
+PCSC_LITE_CONF_TOOL := meson
 PCSC_LITE_CONF_OPT := \
-	$(CROSS_AUTOCONF_USR) \
-	--$(call ptx/endis, PTXCONF_PCSC_LITE_SYSTEMD_UNIT)-libsystemd \
-	--disable-serial \
-	--disable-usb \
-	--$(call ptx/endis, PTXCONF_PCSC_LITE_LIBUDEV)-libudev \
-	--disable-libusb \
-	--disable-polkit \
-	--disable-embedded \
-	--enable-usbdropdir=/usr/lib/pcsc \
-	--$(call ptx/endis, PTXCONF_PCSC_LITE_DEBUGATR)-debugatr \
-	--disable-filter \
-	--with-systemdsystemunitdir=/usr/lib/systemd/system
+	$(CROSS_MESON_USR) \
+	-Dembedded=false \
+	-Dfilter_names=true \
+	-Dipcdir=/run/pcscd \
+	-Dlibsystemd=$(call ptx/truefalse, PTXCONF_PCSC_LITE_SYSTEMD_UNIT) \
+	-Dlibudev=$(call ptx/truefalse, PTXCONF_PCSC_LITE_LIBUDEV) \
+	-Dlibusb=false \
+	-Dpolkit=false \
+	-Dserial=false \
+	-Dsystemdunit=system \
+	-Dusb=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
