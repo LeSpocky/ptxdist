@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBEVENT) += libevent
 #
 # Paths and names
 #
-LIBEVENT_VERSION	:= 2.1.12
-LIBEVENT_SHA256		:= 92e6de1be9ec176428fd2367677e61ceffc2ee1cb119035037a27d346b0403bb
+LIBEVENT_VERSION	:= 2.1.13
+LIBEVENT_SHA256		:= f7e9383b8c0baa81b687e5b5eecc01beefaf1b19b64151d95ed61647fe7a315c
 LIBEVENT		:= libevent-$(LIBEVENT_VERSION)-stable
 LIBEVENT_SUFFIX		:= tar.gz
 LIBEVENT_URL		:= https://github.com/libevent/libevent/releases/download/release-$(LIBEVENT_VERSION)-stable/$(LIBEVENT).$(LIBEVENT_SUFFIX)
@@ -47,7 +47,19 @@ LIBEVENT_CONF_OPT	:= \
 	--enable-function-sections \
 	--disable-verbose-debug \
 	--enable-clock-gettime \
-	$(GLOBAL_LARGE_FILE_OPTION)
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--disable-doxygen-doc \
+	--disable-doxygen-dot \
+	--disable-doxygen-man \
+	--disable-doxygen-rtf \
+	--disable-doxygen-xml \
+	--disable-doxygen-chm \
+	--disable-doxygen-chi \
+	--disable-doxygen-html \
+	--disable-doxygen-ps \
+	--disable-doxygen-pdf \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038
+
 
 # ----------------------------------------------------------------------------
 # Target-Install
