@@ -1,0 +1,109 @@
+From: Alexander Dahl <ada@thorsis.com>
+Date: Wed, 8 Jul 2026 13:02:37 +0200
+Subject: [PATCH] configure: Fix (deprecated) plugin option
+
+Actually two issues here.
+
+On one hand there was the incomplete rename from --enable-plugin to
+--enable-plugin-deprecated triggering new warnings with
+dropbear-2026.92.  Technically new options where ignored while the old
+--enable-plugin and --disable-plugin where still considered.
+
+On the other hand the previous option was broken from the beginning,
+because when passing --enable-plugin or --disable-plugin explicitly the
+option was not evaluated correctly.
+
+Link: https://www.gnu.org/software/autoconf/manual/autoconf-2.71/html_node/Package-Options.html
+Fixes: 8c6aaf8d361e ("External Public-Key Authentication API (#72)")
+Fixes: #298
+Fixes: e3e7b28c33ac ("Make -t two factor and plugins deprecated")
+Signed-off-by: Alexander Dahl <ada@thorsis.com>
+Upstream-Status: Submitted [https://github.com/mkj/dropbear/pull/462]
+---
+ configure    | 23 +++++++++++++++++------
+ configure.ac | 15 +++++++++++----
+ 2 files changed, 28 insertions(+), 10 deletions(-)
+
+diff --git a/configure b/configure
+index b8e90be06083..9b7b9b56f6f4 100755
+--- a/configure
++++ b/configure
+@@ -736,7 +736,7 @@ enable_pam
+ enable_openpty
+ enable_syslog
+ enable_shadow
+-enable_plugin
++enable_plugin_deprecated
+ enable_fuzz
+ enable_bundled_libtom
+ enable_lastlog
+@@ -5838,22 +5838,33 @@ fi
+ 
+ 
+ # Plugin support will be removed soon. Open a github issue if you're using it.
+-# Check whether --enable-plugin was given.
+-if test ${enable_plugin+y}
++# Check whether --enable-plugin-deprecated was given.
++if test ${enable_plugin_deprecated+y}
+ then :
+-  enableval=$enable_plugin;
++  enableval=$enable_plugin_deprecated;
++		if test "x$enableval" = "xyes"; then
+ 
+ printf "%s\n" "#define DROPBEAR_PLUGIN 1" >>confdefs.h
+ 
+-		{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: Enabling support for External Public Key Authentication" >&5
++			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: Enabling support for External Public Key Authentication" >&5
+ printf "%s\n" "$as_me: Enabling support for External Public Key Authentication" >&6;}
+-		DROPBEAR_PLUGIN=1
++			DROPBEAR_PLUGIN=1
++		else
++
++printf "%s\n" "#define DROPBEAR_PLUGIN 0" >>confdefs.h
++
++			{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: Disabling support for External Public Key Authentication" >&5
++printf "%s\n" "$as_me: Disabling support for External Public Key Authentication" >&6;}
++			DROPBEAR_PLUGIN=0
++		fi
+ 
+ else $as_nop
+ 
+ 
+ printf "%s\n" "#define DROPBEAR_PLUGIN 0" >>confdefs.h
+ 
++		{ printf "%s\n" "$as_me:${as_lineno-$LINENO}: Disabling support for External Public Key Authentication" >&5
++printf "%s\n" "$as_me: Disabling support for External Public Key Authentication" >&6;}
+ 		DROPBEAR_PLUGIN=0
+ 
+ 
+diff --git a/configure.ac b/configure.ac
+index 25a13ee78e88..6dfeacf1f57f 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -345,15 +345,22 @@ AC_ARG_ENABLE(shadow,
+ )
+ 
+ # Plugin support will be removed soon. Open a github issue if you're using it.
+-AC_ARG_ENABLE(plugin,
++AC_ARG_ENABLE(plugin-deprecated,
+ 	[AS_HELP_STRING([--enable-plugin-deprecated], [Enable support for External Public Key Authentication plug-in])],
+ 	[
+-		AC_DEFINE(DROPBEAR_PLUGIN, 1, External Public Key Authentication)
+-		AC_MSG_NOTICE(Enabling support for External Public Key Authentication)
+-		DROPBEAR_PLUGIN=1
++		if test "x$enableval" = "xyes"; then
++			AC_DEFINE(DROPBEAR_PLUGIN, 1, External Public Key Authentication)
++			AC_MSG_NOTICE(Enabling support for External Public Key Authentication)
++			DROPBEAR_PLUGIN=1
++		else
++			AC_DEFINE(DROPBEAR_PLUGIN, 0, External Public Key Authentication)
++			AC_MSG_NOTICE(Disabling support for External Public Key Authentication)
++			DROPBEAR_PLUGIN=0
++		fi
+ 	],
+ 	[
+ 		AC_DEFINE(DROPBEAR_PLUGIN, 0, External Public Key Authentication)
++		AC_MSG_NOTICE(Disabling support for External Public Key Authentication)
+ 		DROPBEAR_PLUGIN=0
+ 	]
+ 

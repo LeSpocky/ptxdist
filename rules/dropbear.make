@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_DROPBEAR) += dropbear
 #
 # Paths and names
 #
-DROPBEAR_VERSION	:= 2026.91
-DROPBEAR_SHA256		:= defa924475abf6bc1e74abc00173e46bfdc804bd47caafa14f5a4ef0cc76da34
+DROPBEAR_VERSION	:= 2026.92
+DROPBEAR_SHA256		:= 91dcb5234de8dea68dd82c55411c9fc986b457ab58372a780ee8a870419c2f7e
 DROPBEAR		:= dropbear-$(DROPBEAR_VERSION)
 DROPBEAR_SUFFIX		:= tar.bz2
 DROPBEAR_URL		:= \
@@ -52,7 +52,7 @@ DROPBEAR_CONF_OPT 	:= \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_OPENPTY)-openpty \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_SYSLOG)-syslog \
 	--enable-shadow \
-	--disable-plugin \
+	--disable-plugin-deprecated \
 	--disable-fuzz \
 	--enable-bundled-libtom \
 	--$(call ptx/disen, PTXCONF_DROPBEAR_DIS_LASTLOG)-lastlog \
