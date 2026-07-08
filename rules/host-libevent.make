@@ -32,6 +32,16 @@ HOST_LIBEVENT_CONF_OPT	:= \
 	--disable-samples \
 	--enable-function-sections \
 	--disable-verbose-debug \
-	--enable-clock-gettime
+	--enable-clock-gettime \
+	--disable-doxygen-doc \
+	--disable-doxygen-dot \
+	--disable-doxygen-man \
+	--disable-doxygen-rtf \
+	--disable-doxygen-xml \
+	--disable-doxygen-chm \
+	--disable-doxygen-chi \
+	--disable-doxygen-html \
+	--disable-doxygen-ps \
+	--disable-doxygen-pdf
 
 # vim: syntax=make
