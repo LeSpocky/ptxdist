@@ -13,7 +13,7 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 8 insertions(+), 2 deletions(-)
 
 diff --git a/mesonbuild/linkers/linkers.py b/mesonbuild/linkers/linkers.py
-index d40d5e20effe..35b77143c1cb 100644
+index cb8956adf5be..5078c08deb25 100644
 --- a/mesonbuild/linkers/linkers.py
 +++ b/mesonbuild/linkers/linkers.py
 @@ -756,7 +756,12 @@ class GnuLikeDynamicLinkerMixin(DynamicLinkerBase):

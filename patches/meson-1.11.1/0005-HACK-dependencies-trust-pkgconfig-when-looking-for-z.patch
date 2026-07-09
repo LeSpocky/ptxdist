@@ -10,15 +10,15 @@ Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/mesonbuild/dependencies/dev.py b/mesonbuild/dependencies/dev.py
-index 4d219a58967f..85f6e2502941 100644
+index 4b043a07e82f..eb47b0f792a9 100644
 --- a/mesonbuild/dependencies/dev.py
 +++ b/mesonbuild/dependencies/dev.py
-@@ -818,7 +818,7 @@ packages['gmock'] = gmock_factory = DependencyFactory(
+@@ -822,7 +822,7 @@ packages['gmock'] = gmock_factory = DependencyFactory(
  
  packages['zlib'] = zlib_factory = DependencyFactory(
      'zlib',
 -    [DependencyMethods.PKGCONFIG, DependencyMethods.CMAKE, DependencyMethods.SYSTEM],
 +    [DependencyMethods.PKGCONFIG],
-     cmake_name='ZLIB',
-     system_class=ZlibSystemDependency,
+     cmake=DependencyCandidate.from_dependency('ZLIB', CMakeDependency),
+     system=ZlibSystemDependency,
  )

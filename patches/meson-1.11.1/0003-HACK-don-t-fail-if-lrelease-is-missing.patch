@@ -12,10 +12,10 @@ Signed-off-by: Philipp Zabel <p.zabel@pengutronix.de>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/mesonbuild/modules/_qt.py b/mesonbuild/modules/_qt.py
-index b75169e4b2b0..d28fae605186 100644
+index 92bb2c632854..07bf8b6fddf0 100644
 --- a/mesonbuild/modules/_qt.py
 +++ b/mesonbuild/modules/_qt.py
-@@ -369,7 +369,7 @@ class QtBaseModule(ExtensionModule):
+@@ -371,7 +371,7 @@ class QtBaseModule(ExtensionModule):
          DEPENDENCY_METHOD_KW,
          KwargInfo('required', (bool, options.UserFeatureOption), default=False),
          KwargInfo('tools', ContainerTypeInfo(list, str), listify=True,
@@ -23,4 +23,4 @@ index b75169e4b2b0..d28fae605186 100644
 +                  default=['moc', 'uic', 'rcc'],
                    validator=_list_in_set_validator(_set_of_qt_tools),
                    since='1.6.0'),
-     )
+         KwargInfo('version', ContainerTypeInfo(list, str), listify=True, default=[], since='1.11'),
