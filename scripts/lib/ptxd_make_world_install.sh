@@ -257,7 +257,7 @@ ptxd_make_world_install_pack() {
 
     # remove usr-merge and lib64 symlinks. They exist in sysroot anyways,
     # so avoid races when they are overwritten
-    for link in bin sbin lib lib64 usr/lib64; do
+    for link in bin sbin lib lib64 usr/lib64 usr/lib/system-python3/lib64; do
 	link="${pkg_pkg_dir}/${link}"
 	if [ -h "${link}" ]; then
 	    rm "${link}"
