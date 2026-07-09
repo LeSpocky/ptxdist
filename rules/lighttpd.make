@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIGHTTPD) += lighttpd
 #
 # Paths and names
 #
-LIGHTTPD_VERSION	:= 1.4.84
-LIGHTTPD_SHA256		:= 076dd43bec8f2ba9ce6db7e7ca7e8ad72271cd529805ead2400b56efaa026f70
+LIGHTTPD_VERSION	:= 1.4.85
+LIGHTTPD_SHA256		:= 18de51b393bac4a6827879e1a7ff377c169e414bae92cd245091d80fc2601d13
 LIGHTTPD		:= lighttpd-$(LIGHTTPD_VERSION)
 LIGHTTPD_SUFFIX		:= tar.xz
 LIGHTTPD_URL		:= http://download.lighttpd.net/lighttpd/releases-1.4.x/$(LIGHTTPD).$(LIGHTTPD_SUFFIX)
@@ -42,11 +42,11 @@ LIGHTTPD_CONF_OPT	:= \
 	-Dwith_brotli=disabled \
 	-Dwith_bzip=$(call ptx/endis,PTXCONF_LIGHTTPD_BZ2LIB)d \
 	-Dwith_dbi=disabled \
-	-Dwith_libdeflate=disabled \
 	-Dwith_fam=disabled \
 	-Dwith_gnutls=false \
 	-Dwith_krb5=disabled \
 	-Dwith_ldap=disabled \
+	-Dwith_libdeflate=disabled \
 	-Dwith_libunwind=disabled \
 	-Dwith_lua=$(call ptx/truefalse,PTXCONF_LIGHTTPD_LUA) \
 	-Dwith_maxminddb=disabled \
@@ -56,8 +56,8 @@ LIGHTTPD_CONF_OPT	:= \
 	-Dwith_nss=false \
 	-Dwith_openssl=$(call ptx/truefalse,PTXCONF_LIGHTTPD_OPENSSL) \
 	-Dwith_pam=disabled \
-	-Dwith_pcre2=$(call ptx/truefalse,PTXCONF_LIGHTTPD_PCRE2) \
 	-Dwith_pcre=$(call ptx/ifdef,PTXCONF_LIGHTTPD_PCRE2, pcre2, disabled) \
+	-Dwith_pcre2=$(call ptx/truefalse,PTXCONF_LIGHTTPD_PCRE2) \
 	-Dwith_pgsql=disabled \
 	-Dwith_sasl=disabled \
 	-Dwith_webdav_locks=disabled \
