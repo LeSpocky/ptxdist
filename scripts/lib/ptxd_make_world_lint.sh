@@ -245,10 +245,10 @@ ptxd_make_world_lint_autogen() {
 	exec {fd}< <(find "${dir}" -type f ! -name autogen.sh ! -name series)
 	while read file <&${fd}; do
 	    # Check for configure.ac, Makefile.am and similar files. They
-	    # indicate that autogen.sh is needed. But not if Makefile.in is
-	    # found as well. That means that autoreconf is broken.
+	    # indicate that autogen.sh is needed. But not if Makefile.in or
+	    # configure is found as well. That means that autoreconf is broken.
 	    if diffstat "${file}" | grep -q '\(configure.\(ac\|in\)\|\(GNUm\|m\|M\)ake.*\.am\)' &&
-		    ! diffstat "${file}" | grep -q '\(GNUm\|m\|M\)ake.*\.in'; then
+		! diffstat "${file}" | grep -q '\(\(GNUm\|m\|M\)ake.*\.in\|configure \)'; then
 		need_autogen=1
 		break
 	    fi
