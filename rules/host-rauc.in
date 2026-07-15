@@ -3,6 +3,7 @@
 config HOST_RAUC
 	tristate
 	default y if ALLYES
+	select HOST_COMPOSEFS
 	select HOST_GLIB
 	select HOST_MESON
 	select HOST_OPENSSL
