@@ -39,8 +39,8 @@ COMPOSEFS_LICENSE_FILES	:= \
 COMPOSEFS_CONF_TOOL	:= meson
 COMPOSEFS_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dman=disabled \
-	-Dfuse=disabled
+	-Dfuse=disabled \
+	-Dman=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
