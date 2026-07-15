@@ -18,8 +18,8 @@ menuconfig WESTON
 	select UDEV
 	select UDEV_LIBUDEV
 	select SEATD
-	select MESALIB			if WESTON_GL || WESTON_VULKAN
-	select MESALIB_GBM		if WESTON_GL || WESTON_VULKAN
+	select MESALIB			if WESTON_GL
+	select MESALIB_GBM		if WESTON_GL
 	select MESALIB_EGL		if WESTON_GL
 	select MESALIB_EGL_WAYLAND	if WESTON_GL
 	select MESALIB_GLES2		if WESTON_GL
@@ -29,17 +29,9 @@ menuconfig WESTON
 	select XORG_LIB_XCURSOR		if WESTON_XWAYLAND
 	select XWAYLAND			if WESTON_XWAYLAND && RUNTIME
 	select SYSTEMD			if WESTON_SYSTEMD
-	select GSTREAMER1		if WESTON_REMOTING
-	select GST_PLUGINS_BASE1	if WESTON_REMOTING
-	select GST_PLUGINS_BASE1_APP	if WESTON_REMOTING
-	select GST_PLUGINS_GOOD1	if WESTON_REMOTING && RUNTIME
-	select GST_PLUGINS_GOOD1_JPEG	if WESTON_REMOTING && RUNTIME
-	select GST_PLUGINS_GOOD1_RTP	if WESTON_REMOTING && RUNTIME
-	select GST_PLUGINS_GOOD1_UDP	if WESTON_REMOTING && RUNTIME
 	select LUA			if WESTON_SHELL_LUA
 	select LUA_INSTALL_LIBLUA	if WESTON_SHELL_LUA
 	select PANGO			if WESTON_IVISHELL_EXAMPLE
-	select PIPEWIRE			if WESTON_PIPEWIRE
 	select PIPEWIRE			if WESTON_BACKEND_PIPEWIRE
 	select NEATVNC			if WESTON_BACKEND_VNC
 	select PAM			if WESTON_BACKEND_VNC
@@ -85,12 +77,6 @@ config WESTON_SYSTEMD
 	bool
 	default INITMETHOD_SYSTEMD
 
-config WESTON_WCAP_TOOLS
-	bool
-	prompt "wcap tools"
-	help
-	  Weston CAPture Tools
-
 config WESTON_INSTALL_CONFIG
 	bool
 	prompt "install configuration file"
@@ -118,16 +104,6 @@ config WESTON_SHELL_KIOSK
 config WESTON_SHELL_LUA
 	bool
 	prompt "Lua shell"
-
-config WESTON_PIPEWIRE
-	bool
-	select WESTON_GL
-	prompt "pipewire plugin"
-
-config WESTON_REMOTING
-	bool
-	select WESTON_GL
-	prompt "remoting plugin"
 
 config WESTON_SIMPLE_CLIENTS
 	bool

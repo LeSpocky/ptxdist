@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_WESTON) += weston
 #
 # Paths and names
 #
-WESTON_VERSION	:= 15.0.1
-LIBWESTON_MAJOR := 15
-WESTON_SHA256	:= dbcedc27f880d1f10a9edc010a9ea044a6a2861269f2aa3c8647cc557a3fd73a
+WESTON_VERSION	:= 16.0.0
+LIBWESTON_MAJOR := 16
+WESTON_MD5	:= 532ae0816e63726c78829b6f7899890e
 WESTON		:= weston-$(WESTON_VERSION)
 WESTON_SUFFIX	:= tar.gz
 WESTON_URL	:= https://gitlab.freedesktop.org/wayland/weston/-/archive/$(WESTON_VERSION)/$(WESTON).$(WESTON_SUFFIX)
@@ -46,16 +46,11 @@ WESTON_CONF_OPT		:= \
 	-Dbackend-x11=false \
 	-Dcolor-management-lcms=$(call ptx/truefalse,PTXCONF_WESTON_COLOR_MANAGEMENT_LCMS) \
 	-Ddemo-clients=$(call ptx/truefalse,PTXCONF_WESTON_IVISHELL_EXAMPLE) \
-	-Ddeprecated-backend-drm-screencast-vaapi=false \
-	-Ddeprecated-screenshare=false \
-	-Ddeprecated-shell-fullscreen=false \
 	-Ddesktop-shell-client-default=weston-desktop-shell \
 	-Ddoc=false \
 	-Dimage-jpeg=true \
 	-Dimage-webp=false \
 	-Dperfetto=false \
-	-Dpipewire=$(call ptx/truefalse,PTXCONF_WESTON_PIPEWIRE) \
-	-Dremoting=$(call ptx/truefalse,PTXCONF_WESTON_REMOTING) \
 	-Drenderer-gl=$(call ptx/truefalse,PTXCONF_WESTON_GL) \
 	-Drenderer-vulkan=$(call ptx/truefalse,PTXCONF_WESTON_VULKAN) \
 	-Dresize-pool=true \
@@ -69,7 +64,6 @@ WESTON_CONF_OPT		:= \
 	-Dtest-skip-is-failure=false \
 	-Dtests=false \
 	-Dtools=calibrator,debug,info,terminal,touch-calibrator \
-	-Dwcap-decode=$(call ptx/truefalse,PTXCONF_WESTON_WCAP_TOOLS) \
 	-Dxwayland=$(call ptx/truefalse,PTXCONF_WESTON_XWAYLAND) \
 	-Dxwayland-path=/usr/bin/Xwayland
 
@@ -122,10 +116,6 @@ ifdef PTXCONF_WESTON_TOUCH_CALIBRATOR
 	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-touch-calibrator)
 endif
 
-ifdef PTXCONF_WESTON_WCAP_TOOLS
-	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/wcap-decode)
-endif
-
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR))
 ifdef PTXCONF_WESTON_XWAYLAND
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/xwayland)
@@ -146,12 +136,6 @@ ifdef PTXCONF_WESTON_GL
 endif
 ifdef PTXCONF_WESTON_VULKAN
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/vulkan-renderer)
-endif
-ifdef PTXCONF_WESTON_PIPEWIRE
-	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/pipewire-plugin)
-endif
-ifdef PTXCONF_WESTON_REMOTING
-	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/remoting-plugin)
 endif
 ifdef PTXCONF_WESTON_COLOR_MANAGEMENT_LCMS
 	@$(call install_lib, weston, 0, 0, 0644, libweston-$(LIBWESTON_MAJOR)/color-lcms)
