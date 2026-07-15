@@ -20,7 +20,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_RAUC) += host-rauc
 #
 HOST_RAUC_CONF_TOOL	:= meson
 HOST_RAUC_CONF_OPT	:= \
-	$(HOST_AUTOCONF) \
+	$(HOST_MESON_OPT) \
 	-Dcreate=true \
 	-Ddbusinterfacesdir=/usr/share/dbus-1/interfaces \
 	-Ddbuspolicydir=/usr/share/dbus-1/system.d \
