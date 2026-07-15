@@ -12,11 +12,13 @@ menuconfig IGT_GPU_TOOLS
 	select LIBELF
 	select LIBELF_LIBDW
 	select OPENSSL
+	select PCIUTILS
+	select PCIUTILS_LIBPCI
 	select PROCPS
 	select UDEV
 	select UDEV_LIBUDEV
 	select ZLIB
-	select JSON_C		if IGT_GPU_TOOLS_TEST_RUNNER
+	select JANSSON		if IGT_GPU_TOOLS_TEST_RUNNER
 	prompt "igt-gpu-tools                 "
 	help
 	  igt-gpu-tools is a package of tools for debugging the Intel
