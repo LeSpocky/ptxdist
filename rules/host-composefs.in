@@ -1,0 +1,7 @@
+## SECTION=hosttools_noprompt
+
+config HOST_COMPOSEFS
+	tristate
+	default y if ALLYES
+	select HOST_MESON
+	select HOST_OPENSSL
