@@ -26,7 +26,9 @@ HOST_RAUC_CONF_OPT	:= \
 	-Ddbusinterfacesdir=/usr/share/dbus-1/interfaces \
 	-Ddbuspolicydir=/usr/share/dbus-1/system.d \
 	-Ddbussystemservicedir=/usr/share/dbus-1/system-services \
+	-Dfuzzing=false \
 	-Dgpt=disabled \
+	-Dhtmldocs=false \
 	-Djson=disabled \
 	-Dmanpages=false \
 	-Dnetwork=false \
@@ -34,6 +36,7 @@ HOST_RAUC_CONF_OPT	:= \
 	-Dservice=false \
 	-Dstreaming=false \
 	-Dstreaming_user=nobody \
+	-Dsystemdcatalogdir=/usr/lib/systemd/catalog \
 	-Dsystemdunitdir=/usr/lib/systemd/system \
 	-Dtests=false
 
