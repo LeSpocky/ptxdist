@@ -1,4 +1,6 @@
-## SECTION=multimedia_tools
+## SECTION=staging
+## old section:
+### SECTION=multimedia_tools
 
 menuconfig IMAGEMAGICK
 	tristate
@@ -15,6 +17,10 @@ menuconfig IMAGEMAGICK
 	  rotate, distort, shear and transform images, adjust image colors, apply
 	  various special effects, or draw text, lines, polygons, ellipses and
 	  Bézier curves.
+
+	  STAGING: remove in PTXdist 2027.08.0
+	  Download for the currently used version is gone. Mostly unmaintained
+	  in PTXdist. Needs updating to new version.
 
 if IMAGEMAGICK
 
