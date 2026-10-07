@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_EXPAT) += expat
 #
 # Paths and names
 #
-EXPAT_VERSION		:= 2.8.5
-EXPAT_SHA256		:= 952c03c33a6b337f12dae7a9b0f9dee86f867550d35c994d6bdaaddd37dc8454
+EXPAT_VERSION		:= 2.9.0
+EXPAT_SHA256		:= 775e8a68f81a748a401dc3168318d4a39484eb4f954726f21517c8f42c0ba984
 EXPAT			:= expat-$(EXPAT_VERSION)
 EXPAT_SUFFIX		:= tar.bz2
 EXPAT_RELEASE		:= R_$(subst .,_,$(EXPAT_VERSION))
@@ -41,7 +41,6 @@ EXPAT_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-static \
 	--disable-symbol-versioning \
-	--disable-xml-attr-info \
 	--enable-xml-context \
 	--without-xmlwf \
 	--without-examples \
