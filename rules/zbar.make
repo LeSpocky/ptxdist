@@ -14,10 +14,10 @@ PACKAGES-$(PTXCONF_ZBAR) += zbar
 #
 # Paths and names
 #
-ZBAR_VERSION	:= 0.23.93
-ZBAR_SHA256	:= 83be8f85fc7c288fd91f98d52fc55db7eedbddcf10a83d9221d7034636683fa0
+ZBAR_VERSION	:= 0.23.95
+ZBAR_SHA256	:= 7b0907a3114503e0a8fbd1c6bfdb61592e6ded79f68716d7ca673ddeb6a87e99
 ZBAR		:= zbar-$(ZBAR_VERSION)
-ZBAR_SUFFIX	:= tar.bz2
+ZBAR_SUFFIX	:= tar.gz
 ZBAR_URL	:= https://linuxtv.org/downloads/zbar/$(ZBAR).$(ZBAR_SUFFIX)
 ZBAR_SOURCE	:= $(SRCDIR)/$(ZBAR).$(ZBAR_SUFFIX)
 ZBAR_DIR	:= $(BUILDDIR)/$(ZBAR)
@@ -30,34 +30,34 @@ ZBAR_LICENSE_FILES := \
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-ZBAR_CONF_TOOL	:= autoconf
+ZBAR_CONF_TOOL	:= meson
 ZBAR_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-static \
-	--disable-rpath \
-	--disable-nls \
-	--enable-pthread \
-	--disable-doc \
-	--disable-video \
-	--disable-introspection \
-	--enable-assert \
-	--without-directshow \
-	--without-x \
-	--without-xshm \
-	--without-xv \
-	--without-dbus \
-	--without-jpeg \
-	--without-imagemagick \
-	--without-graphicsmagick \
-	--without-npapi \
-	--without-gtk \
-	--without-gir \
-	--without-python \
-	--without-qt \
-	--without-qt6 \
-	--without-java
+	$(CROSS_MESON_USR) \
+	-Dbuild_tests=false \
+	-Dcodes=ean,databar,code128,code93,code39,codabar,i25,qrcode,sqcode \
+	-Ddbus=disabled \
+	-Ddirectshow=false \
+	-Ddoc=false \
+	-Dgir=false \
+	-Dgraphicsmagick=disabled \
+	-Dgtk=no \
+	-Dimagemagick=disabled \
+	-Djava=disabled \
+	-Djpeg=disabled \
+	-Dlibrary_type=shared \
+	-Dnls=disabled \
+	-Dnpapi=disabled \
+	-Dpthread=true \
+	-Dpython=no \
+	-Dqt=false \
+	-Dqt6=false \
+	-Dstatic_executables=false \
+	-Dvideo=false \
+	-Dx11=disabled \
+	-Dxshm=disabled \
+	-Dxv=disabled
 
 $(STATEDIR)/zbar.targetinstall:
 	@$(call targetinfo)

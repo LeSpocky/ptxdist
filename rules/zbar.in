@@ -3,5 +3,6 @@
 config ZBAR
 	tristate
 	prompt "zbar"
+	select HOST_MESON
 	help
 	  QR code / bar code scanner and decoder
