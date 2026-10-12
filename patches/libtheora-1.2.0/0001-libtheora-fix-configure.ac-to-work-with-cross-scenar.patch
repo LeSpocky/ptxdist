@@ -1,5 +1,7 @@
 From: Robert Schwebel <r.schwebel@pengutronix.de>
-Subject: libtheora: fix configure.ac to work with cross scenario for libvorbis
+Date: Wed, 23 Sep 2026 15:39:17 +0200
+Subject: [PATCH] libtheora: fix configure.ac to work with cross scenario for
+ libvorbis
 
 This is https://trac.xiph.org/ticket/1465
 
@@ -10,18 +12,16 @@ with no build-system leakage.
 
 This patch fixes the vorbis test.
 
-
 Signed-off-by: Robert Schwebel <r.schwebel@pengutronix.de>
-
 ---
- configure.ac |   39 ++++++++++++++++++++++-----------------
+ configure.ac | 39 ++++++++++++++++++++++-----------------
  1 file changed, 22 insertions(+), 17 deletions(-)
 
-Index: libtheora-1.0/configure.ac
-===================================================================
---- libtheora-1.0.orig/configure.ac
-+++ libtheora-1.0/configure.ac
-@@ -288,23 +288,28 @@ fi
+diff --git a/configure.ac b/configure.ac
+index 3d2a413a1d18..234acd501685 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -442,23 +442,28 @@ fi
  
  
  dnl check for Vorbis

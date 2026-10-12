@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBTHEORA) += libtheora
 #
 # Paths and names
 #
-LIBTHEORA_VERSION	:= 1.1.1
-LIBTHEORA_SHA256	:= 40952956c47811928d1e7922cda3bc1f427eb75680c3c37249c91e949054916b
+LIBTHEORA_VERSION	:= 1.2.0
+LIBTHEORA_SHA256	:= 279327339903b544c28a92aeada7d0dcfd0397b59c2f368cc698ac56f515906e
 LIBTHEORA		:= libtheora-$(LIBTHEORA_VERSION)
 LIBTHEORA_SUFFIX	:= tar.gz
 LIBTHEORA_URL		:= http://downloads.xiph.org/releases/theora/$(LIBTHEORA).$(LIBTHEORA_SUFFIX)
@@ -25,7 +25,7 @@ LIBTHEORA_DIR		:= $(BUILDDIR)/$(LIBTHEORA)
 LIBTHEORA_LICENSE	:= BSD-3-Clause
 LIBTHEORA_LICENSE_FILES	:= \
 	file://COPYING;md5=cf91718f59eb6a83d06dc7bcaf411132 \
-	file://LICENSE;md5=82ccf023e3ce1aa18043edc61f948e2c
+	file://LICENSE;md5=85dce169acaaabe0f13caf35a513098e
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -44,17 +44,19 @@ LIBTHEORA_CONF_ENV := \
 LIBTHEORA_CONF_TOOL	:= autoconf
 LIBTHEORA_CONF_OPT	 := \
 	$(CROSS_AUTOCONF_USR) \
-	--enable-asm \
-	--disable-examples \
+	--disable-doc \
 	--disable-spec \
 	--disable-valgrind-testing \
-	--disable-telemetry \
-	--disable-examples \
+	--disable-gcc-sanitizers \
+	--enable-asm \
+	--enable-asflag-probe \
 	--enable-ogg \
 	--$(call ptx/endis, PTXCONF_LIBTHEORA_VORBIS)-vorbis \
 	--disable-sdl \
-	--$(call ptx/endis, PTXCONF_LIBTHEORA_FLOAT)-float \
-	--$(call ptx/endis, PTXCONF_LIBTHEORA_ENCODING)-encode
+	--disable-telemetry \
+	--disable-mem-constraint \
+	--$(call ptx/endis, PTXCONF_LIBTHEORA_ENCODING)-encode \
+	--disable-examples
 
 # ----------------------------------------------------------------------------
 # Target-Install

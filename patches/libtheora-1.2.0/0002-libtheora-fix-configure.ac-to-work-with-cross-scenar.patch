@@ -1,5 +1,7 @@
 From: Robert Schwebel <r.schwebel@pengutronix.de>
-Subject: libtheora: fix configure.ac to work with cross scenario for sdl
+Date: Wed, 23 Sep 2026 16:36:40 +0200
+Subject: [PATCH] libtheora: fix configure.ac to work with cross scenario for
+ sdl
 
 This is https://trac.xiph.org/ticket/1466
 
@@ -11,22 +13,24 @@ with no build-system leakage.
 This patch fixes the SDL test.
 
 Signed-off-by: Robert Schwebel <r.schwebel@pengutronix.de>
-
 ---
- configure.ac |   29 ++++++++++++++++++++++++-----
- 1 file changed, 24 insertions(+), 5 deletions(-)
+ configure.ac | 28 ++++++++++++++++++++++------
+ 1 file changed, 22 insertions(+), 6 deletions(-)
 
-Index: libtheora-1.0/configure.ac
-===================================================================
---- libtheora-1.0.orig/configure.ac
-+++ libtheora-1.0/configure.ac
-@@ -312,13 +312,32 @@ if test "${HAVE_VORBIS}" = "yes"; then
-     AC_SUBST(VORBIS_LIBS)
+diff --git a/configure.ac b/configure.ac
+index 234acd501685..8a4faa7d344f 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -467,12 +467,28 @@ if test "${HAVE_VORBIS}" = "yes"; then
  fi
  
-+
  dnl check for SDL
 -HAVE_SDL=no
+-if test "x$HAVE_PKG_CONFIG" = "xyes"
+-then
+-  PKG_CHECK_MODULES(SDL, sdl, HAVE_SDL=yes, [
+-    HAVE_SDL=no
+-    AC_MSG_WARN([*** Unable to find SDL -- Not compiling example players ***])])
 +AC_MSG_CHECKING([for sdl])
 +AC_ARG_ENABLE(sdl,
 +    AS_HELP_STRING([--enable-sdl], [enable SDL @<:@default=yes@:>@]),
@@ -49,12 +53,6 @@ Index: libtheora-1.0/configure.ac
 +    )
 +    AC_SUBST(SDL_CFLAGS)
 +    AC_SUBST(SDL_LIBS)
-+fi
- 
--AM_PATH_SDL(,[
--  HAVE_SDL=yes
--  SDL_LIBS=`$SDL_CONFIG --libs`
--],AC_MSG_WARN([*** Unable to find SDL -- Not compiling example players ***]))
+ fi
  
  dnl check for OSS
- HAVE_OSS=no
