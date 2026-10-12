@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_KRB5) += krb5
 #
 # Paths and names
 #
-KRB5_VERSION	:= 1.22.1
-KRB5_SHA256	:= 1a8832b8cad923ebbf1394f67e2efcf41e3a49f460285a66e35adec8fa0053af
+KRB5_VERSION	:= 1.22.2
+KRB5_SHA256	:= 3243ffbc8ea4d4ac22ddc7dd2a1dc54c57874c40648b60ff97009763554eaf13
 KRB5		:= krb5-$(KRB5_VERSION)
 KRB5_SUFFIX	:= tar.gz
 KRB5_URL	:= https://web.mit.edu/kerberos/dist/krb5/$(basename $(KRB5_VERSION))/$(KRB5).$(KRB5_SUFFIX)
