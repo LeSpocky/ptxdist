@@ -9,7 +9,7 @@ Signed-off-by: Denis Osterland <Denis.Osterland@diehl.com>
  2 files changed, 17 insertions(+), 11 deletions(-)
 
 diff --git a/Makefile b/Makefile
-index fef1af4821e6..3c169540fea4 100644
+index 292b4c3d985f..48e00add1c43 100644
 --- a/Makefile
 +++ b/Makefile
 @@ -4,13 +4,13 @@
@@ -28,7 +28,7 @@ index fef1af4821e6..3c169540fea4 100644
  INSTALL_BIN= $(INSTALL_TOP)/bin
  INSTALL_INC= $(INSTALL_TOP)/include
  INSTALL_LIB= $(INSTALL_TOP)/lib
-@@ -52,13 +52,17 @@ R= $V.4
+@@ -52,13 +52,17 @@ R= $V.1
  all:	$(PLAT)
  
  $(PLATS) help test clean:
@@ -48,7 +48,7 @@ index fef1af4821e6..3c169540fea4 100644
  
  uninstall:
 diff --git a/src/Makefile b/src/Makefile
-index 1907381fef0a..e53fd31d3383 100644
+index 317cb85454e8..c9d7e2870ccb 100644
 --- a/src/Makefile
 +++ b/src/Makefile
 @@ -4,15 +4,13 @@
@@ -59,8 +59,8 @@ index 1907381fef0a..e53fd31d3383 100644
 +PLAT= linux
  
 -CC= gcc -std=gnu99
--CFLAGS= -O2 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
-+CFLAGS= -std=gnu99 -fPIC -O2 -Wall -Wextra -DLUA_COMPAT_5_3 $(SYSCFLAGS) $(MYCFLAGS)
+-CFLAGS= -O2 -Wall -Wextra $(SYSCFLAGS) $(MYCFLAGS)
++CFLAGS= -std=gnu99 -fPIC -O2 -Wall -Wextra $(SYSCFLAGS) $(MYCFLAGS)
  LDFLAGS= $(SYSLDFLAGS) $(MYLDFLAGS)
  LIBS= -lm $(SYSLIBS) $(MYLIBS)
  
@@ -71,7 +71,7 @@ index 1907381fef0a..e53fd31d3383 100644
  UNAME= uname
  
 @@ -33,6 +31,7 @@ CMCFLAGS=
- PLATS= guess aix bsd c89 freebsd generic linux linux-readline macosx mingw posix solaris
+ PLATS= guess aix bsd c89 freebsd generic ios linux linux-readline macosx mingw posix solaris
  
  LUA_A=	liblua.a
 +LUA_SO= liblua.so.$R

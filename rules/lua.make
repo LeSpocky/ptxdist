@@ -15,15 +15,15 @@ PACKAGES-$(PTXCONF_LUA) += lua
 #
 # Paths and names
 #
-LUA_VERSION	:= 5.4.8
-LUA_SHA256	:= 4f18ddae154e793e46eeab727c59ef1c0c0c2b744e7b94219710d76f530629ae
+LUA_VERSION	:= 5.5.1
+LUA_SHA256	:= 1c4b4068d67061f2a2231ad2b5422e77acea1487ea9890f6320af614f4373dce
 LUA		:= lua-$(LUA_VERSION)
 LUA_SUFFIX	:= tar.gz
 LUA_URL		:= https://www.lua.org/ftp/$(LUA).$(LUA_SUFFIX)
 LUA_SOURCE	:= $(SRCDIR)/$(LUA).$(LUA_SUFFIX)
 LUA_DIR		:= $(BUILDDIR)/$(LUA)
 LUA_LICENSE	:= MIT
-LUA_LICENSE_FILES := file://src/lua.h;startline=499;endline=520;md5=618f134673964dd3d19cc334898f645a
+LUA_LICENSE_FILES := file://src/lua.h;startline=523;endline=544;md5=bd40ca17653e280d236bbec3871ff5a7
 
 # ----------------------------------------------------------------------------
 # Prepare
