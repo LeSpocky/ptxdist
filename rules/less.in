@@ -24,12 +24,6 @@ config LESS_BIN
 	help
 	  less - a pager
 
-config LESS_KEY
-	bool
-	prompt "install lesskey"
-	help
-	  lesskey - specify key bindings for less
-
 config LESS_ECHO
 	bool
 	prompt "install lessecho"

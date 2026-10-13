@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LESS) += less
 #
 # Paths and names
 #
-LESS_VERSION	:= 679
-LESS_SHA256	:= 9b68820c34fa8a0af6b0e01b74f0298bcdd40a0489c61649b47058908a153d78
+LESS_VERSION	:= 710
+LESS_SHA256	:= d1008fb78dcae1323ddab664bcb352a61f022b1b131bd8018548e021d975ec7a
 LESS		:= less-$(LESS_VERSION)
 LESS_SUFFIX	:= tar.gz
 LESS_URL	:= https://greenwoodsoftware.com/less/$(LESS).$(LESS_SUFFIX)
@@ -24,7 +24,7 @@ LESS_DIR	:= $(BUILDDIR)/$(LESS)
 LESS_LICENSE	:= GPL-3.0-or-later OR BSD-2-Clause
 LESS_LICENSE_FILES := \
 	file://README;startline=4;endline=13;md5=be18c1acf45c653f511cb4fd205021d4 \
-	file://LICENSE;md5=8051a271adb36d1462531a3b40c22878 \
+	file://LICENSE;md5=bee5763a5e2bccdcdbd9bfe982ffc82b \
 	file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
 
 # ----------------------------------------------------------------------------
@@ -68,12 +68,8 @@ ifdef PTXCONF_LESS_BIN
 	@$(call install_copy, less, 0, 0, 0755, -, /usr/bin/less)
 endif
 
-ifdef PTXCONF_LESS_KEY
-	@$(call install_copy, less, 0, 0, 0755, -, /usr/bin/lesskey)
-endif
-
 ifdef PTXCONF_LESS_ECHO
-	@$(call install_copy, less, 0, 0, 0755, -, /usr/bin/lessecho)
+	@$(call install_copy, less, 0, 0, 0755, -, /usr/libexec/lessecho)
 endif
 
 	@$(call install_finish, less)
