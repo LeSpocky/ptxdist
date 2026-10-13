@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_RSYNC3) += rsync3
 #
 # Paths and names
 #
-RSYNC3_VERSION	:= 3.4.1
-RSYNC3_SHA256	:= 2924bcb3a1ed8b551fc101f740b9f0fe0a202b115027647cf69850d65fd88c52
+RSYNC3_VERSION	:= 3.5.1
+RSYNC3_SHA256	:= c55f9c9dc10fb8bec397b399a0fdded53cc9a2d8e30891bb0d63724d25c37bef
 RSYNC3		:= rsync-$(RSYNC3_VERSION)
 RSYNC3_SUFFIX	:= tar.gz
 RSYNC3_URL	:= https://download.samba.org/pub/rsync/src/$(RSYNC3).$(RSYNC3_SUFFIX)
@@ -24,7 +24,7 @@ RSYNC3_DIR	:= $(BUILDDIR)/$(RSYNC3)
 RSYNC3_LICENSE	:= GPL-3.0-or-later
 RSYNC3_LICENSE_FILES := \
 	file://COPYING;md5=24423708fe159c9d12be1ea29fcb18c7 \
-	file://main.c;md5=5cb7de0eabde5a928beb01ae4ec7e72e
+	file://main.c;startline=1;endline=21;md5=139b037ac72a7b70e75dc86735d56ac0
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -42,6 +42,7 @@ RSYNC3_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-debug \
 	--disable-profile \
+	--disable-coverage \
 	--disable-md2man \
 	--disable-roll-simd \
 	$(GLOBAL_LARGE_FILE_OPTION) \
@@ -53,10 +54,12 @@ RSYNC3_CONF_OPT := \
 	--disable-xxhash \
 	--$(call ptx/endis, PTXCONF_RSYNC3_ZSTD)-zstd \
 	--disable-lz4 \
+	--disable-idn \
 	--$(call ptx/endis, PTXCONF_ICONV)-iconv-open \
 	--$(call ptx/endis, PTXCONF_ICONV)-iconv \
 	--$(call ptx/endis, PTXCONF_RSYNC3_ACL)-acl-support \
 	--$(call ptx/endis, PTXCONF_RSYNC3_ATTR)-xattr-support \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--without-rrsync \
 	--with-included-popt \
 	--without-included-zlib \
