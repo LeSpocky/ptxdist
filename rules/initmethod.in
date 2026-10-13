@@ -23,6 +23,7 @@ choice
 	config INITMETHOD_SYSTEMD
 		bool
 		select SYSTEMD
+		select SYSTEMD_HELPER
 		prompt "systemd       "
 
 	config INITMETHOD_INITRAMFS
