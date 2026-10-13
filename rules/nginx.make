@@ -64,6 +64,7 @@ NGINX_CONF_OPT := \
 	--lock-path=/var/lock/nginx.lock \
 	--user=www \
 	--group=www \
+	--force-endianness=$(call ptx/ifdef,PTXCONF_ENDIAN_LITTLE,little,big) \
 	$(call ptx/ifdef, PTXCONF_NGINX_THREADS,--with-threads) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_SSL_MODULE,--with-http_ssl_module) \
 	$(call ptx/ifdef, PTXCONF_NGINX_HTTP_V2_MODULE,--with-http_v2_module) \
