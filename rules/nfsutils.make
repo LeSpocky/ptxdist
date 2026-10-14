@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NFSUTILS) += nfsutils
 #
 # Paths and names
 #
-NFSUTILS_VERSION	:= 2.8.4
-NFSUTILS_SHA256		:= 50b6fa664eaed1710ae23c06ba449522a3a2b6509f88497a09a06f0dffc24181
+NFSUTILS_VERSION	:= 3.1.1
+NFSUTILS_SHA256		:= 32f3bfde30d29b1858dc81bde687122c83151f783d34e34f9133220ce87ddf76
 NFSUTILS		:= nfs-utils-$(NFSUTILS_VERSION)
 NFSUTILS_SUFFIX		:= tar.gz
 NFSUTILS_URL		:= $(call ptx/mirror, KERNEL, utils/nfs-utils/$(NFSUTILS_VERSION)/$(NFSUTILS).$(NFSUTILS_SUFFIX))
@@ -46,7 +46,7 @@ NFSUTILS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--exec-prefix=/usr \
 	--disable-nfsv4 \
-	--disable-nfsv41 \
+	--disable-blkmapd \
 	--disable-gss \
 	--disable-svcgss \
 	--disable-kprefix \

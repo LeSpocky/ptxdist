@@ -31,7 +31,7 @@ HOST_NFSUTILS_CONF_TOOL	:= autoconf
 HOST_NFSUTILS_CONF_OPT	:= \
 	$(HOST_AUTOCONF) \
 	--disable-nfsv4 \
-	--disable-nfsv41 \
+	--disable-blkmapd \
 	--disable-gss \
 	--disable-svcgss \
 	--disable-kprefix \

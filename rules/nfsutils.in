@@ -6,6 +6,7 @@ menuconfig NFSUTILS
 	select GCCLIBS_GCC_S
 	select LIBBLKID
 	select LIBEVENT
+	select LIBNL3
 	select LIBTIRPC
 	select UTIL_LINUX
 	select UTIL_LINUX_LIBMOUNT
