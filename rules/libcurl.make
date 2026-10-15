@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBCURL) += libcurl
 #
 # Paths and names
 #
-LIBCURL_VERSION	:= 8.22.0
-LIBCURL_SHA256	:= f7ef3ae8a22e521f289803fe93543eb64c329b58aa73a9e224dfd915a2a5f4f7
+LIBCURL_VERSION	:= 8.23.0
+LIBCURL_SHA256	:= 8dadd7d2536a314f982ad05a651b713f426bf7d02cc2c76cffb9796f2218e6c5
 LIBCURL		:= curl-$(LIBCURL_VERSION)
 LIBCURL_SUFFIX	:= tar.xz
 LIBCURL_URL	:= https://curl.se/download/$(LIBCURL).$(LIBCURL_SUFFIX)
@@ -60,7 +60,6 @@ LIBCURL_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBCURL_TFTP)-tftp \
 	--disable-pop3 \
 	--disable-imap \
-	--disable-smb \
 	--$(call ptx/endis, PTXCONF_LIBCURL_SMTP)-smtp \
 	--disable-gopher \
 	--disable-mqtt \
