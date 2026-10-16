@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_HARFBUZZ) += harfbuzz
 #
 # Paths and names
 #
-HARFBUZZ_VERSION	:= 12.1.0
-HARFBUZZ_SHA256		:= e5c81b7f6e0b102dfb000cfa424538b8e896ab78a2f4b8a5ec8cae62ab43369e
+HARFBUZZ_VERSION	:= 14.6.0
+HARFBUZZ_SHA256		:= d07a007327277708a2a73ae437887cdbaf282937f6d03ca5467723e9099af586
 HARFBUZZ		:= harfbuzz-$(HARFBUZZ_VERSION)
 HARFBUZZ_SUFFIX		:= tar.xz
 HARFBUZZ_URL		:= https://github.com/harfbuzz/harfbuzz/releases/download/$(HARFBUZZ_VERSION)/$(HARFBUZZ).$(HARFBUZZ_SUFFIX)
@@ -46,6 +46,8 @@ HARFBUZZ_CONF_OPT	:= \
 	-Dgdi=disabled \
 	-Dglib=enabled \
 	-Dgobject=$(call ptx/endis, PTXCONF_HARFBUZZ_INTROSPECTION)d \
+	-Dgpu=disabled \
+	-Dgpu_demo=disabled \
 	-Dgraphite=disabled \
 	-Dgraphite2=$(call ptx/endis, PTXCONF_HARFBUZZ_GRAPHITE)d \
 	-Dharfrust=disabled \
@@ -53,11 +55,16 @@ HARFBUZZ_CONF_OPT	:= \
 	-Dicu_builtin=false \
 	-Dintrospection=$(call ptx/endis, PTXCONF_HARFBUZZ_INTROSPECTION)d \
 	-Dkbts=disabled \
+	-Dpng=disabled \
 	-Dragel_subproject=false \
+	-Draster=disabled \
+	-Dsubset=$(call ptx/endis, PTXCONF_HARFBUZZ_SUBSET)d \
 	-Dtests=disabled \
 	-Dutilities=disabled \
+	-Dvector=disabled \
 	-Dwasm=disabled \
-	-Dwith_libstdcxx=false
+	-Dwith_libstdcxx=false \
+	-Dzlib=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
