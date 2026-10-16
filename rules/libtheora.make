@@ -38,6 +38,14 @@ LIBTHEORA_CONF_ENV := \
 	ac_cv_prog_HAVE_BIBTEX=no \
 	ac_cv_prog_HAVE_TRANSFIG=no
 
+# Avoid potential compilation errors for old ARM targets
+LIBTHEORA_ASM_FLAG := --enable-asm
+ifdef PTXCONF_ARCH_ARM
+ifndef PTXCONF_ARCH_ARM_V7
+LIBTHEORA_ASM_FLAG := --disable-asm
+endif
+endif
+
 #
 # autoconf
 #
@@ -48,11 +56,10 @@ LIBTHEORA_CONF_OPT	 := \
 	--disable-spec \
 	--disable-valgrind-testing \
 	--disable-gcc-sanitizers \
-	--enable-asm \
+	$(LIBTHEORA_ASM_FLAG) \
 	--enable-asflag-probe \
-	--enable-ogg \
-	--$(call ptx/endis, PTXCONF_LIBTHEORA_VORBIS)-vorbis \
-	--disable-sdl \
+	--with-ogg \
+	--$(call ptx/wwo, PTXCONF_LIBTHEORA_VORBIS)-vorbis \
 	--disable-telemetry \
 	--disable-mem-constraint \
 	--$(call ptx/endis, PTXCONF_LIBTHEORA_ENCODING)-encode \
