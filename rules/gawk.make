@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GAWK) += gawk
 #
 # Paths and names
 #
-GAWK_VERSION	:= 5.3.2
-GAWK_SHA256	:= f8c3486509de705192138b00ef2c00bbbdd0e84c30d5c07d23fc73a9dc4cc9cc
+GAWK_VERSION	:= 5.4.1
+GAWK_SHA256	:= 07f6f7342b7febe4313fc2c2542ad93d64fe20ad8717200109f105a826f5fd37
 GAWK		:= gawk-$(GAWK_VERSION)
 GAWK_SUFFIX	:= tar.xz
 GAWK_URL	:= $(call ptx/mirror, GNU, gawk/$(GAWK).$(GAWK_SUFFIX))
@@ -24,7 +24,7 @@ GAWK_DIR	:= $(BUILDDIR)/$(GAWK)
 GAWK_LICENSE	:= GPL-3.0-or-later
 GAWK_LICENSE_FILES := \
 	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
-	file://main.c;startline=5;endline=25;md5=2db60362eda52616b6b3b666b920bb1f
+	file://main.c;startline=5;endline=25;md5=0a605ee3864e93997303ca2baef325ee
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -43,6 +43,7 @@ GAWK_CONF_OPT	:= \
 	--disable-mpfr \
 	--enable-pma \
 	--disable-versioned-extension-dir \
+	--disable-O3 \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-nls \
 	--disable-rpath \
