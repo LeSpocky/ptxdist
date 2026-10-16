@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBSOUP) += libsoup
 #
 # Paths and names
 #
-LIBSOUP_VERSION	:= 3.6.6
-LIBSOUP_SHA256	:= 51ed0ae06f9d5a40f401ff459e2e5f652f9a510b7730e1359ee66d14d4872740
+LIBSOUP_VERSION	:= 3.8.0
+LIBSOUP_SHA256	:= bbf08fa3e03a88c31a3d27a0d87cb422e9490f2d08e149211103df6d638a2238
 LIBSOUP		:= libsoup-$(LIBSOUP_VERSION)
 LIBSOUP_SUFFIX	:= tar.xz
 LIBSOUP_URL	:= $(call ptx/mirror, GNOME, libsoup/$(basename $(LIBSOUP_VERSION))/$(LIBSOUP).$(LIBSOUP_SUFFIX))
@@ -49,7 +49,8 @@ LIBSOUP_CONF_OPT := \
 	-Dsysprof=disabled \
 	-Dtests=false \
 	-Dtls_check=false \
-	-Dvapi=disabled
+	-Dvapi=disabled \
+	-Dzstd=disabled
 
 # ----------------------------------------------------------------------------
 # Target-Install
