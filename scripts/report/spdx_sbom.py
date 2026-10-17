@@ -8,7 +8,6 @@
 
 import hashlib
 import uuid
-from datetime import datetime, timezone
 from os import path
 from shutil import copy
 
@@ -145,7 +144,7 @@ class SpdxSbomGenerator(SbomGenerator):
     def build(self, data):
         creationInfo = spdx.SPDXCreationInfo()
         creationInfo.created = (
-            datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace('+00:00', 'Z')
+            self.timestamp().replace(microsecond=0).isoformat().replace("+00:00", "Z")
         )
         creationInfo.creators = [
             f"Organization: {data['bsp']['vendor']}",

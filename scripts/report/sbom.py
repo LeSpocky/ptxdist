@@ -7,7 +7,8 @@
 #
 
 import re
-from os import path
+from datetime import datetime, timezone
+from os import environ, path
 
 from report.generator import Generator
 from report.report import ReportException
@@ -103,6 +104,11 @@ class SbomGenerator(Generator):
                     raise ReportException(f"Patch missing for {pkg['name']}: {patch}")
                 patches.append((tag, patch))
         return patches
+
+    def timestamp(self):
+        if epoch := environ.get("SOURCE_DATE_EPOCH"):
+            return datetime.fromtimestamp(int(epoch), timezone.utc)
+        return datetime.now(timezone.utc)
 
     def setup_env(self):
         env = {}

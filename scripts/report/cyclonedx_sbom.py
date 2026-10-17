@@ -8,9 +8,9 @@
 
 import json
 from base64 import b64encode
-from datetime import datetime
 from os import path
 from shutil import copy
+from uuid import NAMESPACE_DNS, UUID, uuid5
 
 from cyclonedx.factory.license import LicenseFactory
 from cyclonedx.model import (
@@ -49,6 +49,9 @@ class CycloneDXSbomGenerator(SbomGenerator):
         self.lc_factory = LicenseFactory()
 
     def write(self, file, bom):
+        bom.serial_number = UUID(int=0)
+        content = JsonV1Dot6(bom).output_as_string(indent=2)
+        bom.serial_number = uuid5(uuid5(NAMESPACE_DNS, "sbom.ptxdist.org"), content)
         outputter = JsonV1Dot6(bom)
         file.write(outputter.output_as_string(indent=2).encode("utf-8"))
 
@@ -216,7 +219,7 @@ class CycloneDXSbomGenerator(SbomGenerator):
         document = Bom()
 
         document.metadata = BomMetaData(
-            timestamp=datetime.now(),
+            timestamp=self.timestamp(),
             properties=SortedSet(
                 [
                     Property(name="vendor", value=data["bsp"]["vendor"]),
