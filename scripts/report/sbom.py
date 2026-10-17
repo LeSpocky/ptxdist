@@ -36,7 +36,7 @@ class SbomGenerator(Generator):
         for url in pkg.get("url", []):
             if m := self.PYPI_RELEASE.match(url):
                 if m.group(2) != pkg["version"]:
-                    ReportException(
+                    raise ReportException(
                         f"{pkg['name']}: version mismatch: pkg: {pkg['version']} url: {m.group(2)}"
                     )
                 purls.append(f"pkg:pypi/{m.group(1)}@{m.group(2)}")
