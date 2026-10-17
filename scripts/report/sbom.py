@@ -87,7 +87,7 @@ class SbomGenerator(Generator):
 
         patches = []
         tag = "base"
-        TAG = re.compile("#tag:([^ ]) .*")
+        TAG = re.compile("#tag:([^ ]+)")
         with open(series) as f:
             for line in f:
                 line = line.strip()
