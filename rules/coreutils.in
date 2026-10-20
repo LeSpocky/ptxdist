@@ -113,6 +113,10 @@ comment "busybox' expr is selected!"
 config COREUTILS_TRUNCATE
 	bool
 	prompt "truncate"
+	depends on !BUSYBOX_TRUNCATE || ALLYES
+
+comment "busybox' truncate is selected!"
+	depends on BUSYBOX_TRUNCATE
 
 config COREUTILS_CHCON
 	bool
