@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBTRACEFS) += libtracefs
 #
 # Paths and names
 #
-LIBTRACEFS_VERSION	:= 1.8.1
-LIBTRACEFS_SHA256	:= ad962e1ac6ce53d3a1d753bf60e81fa5664a5e990c29d3ee05bc869be2a86e27
+LIBTRACEFS_VERSION	:= 1.8.3
+LIBTRACEFS_SHA256	:= 2ef0451407d73ac86a8be51acb68430f0a2885549684f168fe2b2a4b3af2e5ce
 LIBTRACEFS		:= libtracefs-$(LIBTRACEFS_VERSION)
 LIBTRACEFS_SUFFIX	:= tar.xz
 LIBTRACEFS_URL		:= https://git.kernel.org/pub/scm/libs/libtrace/libtracefs.git;tag=libtracefs-$(LIBTRACEFS_VERSION)
@@ -24,7 +24,7 @@ LIBTRACEFS_DIR		:= $(BUILDDIR)/$(LIBTRACEFS)
 LIBTRACEFS_LICENSE	:= LGPL-2.1-only AND GPL-3.0-or-later WITH Bison-exception-2.2
 LIBTRACEFS_LICENSE_FILES	:= \
 	file://src/tracefs-utils.c;startline=1;endline=8;md5=c6bedd276596b669012b69e9317ffade \
-	file://src/sqlhist.tab.c;startline=3;endline=32;md5=67ac50d80b3ebb72edad40dafe30d75e \
+	file://src/sqlhist.tab.c;startline=3;endline=32;md5=3f4f17f0cce8cf3e2cdcaedd08a372e5 \
 	file://LICENSES/LGPL-2.1;md5=b370887980db5dd40659b50909238dbd
 # note: source tarball includes a LICENSES/GPL-2.0, but it's only used for
 # build scripts. GPL-3.0 text is missing.
