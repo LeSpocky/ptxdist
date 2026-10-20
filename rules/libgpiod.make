@@ -66,7 +66,7 @@ LIBGPIOD_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_LIBGPIOD_DBUS_DAEMON)-bindings-glib \
 	--$(call ptx/endis, PTXCONF_LIBGPIOD_DBUS_DAEMON_SYSTEMD)-systemd
 
-LIBGPIOD_CONF_ENV := \
+LIBGPIOD_CONF_ENV = \
 	$(CROSS_ENV) \
 	$(if $(PTXCONF_LIBGPIOD_PYTHON3), \
 	ac_cv_path_PYTHON=$(CROSS_PYTHON3)) \
