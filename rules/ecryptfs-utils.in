@@ -7,15 +7,7 @@ menuconfig ECRYPTFS_UTILS
 	select NSS
 	select HOST_GETTEXT
 	select HOST_INTLTOOL
-	select BASH			if ECRYPTFS_UTILS_TESTS
-	select COREUTILS		if ECRYPTFS_UTILS_TESTS
-	select COREUTILS_DF		if ECRYPTFS_UTILS_TESTS
-	select COREUTILS_MKDIR		if ECRYPTFS_UTILS_TESTS
-	select COREUTILS_SLEEP		if ECRYPTFS_UTILS_TESTS
-	select COREUTILS_STAT		if ECRYPTFS_UTILS_TESTS
-	select COREUTILS_TR		if ECRYPTFS_UTILS_TESTS
-	select COREUTILS_TRUNCATE	if ECRYPTFS_UTILS_TESTS
-	select UTIL_LINUX_MKFS		if ECRYPTFS_UTILS_TESTS
+	select BASH			if ECRYPTFS_UTILS_TESTS && RUNTIME
 	help
 	  eCryptfs is a POSIX-compliant enterprise-class stacked
 	  cryptographic filesystem for Linux.
@@ -53,4 +45,9 @@ config ECRYPTFS_UTILS_ECRYPTFS_WRAP_PASSPHRASE
 
 config ECRYPTFS_UTILS_TESTS
 	bool "ecryptfs-tests"
+	help
+	  Note: in order to run the tests the tools 'df', 'mkdir', 'sleep',
+	  'stat', 'tr' and 'truncate' from the 'Busybox' *or* 'Coreutils'
+	  package is required together with 'mkfs' from the 'Busybox' *or*
+	  'util-linux'
 endif
