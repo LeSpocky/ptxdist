@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBATOMIC_OPS) += libatomic_ops
 #
 # Paths and names
 #
-LIBATOMIC_OPS_VERSION	:= 7.8.4
-LIBATOMIC_OPS_SHA256	:= 2356e002e80ef695875e971d6a4fd8c61ca5c6fa4fd1bf31cce54a269c8bfcd5
+LIBATOMIC_OPS_VERSION	:= 7.10.0
+LIBATOMIC_OPS_SHA256	:= 0db3ebff755db170f65e74a64ec4511812e9ee3185c232eeffeacd274190dfb0
 LIBATOMIC_OPS		:= libatomic_ops-$(LIBATOMIC_OPS_VERSION)
 LIBATOMIC_OPS_SUFFIX	:= tar.gz
 LIBATOMIC_OPS_URL	:= https://github.com/bdwgc/libatomic_ops/releases/download/v$(LIBATOMIC_OPS_VERSION)/$(LIBATOMIC_OPS).$(LIBATOMIC_OPS_SUFFIX)
@@ -47,7 +47,6 @@ LIBATOMIC_OPS_CONF_OPT	:=  \
 	--disable-static \
 	--disable-assertions \
 	--disable-atomic-intrinsics \
-	--disable-gcov \
 	--enable-gpl \
 	--disable-docs \
 	--disable-werror
