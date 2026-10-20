@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FIO) += fio
 #
 # Paths and names
 #
-FIO_VERSION		:= 3.41
-FIO_SHA256		:= 38f2c723eda1d94fd25c91dbad30da7a551a58840b7a6368eaee3daa700fb088
+FIO_VERSION		:= 3.43
+FIO_SHA256		:= efa49b3f36eda9adf29294f27a87d7e457747d676cd0f73996d6365357832cfe
 FIO			:= fio-$(FIO_VERSION)
 FIO_SUFFIX		:= tar.gz
 FIO_URL			:= https://github.com/axboe/fio/archive/refs/tags/$(FIO).$(FIO_SUFFIX)
