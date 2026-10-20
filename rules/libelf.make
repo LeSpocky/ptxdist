@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_LIBELF) += libelf
 #
 # Paths and names
 #
-LIBELF_VERSION	:= 0.195
-LIBELF_SHA256	:= 37629fdf7f1f3dc2818e138fca2b8094177d6c2d0f701d3bb650a561218dc026
+LIBELF_VERSION	:= 0.197
+LIBELF_SHA256	:= 1fdf525f22dcf796d99a99ba3ea00a1f7b1ae5421bc62e8443a708920b99b904
 LIBELF		:= elfutils-$(LIBELF_VERSION)
 LIBELF_SUFFIX	:= tar.bz2
 LIBELF_URL	:= https://sourceware.org/elfutils/ftp/$(LIBELF_VERSION)/$(LIBELF).$(LIBELF_SUFFIX)
@@ -43,11 +43,14 @@ LIBELF_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
 	--enable-deterministic-archives \
 	--disable-thread-safety \
+	--disable-sanitize-memory \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-debugpred \
 	--disable-gprof \
 	--disable-gcov \
 	--disable-sanitize-undefined \
+	--disable-sanitize-address \
+	--disable-helgrind \
 	--disable-valgrind \
 	--disable-valgrind-annotations \
 	--disable-install-elfh \
@@ -57,13 +60,15 @@ LIBELF_CONF_OPT	:= \
 	--enable-symbol-versioning \
 	--disable-nls \
 	--disable-rpath \
+	--disable-stackprof \
 	--disable-libdebuginfod \
 	--disable-debuginfod \
 	--with-zlib \
 	--without-bzlib \
 	--$(call ptx/wwo, PTXCONF_LIBELF_XZ)-lzma \
 	--$(call ptx/wwo, PTXCONF_LIBELF_ZSTD)-zstd \
-	--without-biarch
+	--without-biarch \
+	--without-libarchive
 
 LIBELF_ARCH := $(call remove_quotes,$(PTXCONF_ARCH_STRING))
 ifdef PTXCONF_ARCH_ARM64
