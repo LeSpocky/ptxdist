@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBARCHIVE) += libarchive
 #
 # Paths and names
 #
-LIBARCHIVE_VERSION	:= 3.8.9
-LIBARCHIVE_SHA256	:= f5a6539059cf5e597dbeda37bfa4874b1e8dea063c8d93bf85a2b44af90a5bd4
+LIBARCHIVE_VERSION	:= 3.8.10
+LIBARCHIVE_SHA256	:= a1bffbe5152cfe869751179e7b16648c87c461cb8c46eee75062efbe164cc57c
 LIBARCHIVE		:= libarchive-$(LIBARCHIVE_VERSION)
 LIBARCHIVE_SUFFIX	:= tar.gz
 LIBARCHIVE_URL		:= https://www.libarchive.org/downloads/$(LIBARCHIVE).$(LIBARCHIVE_SUFFIX)
@@ -64,7 +64,10 @@ LIBARCHIVE_CONF_OPT	:= \
 	--without-mbedtls \
 	--without-nettle \
 	--$(call ptx/wwo, PTXCONF_LIBARCHIVE_OPENSSL)-openssl \
+	--without-md \
 	--without-xml2 \
+	--without-xmllite \
+	--without-bsdxml \
 	--without-expat
 
 # ----------------------------------------------------------------------------
