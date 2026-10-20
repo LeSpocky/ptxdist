@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GDK_PIXBUF) += gdk-pixbuf
 #
 # Paths and names
 #
-GDK_PIXBUF_VERSION	:= 2.44.4
-GDK_PIXBUF_SHA256	:= 93a1aac3f1427ae73457397582a2c38d049638a801788ccbd5f48ca607bdbd17
+GDK_PIXBUF_VERSION	:= 2.44.8
+GDK_PIXBUF_SHA256	:= 919f529512961a12e81cd4b4b466a48c3933469e7f9a310c6513cd4fb252ba3c
 GDK_PIXBUF		:= gdk-pixbuf-$(GDK_PIXBUF_VERSION)
 GDK_PIXBUF_SUFFIX	:= tar.xz
 GDK_PIXBUF_URL		:= $(call ptx/mirror, GNOME, gdk-pixbuf/$(basename $(GDK_PIXBUF_VERSION))/$(GDK_PIXBUF).$(GDK_PIXBUF_SUFFIX))
@@ -49,6 +49,7 @@ GDK_PIXBUF_CONF_OPT	:= \
 	-Dinstalled_tests=false \
 	-Dintrospection=disabled \
 	-Djpeg=$(call ptx/endis, PTXCONF_GDK_PIXBUF_LOADER_JPEG)d \
+	-Dlegacy_xpm=disabled \
 	-Dman=false \
 	-Dnative_windows_loaders=false \
 	-Dothers=disabled \
