@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_LIBMD) += libmd
 #
 # Paths and names
 #
-LIBMD_VERSION		:= 1.1.0
-LIBMD_SHA256		:= 1bd6aa42275313af3141c7cf2e5b964e8b1fd488025caf2f971f43b00776b332
+LIBMD_VERSION		:= 1.3.0
+LIBMD_SHA256		:= fc0f1eb6b6766470326f2c014693809190e67dba84274a6fbae9d4912d066706
 LIBMD			:= libmd-$(LIBMD_VERSION)
 LIBMD_SUFFIX		:= tar.xz
 LIBMD_URL		:= https://libbsd.freedesktop.org/releases/$(LIBMD).$(LIBMD_SUFFIX)
@@ -23,7 +23,7 @@ LIBMD_SOURCE		:= $(SRCDIR)/$(LIBMD).$(LIBMD_SUFFIX)
 LIBMD_DIR		:= $(BUILDDIR)/$(LIBMD)
 LIBMD_LICENSE		:=  BSD-3-Clause AND BSD-2-Clause AND ISC AND Beerware AND public_domain
 LIBMD_LICENSE_FILES	:= \
-	file://COPYING;md5=0436d4fb62a71f661d6e8b7812f9e1df
+	file://COPYING;md5=261bf22602270e2b29c53930d409a3ca
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -35,7 +35,8 @@ LIBMD_LICENSE_FILES	:= \
 LIBMD_CONF_TOOL	:= autoconf
 LIBMD_CONF_OPT	:=  \
 	$(CROSS_AUTOCONF_USR) \
-	$(GLOBAL_LARGE_FILE_OPTION)
+	$(GLOBAL_LARGE_FILE_OPTION) \
+	--$(call ptx/endis, PTXDIST_Y2038)-year2038
 
 # ----------------------------------------------------------------------------
 # Target-Install
