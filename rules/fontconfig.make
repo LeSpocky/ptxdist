@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FONTCONFIG) += fontconfig
 #
 # Paths and names
 #
-FONTCONFIG_VERSION	:= 2.17.1
-FONTCONFIG_SHA256	:= 82e73b26adad651b236e5f5d4b3074daf8ff0910188808496326bd3449e5261d
+FONTCONFIG_VERSION	:= 2.18.3
+FONTCONFIG_SHA256	:= 9ae01e1d53acdef56010c5451cd34aa41d325b2faccd8606448d8fa01b2496b3
 FONTCONFIG		:= fontconfig-$(FONTCONFIG_VERSION)
 FONTCONFIG_SUFFIX	:= tar.gz
 FONTCONFIG_URL		:= https://gitlab.freedesktop.org/fontconfig/fontconfig/-/archive/$(FONTCONFIG_VERSION)/$(FONTCONFIG).$(FONTCONFIG_SUFFIX)
@@ -26,7 +26,7 @@ FONTCONFIG_LICENSE_FILES	:= \
 	file://COPYING;md5=00252fd272bf2e722925613ad74cb6c7 \
 	file://src/ftglue.c;startline=1;endline=8;md5=789386c3d7c853bbce055520a11aaeb9 \
 	file://src/fcatomic.h;startline=4;endline=24;md5=89c79dedb0fb324bfa2fae6b7bf7f673 \
-	file://fc-case/CaseFolding.txt;startline=3;endline=6;md5=335eb5842569668c6fe6ea50d00157ef
+	file://fc-case/CaseFolding.txt;startline=3;endline=6;md5=8d4dc0a22d82d97b135f6cb760c6fc90
 
 # ----------------------------------------------------------------------------
 # Prepare
