@@ -6,16 +6,13 @@ Just use the original config.h instead of copying it. The directory is
 already in the include path anyways. This is easier than adding all missing
 dependencies on config.h.
 
-Make sure that the elfdir is created before using it.
-
 Signed-off-by: Michael Olbrich <m.olbrich@pengutronix.de>
 ---
  modules/Makefile.in | 4 +---
- src/Makefile.in     | 2 +-
- 2 files changed, 2 insertions(+), 4 deletions(-)
+ 1 file changed, 1 insertion(+), 3 deletions(-)
 
 diff --git a/modules/Makefile.in b/modules/Makefile.in
-index f82f0edbb1c9..f3a677076526 100644
+index 34ac674e81ad..939ce5531e90 100644
 --- a/modules/Makefile.in
 +++ b/modules/Makefile.in
 @@ -21,7 +21,7 @@ CC_SHARED_FLAGS = @CC_SHARED_FLAGS@
@@ -36,16 +33,3 @@ index f82f0edbb1c9..f3a677076526 100644
  $(SLINT_H): $(CONFIG_DIR)/src/_slint.h
  	cp $(CONFIG_DIR)/src/_slint.h $(SLINT_H)
  $(OBJDIR_TSTAMP):
-diff --git a/src/Makefile.in b/src/Makefile.in
-index 60681422ddfc..2df737816742 100644
---- a/src/Makefile.in
-+++ b/src/Makefile.in
-@@ -159,7 +159,7 @@ $(OBJDIR_NORMAL_LIB): $(OBJDIR_TSTAMP) $(CONFIG_H) $(OBJS)
- 	@echo ""
- 	@echo $(NORMAL_LIB) created in $(OBJDIR)
- 
--$(ELFDIR_ELF_LIB): $(ELFDIR) $(CONFIG_H) $(ELFOBJS) $(VERSION_SCRIPT)
-+$(ELFDIR_ELF_LIB): $(ELFDIR_TSTAMP) $(CONFIG_H) $(ELFOBJS) $(VERSION_SCRIPT)
- 	-$(RM) $(ELFDIR_ELF_LIB)
- 	cd $(ELFDIR) && $(ELF_LINK_CMD) -o $(ELFLIB_BUILD_NAME) $(OFILES) $(LDFLAGS) $(ELF_DEP_LIBS)
- 	if [ $(ELFLIB_MAJOR) != $(ELFLIB_BUILD_NAME) ]; then \
