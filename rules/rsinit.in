@@ -1,0 +1,30 @@
+## SECTION=initmethod
+
+menuconfig RSINIT
+	tristate
+	prompt "rsinit"
+	help
+	  Minimalistic single binary init for the
+	  initramfs for embedded systems.
+
+if RSINIT
+
+config RSINIT_SYSTEMD
+	bool
+	default y
+	depends on INITMETHOD_SYSTEMD
+	prompt "enable systemd feature"
+
+config RSINIT_DMVERITY
+	bool
+	prompt "enable dmverity feature"
+
+config RSINIT_REBOOT_ON_FAILURE
+	bool
+	prompt "enable reboot-on-failure feature"
+
+config RSINIT_USB9PFS
+	bool
+	prompt "enable usb9pfs feature"
+
+endif
