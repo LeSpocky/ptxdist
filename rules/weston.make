@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_WESTON) += weston
 #
 # Paths and names
 #
-WESTON_VERSION	:= 16.0.0
+WESTON_VERSION	:= 16.0.1
 LIBWESTON_MAJOR := 16
-WESTON_MD5	:= 532ae0816e63726c78829b6f7899890e
+WESTON_MD5	:= e8ba90db417689b2fca24580764d2f6d
 WESTON		:= weston-$(WESTON_VERSION)
 WESTON_SUFFIX	:= tar.gz
 WESTON_URL	:= https://gitlab.freedesktop.org/wayland/weston/-/archive/$(WESTON_VERSION)/$(WESTON).$(WESTON_SUFFIX)
@@ -36,6 +36,7 @@ WESTON_SIMPLE_CLIENTS-$(PTXCONF_WESTON_GL) += egl dmabuf-egl dmabuf-feedback
 WESTON_CONF_TOOL	:= meson
 WESTON_CONF_OPT		:= \
 	$(CROSS_MESON_USR) \
+	-Dallow-deprecated-modeset=false \
 	-Dbackend-default=drm \
 	-Dbackend-drm=true \
 	-Dbackend-headless=$(call ptx/truefalse,PTXCONF_WESTON_HEADLESS_COMPOSITOR) \
@@ -46,6 +47,9 @@ WESTON_CONF_OPT		:= \
 	-Dbackend-x11=false \
 	-Dcolor-management-lcms=$(call ptx/truefalse,PTXCONF_WESTON_COLOR_MANAGEMENT_LCMS) \
 	-Ddemo-clients=$(call ptx/truefalse,PTXCONF_WESTON_IVISHELL_EXAMPLE) \
+	-Ddeprecated-pipewire=false \
+	-Ddeprecated-remoting=false \
+	-Ddeprecated-xdg-shell-v6-unstable=false \
 	-Ddesktop-shell-client-default=weston-desktop-shell \
 	-Ddoc=false \
 	-Dimage-jpeg=true \
