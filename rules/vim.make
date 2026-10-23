@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_VIM) += vim
 #
 # Paths and names
 #
-VIM_VERSION	:= 9.1.1868
-VIM_SHA256	:= cf1a6120d1d058b53f9a1677fc4f34d71a19623ed8f129fa65559120f7f75282
+VIM_VERSION	:= 9.2.1225
+VIM_SHA256	:= 797cf32f4a54a0a943d215ce3b8103d0a38f3e2d5dd1ae578e23acdb7fc2278d
 VIM		:= vim-$(VIM_VERSION)
 VIM_SUFFIX	:= tar.gz
 VIM_URL		:= https://github.com/vim/vim/archive/refs/tags/v$(VIM_VERSION).$(VIM_SUFFIX)
@@ -66,22 +66,23 @@ VIM_CONF_OPT	:= \
 	--disable-channel \
 	--disable-terminal \
 	--disable-autoservername \
-	--disable-socketserver \
 	--enable-multibyte \
 	--disable-rightleft \
 	--disable-arabic \
 	--disable-farsi \
 	--disable-xim \
 	--disable-fontset \
-	--disable-clipboard-provider \
+	--disable-pixman \
 	--disable-gui \
 	--disable-gtk2-check \
 	--disable-gnome-check \
+	--disable-gtk4-check \
 	--disable-gtk3-check \
 	--disable-motif-check \
 	--disable-gtktest \
 	--disable-icon-cache-update \
 	--disable-desktop-database-update \
+	--disable-hardcopy-pango \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--disable-canberra \
 	--disable-libsodium \
