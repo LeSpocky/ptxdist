@@ -181,7 +181,7 @@ config SETUP_SFMIRROR
 
 config SETUP_XORGMIRROR
 	string
-	default "https://ftp.x.org/archive https://xorg.freedesktop.org/releases"
+	default "https://xorg.freedesktop.org/releases"
 	prompt "x.org Mirror"
 	help
 	  For all x.org related packages enter an available mirror here.
