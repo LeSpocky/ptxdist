@@ -62,8 +62,14 @@ $(STATEDIR)/host-nss.install:
 			$(HOST_NSS_PKGDIR)/usr/lib/$(lib).so$(ptx/nl))
 
 	install -d $(HOST_NSS_PKGDIR)/usr/lib/pkgconfig/
-	VERSION=$(NSS_VERSION) ptxd_replace_magic \
-		$(HOST_NSS_DIR)/nss/nss.pc.in > $(HOST_NSS_PKGDIR)/usr/lib/pkgconfig/nss.pc
+	sed "$(HOST_NSS_DIR)/nss/pkg/pkg-config/nss.pc.in" \
+		-e "s,%prefix%,/usr,g" \
+		-e "s,%exec_prefix%,$${prefix},g" \
+		-e "s,%libdir%,/usr/lib,g" \
+		-e "s,%includedir%,/usr/include/nss,g" \
+		-e "s,%NSPR_VERSION%,$(NSPR_VERSION),g" \
+		-e "s,%NSS_VERSION%,$(NSS_VERSION),g" \
+		> "$(HOST_NSS_PKGDIR)/usr/lib/pkgconfig/nss.pc"
 
 	install -d $(PTXDIST_SYSROOT_HOST)/usr/include/nss
 	install -m 644 -t $(PTXDIST_SYSROOT_HOST)/usr/include/nss $(HOST_NSS_DIR)/dist/public/nss/*

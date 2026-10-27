@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_NSS) += nss
 #
 # Paths and names
 #
-NSS_VERSION	:= 3.130
-NSS_SHA256	:= afab9f82c78bfa3e7e8b4a61ac31922675c58203f67ff385a2714df7fe9bd5c5
+NSS_VERSION	:= 3.131.1
+NSS_SHA256	:= b1dbc1d9e7f3f8455dfb6d58ec8f7229d8a8450c629a9e69ef2ef6081f359056
 NSS		:= nss-$(NSS_VERSION)
 NSS_SUFFIX	:= tar.gz
 NSS_URL		:= https://ftp.mozilla.org/pub/security/nss/releases/NSS_$(subst .,_,$(NSS_VERSION))_RTM/src/$(NSS).$(NSS_SUFFIX)
@@ -96,8 +96,14 @@ $(STATEDIR)/nss.install:
 			$(NSS_PKGDIR)/usr/lib/$(lib).so$(ptx/nl))
 
 	install -d $(NSS_PKGDIR)/usr/lib/pkgconfig/
-	VERSION=$(NSS_VERSION) ptxd_replace_magic \
-		$(NSS_DIR)/nss/nss.pc.in > $(NSS_PKGDIR)/usr/lib/pkgconfig/nss.pc
+	sed "$(NSS_DIR)/nss/pkg/pkg-config/nss.pc.in" \
+		-e "s,%prefix%,/usr,g" \
+		-e "s,%exec_prefix%,$${prefix},g" \
+		-e "s,%libdir%,/usr/lib,g" \
+		-e "s,%includedir%,/usr/include/nss,g" \
+		-e "s,%NSPR_VERSION%,$(NSPR_VERSION),g" \
+		-e "s,%NSS_VERSION%,$(NSS_VERSION),g" \
+		> "$(NSS_PKGDIR)/usr/lib/pkgconfig/nss.pc"
 
 	@install -v -d $(NSS_PKGDIR)/usr/include/nss
 	@install -v -m 644 -t $(NSS_PKGDIR)/usr/include/nss $(NSS_DIR)/dist/public/nss/*
