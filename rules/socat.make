@@ -12,8 +12,8 @@ PACKAGES-$(PTXCONF_SOCAT) += socat
 # Paths and names
 #
 
-SOCAT_VERSION	:= 1.8.0.3
-SOCAT_SHA256	:= a9f9eb6cfb9aa6b1b4b8fe260edbac3f2c743f294db1e362b932eb3feca37ba4
+SOCAT_VERSION	:= 1.8.1.3
+SOCAT_SHA256	:= 06602ffd591e98c75b3dc1d66f0f19136cc666b0b2d95caad987d6ab2cb28097
 SOCAT		:= socat-$(SOCAT_VERSION)
 SOCAT_SUFFIX	:= tar.gz
 SOCAT_URL	:= \
@@ -24,8 +24,9 @@ SOCAT_DIR	:= $(BUILDDIR)/$(SOCAT)
 SOCAT_LICENSE	:= GPL-2.0-only AND MIT
 SOCAT_LICENSE_FILES := \
 	file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263 \
-	file://README;startline=248;endline=281;md5=4e953b796133e1470eb57b3f59611720 \
+	file://README;startline=252;endline=285;md5=4e953b796133e1470eb57b3f59611720 \
 	file://install-sh;startline=6;endline=16;md5=6c39b6a36ad775d09cc9ee0e33fe9e6c
+SOCAT_CVE_PRODUCT := dest-unreach:socat
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -50,6 +51,8 @@ SOCAT_CONF_OPT	:= \
 	--enable-creat \
 	--enable-gopen \
 	--enable-pipe \
+	--enable-stall \
+	--enable-text \
 	--enable-socketpair \
 	--enable-termios \
 	--enable-unix \
@@ -107,7 +110,7 @@ $(STATEDIR)/socat.targetinstall:
 
 	@$(call install_copy, socat, 0, 0, 0755, -, /usr/bin/procan)
 	@$(call install_copy, socat, 0, 0, 0755, -, /usr/bin/filan)
-	@$(call install_copy, socat, 0, 0, 0755, -, /usr/bin/socat)
+	@$(call install_copy, socat, 0, 0, 0755, $(SOCAT_PKGDIR)/usr/bin/socat1, /usr/bin/socat)
 
 	@$(call install_finish, socat)
 
