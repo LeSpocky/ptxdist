@@ -1,0 +1,170 @@
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Fri, 23 Oct 2026 08:02:20 -0700
+Subject: [PATCH] cleanup meson.build dependency searching to not be an awful
+ conversion from autoconf
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Upstream-Status: Backport [https://github.com/fenrus75/powertop/commit/993dc340c43b51655fb43c4cfa64883348b30583]
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+ meson.build     | 52 ++++++----------------------------------------------
+ src/tuning/iw.c | 27 +--------------------------
+ src/tuning/iw.h |  8 +++-----
+ 3 files changed, 10 insertions(+), 77 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 17ea02e51bf5..76981d610fe1 100644
+--- a/meson.build
++++ b/meson.build
+@@ -12,48 +12,12 @@ cc = meson.get_compiler('c')
+ cpp = meson.get_compiler('cpp')
+ 
+ # Dependencies
+-ncursesw_dep = dependency('ncursesw', required: false)
+-if not ncursesw_dep.found()
+-  ncursesw_dep = dependency('ncurses', required: false)
+-endif
+-if not ncursesw_dep.found()
+-  ncursesw_dep = cc.find_library('ncursesw', required: false)
+-  if not ncursesw_dep.found()
+-    ncursesw_dep = cc.find_library('ncurses', required: true)
+-  endif
+-endif
+-
++ncursesw_dep = dependency('ncursesw', required: true)
+ libtracefs_dep = dependency('libtracefs', required: true)
+-
+-libnl3_dep = dependency('libnl-3.0', version: '>= 3.0', required: false)
+-libnlgenl3_dep = dependency('libnl-genl-3.0', version: '>= 3.0', required: false)
+-
+-libnl_deps = []
+-has_libnl20 = false
+-
+-if libnl3_dep.found()
+-  libnl_deps += [libnl3_dep]
+-  if libnlgenl3_dep.found()
+-    libnl_deps += [libnlgenl3_dep]
+-  else
+-    libnlgenl3_dep = cc.find_library('nl-genl-3', required: true)
+-    libnl_deps += [libnlgenl3_dep]
+-  endif
+-  has_libnl20 = true
+-else
+-  libnl20_dep = dependency('libnl-2.0', version: '>= 2.0', required: false)
+-  if libnl20_dep.found()
+-    libnl_deps = [libnl20_dep]
+-    has_libnl20 = true
+-  else
+-    libnl1_dep = dependency('libnl-1', required: true)
+-    libnl_deps = [libnl1_dep]
+-  endif
+-endif
+-
++libnl3_dep = dependency('libnl-3.0', version: '>= 3.0', required: true)
++libnlgenl3_dep = dependency('libnl-genl-3.0', version: '>= 3.0', required: true)
+ pthread_dep = dependency('threads')
+ resolv_dep = cc.find_library('resolv', required: true)
+-rt_dep = cc.find_library('rt', required: false)
+ 
+ # Configuration
+ conf_data = configuration_data()
+@@ -65,10 +29,6 @@ conf_data.set_quoted('PACKAGE_BUGREPORT', 'https://github.com/fenrus75/powertop/
+ conf_data.set_quoted('PACKAGE_URL', 'https://github.com/fenrus75/powertop')
+ conf_data.set_quoted('LOCALEDIR', join_paths(get_option('prefix'), get_option('localedir')))
+ 
+-if has_libnl20
+-  conf_data.set('HAVE_LIBNL20', 1)
+-endif
+-
+ check_headers = [
+   'fcntl.h',
+   'libintl.h',
+@@ -289,10 +249,10 @@ powertop_exe = executable('powertop',
+   dependencies: [
+     ncursesw_dep,
+     libtracefs_dep,
+-    libnl_deps,
++    libnl3_dep,
++    libnlgenl3_dep,
+     pthread_dep,
+     resolv_dep,
+-    rt_dep,
+   ],
+   cpp_args: [
+     '-Wformat',
+@@ -384,4 +344,4 @@ if valgrind.found() and get_option('b_sanitize') == 'none'
+       suite: 'valgrind',
+     )
+   endif
+-endif
++endif
+\ No newline at end of file
+diff --git a/src/tuning/iw.c b/src/tuning/iw.c
+index 0abdabb33e92..0d972ea72ae8 100644
+--- a/src/tuning/iw.c
++++ b/src/tuning/iw.c
+@@ -52,31 +52,6 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ #include "../lib.h"
+ 
+ 
+-#ifndef HAVE_LIBNL20
+-/* libnl 2.0 compatibility code */
+-
+-static inline struct nl_handle *nl_socket_alloc(void)
+-{
+-	return nl_handle_alloc();
+-}
+-
+-static inline void nl_socket_free(struct nl_sock *h)
+-{
+-	nl_handle_destroy(h);
+-}
+-
+-static inline int __genl_ctrl_alloc_cache(struct nl_sock *h, struct nl_cache **cache)
+-{
+-	struct nl_cache *tmp = genl_ctrl_alloc_cache(h);
+-	if (!tmp)
+-		return -ENOMEM;
+-	*cache = tmp;
+-	return 0;
+-}
+-#define genl_ctrl_alloc_cache __genl_ctrl_alloc_cache
+-#endif /* HAVE_LIBNL20 */
+-
+-
+ static int nl80211_init(struct nl80211_state *state)
+ {
+ 	int err;
+@@ -303,4 +278,4 @@ int get_wifi_power_saving(const char *iface)
+ 		return 1;
+ 
+ 	return enable_power_save;
+-}
++}
+\ No newline at end of file
+diff --git a/src/tuning/iw.h b/src/tuning/iw.h
+index 743a38c896fc..ccfa30ff26ea 100644
+--- a/src/tuning/iw.h
++++ b/src/tuning/iw.h
+@@ -39,9 +39,8 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ #include "config.h"
+ #endif
+ 
+-#ifndef HAVE_LIBNL20
+-#define nl_sock nl_handle
+-#endif
++
++
+ 
+ struct nl80211_state {
+ 	struct nl_sock *nl_sock;
+@@ -71,5 +70,4 @@ int set_wifi_power_saving(const char *iface, int state);
+ 
+ #ifdef __cplusplus
+ }
+-#endif
+-
++#endif
+\ No newline at end of file

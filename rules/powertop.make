@@ -15,33 +15,31 @@ PACKAGES-$(PTXCONF_POWERTOP) += powertop
 #
 # Paths and names
 #
-POWERTOP_VERSION	:= 2.15
-POWERTOP_SHA256		:= e58ab3fd7b8ff5f4dd0d17f11848817e7d83c0a6918145ac81de03b5dccf8f49
+POWERTOP_VERSION	:= 2.16.1
+POWERTOP_SHA256		:= 73d5e96d992ed7f040e17c6c9130deebcf42c38990711840981c7afac6f7832f
 POWERTOP		:= powertop-v$(POWERTOP_VERSION)
 POWERTOP_SUFFIX		:= tar.gz
 POWERTOP_URL		:= https://github.com/fenrus75/powertop/archive/refs/tags/v$(POWERTOP_VERSION).$(POWERTOP_SUFFIX)
 POWERTOP_SOURCE		:= $(SRCDIR)/$(POWERTOP).$(POWERTOP_SUFFIX)
 POWERTOP_DIR		:= $(BUILDDIR)/$(POWERTOP)
 POWERTOP_LICENSE	:= GPL-2.0-only
+POWERTOP_LICENSE_FILES	:= \
+	file://COPYING;md5=12f884d2ae1ff87c09e5b7ccc2c4ca7e \
+	file://src/main.cpp;startline=1;endline=29;md5=6cc786afdc98b8098452aa4f41300d53
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-POWERTOP_CONF_ENV	:= \
-	$(CROSS_ENV) \
-	ac_cv_search_pci_get_dev=$(call ptx/yesno, PTXCONF_POWERTOP_PCI_SUPPORT)
-
 #
-# autoconf
+# meson
 #
-POWERTOP_CONF_TOOL	:= autoconf
+POWERTOP_CONF_TOOL	:= meson
 POWERTOP_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-nls \
-	--disable-rpath \
-	--without-libiconv-prefix \
-	--without-libintl-prefix
+	$(CROSS_MESON_USR) \
+	-Denable-tests=false \
+	-Dnls=false \
+	-Dtest-framework=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -56,7 +54,7 @@ $(STATEDIR)/powertop.targetinstall:
 	@$(call install_fixup, powertop,AUTHOR,"Marc Kleine-Budde <mkl@pengutronix.de>")
 	@$(call install_fixup, powertop,DESCRIPTION,missing)
 
-	@$(call install_copy, powertop, 0, 0, 0755, -, /usr/sbin/powertop)
+	@$(call install_copy, powertop, 0, 0, 0755, -, /usr/bin/powertop)
 
 	@$(call install_finish, powertop)
 

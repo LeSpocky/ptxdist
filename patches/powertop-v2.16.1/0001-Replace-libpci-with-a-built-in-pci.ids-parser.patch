@@ -1,0 +1,261 @@
+From: Arjan van de Ven <arjan@linux.intel.com>
+Date: Fri, 23 Oct 2026 07:51:40 -0700
+Subject: [PATCH] Replace libpci with a built-in pci.ids parser
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+PowerTOP only used libpci for a vendor:device -> name lookup. Parse
+pci.ids directly (hwdata, misc and /usr/share locations) instead, which
+removes the libpci build dependency, the HAVE_NO_PCI auto-detection and
+the permanent libpci leak (valgrind suppression and release-checklist
+exception).
+
+HAVE_NO_PCI is now only a test switch that prevents loading the host's
+pci.ids; tests feed fixtures through pci_ids_parse(). Also silence a
+constant-folded -Wformat-truncation warning in the pt_strcpy test.
+
+Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
+Upstream-Status: Backport [https://github.com/fenrus75/powertop/commit/1f32bb317811230913f37d5461b5ead9a08e325b]
+[Sven: only backported the necessary parts. Skipped test and docs]
+Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+---
+ meson.build |  10 -----
+ src/lib.cpp | 129 +++++++++++++++++++++++++++++++++++++++++++++++-------------
+ src/lib.h   |   3 ++
+ 3 files changed, 105 insertions(+), 37 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index 03edae691be6..17ea02e51bf5 100644
+--- a/meson.build
++++ b/meson.build
+@@ -23,11 +23,6 @@ if not ncursesw_dep.found()
+   endif
+ endif
+ 
+-pciutils_dep = dependency('libpci', required: false)
+-if not pciutils_dep.found()
+-  pciutils_dep = cc.find_library('pci', required: false)
+-endif
+-
+ libtracefs_dep = dependency('libtracefs', required: true)
+ 
+ libnl3_dep = dependency('libnl-3.0', version: '>= 3.0', required: false)
+@@ -74,10 +69,6 @@ if has_libnl20
+   conf_data.set('HAVE_LIBNL20', 1)
+ endif
+ 
+-if not pciutils_dep.found()
+-  conf_data.set('HAVE_NO_PCI', 1)
+-endif
+-
+ check_headers = [
+   'fcntl.h',
+   'libintl.h',
+@@ -297,7 +288,6 @@ powertop_exe = executable('powertop',
+   include_directories: [src_inc, include_directories('.')],
+   dependencies: [
+     ncursesw_dep,
+-    pciutils_dep,
+     libtracefs_dep,
+     libnl_deps,
+     pthread_dep,
+diff --git a/src/lib.cpp b/src/lib.cpp
+index 7cf5f7c45f4f..3ace47d1c02d 100644
+--- a/src/lib.cpp
++++ b/src/lib.cpp
+@@ -26,6 +26,7 @@
+ #include <algorithm>
+ #include <atomic>
+ #include <cctype>
++#include <charconv>
+ #include <cmath>
+ #include <cstdint>
+ #include <cstdio>
+@@ -40,6 +41,7 @@
+ #include <mutex>
+ #include <sstream>
+ #include <string>
++#include <string_view>
+ #include <utility>
+ #include <vector>
+ 
+@@ -54,12 +56,6 @@
+ #include "lib.h"
+ #include "test_framework.h"
+ 
+-#ifndef HAVE_NO_PCI
+-extern "C" {
+-#include <pci/pci.h>
+-}
+-#endif
+-
+ extern void set_notification(const std::string &msg) __attribute__((weak));
+ 
+ static int kallsyms_read = 0;
+@@ -368,44 +364,123 @@ std::string format_watts(double W, unsigned int len)
+ 	return buffer;
+ }
+ 
+-#ifndef HAVE_NO_PCI
+-static struct pci_access *pci_access;
++/*
++ * Minimal pci.ids parser. Format (see pci.ids header):
++ *   - '#' comment lines and blank lines are ignored
++ *   - "vvvv  Vendor name"            starts a vendor (column 0, 4 hex digits)
++ *   - "<tab>dddd  Device name"       device of the current vendor
++ *   - "<tab><tab>..."                subsystem lines, ignored
++ *   - "C xx  Class name" and later   device-class section, ends the vendor list
++ * Vendor and device ids are keyed as (vendor << 16 | device); a device-less
++ * vendor entry uses device id 0 in the separate vendor map.
++ */
++static std::map<uint16_t, std::string> pci_vendor_names;
++static std::map<uint32_t, std::string> pci_device_names;
++static bool pci_ids_loaded;
+ 
+-std::string pci_id_to_name(uint16_t vendor, uint16_t device)
++/* Parses exactly 4 hex digits at the start of s; returns false otherwise */
++static bool parse_pci_hex4(std::string_view s, uint16_t &out)
+ {
+-	const int len = 4096;
+-	std::vector<char> buf(len);
+-
+-	if (!pci_access) {
+-		pci_access = pci_alloc();
+-		pci_init(pci_access);
+-	}
++	if (s.size() < 4)
++		return false;
++	unsigned int v = 0;
++	auto [ptr, ec] = std::from_chars(s.data(), s.data() + 4, v, 16);
++	if (ec != std::errc() || ptr != s.data() + 4)
++		return false;
++	out = static_cast<uint16_t>(v);
++	return true;
++}
+ 
+-	const char *ret = pci_lookup_name(pci_access, buf.data(), len, PCI_LOOKUP_VENDOR | PCI_LOOKUP_DEVICE, vendor, device);
+-	return ret ? std::string(ret) : std::string();
++/* Returns the name following the id: skips the separating whitespace */
++static std::string pci_name_after_id(std::string_view s)
++{
++	size_t pos = s.find_first_not_of(" \t", 4);
++	if (pos == std::string_view::npos)
++		return {};
++	return std::string(s.substr(pos));
+ }
+ 
+-void end_pci_access(void)
++void pci_ids_parse(std::istream &in)
+ {
+-	if (pci_access) {
+-		pci_cleanup(pci_access);
+-		pci_access = nullptr;
++	pci_vendor_names.clear();
++	pci_device_names.clear();
++	pci_ids_loaded = true;
++
++	std::string line;
++	bool have_vendor = false;
++	uint16_t vendor = 0;
++
++	while (std::getline(in, line)) {
++		if (!line.empty() && line.back() == '\r')
++			line.pop_back();
++		if (line.empty() || line[0] == '#')
++			continue;
++
++		if (line[0] == '\t') {
++			if (!have_vendor || line.size() < 2 || line[1] == '\t' || line[1] == '#')
++				continue;
++			uint16_t device;
++			std::string_view body(line);
++			body.remove_prefix(1);
++			if (parse_pci_hex4(body, device))
++				pci_device_names[(uint32_t(vendor) << 16) | device] = pci_name_after_id(body);
++			continue;
++		}
++
++		/* The class section follows the vendor section; nothing more to read */
++		if (line[0] == 'C' && line.size() > 1 && line[1] == ' ')
++			break;
++
++		have_vendor = parse_pci_hex4(line, vendor);
++		if (have_vendor)
++			pci_vendor_names[vendor] = pci_name_after_id(line);
+ 	}
+ }
+ 
+-#else
++#ifndef HAVE_NO_PCI
++static void pci_ids_load_system(void)
++{
++	static const char *const paths[] = {
++		"/usr/share/hwdata/pci.ids",
++		"/usr/share/misc/pci.ids",
++		"/usr/share/pci.ids",
++	};
++
++	for (const char *path : paths) {
++		std::ifstream file(path);
++		if (file) {
++			pci_ids_parse(file);
++			return;
++		}
++	}
++	pci_ids_loaded = true; /* no database installed: names stay unknown */
++}
++#endif
+ 
+-std::string pci_id_to_name([[maybe_unused]] uint16_t vendor, [[maybe_unused]] uint16_t device)
++std::string pci_id_to_name(uint16_t vendor, uint16_t device)
+ {
+-	return std::string();
++#ifndef HAVE_NO_PCI
++	if (!pci_ids_loaded)
++		pci_ids_load_system();
++#endif
++
++	auto v = pci_vendor_names.find(vendor);
++	if (v == pci_vendor_names.end())
++		return {};
++
++	auto d = pci_device_names.find((uint32_t(vendor) << 16) | device);
++	if (d == pci_device_names.end())
++		return v->second;
++	return v->second + " " + d->second;
+ }
+ 
+ void end_pci_access(void)
+ {
++	pci_vendor_names.clear();
++	pci_device_names.clear();
++	pci_ids_loaded = false;
+ }
+ 
+-#endif /* HAVE_NO_PCI */
+-
+ int utf_ok = -1;
+ 
+ 
+diff --git a/src/lib.h b/src/lib.h
+index f3b421ad4f08..582782039b1a 100644
+--- a/src/lib.h
++++ b/src/lib.h
+@@ -31,6 +31,7 @@
+ #ifdef __cplusplus
+ 
+ #include <format>
++#include <iosfwd>
+ #include <string_view>
+ #include <vector>
+ 
+@@ -110,6 +111,8 @@ extern std::string format_watts(double W, unsigned int len);
+ 
+ extern std::string pci_id_to_name(uint16_t vendor, uint16_t device);
+ extern void end_pci_access(void);
++/* Replaces the vendor/device name tables with the contents of a pci.ids stream (exposed for tests) */
++extern void pci_ids_parse(std::istream &in);
+ 
+ 
+ extern std::string fmt_prefix(double n);
