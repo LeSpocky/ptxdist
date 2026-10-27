@@ -29,11 +29,11 @@ endef
 #
 # Paths and names
 #
-SQLITE_VERSION	:= 3.51.1
-SQLITE_SHA256	:= 4f2445cd70479724d32ad015ec7fd37fbb6f6130013bd4bfbc80c32beb42b7e0
+SQLITE_VERSION	:= 3.54.1
+SQLITE_SHA256	:= 926ef8d3eab93fbf6e06011901273eec076b25594a4e1cdadd50c987f4f6d64e
 SQLITE		:= sqlite-autoconf-$(call sqlite/file-version,$(SQLITE_VERSION))
 SQLITE_SUFFIX	:= tar.gz
-SQLITE_URL	:= https://www.sqlite.org/2025/$(SQLITE).$(SQLITE_SUFFIX)
+SQLITE_URL	:= https://www.sqlite.org/2026/$(SQLITE).$(SQLITE_SUFFIX)
 SQLITE_SOURCE	:= $(SRCDIR)/$(SQLITE).$(SQLITE_SUFFIX)
 SQLITE_DIR	:= $(BUILDDIR)/$(SQLITE)
 SQLITE_LICENSE	:= public_domain
