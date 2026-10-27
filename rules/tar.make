@@ -23,6 +23,7 @@ TAR_SOURCE	:= $(SRCDIR)/$(TAR).$(TAR_SUFFIX)
 TAR_DIR		:= $(BUILDDIR)/$(TAR)
 TAR_LICENSE	:= GPL-3.0-or-later
 TAR_LICENSE_FILES := file://COPYING;md5=1ebbd3e34237af26da5dc08a4e440464
+TAR_CVE_PRODUCT	:= gnu:tar
 
 # ----------------------------------------------------------------------------
 # Prepare
