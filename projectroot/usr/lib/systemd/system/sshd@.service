@@ -5,7 +5,7 @@ IgnoreOnIsolate=true
 
 [Service]
 ExecStart=/usr/sbin/sshd -i
-SuccessExitStatus=0 255
+SuccessExitStatus=0 3 5 6 7 255
 StandardInput=socket
 RuntimeDirectory=sshd
 RuntimeDirectoryPreserve=yes
