@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_PAM) += pam
 #
 # Paths and names
 #
-PAM_VERSION	:= 1.7.1
-PAM_SHA256	:= 82aadd97eb697965b577069c12046a4dd1be68361a9978c708698d2a1ee9b6d1
+PAM_VERSION	:= 1.7.3
+PAM_SHA256	:= 29c2a93f819a62ba981f695b03fe00550b49ce7ae5c5342edaaf860687fbb1a0
 PAM		:= Linux-PAM-$(PAM_VERSION)
 PAM_SUFFIX	:= tar.gz
 PAM_URL		:= https://github.com/linux-pam/linux-pam/archive/refs/tags/v$(PAM_VERSION).$(PAM_SUFFIX)
@@ -33,26 +33,28 @@ PAM_LICENSE_FILES := \
 PAM_CONF_TOOL	:= meson
 PAM_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Di18n=disabled \
-	-Ddocs=disabled \
 	-Daudit=disabled \
+	-Ddocs=disabled \
 	-Deconf=disabled \
-	-Dlogind=disabled \
 	-Delogind=disabled \
-	-Dopenssl=disabled \
-	-Dselinux=disabled \
-	-Dnis=$(call ptx/endis, PTXCONF_PAM_NIS)d \
 	-Dexamples=false \
+	-Di18n=disabled \
 	-Dlckpwdf=false \
+	-Dlogind=disabled \
+	-Dnis=$(call ptx/endis, PTXCONF_PAM_NIS)d \
+	-Dopenssl=disabled \
 	-Dpam-debug=false \
-	-Dpamlocking=false \
-	-Dread-both-confs=false \
-	-Dusergroups=false \
-	-Dxtests=false \
-	-Duidmin=1000 \
-	-Dpam_userdb=$(call ptx/endis, PTXCONF_PAM_DB)d \
 	-Dpam_lastlog=disabled \
-	-Dpam_unix=enabled
+	-Dpam_unix=enabled \
+	-Dpam_unix-try-getspnam=false \
+	-Dpam_userdb=$(call ptx/endis, PTXCONF_PAM_DB)d \
+	-Dpamlocking=false \
+	-Dpwaccess=disabled \
+	-Dread-both-confs=false \
+	-Dselinux=disabled \
+	-Duidmin=1000 \
+	-Dusergroups=false \
+	-Dxtests=false
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -73,14 +75,14 @@ $(STATEDIR)/pam.targetinstall:
 
 	@$(call install_tree, pam, 0, 0, -, /usr/lib/security)
 
-	@$(call install_alternative, pam, 0, 0, 0644, /etc/environment)
-	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/access.conf)
-	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/group.conf)
-	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/limits.conf)
-	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/namespace.conf)
-	@$(call install_alternative, pam, 0, 0, 0755, /etc/security/namespace.init)
-	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/pam_env.conf)
-	@$(call install_alternative, pam, 0, 0, 0644, /etc/security/time.conf)
+	@$(call install_alternative, pam, 0, 0, 0644, /usr/share/pam/environment)
+	@$(call install_alternative, pam, 0, 0, 0644, /usr/share/pam/security/access.conf)
+	@$(call install_alternative, pam, 0, 0, 0644, /usr/share/pam/security/group.conf)
+	@$(call install_alternative, pam, 0, 0, 0644, /usr/share/pam/security/limits.conf)
+	@$(call install_alternative, pam, 0, 0, 0644, /usr/share/pam/security/namespace.conf)
+	@$(call install_alternative, pam, 0, 0, 0755, /usr/share/pam/security/namespace.init)
+	@$(call install_alternative, pam, 0, 0, 0644, /usr/share/pam/security/pam_env.conf)
+	@$(call install_alternative, pam, 0, 0, 0644, /usr/share/pam/security/time.conf)
 
 	@$(call install_alternative, pam, 0, 0, 0755, /usr/sbin/mkhomedir_helper)
 	@$(call install_alternative, pam, 0, 0, 0755, /usr/sbin/unix_chkpwd)
