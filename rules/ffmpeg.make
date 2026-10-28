@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FFMPEG) += ffmpeg
 #
 # Paths and names
 #
-FFMPEG_VERSION	:= 8.0
-FFMPEG_SHA256	:= b2751fccb6cc4c77708113cd78b561059b6fa904b24162fa0be2d60273d27b8e
+FFMPEG_VERSION	:= 9.0.2
+FFMPEG_SHA256	:= 8c3850283eb25fa026482078a04051e0be17347b09ef81a0849bec15a96e002e
 FFMPEG		:= ffmpeg-$(FFMPEG_VERSION)
 FFMPEG_SUFFIX	:= tar.xz
 FFMPEG_URL	:= https://www.ffmpeg.org/releases/$(FFMPEG).$(FFMPEG_SUFFIX)
@@ -59,8 +59,10 @@ FFMPEG_CONF_OPT		:= \
 	--enable-runtime-cpudetect \
 	--disable-gray \
 	--enable-swscale-alpha \
+	--disable-unstable \
 	\
 	--disable-autodetect \
+	--disable-checkasm \
 	--disable-programs \
 	--disable-ffmpeg \
 	--disable-ffplay \
@@ -105,6 +107,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-avfoundation \
 	--disable-avisynth \
 	--disable-bzlib \
+	--disable-cairo \
 	--disable-coreimage \
 	--disable-chromaprint \
 	--disable-frei0r \
@@ -122,7 +125,6 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libbluray \
 	--disable-libbs2b \
 	--disable-libcaca \
-	--disable-libcelt \
 	--disable-libcdio \
 	--disable-libcodec2 \
 	--disable-libdav1d \
@@ -136,7 +138,6 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libfreetype \
 	--disable-libfribidi \
 	--disable-libharfbuzz \
-	--disable-libglslang \
 	--disable-libgme \
 	--disable-libgsm \
 	--disable-libiec61883 \
@@ -150,13 +151,16 @@ FFMPEG_CONF_OPT		:= \
 	--disable-liblensfun \
 	--disable-libmodplug \
 	--disable-libmp3lame \
+	--disable-libmpeghdec \
 	--disable-liboapv \
+	--disable-libonnxruntime \
 	--disable-libopencore-amrnb \
 	--disable-libopencore-amrwb \
 	--disable-libopencv \
 	--disable-libopenh264 \
 	--disable-libopenjpeg \
 	--disable-libopenmpt \
+	--disable-libopencolorio \
 	--disable-libopenvino \
 	--disable-libopus \
 	--disable-libplacebo \
@@ -169,7 +173,6 @@ FFMPEG_CONF_OPT		:= \
 	--disable-librsvg \
 	--disable-librubberband \
 	--disable-librtmp \
-	--disable-libshaderc \
 	--disable-libshine \
 	--disable-libsmbclient \
 	--disable-libsnappy \
@@ -178,6 +181,7 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libsrt \
 	--disable-libssh \
 	--disable-libsvtav1 \
+	--disable-libsvtjpegxs \
 	--disable-libtensorflow \
 	--disable-libtesseract \
 	--disable-libtheora \
@@ -196,7 +200,9 @@ FFMPEG_CONF_OPT		:= \
 	--disable-libx264 \
 	--disable-libx265 \
 	--disable-libxeve \
+	--disable-libxeveb \
 	--disable-libxevd \
+	--disable-libxevdb \
 	--disable-libxavs \
 	--disable-libxavs2 \
 	--disable-libxcb \
@@ -246,10 +252,8 @@ FFMPEG_CONF_OPT		:= \
 	--disable-mmal \
 	--disable-nvdec \
 	--disable-nvenc \
-	--disable-omx \
-	--disable-omx-rpi \
 	--disable-rkmpp \
-	--disable-v4l2_m2m \
+	--disable-v4l2-m2m \
 	--disable-vaapi \
 	--disable-vdpau \
 	--disable-videotoolbox \
