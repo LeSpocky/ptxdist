@@ -16,8 +16,8 @@ PACKAGES-$(PTXCONF_BLUEZ) += bluez
 #
 # Paths and names
 #
-BLUEZ_VERSION	:= 5.84
-BLUEZ_SHA256	:= 2d7c71217c2410e91dca7be90a6e2a37aaf28840b531f65614b34ff5e522c3d7
+BLUEZ_VERSION	:= 5.87
+BLUEZ_SHA256	:= 8e086b38e7d269781fa78fb702fe2f38bd366d107cdc4debc1674ae9381988e4
 BLUEZ		:= bluez-$(BLUEZ_VERSION)
 BLUEZ_SUFFIX	:= tar.gz
 BLUEZ_URL	:= $(call ptx/mirror, KERNEL, bluetooth/$(BLUEZ).$(BLUEZ_SUFFIX))
@@ -48,13 +48,11 @@ BLUEZ_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--$(call ptx/endis, PTXCONF_BLUEZ_LIBBLUETOOTH)-library \
 	--$(call ptx/endis, PTXCONF_BLUEZ_INSTALL_TESTSCRIPTS)-test \
 	--disable-nfc \
-	--disable-sap \
 	--enable-a2dp \
 	--enable-avrcp \
 	--enable-network \
 	--enable-hid \
 	--enable-hog \
-	--disable-health \
 	--disable-bap \
 	--disable-bass \
 	--disable-mcp \
@@ -62,7 +60,10 @@ BLUEZ_CONF_OPT	:= $(CROSS_AUTOCONF_USR) \
 	--disable-vcp \
 	--disable-micp \
 	--disable-csip \
+	--disable-tmap \
+	--disable-gmap \
 	--enable-asha \
+	--disable-hfp \
 	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-tools \
 	--$(call ptx/endis, PTXCONF_BLUEZ_TOOLS)-monitor \
 	--enable-udev \
@@ -120,7 +121,7 @@ ifdef PTXCONF_BLUEZ_TOOLS
 			/usr/bin/$(binprogram))$(ptx/nl))
 
 ifdef PTXCONF_BLUEZ_TOOLS_DEPRECATED
-	@$(foreach binprogram, ciptool hciattach hciconfig hcidump hcitool \
+	@$(foreach binprogram, ciptool hciattach hciconfig hcitool \
 			rfcomm sdptool, \
 		$(call install_copy, bluez, 0, 0, 0755, -, \
 			/usr/bin/$(binprogram))$(ptx/nl))
