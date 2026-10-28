@@ -63,7 +63,7 @@ POSTGRESQL_CONF_OPT	:= \
 	--without-bonjour \
 	--without-openssl \
 	--without-selinux \
-	--$(call ptx/wwo,POSTGRESQL_SYSTEMD)-systemd \
+	--$(call ptx/wwo, PTXCONF_POSTGRESQL_SYSTEMD)-systemd \
 	--without-readline \
 	--without-libedit-preferred \
 	--without-ossp-uuid \
