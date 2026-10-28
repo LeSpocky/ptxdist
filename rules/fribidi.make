@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_FRIBIDI) += fribidi
 #
 # Paths and names
 #
-FRIBIDI_VERSION	:= 1.0.16
-FRIBIDI_SHA256	:= 1b1cde5b235d40479e91be2f0e88a309e3214c8ab470ec8a2744d82a5a9ea05c
+FRIBIDI_VERSION	:= 1.0.17
+FRIBIDI_SHA256	:= 6949dcde27d41cebad1fd741fcafc36d55a1020d2d872d4a6eb3914caabbada2
 FRIBIDI		:= fribidi-$(FRIBIDI_VERSION)
 FRIBIDI_SUFFIX	:= tar.xz
 FRIBIDI_URL	:= https://github.com/fribidi/fribidi/releases/download/v$(FRIBIDI_VERSION)/$(FRIBIDI).$(FRIBIDI_SUFFIX)
@@ -24,20 +24,22 @@ FRIBIDI_DIR	:= $(BUILDDIR)/$(FRIBIDI)
 FRIBIDI_LICENSE	:= LGPL-2.1-or-later
 FRIBIDI_LICENSE_FILES := \
 	file://lib/fribidi.c;startline=1;endline=28;md5=9e89265732e8f4f99b1267a1ffd15787 \
-	file://COPYING;md5=a916467b91076e631dd8edb7424769c7
+	file://COPYING;md5=4bf661c1e3793e55c8d1051bc5e0ae21
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-FRIBIDI_CONF_TOOL	:= autoconf
+FRIBIDI_CONF_TOOL	:= meson
 FRIBIDI_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-debug \
-	--disable-deprecated
+	$(CROSS_MESON_USR) \
+	-Dbin=false \
+	-Ddeprecated=false \
+	-Ddocs=false \
+	-Dtests=false
 
 # ----------------------------------------------------------------------------
 # Target-Install

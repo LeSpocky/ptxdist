@@ -2,6 +2,7 @@
 
 config FRIBIDI
 	tristate
+	select HOST_MESON
 	prompt "fribidi"
 	help
 	  Free Implementation of the Unicode BiDi algorithm
