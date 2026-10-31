@@ -15,9 +15,9 @@ PACKAGES-$(PTXCONF_WESTON) += weston
 #
 # Paths and names
 #
-WESTON_VERSION	:= 16.0.1
+WESTON_VERSION	:= 16.0.2
 LIBWESTON_MAJOR := 16
-WESTON_MD5	:= e8ba90db417689b2fca24580764d2f6d
+WESTON_SHA256	:= 789d1254ccc6a7c04cd25be717eba1bdd7d14f14d43cff980a5536d60cdf25a5
 WESTON		:= weston-$(WESTON_VERSION)
 WESTON_SUFFIX	:= tar.gz
 WESTON_URL	:= https://gitlab.freedesktop.org/wayland/weston/-/archive/$(WESTON_VERSION)/$(WESTON).$(WESTON_SUFFIX)
