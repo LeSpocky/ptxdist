@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_GNUTLS) += gnutls
 #
 # Paths and names
 #
-GNUTLS_VERSION		:= 3.8.10
-GNUTLS_SHA256		:= db7fab7cce791e7727ebbef2334301c821d79a550ec55c9ef096b610b03eb6b7
+GNUTLS_VERSION		:= 3.8.13
+GNUTLS_SHA256		:= ffed8ec1bf09c2426d4f14aae377de4753b53e537d685e604e99a8b16ca9c97e
 GNUTLS			:= gnutls-$(GNUTLS_VERSION)
 GNUTLS_SUFFIX		:= tar.xz
 GNUTLS_URL		:= https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/$(GNUTLS).$(GNUTLS_SUFFIX)
@@ -77,6 +77,8 @@ GNUTLS_CONF_OPT		:= \
 	--$(call ptx/endis, PTXCONF_GNUTLS_AFALG)-afalg \
 	--$(call ptx/endis, PTXCONF_GNUTLS_KTLS)-ktls \
 	--enable-ocsp \
+	--disable-crypto-auditing \
+	--disable-hpke \
 	--$(call ptx/endis, PTXCONF_GNUTLS_OPENSSL)-openssl-compatibility \
 	--disable-tests \
 	--disable-fuzzer-target \
