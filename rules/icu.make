@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_ICU) += icu
 #
 # Paths and names
 #
-ICU_VERSION	:= 78.3
-ICU_SHA256	:= 3a2e7a47604ba702f345878308e6fefeca612ee895cf4a5f222e7955fabfe0c0
+ICU_VERSION	:= 79.1
+ICU_SHA256	:= 06fa63ecb521048f8082f12ad988f6b678d90cbd88aafce24cbc94902b191d99
 ICU		:= icu4c-$(ICU_VERSION)-sources
 ICU_SUFFIX	:= tgz
 ICU_URL		:= https://github.com/unicode-org/icu/releases/download/release-$(ICU_VERSION)/$(ICU).$(ICU_SUFFIX)
@@ -24,7 +24,7 @@ ICU_DIR		:= $(BUILDDIR)/$(ICU)
 ICU_SUBDIR	:= source
 ICU_LICENSE	:= MIT AND Unicode-3.0 AND public_domain AND BSD-3-Clause
 ICU_LICENSE_FILES := \
-	file://LICENSE;md5=e531a388be7c1df9a0fb7b4010c9c1d7
+	file://LICENSE;md5=b2329a1b467abf456a6eb531b5000855
 
 # ----------------------------------------------------------------------------
 # Prepare
