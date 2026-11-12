@@ -46,7 +46,7 @@ WESTON_CONF_OPT		:= \
 	-Dbackend-wayland=$(call ptx/truefalse,PTXCONF_WESTON_GL) \
 	-Dbackend-x11=false \
 	-Dcolor-management-lcms=$(call ptx/truefalse,PTXCONF_WESTON_COLOR_MANAGEMENT_LCMS) \
-	-Ddemo-clients=$(call ptx/truefalse,PTXCONF_WESTON_IVISHELL_EXAMPLE) \
+	-Ddemo-clients=$(call ptx/truefalse,PTXCONF_WESTON_DEMO_CLIENTS) \
 	-Ddeprecated-pipewire=false \
 	-Ddeprecated-remoting=false \
 	-Ddeprecated-xdg-shell-v6-unstable=false \
@@ -92,6 +92,27 @@ endif
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
+
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_CLICKDOT)	+= clickdot
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_CLIPTEST)	+= cliptest
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_COLOR)	+= color
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_CONSTRAIT)	+= constraints
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_CONTENT_PROTECTION)	+= content_protection
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_DND)		+= dnd
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_EDITOR)	+= editor
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_EVENTDEMO)	+= eventdemo
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_FLOWER)	+= flower
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_FULLSCREEN)	+= fullscreen
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_IMAGE)	+= image
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_MULTI_RESOURCE)	+= multi-resource
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_PRESENTATION_SHM)	+= presentation-shm
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_RESIZOR)	+= resizor
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_SCALER)	+= scaler
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_SMOKE)	+= smoke
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_STACKING)	+= stacking
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_SUBSURFACES)	+= subsurfaces
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_TABLET)	+= tablet
+WESTON_DEMO_CLIENTS-$(PTXCONF_WESTON_DEMO_TRANSFORMED)	+= transformed
 
 $(STATEDIR)/weston.targetinstall:
 	@$(call targetinfo)
@@ -208,16 +229,11 @@ ifdef PTXCONF_WESTON_IVISHELL_EXAMPLE
 		sidebyside.png \
 		tiling.png, \
 		$(call install_copy, weston, 0, 0, 0644, -, /usr/share/weston/$(image))$(ptx/nl))
+endif
 
-	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-clickdot)
-	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-flower)
-ifdef PTXCONF_WESTON_GL
-	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-egl)
-endif
-	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-simple-shm)
-	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-smoke)
-	@$(call install_copy, weston, 0, 0, 0755, -, /usr/bin/weston-tablet)
-endif
+	@$(foreach bin, $(WESTON_DEMO_CLIENTS-y), \
+		$(call install_copy, weston, 0, 0, 0755, -, \
+			/usr/bin/weston-$(bin))$(ptx/nl))
 
 	@$(call install_finish, weston)
 

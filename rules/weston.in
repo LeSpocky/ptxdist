@@ -31,7 +31,7 @@ menuconfig WESTON
 	select SYSTEMD			if WESTON_SYSTEMD
 	select LUA			if WESTON_SHELL_LUA
 	select LUA_INSTALL_LIBLUA	if WESTON_SHELL_LUA
-	select PANGO			if WESTON_IVISHELL_EXAMPLE
+	select PANGO			if WESTON_DEMO_CLIENTS
 	select PIPEWIRE			if WESTON_BACKEND_PIPEWIRE
 	select NEATVNC			if WESTON_BACKEND_VNC
 	select PAM			if WESTON_BACKEND_VNC
@@ -91,6 +91,12 @@ config WESTON_IVISHELL_EXAMPLE
 	bool
 	depends on WESTON_IVISHELL
 	select WESTON_INSTALL_CONFIG
+	select WESTON_DEMO_CLIENTS
+	select WESTON_DEMO_CLICKDOT
+	select WESTON_DEMO_FLOWER
+	select WESTON_DEMO_SMOKE
+	select WESTON_DEMO_TABLET
+	select WESTON_SIMPLE_CLIENTS
 	prompt "install example IVI-Shell user interface"
 	help
 	  Install the example hmi-controller, the IVI-Shell user interface
@@ -110,6 +116,96 @@ config WESTON_SIMPLE_CLIENTS
 	prompt "simple clients"
 	help
 	  Install the weston-simple-* test clients.
+
+config WESTON_DEMO_CLIENTS
+	bool
+	prompt "demo clients"
+	help
+	  Install the selected Weston demo clients.
+
+if WESTON_DEMO_CLIENTS
+
+config WESTON_DEMO_CLICKDOT
+	bool
+	prompt "weston-clickdot"
+
+config WESTON_DEMO_CLIPTEST
+	bool
+	prompt "weston-cliptest"
+
+config WESTON_DEMO_COLOR
+	bool
+	prompt "weston-color"
+
+config WESTON_DEMO_CONSTRAIT
+	bool
+	prompt "weston-contraint"
+
+config WESTON_DEMO_CONTENT_PROTECTION
+	bool
+	prompt "weston-content-protection"
+
+config WESTON_DEMO_DND
+	bool
+	prompt "weston-dnd"
+
+config WESTON_DEMO_EDITOR
+	bool
+	prompt "weston-editor"
+
+config WESTON_DEMO_EVENTDEMO
+	bool
+	prompt "weston-eventdemo"
+
+config WESTON_DEMO_FLOWER
+	bool
+	prompt "weston-flower"
+
+config WESTON_DEMO_FULLSCREEN
+	bool
+	prompt "weston-fullscreen"
+
+config WESTON_DEMO_IMAGE
+	bool
+	prompt "weston-image"
+
+config WESTON_DEMO_MULTI_RESOURCE
+	bool
+	prompt "weston-multi-resource"
+
+config WESTON_DEMO_PRESENTATION_SHM
+	bool
+	prompt "weston-presentation-shm"
+
+config WESTON_DEMO_RESIZOR
+	bool
+	prompt "weston-resizor"
+
+config WESTON_DEMO_SCALER
+	bool
+	prompt "weston-scaler"
+
+config WESTON_DEMO_SMOKE
+	bool
+	prompt "weston-smoke"
+
+config WESTON_DEMO_STACKING
+	bool
+	prompt "weston-stacking"
+
+config WESTON_DEMO_SUBSURFACES
+	bool
+	prompt "weston-subsurfaces"
+
+config WESTON_DEMO_TABLET
+	bool
+	prompt "weston-tablet"
+
+config WESTON_DEMO_TRANSFORMED
+	bool
+	prompt "weston-transformed"
+
+endif
 
 config WESTON_TOUCH_CALIBRATOR
 	bool
