@@ -119,6 +119,7 @@ config WESTON_SIMPLE_CLIENTS
 
 config WESTON_DEMO_CLIENTS
 	bool
+	select WESTON_GL
 	prompt "demo clients"
 	help
 	  Install the selected Weston demo clients.
