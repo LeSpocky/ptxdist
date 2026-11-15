@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_TPM2_TSS) += tpm2-tss
 #
 # Paths and names
 #
-TPM2_TSS_VERSION	:= 4.2.1
-TPM2_TSS_SHA256		:= d4aadbc1610876385a370494bbfd7d994356f446dff60cd09eea5933befb1471
+TPM2_TSS_VERSION	:= 4.2.2
+TPM2_TSS_SHA256		:= bd4efc89ee01aca8ff771cae268d84333b7594c2d4afee50bb13b859f1113c3f
 TPM2_TSS		:= tpm2-tss-$(TPM2_TSS_VERSION)
 TPM2_TSS_SUFFIX		:= tar.gz
 TPM2_TSS_URL		:= https://github.com/tpm2-software/tpm2-tss/releases/download/$(TPM2_TSS_VERSION)/$(TPM2_TSS).$(TPM2_TSS_SUFFIX)
