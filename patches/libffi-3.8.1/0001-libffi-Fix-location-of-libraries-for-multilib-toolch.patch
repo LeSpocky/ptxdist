@@ -10,10 +10,10 @@ Signed-off-by: Christian Melki <christian.melki@t2data.com>
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/Makefile.am b/Makefile.am
-index 74f87259b179..2581d5fa6c20 100644
+index e35113b2b008..1771c659256c 100644
 --- a/Makefile.am
 +++ b/Makefile.am
-@@ -39,7 +39,7 @@ MAKEOVERRIDES=
+@@ -43,7 +43,7 @@ MAKEOVERRIDES=
  pkgconfigdir = $(libdir)/pkgconfig
  pkgconfig_DATA = libffi.pc
  
