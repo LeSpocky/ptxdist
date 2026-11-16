@@ -7,6 +7,7 @@ menuconfig STRONGSWAN
 	select LIBCURL if STRONGSWAN_LIBCURL
 	select OPENSSL if STRONGSWAN_OPENSSL
 	select SYSTEMD if STRONGSWAN_SYSTEMD_UNIT
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  strongSwan is a complete IPsec implementation.
 	  Please keep in mind to configure the kernel accordingly to fulfill

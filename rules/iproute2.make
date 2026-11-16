@@ -40,6 +40,9 @@ $(STATEDIR)/iproute2.prepare:
 ifndef PTXCONF_IPROUTE2_ARPD
 	@echo 'HAVE_BERKELEY_DB:=n'	>> $(IPROUTE2_DIR)/config.mk
 endif
+ifndef PTXCONF_GLOBAL_SELINUX
+	@echo 'HAVE_SELINUX:=n'		>> $(IPROUTE2_DIR)/config.mk
+endif
 	@$(call touch)
 
 IPROUTE2_MAKE_OPT := \

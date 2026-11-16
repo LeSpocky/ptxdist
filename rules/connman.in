@@ -14,6 +14,7 @@ menuconfig CONNMAN
 	select WPA_SUPPLICANT_CTRL_IFACE_DBUS	if CONNMAN_WIFI
 	select BUSYBOX_START_STOP_DAEMON	if CONNMAN_STARTSCRIPT && RUNTIME
 	select ROOTFS_VAR_LIB			if RUNTIME
+	select LIBSELINUX	if GLOBAL_SELINUX
 	prompt "connman                       "
 	help
 	  The Connection Manager project provides a daemon for

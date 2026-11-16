@@ -8,6 +8,7 @@ menuconfig MTD_UTILS
 	select ZLIB
 	select LIBUUID		if MTD_UTILS_UBIFS
 	select LIBLZO		if MTD_UTILS_USE_LIBLZO
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  Memory Technology Device Utilities
 

@@ -6,6 +6,7 @@ menuconfig LOGROTATE
 	select LIBPOPT
 	select ACL if LOGROTATE_ACL
 	select ROOTFS_VAR_LIB		if RUNTIME
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  The logrotate utility is designed to simplify the
 	  administration of log files on a system which generates a lot

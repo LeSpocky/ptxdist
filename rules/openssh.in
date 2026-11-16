@@ -9,6 +9,7 @@ menuconfig OPENSSH
 	select RC_ONCE if OPENSSH_SSHD_GENKEYS && RUNTIME
 	select BUSYBOX_START_STOP_DAEMON if OPENSSH_SSHD_STARTSCRIPT
 	select OPENSSH_KEYGEN if OPENSSH_SSHD_GENKEYS
+	select LIBSELINUX	if GLOBAL_SELINUX
 	prompt "openssh                       "
 	help
 	  secure shell client/server, an rlogin/rsh/rcp replacement

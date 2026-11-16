@@ -9,6 +9,7 @@ menuconfig AT
 	select ROOTFS_VAR_SPOOL_CRON
 	select BUSYBOX_START_STOP_DAEMON			if AT_STARTSCRIPT
 	select BUSYBOX_FEATURE_START_STOP_DAEMON_FANCY		if AT_STARTSCRIPT
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  Delayed job execution and batch processing
 

@@ -15,6 +15,7 @@ menuconfig GNUPG
 	select BZIP2_LIBBZ2 if GNUPG_GPG_BZIP2
 	# disabling GNUPG_GPG_EDDSA is broken
 	select GNUPG_GPG_EDDSA
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  GnuPG - The GNU Privacy Guard suite of programs
 

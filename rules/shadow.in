@@ -7,6 +7,8 @@ menuconfig SHADOW
 	depends on (!BUSYBOX_ADDUSER && !BUSYBOX_ADDGROUP && !BUSYBOX_LOGIN && !BUSYBOX_PASSWD && !BUSYBOX_SU) || ALLYES
 	select LIBC_CRYPT
 	select PAM		if GLOBAL_PAM
+	select LIBSELINUX	if GLOBAL_SELINUX
+	select LIBSEMANAGE	if GLOBAL_SELINUX
 	prompt "shadow                        "
 	help
 	  Password and account management tool suite with support

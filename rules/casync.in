@@ -16,6 +16,7 @@ menuconfig CASYNC
 	select UDEV_LIBUDEV	if CASYNC_UDEV
 	select XZ		if CASYNC_LZMA
 	select ZLIB		if CASYNC_ZLIB
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  casync - Content Addressable Data Synchronizer.
 

@@ -8,6 +8,7 @@ menuconfig COREUTILS
 	select GCCLIBS_GCC_S
 	select ATTR		if COREUTILS_XATTR
 	select SYSTEMD		if COREUTILS_SYSTEMD
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  This package contains the essential basic system utilities.
 

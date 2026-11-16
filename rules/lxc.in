@@ -13,6 +13,7 @@ menuconfig LXC
 	select IPTABLES_IPV4		if LXC_SYSTEMD_UNIT
 	select IPTABLES_IPV6		if LXC_SYSTEMD_UNIT
 	select IPTABLES_INSTALL_TOOLS	if LXC_SYSTEMD_UNIT
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  LXC is a userspace interface for the Linux kernel containment
 	  features. Through a powerful API and simple tools, it lets

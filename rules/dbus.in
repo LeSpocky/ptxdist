@@ -8,6 +8,7 @@ menuconfig DBUS
 	select XORG_LIB_X11	if DBUS_X
 	select MACHINE_ID	if RUNTIME
 	select SYSTEMD		if DBUS_SYSTEMD
+	select LIBSELINUX	if GLOBAL_SELINUX
 	select LIBC_PTHREAD
 	select LIBC_RT
 	help
@@ -26,11 +27,6 @@ menuconfig DBUS
 	  and Java.
 
 if DBUS
-
-config DBUS_SELINUX
-	prompt "selinux support [BROKEN]"
-	depends on BROKEN
-	bool
 
 config DBUS_SYSTEMD
 	bool
