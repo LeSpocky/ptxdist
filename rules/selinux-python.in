@@ -1,0 +1,12 @@
+## SECTION=selinux
+
+config SELINUX_PYTHON
+	tristate
+	prompt "selinux-python"
+	select PYTHON3
+	select LIBSEPOL
+	select LIBSELINUX
+	select PYTHON3_LIBSELINUX
+	help
+	  audit2allow and the sepolgen python module it uses to
+	  generate SELinux policy from audit messages.
