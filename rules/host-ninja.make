@@ -14,8 +14,8 @@ HOST_PACKAGES-$(PTXCONF_HOST_NINJA) += host-ninja
 #
 # Paths and names
 #
-HOST_NINJA_VERSION	:= 1.11.1.g95dee.kitware.jobserver-1
-HOST_NINJA_SHA256	:= 7ba84551f5b315b4270dc7c51adef5dff83a2154a3665a6c9744245c122dd0db
+HOST_NINJA_VERSION	:= 1.13.2.g7659b.kitware.jobserver-pipe-1
+HOST_NINJA_SHA256	:= d3d8408c3ed8898cc178dc87aaab620c101f45d82941a17765a19507ca1155d1
 HOST_NINJA		:= ninja-$(HOST_NINJA_VERSION)
 HOST_NINJA_SUFFIX	:= tar.gz
 HOST_NINJA_URL		:= https://github.com/Kitware/ninja/archive/refs/tags/v$(HOST_NINJA_VERSION).$(HOST_NINJA_SUFFIX)
