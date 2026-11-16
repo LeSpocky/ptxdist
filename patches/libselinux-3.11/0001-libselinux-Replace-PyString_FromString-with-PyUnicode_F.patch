@@ -1,0 +1,48 @@
+From: Petr Lautrbach <lautrbach@redhat.com>
+Date: Thu, 6 Aug 2026 16:30:44 +0200
+Subject: [PATCH] libselinux: Replace PyString_FromString with
+ PyUnicode_FromString for SWIG 4.5.0 compatibility
+
+SWIG 4.5.0 removed Python 2 C API compatibility macros (PyInt_*,
+PyString_*, SWIG_Python_str_*) from its runtime header pyhead.swg.
+These macros previously mapped deprecated Python 2 C API names to their
+Python 3 equivalents.
+
+Fixes: https://github.com/SELinuxProject/selinux/issues/538
+Authored-by: Jitka Plesníková <jplesnik@redhat.com>
+Signed-off-by: Petr Lautrbach <lautrbach@redhat.com>
+Acked-by: Stephen Smalley <stephen.smalley.work@gmail.com>
+---
+ src/selinuxswig_python.i | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/selinuxswig_python.i b/src/selinuxswig_python.i
+--- a/src/selinuxswig_python.i
++++ b/src/selinuxswig_python.i
+@@ -69,7 +69,7 @@
+ 	PyObject* list = PyList_New(*$2);
+ 	int i;
+ 	for (i = 0; i < *$2; i++) {
+-		PyList_SetItem(list, i, PyString_FromString((*$1)[i]));
++		PyList_SetItem(list, i, PyUnicode_FromString((*$1)[i]));
+ 	}
+ 	$result = SWIG_AppendOutput($result, list);
+ }
+@@ -102,7 +102,7 @@
+ 			len++;
+ 		plist = PyList_New(len);
+ 		for (i = 0; i < len; i++) {
+-			PyList_SetItem(plist, i, PyString_FromString((*$1)[i]));
++			PyList_SetItem(plist, i, PyUnicode_FromString((*$1)[i]));
+ 		}
+ 	} else {
+ 		plist = PyList_New(0);
+@@ -119,7 +119,7 @@
+ 	if (*$1) {
+ 		plist = PyList_New(result);
+ 		for (i = 0; i < result; i++) {
+-			PyList_SetItem(plist, i, PyString_FromString((*$1)[i]));
++			PyList_SetItem(plist, i, PyUnicode_FromString((*$1)[i]));
+ 		}
+ 	} else {
+ 		plist = PyList_New(0);

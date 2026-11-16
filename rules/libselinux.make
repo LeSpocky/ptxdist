@@ -14,61 +14,71 @@ PACKAGES-$(PTXCONF_LIBSELINUX) += libselinux
 #
 # Paths and names
 #
-LIBSELINUX_VERSION	:= 2.1.12
-LIBSELINUX_MD5		:= 73270f384a032fad34b5fe075fa05ce2
+LIBSELINUX_VERSION	:= $(SELINUX_VERSION)
+LIBSELINUX_SHA256	:= 73d419c6e20e874adaa4019372cbd097eecf4d276e13f27ec5e67d35c0bd203c
 LIBSELINUX		:= libselinux-$(LIBSELINUX_VERSION)
 LIBSELINUX_SUFFIX	:= tar.gz
-LIBSELINUX_URL		:= https://raw.githubusercontent.com/wiki/SELinuxProject/selinux/files/releases/20120924/$(LIBSELINUX).$(LIBSELINUX_SUFFIX)
+LIBSELINUX_URL		:= $(SELINUX_URL)/$(LIBSELINUX).$(LIBSELINUX_SUFFIX)
 LIBSELINUX_SOURCE	:= $(SRCDIR)/$(LIBSELINUX).$(LIBSELINUX_SUFFIX)
 LIBSELINUX_DIR		:= $(BUILDDIR)/$(LIBSELINUX)
 LIBSELINUX_LICENSE	:= public_domain
+LIBSELINUX_LICENSE_FILES	:= file://LICENSE;md5=84b4d2c6ef954a2d4081e775a270d0d0
+LIBSELINUX_CVE_PRODUCT	:= selinuxproject:libselinux
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-LIBSELINUX_CONF_TOOL := NO
-# no := due to CROSS_PYTHON
-LIBSELINUX_MAKE_ENV = \
-	$(CROSS_ENV) \
-	CFLAGS="-O2 -Wall -g" \
-	PYTHON=$(CROSS_PYTHON)
-LIBSELINUX_MAKE_OPT := \
-	LIBDIR=$(PTXDIST_SYSROOT_TARGET)/usr/lib
-LIBSELINUX_INSTALL_OPT := \
-	install
+LIBSELINUX_CONF_TOOL	:= NO
+LIBSELINUX_MAKE_ENV	:= $(CROSS_ENV)
+LIBSELINUX_MAKE_OPT	= \
+	PREFIX=/usr \
+	LIBDIR=/usr/lib \
+	SHLIBDIR=/usr/lib \
+	INCLUDEDIR=/usr/include \
+	SBINDIR=/usr/sbin \
+	USE_PCRE2=y \
+	USE_LFS=y \
+	DISABLE_SHARED=n \
+	DISABLE_BOOL=n \
+	DISABLE_SETRANS=n \
+	DISABLE_RPM=n \
+	DISABLE_X11=y \
+	ANDROID_HOST=n \
+	LABEL_BACKEND_ANDROID=n \
+	CFLAGS="-O2 -Wall -g"
 
-ifdef PTXCONF_LIBSELINUX_PYTHON
-LIBSELINUX_MAKE_OPT	+= pywrap
-LIBSELINUX_INSTALL_OPT	+= install-pywrap
-endif
+LIBSELINUX_INSTALL_OPT	= \
+	$(LIBSELINUX_MAKE_OPT) \
+	install
 
 # ----------------------------------------------------------------------------
 # Target-Install
 # ----------------------------------------------------------------------------
 
-LIBSELINUX_PROGS := \
+LIBSELINUX_PROGS-$(PTXCONF_LIBSELINUX_UTILS) := \
 	avcstat \
 	compute_av \
 	compute_create \
 	compute_member \
 	compute_relabel \
-	compute_user \
 	getconlist \
 	getdefaultcon \
-	getenforce \
 	getfilecon \
 	getpidcon \
-	getsebool \
 	getseuser \
-	matchpathcon \
 	policyvers \
+	sefcontext_compile \
 	selinux_check_securetty_context \
-	selinuxenabled \
 	selinuxexeccon \
-	setenforce \
 	setfilecon \
 	togglesebool
+
+LIBSELINUX_PROGS-$(PTXCONF_LIBSELINUX_GETENFORCE)	+= getenforce
+LIBSELINUX_PROGS-$(PTXCONF_LIBSELINUX_GETSEBOOL)	+= getsebool
+LIBSELINUX_PROGS-$(PTXCONF_LIBSELINUX_MATCHPATHCON)	+= matchpathcon
+LIBSELINUX_PROGS-$(PTXCONF_LIBSELINUX_SELINUXENABLED)	+= selinuxenabled
+LIBSELINUX_PROGS-$(PTXCONF_LIBSELINUX_SETENFORCE)	+= setenforce
 
 $(STATEDIR)/libselinux.targetinstall:
 	@$(call targetinfo)
@@ -81,12 +91,9 @@ $(STATEDIR)/libselinux.targetinstall:
 
 	@$(call install_lib, libselinux, 0, 0, 0644, libselinux)
 
-	@$(foreach prog, $(LIBSELINUX_PROGS), \
-		$(call install_copy, libselinux, 0, 0, 0755, -, /usr/sbin/$(prog));)
+	@$(foreach prog, $(LIBSELINUX_PROGS-y), \
+		$(call install_copy, libselinux, 0, 0, 0755, -, /usr/sbin/$(prog))$(ptx/nl))
 
-ifdef PTXCONF_LIBSELINUX_PYTHON
-	@$(call install_tree, libselinux, 0, 0, -, $(PYTHON_SITEPACKAGES))
-endif
 	@$(call install_finish, libselinux)
 
 	@$(call touch)

@@ -1,27 +1,60 @@
-## SECTION=staging
-## old section:
-### SECTION=selinux
+## SECTION=selinux
 
 menuconfig LIBSELINUX
 	tristate
 	prompt "libselinux                    "
-	select LIBPCRE
+	select LIBC_DL
+	select PCRE2
+	select PCRE2_8
 	select LIBSEPOL
-	select PYTHON		if LIBSELINUX_PYTHON
-	select HOST_SWIG	if LIBSELINUX_PYTHON
 	help
 	  libselinux provides an API for SELinux applications to get and set
 	  process and file security contexts and to obtain security policy
 	  decisions. Required for any applications that use the SELinux
 	  API.
 
-	  STAGING: remove in ptxdist-2020.12.0
-	  Old version that need to be updated. Fails to build with gcc >= 9.x.
-
 if LIBSELINUX
 
-config LIBSELINUX_PYTHON
-	bool "python wrapper"
-	depends on STAGING
+config LIBSELINUX_UTILS
+	bool "install utilities"
+
+if LIBSELINUX_UTILS
+
+config LIBSELINUX_GETENFORCE
+	bool "getenforce"
+	depends on !BUSYBOX_GETENFORCE || ALLYES
+
+comment "busybox' getenforce is selected!"
+	depends on BUSYBOX_GETENFORCE
+
+config LIBSELINUX_GETSEBOOL
+	bool "getsebool"
+	depends on !BUSYBOX_GETSEBOOL || ALLYES
+
+comment "busybox' getsebool is selected!"
+	depends on BUSYBOX_GETSEBOOL
+
+config LIBSELINUX_MATCHPATHCON
+	bool "matchpathcon"
+	depends on !BUSYBOX_MATCHPATHCON || ALLYES
+
+comment "busybox' matchpathcon is selected!"
+	depends on BUSYBOX_MATCHPATHCON
+
+config LIBSELINUX_SELINUXENABLED
+	bool "selinuxenabled"
+	depends on !BUSYBOX_SELINUXENABLED || ALLYES
+
+comment "busybox' selinuxenabled is selected!"
+	depends on BUSYBOX_SELINUXENABLED
+
+config LIBSELINUX_SETENFORCE
+	bool "setenforce"
+	depends on !BUSYBOX_SETENFORCE || ALLYES
+
+comment "busybox' setenforce is selected!"
+	depends on BUSYBOX_SETENFORCE
+
+endif
 
 endif
