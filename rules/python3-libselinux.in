@@ -1,0 +1,12 @@
+## SECTION=selinux
+
+config PYTHON3_LIBSELINUX
+	tristate
+	prompt "python3-libselinux"
+	select LIBSELINUX
+	select LIBSEPOL
+	select PYTHON3
+	select HOST_SWIG
+	select HOST_PYTHON3_SETUPTOOLS
+	help
+	  Python bindings for libselinux.
