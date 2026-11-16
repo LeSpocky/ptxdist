@@ -1,18 +1,10 @@
-## SECTION=staging
-## old section:
-### SECTION=selinux
+## SECTION=selinux
 
 config CHECKPOLICY
 	tristate
 	prompt "checkpolicy"
-	#
-	# The target package is not functional yet, but we need the host
-	# package. Depend on broken for now.
-	#
-	depends on BROKEN
-	select LIBSELINUX
 	select LIBSEPOL
-	select FLEX
+	select HOST_FLEX
 	help
 	  Security-enhanced Linux is a patch of the Linux kernel and a
 	  number of utilities with enhanced security functionality
@@ -31,6 +23,3 @@ config CHECKPOLICY
 	  the static libsepol since it deals with low level details of
 	  the policy that have not been encapsulated/abstracted by a
 	  proper shared library interface.
-
-	  STAGING: remove in ptxdist-2020.12.0
-	  Old version that need to be updated. Moved to staging with libselinux.

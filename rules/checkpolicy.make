@@ -14,27 +14,26 @@ PACKAGES-$(PTXCONF_CHECKPOLICY) += checkpolicy
 #
 # Paths and names
 #
-CHECKPOLICY_VERSION	:= 2.1.11
-CHECKPOLICY_MD5		:= 046b590de004f8a6cee655c4e95a7970
+CHECKPOLICY_VERSION	:= $(SELINUX_VERSION)
+CHECKPOLICY_SHA256	:= 9b81bfceef7fa9d02f9872e56a786f343dc58ef4b5713dce0d5c416e5b84cefa
 CHECKPOLICY		:= checkpolicy-$(CHECKPOLICY_VERSION)
 CHECKPOLICY_SUFFIX	:= tar.gz
-CHECKPOLICY_URL		:= https://raw.githubusercontent.com/wiki/SELinuxProject/selinux/files/releases/20120924/$(CHECKPOLICY).$(CHECKPOLICY_SUFFIX)
+CHECKPOLICY_URL		:= $(SELINUX_URL)/$(CHECKPOLICY).$(CHECKPOLICY_SUFFIX)
 CHECKPOLICY_SOURCE	:= $(SRCDIR)/$(CHECKPOLICY).$(CHECKPOLICY_SUFFIX)
 CHECKPOLICY_DIR		:= $(BUILDDIR)/$(CHECKPOLICY)
-CHECKPOLICY_LICENSE	:= unknown
+CHECKPOLICY_LICENSE	:= GPL-2.0-only AND LGPL-2.1-or-later
+CHECKPOLICY_LICENSE_FILES	:= file://LICENSE;md5=393a5ca445f6965873eca0259a17f833
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-#
-# autoconf
-#
-CHECKPOLICY_CONF_TOOL := NO
-CHECKPOLICY_MAKE_ENV := $(CROSS_ENV)
-CHECKPOLICY_MAKE_OPT := LIBDIR=$(PTXDIST_SYSROOT_TARGET)/usr/lib
-CHECKPOLICY_INSTALL_OPT = \
-	PREFIX=$(CHECKPOLICY_PKGDIR) \
+CHECKPOLICY_CONF_TOOL	:= NO
+CHECKPOLICY_MAKE_ENV	:= $(CROSS_ENV)
+CHECKPOLICY_MAKE_OPT	:= \
+	CFLAGS="-O2 -Wall -g"
+CHECKPOLICY_INSTALL_OPT	:= \
+	$(CHECKPOLICY_MAKE_OPT) \
 	install
 
 # ----------------------------------------------------------------------------
@@ -50,7 +49,8 @@ $(STATEDIR)/checkpolicy.targetinstall:
 	@$(call install_fixup, checkpolicy,AUTHOR,"Marc Kleine-Budde <mkl@pengutronix.de>")
 	@$(call install_fixup, checkpolicy,DESCRIPTION,missing)
 
-	@$(call install_copy, checkpolicy, 0, 0, 0755, $(CHECKPOLICY_DIR)/foobar, /dev/null)
+	@$(call install_copy, checkpolicy, 0, 0, 0755, -, /usr/bin/checkpolicy)
+	@$(call install_copy, checkpolicy, 0, 0, 0755, -, /usr/bin/checkmodule)
 
 	@$(call install_finish, checkpolicy)
 
