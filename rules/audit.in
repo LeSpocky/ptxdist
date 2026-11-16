@@ -1,0 +1,19 @@
+## SECTION=security
+
+menuconfig AUDIT
+	tristate
+	prompt "audit                         "
+	select LIBCAP_NG
+	help
+	  Linux audit userspace: libaudit, libauparse and the auditd
+	  daemon with its tools.
+
+if AUDIT
+
+config AUDIT_TOOLS
+	bool
+	prompt "install auditd and tools"
+	help
+	  Install auditd, auditctl, augenrules, ausearch and aureport.
+
+endif
