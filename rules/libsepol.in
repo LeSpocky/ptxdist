@@ -3,6 +3,7 @@
 config LIBSEPOL
 	tristate
 	prompt "libsepol"
+	select HOST_FLEX
 	help
 	  libsepol provides an API for the manipulation of SELinux binary policies.
 	  It is used by checkpolicy (the policy compiler) and similar tools, as well
