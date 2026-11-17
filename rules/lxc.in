@@ -3,6 +3,7 @@
 menuconfig LXC
 	tristate
 	prompt "lxc                           "
+	select HOST_MESON
 	select LIBCAP
 	select LIBSECCOMP
 	select GLIBC_GETENT

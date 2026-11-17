@@ -14,57 +14,63 @@ PACKAGES-$(PTXCONF_LXC) += lxc
 #
 # Paths and names
 #
-LXC_VERSION	:= 3.0.1
-LXC_SHA256	:= 45986c49be1c048fa127bd3e7ea1bd3347e25765c008a09a2e4c233151a2d5db
+LXC_VERSION	:= 6.0.6
+LXC_SHA256	:= b0ba4537258d2b848fd07dedb1044dab132de3fb3f1976d240da40a7dee1b8cf
 LXC		:= lxc-$(LXC_VERSION)
 LXC_SUFFIX	:= tar.gz
 LXC_URL		:= https://linuxcontainers.org/downloads/lxc/$(LXC).$(LXC_SUFFIX)
 LXC_SOURCE	:= $(SRCDIR)/$(LXC).$(LXC_SUFFIX)
 LXC_DIR		:= $(BUILDDIR)/$(LXC)
-LXC_LICENSE	:= unknown
+LXC_LICENSE	:= LGPL-2.1-or-later AND GPL-2.0-only
+LXC_LICENSE_FILES := \
+	file://COPYING;md5=4b6551da9cb7d5b3017d1c0a3e31469b \
+	file://LICENSE.LGPL2.1;md5=4fbd65380cdd255951079008b364516c \
+	file://LICENSE.GPL2;md5=751419260aa954499f7abaabaa882bbe
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-#LXC_CONF_ENV	:= $(CROSS_ENV)
-
-#
-# autoconf
-#
-LXC_CONF_TOOL	:= autoconf
+# distrosysconfdir is pinned: when empty, meson picks sysconfig or default
+# from the build host's /etc.
+LXC_CONF_TOOL	:= meson
 LXC_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--enable-silent-rules \
-	--enable-dependency-tracking \
-	--enable-shared \
-	--disable-static \
-	--disable-fast-install \
-	--disable-libtool-lock \
-	--disable-werror \
-	--disable-rpath \
-	--disable-doc \
-	--disable-api-docs \
-	--disable-apparmor \
-	--disable-gnutls \
-	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux \
-	--enable-seccomp \
-	--enable-capabilities \
-	--disable-examples \
-	--disable-mutex-debugging \
-	--disable-bash \
-	--enable-tools \
-	--enable-commands \
-	--$(call ptx/endis, PTXCONF_LXC_TEST_TOOLS)-tests \
-	--enable-configpath-log \
-	--disable-pam \
-	--with-init-script=systemd \
-	--with-systemdsystemunitdir=/usr/lib/systemd/system/ \
-	--with-distro=unknown \
-	--with-usernic-conf \
-	--with-usernic-db \
-	--with-log-path=/var/log \
-	--with-pamdir=none
+	$(CROSS_MESON_USR) \
+	-Dapi-docs=false \
+	-Dapparmor=false \
+	-Dapparmor-cache-path=cache/lxc/apparmor \
+	-Dcapabilities=true \
+	-Dcgroup-pattern= \
+	-Dcommands=true \
+	-Dcoverity-build=false \
+	-Ddata-path=lib/lxc \
+	-Ddbus=false \
+	-Ddistrosysconfdir=default \
+	-Ddoc-path=doc/lxc \
+	-Dexamples=false \
+	-Dglobal-config-path=lxc \
+	-Dinit-script=$(call ptx/ifdef,PTXCONF_LXC_SYSTEMD_UNIT,systemd,[]) \
+	-Dinstall-init-files=true \
+	-Dinstall-state-dirs=true \
+	-Dio-uring-event-loop=false \
+	-Dlog-path=log/lxc \
+	-Dman=false \
+	-Dmemfd-rexec=true \
+	-Dopenssl=false \
+	-Doss-fuzz=false \
+	-Dpam-cgroup=false \
+	-Drootfs-mount-path=lxc/rootfs \
+	-Druntime-path=/run \
+	-Dseccomp=true \
+	-Dselinux=$(call ptx/truefalse,PTXCONF_GLOBAL_SELINUX) \
+	-Dspecfile=false \
+	-Dsystemd-unitdir=/usr/lib/systemd/system \
+	-Dtests=$(call ptx/truefalse,PTXCONF_LXC_TEST_TOOLS) \
+	-Dthread-safety=true \
+	-Dtools=true \
+	-Dtools-multicall=false \
+	-Dusernet-config-path=lxc/lxc-usernet \
+	-Dusernet-db-path=lxc/nics
 
 LXC_APPLICATIONS := \
 	copy \
@@ -95,51 +101,70 @@ LXC_APPLICATIONS := \
 
 ifdef PTXCONF_LXC_TEST_TOOLS
 LXC_TEST_TOOLS := \
-	containertests \
-	may-control \
-	console \
-	locktests \
-	no-new-privs \
-	snapshot \
-	concurrent \
-	shutdowntest \
-	cgpath \
-	get_item \
-	criu-check-feature \
-	apparmor \
-	share-ns \
-	saveconfig \
-	clonetest \
-	createtest \
-	createconfig \
-	shortlived \
-	rootfs \
-	getkeys \
-	console-log \
-	attach \
-	reboot \
-	automount \
 	api-reboot \
-	destroytest \
-	startone \
-	raw-clone \
-	parse-config-file \
-	config-jump-table \
+	apparmor \
+	apparmor-generated \
+	apparmor-mount \
+	arch-parse \
+	attach \
+	automount \
 	autostart \
-	state-server \
-	list \
-	device-add-remove \
+	basic \
+	capabilities \
+	cgpath \
+	checkpoint-restore \
 	cloneconfig \
-	utils \
-	lxcpath
+	clonetest \
+	concurrent \
+	config-jump-table \
+	console \
+	console-log \
+	containertests \
+	createconfig \
+	createtest \
+	criu-check-feature \
+	cve-2019-5736 \
+	destroytest \
+	device-add-remove \
+	exit-code \
+	get_item \
+	getkeys \
+	list \
+	locktests \
+	lxc-attach \
+	lxcpath \
+	may-control \
+	mount-injection \
+	no-new-privs \
+	parse-config-file \
+	proc-pid \
+	procsys \
+	raw-clone \
+	reboot \
+	rootfs \
+	rootfs-options \
+	saveconfig \
+	share-ns \
+	shortlived \
+	shutdowntest \
+	snapdeps \
+	snapshot \
+	startone \
+	state-server \
+	symlink \
+	sysctls \
+	sys-mixed \
+	unpriv \
+	usernic \
+	usernsexec \
+	utils
 endif
 
 LXC_LIBEXEC_APPS := \
 	containers \
-	net \
-	apparmor-load \
-	user-nic \
 	monitord \
+	net \
+	user-nic
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -156,8 +181,10 @@ $(STATEDIR)/lxc.targetinstall:
 
 	@$(call install_lib, lxc, 0, 0, 0644, liblxc)
 
-	@$(call install_copy, lxc, 0, 0, 0644, /var/lib/lxc)
-	@$(call install_copy, lxc, 0, 0, 0644, /usr/lib/lxc/rootfs)
+	@$(call install_copy, lxc, 0, 0, 0755, -, /usr/sbin/init.lxc)
+
+	@$(call install_copy, lxc, 0, 0, 0755, /var/lib/lxc)
+	@$(call install_copy, lxc, 0, 0, 0755, /usr/lib/lxc/rootfs)
 
 	@$(call install_tree, lxc, 0, 0, -, /usr/share/lxc/config)
 
