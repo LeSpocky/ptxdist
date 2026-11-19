@@ -1,7 +1,7 @@
 ## SECTION=multimedia_libs
 
 menuconfig LIBCAMERA
-	bool
+	tristate
 	select HOST_MESON
 	select HOST_SYSTEM_PYTHON3
 	select HOST_SYSTEM_PYTHON3_JINJA2
