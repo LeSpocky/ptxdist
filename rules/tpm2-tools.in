@@ -6,7 +6,7 @@ menuconfig TPM2_TOOLS
 	select OPENSSL
 	select LIBCURL
 	select EFIVAR		if TPM2_TOOLS_USE_EFIVAR
-	prompt "tpm2-tools"
+	prompt "tpm2-tools                    "
 	help
 	  This package contains a set of tools to use with TPM 2.0
 	  chips, for common tasks and features provided by the
