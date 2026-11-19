@@ -1,7 +1,7 @@
 ## SECTION=multimedia_xorg_support_libs
 
 config GLEW
-	bool
+	tristate
 	select XORG_LIB_X11
 	select MESALIB
 	prompt "glew"
