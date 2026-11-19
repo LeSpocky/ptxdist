@@ -1,7 +1,7 @@
 ## SECTION=disk_and_file
 
 config COMPOSEFS
-	bool
+	tristate
 	prompt "composefs"
 	select HOST_MESON
 	select OPENSSL
