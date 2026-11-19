@@ -1,7 +1,7 @@
 ## SECTION=multimedia_libs
 
 config X264
-	bool
+	tristate
 	select CROSS_NASM
 	prompt "x264 encoder"
 	help
