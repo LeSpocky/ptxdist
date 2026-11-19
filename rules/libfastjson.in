@@ -1,7 +1,7 @@
 ## SECTION=system_libraries
 
 config LIBFASTJSON
-	bool
+	tristate
 	prompt "libfastjson"
 	help
 	  libfastjson is a small and fast C library with most essential
