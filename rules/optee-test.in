@@ -6,7 +6,7 @@ menuconfig OPTEE_TEST
 	select OPTEE_CLIENT_SUPPLICANT_PLUGINS
 	select OPTEE
 	select OPENSSL
-	prompt "optee-test"
+	prompt "optee-test                    "
 	help
 	  The optee_test git contains the source code for the TEE sanity
 	  testsuite in Linux using the ARM(R) TrustZone(R) technology. It is
