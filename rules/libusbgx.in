@@ -1,7 +1,7 @@
 ## SECTION=communication
 
 menuconfig LIBUSBGX
-	bool
+	tristate
 	select HOST_MESON
 	select LIBCONFIG	if LIBUSBGX_SCHEMES
 	prompt "libusbgx                      "
