@@ -647,8 +647,6 @@ packages at the same time. Never worry again about your local host and
 how slow it is. With the help of *ICECC* every host will be a high speed
 development machine.
 
-.. _devpkgs:
-
 Building BSPs in a Container
 ----------------------------
 
@@ -712,6 +710,8 @@ mounted:
 With the "extra args" option, additional command-line arguments for the
 container manager can be added. They will be inserted at the end, right
 before the image name and the ptxdist command-line.
+
+.. _devpkgs:
 
 Using Pre-Built Archives
 ------------------------
