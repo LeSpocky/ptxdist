@@ -1,7 +1,7 @@
 ## SECTION=multimedia_libs
 
 menuconfig LIBTIFF
-	bool
+	tristate
 	select ZLIB             if LIBTIFF_ZLIB
 	select LIBJPEG		if LIBTIFF_JPEG
 	select LIBWEBP		if LIBTIFF_WEBP
