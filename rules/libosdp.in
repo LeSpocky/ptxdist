@@ -1,7 +1,7 @@
 ## SECTION=system_libraries
 
 config LIBOSDP
-	bool
+	tristate
 	prompt "libosdp"
 	select HOST_CMAKE
 	select OPENSSL
