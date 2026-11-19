@@ -1,7 +1,7 @@
 ## SECTION=system_libraries
 
 config LIBPWM
-	bool
+	tristate
 	prompt "libpwm"
 	help
 	  drive Linux PWM devices from userspace
