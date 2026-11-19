@@ -1,7 +1,7 @@
 ## SECTION=system_libraries
 
 config LIBTRACEEVENT
-	bool
+	tristate
 	prompt "libtraceevent"
 	select HOST_MESON
 	help
