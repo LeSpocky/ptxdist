@@ -1,7 +1,7 @@
 ## SECTION=networking
 
 config LIBMNL
-	bool
+	tristate
 	prompt "libmnl"
 	help
 	  libmnl is a minimalistic user-space library oriented to Netlink
