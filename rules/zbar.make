@@ -15,10 +15,10 @@ PACKAGES-$(PTXCONF_ZBAR) += zbar
 # Paths and names
 #
 ZBAR_VERSION	:= 0.23.95
-ZBAR_SHA256	:= 7b0907a3114503e0a8fbd1c6bfdb61592e6ded79f68716d7ca673ddeb6a87e99
+ZBAR_SHA256	:= 3bad3fe7b8764c6e2131cba91d40e22567a1365352914b62b55247b49124ed33 7b0907a3114503e0a8fbd1c6bfdb61592e6ded79f68716d7ca673ddeb6a87e99
 ZBAR		:= zbar-$(ZBAR_VERSION)
 ZBAR_SUFFIX	:= tar.gz
-ZBAR_URL	:= https://linuxtv.org/downloads/zbar/$(ZBAR).$(ZBAR_SUFFIX)
+ZBAR_URL	:= https://github.com/mchehab/zbar/archive/refs/tags/$(ZBAR_VERSION).$(ZBAR_SUFFIX)
 ZBAR_SOURCE	:= $(SRCDIR)/$(ZBAR).$(ZBAR_SUFFIX)
 ZBAR_DIR	:= $(BUILDDIR)/$(ZBAR)
 ZBAR_LICENSE	:= LGPL-2.0-or-later
