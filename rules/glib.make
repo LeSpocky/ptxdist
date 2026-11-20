@@ -26,6 +26,7 @@ GLIB_LICENSE	:= LGPL-2.1-or-later
 GLIB_LICENSE_FILES := \
 	file://glib/glib.h;startline=1;endline=18;md5=c97f6829778db537db59d1ce41090b51 \
 	file://LICENSES/LGPL-2.1-or-later.txt;md5=41890f71f740302b785c27661123bff5
+GLIB_CVE_PRODUCT := gnome:glib
 
 # ----------------------------------------------------------------------------
 # Prepare
