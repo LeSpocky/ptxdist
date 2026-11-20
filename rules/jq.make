@@ -23,6 +23,7 @@ JQ_SOURCE	:= $(SRCDIR)/$(JQ).$(JQ_SUFFIX)
 JQ_DIR		:= $(BUILDDIR)/$(JQ)
 JQ_LICENSE	:= MIT AND CC-BY-3.0 AND ICU AND BSD-2-Clause
 JQ_LICENSE_FILES := file://COPYING;md5=cf7fcb0a1def4a7ad62c028f7d0dca47
+JQ_CVE_PRODUCT	:= jqlang:jq
 
 # ----------------------------------------------------------------------------
 # Prepare
