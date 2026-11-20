@@ -439,7 +439,9 @@ QT5_PLUGINS-$(PTXCONF_QT5_MODULE_QTBASE_GUI)			+= imageformats/libqico
 QT5_PLUGINS-$(PTXCONF_QT5_LIBJPEG)				+= imageformats/libqjpeg
 QT5_PLUGINS-$(PTXCONF_QT5_PLATFORM_XCB)				+= platforminputcontexts/libcomposeplatforminputcontextplugin
 ifdef PTXCONF_QT5_MODULE_QTBASE_GUI
+ifdef PTXCONF_QT5_LIBXKBCOMMON
 QT5_PLUGINS-$(PTXCONF_QT5_DBUS)					+= platforminputcontexts/libibusplatforminputcontextplugin
+endif
 endif
 QT5_PLUGINS-$(PTXCONF_QT5_PLATFORM_EGLFS)			+= platforms/libqeglfs
 QT5_PLUGINS-$(PTXCONF_QT5_PLATFORM_LINUXFB)			+= platforms/libqlinuxfb
