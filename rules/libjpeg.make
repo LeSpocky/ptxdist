@@ -28,6 +28,7 @@ LIBJPEG_LICENSE_FILES := \
 	file://LICENSE.md;md5=d21daef3b4b318f77062055059c72934 \
 	file://README.ijg;startline=113;endline=164;md5=89d5b942e03050d117f34e50b49c2c61 \
 	file://simd/nasm/jsimdext.inc;startline=13;endline=28;md5=100ad877b6a14ec137afd49a6e109624
+LIBJPEG_CVE_PRODUCT := libjpeg-turbo:libjpeg-turbo
 
 # ----------------------------------------------------------------------------
 # Prepare
