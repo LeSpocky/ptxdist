@@ -22,6 +22,7 @@ OPUS_URL	:= http://downloads.xiph.org/releases/opus/$(OPUS).$(OPUS_SUFFIX)
 OPUS_SOURCE	:= $(SRCDIR)/$(OPUS).$(OPUS_SUFFIX)
 OPUS_DIR	:= $(BUILDDIR)/$(OPUS)
 OPUS_LICENSE	:= BSD-3-Clause
+OPUS_CVE_PRODUCT := opus-codec:opus
 
 # ----------------------------------------------------------------------------
 # Prepare
