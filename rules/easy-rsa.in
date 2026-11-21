@@ -1,4 +1,6 @@
-## SECTION=security
+## SECTION=staging
+## old section:
+### SECTION=security
 
 config EASY_RSA
 	tristate
@@ -15,3 +17,7 @@ config EASY_RSA
 	  all PKI files with openssl tool. Additional this is for people which
 	  have a enough less paranoia to generate keys on an embedded device.
 	  The easy-rsa scripts will be placed at /usr/share/easy-rsa afterwards.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
