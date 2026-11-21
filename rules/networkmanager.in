@@ -32,6 +32,7 @@ menuconfig NETWORKMANAGER
 	select WPA_SUPPLICANT			if NETWORKMANAGER_WIRELESS && RUNTIME
 	select WPA_SUPPLICANT_CTRL_IFACE_DBUS	if NETWORKMANAGER_WIRELESS && RUNTIME
 	select ROOTFS_VAR_LIB			if RUNTIME
+	select LIBSELINUX			if GLOBAL_SELINUX
 	prompt "networkmanager                "
 	help
 	  NetworkManager is a tool to automate network configuration as far as
