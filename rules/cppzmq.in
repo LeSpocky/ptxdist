@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 config CPPZMQ
 	tristate
@@ -6,3 +8,7 @@ config CPPZMQ
 	select LIBZMQ
 	help
 	  C++ lib zmq bindings
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
