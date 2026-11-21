@@ -36,7 +36,7 @@ LSOF_CONF_OPT	:= \
 	--disable-no-sock-security \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--with-libtirpc  \
-	--without-selinux
+	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux
 
 LSOF_MAKE_OPT	:= \
 	man8_MANS=

@@ -5,6 +5,7 @@ comment "BusyBox' lsof is selected!"
 config LSOF
 	tristate
 	select LIBTIRPC
+	select LIBSELINUX	if GLOBAL_SELINUX
 	depends on !BUSYBOX_LSOF || ALLYES
 	prompt "lsof"
 	help
