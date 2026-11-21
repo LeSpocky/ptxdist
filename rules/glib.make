@@ -39,7 +39,7 @@ GLIB_MESON_CROSS_FILE := $(call ptx/get-alternative, config/meson, glib-cross-fi
 GLIB_CONF_TOOL	:= meson
 GLIB_CONF_OPT	:= \
 	$(CROSS_MESON_USR) \
-	-Dselinux=disabled \
+	-Dselinux=$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)d \
 	-Dxattr=false \
 	-Dlibmount=$(call ptx/endis, PTXCONF_GLIB_LIBMOUNT)d \
 	-Dman-pages=disabled \
