@@ -21,6 +21,7 @@ menuconfig QEMU
 	select KEYUTILS		if QEMU_KEYUTILS
 	select ALSA_LIB 	if QEMU_ALSA
 	select PIPEWIRE		if QEMU_PIPEWIRE
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  QEMU is a generic and open source machine emulator and
 	  virtualizer.

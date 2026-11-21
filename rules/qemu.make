@@ -172,7 +172,7 @@ QEMU_CONF_OPT	:= \
 	--$(call ptx/endis, PTXCONF_QEMU_SDL)-sdl \
 	--disable-sdl-image \
 	--disable-seccomp \
-	--disable-selinux \
+	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--enable-slirp \
 	--disable-slirp-smbd \
 	--disable-smartcard \
