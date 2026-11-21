@@ -2,7 +2,8 @@
 menuconfig FINDUTILS
 	tristate
 	prompt "findutils                     "
-	select GCCLIBS_GCC_S if FINDUTILS_FIND
+	select GCCLIBS_GCC_S	if FINDUTILS_FIND
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  The Findutils package contains programs to find files. These programs are provided to
 	  recursively search through a directory tree and to create, maintain, and search a

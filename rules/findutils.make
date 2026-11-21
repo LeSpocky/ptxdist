@@ -50,7 +50,7 @@ FINDUTILS_CONF_OPT := \
 	--disable-assert \
 	--disable-rpath \
 	--disable-nls \
-	--without-selinux
+	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux
 
 # ----------------------------------------------------------------------------
 # Target-Install
