@@ -7,6 +7,7 @@ menuconfig PAM
 	select HOST_MESON
 	select LIBC_CRYPT
 	select LIBTIRPC		if PAM_NIS
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  Linux-PAM (Pluggable Authentication Modules for Linux) is a suite
 	  of shared libraries that enable the local system administrator to

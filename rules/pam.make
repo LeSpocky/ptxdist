@@ -51,7 +51,7 @@ PAM_CONF_OPT	:= \
 	-Dpamlocking=false \
 	-Dpwaccess=disabled \
 	-Dread-both-confs=false \
-	-Dselinux=disabled \
+	-Dselinux=$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)d \
 	-Duidmin=1000 \
 	-Dusergroups=false \
 	-Dxtests=false
@@ -83,7 +83,12 @@ $(STATEDIR)/pam.targetinstall:
 	@$(call install_alternative, pam, 0, 0, 0755, /usr/share/pam/security/namespace.init)
 	@$(call install_alternative, pam, 0, 0, 0644, /usr/share/pam/security/pam_env.conf)
 	@$(call install_alternative, pam, 0, 0, 0644, /usr/share/pam/security/time.conf)
+ifdef PTXCONF_GLOBAL_SELINUX
+	@$(call install_alternative, pam, 0, 0, 0644, /usr/share/pam/security/sepermit.conf)
 
+	@$(call install_copy, pam, 0, 0, 0755, -, /usr/sbin/unix_update)
+	@$(call install_copy, pam, 0, 0, 0755, -, /usr/sbin/pwhistory_helper)
+endif
 	@$(call install_alternative, pam, 0, 0, 0755, /usr/sbin/mkhomedir_helper)
 	@$(call install_alternative, pam, 0, 0, 0755, /usr/sbin/unix_chkpwd)
 
