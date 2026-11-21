@@ -33,7 +33,7 @@ PSMISC_LICENSE	:= unknown
 PSMISC_CONF_TOOL	:= autoconf
 PSMISC_CONF_OPT		:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-selinux \
+	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--disable-timeout-stat \
 	$(GLOBAL_IPV6_OPTION) \
 	--disable-nls \

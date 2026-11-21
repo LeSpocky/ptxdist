@@ -3,6 +3,7 @@
 menuconfig PSMISC
 	tristate
 	select NCURSES
+	select LIBSELINUX	if GLOBAL_SELINUX
 	prompt "psmisc                        "
 	help
 	  utilities that use the proc file system
