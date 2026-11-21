@@ -79,7 +79,7 @@ LVM2_CONF_OPT := \
 	--enable-dmeventd \
 	--enable-cmdlib \
 	--disable-dmfilemapd \
-	--disable-selinux \
+	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--enable-blkzeroout \
 	--disable-nls \
 	--without-blkid \

@@ -9,6 +9,7 @@ menuconfig LVM2
 	select NCURSES
 	select SYSTEMD			if LVM2_SYSTEMD
 	select BASH			if (LVM2_FSADM || LVM2_LVMDUMP) && RUNTIME
+	select LIBSELINUX		if GLOBAL_SELINUX
 	prompt "lvm2                          "
 	help
 	  LVM2 refers to a new userspace toolset that provide logical volume management
