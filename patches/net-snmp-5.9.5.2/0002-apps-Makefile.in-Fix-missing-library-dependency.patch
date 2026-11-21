@@ -1,0 +1,25 @@
+From: Christian Melki <christian.melki@t2data.com>
+Date: Sat, 21 Nov 2026 15:34:05 +0100
+Subject: [PATCH] apps/Makefile.in: Fix missing library dependency.
+
+Exposed by a libtool upgrade. Old libtool and linking must have
+silently ignored this.
+
+Signed-off-by: Christian Melki <christian.melki@t2data.com>
+---
+ apps/Makefile.in | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/apps/Makefile.in b/apps/Makefile.in
+index 57b8524a90d2..8966dbaf217a 100644
+--- a/apps/Makefile.in
++++ b/apps/Makefile.in
+@@ -235,7 +235,7 @@ snmppcap$(EXEEXT):    snmppcap.$(OSUFFIX) $(USEAGENTLIBS)
+ 	$(LINK) ${CFLAGS} -o $@ snmppcap.$(OSUFFIX) ${LDFLAGS} ${USEAGENTLIBS} ${LIBS} -lpcap
+ 
+ libnetsnmptrapd.$(LIB_EXTENSION)$(LIB_VERSION): $(LLIBTRAPD_OBJS)
+-	$(LIB_LD_CMD) $@ ${LLIBTRAPD_OBJS} $(MIBLIB) $(MYSQL_LIBS) $(USELIBS) $(PERLLDOPTS_FOR_LIBS) $(LDFLAGS)
++	$(LIB_LD_CMD) $@ ${LLIBTRAPD_OBJS} $(USEAGENTLIBS) $(MYSQL_LIBS) $(PERLLDOPTS_FOR_LIBS) $(LDFLAGS)
+ 	$(RANLIB) $@
+ 
+ snmpinforminstall:
