@@ -47,7 +47,7 @@ PROCPS_CONF_OPT	:= \
 	--disable-rpath \
 	--disable-watch8bit \
 	--disable-colorwatch \
-	--disable-libselinux \
+	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-libselinux \
 	--disable-harden-flags \
 	--$(call ptx/endis, PTXCONF_PROCPS_PIDOF)-pidof \
 	--$(call ptx/endis, PTXCONF_PROCPS_PIDWAIT)-pidwait \

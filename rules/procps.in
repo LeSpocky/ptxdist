@@ -7,6 +7,7 @@ menuconfig PROCPS
 	select NCURSES if PROCPS_USES_NCURSES
 	select PROCPS_USES_NCURSES if PROCPS_SLABTOP || PROCPS_TOP || PROCPS_WATCH
 	select SYSTEMD if PROCPS_WITH_SYSTEMD
+	select LIBSELINUX	if GLOBAL_SELINUX
 	help
 	  Contains a set of system utilities that provide information out of the
 	  pseudo-filesystem most commonly located at /proc. The programs generally
