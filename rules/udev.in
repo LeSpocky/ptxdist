@@ -23,6 +23,7 @@ menuconfig UDEV_LEGACY
 	select LIBKMOD
 	select LIBBLKID
 	select HOST_GPERF	if UDEV_LEGACY_KEYMAPS
+	select LIBSELINUX	if GLOBAL_SELINUX
 	depends on SYSTEMD = n
 	help
 	  udev provides a dynamic device directory containing only the files for

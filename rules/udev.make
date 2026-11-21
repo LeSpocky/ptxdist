@@ -54,7 +54,7 @@ UDEV_LEGACY_CONF_OPT	:= \
 	--$(call ptx/endis,PTXCONF_UDEV_LEGACY_MTD_PROBE)-mtd_probe \
 	--$(call ptx/endis,PTXCONF_UDEV_LEGACY_PERSISTENT_GENERATOR)-rule_generator \
 	--disable-floppy \
-	--without-selinux \
+	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--with-usb-ids-path=/usr/share/usb.ids \
 	--with-pci-ids-path=/usr/share/pci.ids
 
