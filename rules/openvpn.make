@@ -78,7 +78,7 @@ OPENVPN_CONF_OPT	:= \
 	--disable-pedantic \
 	--disable-werror \
 	--disable-strict-options \
-	--disable-selinux \
+	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--$(call ptx/endis, PTXCONF_OPENVPN_SYSTEMD)-systemd \
 	--disable-async-push \
 	--disable-wolfssl-options-h \
