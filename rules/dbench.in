@@ -1,3 +1,5 @@
+## SECTION=staging
+## old section:
 ## SECTION=test_suites
 
 menuconfig DBENCH
@@ -17,6 +19,10 @@ menuconfig DBENCH
 	  reflection of normal server load.
 
 	  https://www.samba.org/ftp/tridge/dbench/
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
 
 if DBENCH
 
