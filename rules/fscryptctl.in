@@ -1,4 +1,4 @@
-## SECTION=selinux
+## SECTION=security
 
 config FSCRYPTCTL
 	tristate
