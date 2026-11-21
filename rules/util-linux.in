@@ -9,6 +9,7 @@ menuconfig UTIL_LINUX
 	select HOST_MESON
 	select NCURSES				if UTIL_LINUX_USES_NCURSES
 	select PAM				if UTIL_LINUX_USES_PAM
+	select LIBSELINUX			if GLOBAL_SELINUX
 
 if UTIL_LINUX
 
