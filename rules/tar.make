@@ -44,7 +44,7 @@ TAR_CONF_OPT	:= \
 	--$(call ptx/endis, PTXDIST_Y2038)-year2038 \
 	--with-posix-acls \
 	--with-included-regex \
-	--without-selinux \
+	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--with-packager \
 	--with-packager-version \
 	--with-packager-bug-reports \

@@ -4,6 +4,7 @@ config TAR
 	tristate
 	select LIBC_RT
 	select GCCLIBS_GCC_S
+	select LIBSELINUX	if GLOBAL_SELINUX
 	depends on !BUSYBOX_TAR || ALLYES
 	prompt "tar"
 	help
