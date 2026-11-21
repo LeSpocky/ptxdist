@@ -17,7 +17,7 @@ HOST_PACKAGES-$(PTXCONF_HOST_FLEX) += host-flex
 
 HOST_FLEX_CONF_TOOL	:= autoconf
 HOST_FLEX_CONF_OPT	:= \
-	$(HOST_AUTOCON) \
+	$(HOST_AUTOCONF) \
 	--disable-nls \
 	--disable-rpath \
 	--disable-warnings \
