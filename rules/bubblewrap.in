@@ -4,6 +4,7 @@ config BUBBLEWRAP
 	tristate
 	select HOST_MESON
 	select LIBCAP
+	select LIBSELINUX	if GLOBAL_SELINUX
 	prompt "bubblewrap"
 	help
 	  Low-level unprivileged sandboxing tool

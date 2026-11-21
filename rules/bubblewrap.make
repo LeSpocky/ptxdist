@@ -39,7 +39,7 @@ BUBBLEWRAP_CONF_OPT := \
 	-Dbash_completion=disabled \
 	-Ddebug_logging=false \
 	-Dman=disabled \
-	-Dselinux=disabled \
+	-Dselinux=$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)d \
 	-Dtests=false \
 	-Dzsh_completion=disabled
 
