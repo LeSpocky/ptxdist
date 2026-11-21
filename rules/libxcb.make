@@ -68,7 +68,7 @@ LIBXCB_CONF_OPT		:= \
 	--enable-xinput \
 	--enable-xkb \
 	--enable-xprint \
-	--disable-selinux \
+	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--enable-xtest \
 	--enable-xv \
 	--enable-xvmc \
@@ -111,6 +111,9 @@ $(STATEDIR)/libxcb.targetinstall:
 	@$(call install_lib, libxcb, 0, 0, 0644, libxcb-xkb)
 #	@$(call install_lib, libxcb, 0, 0, 0644, libxcb-xlib)
 	@$(call install_lib, libxcb, 0, 0, 0644, libxcb-xprint)
+ifdef PTXCONF_GLOBAL_SELINUX
+	@$(call install_lib, libxcb, 0, 0, 0644, libxcb-xselinux)
+endif
 	@$(call install_lib, libxcb, 0, 0, 0644, libxcb-xtest)
 	@$(call install_lib, libxcb, 0, 0, 0644, libxcb-xv)
 	@$(call install_lib, libxcb, 0, 0, 0644, libxcb-xvmc)
