@@ -48,7 +48,7 @@ SED_CONF_OPT	:= \
 	--disable-gcc-warnings \
 	--disable-bold-man-page-references \
 	--without-included-regex \
-	--without-selinux \
+	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--with-packager \
 	--with-packager-version \
 	--with-packager-bug-reports

@@ -3,6 +3,7 @@
 config SED
 	tristate
 	select GCCLIBS_GCC_S
+	select LIBSELINUX	if GLOBAL_SELINUX
 	depends on !BUSYBOX_SED || ALLYES
 	prompt "sed"
 	help
