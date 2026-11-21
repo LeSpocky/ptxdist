@@ -38,7 +38,7 @@ SMARTMONTOOLS_CONF_OPT	:= \
 	--enable-fast-lebe \
 	--without-update-smart-drivedb \
 	--without-gnupg \
-	--without-selinux \
+	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--without-libcap-ng \
 	--$(call ptx/wwo, PTXCONF_SMARTMONTOOLS_SYSTEMD_UNIT)-libsystemd \
 	$(call ptx/ifdef, PTXCONF_SMARTMONTOOLS_SYSTEMD_UNIT,--with-systemdsystemunitdir=/usr/lib/systemd/system) \

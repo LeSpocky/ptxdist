@@ -8,6 +8,7 @@ menuconfig SMARTMONTOOLS
 	select LIBC_M
 	select GCCLIBS_CXX
 	select GCCLIBS_GCC_S
+	select LIBSELINUX			if GLOBAL_SELINUX
 	help
 	  The smartmontools package contains two utility programs (smartctl and smartd)
 	  to control and monitor storage systems using the Self-Monitoring, Analysis
