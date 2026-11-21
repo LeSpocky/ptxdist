@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 menuconfig DASH
 	tristate
@@ -8,6 +10,10 @@ menuconfig DASH
 	  to be as small as possible. It does this without sacrificing speed where
 	  possible. In fact, it is significantly faster than bash (the GNU
 	  Bourne-Again SHell) for most tasks.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
 
 if DASH
 
