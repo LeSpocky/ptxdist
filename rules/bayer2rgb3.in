@@ -1,4 +1,6 @@
-## SECTION=multimedia_tools
+## SECTION=staging
+## old section:
+### SECTION=multimedia_tools
 
 menuconfig BAYER2RGB3
 	tristate
@@ -6,6 +8,9 @@ menuconfig BAYER2RGB3
 	select HOST_GENGETOPT
 	help
 	  bayer2rgb will convert naked (no header) bayer grid data into rgb data.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  URL is broken and the only user was moved to staging as well.
 
 if BAYER2RGB3
 
