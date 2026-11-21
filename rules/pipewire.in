@@ -23,6 +23,7 @@ menuconfig PIPEWIRE
 	select UDEV
 	select UDEV_LIBUDEV
 	select WEBRTC_AUDIO_PROCESSING1	if PIPEWIRE_ECHO_CANCEL
+	select LIBSELINUX		if GLOBAL_SELINUX
 	prompt "pipewire                      "
 	help
 	  PipeWire is a server and user space API to deal with multimedia
