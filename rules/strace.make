@@ -57,7 +57,7 @@ STRACE_CONF_OPT		:= \
 	--without-libdw \
 	--without-libunwind \
 	--without-libiberty \
-	--without-libselinux
+	--$(call ptx/wwo, PTXCONF_GLOBAL_SELINUX)-libselinux
 
 # ----------------------------------------------------------------------------
 # Target-Install

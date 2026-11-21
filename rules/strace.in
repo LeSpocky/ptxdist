@@ -2,6 +2,7 @@
 
 config STRACE
 	tristate
+	select LIBSELINUX	if GLOBAL_SELINUX
 	prompt "strace"
 	help
 	  In  the  simplest  case  strace  runs  the  specified
