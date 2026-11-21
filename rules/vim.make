@@ -50,7 +50,7 @@ VIM_CONF_OPT	:= \
 	--enable-fail-if-missing \
 	--disable-darwin \
 	--disable-smack \
-	--disable-selinux \
+	--$(call ptx/endis, PTXCONF_GLOBAL_SELINUX)-selinux \
 	--disable-xattr \
 	--disable-xsmp \
 	--disable-xsmp-interact \

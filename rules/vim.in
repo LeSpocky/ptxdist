@@ -4,6 +4,7 @@ menuconfig VIM
 	tristate
 	select LIBC_M	if VIM_VIM
 	select NCURSES
+	select LIBSELINUX	if GLOBAL_SELINUX
 	prompt "vim                           "
 	help
 	  Vim is an advanced text editor that seeks to provide the
