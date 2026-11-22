@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 config BSDIFF
 	tristate
@@ -8,3 +10,7 @@ config BSDIFF
 	help
 	  bsdiff and bspatch are tools for building and applying
 	  patches to binary files.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
