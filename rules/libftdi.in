@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 menuconfig LIBFTDI
 	tristate
@@ -15,6 +17,10 @@ menuconfig LIBFTDI
 	  Functionalities include the possibility to use the chips in
 	  standard mode, in bitbang mode, and to read or write the
 	  serial EEPROM.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
 
 if LIBFTDI
 
