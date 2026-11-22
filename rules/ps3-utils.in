@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 
 config PS3_UTILS
 	tristate
@@ -8,3 +10,7 @@ config PS3_UTILS
 
 	  The ps3-utils package is a set of system administration utilities for
 	  the PS3 game console.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
