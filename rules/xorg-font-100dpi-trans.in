@@ -1,4 +1,9 @@
-## SECTION=multimedia_xorg_font
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_font
+
+# STAGING: remove in PTXdist 2027.12.0
+# Remove with the 100dpi fonts.
 
 comment ""
 	depends on MENU_XORG_FONTS
@@ -6,7 +11,6 @@ comment ""
 
 menu "xorg 100 dpi fonts(transcoded)"
 	depends on MENU_XORG_FONTS
-	depends on XORG_FONT_100DPI
 
 config XORG_FONT_ADOBE_100DPI_TRANS
 	bool
