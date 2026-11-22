@@ -1,4 +1,6 @@
-## SECTION=multimedia_framebuffer
+## SECTION=staging
+## old section:
+### SECTION=multimedia_framebuffer
 
 menuconfig FBUTILS
 	tristate
@@ -8,6 +10,10 @@ menuconfig FBUTILS
 	prompt "fbutils                       "
 	help
 	  Utilities and support for framebuffer devices
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
 
 if FBUTILS
 
