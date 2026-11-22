@@ -1,4 +1,6 @@
-## SECTION=bare_metal_stellaris
+## SECTION=staging
+## old section:
+### SECTION=bare_metal_stellaris
 
 menuconfig SW_EK_LM3S3748
 	tristate
@@ -6,6 +8,10 @@ menuconfig SW_EK_LM3S3748
 	prompt "sw-ek-lm3s3748                "
 	help
 	  Software Development Kit for the Stellaris LM3S3748.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
 
 if SW_EK_LM3S3748
 
