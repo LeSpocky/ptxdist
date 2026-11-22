@@ -1,4 +1,6 @@
-## SECTION=bootloader
+## SECTION=staging
+## old section:
+### SECTION=bootloader
 
 config HOST_MXS_UTILS
 	tristate
@@ -6,3 +8,6 @@ config HOST_MXS_UTILS
 	help
 	  Tool to generate bootable images for the i.MX23 and i.MX28 CPU.
 
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
