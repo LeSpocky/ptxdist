@@ -1,10 +1,16 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 menuconfig PNPUTILS
 	tristate
 	prompt "pnputils                      "
 	help
 	  Builds the pnputils to show debugging information about PNP
 	  devices in your hardware. This is useful for x86 targets only.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
 
 if PNPUTILS
 
