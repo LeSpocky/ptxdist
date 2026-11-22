@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 config NSS_MDNS
 	tristate
@@ -11,3 +13,7 @@ config NSS_MDNS
 	  resolution via Multicast DNS (aka Zeroconf, aka Apple Rendezvous,
 	  aka Apple Bonjour), effectively allowing name resolution by
 	  common Unix/Linux programs in the ad-hoc mDNS domain .local.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
