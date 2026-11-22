@@ -1,4 +1,6 @@
-## SECTION=games
+## SECTION=staging
+## old section:
+### SECTION=games
 
 menuconfig MMPONG
 	tristate
@@ -15,6 +17,10 @@ menuconfig MMPONG
 	  value of the positions of all the players' paddles on the
 	  team. mmpong supports a number of different paddle profiles
 	  (like flat or round).
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is long dead.
 
 if MMPONG
 
