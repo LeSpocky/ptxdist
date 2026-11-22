@@ -1,4 +1,6 @@
-## SECTION=shell_and_console
+## SECTION=staging
+## old section:
+### SECTION=shell_and_console
 menuconfig FINDUTILS
 	tristate
 	prompt "findutils                     "
@@ -8,6 +10,10 @@ menuconfig FINDUTILS
 	  The Findutils package contains programs to find files. These programs are provided to
 	  recursively search through a directory tree and to create, maintain, and search a
 	  database.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
 
 if FINDUTILS
 
