@@ -1,4 +1,6 @@
-## SECTION=python3
+## SECTION=staging
+## old section:
+### SECTION=python3
 
 config PYTHON3_PICKLESHARE
 	tristate
@@ -6,3 +8,7 @@ config PYTHON3_PICKLESHARE
 	prompt "pickleshare"
 	help
 	  Tiny 'shelve'-like database with concurrency support
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
