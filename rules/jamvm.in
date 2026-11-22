@@ -1,4 +1,6 @@
-## SECTION=bytecode_engines
+## SECTION=staging
+## old section:
+### SECTION=bytecode_engines
 
 menuconfig JAMVM
 	tristate
@@ -12,6 +14,10 @@ menuconfig JAMVM
 	  JamVM is a new Java Virtual Machine conforming to the JVM specification
 	  edition 2 (blue book). It is extremely small. Unlike other small VMs it
 	  supports the full spec, inc. object finalisation and JNI.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
 
 if JAMVM
 
