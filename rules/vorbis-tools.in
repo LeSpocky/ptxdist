@@ -1,4 +1,6 @@
-## SECTION=multimedia_sound
+## SECTION=staging
+## old section:
+### SECTION=multimedia_sound
 
 menuconfig VORBIS_TOOLS
 	tristate
@@ -11,6 +13,10 @@ menuconfig VORBIS_TOOLS
 	select SPEEX_FLOAT_API if VORBIS_TOOLS_OGG123
 	help
 	  several Ogg Vorbis tools
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
 
 if VORBIS_TOOLS
 
