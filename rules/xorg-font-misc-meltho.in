@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_font_other
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_font_other
 
 config XORG_FONT_MISC_MELTHO
 	bool
@@ -6,3 +8,7 @@ config XORG_FONT_MISC_MELTHO
 	prompt "misc. Meltho"
 	help
 	  contains syriac unicode-compliant opentype fonts
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Obsolete non-ttf font.
