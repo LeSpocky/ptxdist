@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_font_type1
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_font_type1
 
 config XORG_FONT_BITSTREAM_TYPE1
 	bool
@@ -10,3 +12,7 @@ config XORG_FONT_BITSTREAM_TYPE1
 	  This package contains the type1 version of Bitstream
 	  Courier and Charter. Type1 fonts have XLFD and are
 	  scalable. They are needed for ghostscript.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Obsolete non-ttf font.
