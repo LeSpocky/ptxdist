@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_font_base
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_font_base
 
 config XORG_FONT_MISC_MISC
 	tristate
@@ -9,3 +11,7 @@ config XORG_FONT_MISC_MISC
 	  You might most probably want it.
 	  This package contains fonts in the ISO 10646-1,
 	  ISO 8859-1 and ISO 8859-15 encodings
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Obsolete non-ttf font.
