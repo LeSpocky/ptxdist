@@ -1,4 +1,6 @@
-## SECTION=test_suites
+## SECTION=staging
+## old section:
+### SECTION=test_suites
 
 config CPUBURN_ARM
 	tristate
@@ -8,3 +10,7 @@ config CPUBURN_ARM
 	  tools to burn as much power on your CPU as possible.
 
 	  https://ssvb.github.io/2012/04/10/cpuburn-arm-cortex-a9.html
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
