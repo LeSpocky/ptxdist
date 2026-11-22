@@ -1,4 +1,6 @@
-## SECTION=python3
+## SECTION=staging
+## old section:
+### SECTION=python3
 
 config PYTHON3_PATH_PY
 	tristate
@@ -7,3 +9,7 @@ config PYTHON3_PATH_PY
 	prompt "path-py"
 	help
 	  A module wrapper for os.path
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
