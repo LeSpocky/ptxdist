@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_font_ttf
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_font_ttf
 
 config XORG_FONT_BH_TTF
 	tristate
@@ -8,3 +10,7 @@ config XORG_FONT_BH_TTF
 	prompt "BH ttf"
 	help
 	  contains truetype fonts provided by xorg
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Obsolete non-ttf font.
