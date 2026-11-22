@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_font_base
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_font_base
 
 config XORG_FONT_MUTT_MISC
 	tristate
@@ -6,3 +8,7 @@ config XORG_FONT_MUTT_MISC
 	prompt "Mutt misc"
 	help
 	  This package contains miscellaneous X.Org Mutt fonts.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Obsolete non-ttf font.
