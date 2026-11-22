@@ -1,4 +1,6 @@
-## SECTION=multimedia_sound
+## SECTION=staging
+## old section:
+### SECTION=multimedia_sound
 
 menuconfig LAME
 	tristate
@@ -8,6 +10,9 @@ menuconfig LAME
 	  LAME is a high quality MPEG Audio Layer III (MP3) encoder
 	  licensed under the LGPL.
 
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
 
 if LAME
 

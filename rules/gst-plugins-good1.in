@@ -354,6 +354,7 @@ config GST_PLUGINS_GOOD1_JPEG
 
 config GST_PLUGINS_GOOD1_LAME
 	bool
+	depends on STAGING
 	prompt "lame"
 	help
 	  LAME mp3 audio encoder plugin
