@@ -1,4 +1,6 @@
-## SECTION=debug_tools
+## SECTION=staging
+## old section:
+### SECTION=debug_tools
 
 config BOOTCHART
 	tristate
@@ -14,6 +16,10 @@ config BOOTCHART
 	  your initramfs which lives inside is own tiny filesystem
 	  during the boot process and monitors the rest of the system
 	  booting
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
 
 comment "BusyBox' bootchartd is selected!"
 	depends on BUSYBOX_BOOTCHARTD
