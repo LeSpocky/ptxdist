@@ -1,8 +1,13 @@
-## SECTION=multimedia_gtk
+## SECTION=staging
+## old section:
+### SECTION=multimedia_gtk
 
 config GTK_ENGINES
 	tristate
 	select GTK
 	select HOST_INTLTOOL
 	prompt "gtk engines"
-
+	help
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
