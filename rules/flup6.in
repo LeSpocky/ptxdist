@@ -1,4 +1,6 @@
-## SECTION=python3
+## SECTION=staging
+## old section:
+### SECTION=python3
 
 config FLUP6
 	tristate
@@ -9,3 +11,6 @@ config FLUP6
 	  including fastcgi. In contrast to flup, flup6 works with both
 	  python2 and python3.
 
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
