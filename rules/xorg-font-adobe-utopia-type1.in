@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_font_type1
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_font_type1
 
 config XORG_FONT_ADOBE_UTOPIA_TYPE1
 	bool
@@ -7,3 +9,7 @@ config XORG_FONT_ADOBE_UTOPIA_TYPE1
 	prompt "Adobe Utopia type1"
 	help
 	  adobe utopia fonts, in type1 format
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Obsolete non-ttf font.
