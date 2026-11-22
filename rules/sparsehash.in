@@ -1,7 +1,13 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 config SPARSEHASH
 	tristate
 	prompt "sparsehash"
 	help
 	  An extremely memory-efficient hash_map implementation.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
