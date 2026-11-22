@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_font_base
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_font_base
 
 config XORG_FONT_DEC_MISC
 	tristate
@@ -10,3 +12,7 @@ config XORG_FONT_DEC_MISC
 	  - Cursor
 	  - Session
 	  This is from the modular Xorg project.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Obsolete non-ttf font.
