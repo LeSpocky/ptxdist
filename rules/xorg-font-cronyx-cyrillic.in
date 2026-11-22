@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_font_cyrillic
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_font_cyrillic
 
 config XORG_FONT_CRONYX_CYRILLIC
 	bool
@@ -6,3 +8,7 @@ config XORG_FONT_CRONYX_CYRILLIC
 	prompt "Cronyx cyrillic"
 	help
 	  This package delivers the Cronyx cyrillic BDF fonts
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Obsolete non-ttf font.
