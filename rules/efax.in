@@ -1,4 +1,6 @@
-## SECTION=communication
+## SECTION=staging
+## old section:
+### SECTION=communication
 config EFAX
 	tristate
 	prompt "efax"
@@ -16,3 +18,6 @@ config EFAX
 	  files as faxes and receive, print or preview
 	  received faxes.
 
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
