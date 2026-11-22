@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 config GFLAGS
 	tristate
@@ -14,3 +16,7 @@ config GFLAGS
 	  flags in the source file in which they're used.
 
 	  See https://code.google.com/p/gflags/ for info about it.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
