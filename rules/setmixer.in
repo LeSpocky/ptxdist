@@ -1,4 +1,6 @@
-## SECTION=multimedia_sound
+## SECTION=staging
+## old section:
+### SECTION=multimedia_sound
 
 config SETMIXER
 	tristate
@@ -8,3 +10,6 @@ config SETMIXER
 	  Here is a small utility which can help you to avoid that.
 	  The whole source is setmixer.c.
 
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is long gone.
