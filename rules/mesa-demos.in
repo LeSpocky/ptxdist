@@ -1,4 +1,6 @@
-## SECTION=multimedia_libs
+## SECTION=staging
+## old section:
+### SECTION=multimedia_libs
 
 menuconfig MESA_DEMOS
 	tristate
@@ -11,6 +13,10 @@ menuconfig MESA_DEMOS
 	select XORG_LIB_X11		if MESA_DEMOS_X11
 	select XORG_LIB_XEXT		if MESA_DEMOS_X11
 	prompt "mesa tools & demos            "
+	help
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
 
 if MESA_DEMOS
 
