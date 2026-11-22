@@ -1,4 +1,6 @@
-## SECTION=scientific
+## SECTION=staging
+## old section:
+### SECTION=scientific
 # libfftw configuration
 
 config FFTW
@@ -14,6 +16,9 @@ config FFTW
 
 	  For details, see http://www.fftw.org
 
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
 
 #   --enable-fma            enable optimizations for machines with fused
 #                           multiply-add
