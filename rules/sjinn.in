@@ -1,4 +1,6 @@
-## SECTION=communication
+## SECTION=staging
+## old section:
+### SECTION=communication
 
 config SJINN
 	tristate
@@ -6,3 +8,7 @@ config SJINN
 	select LIBC_M
 	help
 	  rs232 comm tool
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
