@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_font_100dpi
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_font_100dpi
 
 config XORG_FONT_BITSTREAM_100DPI
 	tristate
@@ -7,3 +9,7 @@ config XORG_FONT_BITSTREAM_100DPI
 	help
 	  This package contains Bitstream fonts in the ISO 10646-1,
 	  ISO 8859-1 and ISO 8859-15 encodings
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Obsolete non-ttf font.
