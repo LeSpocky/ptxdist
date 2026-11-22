@@ -1,4 +1,6 @@
-## SECTION=multimedia_framebuffer
+## SECTION=staging
+## old section:
+### SECTION=multimedia_framebuffer
 
 config FBTERM
 	tristate
@@ -8,5 +10,9 @@ config FBTERM
 	help
 	  Framebuffer terminal. Supports unicode and uses fontconfig and Freetype
 	  for font rendering. Thus is has support for anti-aliased fonts.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
 
 # vim: set ts=8 sw=8 noet ft=kconfig:
