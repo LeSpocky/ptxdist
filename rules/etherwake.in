@@ -1,4 +1,6 @@
-## SECTION=networking
+## SECTION=staging
+## old section:
+### SECTION=networking
 
 config ETHERWAKE
 	tristate
@@ -15,3 +17,7 @@ config ETHERWAKE
 	  location over a network connection.
 
 	  etherwake also supports WOL passwords.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
