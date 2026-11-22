@@ -1,4 +1,6 @@
-## SECTION=debug_tools
+## SECTION=staging
+## old section:
+### SECTION=debug_tools
 
 menuconfig PRELINK
 	tristate
@@ -12,6 +14,10 @@ menuconfig PRELINK
 	  libraries and executables, so that far fewer relocations
 	  need to be resolved at runtime and thus programs come up
 	  faster.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
 
 if PRELINK
 
