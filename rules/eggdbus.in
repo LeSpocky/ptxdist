@@ -1,4 +1,6 @@
-## SECTION=middleware
+## SECTION=staging
+## old section:
+### SECTION=middleware
 
 config EGGDBUS
 	tristate
@@ -10,3 +12,6 @@ config EGGDBUS
 	select HOST_GTK_DOC
 	help
 	  DBus bindings for GObject
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unsused and obsolete.
