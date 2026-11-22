@@ -1,4 +1,6 @@
-## SECTION=multimedia_xorg_support_libs
+## SECTION=staging
+## old section:
+### SECTION=multimedia_xorg_support_libs
 
 config GLEW
 	tristate
@@ -14,3 +16,6 @@ config GLEW
 	  GLEW has been tested on a variety of operating systems,
 	  including Windows, Linux, Mac OS X, FreeBSD, Irix, and Solaris.
 
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
