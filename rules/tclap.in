@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 config TCLAP
 	tristate
@@ -18,4 +20,6 @@ config TCLAP
 	  NOTE: TCLAP is header-only, so the package doesn't install anything
 	  on the target!
 
-
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Needs updating to the latest version.
