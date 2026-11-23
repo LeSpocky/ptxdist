@@ -1,22 +1,24 @@
-## SECTION=staging
-## old section:
-### SECTION=multimedia_libs
+## SECTION=multimedia_libs
 
 menuconfig MESA_DEMOS
 	tristate
+	select HOST_MESON
 	select MESALIB
-	select GLEW
+	select MESALIB_GLX
 	select GLU
 	select MESALIB_EGL		if MESA_DEMOS_EGL
 	select MESALIB_GLES2		if MESA_DEMOS_GLES2
 	select MESALIB_EGL_WAYLAND	if MESA_DEMOS_WAYLAND
+	select WAYLAND			if MESA_DEMOS_WAYLAND
+	select WAYLAND_PROTOCOLS	if MESA_DEMOS_WAYLAND
+	select LIBXKBCOMMON		if MESA_DEMOS_WAYLAND
+	select LIBDECOR			if MESA_DEMOS_WAYLAND
 	select XORG_LIB_X11		if MESA_DEMOS_X11
 	select XORG_LIB_XEXT		if MESA_DEMOS_X11
 	prompt "mesa tools & demos            "
 	help
-	  STAGING: remove in PTXdist 2027.12.0
-	  Unmaintained in PTXdist for a long time.
-	  Needs updating to the latest version.
+	  OpenGL, OpenGL ES and EGL demos and tools from the Mesa project,
+	  e.g. glxinfo and glxgears.
 
 if MESA_DEMOS
 

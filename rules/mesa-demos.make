@@ -14,39 +14,40 @@ PACKAGES-$(PTXCONF_MESA_DEMOS) += mesa-demos
 #
 # Paths and names
 #
-MESA_DEMOS_VERSION	:= 8.3.0
-MESA_DEMOS_SHA256	:= c173154bbd0d5fb53d732471984def42fb1b14ac85fcb834138fb9518b3e0bef
+MESA_DEMOS_VERSION	:= 9.0.0
+MESA_DEMOS_SHA256	:= 3046a3d26a7b051af7ebdd257a5f23bfeb160cad6ed952329cdff1e9f1ed496b
 MESA_DEMOS		:= mesa-demos-$(MESA_DEMOS_VERSION)
-MESA_DEMOS_SUFFIX	:= tar.bz2
-MESA_DEMOS_URL		:= https://mesa.freedesktop.org/archive/demos/$(MESA_DEMOS_VERSION)/$(MESA_DEMOS).$(MESA_DEMOS_SUFFIX)
+MESA_DEMOS_SUFFIX	:= tar.xz
+MESA_DEMOS_URL		:= https://archive.mesa3d.org/demos/$(MESA_DEMOS).$(MESA_DEMOS_SUFFIX)
 MESA_DEMOS_SOURCE	:= $(SRCDIR)/$(MESA_DEMOS).$(MESA_DEMOS_SUFFIX)
 MESA_DEMOS_DIR		:= $(BUILDDIR)/$(MESA_DEMOS)
-MESA_DEMOS_LICENSE	:= unknown
+MESA_DEMOS_LICENSE	:= MIT AND HPND AND public_domain
+MESA_DEMOS_LICENSE_FILES := \
+	file://meson.build;startline=1;endline=19;md5=9eae7bd52d37dcb8c051da83f7477fb0 \
+	file://src/xdemos/glxinfo.c;startline=1;endline=20;md5=528e51cb8d683b1271806b7dce9b28d3 \
+	file://src/xdemos/offset.c;startline=1;endline=22;md5=4c341ae36bce909d84e28fbe50c4f516
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
 #
-# autoconf
+# meson
 #
-MESA_DEMOS_CONF_TOOL	:= autoconf
+MESA_DEMOS_CONF_TOOL	:= meson
 MESA_DEMOS_CONF_OPT	:= \
-	$(CROSS_AUTOCONF_USR) \
-	--disable-static \
-	--$(call ptx/endis, PTXCONF_MESA_DEMOS_EGL)-egl \
-	--disable-gles1 \
-	--$(call ptx/endis, PTXCONF_MESA_DEMOS_GLES2)-gles2 \
-	--disable-vg \
-	--disable-osmesa \
-	--disable-libdrm \
-	--$(call ptx/endis, PTXCONF_MESA_DEMOS_X11)-x11 \
-	--$(call ptx/endis, PTXCONF_MESA_DEMOS_WAYLAND)-wayland \
-	--disable-gbm \
-	--disable-freetype2 \
-	--disable-rbug \
-	--without-glut
-
+	$(CROSS_MESON_USR) \
+	-Degl=$(call ptx/endis, PTXCONF_MESA_DEMOS_EGL)d \
+	-Dgles1=disabled \
+	-Dgles2=$(call ptx/endis, PTXCONF_MESA_DEMOS_GLES2)d \
+	-Dglut=disabled \
+	-Dlibdrm=disabled \
+	-Dosmesa=disabled \
+	-Dvulkan=disabled \
+	-Dwayland=$(call ptx/endis, PTXCONF_MESA_DEMOS_WAYLAND)d \
+	-Dwith-glut= \
+	-Dwith-system-data-files=false \
+	-Dx11=$(call ptx/endis, PTXCONF_MESA_DEMOS_X11)d
 
 # ----------------------------------------------------------------------------
 # Target-Install
