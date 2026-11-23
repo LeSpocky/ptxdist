@@ -453,7 +453,6 @@ config GST_PLUGINS_GOOD1_TAGLIB
 
 config GST_PLUGINS_GOOD1_TWOLAME
 	bool
-	depends on STAGING
 	prompt "twolame"
 	help
 	  twolame mp2 audio encoder plugin

@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_TWOLAME) += twolame
 #
 # Paths and names
 #
-TWOLAME_VERSION	:= 0.3.13
-TWOLAME_SHA256	:= 98f332f48951f47f23f70fd0379463aff7d7fb26f07e1e24e42ddef22cc6112a
+TWOLAME_VERSION	:= 0.4.0
+TWOLAME_SHA256	:= cc35424f6019a88c6f52570b63e1baf50f62963a3eac52a03a800bb070d7c87d
 TWOLAME		:= twolame-$(TWOLAME_VERSION)
 TWOLAME_SUFFIX	:= tar.gz
 TWOLAME_URL	:= $(call ptx/mirror, SF, twolame/$(TWOLAME).$(TWOLAME_SUFFIX))
 TWOLAME_SOURCE	:= $(SRCDIR)/$(TWOLAME).$(TWOLAME_SUFFIX)
 TWOLAME_DIR	:= $(BUILDDIR)/$(TWOLAME)
-TWOLAME_LICENSE	:= unknown
+TWOLAME_LICENSE	:= LGPL-2.1-or-later
+TWOLAME_LICENSE_FILES	:= \
+	file://COPYING;md5=ade9a053df81f5b9408d2f4f5546df86 \
+	file://libtwolame/twolame.c;startline=7;endline=19;md5=2a8e676116ecb4efec3a23e7f05d3934
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -33,7 +36,8 @@ TWOLAME_LICENSE	:= unknown
 TWOLAME_CONF_TOOL	:= autoconf
 TWOLAME_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-static
+	--disable-static \
+	--disable-sndfile
 
 # ----------------------------------------------------------------------------
 # Target-Install
