@@ -367,7 +367,6 @@ config GST_PLUGINS_GOOD1_LIBCACA
 
 config GST_PLUGINS_GOOD1_MPG123
 	bool
-	depends on STAGING
 	prompt "mpg123"
 	help
 	  mpg123 mp3 audio decoder plugin

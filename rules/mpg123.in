@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=multimedia_sound
+## SECTION=multimedia_sound
 
 menuconfig MPG123
 	tristate
@@ -14,9 +12,6 @@ menuconfig MPG123
 	  MS Windows.
 	  It is free software licensed under LGPL 2.1 (the officially released sources,
 	  some files in subversion repository may differ).
-
-	  STAGING: remove in PTXdist 2027.03.0
-	  Unmaintained in PTXist. Fails to build with gcc 15. Needs updating.
 
 if MPG123
 
