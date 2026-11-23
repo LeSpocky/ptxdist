@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_SPI_TOOLS) += spi-tools
 #
 # Paths and names
 #
-SPI_TOOLS_VERSION	:= 1.1.0
-SPI_TOOLS_SHA256	:= ef6def46ef1438640001ea3c4c80f1c7adca303f30236a380ba57becda438b0b
+SPI_TOOLS_VERSION	:= 1.2.0
+SPI_TOOLS_SHA256	:= 907d56e77c6fe403cce32b8bd2c89efa105cf39f60e15959fdb02dff4bdffe80
 SPI_TOOLS		:= spi-tools-$(SPI_TOOLS_VERSION)
 SPI_TOOLS_SUFFIX	:= tar.gz
 SPI_TOOLS_URL	:= https://github.com/cpb-/spi-tools/archive/refs/tags/$(SPI_TOOLS_VERSION).$(SPI_TOOLS_SUFFIX)
