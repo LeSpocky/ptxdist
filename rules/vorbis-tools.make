@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_VORBIS_TOOLS) += vorbis-tools
 #
 # Paths and names
 #
-VORBIS_TOOLS_VERSION	:= 1.4.0
-VORBIS_TOOLS_SHA256	:= a389395baa43f8e5a796c99daf62397e435a7e73531c9f44d9084055a05d22bc
+VORBIS_TOOLS_VERSION	:= 1.4.3
+VORBIS_TOOLS_SHA256	:= a1fe3ddc6777bdcebf6b797e7edfe0437954b24756ffcc8c6b816b63e0460dde
 VORBIS_TOOLS		:= vorbis-tools-$(VORBIS_TOOLS_VERSION)
 VORBIS_TOOLS_SUFFIX	:= tar.gz
 VORBIS_TOOLS_URL	:= http://downloads.xiph.org/releases/vorbis/$(VORBIS_TOOLS).$(VORBIS_TOOLS_SUFFIX)
 VORBIS_TOOLS_SOURCE	:= $(SRCDIR)/$(VORBIS_TOOLS).$(VORBIS_TOOLS_SUFFIX)
 VORBIS_TOOLS_DIR	:= $(BUILDDIR)/$(VORBIS_TOOLS)
 VORBIS_TOOLS_LICENSE	:= GPL-2.0-only
+VORBIS_TOOLS_LICENSE_FILES := \
+	file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f \
+	file://oggenc/oggenc.c;startline=1;endline=10;md5=dfd12654c3bd8040511cc1968fea8597
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -33,7 +36,8 @@ VORBIS_TOOLS_LICENSE	:= GPL-2.0-only
 VORBIS_TOOLS_CONF_TOOL := autoconf
 VORBIS_TOOLS_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
-	--enable-threads \
+	--disable-nls \
+	--enable-threads=posix \
 	--disable-rpath \
 	$(GLOBAL_LARGE_FILE_OPTION) \
 	--$(call ptx/endis, PTXCONF_VORBIS_TOOLS_OGG123)-ogg123 \
@@ -42,9 +46,11 @@ VORBIS_TOOLS_CONF_OPT := \
 	--$(call ptx/endis, PTXCONF_VORBIS_TOOLS_OGGINFO)-ogginfo \
 	--$(call ptx/endis, PTXCONF_VORBIS_TOOLS_VCUT)-vcut \
 	--$(call ptx/endis, PTXCONF_VORBIS_TOOLS_VORBISCOMMENT)-vorbiscomment \
+	--disable-gcc-sanitizers \
 	--disable-oggtest \
 	--disable-vorbistest \
 	--disable-curltest \
+	--without-included-gettext \
 	--$(call ptx/wwo, PTXCONF_VORBIS_TOOLS_FLAC)-flac \
 	--$(call ptx/wwo, PTXCONF_VORBIS_TOOLS_OGG123)-speex \
 	--without-kate \

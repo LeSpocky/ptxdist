@@ -1,0 +1,34 @@
+From: Ladislav Michl <ladis@triops.cz>
+Date: Mon, 23 Nov 2026 09:09:59 +0100
+Subject: [PATCH] configure: honor --without-curl
+
+The pkg-config check for libcurl is done unconditionally, so
+--without-curl only affects the fallback AM_PATH_CURL check and
+ogg123 is linked against libcurl whenever it is found.
+
+Skip the libcurl detection completely when --without-curl is given.
+---
+ configure.ac | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/configure.ac b/configure.ac
+index 6751ec8cb980..e945b55867de 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -210,6 +210,8 @@ dnl Check for ogg123 critical libraries and other optional libraries
+ dnl --------------------------------------------------
+ 
+ dnl curl is an optional dependancy of ogg123
++HAVE_CURL=no
++if test "x$with_curl" != "xno"; then
+ if test "x$HAVE_PKG_CONFIG" = "xyes"; then
+   PKG_CHECK_MODULES(CURL, libcurl, HAVE_CURL=yes, HAVE_CURL=no)
+   if test "x$HAVE_CURL" = "xno"; then
+@@ -218,6 +220,7 @@ if test "x$HAVE_PKG_CONFIG" = "xyes"; then
+ else
+   AM_PATH_CURL(HAVE_CURL=yes, HAVE_CURL=no; AC_MSG_WARN(libcurl missing))
+ fi
++fi
+ if test "x$HAVE_CURL" = "xyes"; then
+   AC_DEFINE(HAVE_CURL,1,[Defined if we have libcurl])
+ fi
