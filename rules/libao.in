@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=multimedia_libs
+## SECTION=multimedia_libs
 
 config LIBAO
 	tristate
@@ -11,7 +9,3 @@ config LIBAO
 
 	  Libao is a cross platform audio output library. It supports
 	  ALSA, ESD, OSS, Pulse, and several others.
-
-	  STAGING: remove in PTXdist 2027.12.0
-	  Unmaintained in PTXdist for a long time.
-	  Needs updating to the latest version.

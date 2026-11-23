@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_LIBAO) += libao
 #
 # Paths and names
 #
-LIBAO_VERSION	:= 1.1.0
-LIBAO_SHA256	:= 29de5bb9b1726ba890455ef7e562d877df87811febb0d99ee69164b88c171bd4
+LIBAO_VERSION	:= 1.2.2
+LIBAO_SHA256	:= df8a6d0e238feeccb26a783e778716fb41a801536fe7b6fce068e313c0e2bf4d
 LIBAO		:= libao-$(LIBAO_VERSION)
 LIBAO_SUFFIX	:= tar.gz
-LIBAO_URL	:= http://downloads.xiph.org/releases/ao/$(LIBAO).$(LIBAO_SUFFIX)
+LIBAO_URL	:= https://gitlab.xiph.org/xiph/libao/-/archive/$(LIBAO_VERSION)/$(LIBAO).$(LIBAO_SUFFIX)
 LIBAO_SOURCE	:= $(SRCDIR)/$(LIBAO).$(LIBAO_SUFFIX)
 LIBAO_DIR	:= $(BUILDDIR)/$(LIBAO)
-LIBAO_LICENSE	:= GPL-2.0-only
+LIBAO_LICENSE	:= GPL-2.0-or-later
+LIBAO_LICENSE_FILES := \
+	file://COPYING;md5=94d55d512a9ba36caa9b7df079bae19f \
+	file://src/audio_out.c;startline=12;endline=24;md5=50e9878d21e803d4997b818a86ab6945
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -33,8 +36,10 @@ LIBAO_LICENSE	:= GPL-2.0-only
 LIBAO_CONF_TOOL := autoconf
 LIBAO_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
+	--disable-roar-default-slp \
 	--disable-wmm \
 	--disable-esd \
+	--disable-esdtest \
 	--enable-alsa \
 	--enable-alsa-mmap \
 	--disable-broken-oss \
