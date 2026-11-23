@@ -14,36 +14,25 @@ PACKAGES-$(PTXCONF_CPPZMQ) += cppzmq
 #
 # Paths and names
 #
-CPPZMQ_VERSION	:= ee47ae4cddc3
-CPPZMQ_SHA256	:= 04b3b180c31f90ad370236ee250e4e28d4dce2a3c82094746185d47d64263e59
+CPPZMQ_VERSION	:= 4.11.0
+CPPZMQ_SHA256	:= 0fff4ff311a7c88fdb76fceefba0e180232d56984f577db371d505e4d4c91afd
 CPPZMQ		:= cppzmq-$(CPPZMQ_VERSION)
 CPPZMQ_SUFFIX	:= tar.gz
-CPPZMQ_URL	:= https://github.com/zeromq/cppzmq.git;tag=$(CPPZMQ_VERSION)
+CPPZMQ_URL	:= https://github.com/zeromq/cppzmq/archive/v$(CPPZMQ_VERSION).$(CPPZMQ_SUFFIX)
 CPPZMQ_SOURCE	:= $(SRCDIR)/$(CPPZMQ).$(CPPZMQ_SUFFIX)
 CPPZMQ_DIR	:= $(BUILDDIR)/$(CPPZMQ)
-CPPZMQ_LICENSE	:= unknown
+CPPZMQ_LICENSE	:= MIT
+CPPZMQ_LICENSE_FILES := \
+	file://LICENSE;md5=db174eaf7b55a34a7c89551197f66e94 \
+	file://zmq.hpp;startline=1;endline=24;md5=6269dcec47c831ac647d58976edd5120
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-CPPZMQ_CONF_TOOL	:= NO
-
-# ----------------------------------------------------------------------------
-# Compile
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/cppzmq.compile:
-	@$(call targetinfo)
-	@$(call touch)
-
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-$(STATEDIR)/cppzmq.install:
-	@$(call targetinfo)
-	install -D -m 0644 $(CPPZMQ_DIR)/zmq.hpp $(CPPZMQ_PKGDIR)/usr/include/zmq.hpp
-	@$(call touch)
+CPPZMQ_CONF_TOOL	:= cmake
+CPPZMQ_CONF_OPT		:= \
+	$(CROSS_CMAKE_USR) \
+	-DCPPZMQ_BUILD_TESTS:BOOL=OFF
 
 # vim: syntax=make
