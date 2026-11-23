@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_NSS_MDNS) += nss-mdns
 #
 # Paths and names
 #
-NSS_MDNS_VERSION	:= 0.10
-NSS_MDNS_SHA256		:= 1e683c2e7c3921814706d62fbbd3e9cbf493a75fa00255e0e715508d8134fa6d
+NSS_MDNS_VERSION	:= 0.15.1
+NSS_MDNS_SHA256		:= ddf71453d7a7cdc5921fe53ef387b24fd0c3c49f4dcf94a2a437498596761a21
 NSS_MDNS		:= nss-mdns-$(NSS_MDNS_VERSION)
 NSS_MDNS_SUFFIX		:= tar.gz
-NSS_MDNS_URL		:= http://0pointer.de/lennart/projects/nss-mdns/$(NSS_MDNS).$(NSS_MDNS_SUFFIX)
+NSS_MDNS_URL		:= https://github.com/avahi/nss-mdns/releases/download/v$(NSS_MDNS_VERSION)/$(NSS_MDNS).$(NSS_MDNS_SUFFIX)
 NSS_MDNS_SOURCE		:= $(SRCDIR)/$(NSS_MDNS).$(NSS_MDNS_SUFFIX)
 NSS_MDNS_DIR		:= $(BUILDDIR)/$(NSS_MDNS)
 NSS_MDNS_LICENSE	:= LGPL-2.1-or-later
+NSS_MDNS_LICENSE_FILES	:= \
+	file://src/nss.c;startline=4;endline=16;md5=782d501b499b9d510aa4732e4c59050f \
+	file://LICENSE;md5=2d5025d4aa3495befef8f17206a5b0a1
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -33,9 +36,7 @@ NSS_MDNS_LICENSE	:= LGPL-2.1-or-later
 NSS_MDNS_CONF_TOOL	:= autoconf
 NSS_MDNS_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--disable-lynx \
-	--enable-avahi \
-	--disable-legacy
+	--disable-tests
 
 # ----------------------------------------------------------------------------
 # Target-Install
