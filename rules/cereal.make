@@ -14,8 +14,8 @@ PACKAGES-$(PTXCONF_CEREAL) += cereal
 #
 # Paths and names
 #
-CEREAL_VERSION		:= 1.3.0
-CEREAL_SHA256		:= 329ea3e3130b026c03a4acc50e168e7daff4e6e661bc6a7dfec0d77b570851d5
+CEREAL_VERSION		:= 1.3.2
+CEREAL_SHA256		:= 16a7ad9b31ba5880dac55d62b5d6f243c3ebc8d46a3514149e56b5e7ea81f85f
 CEREAL			:= cereal-$(CEREAL_VERSION)
 CEREAL_SUFFIX		:= tar.gz
 CEREAL_URL		:= https://github.com/USCiLab/cereal/archive/refs/tags/v$(CEREAL_VERSION).$(CEREAL_SUFFIX)
@@ -23,7 +23,7 @@ CEREAL_SOURCE		:= $(SRCDIR)/$(CEREAL).$(CEREAL_SUFFIX)
 CEREAL_DIR		:= $(BUILDDIR)/$(CEREAL)
 CEREAL_LICENSE		:= BSD-3-Clause
 CEREAL_LICENSE_FILES	:= \
-	file://LICENSE;md5=e612690af2f575dfd02e2e91443cea23
+	file://LICENSE;md5=4921372a1fb38469e667c38b17a1c4b3
 
 # ----------------------------------------------------------------------------
 # Prepare
