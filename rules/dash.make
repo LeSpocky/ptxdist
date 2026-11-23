@@ -15,8 +15,8 @@ PACKAGES-$(PTXCONF_DASH) += dash
 #
 # Paths and names
 #
-DASH_VERSION	:= 0.5.5.1
-DASH_SHA256	:= 1c6717a1014c73aa16bc78a4767f1e00b40ff2a01a6c2cf2cce9a5335c24493f
+DASH_VERSION	:= 0.5.13.6
+DASH_SHA256	:= 26aac476f476cef391c600cb064417d82a5465d8fc7c4fd56158c276e86538c1
 DASH		:= dash-$(DASH_VERSION)
 DASH_SUFFIX	:= tar.gz
 DASH_URL	:= http://gondor.apana.org.au/~herbert/dash/files/$(DASH).$(DASH_SUFFIX)
@@ -37,7 +37,13 @@ DASH_LICENSE_FILES	:= \
 DASH_CONF_TOOL	:= autoconf
 DASH_CONF_OPT	:= \
 	$(CROSS_AUTOCONF_USR) \
-	--with-libedit=no
+	--disable-fnmatch \
+	--disable-glob \
+	--enable-tee \
+	--enable-memfd-create \
+	--disable-test-workaround \
+	--enable-lineno \
+	--without-libedit
 
 # ----------------------------------------------------------------------------
 # Target-Install
