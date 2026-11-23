@@ -1,4 +1,6 @@
-## SECTION=system_libraries
+## SECTION=staging
+## old section:
+### SECTION=system_libraries
 
 config YAJL
 	tristate
@@ -10,3 +12,7 @@ config YAJL
 	  A small, fast library for parsing JavaScript Object Notation (JSON).
 	  It supports incremental parsing from a stream and leaves data
 	  representation to higher level code.
+
+	  STAGING: remove in PTXdist 2027.12.0
+	  Unmaintained in PTXdist for a long time.
+	  Upstream is dead.
