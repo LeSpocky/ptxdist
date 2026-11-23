@@ -7,7 +7,7 @@ config OPEN62541
 	select HOST_OPEN62541
 	select HOST_UA_NODESET
 	select LIBC_PTHREAD
-	select MBEDTLS
+	select OPENSSL
 	help
 	  The open62541 project is an open source implementation of the OPC UA
 	  communication infrastructure which is used in industrial control.
