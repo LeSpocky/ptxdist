@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=security
+## SECTION=security
 
 config EASY_RSA
 	tristate
@@ -16,8 +14,8 @@ config EASY_RSA
 	  lists (CRL). This is for people which don't know how to generate
 	  all PKI files with openssl tool. Additional this is for people which
 	  have a enough less paranoia to generate keys on an embedded device.
-	  The easy-rsa scripts will be placed at /usr/share/easy-rsa afterwards.
+	  The easyrsa script and its support files will be placed at
+	  /usr/share/easy-rsa, with a link at /usr/bin/easyrsa.
 
-	  STAGING: remove in PTXdist 2027.12.0
-	  Unmaintained in PTXdist for a long time.
-	  Needs updating to the latest version.
+	  Note: Easy-RSA 3 is a complete rewrite and not compatible with the
+	  Easy-RSA 2 scripts (build-ca, build-key, pkitool, ...).
