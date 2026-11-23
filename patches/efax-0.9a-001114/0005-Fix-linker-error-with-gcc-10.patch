@@ -18,7 +18,7 @@ This fixes:
  2 files changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/efaxlib.c b/efaxlib.c
-index 4887cd9e5d72..347e8bd326e2 100644
+index 9360781..508021e 100644
 --- a/efaxlib.c
 +++ b/efaxlib.c
 @@ -20,6 +20,8 @@
@@ -31,10 +31,10 @@ index 4887cd9e5d72..347e8bd326e2 100644
  extern t4tab btab [ ( 64 + 27 + 13 ) + 1 ] ;
  
 diff --git a/efaxlib.h b/efaxlib.h
-index 9c725ae9a934..88505694dc0e 100644
+index 03e8564..7ef08fc 100644
 --- a/efaxlib.h
 +++ b/efaxlib.h
-@@ -207,7 +207,7 @@ int runor ( short *a, int na, short *b, int nb, short *c, int *pels ) ;
+@@ -208,7 +208,7 @@ int runor ( short *a, int na, short *b, int nb, short *c, int *pels ) ;
  /* Bit reversal lookup tables (note that the `normalbits' array
     is the one actually used for the bit reversal.  */
  

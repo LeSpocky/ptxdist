@@ -6,15 +6,15 @@ Patch taken from redhat.
 
 Signed-off-by: Robert Schwebel <r.schwebel@pengutronix.de>
 ---
- efax.c   |    1 +
- efaxos.c |    4 ++--
+ efax.c   | 1 +
+ efaxos.c | 4 ++--
  2 files changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/efax.c b/efax.c
-index bdcd462..28f7fca 100644
+index 4bc408f..bcad6c9 100644
 --- a/efax.c
 +++ b/efax.c
-@@ -2186,6 +2186,7 @@ int main( int argc, char **argv)
+@@ -2230,6 +2230,7 @@ int main( int argc, char **argv)
    
    /* print initial message to both stderr & stdout */
    argv0 = argv[0] ;

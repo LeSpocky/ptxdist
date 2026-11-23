@@ -6,14 +6,14 @@ Patch taken from redhat.
 
 Signed-off-by: Robert Schwebel <r.schwebel@pengutronix.de>
 ---
- efax.c |    2 +-
- 1 files changed, 1 insertions(+), 1 deletions(-)
+ efax.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/efax.c b/efax.c
-index 42880d2..bdcd462 100644
+index 0ac85ef..4bc408f 100644
 --- a/efax.c
 +++ b/efax.c
-@@ -759,7 +759,7 @@ int readfaxruns ( TFILE *f, DECODER *d, short *runs, int *pels )
+@@ -763,7 +763,7 @@ int readfaxruns ( TFILE *f, DECODER *d, short *runs, int *pels )
  	c = tgetd ( f, TO_CHAR ) ;
  
  	rd_state = ( rd_state & rd_allowed[c] ) ?

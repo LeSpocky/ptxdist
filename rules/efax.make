@@ -15,14 +15,17 @@ PACKAGES-$(PTXCONF_EFAX) += efax
 #
 # Paths and names
 #
-EFAX_VERSION	:= 0.9
-EFAX_SHA256	:= 880a2ee36eb43c532c8520efd78308d2b6416f93d4ed1ae0f0dcd73ab4e9c6cb
+EFAX_VERSION	:= 0.9a-001114
+EFAX_SHA256	:= 46abddf13f7565ea0c9d85b92845cdb32fb265c47cfc84c972e11a0219cda8ea
 EFAX		:= efax-$(EFAX_VERSION)
 EFAX_SUFFIX	:= tar.gz
-EFAX_URL	:= https://www.ibiblio.org/pub/Linux/apps/serialcomm/fax/$(EFAX).$(EFAX_SUFFIX)
+EFAX_URL	:= https://www.cce.com/efax/download/$(EFAX).$(EFAX_SUFFIX)
 EFAX_SOURCE	:= $(SRCDIR)/$(EFAX).$(EFAX_SUFFIX)
 EFAX_DIR	:= $(BUILDDIR)/$(EFAX)
-EFAX_LICENSE	:= unknown
+EFAX_LICENSE	:= GPL-2.0-or-later
+EFAX_LICENSE_FILES	:= \
+	file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3 \
+	file://efax.c;startline=6;endline=20;md5=b9a1fd14cdd1955ed760a882cc1956e9
 
 # ----------------------------------------------------------------------------
 # Compile
