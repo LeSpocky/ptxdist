@@ -14,40 +14,36 @@ PACKAGES-$(PTXCONF_GLEW) += glew
 #
 # Paths and names
 #
-GLEW_VERSION	:= 1.10.0
-GLEW_SHA256	:= 99c41320b63f6860869b5fb9af9a1854b15582796c64ee3dfd7096dc0c89f307
+GLEW_VERSION	:= 2.3.1
+GLEW_SHA256	:= b64790f94b926acd7e8f84c5d6000a86cb43967bd1e688b03089079799c9e889
 GLEW		:= glew-$(GLEW_VERSION)
 GLEW_SUFFIX	:= tgz
 GLEW_URL	:= $(call ptx/mirror, SF, glew/$(GLEW_VERSION)/$(GLEW).$(GLEW_SUFFIX))
 GLEW_SOURCE	:= $(SRCDIR)/$(GLEW).$(GLEW_SUFFIX)
 GLEW_DIR	:= $(BUILDDIR)/$(GLEW)
+GLEW_SUBDIR	:= build/cmake
 GLEW_LICENSE	:= BSD-3-Clause AND MIT
+GLEW_LICENSE_FILES := \
+	file://LICENSE.txt;md5=2ac251558de685c6b9478d89be3149c2 \
+	file://src/glew.c;startline=1;endline=31;md5=badb89ecb458e9499c83d75d444708a5
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-GLEW_CONF_TOOL	:= NO
-
-#
-# The makefile expects ld == gcc, so we set the tools
-# separately and not use the CROSS_TOOLS variable
-#
-GLEW_MAKE_OPT	:= \
-	$(CROSS_ENV_CC) \
-	$(CROSS_ENV_AR) \
-	LD=$(CROSS_CC) \
-	CFLAGS.EXTRA='' \
-	LDFLAGS.EXTRA='' \
-	LDFLAGS.GL='-lGL -lX11' \
-	CFLAGS.SO='-fPIC' \
-	GLEW_DEST=$(GLEW_PKGDIR)/usr \
-	LIBDIR=$(GLEW_PKGDIR)/usr/lib \
-	M_ARCH=$(PTXCONF_ARCH_STRING)
-
-GLEW_INSTALL_OPT := \
-	$(GLEW_MAKE_OPT) \
-	install
+GLEW_CONF_TOOL	:= cmake
+# mesa is built without glvnd, so there is no libGLX and the GLX
+# functions are part of libGL.
+GLEW_CONF_OPT	:= \
+	$(CROSS_CMAKE_USR) \
+	-DOpenGL_GL_PREFERENCE=LEGACY \
+	-DOPENGL_glx_LIBRARY=-lGL \
+	-DBUILD_SHARED_LIBS=ON \
+	-DBUILD_UTILS=OFF \
+	-DGLEW_EGL=OFF \
+	-DGLEW_OSMESA=OFF \
+	-DGLEW_REGAL=OFF \
+	-DGLEW_X11=ON
 
 # ----------------------------------------------------------------------------
 # Target-Install

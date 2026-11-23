@@ -1,11 +1,12 @@
-## SECTION=staging
-## old section:
-### SECTION=multimedia_xorg_support_libs
+## SECTION=multimedia_xorg_support_libs
 
 config GLEW
 	tristate
+	select HOST_CMAKE
 	select XORG_LIB_X11
 	select MESALIB
+	select MESALIB_GLX
+	select GLU
 	prompt "glew"
 	help
 	  The OpenGL Extension Wrangler Library (GLEW) is a cross-platform
@@ -15,7 +16,3 @@ config GLEW
 	  and extension functionality is exposed in a single header file.
 	  GLEW has been tested on a variety of operating systems,
 	  including Windows, Linux, Mac OS X, FreeBSD, Irix, and Solaris.
-
-	  STAGING: remove in PTXdist 2027.12.0
-	  Unmaintained in PTXdist for a long time.
-	  Needs updating to the latest version.
