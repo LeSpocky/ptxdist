@@ -14,23 +14,28 @@ PACKAGES-$(PTXCONF_DHCP_HELPER) += dhcp-helper
 #
 # Paths and names
 #
-DHCP_HELPER_VERSION	:= 1.1
-DHCP_HELPER_SHA256	:= 3a7716b32342168d2445a780a349d2c62120e159153c32ec8e4fc081412e7b12
+DHCP_HELPER_VERSION	:= 1.2
+DHCP_HELPER_SHA256	:= ae9e589ec50f1b5be302e7ebb8111ad734a11e2422a9cf61d08f7858ea2366ad
 DHCP_HELPER		:= dhcp-helper-$(DHCP_HELPER_VERSION)
 DHCP_HELPER_SUFFIX	:= tar.gz
-DHCP_HELPER_URL		:= http://www.thekelleys.org.uk/dhcp-helper/$(DHCP_HELPER).$(DHCP_HELPER_SUFFIX)
+DHCP_HELPER_URL		:= https://thekelleys.org.uk/dhcp-helper/$(DHCP_HELPER).$(DHCP_HELPER_SUFFIX)
 DHCP_HELPER_SOURCE	:= $(SRCDIR)/$(DHCP_HELPER).$(DHCP_HELPER_SUFFIX)
 DHCP_HELPER_DIR		:= $(BUILDDIR)/$(DHCP_HELPER)
-DHCP_HELPER_LICENSE	:= GPL-2.0-only
+DHCP_HELPER_LICENSE	:= GPL-2.0-only OR GPL-3.0-only
+DHCP_HELPER_LICENSE_FILES	:= \
+	file://dhcp-helper.c;startline=3;endline=14;md5=b6241445151de1406877c4e1f86fcbe8 \
+	file://COPYING;md5=0636e73ff0215e8d672dc4c32c317bb3 \
+	file://COPYING-v3;md5=d32239bcb673463ab874e80d47fae504
 
 # ----------------------------------------------------------------------------
 # Prepare
 # ----------------------------------------------------------------------------
 
-DHCP_HELPER_CONF_TOOL	:=  NO
+DHCP_HELPER_CONF_TOOL	:= NO
 DHCP_HELPER_MAKE_OPT	:= \
 	$(CROSS_ENV_CC) \
-	PREFIX=/usr
+	PREFIX=/usr \
+	version=$(DHCP_HELPER_VERSION)
 
 DHCP_HELPER_INSTALL_OPT := \
 	$(DHCP_HELPER_MAKE_OPT) \

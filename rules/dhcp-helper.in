@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=networking
+## SECTION=networking
 
 config DHCP_HELPER
 	tristate
@@ -12,7 +10,3 @@ config DHCP_HELPER
 	  servers back to partially configured hosts. Once hosts are fully
 	  configured they can communicate directly with their servers and no
 	  longer need the services of a relay.
-
-	  STAGING: remove in PTXdist 2027.12.0
-	  Unmaintained in PTXdist for a long time.
-	  Needs updating to the latest version.
