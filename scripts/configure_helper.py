@@ -59,6 +59,8 @@ configure_blacklist = [
 	"dependency-tracking",
 	"fast-install",
 	"libtool-lock",
+	"jobserver",
+	"cxx-stdlib",
 
 	"Bsymbolic",
 	"znodelete",
