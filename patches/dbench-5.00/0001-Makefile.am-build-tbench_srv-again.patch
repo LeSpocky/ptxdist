@@ -1,0 +1,29 @@
+From: Ladislav Michl <ladis@triops.cz>
+Date: Mon, 23 Nov 2026 09:45:54 +0100
+Subject: [PATCH] Makefile.am: build tbench_srv again
+
+The switch to automake dropped the tbench server from the build, but
+the sockio ("tbench") backend of dbench still needs it on the other
+side of the connection. Build it again from the same sources as the
+old hand-written Makefile did.
+---
+ Makefile.am | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/Makefile.am b/Makefile.am
+index 0a335c1..c1e7f6b 100644
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -1,9 +1,11 @@
+ 
+-bin_PROGRAMS = dbench
++bin_PROGRAMS = dbench tbench_srv
+ 
+ dbench_SOURCES = fileio.c util.c dbench.c child.c system.c snprintf.c sockio.c nfsio.c blockio.c libnfs-glue.c socklib.c \
+ 	linux_scsi.c libiscsi.c
+ 
++tbench_srv_SOURCES = tbench_srv.c socklib.c util.c
++
+ LIBS += -lz
+ 
+ if HAVE_LIBNFS

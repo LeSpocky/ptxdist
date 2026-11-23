@@ -1,28 +1,22 @@
-## SECTION=staging
-## old section:
 ## SECTION=test_suites
 
 menuconfig DBENCH
 	tristate
 	prompt "dbench                        "
+	select ZLIB
 	help
-	  The dbench (disk) and tbench (TCP) benchmarks
-	  dbench and tbench simulate the load of the
-	  netbench "industry standard" benchmark used
-	  to rate (windows) file servers.  Unlike netbench,
-	  they do not require a lab of Microsoft Windows
-	  PCs: dbench produces the filesystem load on a
-	  netbench run, and tbench produces the network
-	  load, allowing simpler bottleneck isolation.
+	  The dbench (disk) and tbench (TCP) benchmarks dbench and
+	  tbench simulate the load of the netbench "industry standard"
+	  benchmark used to rate (windows) file servers.
+	  Unlike netbench, they do not require a lab of Microsoft
+	  Windows PCs: dbench produces the filesystem load on a netbench
+	  run, and tbench produces the network load, allowing simpler
+	  bottleneck isolation.
 
-	  Note that this benchmark is *not* a realistic
-	  reflection of normal server load.
+	  Note that this benchmark is *not* a realistic reflection of
+	  normal server load.
 
-	  https://www.samba.org/ftp/tridge/dbench/
-
-	  STAGING: remove in PTXdist 2027.12.0
-	  Unmaintained in PTXdist for a long time.
-	  Needs updating to the latest version.
+	  https://github.com/sahlberg/dbench
 
 if DBENCH
 
@@ -32,21 +26,14 @@ config DBENCH_DBENCH
 	bool
 	prompt "install dbench"
 	help
-	  dbench produces the filesystem load
-	  on a netbench run
-
-config DBENCH_TBENCH
-	bool
-	prompt "install tbench"
-	help
-	  tbench produces the network load
-	  on a netbench run. Client component.
+	  dbench produces the filesystem load on a netbench run.
+	  Use 'dbench -B sockio' as the tbench client.
 
 config DBENCH_TBENCH_SERVER
 	bool
 	prompt "install tbench server"
 	help
-	  tbench produces the network load
-	  on a netbench run. Server component.
+	  tbench produces the network load on a netbench run.
+	  Server component.
 
 endif

@@ -14,17 +14,18 @@ PACKAGES-$(PTXCONF_DBENCH) += dbench
 #
 # Paths and names
 #
-DBENCH_VERSION	:= 3.04
-DBENCH_SHA256	:= 055e411081ae25fd358dd0f4c1547ee1bd7429bea0f1fad9156a50a09ddd668b
+DBENCH_VERSION	:= 5.00
+DBENCH_SHA256	:= 03f1a1d8aa153c197bf3293b9ce0b85dce39485be43abeba9f7f1c811c5f5b3d
 DBENCH		:= dbench-$(DBENCH_VERSION)
 DBENCH_SUFFIX	:= tar.gz
-DBENCH_URL	:= https://www.samba.org/ftp/tridge/dbench/$(DBENCH).$(DBENCH_SUFFIX)
+DBENCH_URL	:= https://github.com/sahlberg/dbench/archive/refs/tags/$(DBENCH).$(DBENCH_SUFFIX)
 DBENCH_SOURCE	:= $(SRCDIR)/$(DBENCH).$(DBENCH_SUFFIX)
 DBENCH_DIR	:= $(BUILDDIR)/$(DBENCH)
-DBENCH_LICENSE	:= GPL-2.0-or-later
+DBENCH_LICENSE	:= GPL-3.0-or-later
 DBENCH_LICENSE_FILES	:= \
-	file://README;md5=1f2760eb861e670010072b1f0a62c8f5;startline=266;endline=270 \
-	file://COPYING;md5=8ca43cbc842c2336e835926c2166c28b
+	file://README;startline=9;endline=10;md5=5e2bd5d1c70a0f9968596c783d0ffae4 \
+	file://dbench.c;startline=1;endline=17;md5=c61c6ed20832a9655fd37f38823e3205 \
+	file://COPYING;md5=d32239bcb673463ab874e80d47fae504
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -35,12 +36,6 @@ DBENCH_LICENSE_FILES	:= \
 #
 DBENCH_CONF_TOOL	:= autoconf
 DBENCH_CONF_OPT		:= $(CROSS_AUTOCONF_USR)
-
-# ----------------------------------------------------------------------------
-# Install
-# ----------------------------------------------------------------------------
-
-DBENCH_INSTALL_OPT	:= prefix=$(PKGDIR)/$(DBENCH)/usr install
 
 # ----------------------------------------------------------------------------
 # Target-Install
@@ -57,9 +52,6 @@ $(STATEDIR)/dbench.targetinstall:
 
 ifdef PTXCONF_DBENCH_DBENCH
 	@$(call install_copy, dbench, 0, 0, 0755, -, /usr/bin/dbench)
-endif
-ifdef PTXCONF_DBENCH_TBENCH
-	@$(call install_copy, dbench, 0, 0, 0755, -, /usr/bin/tbench)
 endif
 ifdef PTXCONF_DBENCH_TBENCH_SERVER
 	@$(call install_copy, dbench, 0, 0, 0755, -, /usr/bin/tbench_srv)
