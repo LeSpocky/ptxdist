@@ -1,20 +1,23 @@
-## SECTION=staging
-## old section:
-### SECTION=multimedia_sound
+## SECTION=multimedia_sound
 
 menuconfig LAME
 	tristate
 	select LIBC_M
+	select MPG123		if LAME_DECODER
 	prompt "lame                          "
 	help
 	  LAME is a high quality MPEG Audio Layer III (MP3) encoder
 	  licensed under the LGPL.
 
-	  STAGING: remove in PTXdist 2027.12.0
-	  Unmaintained in PTXdist for a long time.
-	  Needs updating to the latest version.
-
 if LAME
+
+config LAME_DECODER
+	bool
+	default y
+	prompt "mp3 decoder support"
+	help
+	  Enable mp3 decoding (lame --decode, more accurate ReplayGain)
+	  using libmpg123.
 
 config LAME_FRONTEND
 	bool
