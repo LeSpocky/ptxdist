@@ -1,6 +1,4 @@
-## SECTION=staging
-## old section:
-### SECTION=multimedia_sound
+## SECTION=multimedia_sound
 
 config RAWREC
 	tristate
@@ -14,7 +12,3 @@ config RAWREC
 	  architectures, but its written to be portable, I think)
 
 	  Details: http://rawrec.sourceforge.net
-
-	  STAGING: remove in PTXdist 2027.12.0
-	  Unmaintained in PTXdist for a long time.
-	  Needs updating to the latest version.
