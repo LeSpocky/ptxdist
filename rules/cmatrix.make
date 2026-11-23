@@ -14,14 +14,17 @@ PACKAGES-$(PTXCONF_CMATRIX) += cmatrix
 #
 # Paths and names
 #
-CMATRIX_VERSION	:= 1.2a
-CMATRIX_SHA256	:= 1fa6e6caea254b6fe70a492efddc1b40ad7ccb950a5adfd80df75b640577064c
+CMATRIX_VERSION	:= 2.0
+CMATRIX_SHA256	:= ad93ba39acd383696ab6a9ebbed1259ecf2d3cf9f49d6b97038c66f80749e99a
 CMATRIX		:= cmatrix-$(CMATRIX_VERSION)
 CMATRIX_SUFFIX	:= tar.gz
-CMATRIX_URL	:= $(call ptx/mirror, SF, cmatrix/cmatrix/1.2a/$(CMATRIX).$(CMATRIX_SUFFIX))
+CMATRIX_URL	:= https://github.com/abishekvashok/cmatrix/archive/refs/tags/v$(CMATRIX_VERSION).$(CMATRIX_SUFFIX)
 CMATRIX_SOURCE	:= $(SRCDIR)/$(CMATRIX).$(CMATRIX_SUFFIX)
 CMATRIX_DIR	:= $(BUILDDIR)/$(CMATRIX)
-CMATRIX_LICENSE	:= GPL-2.0-only
+CMATRIX_LICENSE	:= GPL-3.0-or-later
+CMATRIX_LICENSE_FILES := \
+	file://COPYING;md5=d32239bcb673463ab874e80d47fae504 \
+	file://cmatrix.c;startline=1;endline=22;md5=da55dd8fe2811eeb603e71142face038
 
 # ----------------------------------------------------------------------------
 # Prepare
@@ -29,6 +32,8 @@ CMATRIX_LICENSE	:= GPL-2.0-only
 
 CMATRIX_CONF_ENV := \
 	$(CROSS_ENV) \
+	ac_cv_path_CONSOLECHARS= \
+	ac_cv_path_SETFONT=/usr/bin/setfont \
 	ac_cv_file__usr_lib_kbd_consolefonts=no \
 	ac_cv_file__usr_share_consolefonts=yes \
 	ac_cv_file__usr_lib_X11_fonts_misc=no \
@@ -37,6 +42,10 @@ CMATRIX_CONF_ENV := \
 #
 # autoconf
 #
+# Note: --with-fonts must not be passed: configure disables the fonts
+# whenever the option is given, regardless of value.
+#
+CMATRIX_CONF_TOOL := autoconf
 CMATRIX_CONF_OPT := \
 	$(CROSS_AUTOCONF_USR) \
 	--disable-debug

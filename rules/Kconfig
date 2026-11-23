@@ -96,9 +96,9 @@ endmenu
 #source "generated/development.in"
 #endmenu
 
-#menu "Games                         "
-#source "generated/games.in"
-#endmenu
+menu "Games                         "
+source "generated/games.in"
+endmenu
 
 menu "Graphics & Multimedia         "
 source "generated/graphics_and_multimedia.in"
