@@ -14,17 +14,17 @@ PACKAGES-$(PTXCONF_GRAPHITE2) += graphite2
 #
 # Paths and names
 #
-GRAPHITE2_VERSION	:= 1.3.14
-GRAPHITE2_SHA256	:= f99d1c13aa5fa296898a181dff9b82fb25f6cc0933dbaa7a475d8109bd54209d
+GRAPHITE2_VERSION	:= 1.3.15
+GRAPHITE2_SHA256	:= c6bc8b4252724665297f7cad0c55897285c673f9b8e6db3522ace833593fe0b1
 GRAPHITE2		:= graphite2-$(GRAPHITE2_VERSION)
 GRAPHITE2_SUFFIX	:= tgz
 GRAPHITE2_URL		:= https://github.com/silnrsi/graphite/releases/download/$(GRAPHITE2_VERSION)/$(GRAPHITE2).$(GRAPHITE2_SUFFIX)
 GRAPHITE2_SOURCE	:= $(SRCDIR)/$(GRAPHITE2).$(GRAPHITE2_SUFFIX)
 GRAPHITE2_DIR		:= $(BUILDDIR)/$(GRAPHITE2)
-GRAPHITE2_LICENSE	:= LGPL-2.1-or-later OR GPL-2.0-or-later OR MPL-2.0
+GRAPHITE2_LICENSE	:= LGPL-2.1-or-later OR GPL-2.0-or-later OR MPL-2.0 OR MIT
 GRAPHITE2_LICENSE_FILES	:= \
-	file://src/Code.cpp;startline=1;endline=26;md5=a919fa4bf0a64c4b3cc01c3cbe0d293f \
-	file://LICENSE;md5=2d5025d4aa3495befef8f17206a5b0a1
+	file://src/Code.cpp;startline=1;endline=2;md5=a2ef871cafd4bcde6eb58703630d28e1 \
+	file://LICENSE;md5=c60dbbb11d14e8f9831a951b327784cd
 
 # ----------------------------------------------------------------------------
 # Prepare
