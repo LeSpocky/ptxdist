@@ -1,0 +1,36 @@
+## SECTION=multimedia_wayland
+
+menuconfig LIBDECOR
+	tristate
+	select HOST_MESON
+	select LIBC_DL
+	select LIBC_M
+	select WAYLAND
+	select WAYLAND_PROTOCOLS
+	select CAIRO
+	select PANGO
+	select DBUS		if LIBDECOR_DBUS
+	select GTK		if LIBDECOR_GTK
+	select GTK_WAYLAND	if LIBDECOR_GTK
+	prompt "libdecor                      "
+	help
+	  Client-side decorations library for Wayland clients. It is used
+	  by applications that need window decorations on compositors
+	  without server-side decoration support.
+
+if LIBDECOR
+
+config LIBDECOR_DBUS
+	bool
+	prompt "D-Bus support"
+	help
+	  Use D-Bus to fetch the cursor settings from the desktop
+	  settings portal.
+
+config LIBDECOR_GTK
+	bool
+	prompt "GTK plugin"
+	help
+	  Build the GTK 3 based decoration plugin.
+
+endif
